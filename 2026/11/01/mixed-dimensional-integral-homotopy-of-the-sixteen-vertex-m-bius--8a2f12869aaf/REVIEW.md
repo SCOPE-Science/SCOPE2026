@@ -1,15 +1,21 @@
-# Scientific review: ordinary matching complex of the sixteen-vertex Möbius ladder
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph and its ordinary matching complex have explicit definitions, and the executable certificate independently rechecks the matching condition of each of 11,393 nonempty faces. A deterministic toggle algorithm gives precisely 5,690 matched pairs and one critical vertex, five critical four-cells, and seven critical five-cells. Every one of 55,256 Hasse incidences is constructed; a complete topological sort proves that the reversed matching diagram is acyclic. Integral gradient-path calculations give the exact five-by-seven Morse boundary in `RESULT.md`. Its 175 four-by-four minors vanish, and one three-by-three minor has determinant \(-1\), proving rank three with three unit elementary divisors. Hurewicz identifies each five-cell attachment by its degree vector, so three unit cancellations yield two freely wedged four-spheres and four five-spheres. Independent reduction of the original chain complex modulo two agrees with the resulting ranks. The checker was run successfully from a fresh working directory.
+## correctness
 
-## Originality — PASS, subject to stated search limits
-Agarwal and Basak (arXiv:2608.30601, 31 August 2026) give uniform results for the independence complex **of the graph itself** and the **perfect-matching** complex, while explicitly identifying the *ordinary matching complex* as a future direction (Problem 26, page 17 of the 2026 preprint). Their theorem gives only \(S^3\vee S^3\) for the perfect-matching subcomplex of this graph, not the present mixed-dimensional ordinary matching complex. The older Bayer–Jelić Milutinović–Vega theorem for *linear strings* of polygons is not a theorem for a closed, twisted Möbius strip of squares, and in any event does not determine the two sphere multiplicities. Searches compared synonymous graph names, line-graph independence complexes, finite Möbius-ladder matching examples, perfect-matching restrictions, and larger covering families. Related calculations for eight- and ten-vertex Möbius ladders and the sixteen-vertex Möbius–Kantor graph have different graphs or parameters. No covering statement was found; an equivalent unindexed result remains possible, and no independent originality certification is asserted.
+PASS
 
-## Mathematical value — PASS
-The result addresses the exact kind of complex singled out in a recent explicit open problem. The sixteen-vertex ladder is a small, natural cubic graph in the same family, yet its *ordinary* complex has nonzero homotopy in **two consecutive positive dimensions**, while its perfect-matching subcomplex has a different and simpler homotopy type. A rank-three **integral attaching calculation**, rather than a matching polynomial or modular Betti calculation, is necessary to prove the wedge decomposition. The computation supplies a complete reproducible structural boundary case for future family-wide approaches. It does not purport to resolve the general Problem 26.
+For the simple graph Ci_16(1,8), the 24 sorted edges are vertices of the *ordinary* matching complex (all vertex-disjoint partial matchings, not only perfect-extendible). An independently constructed bitmask enumerator counted 11394 augmented matchings (11393 nonempty), the complete eight-entry f-vector, and 5690 nonempty toggle pairs in the exact 24-edge order; all 55256 ordinary Hasse covers passed full topological acyclicity. It recovered one 0-cell, five 4-cells, seven 5-cells and the exact printed 5x7 signed integer boundary. Its integer Smith factors [1,1,1], with rank exactly 3 and no nonunit factors, yield two 4-spheres and four 5-spheres by Hurewicz and unimodular cellular cancellation. Ordinary matching vs perfect-matching subcomplex normalization and exclusion of arbitrary 16-vertex graphs are explicit.
 
-## Closest literature, residual limits
-The 2026 source's graph independence results apply to \(\operatorname{Ind}(M_{16})\), not to \(\operatorname{Ind}(L(M_{16}))=\mathcal M(M_{16})\). The perfect-matching source restricts faces to extendible matchings; the two complexes are not interchangeable. The polygonal-line-tiling theorem requires a noncyclic linear string of polygon intersections, not this twisted cyclic ladder. The general graph-family classification, equivariant representations, and independent audit are outside the present finding. Search coverage cannot exclude all equivalent unpublished or unindexed calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Agarwal–Basak's main theorem concerns independence of graph vertices and perfect-extendible matching subcomplexes M_p(M_16), whereas this computes all partial edge matchings M(M_16). The full nearby Resultary M_10 inclusion paper and M_8 Wagner result are different sizes, while Möbius–Kantor G(8,3) has different chords. The source abstract and full previously published M10 RESULT do not entail the mixed M16 wedge. Oxford authentication was unavailable for the plausible full Agarwal–Basak source, explicitly retained as bibliographic residual risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+The sixteen-vertex Möbius ladder is a canonical cyclic cubic family member, and the homotopy of its *ordinary* matching complex is precisely a problem not covered by the established perfect-matching-family theorem. Complete integral 4/5-dimensional mixed wedge with a rank-three primitive attaching matrix advances beyond matchings enumerations, earlier 8- and 10-vertex examples, or a special-perfect-subcomplex result. This is a substantial natural exact cutoff, even without a uniform all-n recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
