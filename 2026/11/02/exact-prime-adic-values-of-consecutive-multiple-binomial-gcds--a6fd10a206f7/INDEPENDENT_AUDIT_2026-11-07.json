@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:14:40.585130Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Kummer carry proof with K=p^a b-1. For j=floor(log_p b)<a, three exhaustive cases v_p(q-1)<=j, j<v_p(q-1)<a, v_p(q-1)>=a force at least a-j carries. The explicit t=p^a(1+((b-1) mod p^j)) gives a-j carries by the split b-1=s p^j+r; b=1 follows from the special prime-power carry pattern. For j>=a Guo et al. Lemma 9 supplies an actual zero-valuation binomial. To exclude all other prime factors, integer-valued degree-k polynomial F(X)=binom(kX,k) and Newton difference F(0)=sum_h(-1)^h Delta^h F(1) yield r|(k+1) for any common prime r. Independently recomputed 73 direct integer gcds n=3..75 from all binomials. Exact integers and finite checks corroborate, not replace, the uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "Kummer and Lucas give techniques, not a value formula. Guo et al. full general prime-support criterion is logically weaker than the exact gcd formula; the pure prime-power result specializes only b=1."
+        ],
+        "reasoning": "Kummer and Lucas give techniques, not a value formula. Guo et al. full general prime-support criterion is logically weaker than the exact gcd formula; the pure prime-power result specializes only b=1.",
+        "searches": [
+          "Resultary semantic search: greatest common divisor binomial coefficients binom(qk,k) consecutive multiples exact p-adic valuation k+1",
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170, unit cases",
+          "Kummer (1852), binomial p-adic valuation by base-p carries"
+        ]
+      },
+      "checked_sources": [
+        "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+        "OEIS A080170, unit cases",
+        "Kummer (1852), binomial p-adic valuation by base-p carries",
+        "Resultary search: greatest common divisor binomial coefficients consecutive multiples exact valuations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "The exact valuations imply the Guo unit criterion because max(0,a-j)>0 iff b<p^a (for p∤b). Conversely knowing nonzero prime support cannot fix its exact exponent; a new Kummer carry minimization is required."
+        ],
+        "reasoning": "The exact valuations imply the Guo unit criterion because max(0,a-j)>0 iff b<p^a (for p∤b). Conversely knowing nonzero prime support cannot fix its exact exponent; a new Kummer carry minimization is required.",
+        "searches": [
+          "Resultary semantic search: greatest common divisor binomial coefficients binom(qk,k) consecutive multiples exact p-adic valuation k+1",
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170, unit cases",
+          "Kummer (1852), binomial p-adic valuation by base-p carries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "Compared original notation G_n, OEIS A080170, common divisors of binomial rows, Lucas digit boxes and p-primary carry counts. Guo et al. Lemma 9 determines the yes/no p-support condition b<=p^a but not exponent a-floor(log_p b)."
+        ],
+        "reasoning": "Compared original notation G_n, OEIS A080170, common divisors of binomial rows, Lucas digit boxes and p-primary carry counts. Guo et al. Lemma 9 determines the yes/no p-support condition b<=p^a but not exponent a-floor(log_p b).",
+        "searches": [
+          "Resultary semantic search: greatest common divisor binomial coefficients binom(qk,k) consecutive multiples exact p-adic valuation k+1",
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170, unit cases",
+          "Kummer (1852), binomial p-adic valuation by base-p carries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170 classifies unit gcd indices; it cannot determine nonunit gcd values. Direct finite gcd tables at n<=75 do not amount to prior exact unrestricted formula. Resultary nearby p-adic binomial work addresses other sums/coefficients."
+        ],
+        "reasoning": "OEIS A080170 classifies unit gcd indices; it cannot determine nonunit gcd values. Direct finite gcd tables at n<=75 do not amount to prior exact unrestricted formula. Resultary nearby p-adic binomial work addresses other sums/coefficients.",
+        "searches": [
+          "Resultary semantic search: greatest common divisor binomial coefficients binom(qk,k) consecutive multiples exact p-adic valuation k+1",
+          "Guo, Qiu, Cao, Feng, Gao (2026), arXiv:2606.22997v1, Lemmas 4 and 9, Theorem 1",
+          "OEIS A080170, unit cases",
+          "Kummer (1852), binomial p-adic valuation by base-p carries"
+        ]
+      },
+      "rationale": "Guo–Qiu–Cao–Feng–Gao arXiv:2606.22997 proves gcd-one criterion and Lemma 9 gives only divisibility of D(k) by a given prime, not its full p-adic exponent; the cited original was read through primary theorem, digit-box and Lemma 9. Known pure-prime-power case D(p^a-1)=p^a and OEIS unit table are credited. The all-composite exact valuation plus explicit local minimizer is stronger, so best-of-knowledge O PASS with uncatalogued gcd identities as risk.",
+      "residual_risks": [
+        "An older specialized gcd identity or equivalent valuation under different parametrization might cover the mixed-prime-power formula.",
+        "The cited Guo proof supplies the zero-valuation case; the review has not independently reproved its full digit-box Lemma 9 from scratch, but inspected its hypotheses and argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes p|D and D=1 iff criterion, but not the exponent formula",
+          "evidence": "Section 2.5 Lemma 9: p divides G_n iff b<=p^a; Section 2.6 only zero/nonzero gcd criterion",
+          "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+          "material_read": "Entire accessible HTML article, especially Theorem 1, Lemma 4, digit boxes, Lemma 9, and completion",
+          "method": "read primary arXiv HTML full text and proofs",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "identical D(k) definition and strongest plausible prior coverage"
+        },
+        {
+          "assessment": "does not provide the full p-adic gcd values",
+          "evidence": "A080170 records k such that D(k)=1",
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Unit-gcd index description and links, not exact nonunit gcd values",
+          "method": "OEIS sequence entry lookup and arXiv citation comparison",
+          "title": "OEIS A080170",
+          "trigger": "exact database or table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original named arithmetic problem asks when its gcd is one; this theorem determines the entire positive gcd for every k, including previously unknown composite-case exponents and explicit minimizing binomial witnesses. It is a natural exact invariant and nontrivial carry calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older specialized gcd identity or equivalent valuation under different parametrization might cover the mixed-prime-power formula.",
+    "The cited Guo proof supplies the zero-valuation case; the review has not independently reproved its full digit-box Lemma 9 from scratch, but inspected its hypotheses and argument."
+  ],
+  "schema_version": 1
+}

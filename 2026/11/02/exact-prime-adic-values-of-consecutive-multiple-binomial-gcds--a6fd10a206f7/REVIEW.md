@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Kummer's carry interpretation yields a uniform lower bound through an exhaustive three-case analysis of the valuation of \(q-1\). A concrete multiplier attains the lower bound when the cofactor exceeds one; the prime-power boundary is handled separately. The primary source's independently inspected Lemma 9 treats the zero exponent, and Newton forward differences exclude primes outside \(k+1\). Exact independent finite computations reproduce the formula.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Guo et al. give the gcd-one criterion and prime-presence criterion, not the exact prime-adic values. The earlier accessible prime-power result already covers the cofactor-one specialization and is expressly acknowledged. No covering composite-case value theorem emerged in the targeted searches. This is not a proof of universal priority; another older formulation could exist.
+PASS
 
-**Value — PASS.** The finding fully evaluates the motivating all-index binomial gcd, not simply its vanishing or prime support. It supplies a sharp formula for every prime exponent and a particular binomial coefficient attaining each local minimum, making the mixed-prime-power arithmetic transparent.
+Reconstructed Kummer carry proof with K=p^a b-1. For j=floor(log_p b)<a, three exhaustive cases v_p(q-1)<=j, j<v_p(q-1)<a, v_p(q-1)>=a force at least a-j carries. The explicit t=p^a(1+((b-1) mod p^j)) gives a-j carries by the split b-1=s p^j+r; b=1 follows from the special prime-power carry pattern. For j>=a Guo et al. Lemma 9 supplies an actual zero-valuation binomial. To exclude all other prime factors, integer-valued degree-k polynomial F(X)=binom(kX,k) and Newton difference F(0)=sum_h(-1)^h Delta^h F(1) yield r|(k+1) for any common prime r. Independently recomputed 73 direct integer gcds n=3..75 from all binomials. Exact integers and finite checks corroborate, not replace, the uniform proof.
 
-Closest literature: Guo, Qiu, Cao, Feng, Gao, *A Greatest Common Divisor Criterion of Certain Binomial Coefficients*, arXiv:2606.22997v1, Theorem 1 and Lemmas 4, 9; OEIS A080170; earlier accessible pure-prime-power finding. Main limitations are the fixed full multiplier range, unperformed independent mathematical audit, and unresolved broad historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Guo–Qiu–Cao–Feng–Gao arXiv:2606.22997 proves gcd-one criterion and Lemma 9 gives only divisibility of D(k) by a given prime, not its full p-adic exponent; the cited original was read through primary theorem, digit-box and Lemma 9. Known pure-prime-power case D(p^a-1)=p^a and OEIS unit table are credited. The all-composite exact valuation plus explicit local minimizer is stronger, so best-of-knowledge O PASS with uncatalogued gcd identities as risk.
+
+## value
+
+PASS
+
+The original named arithmetic problem asks when its gcd is one; this theorem determines the entire positive gcd for every k, including previously unknown composite-case exponents and explicit minimizing binomial witnesses. It is a natural exact invariant and nontrivial carry calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
