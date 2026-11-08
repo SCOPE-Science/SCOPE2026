@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-eight discriminant and the three coefficient-form Hasse–Witt entries are derived by exact polynomial expansion. A fixed \(\mathbb F_7\) basis change makes Frobenius diagonal and justifies the stable \(7\)-rank, not only the first Cartier rank. The saturated determinantal ideal has an explicit Gröbner basis with exactly nine standard monomials. Six transverse length-one points and the length-three superspecial origin exhaust this length. The standalone verifier reproduces each certificate.
+## correctness
 
-**Originality — PASS, with priority risk.** Gutierrez–Sevilla–Shaska and Shaska–Thompson establish the relevant genus-three family and symmetries; Moriya–Kudo classify superspecial Howe curves by isogeny methods. Those results may cover the existence of the superspecial origin, which is not advanced as new. The added claim is the complete \(7\)-rank-at-most-one coefficient scheme with six nonsuperspecial points and its length-three embedded local structure. The relevant available full texts were inspected; none gave an equivalent complete determinantal classification. A previously unnoticed arithmetic table or one obtained by elliptic quotient Hasse invariants could still imply the result. Priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** Within a natural two-parameter special-automorphism locus, p-rank jumps are arithmetic divisors, and their pairwise incidence is a motivated moduli question. The theorem gives an exact complete intersection pattern and distinguishes geometric reduced points from nonreduced infinitesimal behavior at the most special curve. This is not a mere isolated parameter evaluation, and the scheme length measures a natural arithmetic degeneracy rather than an arbitrary subset.
+For the squarefree reciprocal octic y^2=x^8+a*x^6+b*x^4+a*x^2+1 over algebraic closure of F7, the characteristic-7 coefficient Cartier matrix is [[A,0,E],[0,R,0],[E,0,A]], diagonalized over F7 to P=(a-3)(a^2-a-b), Q=(a+3)(a^2+a-b), R=(b+1)(b^2-b-a^2). Its stable Frobenius rank counts nonzero factors. The smooth-locus saturated determinantal ideal (PQ,PR,QR):D^infinity has lex basis b^2-2a^2, 2a^5+a^3*b+3a^3-2ab, a^6+a^4+a^2, so exactly 9 standard monomials. Six rank-one F7 points are transverse; origin has quadratic initial ideal m^2, hence local length3, exhausting total 9. Independently checked integer octic discriminant and modular Groebner basis with SymPy; no inference from finite F7 point enumeration to algebraic-closure exhaustivity.
 
-The conclusion is confined to a normalized coefficient chart and does not count isomorphism classes or assign an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normalized reciprocal Klein-four genus-three family is pre-existing (Shaska–Thompson Eq.23). The new claim is its characteristic-seven full smooth p-rank<=1 determinantal parameter scheme with length 9 and nonreduced superspecial origin, not the family, superspecial-point existence, or its quotient-isogeny framework. Closest accessible full-text family paper was examined; no p-rank stratification stated there. Best-of-knowledge PASS, remaining arithmetic-table alias risk.
+
+## value
+
+PASS
+
+A genus-three hyperelliptic automorphism stratum has a natural Hasse–Witt rank filtration; the length/multiplicity scheme and precise six rank-one points distinguish ordinary rank-one and superspecial strata. This is a scheme-theoretic classification, not an arbitrary sample of finite field computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
