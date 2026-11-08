@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified discrete-time Moran parent-choice/uniform-replacement kernel, the one-step gain/loss probabilities and drift are exact. The two-step expectation difference is a four-term commutator because the first-order drift terms cancel. Direct rational simplification gives all six cases for population sizes two, three, and four. The sole sign-indeterminate numerator \(P(a,b)\) is strictly positive on either side of neutrality by two independent positive-coefficient transforms. For \(a>1>b\), its quadratic coefficients give one root by a strictly positive derivative and opposite endpoint signs. The exact values \(-1/96\) and \(+5/224\) are independently recomputed by matrix multiplication. The embedded checker verifies the algebraic identities and rational matrices. The scope is precisely two birth–death updates; no unproved infinite-time assertion is used.
+PASS
 
-## Originality — PASS within inspected evidence
+For a mutation-free, well-mixed discrete-time Moran birth-death chain with self-replacement, one-step gain/loss probabilities are u_j(w)=j(N-j)w/[N(jw+N-j)] and d_j(w)=j(N-j)/[N(jw+N-j)]. Writing drift g_w(j)=u_j-d_j, two-step fitness order gap is the commutator of transition kernels applied to the count function. Independent SymPy derivation from the two-step kernel reproduced all six exact expressions for N=2,3,4 and interior k; all have the positive factor (a-b), except (N,k)=(4,2), which has further P(a,b)=[3a²b²+6a²b−9a²+6ab²+116ab+6a−9b²+6b+3] and strictly positive displayed denominator. The identities P(1+x,1+y)=H(x,y)>0 and P((1+x)^-1,(1+y)^-1)=H(x,y)/[(1+x)²(1+y)²] settle same-side-neutrality signs. For a>1>b, P(a,b)=3(a-1)(a+3)b²+(6a²+116a+6)b−3(a-1)(3a+1) is strictly increasing in b, negative at b=0, positive at b=1; hence a single root b*(a) gives exactly the sign reversal. Fresh exact matrix-product checks reproduce Delta_4,2(5,1/5)=-1/96 and Delta_4,2(5,1/2)=5/224. Four is minimal among N=2,3,4. No fixation probability or multi-generation claim.
 
-The nearest general treatment is Ashcroft–Altrock–Galla (2014), which handles finite birth–death systems in environments and computes fixation probabilities and times but does not specify a deterministic two-step expected-count commutator, a minimal four-individual sign reversal, or this unique-root threshold. The full accessible 2013 Kluth–Baake text establishes constant-fitness Moran/fixation structure, not the changing-order effect. The full accessible Dean–Lehman–Yi (2017) paper treats fluctuating selection and a closely matching update kernel but uses different observables and timescales. Other inspected finite-state selection literature did not provide a stronger statement of this exact classification. This is provisional historical-priority assessment, not a proof that no unexamined source covers the result. Relevant earlier results on temporal order and Markov comparison remain the main residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first population size at which reversing two opposing fitness environments reverses the terminal *expected mutant count* is a natural small-population boundary in stochastic evolutionary dynamics. The complete finite-state classification gives a sharp, parameter-uniform positive result for smaller populations, an explicit contrary witness at size four, and a unique crossover for all strong-first/weak-first fitness pairs in the central state. It isolates a genuine drift/selection interaction not visible in deterministic monotone-selection arguments. No applied or fixation-probability significance is asserted beyond those assumptions.
+Best-of-knowledge PASS for smallest population of deterministic two-single-update Moran order reversal and its unique cross-neutrality threshold. General Moran fixation analyses in temporally varying random environments address different observables and often different temporal protocols. Although the formula follows from transition matrices, neither the sign classification nor minimum four-population result was found in inspected primary literature. Priority risk of an implicit commutator theorem remains.
 
-## Scientific limitations
+## value
 
-The model is mutation-free, well mixed, and uses one elementary update per environment; the result does not imply any ordering for longer horizons, ultimate fixation, nonuniform replacement, or arbitrary population sizes. General existing Markov theory could yield this result by a different derivation, so independent literature and mathematical review is still advisable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A strict, sharply parameterized reversal of the intuitive stronger-first ordering appears at the first population size permitting it. It determines the entire six-case low-N classification and exact threshold for a natural two-epoch dynamical statistic, not an arbitrary small-instance value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

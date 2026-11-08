@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:00:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a mutation-free, well-mixed discrete-time Moran birth-death chain with self-replacement, one-step gain/loss probabilities are u_j(w)=j(N-j)w/[N(jw+N-j)] and d_j(w)=j(N-j)/[N(jw+N-j)]. Writing drift g_w(j)=u_j-d_j, two-step fitness order gap is the commutator of transition kernels applied to the count function. Independent SymPy derivation from the two-step kernel reproduced all six exact expressions for N=2,3,4 and interior k; all have the positive factor (a-b), except (N,k)=(4,2), which has further P(a,b)=[3a²b²+6a²b−9a²+6ab²+116ab+6a−9b²+6b+3] and strictly positive displayed denominator. The identities P(1+x,1+y)=H(x,y)>0 and P((1+x)^-1,(1+y)^-1)=H(x,y)/[(1+x)²(1+y)²] settle same-side-neutrality signs. For a>1>b, P(a,b)=3(a-1)(a+3)b²+(6a²+116a+6)b−3(a-1)(3a+1) is strictly increasing in b, negative at b=0, positive at b=1; hence a single root b*(a) gives exactly the sign reversal. Fresh exact matrix-product checks reproduce Delta_4,2(5,1/5)=-1/96 and Delta_4,2(5,1/2)=5/224. Four is minimal among N=2,3,4. No fixation probability or multi-generation claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These studies treat fixation times/probabilities and selection histories, rather than the difference of two deterministic single-update expected counts."
+        ],
+        "reasoning": "Broader stochastic-environment frameworks can model the process, but their published theorems do not mathematically imply the sharp two-epoch sign classification without fresh analysis.",
+        "searches": [
+          "Ashcroft–Altrock–Galla 2014 fixation in fluctuating environments, full arXiv paper",
+          "Dean–Lehman–Yi 2017 Genetics fluctuation study full PMC"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1406.5619",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5340338/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary/fixation results generally concern long runs or eventual absorption, not two one-step expectations under orders a,b vs b,a."
+        ],
+        "reasoning": "Neither prior statement yields this finite-horizon commutator sign, even though their models can incorporate similar kernels.",
+        "searches": [
+          "Ashcroft et al. arXiv:1406.5619 sections on switching environments",
+          "Dean et al. 2017 fluctuating selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order difference is (P_a P_b-P_b P_a)f(k) for f(j)=j; neither inspected prior text records the N=4 central sign polynomial."
+        ],
+        "reasoning": "Converting to Markov kernel commutators is elementary but does not classify the sign across all a>b, k and N<=4.",
+        "searches": [
+          "Ashcroft Altrock Galla arXiv:1406.5619 random switching birth death populations",
+          "Dean Lehman Yi Genetics 2017 fluctuating selection Moran",
+          "Moran Markov-kernel commutator two epoch expected count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published rational six-case table or b*(a) parameter curve identified by queried semantic index."
+        ],
+        "reasoning": "The calculation is short but the complete sign region and minimal size are substantive; negative database search is not novelty proof.",
+        "searches": [
+          "Resultary query: Moran birth death deterministic two fitness environment order two steps expected mutant count population four reversal",
+          "Symbolic enumeration of six (N,k) cases from Git frozen result"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for smallest population of deterministic two-single-update Moran order reversal and its unique cross-neutrality threshold. General Moran fixation analyses in temporally varying random environments address different observables and often different temporal protocols. Although the formula follows from transition matrices, neither the sign classification nor minimum four-population result was found in inspected primary literature. Priority risk of an implicit commutator theorem remains.",
+      "residual_risks": [
+        "A general stochastic-ordering or commutator identity for Moran kernels may implicitly yield the tiny-population formulas.",
+        "No implication is asserted for larger N, eventual fixation or updates in generations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the precise finite-horizon order comparison",
+          "evidence": "Provides broad switching-environment fixation framework, not six exact two-update expected-count differences.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.5619",
+          "material_read": "Full arXiv manuscript on fixation probabilities, times, and environment switching",
+          "method": "Read openly accessible preprint and compared definitions and target observables",
+          "title": "Fixation in finite populations evolving in fluctuating environments",
+          "trigger": "Closest birth-death process in changing fitness environments"
+        },
+        {
+          "assessment": "PARTIAL_MODEL_OVERLAP, not sign threshold",
+          "evidence": "Studies polymorphism and fluctuation/fixation instead of deterministic two-update order reversal.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5340338/",
+          "material_read": "Complete freely available Genetics article, methods and results",
+          "method": "Read OA full text and compared dynamics and observables",
+          "title": "Fluctuating Selection in the Moran",
+          "trigger": "Same Moran fitness transition form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strict, sharply parameterized reversal of the intuitive stronger-first ordering appears at the first population size permitting it. It determines the entire six-case low-N classification and exact threshold for a natural two-epoch dynamical statistic, not an arbitrary small-instance value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1406.5619",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC5340338/",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-four-individual-threshold-for-reversing-two-moran-selection-ep--9bf2884d2455"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Population sizes 2 through 4, a>b>0, no mutation, exactly two updates, self-replacement allowed, terminal expected mutant count only."
+  ],
+  "residual_risks": [
+    "A general stochastic-ordering or commutator identity for Moran kernels may implicitly yield the tiny-population formulas.",
+    "No implication is asserted for larger N, eventual fixation or updates in generations."
+  ],
+  "schema_version": 1
+}
