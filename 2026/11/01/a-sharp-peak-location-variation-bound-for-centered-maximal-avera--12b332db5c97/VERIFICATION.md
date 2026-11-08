@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The argument uses only finite real averages and inequalities, with no unproved numerical assumption. The key nonstandard step is proved in `RESULT.md`: shifting a center one step toward a unimodal peak while shrinking the radius by one removes only values no larger than the previously maximal average. This gives unimodality of the centered maximal output even with endpoint-truncated balls. The variation identity and the two endpoint lower bounds then prove both estimates for arbitrary real nonnegative unimodal inputs.
+# Independent mathematical audit
 
-Run `python3 unimodal_verify.py` using the standard Python library. Exact rational tests executed successfully: 4,332 exhaustive unimodal sequences (lengths 3--8, values 0--3), 4,800 deterministic longer sequences (lengths 9, 12, 20, and 35), and 5,047 single-spike boundary tests (orders 3--100). They test identities, inequalities, strict interior peaks, and simultaneously sharp endpoint examples. These finite computations are not a proof for arbitrary lengths or real inputs.
+## correctness
 
-The factor \(1-1/n\) is sharp in the unimodal class because of endpoint single spikes; the stronger location-bound is attained by a single spike at **each** location. The results do not settle the arbitrary-input path conjecture, quantify other modes of oscillation, or constitute independent validation.
+PASS
+
+For each left-of-peak position, compare maximizing centered ball with ball one vertex to the right and radius one less: only low left-end vertices are removed; their values cannot exceed the old ball mean, so Mf increases. Reflect for right half; Mf(k)=H. Prefix and suffix ball averages give endpoint gains (H-a)/k and (H-b)/(n-k+1). The variation telescopes and proves both displayed bounds; single-spike inputs give equality. Independent exact enumeration for n=3..6 with values 0,1,2 corroborates the algebra but does not replace the proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge strict extension beyond monotone data: one-change-of-direction unimodal inputs and quantitative peak-position deficit not established by the exact published monotone theorem; the general n-path constant was explicitly conjectural in the 2026 paper. No general stronger source found that implies the theorem.
+
+## value
+
+PASS
+
+Directly proves the full conjectured sharp path contraction for the natural all-n unimodal class and quantifies strictly positive interior-peak deficit. Meaningful intermediate progress on a recognized open sharp maximal variation conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

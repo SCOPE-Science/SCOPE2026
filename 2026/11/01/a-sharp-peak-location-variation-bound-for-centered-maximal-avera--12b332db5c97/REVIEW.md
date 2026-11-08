@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The input is nonnegative and unimodal on a finite path, with the specified centered counting-measure ball operator. The proof checks both directions of the output unimodality statement, including radius zero and endpoint truncation, without assuming fixed-radius averages have a common maximizer. The output attains the same peak height, so its variation telescopes. Prefix and suffix averaging provide the two endpoint gains, which imply the claimed location-sensitive and global bounds. Single-spike data attain the location inequality for each peak position, and an endpoint spike attains the global factor. Exact-rational verification executed from the accompanying program; no infinite claim depends on enumeration.
+## correctness
 
-## Originality — PASS, provisional
-The closest published mathematical claim concerns monotone inputs only, whereas this theorem applies to all nonnegative unimodal inputs with a single rise-and-fall profile and gives new quantified endpoint losses. The recent primary paper poses the all-data path inequality as Conjecture 5 and does not state this unimodal case. The older centered maximal-function theorems on the integer line have different hypotheses and do not directly supply the finite-path deficit. Actual database, historical-claim, and full-source comparisons are specified in `AUDIT.json`. An unindexed prior elementary proof remains a residual risk; novelty is not established by search absence alone.
+PASS
 
-## Value — PASS
-This is an infinite-family, sharp partial resolution for the natural first nonmonotone class of the finite-path variation conjecture, not a numerical extrapolation. The independent moving-radius lemma and sharp, mode-dependent endpoint deficit identify how a single peak governs smoothing, while strict interior deficits constrain potential extremizers. The full conjecture is a substantially broader open problem.
+For each left-of-peak position, compare maximizing centered ball with ball one vertex to the right and radius one less: only low left-end vertices are removed; their values cannot exceed the old ball mean, so Mf increases. Reflect for right half; Mf(k)=H. Prefix and suffix ball averages give endpoint gains (H-a)/k and (H-b)/(n-k+1). The variation telescopes and proves both displayed bounds; single-spike inputs give equality. Independent exact enumeration for n=3..6 with values 0,1,2 corroborates the algebra but does not replace the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge strict extension beyond monotone data: one-change-of-direction unimodal inputs and quantitative peak-position deficit not established by the exact published monotone theorem; the general n-path constant was explicitly conjectural in the 2026 paper. No general stronger source found that implies the theorem.
+
+## value
+
+PASS
+
+Directly proves the full conjectured sharp path contraction for the natural all-n unimodal class and quantifies strictly positive interior-peak deficit. Meaningful intermediate progress on a recognized open sharp maximal variation conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
