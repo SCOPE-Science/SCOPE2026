@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10 or later. No external packages are required. The verifier calculates the finite expected-coverage identity using exact rational alternating binomial sums, independently evaluates its complete homogeneous symmetric-polynomial form, and confirms nondegenerate rational rectangle-union volumes. It also performs seeded small-dimensional random-union diagnostics and computes numerical gamma/Gumbel crossover values via an integer-shape gamma CDF and deterministic quadrature. It checks the \(d^{-1/2}\) correction and half-volume threshold for selected dimensions and central-window parameters.
+## correctness
 
-The executed check completed successfully with the output:
+PASS
 
-`PASS: 120 deterministic assertions/cases`
+Reconstructed the independent query-point hit probability p(X)=product of uniform[0,1] coordinates, hence -log p~Gamma(d,1); the maximum of m independent exponentials gives exact E C=P(G_d<=M_m). Gamma Edgeworth CDF plus E(M_m-log m)=gamma+O(1/m) yields the displayed plus-gamma and plus-(1-s^2)/3 terms in the expected profile; inversion changes their sign. Changing one translate changes union volume by <=1, so McDiarmid gives exp(-2t²4^d/m); at m~exp(d+O(sqrt d)), t=d^-1 gives summable tails, and a rational-epsilon sandwich plus monotonicity proves a.s. convergence without cross-d independence. Recomputed exact mean from inclusion-exclusion: (d,m)=(2,3):23/48, (3,4):5981/18000, (4,5):95419/432000. These finite checks are not the infinite proof.
 
-The probabilistic concentration statement and almost-sure limit are **not** verified by finite code. Their evidence is the explicit mathematical proof: exact gamma identity, gamma density expansion, exponential maximum moments, bounded differences, Borel–Cantelli, and monotone threshold inversion. The quadrature uses an asymptotic Gumbel approximation and is diagnostic only. Historical originality is not a computational property; priority comparisons and their limitations are documented separately. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The prior exact expected-coverage identity is a genuine specialization of Zhigljavsky–Noonan (2020), hence is explicitly excluded from novelty. The assessed additional claim is an almost-sure sample-size threshold at dimensional exponential scale including the constant and coupling quantifier. No directly implying statement was found in searched indexed sources; 2020 full PDF timed out, so possible hidden asymptotic treatment is a material residual priority risk, not proof of novelty.
+
+## value
+
+PASS
+
+Partial-coverage sample complexity in high-dimensional cubes is a natural geometric-probability threshold. The exact e^d multiplicative factor exp(-gamma-1/3) at alpha=1/2, and all fixed-alpha correction, distinguish two otherwise identical leading asymptotic regimes; the sample-wise a.s. upgrade is not just the old expected coverage formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
