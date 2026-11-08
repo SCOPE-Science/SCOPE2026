@@ -1,19 +1,21 @@
-# Scientific review: A sharp five-vertex hidden-consensus bridge and its spectral receptivity threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The self-inclusive update, strict comparison, and confidence update are exactly the specified process. The four-node connected block is invariant until first bridge activation; exact recurrence and positive comparison give the sharp if-and-only-if, including the equality boundary. The stationary-weight calculation for each tree component of sizes one to three proves the stated restricted minimum. The first-reception asymptotic uses an explicit dominant coefficient \(A>1/4\). The included exact-rational code checks rational cases and recurrence computations; analytic arguments, not finite checks, prove the infinite statements.
+PASS
 
-## Originality — PASS (with risks)
+PASS: For the exact synchronous self-inclusive averaging/edge-confidence update, initial gap at edge 1-2 is 3/10>1/4 while all internal gaps are 1/5<1/4. Assuming the bridge absent, the four-path symmetric state has a0=3/10,b0=1/10 and a_{t+1}=(a_t+b_t)/2,b_{t+1}=a_t/3; internal gaps remain <=1/5 and internal confidences never decrease. The positive recurrence a_{t+2}=a_{t+1}/2+a_t/6 has roots λ=(3+sqrt33)/12 and ν=(3-sqrt33)/12. Comparison from both initial steps gives (1/4)λ^t<a_t<=(3/10)λ^t, proving nonreceptivity for delta<=lambda and first crossing for delta>lambda. Explicit positive Perron amplitude A=3/20+sqrt33/44 gives first-hit T(delta)log(delta/lambda)->log(4A). Component self-inclusive stationary weights for isolated small tree components rule out common-limit permanently cut bridge for <=4 vertices, under the restricted fixed one-cut and internal-receptive assumptions. Independent rational full-dynamics simulations for 5 delta values reproduce never-receptive examples and first-hit times 5,2,1, but infinite conclusions rely on recurrence proofs.
 
-Li, Luo and Porter prove effective-graph stabilization and report missing equal-limit edges numerically, without the explicit isolated-bridge spectral phase diagram or fixed-split minimum-size obstruction. A closely related earlier complete-graph theorem concerns a nonbridge edge and yields a different contraction constant, so its implications do not cover the tree-cut mechanism. Kan, Feng and Porter use an adaptive graph-rewiring process. Selected published mathematical-record searches disclosed no direct equivalent. There remains unindexed-literature risk and incomplete full-text coverage of wider reviews; novelty is a best-knowledge conclusion, not a universal priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The structural gap is natural: whether the limit of opinion consensus forces connectivity of the influence graph, and how two competing exponential rates determine whether an initially missing link reappears. A smallest tree witness and exact spectral threshold answer the question more precisely than simulations, and the critical delay is quantitative. The degenerate initial alignment and restricted size statement are explicit limitations rather than concealed generalizations.
+Same-model Li–Luo–Porter 2023/2025 treats eventual graph stabilization and reports equal-limit missing edges numerically, but does not imply this specific minimum-tree-size bridge, exact irrational rate boundary or critical delay. A different adaptive rewiring model and general seven-agent switching results do not dominate the claim.
 
-## Closest literature and limitations
+## value
 
-Primary source: arXiv:2303.07563 (dyadic confidence process, Theorems 2–3 and Section 5). Related different model: arXiv:2112.05856 (adaptive rewiring). Broad review: DOI 10.1016/j.automatica.2023.111302. Prior complete-graph exact-repair claim: cdf435cb-3bc6-4ebf-947f-c1272fb905be. The bridge crossing after its first appearance is not classified for \(\delta>\lambda\), nor is arbitrary switching behavior on smaller graphs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural question about whether common limiting opinions force a permanently missing confidence bridge is answered by a smallest connected tree witness, exact spectral race threshold, and logarithmic first-reception delay law. Its quantitative, structural result is not reducible to simulation-only observations, though initial opinion matching is codimension one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:08:58.132482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For the exact synchronous self-inclusive averaging/edge-confidence update, initial gap at edge 1-2 is 3/10>1/4 while all internal gaps are 1/5<1/4. Assuming the bridge absent, the four-path symmetric state has a0=3/10,b0=1/10 and a_{t+1}=(a_t+b_t)/2,b_{t+1}=a_t/3; internal gaps remain <=1/5 and internal confidences never decrease. The positive recurrence a_{t+2}=a_{t+1}/2+a_t/6 has roots λ=(3+sqrt33)/12 and ν=(3-sqrt33)/12. Comparison from both initial steps gives (1/4)λ^t<a_t<=(3/10)λ^t, proving nonreceptivity for delta<=lambda and first crossing for delta>lambda. Explicit positive Perron amplitude A=3/20+sqrt33/44 gives first-hit T(delta)log(delta/lambda)->log(4A). Component self-inclusive stationary weights for isolated small tree components rule out common-limit permanently cut bridge for <=4 vertices, under the restricted fixed one-cut and internal-receptive assumptions. Independent rational full-dynamics simulations for 5 delta values reproduce never-receptive examples and first-hit times 5,2,1, but infinite conclusions rely on recurrence proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model paper observes identical limiting opinions with edge missing in simulations and gives eventual effective-graph constancy.",
+          "Kan–Feng–Porter use Deffuant asynchronous compromise and graph rewiring rather than fixed-host synchronous dyadic confidence updates."
+        ],
+        "reasoning": "General convergence and model descriptions do not give the exact threshold and fixed-split minimum-tree-size obstruction.",
+        "searches": [
+          "arxiv:2303.07563v3 Theorem 3 and Section 5",
+          "arxiv:2112.05856 abstract",
+          "2024 bounded-confidence survey DOI 10.1016/j.automatica.2023.111302"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2303.07563v3 full HTML relevant mathematical sections",
+        "arxiv:2112.05856 abstract",
+        "Resultary semantic search",
+        "Frozen RESULT.md proof and independent 5-case full simulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model source explicitly observes nonreceptive dyads with equal opinions in simulation.",
+          "A complete-graph result reported in source review deals with a nonbridge edge and remaining connected active graph; not separately validated as primary prior here."
+        ],
+        "reasoning": "Known possibility does not imply exact five-node construction or the minimum cutoff, and graph stabilization does not determine the spectral first-reception asymptotic.",
+        "searches": [
+          "arxiv:2303.07563v3 Section 5 lines 489-493",
+          "arxiv:2303.07563v3 Theorem 3",
+          "different complete-graph bridge repair result mentioned in frozen REVIEW.md (unverified ID cdf435cb-3bc6-4ebf-947f-c1272fb905be)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Luo–Porter exactly specifies the self-inclusive time-synchronous adaptive dyadic confidence updates.",
+          "The seven-agent switching result has different threshold process/state space."
+        ],
+        "reasoning": "A rate comparison between missing-edge confidence decay and active-component consensus eigenvalue provides a specialized quantitative refinement not stated in general stabilization results.",
+        "searches": [
+          "Resultary: adaptive bounded confidence synchronous dyadic path bridge never receptive consensus spectral threshold",
+          "arxiv:2303.07563v3 equations 2.2-2.3 and Theorems 2-3",
+          "Resultary 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search nearest result concerns a seven-node nonfreezing digraph and logarithmic switches but no 5-path bridge.",
+          "Original Li–Luo–Porter reports numerical network trends not the 5-agent exact spectrum."
+        ],
+        "reasoning": "No exact tabulated five-vertex threshold was located; limited searches do not establish originality by themselves.",
+        "searches": [
+          "Resultary: adaptive bounded confidence synchronous dyadic path bridge never receptive consensus spectral threshold",
+          "Resultary 2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32"
+        ]
+      },
+      "rationale": "Same-model Li–Luo–Porter 2023/2025 treats eventual graph stabilization and reports equal-limit missing edges numerically, but does not imply this specific minimum-tree-size bridge, exact irrational rate boundary or critical delay. A different adaptive rewiring model and general seven-agent switching results do not dominate the claim.",
+      "residual_risks": [
+        "Unindexed exact path threshold or analytic same-limit bridge constructions may predate this source.",
+        "A separate complete-graph threshold quoted in source review was not independently retrieved as full primary text here.",
+        "Size minimality only under fixed split and permanent internal receptivity; no global minimum for arbitrary switching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_MATCH and PRIOR_PHENOMENON; no exact 5-node rate/minimum given in read sections",
+          "evidence": "Section 5 says W(Tf)<1 means unreceptive same-limit dyads; Theorem 3 effective-graph eventual constancy.",
+          "identifier_or_url": "https://arxiv.org/html/2303.07563v3",
+          "material_read": "Primary full HTML model definitions, Theorems 2–3, Section 5.1–5.3 simulation discussion, esp. statements of identical limit opinions despite missing edges",
+          "method": "Direct OA arXiv HTML full text targeted mathematical model/theorem inspection",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+          "trigger": "Same exact synchronous adaptive dyadic-confidence HK process"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL; no full-document exclusion claimed",
+          "evidence": "Abstract states adaptive Deffuant–Weisbuch pairwise model and graph rewiring following homophily, unlike fixed-host synchronous updates.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.05856",
+          "material_read": "ArXiv primary abstract/method summary only; full PDF not read here",
+          "method": "Open abstract and dated first submission",
+          "title": "An Adaptive Bounded-Confidence Model of Opinion Dynamics on Networks",
+          "trigger": "Similar adaptive-confidence model could dominate small-graph result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural question about whether common limiting opinions force a permanently missing confidence bridge is answered by a smallest connected tree witness, exact spectral race threshold, and logarithmic first-reception delay law. Its quantitative, structural result is not reducible to simulation-only observations, though initial opinion matching is codimension one.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Initial singleton opinion is exactly four-path weighted consensus, not a typical random configuration.",
+    "Minimum-size statement restricted to trees with single absent bridge and perpetual internal receptivity.",
+    "For delta>lambda only first appearance, not subsequent edge switching, is classified."
+  ],
+  "schema_version": 1
+}
