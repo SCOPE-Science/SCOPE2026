@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:41:20.266141Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify_three_voter.py source",
+        "Independent exhaustive 0/1 candidate-type subset and all size-k utility-profile comparisons: 5,822 checks",
+        "Convex hull description of hypersimplex and standard positive weighted welfare support"
+      ],
+      "rationale": "For at most three unit-approval voters, classify candidate approval types as zero, full, e_i singletons and p_i=1−e_i pairs. A Pareto-optimal size-k committee cannot select any type dominated by an omitted candidate. If no singleton is selected or all pairs are selected, it consists of top-k candidates by (1,1,1) score. Otherwise select singleton e_j and omit pair p_j: no-improving-swap forces all selected singletons to be e_j and every omitted pair to be p_j; (2,1,1) with the weight 2 on coordinate j orders all remaining types and supports that committee. Each of the four universal score maxima is Pareto efficient since weights are strictly positive, and also fractionally Pareto efficient since the cardinality-k hypersimplex is the convex hull of integral committees. Conversely fractional Pareto implies integral. Boundaries k=0, k=|C| and absent voters are included. Independently enumerated all 256 subsets of the eight approval types and every feasible k, comparing integral Pareto frontiers to the four-weight union over 5,822 unique utility-profile checks, no disagreements. The original source checker also enumerates capacities 0..2 per type for 3^8 profiles; the finite test is corroboration of the infinite-candidate argument.",
+      "residual_risks": [
+        "The theorem is special to additive 0/1 approval and at most three voters.",
+        "Positive score tie-breaking may yield several committees, all of which are efficient; no unique winner claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker gives weighted support iff fPO for arbitrary additive utilities and discusses special restricted domains where PO=fPO.",
+          "Schünke establishes efficient committee structure on candidate/voter interval approval restrictions."
+        ],
+        "reasoning": "The present three-voter class is not contained in either interval domain: three pair candidates with approval types 110,101,011 make neither all voter nor all candidate sets intervals. The broader additive theorem is weaker on the stated implication.",
+        "searches": [
+          "Becker Boehmer Frank Glessen arXiv:2606.11160 Theorem 3",
+          "Schunke arXiv:2605.30490 voter interval candidate interval Pareto domain"
+        ]
+      },
+      "checked_sources": [
+        "Frozen approval source tree 458f3312b1164cd3f5530ad81ab0523d7b6431a8",
+        "Becker et al arXiv:2606.11160 full arXiv HTML and OA manuscript",
+        "Schünke arXiv:2605.30490 primary HTML",
+        "Resultary semantic search: three voters approval multiwinner Pareto efficiency fractional optimal universal weight four supporting objectives"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general theorem establishes fPO ⇒ some positive weight, and any positive-weight maximum ⇒ fPO.",
+          "The nontrivial new direction PO ⇒ one of four universal positive weights follows only after three-voter approval type case split."
+        ],
+        "reasoning": "The new implication is not an immediate consequence of earlier weighted support characterization because it starts from weaker integral PO. Restricted interval results do not dominate unrestricted three-voter profiles.",
+        "searches": [
+          "Becker Theorem weighted welfare if and only if fractional Pareto",
+          "approval candidate/voter interval restricted efficiency Schunke"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalence is to 3-dimensional approval utility Pareto points all being supported faces of the fixed-size hypersimplex, with four fixed positive normal vectors.",
+          "General fPO iff some positive weight vector is established, but does not say all integral PO are fPO, nor specify four universal weights."
+        ],
+        "reasoning": "Compared polyhedral supported-efficient and unsupported Pareto viewpoints and explicit integral versus fractional feasibility.",
+        "searches": [
+          "three voters approval multiwinner Pareto efficiency fractional optimal universal weight four supporting objectives",
+          "three approval voters every Pareto efficient committee supported by one of four weights",
+          "Becker et al 2026 positive weighted utilitarian fPO theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem covers arbitrary multiplicities, candidate count and committee size, not a 0/1 capacity enumeration table.",
+          "Independent 5,822 utility-profile finite sample checks confirm low-multiplicity boundary behavior."
+        ],
+        "reasoning": "No prior table of small elections alone entails unbounded multiplicity classification; full proof uses dominance swaps and fixed score levels.",
+        "searches": [
+          "three voter approval type eight patterns four supporting score cones",
+          "three voters fractional Pareto equality finite type spectra"
+        ]
+      },
+      "rationale": "Best-of-knowledge original universal fixed family of only four scores supporting ALL integral Pareto-optimal committees for unrestricted at-most-three-voter approval profiles and the resulting integral=fractional frontier equality. Becker et al provide instance-dependent positive weights iff fractional PO, but not this integral-to-fractional implication on the unrestricted three-voter slice; Schünke treats restricted interval domains. Entire accessible Becker full primary text was inspected (Theorem weighted utilitarian characterization, preference domains, appendices), so source cannot be dismissed by title; unresolved possible older three-voter observations remain priority risk.",
+      "residual_risks": [
+        "An older polyhedral classification of 3-voter approval utility points might supply an equivalent finite normal-fan theorem.",
+        "No extension to 4 voters or arbitrary positive approval intensities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS arbitrary-additive fPO ↔ some positive weighted welfare and restricted-domain PO=fPO; NOT_IDENTIFIED as stating unrestricted three-voter four-universal-score characterization",
+          "evidence": "Becker–Boehmer–Frank–Glessen arXiv:2606.11160, Section 4 characterization and preference-domain section",
+          "identifier_or_url": "https://arxiv.org/abs/2606.11160",
+          "material_read": "Primary full arXiv HTML and lawful OA 40-page manuscript: introduction, general positive-weight Theorem, Sections 4 and 7 on special preference domains, searched three-voter-specific statements and relevant appendices",
+          "method": "Direct full-primary HTML/PDF material reading including sections and theorem/appendix; screenshot pages inspected for PDF",
+          "title": "Fractional Pareto-Optimality in Multiwinner Voting",
+          "trigger": "Same-object fPO characterization and possible stronger small-voter theorem"
+        },
+        {
+          "assessment": "COVERS interval-domain structure, monotonicity and reconfiguration, not unrestricted at-most-three-voter universal score theorem",
+          "evidence": "Schünke 2026-05-28 arXiv:2605.30490",
+          "identifier_or_url": "https://arxiv.org/abs/2605.30490",
+          "material_read": "Full accessible primary arXiv HTML introduction, restricted-domain characterization and unrestricted-domain discussion",
+          "method": "Direct primary HTML reading",
+          "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+          "trigger": "Same approval committee Pareto problem with domain restrictions"
+        },
+        {
+          "assessment": "Confirmed four weights, all committee sizes and boundary ties in finite census; general proof supported by type-swap argument",
+          "evidence": "Git tree 458f3312b1164cd3f5530ad81ab0523d7b6431a8",
+          "identifier_or_url": "Git source blob 72e0e85f6df0e71e76d47e9df15c91de86ecadd4",
+          "material_read": "Entire RESULT.md and verify_three_voter.py, plus independently enumerated every 0/1 capacity 3-voter approval profile",
+          "method": "Full Git source reading and independent standalone Python enumeration",
+          "title": "Three-voter approval theorem and checker",
+          "trigger": "The exact claim and classification needing audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Type-dominance proof and hypersimplex geometry; Becker weighted fPO theorem",
+        "Independent exhaustive 5,822 low-multiplicity utility-profile checks"
+      ],
+      "rationale": "A strong unbounded-candidate structural theorem reducing a difficult Pareto frontier to four election-independent weighted scores in a natural small-voter domain. The exact equality of integral and fractional Pareto frontiers improves on general fractional support characterization and yields simple O(|C|log|C|) membership checking; it is not a finite dataset recomputation.",
+      "residual_risks": [
+        "Only for at most three unit-approval voters and fixed-cardinality committees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No generalization to 4 voters, nonlinear utilities, candidate costs or knapsack constraints.",
+    "General positive weights may vary by instance; the special claim concerns these four fixed vectors only."
+  ],
+  "schema_version": 1
+}

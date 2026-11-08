@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is an exact finite-type structural statement with arbitrary candidate multiplicities and committee sizes. The proof uses a necessary single-candidate dominance test and exhausts all remaining type patterns: either the ordinary approval score supports the committee, or the presence of a selected singleton and omitted pair forces a unique missing-voter type and the corresponding doubled-voter support. Every one of the four weights is strictly positive. The convex-hull argument extends weighted optimality from integral to fractional committees. The independent finite enumeration within the package passed all 6,561 approval-type capacity vectors through multiplicity two, plus 400 larger seeded instances, totaling 1,620,453 utility-profile comparisons. The enumeration is supplementary, not a substitute for the proof. Risk: the theorem is confined to unit-binary approvals and three voters.
+## correctness
 
-**Originality — PASS, qualified.** Schünke (arXiv:2605.30490) proves interval-domain structure and analyzes the unrestricted problem, but the inspected relevant sections do not furnish a three-voter four-score theorem. Becker et al. (arXiv:2606.11160) characterize fractional efficiency by positive weights, but the accessible abstract does not state the converse from integral efficiency on the unrestricted three-voter domain. Its full text could not be inspected, so a hidden equivalent claim remains a priority risk. A previous sparse-ballot coincidence statement instead bounds the number of approved candidates *per voter*, which is incomparable to bounding the number of voters. Query results on related elections do not prove novelty; statement-level comparisons are in AUDIT.json.
+PASS
 
-**Value — PASS.** The universal four-vector characterization replaces an a priori search over all committees or all positive weight vectors by a constant-size collection of approval scores. It settles the integral-versus-fractional efficiency gap, and consequently the associated structural questions, on a natural non-interval unrestricted approval domain with three voters. The result holds with unlimited candidates and repeated approval types; it is not an arbitrary fixed-size census.
+For at most three unit-approval voters, classify candidate approval types as zero, full, e_i singletons and p_i=1−e_i pairs. A Pareto-optimal size-k committee cannot select any type dominated by an omitted candidate. If no singleton is selected or all pairs are selected, it consists of top-k candidates by (1,1,1) score. Otherwise select singleton e_j and omit pair p_j: no-improving-swap forces all selected singletons to be e_j and every omitted pair to be p_j; (2,1,1) with the weight 2 on coordinate j orders all remaining types and supports that committee. Each of the four universal score maxima is Pareto efficient since weights are strictly positive, and also fractionally Pareto efficient since the cardinality-k hypersimplex is the convex hull of integral committees. Conversely fractional Pareto implies integral. Boundaries k=0, k=|C| and absent voters are included. Independently enumerated all 256 subsets of the eight approval types and every feasible k, comparing integral Pareto frontiers to the four-weight union over 5,822 unique utility-profile checks, no disagreements. The original source checker also enumerates capacities 0..2 per type for 3^8 profiles; the finite test is corroboration of the infinite-candidate argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original universal fixed family of only four scores supporting ALL integral Pareto-optimal committees for unrestricted at-most-three-voter approval profiles and the resulting integral=fractional frontier equality. Becker et al provide instance-dependent positive weights iff fractional PO, but not this integral-to-fractional implication on the unrestricted three-voter slice; Schünke treats restricted interval domains. Entire accessible Becker full primary text was inspected (Theorem weighted utilitarian characterization, preference domains, appendices), so source cannot be dismissed by title; unresolved possible older three-voter observations remain priority risk.
+
+## value
+
+PASS
+
+A strong unbounded-candidate structural theorem reducing a difficult Pareto frontier to four election-independent weighted scores in a natural small-voter domain. The exact equality of integral and fractional Pareto frontiers improves on general fractional support characterization and yields simple O(|C|log|C|) membership checking; it is not a finite dataset recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
