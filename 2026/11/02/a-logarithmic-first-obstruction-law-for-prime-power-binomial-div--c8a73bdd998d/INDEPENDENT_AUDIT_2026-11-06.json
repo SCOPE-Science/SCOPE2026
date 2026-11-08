@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:44:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sun’s exact (bn+1)/gcd(p^r,bn+1) divisibility ensures all n<j pass and all non-p prime valuations of bj+1 divide at n=j. Kummer base-p addition of p^r j + bj has exactly one possible carry at position r, namely j+floor(bj/p^r)>=p; because 0<=Q<=j−1<p there is no propagation. Divisibility at j is thus equivalent to one carry and v_p(bj+1)=1, proving the immediate/delayed dichotomy. For odd p, j>p/2 is necessary; count b in [ceil((p−j)p^r/j),p^r) in one class mod p minus one class mod p². Floor discrepancies <=2 per j give ≤2/p^{r−1} uniform error and the harmonic half-interval sum tends to log2; p=2 case empty. Independent Legendre valuations, whole-binomial small cases and progressions reproduced the claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun Theorem 1.4, Guo–Krattenthaler eventual failure theorem, Kummer carry law."
+        ],
+        "reasoning": "General results delimit possible failure and give valuations; the sharp p^r first-index census needs a one-carry threshold and progression subtraction.",
+        "searches": [
+          "Sun f(a,b) first nondivisibility of binomial ((a+b)n choose an) prime power a=p^r proportion log 2",
+          "arXiv:1005.1054v12",
+          "arXiv:1301.7651v3",
+          "Kummer (1852), J. reine angew. Math. 44:93–146"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.1054v12",
+        "arXiv:1301.7651v3",
+        "Kummer (1852), J. reine angew. Math. 44:93–146",
+        "2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun gives f>=j; Kummer gives at j one p-adic carry."
+        ],
+        "reasoning": "These alone do not give the sharp distribution without parameter-dependent digit bound and uniform count errors, which are proved in inspected RESULT.md.",
+        "searches": [
+          "Sun f(a,b) first nondivisibility of binomial ((a+b)n choose an) prime power a=p^r proportion log 2",
+          "arXiv:1005.1054v12",
+          "arXiv:1301.7651v3",
+          "Kummer (1852), J. reine angew. Math. 44:93–146"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun original f and Guo–Krattenthaler equivalent gcd-reduced congruence."
+        ],
+        "reasoning": "Same f is directly compared; the prior formula bounds/divisibility do not calculate first-delay coefficients or the two-parameter density.",
+        "searches": [
+          "Sun f(a,b) first nondivisibility of binomial ((a+b)n choose an) prime power a=p^r proportion log 2",
+          "arXiv:1005.1054v12",
+          "arXiv:1301.7651v3",
+          "2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit R_{j,s} progression counts and Resultary prime-power valuation search."
+        ],
+        "reasoning": "No prior table of M_{p,r} or limit 1−log2 was identified; source overlap is methods not the evaluated invariant.",
+        "searches": [
+          "Sun f(a,b) first nondivisibility of binomial ((a+b)n choose an) prime power a=p^r proportion log 2",
+          "2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+        ]
+      },
+      "rationale": "The exact first-failure function and Sun’s general divisibility theorem are prior art; Guo–Krattenthaler already prove eventual failure and global bounds. Those statements do not provide this first-eligible-index single-carry census or uniform r density 1−log2. Best-of-knowledge PASS for the precise logarithmic distribution, not for the existence or classical Kummer tool.",
+      "residual_risks": [
+        "Unindexed number-theoretic first-failure refinements or congruence counts could contain a specialized equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_LEMMA, not exact prime-power density",
+          "evidence": "(bn+1)/gcd(a,bn+1) divides binomial; j is first index where gcd can contain p.",
+          "identifier_or_url": "arXiv:1005.1054v12",
+          "material_read": "Section 1 including Theorem 1.4 and definition of f; comparison of hypotheses",
+          "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+          "title": "On divisibility concerning binomial coefficients",
+          "trigger": "Defines same f(a,b) and proves key gcd divisor"
+        },
+        {
+          "assessment": "PRIOR_EXISTENCE_AND_BOUND, no compared exact first-index frequency",
+          "evidence": "Global finiteness and bounds do not determine count M_{p,r} or 1−log2 limiting density.",
+          "identifier_or_url": "arXiv:1301.7651v3",
+          "material_read": "Introduction, bound on f and later sections on nondivisibility",
+          "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+          "title": "Some divisibility properties of binomial and q-binomial coefficients",
+          "trigger": "Same function f and eventual obstruction"
+        },
+        {
+          "assessment": "STANDARD_METHOD, not evaluated family census",
+          "evidence": "ν_p binomial equals carries when adding p^rj to bj.",
+          "identifier_or_url": "Kummer (1852), J. reine angew. Math. 44:93–146",
+          "material_read": "Classical number-of-carries theorem as used in standard statements",
+          "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+          "title": "Kummer carry criterion",
+          "trigger": "Local p-adic valuation component"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the natural first-obstruction distribution for Sun’s established arithmetic function over a full prime-power parameter family with uniform exponent control, a nontrivial density 1−log2 rather than isolated small computations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1005.1054v12",
+    "arXiv:1301.7651v3",
+    "Kummer (1852), J. reine angew. Math. 44:93–146",
+    "2026/10/4/SCOPE-the-exceptional-branch-in-sun-s-multinomial-prime-congruence--54bbd0a326b7"
+  ],
+  "disposition": "passed",
+  "final_claim": "For p prime,r>=2, p∤b and 1<=b<p^r, j the unique 1..p−1 solution bj≡−1(mod p), f(p^r,b)>j iff j+floor(bj/p^r)>=p and p²∤bj+1. Exact residue progression census has density tending uniformly (r>=2) to 1−log2 as p→∞.",
+  "limitations": [
+    "Delayed-case exact later value of f is not claimed; b<p^r and r>=2 are essential.",
+    "Source tree was verified against the actual pinned Git tree. Historic priority is only best-of-knowledge; no certificate of exhaustive novelty."
+  ],
+  "residual_risks": [
+    "Unindexed number-theoretic first-failure refinements or congruence counts could contain a specialized equivalent."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_GENERAL_LEMMA, not exact prime-power density",
+      "evidence": "(bn+1)/gcd(a,bn+1) divides binomial; j is first index where gcd can contain p.",
+      "identifier_or_url": "arXiv:1005.1054v12",
+      "material_read": "Section 1 including Theorem 1.4 and definition of f; comparison of hypotheses",
+      "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+      "title": "On divisibility concerning binomial coefficients",
+      "trigger": "Defines same f(a,b) and proves key gcd divisor"
+    },
+    {
+      "assessment": "PRIOR_EXISTENCE_AND_BOUND, no compared exact first-index frequency",
+      "evidence": "Global finiteness and bounds do not determine count M_{p,r} or 1−log2 limiting density.",
+      "identifier_or_url": "arXiv:1301.7651v3",
+      "material_read": "Introduction, bound on f and later sections on nondivisibility",
+      "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+      "title": "Some divisibility properties of binomial and q-binomial coefficients",
+      "trigger": "Same function f and eventual obstruction"
+    },
+    {
+      "assessment": "STANDARD_METHOD, not evaluated family census",
+      "evidence": "ν_p binomial equals carries when adding p^rj to bj.",
+      "identifier_or_url": "Kummer (1852), J. reine angew. Math. 44:93–146",
+      "material_read": "Classical number-of-carries theorem as used in standard statements",
+      "method": "Primary full-text PDF via lawful public arXiv/open-access; reviewed theorem/abstract and relevant proof sections",
+      "title": "Kummer carry criterion",
+      "trigger": "Local p-adic valuation component"
+    }
+  ]
+}

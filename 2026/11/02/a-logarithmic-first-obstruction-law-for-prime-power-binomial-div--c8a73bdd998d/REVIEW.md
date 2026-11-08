@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-Sun’s gcd-reduced divisibility theorem proves the lower bound on the first failure index. Kummer’s carry theorem gives an exact zero/one valuation at that index; divisibility by the other prime factors is inherited from Sun’s theorem. The exact progression census and uniform harmonic-sum estimate are reconstructed in RESULT.md. Independent factorial valuations and direct binomial tests corroborate the proof.
+## correctness
 
-## Originality: PASS
-Sun (arXiv:1005.1054v12) defined the function and asked about its behavior; Guo and Krattenthaler (arXiv:1301.7651v3) proved existence and bounds for failures. Their relevant original sections were inspected. Neither establishes the prime-power coefficient first-index census or the \(1-\log2\) density. The classical Kummer theorem handles valuations but not the final counting statement. Related prior research on \(f(3,b)\) treats a different base. Search incompleteness and possible historical coverage remain risks.
+PASS
 
-## Mathematical value: PASS
-The original first-obstruction function is a natural arithmetic invariant. A precise carry transition across all coefficients \(1\le b<p^r\), an exact residue-class enumeration, and a uniform logarithmic large-prime law resolve a meaningful quantitative question about that invariant. The limiting constant emerges from harmonic summation rather than an arbitrary numerical choice.
+Sun’s exact (bn+1)/gcd(p^r,bn+1) divisibility ensures all n<j pass and all non-p prime valuations of bj+1 divide at n=j. Kummer base-p addition of p^r j + bj has exactly one possible carry at position r, namely j+floor(bj/p^r)>=p; because 0<=Q<=j−1<p there is no propagation. Divisibility at j is thus equivalent to one carry and v_p(bj+1)=1, proving the immediate/delayed dichotomy. For odd p, j>p/2 is necessary; count b in [ceil((p−j)p^r/j),p^r) in one class mod p minus one class mod p². Floor discrepancies <=2 per j give ≤2/p^{r−1} uniform error and the harmonic half-interval sum tends to log2; p=2 case empty. Independent Legendre valuations, whole-binomial small cases and progressions reproduced the claims.
 
-## Boundaries and risk
-Only the immediate-versus-delayed dichotomy is classified; exact later values in delayed cases remain open here. Originality is subject to incomplete literature coverage; finite checks alone do not certify infinite statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact first-failure function and Sun’s general divisibility theorem are prior art; Guo–Krattenthaler already prove eventual failure and global bounds. Those statements do not provide this first-eligible-index single-carry census or uniform r density 1−log2. Best-of-knowledge PASS for the precise logarithmic distribution, not for the existence or classical Kummer tool.
+
+## value
+
+PASS
+
+Resolves the natural first-obstruction distribution for Sun’s established arithmetic function over a full prime-power parameter family with uniform exponent control, a nontrivial density 1−log2 rather than isolated small computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
