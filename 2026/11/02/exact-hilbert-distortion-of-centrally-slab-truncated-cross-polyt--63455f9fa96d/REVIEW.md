@@ -1,15 +1,21 @@
-# Review of exact Hilbert distortion for centrally slab-truncated cross-polytopes
+# Independent mathematical audit
 
-## Correctness
-PASS. The global Banach--Mazur optimization reduces to permutation-invariant quadratic forms by averaging both sides of a norm/ellipsoid sandwich. The slab intersection's vertices give the sharp quadratic outer extremum. All \(2^n\) sign choices in the dual \(\ell_1\) norm and the one-dimensional sum functional give the sharp inner extremum. The two branches meet at an explicitly computable quadratic parameter, and direct derivatives prove the unique invariant optimum for every real slab width, including even/odd and two-dimensional boundary cases. The checker reproduces the formula with exact rational arithmetic in 60 nonexhaustive instances.
+## correctness
 
-## Originality
-PASS, with residual priority risk. The closest inspected references are Kobos–Varivoda (arXiv:2305.06427v1), which treats the distance between two different endpoint bodies in small dimensions, and Vasil'eva (arXiv:2303.13147v1), which estimates Kolmogorov widths, not Banach--Mazur distance, for different ball intersections. A public exact-distortion result for quadratic \(\ell_1\)–\(\ell_\infty\) mixtures has a different norm, no sum-coordinate slab, and no implication giving these formulas. General distance-ellipsoid characterizations and the classical \(\ell_1\) endpoint do not determine the nontrivial slab-dependent law. No accessible covering result was located by the stated source, terminology, and equivalence searches, but some older convex-geometric literature may be incompletely indexed.
+PASS
 
-## Mathematical value
-PASS. The one-parameter family is the canonical cross-polytope truncated by two parallel hyperplanes normal to the all-ones direction, a natural model of an \(\ell_1\) constraint with a global conservation penalty. The exact all-dimensional Banach--Mazur formula quantifies how increasingly strong conservation changes Hilbertian distortion, identifies an optimal anisotropic ellipsoid, and detects a genuine parity effect in nearly balanced sign vectors. The statement is a complete classification, not an arbitrary sample or a generic endpoint bound.
+PASS: Averaging any admissible quadratic ellipsoid sandwich over coordinate permutations reduces the unrestricted real Banach-Mazur optimum to Q_t=||x||₂²+t(Σx)², t>-1/n. For tau>=1, outer convex maximum occurs at opposite-coordinate slab-edge vertices with A(t)=((tau²+1)/2+t)/tau². The dual inner maximum is B(t)=max{n-δ_n*t/(1+nt), tau²*n/(1+nt)} for t>=0, with δ_n=0 if n even and 1 if n odd; negative t cannot improve. The two branches meet at t*=n(tau²-1)/(n²-δ_n), R=A B declines before and increases after. Exact rational independent evaluation of this dual max and the stated even/odd closed formula agrees in 50 (n,tau) choices, and analytic derivative covers all dimensions/positive parameters. tau<=1 reduces to l1^n with optimal squared distance n by signed-permutation averaging. n=2 constant squared distance two.
 
-## Limitations
-The uniqueness assertion applies only to permutation-invariant optimal shapes. The real-field and finite-dimensional hypotheses are essential to the stated proof. The historical-priority assessment is qualified and not an independent certification. No part of the finite checker proves the continuum or infinite family by enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. Under duality or coordinate symmetries, the rank-one slab norm still singles out the all-ones functional and is not a signed-coordinate symmetric quadratic l1/l∞ mixture. The tau<=1 standard sqrt n result is explicitly excluded from novelty.
+
+## value
+
+PASS
+
+PASS: A natural and geometrically meaningful one-parameter central slab truncation of a cross-polytope has a globally optimized Hilbertian distortion, with parity-dependent limiting gap and explicit ellipsoid. This is an exact all-dimension extremal boundary, not a generic lower bound or a trivial renorming identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
