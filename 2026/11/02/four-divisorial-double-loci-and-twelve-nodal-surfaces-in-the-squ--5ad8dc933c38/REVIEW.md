@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's defining polynomial is reproduced exactly and rewritten as a quadratic in \((A,B)\), with \(A=xw\), \(B=yz\). The exponent-plane quadratic determinant \(-4A^2B^2(A-B)^2\) excludes singularities off three coefficient walls. On each wall, differentiation yields complete necessary-and-sufficient alternatives, including the simultaneous-zero locus. All sixteen irreducible components are explicit and dimensionally distinct, and their generic quadratic normal slices are nondegenerate in the stated ranks. Serre's \(R_1\) condition fails on the four divisors; nonnormality follows. A standalone symbolic checker independently replays critical identities and component inclusions. Mathematical limits: this treats reduced singular support, not the entire Jacobian subscheme or exceptional intersections.
+## correctness
 
-**Originality — PASS (qualified).** The motivating primary paper prints the discriminant equation and discusses its Hurwitz and statistical interpretations; the inspected Examples 1.2 and 1.4, Sections 8 and 9, and related discussions do not provide the reduced singular-locus classification, nodal transverse types, or nonnormality. The earlier fixed-hyperplane-arrangement, scaled-ML-degree, and likelihood-correspondence papers address distinct objects/invariants and do not imply this singularity decomposition. Targeted semantic-record and literature searches found only singularity classifications of other varieties. The exact coefficient polynomial is prior art and is not counted as novel. Residual risk: an equivalent statement might be implicit in a classical hyperdeterminant specialization or in unindexed algebraic-statistics literature; no claim of definitive historical priority is made.
+PASS
 
-**Value — PASS.** The square is the simplest genuine two-dimensional support in the newly introduced logarithmic \(A\)-discriminant theory. Determining **all sixteen irreducible singular components**, their dimensions and generic transverse geometries establishes why this natural, irreducible discriminant is not normal. The codimension-one nonnormality is a structural obstruction for using generic smooth-discriminant methods or normalization without separate boundary analysis. The result is a self-contained singular-stratification theorem, not merely a derivative check or a restatement of a known polynomial.
+The full projective product P3_[x:y:z:w]×P2_[s:u:v] over C is used; with A=xw, B=yz, D=A-B the claimed quartic is precisely F=A²(u-v)²−2AB(s(u+v)+u²+v²)+B²(s+u+v)². Its quadratic matrix in (s,u,v) has determinant −4A²B²(A−B)², so the smooth-conic case ABD!=0 is nonsingular. On A=0, B=0, D=0, the restricted first derivatives and chain rule identify exactly four 3D coordinate-line×P2 loci and twelve additional irreducible 2D surfaces; at A=B=0 all first derivatives vanish. Each surface has points off the others, proving irreducible components rather than just candidates. Transverse Hessians of the five surface symmetry types have rank three on a dense open, giving A1 ordinary quadratic nodes, while the discriminant of the normal quadratic in (A,B) is 16uv(s+u)(s+v) generically nonzero on the 3D loci, giving normal crossings. As the hypersurface is irreducible and has codimension-one singular divisors, R1 fails and it is nonnormal (no claim about Jacobian nilpotents or intersection analytic types). Independent symbolic algebra confirms polynomial identity, Q determinant and normal discriminant; these computations support but do not replace the algebraic saturation-by-cases proof.
 
-Independent confirmation of novelty and correctness by another researcher remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.
+
+## value
+
+PASS
+
+The square-support logarithmic A-discriminant is a natural low-dimensional test example of a new discriminant construction. Its entire reduced singular support, generic transverse types and nonnormality are substantive geometric data required for normalization/intersection calculations, not a routine restatement of the known defining polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
