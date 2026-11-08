@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Edge-pair conditioning gives exact second/fourth moment identities for every strict triangle, and Heron's identity reduces the fourth to a linear expression in the missing elementary symmetric side parameter with strictly positive area-dependent coefficient. Recovering the cubic's root multiset proves uniqueness including isosceles/equilateral cases. The complete symbolic integration, inverse algebra, and exact nonuniqueness example passed in `verify.py`. No finite numerical test is used to infer an infinite statement.
+## correctness
 
-## Originality
-PASS, subject to historical priority limitations. The closest published boundary result supplies only the second moment and its area relationship. A complete full-text inspection of Tong–Ahmadi–Pan concerns area-uniform interior sampling. Gates's classic triangle recognition from random-line chord moments and Gasparyan–Ohanyan's orientation-dependent covariogram use different invariants and do not state a two-moment arclength-boundary inverse in their available abstracts. The latter two full manuscripts were not accessible; an overlooked equivalent theorem remains possible. No equivalent claim was found in the searched research records or accessible own prior claims; search incompleteness does not prove global novelty.
+PASS
 
-## Value
-PASS. Reconstructing a triangle from just perimeter and two natural distance statistics is a motivated finite-data inverse geometric-probability question, not a generic moment evaluation. The theorem proves complete uniqueness and supplies a constructive cubic inversion, an exact same-area obstruction showing the second moment's insufficiency, and an exact loss-of-discrimination law at degeneration. The result does not require a broader downstream theorem to be a natural complete classification.
+For arbitrary strict triangle sides a,b,c, condition independent arclength-uniform endpoints on each of nine ordered edge pairs; edge weights are LiLj/P^2. Independent symbolic reconstruction verifies M2=P^2/24-2A^2/P^2 and M4=P^2 M2/2-P^4/60+4A^2Q/(9P^2), Q=ab+bc+ca. Nonzero A^2 uniquely yields Q and U=abc=P(M2-P^2/6+Q/2); roots of z^3-Pz^2+Qz-U give the side multiset even with repeated roots. Independently verified (3,4,5) and a distinct algebraic triangle have identical P=12, A^2=36 and M2=11/2 but M4 differ by 1/36. Degenerate A=0 excluded; sampling distribution is boundary arclength not interior or line-chord.
 
-## Limitations
-Exact population measurements and strictly positive area are essential; an individual-side statistical stability theorem is not proved. Historical originality is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published perimeter–boundary-second-moment identity covers the M2 component. Exact fourth-moment inversion is not implied by that scalar relation. Other triangle recognition papers concern kinematic chords or interior point distances; abstracts of two plausible earlier papers were read but their full texts unavailable, leaving real priority risk.
+
+## value
+
+PASS
+
+Complete constructive inverse of a natural three-parameter triangle from P and two random boundary Euclidean chord moments, plus exact demonstration of M2 nonuniqueness and area-dependent degeneracy; natural finite-statistic tomography problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

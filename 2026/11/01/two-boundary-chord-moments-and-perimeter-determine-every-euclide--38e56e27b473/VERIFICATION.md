@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and scope
-The included `verify.py` was run on the exact package's included executable content with Python and SymPy. It printed:
+# Independent mathematical audit
 
-`VERIFY_OK symbolic_2nd_and_4th_moments, Heron, inversion, exact_equal_area_example`
+## correctness
 
-It checks the nine ordered side-pair integrals separately for degrees two and four, symbolic equality to the symmetric-polynomial formulas, Heron's relation, both inverse identities, and an exact algebraic pair of noncongruent triangles sharing the perimeter, area and second moment but not the fourth.
+PASS
 
-The universal proof is given analytically in RESULT.md: conditional edge integrals, symmetric collection, Heron's formula, and the fundamental theorem of algebra for the side-root polynomial. Program checks verify the symbolic algebra, not mathematical originality or independence. No external mathematical certification has been performed.
+For arbitrary strict triangle sides a,b,c, condition independent arclength-uniform endpoints on each of nine ordered edge pairs; edge weights are LiLj/P^2. Independent symbolic reconstruction verifies M2=P^2/24-2A^2/P^2 and M4=P^2 M2/2-P^4/60+4A^2Q/(9P^2), Q=ab+bc+ca. Nonzero A^2 uniquely yields Q and U=abc=P(M2-P^2/6+Q/2); roots of z^3-Pz^2+Qz-U give the side multiset even with repeated roots. Independently verified (3,4,5) and a distinct algebraic triangle have identical P=12, A^2=36 and M2=11/2 but M4 differ by 1/36. Degenerate A=0 excluded; sampling distribution is boundary arclength not interior or line-chord.
 
-The denominator of the inverse formula is nonzero only for positive area; no degenerate or finite-sample claim is made. The supplemental source comparisons and their limitations are documented in REVIEW.md and AUDIT.json.
+## originality
+
+PASS
+
+The published perimeter–boundary-second-moment identity covers the M2 component. Exact fourth-moment inversion is not implied by that scalar relation. Other triangle recognition papers concern kinematic chords or interior point distances; abstracts of two plausible earlier papers were read but their full texts unavailable, leaving real priority risk.
+
+## value
+
+PASS
+
+Complete constructive inverse of a natural three-parameter triangle from P and two random boundary Euclidean chord moments, plus exact demonstration of M2 nonuniqueness and area-dependent degeneracy; natural finite-statistic tomography problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
