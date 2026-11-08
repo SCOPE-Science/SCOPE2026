@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:53:54.188618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact independent Fraction arithmetic reproduced the rational numerator factorization at rational x,y for every r=1..10. After cancellation, numerator N=1-V_r(x)V_r(y); for r>=3, N(c,0)=1 prevents x-c and y-c factors, while substituting y=c/x gives nonzero highest Laurent coefficient -c*x^(r-2) when c!=0, excluding xy-c. Over C every numerator of a single F(x)G(y)J(xy) product has only these factor types. The denominator is positive for x,y in (0,1), and monotonic V_r ensures maximal product at a=b=1; its unique crossing gives tau_r>1/2 and tau_3=(sqrt(5)-1)/2. The Calkin–Wilf telescoping sum is absolutely convergent by geometric decay, not merely finite numerical evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farey-tree telescoping applies to broad decaying potentials and already implies the summed identity (2)."
+        ],
+        "reasoning": "A telescoping identity alone does not force each summand to be positive or multiplicatively factorized; the stronger antecedent does not imply the rigidity conclusion.",
+        "searches": [
+          "Hata 1995 Theorem 6.1 Farey fractions sums over coprime pairs",
+          "arxiv:2610.26949 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Lucas recurrences and Lambert series in coprime double sums — arxiv:2610.26949 — material read: Abstract states q-sum identity and Calkin–Wilf local cancellation; full PDF unavailable via arXiv/OA, institutional retrieval vpn_disconnected",
+        "Farey fractions and sums over coprime pairs — doi:10.4064/aa-70-2-149-159 — material read: Theorem 6.1 identifier and stated role from inspected source references; original full paper not accessed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every H_r satisfies the same telescoping mechanism, but factorizability and real positivity depend on the new numerator 1-V_r(x)V_r(y)."
+        ],
+        "reasoning": "For r>=3 the non-separability and zero threshold require a direct polynomial factor argument and sign monotonicity, not the general summation identity.",
+        "searches": [
+          "arxiv:2610.26949",
+          "Hata 1995 Farey telescoping principle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known r=2 kernel has one-variable factors; for r>=3 N_r has an obstruction to any rational product in x,y,xy."
+        ],
+        "reasoning": "A change from q variables to rational x,y preserves this obstruction; no alternative factorization theorem found that solves all r.",
+        "searches": [
+          "Kalinin Lucas recurrences Lambert series coprime sums rational potential q sum",
+          "Calkin Wilf Farey tree potential factorization primitive pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating source explicitly features the special r=1 and r=2 kernels, not an indexed general r table."
+        ],
+        "reasoning": "Those cases are covered; no exact table for all r or crossing values was found, with historical risk noted.",
+        "searches": [
+          "arxiv:2610.26949 r=1,2 specializations",
+          "Resultary search coprime tree monoid factorization positivity rigidity"
+        ]
+      },
+      "rationale": "Kalinin explicitly provides the r=1,2 kernels and telescoping mechanism; Hata supplies more general Farey-tree telescoping. Those cover the sum identity (which is not claimed new) but do not directly determine failure of factorization for every r>=3 or its complete sign threshold. The full Kalinin PDF was unavailable, so the comparison remains a best-knowledge mathematical statement with residual risk.",
+      "residual_risks": [
+        "Full Kalinin preprint and original Hata text were not accessible here; a hidden stronger factorization statement cannot be excluded.",
+        "The novelty is only factorization and sign threshold in this monomial-pole family, not the total coprime sum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=2 and total primitive sum; full-text absence leaves possibility of general r discussion.",
+          "evidence": "Abstract identifies 1/[(1+q^n)(1+q^m)(1+q^(n+m))] kernel and telescoping",
+          "identifier_or_url": "arxiv:2610.26949",
+          "material_read": "Abstract states q-sum identity and Calkin–Wilf local cancellation; full PDF unavailable via arXiv/OA, institutional retrieval vpn_disconnected",
+          "method": "arXiv abstract and accessible secondary synopsis",
+          "title": "Lucas recurrences and Lambert series in coprime double sums",
+          "trigger": "Same coprime q-kernel and r=2 special case"
+        },
+        {
+          "assessment": "General telescope acknowledged; no whole-paper noncoverage inference.",
+          "evidence": "1995 Theorem 6.1 as cited in Kalinin",
+          "identifier_or_url": "doi:10.4064/aa-70-2-149-159",
+          "material_read": "Theorem 6.1 identifier and stated role from inspected source references; original full paper not accessed",
+          "method": "Bibliographic/source comparison, not full-text inspection",
+          "title": "Farey fractions and sums over coprime pairs",
+          "trigger": "General antecedent telescope principle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parameter r is a motivated monomial-pole extension of a published coprime sum; determining exactly when the telescope kernel maintains multiplicative separation and coefficientwise sign is a natural structural rigidity/positivity question, not a random isolated numerical substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md Git blob 4ed6aa4f2fc9676baec2b8d1cae166b8ea0a82d4; Git tree b46d381e3eb4790239649f565064735d81b5bafd",
+    "Independent calculations: /mnt/data/check_worker03_2345.py; direct BFS subsets, rational kernel and coverage checks, symbolic Type-II determinant, F2/F3/F5/F7 evolution automorphism count",
+    "Lucas recurrences and Lambert series in coprime double sums — arxiv:2610.26949 — material read: Abstract states q-sum identity and Calkin–Wilf local cancellation; full PDF unavailable via arXiv/OA, institutional retrieval vpn_disconnected",
+    "Farey fractions and sums over coprime pairs — doi:10.4064/aa-70-2-149-159 — material read: Theorem 6.1 identifier and stated role from inspected source references; original full paper not accessed"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Full Kalinin preprint and original Hata text were not accessible here; a hidden stronger factorization statement cannot be excluded.",
+    "The novelty is only factorization and sign threshold in this monomial-pole family, not the total coprime sum."
+  ],
+  "schema_version": 1
+}

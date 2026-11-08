@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The potential difference has the displayed exact numerator \(1-V_r(x)V_r(y)\), divided by a product of one-variable factors. Its numerator has no coordinate-only factor because it equals \(1\) on either coordinate axis, and no factor of \(xy-c\): for nonzero \(c\), substituting \(y=c/x\) leaves the unique nonzero highest Laurent coefficient \(-c\). This proves the all-exponent factorization rigidity. Signs and unique thresholds follow from strict monotonicity of \(V_r\), and absolute summability proves the full tree telescoping. The standalone exact-rational program checks representative cases without being used to replace the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Kalinin, arXiv:2610.26949 (2026), Section 2 and equation (4.3), already covers \(r=1,2\) and general Farey-tree telescoping, so the total evaluation is not claimed as new. The complete full text expressly asks for a theory of factorizable rational potentials. Its statements do not give the no-factor theorem for \(r\ge3\) or the positivity thresholds. Searches of relevant published records and accessible existing findings revealed no implication covering the new statements. The older Hata article was accessed only through an explicit theorem description and citation in Kalinin, not its original full text; implicit or unindexed prior classifications remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-This is an exact structural classification for the natural monomial-pole family containing the published coprime Lambert kernel. It locates the sharp point where the factorized, positive summands cease and exhibits an infinite sequence of genuine positivity phase transitions from the inverse golden ratio to one half. The result gives a concrete boundary for the rational-potential classification requested in the motivating work, while leaving the general classification open.
+Exact independent Fraction arithmetic reproduced the rational numerator factorization at rational x,y for every r=1..10. After cancellation, numerator N=1-V_r(x)V_r(y); for r>=3, N(c,0)=1 prevents x-c and y-c factors, while substituting y=c/x gives nonzero highest Laurent coefficient -c*x^(r-2) when c!=0, excluding xy-c. Over C every numerator of a single F(x)G(y)J(xy) product has only these factor types. The denominator is positive for x,y in (0,1), and monotonic V_r ensures maximal product at a=b=1; its unique crossing gives tau_r>1/2 and tau_3=(sqrt(5)-1)/2. The Calkin–Wilf telescoping sum is absolutely convergent by geometric decay, not merely finite numerical evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kalinin explicitly provides the r=1,2 kernels and telescoping mechanism; Hata supplies more general Farey-tree telescoping. Those cover the sum identity (which is not claimed new) but do not directly determine failure of factorization for every r>=3 or its complete sign threshold. The full Kalinin PDF was unavailable, so the comparison remains a best-knowledge mathematical statement with residual risk.
+
+## value
+
+PASS
+
+The parameter r is a motivated monomial-pole extension of a published coprime sum; determining exactly when the telescope kernel maintains multiplicative separation and coefficientwise sign is a natural structural rigidity/positivity question, not a random isolated numerical substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
