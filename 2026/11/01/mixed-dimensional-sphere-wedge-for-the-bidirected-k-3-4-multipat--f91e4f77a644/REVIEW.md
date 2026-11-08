@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is specified by seven vertices and twenty-four directed arcs, with multipaths defined by local degree constraints and forbidden directed cycles. `verify_multipath_k34.py` independently enumerates all allowable face sets up to the maximum possible cardinality, checks the complete augmented face vector, constructs every discrete-Morse pair and the entire Hasse directed graph, and establishes its acyclicity by a complete topological sort. It calculates the exact signed integer Morse boundary \(\mathbb Z^{48}\to\mathbb Z^{37}\) as zero, not merely a modular rank. The single critical vertex and cells only in degrees three and four, together with the Hurewicz isomorphism for the three-sphere wedge, imply the claimed integral homotopy equivalence. Independent direct simplicial mod-two ranks corroborate the homology without replacing the integral proof.
+PASS
 
-## Originality — PASS against examined evidence
+The bidirected K_{3,4} has exactly 24 ordered arcs and its multipath faces are arc subsets with indegree/outdegree <=1 and no directed cycles (including 2-cycles), equivalent to disjoint simple directed paths. An independently written recursive all-arc enumerator found 3301 augmented faces and exactly 144 six-arc facets; an independent explicit subset-size<=6 bounded check in the source code corroborates completeness since 7 vertices prohibit >6 arcs. Reconstructed 1608 augmented toggle matches, all 13104 Hasse covers and full 3301-vertex acyclic ordering, leaving 37 critical 3-cells, 48 4-cells and one 0-cell. Independent *signed integer* Morse projection computed the entire 37x48 matrix and found every entry zero; the Hurewicz isomorphism pi3(vee^37 S3)=Z37 gives 37 S3 +48 S4. Pure dimension-five with H3 and H4 nonzero is not shellable. The finite proof applies precisely to this digraph, not every bidirected K_{m,n}.
 
-Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1, defines multipath complexes and provides the formula for *one-direction* complete bipartite digraphs; the present bidirected object is not in that family. Caputi–Collari–Smith, arXiv:2601.05670v1, treats bidirectional paths and cycles, while its matching-complex reduction assumes no directed cycles. The undirected graph's matching, two-matching and Morse complexes are mathematically distinct. Indexed searches for complete bipartite, bidirected, directed linear forest, cycle-free chessboard and exact rank formulations found related computations but no theorem implying this particular two-degree integral homotopy classification. This is evidence-based originality, not an assertion of global priority. Equivalent unindexed work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is the smallest unbalanced fully bidirected complete bipartite case in which both sides have at least three vertices; it is a natural first comparison beyond the balanced three-by-three case and thin two-by-many families, for which homological behavior is distinct. Exact homotopy classification distinguishes torsion from free classes and reveals **two adjacent nonzero dimensions** inside a pure five-dimensional complex. The resulting failure of shellability gives a concrete structural boundary example; Euler characteristic alone cannot distinguish the ranks \(37\) and \(48\). This finite calculation does not purport to classify all complete bipartite digraphs.
+Best-of-knowledge PASS after direct full primary reading: Caputi–Collari–Di Trani–Smith Theorem 3.7 of 2024 applies a one-way bipartite orientation with 12 arcs and yields only Euler characteristic, while current bidirected K3,4 has 24 arcs, directed two-cycles and a complete integral wedge classification. The full 2026 Caputi–Collari–Smith primary text studies bidirected polygons/paths and restricts its acyclic blow-up comparison to no directed cycles, inapplicable here. Full Resultary bidirected double-star theorem treats trees, not complete bipartite K3,4, and Morse K3,4 or 2-matching K3,4 are different complexes.
 
-## Evidence and limitations
+## value
 
-Standalone exact integer and mod-two checks are contained in the package. The primary paper from 2022 and the relevant 2026 bidirectional extension were read at their definitions, theorem statements and relevant technical sections. The present calculation remains a finite single-case statement. An unindexed equivalent result cannot be ruled out by searching alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest nontrivial complete bipartite bidirected case K3,4 beyond one-way chessboard matchings supplies a natural missing arc-cycle-containing multipath invariant. Its two adjacent nonzero homotopy degrees, exact primitive integral attachments and purity/non-shellability tension are meaningful relative to published acyclic bipartite Euler-count formulas and bidirected path/polygon or double-star families; future comparisons of more general bidirected multipartite complexes can use this precise benchmark without a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
