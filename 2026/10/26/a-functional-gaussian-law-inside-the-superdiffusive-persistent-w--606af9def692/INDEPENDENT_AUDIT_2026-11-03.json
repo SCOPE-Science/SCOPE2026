@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:04:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed 0<alpha<1 and 0<c<=1 with independent sign reversals, eta_k=V_k-(1-2p_k)V_{k-1} are martingale differences with conditional variance 4p_k(1-p_k). Thus M_n=sum eta_k/(2p_k) has deterministic predictable bracket (1/c)sum_{k<=n}k^alpha-n, whose N^{-(1+alpha)} rescaling converges uniformly on compact times to t^{1+alpha}/[c(1+alpha)]. The maximal rescaled jump is O(N^{(alpha-1)/2}), verifying conditional Lindeberg. The identity M_j=X_j-V_j+V_0+R_j with R_j=sum_{k<=j}(k^alpha/(2c))(V_k-V_{k-1}) and monotone Abel summation gives |R_j|<=j^alpha/c pathwise; hence sup_{j<=NT}|X_j-M_j|<=2+(NT)^alpha/c=o(N^{(1+alpha)/2}). Functional martingale CLT plus uniform interpolation concludes weak convergence in C([0,T]), including c=1 and arbitrary independent V0. Covariance follows from time-changed Brownian motion. The proof is analytic for all real alpha in (0,1), not extrapolated from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cénac–Le Ny–de Loynes–Offret, arXiv:1612.00238, https://arxiv.org/pdf/1612.00238: §§2-3 specify run-age-dependent switching/persistence durations and renewal-time assumptions with functional limits.",
+          "In this claim p_k=c k^{-alpha} depends on absolute time k, not run age; its successive run lengths are neither iid nor governed by the cited renewal scheme.",
+          "The classical martingale functional CLT is a general sufficient tool; model-specific bracket and displacement remainder are separately verified in the source proof."
+        ],
+        "reasoning": "A more general FCLT could cover this inhomogeneous Markov additive process, so broad-theorem priority remains possible; the closely titled persistent-walk paper examines a mathematically different renewal/run-length hazard and its theorem cannot be substituted without proving the missing model inclusion. The martingale FCLT itself is acknowledged as classical rather than claimed new.",
+        "searches": [
+          "inhomogeneous two-state Markov chain decreasing transition probability n^-alpha martingale invariance principle nonstationary telegraph functional CLT",
+          "Persistent Random Walks II Functional Scaling Limits Cénac Le Ny de Loynes Offret 1612.00238",
+          "persistent random walk alpha=1 critical logarithmic marginal reversal process limit"
+        ]
+      },
+      "checked_sources": [
+        "Pradhan–Roy–Ray, arXiv:2605.20116v1, https://arxiv.org/html/2605.20116v1, Eqs. (1),(2),(9)-(14), SIV.1",
+        "Cénac–Le Ny–de Loynes–Offret, arXiv:1612.00238, https://arxiv.org/pdf/1612.00238",
+        "Thiel–Sokolov, arXiv:1311.3455, https://arxiv.org/pdf/1311.3455",
+        "Classical martingale functional CLT under predictable bracket convergence and Lindeberg",
+        "Resultary search: persistent random walk time-dependent reversal probability c k^{-alpha} 0<alpha<1 functional central limit theorem Brownian time change variance t^{1+alpha}",
+        "Resultary search: inhomogeneous two-state Markov chain decreasing transition probability n^-alpha martingale invariance principle nonstationary telegraph functional CLT",
+        "Resultary search: Pradhan Roy Ray 2605.20116 time dependent velocity reversal power law Gaussian functional central limit theorem",
+        "Resultary search: persistent random walk alpha=1 critical logarithmic marginal reversal process limit",
+        "Resultary search: power-law time-inhomogeneous velocity reversals Brownian clock 1+alpha persistent random walk",
+        "Resultary search: A functional Gaussian law inside the superdiffusive persistent-walk phase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pradhan–Roy–Ray, arXiv:2605.20116v1, https://arxiv.org/html/2605.20116v1, Eqs. (1),(2),(9)-(14), SIV.1: Eq. (14) gives the leading mean-square-displacement coefficient; source analyses velocities, Binder cumulants and transition.",
+          "Second moments and even a time-indexed covariance never imply Gaussian finite-dimensional distributions or tightness.",
+          "The audited proof supplies explicit martingale differences, deterministic predictable bracket, Lindeberg condition and vanishing uniform displacement discrepancy."
+        ],
+        "reasoning": "Known MSD t^{1+alpha}/[c(1+alpha)] is a necessary second-moment shadow of the Gaussian clock but does not imply the complete law or independent macroscopic increments. The new claim is strictly stronger than the matched originating paper as a statement about paths, though classical martingale tools underlie its proof.",
+        "searches": [
+          "Pradhan Roy Ray 2605.20116 time dependent velocity reversal power law Gaussian functional central limit theorem",
+          "Pradhan Roy Ray diffusive ballistic persistent random walk mean square displacement Binder cumulant functional limit",
+          "inhomogeneous two-state Markov chain decreasing transition probability n^-alpha martingale invariance principle nonstationary telegraph functional CLT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pradhan–Roy–Ray, arXiv:2605.20116v1, https://arxiv.org/html/2605.20116v1, Eqs. (1),(2),(9)-(14), SIV.1: time-dependent flip chain, MSD exponent and coefficient but not weak path convergence.",
+          "Thiel–Sokolov, arXiv:1311.3455, https://arxiv.org/pdf/1311.3455: scaled Brownian motion gives the same type of Gaussian time change; the source constructs a different underlying process.",
+          "The assigned claim identifies a full C([0,T]) invariance principle and all joint distributions, not merely an MSD or a one-time marginal."
+        ],
+        "reasoning": "Equivalent output formulations include a nonstationary Gaussian diffusion with D(t)=t^alpha/(2c), Brownian deterministic time change, and a path-level functional CLT. The exact process law is known as scaled Brownian motion, but prior identification of that law as a limit of a pooled CTRW cloud does not prove this one-particle globally inhomogeneous flip-chain limit.",
+        "searches": [
+          "persistent random walk time-dependent reversal probability c k^{-alpha} 0<alpha<1 functional central limit theorem Brownian time change variance t^{1+alpha}",
+          "Pradhan Roy Ray 2605.20116 time dependent velocity reversal power law Gaussian functional central limit theorem",
+          "Scaled Brownian motion as a mean field model for continuous time random walks arXiv:1311.3455"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned related findings such as critical elephant-walk cover times, alpha-Wiener particle pinning, Jacobi diffusions and two-state sliding-count chains, but no exact functional limit for the calendar-time power-law flip model.",
+          "The finding concerns convergence of a family of random processes, not an entry in a numerical table."
+        ],
+        "reasoning": "No exact matching theorem appeared in the bounded Resultary results. The lack of a database hit is only negative search evidence and is not treated as a proof of novelty; no external exact table is expected to certify path convergence.",
+        "searches": [
+          "persistent random walk time-dependent reversal probability c k^{-alpha} 0<alpha<1 functional central limit theorem Brownian time change variance t^{1+alpha}",
+          "inhomogeneous two-state Markov chain decreasing transition probability n^-alpha martingale invariance principle nonstationary telegraph functional CLT",
+          "power-law time-inhomogeneous velocity reversals Brownian clock 1+alpha persistent random walk",
+          "A functional Gaussian law inside the superdiffusive persistent-walk phase"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the precise single-walk functional convergence under independent absolute-time flips p_k=c k^{-alpha} to Brownian clock t^{1+alpha}/[c(1+alpha)], not the originating superdiffusive MSD law, the Brownian time change as an abstract process, or the classical martingale functional CLT. Full-text comparisons of the exact origin and two plausible broader papers show no direct implication; bounded Resultary searches returned no matching theorem. Priority risks from broader inhomogeneous Markov-chain results remain.",
+      "residual_risks": [
+        "An unindexed or differently named general inhomogeneous two-state Markov-additive functional CLT might imply this specialized statement without matching its model name.",
+        "The accessible-source and semantic-search review does not prove exhaustive historical priority.",
+        "The Brownian-time-change process is already standard (scaled Brownian motion); only its convergence from this microscopic persistent-walk protocol is assessed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact prior model, MSD and transition, but its studied second-moment and fluctuation conclusions do not entail weak convergence in C([0,T]); no same-model functional CLT found in inspected full material.",
+          "evidence": [
+            "arXiv:2605.20116v1 Eqs. (1),(2),(9)-(14); SI-SVI, specifically SIV.1; title/abstract and final discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.20116v1",
+          "material_read": "Full accessible HTML main article including model equations, correlation, mean-square, parameter regimes and the supplement sections SI-SVI and SIV.1 power-law calculation.",
+          "method": "Examined full HTML structure, source formulae and supplementary results, checked Gaussian/functional/limit claims against the path-level theorem.",
+          "title": "Diffusive-to-Ballistic transition in a Persistent Random Walk",
+          "trigger": "Exact same independent time-indexed reversal model and leading mean-square coefficient; most likely direct overlap."
+        },
+        {
+          "assessment": "Known Brownian/stable/arcsine limits are for a variable-length memory or run-age/renewal persistent walk. Its hazard depends on time since last reversal; it is not the globally indexed independent reversal protocol here, so no direct coverage established.",
+          "evidence": [
+            "arXiv:1612.00238, §2 definitions and §3 scaling-limit statements; run length persistence parameter A_n vs absolute step k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.00238",
+          "material_read": "Complete accessible 26-page primary PDF, focusing on §§2-3 (model and Theorems 3.1-3.3) with renewal/run-age assumptions.",
+          "method": "Read PDF text and checked the mathematical definition of the transition probabilities against time-dependent c k^{-alpha}.",
+          "title": "Persistent Random Walks. II. Functional Scaling Limits",
+          "trigger": "Highly relevant title and theorems purporting to give functional scaling limits for persistent walks."
+        },
+        {
+          "assessment": "Defines the limit process class (scaled Brownian motion), but takes a cloud/mean-field limit of independent CTRWs; it does not prove the same scaling limit of a single absolute-time reversal chain.",
+          "evidence": [
+            "arXiv:1311.3455, abstract, time-dependent diffusivity construction and conclusion concerning the center of mass of independent CTRWs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.3455",
+          "material_read": "Complete four-page primary PDF including construction from continuous-time random walks, the time-dependent diffusivity, and mean-field conclusion.",
+          "method": "Read full short paper and identified the microscopic limiting sequence and convergence mechanism.",
+          "title": "Scaled Brownian motion as a mean field model for continuous time random walks",
+          "trigger": "Equivalent Gaussian time-change under different stochastic-process terminology; plausible stronger coverage of the limit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A path-space invariance principle for a natural, recently studied superdiffusive velocity-reversal model determines all macroscopic finite-dimensional laws, asymptotically independent nonstationary increments and the explicit transport clock, which are not implied by MSD scaling or correlation decay. The nonstandard martingale displacement identity resolves a motivated gap between anomalous second moments and Gaussian process-level behavior. The result is not claimed to extend to alpha=1, nonindependent reversals or a universal class, and its value does not depend on large theorem size.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pradhan–Roy–Ray, arXiv:2605.20116v1, https://arxiv.org/html/2605.20116v1, Eqs. (1),(2),(9)-(14), SIV.1",
+    "Cénac–Le Ny–de Loynes–Offret, arXiv:1612.00238, https://arxiv.org/pdf/1612.00238",
+    "Thiel–Sokolov, arXiv:1311.3455, https://arxiv.org/pdf/1311.3455",
+    "Classical martingale functional CLT under predictable bracket convergence and Lindeberg",
+    "Resultary search: persistent random walk time-dependent reversal probability c k^{-alpha} 0<alpha<1 functional central limit theorem Brownian time change variance t^{1+alpha}",
+    "Resultary search: inhomogeneous two-state Markov chain decreasing transition probability n^-alpha martingale invariance principle nonstationary telegraph functional CLT",
+    "Resultary search: Pradhan Roy Ray 2605.20116 time dependent velocity reversal power law Gaussian functional central limit theorem",
+    "Resultary search: persistent random walk alpha=1 critical logarithmic marginal reversal process limit",
+    "Resultary search: power-law time-inhomogeneous velocity reversals Brownian clock 1+alpha persistent random walk",
+    "Resultary search: A functional Gaussian law inside the superdiffusive persistent-walk phase"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed c in (0,1], alpha in (0,1), V0 independent of subsequent reversal trials; no joint alpha-to-one uniform limit, alpha>=1, or dependent flips.",
+    "Classical functional martingale CLT is cited as a standard theorem rather than reproved.",
+    "Finite flip-path enumeration checks a deterministic bound only, not the infinite weak limit.",
+    "Best-of-knowledge originality remains subject to undiscovered general inhomogeneous additive-process limit theorems.",
+    "Public status metadata must be derived by the authorized import; staged change-set has not been published."
+  ],
+  "schema_version": 1
+}
