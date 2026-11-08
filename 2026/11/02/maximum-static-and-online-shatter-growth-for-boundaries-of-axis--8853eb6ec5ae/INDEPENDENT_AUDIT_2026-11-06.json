@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:56:47.447700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five-dimensional lift v(x,y)=(x²,y²,x,y,1) along a first-quadrant circle arc lies in four-dimensional hyperplane. The restricted functions 1,t,t²,sqrt(1-t²) form a four-point Chebyshev family: four zeros would force a nonzero third derivative to vanish, impossible for t in (0,1). Thus every four distinct lifted rows are independent and have a unique ellipse kernel close to (1,1,0,0,-1). For finitely many sample tuples, sufficiently small perturbations preserve positive quadratic coefficients and nonempty nondegenerate conics; all five-fold determinants are nonzero on a dense-open choice because the determinant is a nonzero polynomial (an explicit five-point witness). For every selected <=4 subset, avoid the remaining finite proper hyperplanes in its valid-ellipse coefficient subspace. No five positive incidences survive; all <=4 subsets do. A dimension-5 lifted representation gives upper VC 4; along all-positive branch depth 5, each negative alternative forces next independent row, contradiction for all-positive leaf, bounding Littlestone 4. Both Sauer bounds yield exact n-polynomials. Independent rational determinant checks on seven witness points confirmed all 35 quadruple positive ellipse kernels and 21 fivefold nonincidences; the theorem for all n is analytical, not extrapolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full unrestricted linear-combination class has maximum shatter functions; restricted axis-aligned ellipse boundaries are a proper semialgebraic subclass."
+        ],
+        "reasoning": "Broad coverage of dimension bound is credited, but it does not imply all traces at all n for ellipse curves because the sign constraints might remove interpolation kernels.",
+        "searches": [
+          "RESULTARY: axis aligned ellipse boundaries maximal VC Littlestone shatter function all n trace size <=4 positive quadratic",
+          "Guingona et al Theorems 3.10, 5.6 and Example 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Guingona et al, arXiv:2109.04805v1 Thms 3.10,5.6 Example 6.2",
+        "Mészáros arXiv:1908.03045v1",
+        "Bhaskar (2021) online Sauer bound",
+        "Resultary search #4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dimension four for ellipses already known; upper growth follows from it. Lower maximum bound for the positive cone is not supplied by unrestricted-class maximum witnesses."
+        ],
+        "reasoning": "The circle arc Chebyshev rank and generic perturbation yield precisely the additional lower bound for every n, so not merely renaming an old result.",
+        "searches": [
+          "RESULTARY: axis aligned ellipse boundaries maximal VC Littlestone shatter function all n trace size <=4 positive quadratic",
+          "Guingona Example 6.2 and 5-function unrestricted maximum proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundaries can be represented as zero sets in a linear five-function family with positive first two coefficients and nonempty ellipse, an open-cone restriction."
+        ],
+        "reasoning": "Equivalent zero-set formulation was compared carefully: the strong unrestricted five-function result does not automatically give witnesses staying inside the positive elliptic cone.",
+        "searches": [
+          "RESULTARY: axis aligned ellipse boundaries maximal VC Littlestone shatter function all n trace size <=4 positive quadratic",
+          "Guingona et al arXiv:2109.04805v1 Example 6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-family all-n ellipse positive-cone incidence table found; ten-point exact witness and seven-point independent witness only demonstrate finite cases."
+        ],
+        "reasoning": "The theorem quantifies every n rather than a finite database; an uninspected maximal configuration table alone would not yield the universal statement.",
+        "searches": [
+          "RESULTARY: axis aligned ellipse boundaries maximal VC Littlestone shatter function all n trace size <=4 positive quadratic",
+          "Resultary search #4; arXiv:2109.04805"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: primary prior Guingona–Kolesnikov–Nierwinski–Soucy explicitly establish ellipse VC/Littlestone dimension 4 and maximum growth for the LARGER class of unrestricted zero sets of five functions. Their Example 6.2 flags positivity-restricted ellipses as not covered by that maximum theorem. Present generic perturbation completes this restricted-subfamily gap, not a fresh claim for dimensions alone.",
+      "residual_risks": [
+        "A different construction using positive-cone oriented matroids could imply the all-n restricted ellipse theorem without mentioning ellipses.",
+        "Only one n=7 independent rational witness (and source n=10) was finite-checked; arbitrary n follows the continuous perturbation proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior max theorem is for full zero-set class, ellipse-subfamily restricted positive coefficients not proven maximum there; dimension equalities are prior.",
+          "evidence": "Example 6.2 distinguishes ellipse restriction; Theorems 3.10 and 5.6 provide dimension bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2109.04805v1",
+          "material_read": "Full primary arXiv HTML with Theorems 3.10,5.6 and Example 6.2, explicit ellipse discussion",
+          "method": "Lawful arXiv OA primary HTML read",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Same concept class and both dimensions; possible dominating general theorem"
+        },
+        {
+          "assessment": "Different shattering-extremal finite system context; not an ellipse interpolation theorem",
+          "evidence": "Finite-system extremality setting vs positive quadratic zero loci.",
+          "identifier_or_url": "https://arxiv.org/html/1908.03045v1",
+          "material_read": "Available mathematical introductory and theorem material",
+          "method": "Lawful arXiv OA HTML read",
+          "title": "Standard monomials and extremal point sets",
+          "trigger": "Potential maximum set-system equivalence"
+        },
+        {
+          "assessment": "Upper bound is prior and credited; does not provide this restricted-family lower construction",
+          "evidence": "Online Sauer bound and dimension four.",
+          "identifier_or_url": "Journal of Symbolic Logic 86 (2021)",
+          "material_read": "The online Sauer inequality as cited in arXiv:2109.04805",
+          "method": "Primary comparison via quoting paper, not full journal reinspection",
+          "title": "Thicket density (Bhaskar)",
+          "trigger": "Online Sauer bound is prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact growth, not only VC/Littlestone dimension, is a natural combinatorial invariant of ellipse-boundary incidence. Establishing all-size maximum growth for the geometrically constrained positive-coefficient subfamily resolves a concrete gap explicitly signposted in primary prior work, with a useful perturbative interpolation witness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Guingona et al, arXiv:2109.04805v1 Thms 3.10,5.6 Example 6.2",
+    "Mészáros arXiv:1908.03045v1",
+    "Bhaskar (2021) online Sauer bound",
+    "Resultary search #4"
+  ],
+  "disposition": "passed",
+  "final_claim": "For boundaries of nondegenerate axis-parallel ellipses in R², for each n>=0 there are n distinct points such that the attainable boundary traces are exactly all subsets of size <=4; hence both static VC and online Littlestone shatter functions are sum_{j=0}^{min(4,n)} C(n,j), with VCdim=Ldim=4.",
+  "limitations": [
+    "Boundary membership is equality, not ellipse interior; no rotated or filled-ellipse conclusion.",
+    "For n>=5 sample configuration requires generic perturbation; construction is existential; independent check only n=7."
+  ],
+  "residual_risks": [
+    "A different construction using positive-cone oriented matroids could imply the all-n restricted ellipse theorem without mentioning ellipses.",
+    "Only one n=7 independent rational witness (and source n=10) was finite-checked; arbitrary n follows the continuous perturbation proof."
+  ],
+  "schema_version": 1
+}

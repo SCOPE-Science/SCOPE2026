@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain (boundaries of nondegenerate axis-parallel ellipses), quantifiers over every finite cardinality, rank-four Chebyshev argument using a nonvanishing third derivative, perturbation of all quadruple nullspaces, dense-open nonzero determinant avoidance, hyperplane-avoidance trace realization, and VC/online Sauer bounds form a complete proof. In particular, no finite computation is extrapolated to the infinite family. Exact rational calculations replay the complete finite ten-point certificate.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The closest primary source, Guingona et al., arXiv:2109.04805v1, Example 6.2, already proves the *dimensions* equal four, but only asserts maximality for the unrestricted five-function zero-set class and specifically flags the restricted ellipse class as difficult. The proposed equality of **both full shatter functions within the positive-diagonal ellipse subclass** is not an implication of the unrestricted class's maximality, as witnesses for the larger class need not be real ellipses. Direct inspection and the recorded search comparisons found no covering assertion. Mészáros (2019) concerns a different extremality notion. Source-indexing and terminology variation leave residual historical risk.
+PASS
 
-**Value — PASS.** The all-cardinality maximum shatter-function result directly resolves a motivated parameter-restriction issue highlighted in Example 6.2 of the primary paper, quantitatively strengthening a known dimension computation. The proof provides a reusable method: preserve positive-definite conic interpolation along a Chebyshev curve while forcing five-wise feature independence. This is not a numerical table extension or trivial transfer from unrestricted quadratics.
+The five-dimensional lift v(x,y)=(x²,y²,x,y,1) along a first-quadrant circle arc lies in four-dimensional hyperplane. The restricted functions 1,t,t²,sqrt(1-t²) form a four-point Chebyshev family: four zeros would force a nonzero third derivative to vanish, impossible for t in (0,1). Thus every four distinct lifted rows are independent and have a unique ellipse kernel close to (1,1,0,0,-1). For finitely many sample tuples, sufficiently small perturbations preserve positive quadratic coefficients and nonempty nondegenerate conics; all five-fold determinants are nonzero on a dense-open choice because the determinant is a nonzero polynomial (an explicit five-point witness). For every selected <=4 subset, avoid the remaining finite proper hyperplanes in its valid-ellipse coefficient subspace. No five positive incidences survive; all <=4 subsets do. A dimension-5 lifted representation gives upper VC 4; along all-positive branch depth 5, each negative alternative forces next independent row, contradiction for all-positive leaf, bounding Littlestone 4. Both Sauer bounds yield exact n-polynomials. Independent rational determinant checks on seven witness points confirmed all 35 quadruple positive ellipse kernels and 21 fivefold nonincidences; the theorem for all n is analytical, not extrapolated.
 
-**Limits.** This applies to zero-set/boundary membership, not interior membership. The ten-point witness is exact; all-cardinality configurations use generic perturbations. No assertion of absolute historical priority or independent certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: primary prior Guingona–Kolesnikov–Nierwinski–Soucy explicitly establish ellipse VC/Littlestone dimension 4 and maximum growth for the LARGER class of unrestricted zero sets of five functions. Their Example 6.2 flags positivity-restricted ellipses as not covered by that maximum theorem. Present generic perturbation completes this restricted-subfamily gap, not a fresh claim for dimensions alone.
+
+## value
+
+PASS
+
+The exact growth, not only VC/Littlestone dimension, is a natural combinatorial invariant of ellipse-boundary incidence. Establishing all-size maximum growth for the geometrically constrained positive-coefficient subfamily resolves a concrete gap explicitly signposted in primary prior work, with a useful perturbative interpolation witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The all-cardinality proof relies on four logically separate steps: a Chebyshev rank-four argument on the first-quadrant unit-circle arc, continuous preservation of positive-definite quadruple interpolants, dense-open avoidance of all five-by-five lifted determinants, and the exclusion of finitely many proper hyperplanes in the constrained coefficient space. The online dimension bound uses an all-positive branch independence argument. No finite enumeration is treated as a proof for unbounded cardinality.
+## correctness
 
-The attached `verify_ellipse_maximum.py` constructs ten explicit distinct rational points and performs exact, nonfloating-point determinant evaluations. It verifies all 210 quadruple interpolation equations have nondegenerate axis-aligned real ellipse solutions with positive quadratic coefficients, and that all 252 five-point lifted determinants are nonzero. The implied trace count is the exact binomial sum 386. The program checks no version outside those ten points; all-size assertion follows only from the mathematical argument.
+PASS
 
-Run: `python3 verify_ellipse_maximum.py`.
+The five-dimensional lift v(x,y)=(x²,y²,x,y,1) along a first-quadrant circle arc lies in four-dimensional hyperplane. The restricted functions 1,t,t²,sqrt(1-t²) form a four-point Chebyshev family: four zeros would force a nonzero third derivative to vanish, impossible for t in (0,1). Thus every four distinct lifted rows are independent and have a unique ellipse kernel close to (1,1,0,0,-1). For finitely many sample tuples, sufficiently small perturbations preserve positive quadratic coefficients and nonempty nondegenerate conics; all five-fold determinants are nonzero on a dense-open choice because the determinant is a nonzero polynomial (an explicit five-point witness). For every selected <=4 subset, avoid the remaining finite proper hyperplanes in its valid-ellipse coefficient subspace. No five positive incidences survive; all <=4 subsets do. A dimension-5 lifted representation gives upper VC 4; along all-positive branch depth 5, each negative alternative forces next independent row, contradiction for all-positive leaf, bounding Littlestone 4. Both Sauer bounds yield exact n-polynomials. Independent rational determinant checks on seven witness points confirmed all 35 quadruple positive ellipse kernels and 21 fivefold nonincidences; the theorem for all n is analytical, not extrapolated.
 
-Expected output:
+## originality
 
-```text
-AXIS_ELLIPSE_EXACT_WITNESS_PASS points=10 quadruples=210 quintets=252 traces=386
-ALL_DETERMINANT_CHECKS_RATIONAL_PASS
-```
+PASS
 
-Independent replication, additional historical-priority work, and extension to filled ellipses remain unperformed.
+PASS best-of-knowledge: primary prior Guingona–Kolesnikov–Nierwinski–Soucy explicitly establish ellipse VC/Littlestone dimension 4 and maximum growth for the LARGER class of unrestricted zero sets of five functions. Their Example 6.2 flags positivity-restricted ellipses as not covered by that maximum theorem. Present generic perturbation completes this restricted-subfamily gap, not a fresh claim for dimensions alone.
+
+## value
+
+PASS
+
+The exact growth, not only VC/Littlestone dimension, is a natural combinatorial invariant of ellipse-boundary incidence. Establishing all-size maximum growth for the geometrically constrained positive-coefficient subfamily resolves a concrete gap explicitly signposted in primary prior work, with a useful perturbative interpolation witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
