@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "An arbitrary length decomposes uniquely as \\(tL+r\\). All zero counts realized in each two-run period form the exact interval \\([te+\\max(0,r-f),te+\\min(e,r)]\\) by extremal phases and adjacent-phase continuity. With \\(a>c\\), endpoint order makes the common class count \\(\\max(0,1+\\min(c,r)-\\max(0,r-b)-t(a-c))\\). Its level sets yield precisely \\(t(a+d)\\le n\\le(t+1)(b+c)\\) for \\(0\\le t\\le\\lfloor\\min(b,c)/(a-c)\\rfloor\\), and direct counting gives the gap and maximal formulas. Python 3 verifier independently enumerated actual periodic factors for 2870 parameter pairs and 123682 length-and-class checks; finite checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sugimoto et al. Theorem 3 represents all longest common Abelian factors of finite input words in O(m^2 n) time, but does not quantify over all lengths of factors of an infinite periodic family",
+        "Fici–Puzynina survey, introduction explicitly says Abelian stringology algorithms are not covered"
+      ],
+      "reasoning": "The algorithm covers any finite truncation as an input instance, but its output theorem is an algorithmic representation, not a symbolic all-parameter classification of the infinite periodic family or its full set of possible lengths. Neither source directly implies the new intervals without additional arithmetic argument.",
+      "searches": [
+        "run-length encoded longest common Abelian factor two runs periodic binary strings exact formula",
+        "arxiv:1701.02836 pdf, Section 5 and Theorem 3",
+        "arxiv:2207.09937 pdf, introduction and Section 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1701.02836",
+      "https://arxiv.org/pdf/1701.02836",
+      "https://arxiv.org/abs/2207.09937",
+      "https://arxiv.org/pdf/2207.09937",
+      "https://arxiv.org/abs/1503.01093",
+      "https://kclpure.kcl.ac.uk/portal/en/publications/algorithms-for-longest-common-abelian-factors/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1701.02836 Theorem 3: O(m^2 n) algorithm for finite words",
+        "arxiv:2207.09937 Proposition 3: bounded Abelian complexity iff bounded balance, not an intersection classification for two different words"
+      ],
+      "reasoning": "The proposed result fixes a natural infinite family and determines C(n), its support, all gaps, the largest support member, and total support cardinality. Existing definitions, generic algorithms, and boundedness statements alone do not state or logically give these closed formulas without the new endpoint and level-set argument. A hidden explicit corollary in a broader source remains a risk.",
+      "searches": [
+        "arxiv:1701.02836 Section 5 exact longest-common-factor algorithm",
+        "arxiv:2207.09937 Section 3.1 Abelian complexity and periodicity",
+        "longest common abelian factor of periodic strings periodic words Parikh vectors longest Abelian common factor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1701.02836, Definition of longest common Abelian factor (PDF pp. 1–2), Theorem 3 (PDF p. 15): finite RLE sliding-window algorithm",
+        "arxiv:2207.09937, Section 3.1 (PDF p. 6): Abelian complexity counts realized Parikh vectors"
+      ],
+      "reasoning": "The count of common zero-count values is an equivalent expression for shared binary Parikh vectors. Neither checked primary statement supplies the complete equal-period two-run intersection formula or the disjoint spectrum of lengths. Generic definitions and finite algorithms are not the claimed novelty.",
+      "searches": [
+        "longest common abelian factor of periodic strings periodic words Parikh vectors longest Abelian common factor",
+        "Parikh vector intervals intersection length two binary cyclic run words",
+        "two periodic binary words equal period different Parikh vectors exact lengths of common Abelian factors disjoint intervals",
+        "two periodic binary words equal period different Parikh vectors exact lengths of common Abelian factors disjoint intervals"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct equal-period two-run length spectrum appeared among the examined published-result index results or targeted web results",
+        "The two most related returned indexed records concern binary short-read reconstruction and adjacent-pair multispectra, not common Abelian factors of two different periodic words"
+      ],
+      "reasoning": "No exact database sequence or table for the four-run-parameter, all-length spectrum was found. This is negative search evidence only and cannot prove that an unindexed specialization does not exist.",
+      "searches": [
+        "\"longest common abelian factors\" periodic words closed form binary",
+        "binary periodic strings \"common abelian factors\" \"run\"",
+        "Abelian common-factor spectra for 0^a1^b and 0^c1^d powers with a+b=c+d",
+        "longest common Abelian factor of two periodic binary strings with equal periods but different zero densities, exact maximum length and mismatch ratio"
+      ]
+    },
+    "rationale": "Primary literature on finite-input longest common Abelian factors and general Abelian complexity supplies algorithms and definitions, but inspected theorem statements do not state the closed pairwise infinite-family length spectrum or exact disjoint-island consequence. Multiple relevant published-record and literature queries found no directly dominating identity. Risk of an unindexed equivalent or implicit specialization remains.",
+    "residual_risks": [
+      "The full primary text of Grabowski (2015) and Alatabbi et al. (2016) was not available through the inspected access route; their abstracts do not assert the exact result.",
+      "An unindexed formula or an implicit previously published specialization could yield the same disjoint interval spectrum; search absence is not novelty proof.",
+      "Only the scientifically most relevant sections, not every page, of the lengthy survey were materially read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Finite-input algorithm covers input class but does not state complete infinite equal-period two-run coincidence spectrum or sharp island formulas",
+        "evidence": [
+          "PDF lines 9–25 and 80–128; 983–1048; first-public arXiv record 2017-01-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1701.02836",
+        "material_read": "Relevant complete primary text passages including abstract, introduction, Sections 1.1–1.2, Section 5 sliding-window lemmas, Theorem 3, proof, and numerical example; pages 1 and 13 additionally checked visually",
+        "method": "Open-access arXiv PDF text and screenshots of pages 1 and 13",
+        "title": "Computing Abelian regularities on RLE strings",
+        "trigger": "Same named invariant: longest common Abelian factors; run-length-encoded inputs"
+      },
+      {
+        "assessment": "Supplies Parikh and Abelian complexity framework, boundedness/periodicity context, not the pairwise matching-island theorem in inspected sections; explicitly excludes algorithms of Abelian stringology",
+        "evidence": [
+          "PDF lines 53–94; pages 6–7; first-public arXiv 2022-07-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.09937",
+        "material_read": "Abstract, contents, introduction and Section 3.1–3.2 relevant text, with visual pages 6–7",
+        "method": "Open-access arXiv PDF text plus page screenshots",
+        "title": "Abelian Combinatorics on Words: a Survey",
+        "trigger": "Abelian complexity, periodicity, and possible stronger structural background"
+      },
+      {
+        "assessment": "The abstract states finite-string longest-Abelian-factor algorithmic time/space refinements, not a run-cycle parameter classification; full-text uncertainty retained",
+        "evidence": [
+          "Abstract lines 30–45; first public 2015-03-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.01093",
+        "material_read": "Abstract and metadata only; PDF full text unavailable in current access path",
+        "method": "Open-access arXiv abstract page",
+        "title": "A note on the longest common Abelian factor problem",
+        "trigger": "Potential earlier dominating algorithm"
+      },
+      {
+        "assessment": "States generic algorithmic results, including binary subquadratic implementation, with no explicit matching islands in abstract; full-text uncertainty retained",
+        "evidence": [
+          "Institutional abstract; DOI 10.1142/S0129054116500143"
+        ],
+        "identifier_or_url": "https://kclpure.kcl.ac.uk/portal/en/publications/algorithms-for-longest-common-abelian-factors/",
+        "material_read": "Accessible institutional bibliographic abstract, not full text",
+        "method": "Institutional publication portal abstract",
+        "title": "Algorithms for Longest Common Abelian Factors",
+        "trigger": "Earlier direct named invariant study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a00e93cf-1012-401a-9a40-1da8cb368b3c",
+  "value": {
+    "rationale": "Longest common Abelian factors are a motivated string-matching quantity. The formula gives the entire infinite pairwise class-count function and all support lengths, including exact growing forbidden gaps and sharp last length across all unequal positive two-run profiles of equal period. The surprising longer-match-with-shorter-nonmatch phenomenon is structural, not a textbook single input or arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
