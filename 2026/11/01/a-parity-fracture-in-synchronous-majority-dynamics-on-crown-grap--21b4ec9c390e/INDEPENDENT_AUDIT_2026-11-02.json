@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:55:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md ffc0b1ad562564434a9459d0f665e1c008495389, even/odd proof cases; verify_majority_crown.py c69f77a193a8a56400143868c6945862d689f6fb; independently enumerated 4^n states n=1..7."
+      ],
+      "rationale": "On Cr_n=K_{n,n}-M the exact neighbor count is s_B-b_i (left) and s_A-a_i (right). For even n=2m the degree is odd and every shore updates to 0,1 or opposite complement according as the other population is below m, above m or equals m. This gives involutions on the balanced subspace, exact P1=2+C_n and two-cycle count (C_n+1)(C_n+2)/2, plus worst entry time 0 (n=2) or 1. For odd n=2m+1, tie-retention gives operations 0,Y&not X,Y|not X,1 on L/U/V/H population classes; six representative class pairs under shore swap and complement exhaust the dynamics and give a single opposing unanimous period-two orbit, explicit fixed/basin counts and sharp T=2 (n=3) or 3 (n>=5). Direct independently coded neighborhood iteration exhaustively checked 4^n labelled states for n=1..7, including exact basin/orbit/transient counts. Infinite n follows from case analysis and binomial enumeration, not the finite exhaustive sample.",
+      "residual_risks": [
+        "The n=1 two-isolates case and n=2,3 small-size thresholds are handled separately; synchronous strict-neighbor majority with retention on ties only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaaser et al. Theorem 1.2 bounds voting time in terms of graph modules and gives O(r²) for Turán graphs; crown graphs exclude a perfect matching and do not have the same complete-multipartite modules. General Goles–Olivos bound yields eventual period at most two but not sharp times 0/1/2/3 or populations."
+        ],
+        "reasoning": "Broad finite threshold dynamics results provide the eventual-period restriction, not the parity-dependent classification of all labelled states and oscillatory basin counts.",
+        "searches": [
+          "Kaaser Mallmann-Trenn Natale arxiv:1508.03519v1 Theorem 1.2",
+          "Benjamini et al 1405.2486 Theorem 1.1",
+          "crown graph majority updates retention on ties"
+        ]
+      },
+      "checked_sources": [
+        "Goles–Olivos (1980) cited theorem via full Benjamini et al. 1405.2486v1",
+        "Benjamini et al. 2014 full accessible HTML theorem and proof",
+        "Kaaser–Mallmann-Trenn–Natale 2015 full accessible HTML theorem and applications",
+        "Resultary crown coloring and complete multipartite XOR near-neighbors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A global period-two theorem cannot specify N2=(C_n+1)(C_n+2)/2 for even n or N2=1 for odd n; an O(r²) convergence-time bound cannot imply exact first-entry maxima or basin fractions."
+        ],
+        "reasoning": "The six-case tie-sensitive matched-coordinate classification uses actual deleted matching pairs, missing from generic graph-majority convergence theorems. It is not an algebraic substitution from them.",
+        "searches": [
+          "Benjamini et al arxiv 1405.2486 Theorem 1.1",
+          "Kaaser et al arxiv 1508.03519 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benjamini–Chan–O’Donnell–Tamuz–Tan arXiv:1405.2486v1 Theorem 1.1 cites Goles–Olivos eventual period <=2 for arbitrary finite graphs; it does not count crown cycles or basins."
+        ],
+        "reasoning": "The new claim is exact graph-specific enumeration and transient threshold, not a reproof of eventual period-two property.",
+        "searches": [
+          "synchronous majority rule crown graphs K n n minus perfect matching exact two cycle basin parity count",
+          "majority dynamics crown graph parity fracture exact period two",
+          "Goles Olivos periodic behaviour generalized threshold functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds crown-graph neighborhood parity coloring fe94e840e8ec, odd independent coloring 3bc0465d6248, and complete-multipartite XOR cycle census acea41c73be7; no temporal majority census on Cr_n."
+        ],
+        "reasoning": "The closed counts were independently exhaustively verified for n<=7, without inferring absence of a known all-n table from unsuccessful search.",
+        "searches": [
+          "synchronous majority rule crown graphs K n n minus perfect matching exact two cycle basin parity count",
+          "synchronous majority rule crown graphs K n n minus perfect matching exact two cycle basin parity count",
+          "majority dynamics crown graph primitive orbit number binomial n"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The six-case tie-sensitive matched-coordinate classification uses actual deleted matching pairs, missing from generic graph-majority convergence theorems. It is not an algebraic substitution from them.",
+      "residual_risks": [
+        "An unindexed crown-graph-specific majority census could predate this exact formula; queries and primary reading cannot prove exhaustive historical novelty.",
+        "Full Goles–Olivos (1980) original article was not obtained; its standard period-two theorem is checked via secondary primary mathematics article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PERIOD_BOUND_ONLY",
+          "evidence": [
+            "Theorem 1.1 says each finite graph eventually has period at most two; the paper studies probabilistic unanimity on random/unimodular graphs, not labelled crown orbit counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "Accessible HTML introduction, majority rule/tie convention, Theorem 1.1 (Goles–Olivos), Section 2 proof, random-graph scope and references",
+          "method": "Full HTML targeted theorem/definition/section reading",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General eventual period-two theorem and tie-retention rule"
+        },
+        {
+          "assessment": "GENERAL_UPPER_BOUND_ONLY",
+          "evidence": [
+            "Theorem 1.2 provides module-contraction upper bounds and O(r²) for complete multipartite Turán graphs; no exact 0/1/2/3 cutoff or primitive cycle/basin enumeration for Cr_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.03519v1",
+          "material_read": "Accessible HTML introduction, definitions, Theorems 1.1 and 1.2, modules/Turán discussion and proof architecture",
+          "method": "Full HTML targeted theorem/assumption/graph class reading",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Potential all-graph sharp time bound that dominates crown cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Explicit six-class reduction and sharp n=1,2,3 boundaries; cited general finite-graph period-two theorem and sharp majority-voting bounds."
+      ],
+      "rationale": "Deleting one matching from K_n,n creates a natural tie-sensitive bipartite family; the parity of the shore size changes both number of primitive two-cycles (one versus exponentially many) and basin convergence rate (exponential versus n^-1/2), while the asymptotic basin probability stays 1/2. The exact complete orbit/basin/transient census gives a meaningful structural dynamical classification, not simply the textbook eventual period-two theorem.",
+      "residual_risks": [
+        "Only synchronous strict neighbor majority with retention on ties on labelled crown graphs; changing tie convention or graph changes conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent checks corroborate only the stated cases; all-dimensional or asymptotic conclusions rest on the cited mathematical proofs.",
+    "Historical novelty is a best-of-knowledge assessment, not external certification.",
+    "Publication withheld because public metadata contains operational identifiers."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-neighbor identity counts all opposite-shore ones except the paired missing neighbor. This gives the three-branch even rule and the four-branch odd rule without approximation. For odd shore size, swapping shores and complementing opinions reduce every population-class pair to exactly six cases, each resolved through time three; for even shore size the middle-population involution handles the only nonunanimous recurrent states. The fixed-point and orbit formulas count labelled states and divide primitive periodic-state counts by two only after confirming their least period. The odd basin formula follows by inclusion–exclusion of pairwise overlaps of size zero or one. A separate pair-type lifting checker for sizes through fifty and independent explicit adjacency simulation for sizes through seven agreed with every displayed finite formula and sharp boundary.
+## correctness
 
-**Originality — PASS with residual risk.** Goles–Olivos (1980) gives eventual period at most two for symmetric thresholds, not the number of crown-graph fixed points, periodic orbits, or two-cycle basin states. Benjamini et al. (2014, arXiv:1405.2486v1) study general and random graphs; Kaaser–Mallmann-Trenn–Natale (2015, arXiv:1508.03519v1) give voting-time bounds and a Turán-graph consequence. Their materially inspected statements do not imply the derived sharp crown-graph cutoff or the exact parity-dependent census. Targeted mathematical-record and bibliographic queries found related graph/coloring and parity-automaton statements but no equivalent majority-dynamics census. Failure to find an unindexed equivalent is not proof of historical priority.
+PASS
 
-**Value — PASS.** Crown graphs form a natural single-perfect-matching perturbation of complete bipartite interaction. The result proves a counterintuitive topological parity fracture: for odd shore sizes a single oscillatory orbit attracts asymptotically half of all labelled initial conditions, while even sizes support exponentially many oscillatory orbits. The exact comparison between square-root and exponential approaches of attraction probability to one-half adds a motivated asymptotic invariant not obtainable from the general eventual-period-two theorem. The sharp uniform transient bound complements these exact dynamical counts.
+On Cr_n=K_{n,n}-M the exact neighbor count is s_B-b_i (left) and s_A-a_i (right). For even n=2m the degree is odd and every shore updates to 0,1 or opposite complement according as the other population is below m, above m or equals m. This gives involutions on the balanced subspace, exact P1=2+C_n and two-cycle count (C_n+1)(C_n+2)/2, plus worst entry time 0 (n=2) or 1. For odd n=2m+1, tie-retention gives operations 0,Y&not X,Y|not X,1 on L/U/V/H population classes; six representative class pairs under shore swap and complement exhaust the dynamics and give a single opposing unanimous period-two orbit, explicit fixed/basin counts and sharp T=2 (n=3) or 3 (n>=5). Direct independently coded neighborhood iteration exhaustively checked 4^n labelled states for n=1..7, including exact basin/orbit/transient counts. Infinite n follows from case analysis and binomial enumeration, not the finite exhaustive sample.
 
-**Limits and risks.** The results use labelled synchronous strict-majority updating and current-state retention on ties; other conventions are not included. The small disconnected cases are handled explicitly. Literature inspection is selective but targeted, not a comprehensive historical uniqueness guarantee; independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The six-case tie-sensitive matched-coordinate classification uses actual deleted matching pairs, missing from generic graph-majority convergence theorems. It is not an algebraic substitution from them.
+
+## value
+
+PASS
+
+Deleting one matching from K_n,n creates a natural tie-sensitive bipartite family; the parity of the shore size changes both number of primitive two-cycles (one versus exponentially many) and basin convergence rate (exponential versus n^-1/2), while the asymptotic basin probability stays 1/2. The exact complete orbit/basin/transient census gives a meaningful structural dynamical classification, not simply the textbook eventual period-two theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
