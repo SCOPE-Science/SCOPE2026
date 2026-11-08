@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact Gram eigenvalues \\(m\\pm|S|\\) give a singular set consisting of one point of the \\((m-1)\\)-torus. The local quadratic matrix \\(B=I-\\mathbf1\\mathbf1^\\mathsf T/m\\) has eigenvalues \\(1\\) and \\(1/m\\), so the high-condition event is squeezed between ellipsoids of squared radius \\(4m/t^2\\); their Haar volumes produce the claimed constant. Tail integration proves the moment criterion, and the two-sample case admits direct exact trigonometric integration. The standalone code checks the rational determinant/phase identities and selected numerical consequences; these do not serve as proofs for unbounded sample count or threshold.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ming–Yu Theorems 5.1–5.2 concern high-index singular-value decay in multi-feature PDE collocation; their hypothesis \\(m\\ge3M\\log(15M)+1\\) and their feature-rich setup differ from the fixed two-mode ensemble.",
+        "Tucci–Whiting Theorem 3.3 concerns square Vandermonde inverses rather than all rectangular m-by-2 matrices with random sampling rows.",
+        "Kunis–Nagel gives deterministic near-collision bounds with different node/frequency orientation and no uniform-phase tail coefficient."
+      ],
+      "reasoning": "None of these stronger-looking conditions or deterministic bounds implies the exact probability prefactor and integrability boundary simultaneously for all m in this model.",
+      "searches": [
+        "Ming Yu arxiv:2609.03401 Theorems 5.1-5.2 Appendix E random Fourier feature condition number",
+        "Tucci Whiting arxiv:1202.3184 minimum singular value inverse moments",
+        "Kunis Nagel doi:10.1007/s11075-020-00974-x collision conditioning"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.03401",
+      "https://arxiv.org/abs/2507.07371",
+      "https://arxiv.org/abs/1202.3184",
+      "https://link.springer.com/article/10.1007/s11075-020-00974-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper gives condition-number lower bounds driven by feature-count growth rather than a fixed-width random-node probability distribution.",
+        "The 2012 Vandermonde model fixes consecutive sampled powers and randomizes the columns/nodes; its square inverse moments cannot determine the all-m two-column tail coefficient.",
+        "The 2020 deterministic cluster geometry does not incorporate Haar-node probability nor derive the ellipsoid-volume coefficient."
+      ],
+      "reasoning": "One may reduce the present conditioning event to alignment of m uniform phases, then to an ellipsoid volume. That additional probability-geometric argument is absent from the identified prior statements; the final claim is not a corollary of their displayed inequalities.",
+      "searches": [
+        "arxiv:2609.03401 Section 5 Theorems 5.1-5.2",
+        "arxiv:2507.07371 Section 1.1 and feature matrix analysis",
+        "arxiv:1202.3184 Sections 3 and 5",
+        "doi:10.1007/s11075-020-00974-x Sections 1-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Gram eigenvalues are m±|sum exp(i theta_j)|; equivalent to concentration of a planar Steinhaus random walk near its maximal radius.",
+        "Tucci–Whiting arXiv:1202.3184 studies randomly placed Vandermonde nodes in a different fixed-degree/column geometry."
+      ],
+      "reasoning": "Searched under two-mode Fourier collocation, random Vandermonde, Steinhaus concentration, least singular value, and inverse moments. Exact tail constants under these equivalent interpretations were not identified in inspected sources; identical terminology alone does not establish noncoverage.",
+      "searches": [
+        "\"random Vandermonde\" \"smallest singular\" \"condition\" probability \"two\"",
+        "\"two\" \"Vandermonde\" \"condition number\" \"uniform\" phases tail",
+        "\"random Fourier\" \"condition number\" \"moments\" \"two\" columns"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed records returned deterministic Fourier full-spark and conditioning results; the closest spectral conditioning title was a finite cyclic Gabor model, not random iid circle collocation.",
+        "No directly matching full distribution/tail constant was present in accessible historical claims of the same research series."
+      ],
+      "reasoning": "The searches and accessible claims did not reveal a precomputed exact small-ball table for the specified two-mode random-node matrix; failed indexing is not a proof of uniqueness.",
+      "searches": [
+        "semantic published findings: two column random Fourier Vandermonde uniform phases condition number power law tail moment finite iff m minus one",
+        "semantic published findings: smallest singular value two random Fourier columns condition number moment threshold oversampling order sample count minus one",
+        "web exact phrase: random Fourier condition number moments two columns"
+      ]
+    },
+    "rationale": "The exact all-m sample-size tail constant and if-and-only-if moment cutoff for a two-complex-mode, random-node Fourier design are not implied by the inspected feature-rich RFM bounds or Vandermonde deterministic separation/large-square-matrix results. Indexed mathematical searches found nearby Fourier conditioning and random matrix records but no direct theorem in the same model. Priority risk from alternative Steinhaus small-ball terminology remains.",
+    "residual_risks": [
+      "The exact tail may be implicit in an unindexed random-walk near-maximal-modulus small-ball lemma or hidden in older Fourier sampling literature.",
+      "The two-sample special case is elementary; priority rests on the all-m sharp coefficient and integrability classification, not on the Gram eigenvalue identity.",
+      "Search indexing and accessible primary-text coverage are not an independent exhaustive literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different features-rich PDE collocation model; no fixed-two-column Haar-node condition tail theorem located",
+        "evidence": "Theorem 5.1 imposes high-index m≥3M log(15M)+1; Theorem 5.2 treats condition-number lower bounds using high-index feature spaces.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.03401",
+        "material_read": "Full searchable arXiv HTML including Introduction, Section 5 Theorems 5.1–5.2, Appendix E proof and assumptions",
+        "method": "Read the primary article, compared random objects, singular-value indices and probability quantifiers",
+        "title": "Spectral Convergence of Random Feature Method in Multiple Dimensions",
+        "trigger": "Recent source explicitly studies Fourier-feature collocation conditioning"
+      },
+      {
+        "assessment": "Exponential feature-count estimates, not fixed-width iid-Haar row sampling",
+        "evidence": "Its third main contribution treats n×2N PDE collocation matrices and exponential lower bounds on conditioning.",
+        "identifier_or_url": "https://arxiv.org/abs/2507.07371",
+        "material_read": "Primary arXiv HTML introduction, main contributions and cited condition-number results",
+        "method": "Read accessible sections on RFMtx singular value decay and sampling",
+        "title": "Spectral connvergece of random feature method in one dimension",
+        "trigger": "Same authors preceding condition-number study"
+      },
+      {
+        "assessment": "Different ensemble; square N-by-N and asymptotic large N emphasis do not imply this constant",
+        "evidence": "Equations (1),(2) define N rows of consecutive powers with random node columns; Section 3 discusses square Vandermonde inverse matrices.",
+        "identifier_or_url": "https://arxiv.org/abs/1202.3184",
+        "material_read": "Primary arXiv HTML introduction, random matrix definition, Sections 3,4,5 and Theorem 3.3 discussion",
+        "method": "Inspected precise orientation of row powers versus random column phases and eigenvalue regimes",
+        "title": "Asymptotic Behavior of the Maximum and Minimum Singular Value of Random Vandermonde Matrices",
+        "trigger": "Historical nearest title to random Vandermonde inverse moment laws"
+      },
+      {
+        "assessment": "Closest geometric analogue but no full random-node law or exact probability prefactor",
+        "evidence": "Theorem framework uses M node rows, N consecutive powers, deterministic pair-collision separation with finite N; random phase density is not the estimand.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "material_read": "Full open-access article HTML: abstract, introduction, model equation (2.1), theoretical bounds and comparison section",
+        "method": "Compared deterministic near-node-collision bounds to random sampling and limiting t quantifiers",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Potential coverage via general near-collision condition-number theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dfa159ab-8f10-49d9-a8b0-7bce974ec17c",
+  "value": {
+    "rationale": "This natural minimal two-frequency random Fourier collocation problem has a complete sharp reliability classification for every sample count. The precise probability constant and moment threshold distinguish typical full rank from heavy-tail numerical sensitivity, show that two samples have infinite mean condition number, and quantify how each additional independent observation improves the rare-event exponent. The result is not a restatement of the source paper’s high-feature-count lower bound.",
+    "status": "PASS"
+  }
+}
