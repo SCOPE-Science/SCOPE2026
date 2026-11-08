@@ -1,15 +1,21 @@
-# Scientific review: alternating center curvature of finite Hermite concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim covers every positive integer \(q\), with Hermite functions normalized by the physicists' Gaussian convention. Differentiation of the finite concentration Gram matrix is exact. The proof establishes the centered Wronskian overlap, the finite central-binomial identity \(S_mR_m=H_m\), and the two successive order-increment formulas. Induction from \(q=1\) yields \(V_q''(0)=(-1)^q(2/\pi)H_{\lceil q/2\rceil}\). Parity provides \(V_q'(0)=0\), strict positivity of each \(H_m\) proves nondegenerate extrema, and Stirling's formula gives logarithmic magnitude. A standalone checker completed 260 finite rational tests and 16 separate numerical Hermite-integral tests. These tests support, but do not replace, the all-order proof.
+## correctness
 
-## Originality — PASS (qualified)
-Sánchez-Nungaray et al. (2018, DOI 10.1155/2018/8031259) provide a full polyanalytic Fock Hermite-matrix representation, not the all-order moving-boundary curvature classification. Lee-Guzmán et al. (2023, arXiv:2309.03410) extend that decomposition; their relevant sections are not an independent curvature theorem. Forrester and Witte (2011, arXiv:1110.0119) establish the exact GUE index variance at the fixed central threshold, an equivalent instance of \(V_q(0)\); their stated results do not imply the explicit second derivative in threshold without further calculation. Previously available two- and three-level extrema are special cases of the present all-order formula and are not treated as novel here. The strongest residual priority risk is an earlier moving-boundary finite-GUE formula, perhaps expressed through a Fredholm determinant or kernel derivative. Such a formula would dominate the claim if it explicitly yielded this exact all-order parity identity.
+PASS
 
-## Mathematical value — PASS
-The defect \(\operatorname{tr}(A(I-A))\) is the natural concentration variance of a Hermite spectral projector, and is also the particle-number variance of its finite Hermite determinantal process. Its central curvature is directly related to stability of a symmetric localization threshold. The theorem settles a uniform all-finite-order sign classification, discovers an exact arithmetic coefficient, and exhibits logarithmic growth. It distinguishes local from global extrema and introduces no arbitrary slice of a classification problem.
+Let A_q(t) be the Gram compression of 1_[t,∞) to h_0,…,h_(q-1), V_q(t)=tr A_q(I-A_q). Normalized physicist Hermites satisfy h_j″=(t²-2j-1)h_j. Boundary Wronskians and parity give the Hermite overlap integral and first two threshold derivatives. The finite central-binomial identity S_mR_m=H_m (where H_m=sum_{j<m}[C(2j,j)/4^j]^2) follows from generating-function recurrence, then adding an odd/even Hermite level yields curvature increments (4/pi)H_m and -(2/pi)(c_m²+2H_m). From V_1″(0)=-2/pi, induction gives (-1)^q(2/pi)H_ceil(q/2). Reflection A_q(-t)=I-D A_q(t)D gives evenness and stationary center; H_m>0 forces strict local maximum for odd q, strict local minimum for even q; c_j²~1/(pi j) yields magnitude (2/pi²)log q+O(1). Independently verified Wronskian double-sum rational coefficients against closed form q=1..40; checks are finite corroboration of proof.
 
-## Limitations and evidence
-The primary sources were materially examined in accessible HTML/arXiv text at their relevant structural and index-variance sections; the closely related published centered-Hermite spectral-gap record was available only in summary form. No claim of exhaustive historical novelty is made. The proof is independent of numerical finite checks; independent mathematical validation has not been conducted. The centered variance and its second derivative are different observables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for uniform all-finite-q closed-form moving-threshold second derivative, parity-alternating strict local extremum, and logarithmic magnitude. Forrester–Witte treat exact index variance at t=0 but not its moving-t curvature in the inspected sections. Polyanalytic Fock literature identifies the Hermite matrix but does not in inspected material produce this curvature identity. Genuine priority risk of older finite-GUE moving-threshold variance derivative identities expressed via Hermite kernels or Fredholm determinant calculus.
+
+## value
+
+PASS
+
+The half-line concentration trace defect is the determinantal-particle-number variance and a canonical spectral-concentration observable. Its local curvature controls symmetry-threshold stability and has a nontrivial strict parity switch at every order plus increasing logarithmic strength; a complete all-q identity is naturally motivated beyond known centered value and isolated low orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

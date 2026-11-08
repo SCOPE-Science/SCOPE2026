@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:13:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let A_q(t) be the Gram compression of 1_[t,∞) to h_0,…,h_(q-1), V_q(t)=tr A_q(I-A_q). Normalized physicist Hermites satisfy h_j″=(t²-2j-1)h_j. Boundary Wronskians and parity give the Hermite overlap integral and first two threshold derivatives. The finite central-binomial identity S_mR_m=H_m (where H_m=sum_{j<m}[C(2j,j)/4^j]^2) follows from generating-function recurrence, then adding an odd/even Hermite level yields curvature increments (4/pi)H_m and -(2/pi)(c_m²+2H_m). From V_1″(0)=-2/pi, induction gives (-1)^q(2/pi)H_ceil(q/2). Reflection A_q(-t)=I-D A_q(t)D gives evenness and stationary center; H_m>0 forces strict local maximum for odd q, strict local minimum for even q; c_j²~1/(pi j) yields magnitude (2/pi²)log q+O(1). Independently verified Wronskian double-sum rational coefficients against closed form q=1..40; checks are finite corroboration of proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018/2023 works establish general Hermite fiber operator representation, not stated all-order moving-cutoff V″ sign.",
+          "Forrester–Witte provide exact centered index variance and its size asymptotics."
+        ],
+        "reasoning": "A general representation or exact function value at t=0 does not logically determine a second threshold derivative without further boundary integration identities. A general closed t-dependent GUE variance would dominate and remains a historical risk.",
+        "searches": [
+          "Sánchez-Nungaray et al. Horizontal Symbols Acting on the Poly-Fock Spaces 2018",
+          "Lee-Guzmán et al. Horizontal Fourier transform polyanalytic Fock kernel arXiv:2309.03410",
+          "Forrester–Witte arXiv:1110.0119 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/REVIEW.md/VERIFICATION.md/check_curvature.py and tree 9cbd5e199e490d7841742ec0db87c1d1fca72dc2",
+        "Forrester–Witte arXiv:1110.0119 full PDF finite Gaussian index-variance sections",
+        "Sánchez-Nungaray et al. DOI:10.1155/2018/8031259 (incomplete access)",
+        "Lee-Guzmán et al. arXiv:2309.03410 (bibliographic/abstract)",
+        "Resultary 2026/10/11 Hermite spectral gaps summary (not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forrester–Witte center q=all variance formula is a t=0 value, whose computation does not itself force the derivative.",
+          "All finite Hermite orders obey alternating V″(0) with exact binomial partial sum and strict nondegenerate sign, not an immediate corollary of fixed-center value."
+        ],
+        "reasoning": "Inspected prior statements motivate the observable but do not directly imply its threshold Hessian; the Wronskian and central-binomial recurrence do the missing mathematical work.",
+        "searches": [
+          "Forrester–Witte 2011 arXiv:1110.0119 formula for central index variance",
+          "2018 Poly-Fock Toeplitz horizontal symbols DOI:10.1155/2018/8031259",
+          "Resultary 2026/10/11 Hermite spectral gap Barnes limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the Hermite determinantal point process V_q(t) equals Var(number of GUE eigenvalues above t), a known equivalent physical formulation.",
+          "Forrester–Witte compute the central threshold t=0 variance at finite matrix size, an observable distinct from its t-curvature."
+        ],
+        "reasoning": "Rephrase as centered GUE index-variance Hessian and check whether the exact derivative, not merely value, appears; inspected source sections do not give the claimed closed parity sum.",
+        "searches": [
+          "Resultary semantic: Hermite half-line concentration trace variance center curvature random matrix index variance all finite levels",
+          "Forrester–Witte GUE index variance arXiv:1110.0119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact half-line Hermite result calculates spectral gap products and centered half-energy eigenvalues for finite masks, not moving-threshold curvature.",
+          "Fixed-center index variance is known; this theorem classifies all-q local derivative."
+        ],
+        "reasoning": "Neither a fixed-center spectral gap determinant nor finite table of V_q(0) is the same invariant as V_q″(0) with the stated parity sign, although an unpublished derivative table might cover it.",
+        "searches": [
+          "Resultary semantic: Hermite half-line concentration trace variance center curvature random matrix index variance all finite levels",
+          "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88"
+        ]
+      },
+      "rationale": "Qualified PASS for uniform all-finite-q closed-form moving-threshold second derivative, parity-alternating strict local extremum, and logarithmic magnitude. Forrester–Witte treat exact index variance at t=0 but not its moving-t curvature in the inspected sections. Polyanalytic Fock literature identifies the Hermite matrix but does not in inspected material produce this curvature identity. Genuine priority risk of older finite-GUE moving-threshold variance derivative identities expressed via Hermite kernels or Fredholm determinant calculus.",
+      "residual_risks": [
+        "A stronger known moving-threshold finite-GUE number variance identity may directly imply V_q″(0) despite absence in the inspected centered-index formula; historical priority remains qualified.",
+        "Full 2018 horizontal-symbol original paper inaccessible in this execution, so no whole-document exclusion is claimed.",
+        "Only local center extrema, not global optimality or all stationary points; Hermite coordinate normalization fixes numerical curvature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERING: same centered GUE variance observable V_q(0), not an explicit all-q threshold curvature theorem in inspected sections",
+          "evidence": "Centered index variance formula and finite-N recursion, no exact moving-t V″ parity law identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0119",
+          "material_read": "Full PDF opening sections and relevant finite-N centered variance recurrences, asymptotic and fixed-center formula",
+          "method": "Read source PDF, rendered opening page and examined sections with index variance formula",
+          "title": "On the Variance of the Index for the Gaussian Unitary Ensemble",
+          "trigger": "Equivalent determinantal index-number variance, plausible domination"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK: cannot assert the full paper lacks a curvature result; no basis for a whole-document NOT_COVERING claim",
+          "evidence": "2018 theorem supplies Hermite fiber framework in source bibliography; full text inaccessible in this run.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/8031259",
+          "material_read": "Bibliographic/index and relevant cited matrix representation only; full PDF not accessible in this execution",
+          "method": "Reviewed scope and citation from source note, attempted primary full text; unavailable",
+          "title": "Toeplitz Operators with Horizontal Symbols Acting on the Poly-Fock Spaces",
+          "trigger": "Original Hermite-matrix representation, possible general formula"
+        },
+        {
+          "assessment": "NOT_DECISIVE: centered eigenvalue-gap product distinct from threshold curvature; whole-document exclusion not asserted",
+          "evidence": "Summary reports half-energy eigenvalue counts and Barnes limit for spectral gap product, not moving-threshold V″.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88",
+          "material_read": "Resultary semantic title and full ranked summary, not its full paper",
+          "method": "Inspected indexed summary only",
+          "title": "Half-line Hermite spectral gaps: arbitrary-mask Cauchy formula and a Barnes limit",
+          "trigger": "Same Hermite half-line spectral matrix in published corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-line concentration trace defect is the determinantal-particle-number variance and a canonical spectral-concentration observable. Its local curvature controls symmetry-threshold stability and has a nontrivial strict parity switch at every order plus increasing logarithmic strength; a complete all-q identity is naturally motivated beyond known centered value and isolated low orders.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/REVIEW.md/VERIFICATION.md/check_curvature.py and tree 9cbd5e199e490d7841742ec0db87c1d1fca72dc2",
+    "Forrester–Witte arXiv:1110.0119 full PDF finite Gaussian index-variance sections",
+    "Sánchez-Nungaray et al. DOI:10.1155/2018/8031259 (incomplete access)",
+    "Lee-Guzmán et al. arXiv:2309.03410 (bibliographic/abstract)",
+    "Resultary 2026/10/11 Hermite spectral gaps summary (not full text)"
+  ],
+  "disposition": "passed",
+  "limitations": "All q positive finite with precisely physicists-normalized Hermite functions; no global extremum theorem, no different cutoff scale or infinite-dimensional trace claim. Only local centered Hessian and its q asymptotic.",
+  "residual_risks": [
+    "A stronger known moving-threshold finite-GUE number variance identity may directly imply V_q″(0) despite absence in the inspected centered-index formula; historical priority remains qualified.",
+    "Full 2018 horizontal-symbol original paper inaccessible in this execution, so no whole-document exclusion is claimed.",
+    "Only local center extrema, not global optimality or all stationary points; Hermite coordinate normalization fixes numerical curvature."
+  ],
+  "schema_version": 1
+}
