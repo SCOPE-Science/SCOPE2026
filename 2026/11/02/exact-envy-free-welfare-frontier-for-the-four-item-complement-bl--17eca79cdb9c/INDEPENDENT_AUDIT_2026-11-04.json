@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:51:50.337953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any complete allocation with h blocks given wholly to distinguished agent1, each whole block adds welfare 2 and every other block at most 1, so W<=t+h. Each other agent values h completed horizontal pairs in agent1 bundle, so EF-ell requires its own value >=h-ell; since at most t-h horizontal pairs remain, (n-1)(h-ell)<=t-h. Explicit balanced horizontal-pair assignments with primed remainders to agent1 achieve h=floor((t+(n-1)ell)/n) clipped to t and are EF-ell (if h=t, all blocks given to agent1 and ell>=t is required by formula; no contradiction). For EFX remove any primed good inside a whole block: horizontal pair values persist, hence nh<=t; ordinary EF optimal allocation with floor(t/n) whole blocks and remainder split as vertical pairs reaches t+floor(t/n). Valuations are for pairs of physical goods, not additive singletons, EFX deletion convention includes zero-marginal goods. Independent direct exhaustive assignment enumeration for n=2,t<=4; n=3,t<=2; n=4,t<=2 checked all directed agent comparisons and all ell=1,2,3, EF/EFX. Infinite result follows from inequalities and constructions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pyne et al. prove an asymptotic upper bound to welfare ratio for some n,t and fixed ell, not equality across all parameters and all EF, EFX, EF-ell.",
+          "Matroid-rank dichotomous preferences are submodular; complement pairs here are superadditive across the two items."
+        ],
+        "reasoning": "General EFX approximation bounds and matroid-rank fair division results do not determine this exact non-submodular finite family frontier.",
+        "searches": [
+          "arXiv:2610.15801v1",
+          "SPOC 2 EF ell price of fairness exact floor welfare",
+          "Babaioff Ezra Feige 2021 Fair and Truthful Mechanisms for Dichotomous Valuations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15801v1",
+        "doi:10.1609/aaai.v35i6.16647",
+        "Resultary semantic query: four-item complementary valuation envy free EF EFX EF1 welfare SPOC finite frontier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Theorem 4.5/4.7 says for any ell and epsilon there exists a family where every EF-ell welfare is <=(1/2+epsilon) times unrestricted.",
+          "The exact result gives attaining allocations for EF and each ell and characterizes the finite integer rounding; the original upper bound neither provides those lower bounds nor EF/EF1 separation."
+        ],
+        "reasoning": "A weaker asymptotic existential upper bound does not imply tight equality in every n,t,ell; the new proof supplies independent matching constructions. It is nevertheless a direct sharpening of prior canonical example, not a new valuation model.",
+        "searches": [
+          "arXiv:2610.15801v1",
+          "Pyne 2026 theorem 4.5 block construction",
+          "Pyne 2026 theorem 4.7 block construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same n-agent, t-block model is explicitly defined in the 2026 source, and is properly credited.",
+          "The arXiv HTML calls its obstruction theorem Theorem 4.5; the assigned draft refers to Theorem 4.7 (version/numbering inconsistency)."
+        ],
+        "reasoning": "The prior asymptotic bad-instance family is identical as an object but its conclusion is not the exact all-parameter optimum; mathematical equivalence of the model does not imply equivalence of the conclusions.",
+        "searches": [
+          "four-item complementary valuation envy free EF EFX EF1 welfare SPOC finite frontier",
+          "arXiv:2610.15801v1",
+          "Pyne Viswanathan Yang Zick 2026 4-item blocks EF ell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Evaluated formulas are t+floor(t/n) for EF/EFX, t+min(t,floor((t+(n-1)ell)/n)) for EF-ell, and 2t unrestricted.",
+          "Semantic database results concern unrelated fair-division preference models, not the sharp block-specific n,t,ell optima."
+        ],
+        "reasoning": "No printed exact finite-n,t,ell table or one-unit EF/EF1 separation was located in inspected sources. This bounded search is not priority proof.",
+        "searches": [
+          "four-item complementary valuation envy free EF EFX EF1 welfare SPOC finite frontier",
+          "n t ell exact SPOC complementary block EF EFX best welfare",
+          "EF1 versus EF binary pair-complement block parity gap"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the matching finite-parameter sharp upper/lower envelope and EF-vs-EF1 separation, not discovery of the block model or asymptotic obstruction.",
+      "residual_risks": [
+        "The very same instance is from prior work: authors may have implicitly known sharp integer optima; priority depends on full interpretation.",
+        "The exact theorem number in draft is inconsistent with arXiv HTML, requiring bibliographic correction before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, weaker asymptotic welfare obstruction; finite optimum formulas not stated",
+          "evidence": "ArXiv original proves for each ell,epsilon some instance with max EF-ell fraction <=1/2+epsilon; it does not give exact simultaneous W_EF, W_EFX, W_EF-ell or constructions for all n,t,ell.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15801v1",
+          "material_read": "Complete relevant original HTML manuscript and model definitions, theorem statement labeled 4.5 in HTML, proof block construction and surrounding quantitative discussion",
+          "method": "read actual original HTML theorem and proof",
+          "title": "Fair Allocation with Dichotomous Preferences over Item Complements",
+          "trigger": "Same exact four-good complement-block construction"
+        },
+        {
+          "assessment": "Different matroid-rank/dichotomous marginal valuation class",
+          "evidence": "Their assumptions exclude the increasing pair-complement marginals used here.",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v35i6.16647",
+          "material_read": "Publisher abstract and bibliographic context, not full primary text",
+          "method": "read abstract only",
+          "title": "Fair and Truthful Mechanisms for Dichotomous Valuations",
+          "trigger": "Could cover fairness via binary utilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp finite-parameter welfare frontier of the canonical complement-block obstruction, including exact EF/EFX equality and integer jump from EF to EF1. An exact invariant that future fair-division arguments can use as a tight test instance, while not claiming a theorem for all complement valuations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.15801v1",
+    "doi:10.1609/aaai.v35i6.16647",
+    "Resultary semantic query: four-item complementary valuation envy free EF EFX EF1 welfare SPOC finite frontier",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-envy-free-welfare-frontier-for-the-four-item-complement-bl--17eca79cdb9c"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the canonical four-item SPOC-2 complement-block valuations, W_EF=W_EFX=t+floor(t/n), W_EF-ell=t+min(t,floor((t+(n-1)ell)/n)), unrestricted=2t, and EF1 exceeds EF by one iff n does not divide t, for n>=2,t>=1,ell>=1.",
+  "limitations": [
+    "Only exact canonical four-good SPOC-2 family with all goods allocated; not general non-submodular valuations. Assigned source cites Theorem 4.7 but arXiv HTML displayed 4.5."
+  ],
+  "residual_risks": [
+    "The very same instance is from prior work: authors may have implicitly known sharp integer optima; priority depends on full interpretation.",
+    "The exact theorem number in draft is inconsistent with arXiv HTML, requiring bibliographic correction before publication."
+  ],
+  "schema_version": 1
+}

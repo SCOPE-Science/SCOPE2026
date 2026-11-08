@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope is all integers \(n\ge2\), \(t\ge1\), \(\ell\ge1\), with complete allocation of four-item blocks under disjoint pair-complement valuations. In a non-whole block, the most possible completed useful pair count is one, establishing welfare at most \(t+h\) for \(h\) whole blocks. EF-\(\ell\) imposes \(n h\le t+(n-1)\ell\); EFX imposes the sharper \(nh\le t\) because a primed good in any whole block is irrelevant to the other agents' horizontal-pair value. Both bounds are attained by explicit allocations. A second construction is ordinary envy-free, establishing equality between the EF and EFX welfare optima. Exhaustive checker output covers \(1,722,355\) assignments across specified small sizes. No finite testing substitutes for the analytic proof.
+PASS
 
-## Originality — PASS (subject to publication-priority risk)
+For any complete allocation with h blocks given wholly to distinguished agent1, each whole block adds welfare 2 and every other block at most 1, so W<=t+h. Each other agent values h completed horizontal pairs in agent1 bundle, so EF-ell requires its own value >=h-ell; since at most t-h horizontal pairs remain, (n-1)(h-ell)<=t-h. Explicit balanced horizontal-pair assignments with primed remainders to agent1 achieve h=floor((t+(n-1)ell)/n) clipped to t and are EF-ell (if h=t, all blocks given to agent1 and ell>=t is required by formula; no contradiction). For EFX remove any primed good inside a whole block: horizontal pair values persist, hence nh<=t; ordinary EF optimal allocation with floor(t/n) whole blocks and remainder split as vertical pairs reaches t+floor(t/n). Valuations are for pairs of physical goods, not additive singletons, EFX deletion convention includes zero-marginal goods. Independent direct exhaustive assignment enumeration for n=2,t<=4; n=3,t<=2; n=4,t<=2 checked all directed agent comparisons and all ell=1,2,3, EF/EFX. Infinite result follows from inequalities and constructions.
 
-The natural object is the explicit infinite block family of Pyne–Viswanathan–Yang–Zick, Theorem 4.7. The full-text source gives asymptotic obstruction bounds for EF-\(\ell\) rather than finite optimum formulas or EF-versus-EF1 equality/separation. Direct comparison of assertions finds no implication of those exact equalities from its stated theorem. Targeted semantic research-record and literature searches found no identified dominating exact formula. The result is a finite-parameter refinement on a previously published construction rather than a wholly new allocation model. Closest source: arXiv:2610.15801v1 and its October 2026 full-text revision. Residual risk: an unindexed equivalent calculation or a short derivation in less-visible commentary remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The source introduces this family to bound the welfare attainable subject to relaxed envy criteria, but leaves its exact discrete price of fairness open in the published analysis. The exact answer for every market size, block count and deletion allowance supplies a precise calibration benchmark; in particular it reveals that strongest EF has **no additional optimal-welfare cost** relative to EFX in this construction, whereas EF1 can improve welfare by one indivisible unit, with a complete residue-class threshold. This is a motivated complete invariant for the source's canonical extremal family, not an arbitrary small numerical slice. Value is limited to the stated family and does not imply a stronger general welfare approximation.
+Best-of-knowledge originality for the matching finite-parameter sharp upper/lower envelope and EF-vs-EF1 separation, not discovery of the block model or asymptotic obstruction.
 
-## Scientific limitations
+## value
 
-The sources did not certify publication priority; complete verification of all related unpublished work is impossible. This statement is not a general EF existence theorem for arbitrary binary SPOC preferences. The code exhausts small parameter values only; the arbitrary-parameter result rests on the explicit proof and upper bounds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp finite-parameter welfare frontier of the canonical complement-block obstruction, including exact EF/EFX equality and integer jump from EF to EF1. An exact invariant that future fair-division arguments can use as a tight test instance, while not claiming a theorem for all complement valuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
