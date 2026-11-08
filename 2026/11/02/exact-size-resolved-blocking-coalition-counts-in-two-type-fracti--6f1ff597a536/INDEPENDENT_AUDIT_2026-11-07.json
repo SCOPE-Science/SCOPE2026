@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:12:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 09ec611d97fbc49d9d4ef0a65490ea7249354c4d",
+        "source verifier blob 119bb9a849e128b393cd1f5db19f17b6933bd909",
+        "actual Git tree 7d9d7f3c04b15afdcb99f23fc3af8c306e876989",
+        "independent reconstruction: Independently evaluated every nonempty coalition with literal Fraction utilities for three labeled test partitions: a2,b4 => two size-three blockers; a2,b3 paired+singleton => zero; a3,b5 paired+two singleton => three size-three blockers. These match binomial eligibility counts; source verify.py code was inspected in full, reporting much broader finite coverage, not adopted as independent execution evidence."
+      ],
+      "rationale": "In the simple symmetric K_{a,b} game (a,b≥1), an agent in U with old block type (u_i,v_i) strictly prefers a candidate (x,y) iff y*u_i>x*v_i; for W iff x*v_j>y*u_j. For each x,y≥1 independently choose x of A_pi(x,y) eligible U and y of B_pi(x,y) eligible W, giving the exact size polynomial and no duplicate coalitions; one-sided coalitions cannot strictly improve. Rational rank threshold sorting and binomial table yield the arithmetic-operation bound. In the a paired U-W plus m singleton W partition, paired W and paired U strict requirements conflict, so all selected W must be singletons: M(a,m)=sum_x sum_{y>x} C(a,x)C(m,y), m≤1 no blockers, m=2 exactly a blockers. For m=a+t√a+o(√a), 2^a ε=P(Y>X,X≥1)→Φ(t/√2) by binomial central limit; outside m/a→1 use Chebyshev. Formula does not use bit-complexity claims.",
+      "residual_risks": [
+        "Only unweighted complete bipartite symmetric valuations normalized by coalition size, strict improvement.",
+        "Complexity counts exact arithmetic/comparisons, not bit operations; no general graphs or arbitrary sampling.",
+        "Prior specialized exact epsilon-core counting literature could still exist."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aziz et al., Fractional Hedonic Games Thm 5.3/Cor 5.4 characterize complete multipartite strict-core stable partitions; Demeulemeester–Peters study multiplicative relaxation/size restrictions"
+        ],
+        "reasoning": "Core-stable existence yields zero blockers only for those partitions, not the size polynomial of any supplied potentially unstable partition. Approximation/stability relaxation bounds do not dominate the exact coefficient enumerator.",
+        "searches": [
+          "fractional hedonic games complete bipartite blocking coalition size generating function count probability epsilon core",
+          "Aziz Brandl Brandt Harrenstein Olsen Peters Fractional Hedonic Games Theorem 5.3",
+          "Demeulemeester Peters Quantifying Core Stability Relaxations"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.11101",
+        "https://arxiv.org/abs/1705.10116",
+        "https://arxiv.org/abs/2412.01666",
+        "Resultary query: fractional hedonic games complete bipartite blocking coalition size generating function count probability epsilon core"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior definitions supply blocking probability and core equilibria. The new formula requires per-agent strict integer eligibility and binomial subset enumeration for every x,y."
+        ],
+        "reasoning": "Prior general epsilon existence guarantees cannot be specialized into this exact size-by-size probability without further counting; likewise strict-core partition characterizations concern the vanishing case, not all coefficients.",
+        "searches": [
+          "arXiv:2311.11101 sections 3–5",
+          "Aziz et al. Fractional Hedonic Games sections 3,5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fioravanti et al., arXiv:2311.11101 define epsilon fractional core via uniform random blocking coalitions"
+        ],
+        "reasoning": "Our P_pi(1)/2^{a+b} is exactly the epsilon blocking probability, and coefficient z^s resolves by size; the cited definition alone does not give exact P_pi(z) for an arbitrary labeled partition.",
+        "searches": [
+          "fractional hedonic games complete bipartite blocking coalition size generating function count probability epsilon core",
+          "epsilon fractional core random coalition blocking probability",
+          "fractional hedonic complete bipartite blocking polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned social choice power-index and unrelated enumeration records, not exact K_{a,b} blocking-coalition polynomials"
+        ],
+        "reasoning": "No located published table gives P_pi(z) for every complete-bipartite partition or the matching imbalance Gaussian transition. A failed database search does not prove priority.",
+        "searches": [
+          "fractional hedonic games complete bipartite blocking coalition size generating function count probability epsilon core",
+          "Resultary semantic search coalition blocking generating function",
+          "epsilon fractional core arxiv 2311.11101"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.",
+      "residual_risks": [
+        "Prior specialized exact epsilon-core counting literature could still exist.",
+        "No exhaustive global literature priority or expert certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_EPSILON_NOT_EXACT_ENUMERATOR",
+          "evidence": [
+            "Provides bounds/existence for epsilon-stability rather than arbitrary-partition exact coefficient counts."
+          ],
+          "identifier_or_url": "arXiv:2311.11101v2",
+          "material_read": "Full accessible 20-page PDF; core blocking probability definitions, algorithmic existence bounds in Sections 3–5 and appendices",
+          "method": "Read PDF text, scrutinized theorem passages and initial page screenshot",
+          "title": "ε-fractional Core Stability in Hedonic Games",
+          "trigger": "Same epsilon statistic, uniform random coalitions"
+        },
+        {
+          "assessment": "BROADER_GRAPH_CLASS_NOT_BLOCKER_DISTRIBUTION",
+          "evidence": [
+            "Strict-core structural classification does not imply non-core partition blocker-size coefficients."
+          ],
+          "identifier_or_url": "arXiv:1705.10116; https://pub.dss.in.tum.de/brandt-research/fhg.pdf",
+          "material_read": "Accessible author PDF full sections on partitions, strict-core results, especially Theorem 5.3 and Corollary 5.4",
+          "method": "Read original primary PDF and examined pages/text on strict-core classification",
+          "title": "Fractional Hedonic Games",
+          "trigger": "Same complete bipartite Bakers-and-Millers model"
+        },
+        {
+          "assessment": "RELATED_RELAXATIONS_NOT_DECISIVELY_COMPARED",
+          "evidence": [
+            "Addresses improvement factors and restrictions; full-text hidden specialization remains a residual risk."
+          ],
+          "identifier_or_url": "arXiv:2412.01666v2",
+          "material_read": "Abstract and indexed theorem summaries; full text not claimed read",
+          "method": "Read accessible abstract and source descriptions",
+          "title": "Quantifying Core Stability Relaxations in Hedonic Games",
+          "trigger": "Nearby coalition-size core relaxation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.11101",
+        "https://arxiv.org/abs/1705.10116",
+        "https://arxiv.org/abs/2412.01666"
+      ],
+      "rationale": "For every partition, a natural stability statistic is the full blocking-size distribution, finer than existence of a stable partition or a generic ε-bound; the exact tractable formula makes size-selective deviations calculable. The matched-pair threshold and Gaussian imbalance transition identify a meaningful structural boundary in this canonical two-type setting, beyond a bare normalization computation.",
+      "residual_risks": [
+        "Correctness, novelty and reproducing code alone are not treated as value; motivation is the natural object and specific new exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only unweighted complete bipartite symmetric valuations normalized by coalition size, strict improvement.",
+    "Complexity counts exact arithmetic/comparisons, not bit operations; no general graphs or arbitrary sampling.",
+    "Prior specialized exact epsilon-core counting literature could still exist."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every potential blocker is assigned unique side sizes. Each selected first-side agent improves exactly under one cross-multiplied integer inequality and each selected second-side agent under the complementary inequality. Independence of selecting eligible subsets gives each binomial coefficient product; one-sided coalitions never strictly improve all members. This proves the size-polynomial formula for every partition, with no probabilistic assumptions. Rational threshold sorting establishes the stated arithmetic bound. For the paired partition the two types of paired agents require incompatible side imbalances, forcing all selected second-side agents to be unmatched; the binomial formula, sharp core boundary and normal transition follow. The packaged brute-force checker directly evaluates independent rational utilities. Its finite experiments are checks rather than a substitute for proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+In the simple symmetric K_{a,b} game (a,b≥1), an agent in U with old block type (u_i,v_i) strictly prefers a candidate (x,y) iff y*u_i>x*v_i; for W iff x*v_j>y*u_j. For each x,y≥1 independently choose x of A_pi(x,y) eligible U and y of B_pi(x,y) eligible W, giving the exact size polynomial and no duplicate coalitions; one-sided coalitions cannot strictly improve. Rational rank threshold sorting and binomial table yield the arithmetic-operation bound. In the a paired U-W plus m singleton W partition, paired W and paired U strict requirements conflict, so all selected W must be singletons: M(a,m)=sum_x sum_{y>x} C(a,x)C(m,y), m≤1 no blockers, m=2 exactly a blockers. For m=a+t√a+o(√a), 2^a ε=P(Y>X,X≥1)→Φ(t/√2) by binomial central limit; outside m/a→1 use Chebyshev. Formula does not use bit-complexity claims.
 
-The earliest relevant full paper on complete multipartite fractional games proves existence of strict-core partitions and gives an if-and-only-if characterization for strict-core membership, but no size-resolved blocking-coalition enumerator for arbitrary partitions. The 2023 fractional-core paper defines the random-blocking probability and proves broad approximate existence bounds; it does not compute this complete-bipartite distribution. Later related work concerns blocking improvement factors and a different Nash location-choice game. Searches of indexed related scientific claims did not identify coverage by these stronger or equivalent statements. Exact blocking counts for a specific stable partition are zero and are not claimed as novel. A hitherto unlocated specialized formula is possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise number and size distribution of blocking coalitions quantify random-coalition susceptibility, the statistic motivating fractional-core stability. The exact algorithm replaces exponentially many candidate deviating coalitions by a quadratic-size group-composition calculation. In the natural matched-pair allocation, only two extra unmatched agents suffice for core instability while the uniformly random blocking probability can be exponentially small; the Gaussian boundary distinguishes sharp changes in conditional coalition risk despite such small absolute probabilities. This gives concrete information absent from strict-core existence or equilibrium tests.
+Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.
 
-## Closest literature and limitations
+## value
 
-The strict-core characterization of Aziz et al. (arXiv:1705.10116, §5.3), Fioravanti et al.'s approximate fractional-core guarantees (arXiv:2311.11101, §§3, 5), Demeulemeester–Peters' size-dependent improvement bounds (arXiv:2412.01666), and the Nash restricted-location analysis of Krogmann et al. (arXiv:2501.05334) were compared by mathematical implication. These sources address adjacent questions but do not imply an exact count for arbitrary unstable partitions. Counting assumes a complete bipartite unweighted graph, strict improvement, full-coalition denominator and uniform subset sampling. Asymptotics apply only to a particular matched-pair partition. Publication-priority uncertainty remains and independent external validation is unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For every partition, a natural stability statistic is the full blocking-size distribution, finer than existence of a stable partition or a generic ε-bound; the exact tractable formula makes size-selective deviations calculable. The matched-pair threshold and Gaussian imbalance transition identify a meaningful structural boundary in this canonical two-type setting, beyond a bare normalization computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
