@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two positive equilibria satisfy the full source-model ODE exactly; the exponential softmax is evaluated by a logarithm chosen to yield a rational value. The graph Laplacian controls every homogeneous mode. The six-dimensional patterned Jacobian splits into one mean-chemical eigenvalue, an explicitly Hurwitz cubic, and an explicitly Hurwitz antisymmetric quadratic. Both hyperbolic equilibria survive small parameter perturbations. The embedded exact symbolic checker reproduces the critical identities; numerical eigenvalues are supplementary, not the proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** The closest paper develops the same graph equations, two-patch linear analysis, and graphon formal subcritical behavior, but does not establish an explicit hyperbolically stable patterned three-path equilibrium coexisting with a linearly stable uniform equilibrium. The two closest existing mathematical findings address two-patch and complete-graph local equilibria rather than stable finite sparse-graph bistability. Further historical coverage remains possible; no priority certification is asserted.
+PASS
 
-**Value — PASS.** A small sparse graph with a globally stable linearized homogeneous response can nevertheless possess another open positive attraction basin. This demonstrates a concrete nonlinear limit of modal pattern-suppression diagnostics in an exact instance of the motivating chemotaxis model. The rational and logarithmic witness permits independent symbolic verification rather than continuation.
+PASS. The source's hub-to-leaf softmax flux is exactly 42/289 at the patterned positive rational profile (21/17,14/17,14/17;187/153,127/153,127/153), canceling -84/289 hub and 42/289 leaf logistic drift. The chemical equations vanish exactly. An independently reconstructed six-dimensional Jacobian, decomposed into mean chemical -1, leaf-symmetric 3x3 and leaf-antisymmetric 2x2 blocks, has strictly Hurwitz characteristic polynomials: all cubic Routh-Hurwitz coefficients and a1*a2-a3 are positive at the rigorous upper bound chi<28/25, as are the antisymmetric determinant and negative trace. The homogeneous Jacobian modes kappa=0,1/3,1 also have negative trace and positive determinant there. Independent SymPy differentiation of the original six-dimensional ODE and numerical eigenvalues confirmed every eigenvalue is left of the imaginary axis; finite numerical eigenvalues are corroboration, not the proof. Hyperbolic persistence and open positive basins follow locally from standard stability and implicit-function arguments. The result does not classify basins or all equilibria. Source paths RESULT.md and check.py were read from their assigned frozen Git tree.
 
-**Scope and risks.** The theorem is existential on a three-node path; it does not imply arbitrary-graph bistability, characterize basin boundaries, or assert any patterns for all parameter choices. A general historical bistability theorem may cover some implications. Independent auditing is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact sparse-graph two-attractor coexistence and strict below-threshold modal stability are not implied by the explicitly inspected original graphon/2-patch results or closest published-finding matches. Best-of-knowledge originality PASS with literature risk.
+
+## value
+
+PASS
+
+PASS. Bistability on the smallest noncomplete connected simple graph shows that strict linear damping of every homogeneous Laplacian mode does not rule out a second hyperbolic spatial pattern with an open positive attraction basin. An exact rational witness in the original softmax chemotaxis model fills a mathematically meaningful nonlinear gap beyond the two-patch and graphon local threshold calculations. It is not merely code reproducibility; the stable coexistence phenomenon is the independently useful claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

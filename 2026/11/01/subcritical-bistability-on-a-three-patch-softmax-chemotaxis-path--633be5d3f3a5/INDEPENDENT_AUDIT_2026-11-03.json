@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:57:08.132922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The source's hub-to-leaf softmax flux is exactly 42/289 at the patterned positive rational profile (21/17,14/17,14/17;187/153,127/153,127/153), canceling -84/289 hub and 42/289 leaf logistic drift. The chemical equations vanish exactly. An independently reconstructed six-dimensional Jacobian, decomposed into mean chemical -1, leaf-symmetric 3x3 and leaf-antisymmetric 2x2 blocks, has strictly Hurwitz characteristic polynomials: all cubic Routh-Hurwitz coefficients and a1*a2-a3 are positive at the rigorous upper bound chi<28/25, as are the antisymmetric determinant and negative trace. The homogeneous Jacobian modes kappa=0,1/3,1 also have negative trace and positive determinant there. Independent SymPy differentiation of the original six-dimensional ODE and numerical eigenvalues confirmed every eigenvalue is left of the imaginary axis; finite numerical eigenvalues are corroboration, not the proof. Hyperbolic persistence and open positive basins follow locally from standard stability and implicit-function arguments. The result does not classify basins or all equilibria. Source paths RESULT.md and check.py were read from their assigned frozen Git tree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim et al. §5.2 Remark 5.8 distinguishes a subcritical cubic with unstable nonzero branches; fifth-order refinement discussed, not this finite exact witness",
+          "Kim et al. §6 and §7 discuss graphon and network simulations, not an exact full six-dimensional patterned Hurwitz witness"
+        ],
+        "reasoning": "A general graphon amplitude equation, formal subcritical pitchfork, and two-patch numerical pattern onset do not imply this particular stable sparse three-node equilibrium below all homogeneous modal thresholds.",
+        "searches": [
+          "Keller Segel graphon subcritical patterns logistic bistability threshold",
+          "Kim Zhang Zhao Cooney Keller Segel original full text arxiv:2610.31049v1"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.31049v1, model §§2-3, graphon bifurcation §5 and discussion",
+        "arxiv:1407.5246 abstract",
+        "Resultary two independent current searches (natural P3 and published chemotaxis variants)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim et al. two-patch example computes χ* and observes pattern response for χ>χ*; graphon treatment allows formal subcriticality",
+          "At claimed χ≈1.11 all P3 homogeneous modal determinants remain positive, and distinct patterned state is hyperbolic"
+        ],
+        "reasoning": "The prior modal thresholds classify onset of local linear instability, not existence and strict stability of a remote patterned equilibrium in the stable region. The exact witness is not implied by the prior displayed results.",
+        "searches": [
+          "arxiv:2610.31049 linear instability two patches example §3",
+          "Resultary SCOPE chemotaxis metapopulation two-patch equilibrium census complete-graph two-cluster branch 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al., arXiv:2610.31049v1 §§2-3: equations and homogeneous modal stability; two-patch analysis at (3.17)-(3.22)",
+          "Resultary search returned no matching three-vertex softmax witness; nearest finite network chemical records concern other ODEs"
+        ],
+        "reasoning": "The claimed object is a hyperbolic coexistence witness on a sparse P3, not a relabeling of the two-patch or graphon bifurcation analysis. A source that asserts only possible subcriticality does not alone give two strictly attracting equilibria at the stated fixed parameter.",
+        "searches": [
+          "softmax Keller Segel chemotaxis on three node path stable homogeneous stable heterogeneous exact subcritical bistability fixed parameter",
+          "three-node path chemotaxis uniform stable nonuniform stable 21/17 14/17",
+          "Resultary semantic search: softmax Keller Segel ... three node path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact witness or three-node equilibrium table among inspected Resultary ranked records",
+          "Specific rational profile and six-dimensional stability inequalities are supplied and independently checked"
+        ],
+        "reasoning": "No matching tabulated witness located in searched sources, but nonappearance alone is not a novelty theorem.",
+        "searches": [
+          "258 167 21/17 14/17 chemotaxis graph exact stable equilibrium",
+          "Resultary softmax Keller Segel chemotaxis on three node path"
+        ]
+      },
+      "rationale": "The exact sparse-graph two-attractor coexistence and strict below-threshold modal stability are not implied by the explicitly inspected original graphon/2-patch results or closest published-finding matches. Best-of-knowledge originality PASS with literature risk.",
+      "residual_risks": [
+        "An older theorem guaranteeing stable patterned equilibria on finite softmax graphs may imply existence, though no matching exact three-path witness was located.",
+        "Continuum logistic chemotaxis full texts not all inspected; no claim of historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING directly: original paper presents 2-patch and graphon analyses but not the P3 exact 6D stable coexistence witness. Its graphon subcriticality is relevant but not a stronger finite-network theorem.",
+          "evidence": "Sections 3.17-3.22; Remark 5.8; Figure 4 discussion at arxiv:2610.31049v1",
+          "identifier_or_url": "https://arxiv.org/html/2610.31049v1",
+          "material_read": "Original full-text HTML: model equations (3.5)-(3.6), finite graph linear analysis and two-patch example §§2-3; graphon weakly nonlinear §5.2, simulations/discussion §§6-7; targeted passages and theorem statements, not every appendix",
+          "method": "Primary HTML mathematical comparison",
+          "title": "The Keller–Segel Model for Chemotaxis on Metapopulation Graphs and Graphons",
+          "trigger": "Identical graph flux, reaction law, and proposed subcriticality"
+        },
+        {
+          "assessment": "INACCESSIBLE_FOR_FULL_COMPARISON; continuum PDE, no all-document exclusion",
+          "evidence": "arXiv:1407.5246 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1407.5246",
+          "material_read": "Bibliographic description and abstract only",
+          "method": "Abstract comparison",
+          "title": "Pattern formation in a Keller–Segel chemotaxis model with logistic growth",
+          "trigger": "General logistic chemotaxis pattern precedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Bistability on the smallest noncomplete connected simple graph shows that strict linear damping of every homogeneous Laplacian mode does not rule out a second hyperbolic spatial pattern with an open positive attraction basin. An exact rational witness in the original softmax chemotaxis model fills a mathematically meaningful nonlinear gap beyond the two-patch and graphon local threshold calculations. It is not merely code reproducibility; the stable coexistence phenomenon is the independently useful claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.31049v1, model §§2-3, graphon bifurcation §5 and discussion",
+    "arxiv:1407.5246 abstract",
+    "Resultary two independent current searches (natural P3 and published chemotaxis variants)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one three-node graph and a parameter neighborhood are covered; global basin geometry and full equilibrium census not determined.",
+    "Historical broad-model prior coverage remains possible."
+  ],
+  "residual_risks": [
+    "An older theorem guaranteeing stable patterned equilibria on finite softmax graphs may imply existence, though no matching exact three-path witness was located.",
+    "Continuum logistic chemotaxis full texts not all inspected; no claim of historical priority certification."
+  ],
+  "schema_version": 1
+}
