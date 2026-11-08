@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness (PASS).** The explicit order is ancestor-closed; each map is the first admitted ancestor. Composition identities therefore follow without hidden choices. On an edge, nonzero-letter changes alter at most one retained coordinate; inserted-support changes either replace one retained coordinate or lead to an ordered mixed case with a single difference, so image distance is at most two. For the lower bound, any alleged Lipschitz constant less than two must keep the omitted vertex's image within distance one of every neighbor; this is impossible except on the equilateral factor and the binary square. Both exceptional chains are explicit. A finite checker exercises independent instances; it is not used as an all-dimensions proof.
+## correctness
 
-**Originality (PASS, best-knowledge).** Hájek–Medina's 2021 theorem supplies broadly applicable, not sharp, retractional-basis existence and qualitative uniform boundedness for nets and grids. Novotný's 2019 negative results concern graph circles and Euclidean nets, not a complete exact constant for finite Hamming products. Targeted searches in primary literature and indexed published mathematical findings found no implication yielding the exact \(1\)-versus-\(2\) classification. Closest results involving Hamming Walsh projections or other finite-metric projections are linear spectral/projection problems, not commuting vertex retraction chains. Residual risk remains for unindexed finite-graph retraction literature.
+PASS
 
-**Mathematical value (PASS).** The sharp constant is dimension- and alphabet-independent despite rapidly growing size, and the binary square is an isolated exact exception. Both thresholds have structural explanations: the ancestor order gives a uniform bound, and a universal penultimate-stage neighborhood obstruction forces sharpness. This fills a natural sharp-constant question arising from established retractional constructions, rather than adding a small isolated computation or renaming an existing result.
+For any nontrivial finite product of equilateral q_i-letter coordinates with Hamming metric and distinguished 0, compatible one-vertex-at-a-time prefix retractions have exact minimum maximal Lipschitz constant 1 in dimension one or for the binary square, and 2 otherwise. A support-cardinality then support-lex order and last-nonzero-coordinate ancestor chain makes every prefix retraction 2-Lipschitz by checking each unit graph edge, including mixed kth/k-1th support projections. For the lower bound, the penultimate retraction deleting v must send v to u≠v, but except in the two stated families there exists a neighbor w of v with d(u,w)>=2, forcing Lip>=2. The explicit nonexpansive binary-square chain closes the exceptions. Linearizing gives real Lipschitz-free Schauder basis projections with norm<=2; claim is NOT an optimum among arbitrary linear bases.
 
-**Closest prior literature and scope.** Hájek–Medina, arXiv:2112.03095, Definitions 1.2 and Theorem 3.9; Novotný, arXiv:1905.13188, graph-circle obstruction. Neither inspected statement establishes the exact formula for complete Hamming boxes. This is an optimized *retractional* basis claim, not an optimization over all linear Schauder bases. Independent literature review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hájek–Medina and Novotný develop commuting retractional bases and nontrivial finite graph obstacles, but their inspected theorems do not determine the exact minimal constant in arbitrary finite Hamming boxes. SCOPE published Walsh-projection norm results concern different linear operators. An earlier graph-specific retract characterization might be equivalent; priority risk retained.
+
+## value
+
+PASS
+
+A natural finite graph metric and retraction-induced Lipschitz-free basis invariant receives a full exact classification, uniform in dimension and alphabet size, with a genuine exceptional square case and constructive sharp uniform bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
