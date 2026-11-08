@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact map T=u+alpha^(-1)(P-I)phi(u), the weighted invariant stationary measure and nonreversible Dirichlet-form energy identity. Taylor with 0<=phi'<=A proves sufficiency of alpha>=A/2, while linear flux plus a mean-zero field gives necessary failure below. For f=e_i/pi_i-1 and g=P_tf, the exact positive quadratic identity P_ii/pi_i-1=||g||_pi^2-t<Qg,g>_pi>=0 proves the nonreversible stationary return lower bound; ergodicity proves its sharp limit. Jacobian entry signs yield sufficiency of alpha>=A(1-pi_min), and the linear flux with input e_i yields actual negative output for a finite large step below it. The proof covers all n>=2 and all specified quantifiers. A standalone package checker passed 976 exact/numerical assertions but is supplemental only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu--Shu arxiv:2610.34539v1: first-order to third-order EIN energy preservation with positive semidefinite spatial operators; first-order energy premise is prior.",
+        "Wang et al arxiv:1903.11859: simplified-model energy bound a0 >= max a(u)/2 is prior.",
+        "2026 Richards method uses additional bound-preserving sweeping, while 2601.08006 adds Chang-Cooper/adaptive positivity."
+      ],
+      "reasoning": "Energy guarantees are logically weaker than componentwise monotonicity, as the directed three-cycle demonstrates at alpha=A/2. Correction-based positivity methods do not imply the sharp unmodified-map threshold. Conversely the new result is scoped to first-order Markov generators and does not claim the earlier general spatial/high-order setting.",
+      "searches": [
+        "\"explicit-implicit-null\" \"positivity\" diffusion",
+        "\"EIN\" \"maximum principle\" \"diffusion\" numerical",
+        "\"explicit-implicit-null\" \"maximum principle\"",
+        "arxiv:2610.34539 first-order nonlinear energy theorem",
+        "arxiv:1903.11859 abstract energy coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.34539v1 dated source abstract and initial first-order theorem sections",
+      "arxiv:1903.11859 abstract and source description",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a complete RESULT.md",
+      "arxiv:2601.08006 method abstract/intro excerpt",
+      "Richards 2026 bound-preserving sweeping indexed excerpt",
+      "Math Bath CTMC resolvent exposition indexed excerpt",
+      "reviewed related known mathematical claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At alpha=A/2, phi(s)=As, the EIN map H=2(I-tQ)^(-1)-I equals the prior CN Cayley map and this subcase is already covered algebraically.",
+        "For general alpha and nonlinear phi, the derivative is I+(P-I)diag(phi'(u))/alpha, so positivity requires a new quantified simultaneous diagonal test; the published CN theorem does not assert the formula alpha=A(1-pi_min).",
+        "The identity <f,Pf>_pi = ||Pf||_pi^2 -t<QPf,Pf>_pi yields P_ii>=pi_i for nonreversible Q; this all-generator lower envelope is sharper than an undirected spectral argument and is attained in the infinite-time limit."
+      ],
+      "reasoning": "Shared linear algebra and energy subclaims are acknowledged as prior. The final original claim is the exact nonlinear uniform comparison threshold plus sharp separation for directed Markov diffusion, which is not logically implied by the inspected earlier energy/cayley statements alone.",
+      "searches": [
+        "published-finding corpus CN record full RESULT.md",
+        "arxiv:2610.34539 original first-order equation and energy theorem",
+        "arxiv:1903.11859 abstract",
+        "\"non reversible Markov chain resolvent diagonal stationary distribution lower bound return probability exponential time\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new Jacobian positivity condition equals 1-(A/alpha)(1-P_t(ii))>=0 for all t; the stationary lower envelope inf_t P_t(ii)=pi_i yields the iff criterion.",
+        "published-finding corpus published CN Cayley analysis includes C_h=2P-I only at alpha=A/2 and linear phi, not general parametric nonlinear comparison."
+      ],
+      "reasoning": "Searched aliases of monotonicity, M-matrix splitting, invariant-domain preservation and stationary diagonal return. The closest published Cayley identity does not imply the full formula without the new nonreversible return envelope and nonlinear Jacobian quantification.",
+      "searches": [
+        "EIN explicit implicit null Euler exact unconditional positivity threshold stationary minimum mass Markov generator nonlinear flux and convex energy",
+        "order preserving stabilized nonlinear diffusion finite state generator stationary pi_min timestep-free sharp comparison",
+        "Markov resolvent diagonal lower bound invariant mass at exponential time for nonreversible generator",
+        "\"explicit-implicit-null\" \"maximum principle\"",
+        "\"P_{ii}\" \"pi_i\" \"resolvent\" continuous time Markov chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published database ID 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a is a Cayley positivity result, not the EIN all-flux threshold.",
+        "Related known claims: Allen-Cahn ETDRK one-step energy frontier (item bc907224-a5c8-4d73-a39d-2203bc0ad002); Padé Markov positivity (item 1a149558-ee9c-48be-94a2-3112cfe9494f); ARS(4,4,3) scalar diffusion positivity (item 6ed9e9f3-106c-4048-9966-afd02eb8a9cd)."
+      ],
+      "reasoning": "No exact tabulated stationary-mass EIN boundary appeared in actual database queries or related scientific claim comparisons. Exact uniqueness cannot be established by absence in semantic search; an unindexed earlier implication-equivalent formulation remains a novelty limitation.",
+      "searches": [
+        "EIN explicit implicit null Euler exact unconditional positivity threshold stationary minimum mass Markov generator nonlinear flux and convex energy",
+        "order preserving stabilized nonlinear diffusion finite state generator stationary pi_min timestep-free sharp comparison",
+        "Markov resolvent diagonal lower bound invariant mass at exponential time for nonreversible generator",
+        "Sharp comparison principle and positivity preserving threshold for stabilized explicit implicit Euler of nonlinear diffusion on finite Markov chain using stationary probability minimum pi_min and energy threshold one-half",
+        "Unconditionally monotone stabilized IMEX diffusion on connected graph, sharp nullspace-projection Markov resolvent diagonal lower bound",
+        "Finite Markov generators inverse resolvent return probability Pii ≥ stationary pi_i; dissipativity sharp maximum principle stabilized Euler",
+        "Related recorded mathematical claims on Markov positivity, scalar EIN and diffusion energy",
+        "published-finding corpus semantic search: Crank Nicolson positivity reversible Markov chain resolvent-return law exact stationary minimum pi_i threshold"
+      ]
+    },
+    "rationale": "The submitted claim is the exact universal comparison-preservation frontier alpha=A(1-pi_min), and its strict separation from the known alpha=A/2 energy frontier, for the unmodified first-order EIN step with arbitrary directed Markov generators and all admissible scalar fluxes. Full published published-finding corpus Cayley proof was read: it covers the alpha=A/2 linear subcase, not the stated nonlinear all-alpha frontier. Original Wu--Shu source first-order energy theorem and earlier 2019 EIN abstract supply known energy theory but do not in inspected material state this exact order condition. Searches under Markov resolvent, stationary return, maximum principle, positivity-preserving EIN and equivalent aliases found no dominating result. Residual incomplete primary-paper full-text access and unindexed-equivalence risk remain; search non-retrieval is not treated as a novelty proof.",
+    "residual_risks": [
+      "Inaccessible full appendices or sections of the motivating 2026 EIN paper and a 2019 predecessor could contain an equivalent stationary-mass comparison lemma; inspected material does not reveal one.",
+      "Equivalent unindexed M-matrix, monotone-splitting, or Markov-resolvent theorem may predate this formulation.",
+      "Previously unindexed or less-accessible mathematical results may contain a statement equivalent to the present exact threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes an EIN nonlinear-energy theorem and the half-slope-type stabilization premise. Inspected statements do not characterize order preservation by stationary mass or extend the theorem to arbitrary nonreversible Markov generators. Unread appendices are a named residual risk.",
+        "evidence": [
+          "arxiv:2610.34539v1, first-order EIN scheme and energy theorem",
+          "Original arXiv submission 2026-10-25 20:00:59 UTC and primary MSC 65M12 verified from bibliographic record"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34539",
+        "material_read": "arXiv author HTML opening first-order formulation, stated coefficient assumptions, and first-order energy-analysis section; bibliographic abstract and submission history",
+        "method": "Direct examination of available HTML statements and scheme, plus dated arXiv metadata; later appendices could not be fully reopened",
+        "title": "Energy stability of explicit--implicit--null time discretizations for nonlinear degenerate parabolic equations with state-dependent coefficients",
+        "trigger": "Main first-order EIN method and energy estimate might already imply comparison"
+      },
+      {
+        "assessment": "Already gives the energy condition a0 >= max a/2 for a simplified diffusion model; this is credited as prior work, not new. No stationary-mass comparison frontier was found in inspected material.",
+        "evidence": [
+          "arxiv:1903.11859, abstract, first posted 2019-03-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.11859",
+        "material_read": "arXiv abstract and openly accessible bibliographic description of method and coefficient theorem; full body not verified",
+        "method": "Read public arXiv abstract and derivative search comparisons",
+        "title": "Local discontinuous Galerkin methods with explicit-implicit-null time discretizations for solving nonlinear diffusion problems",
+        "trigger": "Predecessor of first-order EIN energy stability bound"
+      },
+      {
+        "assessment": "The Cayley identity and positivity test for the special linear alpha=A/2 case are prior coverage. The published argument does not establish the all-alpha, all-flux comparison threshold A(1-pi_min), and its strict reversible spectral monotonicity is not the nonreversible resolvent return inequality proved here.",
+        "evidence": [
+          "published-finding corpus record 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a, RESULT.md, Finding and Proof; arbitrary-generator criterion C_h=2R_s-I"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Entire published RESULT.md including finding, assumptions, full proof, verification, prior comparison and limitations",
+        "method": "Read GitHub repository RESULT.md directly; compared its Cayley generator formula and reversible return thresholds with new nonlinear arbitrary-alpha statement",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Direct algebraic overlap with the linear EIN update at alpha=A/2"
+      },
+      {
+        "assessment": "A method with an additional bound-preserving sweeping correction; not demonstrated to entail the exact threshold for the unmodified first-order EIN map. Incomplete full text remains a residual risk.",
+        "evidence": [
+          "Section 3.3 indexed excerpt: bound-preserving sweeping technique enforces physical bounds"
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2026/04/An-efficient-high-order-bound-preserving-explicit-implicit-null-time.pdf",
+        "material_read": "Indexed excerpt identifying Section 3.3 bound-preserving sweeping; no PDF full-text inspection completed",
+        "method": "Publication-indexed scientific excerpt and method comparison only",
+        "title": "An efficient high-order bound-preserving explicit-implicit-null time integration for the Richards equation in unsaturated geotechnical media",
+        "trigger": "Plausible positivity-preserving EIN literature"
+      },
+      {
+        "assessment": "Involves Chang-Cooper discretization and positivity-preserving adaptive timestepping in a distinct Fokker–Planck scheme. Material read does not imply universal stationary-mass formula.",
+        "evidence": [
+          "arxiv:2601.08006 abstract; method includes structure-preserving Chang-Cooper, penalization and adaptive positivity steps"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.08006",
+        "material_read": "arXiv abstract plus openly available introduction excerpt; complete paper not read",
+        "method": "Compared structure-preserving penalization with the simpler unmodified finite-state EIN map",
+        "title": "A Structure-Preserving Penalization Method for the Single-species Rosenbluth-Fokker-Planck Equation",
+        "trigger": "Adjacent positivity-preserving explicit–implicit–null penalization"
+      },
+      {
+        "assessment": "Establishes standard probabilistic representation of the resolvent, not in material inspected the sharp lower return bound or EIN comparison threshold.",
+        "evidence": [
+          "Lecture notes Chapter 2 excerpt: P(X(A)=j)=lambda r_ij(lambda) for independent exponential alarm"
+        ],
+        "identifier_or_url": "https://www.maths.bath.ac.uk/~ak257/36/ctmarkov.pdf",
+        "material_read": "Indexed section excerpt defining continuous-time resolvent as Laplace transform and exponential-alarm distribution; not the full text",
+        "method": "Compared exponential-time resolvent interpretation to stationary lower bound",
+        "title": "Continuous time Markov chains, lecture notes",
+        "trigger": "Classical resolvent and exponential-time interpretation may dominate the claimed return lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "057aa6ae-5b8c-40c4-be4b-e67e563bdc1b",
+  "value": {
+    "rationale": "Nonlinear EIN diffusion requires both energy dissipation and pointwise physical admissibility. The known half-derivative energy stabilization does not prevent negative concentrations even on a directed three-cycle. The exact threshold A(1-pi_min) is a natural, graph-intrinsic, time-step- and jump-rate-independent selection rule, with an all-generator proof and matching failure witness. It supplies an actionable boundary between two meaningful numerical properties without claiming an implementation-sized solver advance.",
+    "status": "PASS"
+  }
+}
