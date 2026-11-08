@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Exact and finite checks
+# Independent mathematical audit
 
-`python check.py` verified symbolically the average birth and capture rates, their differences, the weighted logarithmic invariant, and the strict Lyapunov derivative. For \(r=2\), \(\delta=1\), \(K=2\), \(\beta=1\), \(g=2/5\), numerical integration at \(e=3/10,3/5,9/10\) checked the time-dependent identity at 35 time points in each regime. The neutral case converged to \(x_\infty\approx0.2880580664\), while the two other cases approached opposite prey-boundary states. The finite integration is corroborative, not a proof of a universal statement. The analytical proof in `RESULT.md` establishes the global theorem with LaSalle and an exact integration.
+## correctness
 
-**Known limits:** This verifies a special balanced-payoff subclass and depends on positive predator persistence. Independent validation of scientific priority and correctness has not been performed.
+PASS
+
+Population-weighted rates cancel exactly to r and delta while individual prey rate differences remain e and g. The smooth transformation x=A/(A+B), P=A+B reduces dynamics to xdot=x(1-x)(e-gY), Pdot=P(r-P/K-delta Y), Ydot=beta Y(-1+delta P). The explicit Volterra Lyapunov function has derivative -(P-P*)^2/K, and compact positive sublevels plus LaSalle yield global ecological convergence. Eliminating P and Y from logarithmic derivatives gives a constant drift for logit(x)-(g/delta)log P-[g/(K beta delta^2)]log Y. Its integration yields exact odds and sign c=e-gY* governs global fixation; at zero a first integral selects one interior equilibrium on a normally attracting segment, with two transverse stable eigenvalues. The positive threshold follows from 0<g<delta and Krdelta>1. Inspected check.py independently shows the intended symbolic identities and numerical examples, but no need to regard numerical integration as proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for exact neutral selection invariant and global memory foliation in a balanced payoff slice. The original 2026 Cruz-Neves abstract describes 2D ecological reduction and equilibrium stability, but did not make the exact initial-state odds formula evident. The primary complete paper could not be inspected in this run (arXiv PDF/HTML unavailable; authorized Oxford returned vpn_disconnected); this is a substantial priority caveat, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+Sharp global coexistence-selection and initial-condition memory in a natural nontrivially asymmetric payoff family, of direct use in deterministic eco-evolutionary analysis; the neutral foliation is a mathematically meaningful codimension-one phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

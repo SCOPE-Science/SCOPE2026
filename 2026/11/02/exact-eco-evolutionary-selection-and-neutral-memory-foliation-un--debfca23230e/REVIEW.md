@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct cancellation in the two payoff matrices gives a skew-product structure; the positive planar ecological subsystem has a coercive logarithmic Lyapunov function and strictly negative derivative away from its prey equilibrium coordinate. LaSalle gives global ecological convergence, and differentiation yields an exact logit–logarithm identity for every time. Normal attraction at neutrality follows from the two planar eigenvalues; the neutral composition limit is calculated rather than asserted from linearization. The standalone program verifies algebraic identities and illustrative finite simulations. Critical assumption: all original matrix entries are positive and the predator-persistence inequality is strict.
+## correctness
 
-**Originality — PASS under inspected evidence.** Braga–Wardil introduce the system and its game scenarios. Cruz–Neves give the general three-variable rewriting and independently prove global convergence only for the classical two-dimensional predator–prey subsystem; this is used as antecedent, not claimed again. The particular *composition-neutral payoff balance*, exact global first integral and initial-data-to-final-composition formula were not present in either inspected primary text. A related indexed published mathematical result concerns nondegenerate boundary stability exchange rather than this nongeneric neutral line. The latter record's complete text was not accessible, and historical priority remains qualified by other possible specialized literature.
+PASS
 
-**Mathematical value — PASS.** Payoff balance is a natural structural test of whether ecological transients can permanently affect type selection despite identical aggregate ecological rates. The sharp sign threshold separates two global exclusion regimes and a normally attracting interval of coexistence; the exact power-law final selection formula measures the lasting effects of initial prey and predator totals. The statement is inherently special and is not asserted to survive arbitrary payoff perturbations.
+Population-weighted rates cancel exactly to r and delta while individual prey rate differences remain e and g. The smooth transformation x=A/(A+B), P=A+B reduces dynamics to xdot=x(1-x)(e-gY), Pdot=P(r-P/K-delta Y), Ydot=beta Y(-1+delta P). The explicit Volterra Lyapunov function has derivative -(P-P*)^2/K, and compact positive sublevels plus LaSalle yield global ecological convergence. Eliminating P and Y from logarithmic derivatives gives a constant drift for logit(x)-(g/delta)log P-[g/(K beta delta^2)]log Y. Its integration yields exact odds and sign c=e-gY* governs global fixation; at zero a first integral selects one interior equilibrium on a normally attracting segment, with two transverse stable eigenvalues. The positive threshold follows from 0<g<delta and Krdelta>1. Inspected check.py independently shows the intended symbolic identities and numerical examples, but no need to regard numerical integration as proof.
 
-**Limits.** No stochastic-noise result, no generic full-model three-dimensional classification and no claim of global attraction at the singular zero-population point. Numerical checks cover only examples; the proof supplies the all-parameter quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for exact neutral selection invariant and global memory foliation in a balanced payoff slice. The original 2026 Cruz-Neves abstract describes 2D ecological reduction and equilibrium stability, but did not make the exact initial-state odds formula evident. The primary complete paper could not be inspected in this run (arXiv PDF/HTML unavailable; authorized Oxford returned vpn_disconnected); this is a substantial priority caveat, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+Sharp global coexistence-selection and initial-condition memory in a natural nontrivially asymmetric payoff family, of direct use in deterministic eco-evolutionary analysis; the neutral foliation is a mathematically meaningful codimension-one phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
