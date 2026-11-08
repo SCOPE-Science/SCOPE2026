@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The source files `verify_pg_rank4.cpp`, `check_extension_table.py`, and their outputs `VERIFY_OUTPUT.txt`, `EXTENSION_OUTPUT.txt` are supplied as reproducible computational support. Compile and run with `g++ -O3 -std=c++17 verify_pg_rank4.cpp -o verify_pg_rank4 && ./verify_pg_rank4`. The program constructs normalized finite-field vectors for points and hyperplanes and computes exact rank-four recursive types from ordered atomic diagrams, including equality and unary sorts. It confirms the binary projective-dimensional comparison \(\operatorname{PG}(3,2)\equiv_4\operatorname{PG}(4,2)\) and a rank-four distinction from \(\operatorname{PG}(3,3)\). It does not computationally exhaust every dimension or field size; the general theorem is proved by the extension-count argument in `RESULT.md`.
+# Independent mathematical audit
 
-Mathematical verification conditions: \(d\ge3\), finite prime-power \(q\ge2\), and an otherwise unexpanded point-hyperplane incidence signature. Nonstandard critical step: all new incidence patterns for a fourth object are enumerated from one- and two-object counts or the collinear/noncollinear triple table. Every pattern required in the four-round game has a witness. The argument does not assert anything about full first-order elementary equivalence, rank-five equivalence, or arbitrary finite projective planes and designs. Independent validation has not been performed.
+## correctness
 
-The second script can be run with `python3 check_extension_table.py`. It enumerates projective points and hyperplane covectors in dimension three over finite fields of sizes 2, 3, 4 and 5, confirming the precise incidence-pattern supports for dependent and independent point triples, including the nonprime field of size four. It is a finite check of a lemma whose general proof is given symbolically.
+PASS
+
+Through any two distinct points there are at least three hyperplanes of each prescribed two-incidence pattern at projective dimension >=3; dual statements hold. For any three same-sort distinct objects, dependent triple extension realizes exactly {1,2,4,7} over F2 and adds the all-zero pattern for q>=3; independent triple realizes all 8 masks. These tables allow four-round Duplicator extension, preserving triple dependence on round 3. The separator exists in binary because a projective line has three points and every hyperplane meets it; nonbinary three collinear points may be simultaneously avoided. Independent finite-field implementations reproduced dependent/independent pattern tables for q=2,3,5 and representative point counts 15,40,156. Root EF computed finite examples in source but not relied upon for infinite theorem.
+
+## originality
+
+PASS
+
+Incidence homology and projective-plane two-sorted modal logic concern related geometries but different invariants/signatures. The asserted exact rank-four incidence-theory cutoff is not a consequence of known representation or modal results in read primary material; broader finite-model-theory literature may use an equivalent game formulation.
+
+## value
+
+PASS
+
+This is a natural complete classification of bounded-rank distinguishability in an intrinsic two-sorted incidence reduct, with a sharp field-size dichotomy and smallest universal representative; such small-variable logical invariants matter for definability and finite-model equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

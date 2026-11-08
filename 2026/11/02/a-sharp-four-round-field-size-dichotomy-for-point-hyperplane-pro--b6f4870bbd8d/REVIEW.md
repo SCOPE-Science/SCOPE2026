@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact rank-four equivalence classification for finite \(\operatorname{PG}(d,q)\) with \(d\ge3\), with only points, hyperplanes, sorts, equality and incidence named. Each occurrence of a fourth object sees at most three preceding parameters. For three same-sort distinct parameters, the explicit collinear-versus-independent extension table gives all allowed patterns and the sole field-size exception: an opposite-sort object avoiding all three collinear parameters exists exactly when \(q\ge3\). The remaining mixed-sort configurations are supported by explicit positive extension counts, including after forbidding one previously selected object. This proves a four-move winning strategy. The rank-four blocking sentence distinguishes the two classes, and direct cardinalities prove a sharp 80-element upper representative. The primary verifier calculates all four-round recursive types for three finite checks. A separate table verifier also checks the critical triple-extension lemma over field sizes 2, 3, 4 and 5. Its finite results are not used as a substitute for the all-parameters proof.
+## correctness
 
-## Originality — PASS (qualified)
-The full-text accessible Siemons--Smith source [1] concerns cross-characteristic incidence homology of finite projective spaces; its stated theorems are representation-theoretic and do not compare first-order theories. Venema [2] concerns modal logic in projective **planes**, not first-order rank-four point-hyperplane incidence for projective dimension at least three; its full preprint was not available for material inspection here. The general graph-definability reference [3] does not assert this dichotomy. Results limited to projective-plane incidences do not logically imply higher-dimensional point-hyperplane equivalence. Research-record searches for point-hyperplane incidence, rank-four EF, binary/nonbinary cutoff, hyperplane blocking triples and dimension stability found no covering claim. The closest records concern graph total-uniformity and homological invariants, which neither state nor dominate rank-four logical equivalence. Priority cannot be established by unsuccessful searches; unindexed work and uninspected passages in historical material remain risks.
+PASS
 
-## Value — PASS
-Point-hyperplane incidence of finite projective spaces is a classical family of symmetric designs and dual linear geometries whose numerical parameters vary sharply with both projective dimension and field size. The theorem identifies the complete rank-four logical invariant: projective dimension at least three is invisible, while a sharp binary/nonbinary difference is visible through a natural three-point hyperplane-blocking property. The exact four-move strategy and minimum 30- and 80-element representatives make this a structural classification rather than a reformulation of one finite calculation. The result does not purport to classify richer signatures or deeper ranks.
+Through any two distinct points there are at least three hyperplanes of each prescribed two-incidence pattern at projective dimension >=3; dual statements hold. For any three same-sort distinct objects, dependent triple extension realizes exactly {1,2,4,7} over F2 and adds the all-zero pattern for q>=3; independent triple realizes all 8 masks. These tables allow four-round Duplicator extension, preserving triple dependence on round 3. The separator exists in binary because a projective line has three points and every hyperplane meets it; nonbinary three collinear points may be simultaneously avoided. Independent finite-field implementations reproduced dependent/independent pattern tables for q=2,3,5 and representative point counts 15,40,156. Root EF computed finite examples in source but not relied upon for infinite theorem.
 
-## Limitations and closest literature
-The result assumes finite fields, projective dimension at least three, and the two distinguished sorts with the single incidence relation. It does not classify all symmetric designs or extended projective language signatures. Relevant earlier works: [1] Siemons--Smith, arXiv:1110.5031 (incidence homology, full text with theorem material read); [2] Venema, *Points, Lines and Diamonds* (modal logic for projective planes, abstract/report metadata available); [3] Pikhurko--Veith--Verbitsky, arXiv:math/0311041 (general quantifier-rank definability). Finite-projective-plane logical classifications concern a different projective dimension and incidence geometry. Further independent literature and scientific review remain necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Incidence homology and projective-plane two-sorted modal logic concern related geometries but different invariants/signatures. The asserted exact rank-four incidence-theory cutoff is not a consequence of known representation or modal results in read primary material; broader finite-model-theory literature may use an equivalent game formulation.
+
+## value
+
+PASS
+
+This is a natural complete classification of bounded-rank distinguishability in an intrinsic two-sorted incidence reduct, with a sharp field-size dichotomy and smallest universal representative; such small-variable logical invariants matter for definability and finite-model equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
