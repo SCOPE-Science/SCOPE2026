@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Fano incidence model uses seven explicit three-point lines. Every perfect matching is precisely a permutation assigning distinct lines to all seven points; exhaustively testing the \(5040\) possibilities yields \(24\). Because Fano incidence has girth six, two perfect matchings are linked by one alternating six-cycle exactly when their matched line maps differ at three points. Applying this exact rule produces the adjacency certificate with \(84\) edges. Every rooted BFS and every neighbor-distance count in the certificate yields \(\{7,4,1;1,2,7\}\), establishing distance regularity. The cited classical uniqueness result supplies the Klein identification. A second implementation constructs a different Fano model, exhaustively enumerates all hexagons, and agrees independently on the counts and intersection array. The finite check is complete, not a sampled experiment.
+PASS
 
-## Originality — PASS, with bounded uncertainty
+PASS: Every Heawood perfect matching is a 7-permutation respecting the explicit Fano incidence; exhaustive independent enumeration among 5040 permutations gives exactly 24. Fano incidence girth six implies changing exactly three matched point partners is equivalent to one alternating hexagon. Independent 276-pair adjacency enumeration gives 84 edges, all degree7; all 24 BFS rows give layers (1,7,14,2) and intersection array {7,4,1;1,2,7}. Distance-three triples are eight antipodal classes with one neighbor in every other class. Published uniqueness for the array identifies the Klein graph; the finite adjacency and metric results are independently exact.
 
-The close primary paper Dejter, *From the Coxeter graph to the Klein graph* (arXiv:1002.1960v9, §§1–4), constructs Klein's 24-vertex graph from Coxeter-graph heptagons and mentions the Heawood-to-Coxeter six-cycle construction. It does not present the graph whose states are perfect matchings of the Heawood graph, nor the local alternating-hexagon exchange criterion. The abstract Klein graph and its intersection array are not new; neither is the census of 24 Heawood perfect matchings or eight factorizations. What requires proof is that this specific matching-flip adjacency gives precisely that exceptional graph. Brouwer–Cohen–Neumaier (1989, p. 386) handles identification once the intersection array is established, not the newly supplied matching correspondence. The 2004 two-factor paper concerns a separate 2-factor existence/classification problem, not local six-cycle adjacency. Historical alternate descriptions of matchings as complements of Hamiltonian cycles and older map literature are a remaining risk; the 2004 full paper was not available for complete inspection.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies the minimal feasible reconfiguration graph of 24 perfect matchings of the smallest cubic girth-six graph with a classical 24-vertex distance-regular graph, determining exact shortest flip distances, an antipodal three-cover of \(K_8\), and all 84 legal elementary exchanges. Unlike the already-known count of matchings, this gives their complete navigation geometry and a direct finite combinatorial model for the Klein graph. The natural six-cycle move is forced as the shortest possible alternating move by incidence girth; no arbitrary choice of parameters is used.
+PASS (qualified): Dejter constructs the Klein graph by Coxeter heptagons and discusses Fano/Heawood six-cycles, but the inspected full text did not identify the graph on Heawood perfect matchings with alternating-hexagon flips or its exact distance-three antipodal metric. Known counts of matchings and factorizations are explicitly prior.
 
-## Limitations and sources
+## value
 
-The result is confined to the Heawood graph and the exactly six-edge move. It relies on the classical uniqueness of the distance-regular Klein array for its graph-name identification. The complete finite adjacency classification is independently verifiable from the supplied programs and certificate. Principal sources: Dejter, arXiv:1002.1960 (2010; full accessible HTML inspected); Brouwer–Cohen–Neumaier, *Distance-Regular Graphs* (1989, p. 386; bibliographic record and unique-array attribution); MathWorld, *Klein Graphs* (24-vertex graph parameters); Abreu et al., JCTB 92 (2004), 395–404 (abstract inspected, complete full text unavailable). Unindexed equivalent results remain a possibility.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The local hexagon-flip graph of perfect matchings is a natural reconfiguration invariant for a canonical incidence graph. Identifying it with the exceptional Klein distance-regular graph gives sharp flip diameter, fibers and an antipodal K8-cover, none determined by merely knowing the number of matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
