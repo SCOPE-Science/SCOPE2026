@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using the standard-library Python interpreter. The script builds the full original associative algebra on the \(n+n^2\) basis vectors, computes actual anti-automorphism matrices, and checks the defining anti-multiplication identity and \(\sigma^2=I\) in exhaustive small-dimensional cases. A separate finite-field linear kernel test verifies the theoretically predicted parameter dimensions, with a genuine \(\mathbb F_4\) implementation. For \(n=2\) over \(\mathbb F_2\), a separate calculation constructs all identity-linear conjugations and recomputes their orbit sizes and number.
+## correctness
 
-Expected summary: over \(\mathbb F_2\), \(112\) anti-involutions, with \(19\) identity-linear orbits; over \(\mathbb F_3\), \(1710\) anti-involutions. The output ends in `ANTI_INVOLUTION_CENSUS_AND_IA_ORBITS_OK`.
+PASS
 
-These checks do not exhaust arbitrary \(n,q\) and provide no independent proof of publication priority. The general proof uses the anti-automorphism normal form, elementary \(C_2\)-module calculations, exact centralizer orders and a linear group action. No independent mathematical audit has been performed.
+For A=V⊕(V⊗V), A^3=0, an anti-automorphism is uniquely L on V and arbitrary h:V→V⊗V, with quadratic action F=(L⊗L)flip. Squaring gives exactly L^2=I and hL+Fh=0. Odd q: eigenspace count by trace(F⊗L*)=n(2r-n) yields exponent (n^3-n(2r-n))/2; divide |GL_n| by centralizer |GL_r||GL_{n-r}| for each r. Even q: Jordan 1^r2^s, r+2s=n; F has n fixed tensor words and (n^2-n)/2 two-cycles. Module-hom dimension e=r n(n+1)/2+s n^2, centralizer q^(s^2+2rs)G_sG_r. Identity-linear conjugation translates h by im(I-T), yielding quotient dimension 2e-n^3=rn and q^(rn) equal orbits, linearizable iff r=0. Independent direct enumeration of the hL=Fh equations for n=2 over F2 returns four linear parts with fiber sizes 64,16,16,16 (total 112); in odd F3 the formula gives 1710. General theorem rests on module counting, not those finite samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise claim; general ingredients and prior examples credited. Full-text gaps and implication risks listed explicitly.
+
+## value
+
+PASS
+
+The free two-step truncated associative algebra is canonical, and the sharply characteristic-sensitive anti-involution count and non-linearizable modular orbit obstruction are natural classification invariants useful for involutive algebra-group constructions and small-degree moduli. The q^(rn) obstruction is structural, not simply a raw finite-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
