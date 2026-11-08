@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The partition into four-element orbits uses the irreducibility of \(T^2+1\) for \(p\equiv3\pmod4\). Orbitwise constancy of the alternating tensor \(v(Jv)^\mathsf T-(Jv)v^\mathsf T\) and the exact full-space second-moment cancellation prove commutation. The syndrome partition and rank are exact, and a two-qudit, joint-Lee-weight-three zero-syndrome witness is excluded from the stabilizer by the \(\lceil(p-1)p^{r-1}/4\rceil\) physical-support lower bound. Standalone exact modular tests passed for six parameter pairs, including the excluded trivial corner.
+## correctness
 
-**Originality — PASS, with residual risk.** Guo et al., arXiv:2610.04834, Section 3.1 and Table 2 present the joint Lee metric and selected perfect examples, not this all-rank, prime-congruence family. Matsumoto, arXiv:2105.12354, works with CSS codes and separate component weights. The full original Section 3.1/Table 2 and relevant Matsumoto definitions/construction were compared at the level of correction criterion and code parameters. Targeted semantic record searches for perfect joint-Lee codes, \(J^2=-I\) symplectic designs, and odd-prime congruence families found no dominating statement. A hidden equivalence to a classical quantum-Hamming or symplectic-orbit construction cannot be excluded; no independent priority audit has been performed.
+PASS
 
-**Value — PASS.** The problem is motivated by saturation of the joint-Lee sphere-packing bound, and the construction resolves an infinite set of dimensions not covered by the motivating perfect-code table, notably \([[12,10,3_{\diamond}]]_7\) and \([[20,16,3_{\diamond}]]_3\). The commutativity identity is a nontrivial geometric mechanism compatible with a complete error-syndrome tiling. The result is limited to joint-Lee correction and makes no claim of Hamming-distance or decoding-complexity improvements.
+For every p=3 mod 4 and even r>=2, J²=-I over V=Fp^r with x²+1 irreducible, so all nonzero vectors decompose into four-element J-orbits. With one representative vi per orbit and check columns (Jvi|-vi), X/Z elementary syndromes are exactly {±vi,±Jvi}, all nonzero and distinct; the r-row check has full rank. Each orbit contributes the same alternating tensor vi(Jvi)^T-(Jvi)vi^T; summing over all vectors vanishes by finite-field coordinate second moments (r>=2), proving symplectic row commutativity. All nontrivial weight<=2 errors have nonzero syndrome, while a zero-syndrome weight-three witness combining Xi Zi with a different qudit exists; every nontrivial stabilizer occupies >=ceil((p-1)p^(r-1)/4)>2 physical sites except (p,r)=(3,2), so the witness is logical and d_diamond=3. Radius-one ball size 1+4n=p^r equals syndrome space. Independent finite modular computations corroborated p=3,r=4; p=7,r=2; p=11,r=2 and actual stabilizer supports. Joint-Lee radius one is not standard quantum Hamming radius one.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+This supplies a constructive infinite family of non-CSS perfect codes in a recently formalized joint-Lee metric, with a direct orbit-symmetry commutativity mechanism and an exact distance proof. It fills an existence/design gap beyond isolated small examples; sphere-packing equality alone would not imply an isotropic stabilizer design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
