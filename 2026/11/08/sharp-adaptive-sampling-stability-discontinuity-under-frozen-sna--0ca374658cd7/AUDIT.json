@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The frozen update follows exactly from independent with-replacement selection and old-residual commits. Multinomial marginal moments give the conditional energy identity. Uniform weights make it a scalar one-step factor, proving the exact boundary. For positive exponents, order-preserving weights give the sharp uniform lower bound on sampled squared error, and the elementary maximum multiplicity gives geometric mean-square plus almost-sure convergence when beta*T<2. At equality an axis start alternates signs. Above threshold, the all-worker collision event has an explicitly positive convergent infinite product for every nonzero initial state, yielding true exponential divergence on that event and exponentially divergent expectation. The actual standalone checker passed 7,816 finite exact-rational and product assertions; infinite claims are separately proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richtárik and Takáč, https://doi.org/10.1007/s10107-015-0901-6, with-replacement implementation explicitly leaves redundant workers idle when indices coincide.",
+        "Lopes, Santos and Silva, https://doi.org/10.1007/s10589-026-00773-5, section 4: multisets may repeat coordinates, but the descent steps use deliberately inflated local curvature and fixed partition-based sampling weights.",
+        "Coleman, arXiv:2606.01232, Theorem 11: a sufficient bounded-delay, concentration-dependent small-step criterion rather than the sharp frozen-batch necessity classification."
+      ],
+      "reasoning": "General parallel coordinate analyses do not automatically imply the claim: duplicate suppression or curvature-rescaled corrections change the multiplicity map. The closest adaptive asynchronous sufficient theorem relies on an asynchronous delay and concentration framework, and does not yield an exact conditional multinomial recursion or the necessary infinite-collision escape from arbitrary nonzero starts.",
+      "searches": [
+        "parallel mini batch coordinate descent duplicate sampling adaptive importance sampling convergence",
+        "parallel coordinate descent with duplicate sampling residual-dependent Kaczmarz independent batch stale updates convergence",
+        "asynchronous coordinate descent fixed sampling delayed reads convergence overlapping workers"
+      ]
+    },
+    "checked_sources": [
+      "Coleman (2026) Kaczmarz arXiv:2607.08313 — Algorithm 1 and corresponding empirical stability analysis.",
+      "Coleman (2026) randomized Jacobi arXiv:2606.01232 — Theorems 10–11 and Table 5, qualitative pile-on mechanism acknowledged.",
+      "Richtárik–Takáč (2015) DOI:10.1007/s10107-015-0901-6 — duplicate workers idle.",
+      "Lopes–Santos–Silva (2026) DOI:10.1007/s10589-026-00773-5 — safe curvature correction and grouped probabilities.",
+      "Liu et al. (2015), JMLR 16:285–322 — abstract and bibliographic comparison only, not a full-text exclusion claim.",
+      "Closest mathematical research records for two-row cyclic Kaczmarz, orthonormal momentum Kaczmarz, fixed importance sampling and random-delay Gauss–Seidel — compared via available scientific statements; none was treated as exhaustive coverage evidence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coleman, arXiv:2607.08313, Algorithm 1 and sections III–V: defines power-weighted sample-and-commit and documents empirically rare or catastrophic stale-update behavior.",
+        "Coleman, arXiv:2606.01232, Theorems 10–11 and empirical Table 5: concentration-based sufficient rates and a qualitative one-component pile-on example.",
+        "Richtárik–Takáč and Lopes–Santos–Silva: differing duplicate-handling and descent-preserving update maps."
+      ],
+      "reasoning": "The previously observed single-spike overshoot is not claimed as new. To imply the assessed theorem a prior result must prove both exact parameter-necessary and -sufficient universal convergence boundaries for this unchanged frozen-batch map, together with the positive-probability supercritical divergence from every nonzero (including full-support) state. None of the materially inspected primary results makes this stronger statement or supplies a theorem logically implying it.",
+      "searches": [
+        "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz Coleman exact convergence orthogonal frozen-snapshot power residual sampling repeated coordinate updates",
+        "Residual-Weighted Randomized Jacobi full text self-reinforcing pile-on T positive probability theorem",
+        "parallel adaptive coordinate descent all threads select same coordinate stale gradient positive probability divergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coleman, arXiv:2607.08313, Algorithm 1 and section on consistent-snapshot reads: row-action steps and residual-power probabilities.",
+        "Coleman, arXiv:2606.01232, asynchronous Jacobi update and Theorems 10–11: the orthonormal Kaczmarz specialization is also separable Jacobi/coordinate descent."
+      ],
+      "reasoning": "On identity equations the update is exactly simultaneous residual-weighted coordinate relaxation; hence Jacobi and parallel-coordinate descriptions must be checked, not just papers titled Kaczmarz. The inspected companion work describes residual-weighted Jacobi and single-spike pile-on but not an all-positive-exponent sharp universal threshold with a strictly positive infinite-escape probability from every dense nonzero start.",
+      "searches": [
+        "asynchronous Kaczmarz stale frozen snapshot batch residual-weighted probability convergence orthogonal identity matrix",
+        "parallel randomized coordinate descent consistent snapshot importance sampling residual power weights simultaneous duplicate coordinates divergence",
+        "Coleman asynchronous residual-weighted Jacobi stability power weighted 2026 exact collision"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Coleman, arXiv:2606.01232, Table 5: observed concurrency-dependent divergence for a point-source residual, without the sharp all-state infinite-horizon probability law.",
+        "Coleman, arXiv:2607.08313, hardware stability figures and tables: empirical sampling/concurrency cliffs rather than exact universal orthonormal-batch formulas.",
+        "Publicly indexed numerical-optimization and linear-solver findings retrieved for matching formulations concerned cyclic Kaczmarz, fixed-coordinate sampling, or independent random delay, not this residual-dependent simultaneous batch theorem."
+      ],
+      "reasoning": "The closest explicit prior tables give finite hardware outcomes, not an exact closed-form universal threshold or positive infinite-path probability. No exact table or database of this complete law was identified; an unsuccessful search is not a proof of absence.",
+      "searches": [
+        "sharp mean square stability phase boundary frozen batch residual proportional power Kaczmarz identity matrix adaptive exponent zero positive probability divergence",
+        "parallel iterative projection orthonormal equations identical snapshot independent workers all select same row repeated stale updates blowup infinite collision sequence",
+        "parallel Kaczmarz adaptive residual power sampling frozen snapshot collision divergence orthogonal"
+      ]
+    },
+    "rationale": "The main source establishes the residual-power and snapshot model and reports empirical cliffs, while the companion Jacobi paper already acknowledges single-coordinate collision overshoot. Published parallel coordinate methods either drop duplicates or correct their step curvature. The assessed new theorem is the exact all-positive-exponent discontinuity versus uniform sampling, including almost-sure convergence under the sharp threshold and an explicit positive-probability exponentially divergent event from every nonzero full-support start above it. No inspected primary statement or closest returned mathematical finding logically implies this complete classification; possible older equivalent theory remains an explicit residual priority risk.",
+    "residual_risks": [
+      "Older literature under Jacobi, coordinate-descent, stochastic-approximation, simultaneous-update, or reinforced-random-process terminology could contain an equivalent general theorem.",
+      "Prior full-text work explicitly states single-coordinate pile-on and self-reinforcement; historical priority is assessed only for the stronger exact all-state classification and the dense-start positive-probability escape event, not that observed mechanism.",
+      "The model is a fully simultaneous, all-workers-frozen special interleaving. No practical-hardware scheduling probabilities or universal asynchronous convergence are inferred.",
+      "Independent mathematical validation and global exhaustive literature priority confirmation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the stochastic update mechanism but supplies measured stability cliffs, not the exact orthonormal batch theorem.",
+        "evidence": "Algorithm 1 lines specifying sampling, residual used and atomic commits; Figure 3–7 discussions on sampling exponent and concurrency; arXiv v1 date 9 July 2026.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.08313",
+        "material_read": "Public full-text HTML rendition: algorithm and read semantics (sections I and III), experimental stability boundaries and conclusions, reference list.",
+        "method": "Read publicly accessible full-text reproduction, with targeted inspection of the defining equations, pseudo-code, and relevant claims.",
+        "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+        "trigger": "Same power-residual law and consistent-snapshot Kaczmarz algorithm; motivating paper."
+      },
+      {
+        "assessment": "Already observes catastrophic pile-on from a point-source residual; does not contain the all-ell sharp threshold and dense-start infinite-event proof.",
+        "evidence": "Theorem 10 and Theorem 11 conditions in the asynchronous theory; Table 5 and surrounding self-reinforcing pile-on explanation.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.01232",
+        "material_read": "Public full-text reproduction: sections on stochastic update, asynchronous Theorems 10–11, step size control, empirical Tables 4–5, and future directions.",
+        "method": "Read and compared full-text mathematical statements and experimental discussion.",
+        "title": "Residual-Weighted Randomized Jacobi: Sharpened Bounds via Residual Concentration and Asynchronous Extension",
+        "trigger": "Same residual-power mechanism reduced to Jacobi/coordinate relaxation on identity equations, with reported collisions."
+      },
+      {
+        "assessment": "Relevant with-replacement sampling collapses duplicate chosen coordinates by leaving extra processors idle; it does not imply the repeated frozen-correction map.",
+        "evidence": "The article explicitly says that when multiple processors choose the same block all but one are idle.",
+        "identifier_or_url": "https://doi.org/10.1007/s10107-015-0901-6",
+        "material_read": "Open-access full-text HTML: sampling setup, duplicate-choice handling and relevant convergence statements.",
+        "method": "Inspected the published article and its sampling construction, including duplicate-coordinate handling.",
+        "title": "Parallel coordinate descent methods for big data optimization",
+        "trigger": "General parallel coordinate sampling could cover an identity quadratic by reduction."
+      },
+      {
+        "assessment": "Permits multisets but uses curvature-inflated safe subproblem steps and a two-group fixed probability law; not the frozen uncorrected power-weighted update analyzed here.",
+        "evidence": "Section 4.1 multiset setup and formula defining the parameter-dependent local descent direction; paragraph on needing a curvature correction for parallelism.",
+        "identifier_or_url": "https://doi.org/10.1007/s10589-026-00773-5",
+        "material_read": "Open-access full-text HTML: introduction and section 4 multiset definition, local curvature/step construction, propositions and convergence conditions.",
+        "method": "Inspected the article and compared the actual duplicate-coordinate update and weight law.",
+        "title": "Parallel block coordinate descent methods with identification strategies",
+        "trigger": "Published parallel nonuniform coordinate method that genuinely permits repeated choices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ca37465-8cd7-43e6-954e-82836b30e442",
+  "value": {
+    "rationale": "The fully uncoupled orthonormal system isolates stale duplicate-update instability without any Gram-matrix interference, gives a tight safety parameter for every positive selection exponent, and exposes a discontinuity at uniform sampling even when all initial coordinates are nonzero. The positive-probability infinite lock-in establishes a structural boundary, not just a finite-error or single-spike observation. It offers mathematically motivated guidance on damping/frozen batching but does not assert real-hardware or typical-case failure rates.",
+    "status": "PASS"
+  }
+}

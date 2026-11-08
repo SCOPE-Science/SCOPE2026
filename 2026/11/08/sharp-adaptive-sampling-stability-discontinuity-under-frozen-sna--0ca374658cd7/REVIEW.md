@@ -1,0 +1,24 @@
+# Self-review: frozen-snapshot residual-weighted Kaczmarz
+
+## Correctness — PASS
+
+The model explicitly fixes a common pre-batch residual and independently samples \(T\) indices with replacement. Summing the frozen corrections gives \(x_i'=(1-\beta N_i)x_i\), not sequential Kaczmarz. The binomial marginal moments give the exact conditional squared-error identity, including cross-worker collisions. At \(\ell=0\) this is a scalar, exact conditional expectation and therefore yields both directions of the uniform mean-square threshold. At \(\ell>0\), Chebyshev's rearrangement inequality and \(p_i\le1\) yield a dimension-dependent strict contraction if \(\beta T<2\); summability gives almost-sure convergence. The equality obstruction is a deterministic coordinate-axis period-two orbit. Above threshold, the infinite all-worker collision path has positive probability because its failure probabilities form a summable geometric series, and its exponentially growing coordinate yields both nonconvergence with positive probability and divergent second moments from every nonzero start. No finite computation is needed to prove the infinite statement. The standalone Python checker passed 7,816 assertions, including finite exact-rational multinomial enumerations and numerical product bounds.
+
+## Originality — PASS, subject to historical priority uncertainty
+
+The motivating full text of Coleman (2026, arXiv:2607.08313) introduces power-weighted Kaczmarz and distinguishes snapshot from live reads, but reports empirical stability boundaries rather than a sharp exact frozen-batch theorem. The closely related Coleman (2026, arXiv:2606.01232) does describe frozen-value pile-on and experimentally observes catastrophe for single-coordinate initial residuals, so this mechanism is **prior work**. Its full text does not provide the present universal classification across every positive exponent and every nonzero, including dense, initial condition or the exact positive-probability infinite escape event. Richtárik–Takáč's parallel-coordinate method discards concurrent duplicates in the relevant sampling implementation. Lopes–Santos–Silva (2026) allow duplicate draws but compute descent-safe directions with adjusted curvature and fixed group-weight sampling, so their update rule does not imply the uncorrected repeated frozen-step law. A separate bounded-delay result or classical binomial-moment inequality may supply components of the argument, but no inspected result is identified that implies the combined discontinuity and positive-probability escape classification. Searches over mathematical research records, published literature and the accessible prior claim ledgers found no equivalent claim; lack of a match does not establish global priority.
+
+## Mathematical value — PASS
+
+The result is a sharp structural distinction between uniform and arbitrarily weak residual-adaptive sampling in the cleanest possible uncoupled system: all Gram off-diagonal couplings vanish, yet duplicate stale updates alone cause an unavoidable universal stability ceiling. A dense-start positive-probability runaway is stronger than the already-observed single-spike overshoot and identifies a mathematical mechanism relevant to batching and damping: safe mean-square operation for all initial states requires \(\beta T<2\) for every positive residual-power exponent. Its sharpness, unbounded growth event and explicit contrast with uniform sampling constitute more than a routine one-step bound. No claim is made for practical scheduling distributions, typical failure frequency, live reads or coupled equations.
+
+## Closest literature and residual risks
+
+- E. Coleman, *Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz*, arXiv:2607.08313 (2026): full preprint text inspected, especially algorithm, read semantics and experimental stability discussion.
+- E. Coleman, *Residual-Weighted Randomized Jacobi: Sharpened Bounds via Residual Concentration and Asynchronous Extension*, arXiv:2606.01232 (2026): full preprint text inspected, especially Theorems 10–11 and the single-spike collision discussion.
+- P. Richtárik and M. Takáč, *Parallel coordinate descent methods for big data optimization* (2015): full open-access article inspected, including handling of repeated sampled blocks.
+- R. Lopes, S. A. Santos and P. J. S. Silva, *Parallel block coordinate descent methods with identification strategies* (2026): full open-access article inspected, including multiset sampling and safe local curvature.
+
+Unsearched older parallel-iteration subliterature could contain an equivalent special-case theorem. The proof addresses a deliberately extreme, fully stale simultaneous batch schedule; it does not establish typical hardware divergence.
+
+Self-review: passed. Independent audit: not yet performed.
