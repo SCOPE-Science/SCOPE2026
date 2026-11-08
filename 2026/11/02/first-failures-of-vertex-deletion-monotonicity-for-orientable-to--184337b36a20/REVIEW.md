@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct orientation forces every main-cycle vertex by a distinct unique-in-neighbor witness; the pendant leaf forces an upper bound for all valid orientations. After deleting the indicated vertex, a unicyclic graph with exactly two leaves has the exact forced nonleaf total-domination number. The minimum order follows from the necessity of a directed cycle in every total dominating set and the characterization of connected graphs whose maximum over valid orientations equals the number of vertices. The finite six-vertex census is exhaustive over every graph mask, orientation, chosen subset, deleted vertex and permutation. The C++ verifier and the independent finite family verifier returned `VERIFY_OK`; the independently constructed NetworkX atlas check found the same 18 marked isomorphism classes.
+## correctness
 
-**Originality — PASS with residual risk.** The explicit 2023 vertex-deletion conjecture is contradicted. The 2024 theorem giving all graphs with maximum orientable total domination equal to order minus one is a significant overlap: coupled with the 2023 unicyclic formula, it implies the infinite-family parameter identities, so those bare values are not claimed as new. The principal new component is a complete first-failure boundary and order-six marked census, including 9000 labeled pairs and 18 isomorphism classes. Relevant full-text sections and mathematical-record queries revealed no directly equivalent census or explicit refutation; an unindexed or unpublished result remains possible.
+PASS
 
-**Mathematical value — PASS.** The deletion inequality is an explicit published conjecture. Demonstrating failure at the least feasible order, giving arbitrarily large counterexample graphs, and classifying every minimum-order failure are structurally motivated conclusions, not arbitrary numerical samples. The table is a finite complete classification of the first obstruction layer; it does not claim a universal sharp replacement inequality.
+Reconstructed definitions: valid orientations have positive indegree everywhere and DOM_t maximizes directed total domination over valid orientations. On a cyclic orientation of chorded C_m+leaf, each cycle vertex is essential as unique in-neighbor of an appropriate other vertex; all cycle vertices dominate in every admissible orientation, yielding m. Deleting c3 creates a connected unicyclic graph with exactly two leaves; all valid orientations follow directed cycle/outward trees and DOM_t equals m-2. For n<=5, noncycle parent has DOM_t<=n-1 and admissible child has DOM_t>=3, giving gap<=1. Independent graph atlas calculation of ALL 156 six-vertex unlabeled graphs, valid orientations and marked orbits reconstructed exactly 18 classes, 9000 labeled marked pairs and 5850 labeled underlying graphs; brute force family m5..7 matched.
 
-Closest sources: Anderson et al., arXiv:2311.16307v1 (Conjecture 2.7 and unicyclic formula); Blázsik and Nagy, arXiv:2411.04560v1 (global \(\mathrm{DOM}_t=|V|-1\) classification). Limitations: publication priority is not certified, and no universal upper bound on the vertex-deletion gap is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Anderson et al. explicitly conjecture the deletion inequality and provide the unicyclic formula. Blázsik–Nagy 2024 supply a stronger classification of graphs with DOM_t=n-1, meaning the first part of the parent equality is already a corollary and is NOT separately novel. The refutation, least-order proof and complete 18 marked-graph deletion census are the surviving combined claim, not simply reciting the prior extremal class.
+
+## value
+
+PASS
+
+This is a counterexample to a concrete published inequality with sharp first order, an unbounded family of witnesses, and a nontrivial complete marked six-vertex census of all first failures; a naturally motivated finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
