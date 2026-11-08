@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproduction and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify_petersen_forest.py` in this directory. It must finish with `PETERSEN_FOREST_FILTRATION_EXACT_INTEGRAL_MORSE_OK` and produce the contents of `verification_output.json` as JSON. The certificate needs only the Python 3 standard library and deterministically reconstructs the ten graph vertices from unordered pairs of a five-element set.
+## correctness
 
-It enumerates every one of the 1024 vertex subsets; independently tests the degree bound and forest property by union-find and by induced-component DFS with the Euler forest identity; verifies cubic regularity and common-neighbor parameters; reconstructs all four absolute repeated-toggle Morse matchings and their Hasse orientations; and performs an exact signed integer boundary elimination of all matched pairs. The critical cells after cancellation are: for bound 0, one 0-cell and four 2-cells; for bound 1, one 0-cell and one 3-cell; for bound 2, one 0-cell and one 3-cell; for bound 3, one 0-cell and six 5-cells.
+PASS
 
-The relative certificate acts on exactly 360 new simplices of the pair (bound 2 over bound 1). Its 179 matched pairs pass the full 960-incidence Hasse acyclicity test and leave critical masks 538 and 914, in degrees 3 and 4. Integer cancellation gives boundary coefficient -1, an isomorphism. The actual inclusion follows by the relative homology sequence and Whitehead's theorem, not from comparing abstract homotopy types alone.
+Independently constructed KG(5,2) on the ten 2-subsets of [5] and classified all 1024 vertex sets by induced acyclicity and degree bound. Exact face totals d=0,1,2,3 are 76,261,621,786 (empty included); deterministic vertex-toggle Morse reductions leave only critical cells {0:1,2:4},{0:1,3:1},{0:1,3:1},{0:1,5:6} with 35,129,309,389 pairs respectively, and all 170,860,2540,3470 Hasse incidences topologically sort. Since each reduced CW model has a point and only cells of one positive dimension, these give integral sphere wedges. The RELATIVE F2\F1 has exactly 360 faces, 179 acyclic relative toggle pairs and only two critical cells masks 538 (dimension3), 914 (dimension4); independent exact signed unit-pivot cancellation gives relative boundary -1, establishing zero integral relative homology. As both F1,F2 are simply connected, Whitehead gives actual inclusion homotopy equivalence; persistent groups and nonshellability of pure 5-dimensional F2 with H3=Z follow. No extrapolation to other cubic graphs.
 
-An independent mod-two simplicial matrix elimination recomputes all absolute reduced homology ranks. These mod-two checks corroborate rather than replace the integral and homotopy certificates. The calculation proves an exact finite statement about the Petersen graph only; no general family or group-action claim is made.
+## originality
+
+PASS
+
+Carnero Bravo introduced vertex-induced forest filtration and proves families such as paths, cycles and cactus graphs, not Petersen; previous Petersen Ind2=S3 covers only F1. This result adds F2, F3, actual inclusion and nonshellability not consequences of F1 or higher component-size Ind3, which has 381 versus F2 621 faces.
+
+## value
+
+PASS
+
+A complete 4-stage classification of a natural filtration on the canonical noncactus cubic Petersen graph and a nontrivial inclusion equivalence distinguish persistence of homotopy from equality of homology ranks. The new nonshellable pure stage is a meaningful structural example, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

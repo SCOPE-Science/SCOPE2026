@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact object is the Petersen graph on the ten two-subsets of a five-element set. Two independent subset tests enumerate the vertex-induced forests with the stated maximum-degree constraints. All four matchings reconstruct every face and verify the absence of directed Hasse cycles. Their critical-cell patterns prove the four integral sphere-wedge types by discrete Morse theory. The relative match on \(\mathcal F_2(P)/\mathcal F_1(P)\) has two critical cells and an exact signed attaching-degree matrix \((-1)\). Its relative homology is zero; Whitehead's theorem supplies the homotopy equivalence of the actual inclusion. A separate mod-two boundary-rank computation agrees. All coefficients, dimension conventions and the cutoff \(d\geq3\) are explicit in the verifier.
+PASS
 
-## Originality — PASS against inspected evidence
+Independently constructed KG(5,2) on the ten 2-subsets of [5] and classified all 1024 vertex sets by induced acyclicity and degree bound. Exact face totals d=0,1,2,3 are 76,261,621,786 (empty included); deterministic vertex-toggle Morse reductions leave only critical cells {0:1,2:4},{0:1,3:1},{0:1,3:1},{0:1,5:6} with 35,129,309,389 pairs respectively, and all 170,860,2540,3470 Hasse incidences topologically sort. Since each reduced CW model has a point and only cells of one positive dimension, these give integral sphere wedges. The RELATIVE F2\F1 has exactly 360 faces, 179 acyclic relative toggle pairs and only two critical cells masks 538 (dimension3), 914 (dimension4); independent exact signed unit-pivot cancellation gives relative boundary -1, establishing zero integral relative homology. As both F1,F2 are simply connected, Whitehead gives actual inclusion homotopy equivalence; persistent groups and nonshellability of pure 5-dimensional F2 with H3=Z follow. No extrapolation to other cubic graphs.
 
-The primary forest-filtration paper (Carnero Bravo, arXiv:2307.13271) defines the object and treats paths, cycles, cactus and certain product/join families, but does not compute the Petersen example. The higher-independence literature (arXiv:2106.10863) considers component-size constraints, not unrestricted induced linear paths. The previously available result \(\operatorname{Ind}_2(P)\hookrightarrow\operatorname{Ind}_3(P)\) is an equivalence does not give the new inclusion \(\mathcal F_1(P)\hookrightarrow\mathcal F_2(P)\), since \(\mathcal F_2(P)\) has \(240\) additional faces beyond \(\operatorname{Ind}_3(P)\). Relevant topological database entries address different complexes. Searches and primary-source inspections are recorded precisely in `AUDIT.json`. An equivalent unindexed calculation remains a real bibliographic risk, rather than a claim of proved uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The result classifies all stages of an independently motivated natural filtration for a canonical graph. The inclusion equivalence despite \(360\) added faces, the subsequent six-sphere transition, the precise integral persistence and the nonshellable intermediate stage make it a structural calculation rather than an arbitrary single Betti number. The previously known early stage is background, not relabeled novelty.
+Carnero Bravo introduced vertex-induced forest filtration and proves families such as paths, cycles and cactus graphs, not Petersen; previous Petersen Ind2=S3 covers only F1. This result adds F2, F3, actual inclusion and nonshellability not consequences of F1 or higher component-size Ind3, which has 381 versus F2 621 faces.
 
-## Scientific limitations
+## value
 
-No classification for other cubic or Kneser graphs and no equivariant homotopy type is claimed. All asserted computations are finite and fully enumerated; no finite evidence is extrapolated to a graph family. Independent expert verification has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete 4-stage classification of a natural filtration on the canonical noncactus cubic Petersen graph and a nontrivial inclusion equivalence distinguish persistence of homotopy from equality of homology ranks. The new nonshellable pure stage is a meaningful structural example, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
