@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The mathematical assertions are proved in RESULT.md, including exact normalization, derivative signs across the entire positive parameter line, and equality classification. The necessary non-elementary shift-covariance inequality is an explicitly cited and inspected mathematical lemma; its proof uses the Gaussian parallelogram identity and Cauchy–Schwarz on parity classes. The Poisson summation identity is classical.
+# Independent mathematical audit
 
-The standalone checker evaluates rapidly convergent theta sums with `mpmath`, finds the root, checks finite samples against the derivative and curvature formulas, and checks sufficient scalar inequalities. Numerical sampling cannot prove global uniqueness or coverage. The analytic estimates in the main proof do so.
+## correctness
 
-The approximate decimal values are reproducibility aids, not independently certified interval bounds. Neither a stronger statement for arbitrary densities nor independent external validation is claimed.
+PASS
+
+Reconstructed quotient-Hessian as four t^2 times discrete-Gaussian shifted variance and equality at shift zero (with the established shifted-covariance inequality cited from Letwin--Reis--Rothvoss). Differentiation gives A prime=4t(2m-tv); Jacobi transform controls t<=2, cumulant comparison controls 2<=t<=3, tail bound gives negativity beyond 3, establishing one maximizer. Independent high-precision theta sums found t*=2.353015289448131648865384 and A*=3.550276615992224481628183. Product Hessian diagonal gives minimum of A(t_j)/a_j^2 and rigidity on longest sides. Numerical check does not prove the imported shift inequality or the global analytic signs; proof cites explicit inequalities.
+
+## originality
+
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+A sharp constant and full equality classification for a natural periodized Gaussian construction, including sensitivity to the longest lattice side, refines a general existence theorem into a concrete optimally tuned family. Claim explicitly excludes arbitrary Gaussian covariance and arbitrary non-Gaussian lifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
