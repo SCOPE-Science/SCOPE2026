@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The package contains source and exact output of two independently implemented exhaustive group enumerators, a finite-field line-enumeration and coefficient verifier, and a consistency check. From the containing directory, run:
+## correctness
 
-```sh
-python3 verify_f29.py
-c++ -O2 -std=c++17 verify_theta_permutations.cpp -o verify_theta
-c++ -O2 -std=c++17 verify_symplectic_matrices.cpp -o verify_matrices
-./verify_theta > result_theta.txt
-./verify_matrices > result_matrices.txt
-python3 verify_consistency.py
-```
+PASS
 
-The expected output is `VERIFY_F29_OK`, group size 1,451,520 in each independent enumeration, 25 distinct common cycle spectra, the minimum-orbit histogram \(\{1:984852,2:71820,3:96768,4:90720,7:207360\}\), and `VERIFY_GROUP_OK`. The reconstructed `group_cycle_spectra.csv` and `bitangents_F29.csv` should reproduce the embedded CSV files byte-for-byte.
+For odd characteristic the 28 bitangent lines of a smooth plane quartic correspond Frobenius-equivariantly to 28 odd theta characteristics in a 6-dimensional binary symplectic module. Independently wrote a C++ transvection-generated odd-refinement permutation enumerator, exhausted exactly 1,451,520 distinct Sp6(2) group elements (equal to known group order) and obtained 25 distinct cycle spectra, with minimum-cycle lengths and counts 1:984852, 2:71820, 3:96768, 4:90720, 7:207360. Independently enumerated 871 projective lines and all 871 projective binary-quadratic square classes over F29 for split Klein quartic X³Y+Y³Z+Z³X; exactly 28 rational bitangents found. F29 twist with beta^7=2 and Frobenius multiplier 16 of order seven permutes these 28 lines in four 7-cycles, none fixed by proper powers. The written Kummer descent and smooth geometric base-change establish sharp d(C)=7. The full group enumeration is exhaustive finite proof for the finite symplectic action, not mere spot checking; classical theta-bitangent correspondence needed for universal inference.
 
-The explicit coefficient tests cover all \(29^2+29+1=871\) projective lines defined over \(\mathbb F_{29}\); the 28 distinct bitangent identities and the classical count of 28 geometric bitangents prove exhaustiveness. The group test reaches the complete finite group by generating its known order with symplectic transvections. These finite exact checks certify the necessary calculations. The universal inference additionally uses the standard theta-characteristic correspondence, and sharpness uses the written Kummer twist argument; merely replaying logs without these arguments does not establish the theorem.
+## originality
 
-The computation does not classify the fields of definition of bitangent contact points, does not cover characteristic two, and does not establish that all 25 abstract cycle types arise geometrically over each finite field.
+PASS
+
+Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.
+
+## value
+
+PASS
+
+The minimal extension degree supporting a geometric bitangent is a natural arithmetic invariant for plane quartics and algorithms using odd theta characteristics. The exact allowable least-degree set {1,2,3,4,7} is a meaningful complete finite-group classification, and a fully explicit smooth F29 plane quartic realizes the maximum 7. This is more useful than a bare count of rational bitangents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
