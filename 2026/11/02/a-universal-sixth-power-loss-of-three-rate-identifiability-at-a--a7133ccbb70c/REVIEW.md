@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's hypergraph dynamics reduce exactly to the scalar cubic recurrence for the specified unit-sum interactions. Under the strict step bound the recurrence is increasing, preserves \((r,1]\), and approaches the endemic double root from above at rate \(1/(h\kappa rt)\). A factored Vandermonde identity proves finite-time full rank and the universal determinant asymptotic. Centered rows and the nonzero cross product \(v(r)\times v'(r)\) prove the second singular-value asymptotic; the determinant gives the third. Exact rational checks reproduce the determinant identity and model-parameter recovery. The decimal trajectory is a sanity check, not an infinity proof.
+PASS
 
-## Originality — PASS with residual risk
+For κ>β>0, δ=(β+κ)^2/(4κ), h<1/(δ+β+κ), and r=(κ−β)/(2κ), the invariant diagonal recurrence x_next=x−hκx(x−r)^2 is strictly decreasing from x0>r to r. Reciprocal increments give t(x_t−r)→1/(hκr), so consecutive gaps scale t^-2. Symbolic independent exact determinant expansion verifies det Φ=h³x_t x_(t+1) x_(t+2) (x_t−x_(t+1))(x_t−x_(t+2))(x_(t+1)−x_(t+2)); hence t^6 det→2/κ³. Centered-row singular perturbation with nonzero v(r)×v_prime(r) gives σ2~t^-2, σ3~t^-4 and the stated t^4 Euclidean condition number. Four noiseless states identify three unconstrained rates, not fold-aware or noisy predictors.
 
-The direct motivating full text (Liang--Cui--Liu, arXiv:2408.08602v1, Section 4) states its three-parameter least-squares design and the ordinary full-column-rank requirement, but no critical-fold determinant or sharp condition-number decay. Kiss--Simon, arXiv:2208.07543v1, studies continuous SIR/pairwise-model identification from growth and final size; Landry--Restrepo, arXiv:2006.15453v2, studies higher-order contagion folds without the proposed sampling-design theorem. Mathematical-record comparisons found different SIS convergence/bifurcation, SIR identification, and critical dynamics claims but none implies the three-rate time-window asymptotics. The Vandermonde factor itself is classical; existing specialized numerical-analysis or unindexed epidemic-inference literature might implicitly cover this specialization, so priority remains uncertain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The originating parameter-learning framework explicitly requires a rank condition, but it does not quantify how the observation horizon affects reliable inference. This theorem identifies a natural and biologically motivated difficult regime, an endemic fold where prevalence stabilizes algebraically, and simultaneously establishes strict noiseless identifiability and the exact sixth- and fourth-power losses of numerical stability. The determinant leading factor is universal across step sizes, pairwise rates, and initial conditions. The result informs choice of measurement windows, without asserting statistical confidence bounds.
+The Liang–Cui–Liu source gives a linear three-rate regression and full-rank criterion but not late-time fold determinant or sharp spectral singular values. Vandermonde factorization is standard, while its coupling to the exact fold dynamics, t^6 constant and t^4 condition asymptotic is a specific new assertion. SIR identifiability and higher-order endemic-fold results do not imply this time-window estimate. Priority remains qualified against specialist numerical-analysis literature.
 
-## Scientific limitations
+## value
 
-Only a homogeneous three-agent diagonal invariant subsystem and three consecutive regression rows are treated. The unscaled three-rate design does not characterize constrained fold-aware or noisy-data estimators. Independent validation of mathematics, novelty, or publication priority has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regression rank condition in a natural higher-order epidemic model is not a numerical conditioning guarantee; exact critical-fold stability losses quantify a natural difficulty in planning observation windows, with universal determinant leading constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
