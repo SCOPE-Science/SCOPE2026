@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For all integers b>=2 and m>=3, the exact increment law 1-(b-1)nu_b(n+1) modulo m implies each adjacent pair of increments contains +1. Reversal of a legal triple forces its increments to be (+1,-1) or (-1,+1), hence every reversible triple is palindromic. The two overlapping triples of a hypothetical reversible length-four word force an alternating word, whose reverse would need forbidden (-1,+1,-1) increments. Multiples of b cannot occur two apart for b>=3; for b=2 one of the two even integers two apart has valuation exactly one and increment zero. The prohibition propagates to every length>=4. Translation invariance and digit-carry construction give exactly m^2/g two-letter factors and the gcd-specific reversal orbit counts. All lemmas are fully proved in RESULT.md. A standalone independent implementation checked 1406 symbolic (b,m) pairs, 24843 exact arithmetic witnesses and 20 direct 100000-symbol prefix languages. The finite checks supplement rather than establish the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fleischer and Shallit (2019), arXiv:1911.11704, reversal-avoidance algorithms and unrelated examples.",
+        "Blažek, Dvořáková and Pelantová (2026), arXiv:2610.14637, binary generalized reflection complexity for finite symmetry groups.",
+        "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages."
+      ],
+      "reasoning": "General reverse-factor avoidance algorithms are neither a uniform evaluation on digit-sum moduli nor an implication of the carry-obstruction theorem. The generalized reflection group results address binary alphabets, distinct from m>=3, and the 2011 dihedral symmetry uses nontrivial symbol maps. No identified stronger theorem specializes to the all-base, all-modulus statement.",
+      "searches": [
+        "Generalized Thue Morse all longer factors have no reverse occurrence, chiral language, palindrome and reversal free classification",
+        "Question generalized reflection complexity mod ell>4 digit sum base two automatic sequence Allouche Campbell Shallit Stipulanti",
+        "arXiv:1911.11704",
+        "arXiv:2610.14637"
+      ]
+    },
+    "checked_sources": [
+      "Allouche et al. (2024), arXiv:2406.09302, discussion of generalized Thue–Morse words: b=2,m=3 special equality r(n)=rho(n) for n>=3; larger moduli proposed for investigation.",
+      "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages.",
+      "Fleischer and Shallit (2019), arXiv:1911.11704, reversal-avoidance algorithms and unrelated examples.",
+      "Blažek, Dvořáková and Pelantová (2026), arXiv:2610.14637, binary generalized reflection complexity for finite symmetry groups."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Allouche et al. (2024), arXiv:2406.09302, discussion of generalized Thue–Morse words: b=2,m=3 special equality r(n)=rho(n) for n>=3; larger moduli proposed for investigation.",
+        "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages.",
+        "Fleischer and Shallit (2019), arXiv:1911.11704, reversal-avoidance algorithms and unrelated examples.",
+        "Blažek, Dvořáková and Pelantová (2026), arXiv:2610.14637, binary generalized reflection complexity for finite symmetry groups."
+      ],
+      "reasoning": "The full statement implies the previously noted b=2,m=3 equality, not conversely. Dihedral palindromic-richness and ordinary factor complexity require extra analysis to decide ordinary reversal; the carry law and forbidden three-step pattern supply that extra content. A general reversal avoidance algorithm does not itself imply the exact universal result or sharp gcd threshold.",
+      "searches": [
+        "Generalized Thue-Morse words t_{b,m} digit sum modulo m: reflection complexity equals ordinary factor complexity for every length at least three, all bases b>=2 and m>=3",
+        "Reversed factor pairs in generalized Thue-Morse sequences, minimum reversal disjoint factor length four, gcd(b-1,m) and exact reflection complexity",
+        "Generalized Thue Morse all longer factors have no reverse occurrence, chiral language, palindrome and reversal free classification",
+        "Question generalized reflection complexity mod ell>4 digit sum base two automatic sequence Allouche Campbell Shallit Stipulanti",
+        "arXiv:2406.09302 Section 7",
+        "arXiv:1104.2476 Properties IV/V and Proposition 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche et al. (2024), arXiv:2406.09302, discussion of generalized Thue–Morse words: b=2,m=3 special equality r(n)=rho(n) for n>=3; larger moduli proposed for investigation.",
+        "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages."
+      ],
+      "reasoning": "Equivalently, the language intersects its plain reversal only in the listed length-2 and length-3 cases, and is entirely reversal-disjoint in all lengths>=4. Starosta’s D_m-closure concerns reflection combined with letter maps; it does not imply closure or non-closure under the identity-symbol reversal. The 2024 statement covers only one (b,m) pair. Checked claims do not establish the all-parameter reversal-disjoint assertion.",
+      "searches": [
+        "Generalized Thue-Morse words t_{b,m} digit sum modulo m: reflection complexity equals ordinary factor complexity for every length at least three, all bases b>=2 and m>=3",
+        "Reversed factor pairs in generalized Thue-Morse sequences, minimum reversal disjoint factor length four, gcd(b-1,m) and exact reflection complexity",
+        "Generalized Thue Morse all longer factors have no reverse occurrence, chiral language, palindrome and reversal free classification",
+        "arXiv:2406.09302",
+        "arXiv:1104.2476"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages.",
+        "Allouche et al. (2024), arXiv:2406.09302, discussion of generalized Thue–Morse words: b=2,m=3 special equality r(n)=rho(n) for n>=3; larger moduli proposed for investigation."
+      ],
+      "reasoning": "The known short-factor language and ordinary-complexity table enumerate factors, not plain-reversal orbit counts or the absence of reverse partners for every length>=4. The one known r=rho special case at b=2,m=3 does not determine gcd-dependent behavior across all b,m.",
+      "searches": [
+        "Generalized Thue-Morse words t_{b,m} digit sum modulo m: reflection complexity equals ordinary factor complexity for every length at least three, all bases b>=2 and m>=3",
+        "Reversed factor pairs in generalized Thue-Morse sequences, minimum reversal disjoint factor length four, gcd(b-1,m) and exact reflection complexity",
+        "Reflection complexity palindromes cyclic words period doubling or Thue Morse exact formulas",
+        "Exact factor complexity under arithmetic progressions for digit-sum mod 3 automatic sequence",
+        "arXiv:1104.2476, Table 2 and Properties IV/V"
+      ]
+    },
+    "rationale": "The 2024 motivating publication states the base-two, modulus-three special case, which is explicitly excluded from the novelty claim. The uniform result for all bases and all moduli at least three, its exact gcd-dependent length-two orbit counts, and its sharp length-two/length-four reversal-free transition are not equivalent to any checked primary statement. Existing dihedral antimorphisms alter symbols and do not imply ordinary reversal. No dominating all-parameter result was found in the inspected full source texts or published-result searches. Search absence is not a mathematical proof of priority.",
+    "residual_risks": [
+      "An unindexed or inaccessible source may already state a universal ordinary-reversal avoidance result for all generalized Thue–Morse words.",
+      "The 2011 dihedral symmetry theorem can be related to ordinary reversal through extra arguments, though its stated conclusion is not this one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers a single special case; lacks the uniform b,m result and gcd thresholds",
+        "evidence": "Allouche et al. (2024), arXiv:2406.09302, discussion of generalized Thue–Morse words: b=2,m=3 special equality r(n)=rho(n) for n>=3; larger moduli proposed for investigation.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Full accessible manuscript HTML, especially discussion of generalized Thue–Morse words, the b=2,m=3 equality and extension remarks",
+        "method": "Read primary preprint full text with targeted searches for generalized Thue–Morse and ordinary reversal",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Introduces reflection complexity and poses the generalized-digit-sum example"
+      },
+      {
+        "assessment": "Provides related small-factor structure and dihedral symmetry; not a direct ordinary-reversal classification",
+        "evidence": "Starosta (2011), arXiv:1104.2476, exact 2- and 3-factor properties and dihedral antimorphism group for generalized Thue–Morse languages.",
+        "identifier_or_url": "https://arxiv.org/abs/1104.2476",
+        "material_read": "Full accessible manuscript HTML including Proposition 2, Properties IV/V, Theorem 6 and Table 2",
+        "method": "Compare language symmetry maps and concrete 2/3-factor parameters to ordinary symbol-fixed reversal",
+        "title": "Generalized Thue–Morse words and palindromic richness",
+        "trigger": "Potential stronger factor-language, palindrome and antimorphism theorems"
+      },
+      {
+        "assessment": "General reversal-avoidance framework without this uniform digit-sum classification",
+        "evidence": "Fleischer and Shallit (2019), arXiv:1911.11704, reversal-avoidance algorithms and unrelated examples.",
+        "identifier_or_url": "https://arxiv.org/abs/1911.11704",
+        "material_read": "Full accessible manuscript HTML, general avoidance framework, examples and algorithmic discussion",
+        "method": "Inspect problem objects and quantify implications for digit-sum fixed points",
+        "title": "Words Avoiding Reversed Factors, Revisited",
+        "trigger": "Potential general reversal avoidance result covering our language"
+      },
+      {
+        "assessment": "Focuses on binary generalized sequences and group-relative complexities, not all moduli m>=3 under plain reversal",
+        "evidence": "Blažek, Dvořáková and Pelantová (2026), arXiv:2610.14637, binary generalized reflection complexity for finite symmetry groups.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.14637",
+        "material_read": "Full accessible manuscript HTML, definitions and generalized Thue–Morse applications",
+        "method": "Check alphabet domain and equivalence relation used by its symmetry groups",
+        "title": "Generalized reflection complexity",
+        "trigger": "Recent plausible stronger generalization with a matching title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9851c44f-e8e8-49ed-80ab-1cd3899c21d2",
+  "value": {
+    "rationale": "The reversal quotient is a named combinatorics-on-words complexity invariant with an explicit 2024 generalized Thue–Morse motivation. The theorem gives a complete infinite two-parameter classification of reversal collisions, a sharp gcd phase transition in the minimal reversal-free length, and exact length-two quotient counts. It allows any established factor complexity formula to be transferred directly to reflection complexity at lengths at least three; it is neither a finite isolated table nor a restatement of a known binary specialization.",
+    "status": "PASS"
+  }
+}
