@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 6b9238e83de8963dd6314a7f67665a8fa32670c6",
+        "Git verify.py blob c77e8f746b609f16ce36a7eb88597aab1756594f",
+        "independent_checks_output.txt: RULE232_EXHAUSTIVE_RINGS 14"
+      ],
+      "rationale": "The majority update flips x_i precisely if both incident walls are 1. XOR differentiation gives d_i’=d_i(1⊕d_{i-1}⊕d_{i+1}); zero walls persist while each bounded run of one-walls erodes by two from its ends, with an isolated 1 fixed. Thus first-fixed time is floor(q/2), q=max one-run length in a non-all-one wall word. Exactly the all-one wall state yields a nonfixed alternating temporal 2-cycle, possible only at even n and represented by exactly two x. A cyclic wall word comes from x iff its parity is even, with two preimages. A (L+1)-state transfer matrix counting cyclic one-runs bounded by L has det(I-zT)=Q_L(u,z); the trace/log determinant and parity projection yield the all-n,t cumulative rational GF. Edge cases n=1,2 are covered. Independent exhaustive synchronous evolution and coefficient enumeration checked n=1..14; all-n follows from wall and transfer proofs.",
+      "residual_risks": [
+        "Finite simulations do not prove the all-length generating function; the transfer argument does.",
+        "Only synchronous radius-one periodic majority; other boundary/update rules excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tosic–Agha qualitative cycle/transient classification; Inokuchi–Sato fixed boundary; Nakar–Ron eventual spatial structure general radius; Goles–Martínez only metadata accessible."
+        ],
+        "reasoning": "Different boundary hypotheses or qualitative attractor partition cannot produce the desired exact joint first-hitting-time coefficients; inaccessible monograph remains a material risk.",
+        "searches": [
+          "https://doi.org/10.5109/13492",
+          "https://arxiv.org/abs/2205.08972",
+          "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "https://doi.org/10.1007/978-94-009-0529-0_5"
+        ]
+      },
+      "checked_sources": [
+        "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "https://doi.org/10.5109/13492",
+        "https://arxiv.org/abs/2205.08972",
+        "https://doi.org/10.1007/978-94-009-0529-0_5",
+        "Resultary query: majority cellular automaton rule 232 cyclic ring hitting time domain wall runs transient time distribution rational generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous classification of two fixed basins and alternating cycles does not specify number of initial states at each transient depth.",
+          "A transfer-matrix parity projection is needed to derive -z d/dz log(Q_L(1)Q_L(-1))."
+        ],
+        "reasoning": "Knowing all eventual attractors does not imply the whole transient-depth distribution; exact first-fixed times require the run-erasure analysis and cyclic parity constraint.",
+        "searches": [
+          "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf Lemmas 3-4",
+          "https://doi.org/10.5109/13492",
+          "https://arxiv.org/abs/2205.08972"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The induced wall rule is the erosion dynamics also expressible as elementary cellular automaton Rule 132; Tosic–Agha classify attractors but not the parity-projected maximum-run distribution."
+        ],
+        "reasoning": "A full root-to-wall reduction is a 2-to-1 correspondence only for even-parity cyclic walls; generic transient-run facts do not give the exact logarithmic-derivative enumeration.",
+        "searches": [
+          "majority cellular automaton rule 232 cyclic ring hitting time domain wall runs transient time distribution rational generating function",
+          "Rule 132 domain wall transform of majority Rule 232",
+          "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing fixed-point enumeration corresponds to the time-zero specialization F_{n,0}. Exact time-bucket counts n=4,6,8 are verified but no prior all-n,t table observed."
+        ],
+        "reasoning": "The theorem does not claim fixed-point number as new. It gives an all-time generating family; an unlocated table is not novelty proof.",
+        "searches": [
+          "majority cellular automaton rule 232 cyclic ring hitting time domain wall runs transient time distribution rational generating function",
+          "Tosic majority update rule stable configurations count t=0"
+        ]
+      },
+      "rationale": "Tosic–Agha Lemmas 3–4 identify fixed states, alternating cycles and transients for majority update, and Tosic later counts fixed states t=0. These do not imply individual first-fixed times or joint all-n,t distribution. Inokuchi–Sato study fixed rather than cyclic boundaries; Nakar–Ron discusses general-radius eventual configuration structure. The early Goles–Martínez 1990 monograph is highly relevant but full text inaccessible, explicitly retained as priority risk.",
+      "residual_risks": [
+        "Potential earlier equivalent transient-depth enumeration in inaccessible Goles–Martínez (1990) chapter; authorized Oxford VPN disconnected.",
+        "Fixed-point t=0 slice and qualitative two-cycle classification are established prior work, not novel here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative fixed/2-cycle/transient result, not time-indexed bivariate count.",
+          "evidence": [
+            "Lemma 4 on PDF page 7 classifies fixed states and the alternating cycle."
+          ],
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Accessible primary ten-page PDF including Lemmas 3–4, page-image inspected and adjoining proof",
+          "method": "Primary complete relevant lemma reading",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Same three-site binary majority with fixed states/cycles"
+        },
+        {
+          "assessment": "Treats fixed boundary conditions rather than the periodic-ring GF.",
+          "evidence": [
+            "Paper states focus on fixed boundary conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.5109/13492",
+          "material_read": "Institutional repository PDF abstract/introduction and fixed-boundary hypotheses; pertinent sections scanned",
+          "method": "Primary source mathematical-scope check",
+          "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+          "trigger": "Same general threshold dynamics, transient durations"
+        },
+        {
+          "assessment": "Cannot exclude equivalent early transient counting; no blanket noncoverage claim.",
+          "evidence": [
+            "Chapter pp.97–136 and DOI 10.1007/978-94-009-0529-0_5."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-94-009-0529-0_5",
+          "material_read": "Publisher chapter preview/metadata and chapter title only; full chapter not obtained through lawful OA or authorized Oxford (vpn_disconnected)",
+          "method": "Public bibliographic preview, authorized-access blocker",
+          "title": "Neural and Automata Networks: Dynamical Behavior and Applications — Uniform One and two Dimensional Neural Networks",
+          "trigger": "Early 1990 major monograph on majority/threshold systems"
+        },
+        {
+          "assessment": "Studies eventual configurations rather than time-resolved finite-size count.",
+          "evidence": [
+            "Focus on eventual cell stability and configuration periodicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "Open preprint abstract/introduction and main spatial-structure statement",
+          "method": "Primary theorem-scope comparison",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+          "trigger": "General radius majority eventual structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "Complete domain-wall and transfer-matrix argument"
+      ],
+      "rationale": "The longest-wall-run stopping time and bivariate rational count determine exact finite-ring relaxation statistics for a canonical deterministic cellular automaton; this is a natural complete time-distribution refinement of known attractor classes, not merely an elementary observation that fixed states exist.",
+      "residual_risks": [
+        "Finite ring labeled configurations; does not provide biased-measure limits, asynchronous update or larger radii."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment; not a formal certificate or historical-priority guarantee.",
+    "Publication plan not_ready due verified existing public metadata provenance/privacy and unverified first_public_date; no source edits were prepared."
+  ],
+  "schema_version": 1
+}
