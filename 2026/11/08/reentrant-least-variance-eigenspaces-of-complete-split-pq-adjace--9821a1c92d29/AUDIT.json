@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Every allowed directed edge or loop is an exposed vertex. Direct joint endpoint moments yield the covariance as two equal diagonal and offdiagonal blocks. Orthogonal symmetric/antisymmetric splitting gives L/N and (D+B)/N-2ww^T/N^2; all four positive eigenvalue formulas follow on an exhaustive clique/independent/group contrast basis, with two null directions. The largest mode is n/N; the least changes sign exactly with H_p(q). The concave polynomial H, its discriminant, and endpoint values at 2,3,4,5 prove all parameter ranges and ties. A Python standard-library checker replayed from the candidate package separately builds 85 exact vertex covariance matrices and verifies their full eigenbases without floating-point arithmetic. No result is extrapolated from finite checks alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "K. C. Das and M. Liu (2016) study spectral determination of complete split graphs by graph Laplacian and signless Laplacian, not the covariance of PQ-polytope vertices.",
+        "The 2017 paper on signless-Laplacian energy of complete split graphs reports graph signless spectra, but these do not include the rank-one centering of the symmetric covariance block.",
+        "The antisymmetric covariance block here equals the graph Laplacian divided by the number of directed loops and edges; the symmetric block requires a different centered matrix."
+      ],
+      "reasoning": "Graph Laplacian eigenvalues by themselves control only the antisymmetric half. A dominating result would also need the joint endpoint distribution and rank-one centered signless block, plus an extremal comparison. No such coverage appeared in inspected primary results.",
+      "searches": [
+        "adjacency polytope graph covariance spectra vertex uniform graph Laplacian signless Laplacian",
+        "Laplacian spectrum complete split graph clique independent K_p join empty E_q eigenvalues p q p+q",
+        "signless laplacian split graph threshold eigenvalue p quadratic p^2 q"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.11051 (full HTML-rendered scientific text)",
+      "arXiv:2103.15045 (full HTML-rendered scientific text)",
+      "arXiv:2202.09853 (full experimental HTML article)",
+      "Das and Liu, Discrete Applied Mathematics 205 (2016), abstract/metadata",
+      "Published finding-index claim on balanced complete-bipartite PQ Löwner ellipsoid (title/summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ohsugi–Tsuchiya arXiv:2103.15045 Section 4, Theorem 4.1 counts Ehrhart/volume quantities and supplies no joint second moments.",
+        "Davis–Jakovleski–Pan arXiv:2202.09853 Sections 1–3 treat normalized-volume recurrences for other graph classes.",
+        "Balanced complete-bipartite PQ adjacency ellipsoid research treats a different graph and outer ellipsoid objective.",
+        "Complete-split Laplacian results entail the eigenvalues of the antisymmetric block, not those of the symmetric rank-one-corrected block."
+      ],
+      "reasoning": "The covariance claim is neither a restatement nor a numerical corollary of the cited volume formulas; the second-moment joint distribution and centering are essential. The graph-Laplacian sources leave the symmetric mode undetermined, and therefore do not force the reentrant phase or its sharp integer cutoffs.",
+      "searches": [
+        "PQ adjacency polytope full covariance spectral classification regular graphs",
+        "PQ adjacency polytope covariance signless Laplacian centered, clique independent split graph spectrum",
+        "complete split graph determined by its (signless) Laplacian spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2103.15045 Section 4 studies the same split-graph construction, but its Theorem 4.1 is a normalized-volume and h-star enumeration, not a covariance eigenspace result.",
+        "arXiv:2007.11051 Sections 1–2 define the PQ polytope and its bipartite-double/root-polytope interpretation; the reported claims concern normalized volume.",
+        "No title/abstract/inspected statement using inertia, moment matrix, PCA, or vertex covariance established the displayed phase polynomial."
+      ],
+      "reasoning": "The graph/root-polytope names are equivalent descriptions of the underlying vertices, but not statements of their uniform-vertex covariance spectrum. The new theorem explicitly treats all principal variances and their ordering.",
+      "searches": [
+        "PQ adjacency polytope covariance matrix spectral inertia eigenvalues uniform vertices split graph",
+        "root polytope bipartite double D(K_p + E_q) uniform edge embeddings covariance condition number",
+        "complete split graph PQ adjacency polytope K_p + E_q vertex covariance, Laplacian decomposition and reentrant least variance phase, 2 positive roots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible tables and statements of arXiv:2103.15045 Section 4 tabulate normalized volumes rather than eigenvalue classes or a phase inequality.",
+        "Semantic finding-index searches returned related PQ enclosing-ellipsoid results but not a vertex-covariance table for the complete split family."
+      ],
+      "reasoning": "No exact table encoding the four eigenvalue modes or the sign of the phase polynomial was found in the checked sources. Absence from a search index alone is not a proof of novelty.",
+      "searches": [
+        "split graph PQ polytope eigenvalues covariance smallest variance",
+        "PQ adjacency polytope covariance signless Laplacian centered, clique independent split graph spectrum",
+        "vertex-uniform covariance and eigenvalues of PQ-type adjacency polytopes of complete multipartite graphs, complete split and join graphs"
+      ]
+    },
+    "rationale": "The closest full primary source on the identical split-graph PQ polytope, arXiv:2103.15045 Section 4, derives normalized volumes and h-star data rather than uniformly sampled vertex-covariance spectra. The earlier source arXiv:2007.11051 and follow-up arXiv:2202.09853 likewise address enumerative volume questions. Standard complete-split graph Laplacian spectra yield only one of the two covariance blocks after a new moment calculation; they do not imply the centered symmetric eigenspace crossing. Searches of scientific literature and published finding titles/summaries uncovered no equal or dominating covariance theorem. Historical priority is not independently proven.",
+    "residual_risks": [
+      "Historical-equivalent results could occur under root-polytope, edge-sampling or spectral-graph terminology not recovered by the searches.",
+      "The full text of the 2016 graph-spectrum article and the related balanced-PQ ellipsoid report was not read, though their stated objects/invariants do not imply this claim.",
+      "No independent audit or proof-validation channel has reviewed the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present covariance claim: gives h-star and normalized-volume formulas for these graphs, not joint vertex second moments, covariance eigenvalues, or the minimum-variance phase.",
+        "evidence": [
+          "arXiv:2103.15045 Sections 1 and 4; explicit Theorem 4.1 is for \\(K_{\\ell}\\vee\\overline{K_m}\\) normalized volume."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.15045",
+        "material_read": "Full HTML-rendered primary text, especially Introduction, Theorem 1.1, Section 4, Theorem 4.1 and references.",
+        "method": "Read complete scholarly HTML representation with attention to theorem statements, volume tables, and the split-graph subsection.",
+        "title": "PQ-type adjacency polytopes of join graphs",
+        "trigger": "Same PQ polytope family K_p joined with an edgeless set; closest exact-object source."
+      },
+      {
+        "assessment": "NOT_COVERING the covariance phase: establishes an enumerative volume interpretation and recurrences rather than vertex covariance.",
+        "evidence": [
+          "arXiv:2007.11051 Sections 1–2, including Lemma 2.4 on the graph double."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.11051",
+        "material_read": "Full HTML-rendered scholarly text, especially Sections 1 and 2 on definitions, embedding and main theorems.",
+        "method": "Read article text around definition, Section 2, and core volume result.",
+        "title": "Computing Volumes of Adjacency Polytopes via Draconian Sequences",
+        "trigger": "Original PQ construction and bipartite-double/root-polytope alias."
+      },
+      {
+        "assessment": "NOT_COVERING: computes normalized volumes for graphs formed by deleting matchings, paths or cycles from complete graphs, not the claimed covariance of split graph PQ polytopes.",
+        "evidence": [
+          "arXiv:2202.09853 v1 Introduction and Theorems 2.9, 3.2, 3.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.09853v1",
+        "material_read": "Full experimental HTML article, Sections 1, 2 and 3 and main theorem statements.",
+        "method": "Reviewed full HTML text with special attention to the claimed graph families and invariants.",
+        "title": "Normalized Volumes of Type-PQ Adjacency Polytopes for Certain Classes of Graphs",
+        "trigger": "Plausible later PQ-family result and possibility of stronger generic coverage."
+      },
+      {
+        "assessment": "RELATED_INPUT_ONLY: split-graph graph spectrum does not alone determine the centered symmetric covariance block. Full-text exclusion is not asserted.",
+        "evidence": [
+          "2016 Discrete Applied Mathematics 205, 45–51, abstract on spectral determination of complete split graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.01.003",
+        "material_read": "Bibliographic record and abstract; not full article.",
+        "method": "Read publisher-indexed academic abstract and citation information.",
+        "title": "Complete split graph determined by its (signless) Laplacian spectrum",
+        "trigger": "Could provide graph spectral components underlying the proposed covariance blocks."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT_AND_INVARIANT: balanced complete bipartite graph and minimum enclosing ellipsoid versus complete split graph and vertex covariance; no contradiction or direct implication identified.",
+        "evidence": [
+          "Published summary states an explicit Löwner ellipsoid and vertex contacts for balanced complete bipartite PQ-type adjacency polytopes."
+        ],
+        "identifier_or_url": "Published finding-index result concerning balanced \\(K_{a,a}\\) PQ polytopes",
+        "material_read": "Title and summary only; full text not obtained.",
+        "method": "Compared the publicly indexed claim statement and object, not inferred noncoverage from an unread full document.",
+        "title": "The exact Löwner ellipsoid of balanced complete-bipartite PQ-type adjacency polytopes",
+        "trigger": "Closest semantically retrieved PQ geometry claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9821a1c9-2d29-42bf-a530-cf767d9aea76",
+  "value": {
+    "rationale": "The PQ adjacency polytope is a studied power-flow-related lattice polytope; the precise covariance spectrum of its distinct vertices is a canonical geometric invariant, not a dimension or vertex-count restatement. The theorem shows two reentrant least-variance eigenspace changes and exact integer cutoffs, including a quadratic scale and a rare double-degeneracy locus. Such orientation shifts are not encoded by existing normalized-volume results and motivate principal-component and geometric sampling comparisons. No downstream theorem or independent historical priority is claimed.",
+    "status": "PASS"
+  }
+}
