@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The two-dimensional branch Jacobians are an exactly signed monomial cocycle. The cumulative parity representation is an invertible transform of all \(n\) fair word bits; its first \(n-1\) output bits determine a binomial stretch count, independent of the final parity class. Exact symmetry of the binomial law gives matched conditional singular-gap histograms. A one-word correction accounts for the nonisolated fixed face, while the central limit theorem and exponentially small conditioning error establish the joint asymptotic. This proof covers each \(n\ge1\). The standalone exact verifier checked 4083 valid words and actual periodic geometry for word lengths through eight; it is supporting evidence rather than an infinite proof.
+
+## Originality — PASS, with priority risk
+The 2022/2023 originating paper establishes geometry, coding, equidistribution and spectral-type density. The closest public 2026 result establishes a complete eigenvalue real/nonreal residue classification and exact counts, but not the singular-gap **joint conditional** law. Earlier exact eigen-minimum formulas and stationary tangent-stretch central limits yield separate marginals or different sampling ensembles; they do not provide the finite-period parity-versus-anisotropy matching with its single extreme defect. The 2024 Dyck/heterochaos result studies different maps and observables. Publication-priority risk remains because this relation is elementary once the signed cocycle is written in parity coordinates, and generic monomial-matrix literature was not exhaustively indexed.
+
+## Mathematical value — PASS
+A central issue motivating twisted baker maps is the coexistence of periodic orbits with complex and entirely real derivative spectra despite differing transient stretching. The result gives an exact finite-period answer to whether the two spectral types are distinguished by **singular anisotropy**: their entire histograms match level by level, except one geometrically forced boundary defect. The coupled half-normal limit makes precise the large nonnormal transient stretching coexisting with exactly equal eigenvalue moduli on half the periodic-point ensemble. This is a substantive structural distribution law, rather than merely a new real/nonreal count, a single sample mean, or a routine rescaling of a known estimate.
+
+## Primary comparisons and limits
+Saiki--Takahasi--Yorke, arXiv:2202.04304, Sections 2.1--2.3 and Appendix A: symbolic coding and real/nonreal distinction, but not joint singular/eigen gap histograms. Published note *Exact real-spectrum residue law for the twisted baker map* (11 October 2026): full eigenphase classification and marginal real/nonreal counts, not joint singular-gap matching. Takahasi, arXiv:2409.01261, Theorem 1.1: different heterochaos system. Independent audit remains unperformed; the self-review does not establish publication priority against every unindexed source. The statement excludes a nonisolated fixed face and does not address least-period-only sampling or higher dimensions.
+
+Self-review: passed. Independent audit: not yet performed.
