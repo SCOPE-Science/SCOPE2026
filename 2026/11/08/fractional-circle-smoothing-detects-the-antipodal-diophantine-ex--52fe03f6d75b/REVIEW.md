@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** Exact character diagonalization gives the operator norm as a scalar extremum. A uniform comparison reduces the deficit to the infimum of \(tn^s+\delta_n^2\). A two-sided limsup argument using the fixed-target approximation exponent proves the logarithmic identity without assuming uniform hitting; continued-fraction rational grids give the separate bounded-type upper bound, and bad approximability gives the lower bound. A residue analysis proves both rational cases. An independent finite-mode numerical checker passes 950 assertions; it is only corroboration.
+
+**Originality: PASS (provisional historical priority).** The named prior papers develop (i) inhomogeneous shrinking-target laws for almost all affine parameters, (ii) statistical stability of rotation-invariant measures, and (iii) Poisson semigroup hypercontractivity. Their inspected statements do not imply an exact fixed-angle smoothed-translation Fourier multiplier deficit or the transfer law \(2\tau/(s+2\tau)\) without the new scalar minimization connection. Searches also compared closely related indexed results on Sturmian cocycles and on fractional Fourier trace defects, which involve different operators and quantities. An earlier equivalent spectral-envelope calculation may exist, so the result is not claimed to have an independently certified priority date.
+
+**Mathematical value: PASS.** Fractional diffusion is a canonical frequency cut-off and antiphase rotation is the maximally observable translation discrepancy. The exact exponent transfer identifies which inhomogeneous Diophantine property is measured by the **sharp** operator norm after regularization, with a uniform bounded-type law and a rational parity boundary. This is a structural classification for every smoothing order in a natural semigroup family, not a selected low-mode numerical example.
+
+**Scientific limits.** Only circle \(L^2\) multiplier norms and \(0<s\le2\) are covered. General irrational angles need not have a full logarithmic limit or a single asymptotic coefficient. Historical coverage beyond inspected sources remains a risk.
+
+Self-review: passed. Independent audit: not yet performed.
