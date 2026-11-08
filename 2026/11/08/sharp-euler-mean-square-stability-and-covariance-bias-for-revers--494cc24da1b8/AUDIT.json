@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The scaled Ito Euler update induces exact symmetric nonnegative transfer T on the diagonal second moments, with the off-diagonal multiplier dominated by rho(T). The strict positivity of I-T is equivalent to a uniquely located root of AD(2-Ah)(2-Dh)-4a^2, producing the sharp h*. The explicit inverse of I-T yields invariant covariance; the exact positive residual h^2(A^2,D^2) proves strict inflation. Positive forcing and a nonnegative Perron eigenvector rule out finite-moment stationarity for all h at or above the boundary. Algebraic limits give inverse fourth-power amplitude stiffness and the optimal-scaling finite limit. Standalone rational tests replay these formulas; the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0912.1968 studies scalar linear multiplicative noise after diagonalization",
+        "DOI:10.1137/090771843 publisher abstract: system SDE stability test classes and theta-Maruyama",
+        "arXiv:2610.03191 §7 explicitly leaves rigorous discretized-sampler convergence for future investigation"
+      ],
+      "reasoning": "General stochastic-Euler second-moment spectral-radius theory explains the method of proof; a general criterion alone does not provide the explicitly evaluated same-model stable step, stationary numerical covariance, parameter singular limits and value for the 2026 sampler. The full two-dimensional generic-system source is a residual risk because a particular test-class reduction cannot be ruled out from its abstract.",
+      "searches": [
+        "matrix stochastic Euler Maruyama isotropic skew multiplicative mean-square stationary variance fourth power amplitude",
+        "Towards a Systematic Linear Stability Analysis of Numerical Methods for Systems of Stochastic Differential Equations Buckwar Kelly 2010",
+        "arXiv:0912.1968 Sections 2–4 stability criterion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03191 HTML §§3.1, 6.1, 7",
+      "arXiv:1903.03024 HTML §§1–3",
+      "arXiv:0912.1968 HTML §§2–4",
+      "DOI:10.1137/090771843 abstract only",
+      "published-finding corpus published finding 2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+      "published-finding corpus published finding 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "published-finding corpus published finding 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+      "Accessible prior research claims in current research ledger for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 in arXiv:2610.03191 only establishes a continuous-time spectral gap at \\(\\delta=\\lambda^{-1/2}\\).",
+        "arXiv:1903.03024 reversible invariant measure is continuous-time; discrete numerical covariance not derived.",
+        "Buckwar and Sickenberger employ scalar test equations, while the present skew-matrix and diagonal drift do not commute for lambda≠1."
+      ],
+      "reasoning": "A continuous-time spectral-gap lower bound cannot imply numerical mean-square stability or a stationary numerical covariance; the source even notes stiffness. Generic scalar stability regions cannot, without new coupled transfer analysis, yield the exact all-parameter boundary. Isotropic overlap is a specialization of the present calculation but no exact preexisting same-model table was identified.",
+      "searches": [
+        "Euler Maruyama reversible Stratonovich perturbation Gaussian Langevin quadratic anisotropic covariance finite timestep mean-square stability exact stepsize threshold",
+        "discretization of 2d Langevin Stratonovich noise J S scaling lambda inverse square root stationary covariance bias critical step size",
+        "Euler Maruyama stochastic harmonic rotation multiplicative Gaussian noise second moment stability rank two matrix exact spectral radius",
+        "arXiv:2610.03191 Theorem 2 equation (17) Section 6.1 Section 7",
+        "arXiv:1903.03024 Theorems 1.1–1.3 Section 3",
+        "arXiv:0912.1968 test equation Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03191 equation (17) and §6.1: Ito SDE and Euler simulation, continuous-time theorem",
+        "arXiv:0912.1968 §§2–4: decoupled scalar test equations",
+        "published-finding corpus 2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50"
+      ],
+      "reasoning": "Looked for other descriptions of the identical Ito Euler update, Gaussian scalar-rotation coupling, 2x2 Lyapunov transfer or equivalent Perron crossing. Existing published exact Langevin stability results concern additive-noise underdamped UBU methods or scalar decoupled SDEs, neither equal to the coupled reversible-noise sampler.",
+      "searches": [
+        "Euler Maruyama reversible Stratonovich perturbation Gaussian Langevin quadratic anisotropic covariance finite timestep mean-square stability exact stepsize threshold",
+        "discretization of 2d Langevin Stratonovich noise J S scaling lambda inverse square root stationary covariance bias critical step size",
+        "Euler Maruyama stochastic harmonic rotation multiplicative Gaussian noise second moment stability rank two matrix exact spectral radius",
+        "\"Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics\" Gaussian Euler Maruyama covariance step size",
+        "\"2610.03191\" mean square stability Euler discretization 2x2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.03191 Section 6.1 publishes Monte Carlo results at h=10^(-4), not an exact h* table",
+        "arXiv:1903.03024 Section 3 reports small-step Euler trajectories with h=10^(-5)"
+      ],
+      "reasoning": "No exact tabulation of the particular all-parameter boundary or invariant covariance was found. The reported empirical step choices and continuous-time rates do not imply the theorem.",
+      "searches": [
+        "\"2610.03191\" mean square stability Euler discretization 2x2",
+        "\"Abdulle Pavliotis Vilmart\" Stratonovich two dimensional Gaussian sample bias stability bound",
+        "Reversible Stratonovich perturbations stationary covariance Euler Maruyama exact stability step threshold"
+      ]
+    },
+    "rationale": "No identical or stronger claim on the numerical sampler with exactly this 2026 anisotropic reversible Stratonovich model, sharp all-parameter h*, closed stationary covariance and inverse-fourth-power amplitude asymptotic was located in primary texts, relevant historical records or published-finding corpus. The continuous-time 2026 result and 2019 precursor do not imply discretized finite-step claims; generic scalar stability and matrix-system literature supply general techniques, not a documented identical application. Inaccessible matrix-SDE paper remains a nonzero priority risk.",
+    "residual_risks": [
+      "Full text of Buckwar–Kelly (2010) on system SDE numerical mean-square stability was not accessible; generic transfer method and a possible particular skew test-case specialization may predate this result.",
+      "Search/database coverage is incomplete and cannot establish global priority.",
+      "The finite-step result does not quantify time-to-equilibrium in total variation or exact target weak approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves continuous-time spectral-gap acceleration with delta=lambda^{-1/2} and uses fixed very small Euler steps in experiments; it does not state the exact finite-step second-moment boundary, closed stationary Euler covariance or fourth-power amplitude penalty. Section 7 explicitly identifies rigorous analysis of the discretized sampler as open.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.03191 Eq. (17), Theorem 2, Section 6.1, and Section 7"
+        ],
+        "identifier_or_url": "arXiv:2610.03191 https://arxiv.org/abs/2610.03191",
+        "material_read": "Full accessible HTML research text: introduction, Section 3.1 equations (17)-(18), Sections 4 and 6.1, and Section 7; searched document for Euler, stability, covariance, and discretized convergence.",
+        "method": "Direct full-text inspection and comparison of assumptions, discrete map and conclusions.",
+        "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+        "trigger": "The same two-dimensional quadratic target, Ito drift and Euler-Maruyama simulations occur in Sections 3.1 and 6.1; a covering stability theorem would invalidate novelty."
+      },
+      {
+        "assessment": "General reversible perturbation theorem and small-step Euler experiments; no explicit anisotropic Gaussian two-state finite-step mean-square boundary or stationary covariance formula.",
+        "evidence": [
+          "https://arxiv.org/abs/1903.03024 Theorems 1.1-1.3, Remark 3, Section 3"
+        ],
+        "identifier_or_url": "arXiv:1903.03024 https://arxiv.org/abs/1903.03024",
+        "material_read": "Entire 150-line accessible arXiv HTML including Remarks 3-4, Section 3 and Euler-Maruyama description.",
+        "method": "Direct source reading and searching for stability, Euler, finite step, Gaussian and numerical experiments.",
+        "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+        "trigger": "Original Stratonovich perturbation construction and a possible earlier discretized stability discussion."
+      },
+      {
+        "assessment": "The scalar simultaneously diagonalizable linear-noise test class is not the present pair of noncommuting drift and rotation matrices, and its conclusions do not give the sharp coupled model threshold or invariant covariance. General second-moment techniques are anticipated; claim is not novelty of these techniques.",
+        "evidence": [
+          "https://arxiv.org/abs/0912.1968 Sections 2-4, particularly scalar test equation in Section 2"
+        ],
+        "identifier_or_url": "arXiv:0912.1968 https://arxiv.org/abs/0912.1968",
+        "material_read": "Accessible full HTML, including linear test equation, stability definitions, Sections 2-4 and method conditions.",
+        "method": "Compared scalar decoupled multiplicative-noise test equation with the present coupled skew-noise two-dimensional model and affine additive forcing.",
+        "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+        "trigger": "Generic Euler-Maruyama stability may subsume the proposed boundary under a reduction."
+      },
+      {
+        "assessment": "A generic matrix-SDE test stability criterion could furnish the abstract spectral-radius method, but available material does not establish or exclude an exact matching reversible-noise Langevin specialization and stationary covariance. Unresolved historical priority risk, not a claim of complete exclusion.",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/090771843 abstract"
+        ],
+        "identifier_or_url": "DOI:10.1137/090771843 https://doi.org/10.1137/090771843",
+        "material_read": "Publisher abstract and bibliographic record only; full text could not be inspected.",
+        "method": "Compared stated test-equation scope and method with the model-specific formula; material limitation retained.",
+        "title": "Towards a Systematic Linear Stability Analysis of Numerical Methods for Systems of Stochastic Differential Equations",
+        "trigger": "Potentially closer two-dimensional mean-square stability analysis of linear SDE systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "494cc24d-a1b8-45fa-98a3-9321ea439a68",
+  "value": {
+    "rationale": "The continuous-time optimal reversible-noise acceleration uses arbitrarily large noise amplitudes but the recently studied algorithm is implemented with finite Euler steps; determining how stability and sampling covariance behave is a motivated numerical-analysis gap. The closed sharp threshold tells exactly when long-run finite-variance sampling is feasible, the universal strict covariance inflation diagnoses systematic equilibrium bias, and the inverse-fourth-power perturbation amplitude law quantifies a severe previously unstated implementation cost. The classification covers a natural complete two-parameter benchmark, not an arbitrary table slice.",
+    "status": "PASS"
+  }
+}
