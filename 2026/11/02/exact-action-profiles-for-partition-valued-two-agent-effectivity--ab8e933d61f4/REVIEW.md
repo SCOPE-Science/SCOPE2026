@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Determinism confines a profile for neighborhood types \(P_i,Q_j\) to \(C_{ij}\). Partition disjointness forces every fixed action to realize each cross-intersection element through only the other agent's copies of that specific type, giving both sharp lower bounds. The cyclic modular construction attains the entire orthant of feasible copy counts, and independent cell-array choices give the exact census. Inclusion-exclusion counts arrays whose rows and columns all contain every symbol. All hypotheses and boundary cases \(q_{ij}=1\) and single-block partitions are handled explicitly. The bundled checker verified 21,297 finite intersection-size patterns and independent small array counts.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual historical risk.** Ciardelli's 2026 Theorem 2.2 gives representability but no exact copy vector. The 2026 sharp universal root-size action result provides a uniform per-neighborhood bound, and its homogeneous two-agent extremum is prior coverage; it does not yield the heterogeneous instancewise vector or exact product census. The 2015/2016 Goranko–Jamroga work studies monotone coalition/path effectivity, not these exact local output-set resource profiles. Latin squares themselves are classical and explicitly acknowledged. Search limitations leave possible older game-form equivalents as a priority risk.
+PASS
 
-**Value — PASS.** In a natural independent two-agent observation model, actual-effectivity representation can require duplicate actions even when each neighborhood is listed just once. The theorem completely determines the feasible resource region from the cross-intersection matrix and gives simultaneous minima, a constructive optimizer, and all labelled realization counts. The heterogeneous example with matrix \(\begin{pmatrix}2&1\\1&3\end{pmatrix}\) has just five actions per agent and 24 optimal outcome functions, whereas a uniform seven-copy-per-type construction would use 14 actions per agent. This answers a representation-cost question left by qualitative and universal bounds.
+For finite U and two genuine partitions P_i,Q_j with all intersections C_ij nonempty, every action of type P_i can output each element of C_ij only against a column action of Q_j, forcing e_j>=q_ij; fixing Q_j symmetrically forces d_i>=q_ij. Disjoint partition cells prevent outcomes from being supplied via a different type. The explicit cyclic table h_ij((a+b) mod q_ij) for positive d_i,e_j meeting these inequalities supplies all q_ij outcomes in every row and column. Because profile rectangles are disjoint, labelled tables factor exactly as product T(q_ij,d_i,e_j), and inclusion-exclusion over missing row/color and column/color events counts T. The componentwise minima are coordinatewise maxima q_ij; at q=a=b the row/column condition is the Latin-square condition. No assertion about overlapping neighborhoods or unlabeled game is included. Verified the checker.py constructs the same cyclic tables and implements independent inclusion-exclusion and exhaustive small-array routines; the finite diagnostics are not proof for all q_ij.
 
-The result is limited to finite, partition-valued neighborhoods, two agents, and deterministic one-step realization; it is not a classification for arbitrary effectivity systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Ciardelli Theorem 2.2 covers unbounded realizability (existence, common union, intersection), but constructs each action as neighborhood plus outcome and does not optimize per-type counts. The published general root-size action bound is worst-case, not a heterogeneous optimum vector or exact labelled table census. Classical surjective matrices and Latin squares are credited. No exact prior implication was established by the checked primary text, although other game-form combinatorics may contain equivalent counts.
+
+## value
+
+PASS
+
+Exact minimum per-action-copy resources and all feasible multiplicity vectors answer a directly motivated natural question left by general concurrent-game representation theorems. The independent product enumeration also describes structural realization multiplicities, with Latin-square boundary; it is a complete classification for a nontrivial all-finite family rather than merely renaming a known existence theorem. A designer of finite game forms could require the actual optimal counts or heterogeneity-sensitive number of realizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

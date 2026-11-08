@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:42:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-action-profiles-for-partition-valued-two-agent-effectivity--ab8e933d61f4/RESULT.md",
+        "2026/11/02/exact-action-profiles-for-partition-valued-two-agent-effectivity--ab8e933d61f4/checker.py"
+      ],
+      "rationale": "For finite U and two genuine partitions P_i,Q_j with all intersections C_ij nonempty, every action of type P_i can output each element of C_ij only against a column action of Q_j, forcing e_j>=q_ij; fixing Q_j symmetrically forces d_i>=q_ij. Disjoint partition cells prevent outcomes from being supplied via a different type. The explicit cyclic table h_ij((a+b) mod q_ij) for positive d_i,e_j meeting these inequalities supplies all q_ij outcomes in every row and column. Because profile rectangles are disjoint, labelled tables factor exactly as product T(q_ij,d_i,e_j), and inclusion-exclusion over missing row/color and column/color events counts T. The componentwise minima are coordinatewise maxima q_ij; at q=a=b the row/column condition is the Latin-square condition. No assertion about overlapping neighborhoods or unlabeled game is included. Verified the checker.py constructs the same cyclic tables and implements independent inclusion-exclusion and exhaustive small-array routines; the finite diagnostics are not proof for all q_ij.",
+      "residual_risks": [
+        "Only two agents, deterministic one-state exact output-set partitions with all cross cells nonempty; no overlap/coalition/unlabeled enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior finite-action bound supplies ceil(r^(1/(k-1))) copies per neighborhood; with k=2 it is uniform outcome count r and does not compute max_j |P_i cap Q_j| for individual rows.",
+          "Goranko/Jamroga coalition monotone effectivity and paths are different specifications."
+        ],
+        "reasoning": "A general upper bound on resources neither proves the componentwise lower bound optimality nor the heterogeneity-sensitive enumeration. Broader coalition semantics need not induce this labelled local-outcome exactness.",
+        "searches": [
+          "Resultary: Sharp root-size action realization for finite actual-effectivity frames (2026/10/4/...114a0e0912e6)",
+          "Ciardelli Theorem 2.2 existence criterion",
+          "Goranko and Jamroga, State and path coalition effectivity models, AA MAS 2016"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md 9456cbd727aa567bc32329a35c913c3c626d67c0; checker.py 81647a1e456137ffb012ebdc2a04bd42810527ee; SLOGAN, AUDIT, METADATA, VERIFICATION read",
+        "Ciardelli 2026 Theorem 2.2 and full proof, DOI:10.4204/EPTCS.447.13",
+        "Resultary root-size action realization and S5 proper-cover records",
+        "Goranko/Jamroga 2016 coalition effectivity bibliographic context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing existential theorem implies some action copies suffice; it does not imply every lower-bound vector is feasible, nor minimality without a new necessity argument.",
+          "Cyclic modulo-q construction establishes the missing sufficiency for independent unequal counts."
+        ],
+        "reasoning": "The original claim is not just an obvious corollary of Ciardelli resource bounds; an additional local covering and per-cell factorization argument is needed. Priority remains best-of-knowledge.",
+        "searches": [
+          "Ciardelli Theorem 2.2 Section 2 complete construction",
+          "Resultary 2026 root-size realization summary",
+          "2026 paper: partition action-count formula and inclusion-exclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ciardelli 2.2 tests nonempty neighborhoods, uniform union and nonempty cross intersections; its proof explicitly chooses actions (s,v) indexed by all outcome worlds, rather than sharp heterogeneous counts.",
+          "Each profile rectangle is precisely a rectangular q-symbol array with every row and column surjective; square saturated blocks reduce to old Latin-square theory."
+        ],
+        "reasoning": "Same mathematical game-form objects occur in Ciardelli; the new statement refines existential representability to every feasible multiplicity and its labelled count. Calling the cells Latin squares at equality does not imply the general classification.",
+        "searches": [
+          "Resultary search: two-agent actual effectivity concurrent game partitions optimal action counts Latin square rectangular symbol-surjective realization Ciardelli",
+          "Ciardelli 2026 Inquisitive Action Logic Theorem 2.2 and proof, DOI:10.4204/EPTCS.447.13",
+          "Latin-square/edge-coloring array reinterpretation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The S5 cover example uses Latin squares for bounded morphisms, rather than local concurrent actions; no table of arbitrary partition intersection matrices was found.",
+          "The formula T(q,q,q)=L(q) and sample T(2,3,3)=102 are classical-type boundary checks, but the full labelled product is over heterogeneous C_ij."
+        ],
+        "reasoning": "Potential precomputed array counts do not supply the exact game-form action-allocation equivalence; matching a saturated example is not broader theorem coverage.",
+        "searches": [
+          "Resultary: quadratic proper-cover blow-up is sharp for two-agent S5 (2026/10/4/...95d4da0a4f72)",
+          "Classical Latin squares L(q); row-and-column-surjective rectangular array enumerations",
+          "checker.py six direct array counts"
+        ]
+      },
+      "rationale": "PASS, qualified. Ciardelli Theorem 2.2 covers unbounded realizability (existence, common union, intersection), but constructs each action as neighborhood plus outcome and does not optimize per-type counts. The published general root-size action bound is worst-case, not a heterogeneous optimum vector or exact labelled table census. Classical surjective matrices and Latin squares are credited. No exact prior implication was established by the checked primary text, although other game-form combinatorics may contain equivalent counts.",
+      "residual_risks": [
+        "A classical game-form or orthogonal-array construction might package the same heterogeneous action count characterization; the search was bounded.",
+        "Labelled action copies and all-nonempty-cross-cell partition conditions are essential; no quotient by automorphisms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for existential representation and its conditions; NOT_COVERING on checked Section 2 for optimal heterogeneous action counts or rectangular table census",
+          "evidence": "Theorem 2.2(a)-(c), construction act(a,w)={(s,v):v in W}; no minimization",
+          "identifier_or_url": "https://www.researchgate.net/publication/408180960_Inquisitive_Action_Logic",
+          "material_read": "Public full-text Section 2, Definition 2.1, Theorem 2.2 and proof through construction (s,v) indexed by W, lines ~203-505; Sections 5 and conclusion headings",
+          "method": "Public full text accessible via ResearchGate text rendering",
+          "title": "Inquisitive Action Logic",
+          "trigger": "Exact originating object/definition and theorem"
+        },
+        {
+          "assessment": "COVERING uniform worst-case copy factor; incomplete priority exclusion for full exact-vector theorem",
+          "evidence": "Published result guarantees ceil(r^(1/(k-1))) uniform factor; does not state all vectors in retrieved description",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-root-size-action-realization-for-finite-actual-effectivity--114a0e0912e6",
+          "material_read": "Resultary published title, mathematical summary and matching published-source description; complete repository proof not retrieved during this run",
+          "method": "Resultary semantic search and originating record comparison",
+          "title": "Sharp root-size action realization for finite actual-effectivity frames",
+          "trigger": "Closest published broader action-count bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git source RESULT.md 9456cbd727aa567bc32329a35c913c3c626d67c0; checker.py 81647a1e456137ffb012ebdc2a04bd42810527ee; SLOGAN, AUDIT, METADATA, VERIFICATION read",
+        "Ciardelli 2026 Theorem 2.2 and full proof, DOI:10.4204/EPTCS.447.13",
+        "Resultary root-size action realization and S5 proper-cover records",
+        "Goranko/Jamroga 2016 coalition effectivity bibliographic context"
+      ],
+      "rationale": "Exact minimum per-action-copy resources and all feasible multiplicity vectors answer a directly motivated natural question left by general concurrent-game representation theorems. The independent product enumeration also describes structural realization multiplicities, with Latin-square boundary; it is a complete classification for a nontrivial all-finite family rather than merely renaming a known existence theorem. A designer of finite game forms could require the actual optimal counts or heterogeneity-sensitive number of realizations.",
+      "residual_risks": [
+        "A classical game-form or orthogonal-array construction might package the same heterogeneous action count characterization; the search was bounded.",
+        "Labelled action copies and all-nonempty-cross-cell partition conditions are essential; no quotient by automorphisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two agents, deterministic one-state exact output-set partitions with all cross cells nonempty; no overlap/coalition/unlabeled enumeration.",
+    "A classical game-form or orthogonal-array construction might package the same heterogeneous action count characterization; the search was bounded.",
+    "Labelled action copies and all-nonempty-cross-cell partition conditions are essential; no quotient by automorphisms."
+  ],
+  "schema_version": 1
+}

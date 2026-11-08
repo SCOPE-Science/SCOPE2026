@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3 and no third-party dependencies. The program independently constructs cyclic deterministic outcome tables for all 21,297 finite positive cross-intersection matrices with 1–3 row blocks, 1–3 column blocks, and intersection sizes 1–3, checking each action type's exact output set. It exhaustively counts row-and-column-surjective arrays for six small parameter triples and separately computes their counts using the stated omission-event inclusion-exclusion formula. Results include 2 such arrays on a 2-by-2 grid using 2 symbols, 102 on a 3-by-3 grid using 2 symbols, 12 on a 3-by-3 grid using 3 symbols, and 24 optimal labelled outcome functions for the heterogeneous cross-intersection matrix with entries 2,1,1,3. The output is `ALL_CHECKS_OK`.
+## correctness
 
-These finite tests are not a general proof. The mathematical proof separately derives the necessary multiplicity inequalities and gives a modular construction satisfying all of them for every finite cross-intersection matrix. A cross-intersection matrix of positive integers can always be instantiated as two transverse partitions by using disjoint labelled cell sets of those sizes. No computational dependencies or external certificates are needed.
+PASS
 
-All historical-priority conclusions are limited to the inspected literature; no independent scientific audit has been performed.
+For finite U and two genuine partitions P_i,Q_j with all intersections C_ij nonempty, every action of type P_i can output each element of C_ij only against a column action of Q_j, forcing e_j>=q_ij; fixing Q_j symmetrically forces d_i>=q_ij. Disjoint partition cells prevent outcomes from being supplied via a different type. The explicit cyclic table h_ij((a+b) mod q_ij) for positive d_i,e_j meeting these inequalities supplies all q_ij outcomes in every row and column. Because profile rectangles are disjoint, labelled tables factor exactly as product T(q_ij,d_i,e_j), and inclusion-exclusion over missing row/color and column/color events counts T. The componentwise minima are coordinatewise maxima q_ij; at q=a=b the row/column condition is the Latin-square condition. No assertion about overlapping neighborhoods or unlabeled game is included. Verified the checker.py constructs the same cyclic tables and implements independent inclusion-exclusion and exhaustive small-array routines; the finite diagnostics are not proof for all q_ij.
+
+## originality
+
+PASS
+
+PASS, qualified. Ciardelli Theorem 2.2 covers unbounded realizability (existence, common union, intersection), but constructs each action as neighborhood plus outcome and does not optimize per-type counts. The published general root-size action bound is worst-case, not a heterogeneous optimum vector or exact labelled table census. Classical surjective matrices and Latin squares are credited. No exact prior implication was established by the checked primary text, although other game-form combinatorics may contain equivalent counts.
+
+## value
+
+PASS
+
+Exact minimum per-action-copy resources and all feasible multiplicity vectors answer a directly motivated natural question left by general concurrent-game representation theorems. The independent product enumeration also describes structural realization multiplicities, with Latin-square boundary; it is a complete classification for a nontrivial all-finite family rather than merely renaming a known existence theorem. A designer of finite game forms could require the actual optimal counts or heterogeneity-sensitive number of realizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
