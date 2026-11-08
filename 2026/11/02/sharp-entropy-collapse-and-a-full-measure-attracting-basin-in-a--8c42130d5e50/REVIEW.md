@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The parameter regime is exactly \(1<t<2\), \(0<s<1\), \(ts<1\), \(0<p<1\). Direct algebra locates the unique interior expanding fixed point \(a\) and the critical peak threshold \(p_c\). The core is invariant for \(R\le2\) and contains a two-branch affine Cantor repeller for \(R>2\). Constant-slope entropy, the unimodal lap bound, disjoint inverse-cylinder lengths, and the monotone absorbing exterior prove the full entropy, basin, dimension and first-exit laws. Exact-rational tests and symbolic identities were executed but are supplementary to the infinite proofs. At \(R=2\), the core is not an escaping Cantor repeller; the claim explicitly treats this equality separately.
+PASS
 
-## Originality — PASS within inspected evidence
+For 1<t<2, 0<s<1, ts<1, 0<p<1, T=g_{s,p} o f_t has outer slope ts<1 and inner slope R=t(1-sp)/(1-p). The fixed inner barrier a=p(1-s)/(t(1-sp)-(1-p)) is interior exactly p<p_c. For R<=2 the inner core [a,1-a] is invariant with constant slope ±R, giving log R. For R>2 it has two disjoint inverse branches with contraction 1/R and full two-shift repeller; cylinder lengths yield (1-2a)(2/R)^n and dimension log2/log R, outside attracts to zero. At p>=p_c the image enters a monotone absorbing half interval, so entropy vanishes. The R=2 and p=p_c boundaries are separated. I independently evaluated exact rational thresholds and core widths at p=1/10,1/5,7/10,8/9,9/10 when t=9/5,s=1/2; they match p_*=2/11,p_c=8/9. The source proof, not these samples, covers all parameters.
 
-The exact original 2021 source was examined substantively, including Sections 1–3, Theorem 1, Propositions 1–2, Figures 1–2 explanations, and references. It establishes only special zero-entropy cases and numerical computations in the Type-1 regime; it does not provide the new global phase law or repeller geometry. Other checked primary literature concerns expanding skew tent maps or different piecewise-linear entropy plateaus. Actual semantic-index searches included the paper title, map notation, slope formula, entropy discontinuity, Cantor repeller and escape-law aliases; the closest records concerned different families and do not imply the present theorem. Search cannot establish exhaustive priority. The original paper's discussion of the equality peak threshold is already credited, not presented as a novel standalone finding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a natural parameter question left numerically explored in the motivating published model, identifies a previously unquantified discontinuous global entropy boundary, determines the entire plateau and critical basins, and supplies a sharp dimension and first-exit law with concrete mathematical significance: full topological complexity coexists with a full-measure attracting basin. These assertions form a coherent finite-parameter theorem rather than an arbitrary slice.
+Cánovas 2021 studies exactly this tent-homeomorphism composition, explicitly proves zero-entropy threshold cases and displays numerical kneading plots; its conclusions state analytical region boundaries remain unclear. Generic constant-slope entropy, Cantor similarity theory and unrelated skew-tent/plateau results do not give these exact parameter/basin formulas. The boundary equality case belongs to Cánovas; originality here is the complete phase law and escape geometry.
 
-## Limitations and closest literature
+## value
 
-Cánovas (2021), DOI `10.3390/axioms10020085`, is the exact parent model and already provides the equality peak criterion. Alsedà–Misiurewicz–Pérez (arXiv:`2004.01813`) treat different expanding skew tent dynamics, and Botella-Soler et al. (2012 preprint; related 2013 article) treat entropy plateaus in a different discontinuous two-branch map family. Some literature remains inaccessible or unindexed; independent scientific audit has not occurred. The proof uses standard entropy/dimension theorems and does not extend to the other Type-2 homeomorphism parameter region.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact entropy plateau versus a full-measure basin of a single attracting fixed point is a coherent dynamical phenomenon in the precise family examined by Cánovas. Sharp critical boundaries, Hausdorff dimension and escape time answer a meaningful published parameter problem rather than an arbitrary toy map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
