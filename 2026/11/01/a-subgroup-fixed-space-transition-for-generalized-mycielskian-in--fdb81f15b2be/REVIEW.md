@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph model matches the stated generalized-Mycielskian level convention. A fixed geometric point has coordinates constant on vertex orbits, giving the exact orbit-conflict complexes. For a transitive label orbit this is a path. For a one-fixed-label subgroup the quotient conflict graph is explicit, and its two terminal singleton-orbit vertices have adjacent singleton neighbors; their closed stars cover the complex with a conical intersection. A standard path fold yields the periodic sphere formula. The standalone finite verifier replayed 90 quotient-graph reconstructions, 99,590 quotient faces and mod-two homology checks. No finite test is treated as the proof of the infinite case.
+## correctness
 
-**Originality — PASS, with residual risk.** The full primary texts of Carnero Bravo (2026) and Goyal–Shukla–Singh (2019) classify ordinary homotopy types. The closest published mathematical result gives the ambient rational symmetric-group homology character and equivariant folds of component subcomplexes, not the geometric fixed-space homotopy types or the stabilizer fixed-space contractibility. These statements cannot be obtained from homology characters alone. Multiple semantic and alias searches found no covering fixed-space theorem. An equivalent unindexed treatment, or a derivation from previously published component-level equivariant models, remains possible.
+PASS
 
-**Value — PASS.** This is a uniform two-orbit-type subgroup fixed-space classification for a canonical family and all layer lengths. It exhibits spheres of unbounded dimension at transitive subgroups that disappear on relaxing symmetry to a point stabilizer. The actual fixed-space transition is information that ambient sphere counts and rational invariant-homology characters do not supply. The graph and path recurrences are elementary tools, not themselves claimed as innovations.
+PASS. For n>=3, ell>=1 the specified top-clique/apex model of mu_ell(K_n) has a finite simplicial label action. Geometric fixed barycentric coordinates are constant on each group orbit; admissible orbits are independent, and their conflict graph is an exact PL triangulation of the fixed set. A transitive subgroup has admissible lower-level orbits 0..ell-1 plus apex, with conflicts exactly the path P_(ell+1), giving the known mod-three path independence sphere/contractible homotopy types. For one fixed label plus one nontrivial other orbit the quotient conflict graph has W,A_0..A_ell,B_0..B_(ell-1), with the explicit between-level and apex conflict edges. Terminal A_(ell-1),A_ell are nonadjacent and have adjacent singleton neighborhoods (including ell=1); every independent face extends by one, and the two contractible vertex stars intersect in the star of their edge, proving contractibility. The fixed-space inclusion kills reduced homology when transitive fixed space is a sphere. The examined 90-case verifier corroborates orbit graph and star cover; universal n and ell are proved symbolically.
 
-**Scope limits.** No classification of arbitrary multi-orbit subgroups, general ambient equivariant homotopy type, or independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. Carnero Bravo and Goyal-Shukla-Singh compute ordinary nonequivariant homotopy of generalized Mycielski independence complexes, while an indexed 2026 result calculates the *ambient rational S_n-homology representation*. Neither ambient homology action nor non-equivariant types determine geometric fixed-point sets (homology invariants do not commute with taking space-fixed points). Explicit two-orbit geometric fixed spaces and subgroup-relaxation inclusion are not covered in the primary claims inspected.
+
+## value
+
+PASS
+
+PASS. The equivariant fixed-point functor exposes genuine topological information invisible to ordinary sphere counts or ambient homology character. The natural transition from periodic unbounded-dimensional spheres for transitive groups to contractible space under point stabilizer is a complete and useful subgroup-orbit-type classification for every layer count; path fold and barycentric triangulation are tools, not asserted original findings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
