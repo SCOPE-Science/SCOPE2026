@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed weighted-difference map is a surjective isometry from the positive-power Hahn space onto complex \(\ell_1\). In these coordinates, the right shift equals the standard unilateral shift plus a compact weighted shift and a rank-one operator. Its exact column norms establish the operator-norm identities. The power bound justifies operator-norm convergence of the convolution. A disjoint-translate argument establishes the exact essential norm, not just an upper bound. Analytic Wiener factorization establishes the Fredholm index outside the unit-circle image; approximate eigenvectors on the unit circle show non-Fredholmness there. Rank-one perturbation bounds and the decreasing positive shift coefficients establish the exact approximation-number asymptotic. The proof applies to all positive real exponents, not only the finitely verified integers. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS, with priority limitations
+PASS. Checked D:h_alpha->ell1 is an onto isometry via x_n=sum_{j>=n}y_j/(j+1)^alpha. Computed V=DSD^{-1}: (Vy)_0=-sum_j y_j/d_j, (Vy)_n=(d_n/d_{n-1})y_{n-1}; hence V=U+Delta-e_0 tensor phi with compact weighted shift Delta and rank-one term. Direct ell1 column sums yield ||V||=1+2^alpha and ||V-U||=2^alpha. The bound ||S^k||<=(k+1)^alpha+k^alpha ensures norm convergence of weighted-Wiener convolution. Compact equivalence with f_a(U), and disjoint widely separated translates of e_n against any compact L, give the exact Calkin norm sum|a_k|. Analytic Wiener division/inversion plus unilateral shift index give the asserted Fredholm boundary and zero-count index; circular approximate eigenvectors show non-Fredholmness on f_a(circle). Rank-one perturbation estimates delta_{m+1}<=a_m(K)<=delta_{m-1}, delta_m=(1+1/m)^alpha-1, yield limit alpha. Independent exact rational shift-power conjugacy tests alpha 1,2,3 passed, but infinite conclusions depend on the analytic proof.
 
-The motivating Saha–Patra paper (arXiv:2606.22912v1, §§3, 4, 6) studies the same weighted Hahn norms and ordinary/fine spectra, but the specifically inspected sections do not give the stated Fredholm boundary/index, Calkin norm, or compact-defect approximation-number limit. A published dual-Hahn convolution result establishes similar Fredholm and essential-norm conclusions on a different nonseparable space. It does not directly imply the present primal weighted-Hahn model: taking the Banach adjoint reverses triangular orientation, and the canonical \(\alpha/m\) compact-defect law is an additional quantitative statement. No equivalent record was returned by multiple claim-focused database searches. Classical analytic Toeplitz and Fredholm results may imply portions of the theorem after a nontrivial model identification; literature priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The power-weight parameter changes the Hahn right shift's norm substantially, but the theorem proves invariance of the entire Fredholm boundary, index, and Calkin norm across all positive weights. The exact leading approximation-number coefficient quantitatively determines how the canonical shift deviates from the standard unilateral model and is motivated by the new compact equivalence, rather than an arbitrary finite calculation. The conclusions provide useful stability information about this natural weighted-sequence operator family. They are restricted to a stated weighted symbol class and are not a classification of every bounded Hahn multiplier.
+PASS best-of-knowledge with explicit limited full-text access. The prior weighted-Hahn convolution paper announces boundedness, compactness and ordinary/fine spectrum but no retrieved exact Calkin norm, Fredholm index or alpha/m canonical compact defect. The closest full published dual-Hahn result is on a different ℓinfty model with different convolution direction. Classical Wiener factorization supplies the index argument but not the complete new parameter-dependent compact defect. Inaccessible full text is a priority risk, not itself a FAIL.
 
-## Closest literature and limitations
+## value
 
-S. Saha and A. Patra, *Convolution Operators on Weighted Hahn Spaces*, arXiv:2606.22912v1; S. Saha and A. Patra, *Spectral Properties of Convolution Operators on Non-Separable Sequence Spaces*, arXiv:2610.02919v1; published *Flat operator-ideal profile and Fredholm boundary for dual-Hahn convolution*. The strongest remaining priority risk is broader classical Toeplitz/Wiener theory phrased in equivalent coordinates. Computational checking is finite and supplementary; independent mathematical review is unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The natural positive-power Hahn family has a surprising alpha-independent Calkin/Fredholm profile while the concrete primal shift norm grows with alpha. The canonical representation defect has a mathematically meaningful exact alpha/m compact-approximation scale, quantifying how rapidly this family converges to the unilateral model. It is not an arbitrary finite truncation or merely a classical spectrum restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
