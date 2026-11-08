@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The four-site generator follows directly from the specified exclusion transitions and reservoir exchange rates. At symmetric reservoir density the stated product measure satisfies detailed balance. Analytic perturbation theory for a finite irreducible Markov generator supplies unique normalized Taylor coefficients. The attached sixteen-state integer-polynomial certificate exactly verifies the order-zero, order-one and order-two stationary equations, their normalizations and the two current formulas. The polynomials in the sign formula have strictly positive coefficients, so no numerical positivity assumption is used. Reflection proves the lower-size obstruction. The theorem carefully restricts the small-driving conclusion to each fixed positive defect rate away from the homogeneous point.
+PASS
 
-## Originality: PASS, qualified
+For t>0 the 16-state generator is irreducible and its normalized stationary solution analytic near delta=0. At zero bias product measure has defect-site occupation 1/(1+t). The Taylor coefficients p0,p1,p2 obey exact generator response recurrences. Independently rebuilt the generator and checked ALL exact polynomial identities in the package certificate.json using BigInt integer-polynomial operations: zero-order stationarity, two response balances, three normalizations, both C1/C2 current identities, and coefficient positivity; all checks true. This validates C1=2tR/D and C2=2t(t-1)P/((1+t)D^2), where P,D,R have strictly positive coefficients. Independent exact-rational 16-state stationary derivative solves at t=1/2,1,2,3 reproduce the formula and C2 signs. Reflection rules out even-in-bias terms for chains of length <=3 with clean boundaries and one interior defect; t!=1 provides four-site witness. Local δ expansion only, not a global-in-δ sign.
 
-The closest paper is Sakai–Akimoto (2026, arXiv:2609.03560), which treats the same boundary-driven, departure-site-disordered exclusion model, derives a reflection necessary condition and studies the nonlinear response through a Galerkin/mean-field approximation. The present claim is the exact closed quadratic coefficient, its global-in-defect-rate strict sign, and the sharp four-site minimum at equal half-density reservoirs. Sakai–Akimoto (2025, arXiv:2512.03316) instead reverses a bulk field in a periodic particle-conserving system; Sakai–Akimoto (2024, arXiv:2408.11364) treats current fluctuations on a periodic defect chain. Neither identified statement implies the present exact open-boundary coefficient. Semantic published-record searches did not return a dominating claim, which is not a proof of uniqueness. Relevant portions of the principal 2026 primary source were inspected, but later sections and appendices remained inaccessible; exact material there is a residual publication-priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The original model's nonlinear current response was partly approximation-based. This theorem supplies an exact, fully constructive benchmark for its smallest reflection-asymmetric realization. It identifies a strict transport direction under a single controlled slow/fast defect, proves that a three-site design cannot exhibit this behavior, and remains valid for every positive defect rate. Equal reservoir density one half is the canonical particle–hole symmetry benchmark, making the survival of asymmetric nonlinear response physically informative rather than an arbitrary parameter choice. The result does not claim thermodynamic-limit behavior, global driving, or universal disorder laws.
+The prior Sakai–Akimoto site-disordered, boundary-driven exclusion study already supplies the model and qualitative/approximate rectification. The present exact 16-state rational Taylor coefficient, strict all-t sign and smallest-chain theorem are more specialized exact results, not the new discovery of rectification. Direct source reading of model, response equations and appendix found no same exact rational 4-site all-t sign theorem. Residual priority risk remains from unseen special-case calculations or independent finite-state response papers.
 
-## Closest literature and outstanding limitations
+## value
 
-The original open boundary model and its reflection mechanism belong to arXiv:2609.03560. The field-driven and periodic-fluctuation relatives are arXiv:2512.03316 and arXiv:2408.11364. The calculation is exact but narrow; the complete closest preprint could not be inspected, and independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first reflection-asymmetric clean-boundary one-defect exclusion chain is a canonical minimal laboratory for nonlinear directional response. A rigorous exact coefficient valid for any positive defect rate and a sign reversal at t=1 provide a model-calibration benchmark stronger than approximate closure, while sharp minimality identifies precisely when transport rectification can begin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

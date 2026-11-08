@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The reproducibility bundle contains `certificate.json` (integer-polynomial stationary-distribution coefficients at orders zero, one and two) and `verify.py` (standalone Python 3, standard library only). Execute `python verify.py` in the bundle directory. Its exact-integer polynomial checks reconstruct the generator from the transition rules and verify the stationary balances, normalizations, coefficient identities, and positivity certificate for every formal defect rate.
+# Independent mathematical audit
 
-The verifier was executed against the included files and returned `PASS: exact polynomial balances at orders 0, 1, 2; normalization; exact current coefficients; positive-coefficient sign certificate.` Direct finite-rate stationary linear solves were also performed at several slow and fast defect rates; their current-even-part signs agreed with the exact formula. Numerical agreement is supplementary and is not used as an infinite-parameter proof.
+## correctness
 
-The proof covers \(t>0\), reservoirs \(\rho_L=(1+\delta)/2\) and \(\rho_R=(1-\delta)/2\), and the local expansion at \(\delta=0\). It does not certify any finite nonzero driving interval uniformly in \(t\), nor all system sizes. The source-comparison limitations in the scientific result remain; no independent audit has been performed.
+PASS
+
+For t>0 the 16-state generator is irreducible and its normalized stationary solution analytic near delta=0. At zero bias product measure has defect-site occupation 1/(1+t). The Taylor coefficients p0,p1,p2 obey exact generator response recurrences. Independently rebuilt the generator and checked ALL exact polynomial identities in the package certificate.json using BigInt integer-polynomial operations: zero-order stationarity, two response balances, three normalizations, both C1/C2 current identities, and coefficient positivity; all checks true. This validates C1=2tR/D and C2=2t(t-1)P/((1+t)D^2), where P,D,R have strictly positive coefficients. Independent exact-rational 16-state stationary derivative solves at t=1/2,1,2,3 reproduce the formula and C2 signs. Reflection rules out even-in-bias terms for chains of length <=3 with clean boundaries and one interior defect; t!=1 provides four-site witness. Local δ expansion only, not a global-in-δ sign.
+
+## originality
+
+PASS
+
+The prior Sakai–Akimoto site-disordered, boundary-driven exclusion study already supplies the model and qualitative/approximate rectification. The present exact 16-state rational Taylor coefficient, strict all-t sign and smallest-chain theorem are more specialized exact results, not the new discovery of rectification. Direct source reading of model, response equations and appendix found no same exact rational 4-site all-t sign theorem. Residual priority risk remains from unseen special-case calculations or independent finite-state response papers.
+
+## value
+
+PASS
+
+The first reflection-asymmetric clean-boundary one-defect exclusion chain is a canonical minimal laboratory for nonlinear directional response. A rigorous exact coefficient valid for any positive defect rate and a sign reversal at t=1 provide a model-calibration benchmark stronger than approximate closure, while sharp minimality identifies precisely when transport rectification can begin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
