@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The source equation and interval assumptions are stated in `RESULT.md`. Run the self-contained script with Python 3 and SymPy/mpmath:
+## correctness
 
-```
-python proofcheck/mmap_markov_check.py
-```
+PASS
 
-The script checks symbolic characteristic polynomials and generating-function identities for all three interior transition matrices; checks the algebraic equivalences between the valley image and the three turning-point targets; reconstructs matrix entries directly from numerical images of the four basic intervals; and counts turning-point preimages to seven iterations independently of matrix powers. Its output was:
+The critical values of the four-lap M-map are 0,1 and v(p)=(4p−1)/(4p²). Requiring v(p) to belong to the immediate turning-point partition {0,p,1/2,1−p,1} produces exactly three interior roots of explicit cubics/quadratic, plus the two endpoints. Their Markov matrices follow from the four monotone arms and yield exact path-based lap counts, rational generating functions and PF growth factors 2+sqrt(2),3,1+sqrt(3); at p=1/4,1/2 each arm is full, giving 4^n and 2^n. Independent symbolic expansion checked all critical equations, matrices, characteristic polynomials and recurrence coefficients for n<=8; the full all-n derivation is Markov path counting plus classical entropy-lap growth, not finite numerical extrapolation.
 
-```
-PASS: 3 characteristic polynomials, 3 rational generating functions, 3 algebraic branch identities,
-       69 Markov-cell and independent inverse-image lap checks; endpoint branch values.
-```
+## originality
 
-The computations use exact symbolic arithmetic for matrix and polynomial identities and 70-digit working precision for the numerical inverse-image enumeration. They do not prove an infinite entropy identity or exhaustive publication priority. Those conclusions require the analytical derivation given in `RESULT.md`. Independent mathematical audit has not been performed.
+PASS
+
+Lawnik–Berezowski 2022 introduced precisely this M-map and discusses its numerical Lyapunov exponents, fixed points and bifurcations, including p0. The inspected primary source does not enumerate all immediate-critical-image Markov values, nor exact lap recurrences/topological entropies. Misiurewicz–Szlenk supplies the known general lap-growth-to-entropy theorem; the evaluated specific five-parameter list, rational generating functions and PF constants are new to the inspected literature, not the general technique.
+
+## value
+
+PASS
+
+Exact closed Markov partitions and all-iterate lap complexity are natural dynamical invariants revealing sharp combinatorial phases in a named nonlinear four-branch map. Complete characterization of immediate partition-closure parameters provides reusable exact benchmark cases against numerical entropy plots; not a claim about every postcritically finite parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

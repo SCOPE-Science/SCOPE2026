@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T10:05:21.635102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The critical values of the four-lap M-map are 0,1 and v(p)=(4p−1)/(4p²). Requiring v(p) to belong to the immediate turning-point partition {0,p,1/2,1−p,1} produces exactly three interior roots of explicit cubics/quadratic, plus the two endpoints. Their Markov matrices follow from the four monotone arms and yield exact path-based lap counts, rational generating functions and PF growth factors 2+sqrt(2),3,1+sqrt(3); at p=1/4,1/2 each arm is full, giving 4^n and 2^n. Independent symbolic expansion checked all critical equations, matrices, characteristic polynomials and recurrence coefficients for n<=8; the full all-n derivation is Markov path counting plus classical entropy-lap growth, not finite numerical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical formula h_top=lim log(laps)/n is applicable once exact lap counts are known.",
+          "General entropy inequalities leave the specific finite Markov matrices unevaluated."
+        ],
+        "reasoning": "The general method is credited; it does not itself list the M-map’s critical closure roots or finite-n counts.",
+        "searches": [
+          "doi:10.4064/sm-67-1-45-63 Misiurewicz Szlenk lap entropy",
+          "doi:10.3934/dcds.2005.13.451 entropy piecewise-monotone maps"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 0d457992f73a7b63c7feb635443ed67d05ce88bc, RESULT.md b1df06a57d91ab386cc4eb2441cc0e6216f4d5d1, proofcheck/mmap_markov_check.py 1d10a410c8300151dcf7db2359211e43d0a9d21e",
+        "doi:10.3390/sym14050895 primary M-map article Eq.6 Sections 3–4",
+        "doi:10.4064/sm-67-1-45-63 classical lap-growth theorem statement",
+        "doi:10.3934/dcds.2005.13.451 abstract",
+        "Resultary semantic Markov/entropy search exact related findings as detailed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source provides defining formula and selected bifurcations without Markov partition census or exact topological entropy.",
+          "Misiurewicz–Szlenk gives entropy conditional on lap sequence, which is computed here from 4x4 matrices."
+        ],
+        "reasoning": "The evaluated three cubics/quadratic, transition matrices and lap sequences are necessary additional derivations; no inspected prior theorem states their particular values.",
+        "searches": [
+          "doi:10.3390/sym14050895 full primary text Eq.6 and Sec.3-4",
+          "doi:10.4064/sm-67-1-45-63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous map is a four-arm interval system; its immediate turning-point Markov condition is equivalent to v(p)∈{0,p,1/2,1−p,1}.",
+          "Source p0=1−1/sqrt(2) appears in fixed-point discussion, not as all-n lap-count classification."
+        ],
+        "reasoning": "Parameter aliases and kneading/Markov language were examined; neither the source fixed-point threshold nor Lyapunov plots logically gives the whole five-point exact entropy classification.",
+        "searches": [
+          "Lawnik Berezowski M-map first critical orbit Markov partition exact lap growth topological entropy five parameters",
+          "doi:10.3390/sym14050895 Eq. (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary comparator studies finite cutoff zeta for a different countable Markov map, not the same quadratic four-lap M-map.",
+          "No matching M-map table of p_−,p0,p_+ and all lap counts found in search results."
+        ],
+        "reasoning": "Checked exact map formula and all entropy growth factors, not merely use of Markov matrices. Non-find is not exhaustive novelty evidence.",
+        "searches": [
+          "Resultary: Lawnik Berezowski M-map first critical orbit Markov partition exact lap growth topological entropy five parameters",
+          "2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4"
+        ]
+      },
+      "rationale": "Lawnik–Berezowski 2022 introduced precisely this M-map and discusses its numerical Lyapunov exponents, fixed points and bifurcations, including p0. The inspected primary source does not enumerate all immediate-critical-image Markov values, nor exact lap recurrences/topological entropies. Misiurewicz–Szlenk supplies the known general lap-growth-to-entropy theorem; the evaluated specific five-parameter list, rational generating functions and PF constants are new to the inspected literature, not the general technique.",
+      "residual_risks": [
+        "A specialized kneading-theoretic computation for the exact Lawnik–Berezowski M-map could independently contain the three closure values.",
+        "Classification concerns ONLY immediate turning partition; many other postcritically finite/Markov parameters can exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No immediate critical partition closure classification, exact topological entropy or lap generating function in inspected article.",
+          "evidence": [
+            "Equation (6) four-piece parametrization; Section 4 numerical parameter behavior distinct from topological entropy."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym14050895",
+          "material_read": "Full accessible article HTML/transcription; Eq. (6), Sections 3–4 on fixed points, bifurcations, Lyapunov exponent and densities",
+          "method": "Read primary full-text sections and checked exact defining formula",
+          "title": "New Chaotic System: M-Map and Its Application in Chaos-Based Cryptography",
+          "trigger": "Exact same nonlinear interval map and p0 threshold"
+        },
+        {
+          "assessment": "Known general h_top=lap-growth principle is credited, not novel.",
+          "evidence": [
+            "Misiurewicz–Szlenk classical lap-growth theorem; does not evaluate the M-map."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/sm-67-1-45-63",
+          "material_read": "Publication description and lap-growth theorem statement",
+          "method": "Indexed primary theorem/abstract consulted; not full article inspected",
+          "title": "Entropy of piecewise monotone mappings",
+          "trigger": "General theorem used to turn lap growth into topological entropy"
+        },
+        {
+          "assessment": "General inequalities do not provide exact five-parameter M-map lap sequences.",
+          "evidence": [
+            "Abstract scope: inequalities for transitive interval maps."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2005.13.451",
+          "material_read": "Public abstract and theorem-scope description",
+          "method": "Publisher abstract read",
+          "title": "Strict inequalities for the entropy of transitive piecewise monotone maps",
+          "trigger": "Plausible broader entropy results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact closed Markov partitions and all-iterate lap complexity are natural dynamical invariants revealing sharp combinatorial phases in a named nonlinear four-branch map. Complete characterization of immediate partition-closure parameters provides reusable exact benchmark cases against numerical entropy plots; not a claim about every postcritically finite parameter.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 0d457992f73a7b63c7feb635443ed67d05ce88bc, RESULT.md b1df06a57d91ab386cc4eb2441cc0e6216f4d5d1, proofcheck/mmap_markov_check.py 1d10a410c8300151dcf7db2359211e43d0a9d21e",
+    "doi:10.3390/sym14050895 primary M-map article Eq.6 Sections 3–4",
+    "doi:10.4064/sm-67-1-45-63 classical lap-growth theorem statement",
+    "doi:10.3934/dcds.2005.13.451 abstract",
+    "Resultary semantic Markov/entropy search exact related findings as detailed"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a full postcritical-finite parameter classification; only first-image closure of canonical turning partition.",
+    "Topological entropy not numeric Lyapunov exponent/invariant-density entropy.",
+    "Primary general entropy source publication/statement inspected rather than full original paper."
+  ],
+  "schema_version": 1
+}
