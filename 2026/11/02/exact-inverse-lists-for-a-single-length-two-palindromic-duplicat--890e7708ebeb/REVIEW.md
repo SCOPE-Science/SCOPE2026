@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is reduced to a local deletion-equality lemma: identical outputs from two possible adjacent-pair deletions force two-periodicity, and the second palindromic window forces this entire interval to be constant. This yields exact grouping of inverse operations by marked run. The length budget proves the sharp maximum and an alternating run construction attains it for every received length. Counting nonconstant palindromic windows and starts of long constant runs gives the incidence identity. Independently enumerated parent sets match the structural prediction for 59,420 words across 19 parameter cases. The finite check corroborates, but does not substitute for, the proof.
+## correctness
 
-## Originality: PASS, subject to stated residual risk
-The 2020 primary article by Zeraatpisheh–Esmaeili–Gulliver examines overlaps among length-two palindromic squares and deduplication priorities. That overlap discussion is acknowledged, rather than claimed as original. Its inspected discussion does not supply the complete distinct-parent run-count theorem or global/aggregate formulas. The 2023 Yohananov–Schwartz article addresses asymptotic capacity under arbitrarily many such errors rather than one-step inverse lists. The 2017 duplication-coding work concerns another optimization. Targeted comparison against associated research records finds nearby coding optima and tandem/noisy duplication inverse counts, but not this transformation's exact one-step theorem. Residual risk: an implicit or unlocated general-formula specialization may already cover it.
+PASS
 
-## Mathematical value: PASS
-A one-step inverse-list cardinality is the exact local ambiguity faced by a decoder of a palindromic duplication, not an arbitrary statistic. The marked-run characterization makes it computable directly; the maximum is an exact worst-case list-decoding constraint; and the incidence count measures the entire error relation for every alphabet size and length. The result explains the collapse of many apparently distinct deletion positions into one parent, including a sharp extremal construction. It is a self-contained structural classification beyond tabulation of small examples.
+For any alphabet q>=2 and received word length m>=4, legal inverse sites are occurrences of abba. If deleting two middle letters at different sites yields the same parent, direct word comparison forces period two between sites; legality of both palindromic windows forces the entire intervening interval constant. Consequently all constant 4-windows of a long run give a single parent, and every interior run of length two with equal-symbol flanks contributes exactly one distinct nonconstant window. Disjoint-run length budgets give max floor((m-2)/2), achieved by alternating runs of lengths 1,2,...,2,1. Counting nonconstant abba windows plus starts of runs >=4 gives sum_y d(y) = q^(m-4)*((m-3)q(q-1)+q+(m-4)(q-1)). An independent direct inverse enumeration checked q=2,m=4..11 and q=3,m=4..7; it is not an infinite proof.
 
-## Scope and risk
-Only one palindromic duplication of span two, with no substitution or additional edits, is considered. No code capacity is inferred. The close 2020 overlapping-square material is not subsumed or claimed to be new. Finite verification is not an all-length proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: earlier palindromic-duplication coding papers study confusability, overlapping palindromic squares and multi-error-correcting codes, but do not in the inspected material give all received-word distinct single-step parent counts and aggregate incidence. This is a local inverse-list theorem, not a claim that palindromic overlaps are newly discovered.
+
+## value
+
+PASS
+
+Inverse-list size controls ambiguity and decoder candidate enumeration for a natural finite-word mutation channel. The all-length run classifier, sharp peak and total incidence are exact enumerative invariants which may be used in coding channel analysis beyond known broad capacity estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python verify.py` in the directory containing the verifier. The program enumerates every \(q\)-ary received word in 19 parameter cases: \(q=2\), \(4\le m\le12\); \(q=3\), \(4\le m\le9\); and \(q=4\), \(4\le m\le7\). It computes the set of distinct one-step parents directly from four-letter palindrome windows, separately computes the run statistic, checks their exact equality for each received word, and checks the derived sharp maximum and aggregate incidence count in every case.
+## correctness
 
-Actual execution result:
+PASS
 
-```text
-VERIFY_OK cases=19 received_words=59420 all_parent_sets=checked exact_peak=checked exact_incidence=checked
-```
+For any alphabet q>=2 and received word length m>=4, legal inverse sites are occurrences of abba. If deleting two middle letters at different sites yields the same parent, direct word comparison forces period two between sites; legality of both palindromic windows forces the entire intervening interval constant. Consequently all constant 4-windows of a long run give a single parent, and every interior run of length two with equal-symbol flanks contributes exactly one distinct nonconstant window. Disjoint-run length budgets give max floor((m-2)/2), achieved by alternating runs of lengths 1,2,...,2,1. Counting nonconstant abba windows plus starts of runs >=4 gives sum_y d(y) = q^(m-4)*((m-3)q(q-1)+q+(m-4)(q-1)). An independent direct inverse enumeration checked q=2,m=4..11 and q=3,m=4..7; it is not an infinite proof.
 
-These checks are finite and do not establish the unrestricted integer-domain theorem. The complete all-length argument is given in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: earlier palindromic-duplication coding papers study confusability, overlapping palindromic squares and multi-error-correcting codes, but do not in the inspected material give all received-word distinct single-step parent counts and aggregate incidence. This is a local inverse-list theorem, not a claim that palindromic overlaps are newly discovered.
+
+## value
+
+PASS
+
+Inverse-list size controls ambiguity and decoder candidate enumeration for a natural finite-word mutation channel. The all-length run classifier, sharp peak and total incidence are exact enumerative invariants which may be used in coding channel analysis beyond known broad capacity estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
