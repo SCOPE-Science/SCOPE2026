@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:50:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/RESULT.md (Git blob ff34ebe6353d594cbbdfa7bcd3f72d349933f0f1)",
+        "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/checker.py (Git blob 9ca00bedf8d2c444581d8f1be02477a00845b9e8)",
+        "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/METADATA.json (Git blob 01e2d2032a5c0d1e0b11225703851ad8ee151cd4)",
+        "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/AUDIT.json (Git blob cd6fa4f7fcadb82a9ce0012521ba4ef68039f2b5)",
+        "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+      ],
+      "rationale": "Lagrange spectral idempotents e_alpha for commuting a_i give a joint decomposition. With d_alpha the fixed diagonal supports, u=sum_alpha d_alpha e_alpha has unit diagonal and satisfies u e_beta=d_beta u; therefore simultaneous conjugation holds over arbitrary characteristic. Stabilizer entries for each x<y are free iff c(x)=c(y). This proves q^{b(c)}, and expanding product_{xy}(q+(1-q)1_{c(x)=c(y)}) proves random-cluster/Tutte. Proper coloring of a comparability graph is equivalent to at least height(P) colors. Independent brute enumeration over F_2 on 3-chain reproduced all 64 fixed-diagonal fibers and 340 tuples; finite checks are not a proof of all posets/fields.",
+      "residual_risks": [
+        "The finite computations alone do not establish unrestricted hypotheses, parameter domains or infinite quantifiers; proof reconstruction supplies those steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khripchenko–Novikov single-idempotent conjugacy and Can–Casimiro–Malheiro all single-idempotent complex orbits are more general in ambient poset but less specific in tuple arity and finite-field enumeration."
+        ],
+        "reasoning": "Known orbit geometry does not alone yield the simultaneous tuple stabilizer sizes and Potts evaluations; an unexamined broader algebraic lifting result remains plausible.",
+        "searches": [
+          "\"general separable semisimple algebra lifting idempotents conjugacy finite incidence algebra\"",
+          "arXiv:0803.0069",
+          "arXiv:2208.01073 §3"
+        ]
+      },
+      "checked_sources": [
+        "Khripchenko–Novikov, arXiv:0803.0069v1, Theorem 3: one idempotent conjugate to diagonal",
+        "Can–Casimiro–Malheiro, arXiv:2208.01073v1, Theorem 3.2: complex idempotent variety components",
+        "Sokal, arXiv:math/0503607: already-known FK/Potts expansion",
+        "Resultary semantic query: commuting split-separable incidence algebra Potts Tutte; 12 ranked results, no direct same-object match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing idempotent orbit formulas concern a single diagonal idempotent; the FK polynomial sums graph colorings with boundary weights already known."
+        ],
+        "reasoning": "The asserted implication from simultaneous conjugacy plus orbit-stabilizer to FK is mathematically valid; the published single-idempotent results alone do not state an arbitrary-rank commuting-tuple count.",
+        "searches": [
+          "arXiv:0803.0069 Theorem 3",
+          "arXiv:2208.01073 Theorem 3.2",
+          "arXiv:math/0503607 Fortuin–Kasteleyn"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older idempotent diagonal-conjugacy statement has one element and binary spectrum, whereas the new formula fixes a joint S^m diagonal and counts the full orbit over a finite field. The Resultary Widom–Rowlinson graph homomorphism result concerns a different homomorphism model."
+        ],
+        "reasoning": "Simultaneous Lagrange idempotents reduce tuple conjugacy to orthogonal families; the general lift method might imply it, but neither cited specialized theorem explicitly counts the joint-diagonal orbits.",
+        "searches": [
+          "\"Commuting tuples split separable idempotents finite incidence algebra comparability graph Potts Tutte polynomial counting finite fields\"",
+          "Resultary 2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "arXiv:0803.0069 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-formula table among top semantic matches; a complete general formula varies over every poset, finite field and arity."
+        ],
+        "reasoning": "This is not a finite database lookup; absence in search is not a novelty certificate.",
+        "searches": [
+          "\"finite incidence algebra commuting idempotents number q comparability graph\"",
+          "Resultary semantic results 12"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Simultaneous Lagrange idempotents reduce tuple conjugacy to orthogonal families; the general lift method might imply it, but neither cited specialized theorem explicitly counts the joint-diagonal orbits.",
+      "residual_risks": [
+        "A general theorem on lifting separable commutative semisimple subalgebras through the Jacobson radical could imply the orbit assertion and possibly the entire count.",
+        "The claim recovers a known Potts polynomial, not a newly defined graph invariant; finite checks alone cannot guarantee new incidence-algebra realization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING SINGLE ELEMENT ONLY",
+          "evidence": "Theorem 3 gives diagonal conjugacy of one idempotent; does not count commuting m-tuples.",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.0069",
+          "material_read": "Theorem 3 and surrounding radical/invertibility proof on pp.3–4",
+          "method": "public primary full-text PDF opened and page image read",
+          "title": "Finitary incidence algebras",
+          "trigger": "direct same finite incidence algebra and idempotent conjugacy"
+        },
+        {
+          "assessment": "COVERING SINGLE IDEMPOTENT GEOMETRY, NOT TUPLE COUNT",
+          "evidence": "Irreducible components of single-idempotent variety over complex numbers are G(P) orbits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01073",
+          "material_read": "Theorem 3.2 and proof of connected-component conjugacy, p.10, plus abstract/§4",
+          "method": "public primary PDF opened and page image examined",
+          "title": "Idempotent Varieties of Incidence Monoids and Bipartite Posets",
+          "trigger": "possibly stronger orbit theory"
+        },
+        {
+          "assessment": "COVERING ONLY GRAPH-POLYNOMIAL IDENTITY",
+          "evidence": "Z_G(Q,v)=sum_F Q^{k(F)} v^{|F|} is prior knowledge, incidence realization remains comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Known Fortuin–Kasteleyn random-cluster graph formula, not full paper read",
+          "method": "source identification and established standard expansion",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "identical graph-polynomial expression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Khripchenko–Novikov, arXiv:0803.0069v1, Theorem 3: one idempotent conjugate to diagonal",
+        "Can–Casimiro–Malheiro, arXiv:2208.01073v1, Theorem 3.2: complex idempotent variety components",
+        "Sokal, arXiv:math/0503607: already-known FK/Potts expansion",
+        "Resultary semantic query: commuting split-separable incidence algebra Potts Tutte; 12 ranked results, no direct same-object match"
+      ],
+      "rationale": "The entire fixed-diagonal orbit structure and multivariate commuting-tuples counts form a natural and information-complete realization of a graph polynomial; it distinguishes explicit behavior even where order duals give identical counts. The chromatic-height threshold is a structural boundary, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "The value is for the exactly scoped theorem, not an assertion of broader applications not proved here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Khripchenko–Novikov, arXiv:0803.0069v1, Theorem 3: one idempotent conjugate to diagonal",
+    "Can–Casimiro–Malheiro, arXiv:2208.01073v1, Theorem 3.2: complex idempotent variety components",
+    "Sokal, arXiv:math/0503607: already-known FK/Potts expansion",
+    "Resultary semantic query: commuting split-separable incidence algebra Potts Tutte; 12 ranked results, no direct same-object match",
+    "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/RESULT.md (Git blob ff34ebe6353d594cbbdfa7bcd3f72d349933f0f1)",
+    "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/checker.py (Git blob 9ca00bedf8d2c444581d8f1be02477a00845b9e8)",
+    "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/METADATA.json (Git blob 01e2d2032a5c0d1e0b11225703851ad8ee151cd4)",
+    "2026/11/02/a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d/AUDIT.json (Git blob cd6fa4f7fcadb82a9ce0012521ba4ef68039f2b5)",
+    "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A general theorem on lifting separable commutative semisimple subalgebras through the Jacobson radical could imply the orbit assertion and possibly the entire count.",
+    "The claim recovers a known Potts polynomial, not a newly defined graph invariant; finite checks alone cannot guarantee new incidence-algebra realization."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 checker.py` from a directory containing the bundled checker. Its expected last line is `INCIDENCE_SPLIT_TUPLE_POTTS_OK 32 5625`.
+## correctness
 
-The checker enumerates the full incidence-algebra matrix coordinate spaces for the specified small finite fields and posets. It evaluates \(f_S(a)\) as an actual product of matrices and computes commutation for every ordered pair that satisfies the polynomial constraint; this directly checks the claimed tuple count against a separate enumeration of graph labelings.
+PASS
 
-There are 32 exhaustive configurations covering two and three roots, one and two tuple coordinates, fields of orders \(2,3,5\), and multiple poset shapes. In the largest reported tuple count, 5,625 commuting ordered pairs occur for the three-root polynomial on a fork poset over \(\mathbb F_3\).
+Lagrange spectral idempotents e_alpha for commuting a_i give a joint decomposition. With d_alpha the fixed diagonal supports, u=sum_alpha d_alpha e_alpha has unit diagonal and satisfies u e_beta=d_beta u; therefore simultaneous conjugation holds over arbitrary characteristic. Stabilizer entries for each x<y are free iff c(x)=c(y). This proves q^{b(c)}, and expanding product_{xy}(q+(1-q)1_{c(x)=c(y)}) proves random-cluster/Tutte. Proper coloring of a comparability graph is equivalent to at least height(P) colors. Independent brute enumeration over F_2 on 3-chain reproduced all 64 fixed-diagonal fibers and 340 tuples; finite checks are not a proof of all posets/fields.
 
-The code exhausts only the stated small finite cases; it is not an exhaustive check over all finite fields or posets. The proof in `RESULT.md` supplies the unrestricted argument using simultaneous spectral idempotents and unitriangular orbit–stabilizer counting. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Simultaneous Lagrange idempotents reduce tuple conjugacy to orthogonal families; the general lift method might imply it, but neither cited specialized theorem explicitly counts the joint-diagonal orbits.
+
+## value
+
+PASS
+
+The entire fixed-diagonal orbit structure and multivariate commuting-tuples counts form a natural and information-complete realization of a graph polynomial; it distinguishes explicit behavior even where order duals give identical counts. The chromatic-height threshold is a structural boundary, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

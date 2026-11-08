@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis that all roots are distinct in the base field supports Lagrange spectral idempotents. The explicit element \(u=\sum d_\alpha e_\alpha\) simultaneously conjugates the complete orthogonal family and is unitriangular because all diagonal entries equal one. Its stabilizer imposes one zero-coordinate constraint for each differently colored comparable pair, yielding the exact finite-field orbit size. A separate edge-factor expansion proves the Potts identity. The chain-height proof establishes the sharp leading-degree threshold. Exhaustive direct multiplication and commutation checks passed 32 small instances, including characteristic two, odd characteristic, three-root polynomial constraints and non-chain posets. No finite test is used as the general proof.
+PASS
 
-## Originality — PASS with historical priority risk
+Lagrange spectral idempotents e_alpha for commuting a_i give a joint decomposition. With d_alpha the fixed diagonal supports, u=sum_alpha d_alpha e_alpha has unit diagonal and satisfies u e_beta=d_beta u; therefore simultaneous conjugation holds over arbitrary characteristic. Stabilizer entries for each x<y are free iff c(x)=c(y). This proves q^{b(c)}, and expanding product_{xy}(q+(1-q)1_{c(x)=c(y)}) proves random-cluster/Tutte. Proper coloring of a comparability graph is equivalent to at least height(P) colors. Independent brute enumeration over F_2 on 3-chain reproduced all 64 fixed-diagonal fibers and 340 tuples; finite checks are not a proof of all posets/fields.
 
-2008 Khripchenko–Novikov Theorem 3 covers a single idempotent up to conjugacy, not the complete joint fibers of arbitrary commuting split-separable tuples. 2022 Can–Casimiro–Malheiro Theorem 3.2 covers the single-idempotent complex variety and its components, and Proposition 4.6 handles component dimensions for complete bipartite posets, but neither gives the finite-field all-arity count. Sokal (2005) supplies the already-known Tutte/Potts polynomial; it does not supply its incidence-algebra realization. The final claim is the simultaneous-orbit enumeration and its complete two-variable Potts recovery, not any of those prior statements. Searches for commuting idempotent tuples, incidence-algebra Potts/Tutte enumeration, and separable-algebra representations yielded no decisive coverage. A broader unpublished or poorly indexed separable-homomorphism result may imply the formula, and priority remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem counts a natural and otherwise highly coupled family of polynomially constrained commuting tuples uniformly for all posets, finite fields, arities and split root sets. It identifies a standard graph invariant hidden in an algebra representation-counting problem, provides a complete joint-diagonal fiber refinement and establishes two-way recoverability of the full bivariate random-cluster polynomial from incidence-algebra counts. The chromatic leading term detects the poset's height, while orientation-blindness distinguishes this statistic from the isomorphism type of the algebra. These are structural consequences, not merely a small finite computation.
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Simultaneous Lagrange idempotents reduce tuple conjugacy to orthogonal families; the general lift method might imply it, but neither cited specialized theorem explicitly counts the joint-diagonal orbits.
 
-## Limits and closest literature
+## value
 
-The domain requires pairwise commutation and split squarefree polynomial equations. The theorem does not enumerate arbitrary commuting matrices or full isomorphism classes, and the literature comparison is not an independent priority certificate. Especially relevant are Khripchenko–Novikov (2008), Can–Casimiro–Malheiro (2022), and Sokal (2005); Garcés–Khrypchenko (2022) addresses preservers of potent elements rather than counts of their commuting tuples.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire fixed-diagonal orbit structure and multivariate commuting-tuples counts form a natural and information-complete realization of a graph polynomial; it distinguishes explicit behavior even where order duals give identical counts. The chromatic-height threshold is a structural boundary, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
