@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone script `VERIFY.py` computes the closed polynomial using the integer recurrence obtained from the two nontrivial transfer eigenvalues and performs direct synchronous chip-firing updates independently. For all labelled simple cycles of lengths \(3\) through \(9\), it exhausts configurations in \(\{0,1,2,3\}^n\) and tests that \(F^2(c)=c\), \(F(c)\ne c\), and each predicted mass coefficient is the actual orbit count. The scope covers all primitive two-cycle configurations, because the proof establishes \(c_i\le3\) at every such vertex. The total exhaustive search is 349,504 configurations, with the exact per-energy results in `VERIFY_OUTPUT.txt`. The nonfinite universal statement and the central limit theorem rely on the algebraic proof and eigenvalue gap, not only the finite checks.
+# Independent mathematical audit
 
-The verification run returned `EXACT_RING_CHIPFIRE_MASS_VERIFY_OK`. This is a reproducible computational test, not an independent audit or a formal proof certificate.
+## correctness
+
+PASS
+
+For primitive synchronous chip-firing two-cycles on C_n, zero Laplacian of the sum of firing vectors forces every site to alternate firing. Threshold inequalities give exact local chip intervals, all within 0..3. The four-state weighted de Bruijn transfer matrix has characteristic polynomial (lambda+z)(lambda+z²)(lambda²-(z+z²)lambda-z³). Half its trace of nth powers enumerates temporal 2-orbits by conserved total mass. Complementation gives symmetry/mean 3n/2; dominant analytic root yields CLT variance n sqrt(2)/8. Independent direct two-step simulation exhaustively checked all 4^n chip vectors for n=3..8 versus a separate integer recurrence.
+
+## originality
+
+PASS
+
+Dall’Asta 2006 already classified phase structure and boundary-density two-cycle states. The claimed refinement is the single explicit all-mass polynomial and Gaussian fluctuation law for uniformly sampled primitive temporal two-cycle orbits; not a new proof that cycles of period two exist.
+
+## value
+
+PASS
+
+Total chip mass is conserved, making its precise distribution across periodic temporal orbits a natural microcanonical invariant. The complete generating polynomial and Gaussian fluctuation law sharpen the known dynamical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
