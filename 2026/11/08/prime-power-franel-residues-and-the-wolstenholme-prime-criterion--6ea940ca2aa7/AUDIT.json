@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For each 1<=k<p^a the exact Lucas-theorem valuation of C(p^a,k) is a-v_p(k); only k=j p^(a-1) survive after cubing modulo p^4, and their units yield S_p=Σ(-1)^(j-1)/j^3. For p>=5, the full reciprocal-cube sum vanishes and Bernoulli-polynomial evaluation of the half-sum yields S_p=B_(p-3)/2 mod p. For p=2 or 3 the coefficient is nonzero, giving exact valuation 3. Glaisher gives the independent central-binomial equivalence. The verifier reconstructed direct modular values, Bernoulli numbers and critical units; no finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Straub arXiv:1401.0854 Example 3.6 and Theorem 3.2 prove the existing stronger height congruence f_(p^a)≡f_(p^(a-1)) modulo p^(3a) for primes p>=5 and a>=2, which already implies the height-stability part. The published statement has no explicit initial coefficient B_(p-3)/2 and no Wolstenholme exception criterion.",
+        "arxiv:1112.1034v11 Theorem 1.1 contains weighted Franel sums modulo p^2; its introduction contains Franel and Apéry identities, not this family of p^4 congruences.",
+        "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110 covers generalized Domb sums rather than Franel cubes."
+      ],
+      "reasoning": "Straub definitively subsumes the height stability, which is not claimed as new. The narrower surviving claim is the explicit Bernoulli leading residue at the prime index (and therefore each height) and its exact Wolstenholme criterion; that coefficient is not a corollary of height-stability alone. Direct finite-index binomial reduction was proved separately.",
+      "searches": [
+        "arxiv:1401.0854v2",
+        "arxiv:1112.1034v11",
+        "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1401.0854v2",
+      "arxiv:1112.1034v11",
+      "arxiv:1108.4178v1",
+      "OEIS:A000172",
+      "2026/9/20/SCOPE-shifted-generalized-domb-supercongruences--d55c1da5b110",
+      "2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+      "Historical item ac51f85b-e5c1-4516-8f12-73aff6ab508a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Straub arxiv:1401.0854 Example 3.6 gives Franel height supercongruence but does not evaluate f_p-2 modulo p^4; its abstract, theorem and Example 3.6 were compared at full-text level.",
+        "Sun arxiv:1112.1034 Theorem 1.1, introduction and proof address distinct p-adic congruences of weighted sums.",
+        "Meštrović arxiv:1108.4178 investigates C(2p-1,p-1) and Bernoulli characterization, neither containing Franel cubic row sums.",
+        "OEIS:A000172 forward prime congruence only gives p^3 divisibility at p, not the leading p^4 digit and no p-power-height stability."
+      ],
+      "reasoning": "Straub covers a substantial consequence (independence from height). It does not determine the base value f_p modulo p^4. Sun covers other weighted sums; Meštrović and Glaisher cover central-binomial Bernoulli criteria. The new algebraic link from f_p to Bernoulli B_(p-3) does not follow merely by instantiating their displayed formulas, and was established here by a separate exact computation.",
+      "searches": [
+        "arxiv:1401.0854v2",
+        "arxiv:1112.1034v11",
+        "arxiv:1108.4178v1",
+        "OEIS:A000172"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent form is p^4 | f_(p^a)-2 iff p is a Wolstenholme prime (p>=5). Glaisher relates its Bernoulli coefficient to central binomial C(2p-1,p-1).",
+        "arxiv:1108.4178v1 discusses the central binomial criterion, not Franel f_(p^a)."
+      ],
+      "reasoning": "The Glaisher central-binomial condition is equivalent to Bernoulli vanishing. Straub already supplies the height-stability, but Glaisher and Straub together do not assert the missing Franel coefficient at the base prime. A separate Lucas and reciprocal-cube evaluation is needed.",
+      "searches": [
+        "arxiv:1401.0854v2",
+        "arxiv:1108.4178v1",
+        "arxiv:1112.1034v11",
+        "OEIS:A000172"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A000172 records f_n and a 2013 conjecture f_n≡2 (mod n^3) iff n is prime; it does not state p^4 prime-power Bernoulli residues.",
+        "Accessible historical record item ac51f85b-e5c1-4516-8f12-73aff6ab508a treats generalized Franel sums at n=p^q-1 and exponent t, not f_(p^a) at fixed exponent 3."
+      ],
+      "reasoning": "Database comments/finite terms cannot imply the all-prime-power p^4 statement. The closest own historical object uses a shifted row p^q-1 and variable exponent; the new theorem is not a special case or corollary.",
+      "searches": [
+        "OEIS:A000172",
+        "ac51f85b-e5c1-4516-8f12-73aff6ab508a"
+      ]
+    },
+    "rationale": "The new part of this theorem is the explicit Bernoulli coefficient and equivalence of p^4 Franel divisibility with Wolstenholme primes. Straub (arXiv:1401.0854, Example 3.6) already proves much stronger height-stability congruences for the same Franel numbers and is explicitly acknowledged; no novelty is claimed for height stability alone. Read relevant primary sources and compared exact implications as well as published mathematical-result records and accessible historical claims; later equivalent formulations remain a residual risk.",
+    "residual_risks": [
+      "An unlocated published general binomial-power congruence or explicit Franel p^4 prime-power treatment may subsume the claim.",
+      "A 2024 Franel-Bernoulli paper was only abstract inspected; its displayed theorem is not the same statement but complete text coverage was not checked.",
+      "Straub 2014 fully covers prime-power height stability; the residual originality claim rests solely on the explicit Bernoulli/Wolstenholme coefficient not stated there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING among inspected theorem statements and proof comparisons; historical extrapolation limited to inspected material",
+        "evidence": [
+          "Theorem 1.1 concerns weighted sums through p-1 modulo p^2; p^a-index f_(p^a) mod p^4 is not asserted in the inspected passages.",
+          "Primary MSC 11A07, 11B65 printed on page 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.1034",
+        "material_read": "12-page PDF searchable text; title/abstract, introduction and Theorem 1.1, related remarks, Section 2 proofs and references; page image 1 inspected",
+        "method": "primary arXiv PDF full-text search and targeted passage reading",
+        "title": "Congruences for Franel numbers",
+        "trigger": "Same Franel sum, number-theoretic p-adic congruences"
+      },
+      {
+        "assessment": "Covers classical central-binomial/Wolstenholme side, not Franel p^a cubic sums in inspected relevant material",
+        "evidence": [
+          "Defines Wolstenholme primes via C(2p-1,p-1) mod p^4.",
+          "Primary MSC 11B75, secondary 11B65 on first page."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1108.4178",
+        "material_read": "16-page PDF searchable text, abstract, introduction, theorem statements and first-page image",
+        "method": "arXiv source with page-image and text comparison",
+        "title": "Congruences for Wolstenholme primes",
+        "trigger": "Same exceptional-prime criterion and Bernoulli number"
+      },
+      {
+        "assessment": "COVERS height stability (not novel here); NOT_COVERING explicit Bernoulli leading residue and Wolstenholme equivalence in inspected results",
+        "evidence": [
+          "Example 3.6 equation (30) proves Y_d(p^r n) ≡ Y_d(p^(r-1)n) modulo p^(3r) for primes p>=5, integer r>1, d>=3.",
+          "No B_(p-3) appears in searchable full text (find Bernoulli returned no match); no statement of Wolstenholme equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.0854",
+        "material_read": "19-page full searchable PDF; abstract, introduction, Theorem 3.2 and Example 3.6 on pages 8–9, references; first-page image checked",
+        "method": "Read exact Franel theorem formulation and compare its consequence with p^4 Bernoulli coefficient",
+        "title": "Multivariate Apéry numbers and supercongruences of rational functions",
+        "trigger": "Primary paper explicitly contains Franel numbers and general prime-power supercongruences"
+      },
+      {
+        "assessment": "Contains a stronger aspirational primality criterion but not the exact p^4 prime-power statement",
+        "evidence": [
+          "March 22 2013 conjecture by Gary Detlefs f_n≡2 mod n^3 iff n prime.",
+          "August 14 2013 statement f_p≡2 mod p^3 for primes."
+        ],
+        "identifier_or_url": "https://oeis.org/A000172",
+        "material_read": "Definition, comments and source/reference section, including dates of 2013 comments",
+        "method": "full accessible OEIS HTML relevant sections",
+        "title": "OEIS A000172: Franel numbers",
+        "trigger": "Exact sequence and primality-conjecture relation"
+      },
+      {
+        "assessment": "Displayed Bernoulli congruence concerns a weighted sum f_(k-1)/(k 8^(k-1)) rather than f_(p^a); full-text coverage remains unchecked",
+        "evidence": [
+          "2024 abstract formulas for weighted sums, not the prime-power Franel cube residue."
+        ],
+        "identifier_or_url": "https://doi.org/10.13140/RG.2.2.28230.48964",
+        "material_read": "Search-indexed abstract and displayed theorem summary only, not complete PDF",
+        "method": "search abstract comparison",
+        "title": "On three conjectural congruences involving Domb numbers and Franel numbers",
+        "trigger": "Potential later Franel-Bernoulli p-3 congruence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ea940ca-2aa7-4112-8ea9-77f71334f38c",
+  "value": {
+    "rationale": "The specific new datum is the initial p^4 Franel residue B_(p-3)/2, whose vanishing gives a natural Franel-theoretic characterization of Wolstenholme primes and excludes nonexceptional proper prime powers in a recorded prime-detection conjecture. Strong prime-power height stability is already proved by Straub and is not valued as an original contribution. The Bernoulli identification is a complete, arithmetic, motivated local invariant; valuations above p^4 at Wolstenholme primes are not resolved.",
+    "status": "PASS"
+  }
+}
