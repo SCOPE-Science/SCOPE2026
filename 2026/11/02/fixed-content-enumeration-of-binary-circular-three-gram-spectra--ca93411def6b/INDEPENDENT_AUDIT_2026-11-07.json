@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:57:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A circular three-gram histogram is a nonnegative balanced integer flow on the four-vertex order-two binary de Bruijn graph. Balance forces (h000,h001,h010,h011,h100,h101,h110,h111)=(a,t,t+f-s,s,t,f,s,h), c=t+f-s>=0, p=a+2t+f, q=h+t+s+f. The positive support admits an Eulerian closed walk exactly when connected. Five disjoint cases (t=s=0 with three connected types; t>0,s=0; t=0,s>0; t,s>0 with t>=s; t,s>0 with s>t) enumerate feasible flows via geometric series, yielding the displayed bivariate and length series. The pole order five gives n^4/288. Direct count of necklaces vs histograms n<=6 proves first collision, and zero-run padding gives distinct colliding necklaces for every n>=6. Independently enumerated binary words/fixed-content histograms through n14 and padded collisions through n25, matching first 14 coefficients; general theorem follows the connected-flow case proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacquet/Knessl/Szpankowski 2010 study order-one cyclic Markov type matrices on alphabet m",
+          "Cassaigne et al. 2016 Prop14 treats linear k-abelian complexity; Arnoux supplies de Bruijn balance constraints"
+        ],
+        "reasoning": "General balanced-graph and regular-language rationality principles make enumeration feasible but do not provide the explicit connected binary order-two flow counting and fixed-content rational function without further analysis.",
+        "searches": [
+          "Counting Markov Types Jacquet Knessl Szpankowski 2010 balanced frequency matrices cyclic words",
+          "k Abelian Equivalence and Rationality Cassaigne Karhumäki Puzynina Whiteland 2016",
+          "Arnoux note occurrences factors circular words"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/978-3-662-53132-7_7",
+        "https://www.numdam.org/item/ITA_2016__50_2_167_0/",
+        "https://dmtcs.episciences.org/2768",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cassaigne et al. linear P_{3,2}(n) growth order n^6; this result circular A_n~n^4/288",
+          "Arnoux proves balance property, does not enumerate connected flows by content"
+        ],
+        "reasoning": "Neither a different linear complexity asymptotic nor a first-order Markov type enumeration implies the explicit cyclic order-two histogram count or sharp first collision with a simple corollary.",
+        "searches": [
+          "Cassaigne k-Abelian Equivalence Rationality Prop 14 count 3 2",
+          "Jacquet Counting Markov Types asymptotics m^2-m",
+          "Arnoux de Bruijn circular factors balance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnoux 2016 gives circular factor balance relations",
+          "Cassaigne et al. DLT 2016 works with linear k-abelian equivalence and boundary constraints"
+        ],
+        "reasoning": "Linear k-abelian equivalence uses initial/final shorter factors, whereas complete cyclic 3-gram counts have no endpoints and require connected Eulerian flow. The full fixed-p,q cyclic histogram formula is not equivalent to the inspected linear result.",
+        "searches": [
+          "circular binary 3-abelian equivalence classes count fixed Parikh vector trigrams Eulerian de Bruijn spectrum",
+          "circular k-abelian equivalence fixed length three grams number classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned 18-term A_n list and independent direct enumeration n<=14",
+          "Related Resultary complete linear two-pair multispectrum table has quadratic count, different observation"
+        ],
+        "reasoning": "No examined database gave this A_n count through 18 or the (p,q) bivariate table. An independently useful exact natural invariant can be new even though an Eulerian graph realization criterion is classical.",
+        "searches": [
+          "binary circular trigram multiplicity profiles fixed composition enumeration 2 3 4 6 8 13",
+          "3-gram spectrum necklaces collision 001011 001101",
+          "Markov types order 2 binary exact count sequence"
+        ]
+      },
+      "rationale": "Classical de Bruijn Euler-flow sufficiency (Arnoux 2016), linear k-abelian classes (Karhumäki et al.) and first-order cyclic Markov types (Jacquet et al.) are prior work. The full 2016 Cassaigne–Karhumäki–Puzynina–Whiteland proceedings discusses linear k-abelian equivalence and rationality; its asymptotic class-count for a different boundary convention has degree six, not this degree-four circular full three-gram count. No inspected published work directly states the fixed-content rational function or the sharp necklace collision threshold, though stronger general all-gram flow enumeration might imply the result and remains a priority risk.",
+      "residual_risks": [
+        "Earlier general Markov-type methods could produce a stronger cyclic order-two count implicitly, or unindexed tables could report the same rational function.",
+        "Complete histogram counting does not determine sizes of all necklace preimages and does not address noisy, incomplete or length>3 reads."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Treats linear k-abelian equivalence and rationality; not the proposed cyclic full length-three histogram fixed-content series",
+          "evidence": "Cassaigne, Karhumäki, Puzynina, Whiteland, DLT 2016, Prop14, linear P_{3,2}(n) order n^6",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-662-53132-7_7",
+          "material_read": "Full relevant contribution in DLT 2016 collected proceedings inspected: definitions, theorems, Proposition 14 and asymptotic discussion, with linear boundary convention",
+          "method": "accessible full proceedings text (PDF extraction); PDF screenshot request attempted and timed out",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Highly related rational enumeration of k-abelian classes for binary factors"
+        },
+        {
+          "assessment": "Establishes relations among circular factor occurrences, not the count of all connected histogram flows by fixed content",
+          "evidence": "Pierre Arnoux 2016, balance relation and de Bruijn graph discussion",
+          "identifier_or_url": "https://www.numdam.org/item/ITA_2016__50_2_167_0/",
+          "material_read": "Author preprint publicly rendered introduction, examples, main balance proposition and paper scope, as well as full abstract",
+          "method": "author preprint HTML text plus Numdam bibliographic page",
+          "title": "Note on occurrences of factors in circular words",
+          "trigger": "Same cyclic factor counting and de Bruijn graph"
+        },
+        {
+          "assessment": "Order-one Markov types balanced frequency matrices; not direct binary order-two fixed-content three-gram table",
+          "evidence": "Jacquet, Knessl and Szpankowski 2010, DMTCS AofA",
+          "identifier_or_url": "https://dmtcs.episciences.org/2768",
+          "material_read": "Journal abstract and mathematical scope, not full article",
+          "method": "primary journal metadata and abstract",
+          "title": "Counting Markov Types",
+          "trigger": "Potential stronger general Markov type counting"
+        },
+        {
+          "assessment": "Linear adjacent 2-gram histograms, not circular full 3-gram spectra; exact counts differ in degree and boundary model",
+          "evidence": "Published Resultary RESULT.md on linear read-length-two multispectra",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "material_read": "Full RESULT.md proof, formulas and limitations inspected",
+          "method": "GitHub primary published mathematical record",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Related published reconstruction class count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete circular three-gram multiplicity is a natural exact information model for reconstruction from read histograms. A fixed-composition rational generating function, sharp class-count asymptotic and exact zero-error necklace-code size/first collision boundary answer more than the generic Eulerian realizability criterion. The fact is self-contained and useful for combinatorics on words and sequence reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary circular words with prescribed p zeros and q ones, the eight cyclic three-gram count vectors have an explicit bivariate rational generating function and length-only series, with A_n=n^4/288+O(n^3); necklace reconstruction injective exactly through length five, with a unique length-six collision and collisions at all longer lengths.",
+  "limitations": [
+    "Earlier general Markov-type methods could produce a stronger cyclic order-two count implicitly, or unindexed tables could report the same rational function.",
+    "Complete histogram counting does not determine sizes of all necklace preimages and does not address noisy, incomplete or length>3 reads."
+  ],
+  "schema_version": 1
+}

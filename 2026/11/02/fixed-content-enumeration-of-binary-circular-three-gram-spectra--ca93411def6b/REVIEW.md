@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every cyclic length-three factor becomes an edge of the order-two binary de Bruijn graph; its integer multiplicities satisfy three independent balance equations. The five exhaustive parameter regimes are disjoint, and each includes precisely the connected nonnegative integer flows. The Eulerian circuit theorem supplies the converse. Geometric series count such flows without multiplicities from alternative walks; direct specialization and pole-order analysis give the univariate formula and asymptotic coefficient. Burnside's necklace formula and explicit padding certify the all-length injectivity threshold. The standalone checker independently corroborated 524,286 words and reconstructed 4,654 feasible multiset observations. Risks: the correctness argument requires circular wraparound even for length one/two and exact support connectivity; both are explicit in the proof.
+PASS
 
-## Originality — PASS, with priority qualification
+A circular three-gram histogram is a nonnegative balanced integer flow on the four-vertex order-two binary de Bruijn graph. Balance forces (h000,h001,h010,h011,h100,h101,h110,h111)=(a,t,t+f-s,s,t,f,s,h), c=t+f-s>=0, p=a+2t+f, q=h+t+s+f. The positive support admits an Eulerian closed walk exactly when connected. Five disjoint cases (t=s=0 with three connected types; t>0,s=0; t=0,s>0; t,s>0 with t>=s; t,s>0 with s>t) enumerate feasible flows via geometric series, yielding the displayed bivariate and length series. The pole order five gives n^4/288. Direct count of necklaces vs histograms n<=6 proves first collision, and zero-run padding gives distinct colliding necklaces for every n>=6. Independently enumerated binary words/fixed-content histograms through n14 and padded collisions through n25, matching first 14 coefficients; general theorem follows the connected-flow case proof, not finite tests.
 
-Arnoux (2016) provides the general connected-Eulerian flow characterization, a central precursor, but not the derived binary length-three fixed-content series or the sharp first-collision statement. Karhumäki–Saarela–Zamboni (2013) and Karhumäki–Puzynina–Rao–Whiteland (2016) discuss linear \(k\)-abelian equivalence and class cardinalities; those results do not state this cyclic fixed-content observation enumeration. Cassaigne and collaborators' 2016 rationality contribution addresses linear words; its complete text was not available, so priority for any equivalent special case is not certified. Searches for circular three-gram histograms, cyclic \(3\)-abelian spectra, de Bruijn flow enumerators and necklace reconstruction revealed no covering statement. Historical incompleteness is a genuine residual risk, not evidence of novelty by itself.
+## originality
 
-## Value — PASS
+PASS
 
-Complete unordered circular three-mer read observations provide a natural finite-memory reconstruction channel. The rational fixed-composition formula exactly counts all reachable outputs and hence the maximum zero-error code capacity at each length and nucleotide composition in this binary model. It also determines the sharp length-five/length-six onset of ambiguity and a quartic information-capacity law. The calculation is not a selected arbitrary word example or a restatement of connectivity alone.
+Classical de Bruijn Euler-flow sufficiency (Arnoux 2016), linear k-abelian classes (Karhumäki et al.) and first-order cyclic Markov types (Jacquet et al.) are prior work. The full 2016 Cassaigne–Karhumäki–Puzynina–Whiteland proceedings discusses linear k-abelian equivalence and rationality; its asymptotic class-count for a different boundary convention has degree six, not this degree-four circular full three-gram count. No inspected published work directly states the fixed-content rational function or the sharp necklace collision threshold, though stronger general all-gram flow enumeration might imply the result and remains a priority risk.
 
-## Boundaries
+## value
 
-No claim of optimality for noisy/incomplete reads, higher read lengths, alphabet sizes, or individual reconstruction class-size distributions is made. A historical-priority caveat remains for unindexed literature and an inaccessible specialized full text. The finite checks do not replace the all-length argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete circular three-gram multiplicity is a natural exact information model for reconstruction from read histograms. A fixed-composition rational generating function, sharp class-count asymptotic and exact zero-error necklace-code size/first collision boundary answer more than the generic Eulerian realizability criterion. The fact is self-contained and useful for combinatorics on words and sequence reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
