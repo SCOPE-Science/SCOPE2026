@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:11:29.291156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/a-residual-stability-bound-for-hyperbola-supported-fourier-uniqu--810890b0a41e/RESULT.md",
+        "2026/10/26/a-residual-stability-bound-for-hyperbola-supported-fourier-uniqu--810890b0a41e/VERIFICATION.md",
+        "https://arxiv.org/pdf/2410.04557"
+      ],
+      "rationale": "Verified the actual six-file Git tree by recomputing the Git tree SHA from all six frozen blob IDs. Reconstructed the sampling lemma: on intervals l_n≤L, convexity gives ||If||²≤L Σ|s_n|²; lower gap δ gives ||(If)′||²=Σ|s_{n+1}−s_n|²/l_n≤4δ^−1Σ|s_n|²; Poincare–Wirtinger on f−If and triangle inequality yield equation (1) with C(L,δ)=√L+2L/(π√δ). Since tφ∈L2 automatically, the continuous representative φhat has L2 derivative with ||φhat′||2=π||ψ||2; applying the lemma at B with ℓ2 residual proves φhat∈L2 and hence tψ∈L2. Then apply it to ψhat at A, obtaining u≤αv+C_A R_A and v≤βu+C_B R_B for u=||ψ||2,v=||tψ||2; solving the 2×2 system gives exactly both formulas, since 1−αβ>0. Change of variables gives ||tφ||2=||ψ||2 and ||φ||2=||tψ||2; unitary 2^−1/2 Fourier normalization gives ||fhat′||2=π||tf||2. This is a universal analytic proof; no finite test, stored log or VERIFY_OK is used as a substitute. Exact criticality, sharpness, general H0 distributional representative and endpoint are bounded as stated.",
+      "residual_risks": [
+        "The distributional H0 transform needs the particular continuous representative provided by the cited framework; arbitrary distribution extensions are not claimed.",
+        "Constants are sufficient, not optimal; no statement at αβ≥1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hedenmalm–Montes-Rodríguez, arXiv:0910.1246 and Annals 173 (2011), hyperbola cross with regular grids: exact-zero HUP iff αβ≤1 for finite measures, using dynamics.",
+          "Yu–Townsend, arXiv:2202.04722v1, abstract and §§1–2: stability of finite 2N+1 point periodic trigonometric polynomial sampling at α-perturbed grids, with Kadec-1/4 type thresholds.",
+          "Radchenko–Ramos, arXiv:2410.04557, subcritical H0 uniqueness on nonuniform crosses, exact zero only."
+        ],
+        "reasoning": "Different function classes and observation operators prevent the published finite periodic MZ or weak-star HUP results from implying the stated ℓ2-to-L2 bound. A general continuous Sobolev sampling trace inequality supplies one ingredient, but not by itself the reciprocal coupled theorem.",
+        "searches": [
+          "arXiv:2410.04557 Theorem 2 §4.2; arXiv:0910.1246 Theorem 1.2",
+          "arXiv:2202.04722 periodic sampling discrete Fourier transform MZ estimates",
+          "nonuniform Fourier sampling inequality H1 Sobolev separated nodes max gap interpolation residual values"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2410.04557",
+        "https://arxiv.org/pdf/0910.1246",
+        "https://arxiv.org/pdf/2202.04722",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-reciprocal-weight-periodic-paley-wiener-uniqueness--f2771af894de",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+        "https://annals.math.princeton.edu/2011/173-3/p06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radchenko–Ramos (4.8) uses vanishing samples to apply Poincare directly and conclude φhat∈L2; (4.9) then yields the contraction contradiction.",
+          "The new proof interpolates the observed residuals, yielding ||f||2≤(L/π)||f′||2+(√L+2L/(π√δ))||(f(x_n))||ℓ2, then solves u≤αv+C_A R_A, v≤βu+C_B R_B."
+        ],
+        "reasoning": "The precise new estimate is mechanically close to the original proof but is not a stated numerical corollary of a previously published *quantitative* theorem identified here. The residual interpolation and regularity upgrade require additional steps beyond the exact-zero implication. This is a narrow best-of-knowledge acceptance; an earlier generic two-operator frame inequality would dominate if it covered this domain.",
+        "searches": [
+          "arXiv:2410.04557v1 full §4.2 step 1/step 2 inequalities (4.8),(4.9)",
+          "Radchenko Ramos perturbed lattice crosses Theorem 2 exact-zero H0 uniqueness alpha beta",
+          "\"hyperbola\" \"lattice cross\" \"quantitative\" \"norm\" Fourier uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radchenko–Ramos, arXiv:2410.04557v1, Theorem 2(I), §4.2 pp.19–20: if both sets of samples vanish and alpha beta<1 then ψ=0; no displayed quantitative bound for nonzero data.",
+          "In the reviewed claim, nonzero (ψhat(a_n)) and (φhat(b_n)) in ℓ2 yield ||ψ||2 ≤ (C_A R_A+α C_B R_B)/(1−αβ), a strictly stronger type of conclusion under extra ℓ2-observation hypotheses."
+        ],
+        "reasoning": "Qualitative injectivity does not by itself imply a bounded inverse on the observation range. The exact-zero proof controls derivatives but lacks an error term. The current nonzero-sample estimate is not equivalent to Theorem 2 as a statement; the proof is a direct perturbation of the same Poincare method.",
+        "searches": [
+          "\"Heisenberg uniqueness pair\" \"stability\" estimate residual hyperbola Fourier",
+          "quantitative stability theorem Heisenberg uniqueness pair hyperbola H0 square summable sample errors max gap product below one",
+          "Resultary search: Perturbed lattice crosses Heisenberg uniqueness pairs quantitative square summable Fourier sample residual stability inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: A reciprocal-weight criterion for periodic Paley–Wiener uniqueness concerns periodic spectral supports and an existence/nonexistence dichotomy for separated uniqueness sets, explicitly not quantitative sampling stability.",
+          "Resultary: Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials concerns a fixed one-generator shift-invariant space and exact lattice sampling constants; not the hyperbola reciprocal operator.",
+          "Resultary query hits covered other Fourier and recurrence settings; none identified the precise two-axis residual estimate."
+        ],
+        "reasoning": "Neither inspected published result is an exact table or stronger classification for the same nonuniform hyperbola observation operator. Semantic index coverage is incomplete; search absence is not a priority proof.",
+        "searches": [
+          "Resultary semantic query: hyperbola supported Fourier Heisenberg uniqueness pair Radchenko Ramos residual stability nonuniform lattice cross quantitative sample errors Poincare Wirtinger",
+          "Resultary semantic query: Reciprocal Fourier transform t^-2 psi(1/t) two separated grids quantitative L2 noisy measurements",
+          "Published Resultary reciprocal-weight periodic Paley-Wiener uniqueness RESULT.md and sharp shifted sampling bounds RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the 2024 Radchenko–Ramos Theorem 2 and §4.2 prove exact-zero H0 uniqueness for the same gap product, by a two-sided Poincare–Wirtinger contraction, but do not state a finite additive bound in both nonzero ℓ2 sample residuals. The new theorem adds a normed linear interpolation lemma for nonzero data, an automatic H0→weighted-L2 regularity upgrade, and explicit two-axis constants. The 2011 hyperbola HUP and 2022 finite periodic NUDFT work do not give this nonuniform reciprocal-transform residual estimate. Its method is very close to known techniques; search cannot certify absolute priority.",
+      "residual_risks": [
+        "A general unindexed Banach-frame or perturbative HUP estimate might imply the same result; this is not a proof of global priority.",
+        "The main sampling lemma and two-inequality algebra are elementary; the original 2024 uniqueness proof uses the same key analytic mechanism, so novelty and value are narrow, not a new gap threshold.",
+        "Distributional definition of reciprocal transform in H0 must use the continuous representative justified by Radchenko–Ramos Proposition 2.2; the estimate is not an assertion for arbitrary ambiguous distributional extensions.",
+        "No sharpness of constants or critical αβ=1 extension is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves qualitative nonuniform H0 uniqueness with exact-zero observations and analytic bootstrapping; the inspected statement/proof do not state the two-residual additive quantitative estimate.",
+          "evidence": "Theorem 2(I), §4.2 Steps 1–2 and equations (4.8)–(4.9); definition (2.2) and Proposition 2.2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.04557",
+          "material_read": "Full 37-page manuscript available; inspected abstract/introduction, H0 definitions and Theorem 2 in pp.5–6, Fourier normalization and distributional-continuity argument in §2 pp.7–9, and full proof §4.2 pp.19–20 including equations (4.8)–(4.10).",
+          "method": "Read arXiv primary PDF text and visually inspected PDF pages 19 and 20.",
+          "title": "Perturbed lattice crosses and Heisenberg uniqueness pairs",
+          "trigger": "Closest primary theorem with identical hyperbola, H0, gap regime and proof technique."
+        },
+        {
+          "assessment": "Qualitative injectivity for finite measures on regular lattice crosses αβ≤1; no residual norm estimate for H0 and arbitrary separated nonuniform nodes in examined mathematical statements.",
+          "evidence": "arXiv:0910.1246v1 abstract and §1; Annals 173 (2011), 1507–1527.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.1246",
+          "material_read": "Primary arXiv full-text PDF, abstract, §1 HUP definitions/duality and hyperbola-cross statement; publisher abstract and bibliographic data.",
+          "method": "Read primary PDF text and visually inspected page 1.",
+          "title": "Heisenberg uniqueness pairs and the Klein-Gordon equation",
+          "trigger": "Foundational hyperbola lattice-cross theorem with potentially stronger coverage."
+        },
+        {
+          "assessment": "Finite periodic trigonometric polynomial NUDFT and quadrature; does not analyze hyperbola-supported reciprocal Fourier observations.",
+          "evidence": "arXiv:2202.04722v1, equations (1.1)–(1.5), §2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04722",
+          "material_read": "Primary arXiv PDF abstract, introduction, formal finite periodic sampling model, Section 2 statements/NUDFT conditioning and MZ inequalities.",
+          "method": "Read primary PDF text and visually inspected first page.",
+          "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+          "trigger": "Potential general nonuniform-sampling stability theorem."
+        },
+        {
+          "assessment": "Different periodic-spectrum uniqueness problem; explicitly disclaims quantitative sampling stability.",
+          "evidence": "RESULT.md statement and limitations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-reciprocal-weight-periodic-paley-wiener-uniqueness--f2771af894de",
+          "material_read": "Published RESULT.md statement, context, proof, scope and limitations.",
+          "method": "Read exact published repository research text.",
+          "title": "A reciprocal-weight criterion for periodic Paley–Wiener uniqueness",
+          "trigger": "A published Resultary result coupling weighted Fourier regularity and separated uniqueness sets."
+        },
+        {
+          "assessment": "Deals with a one-generator shift-invariant space and a single translated grid; its operator and constants do not imply the dual-reciprocal hyperbola statement.",
+          "evidence": "RESULT.md finding, Steps 1–5 and limitations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+          "material_read": "Published RESULT.md finding, assumptions, five-step proof and stated limitations.",
+          "method": "Read published repository research text.",
+          "title": "Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials",
+          "trigger": "A published Resultary exact nonuniform Fourier sampling-bound result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/a-residual-stability-bound-for-hyperbola-supported-fourier-uniqu--810890b0a41e/RESULT.md",
+        "https://arxiv.org/pdf/2410.04557",
+        "https://arxiv.org/pdf/2202.04722"
+      ],
+      "rationale": "The natural observation problem is noisy Fourier recovery of a density on a hyperbola from two separated nonuniform arms. Exact uniqueness of H0 functions gives no quantitative conditioning under nonzero measurement errors. This result provides a concrete two-channel ℓ2 residual-to-L2 stability inequality in an infinite-dimensional class, with explicit sensitivity to both upper and lower gaps and the subcritical margin 1−αβ, and proves a nontrivial automatic weighted-L2 regularity upgrade from the data. A future stability/inverse-problem analysis can use precisely this estimate; it is not valued for a new uniqueness threshold, optimal constants, formal verification or code. The proof is short and leverages standard interpolation, narrowing but not removing its independent utility.",
+      "residual_risks": [
+        "It is a straightforward quantitative refinement of a known Poincare uniqueness mechanism; it gives no optimal stability rate.",
+        "Its applicability assumes global ℓ2 residuals on both full bi-infinite arms and uniform positive gap bounds, which can be restrictive for noise models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Qualitative antecedent Radchenko–Ramos uses essentially the same Poincare contraction argument, so originality and value judgments are narrow and best of knowledge.",
+    "No claim of formal or expert validation, independent certification, numerical testing, sharp constants, or a critical endpoint estimate.",
+    "Source tree reconstructed from exact Git blob IDs; no GitHub edits or dispatcher completion actions."
+  ],
+  "schema_version": 1
+}

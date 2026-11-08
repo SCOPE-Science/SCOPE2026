@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampling lemma is proved by piecewise-linear interpolation, an exact derivative bound using the positive minimum gap, and Poincare–Wirtinger on each interval. The first application to the reciprocal transform upgrades the initial \(\mathcal H_0\) assumptions to \(t\psi\in L^2\); the second application yields the estimate for \(\|\psi\|_2\). The Fourier normalization and reciprocal norm identities were checked explicitly. No finite computation is used as proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Verified the actual six-file Git tree by recomputing the Git tree SHA from all six frozen blob IDs. Reconstructed the sampling lemma: on intervals l_n≤L, convexity gives ||If||²≤L Σ|s_n|²; lower gap δ gives ||(If)′||²=Σ|s_{n+1}−s_n|²/l_n≤4δ^−1Σ|s_n|²; Poincare–Wirtinger on f−If and triangle inequality yield equation (1) with C(L,δ)=√L+2L/(π√δ). Since tφ∈L2 automatically, the continuous representative φhat has L2 derivative with ||φhat′||2=π||ψ||2; applying the lemma at B with ℓ2 residual proves φhat∈L2 and hence tψ∈L2. Then apply it to ψhat at A, obtaining u≤αv+C_A R_A and v≤βu+C_B R_B for u=||ψ||2,v=||tψ||2; solving the 2×2 system gives exactly both formulas, since 1−αβ>0. Change of variables gives ||tφ||2=||ψ||2 and ||φ||2=||tψ||2; unitary 2^−1/2 Fourier normalization gives ||fhat′||2=π||tf||2. This is a universal analytic proof; no finite test, stored log or VERIFY_OK is used as a substitute. Exact criticality, sharpness, general H0 distributional representative and endpoint are bounded as stated.
 
-The closest exact-geometry sources are Radchenko–Ramos (2024) and Hedenmalm–Montes-Rodríguez (2011). They prove uniqueness from exact vanishing, not the displayed \(\ell^2\)-residual bound. Yu–Townsend (2022) give nonuniform sampling stability for finite periodic trigonometric interpolation, which does not imply the reciprocal-transform estimate. Indexed comparisons returned other sampling and recurrence results, but no equivalent statement. An unindexed source may still exist.
+## originality
 
-## Value — PASS
+PASS
 
-The result turns qualitative uniqueness into a quantitative error-propagation estimate and derives the needed weighted \(L^2\) regularity from the residual data. The explicit dependence on the two gap bounds and on \(1-\alpha\beta\) is useful for understanding stability away from the critical threshold. Constants are not claimed optimal.
+Best-of-knowledge: the 2024 Radchenko–Ramos Theorem 2 and §4.2 prove exact-zero H0 uniqueness for the same gap product, by a two-sided Poincare–Wirtinger contraction, but do not state a finite additive bound in both nonzero ℓ2 sample residuals. The new theorem adds a normed linear interpolation lemma for nonzero data, an automatic H0→weighted-L2 regularity upgrade, and explicit two-axis constants. The 2011 hyperbola HUP and 2022 finite periodic NUDFT work do not give this nonuniform reciprocal-transform residual estimate. Its method is very close to known techniques; search cannot certify absolute priority.
 
-## Closest literature and limitations
+## value
 
-The theorem is limited to the \(\mathcal H_0\) class, separated bi-infinite sequences with uniform lower and upper gap bounds, square-summable residuals, and \(\alpha\beta<1\). It makes no claim at or beyond the critical boundary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural observation problem is noisy Fourier recovery of a density on a hyperbola from two separated nonuniform arms. Exact uniqueness of H0 functions gives no quantitative conditioning under nonzero measurement errors. This result provides a concrete two-channel ℓ2 residual-to-L2 stability inequality in an infinite-dimensional class, with explicit sensitivity to both upper and lower gaps and the subcritical margin 1−αβ, and proves a nontrivial automatic weighted-L2 regularity upgrade from the data. A future stability/inverse-problem analysis can use precisely this estimate; it is not valued for a new uniqueness threshold, optimal constants, formal verification or code. The proof is short and leverages standard interpolation, narrowing but not removing its independent utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
