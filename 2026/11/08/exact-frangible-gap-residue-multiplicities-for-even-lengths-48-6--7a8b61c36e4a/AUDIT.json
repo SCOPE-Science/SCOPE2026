@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each even h≥4, parity reduces the coverage conditions to h/2−1 interior even offsets; inclusion–exclusion and CRT give a finite integer identity with explicitly correct local allowed-residue factor. Complete bitmask enumeration through h=64 uses 2^31 subsets, 64-bit residue masks and signed 128-bit exact accumulators (absolute-sum bound below 2^103). All earlier published exact counts matched; all nine counts satisfy independent published bounds, and a different Gray-code algorithm matched h48–64. Exact rational summation independently yields the claimed S64.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gafni–Tao gives the conditional full infinite series but only very short local numerical inputs.",
+        "Mossinghoff–Trudgian determine the global coefficient interval using bounds, not exact h48–64 coefficients."
+      ],
+      "reasoning": "A global bound or asymptotic on c does not determine these local integer counts; a general exact algorithm does not imply their specific outputs without executing and checking it. The new explicit values are additional finite data, not a new conditional global theorem.",
+      "searches": [
+        "rough numbers between consecutive primes exact frangible gap local sieve coefficients prime-gap length 48 inclusion-exclusion",
+        "cyclic prime gap sieving residue classes Omega(h) counts 2026",
+        "arXiv:2508.06463v1 §4",
+        "arXiv:2610.34525v1 §3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.34525v1 §§2–3 Tables 1–2",
+      "arXiv:2508.06463v1",
+      "arXiv:2610.10582v1",
+      "Published research records returned by targeted published-finding corpus searches (IDs in checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published result “Sharper quantitative sparsity in the prime-gap distinct-product construction” studies a prime-gap construction and exponents, not local Ω(h).",
+        "The published result “Exact consecutive-prime residue-pair census to 5e7” concerns consecutive-prime residue pairs, not endpoint-covering CRT counts."
+      ],
+      "reasoning": "The two thematically nearest research records concern different prime-gap observables and give no implication for the exact nine finite integers. No title-only difference was used as originality evidence.",
+      "searches": [
+        "frangible prime gaps exact local admissible residue counts Omega(48) Omega(50) Omega(64) 2026 Mossinghoff Trudgian",
+        "rough numbers between consecutive primes exact frangible gap local sieve coefficients prime-gap length 48 inclusion-exclusion",
+        "cyclic prime gap sieving residue classes Omega(h) counts 2026",
+        "published-finding corpus search title: Sharper quantitative sparsity in the prime-gap distinct-product construction",
+        "published-finding corpus search title: Exact consecutive-prime residue-pair census to 5e7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published local-frangibility object is exactly the endpoint-coprime Ω(h) and its coefficient c_h.",
+        "The 2026 source only gives bounds for h=48,...,64; the Uğurdoğan local model concerns rho_h multiplicity rather than exact nine entries."
+      ],
+      "reasoning": "CRT residue-covering multiplicity and local sieve coefficient are equivalent descriptions of the same Ω(h); a paper computing the exact coefficient would cover the result. No inspected source supplies these values.",
+      "searches": [
+        "frangible prime gaps exact local admissible residue counts Omega(48) Omega(50) Omega(64) 2026 Mossinghoff Trudgian",
+        "rough numbers between consecutive primes exact frangible gap local sieve coefficients prime-gap length 48 inclusion-exclusion",
+        "arXiv:2610.34525v1 §2–3",
+        "arXiv:2610.10582v1 §1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 has exact entries through 46; Table 2 has no exact entries for 48 through 64, only lower and three upper bounds.",
+        "The computed 48–64 values pass published L ≤ value ≤ U3 in every case."
+      ],
+      "reasoning": "This is a targeted table completion, not a new interpretation of an already filled database. The source table is the closest comparison and its nine blank exact-value cells are not covering.",
+      "searches": [
+        "frangible prime gaps exact local admissible residue counts Omega(48) Omega(50) Omega(64) 2026 Mossinghoff Trudgian",
+        "arXiv:2610.34525v1 Table 1",
+        "arXiv:2610.34525v1 Table 2"
+      ]
+    },
+    "rationale": "The directly motivated Table 2 in arXiv:2610.34525v1 has empty exact-value cells for all nine lengths 48–64 and publishes only enclosing bounds; our nine integers satisfy those bounds but are not stated there. Exact shorter cases and methods in Gafni–Tao and Uğurdoğan were compared, and semantic research-record searches did not find an implication yielding these nine exact values. Residual historical-priority risk is openly retained.",
+    "residual_risks": [
+      "Historical priority outside inspected, indexed literature is not certified.",
+      "A historically earlier exact computation not indexed by searches may exist.",
+      "No exact infinite-series value or unconditional prime-gap asymptotic is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: exact counts for 48–64 explicitly absent; published bounds confirmed",
+        "evidence": [
+          "Table 2 lists lower and upper bounds only for h=48,...,64.",
+          "Table 1 exact h≤46 agrees with independently computed values."
+        ],
+        "identifier_or_url": "arXiv:2610.34525v1; https://arxiv.org/html/2610.34525v1",
+        "material_read": "Definition (2)–(3), formula (6), §§2–3, Tables 1–2 and truncated sum bound (8), including all h48–64 rows",
+        "method": "Primary full-text HTML inspection and exact table comparison",
+        "title": "Frangible prime gaps",
+        "trigger": "Direct motivating source with exact local Ω(h) problem"
+      },
+      {
+        "assessment": "NOT_COVERING for the nine exact newly tabulated values; originally only small gaps computed",
+        "evidence": [
+          "Original source establishes constant as series and reports only short gap residue computations."
+        ],
+        "identifier_or_url": "arXiv:2508.06463v1; https://arxiv.org/abs/2508.06463",
+        "material_read": "Abstract, leading theorem and local coefficient framework from accessible primary material",
+        "method": "Open-access arXiv record and full mathematical sections consulted",
+        "title": "Rough numbers between consecutive primes",
+        "trigger": "Original local sieve model and conjectural constant"
+      },
+      {
+        "assessment": "NOT_COVERING: higher multiplicities and lower precision for c; no exact Ω(h) table through 64",
+        "evidence": [
+          "Primary 11N05 and general rough-number multiplicity r study with local model."
+        ],
+        "identifier_or_url": "arXiv:2610.10582v1; https://arxiv.org/abs/2610.10582",
+        "material_read": "Full parsed introductory local model, Definition 1.1, theorems, section 4 on numerical coefficients",
+        "method": "Lawful arXiv parsed full text inspection",
+        "title": "Multiplicity Constants for Rough Numbers in Prime Gaps",
+        "trigger": "Competing recent prime-gap local multiplicity study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a8b61c3-6e4a-4045-89fe-2499413534b3",
+  "value": {
+    "rationale": "The natural nine exact endpoint-sieve multiplicities fill every blank exact entry in the recently published h≤64 table for a named prime-gap question; the exact S64 is the corresponding naturally motivated finite contribution to the conditional asymptotic constant. This is a complete, motivated finite classification at the paper’s explicit computation frontier, not an arbitrary invariant or an unsupported approximation.",
+    "status": "PASS"
+  }
+}
