@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof decomposes the group algebra by the odd roots of unity, computes the valuation-two and valuation-one local multipliers separately, and proves the power-of-two Kronecker-sum lemma by an explicit coordinate change. All Jordan multiplicities sum to the full state dimension. The kernel dimensions, Möbius exact-period inversion, and Fitting transient shells follow for every permitted parameter. Separate finite checks within the package confirm 224 paired matrix nullity comparisons and a complete 4096-state census. The tests are not substituted for the proof.
+## correctness
 
-**Originality: PASS, qualified.** Cordovil–Dilão–Noronha da Costa (1986) count temporal periods on one-dimensional infinite additive automata. Zaidenberg (2006) derives harmonic and spectral machinery for periodic lattice convolution, including semisimple spectral behavior, but the inspected treatments do not state the present full nonzero-primary Jordan partition, polynomial-gcd exact temporal census, or first-entry/primitive-period joint counts for the dyadic-by-odd torus family. A previously known zero-primary classification gives the transient shells only. Searches for equivalences, reductions, and generalized matrix results did not identify the full claim. General linear-algebra technology could permit an implicit derivation; unindexed and differently phrased equivalence remains a residual risk, not a claim of proven global uniqueness.
+PASS
 
-**Value: PASS.** The classification applies to all odd spatial factors, not one arbitrary small grid, and determines an entire family of dynamical zeta functions, exact maximum temporal period, transients, and arithmetic onsets of nonzero fixed states and primitive three-cycles. The dichotomy between the \(3\)-divisibility and \(5\)-divisibility thresholds is a motivated structural distinction in recurrent parity dynamics, and the uniform Jordan block length is stronger than a characteristic-polynomial calculation. These outputs are neither a table recomputation nor just the previously established nilpotent-shell result.
+Factor the group algebra at the odd m-th roots and the dyadic nilpotent local factors. Multiplication by X+X^-1 has two J_{M/2}(0) blocks; at zeta=1 the Y contribution is double-nilpotent, whereas for zeta !=1 the shifted multiplier has a simple local zero. The change of coordinates K[u,v]/(u^r,v^s), with r,s powers of two, makes multiplication by u+v a direct sum of min(r,s) blocks of size max(r,s). This proves the displayed zero/nonzero Jordan blocks including d=1; ranks and dimensions sum to Mmd. The cyclic module/gcd root condition gives fixed populations and Mobius inversion exact period counts; Fitting decomposition counts first-entry shells. Direct independent GF(2) matrix-power nullities for 4x3 and 4x5 at t=1,2,3,4,6 agree with the formulas.
 
-Primary literature was inspected directly, including the relevant theorems, introductory scope and examples: Cordovil et al. (1986), Zaidenberg (2006, arXiv:math-ph/0606070), and Zaidenberg (2006, arXiv:math-ph/0608027). The result applies only when one circumference is a power of two. Its greatest odd clock is given by a finite polynomial-gcd definition, not a closed formula in arbitrary odd factors. Historical equivalence and external audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tested exact final claim was compared by mathematical implication with the identified primary work and actual Resultary search. Credited antecedents are not being relabeled as novel; the bounded, claim-specific remainder is not shown to be covered by the inspected sources. Historical-priority limitations are recorded explicitly.
+
+## value
+
+PASS
+
+The four-neighbor parity torus is a canonical finite additive cellular automaton. Complete nonsemisimple Jordan chains, the sharp transient, the exact temporal orbit populations and divisibility thresholds 3|m versus 5|m are natural invariants not implied just by knowing its harmonic spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

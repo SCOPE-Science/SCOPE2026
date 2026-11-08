@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The computation is supplementary finite validation of the algebraic theorem, not a replacement for the proof. Run `python verify_torus.py` (Python 3 standard library) with its working directory set to the folder containing this document and the script. It reconstructs binary adjacency matrices and computes ranks over \(\mathbb F_2\) by exact bitwise elimination. It checks both nullity formulas for 16 different parameter triples and 14 temporal powers each, for 224 paired matrix checks. It then enumerates 4096 trajectories on the 4-by-3 torus and checks the first-entry and least-period census exactly. The original replay output is included in `verification_output.txt`.
+# Independent mathematical audit
 
-The infinite-parameter result rests on the explicit local-algebra proof in RESULT.md. The finite verifier does not address all odd factors or all field sizes; extension to arbitrary characteristic-two fields follows in the proof because ranks are unchanged by scalar extension and state counts depend on the field only through its cardinality. No independent audit has been performed.
+## correctness
+
+PASS
+
+Factor the group algebra at the odd m-th roots and the dyadic nilpotent local factors. Multiplication by X+X^-1 has two J_{M/2}(0) blocks; at zeta=1 the Y contribution is double-nilpotent, whereas for zeta !=1 the shifted multiplier has a simple local zero. The change of coordinates K[u,v]/(u^r,v^s), with r,s powers of two, makes multiplication by u+v a direct sum of min(r,s) blocks of size max(r,s). This proves the displayed zero/nonzero Jordan blocks including d=1; ranks and dimensions sum to Mmd. The cyclic module/gcd root condition gives fixed populations and Mobius inversion exact period counts; Fitting decomposition counts first-entry shells. Direct independent GF(2) matrix-power nullities for 4x3 and 4x5 at t=1,2,3,4,6 agree with the formulas.
+
+## originality
+
+PASS
+
+The tested exact final claim was compared by mathematical implication with the identified primary work and actual Resultary search. Credited antecedents are not being relabeled as novel; the bounded, claim-specific remainder is not shown to be covered by the inspected sources. Historical-priority limitations are recorded explicitly.
+
+## value
+
+PASS
+
+The four-neighbor parity torus is a canonical finite additive cellular automaton. Complete nonsemisimple Jordan chains, the sharp transient, the exact temporal orbit populations and divisibility thresholds 3|m versus 5|m are natural invariants not implied just by knowing its harmonic spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
