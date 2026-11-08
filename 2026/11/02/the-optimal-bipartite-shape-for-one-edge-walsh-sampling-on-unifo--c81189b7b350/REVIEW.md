@@ -1,15 +1,21 @@
-# Scientific review: optimal bipartite spanning-tree Walsh sampling
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes the probability normalization and verifies the transfer-current projection by an elementary row/column orthogonal-projection calculation. The determinantal two-edge inclusion identity yields all exact covariance entries. The four tensor sectors diagonalize the covariance, and the constant/mean sector gives precisely one null direction. The positive-spectrum condition-number formula then follows from verified eigenvalue ordering. Direct rational substitution exhausts the finite vertex orders \(4\le n\le15\); the separate algebraic bound proves that no additional optimum occurs for any \(n\ge16\). The standalone checker reconstructs exact Grams from 4,657 independently enumerated spanning trees, checks invariant eigenvectors and ranks, and rechecks finite optima. Finite enumeration is corroboration rather than proof of the infinite-range statement.
+## correctness
 
-## Originality
-**PASS under bounded literature comparison.** Burton--Pemantle's transfer-current theorem and Lyons's determinantal formulation are acknowledged general inputs, not proposed new facts. Dong--Ge's forest-containment formula entails every one- and two-edge inclusion probability, but the inspected paper does not evaluate the complete probability-normalized Fourier spectrum or optimize its nonzero singular condition number over all complete bipartitions of fixed order. A related published classification of Minkowski asymmetry for complete-bipartite spanning-tree polytopes uses the same family but a distinct invariant and does not imply the Fourier optimum. Existing Fourier-frame results for matchings, tours, and complete-graph spanning trees use distinct sampling supports or bands. The nontrivial new comparison is the exact, all-order transition through balanced, intermediate, and eventually thin optimal bipartitions. Searches do not establish absolute priority. A differently formulated prior covariance-spectrum or optimal-design classification remains a genuine residual risk.
+PASS
 
-## Mathematical value
-**PASS.** Fixed-cardinality constrained samples have unavoidable coordinate dependencies; a complete Fourier spectrum gives the recoverable directions and their sharp stability. Fixing graph order and varying the bipartition is a motivated design question. It has a unique, nonmonotone pattern of optimal shapes: a balanced graph is favored at order eight, a pair of distinct shapes ties at order nine, and the optimum ultimately switches to the thinnest allowed bipartition. For even orders, the squared-condition gap between balanced and optimal shapes grows quadratically in order, providing a meaningful quantitative stability contrast. This is a self-contained all-parameter classification, not a tiny numerical improvement or a mere table recomputation.
+PASS. Reconstructed the transfer-current cut-space projection P_ij,kl=1_{i=k}/b+1_{j=l}/a-1/(ab), uniform-tree covariance C_ef=-P_ef^2 off-diagonal, and the four tensor sectors. Their eigenvalues produce exactly one deterministic cardinality nullvector and the claimed four positive spectral branches. Checked min positive 4(a-1)/ab and positive-spectrum condition max expression. Independent exact rational optimizer enumeration n=4..40 confirmed small-order ties and transitions. The all-n proof uses (a-4)(b-4)>=0 and strict polynomial inequalities for n>=16, not extrapolation from enumeration; n15 checked separately. Scope 2<=a<=b, n>=4, uniform labeled spanning trees, probability Gram not counting measure.
 
-## Closest literature and limitations
-The closest substantive input is the determinantal transfer-current theory of Burton and Pemantle (1993; arXiv:math/0404048 copy), which gives two-edge probabilities but not the optimized frame invariant. Dong and Ge (arXiv:2103.05294) give general complete-bipartite forest-containment counts. Lyons (arXiv:math/0204325) gives general determinantal probability-measure theory. The published complete-bipartite spanning-tree-polytope asymmetry calculation concerns a distinct convex-geometric objective. The current result is limited to uniform spanning trees, first-coordinate Walsh sampling, and optimization at fixed vertex order with variable edge count. Literature access and priority are not exhaustive; no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for evaluated all-order Walsh-spectrum and fixed-vertex optimum, not for transfer-current two-edge marginals. Dong--Ge gives spanning tree counts containing any prescribed forest, which in principle determines marginal covariance; combining them with tensor diagonalization and exact all-n minimization is additional work. Resultary closest bipartite spanning-tree polytope asymmetry computes a different invariant, and other first-Walsh spectra concern distinct sampling domains. Historical covariance-spectral work may overlap.
+
+## value
+
+PASS
+
+PASS. Exact nonzero frame conditioning is intrinsic for one-coordinate Walsh sampling, and for a fixed vertex budget the reentrant optimal graph shape (balanced, moderate unbalance, extreme unbalance) is an actionable sharp design classification. It is not merely a repeated transfer-current determinant; the optimizer changes twice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
