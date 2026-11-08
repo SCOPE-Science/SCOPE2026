@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:46:57.450846Z",
+  "axes": {
+    "correctness": {
+      "boundary_checks": [
+        "m=1 root exists, interface valid and finite-seed primitivity",
+        "All finite m≥1; no m=∞ claim",
+        "Infinite-letter boundary h(∞)=c and M(∞)=1+2c=λc",
+        "Distinguishes tail j−1 from unrelated j−2 negative example"
+      ],
+      "rationale": "For each integer m≥1, F_m(s)=(1−s)(s+s^(−1))^(m−1)−s² has a unique root on (0,1): the ratio (1−s)(s+s^(−1))^(m−1)/s² strictly decreases from infinity to zero. Put λ=s+s^(−1), c=1/(λ−2), h(j)=λ^j for j<m and c+(λ^m−c)s^(j−m) for j≥m, with h(∞)=c. The root equation is equivalent to the interface relation λ^m−c=s(λ^(m−1)−c). Using s+s^(−1)=λ and (λ−2)c=1 verifies Mh=λh at every j and at infinity. The identity c/λ^m=1/[(1−s)(1+s²)]>1 gives 1≤h≤c and positivity; order bounds give r(M)=λ exactly. Writing M=S+K with (Sf)(j)=f(j−1)+f(j+1) for j≥m, S(∞)=2f(∞), S(j<m)=0 gives norm S≤2 and finite-rank K. Hence normalized T=M/λ is quasi-compact (distance ≤2/λ<1 to compact K/λ). Uniform common occurrence of each isolated letter after sufficiently many iterates proves primitivity, so MRW Theorem 6.7 implies minimality and unique ergodicity. The defining root gives δ=1−s=2^(1−m)(1+O(2^(−m))) and λ−2=δ²/s=4^(1−m)(1+O(2^(−m))). The λ^n/c≤|ρ_m^n(0)|≤λ^n bound and exact rational binomial certificate yield the 72000-step crossing at m=7; the 1000-step below-two bound was independently recomputed. Direct independent script checked m=1..16 high-precision eigenfunction residuals, exact finite length 2-stall at n=34, the 7-stall n=1000 bound, and exact rational 72000 binomial bound; none substitutes for the universal proof.",
+      "status": "PASS",
+      "verified_lemmas": [
+        "Strict unique scalar root and monotonic λ_m",
+        "Explicit continuous order-unit eigenfunction including interface j=m and point infinity",
+        "Order bound r(M)=λ and length estimates",
+        "Finite-rank plus norm-two decomposition => normalized quasi-compactness",
+        "Common-iterate primitivity on one-point compactification",
+        "Exact rational m=7 length reversal",
+        "Sharp gap asymptotic"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 Theorem 6.7 gives strictly ergodic subshift under primitivity plus quasi-compact T",
+          "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 Example 6.15 has different seed 0→0001 and tail n→0(n−1)(n+1)",
+          "Frettlöh, Garber, Mañibo, Substitution tilings with transcendental inflation factor, Discrete Analysis 2024:11, DOI 10.19086/da.125449 constructs for any λ>2 other substitutions; indexed rule displayed by Tilings Encyclopedia"
+        ],
+        "reasoning": "The general strict-ergodicity theorem is conditional on a spectral gap, not a theorem that every primitive countable compact-alphabet substitution is quasi-compact. The reviewed explicit λ_m>2 and compact rank perturbation supply this missing hypothesis for a concrete all-m family. A family realizing arbitrary λ is not blanket coverage for every delayed initial segment.",
+        "searches": [
+          "web query: Mañibo Rust Walton Substitutions on compact alphabets Theorem 6.7 quasi compact primitive uniquely ergodic",
+          "web query: Frettlöh Garber Mañibo compact alphabets substitution countable Perron arbitrary inflation factor λ2 2023",
+          "web query: stalled birth-death Jacobi matrix rank one perturbation eigenvalue threshold lambda s + s inverse finite delay"
+        ]
+      },
+      "checked_sources": [
+        "James J. Walton, Unique ergodicity, and not, for primitive substitutions on compact alphabets containing isolated points, arXiv:2609.07550v2 (19 October 2026), originally v1 (7 September 2026) abstract and secondary report only",
+        "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 full journal HTML",
+        "Frettlöh, Garber, Mañibo, Substitution tilings with transcendental inflation factor, Discrete Analysis 2024:11, DOI 10.19086/da.125449 published abstract and displayed example",
+        "Resultary/2026, 2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4/RESULT.md (published 11 October 2026) primary result read",
+        "Mañibo–Rust–Walton, Spectral properties of substitutions on compact alphabets, BLMS 55 (2023), pp.2425–2445, open-access full article main statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 Theorem 6.7, conditional implication T quasi-compact + primitive ⇒ unique ergodicity",
+          "Walton v2 2026 abstract states implications from spectral properties and presents different non-uniquely ergodic construction",
+          "Source RESULT.md derives exact λ_m and rank-one finite-rank-plus-norm-two decomposition"
+        ],
+        "reasoning": "The reviewed conclusion follows from new concrete positive eigenfunction and explicit Perron equation to a verified spectral gap, then invokes an existing theorem. It is not implied by merely having primitivity, and is logically different from the 2026 counterexample with tail j−2. The first-version seven-stall prediction cited by the source is opposite to the reviewed conclusion, but the newest v2 full text could not be checked.",
+        "searches": [
+          "web source ID: turn818696academia35 (Walton arXiv abstract), and web query: Walton compact alphabets isolated points seven stalls conjecture non uniquely ergodic 2026",
+          "web source IDs: turn256974view0 (Theorem 6.7), turn256974view2 (Example 6.15)",
+          "Resultary query: Walton compact alphabets isolated points seven stalls conjecture non uniquely ergodic 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "James J. Walton, Unique ergodicity, and not, for primitive substitutions on compact alphabets containing isolated points, arXiv:2609.07550v2 (19 October 2026), originally v1 (7 September 2026) (abstract and externally accessible v2 audit-summary material; not full text)",
+          "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 (full open-access HTML, Example 6.15 and Theorem 6.7)",
+          "Source package RESULT.md, distinct j>=m tail and positive eigenfunction construction"
+        ],
+        "reasoning": "Aliases checked include stalled/delayed nearest-neighbor compact substitutions, natural length eigenfunction, positive birth–death recurrence, quasi-compactness and strict ergodicity. The exact source model matches Walton Section 4.1 as quoted by the package, but the claimed all-m closed spectral law is not established by the inspected material; updated Walton v2 full text remains a priority risk.",
+        "searches": [
+          "Resultary query: primitive substitutions on one-point compactification N0 seven stalled letters nearest-neighbor n to 0 n-1 n+1 unique ergodicity spectral radius Perron root",
+          "web query: Walton Unique ergodicity and not primitive substitutions compact alphabets containing isolated points seven stalling arxiv 2609.07550",
+          "web query: countable compact alphabet substitution j to 0 j-1 j+1 ergodicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026, 2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4/RESULT.md (published 11 October 2026) states Perron asymptotic of a finite-state quotient of a four-adic Markov survivor, not λ_m",
+          "Walton 2026 v1 finite-length examples (m=2 at 34, m=4 at 600/700, m=7 at 1000) cited in inspected source RESULT.md; newer primary full text not verified"
+        ],
+        "reasoning": "No inspected exact table/database gives the all-m root equation, 4^(1-m) spectral gap or 72000-step rational threshold. The nearby published Resultary result is not an exact table for the same dynamical system. Search failure is not treated as a novelty proof.",
+        "searches": [
+          "Resultary query: compact infinite alphabet substitution delayed threshold m 0->1, n->0 n-1 n+1 exact lambda spectral gap seven stalls",
+          "web query: James Walton compact alphabet two stalls four stalls seven stalls n to 0 n-1 n+1",
+          "web query: nearest neighbor delayed stalling substitutions infinite alphabet Perron root eigenfunction conjecture seven stalls"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: Walton 2609.07550 is the exact motivating one-point-compactification family, but its first-version seven-stall non-unique-ergodicity prediction and two/four-stall observations do not entail the new all-finite-stall explicit root, positive eigenfunction, and exact length reversal. The newer v2 primary full text was inaccessible in this run; this is explicitly a live priority risk, not asserted whole-document noncoverage. MRW 2025 supplies only the conditional quasi-compact primitive theorem and a different initial rule, while Frettlöh–Garber–Mañibo 2024 constructs parametrized other substitutions. Relevant published Resultary finding concerns a four-adic expanding map rather than compact-alphabet substitution. No inspected dominating theorem yields this exact classification.",
+      "residual_risks": [
+        "Walton arXiv:2609.07550v2 full text unavailable this run; it was revised October 19, 2026, after the initial cited September 7 v1. The precise revised Section 4.1 cannot be excluded as prior coverage without reading.",
+        "Potential preexisting one-dimensional birth-death/Jacobi spectral calculation or alternative delayed substitution under a different name not located.",
+        "Frettlöh–Garber–Mañibo full 2024 article not fully inspected; abstract and displayed construction cannot establish whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published theorem gives implication only after strict spectral gap; Example 6.15 uses 0→0001 rather than m-stall chain, and does not give the all-m λ formula",
+          "evidence": [
+            "Theorem 6.7: primitive and quasi-compact normalized substitution operator imply uniform power convergence and unique ergodicity; web reference turn256974view0",
+            "Example 6.15 rule 0→0001 and n→0(n−1)(n+1); web reference turn256974view2"
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.70123",
+          "material_read": "Full accessible journal HTML, especially Definition 6.3, Theorem 6.7, Example 6.15, Theorem 6.9 and introduction; actual mathematical statements and example substitution rules read",
+          "method": "Read open-access complete primary HTML and compare equation-level source rules, spectral hypotheses and implications",
+          "title": "Substitutions on compact alphabets",
+          "trigger": "General conditional theorem could dominate claimed strict ergodicity; same one-point alphabet examples"
+        },
+        {
+          "assessment": "Cannot assert full-text v2 noncoverage. No accessible material establishes the all-m closed eigenfunction or contradicts its proof; v2 is a material historical-priority risk.",
+          "evidence": [
+            "arXiv v2 release October 19 2026 recorded at mathaudit.org/paper/2609.07550",
+            "Source RESULT.md cites v1 Section 4.1 for seven-stall prediction",
+            "Oxford authorized retrieval status vpn_disconnected; no full paper material obtained"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.07550v2",
+          "material_read": "arXiv v2 abstract and externally accessible detailed secondary report at https://mathaudit.org/paper/2609.07550; primary full pages unavailable. Source package quotes v1 Section 4.1, but these quotations are not counted as full independent primary reading.",
+          "method": "Tried arXiv HTML and PDF, alternate lawful OA and author site; institutional retrieval returned VPN disconnected without bypass. Compared accessible abstract with theorem and explicit source-package quotations; marked incomplete reading.",
+          "title": "Unique ergodicity, and not, for primitive substitutions on compact alphabets containing isolated points",
+          "trigger": "Exact same family and reported seven-stall conjecture; revision after cited v1"
+        },
+        {
+          "assessment": "Its example and general inflation-factor realization do not themselves state an all-m stalled-substitution classification; full-text implication risk remains bounded",
+          "evidence": [
+            "https://discreteanalysisjournal.com/article/125449-substitution-tilings-with-transcendental-inflation-factor",
+            "https://tilings.math.uni-bielefeld.de/substitution/tiling-with-transcendental-inflation-multiplier/"
+          ],
+          "identifier_or_url": "https://doi.org/10.19086/da.125449",
+          "material_read": "Published editorial introduction and abstract; concrete example construction displayed on Bielefeld Tilings Encyclopedia page; complete paper not read",
+          "method": "Compared explicitly displayed prototile substitution and abstract scope with stalled nearest-neighbor family",
+          "title": "Substitution tilings with transcendental inflation factor",
+          "trigger": "Potential broad family of positive compact-alphabet Perron roots"
+        },
+        {
+          "assessment": "Different expanding interval survivor with λ_r~3·4^(r−1), not the claimed compact-substitution Perron root λ_m→2",
+          "evidence": [
+            "Resultary source RESULT.md exact map T on [0,∞) and C_r quotient",
+            "This claim λ_m=s_m+s_m^(−1) with m-stall chain"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4",
+          "material_read": "RESULT.md Finding, assumptions and proof: 4-adic expanding interval map, finite-state compression, zeta and asymptotics",
+          "method": "Read complete statement and proof sections and compare transformation, alphabet, spectral variable, and dynamical conclusion",
+          "title": "Exact finite-cutoff zeta and Perron correction for a countable Markov map",
+          "trigger": "Highest substantively adjacent published Resultary Perron-correction title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result classifies a natural, explicitly studied family of nearest-neighbor compact-alphabet substitutions for every finite stall, resolving a reported seven-stall negative prediction in the opposite direction by a rigorously positive spectral gap. A sharp exponentially small λ_m−2 law mathematically explains a long misleading finite transient, and a rational certificate supplies an explicit cutoff witnessing reversal. Unlike routine PF substitution, the noncompact countable alphabet requires an explicit positive eigenfunction, spectral bound and compact perturbation; the full all-m classification is independently useful and motivated by an existing open spectral question. Limitations to this tail rule and finite stalls are appropriately stated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "James J. Walton, Unique ergodicity, and not, for primitive substitutions on compact alphabets containing isolated points, arXiv:2609.07550v2 (19 October 2026), originally v1 (7 September 2026) abstract and secondary report only",
+    "Neil Mañibo, Dan Rust, James J. Walton, Substitutions on compact alphabets, JLMS 111 (2025), e70123, DOI 10.1112/jlms.70123 full journal HTML",
+    "Frettlöh, Garber, Mañibo, Substitution tilings with transcendental inflation factor, Discrete Analysis 2024:11, DOI 10.19086/da.125449 published abstract and displayed example",
+    "Resultary/2026, 2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4/RESULT.md (published 11 October 2026) primary result read",
+    "Mañibo–Rust–Walton, Spectral properties of substitutions on compact alphabets, BLMS 55 (2023), pp.2425–2445, open-access full article main statements"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Walton arXiv:2609.07550v2 full text unavailable this run; it was revised October 19, 2026, after the initial cited September 7 v1. The precise revised Section 4.1 cannot be excluded as prior coverage without reading.",
+    "Potential preexisting one-dimensional birth-death/Jacobi spectral calculation or alternative delayed substitution under a different name not located.",
+    "Frettlöh–Garber–Mañibo full 2024 article not fully inspected; abstract and displayed construction cannot establish whole-document noncoverage."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strict ergodicity based on published MRW theorem, not a new general ergodicity theorem.",
+    "All claims restricted to finite positive m and precise one-point compactification with tail (j−1,j+1).",
+    "No theorem for j−2 tail, unbounded stall m=∞, or arbitrary compact substitutions."
+  ]
+}
