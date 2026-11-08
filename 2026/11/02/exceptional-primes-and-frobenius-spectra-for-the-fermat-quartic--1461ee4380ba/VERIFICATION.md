@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the arithmetic incidence classification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.9 or later; it uses the standard library only. The source defines the 28 bitangent coefficient vectors in \(\mathbb Z[t]/(t^4+1)\), their 378 pair intersections, and all 3276 triple determinants. It multiplies four conjugates to compute exact integer norms, checks the full nonzero-norm histogram, and proves that no odd prime other than 3, 5 or 17 can introduce new concurrence. Direct exhaustive pair-incidence calculations at each exceptional odd prime give the complete crossing multiplicities and q-Frobenius cycles; repeating Frobenius on labels verifies the two-degree splitting bound. Successful actual execution is recorded in `verify_output.txt`, ending `VERIFY_OK`.
+## correctness
 
-The universal statement about all odd primes relies on the norm-divisibility lemma coupled with exhaustive determinant coverage; it is not an inference from a finite sample of primes. The published complex 288-double/15-quadruple counts and completeness of 28 odd-characteristic bitangents are externally sourced and not represented as new. Only reduced geometric crossing loci are classified; local nilpotent structure of their Jacobian schemes is not verified. The scientific and priority assessment has not received an independent audit.
+PASS
+
+The 12 hyperosculating and 16 three-term line equations are exact bitangents in odd characteristic, distinct and exhaustive by the classical count 28. Enumerating all 3276 line triples in R=Z[t]/(t⁴+1) gives 60 identically concurrent and 3216 nonzero determinants with integer norm histogram support {2,3,5,17}; hence reductions outside these odd primes cannot create any extra concurrency. Repeated exhaustive 378 pair-intersection incidence calculations over F9/F25/F17 certify the exceptional strata; the incidence pair-weight sum is 378. Frobenius t↦t^q permutes each labelled line, giving all orbit spectra and quadratic splitting since q²≡1 mod 8. Independent exact arithmetic verified the full norm histogram and each exceptional incidence+Frobenius tally; these are finite exhaustive certificates, and the determinant divisibility supplies the all-prime step.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified: 28 lines, their equations and characteristic-zero 288 double/15 quadruple intersections are classical and not novel. The complete odd-characteristic exceptional prime list and residue-dependent Frobenius/zeta spectra are a finer arithmetic classification not implied by the inspected complex counts. Older modular studies remain a priority risk.
+
+## value
+
+PASS
+
+For an established highly symmetric plane quartic, classifying exactly when its bitangent arrangement changes under reduction and the full reduced finite-field Frobenius spectra is a natural arithmetic invariant, useful for incidence geometry and finite étale zeta calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

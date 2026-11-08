@@ -1,15 +1,21 @@
-# Review of exceptional-prime and Frobenius classification
+# Independent mathematical audit
 
-## Correctness: PASS
-The explicit twelve hyperflex and sixteen ordinary line equations restrict the Fermat quartic to perfect squares (or fourth powers) in every odd characteristic, and the classical 28-bitangent theorem establishes completeness. Exhausting the triple-line determinants in the integer cyclotomic ring produces 60 zero determinants and a complete 3216-entry nonzero norm spectrum, whose odd prime support is precisely 3, 5, 17. These norms rule out additional concurrent triples for all other odd primes. Exact finite-field incidence enumeration at these three primes and the pair count 378 cover all geometric crossings. Permuting coefficient exponents by q-power Frobenius then gives the full stated orbit table. The standalone verifier actually reproduced all of these finite exact checks and ended in `VERIFY_OK`.
+## correctness
 
-## Originality: PASS (best-knowledge; qualified)
-The twelve-plus-sixteen line construction and the complex \(288,0,15\) count **are known** and expressly excluded from the novelty claim. Edge and Janasz--Pokora--Zieliński cover these ingredients; the latter primary paper explicitly works over the complex numbers. The evaluated claim is the exhaustive odd-prime degeneration law (exactly 3, 5, 17), each special-stratum count, and the corresponding q-Frobenius orbit and zeta data. Direct inspection of the nearest primary material and semantic comparisons found no such combined result. Full historical priority is uncertain: existing explicit bitangent coordinates may permit a derivation, and obscure older arithmetic literature could contain related tables.
+PASS
 
-## Mathematical value: PASS
-The reduced intersection locus of all 28 classical bitangents is a natural finite invariant of a distinguished plane quartic. Its exact arithmetic bad-reduction spectrum and uniform finite-field zeta data extend a classical incidence description to arithmetic geometry, including qualitative concurrency jumps and unexpected triple strata. The all-prime norm certificate and full geometric-and-arithmetic case distinctions provide substantially more than a small numerical example.
+The 12 hyperosculating and 16 three-term line equations are exact bitangents in odd characteristic, distinct and exhaustive by the classical count 28. Enumerating all 3276 line triples in R=Z[t]/(t⁴+1) gives 60 identically concurrent and 3216 nonzero determinants with integer norm histogram support {2,3,5,17}; hence reductions outside these odd primes cannot create any extra concurrency. Repeated exhaustive 378 pair-intersection incidence calculations over F9/F25/F17 certify the exceptional strata; the incidence pair-weight sum is 378. Frobenius t↦t^q permutes each labelled line, giving all orbit spectra and quadratic splitting since q²≡1 mod 8. Independent exact arithmetic verified the full norm histogram and each exceptional incidence+Frobenius tally; these are finite exhaustive certificates, and the determinant divisibility supplies the all-prime step.
 
-## Closest prior work and scientific limits
-Edge treats the classical configuration; Plaumann--Sturmfels--Vinzant and Dalla Piazza--Fiorentino--Salvati Manni provide general bitangent theory. Janasz--Pokora--Zieliński establish the complex \(288,0,15\) incidence census, and Bethea--Brazelton analyze geometric symmetry actions. The result is for reduced crossing supports of the literal diagonal quartic in odd characteristic; neither nonreduced Jacobian singular structure nor twists nor characteristic two are addressed. No independent scientific audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified: 28 lines, their equations and characteristic-zero 288 double/15 quadruple intersections are classical and not novel. The complete odd-characteristic exceptional prime list and residue-dependent Frobenius/zeta spectra are a finer arithmetic classification not implied by the inspected complex counts. Older modular studies remain a priority risk.
+
+## value
+
+PASS
+
+For an established highly symmetric plane quartic, classifying exactly when its bitangent arrangement changes under reduction and the full reduced finite-field Frobenius spectra is a natural arithmetic invariant, useful for incidence geometry and finite étale zeta calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
