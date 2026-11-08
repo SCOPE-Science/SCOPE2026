@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The standalone Python 3 checker is `verification/verify.py` and requires only the Python standard library. From the directory containing this file and the `verification` subdirectory, execute `python3 verification/verify.py`.
+# Independent mathematical audit
 
-Actual execution produced `VERIFY_OK: 2131008 fully enumerated masks, 1950012 sparse candidates, 45 threshold checks`.
+## correctness
 
-The graph-level algorithm builds all \(\binom n2\) vertices as two-element sets, constructs their closed neighborhoods using equality or disjointness, and directly determines domination via the union of closed neighborhoods. It is logically different from the inclusion-exclusion formula, which is evaluated separately with exact integer arithmetic.
+PASS
 
-Full enumeration: all subsets for \(n=4,5,6,7\) (64 + 1,024 + 32,768 + 2,097,152 = 2,131,008 masks). Restricted enumeration: all subsets of cardinalities \(3\), \(4\), and \(5\) for \(n=8,9,10\) (1,950,012 candidates). Also checked the predicted boundary and saturation coefficient identities at 45 values \(n=5,\ldots,49\). Each comparison passed.
+Established the exact failure-witness equivalence: a selected 2-edge family fails domination iff contained in F_e, the 2n-4 edges meeting e other than e. Checked pair intersection sizes n-2 for intersecting witnesses and four for disjoint, and that only centered witness stars have higher intersections of at least four selected edges; their inclusion-exclusion generating sum yields U_{n,k} and the 3*binom(n,4) correction for k=4. Classifies all dominating triples as triangles and three-edge matchings. n=4 is 3K2. Independently enumerated full K(n,2) subsets for n=4,5,6,7 (2,131,008 total masks); coefficients match formula, including n=5 Petersen and n=7 initial coefficients (140,2205,15162,49854). This finite test corroborates but does not substitute for all-n inclusion-exclusion proof.
 
-Finite checks do not prove an infinite theorem. The general argument is the explicit classification of failure-witness intersections and inclusion-exclusion given in RESULT.md. No independent mathematical audit or formal proof certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge uniform all-order all-cardinality coefficients for n>=6 are not expressed in the compared same-object works. The K(5,2) Petersen polynomial and minimum domination number 3 are explicitly already known. Complete enumeration requires nontrivial witness-overlap correction; generic incidence membership tests are not already a closed coefficient formula.
+
+## value
+
+PASS
+
+An exact natural infinite family domination polynomial answers a more detailed structural counting question than minimum domination size and yields the sharp 2n-3 universal domination threshold with binom(n,2) extremal non-dominating sets. The 4-edge overlap term is an informative combinatorial obstruction rather than a cosmetic reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
