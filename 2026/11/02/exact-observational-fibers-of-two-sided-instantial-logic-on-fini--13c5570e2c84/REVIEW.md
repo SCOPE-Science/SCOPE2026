@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The chain-upset order gives the quantified box-intersection and diamond-union arity collapse. The proposed local profiles can both be read from direct nullary/unary tests and reconstruct all higher-arity operations. Independent membership of larger/smaller neighborhood upsets gives the exact local fibers, and constant frame families make the two choices independent while satisfying persistence. The checker directly evaluates the semantic clauses for all local families through six worlds; this supports but does not replace the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS: Read actual source semantic clauses over chain upsets E0⊂E1⊂...⊂En, including N empty and E0. Any nonempty upsets intersect at maximal world, so for k>=1 a box witness intersects every Ai exactly when it intersects ∩Ai; diamond disjunction U⊆some Ai is U⊆∪Ai as Ai linearly ordered. The box truth table depends on empty-membership ε and least positive m; nullary box at E0 recovers ε and unary test with A=E1 recovers m. Diamond depends on ε and largest positive M; two nullary tests + unary threshold recover both. Counts 2^{n-m}, 2^{M-1}, and sentinel size 1 give exactly 2n+2 signatures per modality. Arbitrary positive formula equivalence follows by induction, and homogeneous independence gives (2n+2)^2 joint signatures with max fiber 4^{n-1}. Independent direct full family enumeration/binary arity tests covered 126,000 cases; symbolic quantified proof applies to any n and arity.
 
-The closest published research source concerns reconstruction of unrestricted Boolean instantial neighborhood frames via singleton instance arguments; those tests are not available in positive upset-valued chains, so it neither implies the new quotient nor the pair-fiber count. The 2026 positive two-sided semantic paper motivates the problem but does not give the chain normal forms or exact homogeneous census in the inspected sections. De Groot's 2022 INL fragment paper remained accessible only as an abstract and creates the main historical-priority limitation.
+## originality
 
-## Value — PASS
+PASS
 
-A complete observational equivalence classification resolves a natural identifiability question for positive modalities: a small number of signatures conceal exponentially many distinct neighbourhood frames, even after allowing all nesting and instance arities. The exact local and homogeneous fiber counts and arity reduction are structurally motivated, not arbitrary low-dimensional experiments.
+Best-knowledge PASS, qualified. Das–Khanra–Sardar introduce positive two-sided PINL semantics and representation, credited. Prior exact finite arity cutoff for classical powerset INL allows singleton arguments and recovers every neighbourhood bit; here only upset arguments are allowed and the resulting quotient has huge fibers. Same-objects published research proof for finite-chain normal forms not identified in inspected full PINL material, while de Groot 2022 INL arity hierarchy full text was unavailable and remains risk.
 
-## Scope, limitations and sources
+## value
 
-The local theorems hold for all persistent two-sided finite chains; the pair-census applies only to homogeneous frames. Empty families and empty upsets are allowed. Sources: Das–Khanra–Sardar, arXiv:2606.08083; de Groot (2026), DOI:10.1017/jsl.2026.10202; van Benthem et al. (2017), DOI:10.1017/S1755020316000447; de Groot (2022), DOI:10.1007/s11225-021-09975-w; the read-only classical-INL research record identified in RESULT.md. The 2022 full text remained unexamined.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Observable equivalence is a natural semantic invariant of positive modal operations. The strong all-arity-to-unary reduction and exact quotient/fiber census explain what data the language loses; a complete natural finite-chain classification with exponential indistinguishability is useful independently of larger poset generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
