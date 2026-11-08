@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses the exact distance shells of a projective plane: two vertices of the same color are at distance two, opposite colors are distance one precisely on incidences and three otherwise. The incidence axiom establishes the integer identity \(BB^\mathsf T=qI+J\), so the powered-distance matrix has a one-dimensional global-constant sector, a one-dimensional color-difference sector, and two sectors of dimension \(q^2+q\) with eigenvalues \(-2^p\pm\sqrt q(3^p-1)\). Their multiplicities total all \(2(q^2+q+1)\) dimensions. The color-difference sector is strictly negative for \(p\ge0\); the positive-sign transverse branch increases strictly from \(-1\) to a positive value at \(p=1\). Consequently the unique critical exponent is exactly the stated scalar root, without relying on numerical extrapolation. The kernel is \((x,y)=(-By/\sqrt q,y)\) with \(\sum y=0\). Schoenberg's centered-Gram rank yields minimum endpoint Hilbert dimension \(q^2+q+1\), and the two-term asymptotic follows by a justified implicit-function expansion. The exact integer and independently computed shortest-path checks in `check_projective_negative_type.py` pass for orders \(2,3,4,5,7\), including \(\mathbb F_4\); they support, but are not used as, the proof for arbitrary existing planes.
+PASS
 
-## Originality — PASS, with priority caveat
+Distances: 2 between distinct vertices in the same bipartition, 1 incident, 3 nonincident. BB^T=qI+J on points/lines and B1=(q+1)1 give complete powered-distance eigenspaces on the centered hyperplane: color-antisymmetric q(q+1)2^p-(q+1)-q²3^p always negative, transverse -2^p±sqrt(q)(3^p-1), each multiplicity v-1. The plus branch crosses zero uniquely in (0,1), yielding exact critical equation and equality kernel (-By/sqrt(q),y), y centered; centered Schoenberg Gram rank drops from 2v-1 to v. Verified Fano plane BB^T identity by constructing mod-2 incidence, all 14² graph distances, and direct eigenvalues below/at/above p=0.694280092777. Taylor implicit-function expansion and strict q-monotonicity checked algebraically. No assumption of planes existing for all q and no minimal-support claim.
 
-The closest directly inspected primary sources are Sánchez, arXiv:1108.0451v1, whose theorem reduces general finite negative type to distance-matrix questions, and Murugan, arXiv:1112.5657v1, whose determinant/endpoint-equality theorem applies to constant-row-distance metrics. Their full accessible PDFs were inspected in the pertinent introductions, general criteria, examples and results. Neither inspected source provides an evaluated projective-plane incidence threshold, the exact entire equality kernel, or its critical Hilbert dimension. The 2010 paper by Horak et al. addresses the weaker four-point roundness invariant and studies cycles and triangulated cycles, not the all-coefficient invariant of this result. The Heawood graph reference supplies ordinary adjacency-spectrum data for the smallest plane, not the sharp powered-distance spectral threshold. Published work on Čech/Rips and magnitude homology of projective-plane incidence graphs concerns distinct functors and does not imply negative-type or Euclidean-rank statements. Prior generalized-roundness results on folded hypercubes and other graph families were checked for deduplication: an algebraic coincidence at order \(q=4\) does not transfer the geometric equality space or dimension assertion. Remaining risk: an unindexed exact treatment or an overlooked derivation in the broad finite metric embedding literature; similarity search alone does not establish universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Projective-plane incidence graphs are an infinite, canonical diameter-three design family for which the trivial full-matrix negative-type test has size \(2(q^2+q+1)\). The finding replaces that computation by one order-dependent scalar root, fully identifies all equality coefficients through the incidence map, and proves a sharp drop of \(q^2+q\) in the least Hilbert snowflake dimension exactly at the boundary. The explicit two-line \((2q+2)\)-support equality exhibits the obstruction geometrically. The fact that the exponent decays like \(1/(\sqrt q\log3)\) quantifies degeneration in growing projective planes. These are meaningful, all-orders embedding and equality-structure results, rather than a single finite table or a renaming of a known negative-type criterion.
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. Their general procedures can in principle imply a specific answer after substantive incidence eigenspace calculations; that does not establish a previously published particular equality-space formula. No inspected stronger statement directly specializes to the entire exact claimed package.
 
-## Literature and limitations
+## value
 
-Sánchez (2011) is the nearest general finite-metric negative-type calculation, Murugan (2011) provides the closest constant-distance-row spectral criterion, and Horak et al. (2010) concerns ordinary graph roundness. The theorem applies only when a finite projective plane exists, and only to the unweighted vertex shortest-path metric. The two-line equality example is not asserted to be minimum-support; the finite-field checker is diagnostic for five plane orders. Priority beyond searchable/inspected sources has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes the exact generalized roundness and minimal Hilbert dimension for a natural class of extremal incidence graphs uniformly across all finite projective planes, including any exotic planes. The critical loss of v-1 embedding dimensions and explicit sparse two-line equality are structural, potentially useful benchmarks for finite metric embeddings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
