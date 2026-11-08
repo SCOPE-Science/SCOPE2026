@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "First LU row pivot reads only first column of transposed sketch; ratio of two iid standard normals is Cauchy. Norm-pivot choice uses independent chi-square lengths and a Beta(s/2,s/2) ratio. Cross approximation on a diagonal 2x2 matrix has exactly error 1 or kappa. Beta-density endpoint analysis gives the exact constant 2Gamma(s)/(sGamma(s/2)^2), all real moment orders and boundaries. Reconstructed manually and verified with standalone independent polynomial identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2604.05065v1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ],
+      "reasoning": "High-probability CUR quality or worst-case ARP analyses alone do not determine these moments or prove failure of first-pivot LU to exploit all s sketch coordinates. The full preconditioner guarantee concerns a different, adaptive output. This is not a claim that all sparse-sign or multilevel algorithms fail.",
+      "searches": [
+        "randomized CUR LUPP single pivot QRCP relative expected error 1+2/pi high condition number",
+        "Pritchard IterativeCUR 2509.21963 Gaussian sketch LUPP 2x2 column pivot failure",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.21963 current v2 HTML and abstract",
+      "arXiv:2604.05065v1 HTML and Appendix B.1",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+      "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+      "Accessible local historical claims of first-pivot Gaussian LU, sketched Krylov and low-rank CUR variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2509.21963v2",
+        "https://arxiv.org/html/2604.05065v1"
+      ],
+      "reasoning": "Pritchard and Huh specify relevant pivot operations but their asserted results do not yield the exact Cauchy and beta probabilities with critical moment orders. The nearby ARP and complete-pivot ACA claims do not cover the two Gaussian selection laws; the Gaussian cutoffs are additional application-specific results.",
+      "searches": [
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+        "arXiv:2509.21963",
+        "arXiv:2604.05065"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2604.05065v1",
+        "https://arxiv.org/html/2509.21963v2"
+      ],
+      "reasoning": "Cauchy/Beta selection tails are classical, but no inspected source states their induced relative cross-approximation error moment cutoff discrepancy under oversampling; the new mathematical claim includes this precise application and classification, not novelty of either standard distribution.",
+      "searches": [
+        "Gaussian sketched LU partial pivot first row ignores oversampling expected CUR approximation error strong singular value rare selection heavy tail",
+        "sketch LU pivot rank one Gaussian diagonal matrix first row expected low rank approximation spectral ratio two over pi",
+        "two-mode Gaussian LU pivot Cauchy tail vs norm pivot beta CDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2509.21963",
+        "https://arxiv.org/html/2604.05065v1"
+      ],
+      "reasoning": "No exact Cauchy-vs-beta relative CUR moment table located in checked search results, but absence from a finite index is not a novelty proof.",
+      "searches": [
+        "Gaussian sketched LU partial pivot first row ignores oversampling expected CUR approximation error strong singular value rare selection heavy tail",
+        "sketch LU pivot rank one Gaussian diagonal matrix first row expected low rank approximation spectral ratio two over pi",
+        "randomized CUR LUPP single pivot QRCP relative expected error 1+2/pi high condition number",
+        "Pritchard IterativeCUR 2509.21963 Gaussian sketch LUPP 2x2 column pivot failure",
+        "LUPP CUR arctan beta expected error moment cutoff Gaussian sketch"
+      ]
+    },
+    "rationale": "The combination of an oversampling-blind LUPP first pivot, exact normalized CUR error distribution and sharp Cauchy/Beta moment cutoffs was not found in actual published-finding corpus queries, accessible historical claims or inspected primary algorithms. Originality is provisional in the normal scholarly sense; older pivot-distribution calculations may exist.",
+    "residual_risks": [
+      "Possible unindexed classical exact probability law for LUPP-vs-CPQR selection and its induced CUR loss",
+      "First version HTML of arXiv:2509.21963 was not accessible; compared current revision and independently verified arXiv v1 publication date",
+      "No inspection of all pivoting texts worldwide; different sketch distributions and full adaptive algorithm not covered"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines motivating sketched pivot class and adaptive approximation; neither an exact moment cutoff versus CPQR nor oversampling-blind first-pivot law identified in inspected material. Default block settings differ.",
+        "evidence": [
+          "https://arxiv.org/abs/2509.21963",
+          "https://arxiv.org/html/2509.21963v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.21963v2",
+        "material_read": "Methods for matrix sketch, column/row choice, algorithm and computational details; current v2 HTML. Earliest v1 date from arXiv abstract; v1 HTML could not be accessed.",
+        "method": "Inspected published HTML algorithm/description and compared its pivot operation and stated bounds with the exact two-mode moment claim",
+        "title": "IterativeCUR: Large Rank-Adaptive Approximation From a Small Recycled Sketch",
+        "trigger": "Original source for recycled-sketch LUPP pivot selection"
+      },
+      {
+        "assessment": "Explicitly uses row-partial-pivoted LU of transposed sketch as a column-selection option, and discusses CPQR, but provides different global preconditioning approximation guarantees; no exact Gaussian first-pivot loss-moment phase diagram found. Its implementation defaults to sparse-sign sketches.",
+        "evidence": [
+          "https://arxiv.org/html/2604.05065v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.05065v1",
+        "material_read": "Introduction and algorithm, Appendix B.1, Algorithm 4 lines 1084-1110 and Algorithms 6-7, and convergence/theory descriptions.",
+        "method": "Direct inspection of HTML text with formula and algorithm index comparison",
+        "title": "Adaptive LSQR Preconditioning from One Small Sketch",
+        "trigger": "Appendix B.1 gives explicit LUPP of transpose of sketch as row-pivot selection and CPQR alternatives"
+      },
+      {
+        "assessment": "Different adaptive randomized pivoting mechanism; worst-case product expected error does not imply exact Cauchy/Beta moment law. Full record not read, residual overlap risk remains.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "material_read": "Published abstract/title in structured search only, not full proof",
+        "method": "Implication comparison of stated ARP bounds vs Gaussian sketch transpose partial-LU event",
+        "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+        "trigger": "Closest semantic search on rare catastrophic pivot omissions"
+      },
+      {
+        "assessment": "Complete-pivot ACA one-step Frobenius norm is structurally different from randomized sketched partial-LU and beta-vs-Cauchy cutoff.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "material_read": "Published title and abstract only",
+        "method": "Compared complete-pivot deterministic residual growth claim to randomized first LU/CPQR normalized moments",
+        "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+        "trigger": "Closest search on rank-one cross approximation pivot error"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18298ce6-5322-4650-8c71-8f92e37bcbeb",
+  "value": {
+    "rationale": "A parameter-free and sharp separation explains why increasing Gaussian sketch oversampling does not improve the moment safety of the first row-partial-LU pivot, despite selection being correct with probability tending to one. It quantifies rare catastrophic relative rank-one errors, while a standard CPQR alternative exploits all sketch rows and shifts the exact cutoff from 1 to s, offering a concrete algorithm-design criterion rather than only an incidental finite example.",
+    "status": "PASS"
+  }
+}
