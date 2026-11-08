@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For circular mixed binary w with no cyclic 11 and μ(0)=01, μ(1)=00, the 2|w| cyclic rotations partition strictly by prefixes 000 (even 1), 001 (odd 1), 01 (even 0), 1 (odd 0); preceding characters respectively 1,0,1-w_{i-1},0. In the even-0 block, μ reverses the lexical order of original 0-leading rotations (μ(0)>μ(1)); preceding bits are complemented, giving BWT(μ(w))=1^k 0^k complement(reverse(C(w))) 0^z. Tied rotations (nonprimitive w) contribute identical preceding bits so no ambiguity. All μ iterates avoid 11 cyclic, and C_{m+1}=1^(k_m)0^(k_m) complement(reverse(C_m)), C_1=1, C_2=100. Since the suffix/prefix invariant is 1-start/0-end, each iteration m>=2 adds precisely two runs; terminal zeros merge, yielding r(BWT(W_m))=2m-2 for every m>=2. Direct cyclic-rotation sorting independently confirmed the identity for all 187 mixed no-11 words of lengths 2..9 and every iterate through m=9. The all-length proof is by strict order blocks, not experimental extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frosini et al establish O(log n) for all purely morphic binary inputs and Θ(log n) for a broad class; the one-step sensitivity is Ω(sqrt n) maximized over arbitrary w."
+        ],
+        "reasoning": "Neither broader upper/lower asymptotic bound determines the exact 2m-2 law or C(w)-based full-word recursion. The sensitivity result has a different input quantifier and studies one substitution.",
+        "searches": [
+          "cyclic Burrows Wheeler transform period doubling morphism 0->01 1->00 exact number of runs",
+          "arXiv:2202.02609 abstract/theorems",
+          "CPM2023 Lemma 29, Proposition 31"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.02609",
+        "CPM 2023 DOI:10.4230/LIPIcs.CPM.2023.10, Example 18/Lemma 29/Prop 31",
+        "Resultary 2026 period-doubling string-attractor and block-lift records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A statement r=O(log|W_m|) is compatible with many coefficients; worst-case Δr=Ω(sqrt n) over arbitrary w says nothing determining Δr along W_m."
+        ],
+        "reasoning": "Neither prior statement logically implies the fixed-point count or complete BWT; the four-block ordering argument is the decisive new mathematical step.",
+        "searches": [
+          "cyclic Burrows Wheeler transform period doubling morphism 0->01 1->00 exact number of runs",
+          "arXiv:2202.02609 general bounds",
+          "CPM 2023 Proposition 31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper explicitly calls μ=(ab,aa) period doubling, matching the given binary substitution on renamed letters; it studies one application on arbitrary words."
+        ],
+        "reasoning": "Checked names period-doubling, uniform substitution, circular rotations and unsentinelled BWT. Identical μ does not mean one-step worst-case sensitivity implies an iterated fixed-point exact transform.",
+        "searches": [
+          "cyclic Burrows Wheeler transform period doubling morphism 0->01 1->00 exact number of runs",
+          "arXiv:2202.02609",
+          "DOI:10.4230/LIPIcs.CPM.2023.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned period-doubling string attractor and block-lift invariants, not cyclic BWT recursion. The inspected papers contain no table of these fixed-point BWT words or exact coefficient."
+        ],
+        "reasoning": "Finite word examples and one-step increase instances are not an exact infinite all-m table; the full recursion is additional information.",
+        "searches": [
+          "cyclic Burrows Wheeler transform period doubling morphism 0->01 1->00 exact number of runs",
+          "Resultary BWT period-doubling published findings",
+          "arXiv:2202.02609",
+          "CPM 2023 Section 6"
+        ]
+      },
+      "rationale": "PASS qualified: Frosini et al prove general logarithmic order for purely morphic binary words, whereas the complete transform recursion and exact 2m-2 coefficient are not provided. Fici et al study one-step period-doubling BWT-run sensitivity and exhibit arbitrary words with large increments (Lemma 29, Proposition 31), with different quantifiers. The exact fixed-point iteration result and full BWT under cyclic 11 avoidance are not identified as a consequence of those primary statements.",
+      "residual_risks": [
+        "An unindexed exact BWT formula for the period-doubling fixed point may exist in related words/compression literature.",
+        "The claim is only for unsentinelled cyclic BWT with ordered binary alphabet; the universal identity is stated for mixed no-11 inputs and the fixed point at m>=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic O(log n)/Theta(log n) results, not the exact fixed-point law or word transform",
+          "evidence": "Abstract explicitly bounds rbwt for purely morphic binary words; examined Section 4 uses bispecial factors and structural morphology, no 2m-2 formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02609",
+          "material_read": "Abstract, BWT conventions, Section 4 combinatorial binary morphism structure, theorem-level bounds; 20-page PDF searched for period doubling",
+          "method": "Primary full text pertinent sections and page screenshot examined",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "Closest same invariant and morphic-family quantitative bound"
+        },
+        {
+          "assessment": "Covers one-step BWT-run increase on constructed words, not iterates of initial 0 or full transform recursion",
+          "evidence": "Lemma 29 proves unbounded Δr for some word w; Proposition 31 gives AS_μ(n)=Ω(sqrt n), distinct from BWT(μ^m(0)).",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.10/LIPIcs.CPM.2023.10.pdf",
+          "material_read": "Introduction, Section 4 Example 18 and Section 6 Lemma 29, Proposition 31 on 18-page primary PDF; page 12 screenshot examined",
+          "method": "OA primary PDF exact relevant sections read",
+          "title": "On the Impact of Morphisms on BWT-Runs",
+          "trigger": "Exact period-doubling substitution appears in its title/topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic BWT of the canonical period-doubling automatic word is a natural compression/indexing invariant. Exact entire-transform recursion and exact log-run coefficient sharpen prior generic bounds and allow structural construction without repeatedly sorting exponentially many rotations. The simple four-block lemma also applies beyond the fixed point to a motivated natural class of cyclic 11-avoiding words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed exact BWT formula for the period-doubling fixed point may exist in related words/compression literature.",
+    "The claim is only for unsentinelled cyclic BWT with ordered binary alphabet; the universal identity is stated for mixed no-11 inputs and the fixed point at m>=2."
+  ],
+  "schema_version": 1
+}
