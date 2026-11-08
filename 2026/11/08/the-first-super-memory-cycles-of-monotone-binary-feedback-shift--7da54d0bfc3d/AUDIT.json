@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The order-preserving update forces periodic orbit states to be an antichain. Conversely the explicit positive-DNF extension realizes exactly every cyclic word whose length-n windows form an antichain. Sperner bounds the period by binom(n,floor(n/2)). For n<=6 the resulting finite periods beyond n have been exhaustively enumerated by direct 2^L enumeration and an independently implemented pruned search, both yielding 28 rooted length-7, 18 rooted length-9, and zero other above-memory cycles. The positive DNF witness realizes a length-nine orbit, and pure cycling realizes length n at all smaller widths. All boundaries n=1..6 were checked; computation is finite and fully justified by the cutoff.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Just and Enciso (2013) provide a general period upper bound by the largest Boolean-lattice antichain; at six coordinates this is 20, which does not imply 9.",
+        "Çalık et al. (2010) consider full-length nonlinear feedback shift registers, not the exact maximum cycle lengths of order-preserving feedback.",
+        "Arratia, Canfield and Hales (2023) study noncoalescing XOR feedback, generally incompatible with coordinatewise monotonicity."
+      ],
+      "reasoning": "A broader set of systems does not dominate a sharp small-case bound unless its theorem implies that bound. The broad cooperative-network upper bound 20 is weaker than 9, and the cited shift-register theorems concern different feedback constraints. None of these inspected results supplies the six-stage period spectrum.",
+      "searches": [
+        "cooperative Boolean shift register longest cycle memory six",
+        "isotone feedback shift register binary cycles monotone map",
+        "monotone Boolean feedback shift register period 9 order 6"
+      ]
+    },
+    "checked_sources": [
+      "Çalık, Sönmez Turan and Özbudak (2010), DOI 10.1587/transfun.E93.A.1226, accessible full article.",
+      "Just and Enciso (2013), DOI 10.1186/1687-1847-2013-313, accessible full article.",
+      "Arratia, Canfield and Hales (2023), DOI 10.1017/S0963548323000020, accessible article.",
+      "Targeted searches of scientific web literature for monotone shift registers, antichain windows, six-bit periods, and synonym classes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sperner gives an upper bound of 20 at memory six; by itself it permits periods 10 through 20 and does not imply the new upper bound 9.",
+        "A necessary description of full-length feedback functions does not imply any characterization of shorter orbits in the monotone subclass.",
+        "The exact antichain-window enumeration and constructive monotone extension provide the missing implication specific to one-feedback shift topology."
+      ],
+      "reasoning": "The statement that the six-stage maximum is 9, period 8 is impossible, and exactly six rotation classes exceed memory is not a direct corollary of any inspected result. No decisive stronger covering source was located.",
+      "searches": [
+        "monotone shift register feedback 9-cycle six memory bits",
+        "monotone Boolean feedback shift register orbit length 9 six states antichain",
+        "cooperative Boolean network cyclic shift register antichain windows maximal six-stage periods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-step shift map with coordinatewise monotone Boolean feedback is a special form of a cooperative Boolean network, but arbitrary cooperative networks have n independent coordinate maps.",
+        "Just and Enciso (2013), DOI 10.1186/1687-1847-2013-313, treat general cooperative Boolean-network periodic orbits."
+      ],
+      "reasoning": "The cyclic-window antichain condition is equivalent to a realizable monotone shift-register orbit, but not to arbitrary antichains. Searches for order-preserving shift registers, isotone feedback, monotone recurrences and cycles of length nine found no matching exact six-stage statement. General cooperative-network theorems cannot force the exact period-nine bound.",
+      "searches": [
+        "monotone order-preserving Boolean feedback shift register first periodic orbit longer than n n=6 period nine",
+        "cooperative Boolean network cyclic shift register antichain windows maximal six-stage periods",
+        "monotone Boolean feedback shift register cycles period length n monotonic boolean function",
+        "monotone shift register period nine cyclic anti-chain windows order preserving Boolean network"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full-length NFSR tables of Çalık et al. (2010) concern 64-period six-stage cycles and feedback structure, not the 7- and 9-period monotone antichain cycles.",
+        "Direct finite certification supplies the 28/18 rooted words and 4/2 necklace counts, with no imported table."
+      ],
+      "reasoning": "The examined primary paper tables and targeted table/database queries did not disclose these precise monotone six-cell cycle counts. This absence does not exclude unindexed historical enumerations; that remains a material qualification.",
+      "searches": [
+        "monotone shift register maximal period six stages nine",
+        "monotone Boolean feedback shift register orbit length 9 six states antichain",
+        "shift register monotone n=6 9"
+      ]
+    },
+    "rationale": "The inspected primary prior work covers maximum-length general nonlinear shift-register feedback, or broad cooperative Boolean-network period bounds, or noncoalescing XOR feedback, none implying the sharp monotone six-cell maximum nine and the full six-necklace above-memory spectrum. Targeted terminology, equivalence, and small-parameter searches yielded no stronger covering statement. Historical priority remains qualified by possible unindexed enumerations.",
+    "residual_risks": [
+      "Independent historical priority review has not been performed; unindexed specialized classifications or older tables may exist.",
+      "The finite count is exact under the stated feedback topology and period definitions only; a wider model would have different values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: targets maximal-length (full 2^n-period) nonlinear feedback and XOR-related conditions, not arbitrary monotone feedback restricted to small periods.",
+        "evidence": [
+          "DOI 10.1587/transfun.E93.A.1226",
+          "Publication date documented as 2010-06-01."
+        ],
+        "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=905987",
+        "material_read": "Open full-text PDF, introduction, core feedback-function conditions, and tables/sections concerning maximum-length NFSRs.",
+        "method": "Read publicly accessible full text and inspected PDF pages for definitions, assumptions and tables.",
+        "title": "On Feedback Functions of Maximum Length Nonlinear Feedback Shift Registers",
+        "trigger": "Nonlinear feedback-register period classifications and plausible six-stage tables"
+      },
+      {
+        "assessment": "Provides the generic antichain upper bound, which at n=6 equals 20; does not classify monotone shift register orbits with one feedback coordinate.",
+        "evidence": [
+          "DOI 10.1186/1687-1847-2013-313",
+          "Model permits all n coordinates to update, unlike a shift with one feedback rule."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1687-1847-2013-313",
+        "material_read": "Open full-text HTML introduction, order-theoretic bounds, general cooperative network assumptions and associated results.",
+        "method": "Read primary open-access article and checked shift-register terminology.",
+        "title": "Ordered dynamics in biased and cooperative Boolean networks",
+        "trigger": "The most direct broader monotone Boolean-network periodic-orbit bound"
+      },
+      {
+        "assessment": "Studies f(x)=x_1 XOR g(rest), generally nonmonotone; no exact n=6 monotone period classification.",
+        "evidence": [
+          "DOI 10.1017/S0963548323000020",
+          "Difference in feedback function hypotheses."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548323000020",
+        "material_read": "Accessible full-text HTML introduction, definitions and primary feedback-map setup.",
+        "method": "Read primary article text and identified its noncoalescing XOR feedback form.",
+        "title": "Random feedback shift registers and the limit distribution for largest cycle lengths",
+        "trigger": "Random shift-register cycle lengths and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7da54d0b-fc3d-4f1f-9839-0a5f79c22f99",
+  "value": {
+    "rationale": "The first register width in which cooperative monotone feedback permits a period longer than the number of memory cells is a natural dynamical threshold. The exact value nine at memory six sharpens the generic width-20 antichain bound by over a factor of two, identifies the absence of period eight, and classifies all exceptional length-seven and length-nine cycles. The result has structural use for small monotone sequential circuit designs, independent of broader unsolved n>=7 behavior.",
+    "status": "PASS"
+  }
+}
