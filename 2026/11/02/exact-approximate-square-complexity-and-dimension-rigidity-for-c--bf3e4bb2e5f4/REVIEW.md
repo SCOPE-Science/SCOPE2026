@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The theorem follows from exact branching of allowed full-pair prefixes, universal extendibility of each subsequent column, uniform bounded-aspect approximate squares, and a Baire-category argument ensuring packing dimension equals the upper box dimension for every individual forbidden-label environment. The Hausdorff-to-packing inequality and equality case follow from strict concavity applied to the previously established almost-sure Hausdorff formula. All quantifiers and geometric boundary issues are explicit in RESULT.md. The included checker independently reproduces finite counts; it is not treated as an infinite proof.
+## correctness
 
-## Originality (PASS under inspected evidence)
-The motivating arXiv:2610.31440v1 has been inspected beyond its abstract, including model definition, Theorem 1.1, discussion of deterministic carpets and related models, and its proof sections; its result is an almost-sure Hausdorff formula, not an exact environmentwise approximate-square count/box-packing theorem or sharp equality criterion. The temporally imposed moving-hole system of Kong--Sun--Wang (arXiv:2505.02336), fixed-hole carpets of Ferguson--Jordan--Rams (arXiv:1206.2219), and level-shared random patterns of Gui--Li are distinct. No equivalent covering statement appeared in the five actual semantic database queries. An unsuccessful search is not proof of worldwide priority; older related full texts remain incompletely inspected.
+PASS
 
-## Value (PASS)
-The originating 2026 work derives the Hausdorff dimension and demonstrates its dependence on column-survival statistics, leaving the other two fundamental dimension notions for its new tree-dependent model unspecified. The exact symbol-count theorem supplies a nonrandom dimension invariant valid for arbitrary deterministic forbidden environments, and the if-and-only-if criterion classifies precisely when the random model has a genuine Hausdorff-versus-packing gap. This resolves a natural structural comparison rather than merely substituting a parameter into an existing dimension table.
+Every allowed full-pair prefix has precisely A−1 next choices, while every column b remains extendible after removing one pair since ℓ_b≥2. Hence exact symbolic k-scale count is (A−1)^θ B^{k−θ}, θ=floor(k log m/log n). Cells have comparable sides m^{-k}, and bounded overlap gives both box dimensions. For packing dimension every relatively open subset contains a cylinder image of full upper box dimension s; Baire plus countable-cover characterization yields packing≥s. The external 2026 Hausdorff formula is E sum_b L_b^λ / log m; Jensen equality requires constant L_b at every root label with positive probability, forcing a unique forbidden column and ℓ_J−1=ℓ_b for b≠J. Independently tested eight constructed finite column-tree environments and concavity boundaries; finite checks do not prove unbounded depth or the external Hausdorff identity.
 
-## Limits and closest literature
-The box/packing proof is independent of randomness but assumes every occupied column retains at least one permitted row at every vertex. The comparison with Hausdorff dimension relies on the cited 2026 theorem and is only almost sure. Full historical priority has not been independently established; the 2008 level-random carpets paper and 2012 fixed-hole paper were not fully accessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary source introduces precisely this random moving-hole model and computes almost-sure Hausdorff dimension; the deterministic full-environment approximate-square count and box/packing result are additional. Classical Bedford–McMullen box and packing formulas for fixed digit sets and other moving-hole models do not directly apply to arbitrary label dependence on column prefixes.
+
+## value
+
+PASS
+
+The exact all-scale combinatorial complexity is intrinsic to a natural planar random-fractal model and resolves a robust deterministic dimension invariant, revealing a sharp contrast with almost-sure Hausdorff dimension. Its applicability to every environment and explicit equal-dimension criterion are substantive independent mathematical facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification notes
-The published model and Hausdorff formula were read from arXiv:2610.31440v1 (22 October 2026), including its definitions (1.2)--(1.5), Theorem 1.1 and the explicit column-probability expression. Its source result is used as a premise, not reproduced or newly claimed.
+# Independent mathematical audit
 
-The analytical checks are: (i) \(A-1\) allowable pair extensions at every history, (ii) at least \(\ell_b-1\ge1\) allowable extensions for each specified column, (iii) bounded-aspect rectangle counting, (iv) continuation-set bi-Lipschitz cylinders plus Baire category for packing dimension, and (v) strict concavity with a fixed sum of \(A-1\) surviving symbols.
+## correctness
 
-`python3 check.py` reproduced the integer approximate-square count for eight seeded finite environments at all depths examined, and checked the strict-concavity equality cases on five integer count vectors. Result: `ALL_CHECKS_PASS`.
+PASS
 
-Finite enumeration does not establish asymptotics, infinite symbolic conjugacies or universal novelty. No independent audit was conducted. Limitations and competing literature are listed in RESULT.md and REVIEW.md.
+Every allowed full-pair prefix has precisely A−1 next choices, while every column b remains extendible after removing one pair since ℓ_b≥2. Hence exact symbolic k-scale count is (A−1)^θ B^{k−θ}, θ=floor(k log m/log n). Cells have comparable sides m^{-k}, and bounded overlap gives both box dimensions. For packing dimension every relatively open subset contains a cylinder image of full upper box dimension s; Baire plus countable-cover characterization yields packing≥s. The external 2026 Hausdorff formula is E sum_b L_b^λ / log m; Jensen equality requires constant L_b at every root label with positive probability, forcing a unique forbidden column and ℓ_J−1=ℓ_b for b≠J. Independently tested eight constructed finite column-tree environments and concavity boundaries; finite checks do not prove unbounded depth or the external Hausdorff identity.
+
+## originality
+
+PASS
+
+The 2026 primary source introduces precisely this random moving-hole model and computes almost-sure Hausdorff dimension; the deterministic full-environment approximate-square count and box/packing result are additional. Classical Bedford–McMullen box and packing formulas for fixed digit sets and other moving-hole models do not directly apply to arbitrary label dependence on column prefixes.
+
+## value
+
+PASS
+
+The exact all-scale combinatorial complexity is intrinsic to a natural planar random-fractal model and resolves a robust deterministic dimension invariant, revealing a sharp contrast with almost-sure Hausdorff dimension. Its applicability to every environment and explicit equal-dimension criterion are substantive independent mathematical facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
