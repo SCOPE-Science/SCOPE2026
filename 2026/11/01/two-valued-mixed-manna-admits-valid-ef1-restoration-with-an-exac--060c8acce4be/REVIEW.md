@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a positive EF1 restoration theorem for identical additive values \(+a,-b\) with arbitrary \(a,b>0\), and a shortest transfer theorem for \(a=b\). The proof explicitly derives the mixed EF1 shortfall, handles the chore-out and good-in branches, checks both the previous and changed holders' envy comparisons, and proves every designated-agent shortfall is nonincreasing. The finite step budget is charged to distinct initial chores of the designated agent and initial goods elsewhere; a sum-score invariant yields exact optimality in the equal-magnitude case. Exact independent-by-code finite consistency tests cover 8,331 near-EF1 initial count states and 14,259 transitions. The proof rather than the finite tests establishes the infinite statement.
+## correctness
 
-## Originality — PASS with residual priority uncertainty
-The closest initiating paper [1] and its fully inspected revised manuscript [2] cover pure goods and pure chores and explicitly provide an obstruction in the general mixed-sign setting with several magnitudes per sign; the revised Table 1 lists general mixed feasibility and optimal restoration as open. The relevant Sections 3–4 and Appendix B.1 of [1] and Section 4.3 of [2] were read, and the counterexample is inapplicable to a common positive and negative value. Source [3] concerns paths between already EF1 all-goods allocations and does not imply the theorem. Searches for signed two-valued mixed-manna restoration and semantic mathematical findings did not surface a stronger matching theorem; semantic search results included mostly unrelated assignment and stochastic-dominance results. This establishes best-knowledge noncoverage in the checked sources, not priority against all specialist literature.
+PASS
 
-## Mathematical value — PASS
-The source identifies a basic existence gap between separate positive and negative cases and an obstruction for general mixed items. The exact two-valued boundary is a substantive, unrestricted-parameter positive classification that resolves that natural subcase without allowing any temporary unfairness to previously happy agents. The sharp unit-magnitude distance adds a natural optimization invariant rather than only a feasibility statement. The problem remains open for heterogeneous signs and magnitudes and for constrained transfer graphs.
+Reconstructed the exact mixed-sign EF1 shortfall E_ij=s_j-s_i-max(a 1_{g_j>0}, b 1_{c_i>0}) and checked both greedy branches. If agent 1 owns a chore, an E_1k>0 witness implies s_k-s_1>b; donating to maximum-other h keeps the recipient happy by removing the received chore; all other happiness survives by the explicit own-chore / available-good split, while the loss of the last-chore threshold is offset by raising s_1 by b. If agent 1 has no chore, E_1k>0 forces a good-owning highest h with M>s_1+a; the h-to-1 good transfer preserves happiness including final-good case and nonincreases E_1j. Each step consumes a distinct original chore of agent 1 or original good outside 1, hence <=m termination. For a=b, scores z_i=g_i-c_i obey EF1 iff spread <=1; all original others are at two adjacent levels, agent 1 stays minimal through greedy steps, and its final score is floor(sum z_i/n). Every transfer increases z_1 by at most one, proving the exact global lower bound. Independently implemented exact count-vector checker reproduced 8331 near-EF1 states and 14259 valid transfers for 7 ratios, n<=4,m<=8. Finite checks corroborate, not prove, unrestricted real parameters/all n.
 
-## Main limitations and risks
-The signed mixed EF1 convention is essential. There is no claim of globally fewest transfers for unequal magnitudes; the motivating paper's mixed counterexample excludes an unrestricted generalization. No claim is made that exhaustive finite tests alone prove universality. Specialist priority could change if relevant unpublished/unindexed work is found.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the all-n signed two-valued mixed-manna near-EF1 restoration theorem and sharp a=b transfer distance. Chandramouleeswaran et al. 2026 revised Table 1 leaves general mixed feasibility/optimality open and its Example 4.18 has many distinct per-sign magnitudes, not two-valued. Its all-goods/chores theorems do not handle the mixed sign-branch switch. Igarashi et al. 2024 and Yuen et al. 2026 address nonnegative goods exchanges/reformation. No matching published finding surfaced in the actual semantic search; unindexed special cases remain a risk.
+
+## value
+
+PASS
+
+Meaningful positive structural boundary at a published heterogeneous mixed-manna obstruction: arbitrary agent number and positive magnitude ratio, strong per-pair non-worsening invariant, at most m one-item repairs. The equal-magnitude exact shortest transfer law is a natural discrete distance invariant, not a mere restatement of existence or a renamed all-goods proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

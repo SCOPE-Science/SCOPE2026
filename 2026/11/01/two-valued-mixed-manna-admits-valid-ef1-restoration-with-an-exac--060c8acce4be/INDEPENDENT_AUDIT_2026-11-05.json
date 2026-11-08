@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:08:39.437272Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact mixed-sign EF1 shortfall E_ij=s_j-s_i-max(a 1_{g_j>0}, b 1_{c_i>0}) and checked both greedy branches. If agent 1 owns a chore, an E_1k>0 witness implies s_k-s_1>b; donating to maximum-other h keeps the recipient happy by removing the received chore; all other happiness survives by the explicit own-chore / available-good split, while the loss of the last-chore threshold is offset by raising s_1 by b. If agent 1 has no chore, E_1k>0 forces a good-owning highest h with M>s_1+a; the h-to-1 good transfer preserves happiness including final-good case and nonincreases E_1j. Each step consumes a distinct original chore of agent 1 or original good outside 1, hence <=m termination. For a=b, scores z_i=g_i-c_i obey EF1 iff spread <=1; all original others are at two adjacent levels, agent 1 stays minimal through greedy steps, and its final score is floor(sum z_i/n). Every transfer increases z_1 by at most one, proving the exact global lower bound. Independently implemented exact count-vector checker reproduced 8331 near-EF1 states and 14259 valid transfers for 7 ratios, n<=4,m<=8. Finite checks corroborate, not prove, unrestricted real parameters/all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandramouleeswaran et al. 2026, Table 1 reports pure goods and pure chores positive theorems; mixed-manna feasibility marked Open; Example 4.18 uses values 3,-10,10,-1,6,-2, outside uniform per-sign magnitude.",
+          "Yuen et al. 2026 studies nonnegative goods, exchange preserving bundle size, including its Appendix C transfer variants, without signed chores."
+        ],
+        "reasoning": "The known stronger result for all positive goods or negative chores cannot be applied to an allocation containing both signs; the negative heterogeneous example cannot contradict the two-valued positive claim. No inspected general theorem dominates unrestricted n and arbitrary positive a/b with both signs.",
+        "searches": [
+          "https://arxiv.org/html/2410.14421v4, Table 1; Sections 4.1.3, 4.3",
+          "https://link.springer.com/article/10.1007/s00453-026-01401-8, Section 1",
+          "web query: mixed manna restoration two-valued EF1 2025 2026"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2410.14421v4 primary HTML (2026-04-26) abstract/Table 1/Definitions/Example 4.18",
+        "doi:10.1007/s00453-024-01271-y primary HTML (2024) abstract/introduction/model",
+        "doi:10.1007/s00453-026-01401-8 primary HTML (2026) abstract/model",
+        "Resultary semantic query for mixed two-valued EF1 restoration (12 displayed hits; no direct overlap)",
+        "Targeted web searches on signed EF1 transfer and mixed manna 2025-2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem 1, 2026 arXiv version, proves <=m valid transfers for identical monotone all-goods, with analogue for chores; these are disjoint single-sign domains.",
+          "Reviewed proof requires the change from donating an own chore to receiving someone else's good, with signed deficit thresholds and a balancing invariant for a=b.",
+          "2024 Algorithmica good-only exchanges preserve bundle-size vector and begin with an EF1 allocation, so do not imply reachability from a mixed-sign near-EF1 start."
+        ],
+        "reasoning": "Positive pure-sign results do not, by themselves, imply the joined signed argument, while the impossibility of a heterogeneous mixed-sign example does not imply impossibility for only +a/-b. The extra exact shortest-distance formula is not a consequence of the cited pure-sign transfer bound.",
+        "searches": [
+          "https://arxiv.org/html/2410.14421v4 Definition 3.1; Theorem 1; Example 4.18",
+          "https://link.springer.com/article/10.1007/s00453-024-01271-y Appendix A scope",
+          "Resultary query: EF1 restoration from near EF1 mixed manna identical agent two valued positive negative items min valid transfers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed EF1 deficit in reviewed RESULT.md: E_ij=s_j-s_i-max(a*1_{g_j>0},b*1_{c_i>0}); preserving E_1j and other-agent happiness is stronger than simply producing an EF1 allocation.",
+          "Igarashi et al., Algorithmica 2024, abstract and Sections 1-2: paths between two already-EF1 all-goods allocations by pair exchanges, with bundle sizes held fixed.",
+          "Yuen et al. 2026 abstract/Section 1: reformation by exchanges of only goods, rather than transfers of goods and chores."
+        ],
+        "reasoning": "Equivalent formulations as near-EF1-to-EF1 signed item transfer, monotone removal of one EF1 shortfall, or exact equal-unit score balancing were distinguished from prior good-only exchange connectivity. None of the inspected primary statements asserts the signed two-valued theorem.",
+        "searches": [
+          "Resultary query: EF1 restoration from near EF1 mixed manna identical agent two valued positive negative items min valid transfers",
+          "web query: identical additive goods chores unit EF1 reconfiguration transfer near envy no new envy theorem",
+          "https://arxiv.org/html/2410.14421v4",
+          "https://link.springer.com/article/10.1007/s00453-024-01271-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source 2026 Table 1 marks general mixed restoration open, and its data table gives a 17-item heterogeneous obstruction, not universal two-valued outcome.",
+          "Resultary top 12 matches included random-serial-dictatorship and endpoint transfer problems but none on signed mixed EF1 restoration (for example ID 2026/10/4/SCOPE-exact-four-agent-random-serial-dictatorship-ordinal-inefficiency--d63734f44c9c)."
+        ],
+        "reasoning": "This is a universal algorithmic theorem, not a finite enumerated invariant; no checked database/table supplies the signed two-valued restoration or minimal a=b transfer count. Search absence alone is not a novelty proof.",
+        "searches": [
+          "Resultary query: EF1 restoration from near EF1 mixed manna identical agent two valued positive negative items min valid transfers",
+          "https://arxiv.org/html/2410.14421v4 Table 1",
+          "https://link.springer.com/article/10.1007/s00453-026-01401-8 Table 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the all-n signed two-valued mixed-manna near-EF1 restoration theorem and sharp a=b transfer distance. Chandramouleeswaran et al. 2026 revised Table 1 leaves general mixed feasibility/optimality open and its Example 4.18 has many distinct per-sign magnitudes, not two-valued. Its all-goods/chores theorems do not handle the mixed sign-branch switch. Igarashi et al. 2024 and Yuen et al. 2026 address nonnegative goods exchanges/reformation. No matching published finding surfaced in the actual semantic search; unindexed special cases remain a risk.",
+      "residual_risks": [
+        "Prior unindexed specialist signed-EF1 work could prove this two-valued case or exact balancing distance; semantic search alone cannot certify priority.",
+        "The theorem is restricted to identical additive values with one positive and one negative magnitude, a single potentially unhappy agent, and unrestricted one-item transfers.",
+        "Some potentially related EF1-reconfiguration appendices were not studied in full; their stated goods-only domain is nonetheless distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pure-sign positive results and heterogeneous mixed negative example; two-valued signed restoration is not among proved stated cases",
+          "evidence": [
+            "arxiv:2410.14421v4, Table 1 (mixed marked Open), Definition 3.1, Example 4.18 with item values 3,-10,10,-1,6,-2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.14421v4",
+          "material_read": "HTML abstract, results Table 1, Definitions 3.1, 3.2, 4.16 and 4.17, Theorem 1, Section 4.3 and Example 4.18 item-value table, relevant future directions",
+          "method": "Read primary full-text HTML at these sections; compared actual value signs, number of magnitudes, move validity and initial near-EF1 premise",
+          "title": "Fair Division in a Variable Setting, v4",
+          "trigger": "Exact EF1-restoration definition and closest broad mixed-manna counterexample"
+        },
+        {
+          "assessment": "Does not establish signed mixed near-EF1 restoration or shortest a=b transfer distance",
+          "evidence": [
+            "Algorithmica 86 (2024) introduction and definitions: all items are goods and main paths connect two already-EF1 allocations"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-024-01271-y",
+          "material_read": "Open-access primary HTML abstract, Sections 1, 1.1, 2, theorem-summary of results and stated Appendix A transfer scope",
+          "method": "Compared goods-only utility and exchange/transfer moves and initial-target EF1 conditions",
+          "title": "Reachability of Fair Allocations via Sequential Exchanges",
+          "trigger": "Potentially stronger EF1 reconfiguration/connectivity theorem"
+        },
+        {
+          "assessment": "Different all-goods nonnegative model with size-vector-preserving exchanges; introductory statement not broad enough to cover signed restoration",
+          "evidence": [
+            "Algorithmica 88 (2026), abstract, Section 1, and Section 2: only goods; exchanges preserve bundle sizes"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-026-01401-8",
+          "material_read": "Full available HTML of abstract, Section 1 introduction/contribution summary, Section 2 model definitions, tables of results; did not inspect every proof/appendix",
+          "method": "Compared signed valuation domain, move types and near-EF1 validity requirement to the claim",
+          "title": "Reforming an Unfair Allocation by Exchanging Goods",
+          "trigger": "2026 later primary work on initially unfair allocation and minimum exchanges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Meaningful positive structural boundary at a published heterogeneous mixed-manna obstruction: arbitrary agent number and positive magnitude ratio, strong per-pair non-worsening invariant, at most m one-item repairs. The equal-magnitude exact shortest transfer law is a natural discrete distance invariant, not a mere restatement of existence or a renamed all-goods proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only identical agents with common goods value +a and common chore value -b, a,b>0; all items allocated; at most one unhappy agent; unrestricted transfers.",
+    "Exact minimum number of transfers only for a=b, and if already EF1 the minimum is zero.",
+    "Partial finite enumeration is not the infinite proof; unindexed specialist literature may alter priority.",
+    "Publication plan blocked by public metadata provenance/privacy; does not invalidate scientific assessment."
+  ],
+  "schema_version": 1
+}

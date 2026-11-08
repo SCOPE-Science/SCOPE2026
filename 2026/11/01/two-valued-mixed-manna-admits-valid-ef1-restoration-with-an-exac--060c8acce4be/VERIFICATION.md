@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-The proof in `RESULT.md` treats all finite numbers of agents, every real \(a,b>0\), empty bundles, final-chore transfers, and final-good transfers. The signed pair shortfall is defined with a zero threshold if neither eligible deletion exists. The chore branch verifies the recipient by newly removable chore and separates other agents according to whether they have an own chore or the designated agent has a good. The good branch verifies the former good-holder against every bundle. Each step preserves all other agents' EF1 happiness and every signed shortfall of agent \(1\) is nonincreasing.
+# Independent mathematical audit
 
-The finite budget follows from each initial chore held by agent \(1\) and each initial good held by somebody else being moved at most once. When \(a=b\), the integer-score argument uses initial near-EF1 to trap all other scores in two consecutive integer levels; the low-score agent's final score equals the floor of the conserved average, proving shortest possible transfers. This is a symbolic all-size certificate, not a finite enumeration extrapolation.
+## correctness
 
-# Reproducible exact checks
+PASS
 
-Run `python3 verify_restoration.py` with Python 3 (standard library only). The script checks all allocations of \(2\)–\(8\) signed items to \(2\)–\(4\) agents with both signs represented, seven integer ratios, and exact integer arithmetic. Every near-EF1 initial state is followed to termination. It asserts invariance of all unaffected agents' EF1 happiness, monotonicity of every distinguished-agent signed shortfall, the item-count bound, and the sharp equal-magnitude formula.
+Reconstructed the exact mixed-sign EF1 shortfall E_ij=s_j-s_i-max(a 1_{g_j>0}, b 1_{c_i>0}) and checked both greedy branches. If agent 1 owns a chore, an E_1k>0 witness implies s_k-s_1>b; donating to maximum-other h keeps the recipient happy by removing the received chore; all other happiness survives by the explicit own-chore / available-good split, while the loss of the last-chore threshold is offset by raising s_1 by b. If agent 1 has no chore, E_1k>0 forces a good-owning highest h with M>s_1+a; the h-to-1 good transfer preserves happiness including final-good case and nonincreases E_1j. Each step consumes a distinct original chore of agent 1 or original good outside 1, hence <=m termination. For a=b, scores z_i=g_i-c_i obey EF1 iff spread <=1; all original others are at two adjacent levels, agent 1 stays minimal through greedy steps, and its final score is floor(sum z_i/n). Every transfer increases z_1 by at most one, proving the exact global lower bound. Independently implemented exact count-vector checker reproduced 8331 near-EF1 states and 14259 valid transfers for 7 ratios, n<=4,m<=8. Finite checks corroborate, not prove, unrestricted real parameters/all n.
 
-The observed run prints:
+## originality
 
-```
-PASS: all finite states tested; near-EF1 cases 8331 total verified transfers 14259 both-direction candidates 608
-```
+PASS
 
-The sample three-agent signed instance in `RESULT.md` was also checked exactly. These finite checks supplement, but do not establish, the universal proof. There is no claim of global optimal transfer count when the positive and negative magnitudes differ. No independent audit is asserted.
+Best-of-knowledge originality for the all-n signed two-valued mixed-manna near-EF1 restoration theorem and sharp a=b transfer distance. Chandramouleeswaran et al. 2026 revised Table 1 leaves general mixed feasibility/optimality open and its Example 4.18 has many distinct per-sign magnitudes, not two-valued. Its all-goods/chores theorems do not handle the mixed sign-branch switch. Igarashi et al. 2024 and Yuen et al. 2026 address nonnegative goods exchanges/reformation. No matching published finding surfaced in the actual semantic search; unindexed special cases remain a risk.
+
+## value
+
+PASS
+
+Meaningful positive structural boundary at a published heterogeneous mixed-manna obstruction: arbitrary agent number and positive magnitude ratio, strong per-pair non-worsening invariant, at most m one-item repairs. The equal-magnitude exact shortest transfer law is a natural discrete distance invariant, not a mere restatement of existence or a renamed all-goods proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
