@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact arch criterion is reconstructed (including an explicit missing subsequence). At each active seen-cardinality s>=d, all last d letters are already seen, so precisely s-d of q-d allowed symbols repeat and q-s are fresh. This proves B_r, H_r and the renewal equation as formal series. Minimality uses per-symbol multiplicity and counts compatible permutation blocks. Conditioned uniform choices produce independent geometric stages and ordinary renewal SLLN/CLT with explicit finite moments. A standalone stdlib verifier compared formal-series coefficients, weighted-state enumeration and literal word checks for q<=8, d>=2, plus extremal and exceptional cases. Risks: unbounded proof is analytic/combinatorial, not formally machine certified; all random asymptotics require fixed parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al. arXiv:2311.10658v1 §4, particularly the path table T[q,length,arches,remainder], counts k-universal words in arbitrary DFA languages for fixed inputs; it does not evaluate this constrained family uniformly in q and d or derive its renewal mean/variance.",
+        "Adamson arXiv:2304.04583v1 §3.2 gives unrestricted-alphabet counting recurrences, without excluding repeated letters in a sliding window.",
+        "The finding \"Exact full-support insertion radius of subsequence universality\" concerns insertion distance rather than counting or limiting distributions."
+      ],
+      "reasoning": "A general algorithm can compute any particular coefficient after encoding the regular language; algorithmic decidability/countability does not itself yield the displayed all-q,d product/rational identity, exact extremal multiplicities, or a positive-variance central limit theorem. Thus available broader generality does not logically cover these evaluated results.",
+      "searches": [
+        "subsequence universality of sliding-window injective words: path power proper colorings all alphabet sizes, exact bivariate generating function, renewal law",
+        "proper colorings of paths kth power universal scattered subsequences exact extremal counts",
+        "arXiv:2311.10658v1 Section 4 Counting and Ranking",
+        "arXiv:2304.04583v1 Sections 3.1-3.2 counting k-subsequence universal words",
+        "proper coloring powers of paths subsequence universal words shortest qk count q! (q-d)^d (q-d)! central limit theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2003.04629v1",
+      "https://arxiv.org/html/2304.04583v1",
+      "https://arxiv.org/html/2311.10658v1",
+      "Published research record \"Closed-form law for binary subsequence universality\"",
+      "Published research record \"Exact full-support insertion radius of subsequence universality\""
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barker et al. establish the number of greedy arches as the universality index, the starting step used here, but give neither the window-history scalar-state collapse nor its exact enumerator.",
+        "The prior radius-one formula has a distinct sample space and cannot be specialized to d>=2 by alphabet substitution: at q=4, shortest k=2 multiplicities differ (432 vs 192).",
+        "The 2023 DFA result subsumes algorithmic counting for each fixed automaton, not the explicit simultaneous q,d product formula and stochastic renewal limit.",
+        "For q=4 and shortest index k=2, distance-one admissibility has 432 witnesses, while distance-two admissibility has 192, so the stricter radius-two count is not the stated distance-one enumeration."
+      ],
+      "reasoning": "The new step is proving that after d fresh letters in each arch, exactly s-d of r choices repeat and q-s create a new color; this yields a scalar renewal kernel for all d>=2. This is additional structure not stated in the compared premises, and no decisive stronger covering statement was retrieved.",
+      "searches": [
+        "arXiv:2003.04629v1 §§2,4 greedy arch factorization",
+        "arXiv:2311.10658v1 §4 general DFA counting",
+        "arXiv:2304.04583v1 §§3.1,3.2 unrestricted word counting",
+        "refractory coupon collector exact coupon collection time forbidding last d coupons, renewal law harmonic number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest indexed finding titled \"Closed-form law for binary subsequence universality\" is an unrestricted binary-alphabet law, not a q>d>=2 window-injective count.",
+        "arXiv:2003.04629v1 §§2,4 defines arch/scattered universality without a window-exclusion family.",
+        "The explicitly defined family is equivalently the labeled proper colorings of the d-th power of a path; searched colorings and forbidden-nearby-letter formulations yielded no matching evaluated joint distribution."
+      ],
+      "reasoning": "Equivalent names include distance-d nonrepetition, sliding-window injectivity, proper colorings of powers of paths, and refractory coupon processes. These objects were compared by their exact sample spaces and renewal counting; retrieved materials do not state the same two-parameter rational function. Search absence alone is not proof of uniqueness.",
+      "searches": [
+        "scattered subword universality with no repeated letters within distance d, finite-word distribution universal index, coupon collector refractory constraints",
+        "sliding-window distinct letters exact universality-index distribution asymptotic renewal shortest universal word",
+        "\"subsequence universality\" \"distance two\" proper coloring words",
+        "\"scattered factor universality\" \"distance two\" repetitions",
+        "\"universality index\" \"no repeat\" \"within\" \"two\" letters",
+        "window injective words forbidden repeat within d positions exact scattered subsequence universality bivariate rational generating function renewal d plus harmonic sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table with these all-pair coefficients or the q=4,d=2 evaluated function occurred in the retrieved indexed research records or inspected primary texts.",
+        "For q=4 and shortest index k=2, distance-one admissibility has 432 witnesses, while distance-two admissibility has 192, so the stricter radius-two count is not the stated distance-one enumeration."
+      ],
+      "reasoning": "The exact object-and-parameter comparison is by window radius and full-alphabet index rather than by matching titles. The d=1 predecessor is not the d>=2 joint distribution. The no-table conclusion is limited to sources actually accessed.",
+      "searches": [
+        "sliding-window distinct letters exact universality-index distribution asymptotic renewal shortest universal word",
+        "scattered-factor universality proper coloring power of a path distance d no repeat closed bivariate generating function",
+        "\"subsequence universality\" \"distance two\" proper coloring words",
+        "coupon collector \"previous\" \"draws\" \"cannot repeat\" \"last\""
+      ]
+    },
+    "rationale": "Comparison of exact logical implications with full-text arXiv:2003.04629, arXiv:2304.04583, arXiv:2311.10658, related published mathematical research records and the distance-one predecessor result found no theorem evaluating the window-injective q>d>=2 distribution or the coupled renewal law. General DFA counting algorithms are acknowledged but do not directly state the uniform closed form or its distributional consequences. Residual bibliographic equivalence risk is recorded.",
+    "residual_risks": [
+      "The indexing search cannot establish uniqueness against all nonindexed publications or differently described refractory coupon-collector models.",
+      "The general DFA theory supplies computability for each fixed radius and alphabet but its relationship to this evaluated uniform family is assessed on inspected statements; an undiscovered explicit specialization is possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general arch lemma; no window-injective counting or limiting distribution in inspected material.",
+        "evidence": [
+          "arXiv:2003.04629v1 §2 Definitions 2-4 and Remark 3",
+          "arXiv HTML §4 universality proofs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Full-text HTML §§2 and 4, including Definitions 2-4, the greedy arch characterization and the universality/circular results and proofs around §4.",
+        "method": "Read accessible arXiv HTML, compared exact statements and quantifiers.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Defines the precise universality index and arch factorization used as the proof starting point."
+      },
+      {
+        "assessment": "Unrestricted word-counting recurrences; no distance-d forbidden-repeat constraints or uniform q,d closed form.",
+        "evidence": [
+          "arXiv:2304.04583v1 §§3.1-3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "Full-text HTML §§3.1-3.2, including Lemma 3.5, Theorem 3.9, and the suffix-counting recurrence.",
+        "method": "Read accessible arXiv HTML theorem statements, constructions and recurrences.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Could contain a stronger exact counting formula for subsequence-universal words."
+      },
+      {
+        "assessment": "Algorithmic fixed-DFA counting applies, but the paper does not state the explicit two-parameter rational GF, exact minimum counts, or renewal central limit law.",
+        "evidence": [
+          "arXiv:2311.10658v1 §4, path table T and universal-word count U",
+          "arXiv:2311.10658v1 abstract and §1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+        "material_read": "Full-text HTML introduction and §4 Counting and Ranking, including path-table construction and counting complexity, plus abstract and conclusions.",
+        "method": "Read accessible arXiv HTML generality, model, and precise claimed outputs.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Its arbitrary regular-language counting algorithm is the strongest plausible general coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fadaaa7a-3670-40f7-9b21-fd109f6b491c",
+  "value": {
+    "rationale": "Proper colorings of powers of paths are a standard natural finite-language family. For the whole two-parameter range 2<=d<q, the theorem evaluates the entire joint length-index series, exact optimal counts, the attainable-domain dichotomy, and an explicit renewal speed/variance with a deterministic-to-Gaussian boundary. The all-radius scalar-state invariant is not a tiny numerical gain or arbitrary slice; it explains the structural behavior and supports constrained sequence design.",
+    "status": "PASS"
+  }
+}
