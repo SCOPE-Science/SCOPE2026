@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each rule realization the total is deterministic and the exact factor is 1-2b xi_n/(T_{n-1}+a+b)>0. The quotient by its product is a martingale; Hoeffding concentration gives T_n=cn+(a+b-c)kappa n/(log n)^theta+O(n/(log n)^(theta+1)). Independent weighted centered switch sums converge; the reciprocal-total expansion has a summable remainder for theta>=1/2. This yields the exact stated product factor, including 2b(a+b-c)kappa^2/c^2 times log log n at theta=1/2. The conditional martingale has square-summable variance because the reciprocal product is n^o(1), and a Polya step gives strictly positive conditional variance. The standalone checker passed 9404 exact finite assertions; it does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1709.00467 Assumption 3.2 requires a limiting mean matrix H irreducible, while here the limiting mean replacement is the diagonal Pólya matrix.",
+        "arXiv:1709.00467 Theorem 4.9 gives L1/in-probability vector convergence but not exact quenched almost-sure fluctuation amplitude.",
+        "Gao–Aguech DOI:10.1017/S0269964822000535 models time-dependent opposite reinforcement and uses a drift condition with positive limiting small-increment parameter."
+      ],
+      "reasoning": "The checked broader classes are relevant but their stated matrix/mean-drift assumptions and conclusions do not supply the exact vanishing-cross-reinforcement normalization or the secondary log-log term. A more general theorem with the necessary singular drift asymptotics might still exist; this is a residual historical-priority risk.",
+      "searches": [
+        "Stochastic Approximation with Random Step Sizes and Urn Models with Random Replacement Matrices Having Finite Mean arXiv:1709.00467",
+        "Multiple-drawing dynamic Friedman urns with opposite-reinforcement Gao Aguech 2023 theorem dynamic",
+        "vanishing mutation two-color reinforced urn second-order logarithmic correction stretch exponential random limit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2502.16768",
+      "arXiv:2605.26669",
+      "arXiv:1709.00467",
+      "DOI:10.1017/S0269964822000535"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alves–Rosales only proves almost-sure Z_n to 1/2 for fixed p.",
+        "Shi–Yin–Miao uses a fixed p and a Gaussian scaling under a spectral inequality.",
+        "The relevant earlier balanced-total result fixes the switch frequency criterion but does not yield the unbalanced half-log correction.",
+        "In the limit p_n to zero the irreducibility hypothesis in the 2017 theorem is not met."
+      ],
+      "reasoning": "The precise second-order exponent depends on the nonzero difference a+b-c and follows from the random total T_n in a product expansion. Neither first-order convergence nor Gaussian fixed-p results imply this correction. The balanced model has a+b=c and hence zero coefficient, so it cannot subsume the asserted nonzero endpoint term.",
+      "searches": [
+        "arXiv:2502.16768 (fixed-probability theorem and proof)",
+        "arXiv:2605.26669 (Sections 2–4 and Theorem 3.3)",
+        "arXiv:1709.00467 (Assumptions 3.1–3.4, Theorem 4.9)",
+        "\"Friedman\" \"Pólya\" \"p_n\" mixing asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1 of arXiv:2502.16768 assumes p in (0,1] fixed and gives Z_n to 1/2.",
+        "Theorem 3.3 of arXiv:2605.26669 proves a sqrt(n) Gaussian law under a fixed mixing probability.",
+        "The balanced-additions harmonic-frequency criterion already controls qualitative convergence, not a deterministic random-amplitude normalization with a half-log boundary."
+      ],
+      "reasoning": "The present result asserts a positive conditional-variance almost-sure limit after an explicit normalizer for p_n tending to zero, with a nonvanishing second-order factor precisely at theta=1/2 when rule totals differ. Fixed-p convergence/CLT and qualitative frequency criteria do not imply these coefficients or the limit law.",
+      "searches": [
+        "\"Friedman\" \"Pólya\" urn \"time varying\" reinforcement probability asymptotic",
+        "Friedman Polya urn nonhomogeneous mixing probability p_n decays to zero, if and only if sum p_n/n infinite, almost sure balancing",
+        "arXiv:2502.16768 (Theorem 1, fixed p)",
+        "arXiv:2605.26669 (Theorem 3.3, fixed p)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches located relevant fixed-probability articles, a balanced-frequency criterion, and general urn results, not a published exact table or formula containing the half-logarithmic multiplicative correction."
+      ],
+      "reasoning": "No matching exact invariant/database entry was identified in the searched sources. Absence from search results alone is not a proof of historical novelty.",
+      "searches": [
+        "Friedman Polya urn logarithmically rare rule p_n=lambda/log n color proportion polylogarithmic random limit",
+        "Friedman Polya time dependent replacement probabilities p_n kappa log n minus theta random signed amplitude logarithm logarithm crossover 1/2 unbalanced",
+        "\"Polya urn\" \"decreasing mutation rate\" logarithmic n limit"
+      ]
+    },
+    "rationale": "The checked primary predecessors treat a fixed mixture probability, and a broader stochastic-approximation theorem assumes an irreducible limiting mean matrix. The known balanced-total frequency criterion does not supply the new unbalanced half-log correction or conditional normalized random amplitudes. No directly covering statement was found in targeted mathematical searches; priority remains provisional.",
+    "residual_risks": [
+      "An unlocated general theorem for vanishing drift stochastic approximations or a different urn parametrization could imply this special limit.",
+      "The source inspections do not constitute an exhaustive worldwide historical-priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed mixture probability; no vanishing schedule or sharp logarithmic random-amplitude rate",
+        "evidence": [
+          "Theorem 1 fixes p in (0,1] and states convergence to 1/2.",
+          "The proof uses a fixed-p map with a unique fixed point."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.16768",
+        "material_read": "Four-page primary PDF, theorem, model, proof and references (pages 1–4)",
+        "method": "Opened extracted PDF text, inspected rendered page 2 and main proof sections",
+        "title": "Friedman vs Pólya",
+        "trigger": "Exact fixed-mixture predecessor for the model"
+      },
+      {
+        "assessment": "Fixed p central limit theorem, not a logarithmically declining switch regime",
+        "evidence": [
+          "Theorem 3.3 states a sqrt(n) CLT with a fixed p and spectral parameter Γ."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.26669",
+        "material_read": "21-page primary PDF: introduction, model and main Theorems 3.1–3.3, selected proof text",
+        "method": "Opened PDF text; read the model and theorem statements and located proofs; PDF screenshot fetch was unavailable",
+        "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+        "trigger": "Recent source with same symmetric random-replacement model"
+      },
+      {
+        "assessment": "Assumes irreducible limiting matrix and proves convergence in L1/probability, not this boundary random amplitude",
+        "evidence": [
+          "Assumption 3.2 requires H irreducible almost surely.",
+          "Theorem 4.9 gives convergence to π_H."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.00467",
+        "material_read": "Primary PDF abstract, introductory assumptions, Assumption 3.2 and Theorem 4.9",
+        "method": "Opened indexed PDF text and inspected irreducibility and main-conclusion sections",
+        "title": "Stochastic Approximation with Random Step Sizes and Urn Models with Random Replacement Matrices Having Finite Mean",
+        "trigger": "Potential general theorem for random time-varying replacement matrices"
+      },
+      {
+        "assessment": "Time-dependent but structurally different strictly opposite-reinforcing mean class; no identified same logarithmic switch correction",
+        "evidence": [
+          "Small-increment regime formulates positive limiting drift-scale parameters and CLT/LLN conclusions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964822000535",
+        "material_read": "Open-access journal abstract, introductory framework and small-increment conditions",
+        "method": "Read full-text HTML excerpt including model and assumptions",
+        "title": "Multiple-drawing dynamic Friedman urns with opposite-reinforcement",
+        "trigger": "Potential time-varying opposite-reinforcement coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e7333ae-82d1-459b-871b-3967b732a7e4",
+  "value": {
+    "rationale": "The exact almost-sure random-amplitude law resolves the natural question of how colour imbalance decays when opposing reinforcement fades like a power of log n. The new sharp boundary theta=1/2 and its nonzero coefficient depending on the unequal total increments are necessary to normalize the process correctly; dropping the factor changes the outcome to divergence or zero on a positive-probability event. Conditional nondegeneracy establishes a real sharp fluctuation scale rather than a routine upper bound.",
+    "status": "PASS"
+  }
+}
