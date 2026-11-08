@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The floor-ceiling identity gives the exact one-step kernel. Geometric holding times give exact pgf and moments. Under n/2^r -> 0, exponential coupling has L1 error O(n/2^r) after scaling. For fixed q, grouping equal ceiling rates into q independent exponential order-statistic maxima yields the precise q-fold Gumbel limit. For diverging q, the Lyapunov third-moment ratio is O(min(q,n)^(-1/2)), proving the normal law. The standalone checker executed 6961 finite exact/numerical tests, not treated as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hathcock and Strogatz, arxiv:2103.08522, sections on broad Gaussian/Gumbel universality and q-free Markov cumulants",
+        "Xia, Massei, Hochstenbach, doi:10.1007/s10589-025-00656-1, sections 3-6 on convergence under fixed-point stochastic rounding",
+        "El Arar et al. arxiv:2603.06060, section 4 on related stochastic-rounding algorithm error analyses"
+      ],
+      "reasoning": "General birth-death theory is mathematically relevant and can recover generic Gumbel/normal categories after an appropriate transition kernel is supplied; it does not itself give the ceiling kernel from finite-bit arithmetic, the precise q-fold convolution, or their explicit exact times. Prior gradient-descent expected-rate bounds do not determine this absorption-time distribution. Thus the proposed complete combined claim is not an identified published special case of a stronger explicit result.",
+      "searches": [
+        "\"stochastic rounding\" \"negative binomial\" iteration",
+        "\"limited precision stochastic rounding\" \"hitting time\" \"absorption\"",
+        "stochastic rounding pure-death chain absorption time arithmetic quantization normal Gumbel"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.24161",
+      "arxiv:2603.06060",
+      "arxiv:2504.20634",
+      "doi:10.1007/s10589-025-00656-1",
+      "arxiv:2103.08522"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2603.24161 formulas for limited precision SR and bias",
+        "arxiv:2504.20634 section III defines one-step few-bit bias without hitting times",
+        "doi:10.1007/s10589-025-00656-1 presents expected convergence bounds for biased fixed-point gradient descent",
+        "arxiv:2103.08522 includes both Gaussian and Gumbel classes of general absorbing Markov models"
+      ],
+      "reasoning": "A theorem stating generic extinction universality does not imply the exact ceiling rates without deriving the specific rounding arithmetic. Once the rates are known, familiar geometric/exponential waiting-time methods contribute substantially; this known machinery is explicitly credited. The surviving claim is the precisely quantified, arithmetic q-dependent complete finite and asymptotic classification for the concrete numerical computation.",
+      "searches": [
+        "fixed point stochastic rounding extinction time average independent Gumbel normal limit",
+        "stochastic rounding coupon collector absorbing chain low precision numerical ODE",
+        "\"stochastic rounding\" \"Gumbel\" \"fixed point\" absorption"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2603.24161 section 2 specifies the two-stage truncated stochastic rounding, but sections 3-4 analyze Horner and pairwise sums",
+        "arxiv:2504.20634 sections II-III and Appendix A analyze bias at one rounding call and countermeasures",
+        "arxiv:2103.08522 discusses Gumbel extinction and coupon collection without a rounding-specific guard-bit kernel"
+      ],
+      "reasoning": "The scalar iteration can be called a pure-death absorbing chain, a quantized descent process or a coupon-collector variant. Those aliases were compared at the level of transition rates and distribution, not title similarity. No inspected item specifies the same q-dependent ceiling sequence and finite-to-limit statements.",
+      "searches": [
+        "\"stochastic rounding\" \"coupon collector\" numerical optimization",
+        "\"stochastic rounding\" \"Gumbel\" \"fixed point\" absorption",
+        "quantized stochastic rounding geometric waiting times variable random bits convolution Gumbel mean variance",
+        "finite random bit stochastic rounding scalar quadratic contraction exact time to zero q independent Gumbel distributions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv full-text materials inspected in arxiv:2603.24161, arxiv:2603.06060, arxiv:2504.20634 contain no table of the c_j=ceil(j/q) rates or their absorption generating function",
+        "Exact finite mean/variance and dynamic-programming identities were reconstructed from the stated model and independently checked as rational arithmetic"
+      ],
+      "reasoning": "No matching published numerical table or exact kernel was encountered in the inspected sources or searched mathematical records. This is not a proof of uniqueness; a specialized record could still predate the result.",
+      "searches": [
+        "limited precision stochastic rounding geometric iteration repeated scalar decay fixed point hitting time negative binomial Gumbel",
+        "guard bits stochastic rounding pure-death chain absorption time arithmetic quantization normal Gumbel",
+        "\"stochastic rounding\" \"coupon collector\" numerical optimization"
+      ]
+    },
+    "rationale": "The published limited-precision stochastic-rounding mechanism and general extinction-time universality are acknowledged. The checked primary texts do not state the joint explicit fine-truncation kernel c_j/2^r, its full geometric hitting-time generating function, or the fixed-integer q Gumbel-average versus diverging-q normal classification for scalar fixed-point descent. The new implication requires an arithmetic state-by-state reduction, grouping of q identical exponential rates, and uniform Lyapunov control. Unindexed prior specializations remain a priority risk.",
+    "residual_risks": [
+      "Unindexed prior quantized Markov-chain absorption calculations may derive the same repeated-rate family.",
+      "General extinction-time frameworks can yield some limit categories once exact transition rates are independently supplied; the claim does not seek exclusivity for Gaussian or Gumbel methods.",
+      "The result depends on downward fine-grid truncation; other finite-bit rounding conventions need a separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It gives the one-call rule and Horner/pairwise finite-error bounds but no repeated scalar absorption-time theorem.",
+        "evidence": [
+          "Definition 2 in section 2 describes SR after a higher-precision truncation",
+          "Theorems 3.1 and 4.1 concern error bounds for Horner and pairwise summation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.24161",
+        "material_read": "Full accessible HTML text, introduction, Definition 1-2, error decomposition and both major theorems in sections 3 and 4, including closing discussion",
+        "method": "Full-text reading and comparison of algorithm objects and distributional claims",
+        "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding: Horner’s Algorithm and Pairwise Summation",
+        "trigger": "Principal 2026 source defining downward-truncated limited-precision stochastic rounding"
+      },
+      {
+        "assessment": "Documents one-step bias and practical stochastic rounding but not the specified guard-ratio extinction distribution.",
+        "evidence": [
+          "Section 2 gives SR_p,r as SR_p after an approximate higher-precision value",
+          "Section 4 covers fixed-point gradient descent and established error bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.06060",
+        "material_read": "Accessible HTML sections 2-4, fixed-point gradient-descent references, hardware summary and reference lists",
+        "method": "Reading the model, variants, convergence review and relevant references",
+        "title": "What is New in Stochastic Rounding: a Survey on Theory, Hardware, and Applications",
+        "trigger": "2026 survey of new limited-precision rounding variants and fixed-point optimization applications"
+      },
+      {
+        "assessment": "Derives one-step bias and corrections, not the absorption distribution for a scalar rounded contraction.",
+        "evidence": [
+          "Section III computes bias of several few-bit schemes",
+          "Appendix A contains single-rounding computations; section IV presents training experiments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+        "material_read": "Accessible HTML introduction, sections II-IV, conclusion and Appendix A with finite-precision bias computations",
+        "method": "Full relevant source reading with attention to ceiling/floor rounding predicates and application statements",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Possible prior finite-random-bit arithmetic and bias coverage"
+      },
+      {
+        "assessment": "Expected-rate and bias analyses differ from the exact termination law of the present two-stage one-dimensional model.",
+        "evidence": [
+          "Theorem 7 and Theorem 9 bound objective convergence",
+          "Proposition 18 and section 6 discuss fixed-point rounding dynamics"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10589-025-00656-1",
+        "material_read": "Accessible open-access HTML, model and assumptions in sections 2-3, theorems and convergence summaries in sections 4-5, experiment discussion in section 6",
+        "method": "Targeted full-text comparison of stochastic update definitions, quantifiers and convergence claims",
+        "title": "On the convergence of the gradient descent method with stochastic fixed-point rounding errors under the Polyak–Łojasiewicz inequality",
+        "trigger": "Directly related fixed-point gradient-descent convergence analysis"
+      },
+      {
+        "assessment": "Strong conceptual antecedent; general normal/Gumbel classes and coupon-collector identity already known. No explicit finite-bit ceiling kernel or q-repeated-rate result was identified.",
+        "evidence": [
+          "General cumulant representation and Markov waiting-rate analysis",
+          "Coupon-collector Gumbel and two-boundary convolutions are discussed explicitly"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.08522",
+        "material_read": "Accessible full-text abstract and sections on Gaussian, Gumbel and convolution cases, cumulant formulas and examples",
+        "method": "Implication-level comparison of Markov rates, boundary mechanisms and claimed limits",
+        "title": "Asymptotic absorption-time distributions in extinction-prone Markov processes",
+        "trigger": "General historical theory might dominate any new Gaussian/Gumbel statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "40b42d48-cc98-4d06-9834-ea6e11a9bbc7",
+  "value": {
+    "rationale": "Finite probability bits and scalar fixed-point descent are a concrete numerical design problem. The exact termination distribution and its q-dependent fluctuation class determine iteration budgets and expose an arithmetic, not merely big-O, consequence of guard-bit quantization. q=1 reproduces classical Gumbel timing; fixed q>1 gives a non-Gumbel average with variance pi^2/(6q); divergent q gives a normal limit. The mathematical object is natural and the precision-sensitive distribution is not implied by first-moment convergence estimates.",
+    "status": "PASS"
+  }
+}
