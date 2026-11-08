@@ -1,19 +1,21 @@
-# Scientific review: two-site clipped-logistic first-event chart
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a fixed and explicit domain \(0<s<1\), \(3<r<1+\sqrt6\), and a specified interior prime-period-two branch. Substitution reconstructs the invariant ray, while the two-step spectrum follows from a common invariant tangent line and the trace identity. At every sample before the first event, clipping is inactive in an entire neighborhood of both orbit points. The scalar and transverse multipliers start strictly inside the unit disk, and the transverse multiplier is strictly decreasing for \(r>3\). Uniqueness of the scalar clipping contact, a fully factored polynomial resultant, and the exact sign at the scalar threshold establish the four first-event intervals. The equality cases are described only as contacts, not as smooth exponentially attracting continuation. Exact identities were checked by executing `CHECK.py`; finite samples are corroboration, not universal proof.
+PASS
 
-## Originality — PASS, with material historical risk
+The exact polynomial map F(x,y)=(r x(1-x+sy), r y(1-y-sx)) has an invariant ray (x,y)=(a z,b z), a=(1+s)/(1+s²), b=(1-s)/(1+s²), on which z follows the logistic map r z(1-z). For 0<s<1, z±=(r+1±sqrt((r-3)(r+1)))/(2r) are the prime-two points for r>3 near the onset. The full 2D return multipliers are nu_parallel=4+2r-r², nu_perp=r²−2r(r+1)/d+4(r+1)/d², d=1+s². Independent exact symbolic Jacobian and two-step determinant computations reproduce both multipliers. The first possible stability/contact thresholds are r_c=1+sqrt(6), r_perp(s)=[1+sqrt((d³+3d+2)/(2-d))]/d, r_clip(s)=(1+s)/(2d)[1+sqrt(1+4d/[s(1-s)])]. The symbolic resultant of transverse -1 and clip conditions factors as (s-1)^4 d^3(s³+s²+s-1)(s³+s²+3s-1); the unique positive roots s1~0.2955977425 and s2~0.5436890127 are transverse/clip exchanges. Comparing with r_c gives s3=sqrt((2sqrt(6)-3)/5)~0.6162758288. The first event on the specified smooth interior two-cycle has ordered intervals transverse (0,s1), contact (s1,s2), transverse (s2,s3), tangent (s3,1); at equality first events tie as stated. Independently evaluated full 2D return Jacobians and sample s=.25,.4,.6,.8 confirm the order, while exact monotonicity and resultant prove the continuum. No post-event attractor or global dynamics claim is made.
 
-The accessible Baron–Galla (2026) supplemental text states the clipped model, and studies the baseline scalar two-cycle and high-dimensional disordered dynamics. The mathematical contribution here is the explicitly solved **two-dimensional** antisymmetric invariant branch, full transverse return spectrum, and exact **four-regime ordering between clipping and two kinds of multiplier loss**. The closest historical source, Satoh–Aihara (1990), contains the same polynomial two-variable model in a numerical phase-diagram study. Its abstract, available metadata and follow-up abstract were examined; its complete journal article was inaccessible, so comparison of its full statements and appendices could not be made. The accessible Al-Kaff et al. (2024) article material describes coupled-logistic fixed-point and bifurcation criteria, not the stated period-two/clipping chart. Relevant mathematical-research records were searched for the exact/alias formulations, and accessible prior findings concerned different maps or invariants. This supports a provisional originality judgment, not a historical-priority certificate; the 1990 direct antecedent is the main residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The same explicit attracting orbit has **two disconnected coupling bands** in which transverse loss comes first, separated by a coupling band where **physical clipping preempts transverse loss**. At stronger coupling, the tangent period-doubling becomes first instead. This is a sharp natural boundary between smooth linear stability and a physical saturation obstruction in the smallest interacting model of the motivating class. Each boundary is an exact cubic/radical invariant, not a fitted plot or a trivial reformulation of the scalar logistic period-doubling. No stronger claim about ensuing period-four/eight cycles or global dynamics is required.
+Best-of-knowledge PASS for exact analytic first-event division into four coupling ranges of the *clipped* antisymmetric equal-r two-site logistic map. Satoh–Aihara 1990 numerically studied exactly the underlying *unclipped* two-species polynomial and attractor phase diagrams, an unusually strong primary antecedent. The journal full text could not be obtained through arXiv/OA and authorized Oxford returned vpn_disconnected; only its abstract/published bibliographic page were read, so exact prior thresholds remain materially uncertain. Al-Kaff et al. 2024 treat related fixed-point bifurcations rather than the specified clipped period-two first-event chart. Best-of-knowledge judgment does not claim the unread Satoh article is definitively not covering.
 
-## Closest sources and limits
+## value
 
-Baron & Galla (arXiv:2609.24402v1, 2026); Satoh & Aihara (JPSJ 59, 1184–1198 and 1123–1126, 1990); Al-Kaff et al. (Scientific Reports 14, 16118, 2024). The full 1990 studies were not read; they may contain a previously unknown stronger statement. The new proof only covers the specified initial interior two-cycle and its first event, not global attractors.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines a nonmonotone four-region ordering of two distinct instability mechanisms and clipping contact, with exact cubic transition boundaries. The distinction between physical clipped orbit and formal polynomial continuation is mathematically motivated, and the full 2D transverse eigenvalue is essential rather than scalar logistic analysis alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
