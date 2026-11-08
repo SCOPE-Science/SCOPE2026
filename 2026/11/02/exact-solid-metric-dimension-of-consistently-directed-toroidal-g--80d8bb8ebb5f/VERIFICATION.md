@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification of the directed-torus solid-metric dimension formula
+# Independent mathematical audit
 
-The mathematical proof is self-contained in `RESULT.md`. Its critical steps are the ordered-pair equivalence, the four-case directed-distance lower-bound calculation, the expansion lemma, and the explicit expanding landmark sets in the two parameter regimes.
+## correctness
 
-## Direct original-definition check
+PASS
 
-Run `python verify.py`. The script uses the directed distance
-\(d((a,b),(i,j))=((i-a)\bmod m)+((j-b)\bmod n)\) and checks every distinct ordered pair of vertices against the constructed landmarks. It covers 83 pairs \((m,n)\) with \(3\le m\le9\), and separately checks row coverage, interval expansion, and exact cardinalities. Observed output:
+For any m,n≥3 the forward distance on Z_m×Z_n is d((a,b),(i,j))=(i−a mod m)+(j−b mod n). Solid resolution is the two-sided ordered-pair strict distance condition. Assume m≤n. Pairs (i,j) versus (i,j−1) force at least one landmark in each y-row, |S|≥n. Comparing p=(a−1,j) and q=(a,j−1), d(s,q)−d(s,p) is 0,−m,n,n−m depending on x=a and y=j; resolving q from p forces x=a,y≠j, hence at least two y-locations in every x-column, |S|≥2m. For sufficiency an expanding S occupies all rows and each k-column proper cyclic interval intersects at least k+1 distinct y-rows. Modular difference formula d(s,v)−d(s,u)=Δ+δ−m 1_{X+Δ≥m}−n 1_{Y+δ≥n} resolves all ordered pairs: if Δ+δ≤m, at most δ forbidden rows in an interval of m−Δ columns, so one unobstructed landmark; other cases by a chosen row/column. Explicit S={(j mod m,j)} for n≥2m and diagonal+second-row families for m≤n<2m attain max(n,2m). Coordinate swap handles all. Endpoint n=m included. Note no forced vertices by translation and β<mn.
 
-```
-DIRECT_ORDERED_PAIRS_OK 83 parameter_pairs
-INTERVAL_EXPANSION_OK 83 parameter_pairs
-EXACT_SIZES_OK 83 parameter_pairs
-VERIFY_OK
-```
+## originality
 
-## Independent minimum-cardinality spot checks
+PASS
 
-With NumPy and SciPy installed, run `python verify_milp.py`. This constructs a separate integer-programming problem, with a binary variable for every possible landmark and a covering inequality for every distinct ordered vertex pair. Ten exact optimum calculations were completed for \((m,n)=(3,3),(3,4),(3,6),(3,8),(4,4),(4,7),(4,9),(5,5),(5,8),(6,6)\), matching the formula in every case. Observed final line: `MILP_VERIFY_OK 10`.
+Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.
 
-The integer-programming checks are finite, and are not asserted to prove the infinite theorem. The proof does not depend on third-party computation. No independent external mathematical audit has been performed.
+## value
+
+PASS
+
+This exact formula settles the canonical source-free strongly connected directed Cartesian cycle products, a family not handled by source-forcing landmark arguments. Interval-expansion constructions and simultaneous n and 2m lower obstructions are mathematically motivated and may serve as a base case for higher directed products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
