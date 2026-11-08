@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete cubical zero-, one-, and two-cell classification yields the Euler characteristic \(1-\binom m2\). An explicit two-stage list of free elementary collapses removes every two-cell for every \(m\ge3\); the remaining graph is connected. This establishes the integral circle-wedge homotopy type. Independently, the signed cellular traces under all arm permutations and pole interchange produce the character \((-1)^\epsilon(\binom f2-t)\). Each sign is justified by graph-edge orientation and, for exchanged square axes, the determinant sign. An exact standalone checker constructs cubical incidence matrices, verifies every declared free face and chain identity, and checks the character for all symmetries through seven arms and all conjugacy classes through ten arms. These finite tests corroborate, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality — PASS, with limitations
-Ko and Park's 2011 general theorem already determines the *non-equivariant first Betti number* for this graph; that rank is not the asserted novelty. Inspection of their full available text, including the generalized-theta discussion, found no arm-permutation or pole-interchange homology character. Barnett–Farber and Kurlin furnish configuration-space machinery rather than the new complete symmetry module. The closest inspected mathematical research record on three-particle theta configurations determines \(H_2\) for a different particle number and an augmentation-lattice exterior cube, not the present \(H_1\) action for two particles. Published two-particle studies of other graphs and theta graph-metric complexes likewise do not imply this module. Unindexed equivalent statements remain a residual originality risk.
+PASS
 
-## Value — PASS
-Graph braid groups on multi-theta graphs are a standard graph-configuration test family. The theorem provides the full rational representation under *every* arm permutation and the independent pole involution, information not supplied by a Betti number. In particular pole interchange acts as negative identity and there are no arm-permutation-invariant homology classes. The result is an infinite-family structural refinement, not an arbitrary finite numerical computation.
+The sufficiently subdivided unordered two-particle graph cubical complex has cell counts c0=C(2m+2,2), c1=6m², c2=(7m²-5m)/2. Explicit distinct free 1-faces remove A_iC_i, off-diagonal A_iB_j and B_iC_j, subsequently off-diagonal A_iC_j, then B_iB_j, exhausting every square and leaving a connected graph. Hence X_m is a wedge of C(m,2) circles integrally. The arm-permutation and pole-swap operations preserve the cubical model; signed cell traces yield tr(H1)=(-1)^epsilon(C(f,2)-t), matching wedge²Q^m tensored with the pole-swap sign. Under S_m the character does not contain trivial representation. The actual theta_two_config_verify.py implements incidence/free-face tests for finite m=3..10, not an unbounded proof; independently checked exterior-square trace identity for m=3..10. Key uniform free-face and signed trace cases were read from RESULT.md.
 
-## Scientific limitations
-The equivariant isomorphism is over \(\mathbb Q\); no assertion is made about the canonical integral lattice. Independent mathematical assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Non-equivariant Betti rank is covered by general graph braid homology (Ko–Park); this work does not claim that numerical rank. Neither older general homology machinery nor the inspected three-particle theta H2 augmentation-cube module, nor the exchange-sign Borel–Moore local-system result implies ordinary H1 under full path permutation and pole inversion for two unordered particles.
+
+## value
+
+PASS
+
+Provides a complete infinite-family rational symmetry character and two geometric consequences (pole swap is -I and no arm-invariants) for a canonical graph-braid test family. It upgrades prior rank data to the representation under a natural full automorphism group; not an arbitrary finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
