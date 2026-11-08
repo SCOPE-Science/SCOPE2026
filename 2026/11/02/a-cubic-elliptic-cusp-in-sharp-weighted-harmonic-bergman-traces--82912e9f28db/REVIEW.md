@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weighted harmonic monomials give a complete orthonormal basis; the circular trace eigenvalue ratios show an isolated double top eigenvalue in the claimed interval. Since the ellipses lie in one compact subdisk, the curve restriction forms a compact operator-norm analytic self-adjoint family. First variation on the two-dimensional eigenspace yields the stated absolute-value cusp. At its unique zero, the diagonal second variation and the sole third-harmonic off-eigenspace coupling yield the rational quadratic coefficient. At the doubly exceptional weight, the Fourier coefficients \(17/8\), \(-5/8\), and \(x=5/9\) produce the cubic \(9/16\). The standalone standard-library checker verifies 70 exact algebraic identities, but the infinite-dimensional conclusion is analytic rather than computational.
+## correctness
 
-## Originality
-PASS under the inspected evidence. Halder–Kumar, arXiv:2607.13543v1 (2026-07-15), proves weighted convex-curve trace existence and a general circle estimate but not sharp elliptic first, second, or third shape responses. The closest previously surfaced circular trace staircase gives diagonal circle norms only. Searches for harmonic Bergman ellipse trace shape derivatives, the singular radius, and the cubic cusp found no covering implication. Unindexed shape-perturbation work and full text of a separately surfaced circular record remain residual risks; absence of a search hit is not proof of novelty.
+PASS
 
-## Value
-PASS. The natural first harmonic of the circular sharp trace has a twofold harmonic degeneracy. Elliptic deformation reveals a precise orientation-sensitive cusp, a unique cancellation radius for every weight, an unexpected sign change of the next response at weight two, and a genuinely cubic nonanalytic onset at the doubly exceptional point. These are sharp operator norms, not arbitrary finite-mode samples; they characterize a meaningful instability/stability boundary in a classical weighted convex-curve trace problem. The result deliberately does not address arbitrary curves.
+For α>−1 set β=α+1,s=r² and s∈(1/(α+2),2/(α+3)). Harmonic Fourier basis has circle trace diagonal d_n=2π r(1−s)^β s^n (α+2)_n/n!, with decreasing consecutive ratios and strictly isolated double maximum d_1 at n=±1. Ellipses remain in a compact subdisk, making the trace form a compact self-adjoint operator-norm analytic family; Kato finite-eigenspace reduction applies. First-order 2×2 effective matrix is d1[[0,2−L/2],[2−L/2,0]], L=1+2βs/(1−s), giving |3−(2α+5)s| |ε|/[2(1−s)]. Cancellation occurs exactly at s*=3/(2α+5). Fourier selection then yields diagonal second-order direct q and only n=3 complement coupling x=s²(β+2)(β+3)/6; total q=(β−3)(2β+3)/(4β(5β+9))=((α−2)(2α+5))/(4(α+1)(5α+14)). At β=3,s=1/3 the quadratic term vanishes; third-order direct off-diagonal 17/8 and indirect paths −25/16 sum to 9/16. Odd parity removes diagonal third-order and the top eigenvalue produces 1+(9/16)|ε|³+O(ε4). Signs are consistent under ellipse rotation ε→−ε. These are operator-optimal not finite-mode-only asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The general convex-curve weighted harmonic Bergman trace inequality and the exact sharp circular frequency staircase are earlier. Primary full RESULT for the circle was inspected and mathematically compared. The evaluated novelty is the actual sharp, orientation-insensitive elliptic shape derivative and two successive cancellations producing a |ε|³ cusp, which cannot follow from a fixed circular diagonalization alone. Halder–Kumar primary full text was inaccessible via OA/arXiv and authorized institutional retrieval; only abstract/scoped statements available, so that priority risk is explicit.
+
+## value
+
+PASS
+
+The double first-harmonic eigenvalue of the exact weighted circle trace supplies a natural spectral degeneracy. Its nonradial ellipse perturbation displays a sharp cusp, a weight-dependent quadratic response changing sign precisely at α=2, and an exceptional cubic onset with exact coefficient. That is a substantive sharp operator norm shape stability/invariant rather than a routine circle-bound restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
