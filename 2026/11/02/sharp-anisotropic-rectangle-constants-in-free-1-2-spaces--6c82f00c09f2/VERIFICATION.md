@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-Execute `python3 verify_rectangle.py` with the Python 3 standard library. The checker independently lists all 16 spanning trees, calculates unique cut flows using graph connectivity, verifies exact rational inequalities for all tree flow triples at seven nontrivial aspect ratios, reproduces each exact centered secant, and checks 3,080 varied boundary/random tangent loads; its output was `PASS: 16 exhaustive spanning trees; 3192 total exact/rand comparisons; all sharp witnesses and bounds verified.` The mathematical proof is not a consequence of finite sampling. Its continuum upper bound uses a concavity certificate in the sole potentially dominant sign sector and analytic comparisons in the remaining three sectors. The lower certificate is an exhaustive symbolic 16-tree enumeration displayed in the main result.
+## correctness
 
-Scope: only the real exponent \(p=1/2\), four Manhattan-rectangle vertices, and the canonical bilinear map. A broader equivalent theorem may exist outside inspected material. Independent validation has not been performed.
+PASS
+
+The free 1/2 molecular cost is exactly min over 16 spanning-tree square-root flow costs: cycles can be eliminated by concavity and flows on a tree are fixed by cut masses. Bilinearity yields exact midpoint secants and sign symmetries reduce to a,b>=0, a+r b=1; four sign regions exhaust q=ay+bx. In three regions two path costs plus Cauchy and majorization bound by 1+1/sqrt2<=F_r. In the horizontal mixed region a nonnegative concave combination gamma F1+eta F2+gamma F3 has zero gradient at the exhibited point and proves the global bound. At m=(-r-1,r,-r,r+1)/(3r+1) the eight 16-tree cost patterns give the exact lower bound F_r; symmetric interior secants attain F_r^2. Derivative F_r'=(1/sqrt r-1/sqrt(r+1))/(3r+1)^(3/2)>0. Independent separately coded enumeration of 16 trees confirmed the exact target at r=1,2,3,5,11; this is only finite corroboration.
+
+## originality
+
+PASS
+
+Exact finite-aspect law and monotonicity for unequal-sided rectangles is not the already-published unit square value or uniform upper bound 3.
+
+## value
+
+PASS
+
+Canonical bilinear interpolation into a Lipschitz-free p-space is central to quantitative extension and basis constructions. The exact all-aspect p=1/2 norm, genuine interior maximizers and strict approach to the known uniform bound distinguish anisotropic geometry that cannot be inferred from the square case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

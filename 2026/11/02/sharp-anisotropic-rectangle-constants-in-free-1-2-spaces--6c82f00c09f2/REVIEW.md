@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-vertex free \(1/2\)-norm is reduced rigorously to 16 exact tree costs by concave cycle elimination. The bilinear secant identity reduces the global operator norm to directional tangent loads. Two tree flows bound each one-signed and vertical-mixed region, while a positive concave combination of three exact tree costs gives the global upper bound in the horizontal-mixed region. The 16-tree cut-flow table proves a matching lower bound at a concrete midpoint and direction for every aspect ratio; strict monotonicity follows by differentiation. The independent implementation of cut-flow enumeration in `verify_rectangle.py` passed all 3,192 programmed comparisons (finite checks corroborate, but do not replace, the proof).
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The original coordinatewise-affine constructions and cube bounds (Albiac et al. 2020; Bíma 2023) do not provide the unequal-sided exact profile. The published square-cell theorem gives an exact value only at equal sides. Uniform-over-aspect upper bounds and the limiting value are not new; this proof determines the previously unclassified exact value for every finite aspect ratio and proves strict variation. Targeted scientific semantic and literature searches did not retrieve a stronger pre-existing profile; unindexed equivalences are a residual risk.
+PASS
 
-**Value — PASS.** Unequal cell dimensions are intrinsic to anisotropic discretizations, and even at a fixed quasi-Banach exponent the optimal interpolation distortion was unknown at finite aspect ratio. The sharp formula gives the full continuum of constants, an explicit 16-tree certificate, an attained optimizer, strict aspect-ratio sensitivity and quantitative approach to the known supremum. This is a natural complete parameter classification, not a small isolated computation.
+The free 1/2 molecular cost is exactly min over 16 spanning-tree square-root flow costs: cycles can be eliminated by concavity and flows on a tree are fixed by cut masses. Bilinearity yields exact midpoint secants and sign symmetries reduce to a,b>=0, a+r b=1; four sign regions exhaust q=ay+bx. In three regions two path costs plus Cauchy and majorization bound by 1+1/sqrt2<=F_r. In the horizontal mixed region a nonnegative concave combination gamma F1+eta F2+gamma F3 has zero gradient at the exhibited point and proves the global bound. At m=(-r-1,r,-r,r+1)/(3r+1) the eight 16-tree cost patterns give the exact lower bound F_r; symmetric interior secants attain F_r^2. Derivative F_r'=(1/sqrt r-1/sqrt(r+1))/(3r+1)^(3/2)>0. Independent separately coded enumeration of 16 trees confirmed the exact target at r=1,2,3,5,11; this is only finite corroboration.
 
-**Limits.** The exponent is only \(1/2\); arbitrary free exponents, more vertices and arbitrary extensions are not classified. There is no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact finite-aspect law and monotonicity for unequal-sided rectangles is not the already-published unit square value or uniform upper bound 3.
+
+## value
+
+PASS
+
+Canonical bilinear interpolation into a Lipschitz-free p-space is central to quantitative extension and basis constructions. The exact all-aspect p=1/2 norm, genuine interior maximizers and strict approach to the known uniform bound distinguish anisotropic geometry that cannot be inferred from the square case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
