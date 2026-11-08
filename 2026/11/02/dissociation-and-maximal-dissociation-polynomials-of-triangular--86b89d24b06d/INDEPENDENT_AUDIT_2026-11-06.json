@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:08:24.862764Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex of T_n=L(K_n) is an edge uv of K_n. Its induced degree for selected base edges H is deg_H(u)+deg_H(v)-2, so the dissociation condition forces all components to be isolated vertices, K2s, or P3s (a degree-2 vertex cannot meet another degree-2 vertex). Exactly maximal selections either cover [n] by K2/P3 or have one isolated base vertex and all remaining P3. Exponential labeled-block enumeration yields D EGF exp(x+zx^2/2+z^2x^3/2) and M EGF exp(zx^2/2+z^2x^3/2)+x exp(z^2x^3/2). The support of M is every degree ceil(n/2)..floor(2n/3) and singleton exactly n=2,3,4,5,7. Strict log-concavity follows from decreasing adjacent full-partition coefficient ratios; the n=3q+1 corrected last ratio remains smaller than its predecessor for q>=5, while q<=4 has at most two coefficients. Independently checked each graph subset at n2..6 by original adjacency/maximality definitions; examined supplied verifier for larger-n size-truncated enumeration and distinguished finite corroboration from proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The line-graph maximum theorem applies to broader root graphs.",
+          "Resultary records give exact dissociation polynomials for fan graphs, complete multipartite graphs, and generalized windmills, not T_n."
+        ],
+        "reasoning": "Broader graph classes studied algorithmically do not dominate an unquoted exact count on triangular graphs; these other graph subclasses do not cover T_n for general n.",
+        "searches": [
+          "triangular graph line graph complete graph dissociation maximal dissociation set generating polynomial enumeration",
+          "line graph dissociation maximum general theorem 2011",
+          "dissociation polynomial complete multipartite fan windmill Resultary"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md and verify.py",
+        "Orlovich et al 2011 doi:10.1016/j.dam.2011.04.023",
+        "arXiv:2103.01402",
+        "Resultary semantic search: triangular graph line graph complete graph dissociation maximal dissociation set generating polynomial enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof derives the K2/P3 decomposition, one-unused exception, and EGFs from the triangle-graph incidence condition.",
+          "The known bound floor(2n/3) follows, but does not imply maximality census or coefficient shape."
+        ],
+        "reasoning": "The classification and log concavity require explicit structure/ratio analysis not contained in inspected general results; credit ordinary labeled set partition methodology and known maximum.",
+        "searches": [
+          "Orlovich 2011 theorem line graphs Hamiltonian path maximum dissociation",
+          "Tu Li Du 2021 extremal bounds maximal dissociation counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orlovich et al study maximum and minimum-maximal dissociation parameters of line graphs including Hamiltonian-path root graphs.",
+          "Tu–Li–Du derive graph-order bounds on numbers of maximal/maximum dissociation sets, not the entire labeled T_n coefficient profile."
+        ],
+        "reasoning": "The known size maximum floor(2n/3) is covered; the all-subset and maximal cardinality polynomials and coefficient log-concavity are not given by these general size and complexity results.",
+        "searches": [
+          "triangular graph line graph complete graph dissociation maximal dissociation set generating polynomial enumeration",
+          "Orlovich Dolgui Finke Gordon Werner 2011 dissociation line graph complete graph",
+          "Tu Li Du 2021 maximal maximum dissociation general graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficients count unlabeled component-types weighted by n!/(u!2^(a+b)a!b!) and maximal partition variants.",
+          "Source literature gives scalar extremal bounds and some explicit different-family polynomial examples."
+        ],
+        "reasoning": "No matching exact table/sequence found that implies every M_n coefficient; a known maximum size is a strictly weaker invariant.",
+        "searches": [
+          "triangular graph dissociation polynomial maximal dissociation generating function OEIS",
+          "triangular graph line graph complete graph dissociation maximal dissociation set generating polynomial enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.",
+      "residual_risks": [
+        "Differently indexed partition-polynomial enumerations may already imply the result.",
+        "The published maximum dissociation size is prior art; novelty is bounded to full polynomial and log concavity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Shows maximum size and algorithmic complexity, not the triangular graph all- and maximal-set generating functions.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "Readable full HTML introduction, Sec.2 line-graph maximum theorem, Sec.3, conclusion",
+          "method": "Read publisher HTML sections and explicit theorem statements",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Original line-graph dissociation complexity and Hamiltonian-path maximum theorems"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS",
+          "evidence": "Provides order-based upper bounds and extremal families, not triangular-graph coefficient formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01402",
+          "material_read": "Primary PDF definitions and general extremal theorems",
+          "method": "Read full PDF relevant theorems",
+          "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+          "trigger": "Same inclusion-maximal dissociation definition and general enumerative bounds"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": "Generalized windmills are not triangular graphs; no direct implication to T_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "material_read": "Published result abstract and exact formula",
+          "method": "Read indexed published record summary",
+          "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills",
+          "trigger": "Related recent exact polynomial family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This establishes two complete exact labeled enumerators and the entire inclusion-maximal size spectrum for the natural triangular/Johnson( n,2) graph family. An explicit exceptional one-unused-vertex class, strict coefficient log-concavity, and the isolated n7 well-covered case are useful combinatorial facts beyond the known scalar dissociation maximum; the exponential formula is elementary but the classification is not merely a substitution into a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md and verify.py",
+    "Orlovich et al 2011 doi:10.1016/j.dam.2011.04.023",
+    "arXiv:2103.01402",
+    "Resultary semantic search: triangular graph line graph complete graph dissociation maximal dissociation set generating polynomial enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Differently indexed partition-polynomial enumerations may already imply the result.",
+    "The published maximum dissociation size is prior art; novelty is bounded to full polynomial and log concavity.",
+    "Mathematical infinite claims rest on scrutinized proofs, not finite numerical verification. Best-of-knowledge originality is not a priority certificate. Public status files retain private provenance and were not sanitized; scientific PASS does not authorize publication."
+  ],
+  "residual_risks": [
+    "Differently indexed partition-polynomial enumerations may already imply the result.",
+    "The published maximum dissociation size is prior art; novelty is bounded to full polynomial and log concavity."
+  ],
+  "schema_version": 1
+}
