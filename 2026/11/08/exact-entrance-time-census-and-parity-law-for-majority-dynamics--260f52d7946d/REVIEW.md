@@ -1,0 +1,9 @@
+# Review of the triangular-book majority entrance-time census
+
+**Correctness — PASS.** The exact page update and two hub threshold maps cover every initial binary word through its labelled weight. Separate central/exterior parity cases enumerate all five first-entry classes, and the proof shows that no new cycle appears after time two. The two provided standalone programs passed: direct labelled enumeration for \(2\le n\le14\), and independent weighted quotient verification for \(2\le n\le120\). The infinite-family theorem follows from the case analysis rather than those computations.
+
+**Originality — PASS, with residual risk.** The closest older majority/threshold papers by Kuhlman et al. (2011) and Benjamini et al. (2014) give general eventual-period restrictions and different graph-domain results. Existing complete-split periodic-state counts imply the *immediate* recurrent counts in this special case and are not presented as the new contribution. What is evaluated here is the complete five-class entrance distribution, the sharp two-update clock, and the parity-sensitive eventual-basin law. Searches for K_{1,1,n}, triangular books, split graphs, and majority basins located no covering exact statement, but unindexed equivalents remain possible. The foundational 1980 Goles–Olivos paper was available only through an abstract.
+
+**Value — PASS.** Complete entrance distributions distinguish the attractor census from its basins and quantify how initial configurations are recruited. The result supplies an exact answer on an infinite canonical two-hub graph family and a non-obvious contrast: immediate two-cycle probabilities have different polynomial/exponential parity scales, while both eventual basin probabilities tend to one quarter. The domain and tie convention are deliberately explicit.
+
+Self-review: passed. Independent audit: not yet performed.
