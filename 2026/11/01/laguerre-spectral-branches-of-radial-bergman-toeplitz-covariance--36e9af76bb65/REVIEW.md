@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Radial compression gives exact beta moment blocks; the positive Gram identity excludes negative eigenvalues. Rodrigues integration proves the finite leading-principal determinant exactly, including all positive real \(\alpha+1\); gamma-moment convergence and min–max comparison separate all branches at rates \(n^{-2k}\). Unique dominant minors and the Laguerre monic norms give each coefficient, while exact homogeneous multiplicity counting and inversion give the Weyl coefficients and endpoints. The independent finite calculation within the package tests covariance determinants and asymptotics; no numerical extrapolation is used as an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, not certified priority)
+The actual m-channel defect is a positive Gram form: sum_{ij}< (T_{u^{i+j}}-T_{u^i}T_{u^j})x_j,x_i> = ||(I-P) sum_j u^j x_j||^2. Radial Toeplitz action on homogeneous degree n reduces to U=1-||z||²~Beta(b=α+1,a=n+d), so the block is exactly the covariance of U,U²,...,U^m, with entries (b)_{i+j}/(a+b)_{i+j}−(b)_i(b)_j/((a+b)_i(a+b)_j). Strict beta positivity makes each G_n positive definite and injective. Gram-Schmidt with monic shifted-Jacobi norms gives det G_n[1:k]=prod_{j<=k} j!(a)_j(b)_j /((a+b)_{2j}(a+b+j-1)_j). Under nU converging in moments to Gamma(b), diagonal scaling by n^-j gives positive limiting covariance H, minmax separates eigenvalues by n^-2k. The unique dominant principal minor in e_k is [1:k], so ratios of elementary symmetric functions give n^{2k}λ_k(n)->k!(b)_k, the Laguerre monic norm. Multiplicity h_{n,d}=binom(n+d-1,d-1), accumulated ~N^d/d!, yields s_J~c_k/(d!J)^{2k/d}, S_p iff p>d/(2k), exact log mass c_k^{d/(2k)}/d! at critical exponent, and full defect p>d/2. Fresh rational beta Gram determinants for (a,b)=(2,1),(3,2),(7,4),(12,3) and k<=3 matched the full product; finite tests support, do not prove asymptotic.
 
-The primary motivating paper of Dawson–Dewage–Ólafsson, arXiv:2610.33428v1, provides radial Toeplitz algebra characterizations and approximations rather than this multichannel covariance spectral theorem. Tang–Wang–Zheng's full introduction and high-dimensional semicommutator theorems give traces and general ideal information without an ordered \(m\)-branch covariance spectrum. Maximenko–Pacheco and Bauer–Herrera Yañez–Vasilevski treat scalar radial eigenvalue sequences; their monomial diagonalization is expressly acknowledged. Search comparisons against published mathematics and accessible earlier results found no equivalent complete hierarchy. A hidden stronger formulation in general moment-matrix or semiclassical Toeplitz theory remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A finite family of commuting radial Toeplitz operators has a natural positive matrix covariance measuring failure of multiplicativity; the separate positive eigenbranches are intrinsically defined and capture higher-order information invisible to a scalar trace. All \(m\) exact spectral orders, their constants, multiplicity-dependent Schatten thresholds, and critical logarithmic masses constitute a motivated complete classification, not an arbitrary single coefficient or routine rescaling.
+Best-of-knowledge PASS for the whole positive matrix semicommutator spectral hierarchy, with explicit Jacobi principal-minor determinant, Laguerre limiting eigenbranches, multiplicities and Schatten/log endpoint constants. Classical radial diagonalization and beta/Jacobi facts are prior ingredients, while the inspected operator-algebra and trace-semcommutator sources do not establish this fixed monomial covariance block hierarchy.
 
-The analysis assumes \(m,d\) fixed, \(\alpha>-1\), analytic weighted Bergman spaces, and boundary-distance monomial symbols. It does not claim new Jacobi/Laguerre identities individually, other radial classes, publication priority, or external certification.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A natural multichannel Toeplitz multiplicativity defect on a classical weighted Bergman space has a hierarchy of spectral decay powers n^-2,n^-4,... rather than one scalar compactness threshold. Exact Jacobi Gram determinants, ordered Laguerre branch constants, sharp Schatten cutoffs and endpoint logarithmic masses give precise new operator invariants that a specialist could use in semicommutator and spectral asymptotic questions. Natural boundary-distance monomials motivate the channels; it is not just a fabricated small matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

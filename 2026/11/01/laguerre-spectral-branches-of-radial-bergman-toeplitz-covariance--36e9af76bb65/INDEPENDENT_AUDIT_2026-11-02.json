@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:42:58.830138Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual m-channel defect is a positive Gram form: sum_{ij}< (T_{u^{i+j}}-T_{u^i}T_{u^j})x_j,x_i> = ||(I-P) sum_j u^j x_j||^2. Radial Toeplitz action on homogeneous degree n reduces to U=1-||z||²~Beta(b=α+1,a=n+d), so the block is exactly the covariance of U,U²,...,U^m, with entries (b)_{i+j}/(a+b)_{i+j}−(b)_i(b)_j/((a+b)_i(a+b)_j). Strict beta positivity makes each G_n positive definite and injective. Gram-Schmidt with monic shifted-Jacobi norms gives det G_n[1:k]=prod_{j<=k} j!(a)_j(b)_j /((a+b)_{2j}(a+b+j-1)_j). Under nU converging in moments to Gamma(b), diagonal scaling by n^-j gives positive limiting covariance H, minmax separates eigenvalues by n^-2k. The unique dominant principal minor in e_k is [1:k], so ratios of elementary symmetric functions give n^{2k}λ_k(n)->k!(b)_k, the Laguerre monic norm. Multiplicity h_{n,d}=binom(n+d-1,d-1), accumulated ~N^d/d!, yields s_J~c_k/(d!J)^{2k/d}, S_p iff p>d/(2k), exact log mass c_k^{d/(2k)}/d! at critical exponent, and full defect p>d/2. Fresh rational beta Gram determinants for (a,b)=(2,1),(3,2),(7,4),(12,3) and k<=3 matched the full product; finite tests support, do not prove asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dawson et al. Theorems 4.11 and 8.3 characterize radial Toeplitz algebra and use Schatten operator convergence but do not state this monomial multichannel covariance or exact Laguerre branch singular values.",
+          "Tang-Wang-Zheng focus on semicommutator trace formulas, not the singular value sequence of positive m×m covariance defects.",
+          "Maximenko-Pacheco treat scalar radial measure symbols and diagonalization, rather than coupled covariance branches of powers of u."
+        ],
+        "reasoning": "General radial Toeplitz algebras and semicommutator identities cover a broad operator-theoretic context, but their stated conclusions do not dominate this exact multichannel spectral calculation or provide the precise branch constants.",
+        "searches": [
+          "Dawson-Dewage-Ólafsson arXiv:2610.33428 full primary PDF Introduction and Theorems 4.11,8.3",
+          "Tang-Wang-Zheng arXiv:2210.04148 Trace Formula of Semicommutators full primary PDF",
+          "Maximenko-Pacheco arXiv:2503.23649 Toeplitz operators in Bergman space induced by radial measures full primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2610.33428",
+        "https://arxiv.org/pdf/2210.04148",
+        "https://arxiv.org/pdf/2503.23649",
+        "https://doi.org/10.1007/s00020-013-2101-1",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/laguerre-spectral-branches-of-radial-bergman-toeplitz-covariance--36e9af76bb65/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract identity T_fg-T_fT_g as a compression covariance is classical and credited.",
+          "Jacobi monic norms determine the principal Gram determinants; additional unique-dominant-minor and minmax argument is required to get each ordered eigenvalue and spectral counting.",
+          "Dawson Theorem 4.11 is a closure/algebra characterization, not eigenbranch asymptotics for fixed powers."
+        ],
+        "reasoning": "Classical orthogonal polynomials supply ingredients, but not a stated semicommutator theorem whose hypotheses and conclusion include the entire new multichannel decay-and-Schatten statement as an immediate corollary. Priority is qualified given possible general moment matrix theorems.",
+        "searches": [
+          "Dawson et al. arXiv:2610.33428 Theorem 4.11 radial Toeplitz algebra",
+          "Tang et al. arXiv:2210.04148 semicommutator trace formula",
+          "Classical Jacobi and Laguerre monic norms beta and gamma orthogonality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent mathematical form is the covariance matrix of the first m nonconstant powers of a Beta(α+1,n+d) variable as n→infinity, with monic Laguerre norm eigenbranch constants.",
+          "Bauer et al. characterize radial Toeplitz eigenvalue sequences on homogeneous degrees; matrix covariance eigenbranch splitting is not part of their inspected scalar radial-eigenvalue statement."
+        ],
+        "reasoning": "Recasting as beta-moment Gram matrix or Hankel form does not by itself establish the exact ordered eigenvalue branch hierarchy and Toeplitz Schatten thresholds; the potentially equivalent polynomial asymptotic formulation is noted as a residual risk.",
+        "searches": [
+          "Resultary: Bergman Toeplitz radial semicommutator covariance powers 1-r^2 Laguerre eigenvalue asymptotics Schatten classes",
+          "Resultary: radial Toeplitz operator covariance matrix Laguerre beta moments spectral eigenbranch",
+          "Bauer-Herrera Yañez-Vasilevski eigenvalue characterization radial weighted Bergman"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary Bergman spectral filling result concerns a second-order deficit in unrelated hyperbolic-distance forms, not this covariance matrix.",
+          "No inspected radial Toeplitz spectral table specifies all c_k=k!(α+1)_k, the branch cutoffs d/(2k) and the critical log masses."
+        ],
+        "reasoning": "An exact classical beta moment formula is not equivalent to an exact table of ordered multichannel eigenvalue asymptotics. Search absence is treated as bounded evidence, not as mathematical proof of priority.",
+        "searches": [
+          "Resultary: radial Toeplitz operator covariance matrix Laguerre beta moments spectral eigenbranch",
+          "Resultary: Bergman Toeplitz radial semicommutator covariance powers 1-r^2 Laguerre eigenvalue asymptotics Schatten classes",
+          "Bauer-Herrera Yañez-Vasilevski 2014 radial eigenvalue characterization"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the whole positive matrix semicommutator spectral hierarchy, with explicit Jacobi principal-minor determinant, Laguerre limiting eigenbranches, multiplicities and Schatten/log endpoint constants. Classical radial diagonalization and beta/Jacobi facts are prior ingredients, while the inspected operator-algebra and trace-semcommutator sources do not establish this fixed monomial covariance block hierarchy.",
+      "residual_risks": [
+        "A general asymptotic theorem for graded moment Gram matrices or finite Hankel matrices could subsume the constants under a different formulation, beyond the bounded primary comparison.",
+        "Finite-degree eigenvalue ordering at ties can make spectral-channel operator realization basis-dependent; the asserted singular-value multiset is invariant, and no canonical eigenvector choice is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Radial Toeplitz algebra/QHA approximation characterization; no m-channel beta covariance spectral branches asserted in inspected theorems",
+          "evidence": [
+            "Theorem 4.11 describes closure of radial Toeplitz algebra; Theorem 4.9 operator/Schatten approximation, not c_k eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.33428",
+          "material_read": "Primary full PDF original article abstract, Introduction pp. 1–3, Theorems 4.9/4.11 pp. 22–24, Section 8 radial algebra statements, inspected rendered pp. 1–2",
+          "method": "Read lawful OA full-text PDF after publisher/arXiv PDF path failed, comparing exact theorems and quantifiers",
+          "title": "Quantum harmonic analysis and the Differential operators on weighted Bergman spaces of bounded symmetric domains",
+          "trigger": "Very recent same weighted Bergman radial Toeplitz class and Schatten setting"
+        },
+        {
+          "assessment": "Trace formulas do not give this natural m-channel spectral hierarchy",
+          "evidence": [
+            "Source focuses on traces of T_fT_g-T_fg, different spectral observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.04148",
+          "material_read": "Primary full PDF introduction, main trace results and relevant semicommutator formulas, including rendered mathematical page",
+          "method": "Compared trace properties against exact eigenvalue branch/Schatten demands",
+          "title": "Trace Formula of Semicommutators",
+          "trigger": "Same Toeplitz semicommutator operation on weighted Bergman ball"
+        },
+        {
+          "assessment": "Supplies radial diagonalization framework, not ordered multichannel covariance eigenvalues",
+          "evidence": [
+            "Scalar radial induced measure Toeplitz operators and boundedness results, not this covariance hierarchy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.23649",
+          "material_read": "Original primary PDF beginning, radial-symbol diagonalization and moment parameter setting; inspected rendered page",
+          "method": "Compared scalar radial operator spectrum to positive matrix covariance blocks",
+          "title": "Toeplitz operators in Bergman space induced by radial measures",
+          "trigger": "Potential stronger radial eigenvalue/moment theorem"
+        },
+        {
+          "assessment": "Does not cover coupled Jacobi Gram eigenbranches",
+          "evidence": [
+            "2014 paper characterizes scalar radial sequences; no operator V_m family in inspected text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00020-013-2101-1",
+          "material_read": "Accessible full-text discussion of radial moment-eigenvalue characterization and main results",
+          "method": "Compared exact hypotheses and scalar eigenvalue characterizations",
+          "title": "Eigenvalue Characterization of Radial Operators on Weighted Bergman Spaces Over the Unit Ball",
+          "trigger": "Same weighted unit-ball radial eigenvalue sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural multichannel Toeplitz multiplicativity defect on a classical weighted Bergman space has a hierarchy of spectral decay powers n^-2,n^-4,... rather than one scalar compactness threshold. Exact Jacobi Gram determinants, ordered Laguerre branch constants, sharp Schatten cutoffs and endpoint logarithmic masses give precise new operator invariants that a specialist could use in semicommutator and spectral asymptotic questions. Natural boundary-distance monomials motivate the channels; it is not just a fabricated small matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed channel count m, integer ball dimension d>=1, real α>-1 and these boundary-distance monomials; no uniform m growth or arbitrary radial symbols.",
+    "Finite numerical spectra are supportive; asymptotic eigenvalue separation and counting must rest on provided proof.",
+    "Broader moment-matrix and orthogonal-polynomial literature might state an equivalent spectral hierarchy in another application."
+  ],
+  "schema_version": 1
+}
