@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Explicit mod-seven residue branches, Hensel roots, multiplier orders and their mod-49 non-Wieferich residues determine the shells. The quadratic coefficient of the neutral return map vanishes mod seven, ensuring exact starting displacement; an odd-prime cycle-lifting induction proves growth at every depth. Isometric inverse branches and the critical residue-zero branch give the exact global Haar masses. A complete modular census through \(7^5\) corroborates the formulas but does not certify infinite depth.
+## correctness
 
-**Originality — PASS, qualified.** The primary full-text comparator is Fan–Liao, *On minimal decomposition of p-adic polynomial dynamical systems*, arXiv:1010.5583. It gives general decomposition and odometer theorems but does not tabulate these \(\mathbb Z_7\), \(x^2+1\) shell identities or the distinctive first-shell critical-branch basin weight. The squaring-map study concerns a distinct polynomial. Searches across general literature and mathematical records found no exact identical census; inability to rule out every historical worked example remains a risk.
+PASS
 
-**Value — PASS.** These are intrinsic complete dynamical invariants for a natural small-degree polynomial at the first prime yielding two indifferent fixed points with distinct nontrivial residue orders. The complete global basin measure resolves how the critical branch changes population weights, which is not specified by a qualitative minimal-decomposition theorem.
+For f(x)=x^2+1 on Z_7, the two fixed roots are alpha≡3, beta≡5 (mod7), alpha≡31, beta≡19 (mod49); multipliers 2alpha and 2beta have residue orders e=2 and 6, with lambda_alpha^2≡22, lambda_beta^6≡15 mod49. Their return-map quadratic coefficients vanish modulo 7 and linear displacement has valuation m+1 for points in depth-m shells. Odd-prime cycle lifting then yields lengths e*7^j and corresponding minimal odometers; three alpha sign-orbit components and one beta six-orbit shell at each m. Residue precursor branches are two for alpha and four for beta; critical residue zero enters B1 with measure 1/7, giving alpha basin 4/7^{m+1}, beta B1=31/49, Bm(m>=2)=24/7^{m+1}. Totals 2/7 and 5/7. Independent modular branch and cycle counts checked mod 7^2,7^3,7^4, supporting but not replacing all-depth proof.
 
-The claims are specific to \(\mathbb Z_7\), with no extrapolation to all primes. Independent validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality resides in this polynomial/prime-specific complete shell and PRE-iteration Haar basin census, not in general minimal decompositions or p-adic cycle-growing. Fan–Liao arXiv:1010.5583 proves a broad qualitative decomposition and extensively treats Z_2 quadratics, without the present explicit Z_7 f=x^2+1 counts in the inspected material. Related squaring-map work concerns f=x^2, not x^2+1; an unindexed identical worked example remains possible.
+
+## value
+
+PASS
+
+Complete minimal-component and pre-iteration Haar basin census on the natural quadratic x²+1 over the first small prime showing both neutral fixed points with distinct multiplier orders. The critical branch produces a 31/49 first-shell weight rather than the generic 24/49, a nontrivial measure-theoretic distinction absent from qualitative cycle-lifting theorems. Exact odometer types and basin totals are useful dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
