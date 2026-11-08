@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:13:17.086125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-state CTMC 11,10,01,00 with absorption at 00 and extinction rates u=theta/x,v=theta/(A-x), rescues c=beta(A-x),d=beta x has the first-step equations (u+c)T10-cT11=1, (v+d)T01-dT11=1, (u+v)T11-vT10-uT01=1. Inverting the transient generator independently in exact symbolic algebra confirms T11=((u+c)(v+d)+v(v+d)+u(u+c))/(uv(u+v+c+d)) and substitution T=[A-z/A+(beta/theta)z^2/A]/theta with z=x(A-x). For feasible x in [m,A-m], 0<m<A/2, z spans [m(A-m),A^2/4]; f(z) strictly convex for beta>0, so maxima only at endpoint z. Their difference has sign beta(z_-+z_+)/theta-1; hence unequal extremes for beta<beta_c, three-way tie at beta_c, equal split for beta>beta_c. Derivative sign yields coexistence of local extrema on theta/(2z_+)<beta<theta/(2z_-). All-parameter claims analytical; symbolic exact rational independent test passed. No positivity/boundary gaps found.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Etienne/Heesterbeek 2000 full article uses identical patch sizes and number-vs-area design",
+          "Day/Possingham 1995 heterogeneous stochastic metapopulation framework, discrete phases",
+          "Frank/Wissel 2002 heterogeneous-lifetime approximation"
+        ],
+        "reasoning": "These broader stochastic frameworks might admit a related special case, but descriptions and inspected relevant primary articles do not provide an implication to the exact four-state continuous-time area-coupled formula and one-threshold optimizer; full historical review remains qualified.",
+        "searches": [
+          "two habitat reserve area extinction rescue colonization continuous-time expected time global optimal allocation threshold",
+          "Day Possingham 1995 heterogeneous patch sizes positions stochastic model",
+          "Frank Wissel 2002 heterogeneous landscape mean metapopulation lifetime",
+          "Etienne Heesterbeek 2001 rules thumb conservation"
+        ]
+      },
+      "checked_sources": [
+        "Etienne/Heesterbeek 2000 DOI:10.1006/jtbi.1999.1060 (full PDF)",
+        "Day/Possingham 1995 DOI:10.1006/tpbi.1995.1034 (partial description)",
+        "Etienne/Heesterbeek 2001 DOI:10.1086/321986 (abstract)",
+        "Frank/Wissel 2002 DOI:10.1086/338991 (abstract)",
+        "Resultary semantic reserve-allocation extinction query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact f(z) contains a positive rescue quadratic term beta z^2/(A theta^2) in competition with a negative z/(A theta) term",
+          "The rate couplings vary with x, unlike fixed-extinction optimizing only rescue rates"
+        ],
+        "reasoning": "Without simultaneous area variation of both extinction and rescue coefficients, existing optimizers do not imply the transition beta_c=theta/(z_-+z_+) or its three-point boundary tie.",
+        "searches": [
+          "two habitat reserve area extinction rescue colonization continuous-time expected time global optimal allocation threshold",
+          "Etienne Heesterbeek fixed total area equal patch optimal 2000",
+          "two patches allocation rescue fixed rates extinction time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Etienne/Heesterbeek DOI:10.1006/jtbi.1999.1060 models reserve number and common size",
+          "Here two areas x and A-x have u=theta/x,v=theta/(A-x), recipient rescue rates beta times area"
+        ],
+        "reasoning": "A two-state patch occupation Markov chain can be written in alternative conventions, but identified reserve papers do not give this exact jointly coupled endpoint comparison.",
+        "searches": [
+          "two habitat reserve area extinction rescue colonization continuous-time expected time global optimal allocation threshold",
+          "two patch mean extinction time unequal habitat area rescue rates stochastic metapopulation",
+          "Etienne Heesterbeek 2000 optimal size number reserves metapopulation persistence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic ecology search returned predator-prey extinction and rescue examples with different state models, no direct two-reserve allocation theorem"
+        ],
+        "reasoning": "No exact stored table for this specified rate law located; absence from search is not evidence of historical priority.",
+        "searches": [
+          "two habitat reserve area extinction rescue colonization continuous-time expected time global optimal allocation threshold",
+          "Resultary metapopulation reserve allocation extinction rescue two patches",
+          "two reserve CTMC exact absorption time optimal uneven equal size threshold"
+        ]
+      },
+      "rationale": "Prior two-patch stochastic reserve design and heterogeneous-patch models use related extinction-time objectives but the fully inspected 2000 Etienne-Heesterbeek source varies identical reserve count/size rather than jointly optimizing two unequal areas with recipient-area rescue. The specific endogenous-rate coupling and exact switch formula are not derived by cited results; potential older heterogeneous CTMC specializations are a substantial priority risk.",
+      "residual_risks": [
+        "Several plausible older stochastic reserve optimization papers were not read completely; special CTMC formulas might occur there.",
+        "The model uses idealized reciprocal-area extinction and recipient-area rescue, not empirical calibration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related, not identical two-unequal-area CTMC theorem",
+          "evidence": "The analysis varies number and equal patch size under total budget; does not state two-area joint-rate threshold.",
+          "identifier_or_url": "https://doi.org/10.1006/jtbi.1999.1060",
+          "material_read": "full lawful PDF including model setup, identical-patch reserve assumptions, and optimization discussion",
+          "method": "read complete accessible PDF and relevant model sections",
+          "title": "On optimal size and number of reserves for metapopulation persistence",
+          "trigger": "closest title and extinction-time objective"
+        },
+        {
+          "assessment": "plausible older overlap remains risk",
+          "evidence": "Day/Possingham 1995 uses spatial and discrete-phase heterogeneity, not shown to imply the current CTMC exact optimum.",
+          "identifier_or_url": "https://doi.org/10.1006/tpbi.1995.1034",
+          "material_read": "accessible source description and model passages as summarized in assigned package; no complete independent PDF reading",
+          "method": "source abstract/available paper description reading",
+          "title": "A stochastic metapopulation model with variability in patch size and position",
+          "trigger": "heterogeneous size and colonization/extinction possibility"
+        },
+        {
+          "assessment": "related optimization, complete coverage not resolved",
+          "evidence": "Reserve persistence rule-of-thumb scope differs from exact four-state recipient-area rescue optimization.",
+          "identifier_or_url": "https://doi.org/10.1086/321986",
+          "material_read": "publisher abstract and bibliographic framing",
+          "method": "read publisher abstract",
+          "title": "Rules of thumb for conservation of metapopulations based on a stochastic winking-patch model",
+          "trigger": "possibly dominating conservation rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-reserve reserve-design tradeoff is a motivated ecological optimization problem with an exact and discontinuous allocation decision boundary. Although the CTMC algebra and convexity are elementary, the combined area-dependent extinction/rescue model yields a nontrivial full global phase diagram and simultaneous local maxima relevant as a benchmark, not a generic symbolic exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Etienne/Heesterbeek 2000 DOI:10.1006/jtbi.1999.1060 (full PDF)",
+    "Day/Possingham 1995 DOI:10.1006/tpbi.1995.1034 (partial description)",
+    "Etienne/Heesterbeek 2001 DOI:10.1086/321986 (abstract)",
+    "Frank/Wissel 2002 DOI:10.1086/338991 (abstract)",
+    "Resultary semantic reserve-allocation extinction query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Four-state absorbing CTMC, exactly two reserves, both initially occupied, beta/theta/A positive, 0<m<A/2.",
+    "Optimization is specific to the stipulated area-rate laws; no general conservation recommendation."
+  ],
+  "schema_version": 1
+}
