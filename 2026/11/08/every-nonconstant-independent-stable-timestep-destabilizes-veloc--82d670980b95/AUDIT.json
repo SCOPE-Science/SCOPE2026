@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Direct kick-drift-kick calculation gives determinant one and a positive fixed-h preserved metric for 0<h<2. Symbolically tr(ABA^-1B^-1)-2=a²b²(a-b)²(a+b)²/16, strictly positive for distinct support values. The subgroup is noncompact; ellipticity eliminates invariant one-line and two-line sets except an impossible common h=sqrt(2), and any finite set of at least three lines would make the projective group finite, contradicting the hyperbolic commutator. Every non-point-mass law has such two support values, giving total irreducibility of its full generated group. Bounded M(h) and inverses give integrability, so Furstenberg yields a.s. positive norm exponent, and SLLN yields the physical-time exponent. For point masses a fixed SPD invariant form bounds powers. Exact symbolic and rational replay verifies all nonstandard algebra; no finite computation is mistaken for the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hochman–Solomyak, arxiv:1610.02641, Introduction, states classical Furstenberg positivity for unbounded totally irreducible groups; it does not classify specific Verlet timestep matrices.",
+        "Piché explicitly derives periodic-step stability charts and parametric resonance, not a universal stochastic classification.",
+        "Sturman–Thiffeault bound Lyapunov exponents for randomly selected *shear* matrices, distinct support matrices."
+      ],
+      "reasoning": "General Furstenberg positivity is broader as an abstract criterion and is cited as a proof ingredient, not claimed novel. Its noncompactness and total irreducibility hypotheses for any two distinct velocity-Verlet steps are the explicit new mathematical work, and that verification is not a corollary of periodic Floquet stability alone.",
+      "searches": [
+        "arxiv:1610.02641",
+        "arxiv:1209.5173",
+        "arxiv:1108.0322",
+        "doi:10.1007/s00332-018-9497-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.5173",
+      "arxiv:1108.0322",
+      "arxiv:2108.05420",
+      "arxiv:1610.02641",
+      "doi:10.1007/s00332-018-9497-3",
+      "SIAM J. Applied Math. 46 (1986) doi:10.1137/0146030 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Piché (2012) contains an existential periodic variable-step resonance mechanism; that does not imply positive exponent for *every* independent nonconstant law, including nonresonant pairs.",
+        "Hochman–Solomyak invokes the universal criterion but never proves that the Verlet matrices satisfy its geometric assumptions.",
+        "A related previous finding establishes expected-energy growth for randomly stepped symplectic Euler; expectation growth neither implies almost-sure top norm growth nor identifies the second-order Verlet group."
+      ],
+      "reasoning": "Unlike existential periodic instability, the new proof establishes a complete if-and-only-if law characterization and provides a stable-alternation pair that is unstable under iid selection. The analytic trace-commutator and finite invariant-orbit proof supply exactly the missing implications.",
+      "searches": [
+        "arxiv:1209.5173",
+        "arxiv:1108.0322",
+        "arxiv:1610.02641",
+        "random symplectic Verlet timestep fluctuations hyperbolic commutator no common invariant quadratic form"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Piché, arxiv:1209.5173, Sections 1 and 4, treats parametric stability under periodic modulation; no iid support-law positivity assertion appears in the inspected sections.",
+        "Richardson–Finn, arxiv:1108.0322, Sections 1–2, distinguish time-prescribed periodic and state-adaptive steps; neither yields an all-law random-product theorem.",
+        "Random physical-frequency oscillator papers, including Arnold–Papanicolaou–Wihstutz, SIAM J. Applied Math. 46 (1986), concern stochastic forcing of the *differential equation*, not random numerical timesteps of a fixed oscillator."
+      ],
+      "reasoning": "Checked alternative aliases (Störmer, leapfrog, Verlet, two-point i.i.d., parametric noise, random-frequency oscillator) and distinction from a stochastic physical oscillator or deterministically alternating steps. The methods and claims are not equivalent: each random step here acts on the same fixed-frequency dynamics and uniform iid draws are essential.",
+      "searches": [
+        "Störmer Verlet IID steps random product of symplectic matrices Lyapunov instability",
+        "random step-size Störmer Verlet harmonic oscillator Lyapunov exponent random matrix positive",
+        "random harmonic oscillator Lyapunov exponent parametric stochastic stiffness",
+        "arxiv:1209.5173",
+        "arxiv:1108.0322"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Three semantic mathematical-record queries yielded related oscillator, Langevin and random-product records; no hit stated the exact all-nondegenerate-law Verlet exponent classification.",
+        "The most relevant related record in earlier published mathematical work proves mean-square instability for randomly stepped *symplectic Euler* rather than an almost-sure exponent for velocity Verlet."
+      ],
+      "reasoning": "No exact parameter table or database of this dichotomy was found. Searches are not uniqueness proofs; we compared statement implications and method identity rather than relying on missing keyword matches.",
+      "searches": [
+        "independent identically distributed random two point time step velocity Verlet harmonic oscillator top Lyapunov exponent strictly positive arbitrary distinct steps Furstenberg",
+        "random symplectic Verlet timestep fluctuations hyperbolic commutator no common invariant quadratic form",
+        "random step symplectic integrator almost sure exponential energy drift for harmonic oscillator"
+      ]
+    },
+    "rationale": "Inspected prescribed/periodic timestep analyses, general random-product criterion, and random-shear literature do not supply the specific all-distribution classification for iid stable-range velocity-Verlet steps. Published symplectic-Euler random-step work addresses a different first-order matrix and mean-square energy, not the almost-sure exponent of this second-order scheme. The contribution proves exact hyperbolic commutator and total irreducibility for every distinct pair, which activates Furstenberg for any non-point-mass step law; the generic theorem alone does not verify its numerical-method hypotheses. Specialist precedence remains a risk.",
+    "residual_risks": [
+      "Potential specialist precedent applying the classic Furstenberg criterion to randomized velocity Verlet with the same all-distribution statement may not be indexed in the consulted sources.",
+      "The criterion itself is classical, so originality is limited to full parameter verification and the numerical stability application, not the general random-product positivity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Periodically prescribed step modulation, not iid almost-sure exponent for any non-point-mass stable-step distribution",
+        "evidence": [
+          "Section 1 describes Wright and Skeel instability and periodic resonance.",
+          "Section 4 states that h_n is periodic with period p and analyzes product matrices for that repeated sequence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.5173",
+        "material_read": "Introduction, method definition and periodic stability-chart sections, including the period-two resonance comparison",
+        "method": "Full-text arXiv reading and relevant source-page inspection",
+        "title": "On the Parametric Instability Caused by Step Size Variation in Runge-Kutta-Nyström Methods",
+        "trigger": "Direct Verlet/central-difference variable-step and resonance overlap"
+      },
+      {
+        "assessment": "No iid product law or universal support dichotomy stated in inspected material",
+        "evidence": [
+          "Introduction separates time-dependent prescribed changes from state-dependent changes.",
+          "Section 2 uses sinusoidal prescribed timestep modulation; random independent draws are not the setting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0322",
+        "material_read": "Introduction and principal methods for time-prescribed and state-adaptive steps",
+        "method": "Full-text arXiv reading with relevant formulas and scope comparison",
+        "title": "Symplectic integrators with adaptive time steps",
+        "trigger": "Potential stronger covering theorem for variable-step symplectic schemes"
+      },
+      {
+        "assessment": "Investigates adaptive energy-preserving variational methods and backward stability, not the basic exogenous iid velocity-Verlet map",
+        "evidence": [
+          "First public version recorded 2021-08-11.",
+          "Abstract contrasts fixed time-step energy preservation and adaptive integrator stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.05420",
+        "material_read": "ArXiv initial public-version abstract and method synopsis; available methodological excerpts",
+        "method": "ArXiv source and relevant overview",
+        "title": "Performance Assessment of Energy-preserving, Adaptive Time-step Variational Integrators",
+        "trigger": "Recent motivating literature on energy drift and adaptive variational integration"
+      },
+      {
+        "assessment": "Supports positivity under unboundedness and total irreducibility; does not verify those hypotheses for Verlet matrices",
+        "evidence": [
+          "Introduction explicitly states unbounded and totally irreducible subgroup implies positive almost-sure Lyapunov exponent.",
+          "Finitely supported theorem is additional to the general stated positivity criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.02641",
+        "material_read": "Introduction, notation and positivity statement around lines 37–50",
+        "method": "ArXiv full text, theorem statement and source context comparison",
+        "title": "On the dimension of Furstenberg measure for SL2(R) random matrix products",
+        "trigger": "Critical general stochastic-matrix theorem and its exact hypotheses"
+      },
+      {
+        "assessment": "Two shear matrices with different support matrices and a different goal (bounds); does not state the Verlet all-law classification",
+        "evidence": [
+          "The supporting matrices are triangular unipotent shears.",
+          "The article derives bounds on random product Lyapunov exponents."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00332-018-9497-3",
+        "material_read": "Abstract and section on random shear matrices and bounds",
+        "method": "Open full-text article, mathematical object comparison",
+        "title": "Lyapunov Exponents for the Random Product of Two Shears",
+        "trigger": "Random symplectic matrix products that might dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82d67098-0b95-4da5-9d40-35a76180904b",
+  "value": {
+    "rationale": "Random time-step selection is a natural version of the well-documented variable-step stability problem for long-time symplectic integration. The result gives a complete qualitative stability classification for the canonical second-order velocity-Verlet scheme under every exogenous iid stable-step law: arbitrary nonzero jitter causes almost-sure exponential top-norm growth, even for pairs whose deterministic alternation is bounded. This is a nontrivial structural classification with a clear numerical-analysis diagnostic; it is not only an isolated toy computation, a renamed Euler expected-moment result, or an unmotivated parameter slice. It does not claim a rate estimate, generic nonlinear dynamics, or practical runtime gain.",
+    "status": "PASS"
+  }
+}
