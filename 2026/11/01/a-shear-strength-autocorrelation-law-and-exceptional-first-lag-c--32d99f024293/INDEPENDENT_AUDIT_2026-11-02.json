@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:46:50.067297Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/RESULT.md (Git blob dfae4883e349f10e0b2fd113ab50e2cb4206b7d0)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/check.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/VERIFICATION.md",
+        "Fresh independent exact/numerical calculations documented in review and run; not just checker exit logs."
+      ],
+      "rationale": "For A_k=[[k²+1,k],[k,1]], det=1 trace=k²+2>2, Haar invariant; centered sawtooth B1(t)={t}-1/2 gives mean-zero f=B1(x)B1(y) and Var f=1/144. Fourier coefficients -1/(2pi i m) lead via integral lattice character orthogonality to absolutely convergent double sum over mr(r-km)(m+kr)!=0; the proof supplies the missing O_k(log|m|/|m|³) slice control, so rearrangement legitimate. Checked three-pole partial fractions and excluded pole corrections in displayed S_m formula; cotangent and csc²/csc⁴ residue identities lead to C_k(1)=-(k²-1)(5k²+4)/(720k²(k²+1)²), hence exactly one k>=1 zero and negative at k>=2, ~-1/(144k²). Independently clipped [0,1]^2 under A_k into rational polygonal fractional-part cells and integrated product of four affine functions via exact barycentric simplex moments, for k=1,2,3,4: C=0,-1/1000,-49/81000,-7/18496, matching formula. Repeated with A_1²=[[5,3],[3,2]]: exact twelve nonzero cells grouped four each 41/303750,-73/324000,-43/151875, totaling -121/81000, so first-lag cancellation is not temporal independence. Finite k tests corroborate analytic all-k Fourier sum but cannot replace it; formula only this observable, lag1 family and lag2 at k1.",
+      "residual_risks": [
+        "Independent small/finite computations corroborate only their explicitly enumerated range; quantified all-parameter proof rests on the inspected derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General mixing bounds and character-mode correlator identities imply decay or a summation representation, not the exact one-step rational number.",
+          "The new k-parametric exact formula uses pole exclusion and cotangent residue sums not present in generic mixing claims."
+        ],
+        "reasoning": "Inspected stronger/different dynamical statements by logical implication; none immediately supplies all k closed coefficient and k1 isolated cancellation.",
+        "searches": [
+          "Hu–Rosenhaus, Correlation functions in linear chaotic maps, arXiv:2204.13655",
+          "Hill–Sturman–Wilson, Exponential Mixing by Orthogonal Non-Monotonic Shears, arXiv:2112.05463"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/check.py",
+        "https://arxiv.org/abs/2204.13655",
+        "https://arxiv.org/abs/2112.05463",
+        "https://doi.org/10.1016/0167-2789(83)90007-6",
+        "Resultary read-only semantic searches with recorded query strings in four checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Fourier series is an implicit identity but paper says analytical sum is unavailable.",
+          "An earlier exact evaluated sum would dominate, but its existence was not established from accessible metadata."
+        ],
+        "reasoning": "Given actual inspected text the claimed closed formula is not an immediate statement or corollary of the older work; full older paper remains material priority risk.",
+        "searches": [
+          "Hu–Rosenhaus arXiv:2204.13655 Eq 3.20 discussion",
+          "Crawford and Cary 1983 DOI 10.1016/0167-2789(83)90007-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu–Rosenhaus Eq.(3.20) expresses a Bernoulli-product cat-map correlation as a constrained Fourier sum and discusses difficulty of analytical summation.",
+          "New formula evaluates the sum for the entire integer equal-shear family and isolates k=1."
+        ],
+        "reasoning": "An implicit infinite-series representation is mathematically equivalent as a definition but not prior closed rational evaluation or cancellation classification; existing authors report missing closed evaluation.",
+        "searches": [
+          "Resultary: hyperbolic cat map bilinear Bernoulli observable autocorrelation exact formula first lag cancellation Fourier sums Hu Rosenhaus",
+          "Hu–Rosenhaus arXiv:2204.13655 Eq. 3.20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned cat-map powers/congruence and other dynamical covariance records, not same exact bilinear observable first-lag coefficient.",
+          "Crawford–Cary accessible bibliographic material only; text could contain an equivalent computation."
+        ],
+        "reasoning": "No exact table or earlier equality verified; documented inaccessible high-priority source instead of asserting novelty based only on database absence.",
+        "searches": [
+          "Resultary: hyperbolic cat map bilinear Bernoulli observable autocorrelation exact formula first lag cancellation Fourier sums Hu Rosenhaus",
+          "Crawford Cary 1983 Decay of correlations in a chaotic measure-preserving transformation DOI 10.1016/0167-2789(83)90007-6"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for evaluation of a specific two-Bernoulli-polynomial cat-map correlation as a closed rational function across all integer equal shears and isolated first-lag cancellation. Hu–Rosenhaus 2022 provides an implicit double Fourier series and remarks that analytic summation is open; it does not supply evaluated all-shear rational formula. Earlier general hyperbolic mixing and transfer operators do not determine this exact observable coefficient without evaluation. Crawford–Cary (1983) is a plausible historically overlapping primary paper not fully accessible and is explicit residual priority risk; no whole-document noncoverage claimed.",
+      "residual_risks": [
+        "Crawford–Cary 1983 full text inaccessible; exact prior formula may be present in that or unindexed older cat-map spectral literature.",
+        "Only lag one for full k family and lag two for k=1; no all-lag or independence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FOURIER_REPRESENTATION_BUT_NOT_SAME_CLOSED_FORM",
+          "evidence": [
+            "Eq.(3.20) double Fourier sum; authors state inability to analytically perform its sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.13655",
+          "material_read": "Public primary manuscript section 3 around equation (3.20) and authors discussion of analytic summation, along with broader derivation context.",
+          "method": "Compared summation variables, observable, normalization, and what is actually evaluated.",
+          "title": "Correlation functions in linear chaotic maps",
+          "trigger": "Same observable and explicit Fourier sum"
+        },
+        {
+          "assessment": "NOT_EXACT_OBSERVABLE_COVARIANCE",
+          "evidence": [
+            "Mixing rate statements do not evaluate the specified Haar correlation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.05463",
+          "material_read": "Accessible abstract and principal theorem scope, not a full exhaustive reading.",
+          "method": "Compared decay/mixing claims to fixed Bernoulli observable exact one-lag coefficient.",
+          "title": "Exponential Mixing by Orthogonal Non-Monotonic Shears",
+          "trigger": "General hyperbolic shear mixing bounds"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": [
+            "Crawford and Cary (1983) study decay in chaotic maps; possible more specific calculation cannot be excluded."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(83)90007-6",
+          "material_read": "Bibliographic metadata and available synopsis only; primary article full text not accessible.",
+          "method": "Flagged priority risk without inferring its missing content.",
+          "title": "Decay of correlations in a chaotic measure-preserving transformation",
+          "trigger": "Historical cat map correlations may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-shear-strength-autocorrelation-law-and-exceptional-first-lag-c--32d99f024293/RESULT.md",
+        "Specific primary mathematical literature compared under originality and available current published finding records."
+      ],
+      "rationale": "A closed observable-specific correlation coefficient for the full integer-shear hyperbolic cat family resolves a concrete analytic sum in the published cat-map correlation literature. Exact first-lag zero at k1 together with nonzero second-lag value discriminates covariance cancellation from independence; the arithmetic/rational polygon method is useful for explicit dynamical correlations even absent all-lag classification.",
+      "residual_risks": [
+        "Crawford–Cary 1983 full text inaccessible; exact prior formula may be present in that or unindexed older cat-map spectral literature.",
+        "Only lag one for full k family and lag two for k=1; no all-lag or independence claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Crawford–Cary 1983 full text inaccessible; exact prior formula may be present in that or unindexed older cat-map spectral literature.",
+    "Only lag one for full k family and lag two for k=1; no all-lag or independence claim."
+  ],
+  "schema_version": 1
+}
