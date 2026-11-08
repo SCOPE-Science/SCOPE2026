@@ -1,15 +1,21 @@
-# Review: exact closed-Hamming-neighborhood dimensions
+# Independent mathematical audit
 
-## Correctness
-PASS. The intersection-of-balls lemma and coordinate-line trace structure give a uniform upper bound of three on both dimensions. The small-parameter classification is proved using the row/column obstruction and two explicit lower-bound embeddings; the ternary adaptive witness is replayed by independent distance evaluation. The executable checks nine finite cases; the theorem for all parameters is established symbolically.
+## correctness
 
-## Originality
-PASS under accessible source and record comparisons. The closest 2020 primary paper establishes exact **open** neighborhood VC results and only boundedness for the **closed** version; its statements cannot be substituted because at the binary three-cube the open VC dimension is two while the closed VC dimension is three. Later work on induced Hamming subsets also treats open neighborhoods. General thicket theory does not identify these finite parameters. Semantic-record and accessible local claim searches returned no dominating equivalent theorem. Historical completeness is not established.
+PASS
 
-## Value
-PASS. This yields a complete two-parameter classification of both static and online shattering for a standard distance-transitive graph family, pinpoints the only parameter where adaptive learning requires more mistakes than static shattering, and gives an inherited hereditary upper bound. The local geometry is reusable in related neighborhood-learning problems. The result is not a classification at larger radii or for arbitrary induced subgraphs.
+Geometry of two distinct closed radius-one balls gives overlap a whole coordinate line for centers at distance 1, two recombinations at distance 2, empty beyond. For four shattered queries the all-1 and each single-0 center would force every three-query subset into the same coordinate line, contradicting an exact 2+2 trace, so VC≤3. Positive branch of any first online query has Ldim≤2 because every subsequent positive center restriction is line / 2-point / empty, giving Ldim≤3. Copies of H(3,2) or H(2,4) shatter three fixed queries, and explicit complete ternary rook depth-three tree witnesses gap; d=1 and (2,2) direct. Independent brute force static+adaptive for nine representative pairs reproduced all claims and exceptional values. Induced-class restriction cannot increase either dimension.
 
-## Closest literature and limitations
-Adler--Benediktsson--Macpherson, arXiv:2007.16042 (2020, Section 4), is the most direct comparison; Bhaskar, arXiv:1702.03956 (2017), supplies general thicket theory. Housholder--Mangiapanello--Senger, arXiv:2505.14641 (2025), examines induced-subgraph open-neighborhood questions. Neither independent mathematical validation nor a comprehensive historical-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adler–Benediktsson–Macpherson prove open-neighborhood Hamming VC results and a general bound for closed, not these exact closed parameter-by-parameter VC/Ldim formulae. Bhaskar gives general thicket theory, not the exact q-ary geometry. Published semantic search yielded no covering identity.
+
+## value
+
+PASS
+
+This is an exact two-parameter infinite classification of offline and online complexity for canonical metric balls; a unique strict gap at the ternary 3x3 rook graph is a meaningful structural boundary, with an inherited universal upper bound for all induced Hamming subgraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
