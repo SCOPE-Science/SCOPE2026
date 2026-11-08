@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The critical-return model is quoted exactly from the motivating source. Uniqueness of the interior state, strict convexity for larger groups, exact signed Dulac divergence and the planar omega-limit alternatives prove the global statement. At pairwise size the explicit proper first integral yields all interior periodic levels. `check.py` symbolically checks the exact algebra and small-group witness; these finite checks are not offered as a substitute for the general proof.
+
+**Originality — PASS (qualified).** Jiang et al. establish the model, equilibrium coordinates, local stability formulas and strict payoff regimes, but the inspected paper does not provide the no-interior-recurrence/boundary-liminf theorem for the critical equality line. Their formulas already imply a critical coexistence source for larger groups, so local repulsion alone is not a new result. Ito and Yamamichi classify neutral pairwise feedback cycles, and the pairwise case here is only the sharp comparison. The original claim is the model-specific **all-group equality-line global recurrence dichotomy**. Searches of available research records and relevant primary material did not identify stronger coverage, but equivalences outside indexed sources remain possible.
+
+**Value — PASS.** Repulsion of a coexistence equilibrium ordinarily leaves open the possibility of a surrounding stable oscillation. The strict positive-Dulac argument closes that gap at the critical public-goods return and forces eventual arbitrarily close approaches to an edge for every nonstationary higher-group trajectory, while every pairwise trajectory stays on its own compact orbit. This is a meaningful distinction for interpreting recurrent cooperation in higher-order group games rather than a recomputation of a stationary payoff threshold.
+
+**Closest scientific sources:** Jiang et al., arXiv:2510.10259, model Eq. 7 and Appendices B–C; Ito and Yamamichi, *PNAS Nexus* 2024, pgae455. **Limitations:** Deterministic two-dimensional feedback model only; no assertion about a specific boundary limit or stochastic paths, and no independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
