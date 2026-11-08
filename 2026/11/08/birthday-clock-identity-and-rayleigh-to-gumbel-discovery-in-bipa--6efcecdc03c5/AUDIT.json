@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Each failed uniform B draw creates exactly one independent uniform A draw, regardless of whether the A draw settles a particle. This yields independent geometric repeat blocks and the exact product CDF; two independent analytic limit arguments prove the fixed-a Rayleigh law and the growing-a Gumbel law. The count TV bound follows from geometric-to-Bernoulli truncation and Bernoulli-to-Poisson coupling. The extracted exact-arithmetic checker passed 1516 assertions for all a=2..8 and b=1..16, supporting but not replacing infinite arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1601.04455 studies iid random covering variables, and Section 1.4 states the classical Erdős–Rényi coupon collector limit. It does not specify the geometric failed-B collision clock of this graph model.",
+        "arXiv:1808.09219 Theorem 5.1 gives a clique dispersion-time expectation, not a class-completion law on \\(K_{a,b}\\)."
+      ],
+      "reasoning": "General coupon-collector results apply to the auxiliary A-label sequence only after identifying its exact random sampling clock. The graph-specific distribution, finite TV inequality and two time-change scalings are not immediate instances of the iid coupon results; the primary finite-graph-IDLA paper provides neither this coupling nor the limiting distributions.",
+      "searches": [
+        "published-finding corpus: random walk sequential dispersion IDLA complete bipartite rare collisions coupon collector occupancy law",
+        "web: sequential internal diffusion limited aggregation finite complete bipartite graph occupancy distribution birthday scaling",
+        "arXiv:1601.04455 full PDF Section 1 and applications"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.09219 v2 (2019 revision of 2018-08-28 first public source)",
+      "arXiv:1902.03195 v1 (2019-02-08)",
+      "arXiv:1601.04455 v1 (2016-01-18): supporting, outside primary time window",
+      "published-finding corpus published semantic findings, four actual query variants",
+      "Comparison with prior single-walk cover-time theorem 19e025ca-b93e-41be-8d76-c0ca3edd6a2a and push–pull broadcasting theorem c948561a-f1c4-495b-925e-b337a30cabd2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rivera et al. analyze IDLA dispersion times and list clique, path, binary tree, hypercube, expander cases, while the present results are about source-class occupancy under a random geometric sampling clock.",
+        "Mittelstaedt gives an Eulerian law on the infinite integer lattice; Falgas-Ravry et al. give classical coverage theory but not a bipartite IDLA representation."
+      ],
+      "reasoning": "The prior exact clique coupon-collector representation is not sufficient to deduce this two-stream bipartite clock without additional new analysis. The classical coupon-collector theorem does imply the standard Gumbel law for the auxiliary \\(C_a\\), and that portion is properly attributed; what is not covered is the exact embedding, Rayleigh and Gumbel time-change, and finite TV coupling. No inspected source has stronger or equivalent coverage of the whole claim.",
+      "searches": [
+        "arXiv:1808.09219 v2 full-text sections and named results",
+        "arXiv:1902.03195 full-text sections and named results",
+        "arXiv:1601.04455 introduction/Section 1.4 and applications",
+        "published-finding corpus: frog model complete bipartite graph critical phase transition cover time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1808.09219 Sections 1, 3, 5 study sequential IDLA and dispersion on cliques, stars and other graph families; no bipartite class-clock formula",
+        "arXiv:1902.03195 Sections 1-2 concern one-dimensional IDLA on the integer line"
+      ],
+      "reasoning": "The present observable is the number of opposite-class discoveries when the source class fills; neither an Eulerian occupation statistic on integers nor the maximum particle trajectory length is equivalent to it. A graph cover time is a single walk visiting all vertices, unlike irreversible deposition by successive restarted walks.",
+      "searches": [
+        "published-finding corpus: sequential internal diffusion limited aggregation IDLA on complete bipartite K_{a,b}, early occupation of smaller side, birthday paradox Rayleigh first visit time",
+        "web: \"internal diffusion limited aggregation\" \"complete bipartite\"",
+        "arXiv:1808.09219 full PDF keyword inspection for bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior theorem 19e025ca-b93e-41be-8d76-c0ca3edd6a2a gives single-walk complete-bipartite cover-time laws; theorem c948561a-f1c4-495b-925e-b337a30cabd2 gives push–pull broadcast early Rayleigh times. Neither is IDLA.",
+        "No exact class-completion probability product for sequential bipartite IDLA was identified in the searched records."
+      ],
+      "reasoning": "These results concern different stochastic dynamics or observables. The present exact rational CDF is checked by direct new-state recursion, not taken from an existing table. Negative database searches are not proof of universal novelty.",
+      "searches": [
+        "published-finding corpus: birthday-scale first appearance of second side of complete bipartite IDLA random walks",
+        "published-finding corpus: Rayleigh first discovery times sqrt b complete bipartite internal DLA",
+        "Prior claims: complete-bipartite single-walk cover-time and bipartite broadcasting laws"
+      ]
+    },
+    "rationale": "The accessible original IDLA dispersion paper, one-dimensional IDLA paper, and general iid coupon-collector theory were inspected at relevant sections and compared by statements, not only titles. None gives the exact B-repeat sampling clock and class-completion distribution on \\(K_{a,b}\\) with these two regimes. Classical coupon Gumbel alone is properly attributed; unknown equivalent early literature remains possible.",
+    "residual_risks": [
+      "Historical articles using other names for finite-graph internal DLA could contain the same result.",
+      "A broad unnamed theorem may imply some of the asymptotics after a nontrivial graph reduction; no such decisive theorem was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same dynamics but different observable; no exact \\(K_{a,b}\\) source-class-completion clock or Rayleigh-to-Gumbel law in inspected material",
+        "evidence": [
+          "arXiv:1808.09219 pp.1-4 define model and scope; p.11 discusses stars; pp.22-27 list clique, path, expander/hypercube analyses"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1808.09219",
+        "material_read": "PDF 39 pages; abstract, introduction, contributions/theorems, Sections 3 and 5 on graph families, with full-text search for bipartite",
+        "method": "Readable arXiv PDF text, section and theorem comparison, and first-page visual inspection",
+        "title": "The Dispersion Time of Random Walks on Finite Graphs",
+        "trigger": "Same sequential finite-graph IDLA algorithm and dispersion definitions"
+      },
+      {
+        "assessment": "One-dimensional integer path graph with Eulerian position count; no complete-bipartite collision time change",
+        "evidence": [
+          "arXiv:1902.03195 pp.1-4 describe IDLA on Z and Eulerian distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.03195",
+        "material_read": "PDF 14 pages, abstract, introduction and Section 1 Eulerian occupation law, model comparison",
+        "method": "Readable arXiv PDF text and first-page visual inspection",
+        "title": "A Stochastic Approach to Eulerian Numbers",
+        "trigger": "IDLA aggregate occupation probabilities might dominate or specialize proposed exact law"
+      },
+      {
+        "assessment": "General iid coupon collector theory covers the auxiliary A-label collector, not its geometric sample clock in bipartite IDLA",
+        "evidence": [
+          "arXiv:1601.04455 pp.1-4 defines iid coupon coverage and quotes Erdős–Rényi limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+        "material_read": "PDF 30 pages, abstract, definitions, Sections 1.1-1.4 and roadmap/applications",
+        "method": "Readable arXiv PDF text and first-page visual inspection",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "Possible broader coupon-collector coverage of the Gumbel conclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6efcecdc-03c5-4349-bf96-0f1f8e36188b",
+  "value": {
+    "rationale": "The source-side occupancy time is a natural class-specific growth statistic on \\(K_{a,b}\\); the exact rational finite-size law, independent Rayleigh first-discovery times, uniform rare-event count bound and growing-side Gumbel threshold reveal a nontrivial collision-clock transition. These yield distributional information that cannot be replaced by the existing maximum-walk-length dispersion or ordinary graph cover-time statistics.",
+    "status": "PASS"
+  }
+}
