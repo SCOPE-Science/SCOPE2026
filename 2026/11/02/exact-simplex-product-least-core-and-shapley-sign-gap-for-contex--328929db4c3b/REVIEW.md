@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two complementary proper coalitions supply a sharp \(b/2\) lower bound. The sign constraints and group sums characterize every minimizer; the product vertices, group-symmetric unique nucleolus, convex projection for minimum norm, and permutation-pivotal Shapley formulas follow with explicit arguments. An independent coalition-enumeration and LP program confirms 72 instances and 360 vertices; finite checks do not prove the arbitrary-size theorem. The theorem explicitly permits signed efficient allocations.
+## correctness
 
-**Originality — PASS with residual risk.** Kera, Yamauchi and Nagarajan (2026), arXiv:2610.06087v1, Sections 3.3, 6 and Appendix B, explicitly study the same contextual-distractor model and report numerical payoff comparisons, but the inspected full text does not give the parametric product geometry, all-instance selectors and exact sharp Shapley/least-core sign interval. Published mathematical-record meaning searches for all these equivalent descriptions returned no equivalent, and accessible historical claim texts did not match. However Nagarajan et al. (2026), *Seeing Through Distractions*, was not accessible in full and its published abstract/secondary discussion already asserts qualitative Shapley-vs-core contrasts; an exact stronger result there cannot be ruled out. Classical Shapley and nucleolus theory is not claimed new.
+PASS
 
-**Value — PASS.** The exact feasible-set geometry explains why LP vertices and central selectors behave differently; the closed water-filling solution supplies a useful benchmark for selection algorithms; and the necessary-and-sufficient sign-gap threshold quantifies an empirically motivated qualitative distractor effect. The domain is a motivated family from current primary literature, not an arbitrary parameter slice.
+PASS. Translating the additive baseline yields residual efficient sum zero. Coalition U and its complement D force excess >=max(b-t,t)>=b/2, and symmetric residual point attains b/2. Complement bounds at optimality constrain every residual subset sum to [-b/2,b/2], forcing nonnegative useful and nonpositive distractor residues with sums +/-b/2. Thus entire least core equals T Delta_{u-1} x (-T Delta_{d-1}), T=b/2, dimension u+d-2 and ud vertices. Symmetry plus uniqueness of the prenucleolus gives equal within-group residuals; strict convexity/KKT yields water-filled useful minimum-norm allocation and uniform distractor allocation. Exact pivotal coalition probabilities yield phi_D=a-b/(d binom(u+d,u)), while all least-core distractor totals equal da-b/2, hence universal-negative-vs-positive-Shapley precisely 2ad<b<ad binom(u+d,u). Independently checked all eight simplex vertices, efficient payoffs and excesses for u=4,d=2,a=5,b=60, and exact Shapley weights; finite check corroborates proof.
 
-**Residual risks:** The inaccessible Nagarajan et al. primary full text; unindexed equivalent results; non-transferability to nonsigned/imputation-constrained variants. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge with high priority qualification. Kera–Yamauchi–Nagarajan 2026 already study the exact u=4,d=2 contextual-distractor numerical example, with Shapley distractor credit +3 and nucleolus/minimum-norm -10; this numerical instance is NOT new and is explicitly credited. What survives is the all-positive-parameter product-of-simplices least-core geometry, every-vertex count, general KKT min-norm water-filling and if-and-only-if sign interval. Primary full text of Kera and a related Nagarajan paper was not available, so mathematical implication of their full sections/appendices is a substantial residual risk. No proof of historical priority is asserted.
+
+## value
+
+PASS
+
+PASS, qualified. The game is a natural parametrization of an already-used contextual-distractor counterexample, and the exact geometry of its least core, full optimizer selector formula, and universal vs pointwise sign-gap threshold clarify real attribution-model behavior. Although basic coalition inequalities are elementary, the complete parametric classification of this motivated model gives an interpretable exact invariant beyond copying the known single numerical table. Only signed efficient, no individual rationality or positivity constraints are addressed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
