@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof steps 1-4",
+      "verify.py (standard-library exact rational finite CTMC and analytic moment comparison)",
+      "VERIFICATION.md (actual 95 grouped checks; 12 independent distributions)"
+    ],
+    "rationale": "For every integer \\(m\\ge1\\) and infection rate \\(\\lambda>0\\), condition on the \\(\\operatorname{Exp}(1)\\) lifetime \\(T\\) of the common hub. On a triangle, \\(p_0=e^{-2\\lambda T}\\) and \\(p_1=2(e^{-\\lambda T}-e^{-2\\lambda T})/(1+\\lambda)\\); the latter includes contagion after hub recovery via \\(\\mathbb E[e^{-\\lambda E}]=1/(1+\\lambda)\\) for an independent unit exponential \\(E\\). Given \\(T\\), independent edge/recovery clocks make triangle outcomes i.i.d.; \\(U=e^{-\\lambda T}\\) is beta-distributed with moments \\(\\mathbb E[U^k]=1/(1+k\\lambda)\\). Exact moments give the finite variance difference \\(D_m=-\\lambda^2Q_m/[2m(1+\\lambda)^4(1+2\\lambda)^2(1+3\\lambda)(1+4\\lambda)]\\). The polynomial \\(Q_m\\) has coefficient signs \\(+,+,-,-,-,-\\) in descending order and exactly one positive root by Descartes' rule. The strictly decreasing thresholds follow from \\(D_m=D_\\infty+B/m\\), with \\(B>0\\). Independent labeled-state CTMC recursions for one through four triangles and three rates match all coefficients of the integrated generating functions; 95 exact checks passed. The all-size claim relies on analytic proof, not finite calculations.",
+    "risks": [
+      "No independent mathematical audit; symbolic rational simplifications are exposed for independent checking."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fransson–Trapman Theorem 1 has an asymptotic two-point final fraction for their clustered random configuration model conditional on outbreak, not a nondegenerate continuous mixture on the deterministic graph with a diverging-degree hub.",
+        "The 2018 paper models random triangle configurations with a fixed joint degree distribution, and its Sections 3.1-3.2 derive offspring processes and expected final size; it does not state the finite bouquet/star variance crossing."
+      ],
+      "reasoning": "A general Markovian SIR formulation or conditional branching-process method does not by itself imply the exact sign of the difference of finite-size variances across all m. The high-degree shared hub falls outside the finite-degree random-graph regime giving the source two-point limit. The mechanism of shared infectious periods is known, but the exact comparison on this specific graph family is not covered by the stated broader result.",
+      "searches": [
+        "arxiv:1802.05011 (full-text HTML, sections 1-3 and discussion, Theorem 1)",
+        "doi:10.1007/s00285-019-01347-2 (published open full text)",
+        "web: SIR epidemics star triangles final size distribution beta mixture limiting random recovery time",
+        "Published research-record query: Markovian SIR epidemic on friendship windmill graph m triangles sharing single infected hub; exact final outbreak size; beta-mixture limit and non-vanishing variance"
+      ]
+    },
+    "checked_sources": [
+      "Fransson and Trapman, arXiv:1802.05011, first public 2018-02-14; Journal of Mathematical Biology 78 (2019), 2369-2398, doi:10.1007/s00285-019-01347-2",
+      "McCulloch, Roberts, Laing, Mathematical Biosciences 311 (2019), 49-61, doi:10.1016/j.mbs.2019.02.003; accessible abstract only",
+      "McCulloch, Roberts, Laing, ANZIAM Journal 57 (2016), 429-444, doi:10.1017/S1446181116000043; accessible abstract",
+      "Published mathematical-research-record semantic matches on SIR, windmill, outbreak-variance and clustering aliases",
+      "Prior recorded scientific claims: title/claim comparisons for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of arXiv:1802.05011 gives a binary (failed/large) macroscopic epidemic limit on its random graph ensemble; the current continuous limit is nondegenerate for every fixed rate.",
+        "The 2019 study describes composition along a line-of-triangles topology, not a deterministic shared-hub bouquet or an all-m variance threshold.",
+        "The 2016 small-graph result can reproduce the single-petal probabilities and is expressly acknowledged."
+      ],
+      "reasoning": "Single-motif transition probabilities and generic exact Markov-chain methods could be ingredients in the proof, but an arbitrary finite construction does not furnish the closed Q_m polynomial or its all-m unique root and monotone comparison. In contrast the 2018 theorem has different hypotheses and a qualitatively different limiting distribution. Thus accessible stronger statements do not imply the single assessed new claim, subject to the explicitly noted inaccessible 2019 text.",
+      "searches": [
+        "Fransson–Trapman 2018 arXiv:1802.05011 Theorem 1, Section 3 and Discussion",
+        "McCulloch–Roberts–Laing 2019 DOI:10.1016/j.mbs.2019.02.003 bibliographic abstract",
+        "McCulloch–Roberts–Laing 2016 DOI:10.1017/S1446181116000043 bibliographic abstract",
+        "Published research-record query: clustered star bouquet triangle SIR continuous time exact distribution hub infectious duration non self averaging limiting epidemic final size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nearest published research-record SIR items concerned deterministic endemic thresholds or household reproduction-number rank reversal; none gave this stochastic final-size law.",
+        "The shared infectious-period distribution can be seen as a latent transmissibility; Fransson and Trapman arXiv:1802.05011 study that general mechanism for random graph epidemics.",
+        "The 2016 McCulloch–Roberts–Laing paper already computes small triangle SIR final outcomes."
+      ],
+      "reasoning": "The one-triangle final-size law is covered by earlier small-network methodology. The claimed object is the all-m shared-hub mixture, complete finite law, and unique variances-crossing threshold. Independent-bond percolation is not an equivalent formulation of Markovian SIR with shared per-vertex infectious periods; it misses correlations among transmissions from the same hub. No matching all-m implication was found.",
+      "searches": [
+        "Published research-record query: continuous-time Markovian SIR windmill friendship graph common hub final infected fraction is transform of beta variable, exact PGF",
+        "Published research-record query: SIR on shared-vertex triangles stochastic exponential recovery variance crossover, beta mixture",
+        "web: friendship graph SIR epidemic outbreak distribution",
+        "web: windmill graph SIR epidemic final size",
+        "web: star of triangles SIR stochastic outbreak distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McCulloch–Roberts–Laing 2019 DOI 10.1016/j.mbs.2019.02.003 abstract computes finite size laws on a *line* of triangles; full text not obtained.",
+        "McCulloch–Roberts–Laing 2016 DOI 10.1017/S1446181116000043 abstract explicitly covers three- and four-vertex SIR examples, hence the m=1 motif is not new.",
+        "Previously accessible research claims were compared; matches on friendship concern probabilistic zero forcing, not SIR, and matches on triangles concern ant-walk escape, not SIR. No matching SIR epidemic claim appeared in the accessible prior-claim collection."
+      ],
+      "reasoning": "The current result does not present a known single-triangle table entry as original. The distinguishing quantity is the exact complete m-parametric variance sign boundary, its uniqueness and its strict monotone threshold sequence. The 2019 inaccessible full text is a residual priority uncertainty; its abstract does not establish the shared-hub claim.",
+      "searches": [
+        "web: Generalised probability mass function for final epidemic size SIR model line of triangles network McCulloch Roberts Laing pdf open access",
+        "web: SIR windmill graph final epidemic size exact conditional recover first infected triangle petals",
+        "Published research-record query: clustering star vs friendship graph epidemic final size asymptotic variance reverses at unique positive quartic root, mean always increases",
+        "Prior research claims: titles/claims searched for SIR, epidemic, infection, friendship, windmill, triangle, beta mixture, outbreak and variance reversal"
+      ]
+    },
+    "rationale": "Compared actual statements, including fixed-m final-size formulas versus all-m unique variance crossover, deterministic shared-hub graph versus random clustered configuration model, and the explicitly studied single triangle. Search and accessible-source evidence showed no all-size finite variance-reversal classification. The 2019 line-of-triangles article is relevant and incompletely inspected; this source alone poses a disclosed priority risk but its stated network is a chain of triangles, not a single shared-hub bouquet, and its accessible abstract provides no all-m variance theorem. The 2016 single triangle is prior coverage and not a novelty component.",
+    "residual_risks": [
+      "The full 2019 line-of-triangles paper was not readable; a general motif-decomposition theorem may implicitly simplify a finite-size specialization, but the accessible abstract does not resolve the all-m unique variance reversal.",
+      "Semantic literature searches and prior-claim comparisons cannot establish worldwide historical novelty; no independent priority audit was performed.",
+      "The 2016 three-vertex triangle case and shared-infectious-period mechanism are prior art, explicitly excluded from the independent novelty assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the precise finite friendship/star variance thresholds; covers infectious-period dependence and random clustered graphs.",
+        "evidence": [
+          "Theorem 1 is a two-point large-population final-size limit on a clustered random configuration model, not a continuous shared-hub mixture.",
+          "Section 3 contains branching-process extinction/expected-final-size expressions; no all-m Q_m or star comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.05011",
+        "material_read": "Full-text HTML introduction, model assumptions, Theorem 1, sections 3.1-3.2 (offspring formulas/expected final size), section 5 and discussion; did not inspect every appendix line.",
+        "method": "Primary full-text web HTML, including linked version dated 2018-02-14",
+        "title": "SIR epidemics and vaccination on random graphs with clustering",
+        "trigger": "Same Markovian SIR, infectiousness heterogeneity and triangle clustering"
+      },
+      {
+        "assessment": "POTENTIALLY_RELEVANT; abstract shows line-of-triangles rather than shared-hub windmill, but no full-text claim of noncoverage.",
+        "evidence": [
+          "Abstract: generalised probability mass functions on line-of-triangles network via small-network decomposition.",
+          "No visible all-size variance threshold, though inaccessible details could be stronger."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mbs.2019.02.003",
+        "material_read": "Bibliographic record and abstract (PubMed PMID 30844380, open metadata); full text not available from arXiv/open access and institutional retrieval could not be completed.",
+        "method": "PubMed bibliographic abstract, OpenAlex and repository/OA searches; attempted authorized institutional retrieval was blocked.",
+        "title": "Generalised probability mass function for the final epidemic size of an SIR model on a line of triangles network",
+        "trigger": "Exact finite SIR outbreak distributions on assembled triangle motifs"
+      },
+      {
+        "assessment": "COVERS single-triangle component, but not an all-m variance comparison in the accessible statement.",
+        "evidence": [
+          "The abstract explicitly states exact final-size expressions for three- and four-vertex graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S1446181116000043",
+        "material_read": "Publisher and ResearchGate bibliographic abstracts; full body not relied upon.",
+        "method": "Public abstracts and bibliographic text",
+        "title": "Exact analytical expressions for the final epidemic size of an SIR model on small networks",
+        "trigger": "Direct single-triangle SIR final size and model normalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d5f9e8c-b871-4cea-b098-c7d69d5e1eb7",
+  "value": {
+    "evidence": [
+      "Exact Q_m sign classification and strict monotonicity in RESULT.md",
+      "Full finite-size PGF, beta-transformed limit and conditional CLT",
+      "Exact labeled-state verification for small sizes"
+    ],
+    "rationale": "This is a natural epidemic clustering comparison: add exactly one edge inside each of \\(m\\) disjoint leaf pairs while keeping the hub and vertex count fixed. The mean infection fraction increases at every rate, while the final-size variance reverses sign exactly once for every finite graph. The thresholds decrease strictly from \\(1+\\sqrt2\\) to the unique positive root \\(1.07327153\\ldots\\) of an explicit quartic. The full finite generating function and the non-self-averaging beta-transformed limit explain the mechanism. This is a motivated complete classification across an infinite graph family rather than an arbitrary isolated calculation.",
+    "risks": [
+      "Relevance is a mathematical benchmark for a stylized graph, not a direct empirical disease forecast."
+    ],
+    "status": "PASS"
+  }
+}
