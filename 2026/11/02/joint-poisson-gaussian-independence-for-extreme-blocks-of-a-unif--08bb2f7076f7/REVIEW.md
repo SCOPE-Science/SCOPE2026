@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact distributional reduction is supplied by the degree-preserving noncrossing-partition/plane-tree bijection and the unique-cyclic-shift lemma. For a fixed set of logarithmic block sizes, explicitly counting remaining weak compositions proves the mixed falling-factorial formula and yields independent Poisson marginals. Under factorial Palm markings the count of all positive parts becomes a constant plus a hypergeometric variable with parameters differing from the unmarked ones by only \(O(\log n)\); the standard hypergeometric central limit theorem therefore remains valid. Mixed factorial moments with bounded Gaussian test functions prove asymptotic independence, not merely vanishing covariance. An elementary first-moment tail bound passes from finite vectors to the largest block. The standalone checker passes 824 exact finite assertions and 6 numerical scale checks; those finite checks cannot themselves prove the infinite limit. The proof specifies the lattice subsequences and exact normalization.
+## correctness
 
-## Originality — PASS, qualified
-The closest literature contains ingredients and several marginals: Arizmendi (2012) gives individual block-size expectations and conditional block-count enumeration; Kortchemski–Marzouk (2015) supply the tree bijection and fixed-degree Gaussian statistics; Janson (2011) supplies general random-allocation extreme-degree marginal theorems; Kargin (2019) gives Gaussian marginals and the largest-block marginal limit. Inspected statements do not give a joint independent Gaussian/rare-Poisson vector for logarithmic block sizes under the uniform noncrossing-partition law, nor the specified Gaussian/maximum joint independence. This is the precise claim evaluated, not the historical marginal formulas. A possible consequence of more general joint random-allocation theorems remains a residual historical-priority risk, and no independent literature audit was performed.
+PASS
 
-## Mathematical value — PASS
-The number of blocks fluctuates on a square-root scale while the largest sizes live on a logarithmic, discrete scale. Knowing their separate marginal limits does not settle their dependence. The theorem supplies an exact joint decoupling, a complete fixed-window extreme-block profile, and a maximum-statistic corollary, all for a canonical Catalan probability model. The structural Palm/hypergeometric argument is reusable for related conditioned allocation models, although no extension beyond this particular law is claimed.
+The cycle lemma identifies rotation-invariant outdegree profiles of Catalan plane trees with those of uniform weak compositions of n into n+1 slots; rotations are distinct since any period divides both n and n+1. Prescribing fixed rare-block multiplicities a_j gives exact mixed factorial moment (n+1)_a (n)_a(n)_R/(2n)_(R+a), R=Σa_j(b_n+j), hence independent Poisson means alpha*2^(-j-1). Under every factorial Palm marking, unmarked positive slots equal 1+Hypergeom(m+t-1,m-1,t-1), m=n+1-a,t=n-R; their mean shifts O(logn), variance n/8+o(n), so the hypergeometric CLT gives Gaussian independence in every moment tilt. Poisson moment determinacy and next factorial moments ensure UI. The ratio E X_(r+1)/E X_r <=1/2 and E X_r<=n2^(-r) yield the maximum tail. Exact independent Catalan/direct moments checked n=1..6. The subsequence alpha_n→alpha is necessary.
 
-## Limitations and references
-The result concerns uniform type-A noncrossing partitions, fixed finite sets of integer offsets, and subsequences on which the lattice parameter converges. It does not supply quantitative rates, uniform-in-offset bounds, or an infinite-dimensional process topology. Supporting source identifiers: arXiv:1201.6576; arXiv:1112.0510, Example 18.17; arXiv:1503.09174; arXiv:1907.00632. Prior and new claims are differentiated in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Plane-tree correspondence and both Gaussian block-count and discretely oscillating maximum marginals are known. This result asserts a single joint product limit: all fixed logarithmic-size block counts are mutually Poisson independent AND jointly independent from the global Gaussian block count, implying max/Gaussian independence. Relevant full-source marginal theorems do not assert or immediately entail that product law.
+
+## value
+
+PASS
+
+The dependence between the bulk number of blocks and logarithmic extreme block sizes is a natural probabilistic question. The exact all-factorial-Palm argument proves asymptotic independence beyond separate marginal CLTs and extreme-value laws and may serve as a benchmark for random trees and constrained compositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
