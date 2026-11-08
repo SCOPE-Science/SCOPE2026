@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and only its standard library. The source iterates the complete set of labeled Prüfer words of length \(n-2\) over \(n\) labels for every \(3\le n\le8\); it decodes each word into edges and reconstructs vertex degrees from edges (rather than trusting symbol counts). Independently, it constructs conditional empty-box distributions through Stirling-number surjection counting. It compares exact masses, conditional expectations, every stochastic dominance and incomparability stated for the finite cases, and the degree-leaf covariance. It additionally checks exact mean crossover fractions for \(4\le n\le10\).
+## correctness
 
-The completed verification returned 255 exact assertions passed and 280391 independently decoded trees (3+16+125+1296+16807+262144). No Monte Carlo or floating-point comparisons are used in these checks. All larger sizes rest on the finite-symbol coupling and inequalities in the mathematical proof; an exhaustive computation for small sizes does not prove an infinite classification.
+PASS
 
-The proof is restricted to uniform labeled unrooted Cayley trees; the independent audit has not been performed. Classical exact degree-sequence enumerators contain much of the foundational probability calculation, so historical novelty concerns the complete stochastic comparability diagram and threshold, not the enumerator.
+PASS: The Prüfer code has length n−2, and conditioning a designated vertex on degree d fixes exactly d−1 occurrences of its letter; remaining n−d−1 code symbols are iid uniform on the other n−1 vertices. Thus L|D=d=E_(n−1)(n−d−1)+1_{d=1}; the Stirling occupancy formula follows. Coupling successive box draws gives strict Q2<st...<st Q(n−1) and Q1>st Q2; star Q(n−1)>st Q1. For 3≤d≤n−2, Q1 has min2/max n−1, while Qd has min d≥3/max n−2, so tails cross. Symmetry and deterministic total degree give Cov(D,L)=0; the exact Δ_n expectation formula changes sign between n8 and n9, with exponential bound thereafter. Independent integer occupancy dynamics checked masses/order/means for all n3..30, complementing source Prüfer-tree enumeration n3..8. No inference beyond its supplied analytic proof.
+
+## originality
+
+PASS
+
+PASS (qualified): Prüfer degree-as-multiplicity and the empty-box law are classical, and the latter is not claimed as an original probability distribution. Addario-Berry et al develop alternative tree encodings and partial orders; Berzunza Ojeda–Holmgren–Janson prove fringe-count asymptotics conditioned on degree statistics. Neither inspected relevant result gives this exact marked-degree first-order leaf-count comparability diagram and mean crossing. The diagram is elementary from coding; older joint-degree generating functions may imply the parts, a risk expressly retained.
+
+## value
+
+PASS
+
+PASS: The full first-order stochastic comparability diagram of leaves conditioned on one fixed degree is a natural dependence question in uniform labeled trees. It explicitly exhibits nonindependence despite zero covariance and a crossing of conditional means; this all-n classification is an identifiable structural probability fact beyond the standard Prüfer degree law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

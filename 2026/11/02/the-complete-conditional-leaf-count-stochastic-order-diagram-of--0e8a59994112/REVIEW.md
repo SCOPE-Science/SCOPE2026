@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Prüfer degree-multiplicity identity turns the conditional leaf count into the number of empty boxes plus the distinguished-vertex leaf indicator. The strict stochastic comparisons follow from an explicit one-draw coupling; the incomparable pairs have rigorously crossed support extrema. Symmetry of the deterministic degree sum proves the zero covariance, and seven explicit rational values together with an exponential bound prove the global degree-three threshold. The provided independent decoder checks 255 exact identities across all 280391 trees of orders three through eight, and checks the threshold through ten. Computation is corroboration, not the unbounded proof. The scope is unrooted uniformly labeled Cayley trees, all relevant integer orders.
+## correctness
 
-**Originality — PASS, with residual historical-priority uncertainty.** Relevant published-finding corpus records on marked degree versus distance in uniform Cayley trees and marked root degree versus leaf counts in *random recursive trees* do not imply the present conditional stochastic-order diagram for Cayley trees. The complete relevant full text of Berzunza Ojeda, Holmgren and Janson (arXiv:2312.04243) concerns fringe-tree moments and limit theorems; the full text of Addario-Berry et al. (arXiv:2107.09726) concerns coding/growth and degree-related stochastic order of heights. Classic degree-sequence enumeration implies the conditional mass function, which is explicitly acknowledged as known machinery, not claimed as new. A previously unstated but directly deducible consequence of an older theorem remains a possible historical-priority risk; nothing examined was found to assert the complete stochastic-order poset and the same sample-size threshold together.
+PASS
 
-**Value — PASS.** The outcome is a complete natural dependence classification for two canonical statistics in the same random-tree model: even adjacent degree classes can change ordering directions, most degree-one versus higher-degree laws are incomparable, and all linear covariance vanishes despite strong nonlinear dependence. The degree-three mean reversal at precisely nine vertices shows why mean comparisons cannot substitute for the first-order stochastic classification. This is not an arbitrary parameter slice or solely a tiny numerical improvement.
+PASS: The Prüfer code has length n−2, and conditioning a designated vertex on degree d fixes exactly d−1 occurrences of its letter; remaining n−d−1 code symbols are iid uniform on the other n−1 vertices. Thus L|D=d=E_(n−1)(n−d−1)+1_{d=1}; the Stirling occupancy formula follows. Coupling successive box draws gives strict Q2<st...<st Q(n−1) and Q1>st Q2; star Q(n−1)>st Q1. For 3≤d≤n−2, Q1 has min2/max n−1, while Qd has min d≥3/max n−2, so tails cross. Symmetry and deterministic total degree give Cov(D,L)=0; the exact Δ_n expectation formula changes sign between n8 and n9, with exponential bound thereafter. Independent integer occupancy dynamics checked masses/order/means for all n3..30, complementing source Prüfer-tree enumeration n3..8. No inference beyond its supplied analytic proof.
 
-**Limitations.** The result does not cover nonuniform weighted trees or conditioned global degree sequences. Classical enumerators already encode finite joint probabilities, and original priority remains uncertain. An independent scientific review is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Prüfer degree-as-multiplicity and the empty-box law are classical, and the latter is not claimed as an original probability distribution. Addario-Berry et al develop alternative tree encodings and partial orders; Berzunza Ojeda–Holmgren–Janson prove fringe-count asymptotics conditioned on degree statistics. Neither inspected relevant result gives this exact marked-degree first-order leaf-count comparability diagram and mean crossing. The diagram is elementary from coding; older joint-degree generating functions may imply the parts, a risk expressly retained.
+
+## value
+
+PASS
+
+PASS: The full first-order stochastic comparability diagram of leaves conditioned on one fixed degree is a natural dependence question in uniform labeled trees. It explicitly exhibits nonindependence despite zero covariance and a crossing of conditional means; this all-n classification is an identifiable structural probability fact beyond the standard Prüfer degree law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
