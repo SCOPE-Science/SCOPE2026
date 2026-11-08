@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:53:31.987941Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md steps 1–5 at RESULT.md@888404cbd2700134481d3c65f79d79d790db8bb7",
+        "CHECK.py SHA 33eeb76af6dda05d25111847d193acd6e8f5ac50 read",
+        "independent_checks.py section noisy voter"
+      ],
+      "rationale": "For each finite star, couple the original stationary process to a decoupled hub with the same hub resets and leaf update clocks. During [-T,0], no hub-copy events (probability of failure <=T), a common hub reset in the first half, and every leaf updated in the second half force exact full-configuration coalescence. This proves TV <=T+(n+1) exp(-theta T/2). Stationary decoupled hub-filter PDMP has zero flux, Beta(a,a) marginal with a=theta/[2(1+theta)], and Bernoulli hub conditioning. Conditional leaf-count Binomial(n,1/2+(Y-1/2)/(1+theta)) and uniform characteristic functions prove all three theta/sqrt(n) limits when theta/log n ->infinity. Integration yields S(lambda), with derivative -lambda^-2 E[A^2 phi(A/lambda)]<0 and first endpoint 1/2+1/pi. Independent exact CTMC stationary calculations for n=2..4 and beta mixture TV corroborated algebra; these do not prove asymptotic.",
+      "residual_risks": [
+        "Comparison TV estimate is nonsharp; logarithmic noise criterion only sufficient. Fixed-noise/nonstar models, Bayes-optimal classifier not addressed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carro–Toral–San Miguel gives general-network noisy voter moment equations, not all-site TV approximation; Cox–Peres–Steif gives mixing time."
+        ],
+        "reasoning": "Broader network or density processes only subsume the new result if they include its high-noise stationary full-configuration approximation and majority accuracy; identified statements do not.",
+        "searches": [
+          "noisy voter model star high noise hub leaf count beta arcsine Gaussian majority reconstruction stationary coupling",
+          "arxiv:1602.06935",
+          "arxiv:2112.01478"
+        ]
+      },
+      "checked_sources": [
+        "noisy voter model star high noise hub leaf count beta arcsine Gaussian majority reconstruction stationary coupling",
+        "Resultary semantic search: high-noise voter star majority (12 returned results, none same star claim)",
+        "arxiv:1408.5122",
+        "arxiv:2305.19096",
+        "arxiv:1602.06935",
+        "arxiv:2112.01478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary Beta law may be deduced for the autonomous filtered hub, whereas the star itself still has hub-to-leaf feedback; graphical coupling controls it with rate 1 hub-copy clock."
+        ],
+        "reasoning": "Existing component results help derive the surrogate but do not alone imply the explicit n,theta TV bound and its three majority reconstruction limits.",
+        "searches": [
+          "arxiv:1408.5122",
+          "arxiv:2305.19096",
+          "noisy voter model star high noise hub leaf count beta arcsine Gaussian majority reconstruction stationary coupling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cox–Peres–Steif analyzes noisy voter star mixing but not entire stationary high-noise Beta mixture; Caligiuri–Galla treats two-state PDMP stationary Beta mechanism in another setting."
+        ],
+        "reasoning": "Theoretically the hub filter is a PDMP and the conditional leave counts a de Finetti mixture; those standard mechanisms alone do not prove a TV coupling between interacting star and decoupled comparison or the joint prediction law.",
+        "searches": [
+          "noisy voter model star high noise hub leaf count beta arcsine Gaussian majority reconstruction stationary coupling",
+          "arxiv:1408.5122",
+          "arxiv:2305.19096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published record-search results concerned unrelated majority elections, Gaussian thresholds and stars, not a table of noisy-voter stationary reconstruction accuracies."
+        ],
+        "reasoning": "The theorem is an infinite-parameter asymptotic, not a lookup from a finite exact database or table.",
+        "searches": [
+          "noisy voter model star high noise hub leaf count beta arcsine Gaussian majority reconstruction stationary coupling",
+          "Resultary semantic search high-noise voter star"
+        ]
+      },
+      "rationale": "The exact joint high-noise star stationary configuration approximation and majority arcsine-Gaussian crossover go beyond known fixed-noise star mixing bounds, known two-state PDMP Beta formulas, and general pair moments. General coupling/CLT ingredients are credited; no failed-search-to-novelty inference.",
+      "residual_risks": [
+        "Full Cox–Peres–Steif and Caligiuri–Galla texts not exhaustively available; unknown stronger equivalence may exist. Generalized noisy-voter high-noise theorems may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Comparison provisional: star mixing is established; no whole-document noncoverage claim",
+          "evidence": [
+            "arxiv:1408.5122 (Cox–Peres–Steif), star mixing and reduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.5122",
+          "material_read": "Abstract and indexed Section 4 descriptions; full article not reliably retrieved",
+          "method": "arXiv abstract and published statement search",
+          "title": "Cutoff for the noisy voter model",
+          "trigger": "Same noisy-voter star and hub/leaf count reduction"
+        },
+        {
+          "assessment": "PDMP stationary framework prior; not direct source for star coupling",
+          "evidence": [
+            "arxiv:2305.19096, two-state switching PDMP"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.19096",
+          "material_read": "Abstract, indexed Section III.3 and mathematical description, not complete publisher text",
+          "method": "arXiv and literature results",
+          "title": "Noisy voter models in switching environments",
+          "trigger": "Two-state filtered telegraph stationary Beta mechanism"
+        },
+        {
+          "assessment": "General moment equations rather than full stationary TV distribution",
+          "evidence": [
+            "arxiv:1602.06935, Sections 2–3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.06935",
+          "material_read": "Accessible article and pair-moment section",
+          "method": "OA article and source text",
+          "title": "The noisy voter model on complex networks",
+          "trigger": "Potential broader general-network result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding and joint-limit derivation",
+        "Cox–Peres–Steif star model",
+        "independent checker of stationary finite-size diagnostics"
+      ],
+      "rationale": "The fixed-marginal noisy-voter star is a natural test for whether many leaf observations recover a hub under strong independent rerandomization. The exact theta~sqrt(n) crossover and explicit, strictly decreasing reconstruction probability identify a nontrivial inference signal/noise transition with a quantitative full-law coupling; neither a routine moment identity nor arbitrary parameter substitution.",
+      "residual_risks": [
+        "Not Bayes-optimality, finite rate-necessity, nor general-graph reconstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Comparison TV estimate is nonsharp; logarithmic noise criterion only sufficient. Fixed-noise/nonstar models, Bayes-optimal classifier not addressed.",
+    "Full Cox–Peres–Steif and Caligiuri–Galla texts not exhaustively available; unknown stronger equivalence may exist. Generalized noisy-voter high-noise theorems may overlap.",
+    "Not Bayes-optimality, finite rate-necessity, nor general-graph reconstruction."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The full-configuration total-variation bound follows from a graphical coupling on a finite backward time interval: a common hub reset, absence of hub-copy events, and one common update per leaf suffice for exact coalescence. The comparison process has an explicitly solvable linear filter driven by a two-state hub with constant rate, yielding an exact symmetric Beta mixing variable and conditional independent Bernoulli leaves. Uniform binomial characteristic-function expansion and the coupling bound prove the three two-scale limits. Integration of the joint arcsine/Bernoulli/Gaussian limit gives the majority-reconstruction curve and its strict monotonicity. Independent finite generator and mixture calculations supplement the analytic proof.
+PASS
 
-## Originality (PASS, qualified)
+For each finite star, couple the original stationary process to a decoupled hub with the same hub resets and leaf update clocks. During [-T,0], no hub-copy events (probability of failure <=T), a common hub reset in the first half, and every leaf updated in the second half force exact full-configuration coalescence. This proves TV <=T+(n+1) exp(-theta T/2). Stationary decoupled hub-filter PDMP has zero flux, Beta(a,a) marginal with a=theta/[2(1+theta)], and Bernoulli hub conditioning. Conditional leaf-count Binomial(n,1/2+(Y-1/2)/(1+theta)) and uniform characteristic functions prove all three theta/sqrt(n) limits when theta/log n ->infinity. Integration yields S(lambda), with derivative -lambda^-2 E[A^2 phi(A/lambda)]<0 and first endpoint 1/2+1/pi. Independent exact CTMC stationary calculations for n=2..4 and beta mixture TV corroborated algebra; these do not prove asymptotic.
 
-The star noisy-voter reduction and mixing estimates are already present in Cox–Peres–Steif, and the two-state PDMP invariant formula is known from Caligiuri–Galla; neither is claimed new. Carro–Toral–San Miguel already supply exact general pair-moment equations. The new claim concerns the **entire stationary spin configuration** at diverging reset noise, its explicit Beta–binomial surrogate with a uniform finite-sample total-variation coupling error, and the simultaneous square-root-noise arcsine–Gaussian majority crossover. These are not special cases of a fixed-noise limiting PDMP or a pair-moment formula. The completed direct primary-text comparisons and semantic research-record searches did not identify equivalent or dominating statements. General high-noise coupling literature remains a priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-A star is the minimal extreme degree-heterogeneous network. The result identifies an exact scale at which a hub's instantaneous bit remains inferable from its numerous noisy leaves, despite very strong random resetting. The parameterized reconstruction curve exposes a nontrivial and operationally meaningful boundary between persistent collective memory and chance-level reconstruction. The full-configuration approximation (rather than merely a moment bound) permits additional observable calculations.
+The exact joint high-noise star stationary configuration approximation and majority arcsine-Gaussian crossover go beyond known fixed-noise star mixing bounds, known two-state PDMP Beta formulas, and general pair moments. General coupling/CLT ingredients are credited; no failed-search-to-novelty inference.
 
-## Closest literature and limitations
+## value
 
-Cox–Peres–Steif (2014) contains the underlying star chain and mixing bounds; Caligiuri–Galla (2023) contains general PDMP stationary solutions but no simultaneous diverging-noise star coupling; Carro–Toral–San Miguel (2016) contains network moment methods but no such surrogate total-variation theorem. Pymar–Rivera (2021) studies a differently weighted general density process; the abstract and retrieved scope do not establish this assertion, but its full primary text was not inspected. The proved regime is \(\theta_n/\log n\to\infty\), not a sharp boundary for applicability of the surrogate approximation. Independent historical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-marginal noisy-voter star is a natural test for whether many leaf observations recover a hub under strong independent rerandomization. The exact theta~sqrt(n) crossover and explicit, strictly decreasing reconstruction probability identify a nontrivial inference signal/noise transition with a quantitative full-law coupling; neither a routine moment identity nor arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
