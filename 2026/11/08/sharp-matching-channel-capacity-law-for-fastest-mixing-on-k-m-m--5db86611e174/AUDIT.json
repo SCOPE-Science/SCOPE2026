@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Conjugation averaging over matched-pair permutations and part interchange is feasible and operator-norm nonincreasing. The four exact invariant subspaces exhaust all 2m dimensions and yield SLEM max(|2c-1|,c+|a-b|). Two globally valid crossing-affine lower bounds meet the two explicitly feasible designs on the opposite sides of a*=2/(3m); projection gives the exact interval optimum. Both m=2 and a=0,1 are explicitly included. An exact-Fraction program replays 35,344 checks of eigenvectors, stochasticity, formulas, and finite parameter comparisons; these checks are supplementary to the all-m proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2004 and 2009 convex FMMC frameworks cover the optimization algorithmically, but their displayed closed forms are for the uncolored unrestricted bipartite topology.",
+        "Jafarizadeh (2010), sections III and V, describes layered K-partite pseudo-distance-regular networks, with full cross-layer adjacency; it does not present matched-partner transition constraints."
+      ],
+      "reasoning": "General SDP solvability does not imply the stated exact closed-form frontier without solving its particular two-color spectral problem. The 2010 layered topology does not distinguish individual partner links from the remaining cross links; the all-parameter result does not follow as one of its displayed formulas.",
+      "searches": [
+        "fastest mixing perfect matching weighted complete bipartite Markov chain distinguished matching probabilities holding SLEM",
+        "fastest mixing Markov chain symmetric transition matrix SLEM graph with orbit capacities split edge orbits complete bipartite matched and unmatched",
+        "https://arxiv.org/abs/1008.2588"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/S0036144503423264",
+      "https://doi.org/10.1137/070689413",
+      "https://arxiv.org/abs/1008.2588",
+      "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For a=2/(3m), the theorem gives rho=1/3, matching the unrestricted balanced bipartite optimum in Boyd et al. (2004, 2009).",
+        "For a=0 and m>=3, the matching-deleted crown is edge-transitive and its SLEM endpoint is implied by Boyd et al. (2009), Theorem 3.1.",
+        "For 0<a<1 with fixed matched-edge transition, neither prior complete-bipartite formula nor the edge-transitive crown formula fixes a second edge orbit; the claimed two-sided slopes and interval clipping remain outside their stated conclusions."
+      ],
+      "reasoning": "The statement-level overlap is explicitly excluded from the novelty assertion: unrestricted and zero-matching endpoints are known/implied. Exact global minimization with an interior fixed matching probability and two-sided matching-channel capacity interval is not a specialization of those one-orbit theorems. The general convex framework supplies a method, not the evaluated value.",
+      "searches": [
+        "Exact SLEM fastest mixing on complete bipartite K_n,n with a prescribed edge probability on a fixed perfect matching and free off-matching probabilities",
+        "crown graph K_n,n minus diagonal edges optimal SLEM n/(3n-4) continuous matching edge capacity",
+        "https://doi.org/10.1137/070689413"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao (2004), section 7.1, solves unrestricted complete bipartite FMMC without a prescribed partner-edge probability.",
+        "Boyd–Diaconis–Parrilo–Xiao (2009), sections 2 and 5.4.2, reduce symmetric chains to edge orbits and give the ordinary complete-bipartite optimum."
+      ],
+      "reasoning": "A colored matching edge orbit is not preserved by the unrestricted edge-transitive averaging; its probability must remain fixed or bounded. Both prior methods enable but do not state the two-branch answer for that constraint. Reformulating as the two-orbit SDP/LP is equivalent to the optimization problem, not to a previously published exact parameter-value formula.",
+      "searches": [
+        "Exact SLEM fastest mixing on complete bipartite K_n,n with a prescribed edge probability on a fixed perfect matching and free off-matching probabilities",
+        "fastest mixing reversible symmetric Markov K_m,m diagonal matching partner probability a 2/(3m) two linear branches",
+        "https://doi.org/10.1137/S0036144503423264",
+        "https://arxiv.org/abs/0709.0955"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant accessible bibliographic research included established FMMC, symmetric multipartite FMMC and separate crown-graph invariant reports; no inspected exact table contains the full matching-channel capacity-response function."
+      ],
+      "reasoning": "The a=0 crown SLEM can be obtained from the known edge-transitive FMMC theorem and the a=2/(3m) point from unrestricted complete bipartite optimization. The interval and intermediate-a values require the new parameter law. This is a bounded search conclusion, not a proof that no inaccessible table exists.",
+      "searches": [
+        "crown graph K_n,n minus diagonal edges optimal SLEM n/(3n-4) continuous matching edge capacity",
+        "Matching channel weighted complete bipartite Markov chain mixing spectral radius piecewise optimal transition"
+      ]
+    },
+    "rationale": "The closed-form full matching-channel capacity frontier, with different deficient and excessive matched-link slopes and a per-edge interval variant, is not supplied by the inspected unrestricted bipartite or layered-partite FMMC treatments. The unrestricted a=2/(3m) point and edge-transitive crown endpoint are explicitly credited as covered special cases. Searches cannot establish absolute priority.",
+    "residual_risks": [
+      "An unindexed specialist result may already calculate the two-orbit prescribed-probability bipartite optimum.",
+      "Some other treatments of edge-capacitated consensus or doubly stochastic matrices may imply the formula under alternative terminology. The search does not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_PARTIAL_OVERLAP: unconstrained a*=2/(3m) result is known, fixed matched-channel capacity frontier not stated",
+        "evidence": "Section 7.1 assigns one uniform probability p to every cross-part edge and obtains the unconstrained bipartite optimum. Stanford Department of Statistics also records an earlier Technical Report 2003-04, dated February 2003 (day not supplied); the 2004 date describes the journal version only.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Open full text, pp. 667–669 and 684–685 including section 7.1, with PDF pages inspected",
+        "method": "Primary full-text inspection of objective, convexity and complete bipartite formula",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational FMMC definition and complete bipartite example"
+      },
+      {
+        "assessment": "METHOD_AND_KNOWN_BOUNDARIES: generic orbit reduction, unrestricted bipartite solution and implied crown endpoint, not constrained all-a frontier",
+        "evidence": "Section 5.4.2 uses one probability p on all edges of K_m,n; Theorem 3.1 treats edge-transitive graphs, including matching-deleted crown at a=0.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Open full text, pp. 792–794, 797–799, and 812–813 including sections 2.2–2.3, Theorem 3.1 and section 5.4.2",
+        "method": "Primary full-text comparison of orbit theorems and complete-bipartite example",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible stronger two-edge-orbit and edge-transitive coverage"
+      },
+      {
+        "assessment": "DIFFERENT_TOPOLOGY: complete connections between neighboring layers, no prescribed partner matching orbit",
+        "evidence": "Section III defines K-PPDR graphs by complete adjacency across neighboring classes; its K=2 case has a single cross-layer transition probability.",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "Open preprint, abstract, introduction and section III with the K-partite graph definition and transition formulas, plus section descriptions",
+        "method": "Primary full-text inspection and comparison of exact graph topology and optimization parameters",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "Plausibly stronger multipartite closed-form FMMC work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5db86611-e174-4518-af65-bda7b38ebf0c",
+  "value": {
+    "rationale": "Matched communication links form a natural fixed perfect-matching resource in symmetric bipartite load balancing and Markov mixing. The exact all-size all-capacity SLEM response is not an arbitrary one-off graph calculation: the rate is a nontrivial two-sided affine envelope, the optimal matched probability is sharply 2/(3m), and deficient/excessive matched capacity incur distinct exact penalties. The interval theorem solves arbitrary heterogeneous per-link bounds with a single realizable uniform design, avoiding a separate semidefinite solve. This is a motivated complete classification for one capacity parameter, though it does not claim a general topology theorem.",
+    "status": "PASS"
+  }
+}
