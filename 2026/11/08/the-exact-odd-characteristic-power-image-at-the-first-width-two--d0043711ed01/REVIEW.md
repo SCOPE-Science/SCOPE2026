@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The defining binomial reduction \((I+N)^p=I+N^p\), support restriction to the last three superdiagonals, and strictly increasing path expansion are elementary. Both necessary constraints follow by zero-product and unique-path arguments; the proof gives explicit sparse matrices realizing all allowed cases (not merely generic ones), with a distinct construction for each zero pattern. The finite-field count partitions all target coordinates disjointly. An independent matrix-power program checks every admissible target for primes three and five, and exhaustively enumerates all effective source variables in characteristic three.
+
+**Originality — PASS, subject to historical-priority risk.** Bier (2012) establishes the width transition but not an exact image-membership criterion. Sosnovsky (2012) studies verbal widths for triangular groups. Dolfi–Singh–Yadav (2019) establish a proper subset and a lower bound and record the isolated count 585 for size six over the ternary field. The present exact all-odd-prime membership and count statement is not an immediate consequence of these theorems or the published numerical example. The characteristic-two size-five analogue is already known and is excluded from the claim. Searches of additional mathematical records returned no dominating statement, but an unlocated general power-map theorem remains a residual priority risk.
+
+**Value — PASS.** The threshold size \(p+3\) is dictated by the established verbal-width transition, not selected arbitrarily. The theorem resolves the corresponding concrete word-map image in every odd characteristic: its two boundary conditions and exact uniform density reveal which members of the verbal subgroup are genuine powers. It improves on properness, width and lower-bound results, and is useful as the exact base case for studying larger unitriangular power images.
+
+The result does not give individual root-fiber counts or handle larger sizes; finite tests complement but do not replace the proof. The separate historical-priority comparison and mathematical argument deserve independent examination.
+
+Self-review: passed. Independent audit: not yet performed.
