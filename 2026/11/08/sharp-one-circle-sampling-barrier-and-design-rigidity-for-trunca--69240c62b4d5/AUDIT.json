@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Explicit general weighted Gram entry gives diagonal \\(e^{-x}x^k/k!\\). The ratio of max/min diagonals is a universal lower bound; log-concavity makes it strictly decrease before the factorial-geometric-mean radius and strictly increase afterward. Equality forces the constant basis vector into the smallest eigenspace and thereby all low Fourier moments to vanish, and these moments conversely diagonalize the Gram. For \\(m=n\\), unitarity forces equal weights; Newton identities force the regular polygon. Stirling and the discrete Poisson mode establish the exact leading exponential and prefactor. Test code independently evaluated 1010 finite assertions; it is supporting numerical evidence, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuian et al. 2019 Theorem 10 provides norm scaling for equally spaced unit-circle Vandermonde-like designs with fixed polynomial coefficients; no variable Gaussian radial optimization.",
+        "Abreu et al. 2022 Section 5 uses quasi-periodic theta-function Fock analogues on flat tori, not truncated monomial Fock frames.",
+        "The Fock Korenblum-radius repository result concerns a different pointwise comparison extremal problem."
+      ],
+      "reasoning": "Checked apparent stronger theorems for whether they imply the current minimization over radius, arbitrary positive sample weights and nodes, and every \\(m\\ge n\\). Fixed-design diagonalization or toric sampling criteria alone do not imply the comparison with all angular designs or its equality classification; residual generic-frame-design literature could.",
+      "searches": [
+        "regular polygon optimizes condition number of m x n factorial weighted Fourier Vandermonde nodes of common radius with sharp exponential n growth",
+        "oversampling on one circular shell cannot improve condition of truncated Gaussian Fock monomials, exact design characterization",
+        "doi:10.1137/19M1237272 Theorem 10",
+        "arXiv:2209.04191 section 5",
+        "2026/10/11/SCOPE-universal-extremal-rigidity-for-monotone-weighted-fock-korenblum--4bcc547017ec"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1109.2171 §3, §4, Appendix B (2011)",
+      "doi:10.1137/19M1237272 §§4–5, Theorem 10 (2019)",
+      "arXiv:2209.04191 §§1,5 (2022 first version; 2023 updated full text)",
+      "arXiv:1812.08645 abstract and submission metadata",
+      "published-finding corpus repository nearest title/summary IDs: 2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa; 2026/10/11/SCOPE-exact-frequency-staircase-for-weighted-harmonic-bergman-circle-t--e5356e299a36; 2026/10/11/SCOPE-universal-extremal-rigidity-for-monotone-weighted-fock-korenblum--4bcc547017ec"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011 published theorem: exact equispaced-circle reconstruction for every radius and its diagonal gram eigenvalues \\(N e^{-p}p^k/k!\\).",
+        "2019 theorem: norm scaling independent of node count at equispaced unit-circle nodes with fixed polynomial basis.",
+        "New Gram comparison: every weighted angular choice has the same diagonal, so a Rayleigh bound applies to all; its equality imposes low Fourier moments and forces rigidity."
+      ],
+      "reasoning": "The scalar radial optimizer on the regular polygon is a short consequence of the 2011 known eigenvalues, so it is not treated as separately novel. Neither inspected published implication establishes global no-improvement under arbitrary positive weights or arbitrary angle counts and the necessary/sufficient optimizer and square-node rigidity. This stronger quantified claim is the one assessed.",
+      "searches": [
+        "arXiv:1109.2171 Theorem 3.2 Lemma 3.3 and Corollary 3.5",
+        "doi:10.1137/19M1237272 Theorem 10",
+        "Sharp sampling barrier and circle design rigidity for truncated Bargmann Fock space, same radius Gaussian coherent state samples: jointly optimal factorial scale and angular points, exponential asymptotic singular value condition number",
+        "oversampling on one circular shell cannot improve condition of truncated Gaussian Fock monomials, exact design characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Calixto et al. 2011 Lemma 3.3 identifies diagonal Poisson spectra for regular angular samples, not all weighted angular node designs.",
+        "Unitary Fourier columns/weighted circular moment cancellation are mathematical equivalents of Gram diagonalization.",
+        "The closest repository Szego-orbit conditioning result concerns disk Szego kernels, not factorial-weight Fock monomials."
+      ],
+      "reasoning": "Weighted circular (n-1)-designs, discrete Fock coherent-state frames, and factorial-weight Vandermonde matrices are the same objects under change of basis and overall Gaussian scaling. The source spectrum is already a known special case. The full all-angle global optimum and all equality cases were compared rather than treating the changed wording as proof of originality.",
+      "searches": [
+        "Sharp sampling barrier and circle design rigidity for truncated Bargmann Fock space, same radius Gaussian coherent state samples: jointly optimal factorial scale and angular points, exponential asymptotic singular value condition number",
+        "coherent state sampling circle condition number frame spectrum",
+        "arXiv:1109.2171 Lemma 3.3 and equation (28)",
+        "2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact Poisson eigenvalue table in the 2011 paper already covers equispaced angular configurations, so its eigenvalues are explicitly treated as prior.",
+        "No retrieved exact table of globally optimal radii and all weighted circular-angle optimizers was found."
+      ],
+      "reasoning": "An exact formula for a known subfamily is not the all-design optimization table. This is a best-knowledge noncoverage assessment, not proof of exhaustive priority.",
+      "searches": [
+        "arXiv:1109.2171 eq (28) Poisson eigenvalues",
+        "truncated Fock frame optimal circle radius number samples condition",
+        "weighted circular quadrature design Fock condition number",
+        "2026/10/11/SCOPE-exact-frequency-staircase-for-weighted-harmonic-bergman-circle-t--e5356e299a36"
+      ]
+    },
+    "rationale": "Strongest same-object source arXiv:1109.2171 (2011), Lemma 3.3 gives the exact diagonal Poisson spectrum for equispaced coherent states with arbitrary radius. That known spectrum, the DFT inversion and the elementary radial subproblem are not claimed as independent new spectral theory. The reviewed global statement adds arbitrary positive weights and angles and an arbitrary number \\(m\\ge n\\), an if-and-only-if optimizer condition via circle Fourier designs, forced equal-weight regular-polygon rigidity at \\(m=n\\), and an oversampling-invariant exponential conditioning barrier. The fixed-angle 2011 theorem does not itself compare all weighted angular designs; other inspected sources also do not state a dominating result. Residual possibility of implicit older optimal-design theorem is acknowledged.",
+    "residual_risks": [
+      "A broader older weighted unit-circle optimal-design theorem may imply the final statement, notwithstanding the inspected sources.",
+      "The scalar radius optimization for uniform equispaced nodes follows from the 2011 published diagonal spectrum; no novelty is claimed for that constituent alone.",
+      "published-finding corpus is a semantic index, not a complete bibliography or proof of historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong exact prior coverage of uniform-angle diagonal spectrum, but no stated all-design weighted-angle optimality/equality theorem",
+        "evidence": [
+          "2011 Section 3.2 Eq (28): \\(\\lambda_m=N e^{-p}p^m/m!\\)",
+          "Eq (30-31) factorizes the uniform-angle operator through a Fourier matrix",
+          "Theorem 3.2 derives exact truncated reconstruction at any \\(p>0\\)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1109.2171",
+        "material_read": "Full readable abstract, introduction, Section 3 (Theorem 3.2, Lemma 3.3, Corollary 3.5), and related Sections 4 and Appendix B passages",
+        "method": "primary arXiv full-text HTML extraction, equations (22) to (38) and spectrum comparisons",
+        "title": "Almost Complete Coherent State Subsystems and Partial Reconstruction of Wave Functions in the Fock-Bargmann Phase-Number Representation",
+        "trigger": "Identical truncated coherent-state space and circular sampling; potentially covering prior theorem"
+      },
+      {
+        "assessment": "Proves fixed-polynomial equidistant-circle norm scalings; does not optimize physical Gaussian radius or all weighted angular designs",
+        "evidence": [
+          "Theorem 10, section 5, eq (5.6) supplies sqrt(N) scaling for equidistant unit-circle Vandermonde-like designs",
+          "Section 4 discusses Gauss-Szegő quadrature nodes and associated orthogonal polynomials"
+        ],
+        "identifier_or_url": "https://www.math.kent.edu/~reichel/publications/optvan.pdf",
+        "material_read": "Full-text accessible PDF introduction and sections 4-5, especially Theorem 10, conclusion; first-page visual inspection",
+        "method": "publisher full-text PDF text extraction and PDF page screenshot",
+        "title": "Optimally Conditioned Vandermonde-Like Matrices",
+        "trigger": "General Vandermonde condition-number optimum might subsume Fock factorial-weight circle problem"
+      },
+      {
+        "assessment": "Distinct quasi-periodic toric Fock analogue; does not cover the classical truncated monomial single-circle minimax",
+        "evidence": [
+          "Section 5 Lemma 14: N-dimensional theta-function spaces with quasi-periodic conditions",
+          "Gaussian frame sampling studied on flat tori rather than ordinary single-circle Fock polynomials"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.04191v2",
+        "material_read": "Full accessible HTML abstract, introduction, and Section 5 on the Bargmann-type transform and Gaussian frame theorem",
+        "method": "arXiv full-text HTML analysis of definitions, quasi-periodicity, Section 5 sampling hypotheses",
+        "title": "Time-frequency analysis on flat tori and Gabor frames in finite dimensions",
+        "trigger": "Focal 2022 Gaussian finite-dimensional frame literature with primary harmonic-analysis MSC"
+      },
+      {
+        "assessment": "Near-collision Vandermonde conditioning; no decisive relevance beyond broad context",
+        "evidence": [
+          "Abstract explicitly concerns upper/lower bounds for nearly colliding nodes on unit circle, not weighted radius design"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08645",
+        "material_read": "Full arXiv submission metadata and abstract; no primary full-text claim of noncoverage inferred",
+        "method": "arXiv abstract and scope comparison",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Potential stronger general Vandermonde conditioning bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69240c62-b4d5-4492-bfe5-8ce2b1014acd",
+  "value": {
+    "rationale": "Single-radius coherent-state sampling is a natural physical and mathematical reconstruction restriction. The quantified global impossibility of improving relative condition by any increase in m, reweighting, or relocating angular nodes, the exact weighted circle-design equality set and critical-sample rigidity, plus the sharp exponential rate and polynomial prefactor supply design information beyond prior fixed equidistant reconstructions. Results do not claim noise-optimal acquisition or multi-radius optimality.",
+    "status": "PASS"
+  }
+}
