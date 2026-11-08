@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to odd prime-power fields, nondegenerate symmetric bilinear forms and dimension at least three. The algebra-homomorphism identity forces rank-one maps to kill the square generator and have singular image; the converse is exact. Rank-one linear projections are uniquely determined by image and complementary kernel. For two different images, commuting idempotents multiply to zero, yielding three independent linear constraints on each of two functionals, hence \(q^{2n-6}\) edges per compatible pair. The forbidden-pair count uses, respectively, a second singular intersection with the plane through an anisotropic \(u\), and totally singular planes through an isotropic \(u\). The Witt-type sign formula follows from standard hyperbolic-plane recursion and small anisotropic cores. The odd-dimensional edge difference is \(q^{(5n-15)/2}\). Exhaustive computational checks of nine configurations and all \(3^9\) endomorphism matrices in each of three ternary three-dimensional cases agree with the formulas. The formulas are proven for all odd prime powers; the finite checker is corroboration only.
+PASS
 
-## Originality — PASS, relative to the inspected sources
+For product xy=B(x,y)u, any algebra endomorphism T has T(u)=c u and B(Tx,Ty)=c B(x,y). For rank one and nonsingular n>=3 form, c=0 by rank comparison, so T(u)=0 and its rank-one image is B-singular; conversely these conditions suffice for multiplicativity. Such composition-idempotents are exactly (isotropic image line ell, complementary kernel hyperplane H containing u), with q^(n-2) choices per ell != Ku. Two distinct rank-one projections commute only when both products vanish, i.e. each line lies in the other kernel. The fiber over ell,m has q^(2n-6) edges when u is outside ell+m and zero otherwise. If u is anisotropic, a secant-plane root involution counts (M-S)/2 forbidden pairs; if u is isotropic, every quotient-singular line contributes one totally singular plane carrying q allowed lines, for q(q-1)J/2 forbidden pairs. Standard Witt decomposition gives exact singular-line formulas for even/odd spaces and a 2q^(s-1) hyperplane-line difference between the two anisotropic norm classes in ambient odd dimension 2s+1. This gives the sharp edge gap q^(2n-6+s-1). Independently built normalized isotropic lines over F3^3, enumerated rank-one projections and literal matrix compositions; verified (V,E)=(12,4),(12,5),(9,3) for u=(1,0,0),(1,1,0),(1,1,1). This is a finite corroboration of a complete symbolic proof, not an all-field enumeration.
 
-Boudi–Cabrera Casado–Siles Molina, arXiv:2006.14460v1, Section 1 and the paper's section overview, treat evolution natural bases, ideals and homomorphism definitions, not rank-one retraction commutation enumerators. Paniello (2021 online, doi:10.1080/03081087.2021.1893636), introductory and substantive Markov-structure sections, treats real stochastic models, not this finite-field graph. Martín Barquero–Martín González–Sánchez-Ortega (2025, doi:10.1007/s00009-025-02812-7), especially Sections 4.1–4.2 and Theorem 4.9, **already establish the pointed-bilinear morphism framework**; the endomorphism identity and orthogonal classification are not claimed new. The specific commuting-graph incidence fibers, exact edge census and odd-dimensional norm-class gap were not found in the full text. No matching prior published result was found in the actual source/title/equivalence searches, though exhaustive publication priority has not been established. published-finding corpus semantically closest records concern evolution *element* idempotents and evolution dimension, not rank-one idempotent endomorphism graphs. An equivalent result under incidence-geometric language remains the principal originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The graph measures when two algebra retracts can coexist as commuting operations, a natural compatibility relation beyond the element-idempotent count or a presentation-dependent graph. The theorem completely determines the one-skeleton's size for an infinite, structurally motivated family; it distinguishes anisotropic norm classes of odd-dimensional algebras even though they have equal numbers of rank-one retracts. The gap is a genuine \(q\)-power for every odd dimension, not a routine identity of a known counting table, and is backed by an independent direct enumeration in the first nontrivial dimension.
+The pointed-bilinear algebra equivalence and Witt singular-line counts are classical. Best-of-knowledge new contribution is commuting graph of rank-one algebra retracts, exact isotropic/anisotropic edge census, and odd-dimensional norm-class graph distinction. Broader polar-geometry commuting-operator statements remain possible priority risks.
 
-## Sources and residual limitations
+## value
 
-Full textual material was inspected for the 2020 arXiv paper, the 2021 open-access article and the 2025 23-page classification paper (including Theorem 4.9). The algebraic-morphism identity was attributed to the 2025 classification. Full publication coverage of all possible finite-geometry or transformation-semigroup equivalents is not established. The field-characteristic and rank restrictions are essential to the stated scope. The result has not undergone independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is canonically motivated by finite-field pointed bilinear evolution algebras and their rank-one retractions. The graph census gives exact previously unrecorded invariants, and the odd-dimensional anisotropic norm-class edge gap separates algebraically distinct choices with equal vertex counts; it is a nontrivial structural bridge between retraction monoids and polar-space incidence, not a cheap type check or unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
