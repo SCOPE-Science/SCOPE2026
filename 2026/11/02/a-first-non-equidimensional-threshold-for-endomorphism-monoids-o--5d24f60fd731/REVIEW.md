@@ -1,15 +1,21 @@
-# Scientific review: endomorphism varieties of truncated coordinate crosses
+# Independent mathematical audit
 
-## Correctness — PASS
-For an arbitrary field, every image of a nilpotent generator belongs to the maximal ideal. All defining product equations split by target coordinate branch. At lengths two and three this yields an affine space or a union of coordinate spaces, respectively. At length four, the complete scalar equations are \(a_i a_j=0\) and \(a_i b_j+b_i a_j=0\) for each distinct source pair; these force each target row into exactly one of the explicitly listed linear loci, and every such locus satisfies all equations. The maximal linear loci are pairwise noncontained, including at \(n=2\), and their product yields precisely all irreducible components and dimensions. Disjoint counts of the zero-linear and nonzero-linear cases prove the three enumerations. These arguments involve no divisibility or characteristic assumptions. The included program reproduces direct polynomial multiplication rather than assuming the asserted classification; finite checks are supplemental evidence.
+## correctness
 
-## Originality — PASS, with residual priority risks
-The nearest identified published result is *Automorphisms of truncated coordinate-cross algebras over arbitrary fields*, whose complete RESULT text was examined: it obtains the automorphism normal form and order for this exact family, but does not state the noninvertible endomorphism loci, total endomorphism counts or component transitions. Those known automorphism results are **not** claimed as original. Perepechko's 2008 existence theorem concerns universal realizability of affine algebraic monoids by nonassociative algebras and does not imply this particular associative monoid's geometry; Timofeeva's 2013 fibre-product generators and relations do not enumerate endomorphisms; Díaz et al.'s characteristic-zero automorphism classification likewise does not give full End loci. Relevant primary sections, mathematical-research records, and recoverable own-history claim statements were compared for these differences. Search non-detection is not a proof of historical priority; a broad result on homomorphism schemes of monomial/fibre-product algebras might already contain an equivalent classification.
+PASS
 
-## Value — PASS
-The endomorphism monoid is a canonical invariant of a finite algebra, directly extending (but not reducible to) its group of units. This theorem determines its complete reduced component geometry and point counts for unbounded embedding dimensions, and it identifies the first truncation-length threshold where equidimensionality fails. The jump from \(n^n\) to \((n+1)^n\) components, the explicit dimension spectrum, and the distinction between a positive unit density at \(n=2\) and vanishing density for \(n\ge3\) are natural structural information not determined merely by the automorphism group. Exact statements stop at length four and concern the reduction only.
+Unital endomorphisms send nilpotent generators into the maximal ideal and all cross-product relations split independently by target coordinate branch. For d=2 no constraints; one n^2-dimensional affine component. For d=3 row equations a_i a_j=0 yield n distinct maximal coordinate spaces each dim n+1 and n^n products. For d=4 equations a_i a_j=0 and a_i b_j+b_i a_j=0 force either all a=0 (L0 dim2n) or one nonzero a_s and b_i=0 for i!=s (Ls dim n+2), with all c free. These n+1 affine components are pairwise noncontained for n>=2, in every field/char, giving product component multiplicities binom(n,j)n^j and dimension 2n^2-j(n-2). Disjoint rational-point counts give [q^{2n}+n(q-1)q^{n+1}]^n, and analogous d2,d3 formulae. For n>=3 component dimensions differ; n=2 all nine dim8. Independent direct polynomial multiplication enumerated row cases (n,d,q)=(2,3,2),(3,3,2),(2,4,2),(3,4,2),(2,4,3), producing 12,32,32,112,189 respectively, all formula-matching. Scheme nonreduced structure not claimed.
 
-## Closest sources and limits
-Perepechko, arXiv:0809.2356v1, especially Theorem 1.1 and sections 1–3; Timofeeva, arXiv:1307.2192, fibre-product construction and examples; Díaz et al., arXiv:2408.02197, automorphism theorem; and the published record on automorphisms of truncated coordinate-cross algebras. Neither historical uniqueness nor an independent audit is asserted. The nonreduced scheme and truncations at least five remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same truncated-cross automorphism family had a published arbitrary-field normal form, inspected in full. Its theorem computes invertible group only, not noninvertible End reduced scheme, all-endomorphism counts or component dimensions. Perepechko realization of other nonassociative monoids and Timofeeva fibre-product presentation do not imply this specific End locus classification; broad monomial-algebra representation varieties remain a priority risk.
+
+## value
+
+PASS
+
+Determining the entire reduced unital endomorphism variety of a basic Artinian fibre-product algebra and its first non-equidimensional threshold is a natural algebraic monoid classification across all n and all characteristics. It detects structural behavior invisible from the already known unit group and yields exact finite-field counts; no claims for d>=5 or nonreduced schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
