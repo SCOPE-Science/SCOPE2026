@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim fixes the update convention, labelled domain and time-zero least-period condition. Equality after three updates forces equal per-vertex firing totals; excluding zero/three gives exactly one or two firings per vertex. All nontrivial periodic states lie in the complement-invariant chip box. A full phase classification proves that equal-phase hubs are impossible and that distinct-phase hubs yield exactly the stated binomial coefficient counts. Complementation proves the reflected half. Jiang's bipartite period theorem directly supplies the edge-deletion contrast; a size-biased binomial law proves the asymptotic claim. Independently structured direct-update and phase-range programs passed for the stated finite ranges. Risks: finite checks cannot establish the infinite formula alone; this is addressed by the complete symbolic phase classification, not by extrapolation.
+
+## Originality — PASS, qualified
+The full text of Jiang (2010), including the complete-bipartite period theorem and its complete-multipartite constructions, gives existence/period restrictions but not this time-zero book-graph chip-mass polynomial. The accessible complete text of the 2014 Scully–Jiang–Zhang proceedings addresses general firing sequences, not the exact graph-specific mass distribution. A separately available exact primitive-two mass formula for complete split graphs uses the same general graph family but counts different least periods, so it does not imply the primitive-three claim. Search comparisons considered triangular-book/diamond terminology, the equivalent graph \(K_{n,1,1}\), both complements and exact mass series. Residual risk: the 1992 foundational full text, other unindexed sources, and equivalent exact formulas were not exhaustively resolved; a failed search does not prove universal priority.
+
+## Mathematical value — PASS
+The family is the minimal one-edge perturbation of \(K_{2,n}\) that introduces triangles; the exact census quantifies the sudden emergence of a period that is forbidden before the edge is added. This infinite-parameter structural contrast is accompanied by sharp disjoint mass bands, every coefficient, a closed exponential population law and a two-uniform conditional limit. It is therefore more informative than a merely possible period, a relabelling of a known count, or a short finite example. It does not claim a theorem about every eventual basin or all graph edits.
+
+Self-review: passed. Independent audit: not yet performed.
