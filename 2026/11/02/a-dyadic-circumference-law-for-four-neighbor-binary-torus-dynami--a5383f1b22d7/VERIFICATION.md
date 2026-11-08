@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-Running `python3 verify.py` (Python standard library only) reconstructs the binary four-neighbor transition matrices directly from their vertex adjacencies. Binary Gaussian elimination checks the rank of each iterate for 39 tested rectangular tori with a dyadic first circumference and at most 200 sites, through two steps after the predicted final nilpotent depth. It also iterates every one of the 69,632 labelled configurations for the \(4\times3\) and \(4\times4\) tori until recurrence, thereby independently measuring the first-periodic-entry time; 2,500 further initial configurations on five other tori were tested for maximal entry time.
+## correctness
 
-Actual recorded stdout is in `verify_output.txt`, including `TORUS_4NEIGHBOR_GF2_VERIFY_OK`. The computed shell populations include \((256,768,3072)\) for \(4\times3\) and \((1,255,65280)\) for \(4\times4\), indexed by entry times starting at zero. All ranks and microscopic results agreed with the formulas. Only the algebraic proof, not these finite computations, establishes the result for every admissible dimension.
+PASS
 
-Historical novelty has not been independently certified; one relevant 2004 full text remained inaccessible. No checks for primitive periods within the invertible component were performed or claimed.
+Binary synchronous four-neighbor update on Z/m x Z/n, m=2^a>=4,n>=3, is multiplication by u+u^-1+v+v^-1 in GF(2) group algebra. CRT splits v=1 primary dim d=2^{v2(n)} and invertible nontrivial v components of dimension n-d. The horizontal u+u^-1 is nilpotent, hence sum with invertible v+v^-1 is invertible off v=1. On both local components write u+u^-1=w²/u; tensor sum of size A,B power-two Jordan blocks is min(A,B) blocks of max(A,B), by Frobenius change s+t=z and truncated module freeness. Thus nilpotent type c=2min(m,d) blocks length ell=max(m,d)/2, including d=1 edge case. Fitting split gives exact first-periodic-entry counts, cumulative distribution and E[T]. Independent GF(2) matrices for five tori confirmed all predicted ranks; not used as infinite proof.
+
+## originality
+
+PASS
+
+1D Rule 90 and classical 2D cellular-automata rank papers are related, but null boundaries, ternary alphabets, or hybrid periodic rules do not mathematically entail this exact uniform binary four-neighbor preperiod shell law. Closest Dihidar–Choudhury 2004 exceptional 2D rule study was only abstract-accessible; institutional full-text retrieval returned vpn_disconnected, so not asserted noncovering. Genuine historical priority risk documented.
+
+## value
+
+PASS
+
+The exact transient-time distribution for all labelled configurations across an infinite 2D family, independent of n's odd factor, is a natural structural dynamical invariant. It includes sharp nilpotent depth, not arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

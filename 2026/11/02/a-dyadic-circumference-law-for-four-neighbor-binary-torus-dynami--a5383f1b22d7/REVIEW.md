@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-state map is identified with multiplication by a four-term Laurent polynomial in a binary group algebra. The Chinese remainder decomposition separates an invertible summand of dimension \(m(n-d)\) from a nilpotent summand of dimension \(md\). The critical characteristic-two tensor-sum lemma is proved explicitly using a Frobenius change of variables; it establishes the uniform Jordan block partition rather than inferring it from a finite example. Kernel dimensions then give exact preperiod shells. Actual matrix-power ranks and exhaustive microscopic trajectories from the attached independent checker agree. Proof scope is \(m=2^a\ge4\), \(n\ge3\), simultaneous four-neighbor sum over \(\mathbb F_2\).
+## correctness
 
-## Originality — PASS, with historical access risk
-The closest accessible primary literature includes the 2008 two-dimensional null-boundary rule matrix study, the 2013 ternary periodic-boundary rank algorithm, and the 2017 binary periodic-boundary hybrid-rule analysis. Their stated objects/fields/rules and proved rank properties do not imply the exact dyadic-circumference uniform Jordan partition or the preperiod-shell probability law. Earlier one-dimensional Rule 90 work does not supply a two-dimensional tensor-sum Jordan calculation. The 2004 exceptional-rule paper is highly relevant but its full text was not obtained: the abstract does not settle whether a special case or equivalent statement had appeared. Historical equivalence remains a concrete residual risk, and the search is not a proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-This is a complete naturally defined dynamical invariant (first entry into the eventual periodic part) for an infinite family of genuine two-dimensional finite tori. Its explicit uniform Jordan partition shows an arithmetical universality: changing the odd factor of one circumference does not change the normalized first-entry distribution, despite changing the total number of sites and periodic dynamics. The sharp extinction/transient depth, periodic fraction and exact shells follow without an unfinished census or an arbitrary parameter slice. It does not count eventual least periods.
+Binary synchronous four-neighbor update on Z/m x Z/n, m=2^a>=4,n>=3, is multiplication by u+u^-1+v+v^-1 in GF(2) group algebra. CRT splits v=1 primary dim d=2^{v2(n)} and invertible nontrivial v components of dimension n-d. The horizontal u+u^-1 is nilpotent, hence sum with invertible v+v^-1 is invertible off v=1. On both local components write u+u^-1=w²/u; tensor sum of size A,B power-two Jordan blocks is min(A,B) blocks of max(A,B), by Frobenius change s+t=z and truncated module freeness. Thus nilpotent type c=2min(m,d) blocks length ell=max(m,d)/2, including d=1 edge case. Fitting split gives exact first-periodic-entry counts, cumulative distribution and E[T]. Independent GF(2) matrices for five tori confirmed all predicted ranks; not used as infinite proof.
 
-## Closest sources and limitations
-Choudhury et al., arXiv:0804.2346 (null boundaries); Siap–Akin–Uguz, European J. Pure Appl. Math. 6 (2013) (ternary periodic case); Acar–Uguz–Akin, Acta Phys. Pol. A 131 (2017) (binary hybrid periodic case); Thomas–Stevens–Lettieri, Rocky Mountain J. Math. 36 (2006) (one-dimensional Rule 90); Dihidar–Choudhury, Information Sciences 165 (2004) (only abstract inspected). The model is restricted to a dyadic first circumference and exactly four neighbors. No independent review or historical exhaustiveness is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+1D Rule 90 and classical 2D cellular-automata rank papers are related, but null boundaries, ternary alphabets, or hybrid periodic rules do not mathematically entail this exact uniform binary four-neighbor preperiod shell law. Closest Dihidar–Choudhury 2004 exceptional 2D rule study was only abstract-accessible; institutional full-text retrieval returned vpn_disconnected, so not asserted noncovering. Genuine historical priority risk documented.
+
+## value
+
+PASS
+
+The exact transient-time distribution for all labelled configurations across an infinite 2D family, independent of n's odd factor, is a natural structural dynamical invariant. It includes sharp nilpotent depth, not arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
