@@ -1,11 +1,21 @@
-# Review of the Lucas-shift perfectness theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The family agrees exactly with the generators and \(a\geq2\) hypotheses of Robles-Pérez–Rosales, arXiv:2211.01436v1, Lemma 4.1 and Theorem 4.6. Their published Apéry representatives reduce membership to \(q\geq\beta(r)\) for \(qm+r\). The independent new step is proved explicitly: a canonical Lucas expansion with its unit digit absent may lose a least coin when subtracting one without decreasing its digit count, while a unit digit present may be transferred from coin \(1\) to coin \(2\) upon adding one without changing the count. Hence no strict local maxima; an induction proves that the endpoint \(L_a-1\) has absent unit digit. All residue cases and the exceptional indices \(a=0,1\) are handled. Dijkstra and unrestricted-coin dynamic programs agree on 9345 residues for 16 parameters, and no isolated gap was found among 69001 positive integer positions. Finite checks are independent corroboration, not an infinite proof.
+## correctness
 
-**Originality (PASS within inspected sources).** The full 2022 Lucas-family preprint describes the semigroup and all Apéry representatives but does not discuss perfectness or isolated gaps; [2] characterizes general perfect semigroups and fixed-Frobenius covarieties without stating the Lucas family result. Neither result states the digit-level no-peak law or the across-all-indices classification. Searches across exact terms, aliases (isolated/singleton gaps, perfect), and record summaries found no equivalent or dominating statement. Prior work supplies the starting Apéry theorem, so the result is an extension, not an independent rediscovery of its source's formulas. Remaining possibility of an unindexed equivalent theorem and unpublished corrections is recorded, not suppressed.
+PASS
 
-**Mathematical value (PASS).** This establishes a complete, natural classification of a family introduced for a Frobenius problem, with arbitrary embedding dimension \(a+1\). Perfectness is a structural property about the entire complement and is not given by the source's individual Frobenius, genus, or Wilf formulas. The critical digit lemma explains an across-all-indices obstruction to isolated gaps; it is not a small finite enumeration or a mere reformulation of one numeric value.
+The source proof uses the published exact Apéry formula A_r=r+L_a beta(r), where beta counts canonical Zeckendorf-Lucas digits, so qm+r is a gap precisely when q<beta(r). I checked the digit replacement: when lowest index is nonzero, lowering by one cannot lower coin count; if lowest digit is w_0=1, replacing it by w_1=2 preserves digit count and gives beta(r+1)=beta(r). An isolated interior gap would require a strict local maximum of beta, impossible. The endpoint r=m-1 follows from the canonical recurrence for L_a-1. Direct independent shortest-path Apéry calculations for a=2..15 showed no isolated gaps; the all-a proof is combinatorial, not a finite extrapolation. Cases a=0,1 handled separately.
 
-**Closest literature and limitations.** [1] Robles-Pérez and Rosales, arXiv:2211.01436v1, Sections 3–6, supplies the exact Apéry theorem; [2] Moreno-Frías and Rosales, arXiv:2305.14967v1, supplies general perfect-semigroup theory and algorithms, not this classification. The result excludes related shifted-only semigroups; bibliographic completeness and independent audit have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The premise Apéry formula and Lucas-generator family are known from Robles-Pérez and Rosales; the no-isolated-gap classification adds a digit monotonicity argument not in that inspected source. Moreno-Frías and Rosales study perfect numerical semigroups abstractly rather than proving this uniform Lucas family. Real priority risk remains.
+
+## value
+
+PASS
+
+Perfectness is a natural numerical-semigroup invariant; an all-index classification for a family with unbounded embedding dimension is a useful precise answer, rather than a small isolated calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

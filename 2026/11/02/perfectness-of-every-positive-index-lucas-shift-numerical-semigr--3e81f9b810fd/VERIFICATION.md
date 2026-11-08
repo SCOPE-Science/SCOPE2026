@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `CHECK.py` is standalone Python 3 standard-library code. Execute `python3 CHECK.py` to reconstruct minimum Apéry representatives via Dijkstra's algorithm using actual semigroup generators, and independently compute unrestricted minimum coin counts via a dynamic program. It checks every residue at 16 indices, the no-local-maximum and endpoint inequalities, and all positive integers through each corresponding Frobenius number.
+## correctness
 
-Observed result: `VERIFY_OK a_range=2..17 residues=9345 integer_positions=69001 zero_isolated_gaps=16`.
+PASS
 
-This finite validation is not offered as a proof for unbounded indices. The infinite proof derives from the established Lucas Apéry formula in Robles-Pérez–Rosales and the two digit lemmas proved in `RESULT.md`. Inputs and all prerequisites are openly specified; there is no external computation or independent mathematical audit.
+The source proof uses the published exact Apéry formula A_r=r+L_a beta(r), where beta counts canonical Zeckendorf-Lucas digits, so qm+r is a gap precisely when q<beta(r). I checked the digit replacement: when lowest index is nonzero, lowering by one cannot lower coin count; if lowest digit is w_0=1, replacing it by w_1=2 preserves digit count and gives beta(r+1)=beta(r). An isolated interior gap would require a strict local maximum of beta, impossible. The endpoint r=m-1 follows from the canonical recurrence for L_a-1. Direct independent shortest-path Apéry calculations for a=2..15 showed no isolated gaps; the all-a proof is combinatorial, not a finite extrapolation. Cases a=0,1 handled separately.
+
+## originality
+
+PASS
+
+The premise Apéry formula and Lucas-generator family are known from Robles-Pérez and Rosales; the no-isolated-gap classification adds a digit monotonicity argument not in that inspected source. Moreno-Frías and Rosales study perfect numerical semigroups abstractly rather than proving this uniform Lucas family. Real priority risk remains.
+
+## value
+
+PASS
+
+Perfectness is a natural numerical-semigroup invariant; an all-index classification for a family with unbounded embedding dimension is a useful precise answer, rather than a small isolated calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
