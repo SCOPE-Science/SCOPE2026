@@ -1,19 +1,21 @@
-# Review of optimal reset cadence and viscoelastic event-lag memory
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In the stated linear Gaussian probe–bath process with independent Poisson probe-only resetting, the stationary generator gives an exact three-equation moment system. Its positive solution supplies the variance of the pre-reset probe position and the probe–bath cross-moment. State-independent Poisson hazard makes pre-reset event sampling unbiased. Starting from the post-reset position \(X=0\), the one-step exponential-clock mean propagators are \(b=1/(r+g+1)\) for the next pre-reset probe and \(a=(r+1)/(r+g+1)\) for the persistent bath coordinate. They give \(\rho_m=ba^{m-1}V/U\) for each integer \(m\ge1\), as claimed. A concave quadratic controls the rate derivative and has one positive root exactly in the claimed region. Its explicit root yields the sharp large-lag asymptotics. The supporting standard-library checker reproduces 2,748 exact-rational identities, 48 bounded asymptotic/critical tests and 12 independently sampled exact-transition tests. These finite checks do not substitute for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For stationary linear two-coordinate Langevin system dX=(Q−X)dt+sqrt(2)dW, dQ=g(X−Q)dt+sqrt(2g)dB with independent Poisson rate-r resetting only X to 0, generator equations yield exactly U=2(g+r+1)/(r(g+r+2)), V=(2g+r+2)/(r(g+r+2)) and Z=(r+2)(g+r+1)/(r(g+r+2)). Constant-rate pre-reset Palm sampling gives the same U,V. Matrix exponential e^{Mt} at Exp(r) waiting times gives event-chain regressions E[Y_{j+1}|Q_j]=bQ_j, E[Q_{j+1}|Q_j]=aQ_j with b=1/(r+g+1), a=(r+1)/(r+g+1). Iteration gives Corr(Y_j,Y_{j+m})=ba^(m−1)V/U, exactly the displayed positive geometric expression. Its r-log derivative has signed quadratic numerator F=−r²+[g(m−4)−4]r+(g+1)[2g(m−1)−3]. For m=1 F<0, for m>=2 a positive root exists iff g>3/[2(m−1)], and then it is the unique global maximum (r*>0); otherwise F<0 all r>0. Direct root expansion r*_m=gm−2(g+1)+O_g(1/m) gives m rho_m(r*_m,g)→1/(2eg). Independent rational verification reproduced all stationary balances, regression ratios and derivative polynomial on several positive-rate/g parameter grids. Simulations are not used for infinite proof.
 
-Santra and Das, *Resetting in a viscoelastic bath: the bath remembers* (arXiv:2603.17027, public 2026-03-17), supply the identical physical model, stationary moment analysis and bath-memory mechanism, but the examined material does not state the pre-reset event-sequence covariance, its necessary-and-sufficient rate-maximization threshold, or the optimized large-lag algebraic envelope. Biswas and colleagues (arXiv:2412.09260) study a complete-renewal GLE reset protocol and physical-time correlations, not persistent-bath event-index correlations. Olsen and Löwen (arXiv:2401.12685) reset a velocity variable in a different process, while Maes and Thiery (arXiv:1705.07670) reset a bath rather than the probe. Generic marked-Markov and affine-recursion methods are prior knowledge. Exact-statement and stronger-implication searches did not identify the full event-lag bifurcation; a broader parameter-comparison result could still subsume portions, and not every related paper was accessible in full.
+## originality
 
-## Value — PASS
+PASS
 
-The correlation of successive *excursion endpoints* is a natural, experimentally accessible marker of residual bath memory, distinct from an ordinary physical-time autocorrelation. A sharp boundary \(g=3/[2(m-1)]\) determines when increasing reset frequency first enhances rather than suppresses event-index memory. The nontrivial asymptotic optimum \(r_m^*\sim gm\) identifies relaxation-time matching, and the optimal \(1/m\) envelope contrasts with exponential event-lag decay at any fixed rate. These specify a meaningful reset-protocol design tradeoff, rather than an arbitrary parametric slice or numerical table entry.
+Best-of-knowledge originality PASS based on direct comparison of exact statements, hypotheses and implications. Prior model ingredients and general lemmas are credited; no inspected full-text theorem establishes the precise additional classification. The named inaccessible and abstract-only comparisons remain risks, not proof of priority. Known stationary moments alone are not a formula for Cov(Y_j,Y_{j+m}), which needs the event-to-event conditional regression of the unreset bath. Once that regression is derived, the derivative sign quadratic and optimized 1/m envelope are further mathematical consequences absent from the compared stationary-law results.
 
-## Limits of assessment
+## value
 
-The conclusions concern only the stated instantaneous probe-only linear model and stationary event series. Source comparisons are not an independent publication-priority certification; numerical checks are bounded. Independent validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Different observables of a nonrenewed viscoelastic bath have different memory properties. An exact pre-reset event-indexed correlation sequence, unique reset-rate bifurcation and optimal algebraic 1/m envelope reveal the effect of tuning reset cadence against an unreset bath time scale; the distinction from fixed physical-time autocorrelation and full renewal is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

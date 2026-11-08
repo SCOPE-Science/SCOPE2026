@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:57:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/optimal-reset-cadence-and-the-long-lag-envelope-of-viscoelastic--8da4d48adba9/RESULT.md",
+        "2026/11/02/optimal-reset-cadence-and-the-long-lag-envelope-of-viscoelastic--8da4d48adba9/verify.py"
+      ],
+      "rationale": "For stationary linear two-coordinate Langevin system dX=(Q−X)dt+sqrt(2)dW, dQ=g(X−Q)dt+sqrt(2g)dB with independent Poisson rate-r resetting only X to 0, generator equations yield exactly U=2(g+r+1)/(r(g+r+2)), V=(2g+r+2)/(r(g+r+2)) and Z=(r+2)(g+r+1)/(r(g+r+2)). Constant-rate pre-reset Palm sampling gives the same U,V. Matrix exponential e^{Mt} at Exp(r) waiting times gives event-chain regressions E[Y_{j+1}|Q_j]=bQ_j, E[Q_{j+1}|Q_j]=aQ_j with b=1/(r+g+1), a=(r+1)/(r+g+1). Iteration gives Corr(Y_j,Y_{j+m})=ba^(m−1)V/U, exactly the displayed positive geometric expression. Its r-log derivative has signed quadratic numerator F=−r²+[g(m−4)−4]r+(g+1)[2g(m−1)−3]. For m=1 F<0, for m>=2 a positive root exists iff g>3/[2(m−1)], and then it is the unique global maximum (r*>0); otherwise F<0 all r>0. Direct root expansion r*_m=gm−2(g+1)+O_g(1/m) gives m rho_m(r*_m,g)→1/(2eg). Independent rational verification reproduced all stationary balances, regression ratios and derivative polynomial on several positive-rate/g parameter grids. Simulations are not used for infinite proof.",
+      "residual_risks": [
+        "Stationarity and finite variance require r,g>0 and instantaneous independent Poisson resets; none of the conclusions extend automatically to non-Poisson or noisy bath-reset systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Das 2026 treats same underlying SDE and some stationary moments; no inspected result implies the full m-indexed formula with the optimal r threshold. Full-renewal viscoelastic theories reset the hidden bath and do not dominate the unreset-bath conditional regression.",
+          "https://arxiv.org/html/2603.17027v1",
+          "https://arxiv.org/abs/2412.09260"
+        ],
+        "reasoning": "Santra–Das 2026 treats same underlying SDE and some stationary moments; no inspected result implies the full m-indexed formula with the optimal r threshold. Full-renewal viscoelastic theories reset the hidden bath and do not dominate the unreset-bath conditional regression.",
+        "searches": [
+          "Resultary published-research semantic query: viscoelastic probe reset unreset bath serial pre-reset event correlations optimal reset frequency",
+          "https://arxiv.org/html/2603.17027v1",
+          "https://arxiv.org/abs/2412.09260"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.17027v1",
+        "https://arxiv.org/abs/2412.09260",
+        "https://arxiv.org/abs/2401.12685",
+        "https://arxiv.org/abs/1705.07670"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known stationary moments alone are not a formula for Cov(Y_j,Y_{j+m}), which needs the event-to-event conditional regression of the unreset bath. Once that regression is derived, the derivative sign quadratic and optimized 1/m envelope are further mathematical consequences absent from the compared stationary-law results.",
+          "https://arxiv.org/html/2603.17027v1",
+          "https://arxiv.org/abs/2412.09260",
+          "https://arxiv.org/abs/2401.12685",
+          "https://arxiv.org/abs/1705.07670"
+        ],
+        "reasoning": "Known stationary moments alone are not a formula for Cov(Y_j,Y_{j+m}), which needs the event-to-event conditional regression of the unreset bath. Once that regression is derived, the derivative sign quadratic and optimized 1/m envelope are further mathematical consequences absent from the compared stationary-law results.",
+        "searches": [
+          "Resultary published-research semantic query: viscoelastic probe reset unreset bath serial pre-reset event correlations optimal reset frequency",
+          "https://arxiv.org/html/2603.17027v1",
+          "https://arxiv.org/abs/2412.09260",
+          "https://arxiv.org/abs/2401.12685",
+          "https://arxiv.org/abs/1705.07670"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Searched serial correlation across reset epochs and viscoelastic unreset-bath excursions; although basic Markov-renewal regression and stationary physical-time covariance are related, event-indexed pre-reset Y_j is a separate random sampling observable, not an immediate restatement of the physical-time covariance.",
+          "https://arxiv.org/html/2603.17027v1"
+        ],
+        "reasoning": "Searched serial correlation across reset epochs and viscoelastic unreset-bath excursions; although basic Markov-renewal regression and stationary physical-time covariance are related, event-indexed pre-reset Y_j is a separate random sampling observable, not an immediate restatement of the physical-time covariance.",
+        "searches": [
+          "Resultary published-research semantic query: viscoelastic probe reset unreset bath serial pre-reset event correlations optimal reset frequency",
+          "https://arxiv.org/html/2603.17027v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantics queried event-indexed reset bath correlations and rate optimum; returned generic oscillator/reversible-chain autocorrelation bounds rather than the specific stochastic model or discriminant threshold. No exact formula was identified; historical completeness not guaranteed."
+        ],
+        "reasoning": "Resultary semantics queried event-indexed reset bath correlations and rate optimum; returned generic oscillator/reversible-chain autocorrelation bounds rather than the specific stochastic model or discriminant threshold. No exact formula was identified; historical completeness not guaranteed.",
+        "searches": [
+          "Resultary published-research semantic query: viscoelastic probe reset unreset bath serial pre-reset event correlations optimal reset frequency",
+          "https://arxiv.org/html/2603.17027v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS based on direct comparison of exact statements, hypotheses and implications. Prior model ingredients and general lemmas are credited; no inspected full-text theorem establishes the precise additional classification. The named inaccessible and abstract-only comparisons remain risks, not proof of priority. Known stationary moments alone are not a formula for Cov(Y_j,Y_{j+m}), which needs the event-to-event conditional regression of the unreset bath. Once that regression is derived, the derivative sign quadratic and optimized 1/m envelope are further mathematical consequences absent from the compared stationary-law results.",
+      "residual_risks": [
+        "A separately published event-sampled renewal correlation theorem could imply the optimized observable once specialized; no exhaustive priority certification.",
+        "Stationarity and finite variance require r,g>0 and instantaneous independent Poisson resets; none of the conclusions extend automatically to non-Poisson or noisy bath-reset systems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational stationary moments and retained bath mechanism are prior; inspected treatment does not present the across-successive-pre-reset Y_j event-lag covariance, exact rate-bifurcation threshold or its long-lag optimized envelope.",
+          "evidence": [
+            "Santra–Das 2026 arXiv:2603.17027, probe-only reset model; source stationary-moment results and bath memory"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+          "material_read": "Complete accessible arXiv HTML including model definition, stationary moments, spatial-fluctuation analysis and conclusion; searched covariance and event-indexed correlation terminology",
+          "method": "Primary arXiv full-text reading with equation and observable comparison",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Original identical probe-plus-bath stochastic differential equations and partial resetting protocol"
+        },
+        {
+          "assessment": "Full-renewal reset of bath and probe differs from retained-bath serial memory. Only the distinction in model is established from this level of reading.",
+          "evidence": [
+            "Biswas–Dubbeldam–Sandev–Pal arXiv:2412.09260, generalized-Langevin resetting framework"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+          "material_read": "ArXiv abstract and model description, not entire paper",
+          "method": "Model-restart convention comparison",
+          "title": "A resetting particle embedded in a viscoelastic bath",
+          "trigger": "Same physical keywords and correlation subject"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2603.17027v1",
+        "https://arxiv.org/abs/2412.09260",
+        "https://arxiv.org/abs/2401.12685",
+        "https://arxiv.org/abs/1705.07670"
+      ],
+      "rationale": "Different observables of a nonrenewed viscoelastic bath have different memory properties. An exact pre-reset event-indexed correlation sequence, unique reset-rate bifurcation and optimal algebraic 1/m envelope reveal the effect of tuning reset cadence against an unreset bath time scale; the distinction from fixed physical-time autocorrelation and full renewal is substantive.",
+      "residual_risks": [
+        "A separately published event-sampled renewal correlation theorem could imply the optimized observable once specialized; no exhaustive priority certification.",
+        "Stationarity and finite variance require r,g>0 and instantaneous independent Poisson resets; none of the conclusions extend automatically to non-Poisson or noisy bath-reset systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A separately published event-sampled renewal correlation theorem could imply the optimized observable once specialized; no exhaustive priority certification.",
+    "Stationarity and finite variance require r,g>0 and instantaneous independent Poisson resets; none of the conclusions extend automatically to non-Poisson or noisy bath-reset systems."
+  ],
+  "schema_version": 1
+}
