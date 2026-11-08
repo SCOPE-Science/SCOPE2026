@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All coefficients yield separable quintics because \(f=xf'+1\). Riemann–Hurwitz gives genus four. The four global regular differentials are checked at all six ramified places; the semilinear Cartier formula follows by extracting the odd terms of \(f\,dx\). Iterating Cartier gives stable ranks \(0\) and \(2\), distinguished only by \(a=0\). The derivative square identifies exactly one or two distinct polynomial critical points. Direct finite-field tests reproduce the ranks for 1,364 pairs and check four sample zeta numerators; these are checks, not a proof of the infinite assertion.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The most relevant primary papers are Dragutinović (arXiv:2301.12897v1, Sections 1 and 5) and Sankar (arXiv:1904.12173v2, Sections 2.2 and 3.2). Dragutinović treats general characteristic-two genus-four Newton/Ekedahl–Oort strata, not the stated marked cyclic family and its rank divisor. Sankar/Elkin establishes the \(a\)-number formula and general ordinarity, but not the exceptional stable-rank locus \(a=0\). published-finding corpus searches for genus-four characteristic-two trigonal stable Cartier rank, derivative critical-point splitting and this exact equation yielded no comparable claim. Published-index incompleteness and the possibility of an earlier specialization of general Cartier algorithms remain priority risks. These comparisons are about mathematical implication, not about absence of similar titles.
+PASS
 
-## Mathematical value
-**PASS.** The literature's genus-four characteristic-two stratification problem becomes completely explicit on an everywhere-smooth, geometrically motivated cyclic triple-cover parameter plane. The result distinguishes ranks \(0\) and \(2\) despite constant one-step Cartier rank two, exhibits the rank-zero divisor exactly, and connects it to the collision of distinct critical points of the defining quintic. This is more information than an \(a\)-number or ordinarity calculation. The result is not a complete unmarked moduli classification or a Newton-polygon computation.
+The model y^3=x^5+a x^3+b x+1 is tame Kummer of degree 3 in characteristic 2: f=x f' +1 proves separability for every coefficient pair, five simple finite branch points and one at infinity give 2g-2=-6+12=6. The listed four differentials dx/y, dx/y², x dx/y², x² dx/y² are regular with infinity valuations (1,6,3,0), form a basis, and their semilinear Cartier map C(e1)=e4+sqrt(a)e3+sqrt(b)e2, C(e3)=e1, C(e2)=C(e4)=0 is obtained by extracting odd terms in f(x) dx. With w=C(e1), C(w)=a^(1/4)e1, so stable C^4-rank is zero exactly when a=0, otherwise two; rank C=2 throughout, so a-number 2. f'=(x²+sqrt(a)x+sqrt(b))² has 1 vs 2 distinct critical roots; count q coefficients with a=0 and q(q-1) elsewhere. This is set-theoretic, not a determinantal-scheme multiplicity. Independent GF(2) matrix rank powers for all (a,b) reproduce the four ranks; finite fields cannot prove the all-algebraically-closed classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS qualified: general superelliptic Cartier/a-number and genus-four 2-rank techniques are established; the final novelty is the parameter-specific stable Cartier-rank divisor in an everywhere-smooth cyclic trigonal genus-four family. The general a-number=2 is not independently new. Material checked from Dragutinović and Sankar does not give this exact coefficient-marked locus or derivative collision, but unindexed specializations remain possible.
+
+## value
+
+PASS
+
+A natural two-parameter genus-four cyclic trigonal cover gives a sharp and nontrivial 2-rank jump despite constant a-number, localizes the rank-zero locus and relates it to a polynomial-critical-point collision. This supplies a concrete arithmetic stratum and exact finite-field marked counts; a technical stable-rank invariant is of mathematical use beyond generic ordinarity, without claiming moduli-level classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
