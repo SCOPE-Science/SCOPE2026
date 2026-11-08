@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-Run `python verify_cycle_stacking.py` using Python 3's standard library. The algorithm enumerates all weak compositions through size \(8\) on \(C_5\) and size \(17\) on \(C_7\). It implements two independently oriented reachability algorithms: forward recursion on each state and reverse generation from stacked states. Their complete layer-by-layer successful sets must agree. It then checks exact identity of the critical bad sets with disjoint dihedral orbits and checks the empty bad sets at sizes \(8\) and \(17\).
+# Independent mathematical audit
 
-This is a finite exhaustive verification of a well-founded recursion, not a heuristic search or an attempted proof for larger cycles. Only the named configurations, their labelled orbit counts, and the two finite thresholds are certified. The figures and algorithms already published for the numerical thresholds are not independent validation of this orbit refinement.
+## correctness
+
+PASS
+
+Every successful nontrivial pebbling configuration has a first move to a smaller successful state. Reverse parent d+2e_u-e_v with d_v>=1 yields exact induction over all compositions. Independently enumerated every labeled configuration at all sizes 1..8 on C5 and 1..17 on C7, tested forward/backward sets and full dihedral orbit equalities. C5 has exactly ten size-seven obstructions in two orbits of size five; C7 exactly fourteen size-sixteen obstructions in one orbit, and no obstructions at the next size. The second C5 representative has two piles >1; this refutes only universal extremizer near-stackedness, not existential Almost Stacked Hypothesis.
+
+## originality
+
+PASS
+
+Thresholds C5=8,C7=17 and recurrence are published and not claimed as new. The new assertion is exact critical obstruction orbit sets and distinction between existential and universal almost-stacked readings. Author repository report has only thresholds but program can generate witness sets; uninspected supplemental outputs and implicit earlier classification remain risk.
+
+## value
+
+PASS
+
+Classifies all largest nonstackable configurations on two naturally smallest nontrivial odd cycles, separates existential Almost Stacked Hypothesis from a tempting universal strengthening, and gives explicit orbit witnesses; finite but self-contained and motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
