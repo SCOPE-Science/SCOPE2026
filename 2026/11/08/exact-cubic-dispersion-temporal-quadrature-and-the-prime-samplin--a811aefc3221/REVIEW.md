@@ -1,0 +1,19 @@
+# Mathematical review of exact cubic-dispersion temporal quadrature
+
+## Correctness
+
+PASS. Spatial Parseval converts the fourth moment to the sum of squared lag-correlations. The exact difference between distinct cubic lag frequencies is \(3hr(2m+h+r)\), strictly positive for the stated nonnegative band and positive difference indices. The continuous time integral deletes all off-diagonal pairs; the uniform time grid retains precisely frequencies divisible by the grid size. Hermitian pairing yields the displayed factor-four signed defect with no missing boundary terms. The modular criterion is the exact linear-congruence solvability condition with a bounded nonnegative least solution. The all-ones vector proves necessity for universal exactness, and Cauchy–Schwarz plus the same vector proves the claimed sharp-norm dichotomy. The prime-grid necessity uses admissible explicit resonance indices; sufficiency bounds each factor below the prime. The arguments cover every indicated \(K,N\), and the exceptional bands \(K=1,2,3\) are separate. An exact-integer verifier checks 1344 parameter pairs, 756 direct quartic moment comparisons with real integer coefficients, 88 with Gaussian-integer complex coefficients and the prime threshold for 32 band sizes; these are corroboration, not infinite proof.
+
+## Originality
+
+PASS under bounded literary comparison. Classical cubic-curve/periodic KdV restriction gives continuous-time estimates and resonance methods, not an exact uniform temporal grid criterion. The full primary text of Hughes–Wooley's *Discrete Restriction for (x,x³) and Related Topics* was inspected: its statements and fourth-moment section treat continuous restriction estimates for polynomial curves, not a universal all-moduli grid test. The published *Exact arithmetic aliasing and prime-optimal time quadrature for quadratic Fourier flows* gives a related but **quadratic** identity, whose off-diagonal time difference \(2hr\) is independent of the base position; it does not imply the cubic position-sensitive condition \(3hr(2m+h+r)\), the modular least-solution criterion, or the sharp prime threshold \(2K-3\). An earlier general sampling result could still imply the new statement; absolute historical priority is not established. All comparisons concern statements and implications rather than title differences.
+
+## Value
+
+PASS. Uniform temporal quadrature of spatial Fourier fourth moments provides an exact finite observation scheme for periodic dispersive flows. For every number of cubic modes, the result determines whether *all* complex signals retain their fourth moments under an arbitrary equally spaced time grid, and whether the sharp fourth-power norm is preserved. The exact prime threshold is linear in the band size even though the underlying cubic time-frequency range is cubic in band size. A position-dependent cubic resonance and an explicit modular-inverse decision test are essential to the result, not a cosmetic replacement of the quadratic case. The distinction between prime-optimal and unrestricted-optimal counts, the signed defect, and restrictions to positive consecutive modes are stated precisely.
+
+## Closest literature and limitations
+
+Li's 2010 discussion of periodic nonlinear dispersive Fourier estimates and Hughes–Wooley's continuous cubic-curve restriction manuscript provide directly motivating literature. Bourgain's earlier KdV restriction result is foundational. The published quadratic-flow temporal quadrature theorem is the strongest directly analogous comparison, but the cubic arithmetic outcome is neither a corollary nor a parameter specialization of its displayed theorem. Unexamined historically equivalent general polynomial-phase quadrature theorems remain a residual priority risk. No claim is made about optimal composite sample sizes or norms in the aliasing regime.
+
+Self-review: passed. Independent audit: not yet performed.
