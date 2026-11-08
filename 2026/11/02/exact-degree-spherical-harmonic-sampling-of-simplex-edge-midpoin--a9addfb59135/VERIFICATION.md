@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The checker uses only its standard library and builds the 54 exact polynomial numerator sectors for every \(3\le k\le20\). It applies the rational-root theorem to the complete list of divisors of each primitive polynomial's constant term, after checking the small-prime factorization is complete. It uses exact Horner arithmetic throughout and rejects candidates with exact modular arithmetic; the only positive-dimensional parameter roots at integer \(n\ge5\) are \((k,\text{sector},n)=(3,1,8),(4,0,8),(5,0,16)\). It also checks the algebraic intersections needed in the conic argument. Expected first output line: `HYPERSIMPLEX_SAMPLING_CERTIFICATE_OK`.
+## correctness
 
-The analytic Wronskian inequality in `RESULT.md` proves independence of the seven quadratic powers for every \(k\ge21\) and then uses the connected non-bipartite disjoint-pair graph to rule out all annihilators. This infinite argument is not computationally validated by the finite-degree run. The normalization and Gram formulas can be checked directly from the Gegenbauer addition formula and incidence-matrix spectrum. Independent validation has not been carried out.
+PASS
+
+Edge-midpoint coordinate model in sum-zero hyperplane gives inner products a=(n-4)/(2(n-2)) for adjacent labels and b=-2/(n-2) for disjoint, and Johnson J(n,2) adjacency eigenvalues 2(n-2), n-4, -2. Gegenbauer kernel hence splits in exactly three irreducible sectors. Degrees 0..2 are direct; for 3..20, exact polynomial-root certificates using rational-root theorem check all integer n>=5; our independent symbolic sector checks reproduced only (k,sector,n)=(3,1,8),(4,0,8),(5,0,16). For k>=21 the seven pairwise root-disjoint binary conic quadratic powers must be independent by Wronskian bound k<=(r-2)(r+1)/2<=20; then Kneser KG(n,2) connected with odd cycle and incidence equations rule out annihilating weights. Independent rational Gram spectrum checked ten n choices, degrees 0..10; finite checks are not proof of all n,k.
+
+## originality
+
+PASS
+
+Classical J(n,2) eigenvalues, Musin simplex-edge two-distance configuration, and harmonic-index design theory establish the ingredients and special low-degree facts. The complete integer dimension/degree exceptions and Wronskian universal interpolation cutoff are not stated or implied by an inspected broader theorem. Best-knowledge PASS; older Johnson-scheme cubature calculations remain possible.
+
+## value
+
+PASS
+
+Centered simplex-edge midpoints form a canonical hypersimplex/two-distance configuration. The all-dimension exact-degree spectrum and n=16, degree-5 harmonic-index cancellation identify a meaningful precise exceptional design and a uniform interpolation cutoff, not a single arbitrary numerical example; no conditioning bound is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
