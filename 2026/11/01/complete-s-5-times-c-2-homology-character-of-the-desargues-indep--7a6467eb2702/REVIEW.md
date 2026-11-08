@@ -1,15 +1,21 @@
-# Scientific review of the Desargues homology character
+# Independent mathematical audit
 
-## Correctness
-PASS. The twenty-vertex pair-disjointness definition determines the entire complex; `verify.py` exhaustively enumerates \(6211\) independent faces and checks the augmented mod-two boundary ranks \((1,19,141,519,991,932,383,97,18,2)\), yielding only reduced mod-two Betti dimensions \(1\) and \(5\) in degrees four and five. The same program independently checks signed Lefschetz values for every one of the \(240\) automorphisms. The proof uses the universal coefficient theorem to bound rational dimensions, then determines both actual rational modules from the virtual character and positivity of irreducible multiplicities. These finite calculations and the representation argument supply the stated precise rational conclusion without claiming an integral torsion computation.
+## correctness
 
-## Originality
-PASS, subject to publication-priority risk. The closest same-object published result gives the nonequivariant wedge \(S^4\vee\bigvee^5S^5\), not the symmetry character. The bipartite Kneser literature on Hamiltonicity and edge ideals does not contain the action on simplicial homology. The general Kronecker-cover/Mycielskian homotopy paper uses this independence complex as an input without computing its full \(S_5\times C_2\)-action. Searches also used the aliases bipartite Kneser \(H(5,2)\), generalized Petersen \(G(10,3)\), and Petersen Kronecker double. The unresolved risk is an equivalent unindexed computation.
+PASS
 
-## Value
-PASS. This is a complete grading-sensitive equivariant classification for the highly symmetric Desargues graph, unlike a bare Betti-number calculation. The central layer swap is anti-invariant in both dimensions, despite different \(S_5\) structures, and this forces the full symmetry quotient to have no reduced rational homology. The precisely identified five-point permutation module gives geometric information about invariant cycles and is a natural refinement of an already computed nonequivariant homotopy type.
+PASS. Desargues graph G(10,3)=bipartite Kneser H(5,2) is represented explicitly as the incidence/disjointness graph on two copies of the ten 2-subsets of [5]. Independently enumerated all 6,211 nonempty independent simplices and exact mod2 augmented boundary ranks (1,19,141,519,991,932,383,97,18,2), bounding rational reduced Betti dimensions by 1 in degree 4 and 5 in degree 5. Recomputed the oriented fixed-face Lefschetz trace for each of all 240 S5 x C2 symmetries; each agreed with (-1)^flip(sign(permutation)-number_fixed_points). Representation-ring positivity plus rational dimension bounds force H~4=sign(S5) tensor swap-sign and H~5=5-point permutation(S5) tensor swap-sign. Both full-group fixed subspaces vanish; this is not a claim about integral quotient homotopy.
 
-## Scope and limitations
-The result concerns one finite graph and rational representations, not integral lattices or a family theorem. The computations are exhaustive and reproducible, but no independent mathematical audit or definitive global novelty certification has been performed. See `RESULT.md` for the formal proof and source comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Earlier SCOPE full proofs determine Ind(Desargues) homotopy S4 wedge five S5, hence the ranks, but not the S5 x C2 action. The same graph is the bipartite Kneser graph H(5,2); Kumar–Singh–Verma (2021) address graded linear-strand edge-ideal Betti invariants and bounds on regularity/projective dimension, not the full rational equivariant simplicial homology character. Relevant full-text absence for that edge-ideal article is a residual risk, not presumed proof of noncoverage. Neither known nonequivariant wedge nor graph name implies this character.
+
+## value
+
+PASS
+
+PASS. The Desargues graph is a canonical 20-vertex cubic distance-transitive graph with full S5 x C2 symmetry and known mixed-dimensional independence homotopy. Determining the two complete rational automorphism modules and absence of invariants resolves a mathematically natural missing symmetry invariant; the action reveals information hidden by the known 1+5 Betti counts. A fixed-object complete representation classification is a motivated contribution without needing a family-level extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
