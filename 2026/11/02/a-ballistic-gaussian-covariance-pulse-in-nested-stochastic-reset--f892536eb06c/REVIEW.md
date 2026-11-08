@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-sided reset genealogy gives an almost-surely finite backward coupling at every finite depth. The stationary second-moment generator identities correctly account for Brownian quadratic variation and both product-changing reset clocks. The conditional mean is a lower-bidiagonal semigroup; its finite exponential sum produces the two stationary lagged covariances. The derivative changes sign precisely at the unique positive root of a strictly decreasing positive sum. A uniform geometric majorant justifies the root expansion and Gaussian scaling, and Stirling's formula supplies the precise coefficient. The included checker passed 728 finite numerical/algebraic checks from an independent moment matrix and matrix exponential, but these are supporting diagnostics, not infinite proofs.
+## correctness
 
-## Originality — PASS, qualified best-knowledge
-Alston, Britton and Bertrand (arXiv:2502.03225v1) derived the model and static correlations; we do not claim those. Britton and collaborators (arXiv:2609.25252v1) derive marginal relaxation and accumulation times and specifically leave time-dependent interparticle correlations as a further direction. Direct reading of the accessible main source materials and source-specific and broader searches did not reveal the exact directionally ordered two-time formula, unique lag optimum, or Gaussian deep-chain covariance pulse. A universal Markov semigroup representation is prior general machinery and does imply the finite-time expression once one inserts the known stationary covariance; originality is asserted for the sharp coupled dynamical and large-depth statement rather than for a new semigroup technique. The 2025 journal supplementary file was not accessible through the inspected link, and broader literature may contain related Erlang propagation kernels. No independent priority certification is asserted.
+PASS
 
-## Value — PASS
-The 2025 source describes nested copying as lossy information propagation, while the 2026 source treats the arrival of stationary marginal behavior. The proved lagged pulse resolves the distinct experimentally measurable question of when a signed positional fluctuation at the chain's source is most correlated with a downstream coordinate. Its exponentially small equal-time covariance becomes an algebraically large optimally delayed covariance; the ballistic peak time, diffusive width, and universal peak coefficient give a quantitative propagation law rather than an arbitrary parameter slice. The nonzero two-time directional asymmetry also provides an explicit observable signature of irreversibility. The analysis is restricted to equal rates and covariance-level effects.
+In the independent equal-rate copying-reset chain, the stationary generator yields Var X_i=iV and Cov(X1,Xj)=V/2^(j−1); the conditional expectation semigroup is exp(t times a lower bidiagonal matrix). Multiplying its exact exponential by stationary source covariances reproduces forward F_n=V2^(−m)e^(−z)Σ_{k=0}^m(2z)^k/k! and reverse R_n=V2^(−m)e^(−z), hence their strict inequality at t>0. Dividing the derivative by its positive last term gives strictly decreasing Q_m(z)=Σ_{j=1}^m(m)_j/(2z)^j, with a unique positive root, not merely a numerical maximum. Uniform bounded-s expansion near z=m of Q_m and the local Stirling formula yield z_m=m−1+O(1/m), Gaussian pulse and maximum Pearson correlation ~sqrt(2/pi)/n. Independently compared lower-bidiagonal matrix exponentials at five depths and five physical lags with closed formulas, and independently bracketed peak roots up to m=100. The infinite Gaussian limit comes from dominated ratios and Stirling, not finite tests.
 
-## Closest primary literature and limits
-- Alston, Britton and Bertrand, *Nested stochastic resetting: nonequilibrium steady states and exact correlations*, arXiv:2502.03225v1, Phys. Rev. Lett. 135, 167101 (2025): static two-point correlations and stationary moments; not the time-lag pulse as read in its main text.
-- Britton, Le Jeune, Alston, Bressloff and Bertrand, *Approach to steady-state in nested resetting processes*, arXiv:2609.25252v1 (2026): marginal relaxation and accumulation times, with temporal interparticle correlations identified as future work.
-- Residual priority risk: generic linear jump-process correlation propagation and possibly uninspected 2025 supplementary details could overlap portions. The proof is complete for the stated model, not a claim about entropy production, finite-sample inference, or all reset protocols.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alston–Britton–Bertrand 2025 developed this exact reset chain and calculated stationary equal-time correlations. Britton et al 2026 analyze relaxation/accumulation times, which are different one-time observables; its abstract is accessible, but its arXiv 2026 full text could not be fetched, retained as priority risk. The accessible primary 2025 main article covers static two-point correlations rather than this ordered stationary two-time covariance. A generic Markov semigroup already implies the finite sum given stationary covariance; the contribution assessed is the sharp unique ballistic peak, its amplitude and Gaussian large-depth pulse, with directional time-asymmetry.
+
+## value
+
+PASS
+
+The same model is motivated as information transfer along a hierarchy. Exponentially small equal-time correlation contrasts with an algebraic, directionally ordered optimally delayed signal. A ballistic peak at time ~depth/r with sqrt(depth)/r Gaussian width and exact height is a natural transport law, not an arbitrary lag computation; its restricted observable is stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
