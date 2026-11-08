@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** A complete real-root/complex-root case split establishes every endpoint of the positivity phase. Direct substitution into the published parameter family gives the recurrence. Two rational root identities certify the crucial start-position comparison; asymptotic dominance of the negative root handles the supercritical nonoscillatory region. The standalone rational verifier passed 11,548 supplementary assertions. The proof, not finite testing, proves all parameters and all iterates.
+
+**Originality: PASS, qualified.** The source paper's Section 4.1 determines optimal coefficients and stability but not positivity. The existing BDF2 sign-loss record gives the \(\kappa=0\) special case and cannot imply the nonzero-damping threshold or its unique optimizer. published-finding corpus searches using parameter-family and equivalent root/positive-sequence terminology did not identify a broader covering claim. The main primary paper's relevant Section 4.1 and supporting context were inspected as full text. A sufficiently general older second-order recurrence positivity theorem could imply this as a corollary; that historical equivalence is a residual risk, not proof of novelty by absent search hits.
+
+**Value: PASS.** A-stability and infinite-stiffness damping alone do not determine whether numerical populations can become negative. The complete, sharp parameter boundary permits quantitative positivity-aware selection within a newly optimized stiff solver family; its unique maximizer simultaneously triples the safe scalar step over BDF2 and reduces the source's error constant from \(1/3\) to \(1/9\). This is a structural tradeoff across the *whole* damping parameter, not an arbitrarily chosen test coefficient. The theorem explicitly excludes matrix positivity and arbitrary initialization.
+
+**Closest results and limits.** Jensen--Ketcheson--Lóczi, arXiv:2610.22685v1, Corollary 4.2 (coefficients and error-optimality); the published-finding corpus record on BDF2 delayed sign loss (known endpoint \(\kappa=0\)). No conclusion about all coupled positive systems or SSP behavior follows. Independent review is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
