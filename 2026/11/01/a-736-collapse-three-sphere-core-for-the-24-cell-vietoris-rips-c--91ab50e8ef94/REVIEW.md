@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The standalone verifier reconstructs all twenty-four type-\(D_4\) roots with exact integer arithmetic and all 1,584 faces at squared Euclidean distance threshold four. Every one of 736 elementary collapse pairs is checked in sequence for codimension one and free-face uniqueness. The resulting 112-face ten-vertex complex has precisely 23 tetrahedra. The pivot link is checked as the complete octahedral two-sphere; the deletion is verified to be a pure 15-tetrahedron complex with a bona fide ball shelling and the same complete boundary. The union of two balls along a sphere is a PL three-sphere. A separate 42-pair deletion collapse is reproduced. The result is a simple-homotopy statement, not a homology-only extrapolation.
+## correctness
 
-## Originality
-PASS, subject to priority risk. Saleh's 2023 dissertation Section 4.2 already gives the corresponding integral homology and persistence data; the present result does not claim those data as new. The inspected 2023 Platonic-solid paper proves a different five-polytope theorem and makes a general comment that four-dimensional regular cases are easy, but has no explicit 24-cell free-face reduction. Dechant's 2013 geometric construction makes no Rips claim. Searches of the mathematical index for type-\(D_4\) roots, 24-cell, equivalent threshold formulations and explicit collapses found no implication covering this precise certified PL sphere reduction. This is not proof of worldwide priority; the broad 2023 remark is the leading residual risk.
+PASS
 
-## Value
-PASS. Integral homology \(H_3\cong\mathbb Z\) does not imply a PL three-sphere, and it does not provide a simple-homotopy collapse from the 1,584-face Rips complex. The explicit 736-pair reduction, 10-vertex small model and checkable 15-tetrahedron shelling answer the natural structural homotopy question raised by the existing 24-cell homology calculation. It is a finite but motivated complete topological strengthening, not an arbitrary slice or mere recomputation of a table.
+The 24 D4 roots ±e_i±e_j and inclusive Euclidean radius 2 give squared-distance acceptance ≤4, not graph-metric distance 2. Independently reconstructed all graph cliques: (24,168,480,600,288,24), 1,584 simplices; verified actual JSON root list and each of 736 sequential elementary collapse pairs against the live remaining faces (unique codimension-one coface, hence free), yielding a pure (10,33,46,23) residual with its exact 23 tetrahedra. Independently checked vertex-2 link has six vertices, twelve edges, eight triangles, missing precisely three disjoint edges, hence octahedral S². All fifteen tetrahedra of vertex deletion form an ordered shelling with nonempty proper 1–3 triangle disk intersections, no extra lower-dimensional attachments, and boundary equal to that link; separate 42-pair deletion collapse was also independently replayed. Therefore deletion and star are PL 3-balls glued along entire S², so the residual is PL S³ and the original complex simplicially collapses to it. This upgrades a previously known H3=Z without confusing homology with homotopy or collapse.
 
-## Closest work and limitations
-Closest: Saleh's 2023 dissertation, Chapter 4, Section 4.2, and Saleh–Titz Mite–Witzel, 2023, introduction. The proof is nonequivariant, fixes the Euclidean metric and does not establish a minimum collapse length or minimum vertex count. Published homology/barcodes are acknowledged rather than credited as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the explicit finite simple-homotopy certificate and PL sphere model, not the known H3 persistence result.
+
+## value
+
+PASS
+
+An explicit, fully checkable simple-homotopy reduction from a 1,584-simplex 24-cell Rips complex to 23 tetrahedra and a very small PL sphere supplies geometric topology beyond earlier Betti tabulations. It is a natural four-dimensional regular-polytope test case, even though an S³ homotopy statement may have been anticipated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
