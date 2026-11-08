@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The independent `verify_rotation.py` script is supplied alongside the theorem. Run with `python verify_rotation.py` under Python 3.10 or newer; it requires only the Python standard library.
+## correctness
 
-The program checks exact rational Bayesian-to-odds identity and orbit invariance for two rational-resonant and two irrational-ratio likelihood pairs. It performs 3,620 exact rational comparisons, checks the primitive periods of six rational-resonance configurations, verifies 200,000 rotation-itinerary wrap comparisons, and compares a 200,000-step orbit mean against the analytic invariant-measure integral. The script succeeds with output ending `All finite checks passed.` when extracted from this package.
+PASS
 
-The infinite statements require the explicit proof in RESULT.md. No finite program can establish the density of an infinite irrational orbit or uniqueness of a probability invariant under the rotation; those facts follow from the classical irrational-rotation argument given in the proof. The irrationality of the published parameters is certified by exact integer prime valuations rather than floating-point approximation. No independent validation or external certification is asserted.
+The precise Bayesian fractional rule yields log-odds increments +a below 0 and -b at or above 0 (a=log(1/g_-)>0,b=log(g_+)>0). The half-open interval [-b,a) is forward invariant; iterations outside add a or subtract b until capture. t=(u+b)/(a+b) yields rotation mod 1 by rho=a/(a+b). Every high branch is exactly an integer wrap, telescoping to H_n=floor(t0+n*rho), giving strict discrepancy <1 even when the threshold is attained. Rotation periodicity, density and Fourier uniqueness give the rational/irrational dichotomy and the normalized logistic density. Branchwise chain derivative equals x_n(1-x_n)/[x0(1-x0)] on smooth itineraries, bounded away from zero/infinity after capture. Prime-11 valuations show irrationality for g_-=22/125,g_+=93/50; prime-17 similarly for 3/17,13/7. Independent 18,000-step orbits checked capture and exact wrap counts; finite computation does not establish irrational density.
+
+## originality
+
+PASS
+
+The original Dong–Marzen model reports oscillation under this same two-ratio switching rule. It does not state exact eventual rotation conjugacy, irrationality of its printed parameters, invariant density or exact finite-horizon branch-balance law. The log-odds and rigid-rotation machinery is classical, not claimed new; the assessed contribution is the complete model-specific classification and sharp all-horizon statistics. Nishi–Masuda is a peer-signal stochastic model with a different update law.
+
+## value
+
+PASS
+
+A genuine gap remains between the source observation of repeated oscillation and the exact distinction that the very parameters used to illustrate cycling are mathematically nonperiodic; every initial interior belief has identical orbit closure and strictly <1 switch-count imbalance on its local clock. The all-parameter classification and all-horizon invariant are useful for interpreting and testing the motivating Bayesian model rather than simply renaming a rotation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
