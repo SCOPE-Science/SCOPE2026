@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim concerns the pure order reduct of the actual lattice of flats of every uniform matroid with \(2\le r<n\). The closure/flat description is exact. The proof reduces a three-round game to an explicit at-most-81-state third-extension calculation; proper selected-flat profiles are compressed by concrete parameter transformations, and the distinct rank thresholds have rank-three witnessing sentences. Finite full-poset and orbit-based computations agree. The main mathematical risk is a missed exceptional case in the all-parameter compression lemma; independent reconstruction is recommended.
+## correctness
 
-## Originality
-Margolis--Rhodes--Silva (arXiv:1510.05485) proves structural results on lattices of flats of boolean-representable complexes; Bonin--de Mier (arXiv:math/0505689) proves structural results on cyclic flats. Neither inspected paper presents this quantifier-rank-three classification. Previously recorded Boolean inclusion and vector-subspace classifications have different domains and do not directly imply this rank-truncated flat-lattice statement. Searches for logical aliases (truncated Boolean lattice, uniform flat lattice, finite model theory of matroids, three-round Ehrenfeucht--Fraisse) found no decisive implication. Exhaustive historical priority is not asserted.
+PASS
 
-## Value
-Uniform matroids are canonical examples of geometric lattices. The classification exactly separates matroid rank from ground-set size under a sharply specified logical resource, giving five natural theories and a sharp 121-element uniform representative cutoff. It is not merely a restatement of a Boolean-lattice cutoff: the top is collapsed and the ground-set-size parameter persists in the underlying matroid but becomes invisible at rank three.
+The flats are subsets of size <=r-1 plus top. A three-round EF game is determined after two selected flats by possible equality/inclusion relation triples with a third flat. Four Venn cells reduce these to 81 empty/full/nontrivial choices, and rank availability is encoded by capped sizes. The proof gives explicit outside-capacity, t>=3 and s>=6 pumping identities, with finite exceptional patterns, yielding pointed two-round types indexed by (min(s,3),min(t,2)). Rank-three distinguishing sentences combine L1,L2,L3 and U1,U2, true at exactly r>=3,4,5,6. Independently enumerated direct three-round types for all 2<=r<n<=7 and checked a separate four-cell capped transfer for r through 14, n=r+1,r+2,r+4. The universal conclusion depends on the explicit finite-state pumping derivation, not extrapolation from these checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General Ehrenfeucht–Fraisse theory and structural descriptions of uniform-matroid flat lattices are classical. The precise collapse at rank six for pure-inclusion 3-round equivalence is not implied by a comparable published Boolean-algebra threshold: that result uses Boolean operations and untruncated Boolean lattices, both absent here. Inspected matroid papers target representation and cyclic flats, not this parameter-uniform EF classification. Priority risk remains for specialist model theory of truncated Boolean posets.
+
+## value
+
+PASS
+
+This is a complete five-class quantifier-depth classification across an infinite natural matroid family, with an exact sharp finite representative cutoff. It quantifies information lost when rank and cardinality symbols are omitted and supplies useful test structures for finite-model-theoretic equivalence; not merely a small computed table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
