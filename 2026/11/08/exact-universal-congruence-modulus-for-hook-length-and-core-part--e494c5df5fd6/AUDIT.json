@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The identity D_t=E^{-1}(E^{t^2}-E(q^t)^t) is exact. Iterated Frobenius lifting proves every prime-power difference is divisible by p^{a+1}. The binomial valuation v_p(C(p^{2a},j))=2a-v_p(j) isolates the first modulus-p^{a+2} nonzero difference at index p^{a-1} with residue -p^{a+1}. When t has multiple primes, at every p^a exactly dividing t, the first coefficient nonzero modulo p is at p^{2a} and equals -(t/p^a)^2. As the degree-one difference is -t^2, this determines the full gcd. All p including 2, a>=1, and all coefficient degrees are proved. Two independent exact coefficient algorithms agree over 21 parameter cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharma, arxiv:2610.01422v1, Lemma 2 and Proposition 2: a prime-power congruence with modulus p^a; Proposition 1 treats p^2 for a=1.",
+        "General Frobenius lifting H(q)^{p^s}=H(q^p)^{p^{s-1}} modulo p^s yields the lower-bound congruence by iteration, but states no optimality for this particular pair."
+      ],
+      "reasoning": "The elementary general power-lifting theorem implies the new divisibility lower bound after substituting the Euler product, so that component is not separately novel. It does not imply the exact gcd without a nondivisibility witness. The explicit first sharp coefficient and its exact prime-power exponent complete the needed comparison.",
+      "searches": [
+        "Euler eta product A(q)^{t^2-1} t-core eta quotient product A(q^t)^t / A(q) sharp p-adic congruence p^{a+1}",
+        "congruence Euler product E(q)^(p^(2a)) E(q^(p^a))^(p^a) modulo p^(a+1)",
+        "eta product congruence \"p^{a+1}\" \"p^{2a}\" core partitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01422v1",
+      "arxiv:1707.04627v2",
+      "arxiv:1802.01374v2",
+      "doi:10.5802/aif.2515"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharma, arxiv:2610.01422v1, Theorem 1, Propositions 1-2, Section 4 and Section 5 explicitly cover base congruences and composite failure, but not prime-power sharpness for a>1.",
+        "Cotron--Michaelsen--Stamm--Zhu, arxiv:1707.04627v2, Theorem 1.1: almost-all coefficient divisibility for eta-quotients, not global content of two coefficient sequences.",
+        "Du--Liu--Zhao, arxiv:1802.01374v2, Theorems 1.1-1.4: arithmetic-progression coefficient congruences for restricted Euler powers, not this exact two-series congruence."
+      ],
+      "reasoning": "The original non-prime-power residue witness is already available in Sharma and is not independently claimed new. Neither her general p^a lower bound nor the comparison papers imply the exact optimal p^{a+1} and the first sharp obstruction at p^{a-1}; those are furnished by a distinct binomial-valuation calculation.",
+      "searches": [
+        "\"Nekrasov\" \"Okounkov\" \"core\" \"p^{a+1}\" congruence",
+        "Lacunary Eta-quotients Modulo Powers of Primes",
+        "Congruences for the Coefficients of the Powers of the Euler Product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.01422v1 Sections 2-5 identifies F_{t^2} as E(q)^{t^2-1} and C_t as E(q^t)^t/E(q), permitting an equivalent Euler-product formulation.",
+        "The motivating article states modulo p^a and modulo p^2 for a=1, but not exact p^{a+1} for all a."
+      ],
+      "reasoning": "Both the hook-length and eta-product formulations describe the same coefficient series, so the comparison was made at the exact level of divisibility of their difference rather than title matching. Targeted searches yielded no exact global-content counterpart. Absence of a hit alone is not priority proof.",
+      "searches": [
+        "Nekrasov Okounkov hook length coefficient generating function t-core partition generating series exact gcd all coefficients content modulus prime powers",
+        "partition polynomial F_{p^{2a}} congruence C_{p^a} modulo p^{a+1} optimal exact content",
+        "\"F_{t^2}\" \"C_t\" congruences \"prime powers\"",
+        "Nekrasov Okounkov core partitions coefficient congruence gcd all n prime power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sharma, arxiv:2610.01422v1, Section 5 Table 1: selected numerical coefficient differences for t=3, with all shown multiples of 9.",
+        "Exact-integer verification of the new formula: 21 parameter cases, 1,611 coefficients, including t=4 first sharp difference 88 at index 2."
+      ],
+      "reasoning": "The published t=3 finite coefficient table does not determine a formula for all p^a. No known exact table in the inspected primary literature records the claimed universal gcd invariant; independent computation is supporting, not uniqueness evidence.",
+      "searches": [
+        "Nekrasov Okounkov t-core modulo p^(a+1) formal power series",
+        "\"Nekrasov\" \"core\" \"p^3\" congruence p^2",
+        "partition polynomial F_{p^{2a}} congruence C_{p^a} modulo p^{a+1} optimal exact content"
+      ]
+    },
+    "rationale": "The motivating October 2026 article establishes the t-modulus dichotomy, plus the p^2 congruence at t=p, but explicitly leaves further prime-power lifts as a possibility in Section 5. The exact p^{a+1} optimum for every a>=2 and the first obstruction at p^{a-1} are not its statements. The non-prime-power obstruction already comes from that article, but incorporating it into the exact all-parameter gcd formula is meaningful. Earlier inspected papers on eta-quotient lacunarity and coefficient congruences in progressions do not state the exact global two-series content. A classical p-adic lifting lemma accounts for the lower bound; the separate first-coefficient valuation establishes sharpness. Historical priority remains uncertain.",
+    "residual_risks": [
+      "An older equivalent first-obstruction formula may exist in the formal-series, Witt-vector, or eta-quotient congruence literature.",
+      "The complete Han 2010 paper and later portions of the 2017/2018 comparison papers were not fully inspected; priority is best knowledge, not independent confirmation.",
+      "The lower-bound lifting step follows known general power congruences; the claimed novelty is the sharp first witness and exact all-parameter content, not that general lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers base p^a and p^2 for a=1, and composite-prime local failure. Does not state exact content p^{a+1} for a>1 or the first p^{a+2} sharp obstruction.",
+        "evidence": [
+          "Theorem 1, Props 1-2: mod t and p^2 at p.",
+          "Section 5: selected t=3 differences and text suggesting further prime-power lift.",
+          "Section 4: composite local nonzero coefficient p^{2a}."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01422v1",
+        "material_read": "Complete accessible HTML sections 1 through 6: Theorem 1, Propositions 1-2, Lemmas 1-3, composite failure, first-failure example, numeric Table 1, modular-form discussion and references",
+        "method": "Primary arXiv HTML full text",
+        "title": "A Prime-Power Dichotomy for Nekrasov--Okounkov Hook Lengths and t-Core Partitions",
+        "trigger": "Same generating functions and prime-power parameter; strongest plausible direct coverage"
+      },
+      {
+        "assessment": "Investigated theorem concerns density-one divisibility, not all-coefficient congruence modulus of two distinct series; no dominating result in inspected material.",
+        "evidence": [
+          "Theorem 1.1 gives a bound on numbers of coefficients not divisible by prime powers rather than divisibility of every coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1707.04627",
+        "material_read": "PDF pages 1-4 and Theorem 1.1 with its stated scope and hook-length extension; later pages not exhaustively inspected",
+        "method": "Original arXiv PDF text and page screenshot",
+        "title": "Lacunary Eta-quotients Modulo Powers of Primes",
+        "trigger": "More general eta-quotients and prime-power divisibility could dominate the claim"
+      },
+      {
+        "assessment": "Its main results concern coefficient subsequences in arithmetic progressions for selected Euler-product powers; not the all-index exact gcd of the paired hook/core series in the material read.",
+        "evidence": [
+          "Introduction and Theorems 1.1-1.4 give progression-specific generating functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.01374",
+        "material_read": "PDF pages 1-4, abstract and Theorems 1.1-1.4 and stated applications, plus page screenshot; later pages not exhaustively inspected",
+        "method": "Original arXiv PDF text and page screenshot",
+        "title": "Congruences for the Coefficients of the Powers of the Euler Product",
+        "trigger": "Older Euler-product congruences may provide a stronger prime-power relation"
+      },
+      {
+        "assessment": "Provides foundational identities; exact coefficient-difference content not resolved from material read.",
+        "evidence": [
+          "Abstract describes hook-length identities and t-core refinements, with no stated optimal uniform congruence modulus."
+        ],
+        "identifier_or_url": "https://www.numdam.org/articles/10.5802/aif.2515/",
+        "material_read": "Journal landing-page abstract, bibliographic information, listed goals and references; full paper not inspected",
+        "method": "Publisher-authorized open bibliographic webpage",
+        "title": "The Nekrasov-Okounkov hook length formula: refinement, elementary proof, extension and applications",
+        "trigger": "Foundational hook/core identities may conceal exact congruence implications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e494c5df-5fd6-4157-aa5c-6fbd35e712d5",
+  "value": {
+    "rationale": "The gcd of all differences is the natural maximal uniform modulus relating two classical partition generating functions, and the source explicitly raises the possibility of lifting the prime-power congruence. The theorem gives a complete exact answer for every t, not an arbitrary truncated search: it determines p^{a+1} at every prime power and 1 at every parameter with more than one prime factor, with a canonical first sharp witness for each case. The one additional p-adic layer is structurally sharp and the exact invariant is motivated; the proof requires no claim of broader downstream consequences.",
+    "status": "PASS"
+  }
+}

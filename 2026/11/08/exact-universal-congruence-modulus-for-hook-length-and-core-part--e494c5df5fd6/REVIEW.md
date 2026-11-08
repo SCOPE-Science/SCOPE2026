@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The generating functions reduce the coefficient differences to a single Euler-product difference divided by a unit. Prime-power divisibility follows from the Frobenius/power-lifting congruence at successive exponents; exact valuation \(\nu_p\binom{p^{2a}}{j}=2a-\nu_p(j)\) isolates the first sharp coefficient \(q^{p^{a-1}}\). For multi-prime parameters, the first coefficient nonzero modulo each prime \(p\mid t\) is at degree \(p^{2\nu_p(t)}\). Since the degree-one difference is \(-t^2\), these witnesses determine the entire gcd. The argument covers \(p=2\), exponent \(a=1\), every integer \(t\ge2\), and every coefficient degree. The exact standalone test compares two integer implementations on 1,611 coefficients; it is corroboration, not an infinite proof.
+
+## Originality — PASS, with priority risk
+The closest primary source, Sharma (2026), states the prime-power congruence modulo \(p^a\), proves \(p^2\) when \(a=1\), and explicitly suggests possible further prime-power lifting in Section 5. It does not state the universally optimal modulus \(p^{a+1}\) for \(a\ge2\) or identify the first coefficient preventing modulus \(p^{a+2}\). Its composite-prime obstruction already implies much of the composite portion; this portion is an ingredient of the complete gcd classification, not a separately new theorem. The primary and related publications inspected do not exhibit the exact all-parameter content formula. Classical power-congruence lemmas provide the lower bound but not, by themselves, the exact sharp coefficient. An earlier implicit derivation remains a concrete priority risk.
+
+## Mathematical value — PASS
+The object \(G(t)\) is the optimal **uniform** modulus relating two standard partition enumerators. Determining that optimum settles the natural lifting question raised in the motivating paper, and identifies a universal first obstruction to further lifting for every prime power. It also shows that no nontrivial modulus survives for parameters with at least two distinct primes. This is a complete classification of a natural arithmetic invariant, not a lone small numerical improvement: the one-level improvement is proven optimal uniformly in the prime and exponent. The underlying techniques are elementary, and no larger downstream theorem is claimed.
+
+## Closest literature and limits
+The principal comparison is M. Sharma, arXiv:2610.01422v1, Sections 2--6. Cotron--Michaelsen--Stamm--Zhu, arXiv:1707.04627v2, concerns almost-all coefficient divisibility of eta-quotients; Du--Liu--Zhao, arXiv:1802.01374v2, concerns coefficients in specific progressions. Han's 2010 hook-length refinement provides the foundational identities; its full text was not available in the material inspected. All source comparisons are best knowledge, not an independent priority certification. The proof determines optimal global congruence content, not the full coefficientwise valuation distribution.
+
+Self-review: passed. Independent audit: not yet performed.
