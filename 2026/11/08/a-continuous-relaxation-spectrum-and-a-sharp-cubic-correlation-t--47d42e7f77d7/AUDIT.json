@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact renewal decomposition of the stationary two-time covariance is derived directly, then a Gamma-Laplace representation produces a strictly positive kernel for all positive rates. Dominated spectral-edge scaling gives the \\(t^{-(q+1)}\\) correction with strictly positive prefactor \\(m'(r)\\); a separate common-age Taylor expansion confirms that coefficient. Spectral tilting proves strict monotone effective relaxation, and the physical \\(q=2\\) prefactor follows from the known one-time mean. The standalone standard-library checker passed 40 finite diagnostic assertions; these do not substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rose--Touchette--Lesanovsky--Garrahan, arXiv:1806.01298, proves general spectral shifts of reset Markov generators; an eigenvalue shift by the reset rate does not specify the cooling observable's positive continuous exponential-mixture weight or its rate-edge order.",
+        "Stojkoski et al., arXiv:2107.11686, treat Brownian/drift-Brownian resetting correlations; those reset-free observables are not deterministic power-law cooling.",
+        "Brey--Ruiz-Montero, arXiv:1501.04757, analyze freely cooling granular *velocity* correlations without external Poisson-temperature resets; its hydrodynamic tails are different observables and mechanisms."
+      ],
+      "reasoning": "A general generator reset shift can motivate an exponential rate r, but it neither implies a positive observable-specific rate measure nor fixes the additional algebraic power and exact coefficient. The competing works do not state a stronger theorem for the same temperature-aging law in the inspected materials.",
+      "searches": [
+        "spectral properties of simple classical and quantum reset processes Rose Touchette Lesanovsky Garrahan eigenvalue shift",
+        "stochastic resetting temporal correlation functions exponentially algebraic corrections cooling",
+        "renewal process deterministic relaxation spectral complete monotonicity correlation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.18974",
+      "https://pure.mpg.de/pubman/item/item_3631355_1/component/file_3631357/2403.18974v5.pdf",
+      "https://arxiv.org/abs/1806.01298",
+      "https://arxiv.org/abs/2107.11686",
+      "https://arxiv.org/abs/1501.04757"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source one-time mean is m(r)=T0 x e^x E_q(x), whose derivative contributes to the new prefactor, but the source does not state that derivative as a covariance tail coefficient.",
+        "The generic reset eigenvalue shift allows an exponential rate scale, but does not determine the strictly positive specific density near rate r or the edge power q.",
+        "The present proof derives its own exact two-time covariance and explicit Gamma spectral kernel before claiming a continuous edge."
+      ],
+      "reasoning": "One-time resetting results and generator shifts are cited as antecedents. The new theorem requires an observable-specific common-age covariance calculation, a positive double-Gamma representation, precise edge asymptotics, and a tilted-measure variance identity. Thus the prior claims inspected do not logically supply the full statement as a reported theorem or a direct corollary without substantial model-specific derivation.",
+      "searches": [
+        "granular gas Haff law Poisson resetting temperature correlation spectral edge e^{-rt} t^{-3}",
+        "Spectral properties of simple classical and quantum reset processes uniform spectral shift",
+        "Autocorrelation functions and ergodicity in diffusion with stochastic resetting two time observables"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodrova--Chechkin--Dubey, arXiv:2403.18974, Eqs. (11)--(21) derive one-time cooling law, density, mean and variance; its theory and conclusion contain no two-time stationary temperature covariance theorem.",
+        "The closest documented time-correlation treatment, Stojkoski--Sandev--Kocarev--Pal, arXiv:2107.11686, concerns drift and drift-free diffusive trajectories under resetting; the inspected abstract does not state a Haff-cooling temperature spectral-edge law."
+      ],
+      "reasoning": "Under the source model, stationary one-time data do not alone state two-time joint distributions. The present claim adds a strict positive continuous spectral representation, q+1 edge power, explicit nonzero coefficient and strict effective-rate monotonicity. Generic renewal covariance is acknowledged as an elementary intermediate, not claimed as the principal novelty.",
+      "searches": [
+        "granular temperature two-time resetting correlation",
+        "Haff cooling temperature Poisson rate r covariance t^-3",
+        "granular gases under resetting autocorrelation temporal covariance",
+        "Poisson resetting deterministic decay process covariance spectral measure complete monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source arXiv:2403.18974, Eqs. (15), (18)--(21) and (27)--(31), and Figs. 2--5 list the stationary temperature density, mean and variance, not a lag-dependent covariance or spectral table.",
+        "Relevant publication searches identified two-time resetting work for diffusion (arXiv:2107.11686) and general spectral shifts (arXiv:1806.01298), with no exact tabulated Haff-temperature spectrum in their accessible descriptions."
+      ],
+      "reasoning": "The source's explicit temperature-density table is one-dimensional, and it cannot be substituted for the two-time spectral measure. No exact matching integral or prefactor was located in the accessible comparison material; absence from search results alone is not treated as proof of novelty.",
+      "searches": [
+        "Granular gases under resetting Bodrova Chechkin Dubey temperature variance stationary PDF Eq 21",
+        "granular temperature Poisson reset two-time autocovariance power-law cooling",
+        "Poisson resetting Haff cooling granular temperature stationary two-time autocovariance, completely monotone correlation, spectral density, e^{-rt} t^{-3} tail"
+      ]
+    },
+    "rationale": "The inspected full primary theory establishes one-time renewal temperature statistics but not stationary two-time covariance, strict complete monotonicity, a continuous positive rate measure, or a sharp \\(e^{-rt}t^{-(q+1)}\\) correction. General reset-spectral and Brownian-correlation sources are compared by implications, with accessible-text limits disclosed.",
+    "residual_risks": [
+      "A general, unindexed renewal or piecewise-deterministic Markov-process theorem might imply the special complete-monotonicity statement without matching physics keywords.",
+      "The full texts of Rose et al. and Stojkoski et al. were not accessible in this pass; their abstracts and public descriptions were assessed, not treated as exhaustive evidence.",
+      "Independent publication-priority examination and independent proof checking have not been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_MODEL_NOT_COVERING_TWO_TIME_CLAIM",
+        "evidence": [
+          "Eq. (11) supplies the general cooling power; Eq. (15) one-time stationary PDF; Eqs. (18)--(21) mean and variance; Sec. V conclusions treat mean and variance but no stationary two-time spectral edge."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.18974",
+        "material_read": "Accessible full-text PDF extraction: introduction; Haff law; Sec. III Eqs. (9)--(31), figures and conclusions",
+        "method": "Examined equation-bearing sections and claims including one-time marginals, temperature moments, numerical results and conclusions",
+        "title": "Granular gases under resetting",
+        "trigger": "Same precise reset-cooling model and published one-time distribution"
+      },
+      {
+        "assessment": "GENERAL_RESET_SHIFT_NOT_DECISIVE_COVERAGE; full-text risk",
+        "evidence": [
+          "Abstract says nonzero eigenvalues are shifted uniformly by resetting; no stated continuous Haff-temperature covariance density or edge prefactor."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+        "material_read": "Abstract, bibliographic summary and public repository description; complete body not accessible in this pass",
+        "method": "Compared stated generator-spectrum shift and models with positive observable-specific covariance mixture",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Potentially broader shifted-spectrum reset theorem"
+      },
+      {
+        "assessment": "DISTINCT_RESET_FREE_MODEL; full-text risk",
+        "evidence": [
+          "Abstract explicitly describes diffusion and drift-diffusion and their time correlations, not deterministic cooling of a reset temperature."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+        "material_read": "Abstract and detailed public bibliographic summary; body not accessible in this pass",
+        "method": "Compared the paper's Brownian and drift-diffusive observables with deterministic Haff-temperature resetting",
+        "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+        "trigger": "Potentially general two-time reset-correlation formulas"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE_AND_DRIVING",
+        "evidence": [
+          "Hydrodynamic velocity and stress correlations of freely cooling fluids, not scalar global temperature under repeated full resets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.04757",
+        "material_read": "Abstract and journal description",
+        "method": "Checked physical observable (velocity) and no-reset cooling setting against temperature observable with reset drive",
+        "title": "Power-law decay of the velocity autocorrelation function of a granular fluid in the homogeneous cooling state",
+        "trigger": "Similar granular correlation-tail terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47d42e7f-77d7-4505-bda8-fc7c92632b74",
+  "value": {
+    "rationale": "The source addresses stationary one-time granular temperatures, whereas their temporal correlation is needed to quantify persistent thermal memory and the effective relaxation rate of reset heating. The exact nonreversible yet completely monotone covariance, continuous rate spectrum with a computable edge, cubic physical Haff tail and strict effective-rate law form a natural coherent dynamical classification with an explicitly nonzero coefficient. This is not merely evaluation of another stationary moment or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
