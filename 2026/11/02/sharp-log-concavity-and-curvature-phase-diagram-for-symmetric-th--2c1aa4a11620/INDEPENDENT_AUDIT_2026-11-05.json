@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:13:22.702760Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md @ 34791e46dc35d9d01b33e67ea0898cb0f8035b9d",
+        "Frozen verification script @ 4a932882a39efc961ac37f419b51d7f863a97816",
+        "Independent finite/symbolic test script sha256 calculated on disk at closeout"
+      ],
+      "rationale": "Factor f(x)=theta phi_sigma(x)(1+k cosh(ax/sigma²)). Direct differentiation reduces sigma²(log f)''= -1+b(u+k²)/(1+u)², u=k cosh z>=k. The derivative (1-u-2k²)/(1+u)³ gives the unique global u-optimizer, either at u=k or at 1-2k², with k=1/2 boundary. On the two branches equality bQ(re^-b/2)=1 solves monotone parametrizations r=e^(b/2)/(b-1) for 1<b<=3, r=e^(b/2)sqrt(1-b/4) for 3<=b<4. They meet once at (3,e^(3/2)/2), and their principal Lambert W inversions give a unique zero-crossing, not just a local root. The r=1,b=4 witness is strictly unimodal because the entire series for h(z)=4 sinh(z)/z-cosh(z) is bounded by 23/6<e² for z>0, despite positive peak curvature. The R^d extension factors into the collinear coordinate and Gaussian orthogonal directions. Independently validated 28 threshold-neighbor sign cases and the rational max curvature derivative.",
+      "residual_risks": [
+        "Common variance, collinear symmetric centers and strictly positive component weights are essential; arbitrary three-normal mixtures remain outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Any prior bound on mode number is compatible with the exhibited unimodal-but-non-log-concave instance."
+        ],
+        "reasoning": "General mode-count theorems cannot logically imply the sign of the density log Hessian everywhere, though the standard posterior-variance identity is common prior work.",
+        "searches": [
+          "arxiv:2610.15369v1 Theorem mode count posterior Hessian",
+          "arxiv:2607.17506 three homoscedastic Gaussian modes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.15369",
+        "https://arxiv.org/abs/2607.17506",
+        "https://arxiv.org/abs/math/0602238",
+        "Resultary semantic query: symmetric three component homoscedastic Gaussian mixture log-concavity threshold Lambert W maximal curvature",
+        "Frozen source audited at tree afb6912e0b86dc22f8b18c235501561e9ad32b0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general posterior covariance identity used by both newer and older literature is explicitly acknowledged, while the minimax scalar rational function and its Lambert inversion are additional computations."
+        ],
+        "reasoning": "A general representation of log curvature is not an exact optimized bound; the result neither claims nor improves the general maximum number of modes.",
+        "searches": [
+          "Okahara–Kobayashi arxiv:2610.15369v1",
+          "Ray–Lindsay arxiv:math/0602238"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation is the global maximum posterior variance of a three-atom prior under Gaussian observations, not merely the number of modes."
+        ],
+        "reasoning": "Compared the underlying function and its derivative (posterior covariance), not the terminology of Gaussian mixture mode counts.",
+        "searches": [
+          "symmetric three component homoscedastic Gaussian mixture log-concavity threshold Lambert W maximal curvature",
+          "heat smoothing three-atom symmetric law maximum posterior variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned distinct Gaussian/two-Laplace moment phase diagrams and none matching the curvature maximization Q(k)."
+        ],
+        "reasoning": "The target is an exact continuous parameter phase diagram, not a finite table; no database match is supporting but not decisive.",
+        "searches": [
+          "symmetric three component homoscedastic Gaussian mixture log-concavity threshold Lambert W maximal curvature",
+          "three normal symmetric mixture Lambert threshold b=4+W0(-4r²e^-4)"
+        ]
+      },
+      "rationale": "Okahara–Kobayashi (2026) establish sharp general upper bounds on the NUMBER of modes and use posterior covariance Hessian identities. These known expressions do not maximize the curvature over x or derive the piecewise Lambert log-concavity region. Earlier Okuno–Kabata and Ray–Lindsay results concern modal count/ridgeline geometry. The proved unique-mode non-log-concave witness demonstrates that even stronger mode-count theorems do not imply the shape classification. No matching Resultary mathematical claim identified; the 2026 primary modal-count full text was unavailable, so there is a qualified overlap risk.",
+      "residual_risks": [
+        "The October 2026 Okahara–Kobayashi arXiv full PDF could not be retrieved and institutional request returned vpn_disconnected; its appendix may contain overlooked equivalent specialized curvature analysis.",
+        "General discrete-Gaussian smoothing log-concavity literature could phrase the threshold without mentioning three-normal mixtures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODAL_COUNTS_NOT_LOG_CONCAVITY: cannot rule out an implicit appendix specialization",
+          "evidence": [
+            "Sharp four-mode upper bound in general dimension, three for collinear means; works through free-energy branches."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15369",
+          "material_read": "Abstract/main theorem and accessible description; full PDF not accessible, Oxford returned vpn_disconnected",
+          "method": "arXiv abstract and public paper summary",
+          "title": "Three Homoscedastic Gaussian Components Have at Most Four Modes",
+          "trigger": "Most recent directly relevant 2026 Gaussian-mixture primary paper"
+        },
+        {
+          "assessment": "COVERS_ONLY_EIGHT_MODE_BOUND: does not imply global log-curvature phase threshold",
+          "evidence": [
+            "At most eight modes uniformly, including general noncollinear means."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17506",
+          "material_read": "Abstract and mathematical main claim",
+          "method": "Public abstract/bibliographic comparison",
+          "title": "On Mixtures of Three Homoscedastic Gaussian Densities: An Unconditional Sharper Bound on the Number of Modes",
+          "trigger": "Earlier general three-normal mode upper bound"
+        },
+        {
+          "assessment": "GENERAL_MIXTURE_GEOMETRY: posterior-variance identity is prior, exact symmetric triple maximum not established",
+          "evidence": [
+            "Ridgeline/modal-curvature framework, not the explicit Lambert W phase formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602238",
+          "material_read": "Abstract and stated ridgeline results",
+          "method": "Public arXiv bibliographic comparison",
+          "title": "The topography of multivariate normal mixtures",
+          "trigger": "General Hessian/ridgeline theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "For all symmetric three-component Gaussian mixtures with positive common covariance and equal satellites, maximal log-density curvature equals (b Q(re^-b/2)-1)/sigma², and log concavity holds exactly below the unique piecewise Lambert-W0 boundary B(r); the maximal-curvature location bifurcates at k=1/2, and a unique-mode non-log-concave example exists.",
+        "Originality comparisons and mathematical proof from frozen RESULT.md"
+      ],
+      "rationale": "Mixture log-concavity and unimodality are genuinely different statistical shape conditions. A complete two-parameter curvature maximum, global threshold and explicit counterexample for a canonical three-component subfamily is a sharp classification with use in strong log-concavity assessment, not a routine modal-count corollary.",
+      "residual_risks": [
+        "No analogous classification is asserted for asymmetric weights or covariances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Originality is a qualified best-knowledge judgment after actual Resultary, primary-literature and mathematical implication comparisons, not a formal priority or expert certificate. Public-file metadata privacy prevents publication; source evidence retained unchanged.",
+  "schema_version": 1
+}
