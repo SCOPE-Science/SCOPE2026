@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces bilinear forms annihilating commuting pairs to functionals on the six-dimensional ordinary exterior square of the quotient by the three-dimensional center. Direct structure-constant computation identifies the bracket kernel with a three-dimensional vector space whose decomposable points satisfy the explicit quadratic form \(a^2+b^2+c^2=0\). The nondegenerate ternary quadratic span argument in odd characteristic, and the square-of-a-linear-form identity in characteristic two, prove all three defect values over arbitrary fields. The Plücker relation gives the projective scheme including its nonreduced characteristic-two structure. Finite fields always give \(q+1\) commuting two-planes, yielding the exact formula by ordered-basis enumeration. Exhaustive direct small-field tests confirm the finite cases.
+PASS
 
-## Originality — PASS (best-knowledge)
+From the six explicit wedge brackets, b(p)=(p01-p23,p02+p13,p03-p12), kernel (a,b,c,c,-b,a), and the Pfaffian decomposability equation restricts to Q=a^2+b^2+c^2 for every field (including char2). A bilinear form vanishing on commuting pairs is alternating, kills the center, and corresponds to a wedge functional annihilating the span H of rational isotropic kernel vectors; quotient defect=3-dim H. If char!=2, anisotropy gives span rank0 and isotropy plus Witt hyperbolic-pair construction gives rank3; char2 Q=(a+b+c)^2 gives rank2. A smooth conic with one rational point has q+1 points in odd finite fields and the char2 line has q+1; (q+1)|GL2(q)| plus dependent pairs counts 2q^5+q^4-2q^3 in V, multiplied by q^6 for central parts. Independent brute-force q=2,3 produced V pair totals 64 and 513 exactly; finite checks support but do not prove arbitrary field results.
 
-Brešar et al. (arXiv:1610.07178, Lemma 2.3) already supply the general ZPD criterion; the claim explicitly excludes originality of that criterion. Their ordinary Heisenberg theorem (Proposition 5.1) assumes a one-dimensional derived center, so it cannot determine the proposed three-dimensional-center family; the contrast is made explicit. The Bogomolov-multiplier articles arXiv:1805.05806 and arXiv:2301.01963 are relevant related theories; the latter treats free generalized Heisenberg Lie algebras and large-rank constructions, not this specific conic obstruction and characteristic-dependent arithmetic package. Actual semantic searches of published research records and current related literature returned no equivalent or stronger statement in the material inspected. A different classification of generalized Heisenberg forms or a preexisting quadratic-conic observation could nevertheless anticipate the result; historical priority is not conclusively established.
+## originality
 
-## Value — PASS
+PASS
 
-The example makes the ZPD property, an established structural question, genuinely dependent on the arithmetic of its ground field within one fixed integral bracket family; characteristic two gives a third behavior rather than a mere yes/no exception. The same calculation identifies a geometric reason (smooth conic versus double line) and establishes a counterintuitive invariance of the finite-field commuting-pair count despite the changed ZPD defect. This relates a bilinear obstruction, a projective incidence scheme, and a natural point-counting invariant in a motivated small-dimensional nonabelian family. No claim of general classification or downstream major theorem is required.
+Best-of-knowledge PASS, narrowly for explicit seven-dimensional integral bracket, its field-sensitive ZPD defect and simultaneous finite-field commuting census. General ZPD kernel-span criterion, Plücker conic theory and finite quadratic-form point counts are pre-existing inputs, not claimed new. No exact same bracket with this three-way defect/census found in checked sources.
 
-## Closest literature and residual scientific limits
+## value
 
-The key prior theorem and the directly comparable cohomological variants were checked in their openly accessible primary full texts: arXiv:1610.07178, arXiv:1805.05806, and arXiv:2301.01963. Distinguish ordinary Heisenberg algebras from this larger-center Lie algebra and the nonabelian exterior product in the Bogomolov literature from the vector-space exterior square used in the proof. Unlocated broader historical classifications remain an originality risk. The theorem does not address all generalized Heisenberg algebras, larger dimensions, or nilpotent scheme structures of the full commuting variety.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The given seven-dimensional class-two bracket is the natural quaternionic-Heisenberg type, and ZPD and commuting probability are natural invariants. The exact field-dependent three-case defect, nonreduced characteristic-two geometric degeneration, and uniform q census are a motivated complete classification rather than an arbitrary small-instance check; the characteristic-two distinction is mathematically meaningful despite equal finite-field point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

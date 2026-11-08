@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the stated theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no third-party packages; compare its output with `verify_output.txt`. It computes the original Lie bracket from six structure constants, checks the wedge-kernel and Pfaffian formulas across five finite fields, enumerates all projective two-planes in the quotient and tests the commuting criterion. It also independently enumerates every ordered quotient pair for the fields of orders \(2,3,4,5\), and tests the span of the isotropic cone and resulting defect for orders \(2,3,4,5,7\). Arithmetic for the order-four field uses the irreducible relation \(t^2+t+1=0\). The expected final marker is `QUATERNIONIC7_ZPD_CONIC_AND_COMMUTING_CENSUS_OK 5_FIELDS`.
+## correctness
 
-The small-field checks are exact finite enumerations, not a proof over all fields. The general conclusion follows from the rank/kernel computation, the Plücker equation, and the linear-algebra and conic arguments in RESULT.md. No independent audit or mathematical certification is claimed.
+PASS
+
+From the six explicit wedge brackets, b(p)=(p01-p23,p02+p13,p03-p12), kernel (a,b,c,c,-b,a), and the Pfaffian decomposability equation restricts to Q=a^2+b^2+c^2 for every field (including char2). A bilinear form vanishing on commuting pairs is alternating, kills the center, and corresponds to a wedge functional annihilating the span H of rational isotropic kernel vectors; quotient defect=3-dim H. If char!=2, anisotropy gives span rank0 and isotropy plus Witt hyperbolic-pair construction gives rank3; char2 Q=(a+b+c)^2 gives rank2. A smooth conic with one rational point has q+1 points in odd finite fields and the char2 line has q+1; (q+1)|GL2(q)| plus dependent pairs counts 2q^5+q^4-2q^3 in V, multiplied by q^6 for central parts. Independent brute-force q=2,3 produced V pair totals 64 and 513 exactly; finite checks support but do not prove arbitrary field results.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS, narrowly for explicit seven-dimensional integral bracket, its field-sensitive ZPD defect and simultaneous finite-field commuting census. General ZPD kernel-span criterion, Plücker conic theory and finite quadratic-form point counts are pre-existing inputs, not claimed new. No exact same bracket with this three-way defect/census found in checked sources.
+
+## value
+
+PASS
+
+The given seven-dimensional class-two bracket is the natural quaternionic-Heisenberg type, and ZPD and commuting probability are natural invariants. The exact field-dependent three-case defect, nonreduced characteristic-two geometric degeneration, and uniform q census are a motivated complete classification rather than an arbitrary small-instance check; the characteristic-two distinction is mathematically meaningful despite equal finite-field point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
