@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each prescribed set of r singleton labels there are exactly B_(n-r) remaining partitions; this determines all mixed falling-factorial moments of disjoint windows. Bell's saddle-point formula DLMF 26.7.7 implies B_(n-r)/(B_n a_n^r)->1 for fixed r, a_n=B_(n-1)/B_n and n*a_n->infinity. Thus bounded disjoint left and right windows have independent Poisson limits and the endpoint gaps joint independent Exp(1) limits. The expected-gap statement is not deduced from weak convergence: fourth factorial moments of the singleton count yield an O(lambda^-2) small-count tail; conditioned uniform singleton positions imply exact E[gap]=(n+1)E[1/(S+1)]-1, hence mean-gap scaling. Dobinski gives strict Bell log-convexity and finite positive covariance. All quantifiers, empty-singleton convention, local topology and limits are specified. The standalone enumerator successfully ran 1,106 exact tests, which support bounded cases only; the infinite statements are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arratia–Tavare Section 6.1 allows refinement by component structure and Section 10.1 gives set-partition size-process approximations, but a set-partition assembly has one component structure of each size, and labels are not separate component structure types.",
+        "Sun–Wu's identities enumerate a largest singleton label; they do not include the joint left and right scaled spatial point processes.",
+        "Goh–Schmutz 1994 abstract concerns largest block size, not largest singleton label."
+      ],
+      "reasoning": "A broader claim dominating the new theorem would need a location-indexed sparse-point-process approximation with asymptotic independence for two moving endpoint windows and sufficient integrability for mean gaps. None appears in inspected available passages. The general assembly and exchangeability frameworks could furnish another derivation, and the possibility remains a priority risk.",
+      "searches": [
+        "singletons endpoint Poisson point process uniform random set partition smallest largest singleton label independent exponential gaps n / Lambert W",
+        "two independent Poisson limits for largest smallest singleton positions uniform set partitions Bell ratios",
+        "https://arxiv.org/html/1308.3279v1, Section 6 refined component processes and Section 10.1 set partitions",
+        "https://arxiv.org/html/1007.1341v1, entire text including Theorems 2.4 and 3.10"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1007.1341v1",
+      "https://arxiv.org/html/1308.3279v1",
+      "https://dlmf.nist.gov/26.7",
+      "https://doi.org/10.1137/S0895480190186974 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun–Wu gives finite extreme singleton identities and expressly asks for asymptotic expressions, whereas the new claim derives the leading boundary gap and joint point-process limit.",
+        "Arratia–Tavare provides a conditioned independent process for block types. Its Section 6.1 refinement indexes types of a given size; in ordinary set partitions, a singleton label is a labeled location, not a distinct size-one component type.",
+        "DLMF ratio asymptotics ensure all prescribed r-tuple singleton probabilities have uniform rare-event scaling; the new proof takes moving spatial factorial moments."
+      ],
+      "reasoning": "Prior source identities and asymptotics can be combined to derive the claim; that is a mathematical contribution of the proposed derivation, but possible historical implicit coverage is expressly flagged. No stronger statement in inspected sources makes the location process result an already recorded corollary without those additional deductions.",
+      "searches": [
+        "https://arxiv.org/html/1007.1341v1 Remark 3.11 and Theorem 3.10",
+        "https://arxiv.org/html/1308.3279v1 Theorems 4 and 5 and Section 10.1",
+        "https://dlmf.nist.gov/26.7 formula 26.7.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singleton labels form an exchangeable random subset with r-point inclusion probability B_(n-r)/B_n; the two-endpoint process theorem is equivalent to independent unit-rate Poisson finite-dimensional count limits for moving endpoint windows.",
+        "Sun–Wu arXiv:1007.1341v1 Theorem 3.10 and Remark 3.11: finite extreme-singleton formulas; no Poisson process limiting assertion in inspected sections.",
+        "Arratia–Tavare arXiv:1308.3279v1 Section 1: the process C_i counts components by size i, rather than singleton locations i."
+      ],
+      "reasoning": "Aliases tested included last/first/largest/smallest singleton, rightmost label, boundary gap, spatial Poisson limit and exchangeable rare indicators. Finite extreme-label count formulas are not equivalent to the new joint limit without rescaling and Bell-ratio asymptotics. A size-indexed Poisson component process does not itself state positional endpoint independence.",
+      "searches": [
+        "largest singleton of random uniform set partitions rightmost singleton exponential limit gap Lambert W Bell numbers",
+        "uniform set partition singleton labels converge to Poisson processes near endpoints smallest largest singleton independent exponential Lambert W scale",
+        "random set partition singleton point processes rare events factorial moments joint Poisson limit",
+        "\"largest singleton\" \"exponential\" \"set partition\" limiting distribution",
+        "\"singleton\" \"uniform random set partition\" \"positions\" \"Poisson\"",
+        "\"set partitions\" \"smallest singleton\" \"limiting\" exponential",
+        "https://arxiv.org/html/1007.1341v1, sections 2-3",
+        "https://arxiv.org/html/1308.3279v1, sections 1 and 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF 26.7.1 lists Bell numbers and 26.7.7 gives their saddle-point asymptotic, both ingredients only.",
+        "Sun–Wu Table 1 lists finite largest-singleton counts; the claimed joint endpoint limit and exact asymptotic gap scale are not tabulated.",
+        "Closest published research summaries concern either block-count covariance or Bernoulli-sum limits, rather than the two endpoint processes."
+      ],
+      "reasoning": "A numerical table of extreme-singleton counts does not provide an all-n point-process law; the known Bell numbers and asymptotics are explicitly credited. The exact finite-r indicators and expectation identity are not presented as standalone original numerical data.",
+      "searches": [
+        "https://dlmf.nist.gov/26.7 Bell-number table/asymptotic",
+        "published 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+        "published 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b",
+        "https://arxiv.org/html/1007.1341v1 table of A_(n,k)"
+      ]
+    },
+    "rationale": "The closest relevant full texts distinguish finite extreme-label identities (Sun and Wu 2010) and component-size-count Poisson approximations (Arratia and Tavare 1994). Neither inspected text asserts independent Poisson processes of rescaled singleton LABEL locations at the two endpoints together with the exact mean-gap asymptotic. Sun–Wu specifically request asymptotics for extreme singleton labels. Classical Bell asymptotics and singleton-marking identities are prior tools, not claimed new. A sufficiently general unlocated historical exchangeable-point-process result might imply this theorem; therefore priority remains conditional, and absence in searches is not treated as uniqueness proof.",
+    "residual_risks": [
+      "A spatial local-Poisson limit might be implicit in earlier random set-partition point-process literature or a broad exchangeable-subset theorem not identified by the searches.",
+      "Arratia–Tavare component Poisson approximation plus independent randomized labels could make a closely related statement derivable, though the endpoint-location conclusion is not asserted in the inspected document.",
+      "The Goh–Schmutz 1994 full text was not obtained; available abstract indicates a different extremal statistic.",
+      "No independent originality review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest direct predecessor; treats exact finite extremes and explicitly poses asymptotic expectation question, but no independent joint endpoint Poisson process limit found",
+        "evidence": [
+          "Sections 2–3 and Remark 3.11; arXiv v1 posted 2010-07-08"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1007.1341v1",
+        "material_read": "Full accessible preprint, including abstract, introduction, Section 2 exact formulas and Section 3 expectations/Remark 3.11",
+        "method": "Read HTML full text and compared theorem hypotheses, statistics, finite formulas and asymptotic statements",
+        "title": "The largest singletons of set partitions",
+        "trigger": "Same observable: smallest and largest singleton labels in uniform set partitions"
+      },
+      {
+        "assessment": "Size/type-count approximation, not explicitly a singleton-label endpoint spatial limit; exchangeable-marking reduction may nonetheless yield it",
+        "evidence": [
+          "Advances in Mathematics 104 (1994), 90–154; arXiv manuscript uploaded 2013"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.3279v1",
+        "material_read": "Full accessible 71-page HTML manuscript, with focused reading of Sections 1, 5.3, 6.1–6.2, 9.1, 10.1",
+        "method": "Compared component-size index C_i, refined type index D_ij and position-indexed singleton point measure; inspected conditioning equivalences",
+        "title": "Independent Process Approximations for Random Combinatorial Structures",
+        "trigger": "Potential stronger general Poisson process theorem for random set partitions"
+      },
+      {
+        "assessment": "Independent classical ingredient confirming fixed-r ratio normalization, not a positional limit theorem",
+        "evidence": [
+          "DLMF equations 26.7.4 and 26.7.7–8"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/26.7",
+        "material_read": "Definitions, recurrence, Dobinski moment representation, Bell table, asymptotic Section 26.7(iv)",
+        "method": "Read display formulas 26.7.4, 26.7.7, 26.7.8 and differentiated saddle-point leading factor for fixed-r ratios",
+        "title": "DLMF §26.7, Set Partitions: Bell Numbers",
+        "trigger": "Critical quantitative lemma about ratios of Bell numbers"
+      },
+      {
+        "assessment": "Abstract concerns the largest block size rather than singleton label positions; unresolved full-text historical coverage risk is low but nonzero",
+        "evidence": [
+          "Goh and Schmutz, SIAM Journal on Discrete Mathematics (1994), abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895480190186974",
+        "material_read": "Publisher abstract and bibliographic description only; full article was not read",
+        "method": "Abstract-level comparison of the random variable studied",
+        "title": "Random Set Partitions",
+        "trigger": "Plausible broad prior title covering randomly sampled set partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2fce199f-94b2-40d2-8cd2-d1e0992dd80b",
+  "value": {
+    "rationale": "Extreme singleton label locations are a natural parameter-free set-partition statistic explicitly studied in Sun–Wu 2010, whose Remark 3.11 asks for asymptotic mean locations. The theorem gives the first-order n/W(n) gap scale, the stronger joint independent Poisson boundary process, and a contrast with strict finite-n positive dependence. This supplies a structural answer across all fixed boundary windows rather than a routine numeric table or arbitrary sliced invariant. It does not claim a rate or a general theorem for every exchangeable sparse subset.",
+    "status": "PASS"
+  }
+}
