@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Two independent face enumerations produce 1,728 simplices including the empty face. A deterministic matching has 831 pairs and only one critical vertex and 64 critical four-faces. The fully checked 6,606-incidence gradient graph is acyclic, so the known integral sphere-wedge premise is independently established. Signed simplicial Lefschetz traces are calculated for all twelve graph symmetries and paired with the character table of the six rational irreducibles of the direct-product group. Every multiplicity is a nonnegative integer; the weighted dimensions total 64 and the invariant multiplicity is three. The checker and its deterministic input are included.
+## correctness
 
-## Originality
-PASS for the full rational symmetry character and quotient invariant, not for the underlying homotopy type. The directly overlapping published study of the second Morse iterate of a triangle already proves the triangular-prism complex is a wedge of 64 four-spheres; a separate published note already gives its mod-two Betti ranks. Both were compared at their full accessible result statements. Neither reports a nonidentity equivariant character or irreducible decomposition. General Morse-complex connectivity theorems and equivariant calculations for other graphs likewise do not imply the six prism character values. An institutional thesis on directed forest complexes of Cayley graphs could be read only at abstract level and remains an explicit residual risk. Search absence is not a proof of global uniqueness.
+PASS
 
-## Value
-PASS. The triangular prism is the first nontrivial graph of the iterated triangle construction and has twelve natural symmetries. Its known 64-dimensional homology space can carry multiple inequivalent group actions, so the new character table distinguishes information invisible to homotopy type or Betti ranks. The unequal layer-parity dimensions and the exact three-dimensional invariant subspace provide natural equivariant and quotient-topology benchmarks. These facts require signed fixed-simplex calculations beyond the established nonequivariant classification.
+PASS: Ordinary graph Morse simplices are acyclic partial vertex-edge matches, equivalently rooted edge forests. Exhaustive independent reconstruction from all 18 incidences yields exactly 1,728 faces including the empty face, with 18,126,428,705,450 nonempty faces by dimensions. A face-poset matching in the source fixed pivot order has 831 pairs, critical one vertex plus 64 dimension-four faces; independent reconstruction of all 6,606 Hasse incidences visits all 1,727 nonempty faces in a topological sort, proving acyclicity. Hence X≃vee^64 S^4. Independent signed fixed-simplex Lefschetz enumeration for all 12 automorphisms gives L=(65,1,2,-3,-7,0) for six classes, hence H4 character (64,0,1,-4,-8,-1). Inner products with S3×C2 irreducible characters give multiplicities 3,7,10 and 8,4,11; averaging proves quotient invariant dimension three. The all-face enumeration is genuinely exhaustive, not a sampled finite pattern.
 
-## Limitations
-Rational representations and rational quotient homology only; no integral equivariant module or general prism-family theorem. No independent external audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The same prism Morse complex already has known mod-two H4 rank64 and a stronger nonequivariant integral homotopy equivalence to a wedge of 64 four-spheres. These are fully credited, and no novelty is assigned to the old rank/homotopy conclusion. The new result is the complete nontrivial automorphism character and rational quotient homology; those do not follow from Betti numbers or bare homotopy type. Other equivariant Morse results concern different graphs. A closely related 2020 directed forest complex thesis was inaccessible beyond its abstract and is a material priority risk.
+
+## value
+
+PASS
+
+PASS: Complete rational decomposition under all 12 natural symmetries separates homology classes unseen by an existing wedge-of-spheres theorem and determines the three-dimensional symmetry-invariant quotient. Equivariant homology is a natural refinement for a canonical small graph and gives a concrete reproducible character benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
