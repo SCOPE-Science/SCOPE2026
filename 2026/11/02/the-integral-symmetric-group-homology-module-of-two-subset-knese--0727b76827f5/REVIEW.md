@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated isomorphism is over the integer group ring and follows from an explicit equivariant deformation retraction, an integral triangle-boundary formula, an integral surjectivity argument, and the long exact sequence for a relative CW pair. The exterior-cube kernel and entire conjugacy-class character are reconstructed. Two independent finite checks corroborate the signs and ranks; finite checks are not used as an infinite proof.
+## correctness
 
-**Originality — PASS, residual risk acknowledged.** Barmak (2010), arXiv:1007.0418, Theorem 4.11 already establishes the wedge-of-two-spheres type, its Betti number and integral torsion-freeness; these are not new claims. The present identification of the **natural integral \(\mathfrak S_n\)-module**, its canonical equivariant connecting map, explicit basis and all-cycle-type character is stronger information than that nonequivariant classification. Feng–Wang's later higher-subset-size treatment and indexed neighborhood/Čech/stable-Kneser results do not mathematically cover this invariant. A prior equivalent equivariant presentation could nevertheless exist in unindexed literature; searches cannot establish uniqueness.
+PASS
 
-**Value — PASS.** The integral symmetry lattice and explicit irreducible rational hook character are structural data for the entire natural Kneser family and answer a representation-theoretic question beyond the previously computed scalar Betti numbers. This is not just another example or a new rendering of the old homotopy statement.
+Every pairwise-intersecting family of K_n edges lies in a star or is exactly a triangle. A is the union of n star simplices and equivariantly deformation retracts onto subdivided K_n; adding exactly binom(n,3) triangle 2-cells gives relative C2 identified with Λ³Z^n. Its connecting map is augmentation contraction, surjective over Z onto the graph cycle lattice because triangles through one vertex form its integral basis. The LES then gives integral kernel Λ³ker(augmentation), no torsion or other reduced homology. The generating determinant product of permutation cycles divided by 1+t yields the claimed character. Independently computed character for every permutation of n=4,5,6,7 and compared the formula exactly; this is finite corroboration only.
 
-**Limitations.** The object is restricted to \(KG(n,2)\) and \(n\ge4\). No claim is made for higher-subset Kneser graphs, for independence complexes of stable Kneser subgraphs, or for independent scholarly certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claimed statement and implications were compared, not merely titles. The independence complex of KG(n,2) is the complex of pairwise intersecting 2-subsets of [n], equivalently the star–triangle complex of a complete graph. The proof translates equivariant topology to the exterior-power kernel of the complete-graph boundary. Barmak gives the non-equivariant wedge of binom(n−1,3) two-spheres, hence Betti ranks and torsion-freeness, but does not alone identify the integral Sn-action. Analogous Sn-modules for Kneser neighborhood or scale-two Cech complexes are for different simplicial complexes. The full equivariant attaching contraction and isomorphism to Λ³ of the augmentation lattice are additional facts. The known non-equivariant wedge type is acknowledged, not restated as novel. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
+
+## value
+
+PASS
+
+The integral equivariant representation contains action and torsion-sensitive lattice information absent from a wedge-of-spheres homotopy count, and provides an explicit all-n character and integral basis for a natural symmetric independence complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
