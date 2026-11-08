@@ -1,12 +1,21 @@
-# Review of the exact central-section side-count law
+# Independent mathematical audit
 
-## Correctness — PASS
-The section-vertex count equals the number of crossed polyhedral edges. Standard regular rhombicuboctahedron coordinates give \(24\) vertices and exactly \(48\) edges. Exact \(\mathbb Q(\sqrt2)\) clipping of the four sign-change lines in the signed-permutation fundamental sector gives six exhaustive open cells, one octagonal and five dodecagonal; the accompanying certificate tests all underlying vertex signs at cell corners, so no intermediate direction is omitted. The octagonal normal cone is a spherical triangle with angles \(\pi/4,\theta,\theta\), giving \(\Pr(N=8)=24\theta/\pi-9\). The standalone checker reproduced the complete exact certificate and also corroborated it with direct Gaussian normals.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest inspected primary literature provides the general slicing-chamber method rather than a complete two-atom Haar distribution for this particular regular Archimedean solid. Existing published-finding corpus results for Platonic sections and other Archimedean sections involve different normal arrangements, and their claims do not imply this one. The classical rhombicuboctahedron coordinates and general chamber algorithm are credited. Searches under the small-rhombicuboctahedron, central-plane, polar/projection and exact-probability formulations found no directly dominating statement. Older stereology literature and a broader section-volume paper not accessible in full remain residual priority risks; negative searches are not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies every generic central section into exactly two geometric types and identifies a forbidden decagon type. It supplies an intrinsic sharp directional criterion and exact rotation-invariant frequencies for one of the basic Archimedean solids, a natural full classification of a section-complexity invariant rather than an isolated numerical calculation. No general higher-dimensional or off-center extension is claimed.
+The 24 signed permutations of (1+sqrt(2),1,1) yield 48 length-2 edges of degree four. Intersecting the 4 vertex-sign lines with 0<w<v<1 gives six exhaustive convex cells; exactly the all-negative cell has 8 crossings and the others 12. The octagon region is x>(1+sqrt(2))y+z. Its spherical triangle has angles pi/4, theta, theta, theta=acos(1/sqrt(5+2sqrt(2))), hence Haar probability 24theta/pi-9; moments follow. Independently constructed the 48-edge graph and tested 2999 generic directions with no rule disagreement. Finite direction tests corroborate, while exact clipping argument supplies the all-directions proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The specific polytope, sharp angular criterion, no-decagon statement and exact spherical law are distinct from previously published central icosahedron section law and generic chamber algorithms. Historical unindexed polytope-section tables remain possible; the relevant broad primary paper was inspected only in identified sections.
+
+## value
+
+PASS
+
+The small rhombicuboctahedron is a canonical Archimedean solid; number of sides of a uniformly oriented central section is a natural geometric-probability invariant. The exact chamber threshold and nonoccurrence of decagons are nontrivial and useful for further slicing and integral-geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_rhombicuboctahedron.py` (Python 3 standard library only). The checker constructs all \(24\) vertices in exact \(\mathbb Q(\sqrt2)\) arithmetic, finds exactly \(48\) length-\(2\) edges with four at each vertex, clips every candidate sign pattern of the four critical lines against the full fundamental triangle, and checks the underlying original vertex-sign linear forms on every cell vertex. The six positive-area chambers have section counts \(8,12,12,12,12,12\). The unique octagonal chamber has planar vertices \((0,0)\), \((1/a,0)\), and \((1/(a+1),1/(a+1))\) with \(a=1+\sqrt2\). Exact dot products of its three inward spherical wall normals give the angles used in Girard's formula.
+## correctness
 
-The current package's checker also executed an independent direct-edge Gaussian-normal diagnostic with \(80{,}000\) orientations, of which \(16{,}772\) yielded octagons. Each direct edge count matched the sharp coordinate-threshold classification; the observed octagon frequency \(0.20965\) is compatible with the exact \(0.207863937034156\). This finite diagnostic cannot prove the result for all directions. Numerical evaluations of transcendental functions are corroboration; the equality is established by exact symbolic identities and spherical geometry.
+PASS
 
-Limitations: exceptional plane orientations containing vertices are excluded, and no independent mathematical audit has been performed.
+The 24 signed permutations of (1+sqrt(2),1,1) yield 48 length-2 edges of degree four. Intersecting the 4 vertex-sign lines with 0<w<v<1 gives six exhaustive convex cells; exactly the all-negative cell has 8 crossings and the others 12. The octagon region is x>(1+sqrt(2))y+z. Its spherical triangle has angles pi/4, theta, theta, theta=acos(1/sqrt(5+2sqrt(2))), hence Haar probability 24theta/pi-9; moments follow. Independently constructed the 48-edge graph and tested 2999 generic directions with no rule disagreement. Finite direction tests corroborate, while exact clipping argument supplies the all-directions proof.
+
+## originality
+
+PASS
+
+The specific polytope, sharp angular criterion, no-decagon statement and exact spherical law are distinct from previously published central icosahedron section law and generic chamber algorithms. Historical unindexed polytope-section tables remain possible; the relevant broad primary paper was inspected only in identified sections.
+
+## value
+
+PASS
+
+The small rhombicuboctahedron is a canonical Archimedean solid; number of sides of a uniformly oriented central section is a natural geometric-probability invariant. The exact chamber threshold and nonoccurrence of decagons are nontrivial and useful for further slicing and integral-geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
