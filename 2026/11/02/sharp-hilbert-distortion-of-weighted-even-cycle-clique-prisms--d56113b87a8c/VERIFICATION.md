@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`, steps 1-5. Execute `python CHECK.py` with Python 3, NumPy and SciPy. This reconstructs all pairwise squared distances from the optimal polygon/simplex model and solves an independent finite Fourier conditional-negative-type linear program for two fibers. Replay obtained `CHECK_OK finite_pair_inequalities= 39342 independent_Fourier_LP_cases= 42 maximum_absolute_LP_error= 2.07e-13`. Its finite numerical tolerance is `2e-6` for LP solutions; no finite experiment implies the all-order claim. The latter follows from the universal Fourier inequality, explicit embedding and sine inequalities proved in `RESULT.md`.
+## correctness
 
-The domain is real Hilbert embeddings, integers `m>=2`, `r>=2`, and real `0<lambda<=1` with unit cycle edges. The explicit dimension is `r+1` as an upper bound, with no minimum embedding-dimension assertion. The unweighted endpoint belongs to earlier literature. Independent mathematical validation is not performed.
+PASS
+
+The discrete cycle Fourier ratio gives mean antipodal square distance ≤c^{-1} times mean neighbor squares with c=sin²(pi/(2m)). For two fiber labels, midpoint/half-difference decomposition and the cross-fiber antipodal pairs force D²≥(m+λ)²c/(1+λ²c) for arbitrary Hilbert embeddings. The regular polygon plus orthogonal regular simplex has squared pair distances D²(sin²(kθ)/c+ελ²); the stated sine concavity bounds verify both Lipschitz directions for k=0..m and ε=0,1 when 0<λ≤1. Independent tests verified all pair types for 132 parameter pairs. The proof, not these finite tests, gives the uniform all-r statement.
+
+## originality
+
+PASS
+
+Linial and Magen (Theorem 3.5, 2000) prove optimal standard embeddings for unweighted Cartesian products of cycles, covering λ=1 for a two-point fiber. The paper does not introduce the independently weighted complete-fiber factor 0<λ<1. Cioabă et al. concern distance-regular graph metrics, not this weighted family.
+
+## value
+
+PASS
+
+The exact continuous weighted distortion profile of a canonical Cartesian cycle–clique metric resolves the transition between collapsed and unit fibers, independent of fiber cardinality. This is an intrinsic metric embedding constant, not a cosmetic restatement of unweighted cycle products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

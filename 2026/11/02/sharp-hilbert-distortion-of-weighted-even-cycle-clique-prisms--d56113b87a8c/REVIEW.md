@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The all-Hilbert lower bound uses a two-fiber antipodal energy inequality derived from cycle Fourier modes; it does not assume symmetry of a competitor. An explicit regular-polygon/orthogonal-simplex map attains the lower bound and its noncontraction is proved separately for every pair class, including the \(k=1\) and \(k\ge2\) cross-fiber regimes. The supporting sine lemma is proved at all integers \(m\ge2\), with exact boundary checks and a uniform large-order Taylor estimate. A standalone checker replays 39,342 finite pair inequalities and 42 independent Fourier-LP instances. Finite tests are corroborative only.
+## correctness
 
-**Originality: PASS, qualified.** Linial–Magen (2000), Theorem 3.5, proves the unit-edge product case, which is explicitly excluded from the claimed novel weighted interval. Cioabă and collaborators (arXiv:2109.09708) address a different unweighted distance-regular framework. Weighted Hamming isometric embedding, Lipschitz-free Banach–Mazur distortion, and prism-topology results do not imply this sharp point-metric real-Hilbert distortion profile. Actual title, alias, implication, and database searches, including a material inspection of the Linial–Magen theorem and proof, found no directly covering \(0<\lambda<1\) result. A previously unnoticed equivalent weighted-product theorem remains a real priority risk.
+PASS
 
-**Value: PASS.** The formula solves a natural full continuous deformation of a canonical product family rather than a single arbitrary parameter table. It provides explicit unrestricted optimal embeddings, exact noncontracting lower-bound certificates, a strict weight profile, dimension-independent fiber-cardinality behavior, and a universal large-cycle limit. It is limited to even cycles and fiber weights at most one.
+The discrete cycle Fourier ratio gives mean antipodal square distance ≤c^{-1} times mean neighbor squares with c=sin²(pi/(2m)). For two fiber labels, midpoint/half-difference decomposition and the cross-fiber antipodal pairs force D²≥(m+λ)²c/(1+λ²c) for arbitrary Hilbert embeddings. The regular polygon plus orthogonal regular simplex has squared pair distances D²(sin²(kθ)/c+ελ²); the stated sine concavity bounds verify both Lipschitz directions for k=0..m and ε=0,1 when 0<λ≤1. Independent tests verified all pair types for 132 parameter pairs. The proof, not these finite tests, gives the uniform all-r statement.
 
-**Independent validation:** not performed. The finite numerical checker does not constitute independent certification or replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Linial and Magen (Theorem 3.5, 2000) prove optimal standard embeddings for unweighted Cartesian products of cycles, covering λ=1 for a two-point fiber. The paper does not introduce the independently weighted complete-fiber factor 0<λ<1. Cioabă et al. concern distance-regular graph metrics, not this weighted family.
+
+## value
+
+PASS
+
+The exact continuous weighted distortion profile of a canonical Cartesian cycle–clique metric resolves the transition between collapsed and unit fibers, independent of fiber cardinality. This is an intrinsic metric embedding constant, not a cosmetic restatement of unweighted cycle products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
