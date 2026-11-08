@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:04:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at blob 42049c0d5faaa90fd317be459cd7a3d468e0b5eb",
+        "Frozen verify.py blob 7cc7b9ad6f0f27803660bbe01742852428a43269 (line-by-line inspected)",
+        "Independent exact checker independent_cube_toric_check.py"
+      ],
+      "rationale": "The ring is the projective edge semigroup algebra, not the edge ideal. The cube bipartition has 4+4 vertices, hence the incidence-polytope affine span has rank 6, and deleting one coordinate in each class gives its full Z^6 lattice; the gcd of the 6x6 minors of differences is one. Total unimodularity of signed bipartite incidence guarantees the integer-decomposition property and ring normality over any field. A fresh independent exact-integer program enumerated 924 affinely spanning six-subsets, found 12 primitive facet inequalities and all 349 faces with f-vector (12,54,110,108,52,12,1), recomputed primitive normal rays and all maximal cone minor gcds; exactly 50 nonregular faces occur by dimensions 0,1,2 as 12,30,8, and every nonregular cone is nonsimplicial. The inclusion-maximal nonregular faces are exactly the 8 star triangles and 6 antipodal edge-pairs. The toric orbit-face correspondence identifies their orbit closures as coordinate P^2 and P^1 because those face monomials are affinely independent. Their intersections lie at the 12 coordinate points, each on 3 components, yielding 36 intersecting component pairs. Stanley--Reisner union face counts (12,30,8) imply the displayed rational Hilbert series and for n>=1 the Hilbert function 12+30(n-1)+8 C(n-1,2)=4n^2+18n-10; Hilbert polynomial thus holds in any characteristic. Singular locus is reduced support only; non-Q-factorial locus matches because all simplicial cones are regular. The independent checker is finite exhaustive for this fixed polytope; normality, toric smoothness and face-orbit principles are separate mathematical arguments, not merely VERIFY_OK.",
+      "residual_risks": [
+        "The nonreduced Jacobian singular scheme and completed transverse local analytic types are not claimed.",
+        "Only Q3 and its exact 349-face fan are certified; no claim for higher hypercubes or arbitrary crown graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohsugi--Hibi 1998, Normal Polytopes Arising from Finite Graphs (DOI 10.1006/jabr.1998.7476), establish general normality/edge-polytope facet results, including the bipartite case.",
+          "Ohsugi--Hibi 2008, Simple polytopes arising from finite graphs (arXiv:0804.4287), Theorem 1.8 characterizes globally simple/smooth non-simplex edge polytopes; Q3 is not a complete bipartite graph.",
+          "Portakal 2021, On rigidity of toric varieties arising from bipartite graphs (arXiv:1905.02445), abstract concerns affine edge cones and deformation rigidity; full comparison unresolved due source access."
+        ],
+        "reasoning": "Normality and a global nonsmooth verdict do not imply a complete set of maximal singular orbit closures or their incidence/Hilbert data. General affine edge-cone rigidity is a different mathematical question; without accessible full text it remains a named residual risk, not evidence of coverage.",
+        "searches": [
+          "Resultary: Smoothness singular fan cones of edge polytopes of bipartite graphs Ohsugi Hibi cube Q3",
+          "web: Ohsugi Hibi Simple polytopes arising from finite graphs arxiv 0804.4287 smooth graphs bipartite normal",
+          "web: projective toric variety crown graph K4,4 minus matching singular locus orbit closures",
+          "arXiv:0804.4287",
+          "DOI:10.1006/jabr.1998.7476"
+        ]
+      },
+      "checked_sources": [
+        "Ohsugi--Hibi, J. Algebra 207 (1998) 409--426, doi:10.1006/jabr.1998.7476 (full author text)",
+        "Ohsugi--Hibi, arXiv:0804.4287 (full v1 author text, Theorem 1.8)",
+        "Kahle--Kubjas--Kummer--Rosen, arXiv:1605.01678 (full HTML sections 1--3)",
+        "Portakal, arXiv:1905.02445, Journal of Algebra 569 (2021) 784--822 (abstract only; VPN disconnection)",
+        "Resultary searches for exact cube/crown/partial Segre stratification: nearest four-wheel degeneracy record 2026/10/4/SCOPE-the-four-wheel-second-degeneracy-fourfold-has-a-six-component-si--ab7b7d2d5a5f and unrelated cube cut complex records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ohsugi--Hibi 2008 Theorem 1.8 implies that Q3 is not globally smooth, but not the location and dimensions of maximal singular strata.",
+          "Kahle et al. 2016 Section 2 uses the kernel of a partial Segre monomial parametrization and completable points; this does not determine the projected variety singular orbit closures.",
+          "The current exact integer computation lists all 349 faces and their primitive normal-cone indices; eight star triples and six antipodal pairs are the maximal nonregular faces."
+        ],
+        "reasoning": "A global smoothness criterion merely certifies at least one singular point. The claimed mixed-dimensional components, pairwise triple-point incidence and Stanley--Reisner Hilbert data require an additional classification of all normal cones, not just substitution into an already published global theorem.",
+        "searches": [
+          "web: rank one matrix completion toric variety missing diagonal singular locus crown graph 4x4",
+          "web: singularities of graph toric varieties hypersurface planar cube graph edge polytope",
+          "web: On rigidity of toric varieties arising from bipartite graphs full text arxiv:1905.02445",
+          "arXiv:1605.01678",
+          "arXiv:1905.02445"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q3 is bipartite-isomorphic to the crown graph K_{4,4} minus one perfect matching; its edge semigroup parametrizes twelve off-diagonal coordinates of a 4x4 rank-one matrix.",
+          "Kahle--Kubjas--Kummer--Rosen, The geometry of rank-one tensor completion, arXiv:1605.01678, Section 1 and Section 2, define coordinate restrictions of Segre parametrizations and toric elimination ideals; their target is completability, not the fan-stratified singular support.",
+          "Resultary search retrieved unrelated singular classifications, e.g. 2026/10/4/SCOPE-the-four-wheel-second-degeneracy-fourfold-has-a-six-component-si--ab7b7d2d5a5f, different object."
+        ],
+        "reasoning": "Aliases represent the same sixfold, so comparison is substantive rather than title-based. Partial-tensor completion criteria constrain which arrays can arise, whereas this theorem identifies every nonregular projective normal cone and the reduced singular union; neither implication supplies the fourteen components or its Hilbert series.",
+        "searches": [
+          "Resultary: Singular locus of graph edge toric variety of 3 cube Q3 4x4 crown graph partial Segre missing diagonal non-Q-factorial eight planes six curves",
+          "web: \"cube graph\" \"edge polytope\" \"singular\"",
+          "web: Segre projection missing diagonal 4x4 coordinate singularity components",
+          "arXiv:1605.01678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic queries on Q3 edge-polytope singular locus, 4x4 crown/off-diagonal rank-one projection, and the eight-plane/six-line census returned unrelated algebraic singular-locus records but no exact cube fan table.",
+          "The exact retrieved primary 1998/2008 face/smoothness treatments do not list this 349-face census, 8+6 maximal singular faces, or the reduced-support Hilbert polynomial."
+        ],
+        "reasoning": "No exact published singular-face table was found in the bounded search, but this is not proof of priority. An unindexed fan database or unpublished computational table under the crown/Segre alias could dominate and is retained as a risk.",
+        "searches": [
+          "Resultary: Toric variety of off-diagonal 4x4 rank one matrices, singular locus and Hilbert series of reduced singular support",
+          "web: singular locus edge polytope Q3 cube graph toric variety coordinate planes lines",
+          "web: projective toric variety crown graph K4,4 minus matching singular locus orbit closures",
+          "web: Segre projection missing diagonal 4x4 coordinate singularity components"
+        ]
+      },
+      "rationale": "The precise novel candidate is the complete reduced singular-orbit support of the projective edge toric variety of Q3, equivalently the 4x4 crown graph/diagonal-deleted Segre parametrization, and its coordinate-union Hilbert function. Primary Ohsugi--Hibi results prove normality and characterize global simplicity/smoothness but stop short of locating the eight maximal star-triangle singular orbits and six incomparable antipodal-pair orbits. Kahle et al. describe partial-rank-one completability and its algebraic constraints, not this projective normal-fan singular support. Resultary searches for cube, crown, off-diagonal Segre and exact Hilbert data found related but different published claims. The general toric orbit criterion plus a new exhaustive face computation yields this particular classification. One plausible 2021 affine bipartite graph rigidity source remains full-text inaccessible, leaving a real but not decisive priority risk.",
+      "residual_risks": [
+        "The 2021 Portakal affine bipartite-graph rigidity paper could contain a relevant hidden general-face classification; original full text was inaccessible due institutional VPN disconnection, not treated as disproof of novelty.",
+        "An unindexed table or computer algebra calculation of nonregular crown graph normal-fan cones might implicitly already list the fourteen maximal singular faces.",
+        "Equivalence to off-diagonal partial Segre or missing-matching graph ring could hide the same Hilbert series under alternate terminology; no absence-of-search claim is definitive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides normality and general facet ingredients; not component-wise singular orbit support.",
+          "evidence": [
+            "1997 symposium lecture section 1.1 identifies graph edge polytopes and d-2 dimension for bipartite graphs; section 2 states bipartite incidence matrix unimodular.",
+            "1998 J. Algebra abstract and article concern normalization and graph criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jabr.1998.7476",
+          "material_read": "Author-posted full-text article displayed at researchgate.net/publication/243020498_Normal_Polytopes_Arising_from_Finite_Graphs; introductory definitions, graph normality criterion and facet discussion, with additional original 1997 symposium preprint segment at https://www.math.okayama-u.ac.jp/~hashimoto/paper/Comm-Alg/19-all.pdf (the supplied PDF screenshot failed with 404).",
+          "method": "Compared normality and graph facet coverage with the new full normal-cone census; the original symposium text states bipartite vertex-edge incidence unimodularity and dimension d-2.",
+          "title": "Normal Polytopes Arising from Finite Graphs",
+          "trigger": "Foundational normality and facet theorem for precisely the same graph-edge semigroup and polytope"
+        },
+        {
+          "assessment": "Establishes global nonsmoothness, not a component-wise singular-support classification or Hilbert series.",
+          "evidence": [
+            "Theorem 1.8 (arXiv:0804.4287v1) characterizes all simple-but-not-simplex polytopes; only complete bipartite graphs appear among loopless connected bipartite cases.",
+            "Paper states goals of global simplicity classification, quadratic Gröbner bases and Ehrhart/volume for simple edge polytopes, not singular strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0804.4287",
+          "material_read": "Full arXiv v1 text reproduced in the authors public ResearchGate full-text page, including Definitions and Theorem 1.8 with cases (alpha), (beta), (gamma), its proof and later smoothness sections.",
+          "method": "Matched its Theorem 1.8 classification of simple/smooth graph edge polytopes against Q3 (connected bipartite not complete bipartite).",
+          "title": "Simple polytopes arising from finite graphs",
+          "trigger": "Global smoothness theorem potentially covering cube graph edge polytope"
+        },
+        {
+          "assessment": "Directly relevant underlying equivalent representation but inspected results concern completion and semialgebraic boundaries, not the claimed reduced singular support.",
+          "evidence": [
+            "ArXiv HTML equations (1.2)--(1.4) define restricted Segre parametrization and toric ideal; Section 2 gives completion criteria, Section 3 algebraic boundary of completable region."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01678",
+          "material_read": "Full arXiv HTML text, especially Section 1 parametrizations (1.2)--(1.4), Section 2 completable-point criterion and graph-cycle discussion, Section 3 Jacobian/algebraic boundary results.",
+          "method": "Matched restriction of rank-one matrix coordinates and toric ideal to this missing-diagonal projective image; compared the paper results on completability with the proposed normal-fan component census.",
+          "title": "The geometry of rank-one tensor completion",
+          "trigger": "Same partial Segre monomial parameter space as the crown-graph ring"
+        },
+        {
+          "assessment": "Comparison is materially incomplete, NOT a whole-document claim of noncoverage. The work studies affine cone faces and rigidity rather than explicitly the projective fan support in the accessible abstract.",
+          "evidence": [
+            "Abstract explicitly says faces of edge cone characterized by independent sets and applications to rigidity; no full-text theorem inspected.",
+            "Full-text institutional retrieval reported vpn_disconnected; no credential bypass."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.02445",
+          "material_read": "Accessible title, abstract, bibliography and statement of scope on arXiv/search/author publication index; full preprint and publisher full text could not be retrieved.",
+          "method": "Attempted arXiv and open access retrieval, then authorized institutional download via DOI 10.1016/j.jalgebra.2020.09.032; institutional connection reported VPN disconnected.",
+          "title": "On rigidity of toric varieties arising from bipartite graphs",
+          "trigger": "Same bipartite graph edge-ring variety, plausible broader singular face criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ohsugi--Hibi 1998 and 2008 global graph-edge polytope framework",
+        "Kahle et al. 2016 partial Segre completion framework",
+        "Independent 349-face/14-maximal-face and Hilbert computation"
+      ],
+      "rationale": "The smallest cubic hypercube Q3 and the crown graph K4,4 minus a matching are canonical objects, and their projective edge ring is a natural sparse rank-one matrix projection. A complete classification of all maximal singular toric-orbit closures is a genuinely motivated exact structural invariant: the singular reduced support is nonpure with eight surface components and six additional curve components, not merely globally singular. The explicit incidence pattern and Hilbert series quantify geometry that cannot be inferred from normality or the ambient variety Hilbert polynomial alone. The singularity support is finite-dimensional but not an arbitrary unmotivated slice; it is the full classification for this natural sixfold. No unsupported claims about larger graph families or nonreduced schemes are used.",
+      "residual_risks": [
+        "One explicit small graph computation may have narrow transfer beyond sparse Segre toric geometry; value resides in the complete natural-case classification rather than an asserted general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full nonreduced singular scheme, transverse local analytic types and higher hypercube cases are not asserted.",
+    "Portakal 2021 potentially relevant affine edge-cone paper accessible only at abstract-level; institutional full text blocked by disconnected authorized VPN; risks recorded without inventing exclusion.",
+    "The 1997 symposium volume PDF screenshot returned HTTP 404; the mathematical normality passage was readable as parsed text and 1998 author-posted full text was separately inspected."
+  ],
+  "schema_version": 1
+}
