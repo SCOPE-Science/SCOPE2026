@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete theorem and its domain appear in `RESULT.md`. The standalone script `verify_toroidal_threshold.py` uses only the Python standard library and does not depend on an external graph library.
+## correctness
 
-Run `python3 verify_toroidal_threshold.py` from the directory containing the extracted artifact. The program reconstructs every cycle-distance-difference histogram and tests every nonzero translation displacement for all \(3\le m,n\le40\), 1,444 graph parameters. A distinct verification builds explicit four-neighbor graph adjacency, runs independent breadth-first searches from every vertex, computes every vertex-pair bisector and checks the result for all \(3\le m,n\le10\), 64 graph parameters. The complete run returned:
+PASS
 
-`VERIFY_OK 1444 full offset-pair histogram cases; 64 independent BFS all-vertex-pair cases`
+For a pair u≠v a set is nonresolving exactly when contained in its distance bisector, so the threshold is 1+maximum bisector size. I checked the proof’s odd/even single-cycle distance-difference histograms, including antipodal and triangular cycles: every nonzero shift histogram is majorized by shift one. For displacements in both coordinates the convolution is bounded by rearrangement, and the shifted-one largest entries align at ±1 (with the shared zero entry for odd cycles), giving the sharp diagonal count. For a zero displacement, the zero-difference histogram gives exactly n or 2n (or m or 2m), producing the m=4 or n=4 mixed-parity exception. The stated six cases hold for m,n≥3; neither a finite grid search nor a mere generic bisector identity alone proves the unrestricted classification.
 
-These are exact integer checks, with no numerical tolerance or random sampling, but cover only the displayed finite parameter ranges. The general proof depends on exact one-cycle histogram counts, majorization, rearrangement, the zero-coordinate case, and elementary inequalities. These steps are proved in the accompanying manuscript, not asserted on the basis of the checker alone. No independent mathematical audit or certification has been performed.
+## originality
+
+PASS
+
+Qualified PASS for the complete all-parity largest bisector/threshold of C_m □ C_n, not for the preexisting general reduction to maximal bisectors or the classical minimum metric dimension. Inspected primary definitions and product literature do not give this six-case universal torus formula; unidentified stronger graph-product results remain possible.
+
+## value
+
+PASS
+
+The Cartesian toroidal grid is a canonical network topology and the universal threshold answers an explicit fault-tolerant landmark-placement question: how many arbitrarily placed observers always resolve? The full parity law and exceptional C4 factor are a natural complete classification rather than a small-example check or simple restatement of the known max-bisector reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
