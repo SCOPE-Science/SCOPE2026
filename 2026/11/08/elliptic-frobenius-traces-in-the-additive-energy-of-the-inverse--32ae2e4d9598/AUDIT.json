@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For odd characteristic the ordered zero-sum pairs contribute 2(q-1); the nonzero-sum diagonal contributes 2q-5; the only off-diagonal solutions are related by w=z/(2z-1), whose weighted sum reduces to the cubic quadratic-character sum. Removing its three exceptional inputs yields precisely the claimed elliptic trace term in characteristic at least five, while direct degeneration resolves characteristic three. In characteristic two Frobenius maps the inverse graph additively to the inverse-square graph, yielding the stated elementary energy count. Orthogonality proves the two-frequency fourth moment. Standard elliptic Frobenius theory provides the extension recurrence; exhaustive finite-field verification across 32 examples supports but does not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Katz–Koester, On additive doubling and energy, arXiv:0802.4371v1, gives general set-energy and doubling structure but no exact energy for this particular graph.",
+        "Calderón–de Velasco–Zárate, doi:10.1007/s10474-010-0043-5, available abstract defines a generalized Kloosterman sum with Dirichlet characters/Gauss weights and averages over characters; it does not assert the present two-frequency fixed-unweighted moment.",
+        "H. Chen et al., Explicit formulas for the fourth moment of mixed exponential sums, JNT 133 (2013), available abstract likewise adds averages over Dirichlet characters."
+      ],
+      "reasoning": "Reviewed broader exact-moment results at the statement/available-abstract level and tested implication: the cited character averages cannot by themselves recover a fixed, unweighted graph fourth moment. No exact broader theorem was seen covering the present formula. The unavailable complete articles remain residual risk.",
+      "searches": [
+        "\"finite fields graph inverse square additive energy x x^{-2} exact elliptic curve character sum\"",
+        "\"fourth moment exponential sums x + inverse square elliptic curve trace finite field\"",
+        "\"An explicit formula for the fourth moment of certain exponential sums\" Calderón Velasco Zárate formula details",
+        "\"Explicit formulas for the fourth moment of mixed exponential sums\" inverse square"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0802.4371v1",
+      "arXiv:1211.4184v1",
+      "https://blogs.ethz.ch/kowalski/2010/02/26/the-fourth-moment-of-kloosterman-sums/",
+      "doi:10.1007/s10474-010-0043-5",
+      "Published exact additive energy of finite-field quartic graph (distinct graph)",
+      "Published exact fourth-moment extension on finite-field multiplicative hyperbola (distinct graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of arXiv:1211.4184v1 bounds solutions of a reciprocal-sum congruence with all variables restricted to an interval I; it does not impose simultaneous sums of x and x^{-2} over all nonzero field elements.",
+        "The inverse-graph exact fourth moment counts equations involving x^{-1}; the inverse-square case has a distinct collision factor z+w-2zw and the trace of v^2=(1-4z)(1-4z^2).",
+        "Characteristic two is reducible to the inverse graph by the additive Frobenius map, and that part alone is not claimed as historically novel."
+      ],
+      "reasoning": "General-purpose additive-energy bounds cannot imply exact elliptic corrections; reciprocal-interval estimates do not concern this two-coordinate full graph; inverse-graph computations imply the characteristic-two specialization but not the odd-characteristic theorem. The result is an exact new structural identity relative to the inspected literature.",
+      "searches": [
+        "arXiv:0802.4371v1 additive doubling and energy theorem",
+        "arXiv:1211.4184v1 reciprocal interval sums Theorems 1-6",
+        "E Kowalski fourth moment of Kloosterman sums 2010",
+        "doi:10.1007/s10474-010-0043-5 fourth moment certain exponential sums"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact energy is Fourier-dual to the full two-parameter fourth moment of sums with phase Ax+Bx^{-2}; the same number is not the usual single-parameter fourth moment of classical Kloosterman sums.",
+        "E. Kowalski, The fourth moment of Kloosterman sums, 2010-02-26, https://blogs.ethz.ch/kowalski/2010/02/26/the-fourth-moment-of-kloosterman-sums/ — discusses the rational inverse-graph collision, which does not produce the elliptic curve."
+      ],
+      "reasoning": "Compared both the graph energy and Fourier-moment aliases. The classical inverse graph has a unique-product reduction and its exceptional zero-sum branch; replacing inverse with inverse square gives a second collision involution and cubic character-sum trace. Neither is an equivalent formulation of the other. Search non-hits are not taken as uniqueness proofs.",
+      "searches": [
+        "\"x^{-2}\" \"fourth moment\" finite field exponential sums",
+        "\"1/x^2\" \"fourth moment\" Kloosterman",
+        "\"x+x^-2\" fourth moment elliptic finite field",
+        "\"finite field rational curve inverse square graph additive quadruples elliptic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact additive-energy formula for the finite-field quartic graph concerns (t,t^4), not (t,t^{-2}).",
+        "Published exact sharp fourth-moment extension formula for the multiplicative hyperbola concerns (t,t^{-1}), not the inverse-square graph.",
+        "For 32 explicitly constructed fields, a standalone enumeration reproduces this formula, but finite agreement does not demonstrate uniqueness."
+      ],
+      "reasoning": "Examined natural graph-energy database aliases and relevant existing published graph results. Neither a same-object exact table nor a formula subsuming the inverse-square graph was identified. Mathematical comparison uses the distinct defining graphs and absence or presence of an elliptic cubic.",
+      "searches": [
+        "\"additive energy of inverse-square curve (x,x^{-2}) over finite fields, elliptic curve Frobenius trace\"",
+        "\"number of solutions x+y=u+v, x^{-2}+y^{-2}=u^{-2}+v^{-2} finite field\"",
+        "\"additive energy\" \"inverse-square\" graph",
+        "\"inverse square\" \"additive energy\" finite field"
+      ]
+    },
+    "rationale": "The exact inverse-square graph energy is not a consequence of the general small-doubling energy theorem, estimates for reciprocal intervals, the classical inverse-graph fourth moment, or previously known polynomial-graph energy formulas: their objects and collision equations differ. The newly derived off-diagonal involution produces a nonsingular cubic character sum and elliptic Frobenius trace for every characteristic at least five. The known Dirichlet-character-averaged mixed fourth-moment papers concern different averages; available abstracts do not imply this two-frequency unweighted identity. Full-text gaps and unlocated equivalences remain genuine historical risks.",
+    "residual_risks": [
+      "The complete 2011 article by Calderón–de Velasco–Zárate could not be inspected and might contain an unexpected specialization beyond the accessible abstract.",
+      "Other generalized-Kloosterman moment formulas or algebraically equivalent graph-energy identities might have escaped textual and semantic searches.",
+      "Older historical ledger coverage was partial and an unavailable current-week part was not represented as checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact inverse-square graph energy; it is a general additive-combinatorial structural theorem.",
+        "evidence": "Abstract and Theorem 1.1 address set doubling and Freiman structure, not a formula for (x,x^{-2}).",
+        "identifier_or_url": "arXiv:0802.4371v1 | https://arxiv.org/pdf/0802.4371",
+        "material_read": "Full 12-page PDF available; table of contents, abstract, introduction, statement of Theorem 1.1, and main-result topic inspected.",
+        "method": "Open-access PDF text with page image cross-check.",
+        "title": "On additive doubling and energy",
+        "trigger": "General source defining additive energy and bounds that might dominate a special-case exact evaluation."
+      },
+      {
+        "assessment": "Its stated reciprocal-interval estimates do not cover an exact two-coordinate inverse-square graph energy.",
+        "evidence": "Theorem 1 counts reciprocal-sum coincidences with elements in an interval and provides inequalities, unlike the complete exact graph energy.",
+        "identifier_or_url": "arXiv:1211.4184v1 | https://arxiv.org/pdf/1211.4184",
+        "material_read": "Full 70-page PDF available; introductory section, outline, Theorem 1 and neighboring main reciprocal-interval statements inspected; not a line-by-line verification of every result.",
+        "method": "Open-access PDF text with theorem-page image cross-check.",
+        "title": "Sumsets of reciprocals in prime fields and multilinear Kloosterman sums",
+        "trigger": "Directly related reciprocal arithmetic and Kloosterman sums."
+      },
+      {
+        "assessment": "The known inverse-graph moment is related and is not the claimed elliptic inverse-square moment.",
+        "evidence": "The product of two variables is recovered from sum and sum of inverses; this fails for inverse squares and leaves an additional involution.",
+        "identifier_or_url": "https://blogs.ethz.ch/kowalski/2010/02/26/the-fourth-moment-of-kloosterman-sums/",
+        "material_read": "Public article narrative and explicit inverse-graph fourth-moment formula, including the symmetric-product argument.",
+        "method": "Full public web article text.",
+        "title": "The fourth moment of Kloosterman sums",
+        "trigger": "Same Fourier-moment type, with inverse rather than inverse-square graph."
+      },
+      {
+        "assessment": "Abstract describes a character-averaged weighted family different from this full two-frequency unweighted inverse-square moment; full-text overlap risk remains.",
+        "evidence": "The defined sum includes Dirichlet characters and Gauss coefficients and the moment additionally sums over characters.",
+        "identifier_or_url": "doi:10.1007/s10474-010-0043-5",
+        "material_read": "Accessible bibliographic record and detailed abstract; primary full text was not accessible.",
+        "method": "Publisher/catalog metadata and published abstract comparison.",
+        "title": "An explicit formula for the fourth moment of certain exponential sums",
+        "trigger": "Plausible broad exact-moment result with a closely matching title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32ae2e4d-9598-424f-8bde-04607ccd0cd3",
+  "value": {
+    "rationale": "The full ordered additive energy of the canonical inverse-square rational graph is a natural invariant directly controlling a complete fourth exponential-sum moment. Its exact evaluation reveals an elliptic Frobenius trace and extension-field recurrence absent from the elementary inverse-graph case; the separate characteristic-two and characteristic-three formulas show genuine geometric degeneration. This supplies a structural, non-polynomial, exact arithmetic classification rather than a trivial bound, isolated recomputation, or arbitrary finite cutoff.",
+    "status": "PASS"
+  }
+}
