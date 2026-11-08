@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The complete proof in RESULT.md handles all even N, all grid points and all real late times. Nyquist normalization is exact. Poisson summation and the uniform omitted-tail bound give positivity beyond c/N for every c>pi; near-antipodal even indices and dominated convergence yield negative entries at c/N for every 0<c<pi. The two exponentials cross sharply at c=pi. Python verifier passed 419 finite high-precision diagnostics; experiments are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li 2021 studies near-unit maximum norms for Fourier methods; not strict positivity at every t beyond an asymptotically sharp horizon.",
+        "Kim et al. 2023 use Neumann diffusion and computational maximum-principle counterexamples.",
+        "Cai et al. 2023 construct constrained positive projections, not positivity of the unconstrained heat semigroup."
+      ],
+      "reasoning": "Effective norm closeness to 1 does not imply nonnegative individual transition entries; a negative entry can be exponentially small. Constrained projection positivity changes the numerical operator. None of these broader schemes yields the all-times sharp pi frontier as a corollary.",
+      "searches": [
+        "\"effective maximum principles for spectral methods\" Fourier collocation heat",
+        "\"maximum principle Fourier spectral method diffusion equations\" Kim Kwak 2023",
+        "arXiv:2304.11847 positive moment preserving"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.09438 (Li 2021), introduction, Sections 5, Appendix B",
+      "doi:10.3934/era.2023273 (Kim et al. 2023), full 10-page PDF",
+      "arXiv:2304.11847 (Cai et al. 2023), full-text result scope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li gives near-contractivity/defects rather than an exact nonnegative-cone recovery horizon.",
+        "Kim et al. use a different boundary realization and empirically exhibit discrete maximum principle failures.",
+        "Cai et al. guarantee discrete positivity by applying an optimization constraint."
+      ],
+      "reasoning": "The new claim concerns the original unmodified, continuously evolved Fourier Laplacian, both signs of a sharp O(N^-1) threshold, and all t after recovery. Near-contractivity and externally imposed positivity cannot imply this sharp asymptotic; existing negative examples at O(N^-2) do not imply the optimal lower constant pi.",
+      "searches": [
+        "arXiv:2107.09438 Appendix B Theorem B.1",
+        "doi:10.3934/era.2023273 numerical counterexample section",
+        "arXiv:2304.11847 Theorem 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact pseudospectral heat matrix is a truncated discrete theta kernel with one Nyquist mode. Li 2021, Appendix B, treats this general class of heat evolution and gives induced-norm estimates plus small-time defects, not an all-time threshold asymptotic."
+      ],
+      "reasoning": "An equivalent formulation would compare a periodized Gaussian to its frequency-truncation remainder or establish an eventual discrete maximum principle for every grid delta. The new sharp coefficient requires matching upper/lower exponential rates at antipodal points; the inspected Li statements do not supply this implication.",
+      "searches": [
+        "\"Fourier pseudospectral collocation heat semigroup eventual entrywise positivity\"",
+        "\"Fourier heat kernel discrete spectral cutoff threshold pi/N positivity\"",
+        "arXiv:2107.09438, Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected main theorems, examples and relevant appendices do not tabulate or state a finite-grid T_N formula or the limit N*T_N=pi; this conclusion is restricted to actually inspected content."
+      ],
+      "reasoning": "This is an asymptotic exact invariant of a numerical semigroup, not a lookup in a general numerical-table data source. Absence in searches does not prove global nonexistence; possible uninspected specialized tables are a residual risk.",
+      "searches": [
+        "\"spectral heat kernel positivity time grid\"",
+        "\"truncated theta heat Fourier\"",
+        "\"positive and moment preserving Fourier spectral method\" arxiv"
+      ]
+    },
+    "rationale": "Primary full texts of Li (2021), Kim et al. (2023), Cai et al. (2023) inspected, with implication-based comparisons; their effective maximum-norm estimates, Neumann diffusion experiments and constrained positive projections do not entail the original Fourier heat semigroup’s sharp all-time asymptotic horizon. No specific covering statement found. Novelty remains conditional on uninspected specialist Fourier-cutoff precedence.",
+    "residual_risks": [
+      "A preexisting formulation under discrete theta functions, Fourier cutoff tails or eventual positivity could be equivalent without matching searched wording.",
+      "Only inspected relevant primary passages support negative coverage assessments, not exhaustive literature nonexistence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related heat spectral semigroup; proves almost-sharp induced norm bounds and small-time counterexamples, not a sharp eventual positivity time constant",
+        "evidence": "ArXiv 2107.09438 (2021), Appendix B heat evolution and Theorem B.1 plus B.2/B.3; distinction of norm closeness from exact positivity.",
+        "identifier_or_url": "https://arxiv.org/pdf/2107.09438",
+        "material_read": "Abstract/introduction, main maximum-norm statements, Section 5 and Appendix B (especially Theorems B.1–B.3, formulas for spectral heat kernels and counterexamples)",
+        "method": "Public full-text PDF mathematical and section reading including relevant page images",
+        "title": "Effective maximum principles for spectral methods",
+        "trigger": "Closest mathematical setting: heat propagation by Fourier spectral projection and maximum-principle defects"
+      },
+      {
+        "assessment": "Neumann-boundary diffusion and numerical experiments, without asymptotically exact periodic DFT positivity-recovery horizon",
+        "evidence": "Electronic Research Archive 31 (2023), 5396–5405, DOI 10.3934/era.2023273.",
+        "identifier_or_url": "https://doi.org/10.3934/era.2023273",
+        "material_read": "Entire 10-page accessible article with focus on diffusion discretization, implementation and numerical examples",
+        "method": "Publisher free full-text PDF, including introduction and numerical figures/pages",
+        "title": "A maximum principle of the Fourier spectral method for diffusion equations",
+        "trigger": "Title and abstract directly concern Fourier spectral discretization of heat/diffusion and failure of a maximum principle"
+      },
+      {
+        "assessment": "Positivity is enforced by constrained optimization projection; it is not the unmodified continuous heat-collocation semigroup or a waiting-time theorem",
+        "evidence": "ArXiv 2304.11847 (2023), Section 2 equations (2.2)–(2.4), positive moment-constrained projection.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.11847",
+        "material_read": "Full available preprint result section and Section 2 definitions and main positive-projection theorem; abstract, introduction and Boltzmann application scope",
+        "method": "Public arXiv full-text PDF with result-section page inspection",
+        "title": "A positive and moment-preserving Fourier spectral method",
+        "trigger": "Positivity of Fourier spectral approximants could in principle cover the cone-preservation claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4274dc2-8d8b-4306-947d-0bf3702b5614",
+  "value": {
+    "rationale": "An exact universal normalized temporal frontier for entrywise nonnegativity of the physically natural Fourier-pseudospectral heat matrix is a structural guarantee affecting cone preservation. The O(N^-1) scale is parametrically slower than O(N^-2) heat diffusion over a grid cell and identifies a counterintuitive, sharp antipodal-mode obstruction; not a minor numeric bound.",
+    "status": "PASS"
+  }
+}
