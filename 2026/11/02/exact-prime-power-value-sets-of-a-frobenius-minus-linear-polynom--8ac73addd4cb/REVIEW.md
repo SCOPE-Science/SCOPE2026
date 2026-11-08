@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem identifies all input residue balls, not merely their finite-level counts. On the zero ball an explicit divided polynomial has invertible derivative and bijective reduction. For odd \(p\ge5\), expansion about every Teichmüller lift has a quadratic term of exact valuation three, all higher terms carry an additional factor of \(p\), and a convergent square-root coordinate bijectively reduces each branch to a square map. Square counts by even valuations give the exact formula and density. For \(p=3\), direct cubic expansion and two simple-root Hensel branches establish the exact union of thirteen full residue cylinders modulo \(81\). Full enumeration to the levels listed in `VERIFICATION.md` corroborates but does not replace the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2015 Mullen–Muratović-Ribić–Wang paper addresses value-set rank over **fields**; it contains no universal prime-power image formula. The 2023 Shang paper treats maximum possible value-set cardinalities, which do not imply this family's specific values. The 1991 Bremser–Gomez-Calderon Galois-ring study overlaps the ternary Dickson specialization and was accessible only by abstract: this is a genuine historical priority risk, not a finding of noncoverage. Targeted scientific-record searches and relevant archived-claim comparisons produced no equivalent statement; neither absence proves uniqueness. The distinctive new comparison is the all-odd-prime exact image classification of \(X^p-pX\), including the \(p\ge5\) non-Dickson branches and characteristic-three change.
+PASS
 
-## Mathematical value — PASS
-A natural question in finite-ring arithmetic is how rapidly the value set of an integral polynomial collapses across prime-power levels. The family \(X^p-pX\) reduces to the bijective Frobenius map modulo \(p\), yet its derivative vanishes everywhere modulo \(p\); this makes its successive image sizes unusually nontrivial. The theorem determines **all** finite-level image sizes, an explicit complete \(p\)-adic image decomposition, and the exact limiting density for an infinite family indexed by primes. The ternary exceptional branch and nontrivial square-value strata distinguish arithmetic mechanisms, rather than constituting a single isolated census.
+For p>=5, f_p(pt)=p^2(-t+p^(p-2)t^p) has bijective inner map by Hensel. On each unit ball x=zeta+pt, the critical derivative vanishes and expansion yields (1-p)zeta+p^3 u_zeta t^2 U(t), with U(t) in 1+pZ_p[[t]]; t sqrt(U(t)) is a p-adic bijection, giving disjoint square cylinders. Counting p^m quadratic residues by valuations gives S_p(m) and image density. At p=3, explicit cubic t^2(t+/-1) on the two unit balls has two full residue-output classes each, yielding exactly 13 classes mod81 and all higher lifts. Independent direct value-set enumeration for 20 prime/exponent levels matches formulas and the ternary T list. C holds for all odd p by the analytic Hensel argument, not by finite enumeration.
 
-## Risks and limits
-The closed formulas do not quantify fibers, do not cover \(p=2\), and do not assert originality of standard local normal-form lemmas. Complete inspection of the 1991 paper was unavailable, so priority of the isolated ternary subcase remains uncertain. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-prime p-adic exact image and densities are not implied by finite-field value-set rank results or generic nonpermutation upper bounds. p=3 is the Dickson cubic X^3-3X, so Bremser–Gomez-Calderon 1991 Galois-ring source is the closest possible coverage; its abstract/metadata were inspected but full text inaccessible after OA/arXiv search and Oxford VPN disconnected. This is an explicit priority risk, not scientific failure or proof of noncoverage. For p>=5 the specified X^p-pX is not the standard Dickson polynomial.
+
+## value
+
+PASS
+
+The polynomial x^p-px has systematic critical points; its p-adic value image is a natural arithmetic object. All-level exact image cardinals, exceptional cubic branch, and a uniform density across odd primes are not routine field-level counts and provide precise local data for arithmetic dynamics/value-set questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
