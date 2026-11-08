@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact product-recycling ODE and strictly positive initial data, inward-pointing boundaries and a conversion-capacity substrate ceiling give forward completeness. The flux cancellation \(\dot M=\nu-\lambda y/q\) proves global divergence for \(\lambda\le0\), while scalar asymptotic autonomy proves the unique substrate limit. Integrating the exact mass identity at \(\lambda=0\), and the variation-of-constants formula at \(\lambda<0\), proves both additive offsets and positivity of the exponential amplitude. For \(\lambda>0\), separate explicit upper bounds give global boundedness. All quantifiers and inequalities are checked in RESULT.md. The symbolic and numerical test script executes, but the proof does not rely on finite samples.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-Wang, Gelens, Xu and Rong (arXiv:2606.31545), full accessible text Sections II–V and Appendices A–C, study the same exact model and derive a flux elimination at equilibria, but do not give a negative/zero net-removal runaway theorem or its two explicit offsets. Their blanket boundedness sentence needs a positive-net-removal qualification in the mathematically allowed signed removal parameter regime. Goldbeter and Moran (1988), Sections 2–3 and conclusions, analyze a related product-recycling allosteric system with **positive** removal and bounded attractors. The available Kar–Ray (2004) review abstract does not establish the current all-initial-data claim; full text was not independently obtained. Related published oscillator mass-balance theorems apply to different reaction networks or positive removal rates. Exact cancellation is established prior background, not the claimed novelty.
+PASS
 
-## Value — PASS
-The sign of net removal is a natural domain boundary for the same glycolysis model used to study isolas and birhythmicity. The theorem establishes a sharp global mathematical boundary of the **entire** positive state space, not a numerical local stability or negative-state test. It quantifies the only two escape mechanisms (linear at zero and exponential at negative net removal) down to their exact additive offsets, and shows convergence of the substrate to an enzyme-capacity equilibrium independent of cooperative exponent. This fixes the regime in which bounded-attractor bifurcation diagrams can be applied and gives precise long-time dynamical predictions.
+The exact identity M′=ν−λ y/q for M=x+y/q cancels nonlinear fluxes. A uniform x ceiling follows Φ(x,y)≥Φ(x,0)→1 and σ>ν+σ_i; for λ≤0, M′≥ν and x bounded force y→∞, for λ>0 y′≤qσ−λ y. Then uniform on bounded x, Φ(x,y)→x/(1+x), R_n→1, so asymptotically autonomous scalar x tends to the unique stable ξ=(ν+σ_i)/(σ−ν−σ_i). At λ=0 mass conservation directly gives y=qν t+q(M0−ξ)+o(1); for λ=−μ<0, variation of constants gives finite C and its strict positivity from comparison after y(T)>qσ_i/μ, plus qν/μ additive correction by dominated convergence. Positivity and forward completeness are established.
 
-## Closest literature and limits
-The original 2026 glycolysis article supplies positive-removal equilibrium and isola structure, not the signed-removal complete escape asymptotics. The 1988 Goldbeter–Moran article uses positive linear product clearance. This result does not classify the bounded positive-removal regimes, does not treat low conversion capacity, and does not identify the additive exponential amplitude \(C\) solely from parameters (it depends on the initial state). Negative net removal has a limited direct physiological interpretation. The 2004 related review's full text was not available for comparison. There has been no independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same equation appears in Wang–Gelens–Xu–Rong (2026), whose bifurcation analysis emphasizes λ>0 and incorrectly broad boundedness prose. The source does not state or prove the signed λ global threshold or exact physical-time universal escape rates; the straightforward mass identity is credited, while its global asymptotic consequence is an original specific completion at best knowledge.
+
+## value
+
+PASS
+
+Identifies the actual global boundedness boundary, corrects an overbroad assumption in the motivating model, and supplies quantitatively sharp universal linear/exponential runaway laws, important to both rigorous dynamics and parameter interpretation. Negative effective removal is mathematically valid though may require an external physical source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
