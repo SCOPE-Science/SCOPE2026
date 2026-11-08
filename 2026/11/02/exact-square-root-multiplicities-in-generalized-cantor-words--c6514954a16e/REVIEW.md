@@ -1,19 +1,21 @@
-# Review: exact square-root multiplicities in generalized Cantor words
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero/one positions admit an exact base-\(b\) digit representation. The successive gaps between nonzero level-\(k\) islands form a scaled binary ruler. Any square at the stated period with a one must pair two immediately adjacent islands across a minimum gap; the adjacent larger gaps force the possible start positions to the exact interval of length \(g+1\). Every start is realized and different. The circular zero-run certificate guarantees primitivity. Python 3 verification directly enumerated all observed square roots on finite prefixes for 23 base-level cases (bases 3–7), and rechecked the digit formula. The proof, not finite enumeration, handles all parameters.
+PASS
 
-## Originality — PASS (best knowledge)
+At scale m=b^k the 1-islands S_k are separated by runs of length g*b^r where g=(b-2)m, r=nu_2(j); adjacent gaps cannot both be minimal. The first-to-third island separation exceeds a 2p window, p=(b-1)m. A nonzero square of period p therefore pairs two islands at the minimum gap and must start x in [-g,0]; its literal root is exactly 0^a S_k 0^(g-a). Every a is attained at an internal minimum-gap pair. The unique longest circular zero run in S_k 0^g makes it primitive. This proves exactly g+1 distinct nonzero roots for all b>=3,k>=0; the zero square is deliberately excluded. The source standalone checker was read, and independent direct substitution/digit/square enumeration verified 16 bounded (b,k) cases, not the infinite claim.
 
-Bell and Shallit, *Lie Complexity of Words* (arXiv:2102.03821), Example 7.3, count complete rotation classes for the classical Cantor word, not the rotations whose squares occur. Chen, Lü and Wu (arXiv:1703.04063) establish k-Abelian complexity, while Bulgakova, Frid and Scanvic (arXiv:2201.09556) examine prefix palindromic lengths of the same morphic family. These inspected claims do not imply the exact square-root family. Targeted published-literature and word-complexity searches did not identify an equivalent. The principal remaining risk is unindexed repetitions-specific work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification is exact for all bases \(b\ge3\) and levels \(k\ge0\), resolves an infinite family of square-factor multiplicities, gives all roots explicitly and distinguishes occurrence of squares from occurrence of rotations. The structural boundary argument is reusable for nonprimitive morphic gap words.
+The closest same-word Bell–Shallit result counts cyclic conjugacy classes of finite factors (Lie complexity), not which conjugates have contiguous square occurrences; an entire conjugacy class of factors does not imply all its squares occur. Generalized Cantor palindromic and k-Abelian papers study other invariants. Search of published findings and primary literature found no equivalent root-set classification, with unindexed repetition theory retained as risk.
 
-## Scope and limitations
+## value
 
-Only natural substitution periods and distinct nonzero roots are considered. No absence of squares at other lengths is asserted. Numerical enumeration is supplemental to the proof. This review does not substitute for an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the canonical Cantor/Sierpinski morphic family, square-root multiplicity at the intrinsic period (b-1)b^k measures the precise fraction of conjugate words realizing immediate repeats. A complete all-b,k classification and primitive-root guarantee are natural combinatorics-on-words invariants, not a recoding of known factor-class counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 404f727d0ed1df391fc99eeafad69d26a25d27ac",
+        "Git check_square_roots.py blob 05dcaf2635d1ff87348b3dea83bc5cdf4d7fc605",
+        "independent_checks_output.txt: CANTOR_SQUARE_ROOT_CASES 16"
+      ],
+      "rationale": "At scale m=b^k the 1-islands S_k are separated by runs of length g*b^r where g=(b-2)m, r=nu_2(j); adjacent gaps cannot both be minimal. The first-to-third island separation exceeds a 2p window, p=(b-1)m. A nonzero square of period p therefore pairs two islands at the minimum gap and must start x in [-g,0]; its literal root is exactly 0^a S_k 0^(g-a). Every a is attained at an internal minimum-gap pair. The unique longest circular zero run in S_k 0^g makes it primitive. This proves exactly g+1 distinct nonzero roots for all b>=3,k>=0; the zero square is deliberately excluded. The source standalone checker was read, and independent direct substitution/digit/square enumeration verified 16 bounded (b,k) cases, not the infinite claim.",
+      "residual_risks": [
+        "Finite prefix checks cannot decide arbitrary b,k; infinite result relies on island decomposition.",
+        "Root counts are literal and only at p=(b-1)b^k, not a classification of all periods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lü–Wu treats k-Abelian factor complexity; Bulgakova–Frid–Scanvic treats prefix-palindromic length and mentions the b-parameter morphism."
+        ],
+        "reasoning": "The same morphism under a different statistic does not imply a theorem about square roots. No inspected general repetition theorem dominates the complete root set.",
+        "searches": [
+          "generalized ternary Cantor word 1->10^(b-2)1 distinct square factors periods (b-1)b^k repetitions conjugates roots occurrences Bell Shallit",
+          "https://arxiv.org/abs/1703.04063",
+          "https://arxiv.org/abs/2201.09556"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2102.03821",
+        "https://arxiv.org/abs/1703.04063",
+        "https://arxiv.org/abs/2201.09556",
+        "Resultary published-record semantic query: generalized ternary Cantor word 1->10^(b-2)1 distinct square factors periods (b-1)b^k repetitions conjugates roots occurrences Bell Shallit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-rotation-class Lie-complexity values do not specify repeated-adjacent occurrences. The present result explicitly constructs and excludes particular rotations using lengths of zero gaps."
+        ],
+        "reasoning": "Prior factor-class, k-Abelian or palindromic claims cannot yield the asserted g+1 square roots by direct specialization or numerical coincidence.",
+        "searches": [
+          "https://arxiv.org/abs/2102.03821 Example 7.3",
+          "https://arxiv.org/abs/1703.04063",
+          "https://arxiv.org/abs/2201.09556"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bell–Shallit Example 7.3 enumerates full rotation/conjugacy classes in the classical b=3 Cantor word, while an occurring square requires a word and its immediate copy."
+        ],
+        "reasoning": "An equivalence of the two counts would require adjacency of occurrences, not mere membership in the factor set; the proposed subset has g+1 of p rotations, so class count alone cannot determine it.",
+        "searches": [
+          "generalized ternary Cantor word 1->10^(b-2)1 distinct square factors periods (b-1)b^k repetitions conjugates roots occurrences Bell Shallit",
+          "https://arxiv.org/abs/2102.03821 Example 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3-Cantor sequence of numbers 2,4,10,28,82 follows from the formula and was checked in the target source; the consulted published finding search returned other Cantor and word counts, not this root enumeration."
+        ],
+        "reasoning": "No exact prior count table was located among inspected sources. This is a limited search observation, not a novelty proof.",
+        "searches": [
+          "generalized ternary Cantor word 1->10^(b-2)1 distinct square factors periods (b-1)b^k repetitions conjugates roots occurrences Bell Shallit",
+          "Cantor square roots counts 2 4 10 28 82 at periods 2 6 18 54 162"
+        ]
+      },
+      "rationale": "The closest same-word Bell–Shallit result counts cyclic conjugacy classes of finite factors (Lie complexity), not which conjugates have contiguous square occurrences; an entire conjugacy class of factors does not imply all its squares occur. Generalized Cantor palindromic and k-Abelian papers study other invariants. Search of published findings and primary literature found no equivalent root-set classification, with unindexed repetition theory retained as risk.",
+      "residual_risks": [
+        "An unindexed paper on squares in morphic Cantor/Sierpinski words may give equivalent subset information.",
+        "Search result absence does not certify historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The prior result concerns Lie complexity of factor conjugacy classes, not occurring squares.",
+          "evidence": [
+            "Example 7.3 studies factor rotation classes at lengths including 2*3^k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821",
+          "material_read": "Primary arXiv PDF; Example 7.3 and adjacent explanation (page 11), with page-image inspection",
+          "method": "full-source targeted theorem/PDF-page reading",
+          "title": "Lie Complexity of Words",
+          "trigger": "Same classical b=3 Cantor word, cyclic rotations"
+        },
+        {
+          "assessment": "Different factor-equivalence statistic; no inspected square-root formula.",
+          "evidence": [
+            "k-Abelian classes do not require adjacent duplication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "Accessible paper result descriptions and relevant k-Abelian theorem material",
+          "method": "primary paper theorem comparison",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Same classical Cantor sequence"
+        },
+        {
+          "assessment": "Same word family but different invariant.",
+          "evidence": [
+            "Primary topic is palindromic-partition length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.09556",
+          "material_read": "Relevant morphism and prefix-palindromic discussion",
+          "method": "primary preprint scope comparison",
+          "title": "Prefix Palindromic Length of the Sierpinski Word",
+          "trigger": "Generalized substitution 1->10^(b-2)1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact source proof, scale-island structure",
+        "https://arxiv.org/abs/2102.03821"
+      ],
+      "rationale": "For the canonical Cantor/Sierpinski morphic family, square-root multiplicity at the intrinsic period (b-1)b^k measures the precise fraction of conjugate words realizing immediate repeats. A complete all-b,k classification and primitive-root guarantee are natural combinatorics-on-words invariants, not a recoding of known factor-class counts.",
+      "residual_risks": [
+        "Natural-period scope is narrow; other periods and occurrence counts are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment; not a formal certificate or historical-priority guarantee.",
+    "Publication plan not_ready due verified existing public metadata provenance/privacy and unverified first_public_date; no source edits were prepared."
+  ],
+  "schema_version": 1
+}
