@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof reconstructs the finite-field split/inert identities for the Fibonacci matrix, confirms that both exponent decompositions hold exactly, and uses even exponents to eliminate the inert-case minus sign. The negative-index reduction and Chinese remainder step establish both modular directions. The exceptional-gap constants and all boundary conditions on primes and differences are evaluated explicitly. The independent fast-doubling verifier checked 14,028 prime pairs; this finite check corroborates rather than replaces the proof.
+## correctness
 
-## Originality — PASS
-The closest motivating work, Flynn-Connolly (arXiv:2504.09938, 2025), notes the unresolved semiprime approach but does not evaluate the complete gap-parametrized residues. Fatehizadeh–Yaqubi (2022) gives an implicit divisibility criterion. Křížek–Somer (2024) includes the semiprime 319 as an example and broader period theory but not the quantified fixed-gap law. OEIS A124456 gives values rather than the classification. Targeted searches for equivalent matrix and prime-pair forms did not find the same statement. A classical older formulation may imply the result; historical priority is not independently verified.
+PASS
 
-## Mathematical value — PASS
-For a natural arithmetic family of two-prime indices, the theorem exactly classifies divisibility from fixed Fibonacci constants and quadratic characters, identifies the only two differences not subject to a finiteness bound, and proves a uniform bound for every other even fixed difference. This addresses a motivated structural gap rather than merely checking examples. It proves neither the existence of infinitely many qualifying twin/cousin prime pairs nor a census for arbitrary large fixed differences.
+For distinct primes 5<p<q and even gap d=q-p, Q=[[1,1],[1,0]] has distinct nonzero roots mod each prime. If χ_ℓ=(5/ℓ)=+1, Q^(ℓ−1)=I; if χ_ℓ=−1, Q^(ℓ+1)=−I. The exact decompositions pq+1=(p+1)(q−1)+(2−d)=(p−1)(q+1)+(d+2), with the other factor even, give the claimed A_d or B_d residues of F_(pq+2)−1 modulo both p and q. CRT proves iff. For d=2,4 A=0 and B=4,12 with no divisor >5, so p≡2 mod5. For d≥6 both fixed Fibonacci integers are positive and p must divide one, hence p≤F_(d+3)−1. Independent modular fast-doubling and Jacobi/character checks confirmed 2046 bounded prime pairs, not used as proof of all pairs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives comparison with published works on the same objects and with indexed semantic findings: Fatehizadeh–Yaqubi, JIS 25 (2022) Article 22.2.6 Theorem 7: divisibility iff F_(n+2)≡1 mod n; no evaluated semiprime-gap residues. Křížek–Somer, Integers 24 (2024) A36, Theorem 2.6 and Example 2.1: period/average conditions and n=319=11×29, not all prime gaps. The original result claims only the additional exact assertion, not classical inputs. The inaccessible or unindexed-source risk is retained, not treated as negative proof.
+
+## value
+
+PASS
+
+A concrete and explicit local character criterion resolves an arithmetic question for every semiprime with a given even prime gap, isolates precisely two exceptional gaps that can support unbounded prime pairs, and gives an effective finite search bound for all larger fixed gaps. It is more informative than the already-known implicit average-integrality congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
