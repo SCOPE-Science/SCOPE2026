@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The odd-prime-power lemma is proved by parity for even exponents and by factoring beta(q^(2u-1))=(q-1)*(1+q^2+...+q^(2u-2)) for odd exponents: any u>1 forces an odd factor. Thus beta(m) a power of two for odd m forces squarefree Fermat-prime support. If n=p^a solves the iterated equation then p=2. For even a, order(2 modulo Fermat primes) rules out every factor beyond F0, forcing a=2. For odd a, writing a+1=2^t*v with v odd forces all Fermat factors to have index <t and hence v=1 by size; F5 composite forces t<=5. Direct finite factorization proves the converse. The independent standard-library verifier confirms 510 local cases, 24 exponents, exponent 31, and the finite Fermat input, without substituting experiments for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete source text of Tóth (Sections 1, 7, 8) proves only its explicitly designated Fermat exponent family; the open question immediately follows.",
+        "Public published-finding corpus record 2026/10/4/SCOPE-exact-first-three-fibers-of-the-alternating-divisor-totient-gap--5f607fcab7e7 describes beta(n)-phi(n) fibers, not iterated beta(beta(n))."
+      ],
+      "reasoning": "Tóth gives a theorem of the form: for a=2^t-1, the solution occurs exactly when 1<=t<=5. It does not imply that every possible a belongs to that exponent set. The totient-gap fiber result addresses a different input-output relation and does not dominate the iterated super-imperfect equation.",
+      "searches": [
+        "\"super-imperfect\" \"prime powers\" \"alternating\"",
+        "\"super-imperfect\" \"only\" \"powers\" Toth",
+        "\"beta(beta\" \"Fermat\" super imperfect",
+        "\"prime power\" \"super-imperfect\" alternating sum divisors"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.4842v1 (complete material relevant to claim)",
+      "OEIS:A200758 (definition, comments, sequence and code)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-first-three-fibers-of-the-alternating-divisor-totient-gap--5f607fcab7e7 (abstract only: beta-phi gap, distinct problem)",
+      "Accessible historical claim summaries for the current week (no same iterated equation found)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth, arXiv:1111.4842, Section 7: Proposition only for n_k=2^(2^k-1); Problem 1 asks whether other solutions exist.",
+        "Tóth, Section 8: the Fermat product proves the restricted-family cases using F5 composite.",
+        "OEIS A200758 provides same values without prime-power exclusivity."
+      ],
+      "reasoning": "Let A be Tóth’s statement about the selected exponents 2^t-1, and B the new claim that every prime-power solution has either exponent 2 or exponent 2^t-1. A does not imply B: an arbitrary a is not covered by A. The new Fermat-prime-support lemma and order-of-2/size argument prove B. A+B gives exact classification. In contrast, the previously known six positive cases are not claimed as new.",
+      "searches": [
+        "arxiv 1111.4842 super imperfect Problem 1 proposition proof",
+        "OEIS A200758 superimperfect numbers",
+        "square totient beta preimage powers two Fermat"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth, arXiv:1111.4842v1, Section 7 Problem 1 and Proposition; Section 8 proof (arxiv.org/abs/1111.4842).",
+        "OEIS A200758 explicitly states the restricted family 2^(2^t-1), t=1..5, without classifying arbitrary exponents (oeis.org/A200758)."
+      ],
+      "reasoning": "The defining iterated equation and the equivalent condition beta(beta(2^a))=2^(a-1) were searched together with the terms prime power, alternating divisor sum, Fermat primes, and super-imperfect. The closest material does not formulate a converse for arbitrary exponent a.",
+      "searches": [
+        "\"2 beta(beta(2^a))\" super imperfect",
+        "\"super-imperfect\" \"powers of 2\" beta all",
+        "\"superimperfect\" \"prime powers\" beta",
+        "super-imperfect numbers beta beta powers of two classification 2011 Toth",
+        "2β(β(2^a))=2^a Fermat primes full classification",
+        "square totient function β(p^e) power of two iff p Fermat prime and e=1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A200758 records 2,4,8,128,32768,2147483648 and a bounded search through 10^8; its comment also quotes the restricted theorem for exponents 2^t-1."
+      ],
+      "reasoning": "A finite list and finite search cannot certify that these are all prime-power solutions. The new result supplies an unrestricted converse, not a replication of the table. No exact table with an independent exhaustion proof was located.",
+      "searches": [
+        "OEIS A200758 superimperfect numbers",
+        "\"super-imperfect\" \"powers of two\" classification Toth",
+        "super-imperfect numbers powers of two Fermat 2019 2024"
+      ]
+    },
+    "rationale": "The 2011 primary source solves only exponents of the form 2^t-1 and explicitly asks about other solutions. The theorem gives the missing converse reduction for every prime power, adding a complete natural subclass classification. OEIS A200758 lists the six examples but does not prove they are exhaustive among prime powers. The available published findings most semantically similar concern different divisor functions or beta(n)-phi(n), not the equation beta(beta(p^a))=p^a/2. Unindexed prior coverage remains possible.",
+    "residual_risks": [
+      "A later paper or unindexed source may already prove prime-power exhaustiveness; searches do not certify uniqueness.",
+      "The published published-finding corpus near hit was assessed from its abstract, not its full text, but it concerns an explicit beta-minus-totient gap rather than the iterated super-imperfect equation.",
+      "Independent mathematical and historical-priority reviews have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_prime_power_converse",
+        "evidence": "The proposition quantifies only over n_k=2^(2^k-1); its proof excludes k>=6 in that preselected family. It does not analyze a general power 2^a.",
+        "identifier_or_url": "arxiv:1111.4842v1; https://arxiv.org/abs/1111.4842",
+        "material_read": "Full-text Sections 1, 7 and 8 including the displayed proposition, open Problem 1, and its complete proof; PDF pages 7 and 9 visually inspected.",
+        "method": "ArXiv open HTML text and corresponding PDF page screenshots",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Direct source for super-imperfect definition and conjectural extension"
+      },
+      {
+        "assessment": "TABLE_ONLY_NOT_PROOF_OF_COMPLETENESS",
+        "evidence": "Six values shown, bounded search through 10^8, and citation to Tóth’s restricted family; no general-exponent prime-power proof.",
+        "identifier_or_url": "https://oeis.org/A200758",
+        "material_read": "Full displayed definition, sequence data, comments, links and code notes",
+        "method": "Public entry HTML",
+        "title": "OEIS A200758: Superimperfect numbers",
+        "trigger": "Exact table and preexisting known examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b0eaf2ba-d4ca-43ab-907b-2d989ef552ec",
+  "value": {
+    "rationale": "Tóth explicitly poses the existence of further super-imperfect numbers as an open problem. The prime powers p^a form an intrinsic, complete multiplicative class, and the theorem excludes *every* possible further candidate in it, not merely a predetermined set of exponents or a finite computational interval. A clean Fermat-prime support obstruction explains why the six observed examples exhaust the class and provides a usable reduction for future investigations of the remaining multi-prime case. The result does not claim the full open problem is solved.",
+    "status": "PASS"
+  }
+}
