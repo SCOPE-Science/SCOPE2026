@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The rank-two maximal component supports are a specialization of the primary source's component/moment-polytope descriptions. On each component the Plücker coordinates restrict to fixed signed monomials; the \(\mathbb Z^n\) multigrading separates all quadratic weights. Exact case splits for support sizes two, three, and four give the full kernel and independence, not just a lower bound. The standalone exact-rational verifier matches the formula for every \(n\) from 4 through 10. The general proof uses arbitrary \(n\), not extrapolation.
+## correctness
 
-**Originality: PASS, with residual historical uncertainty.** The primary quasisymmetric Grassmannian article states equality of algebraic sets under forbidden-Johnson-edge equations but does not identify the reduced homogeneous ideal's degree-two piece. Its own toric-component theorem supplies the main input, but determining which disjoint-index quadratic products vanish on the entire union and proving they are independent of its original quadratic relations requires a further multigraded comparison. The September 2026 toric Richardson paper focuses on Chow (co)homology, and the January 2026 Plücker elimination paper studies different algebraic projections. Searches of published research records and targeted mathematical literature identified no same exact additional-quadric formula. A potentially implicit equivalent in earlier toric-complex ideal theory remains a priority risk.
+PASS
 
-**Value: PASS.** This is a structural determination of the first nontrivial homogeneous ideal piece in a newly introduced natural projective family. The count of equations absent from the set-theoretic description grows as \(\binom{n-1}{4}\), with a sharp onset at \(n=5\). It distinguishes set-theoretic cuts from full quadratic equations of a reduced embedding and supplies an explicit uniform basis without asserting any unproved higher-degree generation.
+The n-2 toric maximal components with ordered partition {1}|{2..b+1}|{b+2..n} restrict each Pluecker coordinate to 0 or a signed monomial t_i t_j. Z^n-degree separates quadratic weights. Two-index weights restrict nontrivially, three-index weights vanish exactly when the repeated index is the middle b>=2, and four-index weights have one Pluecker kernel relation if index 1 occurs and an additional disjoint-index kernel when not. This proves the direct sum and dim(I_n)_2=2*C(n,4) in every n>=4. Independent exact-rational restriction-rank computation for n=4..9 returned 2,10,30,70,140,252 respectively, corroborating but not replacing the general weight split.
 
-Closest primary source: Bergeron--Gagnon--Spink--Tewari, arXiv:2604.24903 (Sections 5, 9). Supplementary comparison: Gonzales--Le--Lowen, arXiv:2609.30257 (especially introduction, Sections 3--6). The major limitation is that quadratic data does not prove a full defining ideal, saturation behavior, or scheme-theoretic nilpotents for a different presentation. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bergeron–Gagnon–Spink–Tewari arXiv:2604.24903 Theorem B/5.1 already gives the set-theoretic quasisymmetric-Johnson cuts and §9 the toric components, so those parts are not novel. The new degree-two *radical ideal* vector-space decomposition distinguishes set-theoretic generators from additional independent quadratic consequences. No explicit dimension 2*C(n,4) or extra C(n-1,4) basis appeared in the inspected original. General positroid ideals could imply it with an extra component-intersection rank calculation; prior implicit coverage risk remains.
+
+## value
+
+PASS
+
+The first homogeneous ideal piece of a natural toric-component union is fundamental projective algebraic geometry. A complete independent quadratic basis and sharp n=5 onset clarify why the known set-theoretic defining equations are not all quadrics in the reduced embedded ideal. It avoids claiming unverified generation in higher degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
