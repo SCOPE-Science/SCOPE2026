@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Indicator calculation reconstructs exact moments including all diagonal and off-diagonal terms. Jensen strict convexity for n≥3,t≥2 proves covariance positivity; separate explicit positive paths ensure variances. Uniform first-order expansions prove linear-time profile and log-time polynomial decay. Exact independent 28-case enumeration tested 140 rational moments and 84 sign/variance assertions; 13 numerical asymptotic checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Durieu–Wang 2015 assumes infinite urn frequencies regularly varying, not n equal probabilities; Chebunin–Zuyev 2019 studies similar infinite urn CLTs."
+      ],
+      "reasoning": "Their joint distribution asymptotics for infinite frequency tails do not specialize to a triangular array of n equal probabilities, nor entail finite all-time sign by direct implication.",
+      "searches": [
+        "web: infinite urn occupied and odd-occupied joint CLT",
+        "arxiv:1508.01506",
+        "arxiv:1906.10949"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0609498v1",
+      "https://arxiv.org/abs/1508.01506",
+      "https://doi.org/10.1002/rsa.3240010105",
+      "https://research.chalmers.se/en/publication/245625",
+      "https://arxiv.org/abs/1906.10949",
+      "published-finding corpus IDs 93dddb2be813 and 0606274d4166"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bogachev et al.: marginal occupied-box variance; Durieu–Wang: infinite-urn occupancy and odd-occupancy scaling; Diaconis–Graham–Morrison: mixing; published-finding corpus 93dddb2be813: rich vs exact r-frequency count.",
+        "Full published-finding corpus RESULT.md for 93dddb2be813 yields Cov(K,K_r) for every r. Summing over odd r exactly determines the numerator Cov(D,H): this part is covered."
+      ],
+      "reasoning": "The earlier per-frequency result directly implies the finite numerator covariance, and the present finding does not claim it as novel. That source does not include Var(H), an equal-box triangular-array correlation limit, or the logarithmic decay exponent. It does not alone entail the *normalized two-scale correlation theorem*. An extension using standard parity moments could derive it; historical explicit priority is unresolved.",
+      "searches": [
+        "arxiv:math/0609498",
+        "arxiv:1508.01506",
+        "doi:10.1002/rsa.3240010105",
+        "published-finding corpus 93dddb2be813"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The walk is equivalent to uniform multinomial occupancy; displacement is the number of odd-occupied boxes. Durieu–Wang 2015 describes the latter equivalence."
+      ],
+      "reasoning": "Compared both random-walk and occupancy terminology, including nonempty/odd, Hamming weight/range, Ehrenfest and bit flipping. Exact finite correlation not found in inspected references.",
+      "searches": [
+        "published-finding corpus: exact finite-n covariance number of nonempty occupied boxes with number odd occupied boxes under balls in bins uniform",
+        "published-finding corpus: Ehrenfest urn random walk Hamming distance covariance number distinct selected coordinates visited",
+        "published-finding corpus: occupancy and parity count positive correlation Jensen finite every sample size",
+        "published-finding corpus: finite occupancy odd boxes covariance positive all times joint correlation two time scales"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs 93dddb2be813, 0606274d4166; no exact table encountered."
+      ],
+      "reasoning": "The candidate is infinite-parameter and its 28 exact-rational enumerations are checks, not an exhaustive database uniqueness claim.",
+      "searches": [
+        "published-finding corpus: exact finite-n covariance number of nonempty occupied boxes with number odd occupied boxes under balls in bins uniform",
+        "web: covariance odd occupancy occupied boxes finite"
+      ]
+    },
+    "rationale": "A full-text published-finding corpus comparison shows the finite cross-covariance is covered by a direct sum of its exact richness-versus-every-frequency formula. It is not assessed as original. The narrower two-scale normalized-correlation law adds the parity variance and explicit triangular-array limits for t/n and t/(n log n), which are not stated or implied as standalone results by that earlier covariance formula alone. Originality remains qualified by possible older normalization results.",
+    "residual_risks": [
+      "An earlier exact equal-probability occupancy-versus-parity covariance may exist under alternative terminology; negative search is not uniqueness proof.",
+      "General multinomial moment identities may imply the finite formulas as a specialization; the two-scale profile is an additional analysis, not independent from those identities.",
+      "The full Diaconis–Graham–Morrison and Muratov–Zuyev articles were not inspected; no assertion of full-text noncoverage is made.",
+      "The full published-finding corpus manuscripts for nearest two summaries were not read; their summaries do not imply the joint sign and scaling profile.",
+      "The narrow normalized-correlation limits can be derived from standard parity variance plus the existing all-frequency covariance, so their value depends on the intrinsic interest of the explicit dependence crossover; no broad novelty from the numerator is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Deals with occupied-box variance for infinite boxes and no odd-occupancy statistic in inspected HTML; does not cover the joint finite uniform formula",
+        "evidence": [
+          "arxiv:math/0609498 HTML full text, no search matches for odd or parity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0609498v1",
+        "material_read": "Full 2006 HTML article, including abstract, main body and variance discussion",
+        "method": "Read HTML full text and searched odd and parity terminology",
+        "title": "On the variance of the number of occupied boxes",
+        "trigger": "Exact occupied-box variance appears in the proposed marginal moment"
+      },
+      {
+        "assessment": "Studies infinite urn regular variation and randomized decompositions, not equal finite urns with dimension n growing and exact cross-covariance/scale profile",
+        "evidence": [
+          "arxiv:1508.01506 HTML lines 17–36 and 109–169: occupancy/odd occupancy, regular variation and decompositions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.01506",
+        "material_read": "Full HTML body including Introduction, main results and section 2.3 on correlated random walks",
+        "method": "Inspected definitions, regular-variation assumptions, main results and covariance-related discussion",
+        "title": "From infinite urn schemes to decompositions of self-similar Gaussian processes",
+        "trigger": "Directly treats both occupation and odd occupation and bit-flipping analogy"
+      },
+      {
+        "assessment": "No explicit exploration–displacement correlation in accessible material, but inaccessible full text remains a priority risk",
+        "evidence": [
+          "Wiley abstract: total variation mixing for walk with holding steps, not joint occupancy-parity statistic"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010105",
+        "material_read": "Publisher article abstract, bibliographic information and references only; full article not accessible",
+        "method": "Compared stated random-walk model (may hold) and total variation cutoff to claimed pair statistic",
+        "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+        "trigger": "Classical hypercube mixing analysis potentially dominates large-n scale claim"
+      },
+      {
+        "assessment": "Abstract establishes a bit-flip model and active-bit marginal CLT but not the joint explored/active covariance; full text not assessed",
+        "evidence": [
+          "Muratov–Zuev 2016 institutional abstract"
+        ],
+        "identifier_or_url": "https://research.chalmers.se/en/publication/245625",
+        "material_read": "Institutional publication abstract and metadata only",
+        "method": "Compared studied recurrence, CLT of number of active bits and damaged-bit model to joint exploration–active-bit covariance",
+        "title": "Bit flipping and time to recover",
+        "trigger": "Same bit-flip mechanism, potentially closely related"
+      },
+      {
+        "assessment": "Its every-frequency covariance formula covers the candidate cross-covariance numerator (an algebraic corollary); does not include normalized exploration–odd-occupancy correlation or its two triangular-array regimes.",
+        "evidence": [
+          "published-finding corpus full RESULT.md Eq. (1) provides Cov(K,K_r) for all r, and sum over odd r yields the exact covariance numerator"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "material_read": "Full RESULT.md retrieved and read, including exact covariance (1), proof, stated asymptotics and limitations",
+        "method": "Fetched the published-finding corpus/2026 source, compared the explicit per-frequency identity and summed it over odd frequencies conceptually",
+        "title": "A one-switch covariance law for occupancy richness and frequency counts",
+        "trigger": "published-finding corpus closest adjacent joint occupancy moment"
+      },
+      {
+        "assessment": "Full document gives covariance and inverse geometry only for occupied indicators, not a parity correlation profile.",
+        "evidence": [
+          "published-finding corpus full RESULT.md Eq. (2), (5): pairwise occupied-indicator covariance, positive inverse"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+        "material_read": "Full RESULT.md retrieved and read, including exact occupancy-indicator covariance, rank transition, precision proof",
+        "method": "Compared precision of binary occupancy indicators against joint covariance with odd occupancy",
+        "title": "Occupied-box indicators have a strictly positive precision matrix",
+        "trigger": "published-finding corpus nearby occupancy indicator dependence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47a05f4c-e943-4361-a3a7-93ebd28e52ac",
+  "value": {
+    "rationale": "The contribution assessed is the explicit normalized-correlation profile between exploration and current displacement at linear times and the polynomial decorrelation exponent on n log n times, not the finite cross-covariance numerator (already implied by prior full-frequency formulas). These two simultaneous scaling laws quantify a natural joint statistic of a high-dimensional walk across nontrivially different time scales and make a precise benchmark for future multivariate approximations.",
+    "status": "PASS"
+  }
+}
