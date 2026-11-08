@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks the exact five FARL1–FARL5 axioms, with the Heyting residual of the two-tier upset algebra. Adjunction and Frobenius force a common floor/ceiling fixed-point image; the crucial dichotomy uses join-Frobenius to force the middle upset \(U\) even when the first nontrivial fixed point belongs to the upper Boolean tier. Implication then closes each tier under Boolean complements. Conversely, direct four-way tier checks establish all axioms for every independent pair of partitions; the exceptional image is checked separately. Counting and orbit statements use standard finite Boolean subalgebras and symmetric-group partition orbits. The `checker.py` executable contains independent image enumeration and independent direct map enumeration, both giving the predicted counts on small carriers. Mathematical proof, rather than finite experiments, supports universal quantifiers.
+PASS
 
-## Originality — PASS within the inspected evidence
+Adjunction g⊣f and f≤id give g extensive and f interior; join Frobenius with y=0 gives f(g(x))=g(x) and then g(f(x))=f(x), so the common fixed image S is the floor/ceiling target. It is a bounded sublattice closed under residual implication. The cut c=U is forced into S for any nontrivial fixed element via Boolean complement if below cut and join-Frobenius if above; otherwise S={0,1}. On each of the two Boolean tiers implication forces Boolean complements, and all finite Boolean subalgebras are unique block-union partition algebras. Cross-tier adjunction and Frobenius identities for the constructed floor/ceiling operators yield the converse. Permutation orbits classify partitions by integer block sizes. Independently direct-tested small cases (1,1),(1,2),(2,2),(2,3),(3,2) with 2,3,5,11,11 valid structures.
 
-The 8 September 2026 preprint of Wang–Shi–Wang defines these five axioms and proves general algebraization/categorical results, but the inspected relevant full-text sections and stated theorem claims do not supply a census for fixed ordinal-sum Heyting reducts. The closest public research record, *Frobenius-adjoint and monadic expansions coincide on Gödel algebras*, supplies a chain characterization, not one for two independent nontrivial Boolean tiers; its chain theorem does not imply the Bell product. Classical monadic-Heyting, finite Esakia and Boolean-subalgebra literature may recover ingredients, but a materially covering combined theorem was not located. Exact same-parameter, alias, classification and implication comparisons were conducted, without treating a failed search as proof of novelty. Residual historical priority risk remains, especially for older monadic-Heyting representation papers.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact labelled and unlabelled classifications answer a naturally posed finite-model question for the first broad non-chain family under the newly defined Frobenius-adjoint axioms. The result is a complete two-parameter model census, exposes a structurally exceptional global collapse, and identifies a partition-lattice product as the full poset of noncollapsed expansions. The count is not an arbitrary slice or a mere substitution into the Gödel-chain census: independent Boolean layers and a forced shared cut account for the Bell product.
+Qualified best-of-knowledge PASS for the full fixed-reduct two-parameter Bell-product census, not for FARL axioms, adjunctions or Boolean partitions in isolation. The 2026 introducing FARL paper supplies abstract axioms and structure, not this enumeration; a published Gödel-chain result has a narrower totally ordered reduct. Classical monadic-Heyting and finite Esakia literature could furnish an equivalent classification but no directly covering theorem was found in inspected material.
 
-## Limitations
+## value
 
-The statement is restricted to complete two-tier posets and meet as multiplication. The checker covers finitely many small labelled instances. General monadic-Heyting representation literature is a priority risk. The primary 2026 paper's relevant sections were read in HTML; any historical formulation outside the searched terminology could overlap. No external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact labelled and unlabelled census on a natural first nonchain family under the defined FARL axioms, with an exceptional collapsed image and transparent product refinement poset; the Bell-product reflects meaningful independent branching, rather than a rename of the known Gödel-chain count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
