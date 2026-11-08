@@ -1,0 +1,11 @@
+# Review of the one-limited domination polynomial for circular ladders
+
+**Correctness:** PASS. The three-column predicate checks the complete one-limited condition at every graph vertex. Weighted closed walks in 16 ordered-pair states biject with labelled selected subsets, and symbolic factorization of the finite characteristic polynomial produces the rational generating function. Crossing-edge counting proves the minimum, with an exhaustive mixed/homogeneous-column classification of equality. The dominant-root asymptotic follows from strict separation of polynomial roots by a triangle-inequality argument. The included verifier independently enumerates all subsets of small graphs.
+
+**Originality:** PASS (best-knowledge, historical priority provisional). The June 2026 Cartesian-product work supplies scalar bounds and graph-product values, not the inspected full cardinality enumerator. The October 2026 cubic-graph paper focuses on hardness and snarks. The September 2026 foundational paper establishes the parameter and lower bound. Targeted database and literature queries for the one-limited/(1,2) prism polynomial, aliases, perfect matching cuts, and transfer recurrences returned no statement implying the complete new result. One October 2026 structural manuscript was accessible only in abstract, so a special-case implication cannot be completely excluded.
+
+**Mathematical value:** PASS. The exact polynomial determines every feasible set-size multiplicity for a natural infinite family of cubic Cartesian products, compresses it into an order-eight characteristic factorization, and exposes a sharp period-four jump in minimizer multiplicity and an explicit exponential counting constant. The new content is not the previously known scalar lower bound or the generic possibility of transfer matrices; it is the specific evaluated rational enumerator and complete optimizer structure.
+
+**Limitations:** Full text of one newer closely related preprint remained inaccessible; no priority certification is claimed. Proof covers only circular ladders with at least three columns, distinguished vertex labels, and the stated one-limited domination predicate. Standalone computation is a same-source reproducibility check rather than independent external audit.
+
+Self-review: passed. Independent audit: not yet performed.
