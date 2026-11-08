@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact two-step moment operators are obtained by summing the four iid sample words. Their difference has trace \\(\tau^2(\tau^2+2(1-\rho^2))/4>0\\) and determinant \\(\rho^2(1-\rho^2)\tau^2[\tau^4+\tau(\tau+2)(1-\rho^2)-1]/16\\). A real symmetric 2 by 2 matrix with positive trace has a negative eigenvalue precisely at negative determinant, proving all branches including the equality boundary, as reconstructed in RESULT.md. One-step comparison follows from the orthogonal projectors \\(V\\) and \\(Q\\). Replayed `python3 verify.py` with 252 rational parameter triples, 50,904 exact checks, and an exact negative-difference witness; these tests corroborate but are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2610.12346v1",
+        "https://arxiv.org/pdf/2202.12224",
+        "https://arxiv.org/html/2512.09825v1",
+        "https://doi.org/10.1016/j.laa.2018.05.009"
+      ],
+      "reasoning": "Generic Kaczmarz convergence and step-size scheduling results do not automatically imply the sign of the difference of two noncommuting second-moment operators for the specific row-norm-fixed relaxation. Classical exact MSE of unrelaxed RK determines the baseline only; the new policy-dependent cross terms require a separate computation. No inspected general theorem was found that explicitly implies the sharp parameter boundary.",
+      "searches": [
+        "randomized Kaczmarz expected squared error at exactly two iterations with row norm dependent over-relaxation threshold det covariance difference",
+        "relaxed randomized Kaczmarz optimal relaxation parameter 2019 2022",
+        "randomized alternating projections relaxation two step improve"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.12346v1",
+      "https://arxiv.org/pdf/2202.12224",
+      "https://arxiv.org/html/2512.09825v1",
+      "https://doi.org/10.1016/j.laa.2018.05.009",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 2 specifies \\(\\omega_i=1+\\sqrt{1-v_i/v_{\\max}}\\) and gives a one-step upper contraction rate; its §3.3 and experiments do not give the two-step operator comparison.",
+        "https://arxiv.org/html/2610.12346v1",
+        "The indexed cyclic Kaczmarz result treats one deterministic two-row sweep with a common asymptotic-optimal relaxation, distinct in law from two iid draws with row-dependent relaxations.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "The 2018 Bai–Wu abstract is explicitly about unrelaxed randomized Kaczmarz, whereas the new claim compares two different update matrices.",
+        "https://doi.org/10.1016/j.laa.2018.05.009"
+      ],
+      "reasoning": "The source one-step theorem is consistent with \\(E_{\rm rel,1}-E_{\rm unit,1}\\ge0\\) and does not decide the sign after two compositions. The current determinant formula yields both strict-benefit and all-initial-error nonbenefit regions, not implied by a one-step worst-case upper bound. Cyclic common-step results and fixed unrelaxed exact MSE do not subsume this row-dependent iid comparison. The technical risk is an unexamined general second-moment theorem specialized to these parameters.",
+      "searches": [
+        "Volume Sampling and Spectral Equalization in Randomized Alternating Projections 2610.12346 row norm dependent relaxation 1+sqrt(1-volume/max)",
+        "Two-step randomized Kaczmarz volume-dependent relaxation versus unrelaxed uniform orthogonal projection, exact finite-horizon reversal threshold angle between two rows",
+        "randomized Kaczmarz expected squared error at exactly two iterations with row norm dependent over-relaxation threshold det covariance difference"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full two-step moment matrix comparison has \\(\\operatorname{tr}D>0\\) and a sign-changing determinant; the identical spectral-eigenvalue criterion is the claimed crossover.",
+        "https://arxiv.org/html/2610.12346v1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "reasoning": "Independent pair draws, noncommuting rank-one projections, two-step mean-square difference, and determinant-sign/negative-eigenvalue formulations were sought. The arXiv paper treats one-step expected progress and global bounds; the closest indexed cyclic claim optimizes a deterministic two-row sweep for asymptotic spectral radius rather than the independent random two-step moment matrix. No direct identical formulation was found in the inspected material; unindexed equivalents remain possible.",
+      "searches": [
+        "Two-step randomized Kaczmarz volume-dependent relaxation versus unrelaxed uniform orthogonal projection, exact finite-horizon reversal threshold angle between two rows",
+        "Noncommuting projection two step randomized overrelaxation improves some initial error while worsens every one-step energy, two-dimensional sharp angular phase diagram",
+        "randomized projections two-step overrelaxation finite time",
+        "arXiv:2610.12346 angle-dependent two-step mean-square crossover of uniform relaxed Kaczmarz one-row sampling, normalized row length rule"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed two-row cyclic Kaczmarz finite-horizon record describes a defective-root asymptotic-rate-optimal relaxation, not this iid uniform norm-dependent rule.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+      ],
+      "reasoning": "The two-row result is an analytic parameter-continuum phase boundary, not a finite lookup entry. Published mathematical records were queried with source title, policy, exact two-step MSE, alternate angle/norm terms; no matching exact table or database entry was located. Search nonappearance alone cannot establish priority.",
+      "searches": [
+        "arXiv:2610.12346 angle-dependent two-step mean-square crossover of uniform relaxed Kaczmarz one-row sampling, normalized row length rule",
+        "randomized Kaczmarz expected squared error at exactly two iterations with row norm dependent over-relaxation threshold det covariance difference",
+        "two-dimensional two-row randomized alternating projections uniform versus relaxation first-step worse second-step better for some initial vectors",
+        "normalized volume relaxation omega=1+sqrt(1-v/vmax) two step expected error rank two 2026"
+      ]
+    },
+    "rationale": "The source gives the norm-based relaxation and one-step bound, and the closest indexed cyclic two-row Kaczmarz result concerns a different deterministic sweep and asymptotic-optimal common parameter. Full accessible main source was read, and multiple policy/alias/second-moment searches did not yield the same sharp iid two-step phase. This is a qualified source- and implication-based originality assessment, with explicitly recorded inaccessible/unknown-priority risks.",
+    "residual_risks": [
+      "A general, possibly unindexed two-step random-projection second-moment result might imply the specific 2D criterion after substitution; no logical independence or exhaustive priority proof is claimed.",
+      "The full published result for deterministic cyclic Kaczmarz at the listed GitHub record was inaccessible; only the substantive indexed description could be compared.",
+      "The 2018 Bai–Wu publisher full text was not verified fully readable; the accessible abstract documents unrelaxed exact MSE but does not eliminate every conceivable generic identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the algorithm and a one-step contraction estimate, but not the two-step all-initial-error sharp phase classification",
+        "evidence": [
+          "Theorem 2 uses squared subset volume ratio to prescribe a weight and samples uniformly.",
+          "https://arxiv.org/html/2610.12346v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.12346v1",
+        "material_read": "Full available HTML text, focusing on §§2, 3.3, 4, 5 and discussion, including Theorem 2 and its proof context",
+        "method": "Read arXiv HTML source and compared precise row-selection law, statement, and implied moment bounds",
+        "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+        "trigger": "Direct source of the new norm-dependent uniform relaxation"
+      },
+      {
+        "assessment": "Optimizes scheduled learning rates for noisy randomized Kaczmarz; no explicit row-norm-coupled uniform two-step sharp phase located",
+        "evidence": [
+          "https://arxiv.org/pdf/2202.12224",
+          "Publisher summary DOI:10.1137/22M148803X"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.12224",
+        "material_read": "Accessible arXiv PDF abstract, introduction, model/learning-rate material and page image; not an assertion of a full-text exhaustive check",
+        "method": "Compared objective, schedule/noisy sampling assumptions, and generality",
+        "title": "An Optimal Scheduled Learning Rate for a Randomized Kaczmarz Algorithm",
+        "trigger": "Potentially broader overrelaxed-Kaczmarz finite-iteration analysis"
+      },
+      {
+        "assessment": "Distinct averaged Bregman-block algorithm with fixed relaxation parameters, not iid one-row projection comparison",
+        "evidence": [
+          "https://arxiv.org/html/2512.09825v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.09825v1",
+        "material_read": "Available arXiv HTML, including update definition and relaxation parameters in §4.2",
+        "method": "Compared operators, block-averaging, and parameter law",
+        "title": "A Relaxed Randomized Averaging Block Extended Bregman-Kaczmarz Method for Combined Optimization Problems",
+        "trigger": "Closest recent relaxed randomized block-method title"
+      },
+      {
+        "assessment": "Explicitly analyzes unrelaxed RK exact mean-square error, not the precise row-dependent overrelaxed pair; plausible general-method priority risk remains",
+        "evidence": [
+          "https://doi.org/10.1016/j.laa.2018.05.009"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+        "material_read": "Publisher accessible abstract, introduction and selected sections; entire full text not verified accessible",
+        "method": "Compared statement scope from publisher material",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Exact mean-square randomized Kaczmarz literature potentially dominating baseline calculations"
+      },
+      {
+        "assessment": "No direct implication identified from summary, but full-text inspection incomplete; the cyclic process and parameter choice differ",
+        "evidence": [
+          "Indexed summary states deterministic two-row cyclic Kaczmarz, defective double-root optimal relaxation, and finite-sweep Euclidean norm.",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "material_read": "Search-index title and substantive abstract/summary; full GitHub page unavailable for direct reading",
+        "method": "Compared listed cyclic-sweep update and asymptotic-optimal relaxation to iid policy and two-step all-initial-error objective",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Highest relevant published mathematical-record search hit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0ced93f-d424-4d36-8a75-52d57d69bdd6",
+  "value": {
+    "rationale": "The new volume-normalized uniform-sampling rule is expressly designed as a practical alternative to volume-sampling projections, yet its nonunit step is unconditionally inferior in expected squared error for any single iteration relative to a unit projection. Noncommutative random-composition dynamics create an exact and nontrivial two-step benefit regime; the determinant-sign formula classifies all row angles, norm ratios and initial-error dependence, including a sharp boundary where no initialization benefits, and provides a rational physical test case. This is a meaningful finite-horizon diagnostic, not a routine reparametrization of the paper’s one-step rate or an unsupported global optimality claim.",
+    "status": "PASS"
+  }
+}
