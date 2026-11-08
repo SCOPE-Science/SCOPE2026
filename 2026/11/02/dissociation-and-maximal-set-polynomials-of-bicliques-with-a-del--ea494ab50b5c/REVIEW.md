@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The selected-neighbor formula accounts for the single missing cross-edge at each matched vertex. It forces a mixed dissociation set into one of four shore-size cases, counted without overlap; pure-shore sets are handled separately. The one-vertex extension argument enumerates exactly the inclusion-maximal classes. The resulting polynomial supports prove the unique well-dissociated member and the crown-family gap, including the \(m,n=3\) boundary. The independent adjacency-based subset enumerator agrees with all coefficients for 130 parameter triples, while the proof supplies the infinite quantifiers. Risk: finite enumeration cannot certify parameters outside that range; the proof must stand alone.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The closest published framework is Bock–Pardey–Penso–Rautenbach (2022), which treats dissociation number and induced matchings rather than all-set and maximal-set polynomials. Tu–Xiao–Lang (2023) defines the dissociation polynomial and proves a cubic extremal theorem, which covers neither the general matching-deleted bipartite family nor the maximality profile. An exact published complete-multipartite dissociation polynomial covers only the \(t=0\) specialization, and a generalized-windmill maximal-set classification concerns a different graph class. The published count of non-CIS pairs in matching-deleted bipartite graphs concerns maximal cliques and independent sets, not dissociation. Searches for crown graphs, matching-deleted bicliques, induced-degree-one subsets, 3-path-cover duality, and inclusion-maximal dissociation polynomial variants found no equivalent formula. Risk: nonindexed equivalent counting work cannot be ruled out; no independence or definitive priority assertion.
+PASS
 
-## Mathematical value — PASS
-The object is a canonical three-parameter graph family obtained by minimal structural perturbation of complete bipartite graphs. The theorem determines two complete counting invariants simultaneously, exposes why the first added cross-shore dissociation possibilities occur exactly at sizes three and four, isolates the unique well-dissociated member of the family, and yields an unbounded minimal/maximal dissociation gap in regular connected graphs. Unlike an isolated numerical value, this is a full parametric structural classification. The proof is elementary, and the significance claimed is confined to this natural graph family.
+For a dissociation set with a=|S cap X|, b=|S cap Y|, mixed degree constraints require a,b<=2 when m,n>=3. Cases (1,1),(2,1),(1,2),(2,2) contribute mn, t(m-1),t(n-1),binom(t,2). Pure shore parts give (1+z)^m+(1+z)^n-1, hence exact D. Inclusion-maximal mixed pairs require both unmatched indices: (m-t)(n-t); triples require matched/unmatched other-side pair: t(m+n-2t); all matched two-pair 4-sets are maximal, and whole shores are maximal. Thus M formula. Only all-matched equal shores r=4 have a single maximal size: G444 is Q3; for crowns r>=5 min 4 max r. Independent all-subset enumeration of five (m,n,t) triples, including K33, crown r=3, cube, and mixed unequal shores, matched both polynomials exactly.
 
-## Closest literature and limitations
-The formulas specialize at \(t=0\) to the known complete-bipartite dissociation polynomial, a non-novel boundary case; the novelty assessment concerns the general \(t>0\) terms plus maximality classification. The Bock et al. dissociation inequalities do not enumerate maximal sets; the cubic extremal bound does not imply coefficient equality for these dense graphs. Other published results for the same deleted-matching graph construction concern different predicates. Only the best-knowledge priority conclusion is supported. Verification consists of self-checks and is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing complete-multipartite dissociation formula supplies the undeleted t=0 special case; a matching-deleted biclique study covers a different CIS invariant, not induced-degree-one counting. Inspected source summaries and the accessible abstract of Tu–Xiao–Lang concern cubic extremal inequalities rather than an exact three-parameter all/maximal polynomial or unique well-dissociated cube. Thus best-of-knowledge new t>0 classification; full priority not certified.
+
+## value
+
+PASS
+
+Matching-deleted bicliques/crown graphs are a natural family interpolating complete bipartite and regular complements. Exact polynomials distinguish all and inclusion-maximal dissociation sets, classify the unique equal-size maximal case, and exhibit unbounded maximal/minimal spread in connected regular bipartite graphs. These are exact, structurally motivated invariants, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
