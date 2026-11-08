@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized edge parametrization partitions the law into equal and unequal coordinate directions. Independent Hamming bits and uniform coordinates rigorously give an exact binomial mixture; the same-edge case is treated separately. Analytic convolution establishes a normalized absolutely continuous density, the binomial one-sided jumps, both moments and a binomial central limit with bounded-error coupling. The shortest-path route choices and all endpoint cases are explicitly controlled. As a supplementary check, exact-rational edge-route comparison passed 133,347 comparisons in dimensions 1–6; symbolic rational integration reproduced unit mass and both moments for dimensions 1–25; and exact one-sided jump interpolation matched all interior jumps for dimensions 3–25. Finite checks do not replace the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Partition ordered edge pairs by matching/different directions, each edge of uniform weight 1/(d 2^{d−1}). Different directions: mismatched other fixed bits K~Bin(d−2,1/2), and independent endpoint offsets U,V~Unif(0,1), D=K+U+V. Same direction: mismatched fixed bits K~Bin(d−1,1/2), K=0 gives |S−T| density ℓ; K≥1 gives K+min(S+T,2−S−T) with density h=2t on (0,1). Assemble mixture with kernel g(t)=min(t,2−t) on (0,2). Only h kernels jump at integer endpoints, with exact displayed magnitudes; ℓ and g are continuous there as asserted. Exact mixture integrations reproduce mass, mean and second moment; independent four-endpoint shortest-path evaluations for d3..5 and rational edge coordinates yielded 22,704 matches, with broader 22,829 bounded checks. Coupling to different-direction event with failure 1/d and binomial Berry–Esseen proves the uniform O(d^{-1/2}) CLT. Bounded comparisons do not establish all d.
 
-The complete distribution and its binomial density-jump signature differ from the classical discrete Hamming-distance law and from earlier general mean-distance algorithms. The 2023 open-access paper by Garijo, Márquez and Silveira studies efficient computation of mean distances on arbitrary weighted graphs, including path, complete-graph and cactus examples, rather than the exact random-pair distribution of a hypercube wireframe. The open-access Baptista–Kennedy–Mugnolo article studies mean-distance bounds and named examples, without the all-dimensional exact law established here. The 1982 Doyle–Graver contributions could not be inspected in full and might contain related continuous cube means; no complete-text exclusion is claimed. Novelty priority remains independently unverified. The known four-cycle \(d=2\) case is excluded from the claimed new domain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The \(d\)-cube wireframe is a canonical and structurally motivated finite metric graph. A full arclength-distance distribution across all dimensions, including an unexpected discontinuous density and its precise binomial jump spectrum, is a natural inverse/metric probability invariant richer than the mean. The exact moments and normal limit offer dimensional comparisons, and the formula is not simply a re-expression of the vertex Hamming law. The result is a complete natural family classification, not an arbitrary finite slice.
+The prior continuous mean-distance papers provide integrals, bounds, and graph examples but the inspected full statements do not give the all-dimensional distance law or binomial jump spectrum on hypercube wireframes. Older 1982 papers on mean distances were unavailable in complete text; authorized institutional retrieval returned vpn_disconnected. Historical priority of a geometric distance-distribution formula is a real residual risk, not a reason to fabricate absence.
 
-## Closest literature and limitations
+## value
 
-Doyle–Graver (1982, two articles on shape mean distance); Garijo–Márquez–Silveira (2021/2023 continuous mean-distance algorithms, complete publisher HTML inspected); Baptista–Kennedy–Mugnolo (2023/2024 metric-graph mean distances, complete open-access HTML inspected); Blondel et al. (2007 random-graph vertex-distance distributions). Earlier shape-paper full texts remained unavailable, so they remain an explicit historical-priority risk. The theorem covers unit-edge \(Q_d\) only and is not an independently audited result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete probability law of intrinsic distances between uniformly sampled points on a classical d-cube wireframe is a natural geometric invariant. The nontrivial all-dimensional binomial jump spectrum, exact moments, and normal limit distinguish it from a simple mean calculation; exact formulas can be reused in graph-metric probability and benchmarking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

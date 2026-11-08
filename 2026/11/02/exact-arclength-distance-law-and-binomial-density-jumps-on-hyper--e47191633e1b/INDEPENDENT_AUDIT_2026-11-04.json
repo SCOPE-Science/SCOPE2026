@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:43:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-arclength-distance-law-and-binomial-density-jumps-on-hyper--e47191633e1b/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-arclength-distance-law-and-binomial-density-jumps-on-hyper--e47191633e1b/artifacts/verify_metric_cube.py"
+      ],
+      "rationale": "Partition ordered edge pairs by matching/different directions, each edge of uniform weight 1/(d 2^{d−1}). Different directions: mismatched other fixed bits K~Bin(d−2,1/2), and independent endpoint offsets U,V~Unif(0,1), D=K+U+V. Same direction: mismatched fixed bits K~Bin(d−1,1/2), K=0 gives |S−T| density ℓ; K≥1 gives K+min(S+T,2−S−T) with density h=2t on (0,1). Assemble mixture with kernel g(t)=min(t,2−t) on (0,2). Only h kernels jump at integer endpoints, with exact displayed magnitudes; ℓ and g are continuous there as asserted. Exact mixture integrations reproduce mass, mean and second moment; independent four-endpoint shortest-path evaluations for d3..5 and rational edge coordinates yielded 22,704 matches, with broader 22,829 bounded checks. Coupling to different-direction event with failure 1/d and binomial Berry–Esseen proves the uniform O(d^{-1/2}) CLT. Bounded comparisons do not establish all d.",
+      "residual_risks": [
+        "Only intrinsic unweighted hypercube wireframes with uniform arclength points; not Euclidean chord distances. The older mean may be known, while jumps and full density are separate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible recent full texts establish general mean-distance formulae and estimates; full 1982 shape paper not available, so it cannot be excluded as broader coverage."
+        ],
+        "reasoning": "Any published full metric-graph distance-distribution theorem for Q_d would dominate the law; no such explicit statement was identified in inspected primary documents.",
+        "searches": [
+          "Garijo Marquez Silveira 2023 open full text",
+          "Baptista Kennedy Mugnolo 2024 open full text",
+          "Doyle Graver 1982 DOI:10.1002/jgt.3190060410"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2103.11676",
+        "https://arxiv.org/abs/2312.04952",
+        "https://doi.org/10.1002/jgt.3190060410",
+        "Resultary semantic research matching same mathematical objects and claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean distance and bounds cannot determine a probability law or its jump discontinuities; generic exact edge integration permits derivation but does not entail the displayed binomial law without new calculation."
+        ],
+        "reasoning": "Compared mean-only conclusions with the stronger distributional classification and its exact uniform edge-weight sampling assumptions; earlier full 1982 result is a named gap.",
+        "searches": [
+          "arxiv:2103.11676",
+          "arxiv:2312.04952",
+          "Doyle Graver 1982 mean distance for shapes DOI:10.1002/jgt.3190060410"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Continuous mean distance averages the same intrinsic metric over graph length but yields only E[D], not full density or knot jumps; graph vertex Hamming distance is a different distribution."
+        ],
+        "reasoning": "Compared two continuous arclength points on edges with discrete vertex-to-vertex Hamming law and Euclidean cube shape laws, with correct geodesic normalization.",
+        "searches": [
+          "Garijo-Marquez-Silveira arxiv:2103.11676",
+          "Baptista-Kennedy-Mugnolo arxiv:2312.04952",
+          "Resultary semantic: metric hypercube graph continuous arclength uniform random points geodesic distance probability density binomial jumps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete piecewise-affine density, moment and jump coefficients are not discrete Hamming tables or numerical mean-distance examples."
+        ],
+        "reasoning": "No exact tabulation or formula with the same continuous statistic found; this does not prove it was never published.",
+        "searches": [
+          "web query: hypercube wireframe intrinsic arclength distance distribution binomial jump",
+          "Resultary metric hypercube graph continuous arclength random points geodesic distance density"
+        ]
+      },
+      "rationale": "The prior continuous mean-distance papers provide integrals, bounds, and graph examples but the inspected full statements do not give the all-dimensional distance law or binomial jump spectrum on hypercube wireframes. Older 1982 papers on mean distances were unavailable in complete text; authorized institutional retrieval returned vpn_disconnected. Historical priority of a geometric distance-distribution formula is a real residual risk, not a reason to fabricate absence.",
+      "residual_risks": [
+        "Priority in general literature not exhaustively certified; "
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MEAN_ONLY",
+          "evidence": [
+            "Mean of distances, not full all-dimensional cube density and jump spectrum in inspected theorem statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.11676",
+          "material_read": "Accessible full article including mean-distance formulae and examples",
+          "method": "open publisher/full-text preprint",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "Same continuous metric graph and arclength sampling"
+        },
+        {
+          "assessment": "MEAN_ONLY",
+          "evidence": [
+            "Studies estimates and examples for the first moment rather than the exact hypercube law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.04952",
+          "material_read": "Accessible full primary manuscript and main estimates",
+          "method": "open arXiv full text",
+          "title": "Mean Distance on Metric Graphs",
+          "trigger": "Same metric graph functional and potential universal theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": [
+            "Cannot infer full-paper noncoverage; older exact wireframe density remains an explicit risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+          "material_read": "Public abstract and bibliographic record only; full article inaccessible",
+          "method": "open-source abstract/metadata then authorized Oxford institution route, vpn_disconnected",
+          "title": "Mean Distance for Shapes",
+          "trigger": "Older primary source could contain equivalent hypercube distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2103.11676",
+        "https://arxiv.org/abs/2312.04952",
+        "https://doi.org/10.1002/jgt.3190060410",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-arclength-distance-law-and-binomial-density-jumps-on-hyper--e47191633e1b/RESULT.md"
+      ],
+      "rationale": "The complete probability law of intrinsic distances between uniformly sampled points on a classical d-cube wireframe is a natural geometric invariant. The nontrivial all-dimensional binomial jump spectrum, exact moments, and normal limit distinguish it from a simple mean calculation; exact formulas can be reused in graph-metric probability and benchmarking.",
+      "residual_risks": [
+        "The earlier mean-distance identity could be known, and a previously unlocated shape-distance law may cover the exact distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-arclength-distance-law-and-binomial-density-jumps-on-hyper--e47191633e1b/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-arclength-distance-law-and-binomial-density-jumps-on-hyper--e47191633e1b/artifacts/verify_metric_cube.py",
+    "https://arxiv.org/abs/2103.11676",
+    "https://arxiv.org/abs/2312.04952",
+    "https://doi.org/10.1002/jgt.3190060410"
+  ],
+  "disposition": "passed",
+  "final_claim": "For independent arclength-uniform points on the intrinsic unit-edge metric graph Q_d, d≥3, an exact mixture of same-edge triangular, parallel-edge folded-triangular, and different-direction two-uniform kernels gives the complete distribution. At k=2..d−1, f_d(k−)−f_d(k+)=2 binom(d−1,k−1)/(d2^{d−1}); exact first and second moments and a Berry–Esseen O(d^{-1/2}) central limit law follow.",
+  "limitations": [
+    "Only intrinsic unweighted hypercube wireframes with uniform arclength points; not Euclidean chord distances. The older mean may be known, while jumps and full density are separate.",
+    "The earlier mean-distance identity could be known, and a previously unlocated shape-distance law may cover the exact distribution."
+  ],
+  "residual_risks": [
+    "Only intrinsic unweighted hypercube wireframes with uniform arclength points; not Euclidean chord distances. The older mean may be known, while jumps and full density are separate.",
+    "The earlier mean-distance identity could be known, and a previously unlocated shape-distance law may cover the exact distribution.",
+    "The prior continuous mean-distance papers provide integrals, bounds, and graph examples but the inspected full statements do not give the all-dimensional distance law or binomial jump spectrum on hypercube wireframes. Older 1982 papers on mean distances were unavailable in complete text; authorized institutional retrieval returned vpn_disconnected. Historical priority of a geometric distance-distribution formula is a real residual risk, not a reason to fabricate absence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MEAN_ONLY",
+      "evidence": [
+        "Mean of distances, not full all-dimensional cube density and jump spectrum in inspected theorem statements."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2103.11676",
+      "material_read": "Accessible full article including mean-distance formulae and examples",
+      "method": "open publisher/full-text preprint",
+      "title": "Continuous Mean Distance of a Weighted Graph",
+      "trigger": "Same continuous metric graph and arclength sampling"
+    },
+    {
+      "assessment": "MEAN_ONLY",
+      "evidence": [
+        "Studies estimates and examples for the first moment rather than the exact hypercube law."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2312.04952",
+      "material_read": "Accessible full primary manuscript and main estimates",
+      "method": "open arXiv full text",
+      "title": "Mean Distance on Metric Graphs",
+      "trigger": "Same metric graph functional and potential universal theorem"
+    },
+    {
+      "assessment": "INACCESSIBLE_PLAUSIBLE",
+      "evidence": [
+        "Cannot infer full-paper noncoverage; older exact wireframe density remains an explicit risk."
+      ],
+      "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+      "material_read": "Public abstract and bibliographic record only; full article inaccessible",
+      "method": "open-source abstract/metadata then authorized Oxford institution route, vpn_disconnected",
+      "title": "Mean Distance for Shapes",
+      "trigger": "Older primary source could contain equivalent hypercube distribution"
+    }
+  ]
+}
