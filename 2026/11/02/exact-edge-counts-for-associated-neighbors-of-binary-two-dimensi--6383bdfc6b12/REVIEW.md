@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim precisely concerns unordered edges between labeled binary two-planes, with the associated-neighbor condition requiring \(D=\langle C\cap z^\perp,z\rangle\) and \(z\notin C\cup C^\perp\). The proof first eliminates even intersection lines by the nonzero Gram determinant. For an odd common line, orthogonal complement representatives are unique and have odd norm. Associatedness is reduced in both directions to their cross dot product being one. The characteristic vector \(t+u\) then yields the exact parity-dependent local count. No graph edges can be counted twice because the common intersection line is unique. The special line \(u=t\) when \(n\) is odd, and boundary cases \(n=2,3\), are handled explicitly. Two genuinely different exact implementations agree over the stated finite ranges, but the infinite theorem rests on the proof rather than on enumeration.
+PASS
 
-## Originality: PASS (priority risk remains)
+For LCD planes with an associated neighbor, the common line has odd self-dot: even line forces both nonshared generators to pair 1 with it, contradicting orthogonality requirement. For odd u, every containing LCD plane has unique orthogonal basis {u,v} with Q(v)=1, v∈u-perp, and associated adjacency reduces to v·w=1. With t all-ones, f=t+u controls the parity character on u-perp, yielding h(h-1)/4 pairs for even n or h(h-2)/4 for odd n except forbidden u=t. Summing over 2^{n-1} odd lines gives the stated e_n for every n≥2; n=2 and 3 give zero. Independent exhaustive labeled-2-plane computations through n=7 matched 0,0,24,180,1920,15120; these corroborate, not replace, the argument.
 
-The 2025 conference source defines associated neighborship and identifies counting associated-neighbor edges as prospective work, without giving the formula. The closest 2026 primary paper, arXiv:2609.07580v1, was inspected through its arXiv HTML full text; it studies the ordinary LCD neighbor graph, its degree, connectedness, and its orthogonal-orbit subgraphs, not the associated construction. A relevant mathematical-research record establishes ordinary-neighbor edge regularity and triangle counts in all dimensions, but neither its statements nor its parameters imply the count for the strictly smaller associated graph. Exact-keyword, alias and theorem-implication searches found no identical associated-graph formula. The earlier April 2025 presentation is documented but its full slides were not read, and undiscovered equivalent formulations remain a real priority risk. These risks do not amount to identified covering results.
+## originality
 
-## Value: PASS
+PASS
 
-The precise size of the associated-neighbor graph is explicitly motivated in the source lecture as a natural quantity still to be determined. The theorem answers this problem uniformly for the first nontrivial code dimension, all block lengths, and both parities. It reveals a structural selection rule—only odd intersection lines contribute—and an exceptional characteristic vector when the ambient dimension is even. This is more than a finite census or a reformulation of the ordinary LCD-neighbor degree formula, because associated neighbors depend on the defining orthogonality of the replacement vector.
+Carlos Vela’s 2025 lecture introduces the associated relation and explicitly lists determining its edge count as ongoing work. De la Cruz et al. (arXiv:2609.07580) and a published Resultary finding treat the ordinary LCD Grassmann neighbor graph, whose edge regularity does not imply the narrower associated graph’s count. No complete count for binary dimension 2 found in inspected material; earlier 2025 institutional talk is an uninspected priority risk.
 
-## Sources and limitations
+## value
 
-Closest primary sources: C. Vela, 2025 conference slides (associated graph and proposed edge enumeration); de la Cruz et al., arXiv:2609.07580v1 (ordinary graph and orbit degrees); institutional record dated 2025-04-03 (source chronology). The broad ordinary-graph edge-regularity record and other exact-phrase search results were compared at the level of statements and implications. The archive of an earlier presentation and possible unpublished work are residual novelty risks. No independent audit is claimed; the exact theorem applies only to labeled binary dimension-two LCD codes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact answer to a problem specifically raised in the primary literature for the first nontrivial LCD code dimension and all ambient lengths. The odd-line selection and exceptional all-ones line give structural information not obtained by substituting k=2 into ordinary neighbor counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
