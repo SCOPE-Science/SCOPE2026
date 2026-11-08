@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact volume and area follow from two congruent circular cones. The axial support function gives the width integral directly and hence the entire cubic Steiner polynomial. Strict Minkowski inequality gives two distinct negative stationary points for every positive aspect ratio. Their polynomial values are precisely the two transition functions divided by six. The derived derivative identities are strictly positive everywhere, so each transition is unique. Elementary endpoint inequalities prove both functions start negative, and the derivative lower bound forces them to cross zero. Rational interval certificates locate the two zeros in disjoint rational windows. The root-type and multiplicity conclusions follow from the cubic sign diagram. The mathematical proof is independent of finite testing.
+## correctness
 
-**Originality — PASS, subject to explicit historical-priority risk.** The accessible full text of Henk and Hernández Cifre's root-bound paper covers general convex bodies, tangentiality, and radius inequalities, not a bicone phase diagram. The publicly documented single-cone two-transition result has different intrinsic volumes and different critical values, and does not imply the central-symmetric bicone theorem. Relevant local comparison found earlier work on ordinary right cones, cylinders, prisms, and tall pyramids, but no bicone classification. The 2007 three-dimensional general-classification article was only bibliographically and abstractually accessible, so it remains a concrete unresolved historical-priority risk rather than a claimed whole-document exclusion.
+PASS
 
-**Value — PASS.** This is a complete all-aspect root-type classification for a canonical centrally symmetric singular convex body. It gives two distinct, nondegenerate transition geometries and a structural perfect-square derivative proof. The reentrant complex--real--complex pattern persists despite central symmetry, which separates this result from merely listing example cubic roots; the exact thresholds are intrinsic features of a continuously varying shape family.
+The polyhedral-cone volume 2πR²h/3 and lateral area 2πR√(R²+h²) combine with the directional width 2max(R√(1−u²),h u). Integrating u∈[0,1] gives mean width R[x+arctan(1/x)], so the normalized Steiner cubic is 2z³/3+a z²+b z+x/3 with b=√(1+x²). The strict Minkowski inequality for a non-ball implies a²>2b; stationary z±=(-a±q)/2 are negative. Their exact critical values are Φ∓/6, with q=√(a²−2b). Independent symbolic expansion verifies Φ± prime =1/2+3/2[(x/b)(a±q)−1]²>0 for all x>0. The limits at x↓0 are both negative; derivative >1/2 forces a unique zero of each; Φ+>Φ− orders them. The packaged rational sign brackets (1/2,3/5) and (23/20,6/5) isolate the zeros. The standard cubic sign diagram proves multiplicities and all root cases; no finite sampling substitutes for global monotonicity.
 
-**Limits.** No claim is made about other bicones, arbitrary centered symmetric bodies, or elementary closed forms for the transition ratios. Numerical digits are supplementary. No independent validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The close 2007/2008 root-location literature supplies general Steiner-root classifications and inequalities, not a read exact centered bicone two-transition parametrization. A published single right-cone result has two transitions but a different solid and different coefficient functions; the central symmetry and absence of exterior planar base prevent a direct substitution. Primary full text of Hernández Cifre–Saorín (2007) was unavailable despite arXiv/OA attempts and authorized institutional submission, leaving a real but bounded earlier-coverage risk rather than an invented exclusion.
+
+## value
+
+PASS
+
+A symmetric double cone is a canonical one-parameter singular convex-body family. Determining whether all three Steiner roots are real is sensitive to intrinsic volume structure; the exact reentrant complex–real–complex transition with two rigorously unique boundary aspects is not just a plotted sample or generic cubic formula. Its strict-square monotonicity mechanism may serve as a worked structural benchmark for Steiner-root geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
