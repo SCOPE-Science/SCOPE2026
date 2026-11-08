@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:05:32.457343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-coordinate reduction uses distinguished bits u,v and counts of undistinguished bits; each neighbor majority depends only on the stated sign comparisons. For j=2, odd j>=3, even j>=4, the source sign-class tables partition all possible cases; every update resets counts to extremes or preserves individual bits. This yields bounded universal symbolic class dynamics, not an asymptotic inference from tiny graphs. Independently enumerated all 2^(a+b) binary configurations and iterated to recurrence at (a,b)=(2,5),(4,4),(4,5): before/after (E,Q,B,T)=(2,1,32,2)/(14,1,20,4), (38,1,50,2)/(20,1,50,2), (2,1,160,2)/(2,1,196,3), agreeing exactly. This reproduces sign reversals but not full universal polynomial census, which depends on the sign-class proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known two-period theorem covers eventual period restriction but no counts.",
+          "Kaaser–Mallmann-Trenn–Natale voting-time bounds do not assert fixed-point or basin formulas."
+        ],
+        "reasoning": "Time bound is weaker than state-population classification.",
+        "searches": [
+          "Goles Olivos 1980 periodic behaviour generalized threshold functions",
+          "arxiv:1508.03519 deterministic majority voting time"
+        ]
+      },
+      "checked_sources": [
+        "Full frozen RESULT.md and AUDIT.json",
+        "Tamuz Tessler arxiv:1307.4035 abstract and repository metadata",
+        "Goles Olivos DOI:10.1016/0012-365X(80)90121-1 cited, full unavailable",
+        "Resultary majority bipartite defect query",
+        "arxiv:1307.4035 §3.7 and Lemma 3.10 full primary",
+        "arxiv:1508.03519 Theorem 1.2 full primary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tamuz–Tessler balanced odd example may entail a restricted sharp entry-time statement.",
+          "The three independent benchmark counts (2,5),(4,4),(4,5) exhibit genuinely distinct signed basin changes.",
+          "Tamuz–Tessler §3.7 full text treats K_{d,d}−e for odd d and gives two-round stabilization Lemma 3.10, but not the stated full all-(a,b) E/B transition formulas."
+        ],
+        "reasoning": "Neither inspected publication description implies the complete parity-controlled change in the number of fixed states or basin sizes.",
+        "searches": [
+          "Tamuz Tessler Majority Dynamics and Retention of Information 1307.4035",
+          "Kaaser Mallmann-Trenn Natale 1508.03519"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tamuz–Tessler study a balanced odd single-missing-edge graph; only that specialization is likely covered.",
+          "The source table distinguishes 2-by-odd, even-even and even>=4-by-odd behavior."
+        ],
+        "reasoning": "The balanced odd subcase cannot imply the claimed exact all-a,b six-case census without further structural results.",
+        "searches": [
+          "majority dynamics complete bipartite graph minus one edge exact attractor basin counts",
+          "arxiv:1307.4035 Tamuz Tessler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned unrelated complete-bipartite graph invariants and a different parity-automaton census."
+        ],
+        "reasoning": "The six-case table is an exact natural classification; absence of an indexed duplicate is not proof.",
+        "searches": [
+          "Resultary: majority dynamics complete bipartite graph minus one edge exact attractor basin counts"
+        ]
+      },
+      "rationale": "Qualified PASS for the all-side-size parity-sensitive exact basin census of tie-retaining synchronous majority after one deleted edge. The balanced odd missing-edge convergence bound in Tamuz–Tessler is acknowledged prior work. General symmetric-threshold eventual period<=2 bounds do not fix exact fixed-state counts and entire two-cycle basin sizes.",
+      "residual_risks": [
+        "Goles–Olivos 1980 complete article was not accessible, though period≤2 background is known.",
+        "Balanced odd missing-edge case and T≤2 are genuinely prior; they must not be advertised as a new special-case theorem.",
+        "Unindexed majority basin census could independently supply equivalent six-case formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "This prior special case is acknowledged, while all-sizes E and B parity formulas and size-two reversal are not stated in §3.7.",
+          "evidence": [
+            "Complete 19-page primary PDF accessible; read §3.7 and Lemma 3.10 on page 18 with screenshot: odd d and two-step stabilization bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4035",
+          "material_read": "Complete 19-page primary PDF accessible; read §3.7 and Lemma 3.10 on page 18 with screenshot: odd d and two-step stabilization bound",
+          "method": "Lawful arXiv primary PDF, mathematical section and screenshot",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "same graph K_{d,d} minus one edge in balanced odd d"
+        },
+        {
+          "assessment": "General graph-wide voting-time bound gives no exact labelled fixed-point or basin populations.",
+          "evidence": [
+            "Complete 28-page primary PDF accessible; read introductory definitions and Theorem 1.2 on p.5; screenshot"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "Complete 28-page primary PDF accessible; read introductory definitions and Theorem 1.2 on p.5; screenshot",
+          "method": "Lawful arXiv primary PDF, theorem and screenshot",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "general worst-case convergence-time theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-edge perturbation produces exact parity-dependent equilibrium loss, basin gain or basin loss, and sharp transient-time switches. These natural dynamical quantities are not supplied by merely knowing period<=2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific PASS is qualified best-of-knowledge, not certification or proof of historical priority.",
+    "Inaccessible or unindexed prior literature remains qualified originality risk, not an automatic scientific failure.",
+    "No GitHub or dispatcher write occurred."
+  ],
+  "schema_version": 1
+}

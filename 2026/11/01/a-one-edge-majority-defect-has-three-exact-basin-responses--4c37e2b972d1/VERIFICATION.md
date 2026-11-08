@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_defect.py` with Python 3 and the open-source SymPy library. The included `verification_output.txt` is the actual output of a successful replay. Checks are: nine symbolic side-signature cases compared by exact polynomial expansion; 861,184 concrete class/state compatibility checks over sizes 2–30; 63,504 individual labelled binary state checks over sizes 2–7; and 841 benchmark complete-bipartite checks. All completed successfully.
+## correctness
 
-# Proof boundaries
+PASS
 
-The general theorem is proved by the exact majority update, finite sign-state partition and symbolic class multiplicity calculation in `RESULT.md`; finitely many checks alone would not establish arbitrarily large graphs. The result does not enumerate individual fixed-point basins. The odd-balanced two-update antecedent is already in Tamuz–Tessler (arXiv:1307.4035, §3.7), and independent external audit has not been performed.
+The four-coordinate reduction uses distinguished bits u,v and counts of undistinguished bits; each neighbor majority depends only on the stated sign comparisons. For j=2, odd j>=3, even j>=4, the source sign-class tables partition all possible cases; every update resets counts to extremes or preserves individual bits. This yields bounded universal symbolic class dynamics, not an asymptotic inference from tiny graphs. Independently enumerated all 2^(a+b) binary configurations and iterated to recurrence at (a,b)=(2,5),(4,4),(4,5): before/after (E,Q,B,T)=(2,1,32,2)/(14,1,20,4), (38,1,50,2)/(20,1,50,2), (2,1,160,2)/(2,1,196,3), agreeing exactly. This reproduces sign reversals but not full universal polynomial census, which depends on the sign-class proof.
+
+## originality
+
+PASS
+
+Qualified PASS for the all-side-size parity-sensitive exact basin census of tie-retaining synchronous majority after one deleted edge. The balanced odd missing-edge convergence bound in Tamuz–Tessler is acknowledged prior work. General symmetric-threshold eventual period<=2 bounds do not fix exact fixed-state counts and entire two-cycle basin sizes.
+
+## value
+
+PASS
+
+A one-edge perturbation produces exact parity-dependent equilibrium loss, basin gain or basin loss, and sharp transient-time switches. These natural dynamical quantities are not supplied by merely knowing period<=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
