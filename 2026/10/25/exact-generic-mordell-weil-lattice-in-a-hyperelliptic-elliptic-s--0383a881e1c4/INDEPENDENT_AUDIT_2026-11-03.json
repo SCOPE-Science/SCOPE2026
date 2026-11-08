@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:11:45.003574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+        "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+        "Git source RESULT.md SHA 98f0c0133b48771f5c8758e2011f3c0747b6107b; artifacts/verify.py SHA 6a92c68892d9a260aa9ed5d8d1320101ebc5c1c0."
+      ],
+      "rationale": "Rational source E0:y^2=x^3+(t^2+1)x+1 has squarefree discriminant 4t^6+12t^4+12t^2+31, six I1 fibers and, from u=1/t with a4=u^2+u^4, a6=u^6, a split I0* at infinity. Rational surface rho=10 and D4 correction give MW rank 4, zero torsion and D4* lattice by Oguiso-Shioda row 9. At each unramified-discriminant hyperelliptic cover, χ=1 and all twelve fibers are I1. P0=(0,1), Pi=(ri,si t), ri^3+ri+1=0, si^2=ri, satisfy equation. In local infinity chart t=v^-2, X=v^2x,Y=v^3y, each Pi has Y=si v, P0 has Y=v^3: distinct slopes at unique smooth point force pairwise local intersection multiplicity 1; affine x differ and all sections avoid O. Shioda height formula gives Gram 2I4. Heights halve on E0; determinant of Z4 is 1, D4* det 1/4, hence index 2. Eliminate free c0 in w²=t^(2g+1)+sum c_j t^j to obtain F(B)=C(t)(c1,...,c_(2g),w), a pure transcendental extension; any morphism P1->elliptic curve is constant, so rational points do not increase. Degree-two base change doubles the source height pairing. Boundaries: g>=2, distinct branch points excluding zero and 6 discriminant roots; generic field only, not equality on all fixed complex specializations. Exact sympy reproduction confirmed gcd(D,Dprime)=1, discriminant(ri cubic)=-31, symbolic c0 elimination, base lattice determinants, and reconstructed both Git tree SHA1 hashes. The saved verifier is a limited arithmetic checker, not a proof of global theorems.",
+      "residual_risks": [
+        "Rational-surface classification and Shioda height formula used as established published results, not independently reproved by a computer.",
+        "Generic coefficient field E(F(B)) must not be confused with the geometric generic fiber over an algebraic closure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+          "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+          "Oguiso-Shioda gives a complete rational elliptic surface lattice classification; Li-Liu give the same higher-genus family with one explicit non-torsion section."
+        ],
+        "reasoning": "The general 1991 classification dominates the rational source and, combined with pure-transcendence invariance, implies the generic full rank and lattice. This component is credited as a direct classical consequence rather than a new general theorem. The uniform explicitly identified orthogonal section subgroup in all Li-Liu covers is not separately supplied by either source; its local intersection verification is a specific geometric calculation.",
+        "searches": [
+          "Resultary semantic search: rational elliptic surface D4 star base change hyperelliptic generic four independent sections index two",
+          "web search: Oguiso Shioda Mordell Weil lattice rational elliptic surface 1991 PDF D4 row 9",
+          "web search: generic hyperelliptic double covers elliptic surface Mordell Weil rank does not grow"
+        ]
+      },
+      "checked_sources": [
+        "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+        "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+        "Resultary semantic queries for same Weierstrass equation and generic hyperelliptic rank: no directly covering hit among examined ranked results.",
+        "Published SCOPE repository code search for Li-Liu and D4: zero results but incomplete=true, not decisive."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+          "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+          "Applying Shioda height to P0=(0,1) and Pi=(ri,si t) on the smooth base-changed model gives Gram 2I4; 1991 rational-source covolume 1/4 forces their index two."
+        ],
+        "reasoning": "Li-Liu alone establishes geometry and at least rank one; no upper rank bound. Oguiso-Shioda already establishes full rational-source rank-four D4* and, with generic coefficient elimination and standard constant-in-P1 invariance, mechanically implies the full generic-field claim. Separately, the four explicit high-genus sections with intersection computation are not stated in Li-Liu or the 1991 classification. Novelty, if any, is this concrete higher-genus realization, not the classical underlying lattice.",
+        "searches": [
+          "Li-Liu arXiv:2605.27926v2 Construction 2.2 and Lemmas 2.10-2.11",
+          "Oguiso-Shioda 1991 Main Theorem row 9 and Section 3",
+          "web search: Mordell Weil group unchanged purely transcendental extension elliptic curve k(t) rational map P1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+          "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+          "The universal function field is C(t,c1,...,c_{d-1},w), eliminating c0; hence the generic group equals E0(C(t))."
+        ],
+        "reasoning": "Equivalent forms checked include the rational elliptic source E0, quadratic base change along hyperelliptic B, generic coefficient field and explicit rank-four section lattice. A generic full-group assertion is algebraically equivalent to the old rational-source computation after elimination; the uniform explicit P0,Pi and index-two subgroup on every admissible B are the additional precisely parameterized consequence. No claim to geometric generic or all-specialization exact rank.",
+        "searches": [
+          "Resultary semantic search: Mordell Weil lattice hyperelliptic elliptic surface Li Liu y^2=x^3+(t^2+1)x+1 rank four universal generic coefficient field D4",
+          "web search: x^3+(t^2+1)x+1 rank elliptic",
+          "GitHub code search repository Resultary/2026 Mordell-Weil hyperelliptic (zero results, incomplete=true)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+          "Oguiso-Shioda Main Theorem row 9 exactly gives T=D4, torsion-free rank 4, height lattice D4*."
+        ],
+        "reasoning": "A relevant exact table DOES cover the source lattice. Checked Li-Liu exact equation and Resultary repository/semantic results yielded no exact listing of the four P_i points and index-two high-genus Gram matrix. Negative searches are only limited priority evidence.",
+        "searches": [
+          "Oguiso-Shioda Main Theorem row 9, DOI:10.14992/00009974",
+          "web search: Li Liu Mordell Weil rank 2026 hyperelliptic elliptic surfaces",
+          "Resultary semantic search: elliptic curve Mordell Weil group purely transcendental field extension rational invariance hyperelliptic generic polynomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches to the specific uniform explicit four-section system and its index/height interpretation for the newly introduced high-genus covers, not to the already-classified rational-source D4* lattice or the standard no-new-points fact for pure transcendence. The full generic-field group follows quickly from classical table plus actual coefficient elimination and is NOT claimed as a fundamentally new classification theorem; its elementary covered ingredients sharply limit novelty. No direct prior statement of the combined explicit section system was found in material actually read. This remains a narrow PASS with substantial residual risk of implicit prior coverage.",
+      "residual_risks": [
+        "Oguiso-Shioda plus Li-Liu and standard generic function-field elimination already imply much of the exact generic-group theorem; the independent novelty of the explicit sections is narrow and may be viewed as a routine consequence.",
+        "An unindexed earlier explicit coordinate section computation or a stronger general base-change theorem might also cover the claimed 4-section subgroup.",
+        "No geometric generic rank over algebraic closure is established and specialized rank can jump.",
+        "Resultary search and GitHub search are nonexhaustive; no absence-of-matching-result is a proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly establishes 12 I1 fibers, chi=1 and non-torsion section (0,1) and infinitely many (-1)-curves, but does not give full MW group, four named orthogonal sections or exact generic coefficient-field rank.",
+          "evidence": [
+            "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+            "Construction 2.2: w^2=product(t-lambda_i), a4=t^2+1, a6=1 and P=(0,1); Lemma 2.10: 12 I1 fibers/chi=1; Lemma 2.11: non-torsion, not a rank classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.27926 (v2 full author-uploaded text at https://www.researchgate.net/publication/405371636_Examples_of_infinitely_many_-1-curves_with_higher_genus_on_elliptic_surfaces)",
+          "material_read": "Full six-page v2 author manuscript in HTML transcription, Introduction, Construction 2.2, Lemmas 2.10-2.11, conclusion and references.",
+          "method": "Opened full author-uploaded primary manuscript text; inspected relevant formulae and proof paragraphs and checked scope of its stated theorem.",
+          "title": "Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces",
+          "trigger": "Same Weierstrass equation and exactly same admissible high-genus hyperelliptic double covers"
+        },
+        {
+          "assessment": "Already proves the rational-source D4* lattice and rank 4, torsion-free for I0* plus six I1 fibers; by purely transcendental invariance and degree-two base change, this theorem essentially supplies the generic-lattice conclusion. Does not exhibit the exact four named sections or state their uniform high-genus height Gram matrix.",
+          "evidence": [
+            "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16).",
+            "Main Theorem row 9 lists T=D4, MW D4* and torsion order 1; equation (3.2) gives h(P,P)=2chi+2(P.O)-sum contributions; correction maximum for D4 is 1."
+          ],
+          "identifier_or_url": "https://doi.org/10.14992/00009974 (full author-uploaded text https://www.researchgate.net/publication/240320684_The_Mordell-Weil_lattice_of_a_rational_elliptic_surface)",
+          "material_read": "Full accessible primary article transcription with complete Main Theorem classification table, including row 9, Section 3 height pairing and correction bounds, and ensuing classification discussion.",
+          "method": "Read full primary text and inspected specific table entries and mathematical height formulas.",
+          "title": "The Mordell-Weil lattice of a rational elliptic surface",
+          "trigger": "Classification is broad enough to determine the rational source lattice and potentially cover the principal exact-rank assertion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sichen Li and Jihao Liu, Examples of infinitely many (-1)-curves with higher genus on elliptic surfaces, arXiv:2605.27926v2 (26 Aug 2026), Construction 2.2, Lemmas 2.10-2.11, Theorem 1.2.",
+        "Keiji Oguiso and Tetsuji Shioda, The Mordell-Weil lattice of a rational elliptic surface (1991), Main Theorem row 9 (T=D4, rank four, torsion one, MW D4*), Section 3 equations (3.1)-(3.2) and correction table (3.16)."
+      ],
+      "rationale": "The invariant is the complete generic arithmetic MW lattice and explicit height-orthogonal section subsystem of Li-Liu’s recently motivated elliptic surfaces with χ=1 and arbitrarily high-genus (-1)-curves. Knowing the precise four independent sections, index-two embedding, and separation of generic arithmetic rank from possible specialization jumps can serve geometric studies of negative curves and arithmetic base-change phenomena. This is a motivated exact invariant on a natural new family, not an arbitrary numerical slice, although the generic group reduces to a classical rational-source table and the new mathematical content is modest.",
+      "residual_risks": [
+        "Full generic-field classification is an elementary application of an old source-lattice table; scope of independent new value is the explicit uniform high-genus section system.",
+        "Exact rank over geometric generic/algebraically closed coefficients is not supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No source publication edits or dispatcher closeout writes.",
+    "Arithmetic script verifies only identities; infinite classification uses primary Shioda-Oguiso theory and geometric intersection proof.",
+    "Reconstructed exact Git tree from seven entries and nested one-file artifact tree.",
+    "Prior 05:04 cycle never delivered its scientific assessment rows; historical ledger gap untouched."
+  ],
+  "schema_version": 1
+}

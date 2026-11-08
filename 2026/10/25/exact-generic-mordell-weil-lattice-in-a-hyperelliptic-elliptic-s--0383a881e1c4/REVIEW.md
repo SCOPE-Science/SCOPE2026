@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The discriminant has six distinct roots, while the rational elliptic source has six \(I_1\) fibers and one split \(I_0^*\) fiber at infinity; its Picard number is ten. Shioda–Tate and the tabulated \(D_4^*\) rational-surface lattice give torsion-free rank four. Four displayed sections satisfy the Weierstrass equation and, on every admissible hyperelliptic double cover, have distinct slopes at the point above infinity, no other mutual intersections and no intersection with the zero section. Shioda's height formula then gives \(2I_4\); degree-two height scaling and lattice determinants give exact index two. Finally, elimination of the generic constant coefficient \(c_0\) identifies the universal function field as a purely transcendental extension of \(\mathbb C(t)\), where an elliptic curve acquires no new rational points. These arguments prove the full generic group and lattice. The exact-arithmetic checker passed; it does not substitute for the geometric arguments.
+PASS
 
-## Originality — PASS, with residual risk
+Rational source E0:y^2=x^3+(t^2+1)x+1 has squarefree discriminant 4t^6+12t^4+12t^2+31, six I1 fibers and, from u=1/t with a4=u^2+u^4, a6=u^6, a split I0* at infinity. Rational surface rho=10 and D4 correction give MW rank 4, zero torsion and D4* lattice by Oguiso-Shioda row 9. At each unramified-discriminant hyperelliptic cover, χ=1 and all twelve fibers are I1. P0=(0,1), Pi=(ri,si t), ri^3+ri+1=0, si^2=ri, satisfy equation. In local infinity chart t=v^-2, X=v^2x,Y=v^3y, each Pi has Y=si v, P0 has Y=v^3: distinct slopes at unique smooth point force pairwise local intersection multiplicity 1; affine x differ and all sections avoid O. Shioda height formula gives Gram 2I4. Heights halve on E0; determinant of Z4 is 1, D4* det 1/4, hence index 2. Eliminate free c0 in w²=t^(2g+1)+sum c_j t^j to obtain F(B)=C(t)(c1,...,c_(2g),w), a pure transcendental extension; any morphism P1->elliptic curve is constant, so rational points do not increase. Degree-two base change doubles the source height pairing. Boundaries: g>=2, distinct branch points excluding zero and 6 discriminant roots; generic field only, not equality on all fixed complex specializations. Exact sympy reproduction confirmed gcd(D,Dprime)=1, discriminant(ri cubic)=-31, symbolic c0 elimination, base lattice determinants, and reconstructed both Git tree SHA1 hashes. The saved verifier is a limited arithmetic checker, not a proof of global theorems.
 
-Li and Liu, *Examples of infinitely many \((-1)\)-curves with higher genus on elliptic surfaces*, first posted 27 May 2026, exhibit one non-torsion section and the twelve nodal fibers, but do not classify the Mordell–Weil group or provide an orthogonal rank-four subsystem. Oguiso and Shioda's 1991 Main Theorem, table row 9, classifies the rational elliptic **source** with root lattice \(D_4\), rank four and dual lattice \(D_4^*\): that antecedent is not claimed as new. The new specific conclusion identifies four explicit index-two sections on higher-genus base changes and the full lattice over the universal generic hyperelliptic coefficient field. Directed exact-parameter, model-equivalence and broader-coverage searches found no stated prior consequence for this family; absence of a matching record does not prove uniqueness. A derivation implicit in older elliptic-base-change literature or an unindexed table remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The Li–Liu surfaces are a motivated newly constructed family, with \(\chi(\mathcal O_X)=1\), genus arbitrarily large, and infinitely many negative curves. An exact rank-four generic Mordell–Weil lattice upgrades existence of one non-torsion section to a precise intrinsic group invariant, exposes four independent generators on **all** admissible complex members, and separates generic rational rank from potential special-fiber jumps. This is a natural complete generic classification for a precisely defined geometric family, not an arbitrary numerical slice or routine recomputation of a known table. The contribution is specific: the general Shioda–Tate framework and rational-source lattice were known.
+Best-of-knowledge originality attaches to the specific uniform explicit four-section system and its index/height interpretation for the newly introduced high-genus covers, not to the already-classified rational-source D4* lattice or the standard no-new-points fact for pure transcendence. The full generic-field group follows quickly from classical table plus actual coefficient elimination and is NOT claimed as a fundamentally new classification theorem; its elementary covered ingredients sharply limit novelty. No direct prior statement of the combined explicit section system was found in material actually read. This remains a narrow PASS with substantial residual risk of implicit prior coverage.
 
-## Closest literature and limitations
+## value
 
-Li–Liu: arXiv:2605.27926v1 (27 May 2026; v2 26 Aug 2026), Sections 2.2–2.3. Oguiso–Shioda: *The Mordell–Weil lattice of a rational elliptic surface* (1991), Main Theorem row 9 and height arguments. The full rank equality does not extend as stated to every complex specialization or to a geometric generic base after extending the coefficients; those ranks may jump. The standalone Python arithmetic test checks exact identities and small lattice arithmetic, not the global theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is the complete generic arithmetic MW lattice and explicit height-orthogonal section subsystem of Li-Liu’s recently motivated elliptic surfaces with χ=1 and arbitrarily high-genus (-1)-curves. Knowing the precise four independent sections, index-two embedding, and separation of generic arithmetic rank from possible specialization jumps can serve geometric studies of negative curves and arithmetic base-change phenomena. This is a motivated exact invariant on a natural new family, not an arbitrary numerical slice, although the generic group reduces to a classical rational-source table and the new mathematical content is modest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
