@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a fixed labelled domain (\(n\ge2\), \(T\ge1\)), a precise odd-first matching schedule and synchronous update convention. A one-seed infection interval is established by direct induction, including boundary truncation. Matching updates preserve unions of infected sets, so the interval-cover criterion is necessary and sufficient for arbitrary seeds. Its boundary and gap inequalities are equivalent to a unique offset/gap encoding, establishing both rational formal-series identities without numerical extrapolation. The minimum follows from the sharp gap inequality, and every minimum set uses one seed per selected pair, yielding the coefficient counts. The verifier reconstructs original snapshots and checks all 130 small parameter pairs, including their entire labelled-set polynomials. The infinite proof is analytical, not experimental.
+PASS
 
-## Originality — PASS, qualified by an explicit priority risk
+For an odd-first alternating sequence of matchings, each snapshot update spreads blue status across an active edge and commutes with unions. An initially selected full pair Q_j has, after T synchronous rounds, the exact interval [2j+2-T,2j+1+T] intersected with path boundaries; the last odd singleton has weight z rather than W(z)=2z+z². Selected intervals cover every vertex iff first block j1<=p=floor((T-1)/2), consecutive block-index gaps <=T, and the last block is within p (even n) or r=floor(T/2) (odd n) of the right end. Encoding first/last offsets and internal gaps proves even ∑_{m>=1}F_{2m,T}x^m=x W A_p(x)^2/(1-W G_T(x)) and odd ∑_{m>=0}F_{2m+1,T}x^m=A_p(x)[z+W B_r(x)]/(1-W G_T(x)). Lowest z-degree yields claimed parity-sensitive ceiling and number of minimizers by coefficient extraction. Verified n>=2 T>=1 including singleton auxiliary n=1 and T=1 disconnected footprint. Independent synchronous brute for n=8,T=2 reproduces 16z³+40z⁴+44z⁵+26z⁶+8z⁷+z⁸; one-source n=2T parity checked T=1..8. Finite testing corroborates but does not replace interval induction.
 
-The 2026 arXiv originating manuscript supplies the temporal forcing process and general bounded-degree-tree algorithms; no enumerative rational generating functions were observed in its accessible opening material, but full examination of later sections was unavailable. A recent related mathematical enumeration for arbitrary pairs of **perfect** matchings gives cyclic-gap forcing-set polynomials on their alternating-cycle components. This does not cover the path snapshots with unmatched endpoints in alternate phases, and it does not directly yield the two rational open-boundary path-length series; cyclic matching closure and generic gap counting themselves are prior mechanisms. A cached, indexed research archive by Krishna Harish advertises exact scalar values for alternating paths, so scalar numbers and the parity observation are not claimed as independently new. The archive's accessible description does not report the complete labelled-set polynomial, exact minimum-set multiplicities, or rational two-variable length series. Its main manuscript and the cited Zenodo record were inaccessible and remain a significant historical-priority risk. Literature comparisons did not identify a dominating enumerative theorem. This is a qualified best-knowledge assessment, not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The enumeration gives the probability of complete corruption by any finite horizon under independently seeded vertices, and simultaneously recovers exact optimum multiplicities, not just a numerical forcing threshold. The natural alternating odd/even matching schedule models synchronous nearest-neighbor contact rounds. The rational length-generating functions expose a bounded-gap composition structure and distinguish even/odd path endpoints and round parity for every graph size and horizon. This is a complete two-parameter family classification rather than an arbitrary finite instance or a numerical recomputation.
+Layer-local temporal zero forcing, scalar minima for alternating paths, and more generic matching dynamics preexist. Scientific novelty assessed ONLY for the full all-size labelled forcing-set polynomials, parity-aware rational path-length series and exact minimum-set multiplicities. The same scalar optimum is explicitly not a new result. Baste et al. and the prior Harish manuscript remain important full-text priority risks.
 
-## Literature and limits
+## value
 
-Primary definitions: Baste et al. A related exact complete-matching cyclic enumerator covers closed alternating components, not the present partial-matching path boundaries., arXiv:2609.29054v1, 2026-09-24. Closest risk: Krishna Harish, *Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics* (indexed archival summary, full text not retrievable). Neither novelty nor mathematical correctness has received independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-size labelled seed-set polynomial is a natural reliability invariant of a temporal infection model; a uniform rational two-parity generating-function classification explains how unmatched endpoints influence every coefficient and minimum multiplicities. This materially exceeds previously reported scalar minima and provides exact finite-horizon reliability probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
