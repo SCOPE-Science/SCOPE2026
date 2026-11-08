@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact projector decomposition of the star Laplacian gives all entries as rational expressions. Positive off-diagonals leave hub Q_m and leaf P_m diagonal signs. The hub discriminant is positive exactly for integer m>=11; for m<=10, positivity follows by concavity in m for h>3 together with positive endpoint P2 and exact positive SOS P10, and by direct positivity for h<=3. For m>=11, P_m(8)<0, its leading/constant terms are positive and exactly two sign changes force exactly two simple positive roots. Ordering, endpoint inclusion and asymptotics follow. The verified local check program independently confirms four formal bivariate identities, an exact univariate SOS identity and 2046 exact-rational matrix assertions, output VERIFY_OK 2228. Finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovács–Li–Lubich arXiv:1511.07823 studies uniform discrete maximal parabolic regularity for A-stable time steppers, explicitly including Radau IIA (introduction and Section 5). Maximal regularity is an operator-norm estimate rather than a coordinatewise positivity statement.",
+        "Bresten et al. arXiv:1307.8058 discusses SSP theory and positive timesteps for explicit multistep Runge-Kutta methods. Its method class does not contain the Radau IIA two-stage implicit endpoint considered here.",
+        "An accessible previous result for two-stage Radau IIA on balanced double-stars classifies unconditional positivity versus gaps but has a different Laplacian spectrum and does not settle the one-hub star threshold or its second failure window."
+      ],
+      "reasoning": "The general high-order stability and monotonicity theories give useful contexts and may impose sufficient bounds, but none of the inspected published sections derives the entrywise star threshold or covers the second long-time failure window as a formal consequence. Star and balanced-double-star networks are different, and the two spectral projector formulas are not reducible by merely substituting a parameter.",
+      "searches": [
+        "Web: A-stable time discretizations preserve maximal parabolic regularity arxiv 1511.07823",
+        "Web: Radau IIA positivity preservation graph Laplacian Markov generator nonnegative timestep",
+        "published-finding corpus: non-monotone positivity intervals L-stable RK third order on star 11 leaves"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.1037v1",
+      "arxiv:1307.8058v1",
+      "arxiv:1311.0640v1",
+      "arxiv:1511.07823v1",
+      "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (summary only)",
+      "published-finding corpus:2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brugnano et al., arXiv:1302.1037, Introduction and Sections 2–4, specify and implement Radau IIA stages for stiff IVPs, not the star transition kernel sign patterns.",
+        "Flaig, arXiv:1311.0640, Introduction, Sections 2–3, and numerical experiments establish collocation order and commutation of discretization/optimization in parabolic control, not entrywise graph heat positivity.",
+        "On a unit star, the exact hub polynomial Q_m and leaf polynomial P_m have disjoint negative ranges for m>=11; the latter is quartic and its root count rests on an exact sign witness and Descartes’ rule. This is not implied by L-stability or a 2013 Radau tableau alone."
+      ],
+      "reasoning": "The claimed theorem is not the known Radau stability function or projector spectrum by itself. It is the complete all-step and all-size sign classification and sharp eleven-leaf transition. The identified theory yields tools for its derivation but no printed implication establishing both exact negativity windows in the inspected sections.",
+      "searches": [
+        "Web: Brugnano Iavernaro Magherini efficient implementation Radau collocation methods arxiv 1302.1037",
+        "Web: Flaig Implicit Runge-Kutta schemes for optimal control problems evolution equations arxiv 1311.0640",
+        "Web: Radau IIA graph Laplacian nonnegative step",
+        "published-finding corpus: Radau IIA end step numerical positivity on unweighted double-star and star graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-stage Radau IIA endpoint function on a decay mode is the [1/2] Padé approximation r(z)=(6-2z)/(z^2+4z+6); equality of these formulations is established directly from its Butcher matrix.",
+        "published-finding corpus search returned 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab, explicitly about the different [2/2] Gauss-Legendre formula on a pure-birth generator, not this [1/2] star endpoint operator.",
+        "Relevant exact star positive-matrix claims from accessible own archives concern another L-stable Alexander SDIRK method; nonidentical stability rational function and different sign polynomials."
+      ],
+      "reasoning": "The Padé [1/2], third-order Radau IIA end-step, and rational graph heat propagator aliases were explicitly searched. The nearest identified Padé statement has a different stability function, generator and positivity set, and cannot imply this method-specific four-root star classification. No equivalent formula was found in material inspected; search absence alone cannot prove novelty.",
+      "searches": [
+        "published-finding corpus: [1/2] Pade rational heat evolution positivity star K1m diagonal threshold 11",
+        "published-finding corpus: Radau IIA two-stage star heat graph complete positivity intervals root quartic",
+        "Web: \"Padé\" \"[1/2]\" \"star graph\" \"positivity\" heat",
+        "Web: \"Radau IIA\" \"star graph\" positivity timestep"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2013 Radau implementation and optimal-control manuscripts contain Radau coefficients and convergence/order data but not a table of entrywise step-positivity sets for the star graphs.",
+        "No indexed Radau-IIA-star entrywise positivity table was returned by the stated searches; the published published-finding corpus hits concern different graph families, schemes or numerical invariants."
+      ],
+      "reasoning": "Both exact symbolic formulas and numerical-table aliases were searched. There was no identified same-object database or table entry computing the exact pair of intervals. Missing indexed results are a residual search limitation, not a proof of priority.",
+      "searches": [
+        "Web: \"Radau IIA\" \"star graph\" \"positivity\" \"time step\"",
+        "Web: \"L-stable\" \"positivity interval\" \"star graph\" Padé",
+        "published-finding corpus: Radau IIA star graph Markov transition negative diagonal hub leaf exact polynomial positive roots m 11"
+      ]
+    },
+    "rationale": "The compared primary material establishes Radau construction, SSP context, parabolic order/regularity but not the exact positivity windows on uniform stars. The two-stage Radau star result cannot be read off from the known A-/L-stability result and requires an exact sign classification of both hub and leaf diagonal polynomials. Other reported methods on stars and Radau on balanced double-stars are different claims. Remaining unindexed-literature risk is stated.",
+    "residual_risks": [
+      "Unindexed exact [1/2] Padé or Radau IIA star positivity calculations might exist under alternate terminology.",
+      "published-finding corpus hits were compared at indexed-title/summary level only; full texts of those less directly relevant entries were not read.",
+      "The first public date refers to the earliest day-verified cited focal Radau-method manuscript, not to the historical invention of Radau IIA."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides method construction and implementation, not graph heat star entrywise sign classification",
+        "evidence": [
+          "arXiv posted 2013-02-05, Introduction discusses two-stage order-three Radau IIA and its 1997 predecessor",
+          "Section 3 discusses split factorization and s=2 implementation, with no star positivity statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.1037",
+        "material_read": "arXiv rendered full text; Introduction, Sections 2–4, two-stage coefficient discussion and numerical comparisons",
+        "method": "direct primary full-text section inspection and term lookup",
+        "title": "Efficient implementation of Radau collocation methods",
+        "trigger": "Original two-stage Radau IIA method and possible pre-evaluated kernel positivity"
+      },
+      {
+        "assessment": "Studies order/optimal-control discretization commutation, not star heat operator entrywise positivity",
+        "evidence": [
+          "Published as arXiv v1 on 2013-11-04",
+          "Explicitly treats two-stage Radau IIA order three in coefficient table and Corollary 3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.0640",
+        "material_read": "arXiv rendered full text; Abstract, Introduction, Sections 2–3, Radau coefficient tables and experiments",
+        "method": "direct primary full-text section inspection and term lookup",
+        "title": "Implicit Runge-Kutta schemes for optimal control problems with evolution equations",
+        "trigger": "Parabolic Radau IIA numerical method might cover positivity"
+      },
+      {
+        "assessment": "Deals with explicit multistep SSP and benchmark positivity restrictions; does not compute this implicit-Radau star endpoint set",
+        "evidence": [
+          "Public v1 2013-07-30",
+          "Introduction distinguishes monotonicity/positivity and sufficient SSP coefficient conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.8058",
+        "material_read": "arXiv rendered full text; Abstract, Introduction, SSP coefficient discussion and positivity scope",
+        "method": "direct primary full-text section inspection",
+        "title": "Strong Stability Preserving Multistep Runge-Kutta Methods",
+        "trigger": "Possibly dominating general monotonicity and positivity conditions"
+      },
+      {
+        "assessment": "Maximal regularity applies to Radau IIA but is not entrywise positivity and hence does not dominate",
+        "evidence": [
+          "Public v1 2015-11-24",
+          "Introduction explicitly lists Radau IIA under maximal regularity, not a positivity requirement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.07823",
+        "material_read": "arXiv rendered full text; Abstract, Introduction, Section 5 synopsis and associated distinctions",
+        "method": "direct primary full-text inspection and conceptual implication comparison",
+        "title": "A-stable time discretizations preserve maximal parabolic regularity",
+        "trigger": "Stronger general A-stable Radau result might imply positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d0ba37a-abda-4f39-b98e-da29a45dea88",
+  "value": {
+    "rationale": "Exact nonnegative-step sets are a safety constraint for positive heat diffusion beyond spectral/A-stability. The sharp m=11 threshold and TWO separated nonpositive-time gaps with three restoration windows give a natural complete classification. Both hub and leaf failures are identified by explicit polynomial criteria and have distinct asymptotic scales, providing usable numerical-step rules and showing nonmonotonic step-size safety.",
+    "status": "PASS"
+  }
+}
