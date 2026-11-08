@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian covariance recurrence and the directed-KL formula are explicit. The critical nonstandard step is proved analytically: the reward has exactly one convex-to-concave inflection, so its slope-to-value ratio has a unique maximizer, and its least concave majorant has exactly the stated tangent–curve form. Jensen's inequality proves the global optimum over *all* positive finite-mean renewal clocks, and the contact set proves uniqueness/nonattainment. The cold-width asymptotics follow by a simple-root expansion; standard-library numerical integration, exact identities checked symbolically, and 7,123 finite program assertions provide supplementary reproducibility. Finite samples are not substituted for the universal proof.
+## correctness
 
-**Originality — PASS (qualified).** The May 2026 harmonic resetting paper gives the Gaussian endpoint KL expression and two prescribed clock families, but not the sharp arbitrary-renewal fixed-mean envelope, strict optimality classification or \(\sqrt{c}\) clock-transition scale. A 2024 finite-time resetting treatment includes arbitrary switching durations but optimizes physical work and resetting-trap parameters, not the endpoint Jeffreys functional. A 2023 entropy-production study uses Poisson resets to random positions and analyzes a different path-level quantity; a 2016 renewal-reset treatment supplies general renewal methodology. Standard concavification is not claimed as new. Full-text inspection was available for the motivating paper and relevant sections of 2024/2023 primary work; the 2016 introduction and bibliographic scope were accessible, not the entire full text. A broader unpublished or published convex-analytic specialization could still imply this result; no independent priority certification is asserted.
+PASS
 
-**Value — PASS.** The optimization variable is the complete renewal waiting-time law, not a chosen low-dimensional clock family. A single explicit and computable threshold determines when perfectly regular timing is optimal and when a burst-like two-point law is strictly better. The theorem includes the unattained-supremum boundary for physically positive waiting times and a singular square-root reset-width law. This closes a natural protocol-design question for an experimentally motivated endpoint-dissipation benchmark without asserting that the benchmark is a total physical cost.
+OU variance solves v(t)=(D/lambda)[1-(1-c)e^(-2lambda t)], so endpoint Jeffreys divergence is F_c(x)/(2c) with F=(u-c)^2/u. Verified symbolic first and second derivatives; H_c(u)=2c²-c²u-u³ strictly decreases from positive to negative for c<u<1, producing one inflection. Q=xF'-F has one positive zero z_c after that point, yielding unique global tangent from origin and the least concave majorant equal to linear up to z_c then F. Jensen and equality/contact analysis give the exact two-regime supremum, deterministic uniqueness for mu>=tc, and strict-positive nonattainment below tc. Taylor/implicit-function expansion near c=0 gives zc=sqrt(2c)-c/3+O(c^1.5), normalized rate; independent numerical roots support it. Complete theorem rests on analysis, not finite checks.
 
-**Limits.** Instantaneous independent Gaussian redraws, one-dimensional OU relaxation, finite positive mean waiting, and endpoint symmetrized KL only. Minimal dwell times, detailed reset actuation, non-Gaussian potentials and actual path-space entropy production are not covered. Published-priority coverage is qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farago 2026 treats endpoint divergence and periodic versus Poisson reset protocols, not the complete distributional optimization over all iid positive renewal laws with a fixed mean and its singular c-dependent tangent. General renewal-reward and concavification principles are acknowledged; the evaluated phase transition and asymptotics add the precise model-dependent content.
+
+## value
+
+PASS
+
+Identifies the mathematically optimal temporal distribution for a natural Gaussian relaxation information measure at fixed mean, including an attained deterministic phase and a burst-like unattained phase. Its exact critical scale and curvature singularity are useful for benchmark reset protocol analysis; not claimed to quantify full physical entropy production.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:17:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "OU variance solves v(t)=(D/lambda)[1-(1-c)e^(-2lambda t)], so endpoint Jeffreys divergence is F_c(x)/(2c) with F=(u-c)^2/u. Verified symbolic first and second derivatives; H_c(u)=2c²-c²u-u³ strictly decreases from positive to negative for c<u<1, producing one inflection. Q=xF'-F has one positive zero z_c after that point, yielding unique global tangent from origin and the least concave majorant equal to linear up to z_c then F. Jensen and equality/contact analysis give the exact two-regime supremum, deterministic uniqueness for mu>=tc, and strict-positive nonattainment below tc. Taylor/implicit-function expansion near c=0 gives zc=sqrt(2c)-c/3+O(c^1.5), normalized rate; independent numerical roots support it. Complete theorem rests on analysis, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General renewal-reward theorem and least concave majorant of a reward curve can optimize fixed-mean distributions abstractly."
+        ],
+        "reasoning": "The method is standard, but the explicit OU reward, unique z_c and c→0 expansion are not stated by the inspected Farago analysis; general variational principles are acknowledged.",
+        "searches": [
+          "Resultary: Gaussian Ornstein Uhlenbeck resetting renewal optimal waiting time Jeffreys divergence concave envelope",
+          "arXiv:2605.28445v1",
+          "DOI:10.1088/1367-2630/18/3/033006"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.28445v1 (full primary PDF)",
+        "arXiv:2211.15372 (abstract/model summary)",
+        "DOI:10.1088/1367-2630/18/3/033006 (summary)",
+        "Resultary semantic search OU renewal fixed mean divergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general concave-envelope theorem implies the formal optimizing distribution once F is known, but not the unique explicit tangent and small-width scaling without substantial reward analysis."
+        ],
+        "reasoning": "The stated two-regime solution is not already implied by the source comparisons on periodic/Poisson protocols; it is a concrete analytic specialization with possible general-theory subsumption risk.",
+        "searches": [
+          "Resultary: Gaussian Ornstein Uhlenbeck resetting renewal optimal waiting time Jeffreys divergence concave envelope",
+          "arXiv:2605.28445v1",
+          "arXiv:2211.15372",
+          "DOI:10.1088/1367-2630/18/3/033006"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farago compares periodic and Poisson OU reset endpoint processes; Mori–Olsen–Krishnamurthy study path entropy production."
+        ],
+        "reasoning": "Endpoint Jeffreys reward per renewal unit time is distinct from path-space thermodynamic entropy and from restricting wait laws to exponential/deterministic families.",
+        "searches": [
+          "Resultary: Gaussian Ornstein Uhlenbeck resetting renewal optimal waiting time Jeffreys divergence concave envelope",
+          "arXiv:2605.28445v1",
+          "arXiv:2211.15372"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed sharp renewal-type variance envelope concerns catastrophe process variability, not OU Gaussian Jeffreys reward."
+        ],
+        "reasoning": "No exact OU fixed-mean renewal-law transition table found; unsuccessful search is not novelty proof.",
+        "searches": [
+          "Resultary: Gaussian Ornstein Uhlenbeck resetting renewal optimal waiting time Jeffreys divergence concave envelope",
+          "Resultary: 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783"
+        ]
+      },
+      "rationale": "Farago 2026 treats endpoint divergence and periodic versus Poisson reset protocols, not the complete distributional optimization over all iid positive renewal laws with a fixed mean and its singular c-dependent tangent. General renewal-reward and concavification principles are acknowledged; the evaluated phase transition and asymptotics add the precise model-dependent content.",
+      "residual_risks": [
+        "General convex-order/renewal optimization could dominate the abstract concave-envelope method; claim restricted to its explicit model-dependent evaluated boundary and asymptotics.",
+        "Endpoint divergence is not dissipated work, full path-space entropy production, nor unconstrained physical implementation cost."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Baseline endpoint model and particular waiting laws prior art; not the unrestricted fixed-mean renewal distribution envelope",
+          "evidence": "Comparisons of periodic/Poisson resetting and finite-width endpoint divergence.",
+          "identifier_or_url": "arXiv:2605.28445v1",
+          "material_read": "Full six-page primary PDF including model, Gaussian endpoint divergence, periodic and Poisson sections",
+          "method": "Full PDF and page screenshot inspection",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "same OU harmonic resetting endpoint divergence"
+        },
+        {
+          "assessment": "Different physical path-level entropy production; cannot transfer a theorem unexamined",
+          "evidence": "Observable is not the endpoint symmetrized KL reward.",
+          "identifier_or_url": "arXiv:2211.15372",
+          "material_read": "Title/abstract and model overview, not full text",
+          "method": "Abstract-level literature inspection",
+          "title": "Entropy production of resetting processes",
+          "trigger": "competing entropy-production notion"
+        },
+        {
+          "assessment": "General renewal/reset framework, not verified to contain the precise c-dependent envelope",
+          "evidence": "Intermittent resetting and renewal processes.",
+          "identifier_or_url": "DOI:10.1088/1367-2630/18/3/033006",
+          "material_read": "Published title and summary, not full text",
+          "method": "Bibliographic overview",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "renewal-clock background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2605.28445v1 (full primary PDF)",
+        "arXiv:2211.15372 (abstract/model summary)",
+        "DOI:10.1088/1367-2630/18/3/033006 (summary)",
+        "Resultary semantic search OU renewal fixed mean divergence"
+      ],
+      "rationale": "Identifies the mathematically optimal temporal distribution for a natural Gaussian relaxation information measure at fixed mean, including an attained deterministic phase and a burst-like unattained phase. Its exact critical scale and curvature singularity are useful for benchmark reset protocol analysis; not claimed to quantify full physical entropy production.",
+      "residual_risks": [
+        "General convex-order/renewal optimization could dominate the abstract concave-envelope method; claim restricted to its explicit model-dependent evaluated boundary and asymptotics.",
+        "Endpoint divergence is not dissipated work, full path-space entropy production, nor unconstrained physical implementation cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General convex-order/renewal optimization could dominate the abstract concave-envelope method; claim restricted to its explicit model-dependent evaluated boundary and asymptotics.",
+    "Endpoint divergence is not dissipated work, full path-space entropy production, nor unconstrained physical implementation cost.",
+    "Exact source tree was read via Git tree API and matched assignment SHA; all direct files were identified by Git blobs. Finite independent tests cannot replace infinite arguments."
+  ],
+  "schema_version": 1
+}
