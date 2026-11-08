@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. All four eigenvalues follow from an explicitly normalized Pauli-basis moment matrix. The order of \(\zeta^{2k}\) distinguishes the vanishing and nonvanishing second character sums; the exceptional order-two case is separately calculated. The traceless eigenvalues always sum to \(n\), yielding the universal optimal bound, and the equality conditions solve precisely when all three are \(n/3\). The tensor design identity is obtained from the full operator-frame identity. Independent direct-projector numerical replays check 588 parameter cases and 196 optimal examples; the proof, not the finite replay, handles all admissible integers.
+## correctness
 
-## Originality
-PASS, with residual historical risk. The closest published mathematical research record already determines *qualitative* maximal-span and phase-retrieval criteria for these dihedral irreducibles; the present claim does not relabel those as new. Scott's work already supplies the unrestricted equivalence between tight matrix tomography and projective \(2\)-designs. The new object is the complete **parameterized operator-frame spectrum** and its exact optimal design locus, including the distinction between free-phase and phase-locked irreducibles. Full-text evidence from the 2017 dihedral full-spark work and the 2023 nilpotent-group article concerns different representations or qualitative objectives. Cheng's 2025 broad finite-group article could not be inspected fully, which leaves a concrete implication-comparison risk.
+PASS
 
-## Mathematical value
-PASS. Stability of linear inversion, not mere injectivity, is a natural problem for structured phaseless group-orbit measurements. The classification shows that **every** two-dimensional dihedral irrep realizes the universal tight-design optimum, despite the unique quarter-turn resonance forcing a complex relative phase; it identifies all stable-optimal fiducials and the exact loss of identifiability for real fiducials in that branch. A complete infinite-family design classification with an exceptional phase-locking phenomenon is more informative than a routine rank calculation. Claims do not extend to arbitrary representations, erasures, or noisy nonlinear inversion.
+For the ordinary unitary two-dimensional irrep pi(r)=diag(zeta^k,zeta^-k), pi(s)=swap, normalized vector and 2n group-element-labelled projectors, Pauli coordinates give identity eigenvalue n. Rotations/reflections cancel cross terms. For order ell=ord(zeta^{2k})>2 the traceless eigenvalues are nd^2,2n|c|^2 twice; at ell=2 they are nd^2,4n(Re c)^2,4n(Im c)^2. Their trace is n, hence min <=n/3; equality is attained precisely at d^2=1/3, and additionally phase arg c ≡pi/4 mod pi/2 if ell=2. Exceptional iff n divisible 4,k=n/4. Tight operator identity implies rank-one complex projective 2-design with multiplicity and condition number sqrt3. Independent direct orbit projector four-dimensional Gram matrices at (n,k)=(5,1),(8,2),(12,2),(6,1) reproduced eigenvalues n/3,n/3,n/3,n (within floating precision), including exceptional locked phase.
 
-## Closest sources and limitations
-Oussa–Sheehan (2017), arXiv:1705.00085, concerns full spark in an induced \(n\)-dimensional representation. Führ–Oussa (2022), arXiv:2201.08654, treats phase retrieval for nilpotent groups. Scott (2006), arXiv:quant-ph/0604049, establishes the general optimality and design equivalence. The public record *Exact maximal-spanning vectors for two-dimensional dihedral irreducibles* already contains the qualitative rank classification and is credited accordingly. Cheng (2025), DOI 10.1016/j.laa.2025.03.011, was not fully accessible for a decisive content comparison. The present theorem is restricted to unit generators, Hermitian operator recovery, and full multiplicity-counted orbits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier published two-dimensional dihedral maximal-spanning vectors result classifies whether the orbit spans operators, not the complete singular spectrum or sharp optimum/equality locus. Scott 2006 establishes universal equivalence of tight IC POVMs to complex projective 2-designs, but it does not determine which dihedral fiducials realize it. A broader Cheng 2025 phase-retrievability article remains unread and a residual risk.
+
+## value
+
+PASS
+
+Stable Hermitian matrix recovery under strongly structured group-orbit measurements is a natural optimal experimental-design problem. The exact spectral family identifies all optimal dihedral fiducials, including the exceptional inability of real relative phases to recover a full matrix, not merely existing qualitative phase retrievability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

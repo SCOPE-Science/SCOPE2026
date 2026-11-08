@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses exact geometric sums and the four-dimensional Hermitian Pauli basis. Its nonstandard but elementary step is that the group reflection pairs eliminate cross-terms, and the remaining order-two case requires separate treatment because the second geometric sum no longer vanishes.
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the checker. In the checked environment the output was `VERIFY_OK spectra=588 optimal_orbits=196 n_range=3..29`. The checker builds the orbit projectors independently, applies symmetric Jacobi diagonalization, and compares against the displayed spectrum within a documented floating-point tolerance. Its scope is finite and does not replace the exact proof for all \(n\).
+## correctness
 
-The focal article's first publicly available version is dated 2017-04-28, distinct from the later journal date. Full-text inspection of the focal article and the general projective-design antecedent is described in the accompanying literature comparison. A plausible subsequent article on phase retrievability of arbitrary finite-group irreducibles was not successfully accessed in full text; no inference about its detailed contents is made. Independent mathematical validation has not been performed.
+PASS
+
+For the ordinary unitary two-dimensional irrep pi(r)=diag(zeta^k,zeta^-k), pi(s)=swap, normalized vector and 2n group-element-labelled projectors, Pauli coordinates give identity eigenvalue n. Rotations/reflections cancel cross terms. For order ell=ord(zeta^{2k})>2 the traceless eigenvalues are nd^2,2n|c|^2 twice; at ell=2 they are nd^2,4n(Re c)^2,4n(Im c)^2. Their trace is n, hence min <=n/3; equality is attained precisely at d^2=1/3, and additionally phase arg c ≡pi/4 mod pi/2 if ell=2. Exceptional iff n divisible 4,k=n/4. Tight operator identity implies rank-one complex projective 2-design with multiplicity and condition number sqrt3. Independent direct orbit projector four-dimensional Gram matrices at (n,k)=(5,1),(8,2),(12,2),(6,1) reproduced eigenvalues n/3,n/3,n/3,n (within floating precision), including exceptional locked phase.
+
+## originality
+
+PASS
+
+The earlier published two-dimensional dihedral maximal-spanning vectors result classifies whether the orbit spans operators, not the complete singular spectrum or sharp optimum/equality locus. Scott 2006 establishes universal equivalence of tight IC POVMs to complex projective 2-designs, but it does not determine which dihedral fiducials realize it. A broader Cheng 2025 phase-retrievability article remains unread and a residual risk.
+
+## value
+
+PASS
+
+Stable Hermitian matrix recovery under strongly structured group-orbit measurements is a natural optimal experimental-design problem. The exact spectral family identifies all optimal dihedral fiducials, including the exceptional inability of real relative phases to recover a full matrix, not merely existing qualitative phase retrievability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
