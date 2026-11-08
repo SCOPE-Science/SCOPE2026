@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The construction specifies the exact 24-vertex, 30-edge honeycomb dual and all 20 perfect matching facets; the complete nonempty down-closure contains 66,369 faces. A full ordinary-face-poset toggle matching has exactly 33,183 pairs and three critical cells in dimensions 0, 3 and 3. The checker orients and topologically sorts all 420,294 Hasse covers and confirms acyclicity, proving a wedge of two three-spheres. The twelve symmetry permutations satisfy the defining relations, preserve all matching facets, and yield the stated signed fixed-face Lefschetz traces by two exhaustive methods. The representation decomposition follows from finite-group character theory; quotient statements follow from rational transfer. A separate execution of the packaged checker is required for the final delivered bytes.
+## correctness
 
-## Originality: PASS against the inspected literature
-Bayer, Jelić Milutinović and Vega, *Perfect Matching Complexes of Honeycomb Graphs* (arXiv:2209.02803v1, Section 4, Theorem 17, Appendix A), already proved the nonequivariant homotopy type and described all twenty perfect matchings. Their result does not state the natural dihedral homology representation. Chandrakar and Singh (arXiv:2407.05809v1) study polygonal line tilings and two-row grids rather than this hexagonal patch. Searches for dihedral, hexagonal, equivariant, and lozenge-tiling aliases found no equivalent complete character. Closest indexed symmetry results concern ordinary cycle matching complexes, hexagonal-prism cut complexes, and linear-chain independence complexes; none implies this statement. Counting symmetric tilings is not enough to recover the signed homological action. Risk: unidentified or unindexed stronger work could subsume the result.
+PASS
 
-## Value: PASS
-The first highly symmetric non-line honeycomb case in the motivating paper has two third-homology generators but no specified symmetry action. The new calculation identifies them as inequivalent one-dimensional dihedral sign lines, explains why 120-degree rotations fix both while full 60-degree rotation preserves only one, and distinguishes the rational homology of five natural subgroup quotients. This is a complete equivariant homology classification of a geometrically canonical benchmark, not a recomputation of the known rank or a claim for arbitrary honeycomb dimensions. Its exact orientation-sensitive method is reusable for related matching complexes.
+The frozen result fixes the exact lattice cell graph and action by r(i,j)=(-j,i+j),s(i,j)=(j,i). Independently constructed all 24 dual vertices and 30 edges, exhaustively enumerated 20 perfect-matching facets and all 66369 nonempty faces. Reimplemented greedy lexicographic vertex-edge toggling, yielding 33183 matched pairs and critical cells in dimensions 0,3,3; performed complete directed Hasse acyclicity check. Three cells and no 1/2 cells give S^3 vee S^3 by Forman discrete Morse. For every one of 12 dihedral symmetries independently summed signed orientation traces of all stabilized faces; obtained homology character rotations (2,0,2,0,2,0) and reflections (0,-2,0,-2,0,-2). Rational D6 character theory yields alpha+beta. Rational transfer yields quotient homology invariants. These checks are exhaustive for this finite complex, not a family theorem or integral equivariant splitting.
 
-## Scientific limitations
-The result is an exact computation for one specific graph. Its nontrivial claim is rational representation-theoretic; the integral module, equivariant homotopy type, and torsion of quotient spaces are not determined. Literature search cannot establish absolute uniqueness. The research should be independently checked before reuse as a certified result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer, Jelić Milutinović and Vega already proved the precise nonequivariant homotopy equivalence for H_(2×2×2), which is openly acknowledged. Inspected their primary Theorem 17 and matching description; no signed D6 action or quotient fixed-invariant character appears in examined result. Published related equivariant homology on cycles, ladders and hexagonal-prism cut complexes has different graph and face complex. This exact two-character refinement survives best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The natural full dihedral symmetry of a canonical 2×2×2 lozenge/honeycomb matching complex acts nontrivially on its two known spheres; resolving the two distinct sign lines and all subgroup rational quotient homologies is a motivated refinement of a previously computed invariant, not merely a repeated Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
