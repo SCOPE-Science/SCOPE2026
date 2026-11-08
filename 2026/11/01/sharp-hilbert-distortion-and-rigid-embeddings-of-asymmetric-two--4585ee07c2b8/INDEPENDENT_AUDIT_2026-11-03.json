@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:13:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md, variance and equality-chain proof; all 7 source Git-tree entries and exact checker inspected.",
+        "Independent rational squared-distance Gram ranks: (m,n,u,v)=(2,2,2,1), (3,4,.9,1.1), (6,5,1.5,1.8), (2,5,1,1) match predicted phase ranks."
+      ],
+      "rationale": "For every m,n>=2 and 0<u,v<=2, normalize least pair stretch to 1. Hilbert variance identities yield C²>=VA+VB+||centroidA-centroidB||²>=L. Orthogonal regular simplices of side lengths u,v attain C=max(1,sqrt L); a perpendicular centroid offset sqrt(1-L) appears exactly when L<1. In the L>1 equality case every intracluster distance is minimally stretched, every cross distance maximally stretched, and centroids coincide; subtracting four squared cross distances proves orthogonality. For L<=1 zero distortion forces isometric distances, and the same orthogonality argument gives the unique placement. Affine dimension m+n-2 versus m+n-1 follows. The split-graph specialization L=5/2-2/m-1/(2n)>1 follows algebraically. No finite check is used for universal quantifiers.",
+      "residual_risks": [
+        "No formal universal certificate; argument relies on standard Hilbert variance and uniqueness of regular simplices. Check is finite corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vallentin's spectral theory concerns distance-regular graph metrics; complete split graphs generally fail vertex regularity.",
+          "Resultary four-point ultrametric results describe Banach–Mazur distances of Lipschitz-free spaces, not these finite point distances."
+        ],
+        "reasoning": "Neither broad spectral setting directly dominates the present fixed two-cluster distortion/rigidity theorem.",
+        "searches": [
+          "Frank Vallentin arXiv:math/0509716 distance-regular graph embeddings",
+          "Resultary: Hilbert point-distance profiles recover all summand distortions"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, 7 exact source-tree Git blobs",
+        "Gavin Robertson arXiv:2309.16070 Theorem 4.3",
+        "Frank Vallentin arXiv:math/0509716",
+        "Resultary ranked query: two-cluster Hilbert distortion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Robertson supplies orthogonal simplices for the equal-within-distance graph case; Deza–Grishukhin addresses hypermetric and exact embedding properties of two-distance spaces."
+        ],
+        "reasoning": "The combined equality-forcing variance argument extends beyond existing symmetric special cases; none of the materially inspected statements entails all current claims.",
+        "searches": [
+          "Robertson arXiv:2309.16070 Thm 4.3",
+          "Deza–Grishukhin Hypermetric Two-Distance Spaces (2000)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Robertson computes Hilbert distortion for ordinary complete bipartite graph metrics, whose two within-part distances coincide; the new parameters u and v vary independently."
+        ],
+        "reasoning": "The symmetric ordinary complete-bipartite metric is a diagonal subfamily already covered; the complete asymmetric 2-parameter family, equality rigidity and split-graph u=2,v=1 are not direct corollaries of the reviewed theorem. Distinguish point distortion from Lipschitz-free Banach–Mazur distortion found in Resultary.",
+        "searches": [
+          "Resultary: Optimal Hilbert embedding distortion rigidity two cluster equilateral metric complete split graph orthogonal regular simplices centroid distance",
+          "Gavin Robertson arXiv:2309.16070 Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary hits for 4-point ultrametrics and clustered metric free spaces, no all-(m,n,u,v) table or unique cross-distance-optimizer classification."
+        ],
+        "reasoning": "The known symmetric graph case may yield isolated rows but does not list the full continuous asymmetric family or dimension bifurcation.",
+        "searches": [
+          "Resultary: two-cluster Euclidean distortion, complete split graph orthogonal simplices",
+          "Gavin Robertson arXiv:2309.16070"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the full theorem, not just its title: The symmetric ordinary complete-bipartite metric is a diagonal subfamily already covered; the complete asymmetric 2-parameter family, equality rigidity and split-graph u=2,v=1 are not direct corollaries of the reviewed theorem. Distinguish point distortion from Lipschitz-free Banach–Mazur distortion found in Resultary. The combined equality-forcing variance argument extends beyond existing symmetric special cases; none of the materially inspected statements entails all current claims.",
+      "residual_risks": [
+        "A differently parameterized older finite-metric or SDP result could imply the asymmetric equality structure.",
+        "Robertson's same-style symmetry technique is strong prior art, and novelty resides in the extension/complete rigidity rather than in the variance trick alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers symmetric complete-bipartite graph metric and orthogonal construction; not asymmetric cross/split-graph rigidity",
+          "evidence": "Theorem 4.3, equal within-class graph distances",
+          "identifier_or_url": "https://arxiv.org/abs/2309.16070",
+          "material_read": "Theorem 4.3 and discussion of complete bipartite graph metrics",
+          "method": "Read primary full-text relevant theorem and adjacent argument",
+          "title": "Negative type and bi-lipschitz embeddings into Hilbert space",
+          "trigger": "Same target metric Hilbert distortion and orthogonal simplex construction"
+        },
+        {
+          "assessment": "Broader class not encompassing non-distance-regular complete split graphs",
+          "evidence": "Distance regularity precondition",
+          "identifier_or_url": "https://arxiv.org/abs/math/0509716",
+          "material_read": "Title/abstract and context for distance-regular hypothesis; not claimed comprehensive full text",
+          "method": "Primary source context comparison",
+          "title": "Optimal Embeddings of Distance Regular Graphs into Euclidean Spaces",
+          "trigger": "Broader general spectral embedding method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Formula valid all m,n and real two-cluster distances; complete classification of all optima and phase transition at L=1",
+        "Concrete non-distance-regular complete split graph family"
+      ],
+      "rationale": "The two-cluster metric is a natural family interpolating disparate internal scales; exact global distortion, its optimizers and sharp dimension jump are useful for graph embeddings and metric geometry. The infinite complete-split-graph family is not distance-regular and is not an arbitrary tiny numerical case.",
+      "residual_risks": [
+        "Mathematical novelty and value are limited to a rigid highly symmetric finite-metric family, not arbitrary finite metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, 7 exact source-tree Git blobs",
+    "Gavin Robertson arXiv:2309.16070 Theorem 4.3",
+    "Frank Vallentin arXiv:math/0509716",
+    "Resultary ranked query: two-cluster Hilbert distortion"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No formal universal certificate; argument relies on standard Hilbert variance and uniqueness of regular simplices. Check is finite corroboration.",
+    "A differently parameterized older finite-metric or SDP result could imply the asymmetric equality structure.",
+    "Robertson's same-style symmetry technique is strong prior art, and novelty resides in the extension/complete rigidity rather than in the variance trick alone.",
+    "Mathematical novelty and value are limited to a rigid highly symmetric finite-metric family, not arbitrary finite metrics."
+  ],
+  "residual_risks": [
+    "A differently parameterized older finite-metric or SDP result could imply the asymmetric equality structure.",
+    "Robertson's same-style symmetry technique is strong prior art, and novelty resides in the extension/complete rigidity rather than in the variance trick alone.",
+    "No formal universal certificate; argument relies on standard Hilbert variance and uniqueness of regular simplices. Check is finite corroboration."
+  ],
+  "schema_version": 1
+}
