@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Any independent dominating set of the central graph has an original-vertex intersection that is a clique of the input graph. Since the input is triangle-free, this clique has size zero, one, or two. The omitted-edge vertices are then forced exactly, and the remaining original-vertex domination conditions are proved separately in all three cases. The final bound on minimum size uses only \(Q\ge3\) and the fact that each neighbour of an eligible vertex has degree at least two. The complete finite coefficient comparison covers 3801 connected labelled triangle-free input graphs through order six and three larger examples; this is corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The 2026 central-graph paper proves the minimum-independent-domination value by clique minimization, and the 2014 polynomial paper introduces the enumerator on other graph families. Neither inspected text states the all-set polynomial, total number, or sharp optimal multiplicities for arbitrary connected triangle-free graphs. The independent-domination polynomial for the double central iterate appearing in an earlier research record addresses a different graph. The 2026 proof supplies close structural background, and an earlier unlocated general enumeration theorem remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a complete infinite-class enumerator with an explicit bijection and linear-size description, reducing the number of maximal independent sets of these central graphs to \(m+n+1-|S|\). It extracts information beyond the established minimum number, including exact cardinality distributions and optimum multiplicity for all connected triangle-free graphs, distinguishing input graphs with the same degree multiset via the positions of support vertices and edge degree sums. This is a natural refinement of a recently studied graph operator rather than an arbitrary finite computation.
+For connected triangle-free G (n≥3), U=I∩V(G) is a clique of G, hence |U|≤2. Selected subdivision vertices are forced exactly for edges not meeting U. The U=empty case yields z^m; singleton u yields z^(m+1-d(u)) iff no leaf-neighbor (u outside support set); U={u,v} with uv edge is always dominating and yields z^(m+3-d(u)-d(v)). These families are disjoint and exhaustive, proving the full polynomial and m+n+1-|S| total. The minimum coefficient follows from Q=max_edge degree sum, with singleton equality only if d(u)=Q-2 and empty equality only Q=3. Independent maximal-independent-set brute force checked P3,C4,P5,K1,4,C5 coefficientwise. Analytic argument covers all finite connected triangle-free n≥3.
 
-**Limitations.** Connected triangle-free simple input graphs with at least three vertices; labelled subsets; no higher central iterates or automorphism quotient. Historical-priority comparisons are not an independent literature audit, and finite computational checks do not substitute for the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-coefficient polynomial and optimum multiplicity for first central graphs of arbitrary connected triangle-free graphs. The closest 2026 paper was inspected in full: it already proves the minimum m+3-Q and general clique minimization, explicitly not new here.
+
+## value
+
+PASS
+
+Complete enumeration separates graph families with the same degree sequences and describes all optimizer degeneracies; it is a motivated structural refinement of an active central-graph minimum-parameter question, not merely an algebraic restatement of the known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

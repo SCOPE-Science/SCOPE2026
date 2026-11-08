@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected triangle-free G (n≥3), U=I∩V(G) is a clique of G, hence |U|≤2. Selected subdivision vertices are forced exactly for edges not meeting U. The U=empty case yields z^m; singleton u yields z^(m+1-d(u)) iff no leaf-neighbor (u outside support set); U={u,v} with uv edge is always dominating and yields z^(m+3-d(u)-d(v)). These families are disjoint and exhaustive, proving the full polynomial and m+n+1-|S| total. The minimum coefficient follows from Q=max_edge degree sum, with singleton equality only if d(u)=Q-2 and empty equality only Q=3. Independent maximal-independent-set brute force checked P3,C4,P5,K1,4,C5 coefficientwise. Analytic argument covers all finite connected triangle-free n≥3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 primary paper includes general central-graph minimum and higher-iterate minima; Resultary has a higher-iterated central-graph scalar minimum theorem."
+        ],
+        "reasoning": "Neither prior statement classifies or counts every maximal independent set of first central graphs for arbitrary connected triangle-free inputs; a scalar optimization formula over cliques is weaker than the exact weighted enumerator.",
+        "searches": [
+          "https://arxiv.org/abs/2609.16357",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 3df01e67c0130ec2fbb40c5924221f551180246d",
+        "Cabrera-Martínez et al., arXiv:2609.16357, full 13-page primary text and Theorems 2.1–2.12",
+        "Resultary iterated central-graph record 2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+        "Resultary semantic query: central graph of triangle-free graph independent domination polynomial all maximal independent sets degree sums support vertices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cabrera-Martínez Theorem 2.1: i(C(G))=min_{U clique}(|U|+|E(G-U)|+δ(P_G(U))); Theorem 2.2 for triangle-free gives m+3-Q, which is explicitly recovered and not claimed new."
+        ],
+        "reasoning": "Minimum only loses multiplicities; the three-class exhaustive construction yields new z^m, eligible singleton, and every edge terms and their coefficients. Published theorems 2.1–2.12, including iterates, have no corresponding full generating polynomial in inspected full text.",
+        "searches": [
+          "https://arxiv.org/abs/2609.16357",
+          "central graph of triangle-free graph independent domination polynomial all maximal independent sets degree sums support vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Any central-graph maximal independent set is determined by a clique U in original G, plus subdivision vertices for edges disjoint from U; when G triangle-free, U is empty, singleton or edge."
+        ],
+        "reasoning": "Cabrera-Martínez et al. (2026) Theorem 2.1 minimizes over U with correction δ(P_G(U)), while Theorem 2.2 evaluates only the minimum m+3-maxedge(degree sum). Neither statement gives all polynomial coefficients or the total number m+n+1-|S|.",
+        "searches": [
+          "central graph of triangle-free graph independent domination polynomial all maximal independent sets degree sums support vertices",
+          "https://arxiv.org/abs/2609.16357"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact support and coefficients depend on original edge degree sums and support vertices, not solely degree-sequence: two six-vertex trees with equal degree multisets have distinct polynomials."
+        ],
+        "reasoning": "No evaluated prior table of arbitrary triangle-free central-graph maximal independent-set counts found. Numeric small graph data cannot imply an all-graph polynomial identity.",
+        "searches": [
+          "central graph of triangle-free graph independent domination polynomial all maximal independent sets degree sums support vertices",
+          "https://arxiv.org/abs/2609.16357"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-coefficient polynomial and optimum multiplicity for first central graphs of arbitrary connected triangle-free graphs. The closest 2026 paper was inspected in full: it already proves the minimum m+3-Q and general clique minimization, explicitly not new here.",
+      "residual_risks": [
+        "A general previously published maximal-independent-set enumeration for central graphs could subsume the formula even if its title does not emphasize the polynomial.",
+        "Finite tests cover representative small graphs only; generality follows from triangle-free clique exhaustion.",
+        "The 2026 published scalar minimum result must remain clearly credited to the primary authors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MINIMUM_NOT_FULL_POLYNOMIAL",
+          "evidence": [
+            "Theorem 2.1 supplies a minimum over original cliques; 2.2 gives m+3-max_{uv}(deg u+deg v) for triangle-free. No full polynomial, total count or coefficient formula is stated among full examined theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16357",
+          "material_read": "Authorized full 13-page primary PDF read, including Theorems 2.1–2.12, proofs, min formula, triangle-free result, iterates and reference list",
+          "method": "Authorized full-text page-by-page mathematical implication analysis",
+          "title": "Independent domination in central graphs",
+          "trigger": "Closest same-graph model and theorem potentially encompassing claim"
+        },
+        {
+          "assessment": "DIFFERENT_ITERATE_AND_INVARIANT",
+          "evidence": [
+            "Claim concerns C(G) full polynomial, whereas record gives for k≥3 only i(C^k(G))=2|E(C^(k-2)(G))|."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+          "material_read": "Resultary indexed summary and stated higher-iterate scalar theorem, not source full text",
+          "method": "Semantic result/title/theorem scope comparison",
+          "title": "Independent domination of higher iterated central graphs",
+          "trigger": "Relevant published local mathematical work on same graph operator"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_RISK",
+          "evidence": [
+            "Earlier standard independent domination polynomial results may contain implicit tools; no confirmed first-central-graph all-triangle-free formula from material inspected."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/366503721_Independent_Dominating_Polynomial_in_Graphs",
+          "material_read": "Accessible bibliographic description and source citations, no independently read complete paper",
+          "method": "Bibliographic primary-source scope comparison",
+          "title": "Independent Dominating Polynomial in Graphs",
+          "trigger": "Earlier polynomial definition and evaluated graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete enumeration separates graph families with the same degree sequences and describes all optimizer degeneracies; it is a motivated structural refinement of an active central-graph minimum-parameter question, not merely an algebraic restatement of the known minimum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 3df01e67c0130ec2fbb40c5924221f551180246d",
+    "Cabrera-Martínez et al., arXiv:2609.16357, full 13-page primary text and Theorems 2.1–2.12",
+    "Resultary iterated central-graph record 2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+    "Resultary semantic query: central graph of triangle-free graph independent domination polynomial all maximal independent sets degree sums support vertices"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general previously published maximal-independent-set enumeration for central graphs could subsume the formula even if its title does not emphasize the polynomial.",
+    "Finite tests cover representative small graphs only; generality follows from triangle-free clique exhaustion.",
+    "The 2026 published scalar minimum result must remain clearly credited to the primary authors."
+  ],
+  "residual_risks": [
+    "A general previously published maximal-independent-set enumeration for central graphs could subsume the formula even if its title does not emphasize the polynomial.",
+    "Finite tests cover representative small graphs only; generality follows from triangle-free clique exhaustion.",
+    "The 2026 published scalar minimum result must remain clearly credited to the primary authors."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR_MINIMUM_NOT_FULL_POLYNOMIAL",
+      "evidence": [
+        "Theorem 2.1 supplies a minimum over original cliques; 2.2 gives m+3-max_{uv}(deg u+deg v) for triangle-free. No full polynomial, total count or coefficient formula is stated among full examined theorems."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.16357",
+      "material_read": "Authorized full 13-page primary PDF read, including Theorems 2.1–2.12, proofs, min formula, triangle-free result, iterates and reference list",
+      "method": "Authorized full-text page-by-page mathematical implication analysis",
+      "title": "Independent domination in central graphs",
+      "trigger": "Closest same-graph model and theorem potentially encompassing claim"
+    },
+    {
+      "assessment": "DIFFERENT_ITERATE_AND_INVARIANT",
+      "evidence": [
+        "Claim concerns C(G) full polynomial, whereas record gives for k≥3 only i(C^k(G))=2|E(C^(k-2)(G))|."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-iterated-central-graph-independent-domination--7dc2104ad847",
+      "material_read": "Resultary indexed summary and stated higher-iterate scalar theorem, not source full text",
+      "method": "Semantic result/title/theorem scope comparison",
+      "title": "Independent domination of higher iterated central graphs",
+      "trigger": "Relevant published local mathematical work on same graph operator"
+    },
+    {
+      "assessment": "POSSIBLE_GENERAL_RISK",
+      "evidence": [
+        "Earlier standard independent domination polynomial results may contain implicit tools; no confirmed first-central-graph all-triangle-free formula from material inspected."
+      ],
+      "identifier_or_url": "https://www.researchgate.net/publication/366503721_Independent_Dominating_Polynomial_in_Graphs",
+      "material_read": "Accessible bibliographic description and source citations, no independently read complete paper",
+      "method": "Bibliographic primary-source scope comparison",
+      "title": "Independent Dominating Polynomial in Graphs",
+      "trigger": "Earlier polynomial definition and evaluated graph families"
+    }
+  ]
+}

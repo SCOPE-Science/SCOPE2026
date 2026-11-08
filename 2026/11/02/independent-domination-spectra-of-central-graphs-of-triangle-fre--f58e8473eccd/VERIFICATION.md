@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python standard library only). Its output is
+## correctness
 
-`VERIFY_OK all_connected_labelled_triangle_free_orders_2_to_6=3801 larger_samples=3 all_coefficients_matched=True`
+PASS
 
-The program enumerates all connected labelled triangle-free graphs on 2 through 6 vertices and independently counts maximal independent sets of the corresponding central graphs by the Bron--Kerbosch algorithm applied to the complement. The 3 larger graphs are \(C_8\), \(K_{4,4}\), and \(C_{10}\). All integer polynomial coefficients match the closed formula. At input order two the checker tests the general polynomial description only; the stated optimum formula is explicitly restricted to input order at least three.
+For connected triangle-free G (n≥3), U=I∩V(G) is a clique of G, hence |U|≤2. Selected subdivision vertices are forced exactly for edges not meeting U. The U=empty case yields z^m; singleton u yields z^(m+1-d(u)) iff no leaf-neighbor (u outside support set); U={u,v} with uv edge is always dominating and yields z^(m+3-d(u)-d(v)). These families are disjoint and exhaustive, proving the full polynomial and m+n+1-|S| total. The minimum coefficient follows from Q=max_edge degree sum, with singleton equality only if d(u)=Q-2 and empty equality only Q=3. Independent maximal-independent-set brute force checked P3,C4,P5,K1,4,C5 coefficientwise. Analytic argument covers all finite connected triangle-free n≥3.
 
-The infinite result uses a three-type proof, not interpolation or extrapolation from these finite tests. No formal proof-assistant certification or independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original all-coefficient polynomial and optimum multiplicity for first central graphs of arbitrary connected triangle-free graphs. The closest 2026 paper was inspected in full: it already proves the minimum m+3-Q and general clique minimization, explicitly not new here.
+
+## value
+
+PASS
+
+Complete enumeration separates graph families with the same degree sequences and describes all optimizer degeneracies; it is a motivated structural refinement of an active central-graph minimum-parameter question, not merely an algebraic restatement of the known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
