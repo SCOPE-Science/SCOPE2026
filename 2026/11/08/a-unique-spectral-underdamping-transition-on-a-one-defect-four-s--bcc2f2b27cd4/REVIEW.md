@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The full column-conservative Markov generator is reconstructed with four clockwise and four anticlockwise transitions. The exact characteristic cubic and discriminant are reproduced independently in the included symbolic checker. Strict negativity of every positive-degree discriminant coefficient, with an explicitly nonnegative constant term, proves the unique transition over the entire parameter domain; singular-limit equations yield the two stated asymptotics. Numerical eigenvalues cross-check the signs but are not used as universal proofs.
+
+**Originality — PASS, with risk.** The original stochastic bond-jump spectrum and thermodynamic driving framework are prior work, and general spectral inequalities are not claimed as new. Relevant primary material was checked: the 2023 quantum-walk article, the 2015/2016 conservative random-ring paper's exact spectral relation and continuum weak-link analysis, and a 2026 affinity/winding spectral theorem. None of the inspected exact statements specifies the finite four-site one-defect cubic discriminant, proves the one-crossing law for all positive defect strengths, or derives both singular limits. Targeted scholarly and research-record searches found no covering presentation, but this is not proof of priority. An unindexed or differently parameterized finite-cycle analysis could imply the result; the 2019 affinity-bound paper was not fully accessible for inspection.
+
+**Mathematical value — PASS.** Finite molecular-motor and ring-relaxation models require knowing whether a fixed kinetic defect can prevent oscillatory relaxation even under very strong bias. The exact classification shows the threshold exists uniquely for every strength and quantifies two qualitatively different defect limits. It sharpens long-ring/continuum weak-link analyses by determining a complete natural finite-state spectral phase diagram, rather than supplying an arbitrary isolated eigenvalue calculation.
+
+The result applies only to the four-site classical sector. It does not imply quantum coherent behavior, nor does it determine transition counts for arbitrary rings.
+
+Self-review: passed. Independent audit: not yet performed.
