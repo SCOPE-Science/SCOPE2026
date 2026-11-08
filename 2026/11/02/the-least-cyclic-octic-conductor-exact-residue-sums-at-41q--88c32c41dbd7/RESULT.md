@@ -1,29 +1,31 @@
 # The least cyclic octic conductor: exact residue sums at \(41q\)
 
 ## Finding
-Let \(q\) be any odd prime other than \(41\). Let \(K=\langle10\rangle=\{1,10,16,18,37\}\) be the order-five subgroup of \(\mathbb F_{41}^{\times}\), and let \(H_q\) comprise the invertible residues modulo \(41q\) whose reductions modulo \(41\) lie in \(K\). For a finite subset \(X\) of the units modulo \(m\), write \(S_m(X)\) for the sum of the least positive integer representatives of its elements; say that \(X\) is *centered* when \(S_m(X)=m|X|/2\). The term *all-coset centered* means that **every multiplicative coset** of \(H_q\) is centered in this sum-of-representatives sense. It is not the same as the half-interval-count definition of balanced subgroups used in other literature.
 
-Let \(C_j=6^jK\), with subscripts taken modulo \(8\), and write \(q\bmod41\in C_j\). Then \(H_q\) has index \(8\), has order \(5(q-1)\), and is cyclic if and only if \(q\not\equiv1\pmod5\). Its sum has the exact two-valued law
+Let \(q\ne41\) be any odd prime, let \(K=\langle 10\rangle=\{1,10,16,18,37\}\subset\mathbb F_{41}^{\times}\), and let \(H_q\subset (\mathbb Z/41q\mathbb Z)^\times\) be the inverse image of \(K\) under reduction modulo \(41\). For a set \(X\) of units modulo \(m\), let \(S_m(X)\) denote the sum of its least positive integer representatives, and call \(X\) *centered* if \(S_m(X)=m|X|/2\). Here *all-coset centered* means that this equality holds for every multiplicative coset of \(H_q\), not just for \(H_q\) itself.
+
+Write \(C_j=6^jK\subset\mathbb F_{41}^{\times}\), with indices modulo \(8\), and choose \(j\) by \(q\bmod41\in C_j\). Then \(H_q\) has index \(8\), order \(5(q-1)\), and is cyclic precisely when \(q\not\equiv1\pmod5\). Its exact centering defect is
 \[
-S_{41q}(H_q)-\frac{41q|H_q|}{2}=
-\begin{cases}
+S_{41q}(H_q)-\frac{41q|H_q|}{2}=\begin{cases}
 0,&j\in\{0,1,2,7\},\\
 -41q,&j\in\{3,4,5,6\}.
 \end{cases}
 \]
-Moreover all eight multiplicative cosets are centered simultaneously if and only if \(q\bmod41\in C_0=K\).
+Moreover every coset of \(H_q\) is centered simultaneously exactly when \(j=0\), or equivalently \(q\bmod41\in K\).
 
-Among rational primes \(q\), the three densities for *cyclic and centered*, *cyclic and centered but not all-coset centered*, and *cyclic and all-coset centered* are, respectively, \(3/8\), \(9/32\), and \(3/32\). The finite exclusions \(q=5,41\) do not affect densities.
+Among all rational primes \(q\), the natural densities of **cyclic and centered**, **cyclic and centered but not all-coset centered**, and **cyclic and all-coset centered** are \(3/8\), \(9/32\), and \(3/32\), respectively. The modulus prime \(41\) is the smallest odd prime conductor supporting a cyclic index-eight subgroup containing the entire other-prime CRT unit factor. At modulus \(123\) the subgroup \(H_3\) is centered but not all-coset centered.
 
-The conductor \(41\) is the smallest odd prime \(p\) for which a cyclic index-eight subgroup of \((\mathbb Z/pq\mathbb Z)^\times\) containing the full unit factor at \(\mathbb F_q^\times\) exists. In particular, modulo \(123\), \(H_3\) is centered but not all-coset centered.
+For an odd modulus, all-coset centeredness in this *first-moment* sense is equivalent to the all-coset half-interval balance condition studied by Pomerance and Ulmer; the equivalence is also stated explicitly by Ma, Merca and Zhang. In contrast, centeredness of the subgroup **alone** need not imply either all-coset property, as the modulus-123 example shows. This corrects a misleading distinction between the two all-coset notions sometimes made when describing this example; no novelty is claimed for their equivalence.
 
 ## Assumptions and scope
-The second prime \(q\) ranges over **all odd primes distinct from \(41\)**. For the cyclic classification no restriction on the ordering of \(41\) and \(q\) is imposed; \(q=5\) is included, even though it does not belong to a reduced residue class modulo \(205\). Natural prime density means \(\lim_{x\to\infty}\#\{q\le x:\text{property}\}/\pi(x)\), whose existence follows here from Dirichlet's theorem and the prime number theorem for fixed arithmetic progressions. The claim only treats the imprimitive index-eight kernel containing the *entire second-prime CRT factor*. It does not classify all index-eight subgroups modulo semiprimes.
+
+The second prime ranges over every odd prime except \(41\), including \(q=5\), although the latter is excluded automatically in the density calculation by the reduced progression classes. The term *cyclic* describes the finite multiplicative subgroup \(H_q\), not the quotient of the full unit group. All multiplicative cosets are cosets in \((\mathbb Z/41q\mathbb Z)^\times\). Prime density means the natural density relative to \(\pi(x)\), justified by the prime number theorem in fixed coprime progressions. Only the imprimitive index-eight subgroup containing the full second-prime CRT factor is classified, not arbitrary octic characters or all index-eight subgroups of semiprime unit groups.
 
 ## Proof
-**Step 1: the unique local subgroup.** The element \(6\) has order \(40\) modulo \(41\): its \(20\)-th power is \(-1\), and its eighth power is \(10\ne1\), so its order has neither prime-factor reduction by \(2\) nor \(5\). Thus the unique subgroup of index eight is \(K=\langle6^8\rangle\). The eight cosets and their sums of representatives are the following exact table:
 
-| \(j\) | Elements of \(C_j\) in increasing order | \(\sum_{a\in C_j}a\) |
+**Local coset structure.** Direct modular arithmetic shows that \(6\) has order \(40\) modulo \(41\): \(6^{20}\equiv-1\pmod{41}\) and \(6^8\equiv10\ne1\pmod{41}\). Thus \(K=\langle6^8\rangle\) is the unique index-eight subgroup. The cosets \(C_j=6^jK\), with their exact representatives and integer sums, are
+
+| \(j\) | Elements of \(C_j\) in increasing order | Sum \(s_j\) |
 |:--:|:--|--:|
 |0|1, 10, 16, 18, 37|82|
 |1|6, 14, 17, 19, 26|82|
@@ -34,46 +36,41 @@ The second prime \(q\) ranges over **all odd primes distinct from \(41\)**. For 
 |6|5, 8, 9, 21, 39|82|
 |7|3, 7, 13, 29, 30|82|
 
-**Step 2: exact lifting sum.** For any \(i\), the coset \(X_i\) modulo \(41q\) with CRT components \(C_i\times\mathbb F_q^\times\) is the set of positive integers \(n<41q\) satisfying \(n\bmod41\in C_i\) and \(q\nmid n\). For a fixed representative \(a\in C_i\), the \(q\) integers \(a+41t\) with \(0\le t<q\) contain exactly one multiple of \(q\), namely \(q[aq^{-1}]_{41}\), where \([\cdot]_{41}\) denotes the least positive representative modulo \(41\). Their sum after this removal is
-\[
-q a+\frac{41q(q-1)}{2}-q[aq^{-1}]_{41}.
-\]
-If \(q\bmod41\in C_j\), multiplication by \(q^{-1}\) carries \(C_i\) onto \(C_{i-j}\). Summing the preceding exact identity over its five members proves
+**Exact lifting identity.** Let \(X_i\) be the coset of units modulo \(41q\) with CRT components \(C_i\times\mathbb F_q^\times\). Fix \(a\in C_i\). The \(q\) positive integers \(a+41t\), \(0\le t<q\), have total sum \(qa+41q(q-1)/2\); exactly one is divisible by \(q\), namely \(q[aq^{-1}]_{41}\), where \([\cdot]_{41}\) denotes the least positive representative modulo \(41\). Removing it and summing over \(a\in C_i\) gives, when \(q\bmod41\in C_j\),
 \[
 S_{41q}(X_i)-\frac{41q|X_i|}{2}
-=q\biggl(\sum_{a\in C_i}a-\sum_{b\in C_{i-j}}b\biggr).
-\tag{1}
+=q\left(\sum_{a\in C_i}a-\sum_{b\in C_{i-j}}b\right)
+=q(s_i-s_{i-j}),\qquad |X_i|=5(q-1).\tag{1}
 \]
-Notice that \(|X_i|=5(q-1)\) and the sum over all \(t\) was computed before any modular reduction; there is no ambiguity about least representatives.
+This is an equality of ordinary integer sums, with no passage to representatives after summation. Its derivation also covers \(q=5\).
 
-**Step 3: index, cyclicity, and the two possible sums.** CRT identifies \(H_q\) with \(K\times\mathbb F_q^\times\), which has order \(5(q-1)\) and index \(40(q-1)/(5(q-1))=8\). Since each factor is cyclic, their product is cyclic exactly when \(\gcd(5,q-1)=1\), equivalently \(q\not\equiv1\pmod5\). Substituting \(i=0\) in (1) gives \(q(82-s_{-j})\), where the vector of coset sums is
+**Index, cyclicity and the subgroup defect.** The Chinese remainder theorem gives \(H_q\cong C_5\times C_{q-1}\), so its order is \(5(q-1)\), index is eight, and it is cyclic exactly when \(\gcd(5,q-1)=1\). Applying (1) with \(i=0\), the defect is \(q(82-s_{-j})\). The coset-sum vector is \((82,82,123,123,123,123,82,82)\), so \(s_{-j}=82\) if and only if \(j\in\{0,1,2,7\}\), proving the two-valued law.
+
+**All-coset condition and the witness.** By (1), all eight cosets are centered if and only if cyclic translation by \(j\) fixes the entire sequence \((s_i)\). The four low-sum positions \(\{6,7,0,1\}\) form one cyclic interval of length four, with no nonzero translational period; hence \(j=0\). In particular
 \[
-(s_0,s_1,s_2,s_3,s_4,s_5,s_6,s_7)
-=(82,82,123,123,123,123,82,82).
+H_3=\{1,10,16,37,59,83,92,98,100,119\}
 \]
-Thus \(s_{-j}=82\) exactly when \(j\in\{0,1,2,7\}\); in the other four classes the difference is \(q(82-123)=-41q\).
+has sum \(615=123\cdot10/2\), while the coset with first CRT component \(C_1\) has sum \(492\). Thus an individually centered subgroup need not have all its cosets centered or balanced. The known equivalence between the **all-coset** first-moment and half-interval conditions is not contradicted: both fail in this example.
 
-**Step 4: all-coset centeredness.** Equation (1) vanishes for all eight cosets exactly if the cyclic word \((s_0,\ldots,s_7)\) is invariant under translation by \(j\). Its four low entries form one cyclic interval \(\{6,7,0,1\}\), which is not invariant under any nonzero translation modulo eight. Hence this happens exactly when \(j=0\). For \(q=3\), the subgroup is
-\[
-H_3=\{1,10,16,37,59,83,92,98,100,119\},
-\]
-whose sum is \(615=123\cdot10/2\); but the coset corresponding to \(C_1\) has sum \(492\), not \(615\). This is an explicit centered but not all-coset centered case.
+**Densities.** The reduced residue classes modulo \(205=41\cdot5\) number \(\varphi(205)=160\). Exactly \(120\) have \(q\not\equiv1\pmod5\). Among those, \(60\) lie in the four centered octic classes; \(15\) have \(j=0\); and \(45\) are centered but not all-coset centered. The prime number theorem in arithmetic progressions therefore yields \(60/160=3/8\), \(45/160=9/32\), and \(15/160=3/32\). The finitely many excluded primes do not change these limits.
 
-**Step 5: prime densities.** Among the \(\varphi(205)=160\) reduced residue classes modulo \(205\), exactly \(120\) satisfy \(q\not\equiv1\pmod5\). Of these, \(60\) have the favorable index \(j\in\{0,1,2,7\}\); \(15\) have \(j=0\), and the other \(45\) have \(j\in\{1,2,7\}\). Dirichlet's theorem and equidistribution among fixed coprime progressions give densities \(60/160=3/8\), \(45/160=9/32\), and \(15/160=3/32\).
+**Minimal conductor.** For another prime conductor \(p\), an index-eight subgroup of \(\mathbb F_p^\times\times\mathbb F_q^\times\) containing the complete second CRT factor has the form \(C_{(p-1)/8}\times C_{q-1}\), requiring \(8\mid p-1\). Since \(q-1\) is even, cyclicity forces \((p-1)/8\) odd, equivalently \(p\equiv9\pmod{16}\). The only positive integers below \(41\) in that residue class are \(9\) and \(25\), both composite; \(p=41\) works with \(q=3\). Thus the conductor is least in the precisely stated family.
 
-**Step 6: least possible conductor.** For a general prime conductor \(p\), an index-eight imprimitive kernel containing the entire CRT factor \(\{1\}\times\mathbb F_q^\times\) must have \(8\mid p-1\) and CRT structure \(C_{(p-1)/8}\times C_{q-1}\). Cyclicity requires \(\gcd((p-1)/8,q-1)=1\). Since \(q-1\) is even, \((p-1)/8\) must be odd, so \(p\equiv9\pmod{16}\). No prime less than \(41\) lies in that congruence class (the positive candidates below it are \(9\) and \(25\), both composite), while \(p=41\) works with \(q=3\). This proves the minimal-conductor assertion.
+## Verification and independent limits
 
-## Verification
-The accompanying self-contained program `verify.py` independently reconstructs the eight cosets, their exact sums, and CRT residue sums by direct enumeration of every coset for \(51\) odd primes \(q<251\) different from \(41\). It checks \(408\) exact coset sums, the rational prime progression class counts modulo \(205\), the centered-but-not-all-centered witness modulo \(123\), and the first-conductor restriction. The finite enumeration is corroborating evidence only: the preceding symbolic argument establishes all primes and the limiting densities.
+The supplied exact program `verify.py` reconstructs the eight local cosets and their sums, independently checks all eight lifted coset sums for the 51 odd primes below 251 distinct from 41, and verifies the modulus-123 example and all 160 coprime residue classes modulo 205. These computations corroborate local arithmetic; they do not establish an all-prime law or prime-density theorem. Those follow from the symbolic identity (1), CRT, and standard prime equidistribution. Nothing here asserts a classification of primitive octic characters or all semiprime subgroups.
 
 ## Relationship to prior work
-Ma, Merca, and Zhang study the centered least-positive-residue sum problem modulo products of two odd primes; their October 2026 paper explicitly develops the index-four imprimitive case and index-six families. It also provides a general odd-character expansion and a finite census that are methodological antecedents. Neither the cited index-four or index-six classifications nor the general expansion alone gives this explicit *first-conductor index-eight* two-valued law with the three prime densities without the local octic coset computation and CRT analysis above. A finite semiprime census is not an infinite classification.
 
-Pomerance and Ulmer study *balanced* subgroups by equality of cardinalities in the two half intervals. That is a different invariant from equality of the sums of least positive representatives in the present theorem. Both notions have natural character-theoretic expressions, but one should not identify them.
+Ma, Merca and Zhang, *Residue Sums Modulo Products of Two Distinct Odd Primes* (arXiv:2610.29608v1, 2026-10-21), supply general odd-character identities and imprimitive index-four and index-six examples. Their general discussion expressly identifies all-coset centering with Pomerance–Ulmer balance for odd moduli. The present calculation applies that established framework to the first possible cyclic imprimitive index-eight conductor and evaluates its complete octic local coset-sum vector, individual and simultaneous centering classes, and prime densities. This is not a claim to have discovered the CRT lifting principle or the balance equivalence; an unindexed octic period table or a stronger prior theorem might contain the local evaluation.
+
+Pomerance and Ulmer, *On balanced subgroups of the multiplicative group* (arXiv:1204.6705, 2012), study balance in half intervals across every coset. That all-coset notion is equivalent to all-coset first-moment centering for odd moduli, as distinguished from centering a single specified subgroup. The equivalence does not itself imply which residue classes \(q\bmod41\) satisfy the condition, since that requires the displayed octic sums.
 
 ## Limitations
-Only the conductor-\(41\), full-second-factor imprimitive index-eight kernel is classified. Other index-eight subgroups, higher conductors, and primitive characters are not treated. The elementary CRT sum identity may already be implicit in earlier work; priority of the explicit conductor-\(41\) classification and density split has not received independent specialist assessment. The finite verification does not prove any assertion for all primes. The prime-density argument uses the standard prime number theorem in arithmetic progressions, not an effective error bound.
+
+All statements concern the full-second-factor imprimitive index-eight family at the smallest viable conductor. There is no assertion about all index-eight subgroups, all prime conductors, primitive characters, or effective prime-density errors. The finite verifier is not a proof of historical priority or an infinite-prime proof. The coefficientwise CRT argument gives the infinite-prime conclusion; comparison with unindexed local-period tables may still change the originality judgment of the concrete finite evaluation.
 
 ## References
-1. H. Ma, M. Merca, and W. Zhang, *Residue Sums Modulo Products of Two Distinct Odd Primes*, arXiv:2610.29608v1 (2026-10-21), https://arxiv.org/abs/2610.29608 .
-2. C. Pomerance and D. Ulmer, *On balanced subgroups of the multiplicative group*, arXiv:1204.6705 (2012), https://arxiv.org/abs/1204.6705 .
+
+1. H. Ma, M. Merca, and W. Zhang, *Residue Sums Modulo Products of Two Distinct Odd Primes*, arXiv:2610.29608v1 (2026-10-21), https://arxiv.org/abs/2610.29608.
+2. C. Pomerance and D. Ulmer, *On balanced subgroups of the multiplicative group*, arXiv:1204.6705 (2012), https://arxiv.org/abs/1204.6705.
