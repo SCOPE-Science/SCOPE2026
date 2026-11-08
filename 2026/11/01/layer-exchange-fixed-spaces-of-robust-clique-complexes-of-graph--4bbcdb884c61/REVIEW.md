@@ -1,17 +1,21 @@
-# Review of the prism layer-exchange fixed-space theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is established by an exact equality between prism independent sets in complete rung unions and two-colorable induced subsets of the base graph. This equality proves the orbit-face criterion. The fixed-point PL triangulation follows from equality of barycentric coefficients on two-vertex orbits; the simplex-skeleton homotopy calculation is integral and valid in degrees zero and higher. Filakovský's published Theorem 1 independently supplies the ordinary homotopy type used solely in the ladder Smith-equality corollary. The standalone checker enumerated 73 graph-threshold instances, ten finite ambient homology cases, and the triangular nonbipartite boundary.
+## correctness
 
-**Originality — PASS.** The inspected Filakovský paper [1] determines nonequivariant sphere wedges, and Kim–Lew [2] analyzes collapsibility. Two closest published results [3,4] determine alternating equivariant Euler characters or ambient three-sphere wedge homotopy types. Their full result documents were inspected; none gives a PL identification of actual geometric layer-exchange fixed points for arbitrary graph prisms. Existing grid symmetry characters already imply certain ambient homology traces, and no novelty is claimed for those traces. In particular a Lefschetz character alone does not specify whether the geometric fixed locus is a simplex skeleton. Search limitations leave a risk from unindexed equivalent literature.
+PASS
 
-**Value — PASS.** The exact induced-bipartite-subset correspondence is a natural geometric construction on every graph, not an arbitrary parameter slice. It yields a complete all-threshold, edge-independent fixed-space classification for every bipartite base graph, including disconnected ones. For two-row grids, the fixed-space calculation converts known ambient three-sphere wedges into one-dimensional wedges with exactly equal reduced Betti ranks, sharply saturating Smith's inequality for an unbounded family. The nonbipartite triangle boundary shows why the graph hypothesis is substantive.
+For each orbit union R_S=S×{0,1}, an independent set selects at most one end per rung and assigns a proper 2-coloring to the used induced H-subgraph; conversely a 2-coloring selects an independent prism set. Thus alpha(G[R_S])=max size of an induced bipartite T⊆S. In the simplicial realization a layer-swap fixed point has equal barycentric coefficients at the two ends of each rung, so the fixed triangulation consists exactly of admissible midpoint simplices indexed by beta_H(S)<k. If H is bipartite, beta_H(S)=|S| and the fixed simplicial complex is the full (k−2)-skeleton; the Gaussian-free simplex skeleton top reduced homology has rank binom(m−1,k−1), is free, and the claimed wedge type follows from connectivity/Hurewicz-Whitehead, including k=2, k>m. The ladder k=3 Smith equality separately uses the known ambient Filakovský two-row-grid theorem. An independent exhaustive graph test over all simple graphs on one to four vertices (including all 64 graphs on four vertices) and thresholds/supports ran 1,098 exact rung-orbit comparisons. This finite test is corroboration, not the arbitrary-H proof.
 
-**Scientific limitations.** The homotopy type of the induced-bipartite-subset complex is not classified for arbitrary nonbipartite bases; the ladder equality uses an existing nonequivariant theorem. The result does not determine integral equivariant homology modules or provide an external independent audit. Search incompleteness is an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Sources considered
-1. M. Filakovský, *The Topology of k-Robust Clique Complexes in Grid-like Graphs*, arXiv:2602.11365, PDF text and page-image inspection of introduction, Theorem 1 and Definitions 8–9; targeted document-wide terminology searches.
-2. M. Kim and A. Lew, *Complexes of graphs with bounded independence number*, arXiv:1912.12605, full HTML: introduction, definitions, principal theorems and contents/terminology search.
-3. *Equivariant Euler characters of 3-robust clique complexes of connected bipartite graphs*, published published-finding corpus RESULT.md, full document read.
-4. *A three-sphere wedge theorem for robust clique complexes of all connected bipartite graphs*, published published-finding corpus RESULT.md, full document read.
+No mathematical-implication match for the exact geometric fixed-point PL identification for arbitrary H and k was found in the searched primary work or related published SCOPE records. Filakovský and the published connected-bipartite wedge theorem cover ambient nonequivariant homotopy; the equivariant Euler-character record covers virtual homology characters rather than fixed-point PL complexes. Existing ambient counts and possible cyclic Lefschetz consequences are excluded from the asserted new core. This is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+A canonical geometric fixed-space model for every base graph and independence threshold is a structural equivariant-topology result, not simply another ambient Betti number. It determines an entire bipartite family of homotopy types and explains exact Smith total-Betti saturation for a natural ladder family, while the K3 counter-boundary isolates the bipartite simplification. Researchers can use the induced-bipartite-subgraph model without reconstructing the large prism complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
