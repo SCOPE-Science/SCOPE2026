@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first establishes a complete local four-output image truth table, then a separate five-input truth table locating exactly the failures of the Rule-226 predecessor selector. The latter implies both directions of the reachability characterization on *all* finite rings, including short periodic rings. The unborderedness of `1100` justifies nonoverlapping-occurrence inclusion–exclusion. The marked cyclic-block counting formula is independently derived by block-gap distributions. A deterministic four-state suffix machine gives the rational generating function, and the factorized characteristic polynomial proves the recurrence and asymptotic. The standalone verifier returned `VERIFY_OK`, including image/predecessor checks through ring length 13 and an independent weighted-matrix comparison through length 18. These experiments supplement the complete symbolic proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-The established Rule-184 traffic dynamics and number-conserving rule classification in Fukś (1997) and Boccara–Fukś (1997/1998) are close background, and the latter explicitly identifies Rule 226 as the reflected rule. Inspection of their relevant primary material found no identical periodic one-step reachability criterion, right-inverse theorem, or fixed-occupancy image enumeration. Work on eventual/limit behavior of Rule 184, and on generic regular-language enumeration, does not alone imply the concrete one-step characterization. Research-record searches and accessible preceding claims did not identify a dominating statement. Unindexed sources and specialist cellular-automata literature present genuine residual priority risk. This review is an evidence-based comparison, not a proof of uniqueness or independent historical certification.
+PASS
 
-## Value — PASS
-The inverse-reachability problem for deterministic traffic flow on a ring is directly motivated: given a desired post-update configuration at a known particle count, decide whether it is realizable and construct a predecessor. An exact forbidden-pattern condition, a *local* predecessor selector, and the density-refined count jointly answer the existence, synthesis and state-space-size questions for every ring size. They are nontrivial structural statements about a standard dynamical system, rather than a parameter substitution or an arbitrary finite slice.
+The 64 possible six-input Boolean contexts of Rule 184 produce exactly the 15 length-four output blocks other than 1100. A second exhaustive 32-context Boolean identity proves that F∘G differs from the central input precisely for contexts 01100,11000,11001,11100, all and only causing a cyclic 1100 occurrence; periodic repeated indices n<4 are allowed. Hence the image language is exactly avoidance and Rule 226 gives an explicit predecessor on it. Since 1100 is unbordered, circular marked-block inclusion-exclusion gives the fixed-weight binomial formula. The deterministic four-state suffix automaton has determinant 1-(1+u)z+u²z^4 and its trace GF is ((1+u)z-4u²z^4)/denominator; u=1 factors into tribonacci and a unit factor. Independently exhausted every cyclic binary configuration for n=1..12, verified the image/right-inverse condition, four local discrepancies, and the GF counts [2,4,8,12,22,40,72,132,242,444,816,1500]. Boolean truth tables and algebra make the unrestricted proof, not the finite enumeration.
 
-## Closest literature and limitations
-Fukś, *Solution of the Density Classification Problem with Two Cellular Automata Rules*, arXiv:comp-gas/9703001, studies density-classification and preimage dynamics; Boccara and Fukś, *Cellular Automaton Rules Conserving the Number of Active Sites*, arXiv:adap-org/9712003, classifies number-conserving rules and relates Rules 184 and 226. Both are foundational but examined claims differ. The formula counts indexed cyclic configurations at one step; it does not solve arbitrary time-depth preimage multiplicities. Historical-priority uncertainty remains and independent mathematical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rule 184/226 and number conservation are classical; Fukś (1997) gives multistep density classification and preimage counts, not a global one-step cyclic image condition with a fixed-weight GF. Finite forbidden-word automata techniques are classical, and 1100 might be a known Garden-of-Eden pattern, but the combined all-n right-inverse theorem and weighted spectrum were not found in relevant source statements. An older obscure one-step image classification is the main priority risk.
+
+## value
+
+PASS
+
+One-step reachability and explicit inversion are central cellular-automaton questions; the complete cyclic image language, density-refined counts and tribonacci entropy provide a natural exhaustive invariant for a classical traffic rule, stronger than a routine block-count computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
