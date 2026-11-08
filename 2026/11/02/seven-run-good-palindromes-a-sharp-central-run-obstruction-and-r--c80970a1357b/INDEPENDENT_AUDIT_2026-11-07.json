@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W=0^a1^b0^c1^d0^c1^b0^a with strictly positive a,b,c,d, good forbids factors u complement(u) of half-length>=2 (order-one allowed). The order-two four forbidden words force each adjacent run pair to include a singleton and no interior run of length 2, and order-three alternating antisquare excludes b=c=d=1. Consequently exactly three disjoint families survive the short filters. The imported complete minimal-antisquare classification of Baranwal et al Theorem 11 reduces all longer obstructions to rotations of 0^k101^k01 for k>=3. In family 1 all zero-runs are singleton, in family 2 all one-runs are singleton, excluding longer rotations. In family 3 the unique long 1-run must be central and a cyclic rotation fits iff d<=2a (the split long zero-run draws from two outer blocks), yielding sharp d>2a. GF follows bijective run lengths: 2*( z^10(z+z³/(1-z))/(1-z²)+z^11/(1-z²)^2+z^9/((1-z)(1-z^4)) ). Independently enumerated every quadruple 1<=a,b,c,d<=7 (2401) with literal antisquare checks; exact match. Full all-parameter proof uses imported theorem, not finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baranwal et al classify all minimal binary antisquares, including rotations of 0^k101^k01, a general theorem that supplies the key input; its theorem does not directly provide rational GF of seven-run palindromes.",
+          "Ng et al study square/antisquare avoidance in a different counting regime."
+        ],
+        "reasoning": "The general forbidden-pattern description is stronger in object scope and can mechanically decide any given W, but the exact run parameter inequalities and complete generating function require additional nontrivial derivation. Distinguish derived new specialization from claiming new minimal antisquares.",
+        "searches": [
+          "Baranwal–Currie–Mol–Ochem–Rampersad–Shallit, arxiv:2209.09223, Theorem 11",
+          "Ng–Ochem–Rampersad–Shallit arxiv:1904.09157"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md ef61ee6613240bbe6a8a764d000992b5d9d073b6",
+        "Pinned verify.py 18fb3edb7d4796397fbd49267272cd1c726b3109",
+        "Baranwal et al arxiv2209.09223 primary full PDF Theorem11",
+        "Ng et al arxiv1904.09157 abstract/relevant result description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 11 provides necessary/sufficient minimal forbidden motifs; to infer goodness of these palindromes one must analyze how long blocks split across the seven-run center, deriving d>2a and a new disjoint-family enumeration."
+        ],
+        "reasoning": "An algorithm implicit in the stronger general antisquare characterization is not the explicit equality of three parameter families and rational generating function. The latter is an original worked-out natural structural specialization subject to unindexed priority risk.",
+        "searches": [
+          "Baranwal arxiv2209.09223 Theorem11",
+          "Ng arxiv1904.09157 pseudoscquare avoidance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Related Resultary pseudopalindromic attractors and avoidance codes use distinct predicates; no identical seven-run good-word enumerator retrieved.",
+          "The general minimal-antisquare classification is the primary equivalence for forbidden factors, already credited."
+        ],
+        "reasoning": "Good word equals binary word avoiding antisquares of order>=2. The palindrome/run restriction is strictly narrower than unrestricted avoidance, but the claimed mathematical result is an explicit exact classification and enumerator not merely forbidden-factor restatement.",
+        "searches": [
+          "Resultary: seven run good binary palindromes antisquares minimal antisquares rational generating function",
+          "Web: good palindromes seven runs antisquare length generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent 2401 quadruples and source 6561 quadruples match the three-family criterion; no exact length sequence or rational function in inspected related papers.",
+          "Unrestricted good-word growth exponent is not the seven-run-palindrome coefficient sequence."
+        ],
+        "reasoning": "There is no known-table recomputation: first nonzero length9 coefficient2 follows the new three-run-family classification; generic growth of all good words is a different enumerative function.",
+        "searches": [
+          "Resultary antisquares good palindromes seven runs rational function",
+          "Baranwal arxiv2209.09223 section 7 growth",
+          "Pinned verify.py literal avoidance"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Good word equals binary word avoiding antisquares of order>=2. The palindrome/run restriction is strictly narrower than unrestricted avoidance, but the claimed mathematical result is an explicit exact classification and enumerator not merely forbidden-factor restatement. The general forbidden-pattern description is stronger in object scope and can mechanically decide any given W, but the exact run parameter inequalities and complete generating function require additional nontrivial derivation. Distinguish derived new specialization from claiming new minimal antisquares. An algorithm implicit in the stronger general antisquare characterization is not the explicit equality of three parameter families and rational generating function. The latter is an original worked-out natural structural specialization subject to unindexed priority risk.",
+      "residual_risks": [
+        "A general regular-language transfer-matrix formula could specialize to the same GF; no explicit exact seven-run version found.",
+        "The proof depends on correct statement and use of Baranwal et al Theorem11; independent finite checks do not substitute for its infinite minimal-antisquare theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem supplies longer forbidden motifs but not exact seven-run palindromic enumeration",
+          "evidence": [
+            "Baranwal et al 2023 Theorem11, rotations of 0^k101^k01 for k>=3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09223",
+          "material_read": "Primary full PDF opened, Theorem11 and minimal-antisquare proof and relevant Section7 read with page screenshots",
+          "method": "Read main theorem and compared rotations and enumerative scope",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same exact forbidden factors and general potentially dominating classification"
+        },
+        {
+          "assessment": "Nearby avoidance bounds do not establish the exact GF in examined evidence; full text not exhausted",
+          "evidence": [
+            "Ng et al 2019 arxiv1904.09157"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.09157",
+          "material_read": "Abstract/accessible description and relevant stated Section2 claims compared; not certified full-paper absence",
+          "method": "Compared forbidden-language and symmetry restrictions",
+          "title": "New Results on Pseudosquare Avoidance",
+          "trigger": "Nearby word-avoidance results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural first palindromic maximal-run stratum where long minimal antisquare rotations impose a genuinely new central-versus-boundary threshold, and a complete rational enumerator by word length. It extracts a sharp structural condition rather than merely reprinting a known forbidden-pattern table; meaningful for symmetry-restricted factor avoidance and counting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md ef61ee6613240bbe6a8a764d000992b5d9d073b6",
+    "Pinned verify.py 18fb3edb7d4796397fbd49267272cd1c726b3109",
+    "Baranwal et al arxiv2209.09223 primary full PDF Theorem11",
+    "Ng et al arxiv1904.09157 abstract/relevant result description"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly seven maximal runs and palindromic binary words, no circular or scattered factors, and forbidden antisquares only of order at least 2.",
+    "Imported minimal-antisquare theorem is credited; new claim does not classify all good words or palindromes with other run numbers."
+  ],
+  "residual_risks": [
+    "A general regular-language transfer-matrix formula could specialize to the same GF; no explicit exact seven-run version found.",
+    "The proof depends on correct statement and use of Baranwal et al Theorem11; independent finite checks do not substitute for its infinite minimal-antisquare theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General theorem supplies longer forbidden motifs but not exact seven-run palindromic enumeration",
+      "evidence": [
+        "Baranwal et al 2023 Theorem11, rotations of 0^k101^k01 for k>=3"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2209.09223",
+      "material_read": "Primary full PDF opened, Theorem11 and minimal-antisquare proof and relevant Section7 read with page screenshots",
+      "method": "Read main theorem and compared rotations and enumerative scope",
+      "title": "Antisquares and Critical Exponents",
+      "trigger": "Same exact forbidden factors and general potentially dominating classification"
+    },
+    {
+      "assessment": "Nearby avoidance bounds do not establish the exact GF in examined evidence; full text not exhausted",
+      "evidence": [
+        "Ng et al 2019 arxiv1904.09157"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1904.09157",
+      "material_read": "Abstract/accessible description and relevant stated Section2 claims compared; not certified full-paper absence",
+      "method": "Compared forbidden-language and symmetry restrictions",
+      "title": "New Results on Pseudosquare Avoidance",
+      "trigger": "Nearby word-avoidance results"
+    }
+  ]
+}
