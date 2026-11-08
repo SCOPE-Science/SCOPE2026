@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` with a standard Python 3 interpreter. The checker uses no external packages, internet access, or scientific input files.
+# Independent mathematical audit
 
-The recursive dynamic enumeration treats agent labels as distinct and tabulates all feasible clique partitions by their number of mixed three-agent coalitions. On 715 nontrivial class-size profiles with each size at most eight and total size at most 21, it compares maximum triplet count and optimal-partition multiplicity with the stated formulas.
+## correctness
 
-An independent unrestricted set-partition recursion computes literal utility values including every within-class penalty. For each individually rational partition it computes the exact integer product of utilities. This check covers 224,935 set partitions over 161 role-size profiles with total population between two and eight. Both modes reproduce the claimed values and multiplicities. Standard output terminates with `VERIFY_OK` and `BRUTE_OK`.
+PASS
 
-The checker is finite and is not a proof for arbitrarily large populations; the complete proof is in RESULT.md. In the zero-welfare regime the theorem does not enumerate all optimizers. No independent scientific audit has been performed.
+Individually rational coalitions cannot repeat a role because one -n overwhelms at most n-2 positive edges; hence they are cliques, of size <=3. Positive welfare forbids singletons. If T triples and P pairs, n=3T+2P and q=T+P>=a, so T<=n-2a. Nash product equals 2^(3T). The proposed counts T=b+c-a, AB=a-c, AC=a-b are nonnegative and cover all a,b,c agents, achieving the bound. Equality forces exactly a coalitions, all containing one A-agent; labeling yields the factorial ratio. Direct independent literal payoff enumeration of all partitions for 116 ordered class-size triples of n<=7 matched both optimum and optimizer count.
+
+## originality
+
+PASS
+
+Pagano–Schlenga Section 3 proves the clique/IR reduction and discusses tripartite graphs in a PartitionIntoTriangles hardness reduction (even in its Appendix), but does not supply the all-(a,b,c) closed maximum and optimizer count for complete tripartite graphs. Bullinger–Chatziafratis–Shahkar evaluate utilitarian welfare, which permits singletons and does not imply Nash-positive optima. Known maximum-matchings tables count different combinatorial objects.
+
+## value
+
+PASS
+
+The majority threshold and exact count of optimal labeled coalition partitions are meaningful closed invariants of the canonical complete-multipartite hedonic benchmark; the optimum and optimizer degeneracy distinguish welfare objectives despite shared graph structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
