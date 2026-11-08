@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:10:08.559346Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Translation reduces every four-set to an anchored triple. Explicit group characters give the three candidate values; 4|N subgroup case is already known. The inspected CHECK.py computes exact rational Machin arctangent and Taylor enclosures for each sine/cosine (Q=10^8), rounds to integers with coordinate error <1/Q, and uses corrected integer square roots satisfying w^2<=X^2+Y^2<(w+1)^2. All squared sums <2^63 and a score margin >13(N-1) Q-units separates each noncandidate in true D_N. Four actual CERT files cover 8-96,97-112,113-120,121-128 and sum to 10,667,965 anchored configurations. A separately implemented batch enumerator, using different floating trig estimates and independently corrected integer roots for corroboration (not exact-error proof), checked 8-110 and 111-128 covering all anchored sets; minimum observed rigorous-budget margin corresponds to 0.10997296 at N=123. No extension beyond N=128 is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 covers 4|N coset case, explicitly prior; all-N m=2,3 theorems do not cover m=4 except cosets.",
+          "General graph ratio and additive energy inequalities are not simultaneous exact minimization over 10,667,965 four-sets."
+        ],
+        "reasoning": "The known strong subgroup result dominates precisely one branch; no inspected broader theorem subsumes the odd and twice-odd finite 8..128 branches.",
+        "searches": [
+          "minimizer four-point subsets cyclic group nonzero Fourier L1 Wiener norm odd and twice odd moduli progressions through 128",
+          "arxiv:2610.36276v1 Thm 2.3, Sec 4",
+          "arxiv:2606.15475",
+          "arxiv:2610.31807"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.36276v1",
+        "https://arxiv.org/abs/2606.15475",
+        "https://arxiv.org/abs/2610.31807",
+        "Resultary search:minimizer four-point subsets cyclic group nonzero Fourier L1 Wiener norm odd and twice odd moduli progressions through 128",
+        "Resultary:2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly asks what the minimizing four-element sets are for m∤N; its local-search trap at 17 does not certify global optimality.",
+          "Fourth moment and support size do not determine the nonzero-frequency absolute first moment."
+        ],
+        "reasoning": "Known subgroup coset values and graph Fourier lower bounds cannot by themselves exclude arbitrary noncoset four-point competitors at N odd/twice odd; exact full enumeration with strict error gives the new finite implication.",
+        "searches": [
+          "minimizer four-point subsets cyclic group nonzero Fourier L1 Wiener norm odd and twice odd moduli progressions through 128",
+          "arxiv:2610.36276v1 Question 9.1 and Appendix A",
+          "Resultary:2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferguson et al. identify graph Fourier-ratio on K_{4,N-4} as monotone in D_N(A); including zero frequency shifts D_N by constant 4.",
+          "Resultary four-frequency projection study fixes frequencies and computes an operator norm, rather than minimizing four-point indicator L1 mass over supports."
+        ],
+        "reasoning": "Graph-labeling equivalent formulations, affine action, zero-frequency convention and quotient-lift alias were compared; source open Question 9.1 confirms missing general global minimizer classification.",
+        "searches": [
+          "minimizer four-point subsets cyclic group nonzero Fourier L1 Wiener norm odd and twice odd moduli progressions through 128",
+          "arxiv:2610.36276v1 Secs 2 and 9.1",
+          "Resultary:2026/10/11/SCOPE-exact-four-frequency-fourier-projection-norm-on-every-cyclic-gro--6fefdbed98ba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026 primary Appendix A certifies only one local-minimum configuration and its 52 neighbors at N=17; package supplies 121 modulus complete exact tables.",
+          "Resultary four-point Fourier-support trichotomy for Z_{2p} classifies support cardinality, not l1 minimizer equality."
+        ],
+        "reasoning": "Finite tables would cover the result if comprehensive and already published, but inspected original appendix and related published tables are not global 8..128 classifications. Negative catalogue search does not prove priority.",
+        "searches": [
+          "minimizer four-point subsets cyclic group nonzero Fourier L1 Wiener norm odd and twice odd moduli progressions through 128",
+          "arxiv:2610.36276v1 Appendix A Proposition 9.2",
+          "four-point cyclic indicator Fourier l1 global minimizer tabulation 8..128"
+        ]
+      },
+      "rationale": "PASS at best knowledge with known branch explicitly credited: Ferguson et al., arxiv:2610.36276v1 Theorem 2.3 gives subgroup-coset equality for 4|N; Question 9.1 explicitly asks four-element minimizers for 4<=m<=N/2 with m not dividing N, including twice-odd lifts; Proposition 9.2 certifies only a local-search obstruction at N=17. This new finite exhaustive 121-modulus global theorem resolves a meaningful finite slice of that open cardinality. Published Resultary four-character projection norms and fourth moments optimize different quantities. Unindexed earlier exhaustive tables remain plausible.",
+      "residual_risks": [
+        "Exact cutoff 128 is finite; no theorem for arbitrary larger N is implied.",
+        "An unindexed previous exhaustive table or stronger all-N result may subsume part or all of the finite census.",
+        "Independent floating trig enumeration corroborates candidates and gaps but only the source rational-enclosure code justifies exact inequalities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE (4|N), NOT covering the claimed finite odd/twice-odd global census",
+          "evidence": "Question 9.1 explicitly asks for four-point minimizers; Proposition 9.2 certifies N=17 local trap, not the 8..128 classification.",
+          "identifier_or_url": "https://arxiv.org/html/2610.36276v1",
+          "material_read": "Theorem 2.3 and Section 2, Section 4, Section 9.1 Question 9.1, Proposition 9.2 and Appendix A exact-arithmetic certificate",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "Edge Complexity of Complete Bipartite and Complete Multipartite Graphs",
+          "trigger": "same D_N(A) minimization and first unsettled m=4"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK, not equivalent four-point l1 census",
+          "evidence": "Fourier ratio supplies optimization context, not all finite N four-set minimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15475",
+          "material_read": "Abstract and mathematical model overview",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "Fourier Ratios of Graph Kernels: Energy Bounds, Optimal Labelings, and Recovery",
+          "trigger": "motivating Fourier-ratio framework"
+        },
+        {
+          "assessment": "DIFFERENT objective/inequalities; no whole-document negative claim",
+          "evidence": "Graph-energy and labelings need not determine strict first-absolute-moment minimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31807",
+          "material_read": "Abstract and accessible summary",
+          "method": "lawful accessible HTML/PDF primary-source reading, with targeted theorem and appendix inspection",
+          "title": "Additive Energy and Fourier Complexity of Graphs",
+          "trigger": "broader additive energy and Fourier-complexity parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The first unsettled cardinality in a natural Fourier-compressibility/graph-labeling minimization is classified exhaustively over a substantial exact range, with all equality orbits and noncandidate separation, not arbitrary isolated tests. The cutoff 128 is explicitly finite; it provides finite data and proof technique for a source-stated open minimizer problem without claiming the unbounded result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact cutoff 128 is finite; no theorem for arbitrary larger N is implied.",
+    "An unindexed previous exhaustive table or stronger all-N result may subsume part or all of the finite census.",
+    "Independent floating trig enumeration corroborates candidates and gaps but only the source rational-enclosure code justifies exact inequalities."
+  ],
+  "schema_version": 1
+}

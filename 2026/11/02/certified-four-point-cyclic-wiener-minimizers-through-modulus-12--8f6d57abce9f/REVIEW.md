@@ -1,15 +1,21 @@
-# Scientific review — four-point cyclic Wiener minimizers through modulus 128
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is explicitly finite: every \(8\le N\le128\), with exactly four distinct residues and zero-frequency removed. The proof reduces by translation to every anchored triple, proves symmetry of the predicted minimizers, derives candidate values, and rigorously encloses each Fourier magnitude using rational Machin-series and Taylor bounds. The exhaustive comparison is an exact integer inequality with a strict analytic error budget. Four disjoint successful verifier runs cover all 10,667,965 anchored sets and all 121 moduli. The integer-root and overflow bounds were checked in the actual standalone program. The finite computation is a complete certificate only because the program enumerates all anchored subsets; merely testing examples would not establish the result.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The June 2026 Fourier-ratio framework (arXiv:2606.15475) and October 22 graph-energy study (arXiv:2610.31807) do not give the statement. The October 26 follow-up (arXiv:2610.36276), in Theorem 2.3, already proves the subgroup-coset case \(4\mid N\), and in Question 9.1 explicitly leaves four-element minimizers open generally. Its computed \(N=17\) local-search obstruction is not an exhaustive global minimizer classification across 121 moduli. Indexed findings concerning four consecutive frequencies calculate the norm of a fixed projection, not the least norm over all four-point indicators. Unindexed prior tables and stronger infinite theorems are residual risks; no claim of global novelty beyond the inspected literature is made.
+PASS
 
-## Value — PASS
-This is a nontrivial complete cutoff in the first unsolved cardinality of a natural Fourier-compressibility minimization: for all 121 consecutive moduli it exhibits three distinct arithmetic extremizer mechanisms and certifies their exclusivity across more than ten million Fourier-support configurations. It makes exact, independently reproducible predictions for the bipartite graph-labeling problem in that finite regime and supplies evidence toward, but does not settle, the unbounded four-element classification. The case divisible by four is credited to known subgroup results and is included to make the finite statement complete.
+PASS: Translation reduces every four-set to an anchored triple. Explicit group characters give the three candidate values; 4|N subgroup case is already known. The inspected CHECK.py computes exact rational Machin arctangent and Taylor enclosures for each sine/cosine (Q=10^8), rounds to integers with coordinate error <1/Q, and uses corrected integer square roots satisfying w^2<=X^2+Y^2<(w+1)^2. All squared sums <2^63 and a score margin >13(N-1) Q-units separates each noncandidate in true D_N. Four actual CERT files cover 8-96,97-112,113-120,121-128 and sum to 10,667,965 anchored configurations. A separately implemented batch enumerator, using different floating trig estimates and independently corrected integer roots for corroboration (not exact-error proof), checked 8-110 and 111-128 covering all anchored sets; minimum observed rigorous-budget margin corresponds to 0.10997296 at N=123. No extension beyond N=128 is asserted.
 
-## Limitations and residual risks
-The cutoff is 128, not infinity. The certificate depends on correct execution of the included exact-integer code and verified elementary error bounds. It is not independent formal certification. The closest preprint appeared after the source-week anchor; it is used only to compare originality, not as the earliest motivating publication. Earlier equivalent enumerations might exist without being indexed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best knowledge with known branch explicitly credited: Ferguson et al., arxiv:2610.36276v1 Theorem 2.3 gives subgroup-coset equality for 4|N; Question 9.1 explicitly asks four-element minimizers for 4<=m<=N/2 with m not dividing N, including twice-odd lifts; Proposition 9.2 certifies only a local-search obstruction at N=17. This new finite exhaustive 121-modulus global theorem resolves a meaningful finite slice of that open cardinality. Published Resultary four-character projection norms and fourth moments optimize different quantities. Unindexed earlier exhaustive tables remain plausible.
+
+## value
+
+PASS
+
+PASS: The first unsettled cardinality in a natural Fourier-compressibility/graph-labeling minimization is classified exhaustively over a substantial exact range, with all equality orbits and noncandidate separation, not arbitrary isolated tests. The cutoff 128 is explicitly finite; it provides finite data and proof technique for a source-stated open minimizer problem without claiming the unbounded result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

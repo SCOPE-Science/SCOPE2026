@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The `CHECK.py` file is a standalone rigorous finite enumeration of the cyclic four-element Fourier \(\ell^1\) minimization problem. All statements here concern \(8\le N\le128\). The checker uses exact rational Machin-series and Taylor estimates to enclose each needed trigonometric coordinate within \(10^{-8}\), then compares all support sets by signed 64-bit integer arithmetic with exact integer-square-root inequalities.
+# Independent mathematical audit
 
-Four successful complete runs were performed using the attached exact program and the commands `python CHECK.py 8 96 CERT_8_96.json`, `python CHECK.py 97 112 CERT_97_112.json`, `python CHECK.py 113 120 CERT_113_120.json`, and `python CHECK.py 121 128 CERT_121_128.json`. Their respective anchored set counts were 3,321,925; 2,888,860; 2,003,750; and 2,453,430. Together they cover 121 moduli, 10,667,965 anchored sets, and 10,660,484 strict noncandidate exclusions, with 7,481 predicted minimizers. The minimum fully certified real-score gap is greater than 0.10997296, at modulus 123.
+## correctness
 
-The program proves the rational error budget independently of floating point. Floating-point square root initializes an integer guess only; both floor inequalities are checked exactly. Its strict criterion is a positive integer separation above \(13(N-1)\) in score units, making rounding of the displayed decimal irrelevant. The candidate families have a common true score by cyclic translation and invertible dilation.
+PASS
 
-The classification is exhaustive only over the specified finite range. The program does not prove the open unbounded-modulus case or cover arbitrary complex-weighted supports. The scientific review was self-review only; independent audit has not been performed.
+PASS: Translation reduces every four-set to an anchored triple. Explicit group characters give the three candidate values; 4|N subgroup case is already known. The inspected CHECK.py computes exact rational Machin arctangent and Taylor enclosures for each sine/cosine (Q=10^8), rounds to integers with coordinate error <1/Q, and uses corrected integer square roots satisfying w^2<=X^2+Y^2<(w+1)^2. All squared sums <2^63 and a score margin >13(N-1) Q-units separates each noncandidate in true D_N. Four actual CERT files cover 8-96,97-112,113-120,121-128 and sum to 10,667,965 anchored configurations. A separately implemented batch enumerator, using different floating trig estimates and independently corrected integer roots for corroboration (not exact-error proof), checked 8-110 and 111-128 covering all anchored sets; minimum observed rigorous-budget margin corresponds to 0.10997296 at N=123. No extension beyond N=128 is asserted.
+
+## originality
+
+PASS
+
+PASS at best knowledge with known branch explicitly credited: Ferguson et al., arxiv:2610.36276v1 Theorem 2.3 gives subgroup-coset equality for 4|N; Question 9.1 explicitly asks four-element minimizers for 4<=m<=N/2 with m not dividing N, including twice-odd lifts; Proposition 9.2 certifies only a local-search obstruction at N=17. This new finite exhaustive 121-modulus global theorem resolves a meaningful finite slice of that open cardinality. Published Resultary four-character projection norms and fourth moments optimize different quantities. Unindexed earlier exhaustive tables remain plausible.
+
+## value
+
+PASS
+
+PASS: The first unsettled cardinality in a natural Fourier-compressibility/graph-labeling minimization is classified exhaustively over a substantial exact range, with all equality orbits and noncandidate separation, not arbitrary isolated tests. The cutoff 128 is explicitly finite; it provides finite data and proof technique for a source-stated open minimizer problem without claiming the unbounded result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
