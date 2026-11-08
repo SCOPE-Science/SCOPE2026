@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:48:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier diagonalize over the 3m-dimensional F2 vector space. Row-space containment functions b_t have transforms T^t Gaussian-binomial(3−s,t)_2 (T=2^m), giving explicit λ0, λ1, λ2=H+TG, λ3=H where H=1−7u+14u⁴−8u⁹=−(u−1)(2u³−1)Q and G=u−3u⁴+2u⁹. Q′>0 for u≥0 and Q(1/8)<0<Q(1/6), so single low root ρ. λ1=(1−u)[nonnegative polynomial]. On [0,ρ], G≥0 so λ2>0; on (ρ,2^(−1/3)) λ3<0; on [2^(−1/3),1) G<0 and λ2≤H+8G=(u−1)R(u)<0 by R(3/4)>0 and R′>0. At u=1 all-ones rank one; at u=ρ only λ3 zero. Symbolically checked polynomial identity/factorizations and full integer Walsh transforms on m=3 and 4 for all characters, including multiplicity (T−1)(T−2)(T−4). The all-m result is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General PSD iff nonnegative character transform for finite abelian groups; Delsarte gives bilinear-form association eigenmatrices"
+        ],
+        "reasoning": "These are stronger general frameworks, but their hypotheses alone do not decide a specific nonlinear polynomial sign region or dimension-independent threshold without computation.",
+        "searches": [
+          "rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte",
+          "Delsarte 1978",
+          "arXiv:1002.3017"
+        ]
+      },
+      "checked_sources": [
+        "Delsarte (1978), DOI:10.1016/0097-3165(78)90015-8",
+        "Ravagnani, arXiv:1410.1333",
+        "Emonds–Führ, arXiv:1002.3017",
+        "Resultary semantic search: rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general character theorem reduces positivity to coefficients; explicit λ3 factor and λ2 second-window exclusion are additional inequalities"
+        ],
+        "reasoning": "The raw Fourier machinery implies the possibility of obtaining the result by specialization, but does not automatically entail the numerical inequality without resolving sign competition; material novelty rests on that sharp resolution.",
+        "searches": [
+          "rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte",
+          "Delsarte 1978",
+          "arXiv:1002.3017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary m×3 additive rank-metric characters are bilinear-forms association-scheme eigenspaces",
+          "Delsarte rank-scheme transform and Ravagnani MacWilliams identities give Fourier eigenmatrices"
+        ],
+        "reasoning": "The kernel PSD question is equivalent to nonnegativity of all four rank-indexed Fourier eigenvalues; prior character tables supply raw data, but not necessarily the complete sign phases of u,u4,u9.",
+        "searches": [
+          "rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte",
+          "Delsarte 1978 DOI:10.1016/0097-3165(78)90015-8",
+          "arXiv:1410.1333"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full rank-scheme eigenmatrices could be used to reconstruct λ0...λ3",
+          "No reviewed exact table states the factorized Q(u) cutoff, isolated u=1 or exact ρ-nullity"
+        ],
+        "reasoning": "Known-character-table recomputation is prior scaffolding; original value assessed only for new uniform sharp sign and nullity classification. Historical explicit cutoff could exist under radial basis kernels terminology.",
+        "searches": [
+          "rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte",
+          "Delsarte 1978",
+          "arXiv:1410.1333"
+        ]
+      },
+      "rationale": "Delsarte bilinear-forms association scheme and rank-metric MacWilliams transforms already give the requisite Fourier character tables. The fixed three-column squared-rank bandwidth PSD iff classification, algebraic endpoint independent of m, nullity, and exclusion of a second PSD window are a specific nontrivial sign-analysis corollary not identified in prior inspected sources. Older comprehensive scheme tables could encode this calculation without spelling it out.",
+      "residual_risks": [
+        "Original Delsarte monograph/article full primary text not reread here, only its documented transform and bibliography; specialized older Gaussian-rank kernel tables may cover exact cutoff.",
+        "Results only for 3 columns over F2 and 0≤u≤1.",
+        "Finite Walsh enumeration for m=3,4 is supportive only, not proof for all row counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SCHEME_PRIOR; priority risk for specialized eigenmatrices and cutoff",
+          "evidence": "Section 3 and Appendix Theorem A2 cited by package; not independently inspected in full",
+          "identifier_or_url": "DOI:10.1016/0097-3165(78)90015-8",
+          "material_read": "Bibliographic record and mathematical discussion in source package; complete original 1978 paper not read during this audit",
+          "method": "Publisher/bibliographic search",
+          "title": "Bilinear forms over a finite field, with applications to coding theory",
+          "trigger": "Exact same rank-scheme Fourier theory"
+        },
+        {
+          "assessment": "GENERAL_MACWILLIAMS_PRIOR; no evidence of exact bandwidth cutoff in material read",
+          "evidence": "Rank-metric MacWilliams identities",
+          "identifier_or_url": "arXiv:1410.1333",
+          "material_read": "Abstract, bibliographic description and original-paper reference in source",
+          "method": "OA/arXiv search",
+          "title": "Rank-metric codes and their duality theory",
+          "trigger": "Rank enumeration duality transforms"
+        },
+        {
+          "assessment": "GENERAL_PSD_FRAMEWORK, not specialized rank-three polynomial classification",
+          "evidence": "Abelian Fourier positivity criterion",
+          "identifier_or_url": "arXiv:1002.3017",
+          "material_read": "Abstract and formulation of positive definiteness on abelian groups",
+          "method": "OA/arXiv search",
+          "title": "Strictly positive definite functions on compact abelian groups",
+          "trigger": "General Fourier PSD criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp PSD/indefinite threshold for an explicit non-Euclidean Gaussian-type kernel across all row dimensions is a natural kernel and rank-metric invariant, including a surprising return to definiteness at the isolated u=1 point and exact boundary degeneracy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Delsarte (1978), DOI:10.1016/0097-3165(78)90015-8",
+    "Ravagnani, arXiv:1410.1333",
+    "Emonds–Führ, arXiv:1002.3017",
+    "Resultary semantic search: rank metric squared Gaussian kernel positive definite binary 3-column matrix threshold Fourier Delsarte"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every binary m×3 matrix space m≥3, the translation-invariant squared-rank kernel u^{rank(X−Y)^2} is PSD exactly on [0,ρ] union {1}, with ρ the unique root in (1/8,1/6) of 4u^5+4u^4+4u^3+6u²+6u−1; nullity at ρ is number of rank-three characters.",
+  "limitations": [
+    "Original Delsarte monograph/article full primary text not reread here, only its documented transform and bibliography; specialized older Gaussian-rank kernel tables may cover exact cutoff.",
+    "Results only for 3 columns over F2 and 0≤u≤1.",
+    "Finite Walsh enumeration for m=3,4 is supportive only, not proof for all row counts.",
+    "Some original primary documents were accessible only through abstracts; no claim of exhaustive historical novelty or external certification.",
+    "Saved verification logs alone were not treated as proofs."
+  ],
+  "residual_risks": [
+    "Original Delsarte monograph/article full primary text not reread here, only its documented transform and bibliography; specialized older Gaussian-rank kernel tables may cover exact cutoff.",
+    "Results only for 3 columns over F2 and 0≤u≤1.",
+    "Finite Walsh enumeration for m=3,4 is supportive only, not proof for all row counts."
+  ],
+  "schema_version": 1
+}

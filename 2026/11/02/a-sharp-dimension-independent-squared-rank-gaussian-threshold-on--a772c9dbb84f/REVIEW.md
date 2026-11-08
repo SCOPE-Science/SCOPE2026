@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four Fourier eigenvalue formulas follow from four triangular subspace-containment identities, with no appeal to unverified infinite enumeration. Direct character orthogonality establishes nonnegative definiteness exactly when these eigenvalues are nonnegative. The rank-one branch factors positively, the rank-three branch has a factored polynomial with a unique root, and the rank-two branch is negative in the interval where the rank-three branch recovers positivity. The exact multiplicities yield the endpoint nullity. The independently enumerated Walsh transforms for three finite row dimensions agree with all coefficients; all universal assertions are proved analytically.
+## correctness
 
-## Originality — PASS under bounded primary-source comparison
-Delsarte (1978) supplies the underlying bilinear-forms association-scheme character table, including explicit generalized Krawtchouk coefficients; it does not state the square-of-rank Gaussian threshold, exceptional endpoint nullity or the exclusion of a second PSD interval. Ravagnani (arXiv:1410.1333) rederives general MacWilliams transforms but not this kernel parameter classification. Emonds–Führ (arXiv:1002.3017) supplies the general harmonic positivity framework. Related known rank-distance kernels with exponent one do not imply the threshold with exponent two. Searches of multiple parameter and equivalence aliases found no stronger published statement. Risk: a specialization of the known eigenmatrix could be worked out in unindexed older literature.
+PASS
 
-## Mathematical value — PASS
-The three-column rank association scheme is the first nontrivial rank-metric case with four Fourier sectors, beyond diameter-two behavior. The exact bandwidth frontier is independent of arbitrarily large row dimension, while the singular multiplicity grows rapidly with that dimension. Critically, the highest-rank eigenvalue changes sign twice, but a different sector prevents re-entrant positive definiteness; this requires a nontrivial global sign comparison, and is directly relevant to covariance kernel design on rank-metric data.
+Fourier diagonalize over the 3m-dimensional F2 vector space. Row-space containment functions b_t have transforms T^t Gaussian-binomial(3−s,t)_2 (T=2^m), giving explicit λ0, λ1, λ2=H+TG, λ3=H where H=1−7u+14u⁴−8u⁹=−(u−1)(2u³−1)Q and G=u−3u⁴+2u⁹. Q′>0 for u≥0 and Q(1/8)<0<Q(1/6), so single low root ρ. λ1=(1−u)[nonnegative polynomial]. On [0,ρ], G≥0 so λ2>0; on (ρ,2^(−1/3)) λ3<0; on [2^(−1/3),1) G<0 and λ2≤H+8G=(u−1)R(u)<0 by R(3/4)>0 and R′>0. At u=1 all-ones rank one; at u=ρ only λ3 zero. Symbolically checked polynomial identity/factorizations and full integer Walsh transforms on m=3 and 4 for all characters, including multiplicity (T−1)(T−2)(T−4). The all-m result is analytic.
 
-## Limits
-The classification is restricted to binary rank distance with three columns and Gaussian rank-squared exponent; no independent certification has been performed. A general prior character table does not prove the new sign comparison without additional arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Delsarte bilinear-forms association scheme and rank-metric MacWilliams transforms already give the requisite Fourier character tables. The fixed three-column squared-rank bandwidth PSD iff classification, algebraic endpoint independent of m, nullity, and exclusion of a second PSD window are a specific nontrivial sign-analysis corollary not identified in prior inspected sources. Older comprehensive scheme tables could encode this calculation without spelling it out.
+
+## value
+
+PASS
+
+Sharp PSD/indefinite threshold for an explicit non-Euclidean Gaussian-type kernel across all row dimensions is a natural kernel and rank-metric invariant, including a surprising return to definiteness at the isolated u=1 point and exact boundary degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
