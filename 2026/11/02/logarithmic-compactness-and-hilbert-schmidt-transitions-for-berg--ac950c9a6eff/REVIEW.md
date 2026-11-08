@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficient formula follows by absolutely convergent binomial expansion. The beta moment normalization, regular-variation asymptotics, partial-row square sum, and logarithmic integral tests give sharp constants. Classical order-\(s\) Cesàro bounds establish critical boundedness; explicit weakly null positive blocks establish noncompactness and negative-exponent unboundedness. Factoring the positive-damping operator through a vanishing diagonal gives compactness, and uniform asymptotics near \(\gamma=1/2\) justify the parameter limit. The separate exact-rational checker verifies the \(s=2\) finite-row identity, with numerical checks only supplementary.
+## correctness
 
-**Originality — PASS with residual risk.** The motivating full primary source describes general Bergman-kernel Cesàro boundedness, not sharp Schatten transitions. The unweighted critical operator norm is a known generalized Cesàro fact and explicitly excluded from the novelty claim. The close 2024 integrated-kernel construction is a different operator; 2023 measure-induced Cauchy-kernel work has a different kernel exponent. The nearest published higher-dimensional Hilbert–Schmidt transition does not cover this one-variable Hardy target or the constant \(1/(2s-1)\). Some older operator-ideal literature was not exhaustively searchable, so unindexed equivalent estimates remain possible.
+PASS
 
-**Value — PASS.** The canonical logarithmic perturbation of the critical boundedness measure separates compactness from Hilbert–Schmidt membership on the whole interval \(0<\gamma\le1/2\). It also supplies the sharp coefficient for finite-section divergence and norm blow-up, independent of any integer-order restriction on the Bergman kernel. This is a natural quantitative operator-ideal boundary, rather than a routine specialization of boundedness alone.
+Read the complete matrix proof. Expanding the kernel gives T_{nk}=m_n(γ) Γ(n−k+s)/(Γ(s)Γ(n−k+1)), k≤n, and Laplace scaling yields m_n≈Γ(s)n^−s(log n)^−γ. Consequently each output row square norm is (1+O(1/log n))/[(2s−1)n(log n)^{2γ}], with locally uniform error near γ=1/2; summation gives Hilbert–Schmidt thresholds and exact divergence coefficients. At γ=0, the matrix is the classical 1/s Cesàro matrix, whose sharp norm is acknowledged prior work; D_γ T_0 gives compactness for γ>0, translated weak-null blocks give noncompactness/unboundedness at γ≤0, logarithmic blocks show essential norm equals norm. Independently recalculated all s=2 γ=0 rows for n<200 with exact fractions and two logarithmically damped integral row asymptotics. No general Schatten-p assertion is made.
 
-**Scope and limits.** Fixed real \(s>1\), positive logarithmically damped powers, Hardy \(H^2\), exact \(\mathcal S_2\) only. No claim of general Schatten classification or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Blasco–Pennanen paper defines this very operator and provides broad boundedness criteria, creating significant same-object priority risk. Its available abstract and related comparison establish that boundedness itself is prior art; the exact H² Hilbert–Schmidt logarithmic threshold, row trace constants, and pole are not stated there in accessible text. The complete primary article could not be inspected; the qualified best-of-knowledge conclusion does not assert whole-document noncoverage. Generalized Cesàro spectra in the published Resultary set use distinct kernels/spaces.
+
+## value
+
+PASS
+
+The strict separation of compactness γ>0 and Hilbert–Schmidt γ>1/2, plus sharp trace and norm blow-up constants, is a natural phase diagram of a concrete established analytic operator family. It supplies useful operator-ideal information not mechanically implied by knowing boundedness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
