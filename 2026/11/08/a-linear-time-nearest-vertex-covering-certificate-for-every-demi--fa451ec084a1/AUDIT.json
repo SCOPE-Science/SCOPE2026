@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Support functions prove the exact odd-sign and coordinate inequality description of the demihypercube. Pair flips at any nearest even sign vertex imply all pairwise coordinate sums are nonnegative. This yields lower coordinate bounds and controls odd-sign facets separately for one and at least three negative signs, using (n-2)(d-2)>=2 for n>=4. Thus the proposed remainder lies in the polytope. Every forbidden odd-sign facet is an (n-1)-simplex and its centroid makes the scaling n-1 necessary. All quantifiers, every tie of nearest vertices, n=4 and n=3 boundary, and the index normalization are explicit. An independently executable standard-library program checks 7,927 exact rational assertions for n=4,...,8; this is corroborative and not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.26744v1 gives general necessary and sufficient exposed-face covering criteria and a polytope reduction, but no Euclidean-nearest vertex selection.",
+        "arXiv:2407.20604v1 proves general vertex-generation and boundary principles, including the implication for the numerical index after special-case inputs.",
+        "Artstein-Avidan–Falah–Slomka discuss the cross-polytope not being 1/2-vertex-generated and general zonotope examples, but do not state a demihypercube nearest-vertex rule."
+      ],
+      "reasoning": "A wider sufficient condition for union coverage cannot imply that EVERY Euclidean closest candidate works without additional metric structure. This proof uses pair-flip optimality in the halved cube graph and verifies the full parity facet system, information absent from the broader abstract covering results.",
+      "searches": [
+        "arXiv:2610.26744v1 finite convexification exposed sets Theorems 1.1-1.3, Section 5",
+        "arXiv:2407.20604v1 vertex generated polytopes Lemma 5.1 Remark 5.2",
+        "Minkowski finite convexification Schneider index parity polytope half cube n demihypercube simplex facet barycenter",
+        "Finite convexification by Minkowski summation Mark Meyer 2026 vertex generated polytopes theorem"
+      ]
+    },
+    "checked_sources": [
+      "Meyer, arXiv:2610.26744v1 (primary full text, 20 pages inspected).",
+      "Artstein-Avidan, Falah and Slomka, arXiv:2407.20604v1 (primary full text, 22 pages inspected).",
+      "Schneider, A measure of convexity for compact sets, Pacific J. Math. 58 (1975), background index.",
+      "Classical demihypercube parity-vertex and simplex-facet description.",
+      "Sharp finite convexification thresholds for every skeleton of a simplex (different domain: simplex skeletons).",
+      "Parity-exceptional John and Loewner contact structures of diagonal halfcubes (different invariant: ellipsoids)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior 2024 boundary theorem plus the demihypercube classical simplex facets implies the index c(V_n)=n-1, so the number is not independently original.",
+        "The new assertion universally quantifies over all Euclidean maximizers v of x·v; the older statements only quantify existentially over v and do not privilege Euclidean distance.",
+        "The hypersimplex has a fixed rank-sum constraint; its vertex decomposition does not entail the parity-polytope nearest-vertex certificate."
+      ],
+      "reasoning": "The exact index is subsumed and explicitly removed from the novelty boundary. What survives is a strictly stronger canonical witness theorem, valid even at ties and implementable by O(n) sign rounding, not merely a renamed or substituted statement about the index.",
+      "searches": [
+        "arXiv:2407.20604v1 1/n vertex generation facets -P (n-1)P Remark 5.2",
+        "arXiv:2610.26744v1 Theorem 1.3 polytopal exposed covering",
+        "published research: Sharp finite convexification thresholds for every skeleton of a simplex",
+        "prior work: hypersimplex vertices Schneider index and rank-corank convexification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.20604v1, Lemma 5.1 and Remark 5.2 on boundary-to-body vertex generation; their criterion is existential.",
+        "The parity-facet centroid yields index lower bound; -P_n subset (n-1)P_n and universal facet bounds yield the upper by those known principles.",
+        "No demihypercube or nearest-vertex theorem in the inspected arXiv:2407.20604v1 PDF."
+      ],
+      "reasoning": "The isolated index c(V_n)=n-1 is covered by implication from earlier general bounds and is excluded from the novelty assertion. A universal clause about ALL nearest vertices, plus an O(n) explicit witness algorithm, is logically stronger than P being a union of some vertex translations; the earlier existential conclusion does not choose, much less universally validate, Euclidean-nearest vertices.",
+      "searches": [
+        "demihypercube Schneider nonconvexity index parity polytope vertices 1/n vertex generated",
+        "\"parity polytope\" \"vertex generated\" Minkowski",
+        "The n-demicube even parity sign polytope vertex generation index exactly n-1 for all n >= 5; every point has a nearest vertex with nx-v in (n-1) demicube",
+        "Artstein-Avidan Falah Slomka arXiv:2407.20604v1 pages 10-12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical demihypercube description lists parity vertices, simplex facets, and n=4 cross-polytope equivalence, but no nearest-vertex Minkowski certificate.",
+        "Searches of mathematical research records retrieved halfcube ellipsoid results and simplex skeleton convexification but no identical pointwise statement."
+      ],
+      "reasoning": "Facet coordinates and small-dimensional index values are background. An enumerated f-vector, an ellipsoid invariant, or the n=4 cross-polytope does not specify nearest-point coverage for every n>=5. Lack of a match is not a proof of novelty; nomenclature risk is preserved.",
+      "searches": [
+        "even parity n-cube halfcube demihypercube vertex generated index Schneider convexification threshold n-1 exact 1/n",
+        "demicube demihypercube 0/1 parity polytope convexification nearest vertex sum n x-v in (n-1)P",
+        "regular half hypercube cross-polytope all dimensions vertex generation common polytope faceted simplex parameter",
+        "Demihypercube traditional even parity vertices facet enumeration and terminology"
+      ]
+    },
+    "rationale": "The claimed advance is that EVERY Euclidean-nearest vertex supplies the sharp decomposition, with linear-time sign selection, for all parity demihypercubes n>=4; the numerical index alone is explicitly acknowledged as implied by earlier general criteria. Meyer 2026 supplies finite-convexification existence criteria. Artstein-Avidan–Falah–Slomka 2024 supplies general facet/boundary criteria which ALREADY imply the isolated index identity for this polytope using the odd-simplex facet lower bound and -P_n subset (n-1)P_n; hence index alone is NOT presented as new. Neither inspected text supplies the pointwise nearest-vertex strengthening or a parity-corrected sign algorithm. Source and literature searches did not find an equivalent; older coding-theory nomenclature may hide one.",
+    "residual_risks": [
+      "Earlier coding-theoretic parity-polytope or half-cube covering literature might contain the identical all-nearest-vertex criterion under different terminology.",
+      "The isolated index identity is derivable from earlier known general results and is not asserted as novel; publication novelty rests only on the stronger Euclidean-nearest-vertex algorithmic certificate.",
+      "No independent mathematical or priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exposed-set existence criteria; no choice of Euclidean-nearest parity-polytope vertex or algorithm.",
+        "evidence": [
+          "arXiv:2610.26744v1, pp.1-4,16-18"
+        ],
+        "identifier_or_url": "arXiv:2610.26744v1; https://borowiecki.dev/pdf/2610.26744",
+        "material_read": "Primary 20-page PDF, abstract/introduction and Theorems 1.1-1.3, special cases, polytope proof and references; inspected rendered pages and searchable text.",
+        "method": "Primary open-access PDF and page image/text inspection.",
+        "title": "Finite convexification by Minkowski summation",
+        "trigger": "Most direct recent source defining the same relative Minkowski convexification problem."
+      },
+      {
+        "assessment": "General boundary-to-body theorem indeed implies isolated numerical index after classical demihypercube facet inputs; it does not imply the all-nearest-vertices certificate or linear-time rule.",
+        "evidence": [
+          "arXiv:2407.20604v1, pp.1-5,10-12, Lemma 5.1 and Remark 5.2"
+        ],
+        "identifier_or_url": "arXiv:2407.20604v1; https://pdfs.assets.alphaxiv.org/2407.20604v1.pdf",
+        "material_read": "Primary 22-page PDF, introduction/definitions, universal bounds, proof and statements of Lemma 5.1, Remarks 5.2-5.3, Section 5, and references; inspected rendered pages and searchable text.",
+        "method": "Primary open-access PDF and page image/text inspection.",
+        "title": "Vertex generated polytopes",
+        "trigger": "Original general notion eta(P), universal bounds and boundary-to-body criteria that could subsume a special-case index."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fa451ec0-84a1-41c9-a98d-67af827d9030",
+  "value": {
+    "rationale": "A natural high-dimensional parity polytope with exponentially many vertices admits a linear-time canonical vertex witness for optimal Minkowski generation, valid for all Euclidean nearest vertices, not just an existential union covering. Pair-flip normal-cone inequalities translate into exact inclusion in every parity facet and yield a useful Voronoi-cell-wise containment theorem. The stronger pointwise statement is not given by the known facet principle which already fixes the isolated Schneider index; the complete family and sharp boundary make the structural result meaningful. n=3 exception and n=4 cross-polytope equivalence are explicitly accounted for.",
+    "status": "PASS"
+  }
+}
