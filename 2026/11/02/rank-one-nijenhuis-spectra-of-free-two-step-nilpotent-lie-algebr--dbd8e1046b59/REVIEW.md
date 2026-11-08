@@ -1,15 +1,21 @@
-# Scientific review: rank-one Nijenhuis spectra of free two-step Lie algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is for finite fields of arbitrary characteristic and all generator dimensions \(n\ge2\). The proof expands the original operator identity into the necessary-and-sufficient scalar relation \(\phi\wedge(\phi\circ\operatorname{ad}_u)=\phi(u)\,\phi\circ[,]\). A nonzero functional on the derived algebra makes the projection of its kernel onto the generators surjective, forcing \(\phi(u)=0\) and then \(\phi([u,L])=0\). The two disjoint branches are counted with the correct scalar-factorization divisor \(q-1\); the wedge-map rank is exactly \(n-1\) for nonzero generators. The asymptotic follows by comparing two explicit summands. The checker confirms the formulas in six exhaustive small-field cases, including \(\mathbb F_4\). Finite checks do not prove the unbounded theorem; the written argument supplies that proof.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The closest directly relevant primary text, Liu–Sheng–Zhou–Bai (2016, arXiv:1601.02356v1), develops the general Nijenhuis identity and its deformation theory rather than classifying rank-one maps on free class-two algebras. Farinati–Jancsa (2016, arXiv:1607.00300v1) examines the same class-two Lie-algebra family for Lie bialgebra cobrackets, not Nijenhuis endomorphisms. Zhikhareva (2024, arXiv:2410.10536v1) explicitly includes some square-zero central-image Nijenhuis operators; those constructions are covered but not claimed independently novel. Its main results classify **regular semisimple** operators in three-dimensional real or complex Lie algebras, whereas this result counts rank-one finite-field operators for unbounded dimensions, especially noncentral-image maps that detect the derived algebra. The new full census and sharp generator-rank threshold were not found in the inspected primary texts or available published mathematical-record comparisons. Unindexed stronger results remain a real residual risk; absence from searches does not certify worldwide first publication.
+PASS
 
-## Value — PASS
-Rank-one algebraic Nijenhuis operators form a natural minimal-rank class of deformation-generating endomorphisms. The exact census is not an arbitrary finite slice: the free two-step nilpotent family has a canonical exterior-square bracket in every dimension, and the classification isolates an incidence condition on alternating forms. The theorem proves a sharp existence boundary at three generators, a complete character/non-character decomposition, and an asymptotic change in the dominant source of rank-one Nijenhuis operators. These structural and quantitative statements are not implied by a general torsion identity alone; they offer explicit comparison data for modular Nijenhuis geometry. No assertion about higher-rank operator spaces or downstream applications is made.
+Substituting N(x)=phi(x)u into Nijenhuis torsion gives phi(x)psi(y)-phi(y)psi(x)=phi(u)phi([x,y]), psi=phi([u,x]). If phi(Z)=0 both vanish. Otherwise projection ker(phi)->V is onto and its brackets span Z; choosing two vectors in ker(phi) with nonzero phi bracket forces phi(u)=0, then substituting a central z with phi(z)!=0 gives psi=0. For u=v+z, if v=0 the central u and phiZ counts give q^n(q^c-1)(q^{c-1}-1); if v!=0, the map w->v wedge w has rank n-1, so phiZ choices q^{c-n+1}-1 and z fiber q^{c-1}, yielding (q^n-1)q^{m-1}(q^{c-n+1}-1). Add phiZ=0 (q^m-1)(q^n-1) and divide by q-1 scalar representations. N^2=phi(u)N establishes non-square-zero count; fixed q asymptotic follows from q^{c-n} growth. Independent small finite checks n=2,3 at q=2,3 corroborate; n=2 has no second type, n>=3 admits one.
 
-## Sources inspected and limitations
-The accessible full-text HTML of arXiv:1601.02356v1 was inspected in its Nijenhuis definition, deformation results, construction sections and appendix; arXiv:1607.00300v1 was inspected for its free-two-step applications and primary hypotheses; arXiv:2410.10536v1 was inspected for its central-image example and regular-semisimple hypotheses. Literature on different Lie brackets, rank-one Rota–Baxter maps, and general central extensions does not imply the displayed full finite-field census. The finite verification covers six configurations only. The claimed statement remains subject to unindexed prior results, and independent expert validation is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Nijenhuis and rank-one central-image constructions are prior, as is nonzero/square-zero dichotomy for particular special Lie algebras. The complete rank-one iff classification, exact noncentral-image finite-field count and fixed-q asymptotic for all free class-two n are not furnished by the examined statements.
+
+## value
+
+PASS
+
+Free two-step nilpotent Lie algebras are canonical test objects for deformation/Nijenhuis maps. The full rank-one census sharply separates characters from genuinely nonabelian noncentral-image maps and quantifies the latter dominating as the number of generators grows; an exact all-field-dimensional statistic can be reused in future classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

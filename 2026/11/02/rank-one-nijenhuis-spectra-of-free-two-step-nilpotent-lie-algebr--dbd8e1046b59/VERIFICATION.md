@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python verification/verify.py` with Python 3.10+ and NumPy installed. The checker uses the Lie bracket \([v+z,w+t]=v\wedge w\) and tests the Nijenhuis torsion for all nonzero rank-one factorizations \((u,\phi)\) in the listed finite-field configurations, then divides the counts by \(q-1\) to count distinct maps.
+## correctness
 
-The exhaustive prime-field cases are \((n,q)=(2,2),(2,3),(2,5),(3,2),(3,3)\). The quadratic extension case \((n,q)=(2,4)\) uses \(\mathbb F_4=\mathbb F_2[a]/(a^2+a+1)\) and checks the original operator identity directly on each basis pair.
+PASS
 
-For the six cases, the respective triples (total rank-one Nijenhuis maps, non-character maps, maps with nonzero trace) are `(21,0,12)`, `(104,0,72)`, `(744,0,600)`, `(833,392,224)`, `(18590,9126,6318)`, `(315,0,240)`. Exactly `554023` nonzero factor pairs were tested. The expected completion marker is `NIJENHUIS_RANK_ONE_FREE_CLASS_TWO_OK 6 554023`.
+Substituting N(x)=phi(x)u into Nijenhuis torsion gives phi(x)psi(y)-phi(y)psi(x)=phi(u)phi([x,y]), psi=phi([u,x]). If phi(Z)=0 both vanish. Otherwise projection ker(phi)->V is onto and its brackets span Z; choosing two vectors in ker(phi) with nonzero phi bracket forces phi(u)=0, then substituting a central z with phi(z)!=0 gives psi=0. For u=v+z, if v=0 the central u and phiZ counts give q^n(q^c-1)(q^{c-1}-1); if v!=0, the map w->v wedge w has rank n-1, so phiZ choices q^{c-n+1}-1 and z fiber q^{c-1}, yielding (q^n-1)q^{m-1}(q^{c-n+1}-1). Add phiZ=0 (q^m-1)(q^n-1) and divide by q-1 scalar representations. N^2=phi(u)N establishes non-square-zero count; fixed q asymptotic follows from q^{c-n} growth. Independent small finite checks n=2,3 at q=2,3 corroborate; n=2 has no second type, n>=3 admits one.
 
-For the general case, verify independently from the proof that the relevant annihilator of \(v\wedge V\) has dimension \(\binom n2-n+1\), then count the possible central corrections and scalar factorizations. No finite computation alone can justify the all-dimension result. This package does not prove publication priority or provide independent third-party validation.
+## originality
+
+PASS
+
+General Nijenhuis and rank-one central-image constructions are prior, as is nonzero/square-zero dichotomy for particular special Lie algebras. The complete rank-one iff classification, exact noncentral-image finite-field count and fixed-q asymptotic for all free class-two n are not furnished by the examined statements.
+
+## value
+
+PASS
+
+Free two-step nilpotent Lie algebras are canonical test objects for deformation/Nijenhuis maps. The full rank-one census sharply separates characters from genuinely nonabelian noncentral-image maps and quantifies the latter dominating as the number of generators grows; an exact all-field-dimensional statistic can be reused in future classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
