@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof establishes exact equilibrium cancellation, strictly inward vector fields on all faces of the explicit cube, global existence for initial data in that compact cube, and the \(\ell^\infty\) logarithmic matrix measure bound \(\mu_\infty\le-9/2\). It derives an analytic exponential estimate without relying on finite experiments. The maximum-degree obstruction is verified directly from the one-dimensional root and its positive derivative. The standalone checker independently computes the essential algebraic identities and representative trajectories, but finite sampling is not a universal proof.
+
+## Originality — PASS within inspected evidence
+The strongest prior paper, Çelik–Isoldi–Portakal–Zucal, arXiv:2609.09286v1, Theorem 4.2, already proves higher-order completion of *arbitrary* prescribed growth and pairwise coefficients to a **locally** asymptotically stable equilibrium, using quadratic and cubic per-capita terms. The new claim does **not** assert that general existence statement. Its distinct quantified content is the exact sparse **self-only** higher-order tensor support and the full fixed-size positive-invariant cube with an explicit uniform contraction estimate. The source's construction uses mixed terms built from \(\sum_i x_i\), and the inspected theorem gives no such cube or all-coefficient logarithmic convergence rate. Singh–Baruah study stronger intraspecific competition under model restrictions, while Duran-Sala–Meloni–Calleja-Solanas explore heterogeneous competition and the partial effectiveness of mixed higher-order interactions. Neither inspected source implies this exact unrestricted coefficient-preserving construction. General invariant-set contraction methods are older, so undiscovered diagonal-completion precedents remain a genuine priority risk. Matching only the higher-order degree would be inadequate evidence of novelty; the comparison is by support, quantifiers, and dynamical conclusions.
+
+## Value — PASS
+The source leaves open how little additional interaction structure is needed to remove pairwise sign obstructions while preserving *all* original parameter magnitudes. The theorem answers this structurally motivated sparsity question with only \(2n\) self-only higher-order terms, an explicit nonshrinking coexistence basin and a rate independent of network size. It also proves a genuine maximum-order boundary for universal coverage, rather than just constructing one more arbitrary example. This is a mathematical feasibility result, not a biological calibration claim. Large gains and possible historical priority remain limitations.
+
+## Boundaries and references
+The result is global on the invariant cube only; it is not global attraction over the entire positive orthant. It is not a proof that \(2n\) is the least possible number of coefficients. Principal comparisons: Çelik et al., arXiv:2609.09286v1, Section 4 and Theorem 4.2; Singh–Baruah, Theoretical Ecology 14 (2021); Duran-Sala et al., arXiv:2501.09172; Hou–Baigent, Comm. Pure Appl. Anal. 14 (2015).
+
+Self-review: passed. Independent audit: not yet performed.
