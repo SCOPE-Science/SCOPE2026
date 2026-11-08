@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact predicate characterizes all feasible subsets. Every subset of sizes below six and all 3003 six-subsets is enumerated, with 448 passing. All 48 possible replacements from every passing set are checked. The resulting 3192-edge graph is exhaustively traversed from every vertex. A second complete certificate uses the binary Fano-plane presentation, all 336 explicit incidence automorphisms and four orbit-representative distance traversals. Both prove the same degree polynomial, complete pair-distance distribution, self-centered diameter six and 2940 one-extra-move pairs. No infinite-family conclusion is claimed.
+## correctness
 
-**Originality — PASS, qualified.** Balbuena, Foucaud and Hansberg (arXiv:1407.7263, Proposition 24) proved the six-vertex optimum and displayed one example; the optimum is excluded from novelty. Their inspected primary Heawood analysis does not supply a complete optimal-set census or exchange metric. Haas–Seyffarth (arXiv:1209.5138, §5) and Suzuki–Mouawad–Nishimura (arXiv:1401.5714) address ordinary domination reconfiguration, which does not impose the locating condition and does not imply the new adjacency/distance graph. Targeted synonym, exact-number, published-record and accessible earlier-claim searches found no stronger covering result. Residual originality risk: an equivalent historical enumeration in unindexed literature; no absolute priority claim is made.
+PASS
 
-**Value — PASS.** The question of transforming optimal locating detectors while retaining a unique nonempty signature at every unselected site is intrinsic to the feasibility notion. The exact four-orbit classification, irregular but universally eccentric-six geometry, and one-extra-exchange sharp bound with 2940 exceptions offer meaningful geometric information not contained in the known minimum-cardinality result. The finite classification is useful on its own; no speculative larger theorem is claimed.
+The Heawood graph is the Fano incidence graph on 14 vertices with locating domination defined only for 8 unselected vertices. Exact signature checks exclude every subset of size <6 and identify 448 passing six-subsets out of 3003. One-for-one token-jumping swaps on this complete list give 3192 edges and degree histogram 28·z^6+168·z^12+168·z^14+84·z^22. Independently reconstructed all 448 breadth-first search distance maps: every state eccentricity 6, distance histogram (3192,15204,32508,32298,14868,2058), exactly 2940 pairs need the one-exchange detour beyond 6−|S∩T| (1008 with j2,1428 j3,504 j4). Inspected two distinct frozen scripts: one Hamiltonian-cycle/chords complete BFS, and one Fano GL(3,2) plus duality computation of 336 automorphisms with four orbit sizes (28,84,168,168). All finite domains and predicates specified and complete; no extrapolation to other graphs.
 
-**Scientific boundaries.** This is a theorem for the Heawood graph with unrestricted one-for-one token jumps only; it is not a result about token sliding, larger Fano-like designs, nonminimum sets, or identifying codes. Exactness relies on the supplied deterministic fully exhaustive programs, not on statistical testing. External scholarly priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six-vertex Heawood locating-dominating optimum was previously known (Balbuena–Foucaud–Hansberg Proposition 24). The contribution is the full 448-state minimum-code exchange graph, its four automorphism orbits and exact distance/one-detour histogram. Published generic domination reconfiguration uses a weaker feasibility predicate and does not imply locating-dominating exchange distances. Same-graph exact historical table remains a priority risk, and finite object is motivated by canonical Fano-plane symmetry.
+
+## value
+
+PASS
+
+The Heawood/Fano incidence graph is a canonical symmetric graph and its minimum locating-dominating codes have a natural reconfiguration geometry. The exact 448-state census, orbit classification, full metric distribution and sharp +1 exchange stretch give a meaningful complete finite classification beyond the previously known optimum six, without requiring an asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
