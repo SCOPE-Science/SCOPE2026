@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:00:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S=Z/4Z with shortest-cycle distance, unit-rate Poisson arrivals and unit-speed expanding closed balls, the tail of the first all-site cover time follows by inclusion-exclusion of all 15 nonempty target subsets. For a subset A, the Poisson void intensity has successive slopes a=mu(A), b=mu(B(A,1)),1 on the intervals [0,1],[1,2],[2,infinity); integrating gives I(a,b)=(1-e^-a)/a + e^-a(1-e^-b)/b + e^-a-b (continuous at a=0,b=0). Independent from-scratch subset enumeration recovers E_h=25/3-(32/3)e^-1/4+6e^-1/2-(4/3)e^-3/4-(4/3)e^-1 =2.544980946964... for uniform Haar h and E_nu=2+2e^-1/2-2e^-1=2.477302437082... for antipodal nu=(1/2,0,1/2,0). Independently, thinning gives first arrival at two supported sites as independent Exp(1/2), with C_nu=M+max(1,min(G,2)), M~Exp(1), G~Exp(1/2). Alternating exact rational Taylor bounds yield 0.0676785098698< E_h-E_nu <0.0676785099821. Thus Haar is strictly not optimal; there is no global optimizer claim. Full result and exact verifier blobs inspected in frozen Git tree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldous states only weak general cover-number bounds and asks the optimization question; his fixed-radius nonuniform example is not the growing-ball model."
+        ],
+        "reasoning": "No checked broader theorem forces Haar nonoptimality for the exact growing radius law; a general negative result for some fixed-radius coupons does not imply this example.",
+        "searches": [
+          "David Aldous ALEA 19 (2022) §§1,4,7.1",
+          "Structured coupon collector transitivity counterexamples arXiv:1601.04455"
+        ]
+      },
+      "checked_sources": [
+        "https://alea.impa.br/articles/v19/19-29.pdf",
+        "https://arxiv.org/abs/1601.04455"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former asks rather than resolves the growing-ball group question; the latter concerns structured discrete-time coupon draws."
+        ],
+        "reasoning": "Neither source supplies the Poisson space-time cone integrals or the exact antipodal inequality, so their conclusions do not imply the claim.",
+        "searches": [
+          "Aldous 2022 Section 7.1 Haar question",
+          "Falgas-Ravry et al. Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aldous Section 7.1 asks if Haar minimizes mean growing-ball cover time; older coupon models and fixed-radius seeds are distinct stochastic processes."
+        ],
+        "reasoning": "The exact Z4 Poisson expanding-ball expectation disproves the growing-ball assertion. Fixed coupon distribution optimization cannot be identified with the time-dependent expanding radius integral.",
+        "searches": [
+          "Aldous 2022 Covering a compact space by fixed-radius or growing random balls §7.1",
+          "Falgas-Ravry Larsson Markström arXiv:1601.04455 structured coupon collectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located exact four-cycle expectation table or antipodal versus Haar comparison."
+        ],
+        "reasoning": "This is an exact two-measure strict inequality certified from all 15 subsets; a failed search is not proof of originality.",
+        "searches": [
+          "Resultary semantic search: Poisson expanding random ball cover finite cyclic group Z4 Haar law antipodal optimal measure coverage Aldous",
+          "Published source Aldous 2022 examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for explicit negative answer on the smallest nontrivial cycle to the unrestricted compact-group Haar minimization question for Poisson growing balls. Aldous 2022 explicitly formulates the growth-model question, and the previously known fixed-radius nonuniform examples are not growing-ball counterexamples. Related structured coupon collector examples use fixed-radius/discrete coupons rather than expanding metric balls. Priority risk for an independently published finite-group witness remains.",
+      "residual_risks": [
+        "An unindexed finite-group counterexample with the same Poisson growth law could predate this exact witness.",
+        "The comparison establishes strict improvement over Haar, not that the antipodal law is the global optimum or that connected groups behave similarly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING, formulates the question",
+          "evidence": "Aldous asks whether Haar minimizes E C_mu for invariant compact-group metrics, and distinguishes fixed-radius counterexamples.",
+          "identifier_or_url": "https://alea.impa.br/articles/v19/19-29.pdf",
+          "material_read": "Complete 2022 published 13-page article, notably growth model and §7.1 compact-group question",
+          "method": "Read publisher-hosted full PDF, relevant pages visually inspected",
+          "title": "Covering a compact space by fixed-radius or growing random balls",
+          "trigger": "Same exact stochastic process, explicit open Haar question"
+        },
+        {
+          "assessment": "ADJACENT_MODEL; does not prove exact expanding-ball formula",
+          "evidence": "Discrete fixed-coupon coverage does not logically specify time-dependent growing-ball target cones.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04455",
+          "material_read": "Abstract and published example description identified in cited research package; technical whole paper not claimed read",
+          "method": "Bibliographic comparison, not full-text audit",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "Potential transitive nonuniform faster coverage analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An elementary, exact, robust strict counterexample answers an explicit research question about Haar optimality in the general growing-ball model. It distinguishes the geometric group-invariance property from optimal center law. Even a four-point counterexample is valuable because it settles the unrestricted conjectural principle, without claiming connected-group behavior.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://alea.impa.br/articles/v19/19-29.pdf",
+    "https://arxiv.org/abs/1601.04455",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-four-cycle-counterexample-to-haar-optimal-growing-ball-coverag--a3173ec694bd"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The finite metric group Z4 with zero seed mass at alternate sites is allowed; no assertion for connected compact groups, non-unit speed models, other n, or optimality among all mu."
+  ],
+  "residual_risks": [
+    "An unindexed finite-group counterexample with the same Poisson growth law could predate this exact witness.",
+    "The comparison establishes strict improvement over Haar, not that the antipodal law is the global optimum or that connected groups behave similarly."
+  ],
+  "schema_version": 1
+}
