@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The analytic proof reduces the original real-Hilbert supremum to exactly one coefficient ratio and one inner product. Strict angular concavity gives the threshold \(t=\delta\). The low-exponent derivative has unique zero \(t=\delta^{1/(p-1)}\); the high-exponent Cauchy bound is attained at equal coefficients. All endpoint and weight-balanced cases are included, and an entropy calculation proves the derivative jump at \(p=2\).
+# Independent mathematical audit
 
-`checker.py` uses only the Python standard library and passes 18,867 deterministic checks: 117 explicit extremizing configurations, 18,720 sample upper-bound comparisons, and 30 one-sided derivative checks. It illustrates correctness in finite samples but cannot prove universal quantifiers or absence of earlier coverage. Full independent audit was not performed. The 2019 background paper's full content was not obtained; only bibliographic and abstract-level information was inspected.
+## correctness
+
+PASS
+
+The squared pair norms are R+2rs c and R-2rs c. The weighted concave square-root maximizer lies inside |c|<=1 precisely for smaller/larger ratio t>=delta=|2a-1|; for t<=delta it is attained at collinearity. The exact scalar branches F_p(t) have unique max t=delta^{1/(p-1)} if 1<p<2; at p=2 a full optimizer interval t>=delta, while for p>2 equality in Cauchy and two-dimensional lp-l2 norm forces t=1 and the stated oblique angle. p=1 and delta=0 are covered, and differentiation produces left entropy h(delta^2/(1+delta^2))/4 vs right log(2)/4. I independently evaluated 137,781 (a,p,t,c) inequalities, corroborative not a proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+The asymmetric linear weight is singled out by the motivating skew-geometric framework as distinct from its balance theorem. Computing the full natural weight-by-p constant, all equality shapes, and a genuine collinear-to-oblique extremal transition at p=2 gives useful geometric structure beyond a routine upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
