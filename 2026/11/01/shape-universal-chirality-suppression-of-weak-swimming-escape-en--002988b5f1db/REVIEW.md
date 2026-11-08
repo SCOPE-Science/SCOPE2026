@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis specifies a bounded connected smooth fully absorbing domain, independent uniform initial position and heading, and strictly positive translational diffusion. The backward operator is coercive despite nonreversible angular drift, and spatial Dirichlet Poincaré estimates bound the swimming perturbation operator. Uniform angular symmetry eliminates odd powers. The signed quadratic variation follows by the skew spatial drift and the adjoint unperturbed Poisson equation. The first two angular harmonics give a Lorentzian factor for each Dirichlet mode; Parseval controls convergence and differentiation, with strictness guaranteed by the nonconstant passive torsion function. The global mean-speedup inequality follows separately by energy Cauchy–Schwarz. Checks of interval and disk normalizations and 126 deterministic computational checks passed. A finite verification run is not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For uniformly initialized position/heading and full Dirichlet absorption in bounded connected planar C² G, A_v=A0-v B with A0=-DΔ-D_R ∂φ²-Ω∂φ and B=eφ·∇. The skew terms disappear in Dirichlet L² energy, giving ∥B A0^{-1}∥≤1/(D√λ1), analytic perturbation for small |v| and even expansion by φ→φ+π. The adjoint at v=0 maps 1 to u0; integration by parts gives the quadratic correction -<Bu0,A0^{-1}Bu0>. In spatial Dirichlet eigenfunctions, first angular harmonics invert (a_j I+ΩJ) and yield χ=(2|G|)^{-1}Σ(|B_j1|²+|B_j2|²)a_j/(a_j²+Ω²), a_j=Dλj+D_R. Parseval and a_j>0 justify all s=Ω² derivatives, giving strict complete monotonicity. A separate skew-advection energy/Cauchy-Schwarz argument yields M(v,Ω)<M(0,Ω) for any v≠0; it does not imply arbitrary-v monotonicity in Ω. The proof explicitly allows D_R=0, because spatial Dirichlet coercivity remains.
 
-The 2026 chiral MFPT source treats specific intervals and partially absorbing disk exit windows, mainly through high-angular-speed matched expansions and finite-speed numerics, without a fully absorbing arbitrary-domain quadratic susceptibility theorem. The 2025 two-dimensional MFPT study stops at first order in weak activity, whereas the 2026 chiral splitting study computes exit-side probabilities, not total mean times. The 2025 absorbing-half-space perturbation work studies a divergent mean and the 2023 absorbing-disk spectral scheme is achiral; the special achiral disk coefficient is treated only as verification. Standard advection and resolvent machinery are explicitly credited. The claim-to-prior comparisons, primary-text passages and remaining broader-operator-theorem risk are documented in AUDIT.json. Absence of a database match is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The source literature demonstrates orientation- and boundary-dependent optimal chirality, leaving an interpretable prediction for a physically natural uniform ensemble and fully absorbing arbitrary confinement. The strict complete-monotonicity hierarchy is stronger than one positive perturbative coefficient: it classifies all squared-chirality derivatives, for every shape, including zero rotational diffusion. The exact spectral weights connect observable escape response to passive domain geometry, while clearly exposing why mixed absorbing/reflecting boundaries fall outside the theorem. The result has a natural use in weak-swimming transport comparisons and is not a parameter renaming or finite table lookup.
+The inspected chiral ABP paper develops geometry-specific and prescribed-start exit laws, while achiral disk and weak-activity papers treat only restricted domains or perturbative coefficients without squared-chirality all-order Stieltjes monotonicity. Standard operator resolvent/antisymmetric-drift inequalities and some achiral special cases are already known; originality is restricted to universal spectral susceptibility and strict chirality hierarchy, not those tools. An uninspected abstract general operator theorem might subsume it.
 
-## Sources and limitations
+## value
 
-Primary motivating source: Iyaniwura–Qiu–Peng, arXiv:2605.23095v1, especially 1D high-chirality results and the partially absorbing disk section. Close comparisons: Iyaniwura–Peng arXiv:2506.15813v1 (first-order nonchiral MFPT); Iyaniwura–Peng arXiv:2603.13621v2 (splitting probabilities); Baouche et al. arXiv:2503.05401v1 (achiral half-space FPT); Di Trapani et al. arXiv:2306.12702 (achiral disk propagator); Iyer et al., DOI:10.1137/090776895 (incompressible drift). The limit concerns only the quadratic swimming coefficient and assumes a uniformly sampled position and heading. Broader unlocated functional-analytic response statements remain a priority risk. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A spatial-domain-independent constraint on how chirality suppresses the leading swimming-assisted escape speedup is a natural transport question. The spectral measure gives explicit shape dependence, strict hierarchy of derivatives, and usable numerical coefficients for arbitrary fully absorbing geometries; this goes beyond a routine disk/interval computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

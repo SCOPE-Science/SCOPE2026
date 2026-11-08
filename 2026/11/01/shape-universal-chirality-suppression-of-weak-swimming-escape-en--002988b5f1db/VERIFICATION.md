@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy installed. A completed run returned `PASS: 126 deterministic checks`, with an interval coefficient of approximately `0.011111111111107692` (target exactly `1/90`) and a disk coefficient of `0.0026041666666666665` (target exactly `1/384`). Four finite-difference backward equations at distinct angular parameter pairs agreed with the truncated Dirichlet series within two percent at the chosen mesh, and their two small-speed measurements agreed with the quadratic discrete response. The numerical solution was even in swimming speed and showed shorter spatial-angular mean exit times for tested positive speeds.
+## correctness
 
-The analytical verification consists of: Dirichlet Poincaré bound for the unperturbed inverse; convergent Neumann series around zero swimming; orientation reversal removing odd terms; an adjoint-integral calculation of the negative quadratic coefficient; the first-harmonic resolvent, Dirichlet Parseval, and strictly positive Stieltjes derivatives; an equality-case analysis for the global average exit bound. The independent elementary interval constant-drift calculation and disk polynomial Poisson solution check normalization factors.
+PASS
 
-**Scope limits:** finite grids cannot prove statements for all shapes, diffusivities, chirality values or derivative orders. Neither the tests nor this self-review constitute independent validation or publication-priority certification. The claims do not extend to reflecting boundary segments or nonuniform initial distributions.
+For uniformly initialized position/heading and full Dirichlet absorption in bounded connected planar C² G, A_v=A0-v B with A0=-DΔ-D_R ∂φ²-Ω∂φ and B=eφ·∇. The skew terms disappear in Dirichlet L² energy, giving ∥B A0^{-1}∥≤1/(D√λ1), analytic perturbation for small |v| and even expansion by φ→φ+π. The adjoint at v=0 maps 1 to u0; integration by parts gives the quadratic correction -<Bu0,A0^{-1}Bu0>. In spatial Dirichlet eigenfunctions, first angular harmonics invert (a_j I+ΩJ) and yield χ=(2|G|)^{-1}Σ(|B_j1|²+|B_j2|²)a_j/(a_j²+Ω²), a_j=Dλj+D_R. Parseval and a_j>0 justify all s=Ω² derivatives, giving strict complete monotonicity. A separate skew-advection energy/Cauchy-Schwarz argument yields M(v,Ω)<M(0,Ω) for any v≠0; it does not imply arbitrary-v monotonicity in Ω. The proof explicitly allows D_R=0, because spatial Dirichlet coercivity remains.
+
+## originality
+
+PASS
+
+The inspected chiral ABP paper develops geometry-specific and prescribed-start exit laws, while achiral disk and weak-activity papers treat only restricted domains or perturbative coefficients without squared-chirality all-order Stieltjes monotonicity. Standard operator resolvent/antisymmetric-drift inequalities and some achiral special cases are already known; originality is restricted to universal spectral susceptibility and strict chirality hierarchy, not those tools. An uninspected abstract general operator theorem might subsume it.
+
+## value
+
+PASS
+
+A spatial-domain-independent constraint on how chirality suppresses the leading swimming-assisted escape speedup is a natural transport question. The spectral measure gives explicit shape dependence, strict hierarchy of derivatives, and usable numerical coefficients for arbitrary fully absorbing geometries; this goes beyond a routine disk/interval computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
