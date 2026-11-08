@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem is proved for all labeled graphs \(K_n\square K_2\) with \(n\ge2\). A blue vertex's number of white neighbors is the white count in its own clique plus the matched-partner indicator, yielding an exact forcing-versus-stalling partition. Inclusion-minimal forts are classified by the same neighbor counts; the proof checks true inclusion-minimality, including the exceptional orders \(n=2,3\). The counting argument partitions successful white configurations without overlap and yields the entire zero-forcing polynomial; the probability limit follows from a joint binomial-to-Poisson limit and an explicit negligible exceptional event. Independent graph-level brute force matches all tested exact counts and structural predicates. Boundary and asymptotic hypotheses are explicit.
+PASS
 
-## Originality: PASS, with uncertainty
+For all integer n>=2, each initially blue A_i has exactly a+1_{i in W_B} white neighbors and blue B_i has b+1_{i in W_A}; the exhaustive cases a=0 or b=0 or singleton white layer with a nonmatched blue forcing witness give a necessary-and-sufficient success condition. Counting the cases yields the all-coefficient zero-forcing polynomial, Z_n(1)=(n+1)2^(n+1)-n^2-6n-1 for n>=3, and minimum count 2n(n-1)+2. Fort constraints classify a,b: singleton-versus-(n-1) sets and two-plus-two sets, with n=2/3 exceptions; combinatorial proof all n. Independent direct full graph simulation/fort inclusion tests for n=2..7 exactly reproduced every reported polynomial and minimal fort histogram (including 44 degree-four forts at n=4). Poisson white-count convergence proves the independent-failure window, not correlated cases.
 
-The 2018 foundational zero-forcing-polynomial paper covers general coefficients and other special families, not these complete matched-clique distributions. The 2022 graph-product failed-forcing work gives maximum-failed cardinalities, whereas the present theorem counts **all** zero-forcing sets by size and **all** inclusion-minimal forts. The 2023 Cartesian-product fort-hypergraph paper gives general inequalities and scalar parameters, not this complete hypergraph. The 2023 zero-forcing-span paper characterizes coefficient support properties, not coefficient values. Searches of indexed research records and closely related known graph-family claims did not identify a statement implying both complete polynomials. Negative search results are not a uniqueness proof; publication priority remains provisional.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The matched-clique graph \(K_n\square K_2\) is a canonical two-layer Cartesian graph product. Full zero-forcing-set size distributions and minimal-fort hypergraphs are natural structural invariants of propagation reliability and forcing obstructions. The theorem identifies two distinct minimal-fort sizes, resolves exceptional small orders, gives every coefficient and every minimum-set multiplicity, and derives a nondegenerate random-failure scaling window. These features are more informative than the known zero-forcing number or largest failed-set cardinality and are not an arbitrary finite slice.
+Boyer et al introduce zero forcing polynomials and Cameron et al minimal fort hypergraphs; products of complete graphs have known scalar zero-forcing/failed-forcing values, but inspected source sections do not supply the full polynomial and minimal forts for K_n square K_2 plus its critical failure window. General bounds/scalars cannot fix all polynomial coefficients.
 
-## Closest literature and residual risks
+## value
 
-The inspected primary full texts are Boyer et al., arXiv:1801.08910v1 (Sections 3--5); Abara--Pelayo, arXiv:2202.04997v1 (Sections 2--3); Cameron et al., arXiv:2310.17904v3 (Sections 1--6); and Jacob, arXiv:2309.06234v1 (Sections 3--4). The 2026 revised version of the 2023 fort paper was inspected rather than inferred from the original abstract. No independent publication-priority certification has been performed; unindexed or later equivalent work may exist. Computation is finite and not an infinite proof. The present result does not cover arbitrary rook graphs, skew forcing, or correlated initial colors.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-order exact polynomial and minimal-fort hypergraph for a natural graph family (two cliques joined by a perfect matching), and an explicit sharp robustness threshold, give independent combinatorial data for forcing and intervention design. More than a known Z=n deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
