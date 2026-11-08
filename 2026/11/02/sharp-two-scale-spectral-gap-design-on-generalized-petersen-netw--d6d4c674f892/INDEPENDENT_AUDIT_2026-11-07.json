@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:51:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-scale-spectral-gap-design-on-generalized-petersen-netw--d6d4c674f892/RESULT.md @ 658b62db28ac4990771c8d68d4abf2f6a6c0c18a",
+        "Independent check: independent_checks.py, case S5"
+      ],
+      "rationale": "The n≥13 GP(n,2) graph has two n-vertex Fourier layers. For type-uniform conductances a,b,c the mode k is the Hermitian 2×2 block H_k=[[a e_k+c,-c],[-c,b d_k+c]], with e_k=4sin²(πk/n),d_k=4sin²(2πk/n). Its lower eigenvalue and the positive k0 mode 2c give exact λ2. A Fourier trial vector with amplitudes (1+s)ω^j on outer vertices and ω^j inner, s=sqrt(d1), gives universal upper cap d1/((1+s)²+1) because its energy depends only on orbit-averaged edge weights even for arbitrary nonuniform designs. For n≥13, e1(1+s)²<d1, giving strict inequality if outer average a>0; for a=0 even n disconnects, odd n has a strict high-frequency trial bound. Taylor expansion yields cap 8π²/n²-32π³/n³+O(n^-4). The explicit construction a=α/n²,c=2π/n,b=1-a-c with α above the even/odd threshold makes low-frequency k±1 uniquely controlling eventually; high-frequency near n/2 have limiting gap 2α (even) or 2α+2π² (odd), and intermediate escaping modes cannot beat k1. For arbitrary near-optimal designs, upper-trial deficit forces a=o(1/n); the k1 block forces nc→2π, and high-frequency trials force liminf n²a≥4π² (even) or 3π² (odd). These are two-term asymptotic, not exact finite optimization or uniqueness. Independent mode calculations for n=13,14,31,32,100,101,400,401 corroborated the leading coefficient and strict cap.",
+      "residual_risks": [
+        "The solution is asymptotically sharp only to n^-3, does not determine exact finite-n maximizers or all near-optimal nonuniform weight configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd 2006 provides convex SDP optimization of weighted Laplacian eigenvalues on arbitrary graphs and Dudek 2014 derives unweighted Petersen spectra. A general algorithm or Fourier diagonalization does not determine the explicit asymptotic two-scale conductance allocation and sharp parity thresholds."
+        ],
+        "reasoning": "Boyd 2006 provides convex SDP optimization of weighted Laplacian eigenvalues on arbitrary graphs and Dudek 2014 derives unweighted Petersen spectra. A general algorithm or Fourier diagonalization does not determine the explicit asymptotic two-scale conductance allocation and sharp parity thresholds.",
+        "searches": [
+          "generalized Petersen GP(n,2) algebraic connectivity weighted Laplacian maximize spectral gap edge budget conductances two scales",
+          "https://arxiv.org/pdf/1412.3531",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.3531",
+        "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "https://arxiv.org/abs/1510.06785",
+        "https://arxiv.org/pdf/1412.3531",
+        "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dudek’s adjacency-spectrum expressions are recovered at uniform edges, but they do not imply an optimum over all nonuniform weights; Boyd’s convex framework admits the optimization yet provides no analytic GP(n,2) solution. The Resultary GP(n,2) Rips record is about topology, not the Laplacian objective."
+        ],
+        "reasoning": "Dudek’s adjacency-spectrum expressions are recovered at uniform edges, but they do not imply an optimum over all nonuniform weights; Boyd’s convex framework admits the optimization yet provides no analytic GP(n,2) solution. The Resultary GP(n,2) Rips record is about topology, not the Laplacian objective.",
+        "searches": [
+          "generalized Petersen GP(n,2) algebraic connectivity weighted Laplacian maximize spectral gap edge budget conductances two scales",
+          "https://arxiv.org/pdf/1412.3531",
+          "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "https://arxiv.org/abs/1510.06785"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generalized Petersen spectra arise from two-layer Fourier blocks; adding independently chosen conductances is a weighted algebraic-connectivity maximin problem, not merely the unweighted graph spectrum."
+        ],
+        "reasoning": "Generalized Petersen spectra arise from two-layer Fourier blocks; adding independently chosen conductances is a weighted algebraic-connectivity maximin problem, not merely the unweighted graph spectrum.",
+        "searches": [
+          "generalized Petersen GP(n,2) algebraic connectivity weighted Laplacian maximize spectral gap edge budget conductances two scales",
+          "https://arxiv.org/pdf/1412.3531"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked scalar cap and constructive n^-3 coefficient were computed directly from the two-layer model, and searched published Petersen spectral and Laplacian optimization records without finding this exact budgeted two-scale table; such absence is only residual evidence."
+        ],
+        "reasoning": "The checked scalar cap and constructive n^-3 coefficient were computed directly from the two-layer model, and searched published Petersen spectral and Laplacian optimization records without finding this exact budgeted two-scale table; such absence is only residual evidence.",
+        "searches": [
+          "generalized Petersen GP(n,2) algebraic connectivity weighted Laplacian maximize spectral gap edge budget conductances two scales",
+          "https://arxiv.org/pdf/1412.3531"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.",
+      "residual_risks": [
+        "An unindexed weighted generalized Petersen spectral design study could supply the same two-scale asymptotic.",
+        "Only n≥13 and k=2, no uniqueness or exact finite optimum; some asymptotic details depend on the no-escaping-modes argument in the original proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNWEIGHTED_SPECTRUM_NOT_CONDUCTANCE_OPTIMIZATION",
+          "evidence": "Establishes unweighted two-layer Petersen eigenvalue formulas, not independent nonnegative conductance allocation nor parity-sensitive optimal scale laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3531",
+          "material_read": "Full ten-page arXiv paper accessible; read unweighted generalized Petersen adjacency/Laplacian spectral theorem and derivation in introduction and early sections",
+          "method": "lawful arXiv PDF with page screenshot and targeted proof reading",
+          "title": "On the Spectrum of the Generalised Petersen Graphs",
+          "trigger": "Potential spectral identity dominating the proposed Fourier blocks"
+        },
+        {
+          "assessment": "GENERAL_SDP_FRAMEWORK_NO_EXPLICIT_PETERSEN_TWO_SCALE_SOLUTION",
+          "evidence": "Provides a general convex method for optimal Laplacian eigenvalues under linear constraints but no explicit GP(n,2) n^-3 asymptotic or parity threshold.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Full nine-page primary PDF accessible; inspected introduction and convex optimization/semidefinite formulation sections",
+          "method": "author-hosted full PDF and first-page screenshot",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "Broader spectral-gap optimization over edge weights may dominate the claimed specific network result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-scale-spectral-gap-design-on-generalized-petersen-netw--d6d4c674f892/RESULT.md @ 658b62db28ac4990771c8d68d4abf2f6a6c0c18a",
+        "Independent check: independent_checks.py, case S5",
+        "https://arxiv.org/pdf/1412.3531",
+        "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf"
+      ],
+      "rationale": "GP(n,2) is a natural periodic network with physically distinct outer, inner and spoke edge classes. The sharp algebraic-connectivity under an unconstrained per-edge budget has a nontrivial boundary-layer design in which spoke conductance is order 1/n, stabilizing outer conductance 1/n² and an essential even/odd threshold. The all-n strict spectral cap, two-term optimum and necessary scales are substantive consequences not mechanically obtained from the unweighted spectrum or a generic SDP formulation. These results matter for budgeted network design without claiming exact finite optimal allocations.",
+      "residual_risks": [
+        "The solution is asymptotically sharp only to n^-3, does not determine exact finite-n maximizers or all near-optimal nonuniform weight configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed weighted generalized Petersen spectral design study could supply the same two-scale asymptotic.",
+    "Only n≥13 and k=2, no uniqueness or exact finite optimum; some asymptotic details depend on the no-escaping-modes argument in the original proof.",
+    "The solution is asymptotically sharp only to n^-3, does not determine exact finite-n maximizers or all near-optimal nonuniform weight configurations.",
+    "The publication plan is not_ready because source provenance and prior-work date metadata have not been sanitized."
+  ],
+  "schema_version": 1
+}
