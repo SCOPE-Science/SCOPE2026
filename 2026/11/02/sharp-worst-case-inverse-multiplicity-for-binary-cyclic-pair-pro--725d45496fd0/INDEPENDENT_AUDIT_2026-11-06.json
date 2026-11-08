@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:06:18.492010Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For indexed binary cyclic words, nonconstant profiles have z zeros, o=n-z ones and t= m01=m10>=1. Mark a 01 transition and compose t alternating nonempty runs to derive exactly B_n(z,t)=n/t*C(z-1,t-1)*C(o-1,t-1), valid for periodic words. For t>=2 the adjacent-z ratio has cleared difference (t-1)(n-2z-1), forcing centered z/o; n>=6 centered t=2 dominates all t=1. The t-ratio (z-t)(o-t)/(t(t+1)) has sign from zo-t(n+1). The four n mod 4 cases yield the asserted exact H_n, all optimizer ties, and boundary n<=5; Stirling gives 4*2^n/(pi*n)(1+O(1/n)). Independently enumerated every indexed word through n=14 and independently compared all fibers and maxima, including H6=12,H8=36,H9=54,H12=400,H14=1400; actual supplied verify.py and crosscheck.cpp code and blob IDs inspected. These finite checks corroborate, not prove, the all-n ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacquet et al. abstract and binary example count distinct balanced matrices/Markov types over length n.",
+          "Its introduction credits Whittle 1955 with cardinalities of individual type classes."
+        ],
+        "reasoning": "General Markov-type enumeration and a general exact class-size formula cover the ingredients, not automatically the residue-four extremum including equality classification; the prior results are credited.",
+        "searches": [
+          "Jacquet Knessl Szpankowski Counting Markov Types 2010 DOI 10.46298/dmtcs.2768",
+          "Whittle Some Distribution and Moment Formulae for the Markov Chain 1955"
+        ]
+      },
+      "checked_sources": [
+        "Jacquet, Knessl, Szpankowski, Counting Markov Types, 2010, DOI 10.46298/dmtcs.2768, primary author PDF text and screenshot",
+        "Whittle, JRSS B 17 (1955), 235-242, bibliographic reference, not read in full",
+        "Resultary semantic query maximum inverse fiber cardinality cyclic binary Markov type adjacency pair counts run compositions worst case ambiguity",
+        "Git source pinned RESULT.md, REVIEW.md, VERIFICATION.md, verify.py, crosscheck.cpp, METADATA.json, AUDIT.json, SLOGAN.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1955 fixed-type methods imply a route to Eq.(1), not a quoted theorem optimizing its t and z parameters.",
+          "The new proof explicitly optimizes consecutive ratios and handles exceptional n=1..5 and n=4k+1 ties."
+        ],
+        "reasoning": "The optimized theorem is not a corollary of a type-count enumeration; from a fixed-class formula it requires a genuinely additional global extremal calculation. This conditional claim is narrower than saying its input formula is new.",
+        "searches": [
+          "Counting Markov Types binary balanced frequency matrices",
+          "Whittle 1955 type class formula",
+          "cyclic run compositions mode binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittle fixed Markov-type count, acknowledged in Jacquet–Knessl–Szpankowski (2010), provides the per-profile count but not its optimizer.",
+          "The source reconstructs the exact run-composition fiber equation n/t*C(z-1,t-1)*C(o-1,t-1)."
+        ],
+        "reasoning": "Cyclic balanced Markov type, two-gram spectrum and adjacent-pair frequency matrix are equivalent observations here. Known per-type cardinality is strictly weaker than a global optimization and full tie classification.",
+        "searches": [
+          "maximum inverse fiber cardinality cyclic binary Markov type adjacency pair counts run compositions worst case ambiguity",
+          "binary cyclic Markov type Whittle class cardinality run count maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Jacquet et al. binary example tabulates the number of types, not inverse fiber maximum or all maximizers.",
+          "Retrieved Resultary binary two-multispectrum class-count records concern linear rather than cyclic input and do not give this global maximum."
+        ],
+        "reasoning": "No directly comparable all-length maximizer table located; absence is not itself a priority proof.",
+        "searches": [
+          "maximum inverse fiber cardinality cyclic binary Markov type adjacency pair counts run compositions worst case ambiguity",
+          "\"binary Markov\" \"largest type class\" circular strings",
+          "\"cyclic pair\" \"maximum multiplicity\""
+        ]
+      },
+      "rationale": "Known Whittle-type formulas count one fixed Markov type, and Jacquet–Knessl–Szpankowski count the number of balanced types; neither supplies the exact global largest type class, four congruence-dependent optimizers and all short-length ties. The established per-fiber composition formula is not claimed as original. A targeted Resultary search surfaced only distinct linear multispectrum counts and other read channels; historical priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Older unindexed Whittle/Markov-type optimization of the same extremal class might exist; original Whittle paper not read in full.",
+        "Resultary search returned no comparable theorem, which does not establish universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly counts distinct types, not maximum inverse-type list.",
+          "evidence": [
+            "Abstract specifies number of Markov types; binary balanced matrices in introductory example; source explicitly cites Whittle for fixed class cardinality."
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+          "material_read": "Abstract, introduction, binary two-state example, stated theorems and purpose; PDF first pages inspected visually.",
+          "method": "Author-hosted full PDF, text sections and screenshot",
+          "title": "Counting Markov Types",
+          "trigger": "Same balanced cyclic frequency matrices and a historical reference to Whittle"
+        },
+        {
+          "assessment": "Historical-priority uncertainty retained; not used to prove noncoverage.",
+          "evidence": [
+            "2010 Counting Markov Types credits Whittle for class cardinalities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1955.tb00197.x",
+          "material_read": "Bibliographic details and 2010 secondary attribution only; original article full text not read.",
+          "method": "Secondary citation, no full-text claim",
+          "title": "Some Distribution and Moment Formulae for the Markov Chain (Whittle 1955)",
+          "trigger": "Foundational exact type-class counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst inverse list size is an intrinsic ambiguity invariant of exact cyclic 2-gram reconstruction. An all-length sharp value with the optimal symbol counts, run counts, unusual n=4k+1 ties and asymptotic leading constant is a usable precise extremal fact for reconstruction, unlike merely counting output classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet, noiseless full wraparound pair counts, and indexed words only; no necklace, larger alphabet or noise results.",
+    "Finite census is not the all-length argument."
+  ],
+  "schema_version": 1
+}

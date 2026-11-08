@@ -1,19 +1,21 @@
-# Scientific review of sharp binary cyclic pair-profile inverse multiplicity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is an indexed binary circle and the observation is its complete four-entry cyclic ordered-pair frequency matrix. The marked-boundary double count proves the exact fiber formula for every nonconstant realized matrix, including periodic input words. Positivity and the displayed successive-ratio identities prove strict centering for transition counts at least two, then the four-residue optimum and the complete tie classification. Constant words and all cases of length at most five are separately resolved. Standard Stirling estimates prove the asymptotic constant. Both independently implemented finite checks are supporting consistency tests rather than the infinite proof: `verify.py` verifies parameter optima through length 200 and direct input enumeration through 19; `crosscheck.cpp` directly enumerates complete four-entry profiles through 20.
+PASS
 
-## Originality — PASS, with historical qualification
+For indexed binary cyclic words, nonconstant profiles have z zeros, o=n-z ones and t= m01=m10>=1. Mark a 01 transition and compose t alternating nonempty runs to derive exactly B_n(z,t)=n/t*C(z-1,t-1)*C(o-1,t-1), valid for periodic words. For t>=2 the adjacent-z ratio has cleared difference (t-1)(n-2z-1), forcing centered z/o; n>=6 centered t=2 dominates all t=1. The t-ratio (z-t)(o-t)/(t(t+1)) has sign from zo-t(n+1). The four n mod 4 cases yield the asserted exact H_n, all optimizer ties, and boundary n<=5; Stirling gives 4*2^n/(pi*n)(1+O(1/n)). Independently enumerated every indexed word through n=14 and independently compared all fibers and maxima, including H6=12,H8=36,H9=54,H12=400,H14=1400; actual supplied verify.py and crosscheck.cpp code and blob IDs inspected. These finite checks corroborate, not prove, the all-n ratios.
 
-Jacquet–Knessl–Szpankowski (2009/2010), *Counting Markov Types*, DOI 10.46298/dmtcs.2768, counts the number of balanced matrices/Markov types, not their largest inverse multiplicity. The cited 1955 Whittle work provides general per-type cardinality methods: those are recognized prior art, and the individual fiber formula is not claimed as new. Makri–Psillakis–Arapis (2013), DOI 10.5539/ijsp.v2n3p50, counts circular runs of prescribed sizes and overlaps; it does not supply the all-length four-entry worst-fiber optimizer. Published related work on linear adjacent-pair observations counts distinct output profiles and singleton classes; it does not imply the cyclic maximum without a different global optimization. A full reading of Whittle (1955), Inoue–Aki (2010), or unindexed older run literature could alter priority, but their accessible descriptions do not state the exact four-residue extremum or complete optimizer/tie classification.
+## originality
 
-## Value — PASS
+PASS
 
-The worst inverse-list size is a natural, exact reconstruction ambiguity invariant under the noiseless cyclic two-gram channel. Its leading constant, the exact phase-dependent maximizing symbol/run content, and all equality ties quantify a worst-case uncertainty not furnished by enumerating the number of observed types or by an unconstrained binomial mode. These features can be used in worst-case list-decoding analysis, even though no noisy-channel capacity is asserted. The claim is a global extremal theorem with structural equality cases, not an arbitrary small-n table.
+Known Whittle-type formulas count one fixed Markov type, and Jacquet–Knessl–Szpankowski count the number of balanced types; neither supplies the exact global largest type class, four congruence-dependent optimizers and all short-length ties. The established per-fiber composition formula is not claimed as original. A targeted Resultary search surfaced only distinct linear multispectrum counts and other read channels; historical priority remains best-of-knowledge.
 
-## Limits and closest sources
+## value
 
-The source alphabet is binary, all symbols are indexed, and all wraparound adjacent pairs are observed. No result is asserted about rotation necklaces, nonbinary alphabets, longer reads, or noise. General Markov-type enumeration and exact fixed-type methods remain known literature; their existence limits the novelty claim to the explicit optimized extremum and equality classification. Historical priority remains qualified until independently checked.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Worst inverse list size is an intrinsic ambiguity invariant of exact cyclic 2-gram reconstruction. An all-length sharp value with the optimal symbol counts, run counts, unusual n=4k+1 ties and asymptotic leading constant is a usable precise extremal fact for reconstruction, unlike merely counting output classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
