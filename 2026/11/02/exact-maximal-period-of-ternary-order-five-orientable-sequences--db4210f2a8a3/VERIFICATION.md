@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The integral dual proof and witness are verified by executing `python3 verify_certificate.py`, which depends only on the Python standard library. Its exact output is embedded as `verification_output.txt`.
+## correctness
 
-The checker reconstructs the full universe of 243 five-words, all 216 nonpalindromic words, all 108 reversal pairs, and all six exceptional palindromic four-vertices; proves their three-in/three-out reversal pairing by explicit enumeration; sums the normalized pair weights to 486; checks the universal inequality for each of 216 edges; and verifies a period-93 word against all cyclic windows and their reversals. These checks are exhaustive for the finite order-five ternary universe, not probabilistic samples. No floating-point arithmetic or package dependencies are used.
+PASS
 
-The scientific proof of why the inequalities give a universal upper bound—the Eulerian cancellation, nonnegative reversal-pair allowance, and special-vertex degree cap—is written separately in `RESULT.md`. Source comparison and scientific limitations appear in `REVIEW.md` and `AUDIT.json`. No independent mathematical review has been performed.
+PASS: Every length-five window is a nonpalindromic edge of an Eulerian order-four de Bruijn subgraph with at most one edge per reversal pair. At six distinct abba vertices, reversal exclusion and balanced in/out degrees force indegree at most one. Reconstructed all 216 integral dual inequalities with nonnegative pair weights total 486 over 108 pairs and telescoping vertex potentials: 6m<=486+72=558, hence m<=93. Independent direct circular enumeration checked 93 distinct, nonpalindromic and reversal-disjoint windows of the given 93-symbol witness, proving least period 93. Exhaustive finite 243-word graph is the entire fixed-parameter domain, not a heuristic sample.
+
+## originality
+
+PASS
+
+Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.
+
+## value
+
+PASS
+
+PASS: A sharp fixed-parameter extremal period is a natural missing exact invariant of orientable sequences. The prior 2025 table left a 93–99 gap, and a reproducible finite integer-dual certificate closes it in a mathematically useful way, independently of a generic larger-alphabet construction. No general alphabet/order or maximizer classification is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
