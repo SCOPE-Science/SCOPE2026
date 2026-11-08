@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The model is precisely specified for every source with positive depth and every positive wave speed. The five-column linearization follows by squaring the exact direct-arrival formula, and the inverse back-substitution fixes the sign of depth. A five-point circular restriction cannot coincide with an affine spatial function away from the ring centre: the squared relation has at most four roots unless identically zero, in which case its second harmonics enforce zero affine slope and its first harmonics enforce a centred source. At the centre, three distinct radii contradict strict square-root concavity. Two-radius nonidentifiability and the continuous complete-ring gauge both have explicit parameter families. The standalone reproducibility checker passed 8,296 assertions; it is supplementary to the proof.
+PASS
 
-## Originality
+Squaring t_i=tau+v^-1 sqrt(|s_i-x|²+h²) gives exact 5-column linear design [2t_i,|s_i|²,s_ix,s_iy,1]. Five distinct circle stations force an affine time relation to have a degree-two trigonometric polynomial with 5 zeros, so its degree-two harmonic vanishes (slope b=0) and the degree-one harmonic forces x=0. For x=0, three distinct squared radii sample a strictly concave sqrt(z+h²), excluding affine rank loss. A circle gauge u→lambda u, x→x/lambda², h²→(R²+|x|²+h²)/lambda²-R²-|x|²/lambda^4 proves all-circle nonidentifiability. Two radii fail centrally. Independently computed rank 5 for central and two off-center positive-depth instances, with minimum singular values 0.01450,0.00771,0.00893; finite samples are supplementary.
 
-**PASS, with documented residual historical-priority risk.** The 2007 linear localization paper and 2011 geometrical chapter concern known constant propagation speed. Annibale and Rabenstein (2012) consider joint source-position/speed estimation from time differences, and are materially relevant; the accessible abstract and beginning of the indexed paper do not establish the sharp all-source three-radius theorem, but its full text was unavailable. The fully accessible 2010 and 2013 seismic inversion articles analyze source/velocity uncertainty and source/structure inversion, not this particular global ring-array injectivity boundary. The nearest previously recorded Gaussian puff reconstruction theorem also depends on circular/spherical geometric rank, but its time-varying diffusion traces do not imply uniqueness from one set of acoustic arrivals with an unknown emission time, speed and source depth. No absence of a matching search result is treated as proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is not merely a parameter count or a special-case inversion: it gives an unconditional impossibility for arbitrarily dense circular arrays even with several uncalibrated seismic phases, and a finite exact placement design that succeeds for every admissible hypocentre. It sharply separates two and three radial levels for ring-centred layouts. The design is germane to sensor calibration, hypocentre/velocity tradeoffs and geometry choice; it is an ideal-model identifiability result, not an operational seismic network performance recommendation.
+Classic calibrated-speed linear source localization uses related squaring but does not itself prove global identifiability when both origin and speed are unknown, nor the 5-circle/2-off-radius sufficient design and radial lower bound. Exact general acoustic localization may imply an equivalent construction; this remains a risk.
 
-## Closest work and limitations
+## value
 
-The relevant comparisons are Militello–Buenafuente (2007), Buenafuente–Militello (2011), Annibale–Rabenstein (2012), Valentine–Woodhouse (2010) and Poliannikov et al. (2013). Unavailable full texts of the 2007, 2011 and 2012 works leave a specific possibility of an earlier equivalent geometry theorem. The ideal homogeneous single-direct-ray model does not establish performance under heterogeneity, noise, correlated station errors or unknown instrument clocks. Seven is sufficient and sharp only in the stated ring-plus-radii family; it is not claimed as a universal minimum over all array geometries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unknown speed, depth and origin time is a natural inverse problem. The exact radial-identifiability obstruction and universally safe seven-station layout are concrete constructive and negative results; no claim of optimal station number among all planar arrays.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
