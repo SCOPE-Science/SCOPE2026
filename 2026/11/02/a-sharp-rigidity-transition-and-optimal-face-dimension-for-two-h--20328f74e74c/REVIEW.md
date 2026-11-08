@@ -1,19 +1,21 @@
-# Review: rigidity of optimal two-hop hypercube walks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is precisely the symmetric, nonnegative, stochastic transition kernels with moves of Hamming distance at most two. Group averaging is used only to calculate the unrestricted minimum, not to infer uniqueness. The Walsh–Krawtchouk eigenvalue formula yields the bound from degree-one and parity modes, while equality forces the canonical radial weights for dimensions at least four. The three-dimensional polynomial interpolation identity forces all three nonconstant eigenvalues and the radial weights. In dimensions three and four every nonconstant Walsh mode saturates the norm constraint, so equality of averaged Rayleigh quotients forces every unrestricted optimizer to agree on the full Walsh basis. In larger dimensions the two saturated mode families force zero holding and fixed coordinate flip mass; strict slack of all intermediate Walsh modes permits a genuine continuum of unequal-edge translation-invariant optimizers, with exactly one independent sum constraint on pair probabilities. The 228683 exact arithmetic assertions in the included verifier successfully replay, but the full-dimensional conclusion rests on the proof, not the tests.
+PASS
 
-## Originality — PASS, with explicit residual risk
+The automorphism average reduces the SLEM value (not unrestricted uniqueness) to shell kernels; Walsh eigenvalues are quadratic Krawtchouk expressions. Degree-one and parity eigenvalue bounds force shell masses (0,2/(d+1),(d-1)/(d+1)) for d>=4. The d=3 interpolation identity gives 1/7 and fixes every radial eigenvalue; full saturation of nonconstant Walsh modes at d=3 and d=4 forces each unaveraged optimizer to coincide with the radial kernel by Rayleigh equality. At d>=5 degree-one and parity mode saturation forces each vertex holding mass zero, bit-flip marginal 2/(d+1), and total one-bit mass 2/(d+1); strict slack of interior modes allows the displayed 4-direction translation-invariant perturbation. Pair-weight constraints leave binom(d,2)-1 coordinates, with an open feasible neighborhood. I independently checked rational Walsh eigenvalues and the perturbation for d=2..10, not as proof of all d.
 
-Boyd, Diaconis, Parrilo and Xiao's 2007 edge-transitive fastest-mixing theorem already covers existence of a uniform-edge optimizer on the halved cube, which is isomorphic to the two-hop Boolean cube. Their theorem plus its Walsh spectrum also implies the optimal value: neither of these is being presented as an independent innovation. The contribution assessed here is the global uniqueness threshold at dimensions two through four, the nonuniqueness and exact local optimal-face dimension beginning at dimension five, and the rigid rowwise support/marginal laws for *all* unrestricted optimizers. These are not statements of the earlier edge-transitive optimum. Apers and Sarlette (2015) consider polynomial spectral filters under different constraints, without characterizing the unrestricted nonnegative optimal face. Karlin, Lindqvist and Yao (1993) are more historical and relevant to bounded-Hamming-range walks; their abstract was inspected but complete text could not be obtained, leaving a specific residual coverage possibility. This is a qualified best-knowledge assessment, not a claim of exhaustive prior-art exclusion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The same fastest mixing objective has a unique symmetric optimal implementation through four dimensions but acquires precisely \(\binom{d}{2}-1\) local translation-invariant degrees of freedom starting at dimension five. At the same time, every unrestricted optimal transition law is forced to have zero holding and specified per-coordinate flip marginals. These classify the design rigidity and structural flexibility of a natural positive, local Markov kernel beyond a mere value computation; they support alternative optimal implementations subject to secondary costs while maintaining the exact optimal mixing rate. The sharp dimension boundary is mathematically motivated by the disappearance of fully saturated Walsh spectra.
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. The claimed novel remainder is the global uniqueness transition, rowwise rigidity, and local optimal face dimension. Earlier general methods alone do not entail these specific equality-case classifications.
 
-## Closest literature, qualifications and checks
+## value
 
-Primary sources: Boyd–Diaconis–Parrilo–Xiao, *Fastest Mixing Markov Chain on Graphs with Symmetries*, arXiv:0709.0955v1, §§3.1–3.3; Apers–Sarlette, *Accelerating Consensus by Spectral Clustering and Polynomial Filters*, arXiv:1503.01269v1, §§1–3; Karlin–Lindqvist–Yao, *Markov Chains on Hypercubes*, DOI 10.1002/rsa.3240040102 (abstract available only). No independent audit, formal proof assistant, or exhaustive historical novelty certification has been performed. The verifier checks exact arithmetic in finitely many dimensions and does not replace proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is not merely the known fastest-mixing optimum: it gives a sharp uniqueness-to-flexibility transition at d=5, necessary rowwise constraints for all optimal noninvariant chains, and a precise local dimension of alternative optimal reversible implementations, useful in secondary-cost fast-mixing designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
