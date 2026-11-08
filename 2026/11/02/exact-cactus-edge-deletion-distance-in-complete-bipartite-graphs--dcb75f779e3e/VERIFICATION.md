@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` is a standalone Python 3 verifier using only the standard library. It builds the adjacency graph from scratch for each complete bipartite input and recognizes connected cacti by Tarjan-style biconnected edge blocks: every non-bridge block must be a simple cycle.
+# Independent mathematical audit
 
-It exhaustively checked 129226 edge subsets on twenty small bipartite inputs, independently optimizing the surviving edge count without invoking the claimed formula. It then constructed and checked cacti for every one of 900 parameter pairs with both part sizes at most 30. The verified terminal output was:
+## correctness
 
-```
-CONSTRUCTIVE_CACTI_OK 900 PARAMETER_PAIRS
-DIRECT_EXHAUSTIVE_CHECKS_OK 20 PARAMETER_PAIRS 129226 EDGE_SUBSETS
-VERIFY_OK
-```
+PASS
 
-The structural proof in `RESULT.md`, not the finite tests, establishes the universal bounds and construction. The test program is not an external proof assistant or a certification of originality or value. Independent mathematical auditing was not performed.
+In any connected cactus E=N−1+c. In a bipartite cactus each cycle consumes at least one new vertex of each color and three new vertices overall in its block-cut tree; hence c≤min(p−1,q−1,⌊(p+q−1)/3⌋). Attaching four-cycles at two distinguished opposite-color vertices with x=max(0,2k−p), y=k−1−x realizes every bound simultaneously, then bridge-leaf additions span unused vertices. Boundary k=0 gives a star. Independent exhaustive subset maxima matched all 16 bipartition pairs p,q≤4; infinite proof does not rely on enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives statement-level comparison of accessible relevant source material, published Resultary semantic hits, and original proof ingredients; risks below retain uncertainty.
+
+## value
+
+PASS
+
+A sharp all-parameter extremal formula and explicit constructive spanning cactus for every complete bipartite graph refine algorithmic edge-deletion work and separate three structural bottlenecks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
