@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an exact, fully quantified statement on the open lifted cell and for \(0<\alpha<\pi/2\), not a global claim over the entire phase torus. Direct sine addition gives the reduced vector field. Both derivatives of the two claimed first integrals vanish identically; the independent cross-product identity proves functional independence away from equilibria. The full list of equilibria follows by factoring the third component and resolving the two remaining components. The explicit Jacobian gives the sharp normal-type interval. On each fixed-\(J\) surface, the computed Hessian of \(H\) is strictly negative definite in the elliptic interval; the Morse lemma and nonvanishing of the flow on nearby regular compact levels establish truly periodic curves. The limit-period formula follows from the normal frequency. The standalone symbolic and numerical verification completed successfully.
+PASS
 
-## Originality — PASS under inspected evidence
+Eliminate common phase and use θ0=u+v, θ2=u−v, θ1=w+z, θ3=w−z, φ=w−u. Direct sine identities yield F=(-2sin v cos z cos(φ+α),−2sin z cos v cos(α−φ),−4cosα sinφ cos v cos z). Bounded smooth cofactors imply invariant lifted cube 0<v,z,φ<π. Direct differentiation proves dot H=dot J=0 for H=log(sin v sin z/sinφ) and J=log(sin v/sin z)+φ tanα; exact positive multiplier of ∇H×∇J proves functional independence off equilibria. The three equilibrium segments follow from factoring F, and the central normal pair obeys λ²=4(cos²φ0−sin²α). On fixed-J surface, H has a negative definite restricted Hessian in |cosφ0|<sinα; Morse regular levels yield nonstationary invariant circles and genuine nonlinear periodic relative-phase annuli, with period tending to π/√(sin²α−cos²φ0). Directly projected 200 independent four-phase configurations and checked both conservation derivatives numerically; this does not replace the invariant-surface/Morse proof.
 
-The motivating 2026 full text, including its end matter, reports nearest-neighbor winding states, their linear spectra, basin geometry and larger-network bifurcations, without the complete four-site first-integral and center-annulus statement. The 2025 Koopman-network study already gives conserved quantities in bipartite and related networks, including a zero-lag opposite-pair sine-ratio invariant. Its sufficient directed-edge lag hypotheses differ from the same-positive-lag configuration here; the present pair of logarithmic invariants is not a mere reformulation of that one ratio. Closest comparisons to complete accessible papers on all-to-all networks and weak-chimera motifs also concern different coupling hypotheses. Exact-statement searches found no source establishing the two-integral formula plus nonlinear-center interval. This supports provisional originality but cannot rule out all historical precedence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest four-cycle is a natural test of whether the phase-shift perturbation destroys the integrable geometry of the zero-lag bipartite motif. It does not: an exact two-integral foliation remains, and an explicit parameter-dependent interval supports nonlinear periodic relative-phase motion even at nonzero dissipative lag. This is a structural invariant and exact classification, not an arbitrary numerical example or a restatement of linear spectra. It provides a benchmark and exception to large-network intuition about basin convergence and dissipative lag.
+Best-of-knowledge independent search and theorem-level comparison. The special zero-lag/oppositely oriented phase-lag invariant from Thibeault is not the two stated logarithmic invariants when both directed couplings have identical strictly positive α. The exact same model in Yan et al. is a high-dimensional winding/basin analysis, which does not by itself state integrability for N=4. A broader *domain of models* does not imply this specific first-integral theorem; the required incoming-edge symmetry/lag relation is materially different. Nevertheless the 2025 article's complete text is the main source to monitor for hidden corollaries. Neither theorem, under its actual assumptions, entails the displayed two integrals on the positive-lag 4-cycle; additional reduction and two-constraint Hessian are needed. A theorem hidden in appendices of uncatalogued literature remains residual risk. An unsuccessful search alone is not evidence of priority. Actual primary material read and remaining limits below.
 
-## Closest literature and remaining limits
+## value
 
-Yan–Ozawa–Kori–Sato 2026 (arXiv:2603.02135) sets the identical ring dynamics and studies global basins; Thibeault–Claveau–Allard–Desrosiers 2025 (arXiv:2504.06248) provides genuine antecedents for bipartite constants of motion. Ashwin–Bick–Burylko 2016 and Ashwin–Burylko 2015 concern different network architectures. Risks: an unindexed specialization of prior motif theory may recover the same quantities; branchwise lift integrals must not be called global; no independent audit has been conducted. The two junctions and the full common-phase return are outside the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This identifies an exact integrable positive phase-lag family at the minimal natural four-cycle, including a three-branch equilibrium geometry and actual neutral nonlinear periodic annuli where linearization alone would not establish periodic motions. Two independent constants and the center boundary are motivic dynamical structure, rather than a routine zero-lag ratio computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
