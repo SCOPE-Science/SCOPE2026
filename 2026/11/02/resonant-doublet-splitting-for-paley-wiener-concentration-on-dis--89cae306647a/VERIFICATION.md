@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` is the evidence for the infinite-parameter result. The critical identities are the exact prolate commutator, positivity from the one-interval spectral gap, and the explicit two-dimensional reduced-resolvent expansion. The remainder is uniform because the finite fixed interval bounds the cross-kernel Taylor remainders and the complementary spectral gap remains positive for fixed interval length.
+## correctness
 
-Run `python CHECK.py` with NumPy as listed in `requirements.txt`. This executes Gauss–Legendre Nyström discretizations for three fixed interval lengths, multiple integer separations and microscopic detunings, tests the commutator and positivity, checks the ordering of the first three eigenvalues, and compares the full spectrum against the two leading asymptotic formulas. The actual executed result from the package was `CHECK_OK 279` with no exceptions.
+PASS
 
-The finite matrix checks are supplementary and do not certify the infinite asymptotics. The spectral simplicity and parity of the top prolate eigenfunction are classical external premises, supported by references [1], [3] and [4] of the result. The conclusion is not uniform as interval length varies, nor at unbounded detuning. The resonance gives leading-order gap cancellation only, not exact equality of eigenvalues. No independent mathematical audit has been performed.
+For fixed a>0, the even simple sinc-operator ground state psi has spectral gap. The exact commutator (lambda0-K)(x psi)=(c/pi)sin(pi x) proves c!=0 and Q=<x psi,(lambda0-K)x psi>>0 on the odd subspace. Cross block B_R has O(R^-1) norm. At R=m+t/m, uniformly for bounded t, its expansion is (-1)^m[-S/(pi m)+(t C-D/pi)/m^2]+O(m^-3); the isolated double-eigenvalue Schur/Feshbach reduction has zero first-order projection, diagonal Q and off-diagonal (-1)^m(C_a t-2Q). This gives the two ordered eigenvalues lambda0+[Q +/- |C_a t-2Q|]/m^2+O(m^-3); nonresonant first-order splitting C_a|sin(pi R)|/(pi R)+O(R^-2). Even at t=2Q/C_a only leading cancellation, not exact degeneracy. Independent Gauss-Legendre Nyström check (a=.9,n=70) yielded lambda0≈.7352709208, C≈.46589650294, Q≈.03275270347 and m=20/40 errors consistent with the stated O(m^-3). These checks corroborate, not prove, uniform asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Classical Slepian-Pollak prolate theory supplies simple top eigenvalue; Zelent and Abreu-Speckbacher concern global concentration shape/stability. No inspected statement determines the distant-two-window, bounded microscopic detuning self-energy Q and splitting. The generic perturbation technique alone does not specify the evaluated coefficients. Priority risk remains for an older unindexed two-window spectral coupling.
+
+## value
+
+PASS
+
+The top spectral doublet is the natural quantitative signature of two isolated bandlimited concentration windows. The exact O(1/R) oscillatory splitting, O(1/m^2) resonant law and cancelled-leading-splitting detuning are nontrivial operator asymptotics with possible use for optimal concentration and spectral tunneling; fixed-a and bounded-detuning are honest boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
