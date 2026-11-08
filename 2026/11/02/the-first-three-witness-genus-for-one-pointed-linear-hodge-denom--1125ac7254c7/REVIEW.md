@@ -1,19 +1,21 @@
-# Review of the denominator-witness cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed rational numbers are exactly the coefficients of Faber–Pandharipande's Theorem 2, not heuristically approximated intersection numbers. A Bernoulli-logarithm coefficient recurrence and an independent sine-inversion/interpolation computation agree entrywise through genus \(10\). Exact reduced denominators are exhaustively searched over *every* subset of the \(g+1\) available indices. The genus-ten necessity is additionally explained by the disjoint full-valuation index supports for \(3^{14}\), \(5^6\), and \(19\); indices \(\{0,1,3\}\) give a sufficiency witness. The statements beyond this finite range are explicitly withheld.
+PASS
 
-## Originality — PASS, qualified
+The quantities H_{g,i}=∫_{Mbar_{g,1}} ψ_1^{2g−2+i} λ_{g−i} are exactly coefficients [t^{2g}x^i]((t/2)/sin(t/2))^{x+1} by Faber–Pandharipande Theorem 2. Independent exact Fraction/Bernoulli recurrence calculated rational coefficients for g=1,…,10 and checked all lcm primes against T_{2g} with ν_p(T_{2g})=Σ_j⌊2g/((p−1)p^j)⌋. All subsets of g+1 coefficient indices exhaustively optimized, yielding w=(1,1,2,2,1,2,2,2,2,3). At g=10, disjoint full-valuation support sets 3^14:{3,4,9,10}, 5^6:{1,5}, 19:{0,2} force ≥3, and witness {0,1,3} achieves T20=3579998068407778230140928000000. All integer exact and within claimed finite range; no all-genus claim.
 
-Theorem 2 of Faber–Pandharipande establishes the entire coefficient-generating series. Holmes's 2026 Theorem 1.4 identifies the all-integral least common denominator and Proposition 3.8 its primitive-polynomial formulation. Neither inspected result provides the minimum-cardinality witness for any fixed genus nor the genus-ten sharp cutoff. The new assertion is not the well-known denominator identity; it is a precise covering invariant and disjoint-prime-support obstruction. Searches for the same coefficients, prime-support index sets, minimal coefficient subsets, and generalized Bernoulli/Nørlund aliases revealed no directly equivalent statement. The large residual risk is that classical Nørlund-polynomial congruences, especially Adelberg's coefficient-arithmetic results, implicitly contain an equivalent finite computation; its full text was not available for confirmation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Holmes identifies the universal denominator but leaves open, at the level of the theorem's statement, how many distinct natural one-pointed intersection numbers are required to see it. The witness number measures that arithmetic complexity without allowing arbitrary auxiliary integrals. The first compulsory three-witness genus is a motivated sharp finite cutoff, and its lower bound has a transparent mathematical explanation in three incompatible prime-power supports. This is a finite exact invariant rather than an all-genus general theorem, and its significance is correspondingly scoped.
+PASS, qualified: known sine generating series and aggregate universal lcm already imply computability, but their published statements do not supply the minimum coefficient-cover number or g=10 first three-support obstruction. Older Nørlund p-adic work is a material inaccessible prior-implication risk.
 
-## Closest literature and limitations
+## value
 
-Faber–Pandharipande (1998), Theorem 2; Holmes (2026), Theorem 1.4, Proposition 3.8; Adelberg (1999), coefficient-denominator abstract. No independence claim is made. Exact-rational computations prove the bounded cases only. Older equivalent tables or formulations remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest number of natural specified one-pointed Hodge intersection denominators attaining the universal genus-g Minkowski lcm measures whether distinct prime-power obstructions require genuinely different integrals. The first three-witness genus and its three-disjoint-support obstruction provide a mathematically motivated sharp finite cutoff beyond simply recomputing the known lcm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

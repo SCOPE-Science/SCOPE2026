@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The standalone `verify.py` requires only Python 3 standard-library `fractions`, `math`, and `itertools`. From the same directory as `certificate.json`, run `python3 verify.py` and check for the initial line beginning `VERIFY_OK`.
+## correctness
 
-The checker derives all \(H_{g,i}\) for \(1\le g\le10\) from two algebraically independent finite algorithms: one computes Bernoulli numbers by recurrence and exponentiates the logarithmic series, while the other directly inverts the sine series and interpolates in the exponent. The rational output arrays must match exactly. Independent Minkowski prime-exponent calculation checks the full least common multiple. Enumeration of all nonempty index subsets in each genus identifies every minimum size and independently verifies explicit witness sets. The genus-ten prime-support lower bound is separately checked by exact integer valuations.
+PASS
 
-`certificate.json` records the complete reduced-denominator arrays in these ten genera and all eleven exact rational coefficients at genus ten. All tested identities are finite exact arithmetic equalities, not probabilistic samples or floating-point assertions. This certificate does not supply information about genera above ten or historical publication priority. No independent audit has been performed.
+The quantities H_{g,i}=∫_{Mbar_{g,1}} ψ_1^{2g−2+i} λ_{g−i} are exactly coefficients [t^{2g}x^i]((t/2)/sin(t/2))^{x+1} by Faber–Pandharipande Theorem 2. Independent exact Fraction/Bernoulli recurrence calculated rational coefficients for g=1,…,10 and checked all lcm primes against T_{2g} with ν_p(T_{2g})=Σ_j⌊2g/((p−1)p^j)⌋. All subsets of g+1 coefficient indices exhaustively optimized, yielding w=(1,1,2,2,1,2,2,2,2,3). At g=10, disjoint full-valuation support sets 3^14:{3,4,9,10}, 5^6:{1,5}, 19:{0,2} force ≥3, and witness {0,1,3} achieves T20=3579998068407778230140928000000. All integer exact and within claimed finite range; no all-genus claim.
+
+## originality
+
+PASS
+
+PASS, qualified: known sine generating series and aggregate universal lcm already imply computability, but their published statements do not supply the minimum coefficient-cover number or g=10 first three-support obstruction. Older Nørlund p-adic work is a material inaccessible prior-implication risk.
+
+## value
+
+PASS
+
+The smallest number of natural specified one-pointed Hodge intersection denominators attaining the universal genus-g Minkowski lcm measures whether distinct prime-power obstructions require genuinely different integrals. The first three-witness genus and its three-disjoint-support obstruction provide a mathematically motivated sharp finite cutoff beyond simply recomputing the known lcm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
