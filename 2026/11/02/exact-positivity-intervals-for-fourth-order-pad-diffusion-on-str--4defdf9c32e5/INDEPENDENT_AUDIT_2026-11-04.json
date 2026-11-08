@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:54:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md proof and boundary hypotheses",
+        "Actual pinned verification script and VERIFICATION.md (finite evidence only)",
+        "Independent reconstruction and exact/numeric checks in /mnt/data/scope_checks_20261104.py",
+        "Pinned 2026/11/02/exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5",
+        "Independent full rational [2/2] matrix inversion and comparison for four SRGs (Petersen, C5, T5, rook4) verified all edge/nonedge rational formulas and positive diagonals for rational t=1/2."
+      ],
+      "rationale": "PASS: For noncomplete connected SRG (v,k,lambda,mu), adjacency A²=(k-mu)I+(lambda-mu)A+mu J gives L0²-SL0+mu v(I-J/v)=0 where S=2k-lambda+mu, nonzero eigenvalues q1,q2 sum to S and multiply to mu v. With t=ch, d(z)=1+z/2+z²/12, [2/2] Padé map is I-t L0 d(tL0)^-1. Rational interpolation at 0,q1,q2 yields edge coefficient t(1+mu t/2-mu(v-S)t²/12)/(d(tq1)d(tq2)) and nonedge coefficient mu t²(1/2+St/12)/den. Denominators>0, nonedges strictly positive t>0, diagonals strictly positive since Padé scalar numerator and denominator are positive for nonnegative spectrum and P is symmetric positive definite. Edge quadratic F(t) has unique positive zero precisely if Delta=v-S>0, producing H=(3/(c Delta))(1+sqrt(1+4 Delta/(3mu))); otherwise all steps positive. Strict beyond-endpoint negativity and asymptotic expansions follow from top-degree coefficients. Independent exact Fraction inversions and formula comparisons for Petersen, C5, triangular T5 and rook4 at t=1/2 agree entrywise.",
+      "residual_risks": [
+        "Unknown specialized historical [2/2] Padé diffusion paper could imply the same full finite-horizon formulas.",
+        "Uniform conductances and strongly regular graphs only, positivity concerns end step not internal stages; no numerical roundoff guarantees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Padé counterexamples and sufficient positivity conditions apply broadly beyond SRGs but do not give sharp family-specific H.",
+          "General eight-state pure-birth CTMC can exhibit disconnected positivity windows unlike the symmetric SRG single-interval theorem."
+        ],
+        "reasoning": "These are broader in class but not stronger coverage of the exact SRG theorem; static graph duality is already attributed.",
+        "searches": [
+          "Essentially Negative News About Positive Systems 2012 full author PDF",
+          "Distance-regular graphs having the M-property 2012 Proposition 6",
+          "Resultary published 2026/9/20 Eight-state Padé Markov positivity barrier"
+        ]
+      },
+      "checked_sources": [
+        "Bendito–Carmona–Encinas–Mitjana 2012 DOI 10.1080/03081087.2011.589047 full Section 4",
+        "Zappavigna et al 2012 author PDF https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "Zappavigna et al 2010 MTNS repository https://mural.maynoothuniversity.ie/id/eprint/2195/",
+        "van Dam–Omidi arxiv:1208.3067 background",
+        "Resultary 2026/9/20 Padé Markov barrier",
+        "Resultary semantic search strongly regular graph positivity Padé diffusion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2012 M-property theorem is static pseudoinverse sign; the current all-h [2/2] kernel is rational functional calculus with signs depending on timestep.",
+          "2012 Padé positivity paper gives nonpreservation examples and sufficient criteria but not n,k,lambda,mu exact horizon."
+        ],
+        "reasoning": "The known S>=v classifies whether eventual/unconditional Padé positivity is possible, but does not determine the finite-time threshold, single-interval shape, or strict nonedge coefficient. These require separate exact computation.",
+        "searches": [
+          "Bendito et al full primary Proposition 6 and Corollary 7",
+          "Zappavigna et al 2012 full Sections 2–5",
+          "Resultary published eight-state Padé Markov barrier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bendito et al 2012 Proposition 6 gives static M-property condition mu>=k-k²/(v-1); SRG degree relation makes this equivalent to S>=v, where unconditional Padé positivity occurs.",
+          "Zappavigna 2012 studies [2/2] positivity generally and explicitly admits high-order Padé can fail positivity for some positive systems."
+        ],
+        "reasoning": "The unconditional-positivity parameter boundary and complement/truncated-family classification are equivalent to known static graph theory and are excluded from novelty. The exact Padé edge/nonedge functions, finite h cutoff and time-asymptotics are not present in inspected sources.",
+        "searches": [
+          "Padé [2/2] Gauss Legendre strongly regular graph diffusion positive semigroup entrywise step threshold M-property",
+          "Bendito Carmona Encinas Mitjana M-property strongly regular graphs condition S>=v",
+          "two-stage Gauss Legendre Markov positivity strongly regular graph Padé 2 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published related Padé 8-state witness concerns nilpotent nonreversible chain; no full SRG edge/nonedge table surfaced.",
+          "The Petersen case has H=(1+sqrt5)/c, and conference graphs have Delta=0."
+        ],
+        "reasoning": "A previously known table of individual SRG examples could overlap but would not automatically give universal graph classification; none decisive found.",
+        "searches": [
+          "Resultary query Padé [2/2] Gauss Legendre strongly regular graph diffusion positive semigroup entrywise step threshold M-property",
+          "Petersen graph Padé [2/2] positivity (1+sqrt 5) sharp threshold",
+          "SRG Padé Gauss Legendre triangular rook graph exact time step"
+        ]
+      },
+      "rationale": "PASS, qualified: Bendito et al (2012) Proposition 6 explicitly characterize the Moore–Penrose graph Laplacian M-property for SRGs by mu>=k-k²/(v-1), equivalent via SRG parameter equation to S>=v; conference, complement duality and T_m cutoff are prior. Zappavigna et al (2012) analyze positivity of Padé maps generally, with sufficient small-step conditions and counterexamples, but not the exact SRG time-dependent formulas or sharp finite interval in examined full text. New mathematical content is the finite-step rational sign kernel and unique exact horizon; underlying static graph threshold is not claimed new.",
+      "residual_risks": [
+        "Static M-property equivalence, complement duality, and conference/T_m graph parameter thresholds are unequivocally prior, not novel aspects.",
+        "Unknown specialized historical [2/2] Padé diffusion paper could imply the same full finite-horizon formulas.",
+        "Uniform conductances and strongly regular graphs only, positivity concerns end step not internal stages; no numerical roundoff guarantees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_STATIC_COVERAGE: M-property iff mu>=k-k²/(v-1) equivalent to S>=v, complement/conference identities prior; no Padé finite-step formula in inspected relevant statements.",
+          "evidence": "Proposition 6 and Corollary 7 in Bendito–Carmona–Encinas–Mitjana Linear Multilinear Algebra 60 (2012) pp 225–240.",
+          "identifier_or_url": "https://www.researchgate.net/publication/254244046_Distance-regular_graphs_having_theM-property",
+          "material_read": "Author-uploaded full plaintext, especially Section 4 Proposition 6, Corollary 7 and graph-family statements.",
+          "method": "Read full author-uploaded technical section and derive parameter equivalence.",
+          "title": "Distance–regular graphs having the M-property",
+          "trigger": "same strongly regular graph parameters and potential dominating theorem"
+        },
+        {
+          "assessment": "GENERAL_PRIOR: [2/2] diagonal Padé nonpositivity possible even for arbitrarily small steps in other systems, plus sufficient criteria; no SRG all-time interval/horizon established in examined technical sections.",
+          "evidence": "Zappavigna–Colaneri–Kirkland–Shorten 2012, Section 4 and Example 3, original author repository PDF.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Full 23-page author preprint; read Sections 1–4 definitions, general positivity results and counterexample; page screenshot inspected.",
+          "method": "Read OA research archive PDF with visual screenshot and source text.",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "same [2/2] Padé map and positivity preservation"
+        },
+        {
+          "assessment": "RELATED_GENERAL_PRECURSOR; no complete SRG formula established from inspected record.",
+          "evidence": "Zappavigna et al MTNS 2010.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+          "material_read": "Institutional open repository abstract and bibliographic material, not complete conference PDF text.",
+          "method": "Read OA record abstract and source context.",
+          "title": "On preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "earlier general high-order Padé positivity sufficient test"
+        },
+        {
+          "assessment": "NOT_COVERING_SRG: nonnormal pure-birth chain, potentially disconnected windows, not a complete SRG graph-characteristic classification.",
+          "evidence": "Published result concerns sharp eight-state lower dimension and intermediate positivity window, not current symmetric graph family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Published Resultary semantic record, title and detailed mathematical summary; full package not read.",
+          "method": "Read Resultary search output.",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "published related SCOPE theorem same Padé method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual pinned RESULT.md mathematical motivation",
+        "Bendito–Carmona–Encinas–Mitjana 2012 DOI 10.1080/03081087.2011.589047 full Section 4"
+      ],
+      "rationale": "PASS: Positivity preservation of a stable high-order rational diffusion map is a natural structural invariant; for a major strongly regular graph family, this theorem gives complete all-time interval, sharp step bound, strict sign mechanism and singular asymptotic regimes. The static M-property alone cannot determine the finite positive horizon, making the result substantive beyond a known classification.",
+      "residual_risks": [
+        "Static M-property equivalence, complement duality, and conference/T_m graph parameter thresholds are unequivocally prior, not novel aspects.",
+        "Unknown specialized historical [2/2] Padé diffusion paper could imply the same full finite-horizon formulas."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Static M-property equivalence, complement duality, and conference/T_m graph parameter thresholds are unequivocally prior, not novel aspects.",
+    "Unknown specialized historical [2/2] Padé diffusion paper could imply the same full finite-horizon formulas.",
+    "Uniform conductances and strongly regular graphs only, positivity concerns end step not internal stages; no numerical roundoff guarantees."
+  ],
+  "schema_version": 1
+}

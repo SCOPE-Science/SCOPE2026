@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact Padé sign theorem
 
-The supplied standalone `verify_srg_pade.py` implements rational Gaussian elimination and constructs the full matrix Padé rational map, separately from the two closed formulas for graph edges and nonedges. Execute in Python 3: `python3 verify_srg_pade.py`.
+# Independent mathematical audit
 
-The program was executed from the supplied source and reported `VERIFY_OK 10 graph instances; 50 exact rational matrices; 8740 entry comparisons`. It checks strongly regular parameters by counting common neighbors, complete rational transition matrices at five positive rational times per graph, all off-diagonal entries, unit row sums, positive diagonals, and the exact sign quadratic. Families: Petersen, Paley 5 and 13, triangular 4, 5, 6, 7, rook 3 and 4, and complement of triangular 7. Exact rational finite checks support implementation fidelity only. They do not prove a statement for arbitrary graphs or all real times; the spectral-algebraic proof in RESULT.md supplies that implication.
+## correctness
 
-Scientific scope excludes internal integrator stage positivity, nonuniform conductances, other graph families, and independence of review.\n
+PASS
+
+PASS: For noncomplete connected SRG (v,k,lambda,mu), adjacency A²=(k-mu)I+(lambda-mu)A+mu J gives L0²-SL0+mu v(I-J/v)=0 where S=2k-lambda+mu, nonzero eigenvalues q1,q2 sum to S and multiply to mu v. With t=ch, d(z)=1+z/2+z²/12, [2/2] Padé map is I-t L0 d(tL0)^-1. Rational interpolation at 0,q1,q2 yields edge coefficient t(1+mu t/2-mu(v-S)t²/12)/(d(tq1)d(tq2)) and nonedge coefficient mu t²(1/2+St/12)/den. Denominators>0, nonedges strictly positive t>0, diagonals strictly positive since Padé scalar numerator and denominator are positive for nonnegative spectrum and P is symmetric positive definite. Edge quadratic F(t) has unique positive zero precisely if Delta=v-S>0, producing H=(3/(c Delta))(1+sqrt(1+4 Delta/(3mu))); otherwise all steps positive. Strict beyond-endpoint negativity and asymptotic expansions follow from top-degree coefficients. Independent exact Fraction inversions and formula comparisons for Petersen, C5, triangular T5 and rook4 at t=1/2 agree entrywise.
+
+## originality
+
+PASS
+
+PASS, qualified: Bendito et al (2012) Proposition 6 explicitly characterize the Moore–Penrose graph Laplacian M-property for SRGs by mu>=k-k²/(v-1), equivalent via SRG parameter equation to S>=v; conference, complement duality and T_m cutoff are prior. Zappavigna et al (2012) analyze positivity of Padé maps generally, with sufficient small-step conditions and counterexamples, but not the exact SRG time-dependent formulas or sharp finite interval in examined full text. New mathematical content is the finite-step rational sign kernel and unique exact horizon; underlying static graph threshold is not claimed new.
+
+## value
+
+PASS
+
+PASS: Positivity preservation of a stable high-order rational diffusion map is a natural structural invariant; for a major strongly regular graph family, this theorem gives complete all-time interval, sharp step bound, strict sign mechanism and singular asymptotic regimes. The static M-property alone cannot determine the finite positive horizon, making the result substantive beyond a known classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
