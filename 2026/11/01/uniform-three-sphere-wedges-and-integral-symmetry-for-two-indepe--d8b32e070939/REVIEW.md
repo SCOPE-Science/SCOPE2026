@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has an all-integer, all-parameter proof independent of computation. A two-independent face containing disjoint two-subsets is confined to their four-element union, giving an exact cover by full simplices on four ground points. Pairwise intersections of different simplices lie in the ordinary independence complex. The union of stars at the ground-point-1 edges is contractible by the nerve of contractible intersections; its omission consists precisely of triangles avoiding ground point 1. Attaching four-set simplices containing 1 along disks preserves contractibility and fills those omitted triangles. Every other four-set simplex attaches independently along the octahedral two-sphere, yielding exactly one three-sphere per four-set avoiding 1.
+## correctness
 
-The integral symmetry statement is checked using the relative homology of each simplex–octahedral-boundary pair. Orienting the octahedral fundamental class by three opposite-pair differences gives the alternating four-term boundary on missing triangle faces, identifying the connecting map with contraction by the augmentation functional, followed by an integral lattice isomorphism. Its kernel is the fourth exterior power of the augmentation lattice. Every step is natural under relabeling and uses integer signs. No equivariant splitting of the homotopy type is claimed. The standalone checker verifies direct face membership, complete Morse acyclicity, the octahedral orientation convention and all \(\mathfrak S_5\), \(\mathfrak S_6\) rational characters for sample sizes.
+PASS
 
-## Originality — PASS against inspected sources
-Barmak's ordinary Kneser independence complex theorem produces \(\bigvee^{\binom{n-1}{3}}S^2\), which does not imply the cutoff-two three-dimensional wedge or its integral symmetry lattice. Deshpande–Singh study higher-independence complexes for other graph families; Feng–Wang investigate ordinary Kneser independence complexes; the relevant chordal family results exclude this nonchordal graph. Indexed Kneser neighborhood, Čech and Schrijver complexes are different constructions. The Petersen case at \(n=5\) is previously known and is not individually presented as new. Statement-level searches and comparisons revealed no known all-parameter cutoff-two result or integral fourth-exterior-power identification. An unindexed equivalent result remains a bibliographic risk.
+Let KG(n,2) have two-subsets as graph vertices and adjacency disjointness. Its two-independence complex X=Ind_2 has induced graph degree<=1. Any nonordinary face contains a disjoint pair e,f, which forces every remaining two-subset to meet both and hence lie in the same four-ground-element set T. Thus X=Y∪⋃_{|T|=4}D_T where Y=Ind_1 and D_T a simplex on six 2-subsets; D_T∩Y is the octahedral sphere S0*S0*S0 ≃ S2, and intersections of distinct D_T lie inside Y. The union A of closed stars of {1,i} in Y is contractible by its simplex nerve; Y\A consists of triangles on ground triples avoiding 1. Adjoining D_T for T containing 1 along disk portions of their S2 boundary builds a contractible X0 containing Y; quotient by X0 yields one S3 for each T⊂{2,…,n}, |T|=4, hence X≃wedge^{binom(n-1,4)} S3, including the n4 contractible case. The pair LES gives H3(X,Y)≅wedge^4 Z^n with induced orientation signs; oriented octahedral triangles yield connecting map δ=π∘ι_ε to H2(Y)≅wedge^3 Z^{n-1}. The integral splitting Z^n=Ze1⊕ker ε shows ker δ=wedge^4 ker ε, a natural integral S_n-module. Independently enumerated n=4,5,6 faces (64,261,747 augmented) and Euler −binom(n-1,4); checked sample permutations including identity (n6 trace5), transposition (−3), and 6-cycle (+1), consistent with fourth augmentation exterior power. Source checker covers n4..8 and all S5/S6 characters; finite cases are corroboration, not proof of all n or integral module statement.
 
-## Value — PASS
-The Kneser graph on two-subsets is a canonical symmetric nonchordal graph family, and induced-component cutoff two is the first enlargement of ordinary independence. The theorem completely determines its homotopy type for infinitely many graph orders, and its full natural integral symmetric-group homology module, giving structural rather than instance-only information. This comparison identifies how the first independence cutoff changes both homological degree and a natural representation. It has a concise reusable contractible-core decomposition and explicit signed connecting map, beyond table recomputation.
+## originality
 
-## Limits and closest work
-Prior ordinary-cutoff results (Barmak, 2010; Feng–Wang, 2024) and the general higher-independence framework (Deshpande–Singh, 2020) are the closest primary sources. Remaining bibliographic uncertainty is that an unindexed theorem about four-ground-point covers could subsume the statement. Only the integral homology action, not the wedge homotopy equivalence, is equivariant. The finite verifier is corroboration, not an all-parameter certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: higher independence cutoffs have established families (complete multipartite, cycles, trees), but not a listed uniform KG(n,2) cutoff-two theorem. Barmak’s ordinary Kneser independence theorem concerns Y=Ind_1, not X=Ind_2. Resultary already gives n5 Petersen two-independence S3, a strict special case, and different Kneser Čech/neighborhood complexes for n6; these cannot imply the all-n integral S_n exterior-power statement.
+
+## value
+
+PASS
+
+Motivated uniform integral homotopy type and full S_n integral representation for a canonical nonchordal graph family at the first nonordinary higher-independence cutoff. The exterior fourth power of the augmentation lattice is a structural natural invariant, not a fixed-character table or a relabeling of ordinary independence. It includes but does not claim novelty for the known Petersen n5 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
