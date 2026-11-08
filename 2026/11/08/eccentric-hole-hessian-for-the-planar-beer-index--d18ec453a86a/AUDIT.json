@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Direct BP line-change Jacobian and exact interval cross-pair weight yield a normalized integral. Taylor differentiation at fixed hole radius, angular cancellation, and three exact elementary antiderivatives yield coefficient 5a/[pi(1-a^2)^(3/2)]. Fixed-a analyticity yields O_a(e^4), rotation gives the isotropic Hessian. Independent quadrature and point-pair segment tests passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published \"Exact visibility laws for concentric spherical shells in odd dimensions\", RESULT.md, starts with a radial-cap identity for concentric shells and explicitly excludes any new planar concentric formula; it neither varies nor translates the hole center.",
+        "Balko et al. theorem statements concern comparison inequalities, higher-order indices, and simply connected components, without an explicit eccentric disk-with-hole shape derivative.",
+        "Beer (1974), \"The index of convexity and parallel bodies\", abstract studies continuity and parallel-body operations, not translating a fixed interior hole; full-text priority uncertainty retained."
+      ],
+      "reasoning": "Existing arbitrary-dimensional *concentric* visibility and general comparison theorems are not stronger coverage: they do not include the parameter z. Translation keeps area, hole radius, and outer disk fixed while changing segment avoidance nontrivially.",
+      "searches": [
+        "nonconcentric annuli two independent uniform points see each other, probability expansion displacement of hole",
+        "hole displacement in planar region Beer convexity index second variation off center round disk",
+        "\"disk with a displaced hole\" \"visibility probability\"",
+        "annulus visibility probability two random points segment inside annulus \"elliptic\""
+      ]
+    },
+    "checked_sources": [
+      "Hodge, Marshall, Patterson (2010), full accessible author manuscript",
+      "Balko, Jelínek, Valtr, Walczak, arXiv:1412.1769v1 (2014-12-04)",
+      "Balko et al., Springer article DOI:10.1007/s00454-016-9821-3 (primary MSC 52A27)",
+      "Published concentric spherical-shell visibility RESULT.md (2026-10-11)",
+      "OEIS A396275 centered-annulus comparison",
+      "Beer (1974), abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hodge et al. Eq. for concentric annulus is independent of the hole-center vector; the cited manuscript computes no e derivative.",
+        "Published shell result permits d>=2 but assumes a centered hole in every displayed probability and explicitly says planar centered law already known; no off-center case is implied.",
+        "The independent line-coordinate Jacobian and moving-interval computation below require geometry absent from those published centered laws."
+      ],
+      "reasoning": "The new e^2 coefficient is not a corollary of differentiation of the centered-radius formula, and the dimension-reduction of a centered spherical shell does not model eccentricity. The proof directly recalculates the nonvisibility functional for moving holes.",
+      "searches": [
+        "Spherical cap pair geodesic escape probability or annulus chord visibility probability geometric nonconvexity",
+        "Geometric probability random points annulus visibility and line segment chord inner hole",
+        "Published shell-visibility RESULT.md full text, checked introduction/finding/proof/prior-work/limitations",
+        "Hodge--Marshall--Patterson 2010 accessible full manuscript, pp. 4-8 and annulus computation",
+        "Balko et al. arXiv:1412.1769v1 accessible full text, Beer-index definitions and main theorem statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hodge--Marshall--Patterson (2010), full manuscript pp. 6-7, supplies a concentric-annulus two-point visibility integral and closed form, with no hole-displacement parameter.",
+        "Balko--Jelínek--Valtr--Walczak arXiv:1412.1769v1, intro pp. 1-4, defines the Beer index as ordered independent-area point visibility; the relevant results bound convexity functionals rather than translating an interior circular hole.",
+        "The same metric object is also named convexity coefficient or probability of mutual visibility; searches of these aliases produced no exact eccentric-hole Hessian."
+      ],
+      "reasoning": "The established centered probability is equivalent to the constant term but cannot determine the displacement Hessian: changing hole radius is not the same as translating a same-radius hole. The claim is exactly the quadratic translational response, not the old centered formula.",
+      "searches": [
+        "Beer index of convexity of annulus: probability two uniformly distributed points see each other without chord crossing inner disk; sharp annular radius asymptotics",
+        "Beer index visibility offset circular hole in unit disk, eccentric annulus second derivative, centered annulus locally minimal, Hessian 5 a over pi (1-a squared) to three halves",
+        "\"eccentric annulus\" \"convexity coefficient\"",
+        "\"Beer index\" \"eccentric annulus\"",
+        "\"punctured disk\" \"visibility\" \"two random points\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A396275 tabulates a zero of the *centered* Hodge et al. visibility formula, not any displacement sensitivity.",
+        "No explicit off-center coefficient matching 5a/[pi(1-a^2)^(3/2)] was found in the actual searches."
+      ],
+      "reasoning": "No accessible exact parameter table or already-published claim states or implies the full two-coordinate translational Hessian. This is an evidence-limited negative search, not proof of global mathematical novelty.",
+      "searches": [
+        "\"probability line segment connecting two random points in annulus intersects hole\"",
+        "\"off-center hole\" \"convexity coefficient\" geometry",
+        "OEIS A396275: annulus two-point visibility half-level at concentric radius"
+      ]
+    },
+    "rationale": "Known concentric planar Beer-index formula is credited, not claimed. Compared relevant published full texts : none includes or logically implies translation-dependent Hessian for the off-center hole; narrower prior source restrictions are explicitly verified. Unindexed early computations are a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier computations of eccentric punctured-disk Beer-index curvature might exist.",
+      "Beer (1974) parallel-body paper not read in full; abstract does not reveal a decisive covering result.",
+      "The proof gives a strict local, not global-in-displacement, minimum; no claim beyond that scope.",
+      "No independent mathematical or historical-priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the previously known concentric value only; no off-center translating-hole coefficient.",
+        "evidence": "Section \"Calculation of Convexity Coefficients\" treats an annulus of concentric radii r and R, then reduces the answer to r/R.",
+        "identifier_or_url": "https://paperzz.com/doc/7735005/gerrymandering-and-convexity---mathematical-association-o...",
+        "material_read": "Accessible full manuscript text, in particular definition and calculation pp. 4-8 and closing text on region metrics.",
+        "method": "Read full accessible text and compared equation domain/sampling variables.",
+        "title": "Gerrymandering and Convexity",
+        "trigger": "Direct canonical planar annulus calculation for the identical Beer index."
+      },
+      {
+        "assessment": "Defines the same invariant and gives broad comparison results; no claimed translational Hessian.",
+        "evidence": "arXiv original submission 2014-12-04; publication lists MSC 52A27 at https://link.springer.com/article/10.1007/s00454-016-9821-3.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.1769",
+        "material_read": "Accessible arXiv full-text sections: abstract, Introduction, previous results, theorem statements, and main proof topics; checked text for annulus/concentric/translation.",
+        "method": "Textual reading and precise term matches for annulus and concentric; compared implications of principal general bounds.",
+        "title": "On the Beer index of convexity and its variants",
+        "trigger": "Archival primary literature defining the visibility invariant."
+      },
+      {
+        "assessment": "Includes general radial-cap identity for centered spherical shells, not translated holes; acknowledges prior planar annulus law.",
+        "evidence": "The theorem defines S_{d,a} by a<=norm(x)<=1 and explicitly limits additional laws to concentric shells, with planar result attributed to Hodge et al.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958/RESULT.md",
+        "material_read": "Entire public RESULT.md (finding, assumptions, proof, verification, relationships and limits).",
+        "method": "Retrieved full public research text and compared geometric families and measure.",
+        "title": "Exact visibility laws for concentric spherical shells in odd dimensions",
+        "trigger": "Closest published probability law for disks/shells and line-segment visibility."
+      },
+      {
+        "assessment": "No explicit displaced-hole formula in available extract; cannot certify full-paper noncoverage.",
+        "evidence": "1974 Pacific Journal 53(2), 337-345, studies indices of parallel bodies, distinct operation from moving a circular hole.",
+        "identifier_or_url": "https://msp.org/pjm/1974/53-2/pjm-v53-n2-p03-p.pdf",
+        "material_read": "Publisher bibliographic/abstract-level material describing parallel-body continuity and relative convexity, not primary detailed derivations.",
+        "method": "Reviewed abstract-level search extract; did not inspect full paper body.",
+        "title": "The index of convexity and parallel bodies",
+        "trigger": "Early general visibility paper could contain broader deformation principles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d18ec453-a86a-484b-998e-d0972cd22844",
+  "value": {
+    "rationale": "The two-direction hole-location Hessian is the exact nondegenerate local stability law for a natural visibility-based convexity measure at fixed area and hole size. Its positive coefficient applies for every a in (0,1) and has singular thin-annulus scaling, not implied by existing concentric-radius formulas.",
+    "status": "PASS"
+  }
+}
