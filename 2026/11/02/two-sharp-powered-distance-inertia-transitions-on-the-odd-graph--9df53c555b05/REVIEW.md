@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete powered-distance spectrum follows from a verified four-class intersection recurrence and a five-eigenvalue adjacency decomposition with exact multiplicities. The signs of all nonconstant eigenbranches are proved for every real exponent by explicit inequalities; a unique root in \((0,1/2)\) yields the negative-type endpoint. Gram-matrix rank, rather than finite sampling, determines the exact embedding dimension. The standalone checker independently reconstructs every graph distance and verifies the exact recurrence, moments and integer-exponent spectral consequences.
+## correctness
 
-**Originality — PASS (qualified).** Li--Weston, Sánchez, and Murugan give general negative-type and equality criteria. Aalipour et al. provide the Kneser/Johnson spectral scheme and the first-power distance spectrum; this method does not itself state the evaluated four-powered eigenbranches, their unique real-exponent sign changes, complete inertia table, or sharp critical rank for \(KG(9,4)\). Targeted database searches for the graph's two names, equivalent Gram/negative-type/kernel formulations, exact scalar equation, and numerical exponent returned no statement implying the result. The closest accessible prior finding on Kneser pair metrics addresses \(KG(n,2)\) and exponential kernels, rather than this four-subset graph. An unindexed equivalent evaluation or an implicit stronger source remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** This is the first diameter-four odd graph, a canonical distance-transitive member of the Kneser family. The first exact metric-embedding boundary is accompanied by a large rank drop, and the later distinct inertia transition shows that powered-distance spectral geometry continues to change even after negative type fails. The complete all-exponent answer supplies a precise test case for association-scheme kernels, negative-type methods, and finite Euclidean snowflake geometry; it is not just a table of eigenvalues at selected powers.
+On KG(9,4), direct subset-intersection distances and distance-regular recurrence give five adjacency eigenspaces (5,-4,3,-2,1) with multiplicities (1,8,27,48,42). D_p=sum_{j=1}^4 j^p A_j has sector eigenvalues explicit in u=2^p and u^alpha=3^p. G(u)=1-4u-4u^alpha+6u^2 increases strictly across its unique root p*=0.409576109...; F(u)=-4+11u-14u^alpha+6u^2 crosses only at u=2; H,J are always negative. Exact derivative/convexity/weighted AM-GM bounds prove all real-p signs. Their multiplicities yield the full inertia, p-negative-type threshold, equality kernel and Euclidean snowflake embedding ranks 125/83. Independently recomputed 126-vertex BFS and numeric powered-distance eigensign cases, inspected verify_odd5.py exact trace/recurrence tests; finite tests are only corroboration.
 
-**Scientific limits.** No statement about general \(KG(n,k)\), larger odd graphs, or arbitrary weights is asserted. Finite computations corroborate but do not certify the continuum-exponent inequalities. Originality is best knowledge from the inspected primary works and available indexed records, not a proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparing mathematical statements rather than titles, full primary text and domain distinctions indicate the exact final all-parameter claim is not covered by the inspected prior theorems. Earlier frameworks explicitly acknowledged; historical priority is best-of-knowledge, not independently certified. Provides ordinary p=1 distance-spectrum framework and common relation-matrix diagonalization; does not state the all-p sign chart or critical exponent/embedding ranks General criterion and example calculations, not explicit KG(9,4) powered-distance inertia and two exact crossings
+
+## value
+
+PASS
+
+A canonical diameter-four distance-transitive graph provides a natural finite metric. Its exact powered-distance inertia/negative-type cutoff and both eigenspace dimension jumps reveal metric Hilbert-embedding behavior; nontrivial all-real-exponent sign analysis goes beyond a known p=1 spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
