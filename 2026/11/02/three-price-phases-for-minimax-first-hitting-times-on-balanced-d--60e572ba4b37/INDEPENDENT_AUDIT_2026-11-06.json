@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:12:56.662901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric continuous-time rates on a tree, solving the target Dirichlet problem yields E_u τ_v=Σ_{e on path} size(source-side component of T\\e)/w_e. Maximal ordered pairs may be chosen among leaves. Averaging within the two leaf classes gives four reciprocal-rate candidate maxima: Nx, Ny, x+(N-1)y+(m+1)z, (N-1)x+y+(m+1)z. For arbitrary unequal individual rates those averages are universal lower bounds; positive convex combinations and Cauchy–Schwarz give exact dual lower certificates and force all edges in each class equal at equality. Optimizers yield H1=(N-1)L, H2=(N-1)(sqrt(mL)+sqrt(R(m+1)))²/m; below H1 equal spokes, in (H1,H2) directed cheap-to-expensive crossing, above H2 within-expensive and crossing tie. Unique global optimization follows strict positive dual coefficients and budget saturation, with boundary continuity. Independent exact CTMC solve for m=2 and rational edge rates and direct numerical 3-phase tests (H=5,10,30; L=1,R=2/3) corroborate the analytic certificates. The limit m>=2 is essential for within-class leaf pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi full text optimizes total effective resistance and mentions maximum pairwise resistance; no directed CTMC budget phases inspected. Fiedler title/abstract suggest a plausible general minimax graph result, but authorized Oxford full text unavailable (VPN disconnected)."
+        ],
+        "reasoning": "General tree first-passage formulas are known ingredients; absent a full Fiedler comparison one cannot rule out specialized broader coverage, and this remains an explicit risk rather than an automatic originality failure.",
+        "searches": [
+          "M Fiedler Some minimax problems for graphs 1993 weighted tree diameter",
+          "Ghosh Boyd Saberi SIAM Review 2008 Section 5.1 optimum trees Section 8 maximum resistance",
+          "Xu Yau 2013 explicit hitting times for random walks on graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+        "https://arxiv.org/abs/1312.0065",
+        "https://doi.org/10.1016/0012-365X(93)90112-K"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An edgewise tree hitting formula does not solve a multiregime rate-budget minimax; effective-resistance objective is symmetric with coefficient one per edge, whereas here coefficients 1 and N-1 distinguish ordered crossings."
+        ],
+        "reasoning": "Neither known sum-resistance optimization nor generic tree hitting identities directly produce both sharp H1,H2, positive dual certificates and uniqueness; the Fiedler full text was not accessible to settle all potential coverage.",
+        "searches": [
+          "Xu Yau arxiv:1312.0065 discrete-time random walk hitting time formula",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph",
+          "Fiedler Some minimax problems for graphs 1993"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Directed hitting E_u τ_v=Σ side-size/w; effective resistance R_uv=Σ1/w and commute time combines both directions."
+        ],
+        "reasoning": "Minimizing maximum oriented hitting need not coincide with minimizing max effective resistance, since edge coefficients depend on orientation and subtree sizes.",
+        "searches": [
+          "symmetric continuous time random walk tree mean first passage oriented edge source component formula",
+          "Ghosh Boyd Saberi minimizing effective resistance weighted trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby balanced spider mixing and resistance design hits do not state the oriented minimax first-hitting threshold H1,H2."
+        ],
+        "reasoning": "No exact three-regime table identified in these searches; this is not conclusive evidence of novelty.",
+        "searches": [
+          "Resultary continuous time random walk balanced double star directed mean hitting time budget minimax edge weights three phase",
+          "balanced double star optimized hitting time price threshold"
+        ]
+      },
+      "rationale": "Established graph resistance optimization addresses average total resistance and sometimes max resistance, neither equal to directed CTMC first hitting time. Xu–Yau study degree-normalized discrete-time hitting formulas. This claim explicitly optimizes maximum ORDERED first-hitting time with two independently priced spoke classes, bridge, and three dual active sets. The 1993 Fiedler minimax graph paper is relevant but full text inaccessible; priority remains qualified.",
+      "residual_risks": [
+        "Fiedler 1993 full text not accessible, potential general minimax weighted-tree coverage; Oxford VPN disconnected.",
+        "The result assumes balanced double stars, symmetric CTMC rates, price-homogeneous spoke classes, and positive budgets; not general trees or resistance diameter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Sum-of-pair effective resistance, with maximum effective resistance briefly considered, not max directed continuous-time mean first hitting times.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+          "material_read": "Full primary manuscript PDF sections 5.1 and 8, objective definitions and examples, screenshot-verified",
+          "method": "Primary full PDF and page images",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Closest optimal weighted tree allocation/resistance design"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_PRIMARY",
+          "evidence": "Full text unavailable; Oxford VPN disconnected job 4c328c321412332429aed89ca5c4c886, so possible equivalent weighted-tree minimax theorem is a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(93)90112-K",
+          "material_read": "Title and abstract/indices only; no full text; institutional access attempted",
+          "method": "Bibliographic search, authorized Oxford retrieval",
+          "title": "Some minimax problems for graphs",
+          "trigger": "Possibly stronger older general graph minimax formulation"
+        },
+        {
+          "assessment": "KNOWN_TREE_IDENTITY",
+          "evidence": "Degree-normalized discrete-time random walks and tree/cutpoint formulas, not symmetric continuous-time rate-budget optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.0065",
+          "material_read": "Abstract and cited formula context, not full manuscript",
+          "method": "ArXiv metadata/primary abstract",
+          "title": "An explicit formula of hitting times for random walks on graphs",
+          "trigger": "Potentially stronger tree hitting formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp budget-aware CTMC design on an interpretable tree with explicit prices is a natural stochastic network optimization. The two price thresholds distinguish equal-spoke, directed-crossing, and within-class tradeoffs that resistance diameter cannot capture. Exact uniqueness over independent edge allocations provides a useful benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+    "https://arxiv.org/abs/1312.0065",
+    "https://doi.org/10.1016/0012-365X(93)90112-K"
+  ],
+  "disposition": "passed",
+  "limitations": "Balanced two-hub tree with m>=2 leaves per hub, symmetric positive continuous-time edge rates, linear price budget, maximum ordered hitting expectation.",
+  "residual_risks": [
+    "Fiedler 1993 full text not accessible, potential general minimax weighted-tree coverage; Oxford VPN disconnected.",
+    "The result assumes balanced double stars, symmetric CTMC rates, price-homogeneous spoke classes, and positive budgets; not general trees or resistance diameter."
+  ],
+  "schema_version": 1
+}

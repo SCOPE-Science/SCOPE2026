@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed:** Three price phases for minimax first-hitting times on balanced double stars. The mathematical scope is a balanced \(m\)-leaf-per-hub double star, symmetric continuous-time rates, positive class prices and linear rate budget.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The proof is a complete all-parameter argument. The source-component edge identity is derived from first-step equations; four averaged ordered-pair formulas give a universal lower bound; Cauchy inequalities with explicitly specified convex-combination coefficients match a feasible solution in each price region, and strict equality conditions show unrestricted uniqueness. The formulas have been checked against 12 exact absorbing-chain computations, 720 randomized dual-certificate cases, 8,640 sampled nonuniform full-edge allocations and 48 threshold continuity checks. Experiments do not replace the proof.
+For symmetric continuous-time rates on a tree, solving the target Dirichlet problem yields E_u τ_v=Σ_{e on path} size(source-side component of T\e)/w_e. Maximal ordered pairs may be chosen among leaves. Averaging within the two leaf classes gives four reciprocal-rate candidate maxima: Nx, Ny, x+(N-1)y+(m+1)z, (N-1)x+y+(m+1)z. For arbitrary unequal individual rates those averages are universal lower bounds; positive convex combinations and Cauchy–Schwarz give exact dual lower certificates and force all edges in each class equal at equality. Optimizers yield H1=(N-1)L, H2=(N-1)(sqrt(mL)+sqrt(R(m+1)))²/m; below H1 equal spokes, in (H1,H2) directed cheap-to-expensive crossing, above H2 within-expensive and crossing tie. Unique global optimization follows strict positive dual coefficients and budget saturation, with boundary continuity. Independent exact CTMC solve for m=2 and rational edge rates and direct numerical 3-phase tests (H=5,10,30; L=1,R=2/3) corroborate the analytic certificates. The limit m>=2 is essential for within-class leaf pairs.
 
-## Originality — PASS, with priority risk
+## originality
 
-The closest accessible published original, Xu--Yau (arXiv:1312.0065, 2013), develops discrete-time degree-normalized hitting-time identities; the complete relevant sections were read and do not present the rate-budget result. Ghosh--Boyd--Saberi (SIAM Review 2008) optimize total resistance, give analytic tree formulas, and mention maximum resistance as an extension; the accessible manuscript's Introduction and Sections 3.1, 5.1 and 8 were inspected. Neither objective implies maximum **oriented** continuous-time mean hitting with the dual crossing coefficients \(1\) and \(2m+1\). The adjacent path, single-star and double-star-resistance mathematical statements were checked for implication but do not contain the three-phase allocation. Fiedler's 1993 specialist graph-minimax paper could be examined only through abstract/metadata, which remains a residual risk. Semantic database search is corroborative, never absolute proof of novelty.
+PASS
 
-## Mathematical value — PASS
+Established graph resistance optimization addresses average total resistance and sometimes max resistance, neither equal to directed CTMC first hitting time. Xu–Yau study degree-normalized discrete-time hitting formulas. This claim explicitly optimizes maximum ORDERED first-hitting time with two independently priced spoke classes, bridge, and three dual active sets. The 1993 Fiedler minimax graph paper is relevant but full text inaccessible; priority remains qualified.
 
-The balanced double star is a natural two-community tree and the smallest branching topology where within-class travel competes with two asymmetric cross-community hitting directions. It exhibits a bridge-price-independent equal-spoke threshold, a second bridge-sensitive threshold, and an exactly characterized fully asymmetric price phase, all with formulas and unique unrestricted allocations. These are substantive structural transitions, not just a numerical instance or a change of notation.
+## value
 
-## Limitations and integrity
+PASS
 
-The result is not a theorem for unequal community sizes, arbitrary edge prices, discrete-time random walks, resistance diameter, or spectral-gap optimization. Specialist historical overlap risk remains; publication priority is not independently certified. Independent scientific audit has not been conducted.
+Sharp budget-aware CTMC design on an interpretable tree with explicit prices is a natural stochastic network optimization. The two price thresholds distinguish equal-spoke, directed-crossing, and within-class tradeoffs that resistance diameter cannot capture. Exact uniqueness over independent edge allocations provides a useful benchmark.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
