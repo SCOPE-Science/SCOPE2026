@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:43:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-state Feynman-Kac generator yields f_s''+f_s'+s f_s=0, f_s(0)=1,f_s'(0)=0, with F_N=f_s(kt)^N. Gaussian covariance integration yields g_s(tau)=exp[-s(tau-1+exp(-tau))]. For s<=1/4 the positive causal Green kernel applied to (D^2+D+s)g=s^2(1-exp(-tau))^2 g gives f<g. For 1/4<s<=1/2, logarithmic derivatives prove f<g before the first zero, and the postzero cosine envelope H(tau) has a strictly decreasing bound whose value at first zero is below one. Above 1/2, the cosine peaks have log(|f|/g) diverging to +infinity and infinitely many zeros. Fourth derivatives give the stated short-time correction. Boundary s=1/2 and finite N are covered analytically. Independently sampled 271 checks are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berthelot et al. describe independent telegraph products and their Gaussianization limit; Bogaczewicz–Machnikowski analyze Markov-noise/scattering spectra; Ramos–García-Ripoll connect scattering and Ramsey envelopes."
+        ],
+        "reasoning": "Forward formulas and asymptotic convergence permit calculation but do not automatically imply a necessary-and-sufficient pointwise comparison at every t, especially across infinitely many sign changes.",
+        "searches": [
+          "https://doi.org/10.1155/2010/494738",
+          "https://arxiv.org/abs/2303.01531",
+          "https://arxiv.org/abs/1806.08402",
+          "random telegraph dephasing finite number independent fluctuators versus Gaussian Ornstein Uhlenbeck coherence envelope uniform all time threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2010/494738",
+        "https://arxiv.org/abs/2303.01531",
+        "https://arxiv.org/abs/1806.08402"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older works supply the same f_s and Gaussian g_s; the new first-zero comparison and postzero global upper bound are separate inequalities."
+        ],
+        "reasoning": "Having two explicit functions does not amount to establishing their global ordering for all positive times. No read primary theorem was found that implies the half-threshold strict bound.",
+        "searches": [
+          "https://doi.org/10.1155/2010/494738",
+          "https://arxiv.org/abs/2303.01531",
+          "https://arxiv.org/abs/1806.08402"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent random-telegraph dephasing is an N-fold product of the two-state characteristic function; the Gaussian comparator is the OU covariance-matched characteristic functional."
+        ],
+        "reasoning": "The mathematical claim is the uniform ordering of characteristic functions over every lag, not simply telegraph-to-Gaussian convergence or the presence of oscillations.",
+        "searches": [
+          "random telegraph dephasing finite number independent fluctuators versus Gaussian Ornstein Uhlenbeck coherence envelope uniform all time threshold",
+          "https://doi.org/10.1155/2010/494738",
+          "https://arxiv.org/abs/2303.01531",
+          "https://arxiv.org/abs/1806.08402"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic records include random-telegraph correlation staircases and unrelated OU sensor thresholds, not the exact s=1/2 covariance-matched all-time envelope law."
+        ],
+        "reasoning": "The oscillator onset s=1/4 appearing in known formulas is not the claimed all-time 1/2 threshold. A database search is supporting context, not proof of novelty.",
+        "searches": [
+          "random telegraph dephasing finite number independent fluctuators versus Gaussian Ornstein Uhlenbeck coherence envelope uniform all time threshold",
+          "https://doi.org/10.1155/2010/494738"
+        ]
+      },
+      "rationale": "The two-state relaxation, independent-spin product rule, and OU Gaussian comparison formulas are known. The claim is a sharp all-positive-time envelope ordering with distinct breakpoints s=1/4 (oscillation onset) and s=1/2 (global comparator failure). Inspected primary treatments gave forward formulas, spectral examples or revival measures, not this exact inequality theorem. O=PASS with Kubo-Anderson envelope-comparison priority risk.",
+      "residual_risks": [
+        "An older theorem on Kubo-Anderson telegraph versus Gaussian phase-envelope ordering could imply this case without using the same model terminology.",
+        "Identical switching rates and stationary symmetric independence are essential; mixed rates or controls are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and formulas, not an inspected all-time Gaussian comparison theorem.",
+          "evidence": "Finite source product and limiting Gaussian process are given.",
+          "identifier_or_url": "https://doi.org/10.1155/2010/494738",
+          "material_read": "Open-access article sections on telegraph relaxation and Gaussian limit, covariance scaling and independent-source product.",
+          "method": "full_text_open_access",
+          "title": "From Random Telegraph to Gaussian Stochastic Noises: Decoherence and Spectral Diffusion in a Semiconductor Quantum Dot",
+          "trigger": "Same finite sum of independent random telegraphs and Gaussian limit."
+        },
+        {
+          "assessment": "Forward and spectral results overlap; no identical global all-positive-time comparator theorem identified in the inspected material.",
+          "evidence": "Scattering and exact-resolvent emphasis rather than the strict envelope inequality.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.01531",
+          "material_read": "Author-reproduced full manuscript material embedded in an accessible dissertation, including Markovian multiple-noise/scattering treatment.",
+          "method": "open_access_author_disseminated_full_text",
+          "title": "Resonance fluorescence of noisy systems",
+          "trigger": "Relevant finite Markovian source ensemble and spectral comparisons."
+        },
+        {
+          "assessment": "Background for forward response, priority risk retained.",
+          "evidence": "Relevant formulas but no confirmed global ordering theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.08402",
+          "material_read": "Accessible bibliographic and relevant manuscript descriptions; complete independent page-by-page review not confirmed.",
+          "method": "bibliography_and_available_sections",
+          "title": "Correlated Dephasing Noise in Single-photon Scattering",
+          "trigger": "Link between Ramsey dephasing and scattering diagnostics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A covariance-matched Gaussian replacement need not be a conservative dephasing envelope; this theorem gives the exact count of microscopic independent sources needed for a uniform bound and identifies arbitrarily late failure above it. This is a naturally motivated infinite-time classification, not a single moment comparison.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/2010/494738",
+    "https://arxiv.org/abs/2303.01531",
+    "https://arxiv.org/abs/1806.08402"
+  ],
+  "disposition": "passed",
+  "final_claim": "For N>=1 independent stationary symmetric switching spins with individual switching rate k/2 and total amplitude sigma, the absolute Ramsey coherence is strictly below that of the covariance-matched stationary OU Gaussian at every positive time iff s=sigma^2/(N k^2)<=1/2. Above threshold it exceeds the Gaussian at infinitely many times and has infinitely many zeros; F_N-G=-sigma^4 t^4/(12N)+O(t^5).",
+  "limitations": [
+    "Only independent stationary equal-amplitude symmetric Markov telegraph noises, no pulses, and a Gaussian OU covariance match.",
+    "The prediction is not a claim of finite experimental distinguishability."
+  ],
+  "residual_risks": [
+    "An older theorem on Kubo-Anderson telegraph versus Gaussian phase-envelope ordering could imply this case without using the same model terminology.",
+    "Identical switching rates and stationary symmetric independence are essential; mixed rates or controls are outside scope."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers model and formulas, not an inspected all-time Gaussian comparison theorem.",
+      "evidence": "Finite source product and limiting Gaussian process are given.",
+      "identifier_or_url": "https://doi.org/10.1155/2010/494738",
+      "material_read": "Open-access article sections on telegraph relaxation and Gaussian limit, covariance scaling and independent-source product.",
+      "method": "full_text_open_access",
+      "title": "From Random Telegraph to Gaussian Stochastic Noises: Decoherence and Spectral Diffusion in a Semiconductor Quantum Dot",
+      "trigger": "Same finite sum of independent random telegraphs and Gaussian limit."
+    },
+    {
+      "assessment": "Forward and spectral results overlap; no identical global all-positive-time comparator theorem identified in the inspected material.",
+      "evidence": "Scattering and exact-resolvent emphasis rather than the strict envelope inequality.",
+      "identifier_or_url": "https://arxiv.org/abs/2303.01531",
+      "material_read": "Author-reproduced full manuscript material embedded in an accessible dissertation, including Markovian multiple-noise/scattering treatment.",
+      "method": "open_access_author_disseminated_full_text",
+      "title": "Resonance fluorescence of noisy systems",
+      "trigger": "Relevant finite Markovian source ensemble and spectral comparisons."
+    },
+    {
+      "assessment": "Background for forward response, priority risk retained.",
+      "evidence": "Relevant formulas but no confirmed global ordering theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/1806.08402",
+      "material_read": "Accessible bibliographic and relevant manuscript descriptions; complete independent page-by-page review not confirmed.",
+      "method": "bibliography_and_available_sections",
+      "title": "Correlated Dephasing Noise in Single-photon Scattering",
+      "trigger": "Link between Ramsey dephasing and scattering diagnostics."
+    }
+  ]
+}
