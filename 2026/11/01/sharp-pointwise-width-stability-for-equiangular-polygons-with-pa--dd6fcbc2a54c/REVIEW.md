@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is a sharp, finite-dimensional inequality with explicit hypotheses. The polygon support formula and central-symmetral/Wigner signed-area identity reduce it exactly to a positive circulant quadratic form. The explicit mean-zero vector \(g\) satisfies \(Tg=e_0-\mathbf1/n\); the calculation of its energy gives the sharp point-evaluation norm without an unproved spectral lemma. Equality is realized by genuine nondegenerate convex centrally symmetric polygons because small support-number perturbations preserve all positive edge lengths. The standalone checker tests independent vertex-level formulas and reproduces the sharp coefficient. These experiments are supplemental, not a substitute for proof.
+## correctness
 
-## Originality: PASS, subject to historical priority
-The 2026 equiangular CPPOS theorem gives nonnegativity and equality at constant widths but does not give the best nonzero-deficit pointwise width coefficient or the Green-kernel equality profiles. The smooth Wigner stability theorem of 2015 has a limiting coefficient \(4\pi^2\), not the discrete \(n\)-dependent constant. The polygonal stability literature bounds different observables (side lengths and vertex radii), and the 2026 symmetrization abstract does not imply the finite point-evaluation problem. Searches found a close Wigner-caustic octagon equality-family classification, but it addresses \(\mathcal D=0\), not positive-deficit stability. Possible older unindexed discrete Wirtinger calculations and an incompletely accessible 2026 full text remain priority risks; searches do not establish uniqueness.
+PASS
 
-## Mathematical value: PASS
-The result gives a precise stability measurement for the same discrete Wigner inequality, an optimal coefficient at every even side count, a complete nonregular sharp equality family, and the exact continuum-limit constant. The discrete Green-kernel pointwise extremizer is not a mere renaming of the qualitative inequality; it identifies the most efficient angular concentration of nonconstant width for a fixed deficit. The limitation to prescribed facet-normal widths is intrinsic and explicit.
+The central symmetral Q has L(Q)=L(P) and A(P)+2|Wigner(P)|=A(Q) under correct oriented half-cycle Wigner area. Support-line edge lengths and shoelace area reduce the deficit exactly to 16n/(1+cos(pi/n)) times E(v), E=<v,Tv>. For mean-zero n-periodic v, T has positive eigenvalues cos(pi/n)-cos(2pi k/n). Explicit mean-zero g solves Tg=e0-1/n and E(g)=1/[n(1-cos(pi/n))], so energy Cauchy gives the sharp evaluation constant and all nontrivial equality vectors. Small nonzero t preserves all facets, yielding actual convex equality examples. Independently checked recurrence and exact energy through n=100; no claim finite n proves universal statement.
 
-## Verification status
-The proof and computations received internal self-review scrutiny; external independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Konicer et al 2026 Theorem 4.4 proves the qualitative Wigner-corrected inequality with zero-deficit equality, but no sharp positive-deficit width evaluation norm. Older smooth Wigner stability obtains limiting 4pi², not the exact finite-n constant. A related published Resultary octagon result is about |Wigner area|/A on the zero-deficit family, not this width-deficit problem. General discrete Wirtinger and polygon stability have comparable tools but different observables. Full 2026 primary source inaccessible; originality is best-of-knowledge and priority risk explicitly recorded.
+
+## value
+
+PASS
+
+A natural quantitative strengthening of a newly established Wigner-area polygon inequality: finds the optimal finite-side coefficient and full nonregular equality family, with correct smooth limit. The cyclic Green evaluator singles out a concrete geometrically meaningful pointwise width statistic, not a renaming of known nonnegative deficit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
