@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The feasible moment fiber follows by exact inversion of the four count probabilities of an exchangeable triple, including constructive sufficiency of all values in the interval. The iid logarithmic growth rate follows from the strong law. Its derivative in triple co-occurrence is strictly positive by the polynomial identity \(h(h+2\ell)^3-\ell(2h+\ell)^3=(h-\ell)^3(h+\ell)\). A rational witness establishes opposite strict logarithmic signs with the same marginal and pairwise distributions. The code performs supplemental exact checks; there is no extrapolation from numerical enumeration.
+## correctness
 
-**Originality — PASS, with provisional priority.** The earlier well-mixed geometric-mean criterion is known (Bascompte–Possingham–Roughgarden and Schreiber); generic higher-moment effects are also known (Keeling), and the existence of pairwise-independent non-jointly-independent Bernoulli triples is classical. The specific exact *growth-exponent envelope at fixed marginal and pairwise environmental moments*, monotone direction for every positive contrast, and explicit pairwise-independent sign-changing ecological witness were not identified in the accessible comparisons. The 2002 model paper's complete primary text could not be accessed even after an open-access attempt and an authorized-library attempt; a broader moment-polytope treatment might dominate this specialized result. This is a genuine historical-priority risk, not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The question distinguishes pair-correlation-driven second-moment ecological stability indicators from the sign of the multiplicative log-growth threshold, which is the economically and biologically motivated prediction in well-mixed source–sink models. Three patches are the smallest number permitting fixed one- and two-site moments with different joint environmental laws. The complete sharp interval and rational persistence-sign reversal show a qualitative ecological inference limit, not a routine numerical perturbation.
+The exchangeable binary triple distribution is determined by count masses (1−3p+3q−r,3(p−2q+r),3(q−r),r). Their nonnegativity gives exactly max(0,2q−p)≤r≤min(q,1−3p+3q), and uniform labeled assignments at each count construct every feasible r. Complete mixing gives X_{t+1}=g_K X_t and the iid log law implies almost-sure exponent E log g_K. Differentiating in r gives δ=log(h(h+2l)^3/[l(2h+l)^3])>0 since h(h+2l)^3−l(2h+l)^3=(h−l)^3(h+l)>0. At p=1/2,q=1/4,l=1/30,h=10/3, exact endpoint products g0 g2³=300763/810000<1 and g1³g3=9826/2025>1 show opposite exponential signs with pairwise-independent site environments. Two binary sites have fixed full joint law once marginals and pair success probabilities are set. Independently replayed rational mass constraints, identity and exact witness.
 
-**Closest literature and limitations.** Keeling (2000/2001) uses moment closure for a different demographic stochastic process. Bascompte et al. (2002) motivate geometric growth in complete mixing but only abstract/metadata were inspectable here. Schreiber (2010) gives the general well-mixed log-growth criterion and studies temporal spatial dependence, not this sharp binary triple moment fiber. Wang et al. (2017) study inverse-variance invariability rather than exponential multiplicative growth. Density dependence, non-exchangeable patch types and general Markov temporal dependence are excluded. No demographic survival probability or universal conservation recommendation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The geometric-mean well-mixed growth criterion, pairwise-independent triple examples, and generic moment-polytope optimization are known; originality is restricted to the exact triple-moment growth envelope, monotone direction for all positive contrasts, and sharp pairwise-independent ecological sign-reversal witness. Best-of-knowledge PASS with unresolved priority in the 2002 biological primary source and general moment-problem literature.
+
+## value
+
+PASS
+
+Distinguishes second-order spatial environmental statistics from nonlinear multiplicative population-growth sign. Three habitats are the first possible number allowing fixed pairwise moments but distinct triple dependence; the exact sharp interval and explicit sign reversal with pairwise independence give a substantive ecological inference boundary, not just numeric or routine weak inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
