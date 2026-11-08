@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope of verification
 
-Run `python3 verify.py` from the same directory as this document. Only Python's standard library is required. The code computes the normalized expected total interface length via (i) an exact central-binomial rational expression and (ii) a separately evaluated beta integral using log-gamma values, and checks their agreement for multiple site counts. It verifies chord-square moment identities using exact `fractions.Fraction` arithmetic and checks the asymptotic moment predictions at a large sample count.
+# Independent mathematical audit
 
-An independently constructed numerical geometry algorithm draws independent uniform sphere points, parameterizes every pair-bisector great circle, clips it by the halfspaces of all other generating points, and integrates the surviving arcs exactly in that angular parameter. It computes simulated averages of total length and the arclength-weighted common height and generator squared chord, using a fixed seed. This checks the original geometric definitions rather than sampling from the predicted beta distributions. Test site counts and replications: \((2,1600)\), \((3,600)\), \((4,1500)\), and \((6,1200)\).
+## correctness
 
-The executed checker reported:
+PASS
 
-```
-n=2 mean_total_length=6.28318531 theory=6.28318531 length_weighted_U=0.5000000 theory=0.5000000 length_weighted_Q=2.0365716 theory=2.0000000
-n=3 mean_total_length=9.42477796 theory=9.42477796 length_weighted_U=0.6254366 theory=0.6250000 length_weighted_Q=2.0000364 theory=2.0000000
-n=4 mean_total_length=11.78364538 theory=11.78097245 length_weighted_U=0.7011310 theory=0.7000000 length_weighted_Q=1.8857294 theory=1.8666667
-n=6 mean_total_length=15.44230051 theory=15.46252634 length_weighted_U=0.7857325 theory=0.7857143 length_weighted_Q=1.5756772 theory=1.5714286
-ALL_EXACT_MOMENT_AND_GEOMETRIC_CHECKS_PASSED
-```
+PASS. Apply intrinsic spherical coarea to the pair bisector F(z)=z·(Xi-Xj): on the zero set the gradient norm equals the generating-site chord. Fixing z by rotational invariance, the pair heights are iid uniform on [-1,1]; their equal-height coarea density is multiplied by the empty-cap probability ((1+c)/2)^(n-2), and the relative azimuth is uniform. The resulting unnormalized pair-arclength density sqrt(1-c²)sin(Delta/2)((1+c)/2)^(n-2) dc dDelta integrates to 16B(n-1/2,3/2), giving the stated finite-n total-length law after multiplying by binom(n,2). Transformation U=(1+c)/2 produces Beta(n-1/2,3/2); Z=cos(Delta/2) is uniform [-1,1], independent, giving V=1-Z²~Beta(1,1/2), Q=16U(1-U)V. Beta moment algebra yields all stated Q moments and, from n(1-U) -> Gamma(3/2,1), nQ/16 -> Exp(1). Boundary n=2 is a single full great-circle interface; triple ties have zero arclength. Independent exact rational beta-moment and small-n checks and source independent spherical polygon clipping corroborated the proof. This is annealed expected-arclength sampling, not a per-realization quenched law.
 
-These finite samples are consistency tests only. They cannot prove the beta factorization for every sample count, the large-sample limiting law, or historical priority. Those claims rest on the mathematical argument and literature comparison in `RESULT.md` and `REVIEW.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+For the full claim (length-weighted generating site mark product plus all moments and scaling limit), no inspected source gives equivalent implications. Earlier binomial face-number laws and Poisson tessellation results do not determine this joint metric distribution. PASS with substantial Miles priority risk.
+
+## value
+
+PASS
+
+PASS. Total geodesic interface length and length-biased generator separation are natural metric observables of iid spherical Voronoi tessellations. The beta-product joint factorization produces all finite-n squared-chord moments and a sharp exponential scaling limit, not merely another known face count. Even if the mean-length marginal has historical antecedents, the joint annealed metric law is an independently useful exact statistical description for future curvature and sampling comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

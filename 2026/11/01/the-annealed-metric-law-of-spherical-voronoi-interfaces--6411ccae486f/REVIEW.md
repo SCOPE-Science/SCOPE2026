@@ -1,19 +1,21 @@
-# Review: The annealed metric law of spherical Voronoi interfaces
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the expected arclength measure of pairwise Voronoi interfaces, not about normalization by a random realization's total length. The proof gives an exact coarea expression on the pair bisector, including its intrinsic-gradient Jacobian. For independent uniform sites, the site-height density is constant on \([-1,1]\); the remaining sites satisfy the strict empty-cap condition independently with probability \(((1+c)/2)^{n-2}\). After integrating the relative azimuth and transforming the common height, the resulting measure factorizes into two explicitly normalized beta laws. The total-length, all-moment, and exponential-limit assertions follow by exact beta and gamma identities. The case of two sites is included, with one great-circle interface; higher-order ties are arclength-null almost surely. A separate algorithm reconstructing actual random spherical diagrams agrees numerically; it is auxiliary rather than the proof.
+PASS
 
-## Originality — PASS, with historical priority risk
+PASS. Apply intrinsic spherical coarea to the pair bisector F(z)=z·(Xi-Xj): on the zero set the gradient norm equals the generating-site chord. Fixing z by rotational invariance, the pair heights are iid uniform on [-1,1]; their equal-height coarea density is multiplied by the empty-cap probability ((1+c)/2)^(n-2), and the relative azimuth is uniform. The resulting unnormalized pair-arclength density sqrt(1-c²)sin(Delta/2)((1+c)/2)^(n-2) dc dDelta integrates to 16B(n-1/2,3/2), giving the stated finite-n total-length law after multiplying by binom(n,2). Transformation U=(1+c)/2 produces Beta(n-1/2,3/2); Z=cos(Delta/2) is uniform [-1,1], independent, giving V=1-Z²~Beta(1,1/2), Q=16U(1-U)V. Beta moment algebra yields all stated Q moments and, from n(1-U) -> Gamma(3/2,1), nQ/16 -> Exp(1). Boundary n=2 is a single full great-circle interface; triple ties have zero arclength. Independent exact rational beta-moment and small-n checks and source independent spherical polygon clipping corroborated the proof. This is annealed expected-arclength sampling, not a per-realization quenched law.
 
-Hug–Reichenbacher (original 2017 arXiv text, spherical Poisson–Voronoi section) addresses large-cell shape inequalities and Poisson-driven models, not the finite-binomial metric mark at a length-biased interface. Kabluchko–Thäle (2019 preprint, 2021 full open-access text, inspected main theorems) proves exact *counts* of faces of the binomial spherical Voronoi tessellation and duality with inscribed polytopes, but neither the expected total interface arclength nor the joint arclength-weighted generator geometry follows from those statements. The closest accessible previously recorded findings concern great-circle hyperplane tessellations or a three-site spherical Voronoi *area* distribution, not this arbitrary-site metric law. Muche's Euclidean Poisson–Voronoi edge relations are for a distinct underlying model. A plausible historical source, Miles (1971), could not be examined in complete original full text; it remains an explicit priority risk. The novelty conclusion is best-knowledge, not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact joint beta factorization determines the distribution of two natural metric marks at a randomly encountered interface, all generator-distance moments, and a meaningful rare-scale limit. The expected total arclength is an exact finite-sample function of the number of sites, with a curvature-sensitive correction to the planar \(\sqrt n\) limit. These facts describe metric information not supplied by a deterministic face-count census, and can serve as finite-size benchmarks for spherical nearest-site tessellations.
+For the full claim (length-weighted generating site mark product plus all moments and scaling limit), no inspected source gives equivalent implications. Earlier binomial face-number laws and Poisson tessellation results do not determine this joint metric distribution. PASS with substantial Miles priority risk.
 
-## Scope and remaining limitations
+## value
 
-Uniform independent sites, curvature-one two-sphere, and annealed arclength weighting are essential to the stated proof. Individual edge-length distributions and quenched interface statistics are not asserted. Complete inspection of Miles's 1971 source and external mathematical verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Total geodesic interface length and length-biased generator separation are natural metric observables of iid spherical Voronoi tessellations. The beta-product joint factorization produces all finite-n squared-chord moments and a sharp exponential scaling limit, not merely another known face count. Even if the mean-length marginal has historical antecedents, the joint annealed metric law is an independently useful exact statistical description for future curvature and sampling comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
