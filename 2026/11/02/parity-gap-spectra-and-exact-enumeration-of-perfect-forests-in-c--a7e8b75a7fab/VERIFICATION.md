@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the perfect-forest enumerator
+# Independent mathematical audit
 
-The adjacent `verify.py` contains a standalone Python 3 checker with no external dependencies.
+## correctness
 
-Run `python3 verify.py`. In the recorded run its output began:
+PASS
 
-```
-VERIFY_OK direct_graphs=19 edge_subsets=190798 support_pairs=180
-```
+PASS: Each component of an induced spanning forest in complete bipartite K_{a,b} that has all odd degrees must be K_{1,j} with j positive odd; a component with >=2 vertices in both shores creates an induced C4. The connected two-sort labelled species is x sinh(y)+y sinh(x)-xy, subtracting one double count of K2. Exponential formula yields C_{a,b}(t), and |E|=a+b-components yields the edge enumerator. Every component uses odd positive numbers from both shores, so c<=a (for a<=b) and c≡a≡b (mod 2); c=1 only if a=1, else min 2/3 according to parity. Construct c stars with one opposite-shore center and distribute remaining b-1 vertices to c-1 centers in odd positive blocks. Independent exact enumeration via unlabeled set partitions into induced odd stars gives K2,6 c2=32, K4,4 c4=24/c2=16, K5,5 c5=120/c3=400, K3,3 c3=6. These finite checks support, but do not replace, the species proof.
 
-The verifier performs three independent tests for each edge subset: acyclicity; odd selected degrees at every vertex; and inducedness of each connected component (all ambient edges internal to a component must be selected). It compares exact component-count dictionaries to the labelled-component recurrence and checks the claimed support on 180 further parameter pairs. Its direct tests total 190,798 edge subsets across 19 complete bipartite graphs. Examples include the distributions for \(K_{4,4}\), \(K_{5,5}\), and \(K_{6,6}\).
+## originality
 
-This check is finite and is not an infinite certificate. The main proof is a component classification followed by a labelled-set bijection and an explicit construction for each admissible component count. Independent external audit has not occurred.
+PASS
+
+PASS best-of-knowledge: Gutin–Yeo and Scott deal with existence, optimization and computational complexity of 0-perfect forests. No exact labelled bivariate component EGF and exhaustive parity-gap edge support for K_{a,b} were found in the inspected relevant sections. Star edge-decompositions have different incidence constraints and do not imply vertex-partition counts.
+
+## value
+
+PASS
+
+PASS: Induced odd-degree spanning forests form a natural matching-like graph invariant. On all complete bipartite graphs the result gives a full component/edge distribution and strict parity gaps, plus extremal multiplicities, not just a generic exponential-formula exercise. The exact coefficient formula is a reusable enumerator for extremal/parity forest questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
