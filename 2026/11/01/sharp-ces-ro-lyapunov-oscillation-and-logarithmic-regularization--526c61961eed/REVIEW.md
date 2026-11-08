@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's exact coordinate derivative formula gives an alternating sequence of \(\log\lambda_1\) and \(\log\lambda_2\) in successive geometric blocks. The proof checks the geometric sum at every block endpoint, constructs the uniform signed-walk scaling profile, integrates the normalized walk and optimizes the last-block phase explicitly. The complete cluster set follows from exhaustion of the time intervals between consecutive block endpoints. A separate alternating-harmonic-block estimate proves the logarithmic mean converges. `verify.py` independently checks finite integer identities and several phase values; those finite tests are not substitutes for the analytic proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The source Eq (3.2) gives exact original-axis derivative exponents alternating in blocks of lengths γ^(m+j), so L_n(x,e1,2)=c±d S_n/n. Normalize block endpoints T_j and obtain uniform compact-away-from-zero signed-walk scaling Φγ on γ-adic intervals. Integrate S_n/n by Riemann sums to obtain Hγ(z) on z∈[1/γ,1]. Its derivative has one critical point z*=γ^(−γ/(γ+1)) where Hγ=−Rγ; endpoints ±Dγ and alternating block parity fill exactly [−Rγ,Rγ]. Weighted double sum Σ S_n/n² differs from alternating harmonic blocks by O(1); each geometric block contributes ±logγ+ summable error, giving Q_N=c+O(1/logN). Domain is source full-measure regular wandering rectangle and original two axis directions only.
 
-The closest primary paper is Nakano, Soma and Yamamoto, arXiv:2206.09508v1 (2022), which proves the earlier unaveraged Lyapunov cluster ranges and gives the exact geometric-block derivative sequence used here. This dependence is acknowledged. The new result concerns the different statistic formed by *averaging those finite-time exponents*; its sharp interval requires an additional self-similar integral and interior extremization, while convergence of its logarithmic weighting requires another summability argument. Relevant observable-irregularity literature and published mathematical-index comparisons did not yield an equivalent second-averaging statement. This bounded priority comparison leaves the risk of unindexed earlier formulas or stronger results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This natural large-time statistic tests whether time averaging suppresses observable Lyapunov irregularity. The answer is quantitatively negative for arithmetic means but positive for logarithmic weighting, with all thresholds explicit. The strict interior extremum provides information not visible in the original block-end exponent limits.
+Nakano–Soma–Yamamoto Theorem 3.1 and Eq (3.2) settle the underlying unaveraged L_n accumulation and furnish its exact signed blocks, which are explicitly credited. They do not state the second-order Cesàro cluster profile, extremal Rγ or convergent logarithmic regularization; these require new integration and optimization, at best knowledge. Related Kiriki–Li–Nakano–Soma observable irregularity concerns different dynamics.
 
-## Limits and remaining risk
+## value
 
-The dynamical realization and its first-order derivative sequence belong to the 2022 source and are not claimed as new. The present theorem is proved for the original coordinate tangent vectors on the full-measure derivative-defined subset of its wandering rectangles; it does not address mixed vectors, invariant-measure typical points, or arbitrary expanding maps. Exhaustive priority assessment would require further independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact distinction between arithmetic and logarithmic smoothing of observable Lyapunov irregularity is a meaningful quantitative dynamical statistic on a positive-area canonical example; the nontrivial Rγ extremum and log-periodic profile go beyond a generic time-average observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

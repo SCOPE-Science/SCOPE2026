@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The checker uses only built-in libraries (`math`, `fractions`) and tests finite signed block identities, coordinate tangent expansion counts, exact phase endpoints and extrema, and the convergence of finite arithmetic means to the predicted alternating block-end and phase values in samples. It reports `ALL_CHECKS_PASSED` on the supplied tested parameters. It does not perform a formal or independent proof check; the infinite statements rely on the analytic argument in `RESULT.md`.
+## correctness
 
-The source derivative block identity is Nakano--Soma--Yamamoto, arXiv:2206.09508v1, equations (2.4), (3.1), (3.2). The checker verifies this algebraic block surrogate, not the existence of the source's wandering rectangles; that existence is a separately cited established theorem.
+PASS
+
+The source Eq (3.2) gives exact original-axis derivative exponents alternating in blocks of lengths γ^(m+j), so L_n(x,e1,2)=c±d S_n/n. Normalize block endpoints T_j and obtain uniform compact-away-from-zero signed-walk scaling Φγ on γ-adic intervals. Integrate S_n/n by Riemann sums to obtain Hγ(z) on z∈[1/γ,1]. Its derivative has one critical point z*=γ^(−γ/(γ+1)) where Hγ=−Rγ; endpoints ±Dγ and alternating block parity fill exactly [−Rγ,Rγ]. Weighted double sum Σ S_n/n² differs from alternating harmonic blocks by O(1); each geometric block contributes ±logγ+ summable error, giving Q_N=c+O(1/logN). Domain is source full-measure regular wandering rectangle and original two axis directions only.
+
+## originality
+
+PASS
+
+Nakano–Soma–Yamamoto Theorem 3.1 and Eq (3.2) settle the underlying unaveraged L_n accumulation and furnish its exact signed blocks, which are explicitly credited. They do not state the second-order Cesàro cluster profile, extremal Rγ or convergent logarithmic regularization; these require new integration and optimization, at best knowledge. Related Kiriki–Li–Nakano–Soma observable irregularity concerns different dynamics.
+
+## value
+
+PASS
+
+The exact distinction between arithmetic and logarithmic smoothing of observable Lyapunov irregularity is a meaningful quantitative dynamical statistic on a positive-area canonical example; the nontrivial Rγ extremum and log-periodic profile go beyond a generic time-average observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
