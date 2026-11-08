@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The long-plus-short circle is isometric because all possible alternate endpoint connections have the same short length. Moving a center from an omitted short arm to the selected short arm cannot increase its distance to any point on that circle. Therefore every unrestricted \(p\)-point cover inherits the circle's arclength lower bound. For the equality regime, explicit equally spaced long-arm sites cover the long edge by direct intervals and all short edges from their endpoints. In the strict regime, when the circle-optimal radius is less than half a short edge, any off-circle site's intersection with the circle has strictly smaller length than a circle-centered ball. Equality would force all sites onto the circle, leaving an omitted arm's midpoint uncovered. Compactness converts unattainability at the lower bound into a strict inequality. Rational tests independently check shortest-path and construction calculations; the proof is not finite-sampling dependent.
+## correctness
 
-## Originality — PASS, subject to specified historical access risk
-The closest relevant published foundations are Tamir (1987), who gives a general possible-value theorem for continuous network \(p\)-centers, and Hartmann–Lendl–Woeginger (2021), who give covering-complexity results for unit-edge graphs. Neither accessible statement gives the specific arbitrary-multiplicity, two-length *if-and-only-if* saturation threshold. The 2021 full open-access article was materially inspected (introduction, definitions, main results and stated proof sections), while the 1987 primary source could be checked only through its publisher abstract; the older paper could not be obtained in full text. Earlier coverage in inaccessible or unindexed work remains a meaningful priority risk. The new claim does not assert invention of network \(p\)-centers or the circle bound.
+PASS
 
-## Mathematical value — PASS
-The covering radius is an intrinsic metric-net invariant. A graph of arbitrarily large cycle rank can have exactly the same \(p\)-point radius as one isometric circle, but only across a *sharp, integer-sensitive threshold*. The result identifies both a constructive, topology-insensitive regime and a rigorous obstruction, rather than an arbitrary parameter slice or a numerical example. It does not establish the exact post-threshold radius.
+For compact intrinsic graph with one edge L and m>=2 equally short edges s<=L, the long+one-short circle is isometric: traversing any other arm does not shorten its distances. Mapping each off-circle center to its corresponding point of the selected short edge cannot enlarge distances to the circle; p circle arcs force radius q=(L+s)/(2p). For L>=(p-1)s, exact long-edge centers t_j=(L-(p-1)s)/(2p)+j(L+s)/p cover the entire long edge and all short arms through A or B. For L<(p-1)s, q<s/2; any off-circle center covers <2q of the circle, forcing all p equality centers onto it, but an omitted short-arm midpoint remains distance s/2>q. Compactness yields strictness. This addresses real lengths, all p>=1, equality boundary and all edge interiors. Recomputed independently with exact rational endpoints and obstruction identities; the 344-case/414723-check package log alone was not used as proof.
 
-## Limitations
-Primary-source full text from 1987 was inaccessible, leaving historical priority unresolved. Only equal short arms are treated. Independent audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. Tamir 1987 full text was inaccessible via OA/preprint search and authorized Oxford request returned vpn_disconnected (job bea59b9cb1ec9ffd0fb7fe305720c54d). Its abstract alone cannot rule out an equivalent special case or example; residual historical-priority risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+A sharp equality/strictness threshold for the natural isometric-cycle lower bound on nontrivial metric multigraphs, stable under arbitrary extra parallel equal arms, gives precise structural information beyond generic p-center algorithms. The exact threshold L=(p-1)s and unrestricted center placement are useful for metric network location; it does not purport to solve the exact strict-side radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
