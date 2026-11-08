@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3 and all binary weight-three words, direct factor lengths for 0,1,2,3 ones are consecutive integer intervals with five explicit boundary statistics. Four of them recover the unordered interior/endpoint zero-gap pairs; the fifth discriminates the only two reversal orbits exactly unless min interior >= max exterior with both pairs unequal. Unique nonnegative parameterization gives n=7+4t+3u+2v+r and the restricted partition generating series. Burnside reflection count gives J_n, and the order-four pole yields the asymptotic. Independent direct Parikh-set brute enumeration and canonical-gap checks pass; finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burcsi et al. arxiv:1611.09017 Section 4.2 Proposition 16 lists generating functions for 1-prefix-normal words of fixed density 0 through 6, including density three; it is not a count of joint 0- and 1-prefix-normal-form pairs.",
+        "Cunha–Medina 2026 full HTML sections 1–2 and Contributions focus on computing binary jumbled indexes, not classifying observations by inverse-fiber sizes.",
+        "The new theorem directly specifies all four-gap classes and the correction term beyond reversal."
+      ],
+      "reasoning": "The cited general theorems are broader in alphabet-free word length but address different output questions. A theorem giving efficient index construction or counting single prefix-normal forms does not imply an explicit count of distinct two-form observations by a direct substitution; the four-gap orientation criterion and bijection require additional derivation. Nonetheless there is residual risk that an unindexed work has the same specialization.",
+      "searches": [
+        "On Prefix Normal Words and Prefix Normal Forms arxiv:1611.09017 full text Section 2 Section 4.2",
+        "number of distinct Parikh sets of binary words with 3 ones generating function",
+        "binary jumbled indexing suffix tree histogram doi:10.1007/s10878-026-01407-6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/978-3-642-22321-1_20 (Fici–Lipták 2011 general equivalence)",
+      "arxiv:1401.6346 (Burcsi et al. 2014 fixed-length generation)",
+      "arxiv:1611.09017 (Burcsi et al. 2016 fixed-density enumeration)",
+      "arxiv:1805.12405 (author-uploaded copy of the 2011 text)",
+      "doi:10.1007/s10878-026-01407-6 (Cunha–Medina 2026 algorithmic perspective)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fici–Lipták 2011 equivalence is iff two prefix-normal forms coincide, but provides neither fiber structure at weight three nor partition counts.",
+        "Burcsi et al. 2016 Proposition 16 gives pnw(n,3)=floor((n+1)^2/4), which counts one-normal words and is numerically and logically distinct from J_n.",
+        "The theorem here recovers unordered gap pairs from shortest-two/three and longest-two factor intervals; a further comparison of longest-single factors yields the strict exceptional criterion."
+      ],
+      "reasoning": "The new equivalence criterion is neither the statement of the general characterization nor a numerical substitution into its generating series. The gap-threshold proof explicitly determines its new joint-fiber implication. The result intentionally does not claim the pre-existing equivalence theorem, the 2016 fixed-density generating series, or a new partition sequence.",
+      "searches": [
+        "three marker binary strings identical sets of substring Parikh vectors reconstruction from jumbled index and ambiguity",
+        "prefix normal binary words fixed density three ones exact counting formula optimal number of words with given prefix normal form",
+        "arxiv:1805.12405 Theorem 2 and Section 5 open problems",
+        "arxiv:1611.09017 Section 4.2 density three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fici–Lipták 2011 Theorem 2 (arxiv:1805.12405, pp. 4–5) identifies equality of Parikh-vector sets with equality of both prefix-normal forms.",
+        "The 2014 Burcsi et al. paper (arxiv:1401.6346, Section 2) treats one-form equivalence and a fixed-length generating procedure.",
+        "No corresponding explicit gap-inequality/four-element fiber statement appeared in the inspected material."
+      ],
+      "reasoning": "The general equivalence of two normal forms is a powerful normalization, but does not by itself determine which pairs of normal forms occur for fixed weight three, when two distinct reversal orbits coincide, or the number of their common fibers. The new claim is a complete closed structural solution to those additional inverse questions. Reversal and bit complementation were considered: reversal is a mandatory equivalence and complement changes the fixed weight for generic length.",
+      "searches": [
+        "binary jumbled spectrum reconstruction three ones two ones equivalence class factors Parikh sets",
+        "prefix normal forms of weight three binary words classification nonreversal jumbled equivalent",
+        "jumbled matching equivalence three one words reversal ambiguity construction",
+        "Fici Lipták On Prefix Normal Words (Theorem 2, DOI 10.1007/978-3-642-22321-1_20)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The coefficient of 1/((1-z)(1-z^2)(1-z^3)(1-z^4)) is the classical number of partitions into parts at most four; this numerical fact is not claimed as new.",
+        "The 2011 prefix-normal paper gives general normal-form equivalence; the 2016 paper tabulates single-normal-form counts, a different table.",
+        "Direct exhaustive factor-set enumeration for all 7315 weight-three words of lengths 3..21 matches the proposed distinct-observation counts, which are not presented as an external database certification."
+      ],
+      "reasoning": "The restricted-partition numbers already occur in standard integer-partition databases; that does not supply a known interpretation as the exact count of non-reversal jumbled-ambiguity classes. No retrieved exact table or index hit covered the stated parameterized correspondence. Search absence is explicitly not proof of priority.",
+      "searches": [
+        "number jumbled equivalence classes binary words three ones parikh spectra count partition 4",
+        "OEIS number of partitions of n into parts of size 1 2 3 4",
+        "binary words Parikh set reconstruction up to reversal 3 ones minimum maximum one factors"
+      ]
+    },
+    "rationale": "The literature characterizes equality of Parikh sets via dual prefix normal forms, and separately enumerates 1-prefix-normal words at fixed density, but these do not state the specific simultaneous-fiber four-gap classification, all-length multiplicity-count correction, or limiting ambiguity fraction. Four direct statement-and-implication comparisons with highly relevant primary full text and semantic research records found no covering result. General theorem and partition sequence explicitly credited; priority subject to unindexed work.",
+    "residual_risks": [
+      "Some preprints, textbooks, theses, or integer-sequence comments outside available indexing may already contain an equivalent fixed-weight joint-observation classification.",
+      "The 2011 general equivalence theorem logically makes explicit characterization possible, but does not itself present the specialized enumeration; this is a priority distinction rather than a claim of logical independence.",
+      "The 2011 research-report version was dated only March 2011 in a repository preview; the exact first public day is not independently verifiable. The first_public_date field uses a verifiable July 29 2011 publication record, not an invented day for March."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the general exact characterization via two prefix-normal forms, but not the weight-three four-gap ambiguity characterization or count.",
+        "evidence": [
+          "Theorem 2, pp. 4–5: Parikh-set equality iff both prefix-normal forms agree.",
+          "The paper treats general words; the factor-set reconstruction class is not enumerated by three-marker gap patterns."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1805.12405",
+        "material_read": "Full-text PDF, introduction, definitions, Theorems 1 and 2 and proof (pp. 1–5), and enumerative/open-problem discussion (pp. 10–11).",
+        "method": "Read searchable full PDF and inspected rendered pages 1 and 4.",
+        "title": "On Prefix Normal Words",
+        "trigger": "Original equivalence theorem plausibly dominates the claimed fixed-weight reconstruction."
+      },
+      {
+        "assessment": "One-normal-form class list and generating algorithm do not describe simultaneous two-normal-form inverse fibers of weight three.",
+        "evidence": [
+          "Section 2.1, Table 1 lists classes for one prefix-normal form of words of length five.",
+          "Main result: efficient prefix-normal word generation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.6346",
+        "material_read": "Full-text PDF, abstract and Section 1, Section 2 including the prefix-normal-form equivalence table at length five, and generating algorithm statements.",
+        "method": "Read searchable full PDF and inspected rendered page 3.",
+        "title": "On Combinatorial Generation of Prefix Normal Words",
+        "trigger": "Earliest public arXiv primary source for fixed-length prefix-normal generation and equivalence classes."
+      },
+      {
+        "assessment": "Gives one-prefix-normal fixed-density counts, notably density three, but does not give the joint Parikh-set ambiguity-class formula.",
+        "evidence": [
+          "Proposition 16 gives f_3(x)=x^3/((1-x^2)(1-x)^2) for prefix-normal words.",
+          "No equality with the jumbled spectra count J_n can be inferred from this one-form enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.09017",
+        "material_read": "Full-text PDF, introduction and basics, equivalence-class discussions (Section 2) and exact fixed-density generating functions (Section 4.2, Proposition 16).",
+        "method": "Read searchable full PDF and inspected rendered page 11.",
+        "title": "On Prefix Normal Words and Prefix Normal Forms",
+        "trigger": "Most plausible stronger later paper explicitly has fixed-density exact formulas and normal-form equivalence."
+      },
+      {
+        "assessment": "Defines the same observation and improves index construction, without a fixed-weight-three fiber classification.",
+        "evidence": [
+          "Introduction and contributions describe index-building algorithm complexity and string-run statistics.",
+          "Section 2 explains factor Parikh sets and the interval property."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-026-01407-6",
+        "material_read": "Open-access HTML abstract, introduction, contributions, and Section 2 preliminaries on the Parikh set and interval property.",
+        "method": "Read primary full-text HTML.",
+        "title": "Binary jumbled indexing: suffix tree histogram",
+        "trigger": "Contemporary full-text primary work on precisely the same binary Parikh-set observation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "defdb2ae-056f-48b4-ba01-bb70c66bd33f",
+  "value": {
+    "rationale": "The Parikh-set observation is the natural exact answer to all binary jumbled-pattern-existence queries, and measuring its inverse ambiguity is a structural reconstruction problem. Hamming weights at most two determine the input up to reversal, whereas at three the theorem gives the exact first failure, full necessary/sufficient gap conditions, all fiber cardinalities, a nontrivial all-length generating function, and a sharp limiting positive fraction 1/6. The partition bijection is explanatory rather than an arbitrary numerical slice; no broader weights are claimed.",
+    "status": "PASS"
+  }
+}
