@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For four adjacent characters, support sizes 1,2,3,4 yield respectively 12,54,108,81 nonzero character terms. Weil bounds plus exact root exclusions give 256 N >= p-513 sqrt(p)-256. The integer square test at 263681 is positive and monotone thereafter. C++17 exact enumeration checks each of 11,538 eligible primes below 263681; 144 fail full coverage, last at 3361, whose sole missing code is 195. A mathematically independent direct coset implementation verifies every eligible prime through 4000, including all 144 failures. The code is compiled/replayed from actual new package paths; no inference from finite data to an infinite tail is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Graham 1964: limsup of the least all-residue quadruple start is infinite; no bound on simultaneous four-word realization for a fixed sufficiently large prime (doi:10.2307/2034033).",
+        "Emma Lehmer 1983 zbMATH review: smallest occurrence of all-residue shifted patterns; full text inaccessible (doi:10.1016/0022-314X(83)90004-5).",
+        "The known three-letter quartic result is a projection and does not imply the missing four-letter joint correlations."
+      ],
+      "reasoning": "An eventual theorem for one monochromatic word, even with arbitrary prime, cannot imply eventual simultaneous appearance of all 256 ordered mixed words. Existing length-three coverage cannot infer length-four coverage because extension of each three-word may have fewer possible fourth labels.",
+      "searches": [
+        "\"Patterns of Power Residues\" Emma Lehmer 1983 pdf quartic patterns",
+        "\"On quadruples of consecutive kth power residues\" full text pdf 1964",
+        "consecutive quartic character values triple 64 patterns prime threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math8081337",
+      "doi:10.2307/2034033",
+      "doi:10.2307/2004850",
+      "doi:10.1016/0022-314X(83)90004-5 (metadata/review only)",
+      "arxiv:2011.11054v1 (quadratic rather than quartic patterns)",
+      "prior length-three quartic-coset statement id 0f070ed2-a0e5-4936-861a-089f259193de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Su–Zhang (2020) concerns a plus/minus multiplicative inverse pair, not any four adjacent shifts.",
+        "Rabung–Jordan (1970) computes A*(8,2), A*(3,3), and all-equal-class runs.",
+        "Graham (1964) establishes unbounded first-position limsup, compatible with all patterns occurring somewhere for each large prime.",
+        "An accessible earlier length-three quartic word result yields only projections, and the new final mixed obstruction has no counterpart in the length-three terminal all-zero obstruction."
+      ],
+      "reasoning": "The new exact cutoff follows from a four-position estimate and an independent finite census. General character-sum existence is weaker and its numeric threshold is 263681, not 3373. The closest matching source has length three and cannot logically force four-coordinate consistency. Hence no inspected statement entails the exact 256-word theorem.",
+      "searches": [
+        "All 256 quartic residue coset words of four consecutive integers modulo every prime p=1 mod 4 from 3373 onward, last exception p=3361",
+        "Consecutive quartic character quadruples complete 256-pattern coverage",
+        "Jordan Rabung 1970 Consecutive power residues or nonresidues full text theorem pdf",
+        "2020 \"quartic residue patterns\" consecutive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2020 Su–Zhang Theorems 1–2: inverse-based conditions, not four consecutive cosets (doi:10.3390/math8081337).",
+        "Rabung–Jordan (1970), section Method and displayed A* values: monochromatic runs, not mixed words (doi:10.2307/2004850).",
+        "A prior length-three quartic classification has different word domain and final prime 1153; four-term coverage cannot follow from three-term coverage."
+      ],
+      "reasoning": "The relevant equivalent phrasing is simultaneous occurrence of each four-term quartic-character vector, or exact exceptional primes for full de Bruijn four-letter language. The 2020 formulas and 1970 runs have different counting predicates; a previously obtained length-three statement only controls three-coordinate projections.",
+      "searches": [
+        "All 256 quartic residue coset words of four consecutive integers modulo every prime p=1 mod 4 from 3373 onward, last exception p=3361",
+        "Length-four quartic coset words prime 3361 missing (3,0,0,3), sharp 3373 threshold",
+        "Consecutive quartic character quadruples complete 256-pattern coverage",
+        "quartic character four consecutive patterns length 4 cosets 256 universal threshold 3373",
+        "\"3361\" \"quartic\" \"consecutive\" residues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible prior exact table concerns 64 triples and last exceptional prime 1153, not 256 quadruples.",
+        "The 144 exceptional primes and final missing code 195 are recomputed from finite-field arithmetic using two different constructions."
+      ],
+      "reasoning": "No inspected exact table records the 144 exceptions for four coset labels. The old 64-word table is not a dominating source for four-word frequencies; identical primes in unrelated searches are not evidence of a covering table.",
+      "searches": [
+        "Length-four quartic coset words prime 3361 missing (3,0,0,3), sharp 3373 threshold",
+        "\"3361\" \"three consecutive\" \"fourth power residues\"",
+        "quartic residue triples 1153 exceptional 3 consecutive"
+      ]
+    },
+    "rationale": "Literature in hand supplies general character-pattern existence, monochromatic run-start bounds, inverse-based quartic counts, and an exact length-three quartic word classification. None inspected states the complete four-term 256-word cutoff 3373, the exact 144-exception census, or the terminal mixed word at 3361. These are not implied by the known three-term theorem or the general existence bound. Priority risk remains for inaccessible Lehmer (1983) and unindexed results; searches are not uniqueness proofs.",
+    "residual_risks": [
+      "Original full text of Emma Lehmer (1983) not read; secondary review suggests a different least-run invariant.",
+      "A not-indexed exact table or general theorem with an implied four-letter cutoff could exist.",
+      "No independent external audit of the full finite enumeration has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: special conditions on a plus/minus its inverse, no four-consecutive coset 256-word cutoff",
+        "evidence": [
+          "Theorem 1 and Theorem 2 count a±a^{-1} quartic conditions; Corollary 2 is a distinct large-prime guarantee (paper pages 2-3)."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math8081337",
+        "material_read": "10-page OA paper, theorem statements, proof sections, characters, conclusions and bibliography via accessible PDF text and page screenshot",
+        "method": "opened publisher-hosted OA PDF copy; inspected full main paper text and theorem sections",
+        "title": "On the Quartic Residues and Their New Distribution Properties",
+        "trigger": "2020 direct quartic-character distribution paper and middle-cohort motivating source"
+      },
+      {
+        "assessment": "NOT_COVERING: earliest all-equal-class runs, not every mixed four-word simultaneously",
+        "evidence": [
+          "1970 pp. 737-740: A*(8,2)=399 and A*(3,3)=2499; procedure searches equality of k-th power classes."
+        ],
+        "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/resRabungJordan.pdf",
+        "material_read": "full four-page PDF text, including introduction, computed A* examples, method, and references; inspected page screenshot",
+        "method": "lawful accessible PDF text and image inspection",
+        "title": "Consecutive Power Residues or Nonresidues",
+        "trigger": "prior consecutive k-th power residue coset work"
+      },
+      {
+        "assessment": "NOT_COVERING: A(k,4)=infinity is unbounded least all-residue start over primes, not simultaneous language coverage",
+        "evidence": [
+          "Theorem and proof use prescribed small-prime character values to force all-quartic-residue run starts arbitrarily late."
+        ],
+        "identifier_or_url": "https://paperzz.com/doc/7577557/graham.pdf",
+        "material_read": "full two-page textual reproduction of 1964 article",
+        "method": "opened public full-text transcription, followed main theorem and proof",
+        "title": "On Quadruples of Consecutive kth Power Residues",
+        "trigger": "direct length-four consecutive power-residue title"
+      },
+      {
+        "assessment": "ACCESS_RISK: abstracted review discusses limsup least all-residue occurrences for chosen shifts; full text uninspected, no definitive whole-paper negative coverage claim",
+        "evidence": [
+          "zbMATH reviewed statement on least positive x with x+S consisting only of k-th power residues."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(83)90004-5",
+        "material_read": "bibliographic information and zbMATH review, not original full text",
+        "method": "searched arXiv/OA; institutional route did not yield an accessible article during this execution",
+        "title": "Patterns of power residues",
+        "trigger": "broadly titled same-objects source plausibly comparing different character patterns"
+      },
+      {
+        "assessment": "NOT_COVERING: 64 length-three words, threshold 1181, last failure 1153; does not determine 256 length-four words",
+        "evidence": [
+          "The 64-word theorem addresses consecutive triples and the all-zero final missing triple at 1153."
+        ],
+        "identifier_or_url": "opaque finding id 0f070ed2-a0e5-4936-861a-089f259193de",
+        "material_read": "claim, slogan, and proof-summary excerpt in available research index",
+        "method": "searched recoverable historical claims for deduplication only",
+        "title": "Prior exact length-three quartic-coset classification",
+        "trigger": "exactly matched power-coset object but only three consecutive positions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36e56e09-e753-4f3c-a357-fed2c91b732f",
+  "value": {
+    "rationale": "The complete 4^4 quartic-character word language is a canonical next-order finite-word invariant; sharp first universal prime 3373 and 144 fully classified exceptions cannot be inferred from asymptotic existence alone. A new mixed terminal obstruction persists at 3361 even though an all-residue quadruple is present, unlike the previously known three-letter terminal all-zero failure. This structural separation and exact cutoff motivate the invariant beyond a routine numerical increment; the work does not claim the underlying character sum as new.",
+    "status": "PASS"
+  }
+}
