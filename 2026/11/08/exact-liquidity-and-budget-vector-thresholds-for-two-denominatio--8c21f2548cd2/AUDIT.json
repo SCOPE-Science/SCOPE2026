@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Pairwise envy-freeness with identical valuations forces every effective utility to W/n, giving exact cap q+b_i. Packing all h-valued goods uses sum floor(c_i/h) slots and the unit goods then fit iff sum c_i>=W. The aggregate-budget minimum follows from each extra h slot costing at least h-s budget and a construction that spreads Delta<n initial increments. Exact independent assignment enumeration checked 11,232 instances, reserve minimization over 725 budget levels, and 480 Bernoulli-budget parameter families. Experiments are supplemental to the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper gives an algorithm polynomial in item count for any fixed number of good types; the 2025 version gives a constant-type DP and one-good-type specialized method.",
+        "The new characterization uses two scalar integer sums, linear-time construction for high-multiplicity inputs, exact optimization over all individual budget vectors, and an explicit probability formula."
+      ],
+      "reasoning": "The prior algorithms solve a broader class of valuation profiles, but neither their theorem statements nor inspected specialization provides an explicit closed-form two-denomination feasibility criterion or the best aggregate liquidity and Bernoulli-reserve phase laws. This is not claimed to surpass their broad input coverage; it adds exact quantitative information for a natural subclass.",
+      "searches": [
+        "Bredereck Deltl Inamdar Jain Pandey EFA-IP envy-free allocation individual payments budget-balanced identical valuations two types goods 1 and h exact budget condition",
+        "Envy-free Allocations with Individual Payments two values good types",
+        "arXiv:2610.09610, Theorem 16, Lemma 17",
+        "M-PREF 2025 workshop PDF, Lemma 9 and Theorem 17"
+      ]
+    },
+    "checked_sources": [
+      "https://events.mpref.org/MPref2025/download/0014.pdf",
+      "https://arxiv.org/abs/2610.09610",
+      "https://arxiv.org/abs/2003.08125",
+      "https://arxiv.org/abs/1912.02797",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/25681",
+      "https://events.mpref.org/MPref2025/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An arbitrary-goods decision algorithm entails computability on the input family, but not the specific linear-time floor test, sharp minimal sum of budgets, or all-population Bernoulli reliability identity.",
+        "Aziz assumes unrestricted monetary transfers; Brustle et al. allow external subsidies.",
+        "Bredereck et al. have the equal-effective-utility lemma, which is explicitly used as a premise here."
+      ],
+      "reasoning": "The proof contributes the packing equivalence plus a separate optimal-reserve argument using the h-residue; neither conclusion follows directly as a stated corollary of the cited broad algorithms without additional structure. This is best interpreted as an exact special-domain classification, not an independent solution of the general problem.",
+      "searches": [
+        "budget-balanced envy-free transfers two agents indivisible goods identical additive valuations minimal transfer feasibility graph cycle budgets",
+        "exact feasibility of budget-balanced envy-free allocation with individual payment budgets, identical common valuations and goods of two denominations 1 and h; capacity formula sum floor((mean+b_i)/h)",
+        "arXiv:2003.08125, Section 4",
+        "arXiv:1912.02797, Section 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bredereck et al. 2025/2026, equalized effective utility and type-based DP; arXiv:2610.09610, Lemma 15 and Lemma 17.",
+        "Aziz arXiv:2003.08125, balanced-transfer conditions without individual cash caps.",
+        "Related literature treats general bin packing, but no retrieved specific equivalent fairness-and-budget formula."
+      ],
+      "reasoning": "Two-denomination fair allocation is equivalent to packing h- and unit-valued goods into the integer payment ceilings q+b_i. The floor capacities for h goods and total capacity are necessary and jointly sufficient. General subsidy/equitability formulations do not encode individual cash limits; a standard general bin-packing representation alone does not state this exact threshold or the reserve minimum. Such an elementary packing equivalence could nevertheless have appeared elsewhere.",
+      "searches": [
+        "exact feasibility of budget-balanced envy-free allocation with individual payment budgets, identical common valuations and goods of two denominations 1 and h; capacity formula sum floor((mean+b_i)/h)",
+        "complete classification of individual budget envy free allocations for identical valuations two good types, symmetric agents",
+        "identical valuations individual budgets envy-free monetary transfers two types integer",
+        "packing 1 and k items bins varying capacities sum floors sufficient condition exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published research record gave a matching formula; the highest related hits concerned unrelated allocation or resource-budget objects.",
+        "The original EFA-IP papers list decision algorithms, not tables of the minimum total cash for two values."
+      ],
+      "reasoning": "There is no numerical database needed for the infinitely parametrized theorem. The finite exhaustive tests substantiate the construction and sample cases, but do not constitute a discovery table or infer an infinite formula. Unindexed integer-packing catalogs may record equivalent characterizations.",
+      "searches": [
+        "minimum total agent budget required for envy-free allocation with zero sum transfers when all agents value items at 1 or h; closed-form liquidity threshold",
+        "budget balanced envy-free identical unit-valued goods heterogeneous budgets exact total-budget criterion residue modulo agents",
+        "fair division budget balanced transfers binary identical goods two values 1 2 budgets characterization",
+        "two job sizes 1 and k unrelated bin capacities packing condition sum floor cap necessary sufficient"
+      ]
+    },
+    "rationale": "The 2025/2026 individual-payment papers establish the equal-utility premise and decision methods for fixed good types. The new statement is the two-denomination exact floor-capacity characterization, its sharp total-liquidity minimum and its explicit random unit-budget phase law; neither was located in inspected source sections or targeted published research-record searches. General algorithms cover this input class but do not provide the closed-form quantitative statements. This is best-knowledge originality, with unindexed bin-packing equivalence as a real residual risk.",
+    "residual_risks": [
+      "An earlier public version of the M-PREF 2025 paper could predate the documented 2025-10-25 workshop event.",
+      "Elementary two-size bin packing formulations may already state one or both floor inequalities without an envy-free transfer interpretation.",
+      "The workshop PDF page-image endpoint returned HTTP 403, though indexed scientific text for relevant sections was accessible and the expanded arXiv text was read.",
+      "The AAAI 2023 budget-constraints source was checked via abstract only; its different budget semantics are indicated but complete textual exclusion was not possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its general algorithms cover these inputs computationally but do not state the two scalar floor conditions, a sharp minimum aggregate cash budget or the Bernoulli-budget law. This result is explicitly a tractable closed-form subdomain, not a general algorithmic replacement.",
+        "evidence": [
+          "arXiv:2610.09610, Section 2 (common model), Lemma 15, Theorem 16 and Lemma 17; the 2026 preprint version is dated 2026-10-07."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09610",
+        "material_read": "Relevant accessible HTML/text sections: definitions in Section 2; budget threshold in Section 3.2; identical-valuation Lemma 15, Theorem 16, and the type-based dynamic program and proof in Section 4.2.",
+        "method": "Read accessible arXiv HTML text and the pertinent theorem/proof sections.",
+        "title": "Envy-free Allocations with Individual Payments (expanded preprint)",
+        "trigger": "Exact same model, identical valuations and constant number of good types"
+      },
+      {
+        "assessment": "The version discusses arbitrary numbers of goods for identical valuations using algorithms and a single-good-type subcase; no exact two-denomination floor test or aggregate-budget minimum was located in the inspected material.",
+        "evidence": [
+          "M-PREF 2025 PDF, Lemma 7, Lemma 9, Section 4.3; workshop event https://events.mpref.org/MPref2025/ confirms date 2025-10-25."
+        ],
+        "identifier_or_url": "https://events.mpref.org/MPref2025/download/0014.pdf",
+        "material_read": "Indexed PDF text for title, abstract, introduction, identical-valuation Lemma 7 and Lemma 9, and the single-good-type Section 4.3 with Theorem 17. The site dates the event to 2025-10-25.",
+        "method": "Inspected extracted text from the public PDF, including the relevant special-case discussion; attempted visual page retrieval but the host returned HTTP 403.",
+        "title": "Envy-free Allocations with Individual Payments (M-PREF 2025 version)",
+        "trigger": "Earlier public version and potential direct coverage of two-type budgets"
+      },
+      {
+        "assessment": "Studies internal money and equitability but does not impose the individual upper limits on net payments that define the two-denomination threshold.",
+        "evidence": [
+          "arXiv:2003.08125, Sections 1–4; Aziz, 2020/2021."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.08125",
+        "material_read": "Accessible text of abstract, Sections 1–4, including setup, payment-balance convention and stated scope of unbounded transfers.",
+        "method": "Read arXiv HTML text, including the theorem statements about transfer-stability and envy-freeability.",
+        "title": "Achieving Envy-freeness and Equitability with Monetary Transfers",
+        "trigger": "Potential equivalent balanced-transfer characterization"
+      },
+      {
+        "assessment": "Per-agent external subsidy bounds do not enforce both zero-sum payments and individual limits on amounts an agent may pay. They do not provide either the exact heterogenous-budget feasibility criterion or sharp reserve-minimization formula.",
+        "evidence": [
+          "arXiv:1912.02797, Abstract and Introduction; Brustle et al., 2019/2020."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.02797",
+        "material_read": "Accessible abstract and Sections 1 and 1.1, including the guarantee of external subsidies and definition of the subsidy model.",
+        "method": "Read accessible arXiv HTML text and source theorem summary.",
+        "title": "One Dollar Each Eliminates Envy",
+        "trigger": "Potential stronger subsidy guarantee"
+      },
+      {
+        "assessment": "The abstract defines agent budgets as maximum total size of goods received, whereas the present problem caps cash paid. Its full text remains a residual priority risk but this definition rules out direct same-model implication from the described result.",
+        "evidence": [
+          "AAAI 2023 publisher abstract; Barman, Khan, Shyam and Sreenivas."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/25681",
+        "material_read": "Publisher page abstract and scope description.",
+        "method": "Abstract-only comparison; full paper was not inspected.",
+        "title": "Finding Fair Allocations under Budget Constraints",
+        "trigger": "Title and budget terminology potentially cover the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c21f254-8cd2-4ae7-974d-3351bbfdbfc3",
+  "value": {
+    "rationale": "A complete all-population classification and constructive linear-arithmetic algorithm replaces a fixed-types dynamic program on a natural cash-constrained symmetric fair-division subclass. The exact minimum sum of individual cash budgets demonstrates a possibly large indivisibility premium even when total value is divisible by population, and an exact binomial reserve-reliability threshold exposes the residue-class phase transition. Examples distinguish equal total budgets with opposite feasibility; these quantities are directly useful for liquidity planning rather than arbitrary parameter slices. The elementary proof is a feature of the two-denomination structure, not an assertion of general difficulty.",
+    "status": "PASS"
+  }
+}

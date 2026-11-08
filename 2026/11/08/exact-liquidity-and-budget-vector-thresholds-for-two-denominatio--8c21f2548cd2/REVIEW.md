@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The equalized-utility reduction is forced by pairwise envy-freeness and zero-sum transfers under identical valuations. The two exact packing conditions are necessary and sufficient because goods of value one fill every residual integer unit. The aggregate reserve lower bound uses the minimal budget increment to create each additional large-good slot, and the upper bound constructs the needed capacities across distinct agents. The Bernoulli result follows by analyzing when one budget unit crosses a multiple of the large-good denomination. The standalone checker exhaustively verified 11,232 individual-capacity cases, 725 reserve levels, and 480 Bernoulli enumerations. The unrestricted theorem rests on the proof, not those finite checks.
+
+## Originality
+**PASS, with residual priority uncertainty.** Bredereck et al.'s earlier 2025 workshop version and October 2026 preprint define this exact payment model and give algorithms for identical valuations and fixed numbers of good types. Their accessible relevant sections do not state the closed-form two-denomination conditions, sharp minimum aggregate liquidity, or stochastic budget law. Aziz (2020/2021) studies unrestricted internal transfers, and Brustle et al. (2019/2020) study external subsidies. Search for exact floor constraints and equivalences yielded no dominating research record. A general algorithm's coverage of the input class is not misrepresented as absent: the new contribution is an explicit sharp formula and linear construction. Previously known elementary integer-packing equivalences remain a material risk, and one comparison source was accessible only at abstract level.
+
+## Mathematical value
+**PASS.** The result completely classifies a natural two-denomination, individually funded fair-division model for any population and any heterogeneous integer budget vector. It determines how much total liquidity is minimally needed before exact envy-free division becomes possible, beyond a total-budget-only criterion. In particular, two vectors with equal total budgets can have opposite outcomes, and aggregate liquidity can be necessary even when overall value divides evenly across agents. The exact one-unit-budget probability also gives a natural uncertainty interpretation. The theorem is confined to the meaningful divisible-denomination structure and makes no claim about arbitrary item values or difficult scheduling instances.
+
+## Closest literature and limitations
+The source-specific comparisons and remaining access/priority risks are recorded in `AUDIT.json`. Source versions: Bredereck et al., M-PREF 2025 (public workshop October 25, 2025) and arXiv:2610.09610; Aziz, arXiv:2003.08125; Brustle et al., arXiv:1912.02797. No independent audit has been performed. The theorem requires identical additive valuations, item values exactly one or a common larger integer, integer budgets, and zero-sum real transfers without limits on receipts.
+
+Self-review: passed. Independent audit: not yet performed.
