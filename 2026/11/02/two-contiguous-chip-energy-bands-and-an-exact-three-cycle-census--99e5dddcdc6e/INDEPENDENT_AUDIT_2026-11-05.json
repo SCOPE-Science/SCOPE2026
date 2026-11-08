@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:42:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On connected simple G, summing period-three updates makes the per-vertex firing count harmonic, hence uniformly 1 or 2 for primitive cycles. For one firing, each phase s(v) requires predecessor-neighbor count a_v>=1 and height 0<=u_v<a_v. Counting edges gives chip energy m+h(s)+sum u_v and full integer interval [m+h(s),2m-n]; complementation x->2d-1-x yields high interval [2m,3m-n-h(s)]. Phase rotations divide by three; resulting polynomial, reciprocity and endpoints follow. Independent direct F^3 enumeration matched phase polynomial on triangle, C4, K4 and B2; K4 coefficients 12 each.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prisner 1994 §6; DMTCS 2421 abstract/article page"
+        ],
+        "reasoning": "Prisner Proposition 6.8 covers p-divisible cycles; Scully–Jiang–Zhang 2014 characterize periodic local firing sequences. Neither inspected result explicitly gives a conserved-mass coefficient table for every connected graph.",
+        "searches": [
+          "Resultary: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "web: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "primary: Prisner 1994 §6"
+        ]
+      },
+      "checked_sources": [
+        "Prisner (1994), Parallel Chip Firing on Digraphs, full accessible text transcription, §§6.2–6.4, Lemma 6.7 and Proposition 6.8; imperfect formula extraction",
+        "Jiang (2010), arXiv:1003.0943, uniform periodic firing and complement, prior context",
+        "Scully–Jiang–Zhang (2014), DMTCS article 2421, full public article page and abstract",
+        "Bitar & Goles (1992), Theoretical Computer Science 92, DOI:10.1016/0304-3975(92)90316-8, abstract only",
+        "Resultary query: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prisner Lemma 6.7/Proposition 6.8; RESULT.md proof §§2–6"
+        ],
+        "reasoning": "General constructive phase partition plus integer height ranges makes the weighted census derivable by further counting, but the actual explicit energy endpoints and polynomial require an edge-weight identity and coefficient sum. Does not incorrectly reclaim established existence criterion.",
+        "searches": [
+          "Resultary: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "web: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "primary: Prisner Lemma 6.7/Proposition 6.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prisner 1994 full text transcription §§6.2–6.4, lines 676–719"
+        ],
+        "reasoning": "Prisner 1994 Lemma 6.7 says all activity 1/p states occur via predecessor-phase partitions; this already covers local admissibility and existence. The current claim weights them by conserved chip total and sums orbit-wise to a new polynomial.",
+        "searches": [
+          "Resultary: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "web: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "primary: Prisner 1994 full text transcription §§6.2–6.4, lines 676–719"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dall’Asta arXiv:cond-mat/0601267; RESULT.md Eq.(4); independent direct enumeration"
+        ],
+        "reasoning": "Dall’Asta 2006 handles a ring special case and earlier book total r2^(r+1) is unweighted; they do not determine graph-wide two bands or book cumulative-binomial distribution. K4 and B2 checks independently reproduce given examples.",
+        "searches": [
+          "Resultary: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "web: parallel chip firing period three energy refined orbit generating polynomial contiguous intervals book graph",
+          "primary: Dall’Asta arXiv:cond-mat/0601267"
+        ]
+      },
+      "rationale": "PASS with substantial prior credit: Prisner (1994) Lemma 6.7 already characterizes activity-1/p phase partitions and Proposition 6.8 establishes cycle-divisibility period existence. The final claim is not novelty of existence or phases; it is a closed arbitrary-graph energy-weighted orbit enumerator, exact gap-free two-band support and endpoint multiplicities, with book-graph binomial cumulative refinement. Full Prisner transcription had missing symbols, leaving equivalence risk.",
+      "residual_risks": [
+        "Bitar–Goles (1992) primary full text not inspected; earlier energy-indexed period-three counting may exist.",
+        "Prisner’s complete phase construction is powerful; current novelty depends on evaluated energy-weighting, not phase existence, and full formulas in transcription are imperfect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Phase characterization and period existence explicitly prior; no arbitrary graph weighted p=3 polynomial identified in inspected material",
+          "evidence": "https://paperzz.com/doc/7286616/parallel-chip-firing-on-digraphs",
+          "identifier_or_url": "Prisner, Complex Systems 8 (1994), 367–383",
+          "material_read": "Full accessible transcription, especially §§6.1–6.4, Lemma 6.7, Proposition 6.8, period-two mass convexity Proposition 6.9",
+          "method": "web paperzz HTML transcription; formulas partly garbled",
+          "title": "Parallel Chip Firing on Digraphs",
+          "trigger": "Exact same dynamic and phase construction"
+        },
+        {
+          "assessment": "Relevant local sequence characterization; cannot assert entire paper lacks energy coefficients",
+          "evidence": "https://dmtcs.episciences.org/2421",
+          "identifier_or_url": "DMTCS 2421, 2014",
+          "material_read": "Article page and abstract; full mathematical PDF not read this run",
+          "method": "web DMTCS article summary",
+          "title": "Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Broader periodic firing patterns"
+        },
+        {
+          "assessment": "Historically plausible covering source remains uninspected in full",
+          "evidence": "DOI:10.1016/0304-3975(92)90316-8",
+          "identifier_or_url": "Bitar & Goles, TCS 92 (1992), 291–300",
+          "material_read": "Abstract/bibliographic metadata only",
+          "method": "web search",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Original same model and early period-three claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS qualified: a natural conserved-chip statistic for primitive parallel three-cycles receives an exact all-connected-graph generating function and sharp forbidden energy gap. The known general phase construction does not state this evaluated graph-wide mass distribution; the explicit band structure is independently useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Bitar–Goles (1992) primary full text not inspected; earlier energy-indexed period-three counting may exist.",
+    "Prisner’s complete phase construction is powerful; current novelty depends on evaluated energy-weighting, not phase existence, and full formulas in transcription are imperfect.",
+    "Only the specified RESULT.md claim was assessed; no Lean or external expert attestation is asserted.",
+    "Numerical or finite checks do not replace the arbitrary-field/graph/parameter analytic arguments."
+  ],
+  "schema_version": 1
+}
