@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof classifies all possible closed factors into 0/1, 2, 3, 4 and 5 runs. The decisive five-run classification is: a mixed-symbol border exists exactly when the two intervening one-runs have equal length and both endpoint zero lengths fit in the middle zero-run; otherwise a purely zero border closes a factor exactly when the endpoint zero lengths are equal and exceed the middle run. Disjoint classes and one overlap subtraction give the formula. The upper bound follows from n >= 3(x+y)/2 + 2z, xy <= (x+y)^2/4 and an explicit lower construction at n=8k, extended monotonically to all n. A separate direct substring/border-occurrence checker confirms 3285 five-run exponent vectors and the recorded small-length maxima. It does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parshina–Puzynina, arxiv:2111.00863, Theorem 3 and Section 4, proves a global upper bound and coefficient 1/6, but no fixed-run optimum.",
+        "Badkobeh–Fici–Lipták, arxiv:1305.6395, Theorem 25 gives a four-block quadratic lower-bound construction, not exact five-run enumeration."
+      ],
+      "reasoning": "The unrestricted global coefficient 1/6 neither implies the smaller sharp five-run coefficient 1/8 nor the exact dependence on five individual run lengths; the earlier existence construction likewise does not cover all parameter tuples.",
+      "searches": [
+        "Maximum closed factors in binary words with bounded runs exact capacity formula",
+        "Parshina Puzynina finite infinite closed-rich words five runs maximum factors ababa 2023",
+        "arxiv:2111.00863 (Section 4, Theorem 3)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1305.6395 (relevant full text)",
+      "arxiv:2111.00863 (relevant full text)",
+      "OEIS:A226452 (entry/definition)",
+      "indexed published unrestricted closed-rich maxima at n=25..27 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 result establishes a minimum for at-most-three-run binary words and shows a four-block family with many closed factors.",
+        "The 2021 result gives a special five-run example and a general unrestricted bound; special-case quadratic growth does not determine the precise five-run formula."
+      ],
+      "reasoning": "Our formula subsumes the precise special example, but the source only claims qualitative quadratic growth for that example. Neither a weaker existence example nor an unrestricted asymptotic upper bound implies an exact formula with an equal-middle-run discontinuity. A fully explicit five-run formula would be decisive contrary evidence; none was found in inspected material.",
+      "searches": [
+        "arxiv:1305.6395 (Sections 4–5)",
+        "arxiv:2111.00863 (Example 1 and Section 4)",
+        "Bitonic CR-poor words and next five-run return factor complexity, comparisons to Parshina Puzynina finite closed-rich asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Badkobeh–Fici–Lipták (arxiv:1305.6395), Section 4/Theorem 23: bitonic words are CR-poor and have n+1 closed factors.",
+        "Parshina–Puzynina (arxiv:2111.00863), Sections 1–2 and Section 4: closed-factor counts are treated globally, including the special family 0^k10^k10^k as a quadratic example."
+      ],
+      "reasoning": "Closed factors are equivalent to complete first returns and the five-run parameterization has exactly two complementary orientations. Neither checked main source gives the all-five-positive-exponent formula with the special equal-middle-run correction. Searches of both phrasings and source sections yielded no equivalent theorem.",
+      "searches": [
+        "The number of distinct closed factors of five-run binary words 0^a 1^b 0^c 1^d 0^e, exact formula n+1+min(b,d)(min(a,c)+min(c,e)) plus equal inner runs correction",
+        "closed factors binary words five runs a^i b^j a^k b^l a^m exact enumeration",
+        "exact count distinct closed factors for alternating binary words with exactly five constant runs using min(a,c) min(c,e) min(b,d)",
+        "\"five-run\" \"closed factors\" exact number word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A226452 enumerates closed binary words by their own length, not the number of distinct closed factors inside any five-run host word.",
+        "A separately indexed research entry gives unrestricted closed-factor maxima for lengths 25–27; it does not report five-run parameter formulas in its available summary."
+      ],
+      "reasoning": "Counting closed words of length n differs from counting distinct closed factors of a specified n-letter host. A few unrestricted optima at fixed n do not determine the five-variable parametric census or its 1/8 asymptotic.",
+      "searches": [
+        "OEIS A226452 closed binary words counts",
+        "Exact binary closed-rich maxima at lengths 25–27",
+        "The number of distinct closed factors of five-run binary words 0^a 1^b 0^c 1^d 0^e, exact formula n+1+min(b,d)(min(a,c)+min(c,e)) plus equal inner runs correction"
+      ]
+    },
+    "rationale": "Relevant original literature proves CR-poor bitonic classification and unrestricted asymptotic maximum, and exhibits a special five-run quadratic-growth example. The present statement instead gives an exact closed-factor formula for every positive five-tuple and a sharp five-run coefficient 1/8. No inspected source states this parameter-complete result; priority is qualified by residual risks, including a publicly indexed related finite-count finding whose complete package could not be inspected.",
+    "residual_risks": [
+      "A related finite-maximum source package was not accessible in full; abstract-level comparison cannot certify absence of additional formulas.",
+      "A possible unindexed historical exact run-length formula, or a stronger result in another naming convention, could cover the finding; searched records are not proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper contains the bitonic minimum characterization and a four-run quadratic example, not the claimed all-five-run formula.",
+        "evidence": [
+          "Section 4, Theorem 23 and Proposition 24, bitonic characterization.",
+          "Section 5, Theorem 25, four-block quadratic construction and unrestricted finite table."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1305.6395",
+        "material_read": "The introduction, definitions, complete Section 4 on binary CR-poor words and Section 5 with Theorem 25 and its construction.",
+        "method": "Accessible full-text HTML transcription of the arXiv-author manuscript (arXiv:1305.6395v3); compared explicit statements and proof parameters.",
+        "title": "On the Number of Closed Factors in a Word",
+        "trigger": "Foundational paper on the precise closed-factor invariant and first quadratic construction."
+      },
+      {
+        "assessment": "Global n^2/6 asymptotic and example 0^k10^k10^k; no exact five-tuple formula or five-run sharp coefficient stated in the material read.",
+        "evidence": [
+          "Section 2, Example 1 gives qualitative quadratic growth of a special five-run family.",
+          "Section 4, Theorem 3 gives the unrestricted finite upper bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.00863v3",
+        "material_read": "Introduction, preliminary results including Example 1 and the Section 4 statement/proof context of the global finite-word upper bound.",
+        "method": "Open-access arXiv HTML full-text sections, including the example and relevant theorem.",
+        "title": "Finite and infinite closed-rich words",
+        "trigger": "Plausibly stronger global extremal theorem and a five-run example."
+      },
+      {
+        "assessment": "Available claim is finite-n unrestricted maxima, not five-run all-parameter enumeration; uninspected package is a residual priority risk.",
+        "evidence": [
+          "Indexed summary reports the three unrestricted maxima and a classification of length-27 maximizers."
+        ],
+        "identifier_or_url": "Published index entry (2026-10-04): Exact binary closed-rich maxima at lengths 25–27",
+        "material_read": "Search-index abstract stating the unrestricted optima at lengths 25–27; the linked full package could not be opened.",
+        "method": "Abstract-level overlap comparison, not a full-text exclusion.",
+        "title": "Exact binary closed-rich maxima at lengths 25–27",
+        "trigger": "Closest indexed published exact calculation for the same closed-factor invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ce7d280-862d-4cfb-a1e8-db6161bd3a37",
+  "value": {
+    "rationale": "The exact number of closed factors (complete first returns) is a natural, established combinatorial and string-algorithmic invariant. Fixed-run restriction is motivated by the bitonic CR-poor characterization and the four-run quadratic construction, rather than an arbitrary numerical slice. The parameter-complete five-run census reveals a structural correction when the two interior runs coincide and proves a sharp 1/8 quadratic leading coefficient for the complete natural class. This is not a textbook substitution, finite table, or merely a small numerical gain. It does not claim the global extremal bound.",
+    "status": "PASS"
+  }
+}
