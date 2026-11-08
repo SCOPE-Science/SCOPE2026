@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The precise strict-blocking conditions reduce to all four possible unanimous-better-candidate intersections. Their count inequalities are necessary and sufficient. The finite multinomial distribution follows from six equally likely strict rankings and an at-most-one proof. The full-sequence exponent follows from an exactly normalized likelihood-ratio inequality and matching interior-compatible type construction. On n divisible by six, the tilted multinomial mode bounds all lattice weights; dominated convergence gives the rational sum 14904/121 and Stirling yields the n^-3/2 constant. The standalone checker reproduced 5004 exhaustive ranking-histogram cases and exact probabilities. Computations are not used in place of the analytic infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ianovski and Kondratev, arXiv:2003.09153, abstract: proportional veto core, computing and expected size, without the newly defined candidate-specific approval-weighted rule.",
+        "Dong et al., arXiv:2609.10759v1, Theorem 4: AWVC has majority approval threshold and a coalition veto-power guarantee, but those are not sufficient to calculate the present event probability.",
+        "The present large-deviation exponent is log(27/16)/6, whereas the necessary majority-only event has exponent log(9/8)/2."
+      ],
+      "reasoning": "The primary rule-specific theorem only implies a necessary top-vote threshold. To derive the new probability one must incorporate simultaneous last-place and both middle-rank coalition tests. Earlier proportional-veto expected-size work concerns a different blocking normalization; any possible reduction would require new substantive work and is a residual risk.",
+      "searches": [
+        "\"Computing the Proportional Veto Core\" Ianovski Kondratev arxiv 2003.09153 results random elections",
+        "proportional veto core random elections probability nonempty, majority plurality winner, three candidates",
+        "\"collective consent\" \"top choice\" \"impartial culture\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10759",
+      "https://arxiv.org/abs/2003.09153",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/16691"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.10759v1, Definition 8 / Theorem 4: defines AWVC and establishes majority necessary support; this alone cannot distinguish configurations of voters ranking an approved candidate last from those ranking it middle.",
+        "arXiv:2003.09153: proportional veto core expected-size research without AWVC approvals; a claim about that different core does not directly imply one about AWVC.",
+        "The claimed prefactor requires a tilted four-category multinomial lattice sum with exact value 14904/121."
+      ],
+      "reasoning": "Neither a majority-support theorem nor a tractability theorem implies the probability that no coalition blocks any of three random alternatives. The new theorem is not a mere numerical corollary of the cited support bound; it combines four sharp coalition inequalities and a special lattice boundary.",
+      "searches": [
+        "Where Should Society Draw the Line A Social Choice Approach to Collective Consent Dong Kraiczy Vasishta Brill Holliday Boehmer arxiv 2609.10759 AWVC",
+        "\"approval-weighted veto core\" \"random\" nonempty",
+        "\"approval weighted veto core\" three alternatives probability random elections 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dong et al., arXiv:2609.10759v1, Definition 8: blocking compares coalition size to candidate-specific approval score, not electorate size.",
+        "This theorem restricts to six iid ranking types with one top-approved alternative and derives an exact finite law and a sharp exponential/polynomial asymptotic."
+      ],
+      "reasoning": "Searches targeted the synonyms random/nonempty/consent/core, top-choice approvals and impartial culture. None of the recovered mathematical statements equated these probability laws to an earlier result; a title-only mismatch is not taken as proof of originality.",
+      "searches": [
+        "\"approval-weighted veto core\" \"impartial culture\" probability",
+        "\"approval-weighted veto core\" \"random\" nonempty",
+        "random social consent sets under approval weighted veto core (AWVC) three alternatives, singleton approvals and ranking; sharp exponential law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dong et al., arXiv:2609.10759v1, Section 4 and empirical discussion: observed synthetic preference data, not an exact table for three-candidate top-one independent cultures.",
+        "The finite probabilities for n=6 and n=12 are 103/243 and 24023/157464; both follow from the complete four-type formula, not a known table located in these searches."
+      ],
+      "reasoning": "Exact numerical coincidence with an unnamed database would not by itself prove novelty or coverage. Available rule-specific published results and relevant searches did not expose this exact finite distribution or leading constant.",
+      "searches": [
+        "Disapproval Veto Core approval weighted veto core three candidates rank counts binomial tail rational prefactor 27 16",
+        "\"approval weighted veto core\" three alternatives probability random elections 2026"
+      ]
+    },
+    "rationale": "The primary September 2026 paper defines AWVC and its majority threshold and reports synthetic evaluation, but the inspected mathematical passages do not assert the exact three-alternative top-approval probability, its exponential rate, or its rational lattice prefactor. The older standard proportional veto core has no approval-weighted blocking normalization. Exact same-model comparisons of statements reveal no covering implication, subject to the explicit uninspected-material and unindexed-literature risks.",
+    "residual_risks": [
+      "The 2020/2023 full paper on the classical proportional veto core was not inspected, so an unexpected implication to approval-specific random veto cores cannot be completely ruled out.",
+      "The entire 2026 primary paper, especially all supplemental material, was not inspected end-to-end; the sections containing the AWVC definition, guarantees, experiments and algorithm were inspected.",
+      "Unindexed, later, or differently named results might contain an equivalent asymptotic; no independence of publication is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the target rule and proves abstract support/veto properties; inspected passages did not establish the uniform three-alternative nonemptiness probability or its asymptotic prefactor.",
+        "evidence": [
+          "arXiv:2609.10759v1, pp. 3–4 model/thresholds, pp. 8–9 Definition 8 and Theorem 4, Section 4 and Appendix E computational approach."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10759",
+        "material_read": "Original 41-page PDF text around abstract, introductory model, §§2–3 including Definition 8/Theorem 4, and the finite-algorithm and empirical descriptions (pp. 1–9 and 27–28); document as a whole was not read line by line.",
+        "method": "Accessible original arXiv PDF text and page visual inspection.",
+        "title": "Where Should Society Draw the Line? A Social Choice Approach to Collective Consent",
+        "trigger": "Introduces precisely the AWVC rule and uses synthetic social-consent profiles."
+      },
+      {
+        "assessment": "Studies a distinct classical proportional veto core and its expected size; full-text comparison and any indirect reduction are unresolved.",
+        "evidence": [
+          "arXiv:2003.09153 abstract, first posted March 20, 2020; AAAI 2021 Computing the Proportional Veto Core."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.09153",
+        "material_read": "Original arXiv abstract and published AAAI abstract/metadata only; the complete paper was not accessible during this comparison.",
+        "method": "Primary-publication records and indexed abstract.",
+        "title": "Computing the Proportional Veto Core",
+        "trigger": "Its abstract explicitly mentions expected core size and is an important plausible alternative source for random-core laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5812465-f4d1-4668-86d1-baaadeb8bb14",
+  "value": {
+    "rationale": "Whether a collective-consent rule can return any permissible alternative is a central motivated question, not an arbitrary invariant. Three strict alternatives form the first natural setting with two distinguishable common-better-veto patterns; single top-choice approvals are the canonical minimal consistent approval input. The theorem provides a structural uniqueness classification, exact finite nonempty probabilities, and a sharp rational lattice prefactor that distinguishes AWVC coalition effects from simple majority approval. It is a nontrivial new typical-case benchmark for the rule despite being restricted to its minimal ordinal domain.",
+    "status": "PASS"
+  }
+}
