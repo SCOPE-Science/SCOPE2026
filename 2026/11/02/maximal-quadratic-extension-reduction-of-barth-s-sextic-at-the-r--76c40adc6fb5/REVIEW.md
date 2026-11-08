@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the exact characteristic-five, residue-field specialization of the displayed integral Barth equation, together with its \(65\) rational ordinary nodes and the maximal \(\mathbb F_{25}\) resolution. The direct algebraic certificate consists of twelve Gröbner ideal-membership checks forcing every geometric singularity coordinate to satisfy \(t^5-t=0\), exhaustive singular counts \((55,7,3,0)\), and nonzero local Hessian determinants. The finite-field counts are exhaustive and independently cross-checked over \(\mathbb F_{25}\) by weighted square-value fibers. The cohomological step is reconstructed using rational-double-point resolution, \(K_Y^2=24\), \(\chi(\mathcal O_Y)=11\), \(b_2=106\), and the equality case of the Weil triangle inequality. The actual embedded `verify.py` was executed successfully. The proof of infinitely many point counts uses the Weil eigenvalue argument rather than extrapolation.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The original complex \(65\)-node construction is prior art. In inspected full HTML mathematical treatments, Endraß gives the classical equation and its Cayley-cubic covering; MathWorld and the AMS account describe the complex node configuration. The inspected introduction and relevant sections of the Jaffe–Ruberman open preprint prove a complex characteristic-zero node bound, not arithmetic Frobenius information. Searches by the exact object, characteristic-five reduction, point-counts, maximality over the quadratic extension, zeta functions, and variant spellings found no explicit result dominating the specific claims. The new assertion concerns the ramified characteristic-five reduction and its maximal general-type resolution. The 1996 original Barth article was not obtainable in full, and the possibility of an overlooked arithmetic computation remains. Lack of matches is not asserted to prove global uniqueness.
+PASS
 
-## Mathematical value — PASS
-The prime five ramifies in the golden-ratio coefficient ring. It is not formal that all \(65\) nodes persist, remain individually rational, and stay ordinary after specialization. The resulting smooth general-type resolution attains the absolute \(b_2=106\) Weil point-count bound over \(\mathbb F_{25}\), which forces a complete Frobenius eigenvalue decomposition and determines exact zeta functions for the singular surface and its resolution. This is a motivated exceptional-characteristic arithmetic classification of a distinguished classical surface, not an arbitrary finite point census or a routine substitution.
+After specializing the golden-ratio coefficient phi to 3 modulo the ramified prime 5, F=-(X²+Y²)(Y²+Z²)(Z²+X²)-3(X²+Y²+Z²-W²)²W² up to a unit. Independent Gröbner checks on all four projective affine charts show the Jacobian ideal contains each local t^5-t, so no geometric singularities outside F5 and the singular coordinate ring is reduced. Independent exhaustive F5 chart counts [75,13,3,0] for points and 65 singular nodes with nonzero Hessians; independent direct F25 arithmetic (theta²=2) counts [1635,13,3,0] (1651 total). The 65 split A1 exceptional conics add 65q points, giving Y(F5)=416 and Y(F25)=3276. Adjunction/K resolution gives K²=24, chi=11, c2=108, b1=b3=0, b2=106; F25 count saturates 1+25²+106*25, forcing Frobenius squares=25. Trace 390 at F5 gives multiplicities +5=92,-5=14 and exact all-extension zeta. Finite counts are exhaustive only over F5/F25; cohomological rigidity supplies the infinite statement. No claim about Picard rank or other integral models.
 
-## Limitations
-The claim does not extend to other integral models of Barth's sextic or assert any absolute node maximum in positive characteristic. The full 1996 original article was not inspected, and an independent mathematical audit remains necessary. The Weil eigenvalue determination alone does not prove a Picard-rank theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Barth 65 complex nodes, equation, and Jaffe–Ruberman bound are known and not claimed new. Complex geometry does not force the node scheme to remain split and ordinary under ramified mod-5 specialization, or F25 maximality and all-extension zeta. Actual independent finite-field counts establish new arithmetic assertions not located in targeted sources or indexed research search. The 1996 original full paper was not read, and unindexed characteristic-five computations remain historical priority risks.
+
+## value
+
+PASS
+
+Prime 5 ramifies in the golden-ratio coefficient ring; preserving all 65 rational nodes is a nontrivial special-fiber rigidity fact. Maximality over F25 forces a complete Frobenius spectrum and exact zeta data for a distinguished general-type surface. A natural arithmetic-geometric invariant, not an arbitrary finite-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
