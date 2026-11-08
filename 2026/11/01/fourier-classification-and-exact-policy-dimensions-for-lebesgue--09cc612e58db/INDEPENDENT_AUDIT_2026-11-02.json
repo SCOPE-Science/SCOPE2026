@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:53:06Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "All positive N, including levels with some frequencies exceeding N; all coefficients in such a level must vanish.",
+        "All coprime composite m,n as well as prime bases; no implicit primality assumption.",
+        "p=1/2 is relative interior of [0,1] constraint for finite-degree spaces; 0<|epsilon|<1/4 witness is strict.",
+        "Absolute continuity and strictly interior p are explicitly required in uniqueness; delta_0 gives singular stationary counterexample.",
+        "m,n swapped and nonnegative Fourier frequencies with conjugate symmetry; zero frequency automatic."
+      ],
+      "proof_sources": [
+        "RESULT.md pinned Git blob e2f2a4edef80af2ff26824a125bba4d1f0fdaa0c sections 1–5, complete final theorem and proof",
+        "checker.py pinned Git blob 3f59116e1cee407cabae5116e4460ee1958732d7 independently read (finite support + rational witness)",
+        "Independent DSU support graph exact tests on 8,160 coprime (m,n,N) triples with m,n≤12,N≤120, and direct 1,001-point p(x) transfer tests"
+      ],
+      "rationale": "At the pinned RESULT.md, L1=1+P_m p−P_n p and Fourier(P_b f)(k)=Fourier(f)(bk), so the claimed k≠0 equation is exact. For gcd(m,n)=1, extraction of maximal m- and n-powers gives unique r m^a n^b with m∤r,n∤r. Relations at r m^a n^b connect adjacent vertices of every fixed a+b=ell chain, proving identical coefficients; weighted Parseval handles L² and the independent [0,1] a.e. constraint handles positivity. A polynomial coefficient class survives iff its largest frequency r·max(m,n)^ell≤N, yielding exactly 1+2 sum_r(1+floor(log_max(N/r))) real dimensions; p=1/2 is a relative-interior witness. For any stationary L¹ density f, strictly convex integrable phi(t)=sqrt(1+t²), unitality L1=1, and equality of integrals force equality in each positive weighted inverse-branch Jensen inequality, hence f=f∘T_m a.e. Ergodicity of T_m forces f=1. The fixed point 0 yields singular delta_0, so no unrestricted uniqueness is claimed. These are infinite arguments, not extrapolations from finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel.",
+          "Suzuki (2023), arXiv:2303.17521, PDF pp.1-3 and 9-10, Theorems 3.1 and 4.2: external Bernoulli beta-transformations and their stationary density, not measurable p(x) inverse calibration.",
+          "Góra–Boyarsky (2003), DOI:10.1016/S0022-247X(02)00658-3, bibliographic abstract only: existence/attainable ACIMs for position-dependent random maps; full text inaccessible.",
+          "Islam–Góra–Boyarsky, A generalization of Straube’s theorem, 2005 abstract: necessary and sufficient existence of ACIMs, not the all-policy kernel/dimension."
+        ],
+        "reasoning": "General existence, density, and skew-product representation results encompass the broad class of position-dependent random maps. The materially inspected full-text theorems do not specify the exact kernel of P_m−P_n, arithmetic level multiplicities or every polynomial dimension for this pair of slopes. The 2003 source abstract concerns attainable measures; its inaccessible full text creates a real priority risk rather than a NOT_COVERING verdict.",
+        "searches": [
+          "random dynamical systems place dependent probabilities expanding maps invariant Lebesgue measure exact spectral kernel uniqueness absolutely continuous",
+          "random maps with prescribed invariant density position dependent probabilities explicit formula selector probability map",
+          "inverse Frobenius Perron problem random maps position dependent probability functions preserving uniform density",
+          "\"Absolutely continuous invariant measures for random maps with position dependent probabilities\" Góra Boyarsky 2003 pdf"
+        ]
+      },
+      "checked_sources": [
+        "Suzuki (2023), arXiv:2303.17521, PDF pp.1-3 and 9-10, Theorems 3.1 and 4.2: external Bernoulli beta-transformations and their stationary density, not measurable p(x) inverse calibration.",
+        "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel.",
+        "Alshekhi–Ding–Rhee (2024), DOI:10.4310/CMS.2024.v22.n2.a9, publicly accessible university abstract only: numerical quadratic-spline stationary-density approximation; full text unavailable.",
+        "Góra–Boyarsky (2003), DOI:10.1016/S0022-247X(02)00658-3, bibliographic abstract only: existence/attainable ACIMs for position-dependent random maps; full text inaccessible.",
+        "Resultary/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a/RESULT.md, Git blob 7730194a767af91a717fd7f1a8097c501728188a: independently selected constant switch epsilon, variance not p(x)-classification.",
+        "Resultary/2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6/RESULT.md, Git blob e7bbc660d88886523f93862c402f3d75fe745ba2: time-homogeneous independent switching and finite grid collapse.",
+        "Islam–Góra–Boyarsky (2005) general existence paper, DOI:10.1155/JAMSA.2005.133, public abstract and introduction",
+        "Resultary semantic queries: complete Fourier classification position-dependent random choice of expanding circle maps x to mx mod 1 and nx mod 1 Lebesgue invariant stationary probabilities equalizer transfer operators P_m p=P_n p; dimension trigonometric polynomials preserving Lebesgue under feedback switching integer doubling tripling Fourier coefficients m k n k equal level arithmetic; random dynamical systems place dependent probabilities expanding maps invariant Lebesgue measure exact spectral kernel uniqueness absolutely continuous"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel.",
+          "Suzuki (2023), arXiv:2303.17521, PDF pp.1-3 and 9-10, Theorems 3.1 and 4.2: external Bernoulli beta-transformations and their stationary density, not measurable p(x) inverse calibration.",
+          "Alshekhi–Ding–Rhee (2024), DOI:10.4310/CMS.2024.v22.n2.a9, publicly accessible university abstract only: numerical quadratic-spline stationary-density approximation; full text unavailable.",
+          "Resultary/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a/RESULT.md, Git blob 7730194a767af91a717fd7f1a8097c501728188a: independently selected constant switch epsilon, variance not p(x)-classification."
+        ],
+        "reasoning": "Suzuki’s exogenous Bernoulli density formula has a scalar switching probability and cannot parameterize arbitrary measurable p(x). Bahsoun–Bose–Quas Theorem 5.4 and Corollary 5.5 relate invariant densities for a given random map and its deterministic representation, not all feedback choices making Lebesgue invariant. Alshekhi–Ding–Rhee’s accessible abstract advertises forward numerical approximation, not a proved universal Fourier policy classification; inaccessible full text remains an explicit unresolved priority risk without decisive contrary coverage.",
+        "searches": [
+          "complete Fourier classification position-dependent random choice of expanding circle maps x to mx mod 1 and nx mod 1 Lebesgue invariant stationary probabilities equalizer transfer operators P_m p=P_n p",
+          "random dynamical systems place dependent probabilities expanding maps invariant Lebesgue measure exact spectral kernel uniqueness absolutely continuous",
+          "A Quadratic Spline Projection Method For Computing Stationary Densities of Random Maps 2024 pdf",
+          "Deterministic representation for position dependent random maps Bahsoun Bose Quas full text pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact equivalent equation L1=1 ⇔ P_m p=P_n p ⇔ p_hat(mk)=p_hat(nk); equation follows from the two Perron–Frobenius operators.",
+          "Resultary/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a/RESULT.md, Git blob 7730194a767af91a717fd7f1a8097c501728188a: independently selected constant switch epsilon, variance not p(x)-classification.",
+          "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel."
+        ],
+        "reasoning": "Equivalence with the transfer-operator equalizer and Fourier divisibility classes was checked directly. The published fixed-mixture transfer P_epsilon does not encode a variable policy p(x); the 2008 skew-product correspondence describes invariant densities after a policy is fixed, without determining all policy Fourier classes. Thus neither inspected implication subsumes the all-measurable-policy classification.",
+        "searches": [
+          "complete Fourier classification position-dependent random choice of expanding circle maps x to mx mod 1 and nx mod 1 Lebesgue invariant stationary probabilities equalizer transfer operators P_m p=P_n p",
+          "random dynamical systems place dependent probabilities expanding maps invariant Lebesgue measure exact spectral kernel uniqueness absolutely continuous",
+          "\"position dependent random maps\" \"Lebesgue\" \"probability functions\" inverse",
+          "Resultary query c097279b5a2a; GitHub full RESULT.md inspection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-N dimension is an all-(m,n,N) analytic integer formula, not an isolated tabular value.",
+          "Resultary/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a/RESULT.md, Git blob 7730194a767af91a717fd7f1a8097c501728188a: independently selected constant switch epsilon, variance not p(x)-classification.",
+          "Resultary/2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6/RESULT.md, Git blob e7bbc660d88886523f93862c402f3d75fe745ba2: time-homogeneous independent switching and finite grid collapse."
+        ],
+        "reasoning": "The inspected published numerical and finite-grid findings tabulate or analyze different observables. No previously known all-cutoff policy-dimension table was located in the actual Resultary and scholarly searches; absence from search does not establish absolute priority.",
+        "searches": [
+          "dimension trigonometric polynomials preserving Lebesgue under feedback switching integer doubling tripling Fourier coefficients m k n k equal level arithmetic",
+          "Resultary indexed Fourier and random-map findings; the two exact expanding-map records cited above",
+          "exact stationary measure in position dependent random transformations integer slopes m n trig polynomial probabilities"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the *complete* inverse-policy Fourier classes and all-cutoff real dimension, not novelty of the standard Perron–Frobenius identity or Jensen ergodicity. Fresh Resultary searches and full published RESULT.md comparisons separated fixed iid switching statistics from state-dependent policies. Primary sources materially inspected (Suzuki 2023 PDF; Bahsoun–Bose–Quas 2008 full text) treat stationary densities for exogenous switches or a given policy and do not imply this all-policy arithmetic dimension formula. Important papers by Góra–Boyarsky (2003) and Alshekhi–Ding–Rhee (2024) were abstract-only because full text inaccessible; priority risk explicitly retained; no absent theorem is asserted in unseen text.",
+      "residual_risks": [
+        "The full 2003 Góra–Boyarsky paper studies attainable ACIMs for state-dependent random maps but was not accessible; a general inverse-policy result in its omitted body could affect priority.",
+        "The 2024 Alshekhi–Ding–Rhee numerical paper full text was unavailable via arXiv/OA and authorized institutional retrieval reported VPN disconnected; abstract alone cannot certify noncoverage.",
+        "An unindexed older exact transfer-operator kernel theorem, or a stronger general theorem specialized to coprime integer slopes, could render the arithmetic classification a corollary. No exhaustive publication-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems produce densities and analytic p-parameter variation for random environments rather than Fourier classification of all measurable feedback policies",
+          "evidence": [
+            "Suzuki (2023), arXiv:2303.17521, PDF pp.1-3 and 9-10, Theorems 3.1 and 4.2: external Bernoulli beta-transformations and their stationary density, not measurable p(x) inverse calibration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.17521",
+          "material_read": "Full PDF available (22 pages); inspected introduction, model assumptions, main results Theorems 3.1, 4.1, 4.2 (especially pp.1–3, 9–10), not every proof paragraph",
+          "method": "Read public PDF text and checked page screenshots; compare exogenous Bernoulli probabilities with state-dependent p(x) and invariant density vs policy classification",
+          "title": "Absolutely continuous invariant measures for random dynamical systems of beta-transformations",
+          "trigger": "Integer and beta maps with random switching and invariant densities"
+        },
+        {
+          "assessment": "A general correspondence for a fixed policy, not a determination of every policy making Lebesgue invariant or a degree-cutoff classification",
+          "evidence": [
+            "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2008.22.529",
+          "material_read": "Full public article readable on ResearchGate; inspected introduction, Sections 2–3, Theorem 5.4/Corollary 5.5 (text lines 726–758), Example 5.12 and surrounding mathematical arguments",
+          "method": "Compared exact hypotheses and implications of eigenfunction and ACIM correspondence with the proposed inverse-design kernel",
+          "title": "Deterministic representation for position dependent random maps",
+          "trigger": "Same general state-dependent switching mechanism and spectral ergodicity"
+        },
+        {
+          "assessment": "The available abstract establishes numerical approximation subject; it cannot decide whether unseen full text contains exact inverse-policy observations",
+          "evidence": [
+            "Alshekhi–Ding–Rhee (2024), DOI:10.4310/CMS.2024.v22.n2.a9, publicly accessible university abstract only: numerical quadratic-spline stationary-density approximation; full text unavailable.",
+            "Authorized institutional access status vpn_disconnected; journal 22(2), pp.519–531 (2024)"
+          ],
+          "identifier_or_url": "https://doi.org/10.4310/CMS.2024.v22.n2.a9",
+          "material_read": "University of Southern Mississippi scholarly record and full abstract only; full text not obtained",
+          "method": "Searched arXiv and lawful OA/preprint, checked the university abstract; authorized Oxford full-text retrieval returned vpn_disconnected, no bypass",
+          "title": "A Quadratic Spline Projection Method For Computing Stationary Densities of Random Maps",
+          "trigger": "Position-dependent random maps match the exact stochastic mechanism"
+        },
+        {
+          "assessment": "Potentially relevant broad inverse context; no full-document NOT_COVERING claim justified, unresolved priority risk retained",
+          "evidence": [
+            "Góra–Boyarsky (2003), DOI:10.1016/S0022-247X(02)00658-3, bibliographic abstract only: existence/attainable ACIMs for position-dependent random maps; full text inaccessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0022-247X(02)00658-3",
+          "material_read": "Journal bibliography and ResearchGate abstract only; no full article obtained",
+          "method": "Compared abstract about existence and attainable ACIM sets with exact all-polynomial Fourier dimensions; searched for lawful full text",
+          "title": "Absolutely continuous invariant measures for random maps with position dependent probabilities",
+          "trigger": "Plausible strong general prior coverage of attainable invariant densities"
+        },
+        {
+          "assessment": "Does not imply level-constant policy Fourier coefficients or exact inverse-policy dimensions",
+          "evidence": [
+            "Resultary/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a/RESULT.md, Git blob 7730194a767af91a717fd7f1a8097c501728188a: independently selected constant switch epsilon, variance not p(x)-classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a",
+          "material_read": "Full publicly published RESULT.md fetched via GitHub at blob 7730194a767af91a717fd7f1a8097c501728188a; inspected model, main claims and Fourier rigidity proof",
+          "method": "Compared constant per-step Bernoulli switch parameter with position-dependent p(x) and asymptotic variance versus invariant-policy dimensions",
+          "title": "Distinct integer beta maps eliminate zero variance and give an exact noise-onset coefficient",
+          "trigger": "Published finding on the same integer expanding circle maps"
+        },
+        {
+          "assessment": "Different quantity and different state-dependence; no implication to the all-policy classification",
+          "evidence": [
+            "Resultary/2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6/RESULT.md, Git blob e7bbc660d88886523f93862c402f3d75fe745ba2: time-homogeneous independent switching and finite grid collapse."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6",
+          "material_read": "Full publicly published RESULT.md fetched via GitHub at blob e7bbc660d88886523f93862c402f3d75fe745ba2; inspected assumptions, principal theorem and combinatorial proof",
+          "method": "Distinguished uniform iid switching and finite grid collapse from state-dependent inverse Lebesgue preservation",
+          "title": "Gaussian crossover of random grid collapse under coprime expanding maps",
+          "trigger": "Published record with exactly the coprime pair of expanding maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md final theorem, normalization, and boundary cases",
+        "Bahsoun–Bose–Quas (2008), Deterministic representation for position dependent random maps, Theorem 5.4 and Corollary 5.5, DOI:10.3934/dcds.2008.22.529: product-structure/equivalence of ACIMs, not Fourier policy kernel.",
+        "Suzuki (2023), arXiv:2303.17521, PDF pp.1-3 and 9-10, Theorems 3.1 and 4.2: external Bernoulli beta-transformations and their stationary density, not measurable p(x) inverse calibration.",
+        "Góra–Boyarsky (2003), DOI:10.1016/S0022-247X(02)00658-3, bibliographic abstract only: existence/attainable ACIMs for position-dependent random maps; full text inaccessible."
+      ],
+      "rationale": "The natural invariant-law inverse-design problem asks for every measurable state-dependent switch probability preserving the uniform law of two expanding maps. Giving all frequency-level degrees of freedom, the exact dimension of every trigonometric degree cutoff, an explicit nonconstant robust interior family, and a precise absolutely-continuous uniqueness/singular counterexample dichotomy is a motivated complete structural classification, not an arbitrary small computation. The number of freely selectable parameters is directly useful for calibrated feedback design. The transfer identity and Jensen argument are standard ingredients and do not independently confer value; the complete all-policy/all-cutoff classification is the substantive exact invariant.",
+      "residual_risks": [
+        "Standard operator/Fourier ingredients may reduce conceptual novelty if a broader prior inverse-map classification is discovered; value is tied to the complete all-cutoff result, not to claiming a new transfer identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Coprime integer expanding slopes only; no claim for noncoprime m,n.",
+    "Fourier l² summability alone is insufficient for an admissible probability; pointwise 0<=p<=1 is additionally required.",
+    "Uniqueness concerns absolutely continuous invariant densities under 0<p<1 a.e.; delta_0 is always singular stationary.",
+    "Independent finite checks of 8,160 cutoff instances and 1,001 sampled witness points corroborate, but do not constitute the universal proof.",
+    "Góra–Boyarsky 2003 and Alshekhi–Ding–Rhee 2024 full texts inaccessible; best-of-knowledge O only, no absolute historical priority guarantee.",
+    "The package originated with self-review; no formal Lean proof or expert attestation was present, and none is fabricated."
+  ],
+  "schema_version": 1
+}
