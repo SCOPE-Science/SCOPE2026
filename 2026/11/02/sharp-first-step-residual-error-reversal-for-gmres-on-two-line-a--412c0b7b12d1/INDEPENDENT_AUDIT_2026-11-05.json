@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:51:49.074479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<c<1 and z=c², multiplying P2P1 gives T=[[z,0],[cs,0]]. The Euclidean GMRES(1) normal equation gives step α=1/(1+z−z²) and exact squared ratios residual 1/(1+z−z²)<1 versus AP, solution error 1+z(1−z)^3/(1+z−z²)^2>1. Independently factored derivative (1−z)^2(z²−5z+1)/(1+z−z²)^3, confirming unique sharp z=(5−sqrt21)/2 and 1.037386... error penalty; nonzero det(Ax0,A²x0)=−cs³ gives two-step exact solve while repeated AP remains nonzero. All real 0<z<1 analytically covered; rational checker examined but not executed as a source program.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauschke–Deutsch–Hundal–Park (2003) uses a distinct extrapolated AP scheme; published symmetric GMRES1 error barrier addresses symmetric matrices, whereas I−P2P1 here is nonsymmetric."
+        ],
+        "reasoning": "Neither result is a stronger theorem containing the specified competing steps and sharp uniform geometric constant.",
+        "searches": [
+          "GMRES first step error worse than alternating projections residual two subspaces error amplification"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.30073v1",
+        "Saad–Schultz (1986) GMRES foundational work, definition",
+        "Bauschke et al. (2003), title and abstract",
+        "Resultary symmetric GMRES1 barrier record (2026/9/20)",
+        "Resultary two-row Kaczmarz finite-horizon record (2026/10/4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical GMRES minimizes ||A x|| rather than ||x||; the proof additionally computes AP and the optimized ratio."
+        ],
+        "reasoning": "Prior residual optimality does not logically force the strict solution-error inequality versus AP or the claimed maximal constant.",
+        "searches": [
+          "GMRES first step error worse than alternating projections residual two subspaces error amplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lerman–Zhang arXiv:2610.30073, accessible full HTML, studies windowed Anderson and GMRES links, not this angle-dependent error ratio; Saad–Schultz 1986 defines Euclidean-residual GMRES."
+        ],
+        "reasoning": "A link between AA and GMRES or generic residual/error mismatch is not an exact implication of a strict comparison against one AP sweep at every principal angle.",
+        "searches": [
+          "GMRES first step error worse than alternating projections residual two subspaces error amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned symmetric GMRES1 error barrier and two-row Kaczmarz overrelaxation, with different matrices and targets."
+        ],
+        "reasoning": "No matching exact angle table or sharp ratio was located; absence alone does not prove priority.",
+        "searches": [
+          "GMRES first step error worse than alternating projections residual two subspaces error amplification"
+        ]
+      },
+      "rationale": "Exact two-line first-step cross-algorithm metric comparison and optimized 1.037386 constant not found in inspected affine Anderson, classical GMRES or other published nearby results; prior generic residual/error mismatch and 2x2 formulas are credited. Bounded priority risk remains.",
+      "residual_risks": [
+        "Specific two-line GMRES error ratios might occur in older numerical linear algebra lecture notes or variants not indexed.",
+        "Short direct 2x2 derivation is mathematically elementary; value is a sharp algorithmic counterexample rather than broad theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_CLAIM",
+          "evidence": [
+            "Windowed Anderson convergence analysis is not exact first-step AP-versus-GMRES solution-error comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30073v1",
+          "material_read": "Accessible full HTML, formulation and convergence comparisons, GMRES linkage",
+          "method": "Primary HTML reading",
+          "title": "When Windowed Anderson Acceleration Converges Faster",
+          "trigger": "Anderson–GMRES equivalence could cover two-line finite-horizon comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated finite-horizon algorithm comparison isolates a genuine residual-versus-solution metric reversal in the simplest nonnormal projection product, proves its all-angle sharp constant, and contrasts one-step harm with two-step termination. The penalty is small (~3.74%) but is a precise diagnostic rather than an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific two-line GMRES error ratios might occur in older numerical linear algebra lecture notes or variants not indexed.",
+    "Short direct 2x2 derivation is mathematically elementary; value is a sharp algorithmic counterexample rather than broad theory."
+  ],
+  "schema_version": 1
+}
