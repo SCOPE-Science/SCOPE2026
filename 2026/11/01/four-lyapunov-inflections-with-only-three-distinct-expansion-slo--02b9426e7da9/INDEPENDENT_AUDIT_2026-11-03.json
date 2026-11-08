@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:07:27.056424Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned Git tree 032f38c6a99c3755c68a25150d67f9e47b047049 with RESULT.md blob 60737d7bdacb03cd4330df64ef94d0a87a7fb36d and verification.py blob a8e0c25b7bdcf3c2b2de61111889a094283de0c8",
+        "Executed 75-digit interval checker: G(-2)=-0.0375035981759880578899..., G(-0.7)=0.00850269141737926443639..., G(-0.2)=-0.01626697817766954443067..., G(-0.03)=1.88672587614910674144..., G(0.02)=-124856.224015469826393...; all strict lower/upper interval signs verified without relying on rounded floats.",
+        "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5."
+      ],
+      "rationale": "The assigned affine branches have lengths 1/2, 2^-17, 2^-17, 2^-5761, whose sum is <1, so disjoint branches exist and all slopes exceed 1. For full-shift pressure P(t)=-b t+log(1+2e^-ct+e^-360ct), b=log 2, c=16log 2, the normalized log slopes are d=(0,1,360) with beta=1/16. Reconstructed alpha=-P'(t)=c(beta+mu), P''(t)=c^2 V>0 and spectrum L(alpha(t))=t+P(t)/alpha(t). Independent differentiation in alpha gives L''=(2PP''-alpha^2)/(alpha^3P''), so its sign is the analytic G(w)=2(beta w+logZ)V-(beta+mu)^2. Executed the package's 75-digit mpmath interval checker, then an independent 100-digit high-precision implementation plus strict interval-endpoint sign comparisons. The sign sequence at five increasing rational w is (-,+,-,+,-), yielding >=4 distinct sign-changing roots via continuity and analyticity, with alpha strictly monotone. Ma 2020 Theorems 2.2,4.2 supply the lower bounds n>=4 and r_T>=3. At least four, not exactly four, is established.",
+      "risks": [
+        "The five sign enclosures prove four sign changes but not absence of a fifth or sixth; Ma's r_T=3 upper bound is six.",
+        "Numerical experiments alone are not a proof; the explicit full-shift thermodynamic identities, exact branch existence, outward intervals and Ma lower bounds are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+          "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+          "Ma Theorem 2.4 proves n=4 is attainable but uses distinct levels; Theorem 4.2 excludes r_T=2; Theorem 4.3 bounds r_T=3 by six."
+        ],
+        "reasoning": "A general existence theorem at n=4 does not establish it is attainable with r_T=3; Ma constructs from a three-distinct-level prototype and a new fourth slope. A general upper bound at r_T=3 does not supply existence. JPV gives three distinct slopes at n=7; deleting branches changes the pressure and may eliminate inflections. These stronger/dominating parameter results were checked for actual logical implication, not just matching numbers.",
+        "searches": [
+          "Resultary semantic search: Lyapunov spectrum Jenkinson Pollicott Vytnova Ma essential branches minimal physical slopes 3 4 (2026-11-03 UTC)",
+          "Web: \"four\" \"inflections\" \"three\" \"slopes\" \"four\" \"branches\" Lyapunov spectrum",
+          "Web: \"three essential branches\" \"four inflections\" \"four branches\" Ma",
+          "Ma primary arXiv:2005.10967 (https://arxiv.org/pdf/2005.10967), Sections 2, 4, 5",
+          "Jenkinson-Pollicott-Vytnova primary DOI:10.1007/s00220-021-04161-4 (open full HTML), Sections 2, 3, 6"
+        ]
+      },
+      "checked_sources": [
+        "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+        "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+        "Resultary search results (three actual semantic queries, 2026-11-03 UTC)",
+        "Targeted web search of exact parameter combination and aliases (2026-11-03 UTC)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+          "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+          "Independent rigorous interval signs for the specific multiplicities (1,2,1) at w=-2,-0.7,-0.2,-0.03,0.02."
+        ],
+        "reasoning": "The proved joint objective is existence at (n,r_T)=(4,3), plus both minimum statements. Ma's Q4=4 and r_T>=3 lower bounds together do NOT imply a common witness meeting both; his four-physical witness has four distinct slopes. JPV's three-slope example needs seven branches. The present one duplicated middle slope and explicit certified signs yield a new joint witness within the inspected sources.",
+        "searches": [
+          "Resultary semantic search: Lyapunov spectrum four inflections four branches three distinct slopes duplicated expansion factors affine cookie cutter (2026-11-03 UTC)",
+          "Web: \"three essential branches\" \"four inflections\" \"four branches\" Ma",
+          "Ma primary arXiv:2005.10967 (https://arxiv.org/pdf/2005.10967), Sections 2, 4, 5",
+          "Jenkinson-Pollicott-Vytnova primary DOI:10.1007/s00220-021-04161-4 (open full HTML), Sections 2, 3, 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+          "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+          "Grouping repeated slopes gives pressure Z(w)=1+2e^w+e^{360w}, with three distinct log slope levels and multiplicities (1,2,1)."
+        ],
+        "reasoning": "Compared the four-physical-branch witness with essential branch number r_T=3 (identifying slope repetitions), multiplicity-weighted pressure and equivalent multifractal spectrum curvature. Ma uses exactly this essential-branch notion; the available primary theorem gives r_T=3 an upper bound of six, not the joint four-inflection existence. JPV's analogous three-level pressure has multiplicity (1,5,1), not (1,2,1).",
+        "searches": [
+          "Resultary semantic search: Lyapunov spectrum four inflections four branches three distinct slopes duplicated expansion factors affine cookie cutter (2026-11-03 UTC)",
+          "Resultary semantic search: Lyapunov spectrum Jenkinson Pollicott Vytnova Ma essential branches minimal physical slopes 3 4 (2026-11-03 UTC)",
+          "Resultary semantic search: four inflections four branches multiplicity 1 2 1 thermodynamic pressure (2026-11-03 UTC)",
+          "Ma primary arXiv:2005.10967 (https://arxiv.org/pdf/2005.10967), Sections 2, 4, 5",
+          "Jenkinson-Pollicott-Vytnova primary DOI:10.1007/s00220-021-04161-4 (open full HTML), Sections 2, 3, 6"
+        ]
+      },
+      "evidence": [
+        "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+        "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+        "Resultary actual three semantic searches plus web queries for 4-branch/3-slope/4-inflection aliases"
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary ranked hits were dominated by unrelated Lyapunov-exponent and dynamics records, not a same-object inflection/minimum-branch result.",
+          "The specific Ma and JPV constructions do not tabulate a (n=4,r_T=3) four-inflection instance."
+        ],
+        "reasoning": "Targeted semantic searches of published Resultary entries and web searches for multiplicity (1,2,1), duplicate slopes, four inflections and branch-count classifications did not locate an exact table, sequence or database entry containing the claimed joint witness. These are bounded negative retrieval results, not a proof of absence of unpublished or unindexed results.",
+        "searches": [
+          "Resultary semantic search: Lyapunov spectrum four inflections four branches three distinct slopes duplicated expansion factors affine cookie cutter (2026-11-03 UTC)",
+          "Resultary semantic search: Lyapunov spectrum Jenkinson Pollicott Vytnova Ma essential branches minimal physical slopes 3 4 (2026-11-03 UTC)",
+          "Resultary semantic search: four inflections four branches multiplicity 1 2 1 thermodynamic pressure (2026-11-03 UTC)",
+          "Web: \"four\" \"inflections\" \"three\" \"slopes\" \"four\" \"branches\" Lyapunov spectrum",
+          "Web: Lyapunov spectrum inflections multiplicities 1 2 1 construction"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the simultaneous optimal pair (four physical branches, three distinct slopes), not novelty of pressure formalism or separate minimum bounds. Full relevant Ma 2020 primary article and JPV 2021 primary article were compared by actual implication: Ma supplies n=4 with four distinct slopes and r_T>=3 separately; JPV supplies r_T=3 with seven branches. None inspected supplies their intersection (4,3), while this explicit multiplicity (1,2,1) pressure witness does. The Resultary/web searches did not find a prior matching or dominating statement, without proving global novelty.",
+      "residual_risks": [
+        "Potential unindexed equivalent simultaneous-minimality witness.",
+        "Negative semantic/web retrieval is not a formal novelty theorem."
+      ],
+      "risks": [
+        "An unindexed equivalent four-physical/three-essential witness or later specialized refinement could predate this work.",
+        "Primary comparison is limited to the material actually read; no exhaustive search of all theses or non-English literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.2 excludes three physical branches; Theorem 4.2 excludes two essential slope values; Theorem 4.3 is a three-essential-level upper bound of six, not four-inflection existence. Theorem 2.4/5.5 produces four branches by adjoining a fourth distinct slope to a three-distinct-slope prototype (1.2,19,20). Does not specify a four-physical/three-essential existence witness.",
+          "evidence": [
+            "PDF pp.4–5: Thm.2.2, Thm.2.4, Cor.2.6 Q4=4",
+            "PDF p.12: Thm.4.2 r_T=2 bound <=2; Thm.4.3 r_T=3 bound <=6",
+            "PDF pp.14–18: Example 5.2 slopes 1.2,19,20 and Thm.5.5 adding a large fourth slope"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.10967",
+          "material_read": "Open arXiv 28-page PDF text: abstract and introduction; definitions and main Theorems 2.2 and 2.4; Section 4 Theorems 4.2, 4.3 and Corollary 4.5; Section 5 prototype Example 5.2, root surgery Theorem 5.5 and its argument on PDF pages 13–18. Inspected rendered PDF pages 5 and 12 as a visual check.",
+          "method": "Primary open-access arXiv PDF full-text examination of relevant theorem, proof, and example regions, with PDF-page screenshots.",
+          "title": "Counting the Lyapunov inflections in piecewise linear systems",
+          "trigger": "The directly relevant minimum physical branch and minimum essential-slope results, including potential stronger joint coverage."
+        },
+        {
+          "assessment": "Section 6 Example 6.1 has a seven-physical/three-distinct-slope witness. Section 4 gives unbounded inflection constructions with far more branches. Neither is a four-branch/three-essential witness or forces it by reducing multiplicity; the pressure changes with branch multiplicity.",
+          "evidence": [
+            "Section 6 Example 6.1: 7 intervals with slopes (5/4,65,3380) of multiplicity (1,5,1)",
+            "Section 3 Theorem 3.1: two physical branches at most two inflections",
+            "Section 4 Theorem 4.2: large repeated-slope examples"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00220-021-04161-4",
+          "material_read": "Full openly readable primary article HTML including introduction, pressure and Legendre formulas, Section 3 two-branch bound, Section 4 repeated-slope constructions, and Section 6 Example 6.1 (seven branches; multiplicities 1,5,1).",
+          "method": "Open-access Springer HTML primary text; checked examples, formulas, stated branch counts and specific implications.",
+          "title": "How Many Inflections are There in the Lyapunov Spectrum?",
+          "trigger": "Prior four-inflection construction with three distinct slopes and many repeated branches; potential corollary covering joint minimality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+        "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+        "Four strict curvature sign intervals for the explicit new 1,2,1 slope multiplicity"
+      ],
+      "rationale": "Two natural complexities of affine cookie-cutter Lyapunov spectra are physical branch count n and number of distinct expansion factors r_T. Prior results separately attain the sharp four-branch threshold and three-slope threshold, but do not show attainability together; a concrete 4/3 witness settles their joint feasibility, with only one duplicated middle slope. This is a motivated extremal structural construction that distinguishes physical multiplicity from essential slope count; not a routine renaming, computational curiosity, or parameter substitution of the earlier four-distinct-slope witness.",
+      "risks": [
+        "The exact total inflection count of this witness is not determined; the contribution is simultaneous minimum feasibility for at least four.",
+        "Not a general classification of all four-branch slope ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liangang Ma, Counting the Lyapunov inflections in piecewise linear systems, arXiv:2005.10967 (2020), Nonlinearity 34 (2021), Theorems 2.2, 2.4, 4.2, 4.3; Section 5, Example 5.2 and Theorem 5.5.",
+    "Jenkinson, Pollicott & Vytnova, How Many Inflections are There in the Lyapunov Spectrum?, arXiv:2002.07781 (2020); CMP 386 (2021), Section 6 Example 6.1.",
+    "Resultary search results (three actual semantic queries, 2026-11-03 UTC)",
+    "Targeted web search of exact parameter combination and aliases (2026-11-03 UTC)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One scientific record only; the record had been assigned but not delivered in the previous execution and is replayed with the SAME legitimate task ID, not a new ID.",
+    "Formal Lean and external expert attestation not performed; protected channels preserved.",
+    "Not-ready publication is an operational privacy/sanitization concern, not a scientific failure."
+  ],
+  "residual_risks": [
+    "Potential unindexed equivalent simultaneous-minimality witness.",
+    "Negative semantic/web retrieval is not a formal novelty theorem.",
+    "The five sign enclosures prove four sign changes but not absence of a fifth or sixth; Ma's r_T=3 upper bound is six.",
+    "Numerical experiments alone are not a proof; the explicit full-shift thermodynamic identities, exact branch existence, outward intervals and Ma lower bounds are essential."
+  ],
+  "schema_version": 1
+}
