@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The complete analytic proof gives exact parity splitting for real skew systems, an explicit arcsine Chebyshev-kernel minimizer of limiting residual energy, the fourth moment (2L^2+1)/(3L^3) from Dirichlet convolution, a real-Haar ratio-of-Gaussian-quadratics CLT with centering, and an \\(O_{\\mathbb P}(N^{-1})\\) variational remainder. The fixed-degree spectral moments converge with \\(O(N^{-1}\\) deterministic quadrature error. These steps imply the norm variance (2L-1)(L-1)/(6L^2) for every fixed positive integer iteration parameter. Replayed standard-library verifier outputs VERIFY_OK 5540; finite checks do not replace asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Titley-Peloquin–Pestana–Wathen 2013 Theorem 2.2: weighted spectral polynomial representation and normal-matrix equality",
+        "2022 CG/MINRES covariance CLT: random sample covariance matrices, different algorithm and sampling model",
+        "2004/2007 Toeplitz GMRES: deterministic bounds and special starts"
+      ],
+      "reasoning": "The 2013 normal-matrix equality covers the finite-dimensional optimization identity but provides neither the asymptotic empirical spectral Chebyshev minimizer nor Gaussian fluctuation variance after reoptimizing. The CG/MINRES sample-covariance CLT does not cover this deterministic skew Toeplitz matrix and Haar vector.",
+      "searches": [
+        "weighted spectral GMRES Chebyshev random Haar right hand side optimal polynomial first order fluctuations normal matrix",
+        "GMRES random initial vector Haar distribution residual norm Chebyshev polynomial fluctuation central limit theorem",
+        "GMRES convergence bounds that depend on the right-hand-side vector"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.24751",
+      "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+      "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+      "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648/files/me53bb59389f8a1a073c0cbe7a68ac0ce",
+      "https://doi.org/10.1002/cpa.22081",
+      "Critical-tolerance Gaussian fluctuations and half-step CG law on Haar power-law spectra (2026-09-17)",
+      "A sharp Euclidean solution-error barrier for symmetric GMRES(1) (2026-09-20)",
+      "Sharp Rayleigh-residual distortion under normal spectral filtering (2026-09-21)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.24751 establishes restrictions on deterministic admissible Toeplitz curves rather than a distribution",
+        "2007 Li–Zhang bounds on general Toeplitz GMRES do not imply a sharp Haar CLT",
+        "2013 weighted normal-matrix formulation is a precursor but leaves the nontrivial limiting variance and optimizer perturbation unproved"
+      ],
+      "reasoning": "The claim adds precise Haar-vs-worst-case quantifiers, a nondegenerate Gaussian distribution and an exact positive coefficient for every fixed even iteration. Classical parity stagnation alone is already known in skew systems; it is included as scope structure, not the sole novel contribution.",
+      "searches": [
+        "GMRES random right hand side distribution convergence normal matrices asymptotic central limit fixed iteration",
+        "fixed iteration GMRES zero diagonal skew tridiagonal Toeplitz Gaussian Haar uniform real right hand side residual converges \\(1/\\sqrt{2q+1}\\) central limit variance (4q+1)*2q/(6(2q+1)^2) Dirichlet kernel",
+        "tridiagonal skew symmetric Toeplitz GMRES even odd stagnation residual limiting norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 Chen–Soodhalter Section 4.1 uses random starting points for finite numerical root-finding but no Haar distribution law",
+        "2007 Li–Zhang Figure 2.1 uses random right-hand sides for numerical plots only"
+      ],
+      "reasoning": "Representing a normal-matrix GMRES residual as a random weighted polynomial least-squares minimum is equivalent to our starting variational problem, but not equivalent to the explicit CLT and sharp variance. The 2013 spectral formulation is an input, not the asserted limit theorem.",
+      "searches": [
+        "GMRES random starting vector tridiagonal Toeplitz skew symmetric odd step stagnation arcsine Chebyshev polynomial residual distribution N to infinity",
+        "Gaussian right-hand side skew Toeplitz GMRES 2k residual central limit law Christoffel Dirichlet fourth moment",
+        "GMRES random right hand side tridiagonal Toeplitz central limit theorem residual arcsine law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed September 17 2026 paper on critical-tolerance Gaussian fluctuations of CG on Haar power-law spectra does not concern GMRES on skew Toeplitz",
+        "An indexed September 20 2026 paper on a symmetric one-step GMRES Euclidean error barrier does not concern the present random residual law",
+        "Own accessible 2026-11 week1 ledger claims searched for GMRES/Toeplitz/skew/Haar and specific spectral residual asymptotics; none matches this theorem"
+      ],
+      "reasoning": "No inspected record or table has the fixed-q limit \\(1/\\sqrt{2q+1}\\) with the stated norm variance and exact odd plateau on the same model. Database absence alone is not proof of novelty.",
+      "searches": [
+        "fixed iteration GMRES zero diagonal skew tridiagonal Toeplitz Gaussian Haar uniform real right hand side residual converges \\(1/\\sqrt{2q+1}\\) central limit variance (4q+1)*2q/(6(2q+1)^2) Dirichlet kernel",
+        "GMRES random starting vector tridiagonal Toeplitz skew symmetric odd step stagnation arcsine Chebyshev polynomial residual distribution N to infinity",
+        "Gaussian right-hand side skew Toeplitz GMRES 2k residual central limit law Christoffel Dirichlet fourth moment",
+        "weighted spectral GMRES Chebyshev random Haar right hand side optimal polynomial first order fluctuations normal matrix"
+      ]
+    },
+    "rationale": "A claim-to-implication comparison was made with the same-class 2026 Toeplitz GMRES attainability paper, deterministic Toeplitz analyses from 2004/2007, a general normal-matrix weighted polynomial GMRES theorem, published residual CLTs for a distinct random-matrix/algorithm model, relevant published mathematical record hits, and accessible own-history claims. No checked source states or directly implies the fixed-q real-Haar skew-stencil Gaussian law with the derived exact Dirichlet fourth-moment coefficient without additional asymptotic and algebraic work. The established spectral minimization and Gaussian quadratic-form tools are acknowledged as ingredients; unindexed equivalent derivations remain possible.",
+    "residual_risks": [
+      "Exact same asymptotics may be a known but unindexed corollary of general polynomial least-squares functional CLTs and classical Dirichlet kernels.",
+      "The 2022 sample-covariance paper was inspected by its abstract only; no whole-document noncoverage inference is made.",
+      "The 2013 accepted manuscript image could not be retrieved, though its parsed text through its main weighted-spectral formulas was inspected.",
+      "Search and historical record coverage cannot certify priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies possible histories for structured matrix/vector pairs, and finite random seeds for a numerical construction. Its statements do not give a Haar fixed-step CLT, the explicit variance, or odd-step law for the skew zero-diagonal specialization.",
+        "evidence": [
+          "arXiv:2609.24751, introduction, Section 3 and Section 4.1; submitted September 21 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24751",
+        "material_read": "Full-text mathematical setup, structure constraints, relevant 3.4/4.1 development, numerical right-hand-side seeds; first page checked visually",
+        "method": "Comparison of quantifiers: attainable deterministic curves versus distribution of random fixed-step curves",
+        "title": "Constraints on admissible behavior of GMRES applied to tridiagonal Toeplitz systems",
+        "trigger": "Source with the same matrix structural class and a modern GMRES attainability theory"
+      },
+      {
+        "assessment": "Deterministic residual constructions and comparative bounds; no fixed-iteration Haar CLT or its variance found in inspected relevant material.",
+        "evidence": [
+          "Liesen–Strakoš (2004), abstract and residual formulas"
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+        "material_read": "Full-text opening, main residual setup and Toeplitz/Jordan comparison; first page checked visually",
+        "method": "Identify whether residual identities quantify Haar right-hand-side fluctuations",
+        "title": "Convergence of GMRES for tridiagonal Toeplitz matrices",
+        "trigger": "Foundational same-matrix-class GMRES analysis"
+      },
+      {
+        "assessment": "Analyses deterministic norms and worst-case inequalities, with random right-hand side numerical examples. It does not state a fluctuation law or Haar variance. Its parameter setup assumes nonzero diagonal in the base theorem and does not directly yield this zero-diagonal limit.",
+        "evidence": [
+          "Li–Zhang, Technical Report 2007-12, Section 2 and Figure 2.1"
+        ],
+        "identifier_or_url": "https://cdn.prod.web.uta.edu/-/media/project/website/science/mathematics/documents/preprint/2007/rep2007_12.pdf",
+        "material_read": "Preprint abstract and introduction, main bounds and exact special right-hand-side results; numerical random-right-hand-side demonstration; title visually checked",
+        "method": "Check whether nonrandom e1/eN and arbitrary-right-hand-side upper bounds imply an exact random-start distribution",
+        "title": "The Rate of Convergence of GMRES on a Tridiagonal Toeplitz Linear System",
+        "trigger": "Sharp Chebyshev-type Toeplitz GMRES bounds potentially subsuming polynomial specialization"
+      },
+      {
+        "assessment": "The paper explicitly identifies weighted polynomial GMRES formulations, equality for normal matrices, and deterministic bounds. It supplies a key reduction but not the two specific moment limits, Haar CLT, or optimizer-envelope calculation.",
+        "evidence": [
+          "Titley-Peloquin–Pestana–Wathen, IMA J. Numer. Anal. 34 (2014), Section 2 and Theorem 2.2"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648/files/me53bb59389f8a1a073c0cbe7a68ac0ce",
+        "material_read": "OA accepted manuscript introduction, Section 2 weighted polynomial formulas and Theorem 2.2 (text); image fetch unavailable",
+        "method": "Distinguish deterministic weighted polynomial representation from random-Haar asymptotic calculations",
+        "title": "GMRES convergence bounds that depend on the right-hand-side vector",
+        "trigger": "A general weighted spectral least-squares reduction could dominate special fixed-step claims"
+      },
+      {
+        "assessment": "Proves CLTs for CG/MINRES on sample covariance random matrices, not fixed-degree GMRES of a deterministic skew Toeplitz system with a random vector. Inspected abstract is insufficient to exclude every implicit specialization.",
+        "evidence": [
+          "Published abstract, Communications on Pure and Applied Mathematics, 2022"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cpa.22081",
+        "material_read": "Publisher abstract and bibliographic record only; complete paper not inspected",
+        "method": "Compare algorithms and source of randomness from abstract",
+        "title": "Central Limit Theorem for the Residuals and Error of CG and MINRES on Sample Covariance Matrices",
+        "trigger": "Possibly stronger residual CLT with a universal random-ensemble reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6fb38697-fa62-4732-88ff-80e93fa0c2ea",
+  "value": {
+    "rationale": "For the natural skew transport stencil and random forcing, the result classifies the complete fixed-step typical error and its sharp \\(N^{-1/2}\\) variability, with exact coefficients for all q, in contrast with worst-case curves. It gives a nontrivial numerical reliability benchmark involving the interaction of Haar weighting, orthogonal polynomial minimization, and GMRES adaptivity; it does not rely on a gratuitous parameter slice or claim finite-precision performance.",
+    "status": "PASS"
+  }
+}
