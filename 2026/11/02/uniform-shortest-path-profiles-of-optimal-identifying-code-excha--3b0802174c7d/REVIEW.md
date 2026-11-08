@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain comprises the \(65536\) subsets of a labelled sixteen-vertex hypercube. The identification test is equivalent to requiring all sixteen closed-ball response signatures to be different and nonempty. Both programs verify the absence of identifying codes below size seven and the full count \(960\). Every legal one-element exchange is generated, and all-source BFS verifies the uniform eight-shell histogram and connectivity. The independent program instead uses sensor-index response tuples and full group-orbit representatives. The independent methods agree on the entire claim; finite exhaustive testing, not finite extrapolation, proves this fixed-size result. Risk: ordinary executable certificates require a correct standard Python 3 interpreter; no independent formal proof audit.
+## correctness
 
-## Originality — PASS (qualified)
-The previously known optimal cardinality seven, generic abundance bounds, and general Johnson-induced-subgraph realization of optimal-code families are excluded from novelty. Honkala–Hudry–Lobstein (2015), DOI 10.1016/j.dam.2014.08.020, was read as a nine-page primary text; it studies general extremal numbers and constructions rather than this specific cube metric. Their closely relevant ensemble paper, DOI 10.1007/s12095-015-0148-3, states a general realization theorem in its accessible abstract; a Johnson-graph realization theorem for arbitrary families does not imply the actual family and exchange distances for the fixed four-cube. That full subscription text was not accessible, so a specific coincident enumeration remains possible. Focused literature queries and existing research records did not identify an equivalent four-cube enumeration. Residual risk: unindexed or inaccessible preexisting exact code-swap profiles.
+PASS
 
-## Value — PASS
-An identifying code is an economical sensor layout that distinguishes all possible single-site events. The possible optimal layouts and permissible single-sensor relocations are intrinsic, natural optimization objects. The exact 960-state connected nine-regular move graph and sharp worst-case seven-step path quantify how far optimal sensors can be rearranged while never sacrificing identifiability. In addition, all states share the same full distance profile although the cube's own symmetry group has three distinct orbits; this is a concrete and nonobvious symmetry-versus-metric distinction. It is not a mere restatement of the known minimum-cardinality invariant.
+The exact identifying-code predicate is 16 nonempty distinct closed-ball intersections with a selected 16-bit subset. Fresh independent enumeration of all subsets of cardinality <=7 found none smaller and exactly 960 valid seven-sensor sets. Single replacement of one of 7 selected vertices by one of 9 unselected vertices yields 4320 undirected edges of degree 9. All 960 BFS sources independently yield (1,9,35,132,300,338,130,15) at graph distances 0..7, hence connected radius/diameter 7 and unordered distance counts (4320,16800,63360,144000,162240,62400,7200). Independent generation of all 16*24 Q4 automorphisms gives orbit sizes 192,384,384. This is an exhaustive finite proof on Q4; no higher-dimension statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known Q4 optimum size seven is expressly prior work. Honkala–Hudry–Lobstein (2015) count optimal identifying codes in constructed graphs, and their paper explicitly points to a separate ensemble paper studying distances between codes: that is substantial conceptual prior overlap. The 2016 ensemble paper describes Johnson-induced ensemble constructions but its full text could not be reached through OA search or authorized institution (VPN disconnected); an actual Q4-specific distance census has not been established from the accessible statements. Resultary semantic query did not return an identical Q4 exchange graph. Best-of-knowledge PASS, carrying a substantial uninspected-primary priority risk.
+
+## value
+
+PASS
+
+The shortest-exchange metric on the entire natural family of minimum identifying sensor layouts quantifies how optimizers can be reconfigured while staying optimal. Uniform 8-bin profile across three inequivalent geometric orbits is a nontrivial exact finite classification and could be needed for optimal-code local-search studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
