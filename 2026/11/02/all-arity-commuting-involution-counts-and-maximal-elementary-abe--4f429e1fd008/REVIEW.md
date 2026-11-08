@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-square and commutator relations are derived from direct multiplication; the case with a nonzero middle superdiagonal coordinate is independent of the hyperbolic-quadric enumeration. For a zero middle coordinate, the rank-one determinantal identification proves the singular-point and maximal-singular-plane counts. The number of surjective linear maps accounts for tuples spanning each singular subspace, including \(m=0\). Inclusion-maximality is proved for all abstract elementary abelian subgroups, without silently assuming that they are \(\mathbb F_q\)-linear. The finite verifier independently confirms the \(q=2,4\) boundaries; these checks do not prove the infinite parameter ranges.
+## correctness
 
-## Originality — PASS, subject to historical residual risk
-Actual published-finding corpus searches for `commuting tuples UT4(q)`, `pairwise commuting involutions`, `maximal elementary abelian 2 subgroups unitriangular 4x4`, and aliases/quadric geometry returned no matching statement among the compared records. The closest included the published published-finding corpus item on element orders in \(UT_3(\mathbb F_{2^m})\), which has different group size and invariant. prior research records claims on three-block commuting-involution degrees, quiver radical-square-zero involutions, and unrestricted tuples in different algebras do not imply this four-block class-three all-arity Hom-count. Literature full-text comparisons covered Bardakov–Vesnin–Yadav's unitriangular automorphisms, Soffer's conjugacy bounds, Kaur–Sharma–Singh's odd-characteristic unrestricted commuting tuples, and Majeed–Ramkumar's commuting graph/maximal abelian subgroups. None of the inspected results states the present characteristic-two all-arity formula or counts inclusion-maximal elementary abelian subgroups over all \(2\)-power fields. Known maximum-order abelian bounds, explicitly acknowledged via Snanou, are not treated as new. A historical equivalence or an implicit stronger theorem remains possible; neither a search failure nor a partition proves uniqueness.
+PASS
 
-## Value — PASS
-The functions \(C_m(q)=|\operatorname{Hom}(C_2^m,UT_4(\mathbb F_q))|\) simultaneously measure every arity of commuting involutions, with a four-pole generating function. The exact classification/count of maximal elementary abelian subgroups supplies the intrinsic group structure behind the count and distinguishes the single larger subgroup from a parameter family of smaller ones. This is a natural algebraic classification for every extension field of characteristic two, rather than an isolated small-parameter computation.
+An element I+N(a,b,c,d,e,h) is square-one iff ab=bc=ae+dc=0; pairwise commutation adds ab′=a′b,bc′=b′c,ae′+dc′=a′e+d′c. In an m-tuple with B-vector nonzero, proportionality and b_i² constraints force all A,C=0, giving (q^m−1)q^(3m) with arbitrary d,e,h. If B=0, each (a,c,d,e) is singular for hyperbolic Q=ae+dc and pairwise totally isotropic, hence has span dimension<=2. Rank-one 2x2 determinantal matrices give (q+1)^2 singular projective points and two rulings of 2(q+1) maximal totally singular planes. Counting ordered m-tuples of each rank by ∏_{j=0}^{r−1}(q^m−q^j), multiplying by free h choices, gives polynomial formula, valid also m=0. Binomial inversion removes identity coordinates. Every elementary abelian subgroup with any b≠0 lies in H (order q^4); otherwise it lies in K_W for some maximal singular 2-plane, only K_W0 is contained in H, leaving 2q+1 maximal order-q^3 groups. This holds for abstract F2-linear subgroups without assuming all are Fq-subspaces. Fresh direct q=2 group brute yielded C1=28,C2=448,C3=6112; source checker q=4 C1=496,C2=96256; tests corroborate, not prove all q,m.
 
-## Limits and comparisons
-The counting is of ordered tuples (not orbits), and of inclusion-maximal abstract subgroups (not conjugacy classes). This is not the unrestricted group commuting-tuple problem. Detailed proof and standalone source checks are supplied in RESULT.md and VERIFICATION.md. Full historical priority and independent audit have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp all-arity involution-tuple polynomial and inclusion-maximal elementary 2-subgroup classification are more specialized than general UT4 conjugacy bounds, arbitrary-characteristic group commuting graphs, and odd-characteristic unrestricted commuting tuple results. The 2026 Majeed–Ramkumar UT(4;p) commuting-graph preprint is a particularly plausible source of maximal-clique overlap; its abstract/material only were accessible, with full body unavailable due to institutional VPN block. Mathematical implications are not asserted from an unread article. The complete all-extension q=2^f formula is not present in the accessible compared material; priority remains qualified.
+
+## value
+
+PASS
+
+The family Hom(C2^m,UT4(F_{2^f})) is a natural all-arity commuting variety and the maximal elementary subgroup classification explains the four eigen-exponential terms structurally. It is an all-field, all-arity closed formula rather than an isolated numerical computation; exact abstract subgroup counting goes beyond the even-field rank-one cone decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
