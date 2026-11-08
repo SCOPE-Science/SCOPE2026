@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later and no external packages. All labels, expected local configurations, face counts and free-face checks are implemented in the standalone script. The script enumerates every total ordering for one, two and three square bouquets, rather than sampling them. It compares each result with the symbolic local model, checks mod-two chain ranks, and verifies full free-face certificates reducing the two- and three-square cases to joins of six-cycles. A successful execution ends with `ALL_VERIFY_OK`.
+## correctness
 
-Verified outputs include 12, 72 and 378 maximal faces, and counts of 64 and 768 valid elementary collapse pairs for the last two cases. The full parameter theorem is established by the order classification and join-collapse argument in `RESULT.md`, not by treating finite enumeration as proof at untested sizes. No independent mathematical review has been performed.
+PASS
+
+Pinned RESULT.md defines filtration pair [v -> u] by unique earlier neighbor of v and uses downward closure, not all acyclic matchings. Its relative-order classification in each square gives the six local maximal edges AB, AC, CD, DE, EF, FB (C6); orders in distinct squares can be interleaved around common o. The only extra vertices pair o and cannot coexist. Their exact links are three-point sets joined with (m-1) three-edge paths; m>=2 makes each link collapsible, so successive vertex-star deletions are genuine elementary simplicial collapses. Join-of-circles topology and multiplicative face enumerator then follow. Boundary m=1 correctly excluded. Independent small-instance order enumeration at m=2 reproduced (1,16,76,132,72) including empty face and the predicted 72 facets; source verifier contains further m=1,3 checks but not used to infer m>=2 theorem. Sources: Git tree c2de5e04b37462c88930fb29704acb89143a9093 and RESULT.md Git blob 0aad6a413c2fde25013815f8e6c677279582855d, proof steps 1-4.; The m=2 independent 7! ordering enumeration and symbolic join/link enumerators agree with predicted face vector; proof, not finite enumeration, handles all m.
+
+## originality
+
+PASS
+
+The pinned all-m bouquet collapse is not obtained from the cited single C4 or disjoint graph join results; the extra shared-vertex matching vertices have collapsible links only after an additional square is attached. Best-of-knowledge PASS, subject to inaccessible highly relevant primary full text.
+
+## value
+
+PASS
+
+This is a natural one-vertex gluing question for an established graph-complex functor. The shared-vertex effect invalidates the previously applicable disjoint join formula and gives a nontrivial all-m collapse plus exact face counts and sharp m=1 boundary. The uniform hexagon core and apex-link mechanism are reusable structural information, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a strict all-parameter simplicial-collapse statement. The crucial combinatorial premise is independently determined from the graph's one-dimensional descending links: a vertex is paired exactly when it has a unique earlier neighbor. Explicit local order classifications produce a six-cycle when the common vertex is not paired, a three-edge path in each unmarked square when the common vertex is paired elsewhere, and a three-point local link for its paired square. These descriptions are exhaustive and realizable by interleaving local orders. All additional vertices have collapsible links when at least two squares are present, yielding actual elementary collapses to a join of six-cycles. The join is a sphere of the asserted dimension. The facet count and face enumerator follow from the exact decomposition. The standalone check exhausts vertex orders for one, two, and three squares, agrees on the full face sets, checks integral-homotopy-preserving collapses for two and three squares, and independently checks mod-two homology. The infinite assertion relies on the symbolic classification and collapse lemmas, not on the finite experiments.
+PASS
 
-## Originality — PASS, with limitations
+Pinned RESULT.md defines filtration pair [v -> u] by unique earlier neighbor of v and uses downward closure, not all acyclic matchings. Its relative-order classification in each square gives the six local maximal edges AB, AC, CD, DE, EF, FB (C6); orders in distinct squares can be interleaved around common o. The only extra vertices pair o and cannot coexist. Their exact links are three-point sets joined with (m-1) three-edge paths; m>=2 makes each link collapsible, so successive vertex-star deletions are genuine elementary simplicial collapses. Join-of-circles topology and multiplicative face enumerator then follow. Boundary m=1 correctly excluded. Independent small-instance order enumeration at m=2 reproduced (1,16,76,132,72) including empty face and the predicted 72 facets; source verifier contains further m=1,3 checks but not used to infer m>=2 theorem. Sources: Git tree c2de5e04b37462c88930fb29704acb89143a9093 and RESULT.md Git blob 0aad6a413c2fde25013815f8e6c677279582855d, proof steps 1-4.; The m=2 independent 7! ordering enumeration and symbolic join/link enumerators agree with predicted face vector; proof, not finite enumeration, handles all m.
 
-The most relevant primary source is Knudson–Owens-White, arXiv:2609.06844v1. Its full accessible text was inspected in its definition, single-cycle, disjoint-union and miscellaneous sections. The known four-cycle computation is only the one-square boundary case; the disjoint-union join theorem does not imply a one-vertex wedge result. The identified vertex creates new matching vertices, which must be removed by the link-collapse mechanism proved here. Published examples of ordinary Morse complexes, ordinary matching complexes of edge-sharing quadrilateral books, and strong matching complexes of triangle bouquets address different objects; none implies the displayed square-bouquet collapse or face polynomial. Searches under square bouquets, four-cycle wedges, strong matching complexes and related formulations identified no precise prior statement. Coverage by unindexed work or an inaccessible equivalent formulation cannot be excluded conclusively.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family is a natural first cyclic-cactus extension of the strong matching complex beyond individual cycles. Its transition from the known five-circle wedge for a single four-cycle to a **single sphere in dimension growing with the number of squares** is structurally nontrivial. The explicit strong collapse, not just a Betti-number computation, provides a reusable mechanism for handling a common high-degree vertex; the uniform face enumerator and purity give additional testable combinatorial structure. It is not a routine consequence of the paper's disjoint-union theorem, which applies to a different graph construction.
+The pinned all-m bouquet collapse is not obtained from the cited single C4 or disjoint graph join results; the extra shared-vertex matching vertices have collapsible links only after an additional square is attached. Best-of-knowledge PASS, subject to inaccessible highly relevant primary full text.
 
-## Scope and residual risks
+## value
 
-The result applies only to a bouquet of unfilled four-cycles sharing a single vertex, with at least two cycles. No equivariant classification or general cactus-graph claim is made. Primary-text access was available for the motivating preprint, but novelty cannot be guaranteed against unindexed work. The computation tests three finite sizes; the general proof is separately supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural one-vertex gluing question for an established graph-complex functor. The shared-vertex effect invalidates the previously applicable disjoint join formula and gives a nontrivial all-m collapse plus exact face counts and sharp m=1 boundary. The uniform hexagon core and apex-link mechanism are reusable structural information, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
