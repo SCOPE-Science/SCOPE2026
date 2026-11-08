@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The moment equations constrain positive weights to p in [1/4,3/4] and force the stage nodes; M_11>=0 gives a_12<=-f(p). A strict derivative sign change proves the unique minimizer of f. The constructed A_p has M=0 and satisfies the fourth order-three condition by A^T b=b-Bc; its only negative coefficient equals -f(p). Equality and PSD force uniqueness. The standalone checker replayed successfully with 3064 rational/numerical supplementary assertions; the analytic proof handles all admissible tableaux.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2611.07981v1 (Gottlieb et al.; 2026-11-05), Section 5: Theorem 9 rules out A>=0 with algebraic stability in all stage counts; Remark 8 bounds the quadratic order-condition deficit under A>=0.",
+        "arxiv:2610.37425v1 (Weng, Yu, Zhu; first submission 2026-10-27): Theorem 5.2 classifies tableaux maximizing the SSP radius, a distinct objective."
+      ],
+      "reasoning": "The general sign barrier implies some negative entry exists, not a positive optimal lower bound for its magnitude under the interval 0<=c_i<=1. The 2610 paper optimizes SSP radii instead of minimizing negative entries in algebraically stable tableaux. Neither optimization implies the other by its stated theorem.",
+      "searches": [
+        "quantitative nonnegative coefficient barrier algebraically stable two stage third order Runge Kutta",
+        "sharp minimum negative Butcher entry for algebraically stable order-three two-stage Runge Kutta quadrature weights node interval",
+        "arxiv:2611.07981v1 Section 5 and Remark 8",
+        "arxiv:2610.37425v1 Section 5.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.37425v1 (Weng, Yu, Zhu; first submission 2026-10-27)",
+      "Ketcheson--Macdonald--Gottlieb, Optimal Implicit SSP Runge--Kutta Methods (2007 preprint)",
+      "arxiv:2611.07981v1 (Gottlieb et al.; 2026-11-05), Section 5",
+      "published-finding corpus semantic searches (seven exact phrases; see named checks)",
+      "Accessible prior claims about third-order SSP stability and coefficient positivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.37425v1 (Weng, Yu, Zhu; first submission 2026-10-27): optimal SSP radii for orders two/three with unique lower-triangular positive tableau.",
+        "Ketcheson--Macdonald--Gottlieb, Optimal Implicit SSP Runge--Kutta Methods (2007 preprint): positive SSP coefficient needs A>=0 and b>0; many classic algebraically stable methods have negative coefficients.",
+        "arxiv:2611.07981v1 (Gottlieb et al.; 2026-11-05), Section 5: algebraic stability and nonnegative entries cannot coexist at order three."
+      ],
+      "reasoning": "The source implications do not supply an explicit strictly positive infimum for max(-a_ij)_+ in a normalized two-stage class, nor the unique minimizer. They motivate but do not subsume the exact quantitative claim. The current conclusion holds only for two stages and bounded c, not the general theorem of 2611.07981.",
+      "searches": [
+        "Phase-type representations for Strong Stability Preserving Runge-Kutta methods Yu Zhu Weng",
+        "minimum negativity Runge Kutta Butcher tableau algebraic stable third order",
+        "arxiv:2610.37425v1 Theorem 5.2",
+        "arxiv:2611.07981v1 Theorem 9",
+        "Ketcheson et al. 2007 Results 2--3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ketcheson--Macdonald--Gottlieb, Optimal Implicit SSP Runge--Kutta Methods (2007 preprint): SSP requires nonnegative tableau entries; classical algebraically stable methods can have negative entries.",
+        "arxiv:2611.07981v1 (Gottlieb et al.; 2026-11-05), Section 5: a general sign impossibility theorem for order three, without a sharp two-stage normalized coefficient magnitude."
+      ],
+      "reasoning": "Symplecticity is the equality case M=0 of algebraic stability, which the present proof uses to attain the bound; simply citing a known Gauss/Radau tableau gives a feasible but generally nonoptimal coefficient. Qualitative nonnegative impossibility is strictly weaker than the extremal value and uniqueness theorem.",
+      "searches": [
+        "two stage third order Runge Kutta algebraic stability sharp minimum negative Butcher coefficient abscissae 0 1",
+        "Radau Gauss two stage symplectic implicit Runge Kutta minimum negative off diagonal entry",
+        "negative a12 coefficient in 2 stage order 3 algebraic stability symplectic Runge Kutta Gauss Radau tradeoff",
+        "2007 Ketcheson--Macdonald--Gottlieb, Results 2--3, p. 9--10",
+        "arxiv:2611.07981v1, Section 5 Theorem 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7; 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab; 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "Closest relevant recorded claim 60906ae1-b586-4ea9-a9a1-b28f617c8035: sharp scalar stability domain of SSP-optimal third-order tableaux, not algebraic stability or coefficient negativity."
+      ],
+      "reasoning": "No matching exact coefficient table or published finding identified. The closest recorded claim treats the unique SSP-optimal tableau and stability polynomial, whereas the present problem imposes algebraic stability and globally optimizes the negative entry. A failed database search is not proof of novelty.",
+      "searches": [
+        "two stage third order Runge Kutta algebraic stability sharp minimum negative Butcher coefficient abscissae 0 1",
+        "sharp minimum negative Butcher entry for algebraically stable order-three two-stage Runge Kutta quadrature weights node interval",
+        "negative a12 coefficient in 2 stage order 3 algebraic stability symplectic Runge Kutta Gauss Radau tradeoff",
+        "published-finding corpus: search exact stage-time negative-entry extremum",
+        "Prior accessible mathematical claims, searched by exact object/condition and implication"
+      ]
+    },
+    "rationale": "A sharp optimal lower bound on the magnitude of a negative Butcher entry for two-stage third-order algebraically stable schemes with normalized stages, together with its unique symplectic attaining tableau, was not implied by the inspected sources. The 2026-11-05 general sign obstruction and older SSP coefficient requirements cover only qualitative incompatibility; no inspected source gives this extremal coefficient or equality characterization. Historical priority remains subject to unindexed equivalent calculations.",
+    "residual_risks": [
+      "An older unindexed calculation may solve the same constrained 2-stage coefficient optimization under a different name.",
+      "Only focused primary sections rather than every line of the older 2007 PDF were read; they do establish the nearest qualitative criterion.",
+      "The 2026-11-05 general theorem is later than the motivating 2026-10-27 source and was considered for scientific priority, not used to date the motivating work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_OPTIMIZATION: SSP radius, not sharp negative coefficient among algebraically stable schemes",
+        "evidence": "Section 5.2 Theorem 5.2 gives R_(s,3)=s-1+sqrt(s^2-1) and a unique lower triangular optimizer; it does not impose M>=0 or optimize max negative A entry.",
+        "identifier_or_url": "https://arxiv.org/html/2610.37425v1",
+        "material_read": "Full HTML: introduction, Sections 2.1--2.2, 5.1--5.2 and conclusion; PDF page 1 visually inspected",
+        "method": "Viewed substantive order conditions, SSP absolute-monotonicity conditions, third-order optimality/equality formula, and references",
+        "title": "Phase-type representations for Strong Stability Preserving Runge--Kutta methods",
+        "trigger": "2026-10-27 order-three SSP tableau classification and qualitative coefficient incompatibility"
+      },
+      {
+        "assessment": "QUALITATIVE_CONTEXT_NOT_COVERING",
+        "evidence": "Result 2 states R(K)>0 entails A>=0 and b>0; discussion observes negative entries in many classical algebraically stable methods. No quantitative two-stage minmax coefficient statement in inspected material.",
+        "identifier_or_url": "https://www.cfm.brown.edu/people/sg/implicitSSP.pdf",
+        "material_read": "PDF title/abstract, Section 2.3 Results 2--3 and discussion of negative coefficients; page 1 visually inspected",
+        "method": "Read displayed primary text and associated historical method comparisons",
+        "title": "Optimal Implicit Strong Stability Preserving Runge--Kutta Methods",
+        "trigger": "Classical connection of positive SSP coefficient to nonnegative Butcher entries and known algebraically stable schemes"
+      },
+      {
+        "assessment": "STRONGER_QUALITATIVE_SIGN_BARRIER_BUT_NO_QUANTITATIVE_SHARP_BOUND",
+        "evidence": "Theorem 9 excludes order-3 algebraically stable tableaux with all A>=0; Remark 8 bounds the quadratic moment defect for an all-nonnegative tableau. Neither states a sharp minimum magnitude or unique minimizing tableau under c in [0,1].",
+        "identifier_or_url": "https://arxiv.org/html/2611.07981v1",
+        "material_read": "Full HTML Section 5 (Definition 2, Theorem 9, Lemma 7, Remark 8 and proof)",
+        "method": "Compared actual theorem hypotheses, implications, and the quantitative order-condition deficit with the two-stage negative-entry objective",
+        "title": "A stability order barrier and SSP bound for Runge--Kutta methods with non-negative coefficients",
+        "trigger": "Directly plausible stronger qualitative incompatibility theorem published 2026-11-05, considered separately from the motivating 2026-10-27 source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7feb414-2d7a-40f5-a675-e70de661e049",
+  "value": {
+    "rationale": "Third-order RK design balances norm-based B-stability from the algebraic stability matrix against positivity/SSP, whose positive radius requires nonnegative Butcher entries. The exact minimal unavoidable negativity within the natural two-stage interval-normalized class and its unique symplectic minimizer quantify that structural incompatibility, giving a nontrivial complete extremal classification rather than one arbitrary negative tableau. No downstream performance guarantee is claimed.",
+    "status": "PASS"
+  }
+}
