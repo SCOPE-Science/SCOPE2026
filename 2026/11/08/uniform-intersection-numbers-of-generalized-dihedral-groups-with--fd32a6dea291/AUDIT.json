@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Full proof classifies all maximal subgroups as A and M(W,a), counts index-prime W and their reflection cosets, computes exact containment counts for rotations and reflections, and proves a sharp affine independence lower bound for i(G). Every quantifier and edge case is specified. Exact enumeration of 279040 maximal-subgroup families across four groups reproduces all predicted parameters; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 source explicitly studies dihedral, dicyclic and symmetric families; it does not formulate the rank-profile all-abelian statement.",
+        "2026 source Section 2 handles dihedral and dicyclic groups and states general quotient invariance, which does not itself determine the numerical invariant for the noncyclic Frattini quotient."
+      ],
+      "reasoning": "Neither inspected source supplies a theorem for arbitrary abelian-kernel inversion semidirect products, or a stronger numerical formula that implies the new uniform count. Quotient invariance removes higher prime powers but leaves noncyclic elementary-abelian rank as an essential new parameter.",
+      "searches": [
+        "uniform intersection number elementary abelian dihedral C_p power r maximal subgroup hyperplanes",
+        "intersection number generalized dihedral group A ⋊ C2 finite odd abelian group exact formula",
+        "\"intersection number\" \"generalized dihedral\" \"abelian\" finite group",
+        "arXiv:1907.02898 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.22268",
+      "https://arxiv.org/abs/1907.02898",
+      "Full published result on odd generalized-dihedral minimum-size independence graphs; indexed subgroup-commutativity records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new cyclic specialization exactly recovers the known result.",
+        "Choudhury–Khanra Lemma 2.4 gives Frattini quotient invariance, not the unknown rank-dependent containment counts for arbitrary noncyclic kernels.",
+        "The count of maximal groups containing a reflection, versus a rotation supported in one prime factor, is explicitly established in the new proof."
+      ],
+      "reasoning": "The prior cyclic-case formulas follow from the new theorem, not conversely. For a rank-two elementary-abelian odd kernel, neither the cyclic-kernel case nor quotient invariance determines the new numbers; additional projective hyperplane multiplicities are needed.",
+      "searches": [
+        "arXiv:2610.22268 Theorem 2.6",
+        "arXiv:1907.02898 Proposition 4.1",
+        "intersection number generalized dihedral group A ⋊ C2 finite odd abelian group exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Choudhury–Khanra 2026, Theorem 2.6, proves the cyclic-kernel dihedral formula.",
+        "Archer et al. 2019 Proposition 4.1 computes the minimal number for cyclic-kernel dihedral groups."
+      ],
+      "reasoning": "A cyclic odd abelian group has each Sylow rank one, and both new formulas then reduce exactly to the source results. The new statement strictly extends this special case to rank at least two, where the cyclic-kernel result is not applicable.",
+      "searches": [
+        "uniform intersection number generalized dihedral group finite abelian inversion semidirect product maximal subgroups Frattini",
+        "\"uniform intersection number\" \"generalized dihedral\" groups",
+        "arXiv:2610.22268 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source lists values in the cyclic-kernel family; no noncyclic rank-profile census was found in the inspected text.",
+        "The independently inspected generalized-dihedral independence-graph paper proves exact pair-completion degrees rather than counts of maximal subgroups with a common non-Frattini element."
+      ],
+      "reasoning": "The new formulas apply to all groups in the specified family and are not a numerical table recomputation. The exhaustive checker examines small examples solely as validation.",
+      "searches": [
+        "\"uniform intersection number\" \"semidirect product\" abelian",
+        "uniform intersection number elementary abelian dihedral C_p power r maximal subgroup hyperplanes",
+        "uniform intersection number generalized dihedral group finite abelian inversion semidirect product maximal subgroups Frattini"
+      ]
+    },
+    "rationale": "The 2026 source computes uniform intersections only for cyclic-kernel ordinary dihedral groups; the 2019 primary source computes minimum intersections there. The new formula concerns every nontrivial odd abelian kernel and explicitly counts all maximum containment fibers for noncyclic Sylow rank. Searches of relevant mathematical records for equivalent formulations and stronger general coverage did not identify an exact result. Generalized-dihedral independence-graph work uses the same quotient but a different invariant. Historical priority under alternate terminology remains a disclosed risk.",
+    "residual_risks": [
+      "Even after full-text comparison of the same-group independence-graph record, an equivalent formula elsewhere under different terminology remains possible.",
+      "An older generalized-dihedral Frattini or maximal-subgroup paper could contain the same invariant under different terminology.",
+      "No independent mathematical audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers ordinary dihedral (cyclic kernel), dicyclic and quasi-dihedral, but not the all-odd-abelian-kernel rank formula",
+        "evidence": "Theorem 2.6 and proof specifically identify maximal groups of D_{2n} from one cyclic subgroup <r>.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.22268",
+        "material_read": "Full HTML text, particularly introduction, Section 2 definitions, Lemma 2.4, Theorems 2.5–2.7, and bibliography",
+        "method": "Read theorem statements and relevant proofs and compared formulas and hypotheses",
+        "title": "Uniform Intersection Numbers and Subgroup-Based Generating Graphs of Groups",
+        "trigger": "Primary 2026 source defining uniform invariant and proving the cyclic dihedral result"
+      },
+      {
+        "assessment": "Provides nilpotent-group rank formula and the cyclic-kernel dihedral minimal formula, not the claimed all-abelian-kernel uniform result",
+        "evidence": "Section 4 explicitly parametrizes maximal groups of D_{2n} by cyclic rotations r; Proposition 4.1 yields the known cyclic i(D_{2n}).",
+        "identifier_or_url": "https://arxiv.org/abs/1907.02898",
+        "material_read": "Full HTML primary text, particularly Sections 2–4 and Proposition 4.1 with proof",
+        "method": "Compared exact group classes and result implication, including finite abelian Sylow ranks",
+        "title": "On the Intersection Numbers of Finite Groups",
+        "trigger": "Earlier cited primary source for the minimum intersection number and maximal subgroup families"
+      },
+      {
+        "assessment": "Full text counts minimum-generator graph adjacency and degrees; it does not count arbitrary maximal-subgroup intersections or prove the present uniform invariant",
+        "evidence": "RESULT.md Finding and Proof use rank-completion criteria in A_p/pA_p to count pair completions in Gamma_{d(G)}(G), not uniform intersections of maximal subgroups.",
+        "identifier_or_url": "published mathematical record 04272a18f391",
+        "material_read": "Full published RESULT.md, including definitions, exact adjacency and degree formulas, proof, verification and prior-work discussion",
+        "method": "Read complete theorem and proof; compared rank conditions for minimum-size generating pairs with maximal-subgroup intersection extremal counts",
+        "title": "Minimum-size independence graphs of odd generalized dihedral groups",
+        "trigger": "Closely related same-group Sylow-Frattini rank setting in the mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd32a6de-a291-4732-a7db-b85f8b75cdcf",
+  "value": {
+    "rationale": "The uniform intersection number is the natural worst-choice counterpart of minimal Frattini intersection. This theorem determines both over the entire odd-abelian-kernel generalized-dihedral family, strictly beyond the previously known cyclic case, and quantifies the noncyclic rank effect. Already for fixed rank two the separation grows arbitrarily with the odd prime, a meaningful group-theoretic structural phenomenon not implied by the cyclic theorem.",
+    "status": "PASS"
+  }
+}
