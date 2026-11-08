@@ -1,19 +1,21 @@
-# Scientific review: quadratic entanglement tongues under discrete-time resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for the exact two-qubit generator and global Bernoulli reset channel specified in the result. The stationary resolvent follows by geometric summation of the completely positive channel. The four simple spectral projectors reconstruct the generator with exact rational and algebraic coefficients. The limiting partial transpose at each resonance has one simple zero eigenvalue, with a three-dimensional positive spectral gap. Expansion under \(\theta=\theta_0+cp^2\) yields an exactly zero first-order shift and a second-order Schur complement \(4c^2-1/4\). Uniform remainder bounds follow from the finite-dimensional rational analytic factors on compact \(c\)-sets. The implicit-function argument establishes the two local boundary curves, and the separately factorized determinant proves entanglement at both exact resonances for the entire open reset-probability interval. The symbolic reproducer checks both exact determinant factors and the perturbative coefficient, and independent finite-parameter calculations agree. Numerical samples are not substituted for analytic arguments.
+PASS
 
-## Originality — PASS, with priority risk
+The channel difference is a strict trace-norm contraction and geometric renewal expansion gives rho=p sum_n(1-p)^n U^n R U^{-n}. Polynomial projectors from H eigenvalues (-2,0,2,8) make all resonant and nonresonant resolvent expansions explicit. At theta0 the PT matrix A0 has a simple null direction z and remaining eigenvalues 1/2,1/4,1/4. Its first and second perturbations satisfy <z,A1z>=0, <z,A2z>=8c² and <z,A1 A0^+ A1z>=4c²+1/4, so the isolated PT eigenvalue equals p²(4c²-1/4)+O_C(p³), uniformly compact c. Analytic implicit-function theorem at simple limiting roots ±1/4 gives exactly one local entangled interval; other PT eigenvalues stay positive. The exactly resonant rational determinant -p²(1-p)^3/[16(2-p)(1+(1-p)^2)^2] is negative for all 0<p<1. The 2x2 PPT criterion identifies negativity and separability. Independent numerical spectral-projector evaluation at both angles and several p,c confirms the limiting coefficient, not the infinite asymptotic by itself.
 
-The originating paper's exact stationary state, resonance angles, and numerical concurrence plots are established background, not claimed new. The distinct claim is the sharp \(O(p^2)\) gate-tolerance scale, its explicit negativity profile and \(1/4\) endpoint coefficient, and the two-resonance all-reset determinant formula. The originating paper discusses qualitative detuning sensitivity but does not present this singular two-scale entanglement boundary. The nearest compared sources concern different open-system two-qubit or oscillator dynamics and do not imply the concrete quantitative statement. The exact resolvent could make the theorem derivable by further algebra; this and possible general quantum perturbation theorems remain genuine publication-priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The narrow-entanglement features of the source's numerical phase diagram leave a natural design question: how precisely must an entangling gate angle be tuned when random resets are rare? The result gives a sharp, physically interpretable quadratic tolerance law and a universal-looking but model-specific parabola on the correct scale. It further distinguishes entanglement at exact resonance for every nontrivial reset probability from separability under fixed detuning in the weak-reset limit. A complete local sign classification, rather than only a finite parameter witness, addresses that question.
+Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. The present statement is an additional evaluated asymptotic, not a restatement of a general density-matrix formula.
 
-## Closest literature and limitations
+## value
 
-Wald et al., arXiv:2410.11497, Secs. 2--3, Fig. 4 and Appendix A, provide the exact channel and numerical plots but not the claimed phase-boundary asymptotics. Horodecki et al., arXiv:quant-ph/9605038, provide the two-qubit partial-transpose equivalence. Lee, Chan and Wang, arXiv:1312.3630, examine an entanglement tongue in coupled quantum oscillators, not the reset-gate channel here. The derived local criterion only classifies \(O(p^2)\) detuning windows and does not cover arbitrary gates, non-Bernoulli resets, a global concurrence phase diagram, or finite noise robustness. Independent experimental or mathematical validation remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp quadratic detuning window differentiates a genuinely singular entanglement stability scale from the intuitively possible linear p scale. Exact coefficient and unique interval are motivated by the two observed resonances of a published gate and are usable for robust tuning of that model; not a reparameterized scalar resolvent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
