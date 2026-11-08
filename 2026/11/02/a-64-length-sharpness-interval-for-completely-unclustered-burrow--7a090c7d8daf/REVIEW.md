@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The general lower bound is the published BWT factor-two run bound. The upper bounds are 34 explicit ternary last columns. Their complete stable-sorting permutations are single cycles; exact Hamming distances to sorted columns give the optimal cyclic run count. Two independently formulated standalone checkers verify the entire range 31–64, the second by reconstructing the necklaces and sorting every rotation. Unlike an extrapolation, each asserted length is certified separately; no claim extends past length 64.
+## correctness
 
-## Originality (O): PASS
-The closest primary source, Kumallagov (arXiv:2606.01267v1), states the all-length problem as a conjecture and provides direct witnesses only through length 12, plus an arithmetic family that already implies six cases in the claimed range (36, 37, 52, 53, 60, 61). The 2025 Fici–Gabory–Romana–Sciortino existence theorem does not bound cyclic input runs. The 28 other lengths in the present interval are not covered by these published statements. Earlier finite results through length 30 are excluded from the claim. Direct searches for equivalent formulations, the sharpness function, and interval-specific results did not identify stronger published coverage; lack of a search hit is not proof of absolute priority. Residual risk: unpublished or differently indexed certificates could exist.
+PASS
 
-## Value (V): PASS
-The open conjecture asks for the attainability of the exact factor-two BWT run amplification. A contiguous interval through the natural dyadic cutoff 64, exceeding the previously recorded cutoff 30, gives exact values at 28 lengths not implied by the currently inspected arithmetic theorem. Moreover, every witness is a perturbation of an alternating binary last column in at most six locations. This is a checkable, mathematically motivated finite sharpness cutoff and a sparse-witness phenomenon; it does not purport to settle the infinite problem.
+For ordered alphabets of cardinality k>=3 and every integer 31<=n<=64, the classical factor-two inequality r(BWT(w))<=2 r(w) for the Lyndon primitive representative gives r_cyclic(w)>=ceil(n/2), since its endpoints differ. The proposed upper bound is not inferred from a search: witnesses.tsv contains exactly one ternary last-column word of each of the 34 lengths. Independently constructed the stable LF first-column permutation, verified it is an n-cycle, inverted it into a primitive input, explicitly sorted all n cyclic rotations to reproduce the last column, checked every linear adjacent last-column pair differs and counted exactly ceil(n/2) cyclic source transitions. Every 34 independent checks passed; third-symbol counts are exactly 14 with 2 occurrences, 16 with 4, 4 with 6, each a perturbation of binary alternating. This verifies the finite certificates and their all-alphabet extension without confusing existence at 34 lengths with a proof at all lengths.
 
-## Closest literature and limits
-The sharpness problem and Hamming/cycle equivalence come from Kumallagov (2026); the general unclustered-existence theorem and cycle criterion are also in Fici et al. (2025). The proof is a finite certificate combined with a known unconditional lower bound. It does not enumerate all minimizers, show minimal sparse perturbation size, or prove all-length sharpness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.
+
+## value
+
+PASS
+
+The 34 sharp length instances lie in the explicit conjectural finite range of a natural BWT extremal run problem. Certifying the remaining 28 lengths beyond six existing arithmetic examples provides a usable exact partial resolution and sparse ternary examples for future constructive classification. Finite scope is mathematically motivated by known nontrivial sharpness, not an arbitrary numeric slice; it does not falsely claim the global conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

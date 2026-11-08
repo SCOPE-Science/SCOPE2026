@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen Git tree",
+        "assigned proof/checker and independent arithmetic/BFS/enumeration as recorded"
+      ],
+      "rationale": "For ordered alphabets of cardinality k>=3 and every integer 31<=n<=64, the classical factor-two inequality r(BWT(w))<=2 r(w) for the Lyndon primitive representative gives r_cyclic(w)>=ceil(n/2), since its endpoints differ. The proposed upper bound is not inferred from a search: witnesses.tsv contains exactly one ternary last-column word of each of the 34 lengths. Independently constructed the stable LF first-column permutation, verified it is an n-cycle, inverted it into a primitive input, explicitly sorted all n cyclic rotations to reproduce the last column, checked every linear adjacent last-column pair differs and counted exactly ceil(n/2) cyclic source transitions. Every 34 independent checks passed; third-symbol counts are exactly 14 with 2 occurrences, 16 with 4, 4 with 6, each a perturbation of binary alternating. This verifies the finite certificates and their all-alphabet extension without confusing existence at 34 lengths with a proof at all lengths.",
+      "residual_risks": [
+        "Proof depends on the cited factor-two run theorem and standard BWT single-cycle criterion; one finite witness is an existence proof for each fixed integer length, not an exhaustive classification of optimal words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arithmetic primitive-root construction accounts for six lengths 36,37,52,53,60,61; Fici et al prove unclustered BWT existence but not an optimal input-run bound."
+        ],
+        "reasoning": "The general factor-two bound and existence of unclustered outputs do not together imply sharpness. The known arithmetic construction implies only six cases in this interval, not the other 28; full 2026 primary text was not obtainable, so priority remains qualified.",
+        "searches": [
+          "Kumallagov arXiv:2606.01267 abstract and arithmetic sharpness families",
+          "Fici–Gabory–Romana–Sciortino arXiv:2508.20879 abstract",
+          "Completely unclustered Burrows Wheeler transform minimum cyclic input runs exact interval 31 to 64 ternary BWT"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01267 abstract and relevant theorem descriptions",
+        "arXiv:2508.20879 abstract",
+        "Resultary semantic search: Completely unclustered Burrows Wheeler transform minimum cyclic input runs exact interval 31 to 64 ternary BWT",
+        "actual Git witnesses.tsv and verified LF rotation identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior lower bound U_k(n)>=ceil(n/2), prior conjectured global sharpness, six prior arithmetic sharp instances; current 34 explicit upper bounds force equality for each fixed n."
+        ],
+        "reasoning": "An open global sharpness conjecture plus a lower bound is not a proof of all 34 upper bounds. Published special cases are explicitly subtracted from the claimed incremental coverage.",
+        "searches": [
+          "arXiv:2606.01267",
+          "arXiv:2508.20879",
+          "Completely unclustered Burrows Wheeler transform minimum cyclic input runs exact interval 31 to 64 ternary BWT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumallagov defines U_k(n) by primitive cyclic input runs; its one-cycle reduction uses d_H(L,sort L); independently checked all one-cycle LF and cyclic run counts on actual 34 certificates."
+        ],
+        "reasoning": "The finite certificate theorem is equivalent to exact sharpness of the known factor-two lower bound on the specific 31..64 interval, not to general existence of unclustered BWTs at any length.",
+        "searches": [
+          "Completely unclustered Burrows Wheeler transform minimum cyclic input runs exact interval 31 to 64 ternary BWT",
+          "Kumallagov arXiv:2606.01267",
+          "Fici et al arXiv:2508.20879"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual 34-row witness table validated; upstream work provides small examples and selected arithmetic families, not the same complete 34-length certificate table in accessible evidence."
+        ],
+        "reasoning": "A table with verified single-cycle/Hamming certificates is an exact finite arithmetic dataset; it does not purport to enumerate all extremizers or lengths beyond 64.",
+        "searches": [
+          "Completely unclustered Burrows Wheeler transform minimum cyclic input runs exact interval 31 to 64 ternary BWT",
+          "Kumallagov arXiv:2606.01267 lower bound examples through n=12",
+          "assigned witnesses.tsv all n31..64"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.",
+      "residual_risks": [
+        "Kumallagov 17-page primary full text remained inaccessible despite arXiv/OA attempts and authorized Oxford attempt returning vpn_disconnected; same-paper full-text priority comparison remains qualified.",
+        "An unindexed interval certificate or stronger unpublished length construction could cover some additional lengths; failed search alone is no novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lower bound, Hamming criterion, small cases and prime-primitive-root families; full-document absence prohibits categorical noncoverage claim",
+          "evidence": "arXiv abstract explicitly defines U_k, lower bound, Hamming identity, selected infinite arithmetic sharpness",
+          "identifier_or_url": "arXiv:2606.01267",
+          "material_read": "arXiv abstract, publication metadata and cited theorem descriptions; 17-page full text not obtained; attempted arXiv and lawful OA, then authorized Oxford institutional retrieval, which returned vpn_disconnected",
+          "method": "primary abstract and source-access attempts",
+          "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+          "trigger": "Same invariant U_k(n), exact claimed original conjecture and arithmetic family"
+        },
+        {
+          "assessment": "Existence of unclustered image does not guarantee minimal source run count",
+          "evidence": "Existence for nonbinary lengths; no minimal cyclic source-run formula in inspected material",
+          "identifier_or_url": "arXiv:2508.20879",
+          "material_read": "Abstract and theorem description for any-length existence; no claim of reading inaccessible full passages",
+          "method": "primary arXiv abstract",
+          "title": "Unclustered BWTs of any Length over Non-Binary Alphabets",
+          "trigger": "Broader nonbinary existence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "reviewed exact mathematical final theorem and motivation in assigned RESULT.md"
+      ],
+      "rationale": "The 34 sharp length instances lie in the explicit conjectural finite range of a natural BWT extremal run problem. Certifying the remaining 28 lengths beyond six existing arithmetic examples provides a usable exact partial resolution and sparse ternary examples for future constructive classification. Finite scope is mathematically motivated by known nontrivial sharpness, not an arbitrary numeric slice; it does not falsely claim the global conjecture.",
+      "residual_risks": [
+        "The 34-case result is intrinsically finite and has no uniform all-length construction; general constructive and classification questions remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proof depends on the cited factor-two run theorem and standard BWT single-cycle criterion; one finite witness is an existence proof for each fixed integer length, not an exhaustive classification of optimal words.",
+    "The 34-case result is intrinsically finite and has no uniform all-length construction; general constructive and classification questions remain open.",
+    "Kumallagov 17-page primary full text remained inaccessible despite arXiv/OA attempts and authorized Oxford attempt returning vpn_disconnected; same-paper full-text priority comparison remains qualified.",
+    "An unindexed interval certificate or stronger unpublished length construction could cover some additional lengths; failed search alone is no novelty proof."
+  ],
+  "schema_version": 1
+}
