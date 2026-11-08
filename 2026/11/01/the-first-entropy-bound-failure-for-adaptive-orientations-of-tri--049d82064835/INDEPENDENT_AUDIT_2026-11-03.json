@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:02:24.304719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each triangular book B_r=K_(1,1,r), 1≤r≤7, an acyclic orientation is specified by a spine direction and three allowed spoke pairs per page; any directed four-cycle forces a forbidden oriented triangle. Thus |A_r|=2·3^r. The exact complete online-shattering recursion F_r(S,d)⇔∨_q(F_r(S∩Q_q,0,d−1)∧F_r(S∩Q_q,1,d−1)), with F(S,0) iff nonempty and |S|<2^d pruning, is equivalent by induction to existence of a depth-d complete adaptive edge-query tree. Independently implemented the entire exact bitmask recursion, obtaining Ldim r=1..7 as (2,4,5,7,8,10,11) and memoized state counts (11,72,224,1298,5396,28117,236276). Also directly inspected actual CERTIFICATE.json (187748 bytes, matching frozen Git blob) and independently validated its 3508 leaf witnesses, seven complete trees, acyclicity, uniqueness, query-path agreement and 2048 leaves for r=7. Consequently depth 12 fails at r=7 while entropy cardinality allows 12; r≤6 attain their cardinality upper bounds. This is a complete finite proof, not a timeout or extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozma–Moran establish forest support for VC but not these adaptive optimal depths in inspected sections.",
+          "Blagoev complete multipartite enumeration includes K1,1,r count but cardinality alone gives an upper bound, not online tree existence."
+        ],
+        "reasoning": "A general online shattering result supplying exact formula for all complete multipartite classes could subsume these seven values; none identified in relevant primary comparisons.",
+        "searches": [
+          "Kozma Moran Shattering Graph Orientations and Connectivity 2013 Lemma12 Proposition15",
+          "Blagoev On the Number of Acyclic Orientations of Complete k-Partite Graphs arXiv:1808.02787",
+          "Cardinal Hoang Merino Micka Mutze 2022 acyclic orientation generation"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.37236/3326",
+        "https://arxiv.org/abs/1808.02787",
+        "https://arxiv.org/abs/2212.03915"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forest formula controls fixed-coordinate VC; the card-count 2·3^7=4374 allows depth 12 but cannot rule it out.",
+          "Depth 12 impossibility requires exhaustive branching over all edge queries, beyond known enumerations of orientations."
+        ],
+        "reasoning": "Neither prior graph count nor VC theorem entails the strict Littlestone entropy-bound failure; the validated exhaustive recursion is the nonstandard new step.",
+        "searches": [
+          "Kozma Moran 2013 forest criterion orientation shattering",
+          "arXiv:1808.02787 complete multipartite acyclic orientations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozma–Moran 2013 characterize VC-shattered *fixed* edge sets as forests.",
+          "The Littlestone condition allows each new queried edge to depend on previous answers and is equivalent to a complete online shattering mistake tree, a strictly different quantifier pattern."
+        ],
+        "reasoning": "The static VC rank r+1 does not determine the adaptive Littlestone dimension; a fixed-edge count cannot imply its first strict entropy gap.",
+        "searches": [
+          "Littlestone dimension acyclic orientations triangular book K1,1,r adaptive edge queries r7 entropy bound",
+          "online shattering tree acyclic graph orientations optimal decision depth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned no directly related adaptive orientation depth table.",
+          "Independent exact Boolean recursion yielded cache sizes 11,72,224,1298,5396,28117,236276 and depths (2,4,5,7,8,10,11)."
+        ],
+        "reasoning": "No located finite table enumerates this exact concept class and adaptive depths; search incompleteness remains.",
+        "searches": [
+          "Resultary Littlestone acyclic orientation triangular book entropy failure K1,1,7",
+          "acyclic orientation online shattering triangular book first failure 7 pages 11"
+        ]
+      },
+      "rationale": "Static VC shattering of acyclic orientations along forests and the 2·3^r concept count are established or routine; the assessed result is the exact Littlestone/adaptive query depths for r=1..7 and first sharp cardinality-bound failure at r=7. Searches against graph-orientation learning literature, Resultary and complete multipartite enumeration do not locate a prior equivalent finite adaptive table. No all-r extrapolation is claimed.",
+      "residual_risks": [
+        "An unindexed online-learning exact dynamic program may have computed the same first strict entropy gap.",
+        "The result is explicitly only r≤7; no assertion for arbitrary triangular books or computational complexity of larger instances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers static forest/VC dimension, not the seven-item adaptive Littlestone sequence or r=7 strict entropy gap in the inspected full primary manuscript.",
+          "evidence": [
+            "Lemma 12; Proposition 15; definitions of orientation shattering."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3326",
+          "material_read": "Public primary PDF including Section 3.1, Lemma 12 and Proposition 15 and relevant forest proof",
+          "method": "Public PDF read and page images examined",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Exact same acyclic-orientation concept class and static shattering framework"
+        },
+        {
+          "assessment": "Establishes counting scope, not a depth-12 adaptive impossibility as far as readable material shows; no whole-document exclusion.",
+          "evidence": [
+            "Title/abstract; enumeration of complete multipartite acyclic orientations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.02787",
+          "material_read": "Public abstract and stated enumeration theorem; full proof not claimed inspected",
+          "method": "ArXiv bibliographic/abstract comparison",
+          "title": "On the Number of Acyclic Orientations of Complete k-Partite Graphs",
+          "trigger": "Exact graph family contained in complete multipartite enumeration"
+        },
+        {
+          "assessment": "Gray-code generation concerns listing acyclic orientations rather than adversarial adaptive shattering.",
+          "evidence": [
+            "Abstract and central generation result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.03915",
+          "material_read": "Public abstract and generation claims; complete text not claimed read",
+          "method": "ArXiv primary bibliographic search",
+          "title": "Combinatorial Generation via Permutation Languages. V. Acyclic Orientations",
+          "trigger": "Same orientation objects and possible adaptive construction algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An adaptive versus cardinality obstruction has a mathematically natural first crossover within the canonical family of two-hub triangular book graphs. The exact finite classification resolves when the counting upper bound on Littlestone dimension first ceases to be sharp, contrasting online adaptivity with known VC/forest shattering. The bounded n=7 cutoff is meaningful even without a conjectured formula for all r≥8.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.37236/3326",
+    "https://arxiv.org/abs/1808.02787",
+    "https://arxiv.org/abs/2212.03915"
+  ],
+  "disposition": "passed",
+  "limitations": "Only 1≤r≤7. Finite recursion is logically exhaustive with exact pruning; no uniform Ldim formula for r≥8 or a separate short structural impossibility theorem is claimed.",
+  "residual_risks": [
+    "An unindexed online-learning exact dynamic program may have computed the same first strict entropy gap.",
+    "The result is explicitly only r≤7; no assertion for arbitrary triangular books or computational complexity of larger instances."
+  ],
+  "schema_version": 1
+}
