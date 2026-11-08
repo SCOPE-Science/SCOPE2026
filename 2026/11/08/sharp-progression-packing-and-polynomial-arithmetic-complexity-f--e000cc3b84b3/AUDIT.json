@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For any selected powers, the AP step divides each difference; the exact gcd of base-power differences yields the sharp repunit index-span lower bound. Equality cases force consecutive exponents and maximal gcd step for at least three ones. Three or more ones also force exponent diameter at most twice the base logarithm of the index span; a sampled factor is determined by the positions of its first two ones and their exponent gap, giving the quadratic-logarithmic count. Composite bases and all endpoints are covered; the standard-library checker confirms 19,448 finite exponent cases and 2,898,000 sampled windows without substituting them for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem A at arXiv:2309.03180 gives an effective-alphabet exponential asymptotic with exp(o(n)) losses; this result gives a specific O(n^2 log n) bound for the fixed power-support sequence.",
+        "The 2026 arXiv:2609.28059 is about Abelian maximal pattern complexity, not arithmetic-subword counts."
+      ],
+      "reasoning": "The general 2023 theorem applies to a broader class but does not state or imply the displayed sharp word-weight cutoff or an explicit polynomial bound without additional structure; its conclusions are weaker numerically for this instance.",
+      "searches": [
+        "arXiv:2309.03180 Theorem A Sections 3-4",
+        "arithmetic subword complexity powers-of-base characteristic sequence maximal Hamming weight among arithmetic progressions exact repunit logarithm",
+        "quadratic logarithmic arithmetic subword complexity characteristic sequence base b powers perfect powers minimal window Hamming weight exact maximal one density"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.03180",
+      "arXiv:2609.28059",
+      "Hajdu–Tengely (2021) DOI 10.1007/s11139-020-00331-5",
+      "Public record: Sharp logarithmic support envelope for Abelian pattern Sturmian words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem A derives exp(o(n)) for effective alphabet size one; it does not give O(n^2 log n) or a unique minimizing binary factor.",
+        "Earlier contiguous-factor enumerations for the same sparse powers word use step one, so their statements do not control all positive arithmetic steps."
+      ],
+      "reasoning": "A strict implication from prior to this claim would need an explicit bound on the exponent configurations in arbitrary AP samples. The cited earlier theorems do not provide such a parameter-specific rigidity statement in inspected material.",
+      "searches": [
+        "arXiv:2309.03180 Theorem A; polynomial-complexity upper proof",
+        "binary automatic sparse powers positions progression packing repunit bound gcd b^m minus one",
+        "quadratic logarithmic arithmetic subword complexity characteristic sequence base b powers perfect powers minimal window Hamming weight exact maximal one density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2309.03180, Definition (4) uses arbitrary-step factors; Theorem A controls exponential-rate complexity but has no exact fixed-base Hamming ceiling.",
+        "The public logarithmic support-envelope record counts ordinary sparse-letter prefixes in Abelian pattern Sturmian words, not the progression language of a specified indicator sequence."
+      ],
+      "reasoning": "The two syntactically similar logarithmic support laws quantify over different objects. A binary word supported at repunit indices is one realized sampled word here, but neither a bound for all its arbitrary-step samples nor the all-base polynomial complexity estimate follows from the cited summary.",
+      "searches": [
+        "\"arithmetical complexity\" \"powers of 2\" sequence",
+        "\"arithmetic factors\" characteristic word powers of two",
+        "arithmetic subword complexity powers-of-base characteristic sequence maximal Hamming weight among arithmetic progressions exact repunit logarithm",
+        "quadratic logarithmic arithmetic subword complexity characteristic sequence base b powers perfect powers minimal window Hamming weight exact maximal one density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database record of the two linked claims was located in the searched sources.",
+        "Hajdu and Tengely, Powers in arithmetic progressions (2021), investigate perfect ℓ-th powers with variable bases, a distinct set from powers of a fixed integer base."
+      ],
+      "reasoning": "Classical gcd formulas for differences of powers justify the proof lemma, but searches did not identify a database of this all-length arithmetic-factor packing and polynomial enumeration claim. Failure to locate one is not definitive novelty evidence.",
+      "searches": [
+        "\"powers of b\" \"arithmetic progression\" \"consecutive powers\" \"gcd\"",
+        "minimum length arithmetic progression containing r distinct powers of integer b",
+        "minimum arithmetic progression window containing r terms of exponential sequence 1 b b^2 b^3 rigid optimal consecutive powers"
+      ]
+    },
+    "rationale": "The 2023 primary work proves effective-alphabet asymptotics and a subexponential bound, not this fixed-support exact maximum-weight formula, equality cases or quadratic-logarithmic factor-language bound; the 2026 Abelian-pattern results concern a different invariant. Accessible previous power-support claims concern contiguous factors rather than arbitrary-step sampling. Novelty remains qualified by possible unindexed equivalents.",
+    "residual_risks": [
+      "The sparse Abelian-pattern preprint and the public support-envelope record were not fully inspected; they were compared by public abstracts/summaries only.",
+      "An unindexed prior exact AP packing classification might exist.",
+      "The polynomial upper bound could be improved; no matching asymptotic lower bound is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general bounds, not covering the exact power-support statistic or quadratic-logarithmic estimate",
+        "evidence": [
+          "arXiv:2309.03180, Equation (4), Theorem A, Sections 3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.03180",
+        "material_read": "Pages 1–4: definitions and Theorem A; pages 6–8 and 12–13: lower-bound and polynomial/automatic upper-bound methods",
+        "method": "Accessible open preprint text and first-page visual inspection",
+        "title": "Arithmetical subword complexity of automatic sequences",
+        "trigger": "Primary general arithmetic-subword theorem; same sampling definition and potential stronger coverage"
+      },
+      {
+        "assessment": "Different word family invariant; full-text non-coverage is not asserted",
+        "evidence": [
+          "Abstract classifies Abelian maximal-pattern complexity; it does not mention AP-step sampling of a fixed power indicator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28059",
+        "material_read": "Abstract and accessible source description only",
+        "method": "Public preprint abstract comparison; not full-text",
+        "title": "Abelian maximal pattern complexity and extremal words",
+        "trigger": "2026 sparse exponential-support extremizer appears similar"
+      },
+      {
+        "assessment": "Studies perfect powers of variable roots, not exact geometric powers of a fixed base",
+        "evidence": [
+          "Hajdu and Tengely investigate \\(\\ell\\)-th powers among AP terms, a different infinite set."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-020-00331-5",
+        "material_read": "Abstract and accessible introductory context",
+        "method": "Public journal abstract comparison",
+        "title": "Powers in arithmetic progressions",
+        "trigger": "Potential number-theoretic coverage by maximum powers in progressions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e000cc3b-84b3-403c-bbfc-bbb19e61c45c",
+  "value": {
+    "rationale": "The arithmetic-factor language of the sparse power-indicator word is a canonical object in combinatorics on automatic words. Its exact maximal Hamming-weight profile and rigid shortest witnesses are fully settled at every base and length, and the polynomial O(n^2 log n) bound gives a quantitatively stronger structural conclusion than the general effective-alphabet exp(o(n)) upper behavior. This is more than a selected finite table or a normalization of an already counted factor invariant; it depends on an exponent-configuration counting argument.",
+    "status": "PASS"
+  }
+}
