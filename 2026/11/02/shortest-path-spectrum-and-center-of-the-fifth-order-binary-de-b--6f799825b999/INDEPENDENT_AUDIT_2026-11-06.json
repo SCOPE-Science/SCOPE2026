@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:06:18.492085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A binary order-five de Bruijn rotation class is encoded uniquely by a 16-bit feedback mask whose successor permutation on all 32 5-bit states is a single cycle. The complete search of all 65536 masks yields exactly 2048 valid cycles. Legal cross joins change two suffix-table bits; they are realized exactly by conjugate-state chord interlacement. Split/rejoin descent of differing transpositions establishes graph distance = half the bit Hamming distance between valid feedback masks (also independently verified by all-root BFS in supplied source). Exhaustive independent enumeration of all C(2048,2)=2,096,128 unordered pairs reproduces shell counts (38704,305376,758800,710976,254800,27104,368), ecc counts (5:48,6:1264,7:736), radius5, diameter7 and 48 centers. Fixed mask endpoints imply the only possible distance-7 partner is XOR with 0x7ffe; exactly 736 masks have such a partner, hence 368 unordered diametral pairs. Read actual independent truth-table and Hamiltonian-cycle verifier algorithms, both exhaustive rather than sampled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alhakim proves connectedness/Hamiltonicity and publishes the order-five degree-frequency Table 1.",
+          "Mykkeltveit–Szmidt earlier split/rejoin proof is the structural source of the metric reduction."
+        ],
+        "reasoning": "General connectivity and local degree frequency do not determine shortest-path distances, center or eccentricity spectrum; multi-de-Bruijn generalization changes the state domain.",
+        "searches": [
+          "arXiv:1805.12059 Hamiltonicity Cross-Join Graph",
+          "Mykkeltveit Szmidt On cross joining de Bruijn sequences 2013/760",
+          "Alhakim Szmidt Multi de Bruijn Sequences 2023"
+        ]
+      },
+      "checked_sources": [
+        "Alhakim, Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences, arXiv:1805.12059, 17-page full PDF sections/Table 1 and screenshots",
+        "Mykkeltveit–Szmidt, On cross joining de Bruijn sequences, Cryptology ePrint 2013/760, partial/source access error noted",
+        "Alhakim–Szmidt, Multi de Bruijn Sequences and the Cross-Join Method, Mathematics 11 (2023) 1262, abstract only",
+        "Resultary query binary order five de Bruijn cross join graph all pair distances radius diameter center eccentricity",
+        "Git pinned RESULT.md, verify_truth_table.py, verify_hamiltonian_cycles.py and all eight actual record blob SHA identifiers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier cross join switching can imply distance = half the Hamming feedback mask difference.",
+          "Determining all valid masks and their 2,096,128 pair distances/eccentricities needs an additional exhaustive enumeration, not given by that general metric identity."
+        ],
+        "reasoning": "The narrow finite census survives the broader metric reduction, provided historical tables do not already contain its exact data. The known 38704 edges are not counted as new.",
+        "searches": [
+          "Alhakim Table 1 fifth order cross joins",
+          "Mykkeltveit Szmidt cross joining descent minimum number moves",
+          "binary de Bruijn fifth order 2048 nodes eccentricity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle feedback masks, Hamiltonian tours and cyclic binary de Bruijn words represent the same 2048 objects modulo rotation.",
+          "Cross join is equivalent to a legal two-table-bit switch or alternating conjugate-chord operation."
+        ],
+        "reasoning": "The known connectivity-descent argument yields the Hamming metric, which is acknowledged; the exact order-five shell and center census is a different assertion.",
+        "searches": [
+          "binary order five de Bruijn cross join graph all pair distances radius diameter center eccentricity",
+          "eprint 2013/760 cross joining de Bruijn sequences",
+          "arXiv 1805.12059 cross join graph shortest path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alhakim Table 1 gives degrees 31..64 with frequency distribution; graph edge total 38704 follows and is known.",
+          "No radius, center or distance-shell table is in Table 1 or inspected relevant discussion; Resultary nearest metric hits concern other graphs."
+        ],
+        "reasoning": "The claim deliberately subtracts known vertex/edge/degree counts. Exact new numerical metric classification is not automatically implied by a degree histogram.",
+        "searches": [
+          "Alhakim 2018 Table 1 degree frequency order 5 binary cross joins",
+          "de Bruijn cross-join graph 48 centers 368 antipodal pairs 7 distance",
+          "cross join graph fifth order all pairs diameter",
+          "binary order five de Bruijn cross join graph all pair distances radius diameter center eccentricity"
+        ]
+      },
+      "rationale": "Mykkeltveit–Szmidt supply the cross-join connectivity/descent method, and Alhakim (arXiv:1805.12059), Table 1, already lists degree frequencies for this very order-five graph, implying 2048 vertices and 38704 edges. Those facts are prior; the assessed addition is the complete seven-bin shortest-path spectrum, 48 centers, eccentricity classes and exact antipodes. Alhakim explicitly distinguishes his other auxiliary distance from graph shortest paths; inspected primary sections do not give this metric census.",
+      "residual_risks": [
+        "An unindexed earlier metric census (or table equivalent via binary feedback mask code) could cover the finite numerical results.",
+        "Full historical Mykkeltveit–Szmidt text could not be inspected due host access restrictions; its general connectivity is acknowledged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Table 1 covers local degrees but inspected text does not supply all-pairs shortest-path shells or center.",
+          "evidence": [
+            "Table 1 explicitly lists order-5 degree frequency; paper distinguishes an auxiliary distance from shortest-path graph distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12059",
+          "material_read": "17-page arXiv full PDF, abstract, cross-join operation and connectedness discussion, page 4 Table 1 degree frequencies, section on auxiliary distance; first and fourth pages visually inspected.",
+          "method": "Lawful arXiv full-text PDF and screenshots, targeted term finds",
+          "title": "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+          "trigger": "Same exact order-five graph and potentially dominating Table 1"
+        },
+        {
+          "assessment": "General cross-join connectivity is prior; cannot claim whole source excludes metric census.",
+          "evidence": [
+            "Alhakim credits Mykkeltveit–Szmidt with affirmative cross-join connectivity."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2013/760",
+          "material_read": "Text of accessible ePrint preview and bibliographic information; screenshot/full PDF retrieval returned 403 and whole document not inspected.",
+          "method": "Open preprint attempt; partial parsed text",
+          "title": "On cross joining de Bruijn sequences",
+          "trigger": "Foundational graph connectivity and descent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-join geodesic length is the minimum number of legal transformations between complete de Bruijn cycles. The entire distance distribution, finite diameter bound 7, the optimal 48 centers and 368 diametral pairs are natural exact invariants of a canonical nontrivial 2048-state reconfiguration graph. A complete finite classification is valuable without claiming an all-order theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact numerical distance census only for order-five binary de Bruijn cycles modulo rotation, no complement/reversal quotient and no general-order formula.",
+    "Metric descent is prior and not claimed new; whole-paper noncoverage is not asserted for inaccessible ePrint."
+  ],
+  "schema_version": 1
+}
