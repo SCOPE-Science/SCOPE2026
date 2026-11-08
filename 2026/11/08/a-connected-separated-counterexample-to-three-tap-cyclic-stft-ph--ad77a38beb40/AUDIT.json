@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=2 the window covers exactly three consecutive entries. The three short Fourier polynomials are A+Bzeta, B+Azeta^2 and zeta(A+Bzeta), giving full intensity invariants S and P; these agree for (a,b) and (b,a) when a,b>0. The support gaps alternate 1,2 and there are zeros every third coordinate. Frequencies recover S and P exactly (d>=6), and the restricted fiber comes from the two roots of X^2-SX+|P|^2. Reconstructed definitions, all quantifiers, boundary cases, and exact-checker outputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 Theorem 7.2.12 formulates a broader claimed positive result, namely 1-separated and 2-connected implies phase retrievable for all 3-site windows.",
+        "The nonvanishing-signal recovery theorem assumes no zero coordinates."
+      ],
+      "reasoning": "A purported stronger positive coverage is not an established implication because the explicit constructed signals refute it. Actual sufficient results requiring coordinatewise nonvanishing or other restrictions do not apply.",
+      "searches": [
+        "Bartusel thesis Theorem 7.2.12 connectedness conjecture false swapped amplitudes STFT 1-separated periodic signals",
+        "doi:10.18154/RWTH-2024-03402 Theorem 7.2.12",
+        "published finding: Endpoint-lag recovery for nonvanishing cyclic STFT phase retrieval"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.06729v1 (2022 original preprint)",
+      "doi:10.1007/s00041-023-10026-2 (open access 2023 full text)",
+      "doi:10.18154/RWTH-2024-03402 (2024 full thesis theorem + context)",
+      "published finding: Exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window",
+      "published finding: Endpoint-lag recovery for nonvanishing cyclic STFT phase retrieval",
+      "published finding: Parity-rigid ambiguity-support spectra for primitive three-tap cyclic signals"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper concludes L/2-separated connectedness sufficiency remains conjectural.",
+        "The 2024 dissertation Theorem 7.2.12(b) states this sufficiency but is contradicted at d=6,L=2 by a=2,b=3, while its exception in (a) requires singleton 3-block support."
+      ],
+      "reasoning": "This is a counterexample to a stated positive conjecture/theorem, not a repackaging or corollary: its hypotheses are satisfied and its conclusion is false. The earlier source example does not have the current support pattern.",
+      "searches": [
+        "Counterexample to half-window separation conjecture in short-time Fourier phase retrieval for cyclic signals, periodic 3-block signals with two nonzero entries swapped and rectangular constant window length 3",
+        "Bartusel thesis Theorem 7.2.12 connectedness conjecture false swapped amplitudes STFT 1-separated periodic signals",
+        "Three-point rectangular window cyclic STFT phase retrieval 1-separated 2-connected signals periodic supports 110 with unequal amplitudes swap same spectrogram, disproves half-window connectedness conjecture",
+        "arxiv:2206.06729v1",
+        "doi:10.1007/s00041-023-10026-2",
+        "doi:10.18154/RWTH-2024-03402"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cyclic three-site window intensity is determined by the windowed autocorrelation coefficients, equivalently the two block invariants S and P.",
+        "Bartusel 2023 Example 4.2.3 constructs sparse translations with a single occupied residue, not these connected two-residue-per-block pairs."
+      ],
+      "reasoning": "Compared equal-spectrogram signals, aliases as cyclic STFT ambiguity and homometric windowed autocorrelations, and the exact support/connectivity constraints. The earlier example does not match the source statement or imply our counterexample.",
+      "searches": [
+        "Counterexample to half-window separation conjecture in short-time Fourier phase retrieval for cyclic signals, periodic 3-block signals with two nonzero entries swapped and rectangular constant window length 3",
+        "Three-point rectangular window cyclic STFT phase retrieval 1-separated 2-connected signals periodic supports 110 with unequal amplitudes swap same spectrogram, disproves half-window connectedness conjecture",
+        "doi:10.1007/s00041-023-10026-2 Section 4.2",
+        "doi:10.18154/RWTH-2024-03402 Theorem 7.2.12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearby published records treat three-sparse autocorrelation support and two-tap measurement fibers, not this connected periodic three-site window fiber.",
+        "The quadratic X^2-SX+|P|^2 derives the exact two-class restricted fiber; no external table was used."
+      ],
+      "reasoning": "Queries covered three-tap, 3-periodic 2-of-3 support, connectedness threshold, and complex amplitude swaps. No checked database/catalog supplied this precise pair or restricted-fiber count.",
+      "searches": [
+        "Counterexample to half-window separation conjecture in short-time Fourier phase retrieval for cyclic signals, periodic 3-block signals with two nonzero entries swapped and rectangular constant window length 3",
+        "Three tap flat STFT ambiguity on cyclic groups periodic signals amplitudes (a,b,0) and (b,a,0)",
+        "published finding: Parity-rigid ambiguity-support spectra for primitive three-tap cyclic signals"
+      ]
+    },
+    "rationale": "The first-public 2022 STFT work leaves the sharp L/2-separated question as a conjecture. Its previously constructed periodic exceptions use a single occupied residue; the present 2-of-3 periodic support is connected, meets the half-window separation threshold and contradicts the unrestricted 2024 positive statement. The restricted two-orbit classification is proved via a quadratic invariant. Searches and comparison against similar published cyclic STFT records found no equivalent covering claim; historical priority remains provisional.",
+    "residual_risks": [
+      "An earlier or independent unpublished specialized flat-window ambiguity construction may exist outside indexed searches.",
+      "The cited theorem is compared as printed; this report does not establish the source of an error in any external proof.",
+      "Database statement-level checks of selected nearby records are not full-document exclusion arguments; the two highly relevant primary sources were read at their crucial passages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Earlier periodic counterexamples use one occupied residue; the present connected two-residue block at L=2 is outside the construction and contradicts the stated still-open extension.",
+        "evidence": [
+          "Springer 2023, Example 4.2.3, one residue for each divisor r of L+1",
+          "Springer 2023, Section 4 ending: L/2-separated criterion conjectural"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-023-10026-2",
+        "material_read": "Full available Section 4.2, including definitions, Example 4.2.3, Theorems 4.2.6 and 4.2.8, Corollary 4.2.9, and closing conjecture",
+        "method": "Full open-access HTML reading and direct comparison of support patterns and quantifiers",
+        "title": "Injectivity conditions for STFT phase retrieval on Z, Z_d and R^d",
+        "trigger": "Section 4.2 periodic nonuniqueness Example 4.2.3 and explicit L/2-connectedness conjecture"
+      },
+      {
+        "assessment": "Part (b) states an implication falsified by explicit positive blocks on d=6 and all multiples of 3; part (a) exceptional support has only one occupied site per 3-block, unlike this two-site construction.",
+        "evidence": [
+          "RWTH thesis, Theorem 7.2.12, printed pages 109–110, PDF pages 119–120",
+          "RWTH thesis, Example 7.2.4 and Theorem 7.2.11 distinguish the older singleton pattern"
+        ],
+        "identifier_or_url": "https://publications.rwth-aachen.de/record/983400/files/983400.pdf",
+        "material_read": "Printed pages 109–110, Theorem 7.2.12(a)-(b), surrounding discussion and the definition of separation/connectivity and window class",
+        "method": "Full-page PDF visual inspection and searchable PDF text, especially printed pages 109 and 110",
+        "title": "The role of connectedness in phase retrieval",
+        "trigger": "Direct target theorem asserting half-window connectedness characterizes cyclic STFT retrieval"
+      },
+      {
+        "assessment": "Two-tap nonvanishing framework does not imply a three-tap one-zero-per-block separated counterexample.",
+        "evidence": [
+          "Published record summary: nonvanishing full-support cyclic two-tap window fibers"
+        ],
+        "identifier_or_url": "published finding: Exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window",
+        "material_read": "Searchable published abstract/statement containing the nonvanishing hypothesis and two-site window",
+        "method": "Semantic research database record and statement-level comparison",
+        "title": "Exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window",
+        "trigger": "Possible same magnitude-swap mechanism"
+      },
+      {
+        "assessment": "Cannot cover signals with a zero in every third coordinate.",
+        "evidence": [
+          "Published record summary: recovery of coordinatewise nonvanishing signals under gcd condition"
+        ],
+        "identifier_or_url": "published finding: Endpoint-lag recovery for nonvanishing cyclic STFT phase retrieval",
+        "material_read": "Published abstract/statement with explicit nonvanishing hypothesis",
+        "method": "Semantic research database statement comparison",
+        "title": "Endpoint-lag recovery for nonvanishing cyclic STFT phase retrieval",
+        "trigger": "Potential stronger all short-window uniqueness result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad77a38b-eb40-4032-b9c3-9adb36a35524",
+  "value": {
+    "rationale": "This gives an explicit infinite family of separated but connected signals at the conjectured half-window separation threshold for a natural flat short window. It tests a published mathematical assertion and identifies a concrete mechanism and exact periodic-stratum fiber size, substantially beyond a routine numerical example.",
+    "status": "PASS"
+  }
+}
