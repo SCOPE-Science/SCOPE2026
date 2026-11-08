@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification protocol
+# Independent mathematical audit
 
-Run `python3 verify_jordan.py` in a directory containing the code. It requires only a Python 3 standard library and does not retrieve external data. Its final expected line is:
+## correctness
 
-`NULL_FILIFORM_MODULAR_JORDAN_CENSUS_OK 20`
+PASS
 
-The program independently constructs derivation matrices from the basis multiplication table, calculates ordinary finite-field ranks of shifted matrix powers, derives Jordan partitions from their kernel dimensions, and compares profile frequencies conditional on the first diagonal parameter against the proposed closed expressions. It also checks the combined nullity distribution and tests genuine extension fields of cardinality four and nine.
+For the specified right null-filiform algebra, applying the derivation identity to the basis recurrence determines D uniquely by D(e1) and gives D=uH+f(N). For u=0, f(N)=N^d h(N) with h(0) nonzero has ker f(N)^j=ker N^(dj), determining P(n,d). For u nonzero, [H,N^j]=j N^j and conjugation by the unit g(N) eliminates precisely non-p-divisible degrees via invertible uj; its coefficient recursion is a bijection, not just an existence argument. The retained polynomial in N^p preserves p-residue classes with eigenvalues cu and partitions P(m_c,r), and the first nonzero coefficient gives exact q-counts. Nullity m=floor(n/p) on the zero-eigenvalue class yields the rank formula and invertibility iff p>n. Verified independent direct GF2, n=5 enumeration of 32 matrices against predicted eight conditional profiles and nullity counts. No finite test establishes the all-n result.
 
-The file `check_output.txt` records each exhaustive finite configuration and its nullity counts. Finite exhaustive checks are restricted to the tested dimensions and fields, and do not establish the general theorem without the proof in `RESULT.md`.
+## originality
 
-The mathematical argument relies on the triangular unit-polynomial similarity over characteristic \(p\), using divisions only by \(uj\) with \(u\ne0\) and \(p\nmid j\), and then on the Jordan kernel structure of powers of the nilpotent shift. No numerical approximation or probabilistic primality calculation is needed. No independent mathematical audit has been performed.
+PASS
+
+The old null-filiform derivation-matrix description and general complex Jordan-Chevalley results are antecedents. The claimed addition is a positive-characteristic similarity normal form and complete labelled finite-field Jordan frequency table. The closest accessible original results do not assert this census; unindexed equivalent modular matrix-normal-form literature remains a genuine priority risk.
+
+## value
+
+PASS
+
+The canonical null-filiform Leibniz family has a nontrivial positive-characteristic resonance that changes similarity types without changing rank. The complete eigenvalue-labelled Jordan and nullity distribution over all F_{p^e} is a natural representation-theoretic invariant and detects the exact invertibility boundary. It requires a modular normalization beyond the known triangular derivation formula; not a mere numerical special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
