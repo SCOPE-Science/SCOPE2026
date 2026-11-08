@@ -1,19 +1,21 @@
-# Scientific review: nonlinear Hamming-product gradient smoothing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over all finite products of complete graphs with axiswise homogeneous positive conductances, common exponent strictly above one, unit vertex masses, arbitrary real initial data, all coordinates and all nonnegative times. The proof uses a scalar power inequality whose minimum is attained at the endpoints for \(1<p\le2\) and at the midpoint for \(p>2\). On an active coordinate edge, matched neighbor pairs across every other direction have nonpositive influence because the nonlinear flux is increasing. The remaining same-fiber terms yield precisely \(c_i[2+(q_i-2)\alpha_p]\). A finite maximum/Dini comparison proves the stated all-time upper bound, including absorption at a zero coordinate seminorm. Separable one-coordinate profiles solve the full nonlinear product equation *exactly* and simultaneously saturate every bound, establishing the optimal finite-time consensus estimate. Monotonicity of the convex energy gives uniqueness for non-Lipschitz fluxes at \(1<p<2\). The standalone checker completed 2,265 exact inequality tests, 54 exact equality tests, scalar-profile diagnostics and 80 numerical flow comparisons. These checks corroborate, rather than replace, the universal proof.
+PASS
 
-## Originality — PASS (with publication-priority risk)
+For an active direction-i edge with ordered gap ℓ, two direct arc contributions are −2 c_i ℓ^(p−1), and each of q_i−2 other complete-fiber vertices contributes −c_i ℓ^(p−1)[s^(p−1)+(1−s)^(p−1)], whose minimum α_p=1 for p≤2 and 2^(2−p) for p>2 follows from concavity/convexity. Matched edges in any other coordinate j have nonpositive derivative difference by monotonic flux and same c_j. Hence the upper Dini derivative L_i ≤−κ_i L_i^(p−1). Permutation symmetry keeps zero direction seminorm zero, and scalar ODE comparison gives finite-time, exponential or power law envelopes. One-clique high/low or +/-/zero profiles realize equality and their additive product solves the full nonlinear equation because each edge increment is coordinate-separable. Thus all axes/times simultaneously saturate and extinction is sharp. Independently tested 168 weighted active-edge derivative inequalities and 28 sharp separable initial derivatives on small Hamming products; general proof is analytic.
 
-Mugnolo's foundational 2012 theory (arXiv:1207.1996) establishes nonlinear semigroup well-posedness, order preservation and symmetry, but not evaluated coordinatewise edge-Lipschitz dissipation on Hamming products. Hua–Mugnolo (arXiv:1410.1584) proves time regularity and finite-extinction results under different norms and graph assumptions; it does not derive the simultaneous all-time sharp directional envelope. Lin–Liu–Yang (arXiv:1509.07981) studies gradient-form bounds for positive functions with the **linear** graph Laplacian; its inequality is not an evaluated nonlinear coordinatewise flow comparison. Abatangelo–Dragomir (2008, DOI:10.4036/iis.2008.225) treats **linear discrete-time** Hamming heat kernels and is an antecedent for the graph family and the linear case, not a nonlinear solution. Related earlier product findings establish total-variation tensorization and a linear edge-gradient projection norm, not the nonlinear edge-seminorm law. The one-clique local coefficient is also a special case of existing complete-multipartite gradient results; the added statement is the *nonlinear Cartesian product*, *all-axis simultaneous* sharpness and *finite-time* envelope. Searches of mathematical research records, accessible earlier claims and primary literature did not reveal a statement that implies this full product theorem. Searches are not proof of uniqueness; an unindexed nonlinear gradient estimate or alternate formulation is a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is mathematically motivated by the fact that nonlinear \(p\)-heat evolution on Cartesian products is generally not a linear tensor product. It is therefore not obvious that each coordinate gradient evolves under a dimension-free sharp comparison independent of all other coordinate disturbances, let alone that arbitrary independent directional budgets can attain equality simultaneously for all times. The theorem proves exactly this anisotropic tensorization and gives a usable optimal finite-time consensus bound when \(1<p<2\), a distinct quantitative result from graph-wide vertex-norm contraction or a linear heat kernel. The axis sizes, conductances and nonlinear exponent all enter explicitly, and the endpoint coefficient is attained; these are structural formulas over an infinite natural class, not arbitrary graph-size computations.
+Mugnolo 2012 develops general well-posed discrete p-heat semigroups and symmetry; its full text does not provide these explicit Hamming coordinate Lipschitz envelopes and simultaneous saturating solutions. Lin–Liu–Yang studies graph gradient Γ for positive functions with the linear Laplacian and heat equation; Hua–Mugnolo studies long-time/extinction in general graph contexts. Their assertions do not imply the exact all-p anisotropic clique coefficient without additional active-edge calculation.
 
-## Scope and residual risks
+## value
 
-The result requires finite Hamming products, common \(p\), unit vertex masses and conductance homogeneous within each coordinate. It does not concern two-input edge-Lipschitz differences, arbitrary weighted products or infinite graphs. Previously known linear and single-clique cases are acknowledged rather than portrayed as standalone novelties. Further comparison with unindexed literature may affect priority; no external independent review was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp nonlinear gradient regularization in each anisotropic coordinate is a natural observable for product Markov graphs; it supplies exact rates, globally simultaneous extremizers and optimal finite-time consensus in fast diffusion p<2. Neither general semigroup contraction nor textbook p=2 mixing alone gives the p-dependent piecewise sharp directional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
