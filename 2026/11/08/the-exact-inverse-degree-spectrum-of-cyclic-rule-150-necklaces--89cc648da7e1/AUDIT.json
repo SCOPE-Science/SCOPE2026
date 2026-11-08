@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For \\(3\nmid n\\), the recurrence kernel is trivial. For \\(3\\mid n\\), the kernel is exactly the four three-periodic vectors, the image is exactly the two-constraint parity subspace, and each reachable output has four labeled predecessors. The target stabilizer \\(\\langle R^p\rangle\\) acts either as fixed+three-cycle for \\(3\nmid p\\), as identity for a reachable primitive \\(p\\)-block with \\(3\\mid p\\), or as a nontrivial translation pairing for a nonreachable primitive block with reachable repetition. This reconstructs the 0/1/2/4 formula. Burnside counts reachable fixed outputs via \\(H_n(d)\\), and Möbius inversion counts primitive good blocks. Exhaustive independent comparison for all 1..18 ring sizes and arithmetic checks through 60 passed. Limits: finite experiments are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1984 source characterizes the labeled image as polynomial multiples of a gcd and describes labeled state-transition structures.",
+        "The 2024 article applies literal rotation quotient to all 256 elementary rules, but focuses on finite network visualizations, components and loop statistics, without an evaluated general Rule 150 predecessor-degree formula.",
+        "The 2013 state-network class refinement considers dynamical similarity and tables of class counts, rather than rotation-stabilizer inverse-degree histograms."
+      ],
+      "reasoning": "The foundational algebra and the necklace-network construction are each broader in setup than the present theorem, but neither states the full pointwise Rule 150 quotient formula or the exact unbounded-degree census. The result requires identifying the action of an output stabilizer on a three-periodic kernel torsor and a separate primitive-period Möbius inversion; general finite graph generation is not an explicit parameter theorem.",
+      "searches": [
+        "doi:10.1007/BF01223745, Lemma 4.4 and section 4",
+        "arxiv:2409.04780, sections From rules to networks, Growing Networks, Conclusion and appendices",
+        "arxiv:1304.5771, sections 3-4.2"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1103/RevModPhys.55.601",
+      "https://doi.org/10.1007/BF01223745",
+      "https://arxiv.org/abs/1304.5771",
+      "https://arxiv.org/html/2409.04780v1",
+      "https://mathworld.wolfram.com/Rule150.html",
+      "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.105.034124 (abstract: distinct staggered/Floquet reversible model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An image criterion in labeled linear algebra implies four labeled predecessors for singular lengths, not that necklace predecessors have precisely two or four or when each happens.",
+        "The basic equivariance observation explains why quotienting is possible but does not compute stabilizer orbit types.",
+        "Rule 105/150 local complement does carry over these counts, but contains no independent all-length computation."
+      ],
+      "reasoning": "Combining the polynomial image criterion with a necklace definition alone leaves unresolved the nontrivial stabilizer action: a four-point fiber can in principle yield 1, 2, 3 or 4 orbits. The new period-three kernel action forces only 2 or 4, and the period-block lift criterion determines exactly which. Möbius inversion then yields a new all-length exact census. No inspected source explicitly states a stronger formula from which all those quantitative conclusions follow.",
+      "searches": [
+        "doi:10.1007/BF01223745, Lemma 4.4",
+        "arxiv:2409.04780, section From rules to networks",
+        "arxiv:1304.5771, Table 3",
+        "\"rule 150\" \"period 3\" \"preimages\" cyclic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 105 is the output-complement of the Rule 150 local map, and output complementation preserves cyclic rotation orbits.",
+        "Krawczyk (2013) compares Rule 105 with Rule 150 but uses recursively refined state-neighborhood classes, not rotation classes.",
+        "Martin–Odlyzko–Wolfram (1984), section 4, provides polynomial additive-state reachability, not the stated quotient-stabilizer count."
+      ],
+      "reasoning": "Complementing all target bits translates the classification to Rule 105; it is acknowledged as equivalent, not a second finding. The cubic tap polynomial \\(1+z+z^2\\) is the algebraic form of the same map. Other additive Rule 90 has different labeled kernel size and ring-size singularity, so its own inverse-degree theorem neither contains nor implies this Rule 150 classification.",
+      "searches": [
+        "\"rule 150\" \"necklace\" \"indegree\"",
+        "\"rule 150\" \"necklaces\" \"preimages\"",
+        "\"rule 105\" \"necklace\" \"preimages\" cellular automaton",
+        "arxiv:1304.5771, section 4.1 and tables 3",
+        "doi:10.1007/BF01223745, section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krawczyk Table 3 records dynamical refinement-class counts (for example 2, 3, 2, 5), a different quantity than degree-2 and degree-4 necklace counts.",
+        "Frati–Petak–Cheney shows finite necklace network images and component statistics, not the claimed exact degree histogram.",
+        "Available sequence-string searches did not yield a directly matching previously published mathematical formula; this is negative search evidence only."
+      ],
+      "reasoning": "The closest published tables enumerate different invariants; figure-level finite data could permit individual values to be reconstructed but do not cover the closed law for arbitrary \\(n\\). Failure to find a table cannot establish uniqueness and is retained as a priority uncertainty.",
+      "searches": [
+        "\"0, 1, 14, 80, 544, 3627\" \"Rule 150\"",
+        "\"2, 5, 2, 16, 8, 47\" \"cellular automaton rule 150\"",
+        "arxiv:1304.5771, Table 3",
+        "arxiv:2409.04780, Figure 17 and appendix B"
+      ]
+    },
+    "rationale": "The all-length parity-and-primitive-period law for the literal cyclic-rotation quotient, together with exact degree-0/2/4 counts, is not stated by the inspected foundational labeled-state theory (1984), the alternate phase-space equivalence classes (2013), or the empirical necklace-network study (2024). The quotient stabilizer action is a necessary additional argument; comparison to an earlier Rule 90 result does not imply it. Direct alternate-wording searches found no covering formula. Priority remains qualified for less accessible historical atlases or tables.",
+    "residual_risks": [
+      "Older less searchable global-transition atlases may encode this exact necklace-degree law without using the word necklace.",
+      "Some numeric sequences could exist in an external database under a different indexing convention; unsuccessful sequence searches do not establish unique priority.",
+      "The 1984 author-hosted full PDF was inspected in the relevant algebraic sections, but not all its visual figures and appendices; those are a bounded historical-priority uncertainty.",
+      "No independent mathematical validation or comprehensive publication-priority guarantee is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the historical standard-rule reference and date, not the quotient classification. Full paper not assessed for this comparison.",
+        "evidence": [
+          "Publisher bibliographic page: Rev. Mod. Phys. 55, 601; published 1 July 1983."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+        "material_read": "Publisher bibliographic page and abstract, including explicit publication date 1983-07-01",
+        "method": "Publisher HTML bibliographic and abstract review",
+        "title": "Statistical mechanics of cellular automata",
+        "trigger": "Chronologically verified foundational elementary-rule source"
+      },
+      {
+        "assessment": "It proves a general labeled-image criterion and gives dynamical cycle periods; it does not supply the output-stabilizer orbit count under necklace rotation or the exact inverse-degree spectrum.",
+        "evidence": [
+          "Section 4 identifies Rule 150 with \\(z+1+z^{-1}\\).",
+          "Lemma 4.4 gives the divisibility criterion for reachable labeled states.",
+          "Table 1 concerns maximal cycle lengths, not the output-necklace in-degree distribution."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sw-publications/2020/07/algebraic-properties-cellular-automata.pdf",
+        "material_read": "Open full-text PDF text layer: introduction, Section 2 formalism, Section 4 additive-rule specialization and Lemma 4.4, surrounding the reachability proof; table of cycle lengths. Figure images not analyzed.",
+        "method": "Section and theorem text inspection of freely available full PDF text",
+        "title": "Algebraic properties of cellular automata",
+        "trigger": "Directly relevant additive cyclic Rule 150 and labeled preimages"
+      },
+      {
+        "assessment": "Its degree-refinement class equivalence is not cyclic rotation of binary words; its class-count table does not imply this inverse-degree spectrum.",
+        "evidence": [
+          "Section 3 defines iteratively refined dynamical-neighborhood classes.",
+          "Table 3 records the number of such classes for Rules 105 and 150 up to length 21."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1304.5771",
+        "material_read": "Accessible article text: definitions of equivalence in Section 3 and the Rule 105/150 discussion, Table 3 and later comparisons in Section 4.",
+        "method": "Open-access full article text and named table inspection",
+        "title": "New aspects of symmetry of elementary cellular automata",
+        "trigger": "Explicitly groups Rules 105 and 150 and analyzes predecessor-related network structures"
+      },
+      {
+        "assessment": "Defines exactly the necklace dynamics being studied, then reports finite network and cycle/component properties, not the all-length Rule 150 pointwise inverse-degree or Möbius degree-count census.",
+        "evidence": [
+          "Section From rules to networks defines the rotation quotient.",
+          "Growing Networks and the conclusion focus on weak components and attractor cycles.",
+          "Appendix B groups networks visually and contains no evaluated all-length Rule 150 degree theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.04780v1",
+        "material_read": "Entire relevant HTML article: all sections from Introduction through Conclusion, Appendix A and Appendix B captions.",
+        "method": "Open-access arXiv HTML full-text examination",
+        "title": "Networks of Binary Necklaces Induced by Elementary Cellular Automata Rules",
+        "trigger": "Closest same-object rotation quotient of all 256 elementary rules"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89cc648d-a7e1-4f52-9c08-940e4528913b",
+  "value": {
+    "rationale": "This is a natural complete all-ring-size invariant of an important elementary cellular automaton on rotationally unlabelled configurations: every target is classified, all inverse-degree classes have explicit integer enumerators, and a sharp generic four-parent law follows. The nontrivial period-three kernel/stabilizer mechanism explains collapse of four labeled parents into exactly two or four necklace parents. This is not a finite-table increment or a relabeling of the preceding Rule 90 theorem; Rule 150 is generically invertible on lengths coprime to three, whereas Rule 90 is never injective.",
+    "status": "PASS"
+  }
+}
