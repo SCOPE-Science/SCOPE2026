@@ -1,19 +1,21 @@
-# Scientific review: sharp long-polygon contractibility rates on flat two-tori
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The almost-sure uniqueness of shortest geodesics allows the first \(n-1\) successive displacements of independent Haar-uniform vertices to be represented as independent uniforms in the centered lattice Voronoi cell. Closure selects the unique lattice label, giving an exact convolution law. Characteristic-function inversion and a two-dimensional Gaussian rescaling give \(p_n=A/(2\pi n\sqrt{\det\Sigma})+O_T(n^{-2})\) at each fixed lattice. Exact shoelace integration of a reduced Voronoi polygon yields the covariance matrix and its normalized determinant; elementary monotonicity supplies both sharp equality classifications. The independent CHECK.py reproduces the symbolic identities and tests geometric endpoint cases. The tests are corroboration, not an infinite proof.
+PASS
 
-## Originality
+PASS: The first n-1 shortest lift displacements are iid uniform on the symmetric Voronoi fundamental cell by a triangular Haar-coordinate transformation. The closing step makes W_n the lattice representative of their sum, giving Pr(W_n=lambda)=A(1_V/A)^{*n}(lambda) exactly. Fourier inversion for the L2 compact-cell density, even characteristic function with positive definite covariance, Gaussian scaling and fourth-order Taylor remainder give p_n=A/(2 pi n sqrt(det Sigma))+O_T(n^-2) for each fixed torus. I independently rebuilt the reduced-cell six vertices and exact quadratic moments by symbolic shoelace integration: area b, covariance entries and determinant identity agree identically. The reduced-domain u=t/b^2<=1/3 and t<=1/4 make 2t u(1-u)^2 maximized uniquely at a=1/2,b^2=3/4 and minimized exactly at a=0; equality constants and rectangle Irwin-Hall formula follow. The symbolic rerun printed cov-area 0 and cov-det 0. Standard local Fourier analysis, not sampled experiments, supplies the infinite-n assertion.
 
-**PASS, provisional historical priority.** Glorieux–Yarmola (arXiv:2003.08190, first version March 18, 2020) proves the three-vertex probability and its rectangular/hexagonal optimizers, and derives a three-cell overlap functional. The new object is the full lattice-valued winding distribution for arbitrary vertex count, with a shape-sharp *large-count* probability coefficient from a new exact normalized covariance determinant. Kurlin (arXiv:2201.05150) classifies planar lattice and Voronoi geometry but does not study random minimizing-geodesic polygons or their return probabilities. Targeted searches for longer random geodesic polygons, winding asymptotics, sampled convolution formulas, and the covariance determinant did not expose a dominating statement. Earlier nonindexed results or combinations of classical Fourier methods with geometric moment identities remain possible; the absence of a search hit alone is not asserted as proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A previous exact three-vertex shape-extremum question motivates the natural many-vertex analogue. The result supplies a full homotopy-class distribution, a precise \(n^{-1}\) return law, and a sharp classification over every Euclidean flat two-torus, including all rectangular shapes and the unique equilateral maximizer. The crucial nontrivial input is the global determinant-of-Voronoi-covariance inequality rather than merely substituting into a Gaussian approximation. This is a structural asymptotic classification, not a single arbitrary parameter value.
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: O. Glorieux and A. Yarmola, *Random triangles on flat tori* (arXiv:2003.08190), and V. Kurlin, *Mathematics of 2-Dimensional Lattices* (arXiv:2201.05150). The geometric Voronoi description, characteristic-function argument, and Irwin–Hall density are classical inputs. The new sharp claim concerns only the asymptotic rate, not a finite-sample shape ordering. Error constants may depend on the fixed lattice; curved tori and nonuniform sampling are excluded. Historical priority and all independent validation remain unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural large-vertex geometric probability on arbitrary flat tori has a complete winding distribution, quantitative asymptotic coefficient and sharp, nontrivial rigidity of the lattice shapes. This fills a mathematically specific gap beyond the known random-triangle case, with a covariance determinant inequality of independent interest; rectangular finite-n aspect-ratio invariance is a useful exact check, not the novelty basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

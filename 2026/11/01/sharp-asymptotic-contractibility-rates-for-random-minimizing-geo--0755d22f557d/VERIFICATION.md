@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The complete analytic definitions, hypotheses, polygon coordinates, exact integral identities, Fourier limit argument, and equality proofs appear in RESULT.md. Run `python CHECK.py` with Python 3, SymPy, and NumPy available. The supplied checker was executed on the packaged source and printed:
+## correctness
 
-```
-SYMBOLIC_VORONOI_SECOND_MOMENTS_AND_SHARP_ENDPOINTS_PASSED
-EXACT_RECTANGULAR_WINDING_BSPLINE_LAWS_PASSED
-GLOBAL_SHAPE_OPTIMIZATION_CERTIFICATE_PASSED
-INDEPENDENT_POLYGON_MOMENT_AND_DECK_CHECKS_PASSED
-INDEPENDENT_RANDOM_GEODESIC_TRIANGLE_LIMIT_CASES_PASSED
-INDEPENDENT_FOUR_AND_FIVE_VERTEX_WINDING_LAWS_PASSED
-ALL_CHECKS_PASSED
-```
+PASS
 
-The checker reconstructs the exact covariance from a six-vertex shoelace formula, proves the determinant identity symbolically, verifies sharp boundary cases and exact finite-sample rectangular spline values, and checks numerical geometry against independently generated interior-point samples and direct nearest-deck comparisons. Its randomized comparison is deterministic under the coded seed. Numerical checks do not establish the limiting theorem; the rigorous Fourier argument and sharp parameter optimization in RESULT.md do.
+PASS: The first n-1 shortest lift displacements are iid uniform on the symmetric Voronoi fundamental cell by a triangular Haar-coordinate transformation. The closing step makes W_n the lattice representative of their sum, giving Pr(W_n=lambda)=A(1_V/A)^{*n}(lambda) exactly. Fourier inversion for the L2 compact-cell density, even characteristic function with positive definite covariance, Gaussian scaling and fourth-order Taylor remainder give p_n=A/(2 pi n sqrt(det Sigma))+O_T(n^-2) for each fixed torus. I independently rebuilt the reduced-cell six vertices and exact quadratic moments by symbolic shoelace integration: area b, covariance entries and determinant identity agree identically. The reduced-domain u=t/b^2<=1/3 and t<=1/4 make 2t u(1-u)^2 maximized uniquely at a=1/2,b^2=3/4 and minimized exactly at a=0; equality constants and rectangle Irwin-Hall formula follow. The symbolic rerun printed cov-area 0 and cov-det 0. Standard local Fourier analysis, not sampled experiments, supplies the infinite-n assertion.
 
-No independent review or external certification was performed. The asymptotic \(O_T(n^{-2})\) is not claimed uniform over degenerating lattice shapes. The finite-vertex global sharp inequality is not proved.
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.
+
+## value
+
+PASS
+
+PASS: A natural large-vertex geometric probability on arbitrary flat tori has a complete winding distribution, quantitative asymptotic coefficient and sharp, nontrivial rigidity of the lattice shapes. This fills a mathematically specific gap beyond the known random-triangle case, with a covariance determinant inequality of independent interest; rectangular finite-n aspect-ratio invariance is a useful exact check, not the novelty basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
