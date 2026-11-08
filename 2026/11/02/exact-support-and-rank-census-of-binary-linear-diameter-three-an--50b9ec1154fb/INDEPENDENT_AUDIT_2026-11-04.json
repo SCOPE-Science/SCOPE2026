@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:04:48.307270Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any linear C subset F2^n of Hamming diameter <=3, pivot columns force dimension k<=3. Equal one-bit occurrence counts in the 2^k codewords force support s<=3(2^k-1)/2^(k-1), i.e. at most 5. The potential k=3,s=5 case is ruled out by seven rank-two hyperplanes: all meet the 5-column multiset in at least two entries, with total 15 incidence giving six 2s and one 3; pair intersections then count 9, contradicting 10 column pairs each sharing a hyperplane. Exhaustive s<=4 classification yields full-support counts (1,1,2,6,10) and rank refinement. Independent closure-enumeration for all binary subspaces in n=0..5 reproduced valid totals 1,2,5,16,51,136 and support ranks. Finite checks support, not replace, the arbitrary-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horlemann–Ravi Prop.4.3 decomposes counts into full-support coefficients; Thm4.6 bounds the degree; Remark4.7 identifies evaluation of a_q(s,d) as further work.",
+          "For binary d=3 their upper bound 6 and lower bound 3 leave exact degree open."
+        ],
+        "reasoning": "The broad asymptotic structural theorem cannot imply the explicit full-support coefficients without additional classification.",
+        "searches": [
+          "arxiv:2610.31618 Proposition 4.3 Theorem 4.6 Remark 4.7",
+          "Resultary: binary linear anticodes diameter 3 count subspaces support 4 sigma_2(3)"
+        ]
+      },
+      "checked_sources": [
+        "Horlemann–Ravi 2610.31618v1 full HTML Section4",
+        "Ravagnani 1410.7207 abstract/scope",
+        "Resultary binary diameter-three support search",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published 3<=sigma_2(3)<=6 does not decide sigma_2(3)=4.",
+          "Classifying dimension-maximizing anticodes alone omits six support-four dimension-two codes."
+        ],
+        "reasoning": "Sharp σ and refined polynomial do not follow logically from generic bounds or extremal dimensions.",
+        "searches": [
+          "arxiv:2610.31618 Theorem 4.6",
+          "arxiv:1410.7207",
+          "Resultary: binary linear anticodes diameter 3 count subspaces support 4 sigma_2(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For linear codes, diameter equals maximum codeword weight, but an optimal dimension bound does not enumerate all subspaces.",
+          "This claim counts labelled subspaces, not generator matrices or nonlinear anticodes."
+        ],
+        "reasoning": "Reformulated as binary linear max-weight-three subspaces and inspected literature for such classifications.",
+        "searches": [
+          "Resultary: binary linear anticodes diameter 3 count subspaces support 4 sigma_2(3)",
+          "linear anticodes max weight 3 binary count dimension support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source paper does not give 10 full-support codes at size four or the dimension split 6+4 in the material inspected."
+        ],
+        "reasoning": "Checked exact coefficient table scope rather than searching only titles; no covering table found.",
+        "searches": [
+          "Resultary: binary linear anticodes diameter 3 count subspaces support 4 sigma_2(3)",
+          "Horlemann Ravi sigma_2(3) full support table 1 1 2 6 10"
+        ]
+      },
+      "rationale": "Horlemann–Ravi arXiv:2610.31618 Prop.4.3 and Thm4.6 furnish the support-decomposition framework and coarse bound 3<=sigma_2(3)<=6, but leave the full-support coefficients and sharp value 4 unevaluated. This exact tabulation and dimension refinement require the five-support impossibility and complete support-four classification. Earlier generalized weight/optimal-anticode results concern maximum dimension rather than counts of all linear subspaces.",
+      "residual_risks": [
+        "An older unindexed complete anticode tabulation might recover the same polynomial.",
+        "All-length claim restricted to binary linear max-weight-three subspaces; nonlinear and larger diameter not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides framework but not exact specialization",
+          "evidence": "Bounds for binary d=3 admit degree 3..6; full-support coefficients are not explicitly evaluated.",
+          "identifier_or_url": "https://arxiv.org/html/2610.31618v1",
+          "material_read": "Full HTML with Section 4, Lemma 4.1, Proposition 4.3, Theorem 4.6, Remark 4.7 and proofs",
+          "method": "arXiv full HTML read",
+          "title": "The Asymptotic Number of Anticodes in Hamming Spaces",
+          "trigger": "same precise q=2, diameter 3 asymptotic counting framework"
+        },
+        {
+          "assessment": "Not decisive for exact census",
+          "evidence": "Supports context for extremal linear codes; no complete counting implication established from material read.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.7207",
+          "material_read": "Bibliographic abstract and described maximal-dimension scope",
+          "method": "arXiv abstract/scope inspection",
+          "title": "Generalized weights: an anticode approach",
+          "trigger": "earlier linear anticode extremal theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies the missing exact small-diameter specialization of a recent growth theorem, resolving sigma_2(3)=4 and providing a complete rank/support spectrum. The nontrivial five-column obstruction is a useful finite-geometric structural lemma, not mere arithmetic recomputation of a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Horlemann–Ravi 2610.31618v1 full HTML Section4",
+    "Ravagnani 1410.7207 abstract/scope",
+    "Resultary binary diameter-three support search",
+    "Frozen RESULT.md and verify.py",
+    "Git tree d83a4ac820bfaeff44baabfce8e3775e0d21edd2 @ 2c8d98134d9930cd11887f086cc209007a54248d",
+    "Independent calculation audit08_checks_20261104.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All n>=0, labelled coordinates, binary linear only, diameter<=3.",
+    "An older unindexed complete anticode tabulation might recover the same polynomial.",
+    "All-length claim restricted to binary linear max-weight-three subspaces; nonlinear and larger diameter not addressed."
+  ],
+  "schema_version": 1
+}

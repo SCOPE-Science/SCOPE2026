@@ -1,15 +1,21 @@
-# Review of exact binary linear diameter-three anticode census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly defines the counted subspaces and reduces diameter to maximum codeword weight using linearity. Pivot columns give dimension at most three. Weight averaging excludes all large supports except the possible three-dimensional support-five case; the seven-hyperplane incidence contradiction excludes that case. The remaining support-three and support-four counts use full-support hyperplane and generator-column classifications. These exhaust all cases, proving the coefficient table and binomial polynomial for every ambient length, including short lengths. `verify.py` independently enumerates every ambient subspace through dimension seven and confirms each coefficient. Finite checks are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For any linear C subset F2^n of Hamming diameter <=3, pivot columns force dimension k<=3. Equal one-bit occurrence counts in the 2^k codewords force support s<=3(2^k-1)/2^(k-1), i.e. at most 5. The potential k=3,s=5 case is ruled out by seven rank-two hyperplanes: all meet the 5-column multiset in at least two entries, with total 15 incidence giving six 2s and one 3; pair intersections then count 9, contradicting 10 column pairs each sharing a hyperplane. Exhaustive s<=4 classification yields full-support counts (1,1,2,6,10) and rank refinement. Independent closure-enumeration for all binary subspaces in n=0..5 reproduced valid totals 1,2,5,16,51,136 and support ranks. Finite checks support, not replace, the arbitrary-n proof.
 
-The complete primary preprint arXiv:2610.31618v1 was read at its definitions, support decomposition (Proposition 4.3), fixed-diameter theorem (Theorem 4.6), proof and Remark 4.7. It proves polynomiality but leaves the exact diameter-three binary degree and the coefficients unspecified. Previously published optimal linear anticode classifications address maximum dimension, and do not by themselves enumerate all dimension-two and dimension-three subspaces of support four. Searches for aliases (maximum weight-three binary linear codes, diameter-three anticodes, support spectra) and related database records found no equivalent table or all-length polynomial. Residual risk: an older equivalent enumeration may appear with different terminology or in an unindexed source.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves a specific natural uncomputed fixed-diameter instance of a recent enumeration theorem, rather than refining an arbitrary sample. It improves a degree range of three through six to the exact degree four; its key support-five incidence obstruction is structural. The rank-refined count separates six non-extremal maximum-support subspaces from the four maximum-dimension ones and gives an all-length benchmark in coding-theoretic enumerations.
+Horlemann–Ravi arXiv:2610.31618 Prop.4.3 and Thm4.6 furnish the support-decomposition framework and coarse bound 3<=sigma_2(3)<=6, but leave the full-support coefficients and sharp value 4 unevaluated. This exact tabulation and dimension refinement require the five-support impossibility and complete support-four classification. Earlier generalized weight/optimal-anticode results concern maximum dimension rather than counts of all linear subspaces.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This supplies the missing exact small-diameter specialization of a recent growth theorem, resolving sigma_2(3)=4 and providing a complete rank/support spectrum. The nontrivial five-column obstruction is a useful finite-geometric structural lemma, not mere arithmetic recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
