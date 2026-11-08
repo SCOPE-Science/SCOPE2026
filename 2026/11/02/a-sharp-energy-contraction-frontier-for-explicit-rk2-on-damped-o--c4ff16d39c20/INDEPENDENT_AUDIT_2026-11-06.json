@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every two-stage second-order explicit RK applied to constant L=[[0,−ω],[ω,−γ]], R=I+zA+(zA)²/2, z=γh, v=(ω/γ)². Energy defect B=I−R^T R has B11=vz³[4−(v+1)z]/4 and det B=vz⁴(vz−2)Φ_v(z)/16, Φ_v(z)=z[(vz−1)²+3]−8. Independently recomputed/factored both identities symbolically. Φ'=3(vz)²−4vz+4>0, unique positive root q. Comparing q, z0=4/(v+1) and 2/v via exact endpoint polynomial evaluations gives B positive definite strictly inside, positive semidefinite on, indefinite or negative diagonal beyond H(v)=q if 0<v<1 and 2/v if v>=1. Parameter s=vq yields q=8/[(s−1)²+3], v=s[(s−1)²+3]/8; unique global H max 8/3 at v=3/8. At optimum R=(1/9)[[−3,2sqrt6],[−2sqrt6,5]], eigenvalue mod1/3 but singular values 1,1/9 (checked independently), distinguishing spectral and norm thresholds. At (v,z)=(1,2), R=−I. All v,z>0 and all vectors, not an arbitrary dissipative system theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Shu show order-two explicit RK not strongly stable for the entire seminegative class; Achleitner–Arnold–Jüngel give hypocoercivity-based general criteria."
+        ],
+        "reasoning": "An impossibility across all seminegative L neither covers nor contradicts a strictly positive sharp frontier for this restricted one-parameter L family.",
+        "searches": [
+          "Resultary: RK2 damped oscillator norm nonexpansion sharp energy threshold 8/3; explicit RK2 damped harmonic oscillator Euclidean energy contractivity sharp timestep hypocoercivity two dimensional",
+          "https://arxiv.org/abs/1811.10680",
+          "https://doi.org/10.1137/18M122892X"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1811.10680",
+        "https://doi.org/10.1137/18M122892X",
+        "https://arxiv.org/abs/2308.05689",
+        "https://arxiv.org/abs/2310.19758"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.2 of Sun–Shu classifies general strong stability by order/stage, not the pointwise singular-value crossing in this 2x2 family."
+        ],
+        "reasoning": "The sharp frontier requires the B11/det factorization and interval ordering, not merely applying their universal impossibility result.",
+        "searches": [
+          "Resultary: RK2 damped oscillator norm nonexpansion sharp energy threshold 8/3; explicit RK2 damped harmonic oscillator Euclidean energy contractivity sharp timestep hypocoercivity two dimensional",
+          "https://arxiv.org/abs/1811.10680",
+          "https://doi.org/10.1137/18M122892X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General strong-stability RK theory includes the same stability polynomial and energy norm, but the inspected papers do not identify the exact damped-oscillator two-variable semialgebraic boundary."
+        ],
+        "reasoning": "Broad lack of unconditional strong stability cannot be equated to the exact maximal allowed z for the special oscillator family.",
+        "searches": [
+          "Resultary: RK2 damped oscillator norm nonexpansion sharp energy threshold 8/3; explicit RK2 damped harmonic oscillator Euclidean energy contractivity sharp timestep hypocoercivity two dimensional",
+          "https://arxiv.org/abs/1811.10680",
+          "https://doi.org/10.1137/18M122892X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for RK2 damped oscillator norm nonexpansion 8/3 returned different oscillator and contraction models, not this H(v) or the (3/8,8/3) optimum."
+        ],
+        "reasoning": "The 8/3 threshold is an extremal invariant, not a known table item located in these searches; search absence alone does not certify novelty.",
+        "searches": [
+          "Resultary: RK2 damped oscillator norm nonexpansion sharp energy threshold 8/3; explicit RK2 damped harmonic oscillator Euclidean energy contractivity sharp timestep hypocoercivity two dimensional",
+          "https://arxiv.org/abs/1811.10680",
+          "https://doi.org/10.1137/18M122892X"
+        ]
+      },
+      "rationale": "Qualified PASS for this exact all-parameter Euclidean operator-norm frontier and unique optimal coupling of the canonical damped oscillator. Sun–Shu establish lack of general strong stability of explicit order-2 RK for all seminegative matrices; Achleitner et al. develop hypocoercivity criteria. Neither relevant inspected primary theorem directly provides the special exact H(v), H max or singular/spectral boundary contrast.",
+      "residual_risks": [
+        "An older specialized 2-by-2 nonnormal energy-contraction formula may imply H(v) under other notation.",
+        "Result concerns all-vector Euclidean one-step nonexpansion, not eigenvalue stability, all seminegative matrices, or nonlinear RK."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_AS_STATED",
+          "evidence": "Classifies universal strong stability/nonstability on seminegative matrix classes but not exact fixed-family H(v), q(v) and unique optimal coupling.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+          "material_read": "Original full PDF and relevant strong-stability theorem (Theorem 4.2) plus page image inspected.",
+          "method": "Primary mathematical PDF theorem and model comparison.",
+          "title": "Strong Stability of Explicit Runge–Kutta Time Discretizations",
+          "trigger": "Same stability polynomial, energy norm and 2-stage RK constraints"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_AS_STATED",
+          "evidence": "Provides general criteria, not directly the exact planar damped-oscillator all-step explicit inequality.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+          "material_read": "Primary full PDF available and relevant hypotheses/criteria and representative page image inspected.",
+          "method": "Primary theorem sections; no exhaustive document-level absence claim.",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "General sharp strong stability and hypocoercivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a sharp, natural numerical integrator one-step energy-safe timestep across physically standard two-component damped oscillators, with a unique global optimum and a striking eigenvalue/singular-value separation. It is a motivating finite-dimensional exact boundary, not merely a software stability check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1811.10680",
+    "https://doi.org/10.1137/18M122892X",
+    "https://arxiv.org/abs/2308.05689",
+    "https://arxiv.org/abs/2310.19758"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older specialized 2-by-2 nonnormal energy-contraction formula may imply H(v) under other notation.",
+    "Result concerns all-vector Euclidean one-step nonexpansion, not eigenvalue stability, all seminegative matrices, or nonlinear RK."
+  ],
+  "residual_risks": [
+    "An older specialized 2-by-2 nonnormal energy-contraction formula may imply H(v) under other notation.",
+    "Result concerns all-vector Euclidean one-step nonexpansion, not eigenvalue stability, all seminegative matrices, or nonlinear RK."
+  ],
+  "schema_version": 1
+}

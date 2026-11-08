@@ -1,15 +1,21 @@
-# Scientific review — damped-oscillator explicit RK2 energy frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes a strictly damped planar oscillator with strictly positive coupling, uses the common second-order two-stage explicit Runge–Kutta stability polynomial, and tests a quantified all-vector Euclidean norm inequality. Exact multiplication yields the first leading principal minor and determinant of \(I-R^{\mathsf T}R\). Their factorizations, the strict monotonicity of \(\Phi_v\), and the relative location of both determinant roots and the leading-minor zero give necessary and sufficient conditions for every positive coupling and step size, including endpoints. The root parametrization gives a unique global optimum. A separately evaluated exact matrix at the optimum verifies the claimed spectral radius and singular values. The standalone symbolic and numerical checker executed successfully from the reviewed files; its finite samples are not used to prove the universal assertion.
+## correctness
 
-## Originality — PASS, qualified
-Relevant complete-text sources were inspected at their mathematical sections. Sun–Shu, arXiv:1811.10680, establishes general energy-stability analysis and the global negative classification for order-two explicit RK. Achleitner–Arnold–Jüngel, arXiv:2308.05689 and arXiv:2310.19758, gives hypocoercivity-order criteria and examples of general instability. These results do not state or directly imply the present exact finite-step frontier, its piecewise transition at \(v=1\), or the unique \(8/3\) maximum at \(v=3/8\) without a separate matrix-specific calculation. The normalization, operator-norm criterion, and two-stage RK equivalence were compared, not treated as new. Targeted searches did not identify a previously published version of the exact frontier. Unindexed historical contractivity literature may contain an equivalent specialization; there is no independent priority certification.
+PASS
 
-## Value — PASS
-The object is the canonical minimal hypocoercive damped oscillator: energy dissipation acts in only one coordinate, while skew coupling transfers it to the other. The theorem provides a usable exact step-size condition rather than an asymptotic guarantee, discovers a nonmonotone dependence on coupling, and gives a globally sharp \(8/3\) ceiling at an interior frequency-to-damping ratio. At that ceiling, eigenvalues still contract by \(1/3\) even though a singular direction has no one-step energy decrease; this concretely separates spectral from energy safety in nonnormal numerical time integration. No claim of practical superiority or generalization to all semidissipative systems is made.
+For every two-stage second-order explicit RK applied to constant L=[[0,−ω],[ω,−γ]], R=I+zA+(zA)²/2, z=γh, v=(ω/γ)². Energy defect B=I−R^T R has B11=vz³[4−(v+1)z]/4 and det B=vz⁴(vz−2)Φ_v(z)/16, Φ_v(z)=z[(vz−1)²+3]−8. Independently recomputed/factored both identities symbolically. Φ'=3(vz)²−4vz+4>0, unique positive root q. Comparing q, z0=4/(v+1) and 2/v via exact endpoint polynomial evaluations gives B positive definite strictly inside, positive semidefinite on, indefinite or negative diagonal beyond H(v)=q if 0<v<1 and 2/v if v>=1. Parameter s=vq yields q=8/[(s−1)²+3], v=s[(s−1)²+3]/8; unique global H max 8/3 at v=3/8. At optimum R=(1/9)[[−3,2sqrt6],[−2sqrt6,5]], eigenvalue mod1/3 but singular values 1,1/9 (checked independently), distinguishing spectral and norm thresholds. At (v,z)=(1,2), R=−I. All v,z>0 and all vectors, not an arbitrary dissipative system theorem.
 
-## Closest literature and residual limits
-Sun–Shu's all-matrix negative statement does not preclude strict contraction for this specific matrix family. The hypocoercivity-index theorems classify conditions on order and asymptotic small-step properties, not a full finite-step boundary. The finding is limited to two dimensions, constant coefficients, the exact order-two stability polynomial, and the Euclidean norm. Related specialized contractivity results may remain undiscovered; independent mathematical and priority review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for this exact all-parameter Euclidean operator-norm frontier and unique optimal coupling of the canonical damped oscillator. Sun–Shu establish lack of general strong stability of explicit order-2 RK for all seminegative matrices; Achleitner et al. develop hypocoercivity criteria. Neither relevant inspected primary theorem directly provides the special exact H(v), H max or singular/spectral boundary contrast.
+
+## value
+
+PASS
+
+Determines a sharp, natural numerical integrator one-step energy-safe timestep across physically standard two-component damped oscillators, with a unique global optimum and a striking eigenvalue/singular-value separation. It is a motivating finite-dimensional exact boundary, not merely a software stability check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
