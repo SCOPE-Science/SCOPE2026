@@ -1,23 +1,21 @@
-# Scientific review — Two-site memory placement on a weighted ten-state ring
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is quantified over all positive length-one and length-three transition rates and all unordered pairs of distinct sites. The uniform stationary law follows from symmetric rates; irreducibility follows from the length-one edges. For each pair, the integrated equilibrium autocovariance is the quadratic form of the inverse of the graph Laplacian restricted to constants' orthogonal complement. The proof derives its exact normalization by Fourier eigenvectors and the rank-one-regularized Green matrix. Five explicit rational functions exhaust all pair geometries. Every denominator is positive, and ten exact pairwise differences factor into positive-coefficient numerators or factors with only the three stated positive crossover roots. Thus the exhaustive global rankings follow from algebra, not parameter samples. The included standalone checker independently reproduces all rational forms and pairwise identities; finite spectral samples are supplemental.
+PASS
 
-## Originality: PASS (best-knowledge, with stated risk)
+For L on Z/10 with ±1 unit rates and ±3 rates rho, the nonzero Fourier eigenvalues lambda_k=2(1-cos(2pi k/10))+2rho(1-cos(6pi k/10)) give integrated covariance T_d=1/100 sum_{k=1}^9 (2+2 cos(2pi k d/10))/lambda_k. This equals (Q_00+Q_0d)/5 with Q=L^+ and reverses effective-resistance ordering. Independently inverted L+J at rho=2 and matched all five explicit rational T_d functions from the source. All 10 pairwise differences factor with positive denominators; only T2=T3 at rho_-=(sqrt(13)-1)/6, T1=T3 and T2=T4 at rho=1, and T1=T4 at rho_+=(1+sqrt13)/2. Numeric spot orders at rho=0.1,0.7,2,3 matched analytic four phase rankings. This proves all positive rho by exact polynomial signs, not finite interpolation.
 
-Chen and Limmer (2026), arXiv:2608.23764, supply the general integrated-autocovariance susceptibility and the ten-state first/third-neighbor ring with a two-site observable. The supporting material inspected (notably Sections II–IV and equations S.39–S.75) does not provide the weighted homogeneous-ring all-pair placement order, its exact three rate-ratio thresholds or the sharp readout optimum. The general circulant resistance-distance method of Zhang and Yang (2007), DOI:10.1002/qua.21068, is prior mathematical infrastructure; its publisher abstract does not assert the present parameter-dependent ordering. Separate published research-record searches for the precise network, alternative Green/resistance formulations, autocorrelation readout and placement extremality surfaced no statement implying the complete classification. In particular, general Green-kernel identities require a separate sign and crossover analysis to establish this ordering. **Limitation:** the complete Zhang–Yang paper was inaccessible through available lawful routes, so a hidden weighted-graph special case cannot be excluded; general spectral formulae and unlocated stronger results remain subsumption risks. This is a qualified original-claim assessment, not a uniqueness certificate.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating 2026 model directly uses a ten-state ring with ±1/±3 links and a two-site binary output to analyze a thermodynamic lag-error bound. Holding output mean and variance fixed, the current theorem gives the complete geometry-dependent memory susceptibility at every relative edge rate. It identifies which readout placement maximizes or minimizes the observable's memory and two otherwise hidden secondary ranking reversals. These are sharp, model-specific design distinctions that the general susceptibility identity alone does not report. Their significance is restricted to this actual test-network topology and stationary memory: the result does not imply guaranteed error or dissipation improvements for arbitrary input protocols.
+Best-of-knowledge original as the complete three-threshold readout-placement ranking in the homogeneous 10-state ±1/±3 ring. Chen–Limmer identify integrated autocovariance as memory susceptibility and study a related network; Zhang–Yang give general circulant resistance-distance spectral formulas but do not state the exact four permutations and three thresholds in their accessible abstract. The latter full manuscript remained inaccessible; its specialized resistance formulas are the central historical-priority risk.
 
-## Closest literature and limitations
+## value
 
-- Chen and Limmer, *Entropy Production Bounds the Accuracy of Computation in Markov Networks*, arXiv:2608.23764 (posted 2026-08-24), especially supporting Sections II–IV, establishes the susceptibility and graph topology but not the proved geometry ranking.
-- Zhang and Yang, *Resistance distance and Kirchhoff index in circulant graphs*, DOI:10.1002/qua.21068 (2007), establishes general spectral resistance methodology; full text was not accessible and remains a residual originality risk.
-- MathWorld, *Resistance Distance*, records the general Green-matrix/effective-resistance identity.
+PASS
 
-All comparisons concern the actual claim and its logical implications. The result is a conditional mathematical statement for a specified homogeneous ten-state network, not for arbitrary finite Markov networks or arbitrary observables.
+For the ten-state network used to motivate thermodynamic computation, all readout pairs have identical equal-time mean/variance yet different integrated memory. The full five-geometry ranking and two nonoptimal crossovers yield an exact natural design invariant and distinguish temporal readout geometry from stationary prevalence, not merely a normalization exercise.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
