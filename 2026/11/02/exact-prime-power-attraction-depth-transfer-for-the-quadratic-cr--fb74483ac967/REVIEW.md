@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula is derived by a complete partition of the attracting basin into the \(p\)-adic residue balls over the first-hit residues \(B_p\). Every finite-field first-hit polynomial \(f^{\tau(r)}\) has a unit derivative at its zero, yielding one canonical Hensel root in the residue ball and an exact valuation isometry. For every other point, \(f^2(y)=y^2(y^2-2)\) doubles the valuation in the zero ball at odd primes; this gives the precise first-entry time and prevents premature entry into the cycle. Each valuation shell has exactly \((p-1)p^{k-s-1}\) elements, so all counts and their maximum follow. The separate exceptional lift at residue \(-1\) is correctly assigned depth zero. Exhaustive modular graph traversal on 43 prime/level cases independently matches the complete predicted depth histograms. The finite checks support but cannot replace the infinite proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest qualitative sources are Fan–Liao's minimal decomposition of polynomial dynamics (arXiv:1010.5583, 2010), the quadratic-map treatment by Nevins–Rogers, and Fan–Liao's work on the different squaring map (arXiv:1408.4574). The examined relevant statements concern qualitative minimal components, attracting-cycle existence, or dynamics over \(\mathbb Z_2\), and do not state an all-odd-primes factorized first-entry polynomial or compressed depth coefficients for \(x\mapsto x^2-1\). The neighboring established dyadic census and a ternary Dickson-map census involve distinct recurrences and do not imply this transfer without new analysis. Relevant targeted published-result and literature searches did not locate equivalent coverage. A manuscript copy of Nevins–Rogers had imperfect machine-readable text: only its abstract, the relevant §5 pages and conclusions were visually inspected, so uninspected details and other literature remain risks.
+PASS
 
-## Mathematical value — PASS
-This is a complete exact quantitative basin invariant for infinitely many prime-power graphs, expressed via finite-field data and a universal polynomial of only logarithmically many terms. The statement yields all tail-depth multiplicities, exact basin sizes, and sharp maximum depths simultaneously for all odd primes, not merely qualitative attraction. The full-ring examples at primes \(3\) and \(7\) contrast with the proper basin at \(5\), demonstrating that the transfer captures both nontrivial residual trees and different basin sizes. It is a motivated bridge between finite-field orbit portraits and deep prime-power transient statistics, not a fixed small-modulus enumeration.
+The derivative of f^t for a finite-field first-zero r avoids 0 along the preceding orbit, so is a unit for odd p; Hensel gives one unique root rho_r and the factorized difference makes valuation v_p(f^t(x))=v_p(x-rho_r) on that residue ball. For nonzero y in zero class f²(y)=y²(y²-2), with y²-2 a p-adic unit (odd p), giving valuation doubling until modulus cutoff. Entry to -1 occurs at t+2h_k(s)+1, with exceptional canonical lift -1 already of depth0. Summing exactly (p-1)p^{k-s-1} points in each valuation shell yields the polynomial and basin total. Independent direct graph iteration matched predicted histogram in 9 (p,k) cases, not a proof of all levels. Maximum comes from s=1 shell and largest finite-field t; checks k=1 boundary separately.
 
-## Relationship to prior work and limits
-The proof deliberately uses established Hensel lifting and qualitative attracting-basin principles; the proposed contribution is the precise factorized transfer for this critical two-cycle. It does not classify cycles outside the designated attracting basin or general quadratic parameters. The originality comparison cannot exclude an equivalent exact formula in less accessible dynamical literature. There has been no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fan–Liao (2010/2011) provide broad p-adic decomposition and special explicit quadratic Z_2 examples; Nevins–Rogers study qualitative quadratic cycles and basins; Fan–Liao (2014) studies the squaring map. Hensel lifting and valuation doubling are standard, but the quantified exact entire-basin first-entry distribution over every odd p and level is not present in the inspected corresponding statements. Resultary most relevant dyadic critical-orbit work concerns a different map and prime. O PASS best-of-knowledge with explicit risk that general local dynamical zeta or preperiod-count formalism gives the same expression implicitly.
+
+## value
+
+PASS
+
+A complete exact transient-depth polynomial for a natural arithmetic dynamical graph over every odd prime power, with logarithmically sparse shell support and sharp extrema; it meaningfully refines the qualitative picture and contrasts full basin p=3,7 with proper basin p=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

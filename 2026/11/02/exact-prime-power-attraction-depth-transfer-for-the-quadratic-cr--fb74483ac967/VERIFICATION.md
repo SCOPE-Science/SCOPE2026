@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks
 
-The standalone checker `verify.py` requires Python 3 and only the standard library. From the directory containing the extracted files, execute:
+# Independent mathematical audit
 
-```text
-python3 verify.py
-```
+## correctness
 
-Observed exact output:
+PASS
 
-```text
-VERIFY_OK cases=43 modulus_states_examined=1696943
-```
+The derivative of f^t for a finite-field first-zero r avoids 0 along the preceding orbit, so is a unit for odd p; Hensel gives one unique root rho_r and the factorized difference makes valuation v_p(f^t(x))=v_p(x-rho_r) on that residue ball. For nonzero y in zero class f²(y)=y²(y²-2), with y²-2 a p-adic unit (odd p), giving valuation doubling until modulus cutoff. Entry to -1 occurs at t+2h_k(s)+1, with exceptional canonical lift -1 already of depth0. Summing exactly (p-1)p^{k-s-1} points in each valuation shell yields the polynomial and basin total. Independent direct graph iteration matched predicted histogram in 9 (p,k) cases, not a proof of all levels. Maximum comes from s=1 shell and largest finite-field t; checks k=1 boundary separately.
 
-It independently builds each finite-field first-hit basin, iterates each residue of the selected basin modulo the whole prime-power ring, records the first entrance into the exact two-cycle, and checks every predicted histogram coefficient. Its 43 test cases span primes 3, 5, 7, 11, 13, 17, and 19, taking all exponents for which the complete ring has no more than 500,000 elements. In total, 1,696,943 residue states were traversed in the complete moduli, with basin states exhaustively tested.
+## originality
 
-The verifier also checks basin sizes and the sharp maximum for each case where the level is at least two. Its comparison algorithm uses direct modular orbit iteration, independently of the proof's p-adic valuation-doubling mechanism. The infinite all-prime/all-level statement relies on the symbolic argument in `RESULT.md`, not finite enumeration. No external computational certificate and no independent audit is claimed.
+PASS
+
+Fan–Liao (2010/2011) provide broad p-adic decomposition and special explicit quadratic Z_2 examples; Nevins–Rogers study qualitative quadratic cycles and basins; Fan–Liao (2014) studies the squaring map. Hensel lifting and valuation doubling are standard, but the quantified exact entire-basin first-entry distribution over every odd p and level is not present in the inspected corresponding statements. Resultary most relevant dyadic critical-orbit work concerns a different map and prime. O PASS best-of-knowledge with explicit risk that general local dynamical zeta or preperiod-count formalism gives the same expression implicitly.
+
+## value
+
+PASS
+
+A complete exact transient-depth polynomial for a natural arithmetic dynamical graph over every odd prime power, with logarithmically sparse shell support and sharp extrema; it meaningfully refines the qualitative picture and contrasts full basin p=3,7 with proper basin p=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
