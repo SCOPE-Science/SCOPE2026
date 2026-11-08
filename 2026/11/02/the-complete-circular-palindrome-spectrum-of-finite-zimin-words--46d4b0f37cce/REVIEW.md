@@ -1,19 +1,21 @@
-# Scientific review: circular-palindrome spectrum of Zimin words
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The statement quantifies over every integer rank \(n\ge1\), distinct rank-marked alphabet letters, and circular factors of lengths at most \(N=2^n-1\). Its proof checks the ruler identity, all possible odd centers and the first forbidden offset, the unique possible even center at the seam, and the lengthwise count. The boundary ranks \(n=1\) and \(r=n\) are handled explicitly. The included checker independently enumerates all circular factors and tests exact sets through rank 8; the all-rank conclusion does not depend on extrapolating those examples. Remaining risk: ordinary possibility of an unnoticed error in a mathematical argument, pending independent review.
+PASS
 
-## Originality (O) — PASS, with a specified access risk
+PASS: For Z_n=Z_(n−1)a_nZ_(n−1), length N=2^n−1, one-based position j has letter a_(1+ν2(j)). An odd center of rank r supports exactly radii t<2^(r−1); at the next step, adjacent multiples of 2^r or the wrap seam cause mismatched ranks. Internal adjacent symbols never coincide, whereas the unique cyclic seam abuts two a1 symbols, so each permitted even length has exactly one seam-centered palindrome. Thus the odd 2t+1 length count is n−ceil(log2(t+1)); total odd N and even (N−1)/2 gives (3N−1)/2. Independently enumerated literal circular factors for every length, all n=1..8, matching counts 1,4,10,22,46,94,190,382. This finite corroboration does not replace the ruler identity and center bounds.
 
-The checked older source Głowinski–Rytter (arXiv:1307.1560) concerns ranked variable matching and Zimin structure, not a proved exact circular-palindrome language. The checked richness treatment Glen–Justin–Widmer–Zamboni (arXiv:0801.1656) supplies general palindromic structure, not this explicit marked-ruler circular length distribution. Simpson (DOI:10.1016/j.tcs.2014.07.012) proves the stronger general numerical ceiling \(5N/3\) and near-extremal examples; that bound does not imply the Zimin formula or identify the listed palindromes. Simpson's complete text was inaccessible despite open-access and institutional retrieval attempts; this is a genuine historical-priority risk, not a claim that its uninspected sections do not cover the result. Actual published-record searches and available previously recorded claims did not identify an implication-equivalent theorem. Numeric coincidence alone is not considered originality. No general maximum or new classic integer sequence is claimed.
+## originality
 
-## Value (V) — PASS
+PASS
 
-Classifying the whole circular palindromic language of a canonical recursively self-similar word gives more information than the count: for every length, an explicit formula and unique even representative; for odd lengths, exactly determined rank-marked representatives. This connects the ruler valuation structure with cyclic palindromic complexity and gives a concrete infinite family reaching \((3N-1)/2\) palindromes below Simpson's general upper limit \(5N/3\). The result is structurally motivated and not an arbitrary finite table.
+PASS (qualified): Głowinski–Rytter analyze Zimin compressed pattern matching and ruler structure; Glen–Justin–Widmer–Zamboni study richness of palindromes; Simpson proves general circular-word upper bounds. These are genuine antecedents, but no inspected accessible statement implies the explicit all-rank Zimin circular spectrum. Simpson full text unavailable (OA access failure and protected retrieval vpn_disconnected), so potential hidden special-case discussion is retained as a priority risk.
 
-## Limitations and nearby literature
+## value
 
-The theorem is restricted to distinct literal Zimin symbols and factors of length no more than one circle traversal. Full-text historical comparison with Simpson's 2014 paper is outstanding, along with independent checking. No extrapolation to larger circular languages, morphic images, or arbitrary words is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Zimin words are canonical self-similar unavoidable-pattern witnesses. A letter-by-letter and lengthwise circular-palindrome language, distinguishing seam-created even palindromes from all nonwrapping odd palindromes, is a complete natural word-complexity invariant; not merely a new general upper bound or integer sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

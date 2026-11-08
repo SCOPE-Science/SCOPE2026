@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`checker.py` is an ordinary, self-contained Python 3 checker. Run with `python3 checker.py`. It constructs each complete finite Zimin word for ranks 1–8, exhaustively enumerates circular factors of all lengths at most the word's length, filters palindromes, and checks set equality against the explicit rank-marked odd language and the seam-centered even family. It additionally checks lengthwise multiplicities and verifies that all predicted odd circular palindromes already occur in the linear word. Observed counts by increasing rank: `1,4,10,22,46,94,190,382`, followed by `CHECK_OK`.
+## correctness
 
-This is finite testing; mathematical validity for arbitrary rank follows from the proof in `RESULT.md`, not the checker. Source access did not permit full-paper historical comparison with Simpson (2014). No independent mathematical assessment has been performed.
+PASS
+
+PASS: For Z_n=Z_(n−1)a_nZ_(n−1), length N=2^n−1, one-based position j has letter a_(1+ν2(j)). An odd center of rank r supports exactly radii t<2^(r−1); at the next step, adjacent multiples of 2^r or the wrap seam cause mismatched ranks. Internal adjacent symbols never coincide, whereas the unique cyclic seam abuts two a1 symbols, so each permitted even length has exactly one seam-centered palindrome. Thus the odd 2t+1 length count is n−ceil(log2(t+1)); total odd N and even (N−1)/2 gives (3N−1)/2. Independently enumerated literal circular factors for every length, all n=1..8, matching counts 1,4,10,22,46,94,190,382. This finite corroboration does not replace the ruler identity and center bounds.
+
+## originality
+
+PASS
+
+PASS (qualified): Głowinski–Rytter analyze Zimin compressed pattern matching and ruler structure; Glen–Justin–Widmer–Zamboni study richness of palindromes; Simpson proves general circular-word upper bounds. These are genuine antecedents, but no inspected accessible statement implies the explicit all-rank Zimin circular spectrum. Simpson full text unavailable (OA access failure and protected retrieval vpn_disconnected), so potential hidden special-case discussion is retained as a priority risk.
+
+## value
+
+PASS
+
+PASS: Zimin words are canonical self-similar unavoidable-pattern witnesses. A letter-by-letter and lengthwise circular-palindrome language, distinguishing seam-created even palindromes from all nonwrapping odd palindromes, is a complete natural word-complexity invariant; not merely a new general upper bound or integer sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
