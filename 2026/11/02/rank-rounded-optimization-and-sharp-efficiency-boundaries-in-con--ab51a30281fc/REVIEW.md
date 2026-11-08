@@ -1,19 +1,21 @@
-# Scientific review: complete-bipartite average-distance swaps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central pair-swap identity is obtained by explicit substitution of both agents' before/after averaged costs, with their mutual distance cancelling. It establishes strict increase of a fixed finite-state function without assuming regular degree. Each optimum is reconstructed from the gap decomposition of one-dimensional absolute distance: potential maximization and social-cost minimization reduce to distinct concave integer quadratics per prefix, and both rounded prefix paths are proved feasible. The exact \(K_{2,5}\) price-of-stability gap is verified against all seven type-pair classes, rather than a heuristic or a single run. Star bounds follow from median optimality and the triangle inequality. The standalone verifier corroborates all steps by finite enumeration; it is not substituted for the proof.
+PASS
 
-## Originality — PASS, with priority limits
+For x∈A,y∈B the internal-pair potential W=within(A)/a+within(B)/b has ΔW equal to the sum of both agents’ cost reductions; therefore any strictly mutually improving swap increases W and terminates after at most binom(n,a)−1 swaps. A sorted-type gap decomposition gives contribution k−j²/a−(k−j)²/b at prefix k, individually maximized by j_k=floor(ak/n+1/2). The rounded sequence is a feasible 0–1 increment path and global W maximizer (equilibrium). Social cross cost is minimized by maximizing unweighted within-pair sum, whose prefix optimizer is j_k=clamp_{[max(0,k−b),min(a,k)]}(floor((a−b+2k)/4+1/2)), also a feasible path. Exact K2,5 seven-agent witness [0,0,0,0,1,3,4] has minimum cross cost 15 but minimum equilibrium cross cost 17, PoS17/15; independent brute all 21 pair allocations reproduced both and 9 labeled equilibria. Median star center minimizes cost and is equilibrium; triangle inequality gives sharp PoA≤n−1 for nonconstant profiles.
 
-The closest primary document is Bilò et al. (2023), *Schelling Games with Continuous Types*, https://arxiv.org/pdf/2305.06819. Its Proposition 3 proves finite improvement for regular networks, and Theorem 17 proves socially optimal equilibria on regular networks. Neither implies the nonregular complete-bipartite exact pair-swap identity, the two all-gap simultaneous rank-optimum constructions, or a \(K_{2,5}\) example with price of stability strictly above one. Binary-type Schelling articles (2021, 2024) employ different utility functions and hence do not dominate the stated continuous-distance result. Related indexed mathematical findings on complete bipartite graphs address different invariants. Equivalent specialized results in uninspected papers cannot be excluded; priority remains uncertain without independent assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a structural theorem for a natural family of heterogeneous-degree networks. It both restores convergence beyond the paper's regular-degree positive class and gives comparison-optimal constructive algorithms for two distinct allocation objectives. The strict efficiency gap identifies a concrete boundary where convergence no longer implies an efficient equilibrium, while the star result quantifies the opposite possibility of optimal stable outcomes and extreme bad equilibria. These are motivated network/game properties, not isolated parameter arithmetic.
+Bilo et al. IJCAI 2023 analyze exactly continuous absolute-distance Schelling swaps, but their FIP and price-of-stability-one theorems are for regular graphs; K_{a,b} with a≠b is irregular. Their inspected full text does not give these two explicit sorting-based optimization rules or irregular strict PoS witness. Best-knowledge PASS with possibility equivalent rearrangement theorem already known.
 
-## Scope and residual risk
+## value
 
-Only fully occupied unweighted bicliques, absolute real-type distances, and bilateral strictly improving swaps are covered; objective-specific rounded allocations must not be conflated. Publication priority is assessed against the inspected sources and bounded searches, not certified exhaustively. The scientific statements have not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Potential identity extends finite improvement to all complete bicliques despite unequal degrees, while explicit distinct O(nlog n) sorting constructions locate stable and welfare-optimal allocations. The exact 17/15 obstruction makes the equilibrium-efficiency boundary mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

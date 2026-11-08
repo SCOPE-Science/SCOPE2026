@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:00:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x∈A,y∈B the internal-pair potential W=within(A)/a+within(B)/b has ΔW equal to the sum of both agents’ cost reductions; therefore any strictly mutually improving swap increases W and terminates after at most binom(n,a)−1 swaps. A sorted-type gap decomposition gives contribution k−j²/a−(k−j)²/b at prefix k, individually maximized by j_k=floor(ak/n+1/2). The rounded sequence is a feasible 0–1 increment path and global W maximizer (equilibrium). Social cross cost is minimized by maximizing unweighted within-pair sum, whose prefix optimizer is j_k=clamp_{[max(0,k−b),min(a,k)]}(floor((a−b+2k)/4+1/2)), also a feasible path. Exact K2,5 seven-agent witness [0,0,0,0,1,3,4] has minimum cross cost 15 but minimum equilibrium cross cost 17, PoS17/15; independent brute all 21 pair allocations reproduced both and 9 labeled equilibria. Median star center minimizes cost and is equilibrium; triangle inequality gives sharp PoA≤n−1 for nonconstant profiles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "IJCAI 2023 Proposition 3 finite improvement and Theorem 17 PoS1 assume regular graphs; an unbalanced biclique is irregular."
+        ],
+        "reasoning": "The regular-graph results neither directly apply nor imply the irregular strict gap; binary preference hardness theorems concern different payoff functions.",
+        "searches": [
+          "Full arxiv:2305.06819 PDF",
+          "doi:10.24963/ijcai.2023/280",
+          "Kreisel et al. 2024 continuous-type vs binary-type comparison"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md SHA 8050ab45c2e9f1da07be9e8e7dd45a11f712f0a3",
+        "Pinned check_biclique.py SHA 44f877b9ec6c1310fbeaed713f2d1469423689ad inspected",
+        "Independent 21-allocation exact K2,5 brute",
+        "arxiv:2305.06819 full paper with regular-graph hypotheses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular graph degrees are constant; the present weights 1/a and 1/b differ if a≠b. The K2,5 counterexample contradicts extending PoS1 wholesale."
+        ],
+        "reasoning": "Regular-graph finite-improvement/efficiency results are genuine prior special cases but do not imply the complete bipartite potential and two optimization rules for arbitrary a,b.",
+        "searches": [
+          "IJCAI 2023 Proposition 3 and Theorem 17",
+          "arxiv:2305.06819 PDF sections including appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An exact ordinal potential for bilateral swaps is within-part pair distance weighted by inverse class size; social optimization is instead unweighted within-pair gap sum."
+        ],
+        "reasoning": "Compared to rearrangement/quantile partitioning and standard potential games, distinct class weightings and simultaneous feasible rounded prefix paths are necessary; no identical result identified.",
+        "searches": [
+          "Resultary: continuous Schelling average distance complete bipartite potential price of stability",
+          "arxiv:2305.06819",
+          "IJCAI 2023 Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact K_{2,5} type witness [0,0,0,0,1,3,4] with equilibrium cross 17 and optimum 15 found in inspected primary."
+        ],
+        "reasoning": "A finite witness is original only relative to prior same-model theorem: source does not already force PoS1 for irregular biclique. Search failure does not certify priority.",
+        "searches": [
+          "arxiv:2305.06819 full PDF searched for complete bipartite",
+          "Resultary: continuous Schelling average distance complete bipartite potential price of stability"
+        ]
+      },
+      "rationale": "Bilo et al. IJCAI 2023 analyze exactly continuous absolute-distance Schelling swaps, but their FIP and price-of-stability-one theorems are for regular graphs; K_{a,b} with a≠b is irregular. Their inspected full text does not give these two explicit sorting-based optimization rules or irregular strict PoS witness. Best-knowledge PASS with possibility equivalent rearrangement theorem already known.",
+      "residual_risks": [
+        "Sorting constructions address one-dimensional absolute distances, all vertices occupied, strictly mutually beneficial bilateral swaps only.",
+        "No general graph or arbitrary type metric statement; binom(n,a) finite bound is not polynomial runtime.",
+        "The full priority search for equivalent rearrangement partitions may have missed differently phrased results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Regular-only FIP/PoS1 do not cover irregular K_{a,b} optimization or witness",
+          "evidence": [
+            "Proposition 3 FIP on regular graphs; Theorem 17 PoS1 on regular graphs"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.06819",
+          "material_read": "Entire accessible 15-page PDF, core propositions and appendix statements including Proposition 3/Theorem 17",
+          "method": "Full-text inspection and search for complete bipartite, regularity hypotheses",
+          "title": "Schelling Games with Continuous Types",
+          "trigger": "Exactly the S-ADG agent cost and swap model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Potential identity extends finite improvement to all complete bicliques despite unequal degrees, while explicit distinct O(nlog n) sorting constructions locate stable and welfare-optimal allocations. The exact 17/15 obstruction makes the equilibrium-efficiency boundary mathematically substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md SHA 8050ab45c2e9f1da07be9e8e7dd45a11f712f0a3",
+    "Pinned check_biclique.py SHA 44f877b9ec6c1310fbeaed713f2d1469423689ad inspected",
+    "Independent 21-allocation exact K2,5 brute",
+    "arxiv:2305.06819 full paper with regular-graph hypotheses"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Social-cost minimizer need not be an equilibrium; W-maximizer and welfare optimum are distinct.",
+    "All-zero social costs require ratio convention; type values rescaled by 1/4 to lie in [0,1]."
+  ],
+  "residual_risks": [
+    "Sorting constructions address one-dimensional absolute distances, all vertices occupied, strictly mutually beneficial bilateral swaps only.",
+    "No general graph or arbitrary type metric statement; binom(n,a) finite bound is not polynomial runtime.",
+    "The full priority search for equivalent rearrangement partitions may have missed differently phrased results."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Regular-only FIP/PoS1 do not cover irregular K_{a,b} optimization or witness",
+      "evidence": [
+        "Proposition 3 FIP on regular graphs; Theorem 17 PoS1 on regular graphs"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2305.06819",
+      "material_read": "Entire accessible 15-page PDF, core propositions and appendix statements including Proposition 3/Theorem 17",
+      "method": "Full-text inspection and search for complete bipartite, regularity hypotheses",
+      "title": "Schelling Games with Continuous Types",
+      "trigger": "Exactly the S-ADG agent cost and swap model"
+    }
+  ]
+}
