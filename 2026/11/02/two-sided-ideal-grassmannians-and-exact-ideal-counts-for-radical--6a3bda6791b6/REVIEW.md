@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The original quiver multiplication yields a characteristic-free idempotent-recovery identity, including arbitrary loops and parallel arrows. This proves necessity and sufficiency of the Peirce-block description. The rank-stratified subvarieties are closed embedded products of Grassmannians, and their disjoint union equals the reduced ideal variety. Direct counting of independent finite-field subspaces proves the generating polynomial. The independent checker exhaustively enumerated all vector subspaces and tested two-sided closure for 22 finite cases, including actual extension-field arithmetic. It does not prove the unbounded theorem on its own.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Hubery's quiver-Grassmannian work and Bleher–Chinburg–Huisgen-Zimmermann's radical-square-zero module-variety work are strong context, but their examined results concern submodule or representation parametrizations, not this explicit two-sided regular-bimodule ideal decomposition and complete ideal census. Colak's Leavitt path algebra classification concerns a different multiplication algebra. Accessible earlier claims about the same truncated path algebras count ranks of principal left/right ideals or automorphisms, not distinct two-sided ideals. The Peirce technique itself is classical; an unlocated known classification remains possible and novelty is not certified by unsuccessful search alone.
+PASS
 
-## Value — PASS
-For every finite quiver this resolves an intrinsic natural complete classification, every reduced ideal-stratum geometry, and the exact finite-field count by dimension. The full ideal lattice is orientation-independent for simple-graph orientations, but becomes orientation-sensitive when arrow-space multiplicities change, a precise structural boundary.
+Read exact arbitrary-field proof in assigned RESULT.md. If image of ideal in A/J=k^V contains vertex v, choose z=e_vxe_v=lambda e_v+ell with ell a loop-linear element in J. Identity z^2-2lambda z=-lambda^2 e_v forces e_v in ideal even in characteristic 2. Peirce left/right idempotents split the rest into W_uv, and multiplying forced vertices includes all incident arrows; converse closed since J^2=0. Fixed rank block subspace loci are closed products of Gr(r_uv,a_uv). Distinct rank/support pieces are disjoint projective, hence disjoint closed and yield the reduction of the full ideal scheme (without nonreduced claim). Over F_q Gaussian counts multiply; simple orientations each have optional one-dimensional blocks and no q-dependence; parallel pair vs oppositely directed arrows gives different q-dependent count. Independently enumerated all subspaces and directly tested two-sided closure for four small binary quivers (single arrow, opposite arrows, length-two path, loop), matching the predicted dimension polynomials; source supplied 22 additional check configurations but those logs are not independent proof.
 
-## Limitations and source comparison
-The original ideal scheme may have nilpotent structure; only its reduction is classified. No claims about one-sided ideal varieties, higher radical powers or moduli by automorphisms. Compared arXiv:1303.4585 (2013), arXiv:1407.3045 (2014), arXiv:0910.0292 (different algebra), relevant prior quiver-algebra calculations and published semantic research records. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Peirce decomposition and finite-field Gaussian subspace enumeration are classical. The assessment credits only their complete simultaneous application to all finite radical-square-zero quiver algebras, reduced two-sided ideal schemes and orientation boundary, not general quiver Grassmannian theory. Accessible primary radical-square-zero module literature parameterizes one-sided submodules/representation varieties, and no inspected theorem implies this exact two-sided ideal enumerator. Simple methods create a substantial risk an older standard textbook already contains the classification.
+
+## value
+
+PASS
+
+Intrinsic natural complete classification of the entire two-sided ideal lattice and each dimension stratum with exact q-dependent counts for every finite quiver, including arbitrary loops and parallel arrows. Geometric dimensions and sharp orientation-independence boundary extend beyond an isolated small enumeration. The elementary proof does not make the result automatically worthless; this is a reproducible all-class invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
