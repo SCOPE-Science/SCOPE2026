@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact renewal identity (4) follows from independent attempts; \\(p_r\\sim A/r\\) is the stable small-time Levy one-jump rate. Conditional failed durations have mean 1+O(1/r) after multiplying r, variance approaching 1 and uniform exponential moments. The joint characteristic function limit is A/(A-i eta+xi^2/2). Independent success marks have Exp(1) microtime and Pareto excess. These steps jointly prove the six-component law. verify.py checks formulas in an exactly solvable competing-hazard case and numerical rate/moment identities; infinite claims rely on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linn and Lawley prove general frequent-reset Exp first-passage limits; this covers the first and second components marginally.",
+        "Sunil et al. give unmarked exact joint time-reset count transform.",
+        "Figueroa-Lopez and Tankov provide free-process small-time overshoot results."
+      ],
+      "reasoning": "No novelty is claimed for the exponential time marginal, geometric reset count, single-flight Pareto overshoot, or generic renewal transform. The exact six-way limit combines a random-index central limit in the square-root-r regime with independent final-excursion microscopic marks. We found no full-text theorem stating this combination. Risk: general marked-renewal CLT might imply it.",
+      "searches": [
+        "arXiv:2302.05409 Theorem 1",
+        "arXiv:2304.09348 equations (10)-(14)",
+        "arXiv:1203.2355 Proposition 2.1",
+        "\"high frequency Poisson resetting counting statistics central limit total absorption time reset count normal laplace\" (web)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.20410v1",
+      "arXiv:2302.05409",
+      "arXiv:1203.2355",
+      "arXiv:2304.09348"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source has mean first-exit asymptotics but no random count correction.",
+        "2023 general exponential limit is a strict marginal of the proposed joint law and is acknowledged as prior.",
+        "2023 joint transform plus 2014 small-time exit results are necessary precursors; an additional nontrivial conditional random-index CLT produces the Laplace discrepancy."
+      ],
+      "reasoning": "The new content is the mixed-normal square-root-r fluctuation and its coupling to the success marks, not a restatement of an unmarked Exp limit or known formula. A broader general marked-renewal CLT could still dominate the statement; this is a specifically identified risk.",
+      "searches": [
+        "arXiv:2610.20410 Section III.1",
+        "arXiv:2302.05409 Theorem 1",
+        "arXiv:1203.2355 Proposition 2.1",
+        "arXiv:2304.09348 equation (10)",
+        "\"frequent stochastic resetting first passage number of resets second order CLT normal variance mixture\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sunil et al. equation (10) encodes exact reset-count and completion-time transform.",
+        "No examined source explicitly derives the limiting conditional Gaussian versus marginal Laplace discrepancy."
+      ],
+      "reasoning": "The proposed second-order limit is expressible as a geometrically stopped renewal-reward CLT or stopped Poisson-martingale normal mixture. These formulations were compared. The closest exact joint law is more general at finite r and logically permits derivation with additional asymptotic analysis; it is not the asymptotic theorem itself. This is a substantive remaining priority risk rather than proof of uniqueness.",
+      "searches": [
+        "\"Gaussian Laplace fluctuation between hitting time and normalized number of stochastic Poisson resets heavy-tailed Levy flight\"",
+        "\"joint high resetting asymptotic exit side Pareto overshoot duration and reset count fluctuation Laplace distribution\"",
+        "\"first passage resetting number of resets joint time Gaussian fluctuation Laplace limit\" (web)",
+        "arXiv:2304.09348 eq. (10)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "This is a continuous-parameter distributional limit, not a finite table.",
+        "Closest published relevant calculations are primary analytic theorems, not tabulated values."
+      ],
+      "reasoning": "There is no relevant finite exact database or table; related literature was checked instead by mathematical implication.",
+      "searches": [
+        "\"high resetting rate stable Levy flight exit time exponential limiting law overshoot exit location rare large jump\"",
+        "\"joint high resetting asymptotic exit side Pareto overshoot duration and reset count fluctuation Laplace distribution\"",
+        "\"stochastic resetting exit side Pareto overshoot duration\" (web)"
+      ]
+    },
+    "rationale": "Best-knowledge new six-dimensional second-order marked-clock limit; explicitly excludes already published marginal exponential limit, single-flight jump law and exact generic renewal transform. Independent priority remains uncertain because a sufficiently general geometric stopped-sum CLT might imply it.",
+    "residual_risks": [
+      "Generic exact joint time-reset-count transform in arXiv:2304.09348 is strong: second-order results might be a readily derived corollary, not independently novel.",
+      "Generic renewal-reward CLTs or marked Poisson rare-event theorems not located in the bounded search might subsume the full six-way law.",
+      "The alpha to 2 endpoint changes the mechanism; no uniformity claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mean-only asymptotics; does not state six-variable marked CLT",
+        "evidence": [
+          "First publicly posted 2026-10-14. Section III.1 treats means at r→infinity and small-time A from Figueroa-Lopez–Tankov."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.20410",
+        "material_read": "Complete publicly readable arXiv HTML, model, introduction, equations (3)–(8), conclusions, bibliography",
+        "method": "Full-text inspected via accessible arXiv HTML",
+        "title": "Asymptotic behaviour for escaping an interval by Levy flights under stochastic resetting",
+        "trigger": "Same physical model and rapid resetting limit"
+      },
+      {
+        "assessment": "Already covers unmarked exponential first-passage distribution; not the joint second-order mark and clock error limit",
+        "evidence": [
+          "Theorem 1: rp_r T_r converges to Exp(1), with all moments; p_r~A/r therefore T_r→Exp(A)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.05409",
+        "material_read": "Theorem 1, pages 3–5 and renewal decomposition and moment proof, PDF screenshot page 3 inspected",
+        "method": "Open-access full-text theorem and derivation review",
+        "title": "First-passage times under frequent stochastic resetting",
+        "trigger": "Strong generic fast-reset first-passage distribution theorem"
+      },
+      {
+        "assessment": "Provides foundational one-flight small-time jump-location limit, not repeated-reset/clock fluctuation theorem",
+        "evidence": [
+          "Proposition 2.1 gives first-order outside-interval stopped-Levy density, with remainder vanishing uniformly away from boundaries."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2355",
+        "material_read": "Abstract, Theorem 2.1 context and Proposition 2.1 on page 8, Appendix small-time decomposition; PDF screenshot page 8 inspected",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "Small-time asymptotics of stopped Levy bridges and simulation schemes with controlled bias",
+        "trigger": "Dominating prior small-time overshoot study"
+      },
+      {
+        "assessment": "Equation (10) already gives joint N,T transform. The new assertion is a simultaneous marked high-rate second-order limit; exact transform (4) is a marked extension but its unmarked part is not novel. Potential hidden generalized corollary remains a real risk.",
+        "evidence": [
+          "Equation (10) gives [r W(r+s,p|x)]^N F_0(r+s|x), and (11) gives geometric reset count."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.09348",
+        "material_read": "Sections 1–2, equations (3)–(14), Section 7, Appendix A, PDF screenshot page 4 inspected",
+        "method": "Open-access PDF analytical derivation and page screenshot",
+        "title": "The cost of stochastic resetting",
+        "trigger": "Generic joint first-passage time and reset-count transform might dominate claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc90c0f6-0b27-4d8a-a785-62e213055cde",
+  "value": {
+    "rationale": "The natural estimator \\(T_r\u0007pprox N_r/r\\) has a random-variance Gaussian error and precisely Laplace unconditional fluctuation, which affects uncertainty quantification. The two-time-scale joint limit also gives side risk, a heavy-tailed normalized overshoot, microscopic final flight duration and independence relations invisible to mean-only estimates. This is a natural stopping-time statistic, not an arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
