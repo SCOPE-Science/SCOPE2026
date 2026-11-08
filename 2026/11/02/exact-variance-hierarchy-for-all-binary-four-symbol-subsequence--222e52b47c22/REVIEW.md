@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The calculation counts ordered pairs of four-position embeddings by their union size, and assigns their exact joint probability. Its proof covers every word length by a finite binomial identity; there is no finite-to-infinite extrapolation. The exact coefficient table is recomputed from the definition in a standalone program and independently cross-checked against exhaustive length-4 through length-11 text enumeration. Reversal/complement orbit coverage and the strictness threshold are checked exactly.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected primary source, Menon–Singh (arXiv:2306.07870v1), studies occurrence frequencies and records the common mean but not the complete variance comparison. Janson–Szpankowski (arXiv:2003.09584) supplies more general fluctuation and moment machinery, but does not explicitly establish the six-class finite-length variance hierarchy or the strict onset at six. Older general hidden-word moment methods (Flajolet–Szpankowski–Vallée, 2006) may permit re-derivation. Exact moment *methods* are known: the potentially new result is the evaluated comparative classification, coefficientwise ordering, and sevenfold limiting gap. No exact equivalent was located in the searched records. An unindexed comparison or overlooked explicit table remains a substantive priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural classification for the first binary pattern length supporting four alternating runs, not an arbitrary isolated sample or a routine one-number increment. Patterns of the same length have identical expected counts but six strictly ordered fluctuation laws after length five, providing an exact baseline for assessing variability in hidden-pattern matching, subsequence channels and sequence profiling. The all-length coefficientwise inequalities and the sharp \(n=6\) separation are qualitative, not merely numerical data.
+For each ordered pair of four-subset embeddings A,B with |A∪B|=t, either their common positions demand incompatible pattern letters, giving zero, or their joint probability is 2^(−t). Counting valid ordered pairs on [t] produces the exact formula E[X_p²]=Σ_{t=4}^8 c_t(p)2^(−t) C(n,t) for every n≥4; mean C(n,4)/16 is immediate. Independent enumeration of all ordered four-subset pairs reproduced the thirty c_t entries for the six reversal/complement orbits: 0000=(1,20,90,140,70), 0001=(1,14,60,110,70), 0011=(1,12,56,104,70), 0010=(1,10,44,94,70), 0110=(1,10,42,84,70), 0101=(1,8,36,80,70). Adjacent rows are coefficientwise nonincreasing, with strictness at n≥6, only the 0010/0110 tie at n=5, and complete n=4 equality; degree-eight cancellation and c7 differences give leading n^7/645120 multipliers 70,40,34,24,14,10. The finite coefficient enumeration is exhaustive because t≤8; it proves the all-n theorem via the exact subset-pair identity.
 
-## Limitations
-Only four-letter patterns, fair independent binary sources, and multiplicity-counted scattered occurrences are covered. No stochastic tail or higher-moment ordering is inferred. Comparison with broad general moment formulas leaves an explicit residual originality risk; human literature verification remains warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the evaluated six-orbit exact second-moment table, universal n≥6 strict variance hierarchy and sevenfold asymptotic ratio, not for the classical overlap approach or common expectation. Menon–Singh analyze binary subsequence frequencies and symmetry and broader hidden-word methods may imply individual formulas algorithmically, but the inspected primary texts do not state this complete comparison.
+
+## value
+
+PASS
+
+All sixteen length-four binary scattered patterns form a natural first moderately rich case of exact subsequence-count fluctuation comparison. The six-orbit hierarchy gives exact finite-n variances and a sharp universal strictness threshold, with constant-pattern fluctuations seven times alternating in the leading order despite equal means. An independently useful comparative statistic beyond a routine restatement of expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
