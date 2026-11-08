@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Two standard-library programs are provided. Run `python verify_schrijver.py` to check all four third-vertex adjacency patterns against every pair of distinct vertices of stable Kneser graphs in the included parameter ranges; no quantifier-depth cutoff is assumed by the *proof*. Run `python verify_boundary.py` to check sharp explicit alternating-set witnesses by independent brute-force subset enumeration. The corresponding stdout files are included and were regenerated from the package source.
+## correctness
 
-`verify_schrijver.py` examines 36 graph instances: \(r=2\) and \(5\le n\le12\); \(r=3\) and \(7\le n\le17\); \(r=4\) and \(9\le n\le20\); \(r=5\) and \(16\le n\le20\). Every tested instance agrees with the threshold \(n\ge4r-1\). For passing instances the program checks every distinct vertex pair, totaling at least 17,610,597 passing-instance pairs.
+PASS
 
-`verify_boundary.py` independently checks 48 alternating-edge witnesses for \(2\le r\le7\), \(2r+1\le n\le4r-1\), confirming the exact complement independence number \(\lceil(n-2r)/2\rceil\). For \(n=4r-1\) this number is \(r\), as expected.
+For 2r<=n<=4r−2, alternating disjoint stable r-sets A,B have no common neighbor because their complement is a path of n−2r ground-cycle vertices with independence number <=r−1. For n>=4r−1, every proper ground-cycle subset induces paths and has independence number >=ceil(size/2); the explicit constructions in RESULT.md produce disjoint-to-both, mixed and meeting-both stable r-sets distinct from anchors, including r=2 edge cases. Three-pebble back-and-forth uses 2-e.c. to preserve two-anchor adjacency and equality forever, hence unrestricted-depth counting-free FO3 equivalence to Rado. Schrijver chromatic theorem gives 2r+1 at n=4r−1. Independent full-pair four-pattern enumerations verified the predicted cutoff for r=2,n=4..10 and r=3,n=6..14, but finite enumeration is corroboration only.
 
-**Unproved by computation:** the theorem for all untested parameters, the infinite-round logical equivalence, and historical priority. The path lemma, explicit constructions, and three-pebble strategy in `RESULT.md` are the mathematical proof of the general claim. Independent mathematical audit: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
+
+## value
+
+PASS
+
+An exact sharp local extension threshold for an important chromatic-extremal graph family is a natural infinite classification. The consequence that unbounded chromatic number coexists with the fixed unrestricted-quantifier-depth three-variable theory of the Rado graph is a substantive finite-model-theoretic interaction, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

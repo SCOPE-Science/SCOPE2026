@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp obstruction is the explicit edge of alternating length-\(r\) sets, whose complement is a path with stability number below \(r\). The converse handles all four adjacency patterns for every distinct pair, including disjoint/intersecting anchors, \(r=2\), and repeated-pebble choices. The induced-path half-size lemma and permanence of the three-pebble invariant supply the infinite proof. Independent enumeration corroborates the threshold on 36 finite instances and 48 separate boundary witnesses, but is not used as an infinite certificate.
+## correctness
 
-**Originality — PASS, qualified.** Schrijver (1978) establishes vertex-criticality and chromatic number for the same graphs, not the local extension threshold. Matoušek–Ziegler (2002) give chromatic/topological lower bounds, not two-point extension. Grohe–Otto (2012) provide the general pebble-game framework but no such classification. Same-family Schultz (2010) and Torres–Valencia-Pabon (2016) concern graph-homomorphism spaces, automorphism shifts and hom-idempotence, not the two-point extension criterion. The bounded-rank ordinary-Kneser comparison and published stable-Kneser independence-complex homology have different objects/conclusions and do not imply the present threshold or unrestricted equivalence. Relevant web and published-research-record searches yielded no covering claim. An unlocated characterization of existential closure of Kneser-type graphs remains a genuine historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The exact sharp \(4r-1\) local extension threshold is a natural structural question for the classic vertex-critical family. Its equivalence with every-edge-triangle geometry and permanent three-variable indistinguishability from the random graph adds a logical consequence across nonisomorphic finite graphs with arbitrarily large chromatic numbers; the latter does not follow merely from Schrijver's coloring result.
+For 2r<=n<=4r−2, alternating disjoint stable r-sets A,B have no common neighbor because their complement is a path of n−2r ground-cycle vertices with independence number <=r−1. For n>=4r−1, every proper ground-cycle subset induces paths and has independence number >=ceil(size/2); the explicit constructions in RESULT.md produce disjoint-to-both, mixed and meeting-both stable r-sets distinct from anchors, including r=2 edge cases. Three-pebble back-and-forth uses 2-e.c. to preserve two-anchor adjacency and equality forever, hence unrestricted-depth counting-free FO3 equivalence to Rado. Schrijver chromatic theorem gives 2r+1 at n=4r−1. Independent full-pair four-pattern enumerations verified the predicted cutoff for r=2,n=4..10 and r=3,n=6..14, but finite enumeration is corroboration only.
 
-**Scope/limits.** The 2-point property does not assert higher existential closure; FO3 is counting-free and uses pure graph adjacency. The classification does not show equivalence with four variables, counting, or arbitrary relational expansions. The original 1978 source lacks a verified calendar-day first-public date, while the supporting first exactly dated online source is 2002-08-09. Relevant literature and record searches are finite and cannot conclusively establish historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
+
+## value
+
+PASS
+
+An exact sharp local extension threshold for an important chromatic-extremal graph family is a natural infinite classification. The consequence that unbounded chromatic number coexists with the fixed unrestricted-quantifier-depth three-variable theory of the Rado graph is a substantive finite-model-theoretic interaction, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

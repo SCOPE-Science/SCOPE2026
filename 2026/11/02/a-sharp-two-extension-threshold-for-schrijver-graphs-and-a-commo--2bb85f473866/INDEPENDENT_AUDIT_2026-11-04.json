@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:43:54.602086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2r<=n<=4r−2, alternating disjoint stable r-sets A,B have no common neighbor because their complement is a path of n−2r ground-cycle vertices with independence number <=r−1. For n>=4r−1, every proper ground-cycle subset induces paths and has independence number >=ceil(size/2); the explicit constructions in RESULT.md produce disjoint-to-both, mixed and meeting-both stable r-sets distinct from anchors, including r=2 edge cases. Three-pebble back-and-forth uses 2-e.c. to preserve two-anchor adjacency and equality forever, hence unrestricted-depth counting-free FO3 equivalence to Rado. Schrijver chromatic theorem gives 2r+1 at n=4r−1. Independent full-pair four-pattern enumerations verified the predicted cutoff for r=2,n=4..10 and r=3,n=6..14, but finite enumeration is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schrijver proves chromatic n−2r+2.",
+          "Grohe–Otto gives general pebble characterization, not a 2-e.c. theorem about SG."
+        ],
+        "reasoning": "Previous chromatic/topological/homomorphism results do not logically imply all four two-point extension witnesses at n>=4r−1.",
+        "searches": [
+          "Schrijver 1978 chromatic and vertex critical stable Kneser",
+          "Matousek Ziegler 2002 stable Kneser topological chromatic",
+          "Grohe Otto 2012 pebble game"
+        ]
+      },
+      "checked_sources": [
+        "https://ir.cwi.nl/pub/9898/9898D.pdf — Original full PDF: definitions and vertex-criticality/chromatic theorem, including scanned theorem pages",
+        "https://arxiv.org/abs/math/0208072 — Public arXiv theorem statements and relevant Schrijver discussion",
+        "https://drops.dagstuhl.de/opus/volltexte/2012/3679/pdf/25.pdf — Full accessible paper, pebble-game definitions, finite-variable section and main discussion",
+        "https://arxiv.org/abs/1006.0474 — Open-access abstract and introduction/main results on homomorphism spaces",
+        "https://arxiv.org/abs/1604.07023 — Open abstract and result description of shifts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit alternating edge is non-triangular when n<=4r−2; constructive path bound forces all four patterns at n>=4r−1.",
+          "FO^3 equivalence follows from the newly proved 2-e.c. property plus known pebble-game theory."
+        ],
+        "reasoning": "The critical local extension classification is additional to chromatic/vertex-critical results; the logical corollary genuinely requires that classification. Historical priority for an unlocated equivalent extension theorem cannot be certified.",
+        "searches": [
+          "Schrijver 1978 theorem n-2r+2",
+          "Grohe Otto 2012 pebble game",
+          "Schultz 2010 homomorphism spaces",
+          "Torres Valencia Pabon 2016 shifts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2-e.c. is the four required adjacency/nonadjacency patterns for pairs of distinct graph vertices.",
+          "3-pebble permanent invariant is equivalent to FO^3 indistinguishability when both graphs have 2-extension."
+        ],
+        "reasoning": "Generic logical equivalence technique is known; the new exact n/r Schrijver extension threshold is not supplied by those general facts.",
+        "searches": [
+          "Schrijver stable Kneser graphs two existentially closed property three variable logic random graph threshold",
+          "Schrijver stable Kneser existential extension two point FO3 pebble equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive small SG instance tests confirm threshold for r=2,3 but are not an infinite theorem.",
+          "No exact 2-e.c. classification table in retrieved indexed results."
+        ],
+        "reasoning": "The result is an all-parameter structural theorem, not the output of a previously known finite graph table; no absence-of-search originality proof is made.",
+        "searches": [
+          "2 e.c. Schrijver graph threshold 4r minus 1",
+          "finite model theory stable Kneser graph Rado FO3 logical theory"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.",
+      "residual_risks": [
+        "An earlier existentially-closed treatment of stable Kneser graphs under different names or dual hypergraph language might supply the same threshold.",
+        "FO3 pebble equivalence itself is a standard consequence of 2-e.c.; novelty is not claimed for the generic pebble lemma or chromatic theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CHROMATIC_NOT_EXTENSION",
+          "evidence": "Establishes chi(SG(n,r))=n−2r+2 and vertex criticality, neither four-pattern 2-e.c. existence nor FO3 equivalence.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/9898/9898D.pdf",
+          "material_read": "Original full PDF: definitions and vertex-criticality/chromatic theorem, including scanned theorem pages",
+          "method": "opened primary PDF and inspected page images and relevant proof",
+          "title": "Vertex-critical subgraphs of Kneser graphs (Schrijver, 1978)",
+          "trigger": "Same exact stable Kneser family and chromatic theorem"
+        },
+        {
+          "assessment": "PRIOR_TOPOLOGICAL_RESULTS_DISTINCT",
+          "evidence": "Topological chromatic bounds do not guarantee all four two-vertex adjacency prescriptions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0208072",
+          "material_read": "Public arXiv theorem statements and relevant Schrijver discussion",
+          "method": "primary theorem/section comparison",
+          "title": "Topological lower bounds for the chromatic number: A hierarchy (Matoušek and Ziegler, 2002)",
+          "trigger": "Broader Schrijver/Kneser topology and coloring"
+        },
+        {
+          "assessment": "PRIOR_GENERIC_TECHNIQUE_NOT_GRAPH_THRESHOLD",
+          "evidence": "A general characterization of k-variable equivalence supplies the pebble method, not that SG(n,r) is 2-e.c. at exact threshold.",
+          "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2012/3679/pdf/25.pdf",
+          "material_read": "Full accessible paper, pebble-game definitions, finite-variable section and main discussion",
+          "method": "relevant game characterization sections",
+          "title": "Pebble Games and Linear Equations (Grohe and Otto, 2012)",
+          "trigger": "Potential stronger finite-variable logical equivalence"
+        },
+        {
+          "assessment": "SAME_FAMILY_DIFFERENT_INVARIANT",
+          "evidence": "Homomorphism/test-graph statements do not determine the exact 2-extension threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.0474",
+          "material_read": "Open-access abstract and introduction/main results on homomorphism spaces",
+          "method": "relevant statement comparison",
+          "title": "Paths of homomorphisms from stable Kneser graphs (Schultz, 2010)",
+          "trigger": "Same graph family and structural theory"
+        },
+        {
+          "assessment": "SAME_FAMILY_DIFFERENT_INVARIANT",
+          "evidence": "Shifts and hom-idempotence are not four-pattern adjacency extension or bounded-variable logical equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.07023",
+          "material_read": "Open abstract and result description of shifts",
+          "method": "abstract/result comparison",
+          "title": "Shifts of the Stable Kneser Graphs and Hom-Idempotence (Torres and Valencia-Pabon, 2016)",
+          "trigger": "Same stable Kneser object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact sharp local extension threshold for an important chromatic-extremal graph family is a natural infinite classification. The consequence that unbounded chromatic number coexists with the fixed unrestricted-quantifier-depth three-variable theory of the Rado graph is a substantive finite-model-theoretic interaction, not a parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Theorem applies to stable Kneser/Schrijver graphs, 2-e.c. (not 3-e.c.), counting-free FO3 in graph language; not graph isomorphism or full first-order equivalence.",
+    "An earlier existentially-closed treatment of stable Kneser graphs under different names or dual hypergraph language might supply the same threshold.",
+    "FO3 pebble equivalence itself is a standard consequence of 2-e.c.; novelty is not claimed for the generic pebble lemma or chromatic theorem."
+  ],
+  "schema_version": 1
+}
