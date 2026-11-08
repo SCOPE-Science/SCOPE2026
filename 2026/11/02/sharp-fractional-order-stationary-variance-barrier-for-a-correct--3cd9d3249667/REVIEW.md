@@ -1,15 +1,21 @@
-# Scientific review — fractional Ornstein–Uhlenbeck stationary-variance correction
+# Independent mathematical audit
 
-## Correctness: PASS
-For \(1/2<H<1\), \(a,\sigma>0\), and a theta recurrence with \(0<B/A<1\), the exact stationary noise-filter representation exists in \(L^2\). Summing the fractional-Gaussian increment covariance proves the displayed polylogarithmic variance identity without independence assumptions. The continuous variance normalization follows by evaluating the standard fractional-noise double integral. Expanding \(\operatorname{Li}_{-2H}(e^{-t})\), \(t=-\log(B/A)\), gives the quadratic coefficient \((1-H)(1/6-2c)\) for \(\theta_h=1/2+cah\), with unique cancellation at \(c=1/12\). The remaining \(\zeta(-2H)\) term is strictly negative and nonzero, yielding sharp order \(2H+1\). The corrected filter is stable for all positive steps because the rational numerator has negative discriminant. An independent computational route through finite covariance sums and high-precision polylog values passed in `verify.py`. The finite checks do not substitute for the universal proof.
+## correctness
 
-## Originality: PASS, provisional historical priority
-The 2026 Abreu–Fermín–Mordecki–Torres manuscript was read through its full accessible HTML, including its introduction, scheme, convergence results, and bibliography: it proves finite-horizon pathwise consistency and convergence and does not state the stationary polylogarithm or the corrected-theta fractional-order bias. Garrido-Atienza–Kloeden–Neuenkirch (2009) is particularly relevant because it proves general convergence of fractional-noise stationary solutions under drift-implicit Euler; that qualitative theorem does not entail the sharp scalar theta-family bias coefficient. Its full text was unavailable for inspection, so an undocumented exact formula therein cannot be ruled out. Gehringer–Li (2020) supplies continuous fractional Ornstein–Uhlenbeck theory but does not state the discrete variance formula. Search of indexed mathematical claims did not locate an equivalent. These observations warrant a bounded originality assessment, not categorical historical uniqueness.
+PASS
 
-## Mathematical value: PASS
-Time-stepping biased equilibrium variance is an independently motivated numerical observable for long-memory stochastic equations. The exact formula gives an analytical regression benchmark; the correction uniquely removes the leading \(O(h^2)\) midpoint bias within a natural parameterized family, while its noninteger sharp remainder explains why deterministic fourth-order propagator matching does not deliver fourth-order stationary-variance accuracy under unchanged long-memory innovations. This is a structural accuracy limitation with a computable constant, rather than a numerical experiment or a generic perturbation of an arbitrary parameter slice.
+For fixed H∈(1/2,1), σ,a>0 and fractional Brownian increments of variance h^{2H}, the stable causal filter gives V=σ²h^{2H} x Li_{-2H}(r)/(ABC), x=ah,r=B/A. Verified summing the second-difference fractional Gaussian covariances gives (1-r)^2 Li_{-2H}(r)/r, and independent 1000-term high-precision covariance sums match the polylog. Jonquière expansion plus θ_h=1/2+cx yields relative variance (1-H)(1/6-2c)x² + ζ(-2H)x^{2H+1}/Γ(2H+1)+O_H(x^{2H+2}). c=1/12 uniquely kills x² within this family, with negative nonzero ζ(-2H) for H∈(1/2,1) giving sharp fractional rate. Padé denominator/numerator positivity gives 0<r<1 all x>0. Independent high-precision asymptotic checks H=0.6,0.8 corroborate only, not prove universal H.
 
-## Closest literature and limits
-The motivating 2026 result treats finite-time pathwise error, not stationary moments. The 2009 predecessor provides general stationary convergence but its full text was not accessible; its precise quantitative claims remain a historical-priority risk. Only linear, scalar, additive-noise fractional Ornstein–Uhlenbeck dynamics and the given correlated-increment theta recurrence are covered. No statement is made about finite-time strong order, whole-process covariance, higher dimensions, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest primary stochastic numerics source studies finite-horizon pathwise convergence; earlier stationary fBM discretization gives qualitative convergence but full text was unavailable; continuous fractional OU limit theorems do not calculate discrete theta invariant variance. PASS as bounded best-of-knowledge, with 2009 full text priority risk.
+
+## value
+
+PASS
+
+Sharp invariant-variance accuracy for long-memory fractional OU numerical sampling is independently motivated. Exact bias correction separates deterministic Padé order from fractional correlated-noise barrier and gives a nontrivial fractional-power stationary benchmark, with clear restriction to one-time variance and specified theta family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

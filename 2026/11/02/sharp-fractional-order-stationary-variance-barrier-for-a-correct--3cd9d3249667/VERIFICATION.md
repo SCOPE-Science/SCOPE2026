@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3 and the `mpmath` package available. Successful execution prints `VERIFY_OK 696`.
+## correctness
 
-The script checks the fractional Gaussian noise covariance generating function against a separately evaluated finite weighted sum, checks the resulting stationary variance in two equivalent numerical forms, tests rational Padé propagation and strict stability over positive rational step sizes, compares the sharp \(\zeta(-2H)\) asymptotic coefficient at multiple Hurst parameters, and checks the quadratic theta-family coefficient. All results are checked afresh from the supplied source; no precomputed log or external state is required.
+PASS
 
-The analytic proof in `RESULT.md` supplies the full, all-parameter correctness argument. Finite numerical tests cannot prove the infinite covariance-sum identity, the exact asymptotic limit, strict sign on an interval, or historical novelty. The relevant historical stationary-discretization paper from 2009 was inspectable only through bibliographic abstracts; priority remains subject to examination of that full text. Independent mathematical audit has not been performed.
+For fixed H∈(1/2,1), σ,a>0 and fractional Brownian increments of variance h^{2H}, the stable causal filter gives V=σ²h^{2H} x Li_{-2H}(r)/(ABC), x=ah,r=B/A. Verified summing the second-difference fractional Gaussian covariances gives (1-r)^2 Li_{-2H}(r)/r, and independent 1000-term high-precision covariance sums match the polylog. Jonquière expansion plus θ_h=1/2+cx yields relative variance (1-H)(1/6-2c)x² + ζ(-2H)x^{2H+1}/Γ(2H+1)+O_H(x^{2H+2}). c=1/12 uniquely kills x² within this family, with negative nonzero ζ(-2H) for H∈(1/2,1) giving sharp fractional rate. Padé denominator/numerator positivity gives 0<r<1 all x>0. Independent high-precision asymptotic checks H=0.6,0.8 corroborate only, not prove universal H.
+
+## originality
+
+PASS
+
+Closest primary stochastic numerics source studies finite-horizon pathwise convergence; earlier stationary fBM discretization gives qualitative convergence but full text was unavailable; continuous fractional OU limit theorems do not calculate discrete theta invariant variance. PASS as bounded best-of-knowledge, with 2009 full text priority risk.
+
+## value
+
+PASS
+
+Sharp invariant-variance accuracy for long-memory fractional OU numerical sampling is independently motivated. Exact bias correction separates deterministic Padé order from fractional correlated-noise barrier and gives a nontrivial fractional-power stationary benchmark, with clear restriction to one-time variance and specified theta family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

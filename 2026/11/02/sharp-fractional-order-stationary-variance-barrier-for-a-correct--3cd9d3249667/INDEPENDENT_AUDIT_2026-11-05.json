@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:10:00.562081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed H∈(1/2,1), σ,a>0 and fractional Brownian increments of variance h^{2H}, the stable causal filter gives V=σ²h^{2H} x Li_{-2H}(r)/(ABC), x=ah,r=B/A. Verified summing the second-difference fractional Gaussian covariances gives (1-r)^2 Li_{-2H}(r)/r, and independent 1000-term high-precision covariance sums match the polylog. Jonquière expansion plus θ_h=1/2+cx yields relative variance (1-H)(1/6-2c)x² + ζ(-2H)x^{2H+1}/Γ(2H+1)+O_H(x^{2H+2}). c=1/12 uniquely kills x² within this family, with negative nonzero ζ(-2H) for H∈(1/2,1) giving sharp fractional rate. Padé denominator/numerator positivity gives 0<r<1 all x>0. Independent high-precision asymptotic checks H=0.6,0.8 corroborate only, not prove universal H.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2009 accessible abstract establishes stationary-solution convergence; 2026 article handles pathwise Euler convergence; 2020 paper treats continuous fOU functional limits."
+        ],
+        "reasoning": "Existence/convergence or functional CLTs do not logically specify the polylogarithmic variance or c=1/12 sharp coefficient, though full 2009 text may contain a quantitative special case.",
+        "searches": [
+          "doi:10.1007/s00245-008-9062-9 Garrido-Atienza et al 2009",
+          "arXiv:2609.37019 Abreu et al.",
+          "doi:10.1007/s10959-020-01044-7 Gehringer–Li"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37019 abstract/source description",
+        "doi:10.1007/s00245-008-9062-9 abstract only",
+        "doi:10.1007/s10959-020-01044-7 continuous fOU paper",
+        "Resultary query fractional OU polylog stationary theta"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target concerns stationary one-time variance noninteger rate 2H+1 and uniquely tuned theta; predecessor material accessible is qualitative convergence only."
+        ],
+        "reasoning": "Strong finite-time convergence neither implies nor contradicts sharp stationary bias or its sign.",
+        "searches": [
+          "arXiv:2609.37019 finite-horizon SFDE convergence",
+          "doi:10.1007/s00245-008-9062-9 abstract",
+          "RESULT.md exact variance identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact correlated-increment theta-filter variance is distinct from finite-time strong error or white-noise UBU midpoint scheme."
+        ],
+        "reasoning": "The same words fractional, midpoint and variance do not identify equivalent noise models or limits.",
+        "searches": [
+          "Resultary query: fractional Ornstein Uhlenbeck theta discretization stationary variance polylogarithm Padé zeta fractional order",
+          "arXiv:2609.37019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed Resultary is fractional midpoint noise in UBU for white Gaussian noise, not fBM memory."
+        ],
+        "reasoning": "No exact matching table observed; search index absence cannot certify priority.",
+        "searches": [
+          "Resultary semantic query: fractional Ornstein Uhlenbeck theta discretization stationary variance polylogarithm Padé zeta fractional order",
+          "literature query fractional Gaussian noise stationary variance polylog theta method"
+        ]
+      },
+      "rationale": "Closest primary stochastic numerics source studies finite-horizon pathwise convergence; earlier stationary fBM discretization gives qualitative convergence but full text was unavailable; continuous fractional OU limit theorems do not calculate discrete theta invariant variance. PASS as bounded best-of-knowledge, with 2009 full text priority risk.",
+      "residual_risks": [
+        "Full 2009 Garrido–Kloeden–Neuenkirch primary text inaccessible via institutional VPN; could contain similar invariant-variance formulas.",
+        "Older scalar fBM theta-discretization expansions may be indexed under long-memory AR(1) filtering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected statements concern fixed-horizon pathwise error, not claimed stationary polylog coefficient",
+          "evidence": [
+            "Abstract and theorem scope described in accessible metadata"
+          ],
+          "identifier_or_url": "arXiv:2609.37019",
+          "material_read": "Published abstract and source-described introduction/theorem focus; no complete full-text reading verified this execution",
+          "method": "Read accessible abstract/metadata and compared stated finite-horizon convergence observable",
+          "title": "Consistency and Convergence of the Backward-Euler Scheme for Stochastic Functional Differential Equations Driven by Fractional Brownian Motion",
+          "trigger": "Relevant primary fractional-noise discretization"
+        },
+        {
+          "assessment": "Cannot rule out hidden quantitative expansion; only qualitative stationary convergence verified from abstract",
+          "evidence": [
+            "Publisher abstract; institutional access failure"
+          ],
+          "identifier_or_url": "doi:10.1007/s00245-008-9062-9",
+          "material_read": "Publisher abstract only, no authorized full text",
+          "method": "Checked lawful open-access retrieval; authorized institutional attempt returned vpn_disconnected",
+          "title": "Discretization of stationary solutions of stochastic systems driven by fractional Brownian motion",
+          "trigger": "Closest older stationarity with correlated fBM increments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp invariant-variance accuracy for long-memory fractional OU numerical sampling is independently motivated. Exact bias correction separates deterministic Padé order from fractional correlated-noise barrier and gives a nontrivial fractional-power stationary benchmark, with clear restriction to one-time variance and specified theta family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.37019 abstract/source description",
+    "doi:10.1007/s00245-008-9062-9 abstract only",
+    "doi:10.1007/s10959-020-01044-7 continuous fOU paper",
+    "Resultary query fractional OU polylog stationary theta"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar stationary variance with unmodified correlated fractional Gaussian increments; no pathwise rate or higher-dimensional theorem.",
+    "Small-step expansion fixed H within (1/2,1), not uniform at Brownian endpoints.",
+    "Full 2009 Garrido–Kloeden–Neuenkirch primary text inaccessible via institutional VPN; could contain similar invariant-variance formulas.",
+    "Older scalar fBM theta-discretization expansions may be indexed under long-memory AR(1) filtering.",
+    "No GitHub write or dispatcher closeout; publication is withheld."
+  ],
+  "schema_version": 1
+}
