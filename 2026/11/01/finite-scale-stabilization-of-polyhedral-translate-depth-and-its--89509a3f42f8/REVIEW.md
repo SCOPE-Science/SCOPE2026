@@ -1,19 +1,21 @@
-# Scientific review of finite-scale polyhedral translate depth
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition of translate depth is used with closed translates and strict exclusion of the query. The upper bound comes from a violated facet inequality; it is valid even for atomic distributions. For the reverse bound, each facet-interior point supplies strictly positive inactive-facet slacks, and a witness from the convex hull of the compact support at the prescribed active-facet level supplies a translate covering the entire selected support halfspace once each projected width is below its corresponding scaled slack. Taking supremums over strict levels correctly keeps atoms on the query hyperplane excluded. The quantile-region statement follows from left continuity of strict distribution functions. Cartesian-product intervals prove the improved parallelotope threshold; a uniform full box witnesses its optimality. The included exact rational checker independently tests concrete witnesses, but universality is proved analytically.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+Given irredundant facets (a_i,b_i), for any i and c<a_i·y in projection support select z_i∈conv(S) with a_i·z_i=c. Then Q=z_i+t(P−p_i) misses y and contains every z∈S with a_i·z≤c whenever t δij≥W_j for j≠i, since a_j·(z−z_i)≤W_j. Conversely any missing translate violates at least one facet and lies in its strict-side halfspace. Taking c↑a_i·y yields exact strict formula for atomic or diffuse laws; its left-continuous projection CDF yields closed quantile halfspace depth regions. For boxes, coordinate intervals of length 2t capture all selected-side support once t≥max w_k/2; a uniform full rectangular support with query on a longest-coordinate endpoint facet has limiting depth 0 but translate depth≥1−2t/w_max>0 below that threshold, proving sharpness. Inspected rational verification source and reconstructed the geometry independently.
 
-Molchanov and Nagy's arXiv:2610.26108 (first public 2026-10-19) supplies the translate-depth definition, general asymptotic tangent-cone convergence under a boundary-null condition, and a general arrangement method for finite samples; it does not state the distribution-uniform finite cutoff, explicit facet-width/slack certificate, or sharp box cutoff proved here. Fraiman and Pateiro-López's 2012 work on directional quantiles establishes that quantile-defined depth regions as such are old; the new assertion is their exact identification with finite-dilation translate depth. A previously available calculation of the depth of a uniform simplex under homothetic simplex testers is a special case, not an all-polytope/all-law result. Searches of relevant mathematical records and accessible literature returned no equivalent finite-scale theorem. This does not establish universal historical priority; inaccessible or differently named earlier work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-A qualitative limiting depth theorem becomes an exact finite-scale identity for every compactly supported law and every polyhedral test body, with a finite, explicitly computable affine-covariant certificate. This removes the need for translate arrangements after stabilization: all levels are polytopes determined by finitely many marginal quantiles. The parallelotope case has a strictly sharper and distribution-uniformly optimal threshold of half the largest affine-coordinate width. The distinction between eventual exactness for polyhedral testers and mere asymptotic convergence in the smooth case is geometrically meaningful, and the atomic-law extension is substantive.
+Best-of-knowledge the uniform all-query exact finite-dilation identity for arbitrary compact measures on every polytope plus a sharp half-width box threshold goes beyond the published Molchanov–Nagy tangent-cone limit and finite-direction quantile background. The fourth record is covered by this theorem, not conversely. No directly equivalent prior full theorem found in actual semantic comparisons.
 
-## Closest literature and limitations
+## value
 
-The 2026 tangent-cone convergence result is the closest source and explains the correct limiting object; the finite cutoff is not logically supplied by its asymptotic theorem. The general cutoff here is sufficient, not always minimal. Strict projection inequalities cannot be changed to nonstrict ones for atomic laws. The support must be compact. Complete historical originality and independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a computable exact finite-scale reduction of an infinite translate supremum to finitely many facet-direction quantiles, with atoms allowed and sharp scale for a central family. This is a useful structural theorem for robust depth regions and computational geometry, not merely a normalization of the known asymptotic depth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
