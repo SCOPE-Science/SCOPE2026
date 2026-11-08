@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:58:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every tournament on seven labelled vertices corresponds to one 21-bit orientation; sound score-bound pruning enumerates precisely 2640 regular states. Exactly 14 cyclic triples in each (35 total minus 7*binom(3,2) transitive triples), so the interchange graph is 14-regular with 18480 edges; 3-bit flips imply bipartiteness. Independent complete all-source BFS found 3 profiles: sizes 240:(1,14,91,343,749,871,476,92,3), 1680:(1,14,91,340,739,853,483,113,6), 720:(1,14,91,336,721,822,485,147,22,1); graph connected, radius 8, diameter 9. Independent exact-cover recursion enumerated all 30 labelled Steiner triple systems, giving 2 cyclic Fano decompositions for 1920 states, 0 for 720. A seven-step converse path must reverse all 21 arcs once, hence is equivalent to a directed Fano decomposition; opposite parity excludes eight where none, and all-source BFS shows 720 exceptional states with unique antipode converse at nine, i.e. 360 unordered diameter pairs. Entire finite state space was enumerated, not a sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Brualdi–Li diameter prediction (n-1)^2/4 gives nine for n=7, and McShine connectivity are already prior; neither determines all 2640 distances, orbitwise eccentricity, or Fano-equivalent converse paths."
+        ],
+        "reasoning": "Global diameter alone cannot recover metric spheres, uniqueness of antipodes, or the 2/2/0 decomposition census; original chapter inaccessible so remains risk.",
+        "searches": [
+          "Brualdi Li 1984 tournament interchange diameter regular n 7",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r8/pdf"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob fae9f2b908e76e1938e31e177f3baf5d77c90125",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r8/pdf",
+        "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+        "https://link.springer.com/article/10.1007/s00026-025-00768-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published fixed-score interchange results establish connectivity/bipartiteness and broad mixing, not the order-7 cyclic-Fano iff-shortest converse characterization or unique diameter antipodes."
+        ],
+        "reasoning": "Seven disjoint cyclic triples imply a converse geodesic only after proving all 21 arcs are switched exactly once; old general structure does not supply enumeration of such decompositions.",
+        "searches": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r8/pdf",
+          "https://link.springer.com/article/10.1007/s00026-025-00768-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brualdi interchange graph G_Δ(T(R)) is the same operation as reversing a cyclic 3-cycle; the comparison must concern labelled score vector (3,...,3)."
+        ],
+        "reasoning": "Compared score-vector triangle-switch terminology and triangular trades, not merely tournament titles; no accessible profile theorem located.",
+        "searches": [
+          "triangle switch graph regular 7 tournaments distance profiles Fano lines",
+          "https://doi.org/10.1017/CBO9780511721182.007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay catalogue lists 3 isomorphism types at n=7, not shortest-path interchange tables; exact independent BFS yields 3 sphere profiles and full antipodes."
+        ],
+        "reasoning": "Isomorphism data alone are insufficient to imply the interchange graph distance table, though enable its finite reconstruction.",
+        "searches": [
+          "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "https://users.cecs.anu.edu.au/~bdm/data/rt7.txt"
+        ]
+      },
+      "rationale": "Established Brualdi–Li interchange-graph framework, connectivity, regularity and proposed seven-player diameter nine are prior. New assessed contribution is the full three-orbit distance-sphere census and exact cyclic-Fano converse obstruction and 360 antipodes; no inspected source gives these explicit results. Original 1984 chapter could not be accessed in full despite OA and authorized retrieval attempt: substantial qualified historical priority risk.",
+      "residual_risks": [
+        "Brualdi–Li 1984 original directly relevant chapter not retrievable in complete text; authorized Oxford retrieval returned worker unavailable or request invalid, not proof of noncoverage.",
+        "No general statement for n>7 established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general connectivity/sampling and reports Brualdi–Li conjectured diameter, no three orbitwise seven-vertex sphere profiles",
+          "evidence": [
+            "Remark states regular tournament conjectured diameter (n-1)^2/4."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r8/pdf",
+          "material_read": "Complete accessible PDF text including main interchange and diameter discussion, page-render attempted",
+          "method": "Primary PDF extracted text and theorem/remark comparison",
+          "title": "Random Sampling of Labeled Tournaments",
+          "trigger": "published regular tournament interchange diameter prediction"
+        },
+        {
+          "assessment": "Confirms exactly 3 regular 7-vertex isomorphism classes but no interchange distances",
+          "evidence": [
+            "Table entry: 7 vertices (3)."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "material_read": "Regular and semi-regular tournament table and link to rt7.txt",
+          "method": "Published catalogue page",
+          "title": "Combinatorial Data: Regular and Semi-regular Tournaments",
+          "trigger": "complete order-seven isomorphism catalogue"
+        },
+        {
+          "assessment": "Possible uninspected order-seven metric remains significant priority risk",
+          "evidence": [
+            "Known prior connected regular bipartite interchange graphs."
+          ],
+          "identifier_or_url": "Brualdi and Li, Progress in Graph Theory (1984), 129–151",
+          "material_read": "Bibliographic excerpts, secondary citations; complete original unavailable",
+          "method": "OA/arXiv discovery and authorized institutional fetch (worker unavailable)",
+          "title": "The interchange graph of tournaments with the same score vector",
+          "trigger": "original directly matching interchange object"
+        },
+        {
+          "assessment": "Develops Coxeter generalizations rather than the full labelled order-seven shortest-path and Fano data",
+          "evidence": [
+            "General type-A adjacency is prior."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-025-00768-9",
+          "material_read": "Accessible full article relevant general type-A discussion and main statements",
+          "method": "Primary HTML section comparison",
+          "title": "Coxeter Interchange Graphs",
+          "trigger": "modern generalization of exact triangle interchange graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The seven-player case is a canonical fixed-score tournament interchange network with a natural short-geodesic criterion. The complete reconfiguration metric and Fano-plane obstruction explain a meaningful structural transition (two directed decompositions or none) and provide an exact benchmark for sampling and interchange diameter work.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob fae9f2b908e76e1938e31e177f3baf5d77c90125",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v7i1r8/pdf",
+    "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+    "https://link.springer.com/article/10.1007/s00026-025-00768-9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Brualdi–Li 1984 original directly relevant chapter not retrievable in complete text; authorized Oxford retrieval returned worker unavailable or request invalid, not proof of noncoverage.",
+    "No general statement for n>7 established."
+  ],
+  "residual_risks": [
+    "Brualdi–Li 1984 original directly relevant chapter not retrievable in complete text; authorized Oxford retrieval returned worker unavailable or request invalid, not proof of noncoverage.",
+    "No general statement for n>7 established."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Two standalone Python 3 programs use only the Python standard library. Execute `python3 verify_tournament_interchange_dynamic.py` and `python3 verify_tournament_interchange_orbits.py` from the directory containing these files.
+## correctness
 
-The first checks completeness of a score-pruned enumeration of \(2640\) labelled regular tournaments on seven vertices, the full \(18480\) interchange-edge graph, \(14\)-regularity, bipartiteness, all-source connectivity and exactly three distance-sphere profiles. It enumerates all \(30\) labelled Fano triple systems by exact cover, checks the \(2,2,0\) cyclic decomposition counts on the three isomorphism classes, and identifies all \(360\) unordered diameter pairs as converse pairs.
+PASS
 
-The second constructs each labelled regular tournament from the three public seven-vertex catalogue representations under all \(5040\) label permutations. It applies an outgoing-neighbor-bitset encoding, independently reproduces all graph profiles from orbit representatives, computes the exact cyclic Fano systems, and checks the converse distances of \(7,7,9\). The class sizes \(240,1680,720\) exhaust \(2640\).
+Every tournament on seven labelled vertices corresponds to one 21-bit orientation; sound score-bound pruning enumerates precisely 2640 regular states. Exactly 14 cyclic triples in each (35 total minus 7*binom(3,2) transitive triples), so the interchange graph is 14-regular with 18480 edges; 3-bit flips imply bipartiteness. Independent complete all-source BFS found 3 profiles: sizes 240:(1,14,91,343,749,871,476,92,3), 1680:(1,14,91,340,739,853,483,113,6), 720:(1,14,91,336,721,822,485,147,22,1); graph connected, radius 8, diameter 9. Independent exact-cover recursion enumerated all 30 labelled Steiner triple systems, giving 2 cyclic Fano decompositions for 1920 states, 0 for 720. A seven-step converse path must reverse all 21 arcs once, hence is equivalent to a directed Fano decomposition; opposite parity excludes eight where none, and all-source BFS shows 720 exceptional states with unique antipode converse at nine, i.e. 360 unordered diameter pairs. Entire finite state space was enumerated, not a sample.
 
-Finite exhaustive computation proves the particular seven-vertex metrics because the programs give a complete representation of their input domain and explicitly examine every legal neighbor. Running either program does not certify behaviour for arbitrary vertex counts or demonstrate independent scholarly validation. An inaccessible 1984 chapter creates a genuine unresolved historical-priority risk.
+## originality
+
+PASS
+
+Established Brualdi–Li interchange-graph framework, connectivity, regularity and proposed seven-player diameter nine are prior. New assessed contribution is the full three-orbit distance-sphere census and exact cyclic-Fano converse obstruction and 360 antipodes; no inspected source gives these explicit results. Original 1984 chapter could not be accessed in full despite OA and authorized retrieval attempt: substantial qualified historical priority risk.
+
+## value
+
+PASS
+
+The seven-player case is a canonical fixed-score tournament interchange network with a natural short-geodesic criterion. The complete reconfiguration metric and Fano-plane obstruction explain a meaningful structural transition (two directed decompositions or none) and provide an exact benchmark for sampling and interchange diameter work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
