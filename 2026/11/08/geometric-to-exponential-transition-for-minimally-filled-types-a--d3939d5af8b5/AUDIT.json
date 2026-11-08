@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For all n,m the independent Poisson embedding makes the last mth event unique and the other n-1 exact-m indicators conditionally independent, giving the stated binomial mixture. The Gamma upper-tail quantile has (b-m)/sqrt(m)->infinity; the exact tail/density integral yields w~b/(b-m) and marked ratio p_m/Q_m~b/m-1 on its local Gumbel window. Conditional Poisson mixing yields Geom and variance control yields normalized Exp. Gamma Chernoff/Cramer rates give the logarithmic phase parameter. The original discrete process is identical in ordered marks. Standalone two-method rational checker passes 143 assertions; it does not replace analytic infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long Lemma 3.1 and Appendix A establish the uniform Gamma-tail quantile and Gumbel hitting-time law, but do not mark counts exactly m at the stopping maximum.",
+        "Castro–Marinho arXiv:2610.33199v1 abstracts a complete cutoff profile for time, not a stopped count field."
+      ],
+      "reasoning": "A one-dimensional completion-time law does not determine simultaneous occupancies. The additional exact conditional binomial mark law and ratio p_m/Q_m are essential; they lead to a geometric family rather than simply another Gumbel statement. Broad extreme-value point-process results could cover the argument but no such explicit encompassing statement was identified.",
+      "searches": [
+        "last bottleneck coupon occupancy tie counts at m-fold coupon collection stopping time number types exactly m geometric distribution",
+        "uniform double Dixie cup n coupons m_n copies, at first completion count of coupon types observed exactly m_n times, law geometric for m_n proportional to log n, scaled exponential for m_n o(log n), singleton distribution Myers Wilf Ilienko",
+        "https://arxiv.org/html/2604.25108v2 §3.1, Appendix A",
+        "https://arxiv.org/abs/2610.33199"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.33199",
+      "https://arxiv.org/html/2604.25108v2",
+      "https://arxiv.org/html/math/0304229v1",
+      "https://www.vmsta.org/journal/VMSTA/article/358/text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ilienko Theorem 2 obtains geometrically distributed *delayed* missing collection counts, relative to first coverage, with fixed collection index.",
+        "Long proves Gamma-tail normalization and stopping-time Gumbel convergence; this is used as a tool rather than claimed as new."
+      ],
+      "reasoning": "The fixed-index and delayed-observable results can imply partial endpoint behavior, but do not entail the threshold m_n proportional to log n or its success parameter 1/r_alpha. The critical geometric classification requires new mark-to-tail asymptotics and is not a corollary of the one-dimensional Gumbel clock law alone.",
+      "searches": [
+        "uniform double Dixie cup n coupons m_n copies, at first completion count of coupon types observed exactly m_n times, law geometric for m_n proportional to log n, scaled exponential for m_n o(log n), singleton distribution Myers Wilf Ilienko",
+        "https://www.vmsta.org/journal/VMSTA/article/358/text Theorems 1-3 and §8",
+        "https://arxiv.org/html/2604.25108v2 Lemma 3.1 and Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Poisson-clock equivalent: number of coupon types whose occupancy equals m at maximum of n iid Gamma(m,1) completion times.",
+        "Ilienko arXiv:2002.00650v1, Theorem 1 counts later missing coupons at first coverage; Remark following Theorem 3 discusses fixed shifted collection levels."
+      ],
+      "reasoning": "Compared stopped exact-m occupancy, count of unfilled next album, and conditional marks at Gamma maximum. At m=1 the observables coincide with prior singleton statistics, explicitly not new. For growing m_n, existing fixed-level counts are not equivalent under a uniform-in-level theorem.",
+      "searches": [
+        "coupon collector many collections at completion number of coupon types with exactly m copies multiplicity minimum occupancy geometric law Gumbel phase transition",
+        "uniform double Dixie cup n coupons m_n copies, at first completion count of coupon types observed exactly m_n times, law geometric for m_n proportional to log n, scaled exponential for m_n o(log n), singleton distribution Myers Wilf Ilienko",
+        "https://www.vmsta.org/journal/VMSTA/article/358/text §1-2, §7-8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Myers–Wilf (2003), equation (49), gives exact distribution of m=1 terminal singleton count; expected count H_n.",
+        "Published search hits on occupancy modes, reset coupon rates and pairwise independent occupancy do not tabulate the growing-threshold stopped count."
+      ],
+      "reasoning": "The m=1 finite law is covered and not offered as novel. The new statement classifies a variable-m_n asymptotic observable and is not merely an unreported entry of a fixed-size table.",
+      "searches": [
+        "coupon collector many collections at completion number of coupon types with exactly m copies multiplicity minimum occupancy geometric law Gumbel phase transition",
+        "last bottleneck coupon occupancy tie counts at m-fold coupon collection stopping time number types exactly m geometric distribution",
+        "uniform double Dixie cup n coupons m_n copies, at first completion count of coupon types observed exactly m_n times, law geometric for m_n proportional to log n, scaled exponential for m_n o(log n), singleton distribution Myers Wilf Ilienko",
+        "https://arxiv.org/html/math/0304229v1 §4"
+      ]
+    },
+    "rationale": "The exact m=1 terminal singleton distribution is due to Myers and Wilf, and completion-time Gumbel limits are due to Castro–Marinho and Long. The new non-implied observable is the number of bins at precisely the growing threshold at the *random m-fold completion time*, with an explicit transition on m/log n and an all-sequence conditional marked-clocking proof. Closest published work on delayed deficits and fixed levels (Ilienko) does not itself state this growing-multiplicity geometric family. Search does not establish absolute priority; possible broader marked point-process coverage remains a listed risk.",
+    "residual_risks": [
+      "An older general marked-extremes or Poisson occupancy process theorem might subsume the growing-m_n result despite the lack of a directly located statement.",
+      "Full appendices of Castro–Marinho 2026 were not available on repeated arXiv HTML requests; source comparison is therefore bounded.",
+      "Some fixed-threshold limits can already follow from Ilienko and Myers–Wilf; novelty is specifically the logarithmic growing-threshold family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Statement concerns number of draws/hitting-time Gumbel normalization; no terminal minimal-count assertion verified in readable portions",
+        "evidence": [
+          "arXiv:2610.33199v1 first submitted 2026-10-23; abstract explicitly states cutoff profile of T_n,m and its expectation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.33199",
+        "material_read": "Abstract, introduction and theorem portions previously accessible; full-text retry intermittently failed",
+        "method": "Opened arXiv HTML and rechecked abstract and date via arXiv abstract index",
+        "title": "Cutoff profile for the coupon collector with many collections",
+        "trigger": "Same uniform m-fold coupon collection, arbitrary m_n"
+      },
+      {
+        "assessment": "Strongly supplies quantile normalization; does not state count of exactly-m bins at completion",
+        "evidence": [
+          "§3.1 Eq. (8)-(13) and Appendix A §A.1, gamma-tail quantile and Gumbel limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25108v2",
+        "material_read": "Full relevant §2, §3.1, summary, conclusions, and Appendix A",
+        "method": "Read accessible arXiv full HTML, especially Lemma 3.1 and Proposition A.1",
+        "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+        "trigger": "Same gamma maximum and growing-m quantile"
+      },
+      {
+        "assessment": "Precisely covers m=1 stopped singleton special case, but not varying m_n critical transition",
+        "evidence": [
+          "§4 equations (46)-(50), H_n expectation, 2003."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0304229v1",
+        "material_read": "Full §4 (distribution formula (49), harmonic mean) and §3 background",
+        "method": "Read arXiv full HTML, compared exact object and condition m=1",
+        "title": "Some New Aspects of the Coupon-Collector's Problem",
+        "trigger": "Direct predecessor studying exactly-once types at stopped first completion"
+      },
+      {
+        "assessment": "Fixed-index deficits at first completion/delayed first-completion times and comments on higher fixed indices; materially different from the growing-m_n exact threshold count",
+        "evidence": [
+          "Theorems 1-3 and §8 remarks on higher fixed indices, 2026 journal article based on arXiv:2002.00650."
+        ],
+        "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/358/text",
+        "material_read": "Full mathematical statements §§1-2, §7 and §8; relevant formulas and remarks",
+        "method": "Read journal open-access HTML",
+        "title": "Limit theorems in the extended coupon collector's problem",
+        "trigger": "Point-process limits for counts near coupon completion, exponential/geometric laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3939d5a-f8b5-409b-bcce-18f6891dcbd5",
+  "value": {
+    "rationale": "The minimally filled count at the moment all coupon quotas have just been reached measures the number of remaining bottleneck types in repeated coverage. The exact changing-quota phase transition at m_n/asymp log n with continuum of geometric laws is a natural structural invariant beyond the total stopping time and gives a concrete phase diagram. Exact integral enables independent finite-size validation; no downstream sweeping claim is required.",
+    "status": "PASS"
+  }
+}
