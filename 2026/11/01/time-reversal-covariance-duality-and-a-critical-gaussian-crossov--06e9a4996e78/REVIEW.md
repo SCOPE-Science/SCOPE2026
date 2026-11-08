@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier chains provide an exact operator identity for the specified stationary map, their resolvent yields the algebraic covariance generating function, and the adjoint relation proves all-lag probability duality. Evaluation at the boundary gives a finite exact integrated correlation and a cusp. An explicit killed-half-line binomial kernel, combined with the uniform local central-binomial expansion and geometric-vector tail truncation, proves both parity constants and the Gaussian probability crossover. The included exact-rational checker confirms 158 finite equalities using independent branch integration; it is not substituted for any infinite argument.
+## correctness
 
-**Originality — PASS within inspected evidence.** The map and Lebesgue stationarity are known from Homburg–Kalle, and binomial reflection is a classical tool; neither is claimed as novel. The inspected primary manuscript and later open full version address two-point synchronization and phase transitions, not this stationary single-coordinate time-covariance identity, exact expansion/contraction probability duality, cusp, or Gaussian crossover. The closest Pelikan-map autocovariance literature involves only one inverse branch and different stationary statistics. A prior two-dimensional heterochaos baker-map analysis gives the same half-line kernel and equal-probability parity constants; the original contribution asserted is the complete all-probability stationary covariance identity, duality, cusp, and parameter-window crossover in the present one-dimensional process. Relevant random-grid, deterministic beta-map, and pair-correlation results concern mathematically different observables. No inspected stronger statement implies the full claim. Publication-priority uncertainty remains for equivalent uncatalogued random-walk formulations.
+PASS
 
-**Mathematical value — PASS.** At the parameter where the motivating family switches between synchronization and expansion, the single-coordinate time covariance is insensitive to reversing the Lyapunov-sign regime, yet its time integral develops an exact cusp. The result resolves its entire autocovariance sequence and a sharp parity-dependent critical scaling profile for all integer matched bases. These answer a natural quantitative dynamical question not supplied by stationary-measure or two-particle phase information.
+Fourier basis frequencies form disjoint b-adic chains with Koopman operator pS+qS*, acting on the centered-coordinate Fourier vector v=(1,r,r^2,...) with r=1/b, so C_n=(1-r^2)/12 <v,Q^n v>. A direct half-line resolvent recurrence yields h(z)=2/(1+sqrt(1-4pq z^2)), a(z)=p z h(z), and the stated rational quotient generating series. Replacing p by q transposes the real operator, leaving each quadratic form equal; all coefficients are nonnegative. Monotone z->1 evaluation yields the exact summable maximum cusp with max(p,q). The reflected binomial-path kernel gives the critical n^-3/2 term and even/odd amplitude through the weighted parity sum; for p=1/2+u/sqrt(n), (4pq)^(n/2)->e^(-2u^2), while geometric tails and local central-binomial asymptotics justify summation. I read full RESULT.md and checker.py, checked independent finite chain symmetry and large-n constants; finite comparisons alone do not establish the limiting law. Endpoint p=0,1 is handled in formal expansions.
 
-**Closest literature and limits.** Homburg–Kalle, arXiv:2207.09987v1 and *Adv. Math.* 482 (2025), 110605; Yan et al., arXiv:2308.09269; Kalle–Zeegers, arXiv:2206.07601. Scope is the matched-base, uniform-inverse, stationary single-coordinate observable only. Not independently validated or publication-priority certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precise final claim after statement-and-implication comparison, preserving explicit priority/access risks; details in four required checks.
+
+## value
+
+PASS
+
+Identifies a striking all-lag time-reversal-invariant observable despite reversed Lyapunov drift, with exact integrable cusp and parity-dependent critical crossover for a canonical mixed expanding/contracting dynamical process; relevant structural distinction between one-coordinate and two-particle synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
