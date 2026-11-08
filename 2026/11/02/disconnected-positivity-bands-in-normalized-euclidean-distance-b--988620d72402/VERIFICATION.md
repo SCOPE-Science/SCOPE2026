@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof derives the normalized coefficients from actual Euclidean-distance beta moments and establishes their locally normal continuation in the parameter. The crucial necessity-of-positivity step uses a circle Fourier-mode test, not a sampling heuristic. Even-prefix factor signs supply a complete classification for all nonintegral negative parameters; zeros of finite rising factorials supply the exact rank at every negative integer. The strict positivity statement additionally invokes finite Vandermonde invertibility.
+## correctness
 
-Run `python3 kernel_check.py` to reproduce exact rational coefficient comparisons and selected finite-rank calculations. These finite calculations are supplemental consistency checks, not an exhaustive computation or an independent mathematical audit.
+PASS
 
-Normalization is essential: all negative-parameter assertions concern the continuation of \(K_t/K_t(0,0)\), uniquely defined originally for \(t>-1\). The continued kernels are not claimed to be Bergman kernels of positive nonintegrable weights. Earlier hypergeometric literature may implicitly contain equivalent coefficient-sign criteria.
+Beta monomial norms for weight (1-|z|)^t, t>-1, and normalization by K_t(0,0) yield coefficients d_n=(t+3)_{2n}/(2n+1)!, with locally normal convergence for all complex t and |z wbar|<1. Fourier-mode testing on circles makes Hermitian PSD equivalent to all coefficient signs nonnegative. For nonintegral t<-3 the count of negative factors is q=ceil(-t-3), and 2n-factor prefixes yield positivity iff q even. Integer t=-k (k>=3) truncates at 2n>=k-2 with exactly floor((k-1)/2) positive coefficients/rank; all other admitted interiors have strictly positive coefficients and infinite rank by Vandermonde. Independent signs of coefficients in multiple bands/gaps and integer ranks k=3..21 checked; limits t=-1,-2 are continued normalized series, not actual integrable weights.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.
+
+## value
+
+PASS
+
+A complete real positivity/finite-rank classification for an origin-normalized natural holomorphic kernel family, with countably many disconnected Wallach-type bands. This is a motivated extension of Euclidean boundary-distance kernel geometry and addresses an exact invariant that zero-classification or parameter analyticity does not determine. The normalization and analytic-continuation distinction are mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

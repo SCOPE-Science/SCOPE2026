@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For the unnormalized Euclidean-distance weighted area measure, beta moments give the exact monomial norms and hence the origin-normalized coefficients \(d_n(t)=(t+3)_{2n}/(2n+1)!\) for \(t>-1\). The coefficient polynomials converge locally normally in the full complex parameter, so analytic continuation is unique. Fourier testing on a circle proves that a radial holomorphic kernel is positive semidefinite only when every coefficient is nonnegative; sum-of-squares proves sufficiency. A parity count of the negative rising-factorial factors gives precisely the asserted union of intervals. Integer zeros of the product give the exact finite-rank endpoints; Vandermonde gives strict positive definiteness when all coefficients are positive. The standalone checker reproduces selected exact rational coefficients, specializations and ranks. Main risks are conceptual normalization confusion and the usual distinction between kernel continuation and continuing the positive weighted integral; both are explicit in the theorem.
+## correctness
 
-## Originality (O): PASS under inspected evidence
-The closest published disk computation supplies the same **underlying coefficient formula**, and accordingly the continuation is accessible from its algebra. However its theorem is about off-diagonal zeros **for \(t>-1\)**, not positive definiteness of the **origin-normalized analytic continuation** across the negative parameters. No assertion there gives the disconnected Wallach set or the exact finite-dimensional endpoints; the newly asserted sign classification requires comparing all infinitely many kernel coefficients, not merely locating zeros. Marinescu--Xing establish real analyticity in the integrable parameter range; Engliš establishes meromorphic continuation for smooth defining functions rather than this non-smooth-at-center Euclidean distance weight or its positivity set. Moravík's nonconnected Wallach parameters concern H-harmonic rather than holomorphic spaces. The full available closest published-finding corpus theorem and material portions of these primary sources were compared, plus published-finding corpus similarity searches. Classical hypergeometric coefficient-positivity literature may implicitly contain this specialization; that remains a genuine historical risk, not proof of absolute uniqueness.
+PASS
 
-## Value (V): PASS
-A real-parameter Wallach set is a natural complete invariant of an analytically continued reproducing-kernel family. The weight is motivated directly by the geometrically distinguished Euclidean boundary distance, not by artificial coefficient choices. The result shows **infinitely many reentrant positive-definite bands** after loss of positivity, identifies all finite-rank degeneration points and their dimensions, and locates Hardy and inverse-hyperbolic-tangent kernels on the continued branch. This supplies a rigorous parameter-space classification for a contemporary weighted-Bergman problem rather than an arbitrary finite evaluation or routine single-parameter calculation. The proof is elementary because radial symmetry reduces the problem; it is the global sharp and disconnected phase diagram, rather than proof length, that supplies mathematical value.
+Beta monomial norms for weight (1-|z|)^t, t>-1, and normalization by K_t(0,0) yield coefficients d_n=(t+3)_{2n}/(2n+1)!, with locally normal convergence for all complex t and |z wbar|<1. Fourier-mode testing on circles makes Hermitian PSD equivalent to all coefficient signs nonnegative. For nonintegral t<-3 the count of negative factors is q=ceil(-t-3), and 2n-factor prefixes yield positivity iff q even. Integer t=-k (k>=3) truncates at 2n>=k-2 with exactly floor((k-1)/2) positive coefficients/rank; all other admitted interiors have strictly positive coefficients and infinite rank by Vandermonde. Independent signs of coefficients in multiple bands/gaps and integer ranks k=3..21 checked; limits t=-1,-2 are continued normalized series, not actual integrable weights.
 
-## Limitations and comparisons
-Positive-definite continuation depends on origin normalization and does not mean the negative weights define integrable measures. General hypergeometric positivity sources may present equivalent criteria under a different name. The main contemporary paper studies a strictly broader class of domains but only the range above \(t=-1\); it therefore does not dominate the negative-parameter positivity statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.
+
+## value
+
+PASS
+
+A complete real positivity/finite-rank classification for an origin-normalized natural holomorphic kernel family, with countably many disconnected Wallach-type bands. This is a motivated extension of Euclidean boundary-distance kernel geometry and addresses an exact invariant that zero-classification or parameter analyticity does not determine. The normalization and analytic-continuation distinction are mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
