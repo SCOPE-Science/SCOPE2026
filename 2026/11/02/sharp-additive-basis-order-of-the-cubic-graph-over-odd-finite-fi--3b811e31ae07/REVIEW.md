@@ -1,11 +1,21 @@
-# Review: sharp additive basis order of the cubic graph over odd finite fields
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction from simultaneous first/cubic sums to a plane cubic is exact. Its only potentially singular parameter values have explicit representations; otherwise two affine partial derivatives exclude singular points, and all three points at infinity are smooth. The Hasse bound gives a fourth rational point for every field order at least eleven. An exact finite-field checker confirms the exceptional missing sets and tests extension fields. The theorem explicitly excludes characteristic two.
+## correctness
 
-**Originality — PASS, qualified.** The nearest fully inspected published result on the same cubic graph is an exact fourth Fourier-moment/extension theorem based on twofold additive collision fibers. That is weaker in the relevant direction: aggregate twofold collision data cannot establish every threefold sum target has a representation. The 2010 Sidon-method paper focuses on quadratic graph equations, the 2023 generalized-Jacobian paper treats additive quadruple uniqueness, and the 2022 APN maximality framework has characteristic-two hypotheses. No exact all-odd-field covering classification or 5/7 exceptional table was identified. Historical priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The exact least additive basis order and its two exceptional field sizes give a natural finite-field structural classification. The proof shows why the threshold is controlled by genus-one point counts, and provides complete missing-target descriptions at the two small fields. This is an exact invariant rather than an arbitrary sample or a restatement of Sidon collision identities.
+Writing a target (s,w) as (x,x³)+(y,y³)+(s−x−y,(s−x−y)³) gives smooth projective cubic E: (X+Y)(X−sZ)(Y−sZ)=cZ³ for c=(s³−w)/3 when char≥5. Singular c=0 and c=8s³/27 have explicit triples; otherwise E has exactly three rational infinity points and is smooth genus one, so Hasse #E(F_q)≥q+1−2sqrt(q)>3 for q≥11 guarantees an affine triple. Direct exhaustive enumeration confirmed F5 omissions (s,3s³) for s≠0, F7 omissions (0,±2), and no 3-sum omissions for primes 11,13,17,19,23. Because each small complement has <q points, 4C(F)=F². In characteristic 3 Frobenius makes C additive so it never spans; in every odd characteristic 2C misses (0,w≠0). Covers odd extension fields via uniform Hasse, not characteristic two.
 
-**Closest literature and limitations.** Cilleruelo (2010), Forey–Fresán–Kowalski (2023), Carlet (2022, characteristic two), and the publicly archived exact cubic-graph fourth-moment theorem (2026) were compared at the level of their claims. An equivalent older result might remain undiscovered. Hasse's bound is invoked rather than reproved; direct enumeration corroborates only tested orders. The theorem does not determine triple representation multiplicities or cover characteristic two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact all-odd-characteristic basis-order census and exceptional targets of a natural cubic parametrized curve. Classical Sidon-set/finite-field incidence and algebraic curve methods are credited; they do not trivially give universal three-sum coverage.
+
+## value
+
+PASS
+
+The exact additive basis order is a natural structural invariant of the cubic graph in F_q², and small-field and characteristic-three exceptions are mathematically sharp. It combines an elliptic curve argument with a full all-q classification, beyond a table or a single computed finite field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

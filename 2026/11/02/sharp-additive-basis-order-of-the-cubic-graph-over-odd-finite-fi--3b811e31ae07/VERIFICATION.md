@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-Run `python3 verify_cubic_graph.py` to verify the finite experiments using only the Python standard library. It constructs field operations for the prime fields of sizes 3, 5, 7, 11, 13, 17, 19 and 23, and quadratic extensions of sizes 9, 25, 49 and 121 (with checked nonsquare parameters). It independently constructs complete twofold and threefold sumsets; for the two exceptional odd fields it also constructs fourfold sumsets. All 12 checks passed with final line `VERIFY_OK 12 fields, exact sumsets and sharp boundary cases`.
+## correctness
 
-The cubic identity and the two affine derivative equations are symbolic deductions independent of computer output. The projective curve has exactly three rational points at infinity. The classical Hasse bound guarantees more than three points for all field orders at least eleven, giving a global proof beyond the enumerated fields. At field orders five and seven the explicit residue lists give the exact omitted pairs; scaling and an elementary cardinality argument complete those finite proofs.
+PASS
 
-No machine computation, source abstract, literature query, or prior unpublished statement independently certifies priority or the unrestricted mathematical claim. Independent mathematical audit remains not performed.
+Writing a target (s,w) as (x,x³)+(y,y³)+(s−x−y,(s−x−y)³) gives smooth projective cubic E: (X+Y)(X−sZ)(Y−sZ)=cZ³ for c=(s³−w)/3 when char≥5. Singular c=0 and c=8s³/27 have explicit triples; otherwise E has exactly three rational infinity points and is smooth genus one, so Hasse #E(F_q)≥q+1−2sqrt(q)>3 for q≥11 guarantees an affine triple. Direct exhaustive enumeration confirmed F5 omissions (s,3s³) for s≠0, F7 omissions (0,±2), and no 3-sum omissions for primes 11,13,17,19,23. Because each small complement has <q points, 4C(F)=F². In characteristic 3 Frobenius makes C additive so it never spans; in every odd characteristic 2C misses (0,w≠0). Covers odd extension fields via uniform Hasse, not characteristic two.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact all-odd-characteristic basis-order census and exceptional targets of a natural cubic parametrized curve. Classical Sidon-set/finite-field incidence and algebraic curve methods are credited; they do not trivially give universal three-sum coverage.
+
+## value
+
+PASS
+
+The exact additive basis order is a natural structural invariant of the cubic graph in F_q², and small-field and characteristic-three exceptions are mathematically sharp. It combines an elliptic curve argument with a full all-q classification, beyond a table or a single computed finite field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
