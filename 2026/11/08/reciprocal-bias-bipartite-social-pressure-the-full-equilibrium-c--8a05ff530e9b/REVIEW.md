@@ -1,0 +1,25 @@
+# Scientific review: reciprocal-bias bipartite opinion flow
+
+## Correctness — PASS
+
+PASS: For any connected positive-edge bipartite graph, the maximum-propagation argument plus the strictly increasing inverse pair gives both inclusions of the complete equilibrium arc, including endpoints. On unweighted K_{m,n}, exact mean equations imply H a′ + L b′=0, so R=H/L is conserved and (L squared)′=2(gamma/R-L squared). This integrates globally with a positive root, while deviations from part means satisfy z′=-z; the closed forms solve the ODE for every initial state in the cube. The associated verification file executed: VERIFY_OK exact_identities=10128 independent_trajectories=250 weighted_graph_equilibria=1260. The analytic proof, not finite checks, proves unbounded graph sizes and times. The stochastic urn and decreasing-gain discrete expected recursion are expressly excluded.
+
+The nonstandard step is an order-theoretic maximum propagation across a connected graph, not an extrapolation from numerics. For each \(p\in[0,1]\), the reciprocal response supplies one equilibrium, and the maximum-principle argument excludes all others, including nonuniform equilibria. On \(K_{m,n}\), the global solution rests on the identity \(H\dot a+L\dot b=0\), the exact invariant \(R=H/L\), the scalar equation \(\frac{d}{dt}(L^2)=2(\gamma/R-L^2)\), and decoupling of within-part deviations. Every denominator remains positive on the invariant cube. The two corner cases and all-part means are covered explicitly. The result is a theorem about the continuous-time drift ODE, not a theorem about discrete trajectories or stochastic limit distributions.
+
+## Originality — PASS (subject to stated priority risks)
+
+PASS on best-knowledge priority comparison: exact same Möbius response identified in Tang et al. (arXiv:2308.09275), whose own nonbipartite assumption excludes the reciprocal-bias connected bipartite edge case and whose community formulas do not handle zero self-loops as an equilibrium continuum; followed up paper covers stochastic estimation instead of exact ODE trajectories. Chen–Lucas (arXiv:1306.5465) has a superficially analogous bipartite continuum but a different graph urn and vector field. Search of the published mathematical research records for the source ID, reciprocal bias, the nonlinear conserved ratio, exact bipartite flow, and previously published scientific claims found no implying theorem. Neither partition nor lack of search hits proves uniqueness; residual priority uncertainty remains.
+
+The most relevant primary comparison is Tang et al., arXiv:2308.09275, especially its general equilibrium equations, nonbipartite assumption, explicit reciprocal-bias-path exception, and self-looped two-community example. The comparison is about **implications**: an existence or convergence theorem does not yield the trajectory formula, nonlinear first integral, or full all-connected-bipartite equilibrium census. The nearest superficially stronger analogy, Chen–Lucas, arXiv:1306.5465, studies another urn on graph edges whose normalized state and fixed-point arc obey different equations. The originator's stochastic process itself has not been solved here. Search failure alone does not establish novelty.
+
+## Value — PASS
+
+PASS: The initiating social-pressure paper identifies alternating reciprocal biases on bipartite networks as the degenerate boundary where both endpoint Jacobians have critical Perron eigenvalue. The new result resolves that structurally motivated gap completely at the equilibrium level for every connected weighted bipartite graph, and at the trajectory level on every complete bipartite graph. The conserved ratio maps arbitrary heterogeneous initial opinions to an explicit stable point and reveals distinct exact collective versus within-part time scales, making an otherwise qualitative Lyapunov convergence result quantitatively predictive. It is neither a parameter substitution nor an arbitrary finite slice.
+
+The exact initial-condition selection rule is scientifically useful: every heterogeneous initial profile on the complete bipartite network reduces to two means and a conserved ratio, with the within-part and between-part information relaxing at different explicit rates. More generally, the family of all connected weighted bipartite networks is completely classified at equilibrium, exactly at the critical graph topology singled out by the original paper.
+
+## Closest literature, risks, and verification limits
+
+Primary work and comparisons: https://arxiv.org/abs/2308.09275 ; https://arxiv.org/abs/2310.17171 ; https://arxiv.org/abs/2104.11172 ; https://arxiv.org/abs/1306.5465 ; https://arxiv.org/abs/1802.01052 . Relevant exact source sections and claim-wise comparisons are set out in the attached structured audit. The executable `verify.py` passed exact-rational checks and independent finite-time integrations; it is not a proof for every graph size or parameter, and no external independent review has been performed. Unindexed equivalent formulations remain a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
