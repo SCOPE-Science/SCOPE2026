@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS (self-review).** The exact flow of a two-state conservative generator is an affine contraction, and the three-factor product has precisely the same contraction multiplier as the target. Matching the stationary point uniquely yields the stated explicit allocation. The proof checks strict positivity and monotonicity via a concave logarithmic ratio, derives both asymptotic regimes, and obtains the nonzero Strang cubic coefficient. The standalone checker reproduces the matrix identities on 319 test cases; the general assertions are analytic, not extrapolations from finite tests.
+
+**Originality — PASS (qualified).** The nearest 2026 noncommuting splitting analysis derives general Lie–Trotter/Strang errors, not the positive exact allocation. Sumner's two-state Lie geometry gives a different unconstrained decomposition; Van-Brunt and Visser's exact BCH identities furnish a general algebraic framework that could be used to derive specialized expressions but do not assert the constrained positive allocation and its strict monotonicity. Chin's positivity discussion addresses general fixed-coefficient splittings. The observed source comparisons did not identify an equivalent prescribed-generator, all-step positive factorization. A residual historical-priority risk remains for exact factorization results in the solvable affine Lie group or otherwise indexed papers not retrieved.
+
+**Value — PASS.** The statement solves a complete, natural exactness question for positive splitting of two Markov generators: three constrained positive factors suffice at every time, even though two do not; the exact allocation is unique, explicit, and has a sharp small-step and large-step profile. This is a structural characterization rather than a rebranding of general second-order error bounds. It is useful as an exact benchmark for noncommuting positive splitting, without claiming cost savings or extension to higher-state systems.
+
+**Scientific limitations.** The proof is for time-independent two-state conservative generators and no additional source; the full matrix exponential is elementary in this dimension. General BCH identities present a historical-priority risk. Implementation roundoff and infinite-dimensional generalization are not established.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The two generator semigroups induce scalar affine contractions with common overall contraction exp(-(a+b)h). Equating their invariant weights yields the unique coefficient. Strict concavity of a logarithmic ratio proves positive monotone substeps, Taylor expansion gives both limits and nonvanishing Strang cubic term. The claims have an analytic proof; 319 reproducible standard-library tests verify the numerical identities over a sample grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Battestini et al. (2026), Lemma 2.1 and Lemma 2.4, provide general splitting-error representations, not an all-step exact prescribed-generator allocation.",
+        "Van-Brunt and Visser (2015), Sections 1–3, derive exact BCH for Lie algebras with one-dimensional commutator subalgebra; their more general algebraic identity could support derivations in the two-state setting but does not state the constrained strict-positive factorization or strict phase monotonicity."
+      ],
+      "reasoning": "General BCH identities cover exact multiplication of exponentials in a broader Lie algebra sense, but do not directly assert the inverse problem with prescribed total generator times and positive substeps. The new theorem proves both that inverse allocation and unique sharp asymptotic behavior. Risk of an equivalent derived corollary is retained.",
+      "searches": [
+        "arxiv:2610.07989v1",
+        "arxiv:1505.04505v1",
+        "solvable Lie algebra exact splitting three exponentials positive coefficients 2x2",
+        "exact splitting solvable two dimensional Lie algebra exp(A+B) exp(xA) exp(B) exp(yA)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.07989v1",
+      "arxiv:1212.5311v1",
+      "arxiv:1505.04505v1",
+      "doi:10.1103/PhysRevE.71.016703 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Battestini–Caliari–Cassini, 2026: general noncommuting Lie–Trotter/Strang error representation and convergence proof, not exact positive step-dependent coefficients.",
+        "Sumner, 2012: entire positive determinant Markov group and a decomposition using a symmetric generator and a shear, not a constrained original-generator A–B–A factorization.",
+        "Van-Brunt–Visser, 2015: exact solvable-Lie-algebra BCH formula; relevant broad algebraic method, but no specific positive three-factor allocation or strict monotonicity in the material inspected.",
+        "Chin, 2005: general theory of positivity of exponential decompositions, abstract accessible, no inspected specific two-state all-step factorization."
+      ],
+      "reasoning": "The closest work establishes either general splitting error, general group geometry, or broad BCH multiplication. The proposed statement has extra exactness and positive-time total-duration constraints and a unique h-dependent coefficient. No inspected prior claim directly implies the full constrained classification without additional solving and inequalities; a stronger exact decomposition hidden in historical literature remains a priority risk.",
+      "searches": [
+        "arxiv:2610.07989v1",
+        "arxiv:1212.5311v1",
+        "arxiv:1505.04505v1",
+        "doi:10.1103/PhysRevE.71.016703",
+        "two-state exact Strang splitting Markov generator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sumner (2012), Result 6, factors the positive-determinant 2x2 stochastic group via a binary-symmetric exponential and nilpotent shear, rather than by positive pieces of two prescribed generators.",
+        "The constrained positive allocation here fixes the entire duration for each original generator and characterizes uniqueness and monotonicity."
+      ],
+      "reasoning": "The Lie geometry and general stochastic matrix factorization are mathematical near-equivalences, but their stated factors are not a nonnegative-time A–B–A product of arbitrary given generators. Applying the geometry may yield related factorizations; an explicitly identical specialization was not identified. This is not a proof of literature-wide uniqueness.",
+      "searches": [
+        "exact positive three factor splitting two-state Markov generator A B exp(h(A+B)) varying Lie Trotter Strang stage weights",
+        "two-state continuous time Markov exact exponential splitting corrected A B A coefficient exact integrator",
+        "arxiv:1212.5311v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related findings included two-state positivity of the SSP-SDIRK2(2) endpoint map and a Crank–Nicolson positivity criterion on Markov chains; neither addresses the prescribed-generator exact A–B–A factorization.",
+        "The inspected published 2026 splitting source contains no Markov-specific exact factorization or such allocation table."
+      ],
+      "reasoning": "No directly matching explicit formula, exact-table entry, or dominant classification was identified in the searched records. Indexed search and partitions alone do not prove novelty.",
+      "searches": [
+        "binary Markov generator exact Strang splitting modified coefficient stationary distribution",
+        "split exponential integrator phi1 noncommuting generator positivity convex energy exact boundary two rank-one matrices",
+        "Lie Trotter Strang splitting two rank-one dissipative operators energy norm transient positivity",
+        "exact factorization two state Markov exponential positive coefficients"
+      ]
+    },
+    "rationale": "This is an exact all-step positive three-factor classification for a constrained pair of original conservative generators, including uniqueness, monotonicity, two-factor impossibility, and explicit cubic Strang defect. It is not stated in the inspected 2026 splitting paper, 2012 2x2 Markov geometry, or 2015 exact BCH framework; broader algebraic coverage and unseen historical factorizations remain risks.",
+    "residual_risks": [
+      "The 2015 exact BCH machinery may permit an equivalent derivation of this factorization; no exhaustive check of every possible resulting corollary has been performed.",
+      "Unindexed historical two-state positive splitting or solvable affine Lie group work could contain an equivalent constrained factorization.",
+      "The 2005 positive-decomposition article was inspected at abstract level only, so no full-document negative coverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general convergence and error formulas, not the constrained exact two-state Markov allocation.",
+        "evidence": [
+          "Section 2.1 equation (8) is ERK1L and Section 2.2 equation (15) is standard equal-half Strang; Sections 3–4 cover PDE experiments and broad error/convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.07989",
+        "material_read": "Full available HTML: Introduction, Section 2 including formulas (6)–(20), two convergence theorems, numerical examples and Section 4 conclusion.",
+        "method": "Opened and compared the publicly accessible full arXiv HTML, including the exact A/B factor ordering and Strang error lemmas.",
+        "title": "Analysis of split exponential integrators for semilinear problems with noncommuting operators",
+        "trigger": "The motivating new work studies noncommuting Lie–Trotter and Strang exponential splittings."
+      },
+      {
+        "assessment": "The paper factors a Markov group element using a fixed symmetric generator and a shear. It does not state a positive A–B–A composition for arbitrary prescribed generator pair with fixed total times.",
+        "evidence": [
+          "Result 6 is a different e^(Qt) h_s decomposition, with Q chosen from the symmetric model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1212.5311",
+        "material_read": "Full accessible arXiv HTML of Results 1–6, including Markov generators, commutator, determinant, and explicit equation (1).",
+        "method": "Read and compared the stated whole-group factorization and its constrained-generator implications.",
+        "title": "Lie geometry of 2x2 Markov matrices",
+        "trigger": "The entire two-state stochastic Lie group may have a covering factorization theorem."
+      },
+      {
+        "assessment": "Broader algebraic product logarithm is established; it does not exhibit the prescribed positive factor times or unique monotonic allocation. Possible implicit consequence is a residual novelty risk.",
+        "evidence": [
+          "Equation (1.4) gives closed BCH for [X,Y]=uX+vY+cI; Section 3.2 extends this to one-dimensional commutator ideals."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1505.04505v1",
+        "material_read": "Full HTML abstract, introduction, Sections 2–3 and discussion, with emphasis on case 2 of the one-dimensional commutator subalgebra.",
+        "method": "Read explicit BCH formulas and compared to the inverse product allocation, constraints, and positivity.",
+        "title": "Explicit Baker–Campbell–Hausdorff formulae for some specific Lie algebras",
+        "trigger": "Exact BCH for one-dimensional commutator algebras could subsume the calculation."
+      },
+      {
+        "assessment": "General positive-decomposition analysis is relevant but abstract does not establish coverage.",
+        "evidence": [
+          "Published January 12, 2005; motivates positive coefficients for irreversible semigroups."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.71.016703",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not claimed read.",
+        "method": "Compared abstract subject and positivity assumptions; searched for direct two-state exact formula.",
+        "title": "Structure of positive decompositions of exponential operators",
+        "trigger": "Possible general positive-coefficient impossibility might dominate the result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b0eeef7-eade-434e-a8e8-12ca823e2b05",
+  "value": {
+    "rationale": "The exact time allocation is a structural and motivated answer to a natural positivity-preserving splitting question: three nonnegative-time factors are necessary and sufficient in the noncommuting two-state constrained class for every time step, and the unique coefficient is strictly decreasing with sharp asymptotics. General splitting estimates alone do not supply this executable all-step exactness benchmark. It does not claim practical speedups over direct two-state exponential evaluation.",
+    "status": "PASS"
+  }
+}
