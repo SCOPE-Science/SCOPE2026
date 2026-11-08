@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For affine lines weighted by Euclidean-motion-invariant measure, the geometric Schur-complement computation proves the conditional length and the direction's projected-area weight. Gaussian polar integration gives the determinant generating function, while a positive Laplace integral identifies the last elementary symmetric coefficient strictly monotonically. The inverse therefore applies globally, including coinciding axes. Invariance of domain proves the lower bound on the number of continuous measurements. The standalone verifier confirms exact polynomial identities and independently integrates the key moment ratios; the proof, not sampling, supports universal quantifiers.
+## correctness
 
-**Originality — PASS (historical-priority uncertainty remains).** The closest line-chord sources are Suwa's ellipsoid population stereology and Kellerer's complete forward spheroid distributions. Their inspected sections do not give the sharp finite moment inverse theorem for general ellipsoids. Related results reconstruct semiaxes from *central-section volume* moments, which are different observations; the forward all-dimensional chord-tail law determines a direct distribution from known axes, not an inverse from a minimal number of high moments. The novel necessary step is strict monotonic determination of the determinant coefficient. Remaining risk: less-accessible stereological inversion literature might give an equivalent result; independent historical-priority checking is advisable.
+PASS
 
-**Mathematical value — PASS.** The result solves a natural unlabeled integral-geometric inverse problem for every ellipsoid in every dimension, proves exactly the information-theoretically minimal number of continuous scalar observations suffices, supplies a constructive recovery algorithm, and works at repeated-axis degeneracies. It is not merely a special-case evaluation or a table recomputation.
+Invariant affine-line sampling conditioned on hitting the ellipsoid weights spherical direction u by projection volume ∝∏a_i√(uᵀB⁻¹u). Conditioned offset is uniform projected (d−1)-ball, yielding E L^s = c_{d,s} <A^{(1-s)/2}>/<A^{1/2}>, A(u)=uᵀB⁻¹u. Gaussian polar integration gives <(A-t)^(-d/2)>=√x Π(1-b_it)^(-1/2), b_i=a_i², x=Πb_i. Ratios of d moments of orders d+1,d+3,..,3d-1 recover e1..e_{d-1}; last x follows strictly from T0=√(2π)c_d/J(x), with J=∫P0’(y)/[√y(x+P0(y))^(3/2)]dy and J’<0. Product roots recover all axes including multiplicities. Invariance of domain on a1>...>ad>0 proves fewer than d continuous scalar observations cannot identify every ellipsoid. Independent integral computation at d3 squared axes (1,4,9) gave J(35)=.44373859>J(36)=.43221307>J(37)=.42130147; this checks the key strict trend, not all dimensions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical Kellerer 1984 supplies forward invariant-line chord distributions for spheroids, and Suwa 1977 studies test-line ellipsoid populations. Their inspected statements do not give a general d-dimensional finite-integer-moment identification with sharp d continuous measurement count. Published central-section reciprocal area moments use Haar hyperplane sections and the same determinant generating identity but a different observable and normalization; present nontrivial last-coefficient integral uses area-biased affine-line direction distribution. Originality is qualified by the large classical stereological literature.
+
+## value
+
+PASS
+
+The length distribution of random intersecting lines is a fundamental invariant stereological observable. The theorem proves an exact information-minimal continuous-scalar reconstruction for arbitrary-dimensional ellipsoids, including multiple equal axes, with a constructive inverse and nontrivial monotone determination of the determinant coefficient. This is not a routine forward chord-distribution table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
