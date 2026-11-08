@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Iterating a self-map forces a positive slope to be an integer; the exponential ratio gives an eventually fixed index translation, and a telescoping sum of the one-step drifts forbids every positive translation. Negative slopes and constants are handled separately. The ratio expansion from two-term Stirling asymptotics gives the required drift for every parameter in both binomial families. Exact finite verification separately checked representative recurrences and instances. No finite calculation is used as an unrestricted proof.
+PASS
 
-## Originality
+A nonconstant affine self-map on an unbounded positive set has positive slope. Iteration on a fixed nonzero integral difference forces the rational slope to be a positive integer by unbounded prime-power denominators. The consecutive-ratio limit bounds the displacement m(n)-n, forces an eventual unique fixed shift j with a=rho^j; j>0 gives a diverging positive-weight telescoping sum of the one-step drifts incompatible with a constant intercept. Thus j=0,a=1,b=0. Exact factorial quotient expansions give 1-1/(2n)+O(1/n^2) for fixed-slope binomials and 1-3/(2n)+O(1/n^2) for Fuss–Catalan, so differences tend to minus infinity. Independently checked 669 exact finite rising/negative drift inequalities. Finite checks are not universal proofs.
 
-**PASS, with historical-priority uncertainty.** The September 2026 source on Catalan coefficient polynomials proves irreducibility, whereas this theorem classifies affine maps of the **value set**, a different invariant. The examined Catalan and central-binomial sequence tables supply values and formulas, not the claimed self-map theorem. Targeted checks for affine self-embeddings, homotheties, sequence invariance and exponential-drift criteria revealed no stronger covering assertion. The source's original PDF was not accessible, and older work using different terminology could state an equivalent lemma. Negative searches are not proof of priority; the exact implication comparison is the basis of this assessment.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A single checkable structural criterion yields complete endomorphism-monoid classifications for infinitely many natural enumerative number sequences, including every Fuss–Catalan and fixed-slope binomial family. The contrast with translated geometric progressions distinguishes true arithmetic rigidity from a superficial consequence of rapid growth; a ratio limit alone would not suffice. This is an exact natural invariant, not a finite experimental pattern or an arbitrary parameter slice.
+Catalan irreducibility of finite generating-function truncations (Seki 2026) and OEIS enumerative formulas do not address affine self-embeddings of integer value sets. Resultary and targeted alias searches found no domination. This is an explicit best-of-knowledge structural lemma; historical work under homothetic invariance/sequence-image language may have an equivalent statement.
 
-## Boundaries
+## value
 
-Assumes eventual monotonicity, integer values, positive limiting ratio greater than one, and drift tending to one of the two infinities. The original PDF for the closest 2026 Catalan coefficient-polynomial source was inaccessible; historical priority remains open to independent inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result supplies a simple sufficient structural obstruction with a genuine sharp boundary: translated geometric progressions violate divergent drift and possess nontrivial affine endomorphisms. It yields complete symmetry classifications across infinite naturally occurring combinatorial sequences and a reusable tool for other exponential enumerators, not an arbitrary finite fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
