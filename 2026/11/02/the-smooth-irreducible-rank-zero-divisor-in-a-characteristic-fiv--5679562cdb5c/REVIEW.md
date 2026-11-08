@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full Cartier matrix and its semilinear cycle were regenerated from the defining curve; the exceptional polynomial equals the two-step Cartier coefficient. Exact Gröbner calculation verifies that all singularities of the symmetric Hasse divisor are outside the smooth branch-parameter domain. The cubic rational-root obstruction proves absolute irreducibility; an odd pole of the ordered-parameter discriminant proves the quadratic lift stays irreducible. The nonempty example and the absence of simultaneous vanishing of the two relevant Cartier coefficients are checked.
+PASS
 
-## Originality
+For y^3=x(x-1)(x-a)(x-b) over algebraic closure of F5, with distinct branch values and ordered U, reconstruct the basis (dx/y, dx/y², x dx/y²) and 5th-root-semilinear Cartier cycle. Exact GF(5) coefficient extraction yields c4=-2t²(t+s), c9=-(s-1)(s²+t-1), d=-(s+1), and H=c4+c9 d^5. Thus stable Cartier rank is exactly 0 when H=0, exactly 2 otherwise; matrix rank 2 for all U gives a-number 1. The displayed Groebner basis for (H,H_s,H_t) has possible singularities (1,0),(-1,0),(3,2) only outside U, and (a,b)->(s,t) is etale when a!=b. A cubic-in-t polynomial root exclusion over F5bar(s) proves H irreducible; at a place above infinity t has pole order 3 while s²+t has odd pole order 3, so ordered discriminant is nonsquare and the ordered double cover stays irreducible. The point s=-1,t=1 lies inside U and H=0. No Newton polygon or moduli quotient claim is made.
 
-**PASS, qualified.** The closest Hasse and modular sources establish a broader structural framework, while special Picard-curve arithmetic results discuss narrower fixed equations. Neither inspected comparison yields this exact branch-parameter polynomial plus smooth irreducible ordered locus and constant \(a\)-number. An equivalent older formula in different modular coordinates is still a historical-priority risk. published-finding corpus and accessible prior research records deduplication comparisons were performed; not every older prior research records was retrievable.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives the exact nonordinary locus and its global geometry in a complete natural family, ruling out a rank-one stratum and detecting a constant \(a\)-number. It is not merely a finite enumeration or a substitution in one special curve.
+Qualified PASS: ordered-branch-coordinate equation H, rank/a-number dichotomy and smooth geometrically irreducible divisor are not stated in the inspected Picard modular-surface geometry; the older explicit characteristic-p Picard-Hasse literature is a real priority risk because full text could not be obtained, not evidence of novelty by search absence.
 
-## Scope
+## value
 
-No full Newton polygon classification, supersingularity assertion, or statement about coarse-moduli irreducibility is made. Scientific and originality claims have no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise nonempty smooth geometrically irreducible p-rank jump divisor is a natural moduli and arithmetic invariant, and the absence of rank-one Jacobians plus constant a-number supplies nontrivial stratification beyond generic p-rank computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
