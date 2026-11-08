@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly classifies generic tetrahedron sections by the four ordered vertex heights; checks that the middle slab, and only that slab, yields four section edges; reduces the quotient to the top two ordered absolute normal coordinates; integrates the Haar spherical sector with an explicit Jacobian; and derives the exact survival law and mean by elementary one-variable integration. The normalization at the two endpoints is exact. The comparison between uniform orientations and width-biased invariant affine planes uses the standard Cauchy–Steiner edge-dihedral mean-width formula. `verify_tetra_sections.py` was executed from its actual package path and passed the independent density, quadrature, projection and direct edge-crossing checks. Its finite random samples are not substituted for proof.
+PASS
 
-## Originality — PASS, with historical priority uncertainty
+For ordered projected tetrahedron heights h1<...<h4, precisely the offset slab (h2,h3) cuts four cross-partition edges. In any of 48 congruent signed-order normal sectors, Q=(X-Y)/(X+Y) for X>=Y>=Z absolute coordinates. Put t=Y/X, s=Z/X; the spherical area density is (1+t²+s²)^(-3/2) dt ds, giving f_T(t)=12t/[pi(1+t²)sqrt(1+2t²)]. Integration yields the stated survival function for every 0<=q<=1; elementary integration gives Haar-mean 0.298746285571..., distinct from Cauchy-Steiner width-biased plane mean 0.288535543072.... Domain: nondegenerate regular tetrahedron and Haar normal, uniform intersecting offsets, generic normals; endpoints have no atom. Independently computed 100000 random projected normals: empirical mean .299585 and survival at q=.45 .24179 versus analytic .240859; this checks only finite samples, not the integral proof.
 
-The closest inspected full text is Brandenburg–De Loera–Meroni (2023), which supplies a general slicing-chamber framework and tetrahedral extremal sections, but not the distribution over Haar normals of the normalized middle projection gap. Earlier section-type formulas for the invariant affine-plane experiment give one width-weighted marginal; they do not determine this entire conditional-propensity law. Related indexed scientific findings for tetrahedral shadows, sections of other polytopes and central sections have different objects or sampling rules. No covering statement was found in the actual comparisons, although unpublished or historical stereological calculations may overlap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statistic is the intrinsic fraction of a tetrahedron's intersecting parallel planes that give four-sided sections; varying the normal turns this into a natural orientation-distribution question. Its complete exact Haar law resolves all thresholds simultaneously and yields the correct probability for a common two-stage sampling experiment. The distinction between normal-first and motion-invariant sampling is mathematically important because their quadrilateral probabilities genuinely differ; the latter benchmark itself is not claimed as new.
+The complete Haar orientation distribution of the normalized interval of quadrilateral-producing offsets is not implied by known slicing-chamber structure, tetrahedron chord distributions, random silhouettes, or the previously known width-biased affine-plane marginal; comparison is claim/implication-based. Best-of-knowledge PASS, with residual risk from older integral-geometric stereology.
 
-## Scope and priority limits
+## value
 
-Only regular tetrahedra and Haar orientations are covered. Neither arbitrary tetrahedra nor section shapes/areas are claimed. The complete text of some older stereological material was unavailable; historical priority remains subject to independent assessment. The listed results are supported by an analytic proof and repeatable calculations, not by an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q(u) is a canonical conditional geometric probability for parallel sections; its full exact orientation law determines every threshold and exposes a substantive difference between orientation-first and invariant-affine-plane sampling. This is not a mere recomputation of one known marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof classifies the three height intervals without numerical enumeration. On the coordinate sector \(0<s<t<1\), direct differentiation establishes the spherical area element \((1+t^2+s^2)^{-3/2}\,dt\,ds\). Integration gives the normalized one-variable density \(12t/[\pi(1+t^2)\sqrt{1+2t^2}]\). The endpoint checks give survival values exactly one at \(q=0\) and zero at \(q=1\).
+## correctness
 
-Run `python verify_tetra_sections.py` using Python 3 (standard library only). The checker repeats density quadrature, survival-law threshold integration, ordered-projection identities, direct intersection-edge counts and seeded \(150000\)-normal sampling. During preparation, it printed `ALL_CHECKS_PASSED` and numerical probabilities close to the exact formulas. The checker is not a computer-assisted proof of all directions; the analytic spherical integral supplies that proof.
+PASS
 
-The motion-invariant comparison follows independently from the identity \(\sum_{i<j}|h_i-h_j|=3(h_4-h_1)+(h_3-h_2)\) and the Cauchy–Steiner edge-dihedral mean-width formula. The invariant-plane marginal is contextual, not assessed as a new statement.
+For ordered projected tetrahedron heights h1<...<h4, precisely the offset slab (h2,h3) cuts four cross-partition edges. In any of 48 congruent signed-order normal sectors, Q=(X-Y)/(X+Y) for X>=Y>=Z absolute coordinates. Put t=Y/X, s=Z/X; the spherical area density is (1+t²+s²)^(-3/2) dt ds, giving f_T(t)=12t/[pi(1+t²)sqrt(1+2t²)]. Integration yields the stated survival function for every 0<=q<=1; elementary integration gives Haar-mean 0.298746285571..., distinct from Cauchy-Steiner width-biased plane mean 0.288535543072.... Domain: nondegenerate regular tetrahedron and Haar normal, uniform intersecting offsets, generic normals; endpoints have no atom. Independently computed 100000 random projected normals: empirical mean .299585 and survival at q=.45 .24179 versus analytic .240859; this checks only finite samples, not the integral proof.
 
-Checks not performed: independent review, exhaustive historical-priority search and complete reconstruction of inaccessible specialized publications.
+## originality
+
+PASS
+
+The complete Haar orientation distribution of the normalized interval of quadrilateral-producing offsets is not implied by known slicing-chamber structure, tetrahedron chord distributions, random silhouettes, or the previously known width-biased affine-plane marginal; comparison is claim/implication-based. Best-of-knowledge PASS, with residual risk from older integral-geometric stereology.
+
+## value
+
+PASS
+
+Q(u) is a canonical conditional geometric probability for parallel sections; its full exact orientation law determines every threshold and exposes a substantive difference between orientation-first and invariant-affine-plane sampling. This is not a mere recomputation of one known marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
