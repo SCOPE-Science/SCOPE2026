@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized fixed base has Poincare points \((-a,0)\), \((a,0)\), and the Euclidean circumcenter and circle-containment calculation is direct. The angular threshold, exact hyperbolic-area normalization, explicit antiderivative, weighted-average uniqueness argument, and sharp tail constants have been independently reconstructed. The embedded checker tests the crucial rational identity and multiple independent numerical formulations. Remaining scientific limit: tests do not replace the analytic continuum proof.
+PASS
 
-## Originality
+For fixed distinct anchors A,B distance d>0 with midpoint O, Poincaré normalization puts them at (±a,0), a=tanh(d/4), and a sampled third point at Euclidean radius u=tanh(t/2), angle θ. Its Euclidean circumcircle center (0,(u²−a²)/(2u sinθ)) lies wholly inside the disk exactly when |sinθ|>|u²−a²|/[u(1−a²)], valid away from probability-zero collinearity. Thus shell probability is zero u<=a² and otherwise 2/π arccos of this ratio, maximal 1 at u=a (T=d/2). Intrinsic area density is 4u/(1−u²)^2 and radial normalization yields weighted integral F(R). The manuscript integrates by parts using a displayed exact antiderivative J, derives closed disk formula and derivative F´=2(f−F)/[R(1−R²)]; because f increases then decreases, a single crossing exists after a, with every crossing downward. Boundary expansion 1−tanh(T/2)~2e^(−T) gives shell constant (4/π)sqrt(cosh(d/2)) and intrinsic-area integration doubles it for the disk. Independently evaluated integral by SciPy quadrature for a=.15,.4,.8 at four R values each, including inner/outer transition, agreeing closed F to <1e−8. The source verify.py was inspected, finite checks do not prove uniqueness or tails.
 
-**PASS, subject to historical priority.** Beardon (2022, Theorem 1.1) gives the classical circle/horocycle/hypercycle classification, and the Glasgow educational treatment already identifies the fixed-pair two-horocycle region. Neither characterization is claimed as new. The claimed contribution is the complete evaluated *intrinsic-area disk probability*, unique disk optimizer, and sharp rate and coefficient at infinity (with the shell formula serving as the connecting intermediate). Searches for fixed-pair hyperbolic random circumcircles, two-horodisc truncated areas, and related indexed circumradius probabilities produced no equivalent evaluated statement. An undated educational source was available only through its indexed theorem, not the whole page; older geometric sources may still contain the same evaluation.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The existence of a finite hyperbolic circumcircle is a meaningful difference from Euclidean triangle geometry. For a fixed side, the theorem determines the full dependence on both the anchor distance and the third-point sampling disk, proves a nontrivial optimal disk size, and identifies the sharp half-exponential rare-event asymptotic with an explicit geometry-dependent coefficient. This is more than a sample computation or a reinterpretation of the horocycle classification.
+Beardon 2022 full accessible primary article states the historical exact hyperbolic circumcycle existence criterion (circle/horocycle/hypercycle) including equivalent side-length inequality; this is correctly recognized as PRIOR. The paper does not derive the explicit probability under a midpoint-centered uniform hyperbolic arc/disk third point, unique disk-radius optimizer or distinct e^(−T/2) constants. Glasgow educational two-horocycle locus is also prior geometry. Primary and Resultary searches found adjacent geometric or Euclidean-random-triangle results but no dominating exact sampling distribution; older unindexed random hyperbolic triangle work remains a documented risk.
 
-## Closest literature and limitations
+## value
 
-A. F. Beardon, *Circumscribed hyperbolic triangles*, Archiv der Mathematik 119 (2022), 439–448, https://doi.org/10.1007/s00013-022-01761-x. Glasgow hyperbolic-geometry notes, https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/circumcircle.html and https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/circumproof2.html. The geometry criterion and two-horocycle locus belong to this prior literature. Only midpoint-centered arclength/area sampling with a fixed nonzero anchor separation is covered. The formula does not give the distribution of the circumradius given existence; full historical priority is not conclusively settled.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural sampling protocol fixed by two anchors, existence of a genuine hyperbolic circumcircle is not automatic, and the complete radius-dependent probabilities are natural geometric-probability invariants. The inner forbidden disk, different circle/disk optimal radii and sharp half-exponential rare-event law with a factor two distinguish intrinsic area from arclength sampling beyond the already known deterministic criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

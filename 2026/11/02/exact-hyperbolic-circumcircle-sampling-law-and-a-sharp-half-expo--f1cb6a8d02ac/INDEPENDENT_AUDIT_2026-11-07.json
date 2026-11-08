@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:01:37.319979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-hyperbolic-circumcircle-sampling-law-and-a-sharp-half-expo--f1cb6a8d02ac/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-hyperbolic-circumcircle-sampling-law-and-a-sharp-half-expo--f1cb6a8d02ac/verify.py"
+      ],
+      "rationale": "For fixed distinct anchors A,B distance d>0 with midpoint O, Poincaré normalization puts them at (±a,0), a=tanh(d/4), and a sampled third point at Euclidean radius u=tanh(t/2), angle θ. Its Euclidean circumcircle center (0,(u²−a²)/(2u sinθ)) lies wholly inside the disk exactly when |sinθ|>|u²−a²|/[u(1−a²)], valid away from probability-zero collinearity. Thus shell probability is zero u<=a² and otherwise 2/π arccos of this ratio, maximal 1 at u=a (T=d/2). Intrinsic area density is 4u/(1−u²)^2 and radial normalization yields weighted integral F(R). The manuscript integrates by parts using a displayed exact antiderivative J, derives closed disk formula and derivative F´=2(f−F)/[R(1−R²)]; because f increases then decreases, a single crossing exists after a, with every crossing downward. Boundary expansion 1−tanh(T/2)~2e^(−T) gives shell constant (4/π)sqrt(cosh(d/2)) and intrinsic-area integration doubles it for the disk. Independently evaluated integral by SciPy quadrature for a=.15,.4,.8 at four R values each, including inner/outer transition, agreeing closed F to <1e−8. The source verify.py was inspected, finite checks do not prove uniqueness or tails.",
+      "residual_risks": [
+        "Older hyperbolic random-triangle sampling literature may contain the same evaluated law under circumcycle/horocycle terminology.",
+        "Results assume anchors fixed and disk/circle centered at the midpoint; changing sampling center or anchor distribution is outside this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beardon’s Theorem 1.1 treats arbitrary triangles but only categorical existence by side lengths; Glasgow’s horocycle construction likewise does not specify the midpoint-sampling law."
+        ],
+        "reasoning": "Arbitrary-triangle geometric existence does not directly imply the probability as explicit elementary function, uniqueness of maximizing disk radius, or sharp rare-event constants without nontrivial integration.",
+        "searches": [
+          "DOI:10.1007/s00013-022-01761-x",
+          "Web: random hyperbolic triangle circumcircle probability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: hyperbolic triangle circumcircle probability random third point midpoint hyperbolic disk circle",
+        "Web: probability random point hyperbolic circumcircle circle versus horocycle random triangle",
+        "DOI:10.1007/s00013-022-01761-x",
+        "University Glasgow circumcircle hyperbolic triangle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Beardon classifies circle iff sinh(c/2)<sinh(a/2)+sinh(b/2), a deterministic prerequisite; the new result integrates its equivalent event over specified hyperbolic circle/disk measures."
+        ],
+        "reasoning": "Deterministic geometric criterion is covered, but closed f_a, F_a, R*(a) and two sharp e^(−T/2) constants are not explicit implications absent nontrivial measure calculations; no methodological originality claim for the existence locus.",
+        "searches": [
+          "DOI:10.1007/s00013-022-01761-x Theorem 1.1",
+          "University Glasgow hyperbolic circumcircle educational pages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Poincaré containment inequality and Beardon’s hyperbolic-side-length circumcircle criterion are equivalent deterministic existence tests, an explicitly credited predecessor."
+        ],
+        "reasoning": "The stochastic quantity is the intrinsic-uniform angular/radial measure of the deterministic admissibility region, evaluated completely. The existence region itself is not claimed new.",
+        "searches": [
+          "DOI:10.1007/s00013-022-01761-x",
+          "University Glasgow hyperbolic circumcircle pages",
+          "Resultary: hyperbolic triangle circumcircle probability random third point midpoint hyperbolic disk circle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top matches concerned Euclidean circumradius small-ball tails, unrelated sample law."
+        ],
+        "reasoning": "No exact database/table for this fixed-two-anchor midpoint-centered hyperbolic circle/disk sampling law was found; non-matching Euclidean tables cannot establish prior coverage.",
+        "searches": [
+          "Web: random hyperbolic triangle circumcircle table",
+          "Resultary: hyperbolic triangle circumcircle probability random third point midpoint hyperbolic disk circle"
+        ]
+      },
+      "rationale": "Beardon 2022 full accessible primary article states the historical exact hyperbolic circumcycle existence criterion (circle/horocycle/hypercycle) including equivalent side-length inequality; this is correctly recognized as PRIOR. The paper does not derive the explicit probability under a midpoint-centered uniform hyperbolic arc/disk third point, unique disk-radius optimizer or distinct e^(−T/2) constants. Glasgow educational two-horocycle locus is also prior geometry. Primary and Resultary searches found adjacent geometric or Euclidean-random-triangle results but no dominating exact sampling distribution; older unindexed random hyperbolic triangle work remains a documented risk.",
+      "residual_risks": [
+        "Older hyperbolic random-triangle sampling literature may contain the same evaluated law under circumcycle/horocycle terminology.",
+        "Results assume anchors fixed and disk/circle centered at the midpoint; changing sampling center or anchor distribution is outside this proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic circumcycle criterion, not stochastic midpoint sampling/optimal disk/asymptotic laws.",
+          "evidence": "Beardon (2022), Theorem 1.1 side inequality; discussion of Euclidean circumscribing circles.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-022-01761-x",
+          "material_read": "Complete open Springer HTML including abstract, Theorem 1.1, Corollaries 1.2–1.4, proof/history and model geometry.",
+          "method": "Read full accessible HTML and checked theorem in mathematical text.",
+          "title": "Circumscribed hyperbolic triangles",
+          "trigger": "exact same circle-vs-horocycle-vs-hypercycle test, most relevant predecessor"
+        },
+        {
+          "assessment": "Existence locus prior; probability and its intrinsic-area integration remain distinct.",
+          "evidence": "Glasgow hyperbolic-geometry page.",
+          "identifier_or_url": "https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/circumcircle.html",
+          "material_read": "Expository description of fixed-base horocycle boundary and criterion; short page, not a probability theorem.",
+          "method": "Read available educational text.",
+          "title": "The circumcircle of a hyperbolic triangle",
+          "trigger": "two-horocycle admissible region"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: hyperbolic triangle circumcircle probability random third point midpoint hyperbolic disk circle",
+        "Web: probability random point hyperbolic circumcircle circle versus horocycle random triangle",
+        "DOI:10.1007/s00013-022-01761-x",
+        "University Glasgow circumcircle hyperbolic triangle"
+      ],
+      "rationale": "For a natural sampling protocol fixed by two anchors, existence of a genuine hyperbolic circumcircle is not automatic, and the complete radius-dependent probabilities are natural geometric-probability invariants. The inner forbidden disk, different circle/disk optimal radii and sharp half-exponential rare-event law with a factor two distinguish intrinsic area from arclength sampling beyond the already known deterministic criterion.",
+      "residual_risks": [
+        "Older hyperbolic random-triangle sampling literature may contain the same evaluated law under circumcycle/horocycle terminology.",
+        "Results assume anchors fixed and disk/circle centered at the midpoint; changing sampling center or anchor distribution is outside this proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: hyperbolic triangle circumcircle probability random third point midpoint hyperbolic disk circle",
+    "Web: probability random point hyperbolic circumcircle circle versus horocycle random triangle",
+    "DOI:10.1007/s00013-022-01761-x",
+    "University Glasgow circumcircle hyperbolic triangle"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older hyperbolic random-triangle sampling literature may contain the same evaluated law under circumcycle/horocycle terminology.",
+    "Results assume anchors fixed and disk/circle centered at the midpoint; changing sampling center or anchor distribution is outside this proof.",
+    "Finite computational checks corroborate specific cases only; the asserted infinite/all-real theorem rests on the reviewed symbolic argument.",
+    "Exact evaluated source blob hashes and assigned source-tree SHA were verified; publication remains withheld because public metadata was not sanitized."
+  ],
+  "residual_risks": [
+    "Older hyperbolic random-triangle sampling literature may contain the same evaluated law under circumcycle/horocycle terminology.",
+    "Results assume anchors fixed and disk/circle centered at the midpoint; changing sampling center or anchor distribution is outside this proof."
+  ],
+  "schema_version": 1
+}
