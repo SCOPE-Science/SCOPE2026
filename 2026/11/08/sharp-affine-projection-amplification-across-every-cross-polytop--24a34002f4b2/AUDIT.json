@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each pair of integers d>=2 and 1<=s<=d, the signed-sparse-Dirichlet face law yields Gram diag(1,2/[d(s+1)] repeated d times). The reproducing kernel is 1+[d(s+1)/2]x dot y, and exact integration of the Beta(1,s-1) excess tail gives the claimed norm. The K(v,.) and K(w,.) sign disagreement on positive-measure face neighborhoods near -v proves strict vertex-only norming and the sign-kernel input extremizers. The strict inequality log(1-u)>-u/(1-u) gives positive derivative of the continuous rank interpolation and strict rank monotonicity. The independent radial Beta decomposition of solid volume yields its covariance, exact kernel norm, vertex classification and strict volume-versus-boundary comparison; the latter uses Jensen and E[R]>E[R^2]. A bounded quadratic binomial remainder yields the stated uniform O(1/d) and half-step bound and limiting difference 1/2. Actual standalone checker, using exact rational beta-density expansion, passed 594 dimension/rank integrals, but universal proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oswald Theorem 1 proves the existence of triangulations with large spline projection norm, not exact global-affine norms for uniform face-skeleton measures.",
+        "Hangelbroek et al. Theorem 5.1 proves Lp stability under smooth-manifold positive-definite-kernel and sampling hypotheses; it does not calculate these polytopal face-rank constants.",
+        "Recovered existing cone-volume comparison for centrally symmetric convex bodies establishes a strict boundary-to-volume inequality, but no intermediate cross-polytope skeleton values."
+      ],
+      "reasoning": "Neither source theorem has hypotheses subsuming the rank-skeleton sampling problem with the requisite exact conclusions: Oswald uses continuous piecewise-linear spaces on triangulations; Hangelbroek uses growing kernel-generated spaces on smooth manifolds. The existing central-symmetry inequality implies only the final strict comparison, not the full result.",
+      "searches": [
+        "affine least squares projection on symmetric polytopes with uniform face skeleton sampling monotonic operator norms",
+        "sharp norm affine projection onto boundary convex crosspolytope and cube homogeneous",
+        "arxiv:math/0611573 Theorem 1",
+        "arxiv:1005.2424 Theorem 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611573 (full PDF, Sections 1-3 and Theorem 1; first public November 19, 2006)",
+      "arxiv:1005.2424 (full PDF, Sections 1 and 5 and Theorem 5.1; first public May 13, 2010)",
+      "Indexed exact solid-simplex affine projector result: 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 (summary only)",
+      "Accessible exact cone-versus-volume claim id 1f20d6a9-8a1f-4b00-81aa-f968ee5ec730 (deduplication claim only)",
+      "Targeted literature searches for affine projection on cross-polytope skeletons and exact Lebesgue constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Indexed simplex result: norm on one solid simplex under Lebesgue probability; cross polytope is not affinely equivalent to a simplex when d≥2.",
+        "Earlier cone-boundary versus volume comparison: strict ordering for centrally symmetric bodies; as its conclusion does not specify exact constants, it cannot imply the presented beta-tail constants or all intermediate strict inequalities.",
+        "Ranked skeleton measures have distinct supports and covariances 2/[d(s+1)], so even the surface and solid cases do not fix their projection kernels."
+      ],
+      "reasoning": "The new all-ranks statement strictly contains new information beyond either prior implication: its full arithmetic dependence on face rank, its unique norming vertices for each rank, uniform half-step limit, and explicit surface-versus-volume gap are not consequences of the indexed statements. The older comparison is not presented as new and is independently proved for this object.",
+      "searches": [
+        "published exact positivity defect max norm affine least squares projector simplex",
+        "crosspolytope surface boundary volume affine least squares sharp 1/2 norm gap",
+        "face skeleton affine cross polytope norm L infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first two indexed-record queries returned simplex-affine exact norm and cross-polytope metric projection results, but no record with this rank-varying sampling law.",
+        "For fixed rank, the sampling law is equivalently a random s-sparse signed Dirichlet vector, and the operator is the affine orthogonal projector with diagonal coordinate covariance; its exact row norm is the Beta excess-tail integral.",
+        "The web phrase search returned geometric nearest-point projections, rather than L2 least-squares projections onto affine functions."
+      ],
+      "reasoning": "Compared the definitions: metric projection onto the cross-polytope is a nonlinear nearest-point map, whereas the new map is a linear L2 projector to affine functions, with the observation measure changing at each skeleton rank. A Dirichlet-tail identity computes these norms, but no earlier statement located giving the rank-specific constants, strict chain and equality classification.",
+      "searches": [
+        "cross polytope skeleton measures exact L infinity norms of affine L2 orthogonal projections increasing with face dimension",
+        "coordinate sparse Dirichlet simplex faces orthogonal affine projector Lebesgue constant monotonicity",
+        "\"cross-polytope\" \"projection\" \"L∞\" least squares vertices facets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-index searches returned the exact solid-simplex affine norm but no table or database of cross-polytope face-rank projection constants.",
+        "Independent exact-rational calculation checks 594 pairs of dimensions and ranks, but this computation is evidence for correctness rather than for novelty."
+      ],
+      "reasoning": "Compared whether an indexed exact table, a general Dirichlet-mixture norm identity or a stronger general formula already provides the full face-rank hierarchy. No such stated coverage was identified in accessible results; this is not a proof of absence from all literature.",
+      "searches": [
+        "exact Lebesgue constant orthogonal projector crosspolytope vertices facets faces",
+        "crosspolytope surface boundary volume affine least squares sharp 1/2 norm gap",
+        "\"L2 projector\" \"skeleton\" \"polytope\" affine stability"
+      ]
+    },
+    "rationale": "Comparison of complete mathematical claims gives no domination by the accessible source results. Exact simplex solid-volume norms do not imply cross-polytope face-skeleton norms. The existing general cone-boundary versus volume strict inequality for centrally symmetric bodies yields only the last order relation and not the new all-skeleton constants, exact extremizers, uniform half-step law or sharp cross-polytope gap. Full texts of Oswald (2006) and Hangelbroek et al. (2010) were inspected at their precise result sections; both concern other projection spaces and settings. Ranked face-skeleton exact constants were not found in multiple targeted mathematical literature and indexed-record searches. Residual possibility of an unindexed equivalent treatment remains.",
+    "residual_risks": [
+      "An equivalent exact calculation may exist in unindexed approximation or optimal-design literature. The indexed simplex-affine full text was inaccessible, although its abstract theorem addresses another polytope and measure.",
+      "This is a same-model comparison, not a formally independent priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 is an unboundedness construction for continuous piecewise-linear splines over increasingly graded triangulations; it contains no stated exact global affine projection constants for regular polytope face-skeleton measures.",
+        "evidence": "Theorem 1 constructs 8J+4-triangle refinements with L-infinity projector norm at least 2J; the new finite affine basis dimension is d+1 and the observation law is supported on cross-polytope faces.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611573",
+        "material_read": "Original PDF text accessible; read abstract, Introduction, Section 2 setup, Theorem 1 and key steps of its Section 3 construction; inspected first-page rendering. Other text not audited line-by-line.",
+        "method": "Direct original arXiv full-text reading and theorem-to-hypothesis comparison",
+        "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+        "trigger": "Historical sharp and unbounded L-infinity norms of L2 projections on polyhedral domains"
+      },
+      {
+        "assessment": "Theorem 5.1 is a boundedness result for least-squares projectors onto spans of localized positive-definite kernels on compact smooth manifolds; it does not state an exact norm or a face-skeleton hierarchy on polytopes.",
+        "evidence": "Theorem 5.1 assumes quasiuniform centers and stable localized bases; Theorem 5.6 concerns kernel approximation on the sphere rather than finite affine regression on varying cross-polytope supports.",
+        "identifier_or_url": "https://arxiv.org/pdf/1005.2424",
+        "material_read": "Original PDF text accessible; read Introduction and approximation-space definitions, Section 5 Theorem 5.1, corollaries, Section 5.1 example and conclusion; inspected first-page rendering. Other sections not audited line-by-line.",
+        "method": "Original arXiv full-text theorem and assumptions inspection",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+        "trigger": "Potential general least-squares projection stability theorem"
+      },
+      {
+        "assessment": "The accessible published claim applies to Lebesgue-uniform sampling on a simplex; this cannot by itself dominate a theorem for all face ranks of the cross polytope. Full-text appendices were not assessed.",
+        "evidence": "The indexed formula is a single solid-simplex norm, not a family of cross-polytope face-skeleton norms.",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Indexed mathematical summary and title only; the linked full text could not be fetched.",
+        "method": "Semantic mathematical research-record search; implication comparison limited to accessible statement",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Indexed nearest exact affine-projection norm in a polytope"
+      },
+      {
+        "assessment": "Its universal comparison covers the boundary-versus-interior inequality; the new result does not claim that inequality alone as original, and instead establishes exact norms for every skeleton and the full ranked hierarchy.",
+        "evidence": "The older conclusion is a strict inequality plus cube-specific exact formulas, whereas the new formula varies with each cross-polytope face rank.",
+        "identifier_or_url": "1f20d6a9-8a1f-4b00-81aa-f968ee5ec730",
+        "material_read": "Accessible mathematical claim statement for overlap only, not historical proof or certification.",
+        "method": "Direct comparison of theorem conclusions and hypotheses",
+        "title": "Strict affine-projection comparison between cone-boundary and interior probabilities of centrally symmetric convex bodies",
+        "trigger": "Existing broader theorem could contain the surface-volume inequality as a special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24a34002-f4b2-4e9c-8e96-9a40c3410b2a",
+  "value": {
+    "rationale": "All equal-rank face skeleta of a regular cross-polytope are canonical sampling supports for multivariate affine least squares, linking finite vertex observations, lower-dimensional strata, boundary sampling and solid sampling. The complete sharp norm ladder and strict classification of all extremal evaluation locations quantify a systematic and initially counterintuitive increase in worst-case amplification as observations move to larger-dimensional faces. Every rank contributes an asymptotically uniform half-unit increase, and the remaining volume step has a nonvanishing exact 1/2 limit. These are natural all-rank invariant values and stability information not supplied by the old general cone-versus-volume comparison; no arbitrary parameter slice or tiny numerical improvement is used.",
+    "status": "PASS"
+  }
+}
