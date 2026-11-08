@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The overlap digraph has a vertex for each ordered pair and exactly one edge per allowed length-three triple. Its diagonal degrees are \(q-1\), off-diagonal degrees are \(2\), and it is strongly connected, so the Euler-tour interpretation is exact. Prescribing the edge `001` fixes one rotation per universal cycle. The directed BEST factor is consequently \(((q-2)!)^q\). The directed Laplacian Schur complement is \(2(qI-J)/3\) after eliminating all off-diagonal vertices, and the rooted cofactor is \(2^{q-1}3^{(q-1)(q-2)/2}q^{q-2}\). These steps establish the all-\(q\) formula, independently of finite checks. Exact integer cofactors were recomputed through \(q=8\); direct Euler-tour counts through \(q=4\) and constructive witnesses through \(q=25\) independently agree. The remaining scientific boundary is the stipulated alphabet and factor predicate.
+PASS
 
-## Originality — PASS, qualified
+For q>=2, overlap directed graph on q² ordered pairs has one directed edge for every triple with exactly two equal letters (3q(q−1) edges). Diagonal vertices have in/out q−1, off-diagonal in/out 2; diagonal-to-diagonal two-step routes and transitions show strong connectivity. An Eulerian circuit corresponds bijectively to a cyclic universal word; anchoring the unique 001 edge selects one rotation with no extra divisor. Directed BEST counts anchored tours as rooted in-arborescence tau times ((q−2)!)^q. The outgoing Laplacian off-diagonal block is 2I−R with determinant 3^binom(q,2) and inverse (2I+R)/3; Schur complement of diagonal block is (2/3)(qI−J), rooted cofactor q^(q−2). Thus tau=2^(q−1)3^((q−1)(q−2)/2)q^(q−2), giving U=tau((q−2)!)^q. Each symbol is in first position of 3(q−1) triples, hence occurs that often. Independently computed exact rooted cofactors q=2..5 (tau=2,36,3456,1458000) and small count consistency. All-q proof is determinant identity, not finite tests.
 
-Relevant complete published sources inspected include Gardner–Godbole (2017), especially its restricted/equitable/onto-word theorems, and Sawada–Sears–Trautrim–Williams (2023), especially its cycle-joining construction results; the Chen–Kitaev–Sun (2019) deletion paper was also examined. Their relevant claims provide existence, general construction principles, or small deletion enumeration, not the exact count for the three-letter pattern with exactly one repeated symbol. Targeted source/alias searches and comparison against available specialized records found no covering result. Existing BEST and matrix-tree machinery is acknowledged: originality concerns the evaluated closed product for this complete natural restricted language. The 2013 Champlin–Godbole–Tomlinson paper was accessible as an abstract and by its quotation in Gardner–Godbole, but its original full text was unavailable; a specialized count there or in other unindexed literature remains the leading originality risk. Absence of a search hit is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Universal cycles are minimal exact compact listings of constrained word families. This natural family is the complete length-three equality-pattern class with exactly two equal symbols, removing both the all-distinct and constant triples. The theorem gives a closed all-alphabet count rather than just an existence criterion or a finite small-alphabet list, and determines the rooted arborescence count for its nontrivial \(q^2\)-vertex overlap graph. The explicit factorization and exact symbol balance support sequence-design enumeration under local equality constraints. This is a motivated complete enumeration of the restricted language; it does not purport to improve the general BEST theorem.
+The evaluated exact all-q closed product for the natural language of length-three words with exactly two equal letters. Classical BEST and matrix-tree theorems provide counting method but not this specific evaluated Schur complement and closed count; prior restricted-universal-cycle papers often establish existence or other constraints. Historical hidden table may exist.
 
-## Closest literature and limits
+## value
 
-- Gardner and Godbole, *Universal Cycles of Restricted Words*, arXiv:1711.07029v1 (2017): related existence theorems for restricted words; no reported full-alphabet count for this exact class.
-- Chen, Kitaev and Sun, arXiv:1908.01116v1 (2019): deletion-family existence probabilities, not this exhaustive restricted triple family.
-- Sawada, Sears, Trautrim and Williams, arXiv:2308.12405v1 (2023): efficient cycle-joining, not this arborescence evaluation.
-- Champlin, Godbole and Tomlinson, arXiv:1303.3323 (2013): related non-injective language result, but full text was not available for inspection.
+PASS
 
-Finite checks are not infinite proofs, and no claim is made for unlabeled or reversal-quotiented cycles, longer factors, or other constraints.
+Universal cycles give minimal cyclic listings of a natural local equality-pattern language excluding constant and all-distinct triples. Exact enumeration and prescribed symbol balance are motivated combinatorial invariants of these universal cycles, with a nontrivial q²-state matrix-tree reduction.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

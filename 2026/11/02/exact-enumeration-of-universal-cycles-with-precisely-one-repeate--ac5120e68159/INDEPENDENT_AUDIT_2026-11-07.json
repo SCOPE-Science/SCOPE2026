@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:58:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=2, overlap directed graph on q² ordered pairs has one directed edge for every triple with exactly two equal letters (3q(q−1) edges). Diagonal vertices have in/out q−1, off-diagonal in/out 2; diagonal-to-diagonal two-step routes and transitions show strong connectivity. An Eulerian circuit corresponds bijectively to a cyclic universal word; anchoring the unique 001 edge selects one rotation with no extra divisor. Directed BEST counts anchored tours as rooted in-arborescence tau times ((q−2)!)^q. The outgoing Laplacian off-diagonal block is 2I−R with determinant 3^binom(q,2) and inverse (2I+R)/3; Schur complement of diagonal block is (2/3)(qI−J), rooted cofactor q^(q−2). Thus tau=2^(q−1)3^((q−1)(q−2)/2)q^(q−2), giving U=tau((q−2)!)^q. Each symbol is in first position of 3(q−1) triples, hence occurs that often. Independently computed exact rooted cofactors q=2..5 (tau=2,36,3456,1458000) and small count consistency. All-q proof is determinant identity, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gardner–Godbole 2017 gives existence and word-class constructions, including binary cases.",
+          "Chen–Kitaev–Sun 2019 studies deletion-induced universal-word existence.",
+          "Sawada et al. 2023 develop concatenation-tree construction."
+        ],
+        "reasoning": "These broad construction/existence results do not by themselves give evaluated counts modulo rotations of the present complete class; BEST yields an unevaluated determinant unless the new graph computation is done.",
+        "searches": [
+          "universal cycles triples exactly two equal symbols Eulerian tours count",
+          "arxiv:1711.07029",
+          "arxiv:1908.01116",
+          "arxiv:2308.12405"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 208c5dff27e4d85db2f0018a5c6df70a3f6f6059",
+        "Gardner–Godbole 2017 arxiv:1711.07029 relevant primary PDF sections",
+        "Champlin–Godbole–Tomlinson 2013 arxiv:1303.3323 relevant accessible full text",
+        "Chen–Kitaev–Sun arxiv:1908.01116",
+        "Sawada et al. arxiv:2308.12405",
+        "Resultary universal-cycle semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general existence theorem or Eulerian digraph criterion entails U_q>0 but not the arborescence product.",
+          "The source theorem concerning non-injective triples includes constant triples, unlike the exact-two-equal language here."
+        ],
+        "reasoning": "The evaluated determinant 3^binom(q,2)*(2/3)^(q−1)*q^(q−2) is a substantive additional count, not an immediate numerical corollary of existence.",
+        "searches": [
+          "universal cycles triples exactly two equal symbols Eulerian tours count",
+          "Gardner Godbole restricted words arxiv:1711.07029",
+          "Champlin Godbole Tomlinson arxiv:1303.3323"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The overlap graph is a directed de Bruijn subgraph with diagonal and off-diagonal vertex types; cyclic universal cycles are Euler tours modulo rotation.",
+          "Champlin–Godbole–Tomlinson treats complementary non-injective languages but not this exact enumeration in examined materials."
+        ],
+        "reasoning": "Aliases restricted universal cycles, balanced Euler tours, equality patterns and (non-)injective triples searched.",
+        "searches": [
+          "universal cycles triples exactly two equal symbols Eulerian tours count",
+          "de Bruijn subgraph exact two equal triples Euler tours enumeration",
+          "arxiv:1303.3323"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned unrelated cyclic graph and topology records, no this U_q count.",
+          "2013 complementary-class source was checked through accessible full text rather than only abstract; no all-q numeric table for exact 2-equal triples identified."
+        ],
+        "reasoning": "No exact all-alphabet table located; a future researcher should recheck alternate nomenclature, so not priority certification.",
+        "searches": [
+          "universal cycles triples exactly two equal symbols Eulerian tours count",
+          "Resultary universal cycles exactly two repeated triple semantic search",
+          "restricted de Bruijn cycles exactly two equal letters count"
+        ]
+      },
+      "rationale": "The evaluated exact all-q closed product for the natural language of length-three words with exactly two equal letters. Classical BEST and matrix-tree theorems provide counting method but not this specific evaluated Schur complement and closed count; prior restricted-universal-cycle papers often establish existence or other constraints. Historical hidden table may exist.",
+      "residual_risks": [
+        "Count is for labeled alphabets and rotation only; not reversal or relabeling classes, not length>3.",
+        "General BEST and matrix tree ingredients are old; originality is restricted to the specific all-q evaluated determinant. A less-indexed restricted word count could preexist.",
+        "Independent cofactors q<=5 corroborate but do not establish unrestricted determinant identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact all-q enumeration in sections inspected",
+          "evidence": "Construction/existence results rather than closed formula U_q for exactly-two-equal triples.",
+          "identifier_or_url": "arxiv:1711.07029",
+          "material_read": "primary PDF 21 pages, relevant existence/equitable/non-injective theorems and definitions; screenshot inspected",
+          "method": "web primary PDF full accessible, inspected relevant sections",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "restricted words and same order-three property"
+        },
+        {
+          "assessment": "NOT_COVERING exact q-dependent 2-equal-only count in inspected statements",
+          "evidence": "General non-injective word sets include all-equal triples, so set and count differ.",
+          "identifier_or_url": "arxiv:1303.3323",
+          "material_read": "primary available full text via lawful web scholarly copy, relevant n>=4 theorem and comparison to triple predicate",
+          "method": "web full-text inspection",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "very close complementary injective/non-injective triple classes"
+        },
+        {
+          "assessment": "No direct full-count implication verified; no whole-document exclusion claimed",
+          "evidence": "Concern deletion families / existence probability, not evaluation of complete allowed triple graph determinant.",
+          "identifier_or_url": "arxiv:1908.01116",
+          "material_read": "primary abstract and available relevant theorem descriptions",
+          "method": "web primary indexed material",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "universal cycles after deleting words"
+        },
+        {
+          "assessment": "No all-q exact count identified; full-text historical risk remains",
+          "evidence": "Efficient generation and joining, rather than counting all Euler tours of specified graph.",
+          "identifier_or_url": "arxiv:2308.12405",
+          "material_read": "primary abstract and relevant indexed statements",
+          "method": "web primary indexed material",
+          "title": "Concatenation trees: A framework for efficient universal cycle and de Bruijn sequence constructions",
+          "trigger": "broader construction algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Universal cycles give minimal cyclic listings of a natural local equality-pattern language excluding constant and all-distinct triples. Exact enumeration and prescribed symbol balance are motivated combinatorial invariants of these universal cycles, with a nontrivial q²-state matrix-tree reduction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob 208c5dff27e4d85db2f0018a5c6df70a3f6f6059",
+    "Gardner–Godbole 2017 arxiv:1711.07029 relevant primary PDF sections",
+    "Champlin–Godbole–Tomlinson 2013 arxiv:1303.3323 relevant accessible full text",
+    "Chen–Kitaev–Sun arxiv:1908.01116",
+    "Sawada et al. arxiv:2308.12405",
+    "Resultary universal-cycle semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Count is for labeled alphabets and rotation only; not reversal or relabeling classes, not length>3.",
+    "General BEST and matrix tree ingredients are old; originality is restricted to the specific all-q evaluated determinant. A less-indexed restricted word count could preexist.",
+    "Independent cofactors q<=5 corroborate but do not establish unrestricted determinant identity."
+  ],
+  "residual_risks": [
+    "Count is for labeled alphabets and rotation only; not reversal or relabeling classes, not length>3.",
+    "General BEST and matrix tree ingredients are old; originality is restricted to the specific all-q evaluated determinant. A less-indexed restricted word count could preexist.",
+    "Independent cofactors q<=5 corroborate but do not establish unrestricted determinant identity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING exact all-q enumeration in sections inspected",
+      "evidence": "Construction/existence results rather than closed formula U_q for exactly-two-equal triples.",
+      "identifier_or_url": "arxiv:1711.07029",
+      "material_read": "primary PDF 21 pages, relevant existence/equitable/non-injective theorems and definitions; screenshot inspected",
+      "method": "web primary PDF full accessible, inspected relevant sections",
+      "title": "Universal Cycles of Restricted Words",
+      "trigger": "restricted words and same order-three property"
+    },
+    {
+      "assessment": "NOT_COVERING exact q-dependent 2-equal-only count in inspected statements",
+      "evidence": "General non-injective word sets include all-equal triples, so set and count differ.",
+      "identifier_or_url": "arxiv:1303.3323",
+      "material_read": "primary available full text via lawful web scholarly copy, relevant n>=4 theorem and comparison to triple predicate",
+      "method": "web full-text inspection",
+      "title": "Universal Cycles of Complementary Classes",
+      "trigger": "very close complementary injective/non-injective triple classes"
+    },
+    {
+      "assessment": "No direct full-count implication verified; no whole-document exclusion claimed",
+      "evidence": "Concern deletion families / existence probability, not evaluation of complete allowed triple graph determinant.",
+      "identifier_or_url": "arxiv:1908.01116",
+      "material_read": "primary abstract and available relevant theorem descriptions",
+      "method": "web primary indexed material",
+      "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+      "trigger": "universal cycles after deleting words"
+    },
+    {
+      "assessment": "No all-q exact count identified; full-text historical risk remains",
+      "evidence": "Efficient generation and joining, rather than counting all Euler tours of specified graph.",
+      "identifier_or_url": "arxiv:2308.12405",
+      "material_read": "primary abstract and relevant indexed statements",
+      "method": "web primary indexed material",
+      "title": "Concatenation trees: A framework for efficient universal cycle and de Bruijn sequence constructions",
+      "trigger": "broader construction algorithms"
+    }
+  ]
+}
