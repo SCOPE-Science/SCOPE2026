@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:12:20.649380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 5ac46afb657e17688d464218966f166dce3260dc",
+        "Frozen verify_tempering.py blob 249fffb5cc00c2e5a3e91243f99edece2aa41baf",
+        "Independent exact Gaussian η=2 hypergeometric/atanh identity at four ℓ"
+      ],
+      "rationale": "Scale density e^((1−2ℓ)V) and speed e^(−V) yield exact E_xτ0=∫_0^|x|H(y)e^(−2ℓV(y))dy, H=e^V∫_y^∞e^(−V), with supremum the full integral. Under V′~ηx^(η−1), V″/V′²→0, l’Hôpital gives H~1/(ηx^(η−1)). Regular-variation scaling u=2ℓx^η yields for η<2 gamma coefficient Γ(2/η−1)/η² times (2ℓ)^(1−2/η); critical η=2 logarithmic (1/4)log(1/ℓ); η>2 finite M0 and difference coefficient Γ(2/η)/[η(η−2)] times (2ℓ)^(1−2/η). Strict decreasing/convex follows integral differentiation. Infinite scale endpoints for ℓ≤1/2 give nonexplosion, uniformly bounded hitting time implies Doeblin minorization via 0 and positive compact heat kernels; when ℓ=0 and η≤2, nonuniform fixed-time return from x→∞ prevents uniform TV ergodicity. Independent exact Gaussian η=2 hypergeometric identity checks at ℓ=.01,.1,.3,.5. Numerics support the constants and normalization but not uniformity for all V.",
+      "residual_risks": [
+        "Only 1D even twice differentiable V with required tail derivatives, positive V′ eventually, nonexplosive ℓ≤1/2.",
+        "Uniform ergodicity proof does not give optimal mixing rate; Gaussian checks do not prove regular-variation asymptotics for arbitrary potentials."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic entrance/hitting-time criteria and uniform TV mixing implications cover qualitative parts; none of inspected source statements supplies universal evaluated constants for this Weibull family."
+        ],
+        "reasoning": "An encompassing Karamata theorem can derive the gamma coefficients from the exact integral but requires proving the model-specific tail asymptotic and careful normalization; this is residual possible broader coverage, not proven prior duplication.",
+        "searches": [
+          "Bansaye et al arXiv:1711.08603 entrance from infinity",
+          "Cattiaux–Guillin arXiv:1604.06336 hitting-time uniform ergodicity",
+          "Douc–Fort–Guillin arXiv:math/0605791",
+          "arXiv:2610.30024"
+        ]
+      },
+      "checked_sources": [
+        "Mijatović–Xie Tempered Langevin diffusions with polynomial-tailed targets, arXiv:2610.30024v1 (2026-10-21) full HTML",
+        "Bansaye et al Diffusions from Infinity, arXiv:1711.08603, relevant coming-down-from-infinity statements",
+        "Pinsky Kemeny’s constant for one-dimensional diffusions, arXiv:1903.12005, hitting-time Green formulas",
+        "Cattiaux–Guillin Hitting times functional inequalities Lyapunov conditions and uniform ergodicity, arXiv:1604.06336",
+        "Resultary query tempered Langevin Weibull stretched exponential small tempering trichotomy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical scale/speed formula implies Mℓ integral; it does not state evaluated coefficient Γ(2/η−1)/η², critical log 1/4, or Γ(2/η)/[η(η−2)] for this class."
+        ],
+        "reasoning": "The exact evaluated parameter-response theorem adds nontrivial regular-variation analysis; the general hitting/Doeblin foundation itself is credited prior work.",
+        "searches": [
+          "arXiv:2610.30024 polynomial tails original hypotheses",
+          "arXiv:1903.12005 Green identity",
+          "Frozen RESULT.md H(y) Laplace asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 paper assumes polynomial tails; Weibull π=e^(−V) is not polynomial as V~x^η; general hitting Green identity appears in diffusion literature."
+        ],
+        "reasoning": "Recasting as a Laplace transform of the Mills ratio H gives an equivalent mathematical formulation; no inspected earlier result explicitly computes its sharp ℓ→0 three-regime equivalents.",
+        "searches": [
+          "Resultary query tempered Langevin diffusions Weibull stretched exponential tails uniform hitting time small tempering trichotomy",
+          "arXiv:2610.30024v1 full HTML",
+          "Pinsky arXiv:1903.12005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026 polynomial-tail phase table is not an exact numeric table for Weibull exponent η; no table matching the three coefficients was found."
+        ],
+        "reasoning": "No finite database is intrinsic to this continuous-parameter theorem; prior phase diagrams count only if they imply the entire η,ℓ asymptotic statement.",
+        "searches": [
+          "Resultary semantic query Weibull target 1D tempered Langevin Gamma(2/eta-1)",
+          "arXiv:2610.30024 tables of regimes"
+        ]
+      },
+      "rationale": "Best-knowledge PASS, qualified: Mijatović–Xie 2026 motivating paper treats polynomial-tailed π and includes general tempering ideas, but its displayed hypotheses exclude these Weibull tails and do not compute the sharp three small-tempering constants. Pinsky/coming-down-from-infinity and general Cattiaux–Guillin provide Green/hitting criteria; the new sharp evaluated parameter-response trichotomy is additional (though may be derivable from a broader general Tauberian theorem).",
+      "residual_risks": [
+        "Broad Tauberian or regularly varying diffusion entrance-time results could imply constants after specialization; no absolute novelty certification.",
+        "The 2026 polynomial-tailed target paper and ordinary 1D diffusion Green formulas are correctly credited as prior foundations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Polynomial π(x)~|x|^(−d−r), not e^(−|x|^η); neither exact Weibull small-ℓ power/log/cusp constants in the inspected hypotheses",
+          "evidence": [
+            "Target family distinction matters to theorem application; generic scale/speed machinery is acknowledged as known."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30024v1",
+          "material_read": "Full arXiv HTML text, assumptions and results on polynomial tails, state-dependent diffusion, ergodic regimes",
+          "method": "Read full public HTML primary text and compared tail hypotheses and conclusion types",
+          "title": "Tempered Langevin diffusions with polynomial-tailed targets: explosions, moment thresholds and ergodicity",
+          "trigger": "Exact same tempering generator architecture and nearest 2026 model paper"
+        },
+        {
+          "assessment": "General entrance-time behavior, not explicit evaluated Weibull three-regime small tempering response",
+          "evidence": [
+            "Generic diffusion Green and regular variation methods may underlie, but supplied result gives the sharp model-specific constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.08603",
+          "material_read": "Abstract, main coming-down-from-infinity conditions and primary-context statements",
+          "method": "Read public primary arXiv summary and accessible relevant theorem statements",
+          "title": "Diffusions from Infinity",
+          "trigger": "Potential broad entrance from infinity theorem"
+        },
+        {
+          "assessment": "General link between hitting times and mixing is prior; does not specify this model’s ℓ→0 coefficients",
+          "evidence": [
+            "Doeblin argument is grounded in general theory and not treated as original in isolation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.06336",
+          "material_read": "Abstract and applicable hitting-time/ergodicity statements",
+          "method": "Read public primary statement/summary of relevant ergodicity criteria",
+          "title": "Hitting times, functional inequalities, Lyapunov conditions and uniform ergodicity",
+          "trigger": "Uniform TV ergodicity could be an immediate application of a broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mijatović–Xie Tempered Langevin diffusions with polynomial-tailed targets, arXiv:2610.30024v1 (2026-10-21) full HTML",
+        "Bansaye et al Diffusions from Infinity, arXiv:1711.08603, relevant coming-down-from-infinity statements",
+        "Pinsky Kemeny’s constant for one-dimensional diffusions, arXiv:1903.12005, hitting-time Green formulas",
+        "Cattiaux–Guillin Hitting times functional inequalities Lyapunov conditions and uniform ergodicity, arXiv:1604.06336",
+        "Resultary query tempered Langevin Weibull stretched exponential small tempering trichotomy"
+      ],
+      "rationale": "The critical exponent η=2 separates finite uniform entrance-time behavior from infinite at zero tempering, with a nonanalytic cusp for η>2. Exact constants quantify a natural parameter sensitivity not captured by general binary ergodicity criteria; useful to understand how weak tempering changes diffusion times.",
+      "residual_risks": [
+        "Broad Tauberian or regularly varying diffusion entrance-time results could imply constants after specialization; no absolute novelty certification.",
+        "The 2026 polynomial-tailed target paper and ordinary 1D diffusion Green formulas are correctly credited as prior foundations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 1D even twice differentiable V with required tail derivatives, positive V′ eventually, nonexplosive ℓ≤1/2.",
+    "Uniform ergodicity proof does not give optimal mixing rate; Gaussian checks do not prove regular-variation asymptotics for arbitrary potentials.",
+    "Broad Tauberian or regularly varying diffusion entrance-time results could imply constants after specialization; no absolute novelty certification.",
+    "The 2026 polynomial-tailed target paper and ordinary 1D diffusion Green formulas are correctly credited as prior foundations."
+  ],
+  "schema_version": 1
+}

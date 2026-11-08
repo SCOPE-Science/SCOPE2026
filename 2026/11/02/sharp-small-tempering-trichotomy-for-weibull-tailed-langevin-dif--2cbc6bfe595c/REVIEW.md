@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The scale–speed derivation fixes the normalization and produces an exact nonnegative hitting-time integral. L'Hôpital's rule under the stated derivative assumption gives a regularly varying integrand; direct Laplace scaling derives the constants in all three mutually exclusive regimes. Endpoint classification and minorization establish the ergodicity threshold. The independent high-precision implementation passed 187 checks of exact specializations and limiting constants. Numerical checks are corroboration, not proof. The analysis requires \(V'(x)>0\) eventually and the explicit derivative condition.
+## correctness
 
-**Originality — PASS (qualified).** The 2026 motivating paper covers polynomial rather than Weibull tails. General hitting-time expressions and entrance/uniform-ergodicity principles are pre-existing results and are credited to Bansaye et al., Pinsky, Cattiaux–Guillin and Douc–Fort–Guillin and Arapostathis–Pang–Sandrić. The assessed claim is the sharp *parameter-response trichotomy and constants* for the Weibull-tail class, not those generic principles. Searches of prior mathematical findings and accessible primary literature did not establish equivalent or stronger coverage; historical priority remains qualified because a more general Tauberian diffusion result may imply the formulas.
+PASS
 
-**Mathematical value — PASS.** The exponents and constants quantify the effectiveness of small tempering in a natural family of target laws and reveal a critical quadratic-tail boundary. Especially for \(\eta>2\), finite uniform entrance times coexist with an infinite first derivative at zero tempering, a nontrivial sensitivity property that a binary ergodicity criterion does not give. The result does not supply optimal mixing rates or cover all tail classes.
+Scale density e^((1−2ℓ)V) and speed e^(−V) yield exact E_xτ0=∫_0^|x|H(y)e^(−2ℓV(y))dy, H=e^V∫_y^∞e^(−V), with supremum the full integral. Under V′~ηx^(η−1), V″/V′²→0, l’Hôpital gives H~1/(ηx^(η−1)). Regular-variation scaling u=2ℓx^η yields for η<2 gamma coefficient Γ(2/η−1)/η² times (2ℓ)^(1−2/η); critical η=2 logarithmic (1/4)log(1/ℓ); η>2 finite M0 and difference coefficient Γ(2/η)/[η(η−2)] times (2ℓ)^(1−2/η). Strict decreasing/convex follows integral differentiation. Infinite scale endpoints for ℓ≤1/2 give nonexplosion, uniformly bounded hitting time implies Doeblin minorization via 0 and positive compact heat kernels; when ℓ=0 and η≤2, nonuniform fixed-time return from x→∞ prevents uniform TV ergodicity. Independent exact Gaussian η=2 hypergeometric identity checks at ℓ=.01,.1,.3,.5. Numerics support the constants and normalization but not uniformity for all V.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge PASS, qualified: Mijatović–Xie 2026 motivating paper treats polynomial-tailed π and includes general tempering ideas, but its displayed hypotheses exclude these Weibull tails and do not compute the sharp three small-tempering constants. Pinsky/coming-down-from-infinity and general Cattiaux–Guillin provide Green/hitting criteria; the new sharp evaluated parameter-response trichotomy is additional (though may be derivable from a broader general Tauberian theorem).
+
+## value
+
+PASS
+
+The critical exponent η=2 separates finite uniform entrance-time behavior from infinite at zero tempering, with a nonanalytic cusp for η>2. Exact constants quantify a natural parameter sensitivity not captured by general binary ergodicity criteria; useful to understand how weak tempering changes diffusion times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
