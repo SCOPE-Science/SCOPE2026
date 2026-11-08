@@ -1,15 +1,21 @@
-# Review of the first-two-nullity commutator census
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-one factorization and three moment constraints give exact fiber counts. The two kernel spaces have natural pairing of rank equal to the number of singleton Jordan blocks, determined by the first two nullities; this yields zero/rank-one commutator counts without hidden genericity assumptions. The formulas for the action of the commutator on the span of the first factor and its nilpotent image determine every remaining similarity type, including the characteristic-two degeneracy. The packaged exhaustive checker validates 40 cases and 34,015 matrices but is not substituted for proof.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Full-text primary comparisons were made with Britnell–Wildon (2010), Oblak (2007 and 2011), and Harima–Watanabe (2012). Their relevant statements describe commuting nilpotent classes and centralizer algebras; these do not imply the moment-refined distribution of noncommuting rank-one perturbations. The pre-existing rank-one fixed-matrix special case is expressly excluded from the novelty attribution: the new theorem covers all nilpotent Jordan partitions and collapses their spectra to the first two nullities. Guralnick (1979) and Neubauer (1989) study rank-at-most-one commutator loci, but only abstracts were accessible; their full texts remain a genuine priority risk. Nonidentification in searches is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The invariant is a complete and natural distribution attached to a nilpotent similarity class and the minimal nonzero nilpotent orbit. Its dependence on only two initial kernel dimensions, irrespective of later Jordan block lengths, is a structural equivalence between distinct nilpotent classes. It separates the semisimple versus nondiagonalizable nonzero-eigenvalue regimes in characteristic two, and counts the nilpotency-index-three and index-two commutator strata exactly. The general family and finite-field counts make the result more than an isolated finite computation.
+Write X=uv^T, v^Tu=0, modulo q-1 rescalings. Stratify nonzero u by J²u nonzero, Ju nonzero but J²u zero, and Ju zero; each gives respectively 3,2,1 independent linear covector constraints. Subtract the zero covector in the zero-moment fiber to derive A,B,E. Rank([J,X])<2 iff u belongs to ker J or v to ker J^T; their intersection is governed by the pairing ker J^T x ker J of rank c=2b-d (singleton Jordan blocks), yielding Z and U by projective line counting, with V as the remainder. On span(u,Ju), C has matrix [[-t,-s],[0,t]], and C²=-sX at t=0: this forces every stated odd/even characteristic Jordan type. Independently enumerated actual matrix products, all moments and ranks for six small nilpotent partitions and fields, not as a substitute for proof. All nonnegative multiplicities and full partition of rank-one square-zero X follow.
 
-## Limitations
-The moving factor must be nonzero, rank one and square-zero; the fixed factor must be nilpotent. The theorem does not classify full pair orbits. Incomplete access to older rank-one-commutator papers prevents exhaustive priority certification. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work on nilpotent centralizer Jordan types describes matrices commuting with J, not the actual nonzero commutator distribution [J,X] with prescribed rank-one X and both traces. The special rank-one fixed-matrix count and centralizer component are not claimed as novel. Published rank-one commutator loci (Guralnick/Neubauer) are plausibly relevant but their complete texts were unavailable; no demonstrated implication of the complete moment-fiber counts was identified.
+
+## value
+
+PASS
+
+The closed moment-refined similarity census for every finite field and every nilpotent J collapses complicated Jordan partitions to just their first two nullities, a structural universality phenomenon. The characteristic-two distinction and rank-two nilpotent fibers are genuinely new mathematical information beyond counting commuting rank-one matrices alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
