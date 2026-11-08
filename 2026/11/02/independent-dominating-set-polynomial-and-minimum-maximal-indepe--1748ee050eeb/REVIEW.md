@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete family of inclusion-maximal independent sets is derived from the exact neighbourhood relation of the three classes of token configurations, and maximality is proved in both directions. The size-generating polynomial follows by injective parametrization, the minimum follows from an integer quadratic lower bound with explicit attaining configurations, and the maximum classification follows by convexity and corner comparison. Two separately implemented exhaustive finite checkers reproduce the full polynomial and extremal multiplicities for ten parameter pairs, including one nontrivial tie pair. Unchecked larger sizes are covered by the symbolic proof, not empirical extrapolation.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest archival article (de Alba et al., arXiv:1606.06370, Theorem 1.2) already proves the scalar independence number, which is explicitly excluded from the new contribution. Its proof and the general two-token work of Deepalakshmi et al. do not exhibit the full maximal-independent-set enumerator or exact minimum maximal size. Recent complete-bipartite token-graph domination papers (arXiv:2610.31557 and arXiv:2610.28936) determine unrestricted domination, not independent domination; the former's general dominating-set criterion can support an alternate derivation, but neither states these full independent-set profiles. Targeted research-record, archival-overlap, and published-literature searches found no equivalent formula. Remaining risk: an unindexed treatment or an overlooked implication in related graph-domination work.
+PASS
 
-## Value — PASS
-This supplies an entire distribution, not another optimum-cardinality calculation: exact counts of all independent dominating configurations by size, a sharp closed formula for the smallest such configuration, and a complete optimizer classification with a natural infinite Diophantine tie family. These invariants characterize the diversity and worst-case size of maximal independent sets in a foundational exclusion-graph family and furnish concrete inputs for independent-dominating-set algorithms.
+In F_2(K_{m,n}), configurations split into same-part pairs P and mixed pairs X; both are independent classes, with adjacency precisely when a mixed pair meets an endpoint of a chosen same-part pair. For any maximal independent set with mixed members, the active endpoints S,T are proper, sizes 0 or >=2; maximality forces all C(S,2), C(T,2), and the complete unused rectangle. Conversely every such I(S,T) dominates all omissions; its internal edges uniquely recover S,T. This proves the polynomial with binomial multiplicities, count 1+(2^m-m-1)(2^n-n-1), and all maximizers P/X. Minimizing f(s,t) by its integer k=s+t bound proves i(H)=2 for (2,2), 2a-3 for b=2<a, and a+C(b-1,2)-1 for b>=3, a>=b; convexity bounds max, with triangular-part ties. Independently enumerated maximal cliques of the complement for (2,2),(2,3),(3,3),(3,4),(4,4) and compared every coefficient; these finite checks are not the all-parameter proof. Inspected both verifier implementations; do not infer infinity from finite logs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2016 token-graph paper already proves the scalar maximum independent-set size, not the coefficient distribution, smallest maximal set, or exact labeled optimizer classification. The 2026 K_{m,n} two-token domination papers count unrestricted dominating sets, which need not be independent. Resultary searches for token-graph independent domination and maximal-stable-set polynomials found related complete multipartite polynomials for different graphs, not a dominating theorem. The full independent-dominating enumerator and its extremal consequences therefore survive best-of-knowledge; primary-paper and hidden-equivalent-table risks remain.
+
+## value
+
+PASS
+
+A maximal independent set is a natural independent dominating configuration of the exclusion/token graph. Its whole size enumerator, smallest independent dominating cardinality and complete maxima describe structural optimization not supplied by the older scalar alpha. The infinite triangular-number tie family is a sharp boundary. This is a reusable exact baseline for a canonical graph family, not a parameter-renaming exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

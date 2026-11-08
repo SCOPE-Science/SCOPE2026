@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:11:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In F_2(K_{m,n}), configurations split into same-part pairs P and mixed pairs X; both are independent classes, with adjacency precisely when a mixed pair meets an endpoint of a chosen same-part pair. For any maximal independent set with mixed members, the active endpoints S,T are proper, sizes 0 or >=2; maximality forces all C(S,2), C(T,2), and the complete unused rectangle. Conversely every such I(S,T) dominates all omissions; its internal edges uniquely recover S,T. This proves the polynomial with binomial multiplicities, count 1+(2^m-m-1)(2^n-n-1), and all maximizers P/X. Minimizing f(s,t) by its integer k=s+t bound proves i(H)=2 for (2,2), 2a-3 for b=2<a, and a+C(b-1,2)-1 for b>=3, a>=b; convexity bounds max, with triangular-part ties. Independently enumerated maximal cliques of the complement for (2,2),(2,3),(3,3),(3,4),(4,4) and compared every coefficient; these finite checks are not the all-parameter proof. Inspected both verifier implementations; do not infer infinity from finite logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Alba et al. prove alpha=max(mn,C(m,2)+C(n,2)), already an immediate consequence of the new polynomial.",
+          "Unrestricted domination numbers and general token graph bounds do not determine counts of independent maximal sets."
+        ],
+        "reasoning": "The stronger-looking papers are broad in token-graph or domination parameters but their actual conclusions do not imply this full enumerator without an additional classification.",
+        "searches": [
+          "arxiv:1606.06370v1 full PDF Theorem 1.2",
+          "arxiv:2610.31557 Theorem 1.1 Lemma 2.2",
+          "arxiv:2610.28936 complete bipartite k-token domination"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md / verify_primary.py / verify_alternative.cpp; Git tree 1917e9520b2ec1c49bfa70d6c0e2e84459986efc",
+        "arxiv:1606.06370v1, Theorem 1.2",
+        "doi:10.1016/j.akcej.2019.05.002",
+        "arxiv:2610.31557v1",
+        "arxiv:2610.28936v1",
+        "Resultary query: independent domination polynomial maximal independent sets two-token graph complete bipartite"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known alpha fixes only the highest exponent, not other D_{m,n}(z) coefficients or minimum exponent.",
+          "Nonindependent dominating-set optimization is inequivalent to inclusion-maximal independence."
+        ],
+        "reasoning": "Earlier conclusions cannot entail the stated labeled count or its minimum/maximizer classification by mere substitution; a new combinatorial classification is supplied.",
+        "searches": [
+          "de Alba Carballosa Leanos Rivera 2016 Theorem 1.2",
+          "Deepalakshmi et al. 2020 On the 2-token graph of a graph",
+          "arxiv:2610.31557 independent versus ordinary domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent dominating sets = inclusion-maximal independent sets; 2016 theorem determines alpha only.",
+          "2026 ordinary domination allows adjacent chosen token configurations."
+        ],
+        "reasoning": "Equivalent independent domination formulations were compared, not confused with all-independent-set polynomials; none inspected supplies every maximal-set coefficient.",
+        "searches": [
+          "Resultary semantic search: independent domination polynomial maximal independent sets two-token graph complete bipartite K m n",
+          "maximal stable sets and independent dominating sets token K_mn",
+          "arxiv:1606.06370 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned multipartite domination and other enumerators on the BASE graph, not two-token K_{m,n}; no exact matching table in inspected results."
+        ],
+        "reasoning": "An exact two-token maximal-set table remains possible in older literature; absence of search hits is not a priority proof.",
+        "searches": [
+          "Resultary query independent domination polynomial maximal independent sets two-token graph complete bipartite",
+          "published maximal-independent-set token graph enumerators table"
+        ]
+      },
+      "rationale": "The 2016 token-graph paper already proves the scalar maximum independent-set size, not the coefficient distribution, smallest maximal set, or exact labeled optimizer classification. The 2026 K_{m,n} two-token domination papers count unrestricted dominating sets, which need not be independent. Resultary searches for token-graph independent domination and maximal-stable-set polynomials found related complete multipartite polynomials for different graphs, not a dominating theorem. The full independent-dominating enumerator and its extremal consequences therefore survive best-of-knowledge; primary-paper and hidden-equivalent-table risks remain.",
+      "residual_risks": [
+        "Earlier unindexed stable-set or independent-domination polynomial on F_2(K_{m,n}) could cover the complete enumerator.",
+        "The recent domination criterion might implicitly make some coefficients mechanically obtainable, though the inspected stated theorem does not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS scalar alpha; does not identify complete maximal independent-set polynomial in inspected theorem and proof",
+          "evidence": [
+            "Theorem 1.2 alpha=max(mn,C(m,2)+C(n,2)), from two natural independent bipartition classes."
+          ],
+          "identifier_or_url": "arxiv:1606.06370v1",
+          "material_read": "Primary full PDF, theorem 1.2 and proof discussion of K_mn token graph, plus one page screenshot",
+          "method": "Web PDF full text, targeted theorem and graph searches, PDF screenshot",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "Exactly the same F_2(K_{m,n}) base graph and largest independent-set size"
+        },
+        {
+          "assessment": "Treat as unresolved implication risk, not a whole-text exclusion",
+          "evidence": [
+            "Ordinary domination is not independent domination; the published result concerns the unrestricted minimum."
+          ],
+          "identifier_or_url": "arxiv:2610.31557",
+          "material_read": "Abstract and reported theorem/lemma only; not full paper",
+          "method": "ArXiv metadata and targeted bibliographic search",
+          "title": "The domination number of the 2-token graph of the complete bipartite graph",
+          "trigger": "Same token graph, alternative domination parameter"
+        },
+        {
+          "assessment": "Different generic independence bounds, no established exact polynomial comparison",
+          "evidence": [
+            "Earlier general parameter bounds may yield partial extremal information."
+          ],
+          "identifier_or_url": "doi:10.1016/j.akcej.2019.05.002",
+          "material_read": "Accessible bibliographic theorem descriptions; full text not independently read",
+          "method": "Bibliographic search",
+          "title": "On the 2-token graph of a graph",
+          "trigger": "General structural two-token parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A maximal independent set is a natural independent dominating configuration of the exclusion/token graph. Its whole size enumerator, smallest independent dominating cardinality and complete maxima describe structural optimization not supplied by the older scalar alpha. The infinite triangular-number tie family is a sharp boundary. This is a reusable exact baseline for a canonical graph family, not a parameter-renaming exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only k=2 and complete bipartite factors, m,n>=2, labelled configurations.",
+    "All-parameter proof depends on endpoint maximality classification and integer minimization; small enumeration alone is not proof."
+  ],
+  "schema_version": 1
+}
