@@ -1,19 +1,21 @@
-# Scientific review: commuting tuples in the four-by-four triangular nilradical
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six matrix-coordinate columns and three exterior commutator equations were independently reconstructed from matrix multiplication. The argument establishes an exhaustive closed union of three irreducible loci: \(X_m\) is affine, \(Y_m\) is the closure of a constant-rank vector bundle, and \(Z_m\) is the image of a vector bundle over the geometrically irreducible Lagrangian Grassmannian. For \(m\ge3\), rank-three and independent-column witnesses rule out every possible containment, so there are exactly three components. A one-parameter specialization proves the extra affine locus is absorbed at \(m=2\). Characteristic two is included because alternating forms and wedge-rank calculations do not require dividing by two. The companion point count is derived by disjoint rank strata and checked in nine full finite-field cases. All quantifiers, characteristic boundaries, and the reduced-variety restriction are explicit.
+PASS
 
-## Originality — PASS (best-knowledge assessment, with risks)
+PASS. Reconstructed all independent commutator positions (13),(24),(14) for the six coordinates: a∧b=b∧c=0 and a∧e+d∧c=0, f central and free, in every characteristic. On b≠0, a=αb,c=γb. For (α,γ)≠(0,0) the wedge map on (d,e) has rank m−1 and yields irreducible parameter bundle dimension (m+2)+(m+1)+m=3m+3. For b=0 isotropic ordered vectors in a 4D symplectic space form the closed image of the rank-2m tautological bundle over LG(2,4) (dim3), hence irreducible dimension 3m+3 for m≥2. X={a=c=0} is affine 4m. Exhaustion by cases b=0, b≠0; noncontainment witnesses use rank[b,d,e]=3 for m≥3 and rank[a,b,c] constraints. For m=2 X⊂Y by a one-parameter degeneration, leaving two 9D components; m=1 is A6. Independently enumerated commuting pairs/triples in finite fields on the five noncentral entries, agreeing with #=Q[Q³+(Q−1)(q²(2q+1)Q−q⁴)] for q=2,3 small m. Finite checks are not the algebraic-geometric proof; reduced varieties only.
 
-The type-\(A_3\) pair geometry in Goodwin–Röhrle is already known and excluded from the claimed new portion. The 2020 unitriangular branching matrix covers the odd-characteristic **counting** side in principle, so the numerical companion is also excluded from novelty. Rojas treats the Lie algebra and faithful representations, not its higher commuting varieties. Guralnick–Ngo studies the entire nilpotent cone rather than this fixed nilradical. Relevant title/phrase, full-text, and semantic-search comparisons did not reveal the all-characteristic \(m\ge3\) three-component decomposition, the transition at \(m=3\), or the equidimensionality threshold at \(m=4\). Unlocated work on commuting higher tuples in fixed Borel nilradicals remains a possible dominating source; no exhaustive priority assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is a natural algebraic-geometric object attached to the smallest nontrivial type-\(A\) Borel nilradical beyond class two. The result determines **all** reduced component counts and dimensions for unbounded tuple length, detects the first new component at triples, and pinpoints the exact onset of non-equidimensionality at quadruples. The Lagrangian geometric identification explains the component rather than merely computing a small-field statistic. The new contribution is structural geometry, not the arithmetic count alone.
+PASS at best knowledge. Geometry for all arities m≥3 is the candidate novelty. The m=2 characteristic-zero case and odd-characteristic finite-field arithmetic are not new. Distinguish fixed Borel nilradical commuting varieties from entire nilpotent-cone varieties; Resultary nearest filiform/Heisenberg titles address other objects.
 
-## Limits and nearest prior work
+## value
 
-Closest: Goodwin–Röhrle `arXiv:1209.1289v1` covers pairs; Kaur–Sharma–Singh `arXiv:2006.01493v1` covers odd-field tuple arithmetic indirectly; Rojas `arXiv:1211.2503v1` identifies the six-dimensional algebra; Guralnick–Ngo `arXiv:1308.2420v1` works in the full nilpotent cone. Historical priority and any nonreduced-scheme refinement remain open for independent examination. Computational checks do not certify the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Determines all irreducible components and dimensions of the reduced higher commuting varieties for the canonical six-dimensional type-A3 triangular nilradical uniformly across all arities and characteristics; the transition from 2 to 3 components and equidimensional m=3 is a natural structural classification not mechanically implied by earlier pair counts or finite-field totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
