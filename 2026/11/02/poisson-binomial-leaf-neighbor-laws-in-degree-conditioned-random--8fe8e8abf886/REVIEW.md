@@ -1,19 +1,21 @@
-# Scientific review: Poisson-binomial leaf-neighbor laws in degree-conditioned random labeled trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Deleting the marked vertex identifies the prescribed-degree uniform tree with a uniform forest of labeled rooted trees having exactly the prescribed number of components. A singleton component is precisely a leaf adjacent to that vertex. Lagrange coefficient extraction proves the exact degree-conditioned probability-generating polynomial. A direct pole-and-multiplicity argument proves that the degree-preserving differential operator sends polynomials with nonpositive real zeros to polynomials of the same kind; iteration establishes real-rootedness. Exchangeable polarization and the established strongly Rayleigh theorem imply negative association. Independent Prüfer-word enumeration, exact factorial-moment checks, pairwise covariance inequalities and rational Sturm-root tests in `verify.py` produced 27,106 successful assertions. The all-size results rely on proofs, not numerical extrapolation. The n=2 model is deliberately outside the theorem, and the star is treated separately.
+PASS
 
-## Originality — PASS, qualified
+Deleting the fixed vertex gives a uniform rooted forest on N=n-1 labels with d rooted components and singleton components corresponding to leaf neighbors. Labeled rooted-tree EGF T=ze^T, Lagrange inversion [z^m]exp(jT)=j(m+j)^(m-1)/m!, and the diagonal action of D_N=N+(1-t)∂_t on (t-1)^k yield exactly the stated normalized PGF. The root-preservation lemma is not merely tested: coefficient [(N-k)a_k+(k+1)a_(k+1)] is nonnegative for degree< N, while logarithmic quotient N+(1-t)sum b_j/(t+lambda_j) is strictly decreasing between poles, giving all nonpositive real roots incl multiplicity. Grace-Walsh-Szegő polarization converts the univariate stable PGF to the real-stable symmetric multiaffine joint PGF; Borcea-Brändén-Liggett Thm4.9 yields negative association. The exact two-leaf probability ratio is <1 for 2<=d<=n-2 (including d=2 zero case); forest component sizes realize every claimed support value. Prüfer enumeration independently confirmed all PGFs for n=3..7 and checks sampled roots, not an all-n proof.
 
-The exact *local* statement combines the marked-root degree condition, the leaf-neighbor count law, its nonpositive zeros, and negative association of the entire exchangeable leaf-neighbor vector. Pitman's rooted-forest enumeration establishes the underlying combinatorial correspondence, not this conditional real-rooted local statistic. The polarization and strongly Rayleigh implications are established by Borcea, Brändén and Liggett, not new here. Bóna–Mező's nonsingleton-partition polynomial counts a different set-partition statistic, so its real-rootedness does not by itself imply the stated fixed-component rooted-forest law. The closest comparison to preexisting degree/leaf results concerns global leaves or degree conditioning in a different random-tree model, not the leaf-neighbor vector. A general older forest-real-rootedness theorem or more specialized enumerative study could entail this law; implicit priority remains a residual risk, not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform labeled trees are a canonical finite random-tree model. Local pendant-neighbor counts measure the distribution of branching around a distinguished degree class; this is not captured by the marginal degree law or by global leaf counts. An exact Poisson-binomial factorization supplies ultra-log-concavity, concentration tools and finite-sample mean/variance control, while strong Rayleigh extends the conclusion to arbitrary disjoint sets of leaf-neighbor indicators. The result is structurally informative, rather than a small numerical correction or a restatement of Cayley's formula.
+Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. Known general results supply essential implications after establishing a new hypothesis, and do not supply the theorem as a direct named corollary.
 
-## Closest published literature and limits
+## value
 
-Jim Pitman, *Coalescent Random Forests*, technical report 457 (1996), §§2–3, https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf ; Jim Pitman, *The Multinomial Distribution on Rooted Labeled Forests*, report 499 (1998), §§1–2, https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/499.pdf ; J. Borcea, P. Brändén, T. M. Liggett, *Negative Dependence and the Geometry of Polynomials* (2007), Cor. 4.7 and Thm. 4.9, https://arxiv.org/pdf/0707.2340 ; M. Bóna, I. Mező, *Real Zeros and Partitions without Singleton Blocks* (2007; 2015 version), https://arxiv.org/pdf/0705.2734 . All broader theorems cited are treated as prior work. No claim is made for arbitrary weighted trees, or that an existing general real-rootedness theorem cannot subsume the new theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A degree-conditioned leaf-neighbor count is a standard local statistic of uniform labeled trees; exact joint strong Rayleigh dependence is meaningful because scalar expectations and covariances do not imply it. The all-size Poisson-binomial representation and precise feasible support are mathematically nontrivial refinements useful in random-tree concentration and coupling arguments, not an arbitrary small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

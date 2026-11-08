@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/RESULT.md (Git blob 8e4874da1c5ab2f848d209cdabd1e025e3a7e59f)",
+        "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/verify.py (Git blob aab2707759a1a90e9b51c2910b8c78850293aff4)",
+        "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/METADATA.json (Git blob 4da892018d69ff6958e65f0345ba04ac97a1897f)",
+        "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/AUDIT.json (Git blob f89234cc07d0b8fd0465e40f1110ca83426fa3ef)",
+        "Independent source-code-external checks: /mnt/data/scope_worker03_20261106T0838Z/independent_checks_output.txt"
+      ],
+      "rationale": "Deleting the fixed vertex gives a uniform rooted forest on N=n-1 labels with d rooted components and singleton components corresponding to leaf neighbors. Labeled rooted-tree EGF T=ze^T, Lagrange inversion [z^m]exp(jT)=j(m+j)^(m-1)/m!, and the diagonal action of D_N=N+(1-t)∂_t on (t-1)^k yield exactly the stated normalized PGF. The root-preservation lemma is not merely tested: coefficient [(N-k)a_k+(k+1)a_(k+1)] is nonnegative for degree< N, while logarithmic quotient N+(1-t)sum b_j/(t+lambda_j) is strictly decreasing between poles, giving all nonpositive real roots incl multiplicity. Grace-Walsh-Szegő polarization converts the univariate stable PGF to the real-stable symmetric multiaffine joint PGF; Borcea-Brändén-Liggett Thm4.9 yields negative association. The exact two-leaf probability ratio is <1 for 2<=d<=n-2 (including d=2 zero case); forest component sizes realize every claimed support value. Prüfer enumeration independently confirmed all PGFs for n=3..7 and checks sampled roots, not an all-n proof.",
+      "residual_risks": [
+        "The strong Rayleigh transfer uses the published polarization theorem and negative-association result; those are explicitly cited, not independently reproved.",
+        "Numerical roots and finite Prüfer enumerations alone cannot establish all n; the displayed monotonic zero-preservation lemma supplies that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BBL strongly Rayleigh implies CNA+ for arbitrary measures; it does not assert that degree-conditioned leaf indicators form such a measure. Pitman uniform rooted forest distribution covers the random object but not the sharpened distributional statement."
+        ],
+        "reasoning": "These are generic tools, not dominating the exact conditional law and proof of its hypotheses.",
+        "searches": [
+          "degree conditioned random Cayley tree leaf neighbors Poisson binomial real rooted strongly Rayleigh singleton rooted forest fixed components",
+          "Borcea–Brändén–Liggett arXiv:0707.2340 Theorem 4.9",
+          "Pitman 1998 Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+        "https://arxiv.org/pdf/0707.2340",
+        "https://arxiv.org/abs/0705.2734"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining Pitman forest enumeration with BBL results still requires proving this particular PGF is real-rooted; Bóna–Mező concern singleton-free set partitions counted by number of blocks, not singleton rooted-tree components with fixed block count."
+        ],
+        "reasoning": "Known general results supply essential implications after establishing a new hypothesis, and do not supply the theorem as a direct named corollary.",
+        "searches": [
+          "degree conditioned random Cayley tree leaf neighbors Poisson binomial real rooted strongly Rayleigh singleton rooted forest fixed components",
+          "Pitman 1998 Equation (5)",
+          "Borcea–Brändén–Liggett 2009 Corollary 4.7, Theorem 4.9",
+          "Bóna–Mező arXiv:0705.2734"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman Eq(5) counts all uniformly rooted forests with given component count; the specific singleton marker and root-preserving operator are not its stated distribution. BBL Cor4.7 preserves stability once a polynomial is established stable."
+        ],
+        "reasoning": "General rooted-forest enumeration and stability polarization do not individually state or logically trivially imply the explicit real-rooted conditional singleton law without additional nonstandard operator argument.",
+        "searches": [
+          "degree conditioned random Cayley tree leaf neighbors Poisson binomial real rooted strongly Rayleigh singleton rooted forest fixed components",
+          "Pitman, Coalescent Random Forests (1998), §2.1, Equation (5)",
+          "Borcea–Brändén–Liggett arXiv:0707.2340 Corollary 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary endpoint-distance law conditions a different statistic in Cayley trees; the recursive-tree item uses a distinct random-tree model. No displayed record contains the polynomial or strongly Rayleigh result."
+        ],
+        "reasoning": "The theorem concerns all n,d, not just a finite table or a small numerical sequence. The checked adjacent results do not enumerate the claimed invariant.",
+        "searches": [
+          "degree conditioned random Cayley tree leaf neighbors Poisson binomial real rooted strongly Rayleigh singleton rooted forest fixed components",
+          "Resultary 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "Resultary 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. Known general results supply essential implications after establishing a new hypothesis, and do not supply the theorem as a direct named corollary.",
+      "residual_risks": [
+        "An unindexed earlier multivariate forest stability theorem could imply the strongly Rayleigh special case, even when no matching wording appears.",
+        "The adjacent Bóna–Mező paper was not fully inspected, so no whole-document noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN ENUMERATION, NOT COVERING SPECIFIC REAL-ROOTED LAW",
+          "evidence": "Eq(5): rooted forests with k components counted by binomial(n-1,k-1)n^(n-k); no stated singleton-rooted-forest polynomial.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+          "material_read": "31-page report, especially §2.1 Lemma1, Formula(5), §3 model",
+          "method": "primary full text opened and relevant statements/proofs read",
+          "title": "Coalescent Random Forests",
+          "trigger": "identical uniform rooted-forest model"
+        },
+        {
+          "assessment": "APPLICABLE GENERAL PRIOR LEMMAS, NOT MODEL-SPECIFIC CLAIM",
+          "evidence": "Cor4.7 stability iff polarization stable; Thm4.9 strongly Rayleigh=>CNA+.",
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2340",
+          "material_read": "47-page full PDF; §4.1 Corollary4.7 and §4.2 Theorem4.9, with page images",
+          "method": "primary full text opened and relevant statements/proofs read",
+          "title": "Negative Dependence and the Geometry of Polynomials",
+          "trigger": "strong Rayleigh and polarization are key proof ingredients"
+        },
+        {
+          "assessment": "RELATED OBJECT, PRIORITY RISK",
+          "evidence": "Counts partitions with no singleton blocks by number of blocks rather than singleton components in a fixed-component rooted forest.",
+          "identifier_or_url": "https://arxiv.org/abs/0705.2734",
+          "material_read": "Abstract and stated enumerand from search/source references; no full-text determination of all results",
+          "method": "abstract/stated objects compared; not treated as full-text noncoverage",
+          "title": "Real Zeros and Partitions without Singleton Blocks",
+          "trigger": "plausible alias singleton enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+        "https://arxiv.org/pdf/0707.2340",
+        "https://arxiv.org/abs/0705.2734"
+      ],
+      "rationale": "A degree-conditioned leaf-neighbor count is a standard local statistic of uniform labeled trees; exact joint strong Rayleigh dependence is meaningful because scalar expectations and covariances do not imply it. The all-size Poisson-binomial representation and precise feasible support are mathematically nontrivial refinements useful in random-tree concentration and coupling arguments, not an arbitrary small-instance calculation.",
+      "residual_risks": [
+        "Specialized applications beyond uniform complete-graph spanning trees are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/RESULT.md (Git blob 8e4874da1c5ab2f848d209cdabd1e025e3a7e59f)",
+    "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/verify.py (Git blob aab2707759a1a90e9b51c2910b8c78850293aff4)",
+    "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/METADATA.json (Git blob 4da892018d69ff6958e65f0345ba04ac97a1897f)",
+    "2026/11/02/poisson-binomial-leaf-neighbor-laws-in-degree-conditioned-random--8fe8e8abf886/AUDIT.json (Git blob f89234cc07d0b8fd0465e40f1110ca83426fa3ef)",
+    "Independent source-code-external checks: /mnt/data/scope_worker03_20261106T0838Z/independent_checks_output.txt",
+    "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+    "https://arxiv.org/pdf/0707.2340",
+    "https://arxiv.org/abs/0705.2734"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The strong Rayleigh transfer uses the published polarization theorem and negative-association result; those are explicitly cited, not independently reproved.",
+    "Numerical roots and finite Prüfer enumerations alone cannot establish all n; the displayed monotonic zero-preservation lemma supplies that step.",
+    "An unindexed earlier multivariate forest stability theorem could imply the strongly Rayleigh special case, even when no matching wording appears.",
+    "The adjacent Bóna–Mező paper was not fully inspected, so no whole-document noncoverage claim is made.",
+    "Specialized applications beyond uniform complete-graph spanning trees are not established."
+  ],
+  "schema_version": 1
+}
