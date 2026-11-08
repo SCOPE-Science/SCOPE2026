@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all m>=3, states split exhaustively by center occupancy into U_h(A) (one missing arm) and V_{h,k} (center plus all but two leaves). All legal slides either toggle one coordinate within a Q_{m-1} or use a unique two-edge bridge at one-hot coordinate vertices. A target-distance potential is 1-Lipschitz across every edge, including bridge edges, and direct routes attain it; bridge states are handled through their two neighbors. Diameter upper bound 2m covers cube-cube, cube-bridge, bridge-bridge; diametral pair U_h([m]\\{h,k}), U_k([m]\\{h,k}) attains 2m. Two independently implemented enumeration/BFS checkers confirm the formulas for m=3..7 and m=3..9, respectively. All boundary cases m=3,4 are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoang et al. arXiv:1806.08291 Theorem 1: shortest TS-sequence on arbitrary spiders in O(n^2); this dominates the algorithmic task of shortest paths on this subclass.",
+        "Demaine et al. arXiv:1406.6576: efficient reachability and O(n^2)-length path on trees; explicitly cautions the construction need not be shortest.",
+        "Avis-Hoang arXiv:2203.16861: TS_k graph structure and decompositions; its Appendix A records only broad O(n^2) diameter bounds for general trees."
+      ],
+      "reasoning": "Do not claim a new polynomial-time shortest-path algorithm for spiders: that is covered by 2018. A general polynomial-time procedure returning individual shortest sequences does not imply the closed-form global state-graph isomorphism, counts, exact diameter and extremal pair as stated mathematical conclusions. General graph decomposition rules do not identify this family without the new explicit classification.",
+      "searches": [
+        "Shortest Reconfiguration Sequence for Sliding Tokens on Spiders arxiv 1806.08291",
+        "Linear-Time Algorithm for Sliding Tokens on Trees arxiv 1406.6576",
+        "On Reconfiguration Graphs of Independent Sets under Token Sliding arxiv 2203.16861",
+        "shortest token sliding reconfiguration independent sets trees spider graph optimal distance polynomial 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1406.6576",
+      "arxiv:1806.08291",
+      "arxiv:2203.16861"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 paper implies pairwise distances can be computed algorithmically, but states an O(n^2) construction rather than an m-cube-plus-bridges isomorphism and exact 2m diameter.",
+        "The 2022 paper explicitly separates structural properties from algorithmic properties and gives general tree O(n^2) bounds in Appendix A."
+      ],
+      "reasoning": "Separates what is already covered (solving shortest token sliding on an input spider) from what is newly assessed (complete abstract graph identification and sharp global extremal metric). Generic solvability or asymptotic bounds do not imply the presented identities and extremal classification, although an unstated direct calculation from those algorithms is possible.",
+      "searches": [
+        "arxiv:1806.08291 Theorem 1 shortest sequence spiders",
+        "arxiv:2203.16861 Appendix A Table 3 trees diameter",
+        "arxiv:1406.6576 shortest sequence may not use safe degree-1 vertex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches of indexed published mathematics returned no identified statement of the cubical complete-graph bridge theorem.",
+        "Hoang-Khorramian-Uehara arXiv:1806.08291 develops shortest-sequence algorithms on general spiders, with no stated complete graph isomorphism in the inspected theorem and relevant text."
+      ],
+      "reasoning": "Subdivided star, uniform depth-two spider and once-subdivided K_{1,m} are the same graph. Token sliding on independent sets and the fixed-k TS reconfiguration graph are the same move system here. The actual structural theorem and sharp diameter are not recorded in the inspected matching formulations.",
+      "searches": [
+        "Token sliding reconfiguration graph of independent sets of a subdivided star: one and two below maximum, cubical structure and complete graph bridges, exact diameter",
+        "Token sliding shortest distances on once-subdivided star tree and uniform spiders",
+        "subdivided star token sliding diameter independent sets reconfiguration graph",
+        "spider tree independent sets token sliding reconfiguration graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed statement about dissociation and independence in bipartite graphs involves a different invariant, not the token-sliding metric.",
+        "Avis-Hoang arXiv:2203.16861 Appendix A Table 3 lists generic connectedness/diameter bounds for trees, not exact values for a depth-two subdivided star."
+      ],
+      "reasoning": "The searched index and inspected table did not contain a matching exact cube-bridge adjacency table or diameter law. This is not a claim that every database or unpublished table was inspected; other tabulations remain a residual priority risk.",
+      "searches": [
+        "All independent sets of size m−1 in subdivided star S_m with 2m+1 vertices, reconfiguration hypercubes Johnson graph",
+        "Graph of independent sets of size k on subdivided star under token sliding; connectivity, diameter",
+        "subdivided star reconfiguration token sliding graph exact diameter",
+        "uniform spider independent sets token sliding hypercube complete graph state graph"
+      ]
+    },
+    "rationale": "The assessed claim is the full explicit m-cube-plus-K_m-bridge isomorphism, its all-pairs closed metric, exact counts, diameter 2m and diameter pair with symmetric difference two. The 2014 tree result proves reachability and length bounds; the much closer 2018 spider result already constructs shortest paths for ALL spiders and therefore covers computational shortest-path existence on this family, but does not state this complete reconfiguration graph, the bridge architecture, count laws, or sharp global diameter. Avis-Hoang 2022 studies general structural decompositions but its inspected theorem/appendix does not present this specific cube network or global diameter. Indexed records include a subdivided-star independence/dissociation extremal claim with different invariant. Search cannot rule out an unindexed equivalent characterization.",
+    "residual_risks": [
+      "The 2018 general algorithm already covers computing exact paths on all spiders, so originality is restricted to explicit global graph/metric structure and sharp diameter.",
+      "Unindexed theses or unsearched tables and alternate terminology could contain an equivalent special-case computation.",
+      "Indexed research record abstracts alone are not full-text negative evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General reachability and O(n^2) construction; not this explicit family metric/graph",
+        "evidence": [
+          "2014-06-25 arXiv first submission; paper main theorem and discussion state its path need not be shortest."
+        ],
+        "identifier_or_url": "arxiv:1406.6576; https://erikdemaine.org/papers/TokenReconfigurationTrees_TCS2015/paper.pdf",
+        "material_read": "arXiv full-text rendering: introduction and main results; journal preprint PDF abstract, closing discussion about shortest sequences and relevant passages; PDF page 2 visually inspected",
+        "method": "arXiv HTML/full-text and open PDF with page screenshot and term search",
+        "title": "Linear-Time Algorithm for Sliding Tokens on Trees",
+        "trigger": "Original broad tree reachability and length result"
+      },
+      {
+        "assessment": "Directly subsumes any mere algorithmic shortest-sequence claim, but no found exact uniform-spider state graph, symbolic diameter or full adjacency classification",
+        "evidence": [
+          "Theorem 1 provides O(n^2) shortest TS-sequence algorithm for any spider; no diameter claim in inspected full-text sections."
+        ],
+        "identifier_or_url": "arxiv:1806.08291; https://arxiv.org/abs/1806.08291",
+        "material_read": "arXiv full-text relevant introduction, Theorem 1, case-outline and detour arguments; relevant term scans for diameter/subdivided/uniform, and first PDF page visually inspected",
+        "method": "Full-text HTML and PDF screenshot, targeted mathematical term search",
+        "title": "Shortest Reconfiguration Sequence for Sliding Tokens on Spiders",
+        "trigger": "Strongest published exact shortest-path algorithm for spiders including this tree"
+      },
+      {
+        "assessment": "General properties and decompositions; not this explicit cube-bridge construction or exact diameter",
+        "evidence": [
+          "Appendix A Table 3 has tree O(n^2) diameter bounds; no subdivided-star special-case statement."
+        ],
+        "identifier_or_url": "arxiv:2203.16861; https://arxiv.org/abs/2203.16861",
+        "material_read": "arXiv article introduction, theorem summaries, section 7, and Appendix A connectivity/diameter table; PDF first page visually inspected and term scans",
+        "method": "Full-text HTML, PDF screenshot, targeted search",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "Structural TS_k graph and decomposition theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b1e56f1-420b-4237-a660-8629bfc84d8f",
+  "value": {
+    "rationale": "Uniform depth-two stars are canonical trees with a central bottleneck. The theorem shows that an entire exponentially large configuration graph has a rigid m-cube/K_m bridge architecture and exact diameter 2m. Its extremal pair differs at only two leaf vertices yet requires a linearly growing number of moves because other tokens must clear the central bottleneck; this contrasts local configuration difference with global reconfiguration cost. Explicit metric and counts are useful benchmarks for general spider shortest-sequence algorithms and for structural TS_k decompositions. The value is in exact global geometry, not in re-proving algorithmic shortest-path solvability.",
+    "status": "PASS"
+  }
+}
