@@ -1,0 +1,15 @@
+# Scientific review: joint dependence of shuffle statistics
+
+## Correctness (C): PASS
+
+The conditional deck law is a uniform ordered prefix followed by a sorted suffix. The exact conditional descent and inversion means follow from exchangeability. The covariance calculation separates adjacent-prefix inversions from the boundary descent; an independent conditioning argument on the minimum of the unselected suffix gives the remaining term. Both pieces combine to exactly half the conditional expected descent count, and monotonicity of the conditional means gives strictly positive unconditional covariance. The bivariate limit follows by a one-dependent CLT and Hoeffding projection for the conditional pair, whose normalized covariance vanishes, together with the classical independent occupancy CLT. The displayed covariance matrix follows from the two exact conditional-mean derivatives. Exact independent enumerations through seven cards and short shuffle histories, and the stochastic covariance diagnostic, agree with the formulas. Risk: the multivariate one-dependent CLT and occupancy CLT are used as standard theorems; they are identified explicitly, and their boundedness and normalization hypotheses are verified in the proof. There is no claim that the exact finite checker proves the infinite limit.
+
+## Originality (O): PASS, subject to historical-priority assessment
+
+The closest source is Clay, arXiv:2603.09008 (2026): its full accessible manuscript develops the conditional prefix model and the two marginal critical-window central limit theorems, but does not state the exact joint covariance identity or bivariate Gaussian law. Dörr–Heiny, arXiv:2309.17314 / J. Theor. Probab. 2025, has an exact classical descent–inversion covariance and joint theory for uniform permutations, with no moving-to-top occupancy mixture. The classical top-to-random analysis establishes deck laws but not these joint statistics. Searches of relevant research records found no directly covering shuffle claim. The current proof depends on well-known permutation covariance ingredients, but neither two separate marginal normal limits nor a uniform permutation result implies the displayed positive cross-covariance without a joint coupling. Residual risk: an unindexed prior study of move-to-front joint statistics could cover part or all of the claim; no unconditional guarantee of historical uniqueness is made.
+
+## Value (V): PASS
+
+The two canonical shuffle statistics are used together to assess disorder. Marginal limit laws leave their dependence undetermined. The finite identity supplies a universal strict sign for every deck size and positive shuffle count, while the joint central limit theorem identifies the exact residual covariance and proves that it is caused solely by shared occupancy randomness. The contrast with asymptotic independence for uniform permutations is structural and directly motivated by the parent literature. The result does not assert a separate mixing-time theorem or broad claims about joint extremes.
+
+Self-review: passed. Independent audit: not yet performed.
