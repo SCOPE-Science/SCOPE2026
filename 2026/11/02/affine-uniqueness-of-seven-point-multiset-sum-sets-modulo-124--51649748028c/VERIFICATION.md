@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-The new theorem is a complete finite classification at modulus \(124\), not a statement deduced from a finite sample of unbounded cases. The direct C++ enumerator traverses exactly \(\binom{122}{5}=207288004\) sorted normalized subsets; it checks all \(64\) subset sums of the six nonzero residues and then tests all \(1716\) seven-coordinate nonnegative multiplicity vectors summing to seven. It returns ten valid sets and \(5192384\) subset-sum-injective candidates. The separately implemented bitset-pruned enumeration returns the identical ten sets and reaches exactly the same \(5192384\) leaves. Direct source-to-source and output-to-output comparison was performed with independent algorithms. The Python checker enumerates all \(7440\) affine maps of the canonical seven-set and verifies that its orbit is free and that the ten normalized orbit images agree with the exhaustive list.
+## correctness
 
-With an GNU-compatible C++17 compiler with 128-bit unsigned integer support and Python3 in the package directory, run:
+PASS
 
-```
-c++ -O3 -std=c++17 enumerate_direct.cpp -o enumerate_direct
-./enumerate_direct > direct.txt
-c++ -O3 -std=c++17 enumerate_pruned.cpp -o enumerate_pruned
-./enumerate_pruned > pruned.txt
-cmp direct.txt pruned.txt
-cmp direct.txt normalized_valid.txt
-python3 verify_affine.py
-```
+Any collision among 64 subset sums of the six translated nonzero residues produces a forbidden seven-term multiset by exchanging disjoint supports and padding zeros. Without unit differences, parity compression gives <=62 subset sums or mixed parity forces all points congruent mod31 and cardinality<=4; hence a unit pair normalizes A to contain 0 and1. The direct source C++ loops cover all C(122,5)=207288004 normalized candidates, and check all C(13,6)=1716 multiplicity vectors after necessary subset-sum injectivity. Its separate bitset-pruned C++ generator checks each possible prefix, and an independent fresh C++ implementation reproduced 5,192,384 injection survivors and exactly ten valid normalized sets. Checked its ten lines byte-for-byte against the frozen normalized_valid.txt. Independent Python computed all 7440 affine images of canonical C, trivial stabilizer, and exactly the normalized ten; checked the sum-multiset condition for each. Thus exhaustiveness is finite and actually established at modulus124, with no claim for other moduli or general n.
 
-Expected program summaries: `all_combinations=207288004 subset_distinct=5192384 valid=10`, `leaf=5192384 valid=10`, and `ORBIT_OK orbit=7440 normalized=10 canonical_stabilizer=1`. The direct enumeration may take longer than the bitset-pruned one. Integer sizes are exact for these specified counts, and arithmetic residues are reduced modulo \(124\). The foundational unit-difference lemma and affine normalization argument are mathematical and independent of any programming language. The executable census is necessary for closing this particular finite inverse classification. No claim of formal-machine, third-party, or independent mathematical certification is made.
+## originality
+
+PASS
+
+Fonollosa's 2026 minimum-modulus result supplies the natural modulus124 for seven points and conjectural/computational optimizer equivalence, not a proof of exhaustive uniqueness. The frozen record supplies a complete finite C++ census and affine-orbit exhaustion of this specific group; I inspected proof and two complete enumeration algorithms. Inal's unrestricted finite-abelian-group minimum-order theorem concerns a different ambient optimization, and Bedert's two-term unique-sum invariant differs. Historical priority risk remains for Fonollosa's companion Fourier/permanent article (body not accessible) or an unindexed equivalent optimizer classification.
+
+## value
+
+PASS
+
+A fixed modulus124 is not arbitrary: it is the natural minimal modulus for the canonical seven-element construction. Proving the complete affine-optimizer classification and exact orbit size is a substantive finite rigidity question identified in predecessor work; the complete census establishes the exact fact for a natural bounded case, without claiming a general n classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

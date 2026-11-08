@@ -1,15 +1,21 @@
-# Scientific review: seven-point multiset-sum affine uniqueness
+# Independent mathematical audit
 
-## Correctness — PASS
-For a valid seven-point set, the six nonzero translated differences have 64 distinct subset sums: a collision produces a nontrivial seven-term multiset with the target sum by exchange and zero padding. If no pair differs by a unit modulo 124, all seven points are either in one parity class (only 62 possible subset sums), or, if both parities occur, all are congruent modulo 31 (at most four distinct residues), each impossible. Thus every valid seven-point set has a unit pair and can be normalized to contain 0 and 1. The exhaustive direct program independently iterates every one of the 207,288,004 normalized candidates and exactly 1716 multiplicity vectors of sum seven, with an exact 64-subset-sum precheck; there are ten survivors. A separate cyclic-bitset implementation agrees and a Python orbit enumerator verifies that those ten are precisely the canonical orbit's normalized images, with full orbit of size 7440 and trivial stabilizer. All arithmetic is exact, finite, and within the domains asserted. Verification of one input-to-output computation is not a theorem about all other moduli.
+## correctness
 
-## Originality — PASS, with risk
-Fonollosa (arXiv:2607.08366v1/v2) proves the first valid modulus for the specified superincreasing set and reports optimizer-equivalence experimental observations, not an exhaustive certification at modulus 124. This result certifies the complete seven-element optimizer class and exact orbit cardinality. The finite-abelian minimum-order result of Inal concerns any finite abelian group at the smaller sharp size 64; it does not settle cyclic modulus 124. Bedert's two-term unique-sum invariant and a prior exact ternary geometric collision count are not equivalent. Targeted searches of published mathematical research records, original-source text, and accessible prior results identified no stronger covering classification; negative searches are not proof of absolute priority. A companion Fourier paper's body was not fully inspected, and implicit older coverage remains possible.
+PASS
 
-## Mathematical value — PASS
-The fixed modulus 124 is naturally forced by Fonollosa's exact formula at length seven, not an arbitrary computational slice. Uniqueness of minimizers up to affine transformations is an explicit structural question in the originating research. This theorem proves the previously experimentally observed rigidity in the first substantial seven-residue case and provides the exact number of valid subsets and the complete ten-set normalized census. It advances the precise finite optimizer classification, not a routine restatement of the canonical construction.
+Any collision among 64 subset sums of the six translated nonzero residues produces a forbidden seven-term multiset by exchanging disjoint supports and padding zeros. Without unit differences, parity compression gives <=62 subset sums or mixed parity forces all points congruent mod31 and cardinality<=4; hence a unit pair normalizes A to contain 0 and1. The direct source C++ loops cover all C(122,5)=207288004 normalized candidates, and check all C(13,6)=1716 multiplicity vectors after necessary subset-sum injectivity. Its separate bitset-pruned C++ generator checks each possible prefix, and an independent fresh C++ implementation reproduced 5,192,384 injection survivors and exactly ten valid normalized sets. Checked its ten lines byte-for-byte against the frozen normalized_valid.txt. Independent Python computed all 7440 affine images of canonical C, trivial stabilizer, and exactly the normalized ten; checked the sum-multiset condition for each. Thus exhaustiveness is finite and actually established at modulus124, with no claim for other moduli or general n.
 
-## Evidence and limits
-`enumerate_direct.cpp`, `enumerate_pruned.cpp`, `normalized_valid.txt`, and `verify_affine.py` are complete standalone evidence; they use no unavailable certificate or external service. For publication-level priority an independent source audit, particularly of the companion Fourier/permanent paper, remains advisable. No assertion of independent mathematical audit is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fonollosa's 2026 minimum-modulus result supplies the natural modulus124 for seven points and conjectural/computational optimizer equivalence, not a proof of exhaustive uniqueness. The frozen record supplies a complete finite C++ census and affine-orbit exhaustion of this specific group; I inspected proof and two complete enumeration algorithms. Inal's unrestricted finite-abelian-group minimum-order theorem concerns a different ambient optimization, and Bedert's two-term unique-sum invariant differs. Historical priority risk remains for Fonollosa's companion Fourier/permanent article (body not accessible) or an unindexed equivalent optimizer classification.
+
+## value
+
+PASS
+
+A fixed modulus124 is not arbitrary: it is the natural minimal modulus for the canonical seven-element construction. Proving the complete affine-optimizer classification and exact orbit size is a substantive finite rigidity question identified in predecessor work; the complete census establishes the exact fact for a natural bounded case, without claiming a general n classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
