@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact three-point quadrature identity follows from Fourier modes 0, 2, 4. The normalized spherical harmonic basis, fourth-moment projector formula, 5x5 Gram matrix, discriminant spectrum, and strict eigenvalue-branch monotonicity prove the unique optimum t=5/9 and its sharp 5/12 lower frame constant. At the optimum the spectrum is 5/12 (twice), 35/36, 35/24, 125/72; the eigenspace and sharp 5/9 gap follow. An exact-arithmetic checker independently reconstructed Gram values via both sample nodes and circle moment tensors; its finite tests do not substitute for the analytic optimization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simons et al., full author PDF pp. 510--512 and §§5--6: matrix entries are area integrals over regions; no positive-mass line traces.",
+        "Ivanov--Petrushev, doi:10.1016/j.acha.2014.05.001, introduction and §3: high-order irregular samples and needlet reconstruction; no fixed six-node sharp design."
+      ],
+      "reasoning": "The positive-area Slepian domain and generic dense-sampling guarantees neither directly furnish the optimal two-line probability measure nor imply the unique cosine 5/9 geometry. The results have different observation measures and quantified optimization domains.",
+      "searches": [
+        "Spatiospectral Concentration on a Sphere Slepian arbitrary region eigenvalues 2006",
+        "Irregular sampling of band-limited functions on the sphere Ivanov Petrushev 2014",
+        "\"geodesic\" \"spherical harmonics\" \"sampling\" two curves"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144504445765",
+      "arxiv:1510.01595",
+      "doi:10.1016/j.acha.2014.05.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simons et al. (2006) eqs. (4.1)--(4.6) diagonalize a region-energy matrix, but do not state this singular-trace computation or its angle maximization.",
+        "McEwen--Price (2015) eq. (17) is a Funk--Radon multiplier with complete angle data, and does not bound the five-dimensional operator built from two complete traces.",
+        "Ivanov--Petrushev (2014) handles a larger polynomial space with many irregular sites, without fixing two equilateral circle triads."
+      ],
+      "reasoning": "The classical formula for a fourth moment on a plane is used as a lemma and is not counted as new. The claimed optimal design, exact worst singular value, two-dimensional equality space and sharp gap are not corollaries of the compared statements without new calculation and optimization.",
+      "searches": [
+        "\"great circle\" \"restriction operator\" \"quadratic\" \"harmonics\"",
+        "\"great circle\" \"optimal angle\" \"spherical harmonic\" \"sampling\"",
+        "\"spherical harmonics\" \"two great circles\" sampling stability degree 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McEwen--Price, arXiv:1510.01595, §III, eqs. (13)--(21), maps a spherical function to great-circle integrals.",
+        "Simons--Dahlen--Wieczorek, doi:10.1137/S0036144504445765, §§3--5, studies spatial concentration over regions."
+      ],
+      "reasoning": "Neither the full-angular Funk transform nor two finite collections of great-circle integrals is equivalent to the six-valued trace-energy frame. The exact sampled quadratic form and its worst singular direction are additional data; searched titles/terms gave no equivalent angular optimization.",
+      "searches": [
+        "\"two great circles\" \"spherical harmonics\" \"restriction\" invertible",
+        "\"two great circles\" \"sampling\" \"degree two\" harmonics",
+        "\"quadratic\" \"two equilateral triangles\" \"frame\" sphere"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or statement featuring the same six-point frame spectral formula or threshold appeared in the searched scholarly web results.",
+        "The exact five-eigenvalue result follows from the displayed two-circle tensor calculation, independently replayed in verify.py."
+      ],
+      "reasoning": "The database and table searches are negative evidence only, not a logical novelty certificate; an unindexed or differently titled result may exist.",
+      "searches": [
+        "\"cos\" \"5/9\" \"great circles\" spherical harmonic",
+        "\"spherical harmonics\" \"six points\" \"two triangles\" reconstruction",
+        "\"two equilateral triangles\" \"quadratic harmonics\" sphere"
+      ]
+    },
+    "rationale": "The comparison concerns the specific six-evaluation lower-frame eigenvalue, its globally optimal normal angle, its two-dimensional equality space, and sharp stability gap. The 2006 spherical Slepian work integrates over positive-area regions, the 2015 Funk--Radon work records circle averages rather than full traces, and the 2014 irregular-sampling work gives dense general reconstruction rather than a sharp sparse geometry. Targeted searches for great-circle pairs, equilateral triads, and the cosine 5/9 threshold did not disclose a theorem implying this entire claim. No general proof of historical uniqueness is asserted.",
+    "residual_risks": [
+      "Equivalent earlier optimization results may be hidden in unindexed finite-frame, optimal-experimental-design or spherical cubature literature.",
+      "The available text of the Ivanov--Petrushev source did not include an inspected publisher PDF; its accessible introduction and theorem statements did not imply the claim.",
+      "Neither database search nor this review is independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for singular two-great-circle line measures and fixed six-point quadratic-harmonic optimal frame geometry; broader operator context applies.",
+        "evidence": [
+          "Section 4 eqs. (4.1)--(4.6) integrates g² over a 2D region R with area measure; §5 treats polar caps; §6 treats geographical regions."
+        ],
+        "identifier_or_url": "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf",
+        "material_read": "Author-reprint PDF pp. 504--512, §§3--4 and §5, §6 setup and conclusion; inspected PDF page images and extracted full-document text.",
+        "method": "Full author reprint; inspected the mathematical variational definition, its area-region kernel and the polar-cap/continent specializations.",
+        "title": "Spatiospectral Concentration on a Sphere",
+        "trigger": "Foundational 2006 primary paper on spherical-bandlimited concentration operators and potential stronger generality."
+      },
+      {
+        "assessment": "NOT_COVERING for full trace-energy observations on two individual circles or six point observations. Its data for each circle are an integral, not the trace as a function.",
+        "evidence": [
+          "§III-A equation (13) defines great-circle integrals, and equation (17) gives the associated harmonic multiplier for complete angular data."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.01595",
+        "material_read": "Open preprint article abstract, introduction, §II basis conventions, §III (forward/inverse Funk transform, eqs. 13--21), applications and conclusion.",
+        "method": "Read lawful open full-text rendering of the 2015 preprint, including the original integral operator and its harmonic multiplier.",
+        "title": "Scale-discretised ridgelet transform on the sphere",
+        "trigger": "Great-circle and Funk--Radon transform primary literature; possible equivalence of two great-circle data."
+      },
+      {
+        "assessment": "AVAILABLE_MATERIAL_NOT_COVERING: treats irregular high-density point sets and algorithmic reconstruction, not explicit sharp two-triple frame spectrum. Full publisher PDF was inaccessible.",
+        "evidence": [
+          "Section 3.1 imposes a sufficiently dense sample partition with an iterative contraction; no optimal two-circle separation parameter."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.acha.2014.05.001",
+        "material_read": "Available article full-text sections: abstract, introduction, sampling problem, §3 exact iterative reconstruction, and §5 numerical examples; no publisher PDF obtained.",
+        "method": "Read publisher-indexed article text surfaced in accessible search result; compared hypotheses on density and polynomial degree.",
+        "title": "Irregular sampling of band-limited functions on the sphere",
+        "trigger": "Directly relevant spherical-polynomial sampling theorem potentially dominating the six-site design."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0de67cc2-f408-4ca5-a621-4b76d6af6f5f",
+  "value": {
+    "rationale": "The two-circle layout is a natural minimal-component degree-two sampling problem: each three-point orbit exactly measures the entire circle energy, while their combination must recover five spherical-harmonic degrees of freedom. The theorem determines the unique best angular separation, exposes the right-angle singularity, classifies the worst modes, and provides a sharp robustness remainder for structured sparse measurements. These are meaningful reconstruction and design data, not arbitrary parameter tabulations.",
+    "status": "PASS"
+  }
+}
