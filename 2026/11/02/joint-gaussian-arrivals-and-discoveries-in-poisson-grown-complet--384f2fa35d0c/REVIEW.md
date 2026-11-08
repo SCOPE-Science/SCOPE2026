@@ -1,19 +1,21 @@
-# Scientific review: joint Gaussian arrivals and discoveries
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete-graph walk admits an exact Markov projection onto graph size and number visited: births add an unvisited vertex at rate \(\beta\), and each move discovers a vertex at rate \(\lambda(N-X)/(N-1)\). The imbalance \(R=(X-1)-\alpha(N-1)\), \(\alpha=\lambda/(\beta+\lambda)\), has the exact contracting drift \(-\lambda R/(N-1)\). Its second-moment bound yields the discovery law of large numbers and the predictable-bracket limits. The martingale functional CLT and a small-time cutoff in the linear integral equation produce two Gaussian stochastic integrals, whose covariance integrals simplify to the stated matrix. The embedded checker independently exercises the finite Markov reduction, generator identities and algebra with 9,369 exact rational checks. The checker is finite corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with access qualifications
+For fixed m0>=3, rates beta,lambda>0 and a walker jumping to any other vertex uniformly, the exact lumped process (A=N-1,D=X-1) has birth rate beta and discovery intensity lambda(A-D)/A. With alpha=lambda/(lambda+beta), R=D-alpha A has drift -lambda R/A. Its compensated birth/discovery martingales have limiting quadratic brackets beta t and a t, a=beta*lambda/(beta+lambda), and zero cross-variation. A second-moment estimate bounds R_t^2 by O(t); the cutoff epsilon argument justifies convergence to the stochastic entrance integral of s^k dW with k=lambda/beta, even at small positive k. Itô isometry gives covariance [[beta,beta*k^2/(1+k)^2],[same,beta*k*(k^2+1)/(1+k)^3]]. Checked exact algebra and frozen verify.py finite-step rational lumping/generator code. Independent simulation at t=300, beta=lambda=1, 4500 trials yielded approximate per-time variance/covariance (1.001,0.251,0.250), versus theoretical (1,0.25,0.25); simulation does not prove convergence.
 
-The nearest specific source is Demirci–Işlak–Yıldız, arXiv:2110.01083, version 2: it proves fluctuation results under deterministic integer-time vertex births and remarks that random generation times could be treated, but its inspected text does not state the joint Poisson birth/discovery covariance. Videla (2020) studies growing-graph knowledge processes; its full paper was not accessible, so a stronger theorem there remains a live priority risk. Kijima–Shimizu–Shiraga (2025) studies deterministically varying vertex numbers and a different asymptotic regime. Searches of published mathematical result records and prior claims found no statement that dominates this specific joint Gaussian law. A failed search is not proof of universal novelty; conclusions are conditional on these access limits.
+## originality
 
-## Value — PASS
+PASS
 
-The 2021 source explicitly motivates Poisson vertex arrivals as a natural model variation. Moving from deterministic births to stochastic births changes not merely a proof technicality but the limiting distribution: birth noise creates a nonzero discovery/birth covariance and a different discovery variance. The exact, simple two-parameter covariance matrix gives quantitative control of these fluctuations and can be used for statistical uncertainty of network exploration. The result concerns a natural stochastic-growth model, not an arbitrary parameter slice.
+Best-of-knowledge PASS for the Poisson-birth joint N_t-X_t Gaussian covariance. Demirci–Işlak–Yıldız establishes a CLT for visits with one vertex added at each integer time and Poisson walker steps, not independent Poisson arrivals, hence no fluctuating birth count to couple. Videla studies out-of-equilibrium growing-graph walks and remains a relevant unread full-text risk despite accessible abstract and an authorized retrieval blocked by disconnected VPN.
 
-## Limitations and nearest literature
+## value
 
-Fixed strictly positive birth and jump intensities, one walker, no graph deletions, and complete graphs are essential assumptions. No rates of Gaussian approximation are established. The full Videla (2020) text, early versions of arXiv:2110.01083 and any inaccessible broader general limit theorem remain historical-priority risks. Self-review does not constitute independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint fluctuation law isolates extra randomness in the growth process and its negative/positive noise decomposition; exact birth/discovery covariance in the canonical complete-graph model is needed to distinguish random-growth from deterministic-growth benchmarks, beyond a routine marginal CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

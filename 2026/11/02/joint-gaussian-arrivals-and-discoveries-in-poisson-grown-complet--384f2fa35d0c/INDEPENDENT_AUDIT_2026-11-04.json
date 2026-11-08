@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:02:15.445446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed m0>=3, rates beta,lambda>0 and a walker jumping to any other vertex uniformly, the exact lumped process (A=N-1,D=X-1) has birth rate beta and discovery intensity lambda(A-D)/A. With alpha=lambda/(lambda+beta), R=D-alpha A has drift -lambda R/A. Its compensated birth/discovery martingales have limiting quadratic brackets beta t and a t, a=beta*lambda/(beta+lambda), and zero cross-variation. A second-moment estimate bounds R_t^2 by O(t); the cutoff epsilon argument justifies convergence to the stochastic entrance integral of s^k dW with k=lambda/beta, even at small positive k. Itô isometry gives covariance [[beta,beta*k^2/(1+k)^2],[same,beta*k*(k^2+1)/(1+k)^3]]. Checked exact algebra and frozen verify.py finite-step rational lumping/generator code. Independent simulation at t=300, beta=lambda=1, 4500 trials yielded approximate per-time variance/covariance (1.001,0.251,0.250), versus theoretical (1,0.25,0.25); simulation does not prove convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 is a visited-count Gaussian limit with deterministic arrivals; Remark 2.2 raises random-arrival variations but does not present the joint Poisson-birth covariance in inspected pages.",
+          "Videla 2020 could encompass a more general dynamic graph exploration and was not materially available in full."
+        ],
+        "reasoning": "The inspected specific CLT does not dominate the Poisson-birth bivariate claim, while unavailable Videla full text preserves a bounded priority risk.",
+        "searches": [
+          "arXiv:2110.01083 Theorem 2.5 and Remark 2.2",
+          "Videla Out-of-equilibrium random walks doi:10.1017/apr.2020.23",
+          "Kijima Shimizu Shiraga doi:10.1287/moor.2023.0060"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at source SHA",
+        "Demirci–Işlak–Yıldız arXiv:2110.01083v2 primary PDF",
+        "Videla DOI:10.1017/apr.2020.23 abstract",
+        "Kijima et al DOI:10.1287/moor.2023.0060 model/intro",
+        "Resultary Gaussian growing graph query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deterministic birth count has zero variance; the submitted birth-count variance is beta>0, so its entire joint Gaussian law cannot be a simple specialization of the prior deterministic model.",
+          "A general stochastic-growth theorem might imply the result if it provides this precise coupling, but the inaccessible Videla text prevents decisive comparison."
+        ],
+        "reasoning": "The earlier marginal deterministic result does not imply the specified covariance; best-of-knowledge novelty is qualified by inaccessible plausible literature.",
+        "searches": [
+          "arXiv:2110.01083 introduction/Thm 2.5/Remark 2.2",
+          "Videla doi:10.1017/apr.2020.23 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Embedded continuous-time jump process with independent Poisson growth is equivalent to a two-event Markov process with rates beta,lambda, not to the deterministic vertex-at-integer-times model.",
+          "The full joint covariance includes fluctuations of births that are absent under deterministic growth."
+        ],
+        "reasoning": "Checked equivalent time-change and embedded-chain formulations; no model-preserving reduction makes a deterministic-birth one-variable CLT imply this bivariate Poisson-birth result.",
+        "searches": [
+          "Resultary: random walk Poisson growing complete graph jointly visited discovered vertices Gaussian arrival covariance",
+          "Demirci–Işlak–Yıldız arXiv:2110.01083 v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No explicit cross-covariance table for independent Poisson vertex arrivals was found in the inspected full model and theorem of Demirci et al."
+        ],
+        "reasoning": "The matrix is a natural model-dependent statistic; absence in search is not conclusive, and unread growing-graph work may contain it.",
+        "searches": [
+          "Resultary Poisson growth arrivals discoveries Gaussian query",
+          "arXiv:2110.01083v2 variance tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the Poisson-birth joint N_t-X_t Gaussian covariance. Demirci–Işlak–Yıldız establishes a CLT for visits with one vertex added at each integer time and Poisson walker steps, not independent Poisson arrivals, hence no fluctuating birth count to couple. Videla studies out-of-equilibrium growing-graph walks and remains a relevant unread full-text risk despite accessible abstract and an authorized retrieval blocked by disconnected VPN.",
+      "residual_risks": [
+        "Videla 2020 potentially relevant full scientific results not inspectable; authorized institutional access reported VPN disconnected.",
+        "Other growing-graph exploration CLTs may contain the same covariance in an equivalent time-scaled model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_GROWTH_PROCESS",
+          "evidence": "One vertex per integer time; Gaussian visited-count limit without independent Poisson birth covariance.",
+          "identifier_or_url": "arXiv:2110.01083v2",
+          "material_read": "Full 13-page primary PDF available; introduction and pp.1–8 materially read including Theorem 2.5 and Remark 2.2",
+          "method": "Primary arXiv PDF",
+          "title": "On a cover time problem on a dynamic graph with steps at random times",
+          "trigger": "Same complete growing-graph and visited-set observable"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Not classified noncovering; full covariance comparison remains for follow-up with rightful access.",
+          "identifier_or_url": "doi:10.1017/apr.2020.23",
+          "material_read": "Primary abstract and bibliographic scope only; full scientific text unavailable after open-access search and authorized institutional retrieval returned vpn_disconnected",
+          "method": "Public publisher abstract and authorized institutional PDF attempt",
+          "title": "Out-of-equilibrium random walks",
+          "trigger": "General dynamically growing complete-graph walker might cover joint CLT"
+        },
+        {
+          "assessment": "DIFFERENT_DISCRETE_GROWTH_REGIME",
+          "evidence": "Deterministically prescribed growth differs from independent Poisson birth fluctuations.",
+          "identifier_or_url": "doi:10.1287/moor.2023.0060",
+          "material_read": "Accessible introduction and model description; no entire full-text noncoverage conclusion",
+          "method": "Publisher public HTML model/intro",
+          "title": "How Many Vertices Does a Random Walk Miss in a Network with a Moderately Increasing Number of Vertices?",
+          "trigger": "Growing graph walks and number of unvisited sites"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint fluctuation law isolates extra randomness in the growth process and its negative/positive noise decomposition; exact birth/discovery covariance in the canonical complete-graph model is needed to distinguish random-growth from deterministic-growth benchmarks, beyond a routine marginal CLT.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py at source SHA",
+    "Demirci–Işlak–Yıldız arXiv:2110.01083v2 primary PDF",
+    "Videla DOI:10.1017/apr.2020.23 abstract",
+    "Kijima et al DOI:10.1287/moor.2023.0060 model/intro",
+    "Resultary Gaussian growing graph query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only constant positive independent Poisson birth and jump rates, m0>=3 and fully connected graphs; no rates or general graphs claims.",
+    "Numerical finite-horizon Gaussian agreement does not prove the martingale functional CLT."
+  ],
+  "residual_risks": [
+    "Videla 2020 potentially relevant full scientific results not inspectable; authorized institutional access reported VPN disconnected.",
+    "Other growing-graph exploration CLTs may contain the same covariance in an equivalent time-scaled model."
+  ],
+  "schema_version": 1
+}
