@@ -1,11 +1,21 @@
-# Scientific review: exact finite-spin cap-shape Hessian
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact binomial upper-tail formula for cap eigenvalues yields a strictly simple principal eigenvalue for every integer \(N\ge2\) and \(0<p<1\). Differentiating the exact finite matrix, using simple-eigenvalue perturbation theory, and comparing consecutive binomial probability ratios establishes the whole Fourier Hessian, its strict ordering, and the second-harmonic sharpness. The Gaussian limit follows from binomial-to-Poisson convergence and dominated convergence. A separate numerical matrix-integration checker passed 163 assertions. Its finite calculations supplement rather than replace the proof; no uniform nonlinear large-degree assertion is made.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Frank (arXiv:2210.14798v1) determines coherent-state concentration optimizers but not their angular shape Hessian. García-Ferrero and Ortega-Cerdà (arXiv:2408.07424v1) prove polynomial concentration stability with nonsharp geometry controls, rather than the exact Fourier coefficients in this theorem. Related Gaussian STFT stability does not imply finite-spin binomial-tail coefficients. The Gaussian disk Hessian has Poisson rather than binomial coefficients, and its limiting statement does not determine fixed finite-degree curvature. A broader implicit perturbative calculation may exist in specialist literature and remains the historical-priority risk.
+PASS
 
-**Value — PASS.** The new curvature spectrum resolves which angular deformations most weakly disrupt optimal finite-spin concentration and gives a dimension- and cap-size-dependent sharp constant, including the exact translation nullspace. The finite-spin family is not reducible to a statement about the high-spin limit; it provides exact stability information for every integer dimension and every cap size.
+The cap localization matrix is diagonal at the unperturbed cap; its eigenvalue gaps are positive binomial tail partial sums. Second-order perturbation of its simple top eigenvalue produces a negative boundary-integral diagonal term and positive couplings from Fourier modes j<=N, yielding explicit d_{N,j} and a plateau d=1 for j>N. Binomial consecutive ratios imply d_1=0<d_2<...<d_N<1 and the sharp minimum d_2=(2−p)/(2+(N−2)p). The N to infinity p=s/N limit uses binomial-to-Poisson convergence and dominated Fourier sums, not a uniform nonlinear remainder. Independent exact rational arithmetic across 45 (N,p) pairs, N=2..16 and p∈{1/4,1/2,3/4}, verified ordering, null mode and d_2 identity; source eigenmatrix checker inspected, not treated as proof.
 
-**Limitations.** Only local, smooth, exactly area-preserving boundary perturbations are covered. Numerical checking is not a proof for all degrees. Independent mathematical review is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Frank’s SU(2) coherent-state cap optimizer and García-Ferrero–Ortega-Cerdà’s polynomial stability inequalities concern the same concentration functional, but the inspected primary statements do not compute its full finite-N Fourier shape Hessian, strict mode ordering, or sharp second harmonic. Gaussian Fock-space quantitative results concern a limiting different space. The explicit binomial-tail finite-degree spectrum does not follow from the qualitative bounds without new calculation.
+
+## value
+
+PASS
+
+Exact local sharp stability constants and null directions for optimized spin-coherent localization are natural spectral-geometric data. The full angular mode ordering establishes the least-stable nontranslation perturbations and a controlled finite-spin/Gaussian interpolation, a motivated nontrivial invariant for all N and cap areas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
