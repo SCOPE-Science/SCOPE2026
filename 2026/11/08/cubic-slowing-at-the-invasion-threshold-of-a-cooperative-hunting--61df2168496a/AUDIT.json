@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "At beta*gamma*(lambda-1)=1 the exact Jacobian has eigenvalues 1 and 1/lambda. The center graph's linear coefficient is -lambda*gamma and the quadratic coefficient at c=c_star is -gamma^2*lambda^2/(lambda-1); substitution into the predator update gives y_next=y-b*y^3+O(y^4) with b=1/3+gamma*lambda/(lambda-1)+2*(gamma*lambda/(lambda-1))^2>0. The subcritical quadratic drift is c-c_star. Reciprocal asymptotics and stable-foliation tracking prove the two local rates. Smooth implicit-function and eigenvalue arguments prove the small stable coexistence branch. The exact-rational bundled verifier checks coefficients using an independent truncated-series computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest mathematical record 2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316 treats a continuous-time Leslie–Gower flow with a distinct prey invasion mechanism, not the discrete Jang–Yousef refuge recurrence.",
+        "Record 2026/10/11/SCOPE-global-predator-extinction-and-its-exact-logarithmic-rate-under--55d343ecff9b concerns a delayed predator–prey model and a logarithmic extinction rate under handling-time bounds, not this nonhyperbolic map."
+      ],
+      "reasoning": "General center-manifold and parabolic-iteration theorems give a method, but do not include the nontrivial model-specific cancellation and coefficient. The two closest broad records use different state equations and parameters, hence neither dominates the present claim.",
+      "searches": [
+        "published-finding corpus: critical predator extinction slow 1/sqrt(n) refuge cooperative hunting map quadratic cancellation Beverton Holt",
+        "published-finding corpus: discrete predator prey cooperative hunting 2023 Jang Yousef critical center manifold polynomial decay threshold",
+        "web: \"cooperation threshold\" \"βγ\" \"λ−1\" \"center manifold\" predator"
+      ]
+    },
+    "checked_sources": [
+      "Jang–Yousef (2023) https://doi.org/10.1080/17513758.2023.2242372",
+      "Peng–Jiang (2025) https://doi.org/10.3390/modelling6030084",
+      "2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316 (distinct flow)",
+      "2026/10/11/SCOPE-global-predator-extinction-and-its-exact-logarithmic-rate-under--55d343ecff9b (distinct delayed model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jang–Yousef Theorem 2.4 states zero positive equilibria at or below the cooperation cutoff under reproduction number <=1; it does not assert nonlinear stability at equality or a rate.",
+        "Their equilibrium isoclines (equation (3)) provide raw equations but do not provide the calculated center-manifold cubic coefficient or stable-branch slope.",
+        "Peng–Jiang (2025), doi:10.3390/modelling6030084, uses a delayed continuous-time cooperative-hunting functional response rather than the discrete Poisson-predation map."
+      ],
+      "reasoning": "The source's cutoff is stronger coverage for the preexisting equilibrium count and is acknowledged, not rediscovered. It neither forces n^-1/2 instead of n^-1 nor determines the numerical prefactor. The new claim is a strict dynamical refinement, with limitations to local attraction and near-threshold coexistence.",
+      "searches": [
+        "primary text: Jang–Yousef full article equation (2), Proposition 2.3, Theorem 2.4 and concluding section",
+        "web: \"Jang\" \"predator\" \"cooperation\" \"center manifold\" \"polynomial\" \"Beverton Holt\"",
+        "web: \"Effects of prey refuge and predator cooperation on a predator-prey system\" 2023 preprint first online"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jang–Yousef (2023), equation (2), PDF lines 162–184, provides the same discrete recurrence; their Theorem 2.4 at PDF lines 597–615 provides the equilibrium-count cutoff but no convergence rate or cubic coefficient.",
+        "Targeted published-finding corpus search yielded no same-map or same-parameter degeneration theorem in the inspected nearest records."
+      ],
+      "reasoning": "The natural equivalent forms are predator n^-1/2 decay, a negative third-order parabolic coefficient, and a quadratic-to-cubic drift cancellation at a neutral invasion multiplier. Prior equilibrium counts do not imply the leading nonzero center coefficient or the time-law prefactor.",
+      "searches": [
+        "web: \"Jang\" \"Yousef\" \"critical\" \"c\" \"predator\" \"convergence rate\"",
+        "web: \"cooperative hunting\" \"prey refuge\" \"n^-1/2\" extinction discrete",
+        "published-finding corpus: Jang Yousef predator prey cooperation refuge codimension two transcritical critical βγ(λ−1)=1 c=(1/2)+λγ/(λ−1) cubic parabolic center manifold n^-1/2 extinction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible current-week 118 finding-claim envelopes contained no matching Jang–Yousef source or named critical predator extinction claim.",
+        "No exact coefficient table or packaged same-map result was present among the queried published-finding corpus results."
+      ],
+      "reasoning": "Historical ledgers were used as overlap exclusions only. The new result is an infinite-time local asymptotic theorem, not a numerical database entry. Nonappearance cannot prove publication priority.",
+      "searches": [
+        "own ledger: claim/source string search for Jang, Yousef, 2242372, predator cooperation, refuge, cubic slowing, critical predator extinction, βγ",
+        "published-finding corpus: Jang Yousef predator prey cooperation refuge codimension two transcritical critical βγ(λ−1)=1 c=(1/2)+λγ/(λ−1) cubic parabolic center manifold n^-1/2 extinction"
+      ]
+    },
+    "rationale": "The prior Jang-Yousef source already supplies the cooperation cutoff and equilibrium nonexistence result, which are explicitly excluded from the novelty claim. Its accessible full model/theorem/conclusion text was compared with the exact local n^-1 versus n^-1/2 extinction constants, cubic coefficient, and positive-branch first-order law; those new statements are not contained in or implied by the source's existence-only inequalities. Related records study different equations. Residual unindexed priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "Targeted research record results and discoverable primary sources are not an exhaustive proof of novelty.",
+      "The source cites earlier refuge-free cooperation papers; their specific equation and threshold are described in the accessible primary source, but no separate complete earlier manuscript was inspected.",
+      "Generic parabolic fixed-point theory is known; only the model-specific exact degeneration and resulting clocks are claimed as a new application."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS model and known equilibrium cutoff; NOT_COVERING the cubic critical extinction clock or first stable-branch slope",
+        "evidence": "Equation (2) appears in PDF lines 162–184; Jacobian/invasion classification and isoclines at lines 218–275; Theorem 2.4 at lines 597–615. Source explicitly states the threshold but not any asymptotic time law at the degenerate equality.",
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2023.2242372",
+        "material_read": "Open-access original full text: equation (2); Section 2.1 model derivation; Proposition 2.3; Section 2.3 and Theorem 2.4; numerical examples and conclusions",
+        "method": "Full-source HTML and page/line-indexed PDF text inspected; publication record independently checked for online publication date",
+        "title": "Effects of prey refuge and predator cooperation on a predator–prey system",
+        "trigger": "Source defining the exact discrete model and putative threshold"
+      },
+      {
+        "assessment": "NOT_COVERING: a different continuous delayed predator–prey equation and Hopf stability at positive coexistence",
+        "evidence": "Its model has a delayed logistic term and a continuous-time cooperative functional response, unlike the Jang–Yousef discrete Beverton–Holt/Poisson recurrence.",
+        "identifier_or_url": "https://doi.org/10.3390/modelling6030084",
+        "material_read": "Model equations, abstract, introduction, center-manifold/Hopf analysis description and conclusions",
+        "method": "Open-access HTML section inspection",
+        "title": "Dynamical Regimes in a Delayed Predator–Prey Model with Predator Hunting Cooperation",
+        "trigger": "Nearby cooperation/bifurcation work found in primary literature search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "61df2168-496a-487d-b191-a7c0a9ee59d8",
+  "value": {
+    "rationale": "The exact predator reproduction threshold leaves linear stability undecided. At the natural cooperation cutoff identified in the source, cancellation of quadratic restoring feedback generates a sharp switch from n^-1 to n^-1/2 extinction, with an explicit positive coefficient and a stable coexistence branch of quantified size. These are motivated ecological persistence-time and transition observables, not a gratuitous numerical parameter slice.",
+    "status": "PASS"
+  }
+}
