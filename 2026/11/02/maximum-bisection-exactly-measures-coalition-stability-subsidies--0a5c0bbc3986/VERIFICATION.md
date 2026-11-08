@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only the standard library. The script checks all labeled nonempty simple regular graphs on two, four, and six vertices (respectively \(1\), \(7\), \(171\) cases) against direct enumeration of all balanced committees; independently checks bipartiteness; and checks every subset of voters and every admissible committee for seven named representative graphs, including the complete four-vertex and six-vertex graphs. The expected final marker is `VERIFICATION_OK`.
+## correctness
 
-The grand-coalition score and all-voter subsidy formulas are verified with exact integer or half-integer arithmetic. No floating point is used. The general theorem's soundness depends on the proof in `RESULT.md`: the computational run cannot cover arbitrary graph order. The included source file is the whole checker and has no dependencies on private files, external datasets, or network access.
+PASS
 
-No independent validation has been performed.
+For size-k committee with cut b, degree counting gives inside=outside=(n-b)/2; hence CC grand score (n+b)/2 and PAV grand score (3n+b)/4. For each candidate, its d incident voters can deviate with one seat and require total payment >=d. Summing over vertices forces total transfers >=n. Uniform per-edge-voter payment 1 stably dominates every coalition since its score is <= number of selected endpoint incidences <=d floor(|S|/d)<=|S|. Thus subsidy equals n minus grand value. B(H)=n exactly for bipartite d-regular H, with equal sides in each component. Independent full regular-graph enumeration to 6 vertices and selected all-coalition checks agreed.
+
+## originality
+
+PASS
+
+Chen–Hatschka introduce the same TU approval game and K4 obstruction, but not the all-regular maximum-bisection subsidy. Bachrach et al define general cost of stability but do not evaluate this edge-incidence CC/PAV specialization. Becker et al concern NTU core existence, which does not imply these TU scores.
+
+## value
+
+PASS
+
+An explicit equality connects a central graph optimization problem (balanced maximum cut) to the exact stabilization subsidy of a natural TU approval election, with a uniform optimal allocation and sharp bipartiteness criterion. It is not a mere restatement of the prior K4 counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The asserted characteristic function agrees with the proportional seat caps and transferred-total-score definition in Chen--Hatschka. In a regular graph with exactly half the vertices selected, regularity forces equal numbers of selected-internal and unselected-internal edges, hence the objective values are affine in the size of the selected cut and are maximized by a **balanced** maximum cut. Each candidate's \(d\) supporting edge-voters is entitled to exactly one seat and can claim collective value \(d\). Summing its necessary core constraint over all vertices forces total payoff at least \(n\). The uniform unit vector supplies exactly \(n\); it dominates every admissible coalition's CC/PAV worth because each candidate covers at most \(d\) edge-voters, and both per-voter scores are at most the number of selected approved endpoints. The difference between this necessary total and the exact grand score yields the stated subsidy. The zero-cost statement uses the equal bipartition sizes in every positive-degree regular bipartite component, including disconnected graphs. All hypotheses, integral entitlement floors, zero-score coalitions, and edge cases \(k=1\) are covered. A reproducible standard-library verifier checked direct scoring for all \(179\) qualifying labeled graphs on up to six vertices and full coalition constraints in seven representatives. Computation supports but does not replace the all-graph proof.
+PASS
 
-## Originality: PASS under self-review
+For size-k committee with cut b, degree counting gives inside=outside=(n-b)/2; hence CC grand score (n+b)/2 and PAV grand score (3n+b)/4. For each candidate, its d incident voters can deviate with one seat and require total payment >=d. Summing over vertices forces total transfers >=n. Uniform per-edge-voter payment 1 stably dominates every coalition since its score is <= number of selected endpoint incidences <=d floor(|S|/d)<=|S|. Thus subsidy equals n minus grand value. B(H)=n exactly for bipartite d-regular H, with equal sides in each component. Independent full regular-graph enumeration to 6 vertices and selected all-coalition checks agreed.
 
-Chen--Hatschka arXiv:2605.22528 Proposition 2 already give the six-voter complete-four-vertex obstruction and its supporter-sum inequality. This exact finite example is not claimed here. Their full primary paper was inspected for the governing definitions, Proposition 2, broader regular-graph or bipartite assertions, and any subsidy/bisection results: none supplies the all-regular-graph cost formulas or the universal uniform subsidy-optimal payoffs. Bachrach et al. arXiv:0907.4385 introduce cost of stability and analyze general games and weighted voting games but not these edge-generated committee games. Becker--Greger--Peters arXiv:2609.11912 establish a nontransferable committee core, which does not dominate the transferable scores and payments in this theorem. Targeted web/literature searches, current mathematical finding-record searches, and accessible prior claim ledgers did not identify the exact theorem or a logically stronger statement implying it. This remains a best-knowledge priority assessment, not an independent originality certification; an unindexed equivalent specialization could exist.
+## originality
 
-## Value: PASS
+PASS
 
-The published CC/PAV TU-core obstruction invites a structural distinction between games with zero-cost stability and those requiring compensation. This theorem answers that natural problem for an infinite graph-generated election domain: the entire cost is half or one quarter of the graph's balanced-bisection defect, even though coalitions range over exponentially many voter groups. The same simple payoff vector reaches the lower bound for **both** scoring rules. Bipartiteness becomes the exact zero-subsidy boundary, while the cost quantifies how severely non-bipartite instances depart from it. This is a motivated graph/game-theoretic characterization rather than a routine rephrasing of the isolated K4 counterexample.
+Chen–Hatschka introduce the same TU approval game and K4 obstruction, but not the all-regular maximum-bisection subsidy. Bachrach et al define general cost of stability but do not evaluate this edge-incidence CC/PAV specialization. Becker et al concern NTU core existence, which does not imply these TU scores.
 
-## Closest literature and limitations
+## value
 
-See Chen--Hatschka (2026), Proposition 2; Bachrach et al. (2009), Sections 2--3; Becker--Greger--Peters (2026), Introduction and core existence. The statement requires regularity, edge ballots, a half-size committee and grand-only subsidy. Literature searches cannot rule out inaccessible or unindexed priority. Finite verification does not prove the infinite theorem. No independent scientific audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit equality connects a central graph optimization problem (balanced maximum cut) to the exact stabilization subsidy of a natural TU approval election, with a uniform optimal allocation and sharp bipartiteness criterion. It is not a mere restatement of the prior K4 counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

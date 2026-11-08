@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:50:26.864614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For size-k committee with cut b, degree counting gives inside=outside=(n-b)/2; hence CC grand score (n+b)/2 and PAV grand score (3n+b)/4. For each candidate, its d incident voters can deviate with one seat and require total payment >=d. Summing over vertices forces total transfers >=n. Uniform per-edge-voter payment 1 stably dominates every coalition since its score is <= number of selected endpoint incidences <=d floor(|S|/d)<=|S|. Thus subsidy equals n minus grand value. B(H)=n exactly for bipartite d-regular H, with equal sides in each component. Independent full regular-graph enumeration to 6 vertices and selected all-coalition checks agreed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Hatschka Proposition 2 is an example of empty core on K4, not an exact general subsidy formula.",
+          "General Bachrach–Elkind–Meir et al coalition games cover the model conceptually without computing this graph family."
+        ],
+        "reasoning": "No read stronger theorem determines B(H) or supplies uniform all-coalition domination.",
+        "searches": [
+          "cost of stability core subsidies approval voting edge voters regular graph maximum bisection TU CC PAV",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/abs/0907.4385"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Hatschka arXiv:2605.22528v1 Proposition 2",
+        "Bachrach et al arXiv:0907.4385",
+        "Becker–Greger–Peters arXiv:2609.11912",
+        "Resultary regular-edge approval cost search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior K4 nonexistence follows from four incident-edge coalition constraints but not the exact minimum grand subsidy for all regular graphs.",
+          "NTU existence results transfer no TU subsidy bound."
+        ],
+        "reasoning": "New proof needs double-counted d-regular star constraints and a simultaneous uniform solution, plus bisection grand score.",
+        "searches": [
+          "cost of stability core subsidies approval voting edge voters regular graph maximum bisection TU CC PAV",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/abs/2609.11912"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grand-coalition subsidy equals difference between balanced-bisection-determined optimal social score and n.",
+          "The cost-of-stability definition is a general TU cooperative-game notion."
+        ],
+        "reasoning": "Checked edge-incidence approval, coalition entitlement floor(|S|/d), and balanced rather than unrestricted cut; these distinctions are essential.",
+        "searches": [
+          "cost of stability core subsidies approval voting edge voters regular graph maximum bisection TU CC PAV",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/abs/0907.4385"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed voting findings concern preference profiles or unrelated rules, not TU regular-edge approval subsidy.",
+          "K4 sanity check gives n=6, B=4 and subsidies 1 and 1/2."
+        ],
+        "reasoning": "Known finite examples are covered but do not supply the all-regular formula.",
+        "searches": [
+          "cost of stability core subsidies approval voting edge voters regular graph maximum bisection TU CC PAV",
+          "Resultary voting query"
+        ]
+      },
+      "rationale": "Chen–Hatschka introduce the same TU approval game and K4 obstruction, but not the all-regular maximum-bisection subsidy. Bachrach et al define general cost of stability but do not evaluate this edge-incidence CC/PAV specialization. Becker et al concern NTU core existence, which does not imply these TU scores.",
+      "residual_risks": [
+        "An older reduction of regular-edge TU coalition worth to max bisection may be implicit in broader cooperative-game literature.",
+        "All cited source full texts were not exhaustively read; historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides model and prior K4 obstruction; inspected statements do not give all-regular sharp subsidies",
+          "evidence": [
+            "Proposition 2 four-vertex complete-graph TU core obstruction"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.22528v1",
+          "material_read": "Accessible primary HTML introductory model, coalition entitlements, Proposition 2 context and results",
+          "method": "direct arXiv HTML",
+          "title": "Multi-Winner Voting Games in TU and NTU: When is the Core Always Non-Empty?",
+          "trigger": "Same TU scoring rules and K4 example"
+        },
+        {
+          "assessment": "General cost model; cannot assert whole-document noncoverage from abstract",
+          "evidence": [
+            "Describes minimal external payment required to stabilize a game"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.4385",
+          "material_read": "Abstract and available introductory description; not complete text",
+          "method": "arXiv abstract",
+          "title": "The Cost of Stability in Coalitional Games",
+          "trigger": "Foundational general subsidy definition"
+        },
+        {
+          "assessment": "Ordinary nontransferable preference core, not the defined transferable score coalition worth",
+          "evidence": [
+            "Paper addresses core existence in approval-based committee elections"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.11912",
+          "material_read": "Abstract and main advertised NTU existence statement",
+          "method": "arXiv abstract",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Potential stronger core theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit equality connects a central graph optimization problem (balanced maximum cut) to the exact stabilization subsidy of a natural TU approval election, with a uniform optimal allocation and sharp bipartiteness criterion. It is not a mere restatement of the prior K4 counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chen–Hatschka arXiv:2605.22528v1 Proposition 2",
+    "Bachrach et al arXiv:0907.4385",
+    "Becker–Greger–Peters arXiv:2609.11912",
+    "Resultary regular-edge approval cost search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any nonempty simple d-regular H on 2k vertices, one edge-approval voter per edge, half-vertex committee, and TU CC or PAV: CoS_CC=(n-B(H))/2 and CoS_PAV=(n-B(H))/4 with n=kd and B(H) maximum balanced bisection; uniform voter payment 1 attains optimum; no-subsidy TU core iff H is bipartite.",
+  "limitations": [
+    "Bounded independent experiments corroborate but do not replace the unrestricted analytic proof (or complete finite exhaustive argument for Pappus).",
+    "Historical priority is best-of-knowledge, not established against all unindexed literature.",
+    "Scientific PASS is distinct from transport/publication not_ready."
+  ],
+  "residual_risks": [
+    "An older reduction of regular-edge TU coalition worth to max bisection may be implicit in broader cooperative-game literature.",
+    "All cited source full texts were not exhaustively read; historical priority not certified."
+  ],
+  "schema_version": 1
+}
