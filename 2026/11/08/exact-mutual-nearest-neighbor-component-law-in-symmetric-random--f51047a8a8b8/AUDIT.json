@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The conditional matching integration includes exactly 2(n-2k) exterior edges per selected pair and four cross edges between each pair. Ordered weights and exponential spacings give denominators j(2n-2j-1), proving the joint probability. Binomial moments yield the PGF and two moments. Exact independent edge-ranking enumeration for n<=5 and 923 rational tests reproduced from included code support, but do not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2105.01718 (spanners on independent edge-length complete graphs)",
+        "A study of bond-percolation component–triangle covariance, concerning a different random mechanism"
+      ],
+      "reasoning": "Spanner containment and bond-percolation component/triangle covariance concern distinct statistics or random mechanisms. The spanner bounds do not imply a distribution for the directed nearest-neighbor attraction basins. None of the inspected broader results dominates the full joint matching probability claim.",
+      "searches": [
+        "Complete graph with independent continuous symmetric edge lengths: number of mutual nearest-neighbor pairs (reciprocal nearest-neighbor 2-cycles), exact factorial moments product odd factors, variance n/16",
+        "Mutual nearest-neighbor components of iid symmetric random-link K_n: exact PGF factorial moments and underdispersion",
+        "Distribution of sink count in a random acyclic orientation of line graph of K_n induced by uniformly permuted edge priorities"
+      ]
+    },
+    "checked_sources": [
+      "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph",
+      "https://arxiv.org/abs/2105.01718",
+      "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf",
+      "Three-point connectivity exactly controls component–triangle covariance (bond percolation)",
+      "Incidence precision law for all inversion indicators of a random permutation (different statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph (Aldous: event X_{2m}=m)",
+        "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf (marginal P_{1,1}=(n-1)/(2n-3))",
+        "https://arxiv.org/abs/2105.01718 (nearest-neighbor spanner structure)"
+      ],
+      "reasoning": "The new joint formula implies both already known endpoints: one fixed pair probability and the complete mutual matching probability. Their converse implication fails at the level of supplied statements: knowing only the first factorial moment and one terminal coefficient does not determine the middle factorial moments of a distribution supported at up to floor(n/2). The proposed proof explicitly computes all intermediate k; this is the intended new information. The related extreme formula is not counted as novel.",
+      "searches": [
+        "Random-link model iid distances: mutual nearest-neighbor pairs matching joint probability, central limit theorem number of components",
+        "Random nearest neighbor mapping with symmetric independent edge weights 2-cycles count distribution local minimal edge",
+        "Nearest neighbors on random complete graph David Aldous November 2023",
+        "Deterministic tourist walk random link Eq 8 2009 reciprocal nearest neighbor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf (random-link one-neighbor marginal, Eq. 8)",
+        "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph (all vertices mutually paired, not full distribution)"
+      ],
+      "reasoning": "A functional nearest-neighbor digraph under common symmetric continuous weights has only reciprocal 2-cycles, so component counts, mutual-pair counts and 2-cycle counts are equivalent. The two directly matched sources respectively specify a one-edge marginal and the full-matching extreme, not the full k-matching joint probability for each intermediate k.",
+      "searches": [
+        "Random-link model iid distances: mutual nearest-neighbor pairs matching joint probability, central limit theorem number of components",
+        "Random nearest neighbor mapping with symmetric independent edge weights 2-cycles count distribution local minimal edge",
+        "random-link model mutual nearest neighbor 2-cycles components count distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph (perfect matching extreme value)",
+        "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf (one marginal)",
+        "Mathematical-record searches did not retrieve an intermediate-k joint matching-moment table"
+      ],
+      "reasoning": "The extreme probability for an even vertex count and the one-pair mean are known. The intermediate factorial-moment sequence is not obtained merely by substituting either tabulation; it additionally requires accounting for all four cross edges between each selected pair.",
+      "searches": [
+        "Complete graph with independent continuous symmetric edge lengths: number of mutual nearest-neighbor pairs (reciprocal nearest-neighbor 2-cycles), exact factorial moments product odd factors, variance n/16",
+        "Number of local minima in a uniformly random ordering of the edges of a complete graph, line graph random independent edge weights, exact matching generating polynomial",
+        "random link number of couples variance nearest neighbor"
+      ]
+    },
+    "rationale": "The 2009 random-link work contains the one-pair law and known mean, and Aldous (2023) computes the all-mutual-pair extreme probability; both are explicitly excluded from novelty. The independent all-intermediate-k probabilities and full distribution are stronger and are not consequences of the statements actually located. Relevant primary texts and mathematical-record searches were compared; historical priority risk remains.",
+    "residual_risks": [
+      "An earlier full component-count law might exist outside inspected primary sections, search indexes, and mathematical records.",
+      "The earliest random-link model literature predates the chosen 2023 direct full-reciprocity source; attribution to the earlier mean and extreme formula is essential.",
+      "An independent mathematical and literature audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the all-pairs-extreme event as the k=n/2 special case; not a full component count PGF or intermediate joint moments",
+        "evidence": [
+          "Question full reciprocal assignment probability (2m-1)!!(2m-3)!!/(4m-3)!!",
+          "Answer gives sequential edge-placement proof"
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph",
+        "material_read": "Full question, published formula, unique answer and explanatory comments, November 23–28 2023",
+        "method": "Full rendered MathOverflow HTML inspected",
+        "title": "Nearest neighbors on random complete graph",
+        "trigger": "same exact symmetric random complete graph nearest-neighbor model, full reciprocal matching event"
+      },
+      {
+        "assessment": "COVERS the single-vertex reciprocal-neighbor probability and thus the expectation, but inspected material does not state full joint k-pair probabilities",
+        "evidence": [
+          "One-vertex reciprocal-neighbor probability (n-1)/(2n-3), implying E X=n(n-1)/(2(2n-3))"
+        ],
+        "identifier_or_url": "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf",
+        "material_read": "Available primary article text §§2.2, 3.2, 3.6 and the reciprocal-neighbor Eq. (8)",
+        "method": "Text of accessible research PDF and relevant section inspection",
+        "title": "Deterministic tourist walk (random-link model reciprocal-neighbor analysis)",
+        "trigger": "same independent symmetric random-link distance model"
+      },
+      {
+        "assessment": "NOT_COVERING in material inspected: spanner edge-count bounds, not the complete reciprocal-neighbor component distribution",
+        "evidence": [
+          "Theorem 1 spanner bounds and nearest-neighbor edges in Section 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.01718",
+        "material_read": "Preprint introduction, Theorem 1, sections 2.1 and 2.2 (nearest-neighbor edges and spanner bounds)",
+        "method": "Open-access PDF read in relevant sections; bibliographic posting date checked",
+        "title": "Spanners in Randomly Weighted Graphs: Independent Edge Lengths",
+        "trigger": "first posted 2021-05-04, same independently weighted complete-graph model and nearest-neighbor edges"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f51047a8-a8b8-4c71-817e-9b5922e47ff3",
+  "value": {
+    "rationale": "This is the natural complete finite distribution of the number of attraction components in the complete-graph random-link nearest-neighbor model, with an explicit variance, Fano factor converging to 1/4, and a structurally interesting sign contrast between disjoint pair correlations and global underdispersion. These are not obtained from the previously known single-pair mean or extreme all-pairs event.",
+    "status": "PASS"
+  }
+}
