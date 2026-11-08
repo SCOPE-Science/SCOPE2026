@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian centering makes the sample mean independent of the centered design. Frisch–Waugh–Lovell gives each quadratic slope as a residual-numerator divided by chi-squared radial magnitude. The upper q-moment bound is equivalent to E[\\(\\chi_{n-d}^{-q}\\)]<infinity. For every nonzero quadratic matrix, an explicit centered three-coordinate witness forces a nonzero first-order numerator on an open set; the radial integral diverges exactly at \\(q\\ge n-d\\), with the Gaussian independent sample mean transferring the divergence to the OLS intercept. Its other terms have all polynomial moments. Bias and exact finite-risk identities follow by independent Gaussian/Wishart moments; the \\(d=1\\) exception uses a separate bounded ratio and sixth spherical moments. 509 exact symbolic/rational checker assertions passed, but the infinite-family statement relies on proof, not checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mourtada (2019) studies minimax OLS prediction risk and lower-tail/inverse moment bounds for sample covariance matrices.",
+        "Si et al. (2020) address optimization of scalable control functions rather than exact random-design intercept tails."
+      ],
+      "reasoning": "Generic inverse-Wishart integrability is not sufficient by itself to settle the intercept distribution: one needs cancellation of the quadratic numerator, its exact residual rank, and necessity for each nonzero symmetric A. Mourtada concerns prediction risk and general design, and does not assert the specific in-sample integration result. The possibility of a stronger specialist theorem is retained as residual historical risk.",
+      "searches": [
+        "Gaussian quadratic Monte Carlo OLS intercept control variates all moment cutoff n-d when n=d+1 mean infinite n=d+2 variance infinite",
+        "Gaussian polynomial zero-variance control variates fitted OLS regression heavy tails degrees freedom interpolated quadratics",
+        "arXiv:1912.10754 sample covariance inverse moments",
+        "arXiv:2006.07487 control variates regression"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1801.01797",
+      "https://arxiv.org/pdf/1906.10920",
+      "https://arxiv.org/pdf/2006.07487",
+      "https://arxiv.org/pdf/1912.10754",
+      "Related mathematical-record search on Gaussian OLS regression, control variates and all-q moments; closest records were on Gaussian mirror perturbations, CRT adjustment, and Gaussian K-fold e-value moments, not the stated integration claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Portier–Segers address n-growing asymptotic central limits with conditions on control count and leverage, not near-interpolating finite n.",
+        "Leluc–Portier–Segers give concentration estimates under bounded-control assumptions that exclude Gaussian linear controls.",
+        "Mourtada gives generic random-design inverse sample covariance bounds and Gaussian well-specified risk comparators; the specific deterministic quadratic response and integration intercept are not analyzed in the inspected portions."
+      ],
+      "reasoning": "A CLT for n tending to infinity does not imply finite moments at \\(n=d+1\\) or d+2. Bounded-control concentration results do not apply to the unbounded Gaussian control family. Generic inverse sample covariance moments supply a candidate route but do not imply the exact polynomial-numerator nondegeneracy and sharp q cutoff without additional argument. The old one-dimensional cubic-control and OLS slope results concern different integrands/statistics, not a covering claim.",
+      "searches": [
+        "Gaussian quadratic Monte Carlo OLS intercept control variates all moment cutoff n-d when n=d+1 mean infinite n=d+2 variance infinite",
+        "multivariate normal quadratic integrand regression estimated same sample control variates Wishart inverse Cauchy tails finite mean square error",
+        "regression control variate Monte Carlo ordinary least squares finite sample bias quadratic Gaussian distribution",
+        "arXiv:1801.01797 asymptotic central limit theorem",
+        "arXiv:1906.10920 nonasymptotic OLS bounds",
+        "arXiv:1912.10754 misspecified regression results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Portier–Segers (2018) identify OLSMC with the fitted regression intercept and give asymptotic integration limits.",
+        "Leluc–Portier–Segers (2019) center controls and write the OLS estimator as an intercept."
+      ],
+      "reasoning": "The mathematical quantity is also the fitted intercept of a Gaussian-design, quadratic-response linear regression, or an in-sample plug-in control-variate estimate. These equivalent descriptions were compared. Neither inspected source gives the finite sample all-positive-order moment law or the exceptional dimension-one computation.",
+      "searches": [
+        "ordinary least squares estimated control variate Gaussian quadratic integrand X squared control X intercept bias exact finite sample mean squared error",
+        "multivariate normal quadratic integrand regression estimated same sample control variates Wishart inverse Cauchy tails finite mean square error",
+        "arXiv:1801.01797 Sections 2–3",
+        "arXiv:1906.10920 OLS intercept equations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted scientific search did not identify a finite-n all-q Gaussian quadratic OLS Monte Carlo table or formula in the consulted sources.",
+        "The reported direct algebra and the n=3,d=2 pole are independently reproduced from the included checker."
+      ],
+      "reasoning": "No exact tabulated threshold or all-\\(q\\) integrand law matching this object was located. A search failure is not a proof of priority; the positive claim depends on independently reconstructing the mathematical result and comparing material coverage.",
+      "searches": [
+        "Gaussian quadratic Monte Carlo OLS intercept control variates all moment cutoff n-d when n=d+1 mean infinite n=d+2 variance infinite",
+        "ordinary least squares estimated control variate Gaussian quadratic integrand X squared control X intercept bias exact finite sample mean squared error",
+        "regression Monte Carlo control variate Gaussian normal sample quadratic integrand fitted coefficient risk increase",
+        "OLS Monte Carlo control variates Gaussian quadratic finite sample infinite variance regression intercept",
+        "arXiv:1801.01797 full-text target terms Gaussian, quadratic, Wishart",
+        "arXiv:1906.10920 full-text target terms Gaussian, quadratic, Wishart"
+      ]
+    },
+    "rationale": "Compared statements rather than titles: Portier–Segers supply the OLS-intercept formulation and asymptotic CLTs, Leluc–Portier–Segers give OLS/Lasso control selection and concentration under different assumptions, Si et al. optimize control variates via stochastic methods, and Mourtada studies general random-design OLS risks and inverse sample covariance tails. None of the inspected material was found to assert the exact all-q cutoff for a deterministic nonzero Gaussian quadratic integration estimator, prove the nonzero-numerator necessity for every symmetric matrix, and distinguish \\(d=1\\). General Wishart and OLS ingredients are prior mathematical tools; a specialized prior paper could cover this claim, and the priority conclusion remains best-knowledge qualified.",
+    "residual_risks": [
+      "A specialized historical regression-control-variate paper or textbook might already derive the same finite-n Gaussian-quadratic intercept moment classification; such priority cannot be excluded by bounded searches.",
+      "Related random-matrix lower-tail results may yield a shorter proof of pieces of the moment cutoff, but inspected statement-level results do not assert the complete integration theorem.",
+      "No independent human mathematical review or exhaustive archive inspection has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic CLT and OLS formulation are prior; no exact fixed-n Gaussian quadratic all-q threshold in inspected material.",
+        "evidence": [
+          "Section 1 states the OLS-intercept equivalence; Section 3 central-limit hypotheses require growing n and do not resolve finite interpolation-tail moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01797",
+        "material_read": "Abstract, introduction, Sections 2–3 and theorem statements; targeted text lookup in full 22-page text",
+        "method": "Open-access PDF text and page screenshots",
+        "title": "Monte Carlo integration with a growing number of control variates",
+        "trigger": "Direct prior formulation of same-sample fitted OLS intercept as Monte Carlo integration"
+      },
+      {
+        "assessment": "Nonasymptotic bounds use assumptions different from unbounded Gaussian controls; no exact all-q cutoff located.",
+        "evidence": [
+          "OLS expression is the fitted intercept; discussion flags instability with many controls but does not present the claimed Gaussian quadratic polynomial ratio threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1906.10920",
+        "material_read": "Abstract; OLS formula and invariance in early sections; conditions and selected later results; targeted full-text terms",
+        "method": "Open-access PDF text and page screenshots",
+        "title": "Control variate selection for Monte Carlo integration",
+        "trigger": "Closest OLS control-variate concentration and numerical stability reference"
+      },
+      {
+        "assessment": "Optimization-based control fitting and convergence analyses do not imply a specific Gaussian quadratic in-sample OLS intercept moment spectrum.",
+        "evidence": [
+          "The central constructions concern stochastic optimization of control variates, not finite-sample OLS denominator singularities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.07487",
+        "material_read": "Abstract, introduction and method formulation in early pages; selected theorem statements",
+        "method": "Open-access PDF text and page screenshot",
+        "title": "Scalable Control Variates for Monte Carlo Methods via Stochastic Optimization",
+        "trigger": "Alternative Monte Carlo regression-control methods and potential stronger variance comparisons"
+      },
+      {
+        "assessment": "A relevant broader inverse-moment tool, but no specific deterministic quadratic-integration fitted-intercept all-q theorem identified.",
+        "evidence": [
+          "Section 1 discusses OLS prediction risk and covariance inverse tails, while the present claim fixes a deterministic quadratic integration integrand, the fitted intercept, and an explicit necessary numerator condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.10754",
+        "material_read": "Abstract; introduction and detailed summary of results on sample covariance negative moments and misspecified regression; examined relevant PDF pages",
+        "method": "Open-access PDF text and page screenshot",
+        "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+        "trigger": "Plausible broader risk and inverse-covariance theorem which might dominate a Gaussian OLS tail classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d594d8d9-6c3f-40ec-b047-5651321d0850",
+  "value": {
+    "rationale": "This determines a natural complete finite-sample boundary for a widely used numerical integration method, not an arbitrary slice: at one sample above the number of controls even the fitted-intercept mean fails, at two samples above it MSE fails, and only at three above it becomes finite, despite the base Monte Carlo estimator having all moments. Exact \\(d=1\\) exception, arbitrary quadratic matrix necessity and geometric residual-rank mechanism make the result structurally informative. It suggests concrete risks of near-interpolating same-sample control fitting without claiming a new universal algorithm.",
+    "status": "PASS"
+  }
+}
