@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone Python 3 standard-library program `verify.py` constructs every ordered pair of vertex-coordinate vectors for each stated small finite field and number of leaves. It calculates the determinant on every graph edge and compares the resulting complete fiber histogram against the explicit five-branch theorem; it does not implement the proof's geometric case split. Cases are \((q,r)=(2,0),(2,1),(2,2),(2,3),(2,4),(3,0),(3,1),(3,2),(4,0),(4,1),(4,2),(5,0),(5,1)\). For \(q=4\), multiplication is performed in the polynomial quotient \(\mathbb F_2[u]/(u^2+u+1)\), rather than integer arithmetic modulo four.
+# Independent mathematical audit
 
-Run `python3 verify.py`. It must end with `TRIANGLE_LEAF_BRACKET_FIBERS_OK 13`. Direct output also lists the input-pair total, attained output count, missing count and zero-fiber size for each case. This checked computation is finite and does not establish the all-field theorem; the proof in `RESULT.md` is the general argument. The verification uses vertex pairs only. For pairs in the full Lie algebra, the theorem separately accounts for the \(q^{2(r+3)}\) free central-coordinate factor.
+## correctness
+
+PASS
+
+For any field, with three triangle vertices and r leaves attached at vertex1, edge brackets are the 2×2 minors of column-pairs h_i=(x_i,y_i). Nonzero triangle bivectors are decomposable in k^3, and if either a or b is nonzero the first column is nonzero and all leaf determinant equations may be set freely. If a=b=0,c≠0, then h2,h3 span k² and h1=0, forcing all leaf coefficients zero; if a=b=c=0 then nonzero h1 allows any leaf coefficients. This proves exact excluded set a=b=0,c≠0,d≠0. Every derived element is a sum of a triangle-only and a leaf-only bracket; z23+z14 witnesses width2 for r≥1, while r0 is width1. Over F_q, the prescribed nonzero 2×3 minors form an SL2(q) torsor of cardinal q(q²−1); divide into h1≠0/h1=0 and zero-minor strata to obtain all five displayed ordered-pair fiber cases and image size q^(r+3)−(q−1)(q^r−1). No division by two is required, including char2. Independently enumerated ALL vector pairs and target fibers at (q,r)=(2,0),(2,1),(2,2),(3,0),(3,1), and matched all formulas. This finite validation supplements the all-field algebraic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact projected-edge single-bracket image/width transition and ordered finite-field fiber law in this unbounded triangle-plus-leaves family. Mainkar supplies graph Lie construction and isomorphism theory, and Gregory–Vander Meulen–Shader’s supported skew-rank decomposition works with all matrix entries fixed, unlike partial edge-entry rank-two completion. General bracket-width literature treats different algebras. The earlier matrix-completion literature may contain a specialized equivalent; acknowledge risk.
+
+## value
+
+PASS
+
+PASS. Single-bracket image, width, and complete commutator-word-map fibers are natural Lie invariants not determined by the derived-subspace dimension. The first triangle with branching produces a sharp width-one/two transition, an exact forbidden locus and all q/r multiplicities, including characteristic two, giving a structural infinite-family model rather than a small-table exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

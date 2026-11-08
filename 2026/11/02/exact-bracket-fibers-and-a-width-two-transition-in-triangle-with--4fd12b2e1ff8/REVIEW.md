@@ -1,19 +1,21 @@
-# Scientific review: exact bracket fibers in triangle-with-leaves Lie algebras
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof spells out the graph, bracket, characteristic-independent determinant equations and a complete, disjoint case split. For nonzero triple minors it uses the free transitive \(\mathrm{SL}_2(\mathbb F_q)\) action on all factorizations of a prescribed nonzero decomposable bivector in three coordinates. The zero-minor case separates the first two-vector vanishing from its nonvanishing stratum. No step divides by two, and characteristic two is included. Independent direct enumeration across thirteen \((q,r)\) configurations matches all target fibers, including the zero fiber and impossible outputs. The checker is corroboration, not the proof.
+PASS
 
-## Originality
+For any field, with three triangle vertices and r leaves attached at vertex1, edge brackets are the 2×2 minors of column-pairs h_i=(x_i,y_i). Nonzero triangle bivectors are decomposable in k^3, and if either a or b is nonzero the first column is nonzero and all leaf determinant equations may be set freely. If a=b=0,c≠0, then h2,h3 span k² and h1=0, forcing all leaf coefficients zero; if a=b=c=0 then nonzero h1 allows any leaf coefficients. This proves exact excluded set a=b=0,c≠0,d≠0. Every derived element is a sum of a triangle-only and a leaf-only bracket; z23+z14 witnesses width2 for r≥1, while r0 is width1. Over F_q, the prescribed nonzero 2×3 minors form an SL2(q) torsor of cardinal q(q²−1); divide into h1≠0/h1=0 and zero-minor strata to obtain all five displayed ordered-pair fiber cases and image size q^(r+3)−(q−1)(q^r−1). No division by two is required, including char2. Independently enumerated ALL vector pairs and target fibers at (q,r)=(2,0),(2,1),(2,2),(3,0),(3,1), and matched all formulas. This finite validation supplements the all-field algebraic proof.
 
-PASS with residual publication-priority risk. The closest relevant primary mathematical result is Gregory–Vander Meulen–Shader's 1996 *Skew rank decompositions*, particularly Theorem 2.5 and the decomposition criteria of Sections 2–3. It treats fully specified matrices with strict graph-supported summands. The present question asks which *partial* edge assignments admit arbitrary rank-two completions and determines ordered-pair multiplicities, a different implication not supplied by those results. Mainkar's 2013 graph-Lie paper supplies the construction and an isomorphism criterion, and Dubouloz–Kunyavskii–Regeta's 2021 paper defines bracket width but studies simple vector-field Lie algebras. Searches for aliases including projected decomposable bivectors, rank-two skew matrix completion, single Lie brackets, graphical nilpotent Lie algebras and commutator fibers yielded no identical statement. The older completion literature could contain an equivalent unlocated specialization; this remains a substantive residual risk, not a claim of uniquely established priority.
+## originality
 
-## Value
+PASS
 
-PASS. Bracket width and full word-map fiber distributions are natural invariants beyond the dimension of a derived algebra or the number of commuting pairs. The family has unbounded size, an exact width-one to width-two transition when leaves appear, a complete geometric description of the nonimage, and all-field arithmetic fiber multiplicities. It is the first nontrivial triangle-plus-branching configuration and shows why knowing the span of commutators does not determine the image of the single-bracket map. This is more informative than one small-graph census, and the exact failure locus is stable under increasing the number of leaves.
+Best-of-knowledge PASS for the exact projected-edge single-bracket image/width transition and ordered finite-field fiber law in this unbounded triangle-plus-leaves family. Mainkar supplies graph Lie construction and isomorphism theory, and Gregory–Vander Meulen–Shader’s supported skew-rank decomposition works with all matrix entries fixed, unlike partial edge-entry rank-two completion. General bracket-width literature treats different algebras. The earlier matrix-completion literature may contain a specialized equivalent; acknowledge risk.
 
-## Closest literature and limits
+## value
 
-The comparison distinguishes three different operations: decomposing a supported skew matrix into supported rank-two summands; completing a partially specified skew matrix to rank two; and counting all factorizing vector pairs. Only the second and third are solved for this family. General graphs, higher nilpotency classes, group commutator fibers and simultaneous-conjugacy orbits are not determined. Tests are finite; the proof handles arbitrary finite fields and, for image/width, arbitrary fields.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Single-bracket image, width, and complete commutator-word-map fibers are natural Lie invariants not determined by the derived-subspace dimension. The first triangle with branching produces a sharp width-one/two transition, an exact forbidden locus and all q/r multiplicities, including characteristic two, giving a structural infinite-family model rather than a small-table exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
