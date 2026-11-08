@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the exact normalized circle retraction and EMA gives B_t=I+beta A+beta^2 C, with trace(A)=theta(c-1)-1 and det(A)=theta>0, plus a scalar normal-memory multiplier 1-beta. Lyapunov equations for Hurwitz A or -A give strict linear contraction or expansion for all sufficiently large t, since sum beta diverges. Exact symbolic and direct Jacobian checker reproduced these identities. Critical equality and nonlinear global claims excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primary paper Theorem 4.3 requires sufficiently small theta based on ambient Lipschitz bounds, while its Appendix B handles tangent-space EMA with transport.",
+        "Han–Gao 2021 and Alimisis et al. 2021 study intrinsic Riemannian momentum rather than this exact RGR-EMA recursion."
+      ],
+      "reasoning": "A sufficient small-step convergence theorem does not determine the sharp sign change at a fixed theta across infinitely many ambient representations; intrinsic momentum does not accumulate the same normal state.",
+      "searches": [
+        "ambient exponential moving average on sphere same constrained objective different normal gradient local equilibrium stable instability",
+        "extrinsic gradient estimator Riemannian optimization gradient extension off manifold equivariance bias",
+        "https://arxiv.org/html/2610.19944v1 Sections 3.4, 4.4 and 5.6; Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.19944v1",
+      "https://www.ijcai.org/proceedings/2021/345",
+      "https://proceedings.mlr.press/v130/alimisis21a.html",
+      "published-finding corpus semantic searches listed above",
+      "Matrix-valued adaptive moments preserve Stiefel equivariance (published-finding corpus, 2026-09-19)",
+      "Exact cycle-stability frontier for scalar SAM with EMA momentum (published-finding corpus, 2026-10-04)",
+      "Neutral accumulator manifold and transverse threshold for Yogi (published-finding corpus, 2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source formula N_t=(1-beta_t)N_(t-1)+beta_t grad F(X_t) and beta=t^-1/2 was used verbatim.",
+        "The source gives no trace/determinant or gauge threshold for identical constrained objectives.",
+        "Published published-finding corpus Stiefel equivariance result concerns matrix-valued adaptivity and group-equivariance rather than normal extension invariance."
+      ],
+      "reasoning": "Only the ambient EMA recurrence is inherited; the constructed normal extension, exact 2x2 Jacobian and positive/negative Lyapunov estimates produce the new frontier. No source was found that implies this sharper quantitative classification.",
+      "searches": [
+        "https://arxiv.org/html/2610.19944v1 Section 3.4 RGR-EMA; Theorem 4.3; Appendix B REMA",
+        "fixed curve slow rotation EMA normal component leakage threshold 2 sphere projected gradient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The restrictions of all F_c are exactly f(x)=x_2 on S^1; their normal ambient derivatives differ by c x.",
+        "The characteristic polynomial of the active EMA linearization is lambda^2+(1+theta*(1-c))lambda+theta.",
+        "No retrieved published-finding corpus entry states an equivalent gauge-dependent instability boundary for the RGR-EMA recurrence."
+      ],
+      "reasoning": "A preconditioner equivariance law differs from invariance under arbitrary off-manifold extensions. Standard Euclidean EMA spectral thresholds do not imply the normal-memory coupling induced by tangent projection.",
+      "searches": [
+        "RGR-EMA arXiv 2610.19944 ambient Euclidean normal gradient extension sensitivity sphere projected momentum",
+        "Stiefel manifold Euclidean exponential moving average ambient extension dependence normal gradient leakage tangent projection",
+        "Riemannian EMA normal gradient gauge local stability 1+1/stepsize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published-finding corpus record duplicates the exact source-specific 2610.19944 boundary.",
+        "Relevant published-finding corpus records include Matrix-valued adaptive moments preserve Stiefel equivariance (published-finding corpus, 2026-09-19), Exact cycle-stability frontier for scalar SAM with EMA momentum (published-finding corpus, 2026-10-04), Neutral accumulator manifold and transverse threshold for Yogi (published-finding corpus, 2026-10-04)."
+      ],
+      "reasoning": "This is a continuous sharp parametric stability criterion, not an entry implied by a finite exact table. Absence of results is not a proof of historical novelty; actual implication comparisons found none of the closest records covers this claim.",
+      "searches": [
+        "RGR-EMA arXiv 2610.19944 ambient Euclidean normal gradient extension sensitivity sphere projected momentum",
+        "Stiefel manifold Euclidean exponential moving average ambient extension dependence normal gradient leakage tangent projection",
+        "ambient exponential moving average on sphere same constrained objective different normal gradient local equilibrium stable instability",
+        "Riemannian EMA normal gradient gauge local stability 1+1/stepsize",
+        "extrinsic gradient estimator Riemannian optimization gradient extension off manifold equivariance bias",
+        "published-finding corpus semantic search for ambient RGR-EMA normal-gradient stability frontier"
+      ]
+    },
+    "rationale": "Section 3.4 of Yuan–Sun–Yuan (arXiv:2610.19944v1) specifies ambient EMA followed by projection; Section 4.4 proves a conditional sufficient convergence estimate, not an ambient-extension-gauge stability frontier. The primary HTML sections on ambient EMA, its convergence analysis, tangent-space comparisons and Appendix B were inspected. Related published-finding corpus records concern equivariance of preconditioners, standard EMA cycles, or accumulator-state stability; none states or implies the identical-restriction normal-gradient threshold. General Riemannian momentum literature remains a residual historical-priority uncertainty.",
+    "residual_risks": [
+      "Prior general extrinsic EMA gauge-invariance or stability literature may establish the same bound in another notation.",
+      "The two 2021 comparator papers were inspected by abstracts only, not full text; they concern distinct intrinsic momentum algorithms.",
+      "No claim of global nonlinear instability or behavior at critical equality is accepted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets the algorithm and sufficient small-step theorem, but does not provide the off-manifold normal-derivative phase boundary",
+        "evidence": [
+          "Section 3.4 defines unprojected N EMA then projects",
+          "Theorem 4.3 assumes sufficiently small theta",
+          "Appendix B REMA is transport-based tangent estimator"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19944v1",
+        "material_read": "Accessible HTML material in the abstract, introduction, Sections 3.3–3.4, 4.4, 5.6, and Appendix B; not a cover-to-cover transcription",
+        "method": "Read primary full-text HTML and compared algorithm recurrences and theorem hypotheses with new Jacobian",
+        "title": "Recursive Gradient Retraction Methods for Stochastic Nonconvex Optimization on Stiefel Manifolds",
+        "trigger": "Exact originating EMA recurrence and claims"
+      },
+      {
+        "assessment": "Related Riemannian momentum; abstract insufficient for exhaustive exclusion",
+        "evidence": [
+          "2021 IJCAI publication of Riemannian recursive momentum"
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2021/345",
+        "material_read": "Publisher landing-page abstract, authors and algorithm description only; not full paper",
+        "method": "Abstract comparison with source recurrence",
+        "title": "Riemannian Stochastic Recursive Momentum Method for non-Convex Optimization",
+        "trigger": "Prior transport-based momentum comparator cited by source"
+      },
+      {
+        "assessment": "Concerns geodesic optimization momentum rates; no exact ambient RGR-EMA normal-gauge classification stated in abstract",
+        "evidence": [
+          "AISTATS 2021 publication explicitly develops Riemannian momentum and curvature-dependent rate bounds"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v130/alimisis21a.html",
+        "material_read": "Publisher abstract, bibliographic metadata and related material list; not full paper",
+        "method": "Read landing page abstract and compare theorem problem class",
+        "title": "Momentum Improves Optimization on Riemannian Manifolds",
+        "trigger": "Potential broad manifold momentum theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc1e0161-46d2-4356-9d0a-5c64e01dc06d",
+  "value": {
+    "rationale": "The intrinsic objective, strict minimizer and intrinsic Hessian are independent of c, but the ambient-memory iteration has an exact opposing-stability phase transition controlled solely by the normal gradient. This exposes a structural implementation sensitivity and sharp spectral benchmark for choosing and comparing extrinsic vs tangent-space momentum, beyond a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
