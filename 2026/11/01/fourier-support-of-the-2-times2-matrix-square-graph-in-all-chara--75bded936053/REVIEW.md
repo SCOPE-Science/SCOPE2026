@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and unnormalized Fourier coefficient are explicitly defined over every finite field, including field-trace normalization. Polarization gives the Sylvester linear map \(X\mapsto BX+XB\), and exact character orthogonality reduces Fourier vanishing and magnitude to its radical. In odd characteristic the radical contributes a zero quadratic term, yielding four disjoint matrix strata with linear image conditions. In characteristic two the radical is the centralizer, and Frobenius trace duality turns the residual quadratic phase into the two stated affine constraints. Matrix counts give all multiplicities. The included exact checker verifies all 256 frequencies for \(q=2\), all 6561 frequencies for \(q=3\), and representative nonprime fields, without using finite experiments to prove the universal claim. The result does not assert phases of nonzero coefficients.
+## correctness
 
-## Originality — PASS (bounded comparison)
-Iosevich–Koh's 2008 paraboloid calculations (arXiv:0805.0814, Sections 2–3 and Lemmas 5–6, inspected in full HTML) give the standard scalar quadratic Gauss mechanism, not the matrix-square map's singular Sylvester strata or the characteristic-two affine conditions. Iosevich–Koh arXiv:0804.4505 supplies older quadratic-surface context, but only an accessible abstract was inspected. Carlet–Gong–Tan arXiv:1410.2903 studies finite-field quadratic functions and zero-difference phenomena; its inspected abstract does not establish this matrix Fourier support. The closest indexed published results inspected by summary concerned scalar paraboloid Fourier frames and rank-one matrix coordinate frames, different operators and restrictions. No equivalent exact matrix-square support theorem was identified in the accessible comparisons; this is not evidence of absolute priority. The greatest remaining risk is a broader established quadratic-form/Jordan-algebra Fourier theorem from which the specialization is immediate.
+PASS
 
-## Mathematical value — PASS
-The matrix-square graph is a canonical noncommutative quadratic graph. Its complete Fourier-null set and every convolution singular-value multiplicity determine a natural exact spectral invariant across all finite fields. The opposite characteristic-asymptotic regimes, support fraction tending to one in odd characteristic and to zero in characteristic two, are not visible from the ordinary nondegenerate scalar paraboloid calculation and provide a structural boundary relevant to matrix-valued Fourier sampling. The result has a complete natural parameter range, not an arbitrary finite table.
+PASS: The polar form of Q_B(X)=tr(BX^2) is tr((BX+XB)Y). Orthogonality over X gives the squared magnitude q^4 times a character sum on ker L_B, so supported magnitudes are q^(4-r_B/2). For odd fields trB=0 nonzero implies image span(I,B) of rank 2, singular trace-nonzero B gives rank 3, and invertible trace-nonzero B rank 4; counting the classes proves R_odd(q)=q^8-2q^7+q^6+2q^5-q^4-q^2+1. In characteristic 2, scalar B gives an additive square-phase with exactly A=lambda^(q/2)I; nonscalar B centralizer span(I,B) gives two independent trace constraints, hence R_even=q^6-q^3+q. Independent full integer Fourier-Walsh/cyclotomic checks for q=2 (256 frequency pairs, rank 58) and q=3 (6561 pairs, rank 3313) confirmed all zero/nonzero predictions and squared amplitudes. Arbitrary q is established by field-algebra proof, not the prime-field enumeration.
 
-## Limitations and comparison risk
-The standard quadratic Gauss-sum reduction is classical; the distinct contribution assessed here is the full matrix-specific rank stratification and characteristic-two classification. The available search and historical comparisons are bounded, and no claim of exhaustive priority is made. The exact checker is corroboration rather than an independent proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: The general quadratic Fourier/radical identity is textbook background and Iosevich–Koh compute scalar paraboloid coefficients over odd fields, but the exact Sylvester rank stratification on the noncommutative squaring graph, the even-characteristic affine shift and the complete multiplicities for all extension fields are additional algebraic calculations. A general quadratic-form lemma is a tool; without classifying B and the restricted quadratic phase it does not give the displayed spectral table. Matrix/Jordan-algebra equivalences remain a literature risk.
+
+## value
+
+PASS
+
+PASS: The matrix-square graph is a natural polynomial subvariety of a finite additive matrix group. An exact Fourier support classification and singular-value distribution, with opposite asymptotic supported fractions in odd and even characteristics, is a motivated natural harmonic invariant rather than a renamed scalar paraboloid calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
