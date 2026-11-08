@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and NumPy. Every possible radius-selection vector is generated for each of the four graph sizes. For each nonexceptional selection the program proposes a positive rationally-scaled integer vector numerically, then reconstructs the integer averaging matrix and checks each entry of its strict positive-supervector inequality with arbitrary-precision Python integer arithmetic. Therefore the numerical solve is not itself an acceptance criterion.
+## correctness
 
-Observed result: `CERTIFICATE_OK selections=66420 strict=66401 exceptional=19`. Per-case counts were 79/2, 726/3, 6557/4 and 59039/10 (strict/exceptional). Exact algebraic root identities, all equality cases and strict radius choices are derived in RESULT.md. A finite certificate proves only the finite cases enumerated. Independent audit has not been performed.
+PASS
+
+For each n=2m, the maximal operator output is independently selected among identity, (S-a_antipode)/(n-1), and S/n. The squared norm is maximum of eigenvalues over 3^n row-selection matrices. For every nonexceptional row choice, a positive integer vector v satisfies (V I-H^T H)v>0 entrywise, proving by Perron spectral comparison strict exclusion. The independently reconstructed full 66,420-choice script verified exactly 66,401 nonexceptional inequalities and the 19 exceptional pattern counts (2,3,4,10); minimum strict integer margin was positive in each m. Exceptional matrices reduce to a 2x2 constant-block spectral equation with top root above rational threshold and uniquely positive eigenvector; direct inequalities verify exactly selected averaging radii and all sign freedoms. No claim for m>5.
+
+## originality
+
+PASS
+
+New m=4,m=5 exact constants and first heavy-pair support transition survive same-object prior comparison; m=2,3 and general graph maximal-operator framework are credited as known.
+
+## value
+
+PASS
+
+Natural diameter-two vertex-transitive antipodal graph family; exact extremizer organization changes qualitatively between adjacent small sizes. An exhaustive certified finite cutoff and complete classification identify a motivated structural boundary; this is not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
