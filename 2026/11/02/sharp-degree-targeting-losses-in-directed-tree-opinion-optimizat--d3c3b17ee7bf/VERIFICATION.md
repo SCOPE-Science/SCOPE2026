@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python standard library only. The script computes the exact transposed influence vector for finite functional networks through indegree-zero peeling and explicit directed-cycle closure, and independently solves rational linear systems by Gaussian elimination. It then brute-forces all sets of intervened innate opinions for small graphs, and verifies the stated unique-highest-indegree decoy construction with different branching parameters.
+## correctness
 
-A successful execution prints these checkpoints and finishes with `ALL_CHECKS_PASS`:
+PASS
 
-- `EXHAUSTIVE_FUNCTIONAL_GRAPHS 3413`: all tested labeled successor maps, up to five vertices, with fixed one-half susceptibility for outgoing vertices.
-- `HETEROGENEOUS_EXACT_TESTS 880`: independent exact-rational centrality comparisons with varying susceptibility and observation weights.
-- `OPTIMALITY_BRUTE_FORCE_TESTS 880`: direct exact-rational equilibrium and exhaustive intervention-set comparisons on small graph instances.
-- `UNBOUNDED_FAMILY_TESTS 9`: one explicit deep-tree/decoy family for nine depths.
-- `BOUNDED_INDEGREE_HIERARCHY_TESTS 27`: varying fixed indegree maxima and depths, with closed-form checks.
+Verified equilibrium reduction v=(I-Q^T)^{-1}a and gains (1−q_i)s_i v_i, peel-and-cycle equations (cycles have denominator 1−product q>0), and tree v_i=Σ_t 2^{-t}N_t(i). For b=Δ−1, N_t≤min(n,2b^t) yields three upper orders. Full b-ary subtree under y and path of length L⌈log₂ b⌉ to unique Δ-child sink h gives v_y=Σ_{t=0}^L(b/2)^t and bounded v_h=2+b/2−2^{-P}+2^{−P−1}v_y; subdividing the handle fills intermediate n. Bounded independent exact-recursive decoy constructions and rational gains confirmed, but finite checks are not asymptotic proofs.
 
-These are finite program tests. The all-orders asymptotic bounds are established by the proof in RESULT.md, not inferred from sampled data. The script performs rational arithmetic, not interval-based floating-point certification. Uniform wall-clock and bit operation counts are not claimed to be uniformly linear when exact rational numerators grow.
+## originality
+
+PASS
+
+Sun–Zhang already give exact centrality-product intervention and a degree heuristic as an experimental baseline; Arratia–Marijuán gives level-count PageRank. Neither statement implies the claimed tight Δ-dependent *worst-case ratio* with unique degree leader. Novelty assigned only to sharp asymptotics and explicit O(n) functional-graph solution, not centrality reduction.
+
+## value
+
+PASS
+
+Motivated approximation-quality gap: a simple highest-degree choice can be polynomially suboptimal on trees even with a unique leader; explicit extremizers and a linear-time exact alternative establish both obstruction and remedy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
