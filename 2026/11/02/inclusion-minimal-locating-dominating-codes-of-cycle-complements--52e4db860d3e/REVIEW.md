@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The published three-condition gap characterization is applied with its stated order restriction, and deleting one selected vertex has exactly the described local effect on the adjacent gaps. Negating the deletion feasibility conditions produces the two necessary-and-sufficient four-gap tests. The trace/log-determinant rooted-word correspondence accounts for the label factor \(n/k\) correctly. A finite integral potential independently proves \(7k\le4n\), and a family of legal gap words proves sharpness of the limsup. Direct graph and independent transfer computations corroborate the finite cases. The critical potential inequalities are fully enumerated and checked by standalone code with a separate data file.
+## correctness
 
-**Originality — PASS with residual publication-priority risk.** The 2021 article is a particularly close predecessor: its Lemma 6 characterizes *all* locating-dominating sets, and its Theorem 2 gives the minimum, so neither fact is claimed as new. The further inclusion-minimal classification, refined enumerator and sharp upper-density theorem require additional deletion, transfer and finite weighted-cycle arguments and are not among its stated results. Chellali--Mimouni--Slater (2010) introduces the upper parameter and discusses general bounds, without a matching result in its accessible abstract. An unrelated orientation optimization and published records about locating codes of different graph families were also compared. Full-text access to the 2010 article was limited, and unindexed or later literature may overlap.
+PASS
 
-**Mathematical value — PASS.** Inclusion-minimal locating-dominating codes are the minimal elements of a monotone detection property, and their cardinality distribution is a natural stronger invariant than the minimum locating-dominating number. The infinite explicit enumerator and the asymptotically sharp \(4/7\) upper-density obstruction characterize genuinely different behavior from the previously known roughly \(2/5\) minimum-density bound. The density proof is structural and finite-state rather than a calculation at a few orders.
+The 2021 known gap characterization (a_i≤3, at most one a_i=3 and no adjacent long gaps) is correctly credited. Deleting a selected vertex merges two consecutive gaps into a+b+1; negating the known feasibility criterion produces exactly the given t=0/t=1 four-gap predicates. Tracking the last three gaps gives 27-state or 64-state directed transfers; -u∂_u logdet(I-T) converts rooted words to labelled sets via factor n/k, and coefficient y selects one 3-gap. For every cyclic valid word the supplied 64-vertex integer potential satisfies h(next)≤h(current)+4q−3 on all 136 allowed edges, whence 0≤4n−7k. The explicit (3,0,1,0,2,(0,1,0,2)^m,1) words have (n,k)=(13+7m,6+4m), attaining limsup 4/7. Independent direct graph-neighborhood oracle matched the gap criterion for every subset in n=7..14 (32,640 subsets); independent 136-edge cycle-feasible potential computation and witness checks support but do not replace the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2021 Gafur–Saputro lemma exactly solves ordinary locating-domination membership and the minimum-cardinality parameter, and Chellali–Mimouni–Slater give upper locating-domination bounds (including a related 4/7 path case), all credited. Neither prior result, as inspected, determines inclusion-minimal sets in cycle complements or their all-cardinality polynomial and optimal upper-density bound. Possible alternate code terminology and unindexed enumerations remain residual risks.
+
+## value
+
+PASS
+
+Classifying all inclusion-minimal detecting codes, not just minimum cardinality, is a natural structural question. The exact polynomial and sharp asymptotic maximum distinguish minimal from minimum codes in an important regular graph family; 4/7 is proved by an explicit finite certificate and infinite witness rather than extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

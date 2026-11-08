@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:43:38.578803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2021 known gap characterization (a_i≤3, at most one a_i=3 and no adjacent long gaps) is correctly credited. Deleting a selected vertex merges two consecutive gaps into a+b+1; negating the known feasibility criterion produces exactly the given t=0/t=1 four-gap predicates. Tracking the last three gaps gives 27-state or 64-state directed transfers; -u∂_u logdet(I-T) converts rooted words to labelled sets via factor n/k, and coefficient y selects one 3-gap. For every cyclic valid word the supplied 64-vertex integer potential satisfies h(next)≤h(current)+4q−3 on all 136 allowed edges, whence 0≤4n−7k. The explicit (3,0,1,0,2,(0,1,0,2)^m,1) words have (n,k)=(13+7m,6+4m), attaining limsup 4/7. Independent direct graph-neighborhood oracle matched the gap criterion for every subset in n=7..14 (32,640 subsets); independent 136-edge cycle-feasible potential computation and witness checks support but do not replace the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 lemma classifies all locating-dominating sets, 2010 work introduces upper parameter and establishes exact path bounds; neither supplies minimality enumerator on complements"
+        ],
+        "reasoning": "Membership alone does not characterize inclusion-minimality without testing each deletion. A transfer enumeration and 64-state certificate are additional mathematical steps.",
+        "searches": [
+          "Abdul Gafur–Saputro 2021 Lemma 6, Theorem 2",
+          "Chellali–Mimouni–Slater 2010 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2021/8147514",
+        "https://doi.org/10.7151/dmgt.1488",
+        "https://doi.org/10.1016/j.disc.2022.113124"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lower/minimum cardinality ≈2n/5 concerns a different extremum; 2010 4n/7 theorem concerns paths, not H_n"
+        ],
+        "reasoning": "The source statements do not logically imply the upper density or complete size distribution for H_n; proof applies merger test and independent directed-cycle inequalities.",
+        "searches": [
+          "2021 DOI 10.1155/2021/8147514 Lemma 6 Theorem 2",
+          "2010 DOI 10.7151/dmgt.1488 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 source provides exact LD gap constraints but not deletion-minimality. 2010 upper parameter theorem for paths has a 4/7 density, not the same graph family"
+        ],
+        "reasoning": "Maximal cardinality among inclusion-minimal locating codes is the 'upper locating-domination number'; a coincidence of density constants for paths cannot imply the specific cycle-complement classification.",
+        "searches": [
+          "Resultary: inclusion-minimal locating dominating sets cycle complement upper locating domination density minimal code enumerator",
+          "2021 Abdul Gafur–Saputro On Locating-Dominating Set of Regular Graphs",
+          "Chellali–Mimouni–Slater 2010 On locating-domination in graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results about threshold graphs/multipartite classes differ from complements of cycles; independent sample M_8=8z^3+20z^4, M_15=95z^6+450z^7+15z^8 source computation"
+        ],
+        "reasoning": "No existing table identified for this code enumerator; exact finite samples alone cannot support full originality or finite-to-infinite proof.",
+        "searches": [
+          "Resultary semantic query inclusion-minimal locating dominating sets cycle complement upper locating domination density minimal code enumerator",
+          "Source full graph enumeration through n=14 compared to independent graph oracle"
+        ]
+      },
+      "rationale": "The 2021 Gafur–Saputro lemma exactly solves ordinary locating-domination membership and the minimum-cardinality parameter, and Chellali–Mimouni–Slater give upper locating-domination bounds (including a related 4/7 path case), all credited. Neither prior result, as inspected, determines inclusion-minimal sets in cycle complements or their all-cardinality polynomial and optimal upper-density bound. Possible alternate code terminology and unindexed enumerations remain residual risks.",
+      "residual_risks": [
+        "Graph order n≥7, labelled vertex subsets, undirected cycle complement.",
+        "Sharp asymptotic limsup and universal upper bound, not an exact formula Γ_L(H_n) for every finite n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct prior coverage of basic gap characterization; not the new inclusion-minimal refinement",
+          "evidence": "Lemma 6 gives a_i≤3, ≤one 3, nonadjacent gaps≥2.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/8147514",
+          "material_read": "open-access HTML relevant Lemma 6, Theorem 2 and surrounding membership argument",
+          "method": "primary Wiley online full-text reading",
+          "title": "On Locating-Dominating Set of Regular Graphs",
+          "trigger": "same H_n graph family"
+        },
+        {
+          "assessment": "Prior 4/7 extremal behavior exists for path graphs, not cycle complements",
+          "evidence": "2010 theorem gives related 4/7 path upper bound, demonstrating constant alone is not novelty.",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1488",
+          "material_read": "public full PDF parsed and relevant theorem/abstract read; visual screenshot request failed 403",
+          "method": "lawful full PDF textual inspection",
+          "title": "On locating-domination in graphs",
+          "trigger": "upper locating-domination definition and potential 4/7 dominating bound"
+        },
+        {
+          "assessment": "Different directed graph setting, not implication for H_n",
+          "evidence": "Orientation-sensitive detection differs from undirected cycle complements.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2022.113124",
+          "material_read": "public abstract and domain scope",
+          "method": "publisher abstract",
+          "title": "Locating-dominating sets: From graphs to oriented graphs",
+          "trigger": "alternate oriented locating-dominating notions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying all inclusion-minimal detecting codes, not just minimum cardinality, is a natural structural question. The exact polynomial and sharp asymptotic maximum distinguish minimal from minimum codes in an important regular graph family; 4/7 is proved by an explicit finite certificate and infinite witness rather than extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/2021/8147514",
+    "https://doi.org/10.7151/dmgt.1488",
+    "https://doi.org/10.1016/j.disc.2022.113124"
+  ],
+  "disposition": "passed",
+  "final_claim": "For H_n=K_n−E(C_n), n≥7, a full necessary-and-sufficient circular four-gap test identifies every inclusion-minimal locating-dominating set; two finite triple-state transfer matrices generate every coefficient M_n(z) and the largest inclusion-minimal cardinality satisfies Γ_L(H_n)≤⌊4n/7⌋ with sharp limsup 4/7.",
+  "limitations": {
+    "actual_independent_work": [
+      "Verified Git tree cf4b81... and source RESULT.md c01862..., source verify.py 5aab60... and density_potential.json 18ad333...",
+      "Independent direct graph-neighborhood oracle vs four-gap rule on all 32,640 labelled subsets n=7..14; counted sizes at those n.",
+      "Independently checked 64-state edge graph (136 transitions) admits a potential with all inequalities and checked explicit extremal witness words m=0..4; no reliance on source VERIFY_OK alone."
+    ],
+    "finite_tests_are_not_infinite_proofs": true,
+    "source_program_executed": false
+  },
+  "residual_risks": [
+    "Graph order n≥7, labelled vertex subsets, undirected cycle complement.",
+    "Sharp asymptotic limsup and universal upper bound, not an exact formula Γ_L(H_n) for every finite n."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Strong direct prior coverage of basic gap characterization; not the new inclusion-minimal refinement",
+      "evidence": "Lemma 6 gives a_i≤3, ≤one 3, nonadjacent gaps≥2.",
+      "identifier_or_url": "https://doi.org/10.1155/2021/8147514",
+      "material_read": "open-access HTML relevant Lemma 6, Theorem 2 and surrounding membership argument",
+      "method": "primary Wiley online full-text reading",
+      "title": "On Locating-Dominating Set of Regular Graphs",
+      "trigger": "same H_n graph family"
+    },
+    {
+      "assessment": "Prior 4/7 extremal behavior exists for path graphs, not cycle complements",
+      "evidence": "2010 theorem gives related 4/7 path upper bound, demonstrating constant alone is not novelty.",
+      "identifier_or_url": "https://doi.org/10.7151/dmgt.1488",
+      "material_read": "public full PDF parsed and relevant theorem/abstract read; visual screenshot request failed 403",
+      "method": "lawful full PDF textual inspection",
+      "title": "On locating-domination in graphs",
+      "trigger": "upper locating-domination definition and potential 4/7 dominating bound"
+    },
+    {
+      "assessment": "Different directed graph setting, not implication for H_n",
+      "evidence": "Orientation-sensitive detection differs from undirected cycle complements.",
+      "identifier_or_url": "https://doi.org/10.1016/j.disc.2022.113124",
+      "material_read": "public abstract and domain scope",
+      "method": "publisher abstract",
+      "title": "Locating-dominating sets: From graphs to oriented graphs",
+      "trigger": "alternate oriented locating-dominating notions"
+    }
+  ]
+}
