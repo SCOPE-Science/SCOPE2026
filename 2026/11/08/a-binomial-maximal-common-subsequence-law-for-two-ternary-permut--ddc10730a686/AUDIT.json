@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Proof uses exact weak-descent greedy embedding; one-insertion slack argument; zero-cost insertion exclusions and strict transition table; 3-state weighted transfer rational function; coefficient recurrence and (1+z)^3 binomial identity. All positive r,s and both factor-two boundaries checked in proof. Independent brute-force maximality and LCS DP plus recurrence verification passed on actual packaged code. Finite verification is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conte et al. 2022, accepted manuscript, Sections 1-5, especially Theorem 1, Theorems 2-3: general polynomial-delay enumeration and local extension criteria, not explicit binomial specialization.",
+        "Conte et al. 2023, arXiv:2307.13695, Sections 1-5 including Theorem 4.1: polynomial-size DAG with general enumeration/counting/ranking, not a closed formula for the specified powers."
+      ],
+      "reasoning": "Both primary general algorithms cover the input family operationally (their algorithms could evaluate each finite input); their published mathematical statements do not entail the closed binomial identity without the new transition-count argument or another unstated derivation. These general results are genuinely stronger algorithmically but do not explicitly subsume the mathematical closed-form classification as a claimed theorem.",
+      "searches": [
+        "Conte Grossi Punzi Uno Enumeration of Maximal Common Subsequences Between Two Strings Algorithmica 2022 full manuscript",
+        "A Compact DAG for Storing and Searching Maximal Common Subsequences arxiv 2307.13695 full text",
+        "\"maximal common subsequences\" \"binomial\" \"powers\""
+      ]
+    },
+    "checked_sources": [
+      "https://arpi.unipi.it/retrieve/bdbfd69d-6f35-448b-9ecc-2aea1e8b05c5/MCS_AAM.pdf",
+      "https://arxiv.org/abs/2307.13695",
+      "https://doi.org/10.4230/LIPIcs.ISAAC.2023.21",
+      "https://doi.org/10.1007/s00453-021-00898-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conte et al. 2022 define maximality by nonexistence of a one-letter insertion in their Section 1.1, and present algorithmic theorems with no closed ternary-power count.",
+        "Conte et al. 2023 use a finite DAG whose paths correspond to maximal common words and whose counts can be computed; their theorem states a general algorithmic capability, not its evaluation on (012)^r,(021)^s."
+      ],
+      "reasoning": "This theorem gives a new-looking explicit structural bridge from two weak-descent budgets to a 3-state transfer series and its binomial diagonal. General MCS algorithms could discover the counts for particular r,s, but the explicit all-r,s identity is not an immediate stated corollary in inspected papers. Residual priority uncertainty remains.",
+      "searches": [
+        "https://arpi.unipi.it/retrieve/bdbfd69d-6f35-448b-9ecc-2aea1e8b05c5/MCS_AAM.pdf",
+        "https://arxiv.org/abs/2307.13695",
+        "A Compact DAG for Storing and Searching Maximal Common Subsequences first full-text findings Section 2 and 4",
+        "\"maximal common subsequences\" \"binary\" enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No directly equivalent formula emerged from these targeted title/full-text phrase searches. The full arXiv 2307.13695 article treats general MCS rather than the ternary-power count.",
+        "The indexed published research summaries contained no matching statement for (012)^r and (021)^s or an exact binomial MCS-count theorem."
+      ],
+      "reasoning": "The precise equivalent would state a central-binomial diagonal count or the triangular coefficient law for two powers under the subsequence relation; a mere formula for arbitrary LCS length or an enumeration algorithm would not by itself assert these identities. The index and accessible claim catalog yielded no decisive equivalent, but search failure alone is not a proof of novelty.",
+      "searches": [
+        "\"(abc)^k\" \"(acb)^k\" LCS count",
+        "\"012012\" \"021021\" common subsequences enumeration",
+        "\"maximal common subsequences\" \"ternary\" \"periodic\"",
+        "ternary words (012)^r and (021)^s exact LCS all maximal common subsequences enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact-count table or formula was found in the checked primary full texts; their tabulated examples use other string pairs and concern the general enumeration data structure.",
+        "Prior local claim catalog did not contain this pair or coefficient formula; no indexed database table specifying the triangle coefficient was identified."
+      ],
+      "reasoning": "The statement is an all-integers classification, not a finite table lookup. Central binomial numbers occur in many settings; numerical matching without a proven interpretation for these two strings would not provide implication or coverage.",
+      "searches": [
+        "\"012\" \"021\" longest common subsequence powers binomial",
+        "\"abcabc\" \"acbacb\" subsequences enumeration",
+        "\"maximal common subsequences\" \"alternating\" words"
+      ]
+    },
+    "rationale": "Searches of published research records, indexed published claim summaries and relevant primary full texts did not show a theorem equivalent to the explicit ternary binomial MCS count, complete optimizer description and MCS/LCS equality. General algorithms in Conte et al. 2022/2023 are acknowledged as covering finite evaluation but not publishing this parameter-closed result. Unindexed equivalence remains risk.",
+    "residual_risks": [
+      "An unindexed explicit formula for these permutation powers or an equivalent lattice-path interpretation may exist.",
+      "General MCS counting DAG can evaluate each finite instance but does not itself constitute an explicit published formula for all r,s.",
+      "Only stated relevant sections and targeted terms of the 2022 manuscript were materially inspected, not every appendix line."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General enumeration and characterization; no stated specialized ternary power identity, no binomial family count in inspected text. This comparison does not imply all possible examples were exhaustively scanned.",
+        "evidence": [
+          "Algorithmica 84 (2022), 757-783, DOI 10.1007/s00453-021-00898-5",
+          "accepted manuscript lines 34-72, 141-146, 229-235, 301-303, 470-479, 663-713 of extracted source"
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/retrieve/bdbfd69d-6f35-448b-9ecc-2aea1e8b05c5/MCS_AAM.pdf",
+        "material_read": "Accepted-manuscript text, abstract; Section 1 and interspace Lemma 1, Sections 2-3 theorem and characterization headings, Section 4 and algorithm; targeted searches throughout 30-page text for periodic, alternating, binomial, repetition.",
+        "method": "OA manuscript through institutional repository; extracted full-text passages and inspected rendered PDF pages 1 and 5",
+        "title": "Enumeration of Maximal Common Subsequences Between Two Strings",
+        "trigger": "Most directly relevant primary general enumeration theorem and published MCS characterization"
+      },
+      {
+        "assessment": "The paper gives general compact-DAG representations and count/rank/selection but not the formula for the two ternary powers or collapse of maximality to maximal length in that family.",
+        "evidence": [
+          "arXiv:2307.13695 (first public 2023-07-25), Sections 1-5, especially Sections 2.2 and 4",
+          "ISAAC 2023 DOI 10.4230/LIPIcs.ISAAC.2023.21"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.13695",
+        "material_read": "Full arXiv extracted article, Sections 1-5, especially introduction, Sections 2.1-2.2 MCS structure, final Theorem 4.1 and conclusions; text searched for binary, Fibonacci, periodic, alternating.",
+        "method": "arXiv full text extracted and section/term inspection, cross-checked first public date against arXiv record",
+        "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+        "trigger": "Same central MCS mathematical object, broad counting coverage and potential preemption"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ddc10730-a686-4e5d-b97c-07539e5eb725",
+  "value": {
+    "rationale": "Natural infinite family has exact full optimizer enumeration, sharp factor-two uniqueness boundary, and central-binomial exponential multiplicity; demonstrates collapse of inclusion maximality to longest length for a structured pair despite general MCS/LCS differences, and gives explicit benchmark for general MCS enumerators.",
+    "status": "PASS"
+  }
+}
