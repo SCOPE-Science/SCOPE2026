@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the antiperiodic Green matrix directly, including boundary rows, then inverts the positive-flux form by two orthogonal rank-one updates. Real \(\ell^1\) duality reduces the question to a finite sign maximum; its sharp antiperiodic estimate follows from a strictly convex cross-distance optimization, with all equality cases. The rank-two formula makes every nonconstant sign pattern strictly suboptimal for \(0<\theta<\pi\), establishing the parabolic extremizer. The unitary twisted shift establishes the complex sharp constant and Fourier-wave equality cases. The scalar-field separation and asymptotic limits are analytic consequences. A standalone numerical and exact checker passed 13,741 assertions. Finite tests are explicitly not proofs of assertions for every dimension or twist.
+## correctness
 
-**Originality — PASS, best-knowledge.** Hindov–Nitzan–Olsen–Rydhe (2026, arXiv:2610.19010v1) establish sharp \(\ell^1\)-difference inequalities for zero-extended finite sequences, not a magnetic closing-edge family; Izmestiev (2015, arXiv:1502.03186) addresses \(\ell^2\) discrete Wirtinger/spectral-gap inequalities. The known periodic mean-zero-cycle sharp inequality *does cover* the antiperiodic \(\theta=\pi\) case upon doubling, which is therefore NOT an originality claim. Published-record searches for magnetic cycle, flux, twisted finite-difference, aliases, and exact parameter formulas found no theorem covering the whole open interval with real/complex extremizer rigidity and limiting regimes. Residual risk remains from broader magnetic Green or Floquet theory under different terminology.
+PASS
 
-**Mathematical value — PASS.** The continuous magnetic holonomy is a natural boundary parameter. Its sharp real sign optimization has an explicit rational cosine law and a structural all-parameter extremal rigidity theorem; the complex eigenwave comparison produces an exactly quantified real–complex gap and two noncommuting limits. The endpoint classification is used solely to identify the transition, not to duplicate the known antiperiodic case. The result answers a motivated operator-norm question for a natural family, rather than evaluating an arbitrary finite example.
+The real quadratic form inverse is G +(1+c)/[4(1-c)]11^T -(1+c)/[n+1+(n-1)c]ww^T, verified by exact inverses. l1 duality reduces sharp real norm to max_{signs} sign^T L_c^-1 sign. At c=-1, the Green cross-distance optimization selects signs with <=1 sign change; for c>-1 the rank-one corrections uniquely select constant signs, yielding the positive parabola. Twisted Fourier eigenvalues give C_C^2=n/[4 sin²(theta/(2n))] and the stated plane-wave rigidity, including n=1,2 and theta=pi boundary exceptions. Sampled n=2..8, rational cosines and 2032 sign cases were checked exactly. Infinite n/continuous theta follows algebra, not those samples.
 
-**Scope and remaining limits.** Unweighted first differences on a single finite magnetic cycle, real or complex scalars, and \(0<\theta\le\pi\). The zero-flux energy is degenerate. Higher differences and arbitrary magnetic graphs are not claimed. Independent verification and definitive priority assessment are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge originality is continuous-flux real l1 Green maximization and real-versus-complex rigidity, not the known Floquet gap or antiperiodic cycle endpoint.
+
+## value
+
+PASS
+
+The magnetic boundary twist is natural in periodic discrete analysis. The exact field-dependent constants and universal positive parabola classify nonstandard optimizers across a continuous parameter and expose noncommuting asymptotic regimes, beyond textbook spectral inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
