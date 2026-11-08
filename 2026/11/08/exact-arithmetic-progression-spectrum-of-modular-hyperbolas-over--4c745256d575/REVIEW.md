@@ -1,0 +1,15 @@
+# Review of the affine-progression classification
+
+## Correctness — PASS
+The exact identity \(f(x)-2f(x+h)+f(x+2h)=2ah^2/[x(x+h)(x+2h)]\) holds whenever the three inputs are units. At odd primes it forces \(p^{\lceil k/2\rceil}\mid h\); at two, the unit condition enforces the extra factor two for \(k=1\), while \(2^k\mid2h^2\) forces \(2^{\lfloor k/2\rfloor}\mid h\) for \(k\ge2\). These conditions define an additive ideal, so every subsequent input stays a unit and every second difference vanishes. The Chinese remainder theorem then reduces all possible lengths and their exact counts to element orders in a cyclic group of order \(Q\). Direct exact-integer enumeration for \(2\le N\le160\) was also performed. No finite enumeration is treated as proof of the general formula.
+
+## Originality — PASS with residual priority risk
+The inspected 2011 modular-hyperbola survey treats distribution and geometric questions, not a stated all-modulus cyclic progression spectrum. The inspected relevant parts of Khan–Magner–Senger–Winterhof (2013) cover ordinary Euclidean line incidences and constructions of collinear fibers. Those results help motivate the nilpotent geometry but do not state the precise intrinsic modular affine-step condition, dyadic exception, canonical cycles, or counts by exact order. Earlier prime-power primitive-line incidence formulas overlap in object but not in the ordered progression invariant; their proof methods might support a derivation, so implicit historical coverage remains a risk. The 2014 finite-ring Fourier paper was inspected only at abstract level and is not used as evidence for whole-document noncoverage. Targeted literature and mathematical-index queries returned no equivalent formula; nonretrieval is not a uniqueness proof.
+
+## Mathematical value — PASS
+For the central arithmetic-geometric object \(xy\equiv a\pmod N\), the theorem gives a natural complete classification of affine progression structure: it decides every allowable step, decomposes every inverse graph into maximal progression fibers, determines every possible cycle length, and counts the rooted and unrooted oriented cycles without restrictions on prime factors. It detects the exceptional behavior of powers of two and the transition from progression-free prime fields to long affine cycles over nonreduced rings. These are structural invariants rather than arbitrary finite samples, although their proof uses elementary polynomial algebra.
+
+## Closest literature and limitations
+Shparlinski, arXiv:1103.2879 (2011); Khan et al., arXiv:1304.6943 (2013), particularly Section 1, Lemma 4 and Proposition 7; adjacent finite-ring Fourier context: Iosevich–Murphy–Pakianathan, arXiv:1405.7657 (2014), abstract only. None of the verified inspected statements is an explicit equal or stronger theorem for the claimed root/length counts. The theorem excludes nonunit hyperbola levels and Euclidean representative-point progressions. Bibliographic priority and independent validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
