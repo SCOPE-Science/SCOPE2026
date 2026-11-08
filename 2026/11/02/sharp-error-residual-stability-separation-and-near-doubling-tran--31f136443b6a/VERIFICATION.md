@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational and analytic verification
 
-Analytic proof: equations (1) and (2) follow from a single conditional expectation of an explicitly stated coordinate update; sharpness follows from eigenvector witnesses for the two diagonal forms. Equations (4) and (5) are obtained by summing row-sign cross terms and are exact for all iterations. An induction gives the strict two-sided residual bound and a joint contrast/horizon limit proves its sharpness. No finite enumeration is used as an infinite or unique-priority certificate.
+# Independent mathematical audit
 
-Supplementary `verify.py` was executed from its actual package bytes using the standard Python interpreter. It returned: `PASS 370 exact-rational enumerations, plus the near-doubling asymptotic check; example error ratio 9/10, residual ratio 57/50`. The checks include direct average over every row/column choice on flat orthogonal-column designs (orders 2, 4 and 8), an exact all-path comparison through 3 steps in three two-mode cases, and a large finite contrast asymptotic sanity check. It does not establish all-dimensional or all-contrast assertions by itself.
+## correctness
 
-Scientific limits: exact arithmetic; consistent real finite-dimensional data; uniform independent row and coordinate choices; flat orthogonal-column frame; constant timestep. Complete later sections of the motivating 2026 preprint were not accessible, and novelty may require further historical verification. Independent mathematical validation has not been performed.
+PASS
+
+For A=m^{-1/2}H diag(sigma), H^T H=mI with entries ±1, independent uniform singleton row/column draws, a direct conditional square expansion yields E||e+||²=||e||²−η(2−η S2/m)e^TGe/(mn), and the analogous physical-residual decrement is η e^T[2G²−(η S4/m)G]e/(mn). These quadratic forms imply respectively the exact sharp ceilings 2m/S2 and 2m σmin²/S4, including boundaries and weak-eigenvector witnesses. The minimax one-step Euclidean step is η=m/S2. For the 2x2 Hadamard example, the explicitly proved positive second-moment matrix recursion gives residual ratio <2 for every finite k and ratio tending to 2 jointly for κ→∞ and k≈κ. Independent direct branch enumeration at κ=2 yields error factor 9/10 and residual factor 57/50; an independent ρ=10^5, k=320 iteration gives ratio 1.99361. The finite checks corroborate, not establish, the all-parameter result.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to the combined precise theorem, excluding acknowledged prior special cases/general definitions. Qualitative residual nonmonotonicity identified by Xia–Zhou alone does not give the exact threshold η_res or demonstrate a universal sharp <2 multistep residual bound. Prior sufficient block-Gauss–Seidel convergence bounds do not imply an exact necessary-and-sufficient monotonicity interval under different sampling. Residual primary-source and equivalence risks are retained.
+
+## value
+
+PASS
+
+The Euclidean-solution-error and physical-residual norms are separately operationally meaningful in inverse problems. Their exact and sharply different stability windows, and a quantified near-doubling residual transient despite monotone solution error, supply useful parameter-choice diagnostics beyond a routine convergence inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

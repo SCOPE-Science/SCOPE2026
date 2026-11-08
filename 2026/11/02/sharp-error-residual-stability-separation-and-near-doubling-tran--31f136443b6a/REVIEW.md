@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite flat real orthogonal-column matrix and every starting error, both conditional moment identities follow directly by expansion, independent uniform averaging, and the constant squared modulus of each column entry. Matrix definiteness proves the sharp step-size boundaries, including equality and strict-failure cases. For the two-mode family, the two-coordinate nonnegative second-moment recursion follows by direct row-sign cancellation; the residual is bounded by 2 using the error-contraction inequality and induction, and a joint high-contrast/long-horizon sequence proves sharpness. The exact-rational standalone test performed 370 supplementary comparisons, including a direct all-path recursion check. These finite checks do not establish the universal result by themselves.
+## correctness
 
-## Originality — PASS, subject to priority limits
-The 2026 Xia–Zhou paper is the source of the unnormalized independent row/coordinate rule, and its introduction explicitly recognizes potential nonmonotonicity of residual-related quantities. The current contribution is the precise paired *sharp* one-step thresholds and optimal-step large-contrast near-doubling transient, not the base algorithm, generic moment expansion or qualitative nonmonotonicity. The 2019 Du–Sun and 2018 Razaviyayn–Hong–Reyhanian–Luo papers use entry-weighted joint sampling with local-block normalization, not the uniform independently sampled unnormalized method under analysis. Their results give convergence bounds under different stochastic laws, not the stated exact two-norm frontier and sharp transient. Searches of mathematical records and accessible prior claims also revealed no directly covering theorem. The source paper's later full text was not accessible; an unlocated equivalent in its later sections or older exact-moment theory remains a priority risk, rather than a proved absence.
+PASS
 
-## Mathematical value — PASS
-This is a natural gap in two criteria used to evaluate a numerical inverse-problem regularization: solution-error contraction and physical-residual decrease. It supplies sharp formulas, a concrete strict residual reversal at a step optimal for solution error, and an exact worst multistep transient constant, allowing precise evaluation of residual-driven stopping heuristics in a canonical balanced-row design. The result is not merely a one-example negative check, a restatement of a general error bound, or a numerical observation. It does not establish general noisy-data regularization conclusions.
+For A=m^{-1/2}H diag(sigma), H^T H=mI with entries ±1, independent uniform singleton row/column draws, a direct conditional square expansion yields E||e+||²=||e||²−η(2−η S2/m)e^TGe/(mn), and the analogous physical-residual decrement is η e^T[2G²−(η S4/m)G]e/(mn). These quadratic forms imply respectively the exact sharp ceilings 2m/S2 and 2m σmin²/S4, including boundaries and weak-eigenvector witnesses. The minimax one-step Euclidean step is η=m/S2. For the 2x2 Hadamard example, the explicitly proved positive second-moment matrix recursion gives residual ratio <2 for every finite k and ratio tending to 2 jointly for κ→∞ and k≈κ. Independent direct branch enumeration at κ=2 yields error factor 9/10 and residual factor 57/50; an independent ρ=10^5, k=320 iteration gives ratio 1.99361. The finite checks corroborate, not establish, the all-parameter result.
 
-## Scientific limitations and verification
-Uniform row and coordinate sampling, flat column magnitude, full column rank, exact arithmetic and consistency are necessary hypotheses of the presented theorems. Sources were compared at update-law and implication level; limited availability of the complete 2026 motivating article is a nonzero historical-priority risk. The accompanying Python script checks finitely many cases only. No independent mathematical audit or certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality attaches to the combined precise theorem, excluding acknowledged prior special cases/general definitions. Qualitative residual nonmonotonicity identified by Xia–Zhou alone does not give the exact threshold η_res or demonstrate a universal sharp <2 multistep residual bound. Prior sufficient block-Gauss–Seidel convergence bounds do not imply an exact necessary-and-sufficient monotonicity interval under different sampling. Residual primary-source and equivalence risks are retained.
+
+## value
+
+PASS
+
+The Euclidean-solution-error and physical-residual norms are separately operationally meaningful in inverse problems. Their exact and sharply different stability windows, and a quantified near-doubling residual transient despite monotone solution error, supply useful parameter-choice diagnostics beyond a routine convergence inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
