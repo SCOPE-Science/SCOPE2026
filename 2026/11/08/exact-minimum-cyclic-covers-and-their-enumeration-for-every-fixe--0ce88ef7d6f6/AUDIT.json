@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Verified the complete graph construction for \\(q\\ge2,n\\ge2,1\\le k\\le n\\). Each support necklace is a separate Eulerian strongly connected component by the n-step uniform reset. Its P spectrum has the h phase roots and remaining zeros, yielding root-independent directed tree count \\(s^{a s^{k-1}-k}\\). BEST and sum \\(\\sum a=\\binom{n-1}{k-1}\\) yield the stated exact global cover count. Independent integer cofactor checks for twelve parameter triples and direct Euler-tour enumeration for three small cases passed. The infinite statement rests on the written proof, not the finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Campbell–Janik-Jones–Sawada arXiv:2603.11954, Theorems 3–7 and their fixed-weight shorthand definitions.",
+        "Gabrić–Imam–Janik-Jones–Sawada arXiv:2603.11934, introduction, Theorems 11–15 concerning ranking/unranking of bounded-weight and subset/multiset cycles.",
+        "Mitchell–Wild arXiv:2607.22350 abstract, describing weight-constrained cut-down de Bruijn sequences, with inaccessible full text."
+      ],
+      "reasoning": "The closest broader constructions establish existence or algorithms for different string languages or representations. Existence of a single shorthand universal cycle does not imply the count of minimum track families in the unshortened fixed-nonzero-support graph, and the cited main theorem statements do not give the spectral arborescence formula.",
+      "searches": [
+        "Enumeration constant Hamming weight de Bruijn cycle covers with q-ary alphabet and k nonzero coordinates [published-finding corpus]",
+        "\"constant-weight\" \"number\" \"Euler tours\" sequence [web]",
+        "\"fixed weight\" \"universal cycles\" \"minimal\" number cycles [web]"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.11954, full PDF relevant main results",
+      "arxiv:2603.11934, full PDF relevant main results",
+      "Sawada–Williams, A Universal Cycle for Strings with Fixed-Content, PDF main theorem",
+      "arxiv:2607.22350, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sawada–Williams fixed-content shorthand: theorem 3 constructs a cycle, with no enumerative all-k cover theorem.",
+        "Campbell et al. 2026 arXiv:2603.11954: the relevant theorems construct bounded-weight and shorthand cycles; full length-n fixed-Hamming-support tracks are explicitly distinguished from shorthand on page 2.",
+        "Earlier two-nonzero exact formula agrees under k=2 after the present formula is specialized."
+      ],
+      "reasoning": "The prior two-nonzero count, classical binary necklace formula and de Bruijn all-nonzero boundary are implied by the new theorem, not conversely. Their combined information does not establish arbitrary k: higher-weight components have variable layer sizes and require the n-step reset-spectrum computation. The 2026 construction and decoding sources do not imply the number of Euler tours in each component.",
+      "searches": [
+        "necklace support components de Bruijn restriction exact k nonzero letters count arborescences [published-finding corpus]",
+        "fixed-content cyclic word cover q-ary weight k BEST theorem spanning in-arborescence count [published-finding corpus]",
+        "\"Euler\" \"fixed weight\" \"de Bruijn\" \"count\" cycles [web]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sawada–Williams fixed-content cycle: https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf, theorem 3 and introduction; 2026 Campbell et al. https://arxiv.org/pdf/2603.11954, pages 2 and 9; no exact unshortened cover count there.",
+        "An accessible earlier exact result for the special two-nonzero support case does not imply the general k>=3 arborescence formula."
+      ],
+      "reasoning": "The target counts a minimum family of cyclic tracks whose unshortened n-windows have Hamming weight exactly k. Universal cycles of n-1-symbol shorthand representations, or bounded-weight words under arithmetic weight, do not produce a one-to-one mapping onto these families. The \\(k=2\\) case is a strict specialization and supplies no covering implication for higher weights.",
+      "searches": [
+        "Exact number Euler tours cyclic track covers of all q-ary length n words with fixed Hamming weight k, components binary necklace support, arborescences and BEST theorem [published-finding corpus]",
+        "\"fixed-weight\" \"de Bruijn\" \"number of\" \"cycles\" [web]",
+        "\"necklace\" \"Eulerian\" \"constant weight\" \"de Bruijn\" [web]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A previously obtained two-nonzero-position formula addresses only weight two; it was checked for statement-level overlap, with no inference of the arbitrary-weight result.",
+        "Indexed published-finding corpus comparisons returned Hamming-spectrum, cyclic-code and general spanning-tree results, not the same exact cover invariant."
+      ],
+      "reasoning": "A fixed-weight binary necklace count is known and does recover the number of tracks, but no inspected published table or indexed exact result supplies the number of minimum covers for all q,n,k. The two-nonzero special case is not asserted as new; the arbitrary-weight product and component-tree law are the claimed extension. Search incompleteness leaves historical-priority risk.",
+      "searches": [
+        "minimum number of circular strings covering fixed Hamming weight q-ary words exactly once each, arbitrary weight, enumeration of minimum cover and Eulerian circuits [published-finding corpus]",
+        "\"weight k\" \"minimal number\" \"universal cycles\" cover [web]",
+        "\"counting\" \"minimal\" \"cycle cover\" \"fixed weight\" words de Bruijn [web]"
+      ]
+    },
+    "rationale": "The all-k minimum-cover enumeration and per-component exact arborescence law are not implied by the inspected published shorthand/bounded-weight construction and decoding theorems, or by an available \\(k=2\\) special case. The binary necklace count and all-nonzero de Bruijn count are classical boundary components. Indexed published-finding corpus and literature comparisons did not return an equivalent higher-weight enumerative theorem; unknown unindexed sources remain a priority risk.",
+    "residual_risks": [
+      "Equivalent all-weight enumeration in unindexed literature or older specialized feedback shift-register references cannot be excluded.",
+      "Full text of Mitchell–Wild arXiv:2607.22350 could not be retrieved; only its abstract was compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the asserted minimum-track enumeration; construction and successor rules apply to bounded arithmetic-weight or shorthand representations.",
+        "evidence": [
+          "Page 2 explicitly distinguishes length-n fixed-weight strings from length-(n-1) shorthand representatives; Theorems 3–7 give constructions, not exact counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.11954",
+        "material_read": "Complete PDF retrieved; read introduction, fixed-weight shorthand discussion on page 2, main theorems on pages 6–12 and searched remaining text for cycle counting and BEST.",
+        "method": "Full-text PDF extraction with rendered page inspection and targeted theorem/term searches.",
+        "title": "Universal cycle constructions for k-subsets and k-multisets",
+        "trigger": "Recent construction uses bounded-weight de Bruijn graphs, necklaces, and fixed-weight shorthand; plausible broad coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: algorithms rank/unrank specific bounded-weight universal cycles; no count of fixed-nonzero-weight minimum covers.",
+        "evidence": [
+          "Page 2 lists how-many-cycles as a separate question; the paper focuses on the decoding question and states rank/unrank theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.11934",
+        "material_read": "Full PDF retrieved; read introduction, definitions, main theorem list and statements of Theorems 11–15; searched relevant text for enumeration.",
+        "method": "PDF text and rendered page inspection, targeted theorem search.",
+        "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+        "trigger": "Closely related March 2026 decoding result could include enumerative statements."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper constructs one shorthand universal cycle instead of counting full-window minimum covers.",
+        "evidence": [
+          "Theorem 3: U(S) is universal for the length-n-1 shorthand representation, not the full length-n language."
+        ],
+        "identifier_or_url": "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf",
+        "material_read": "Full PDF retrieved; reviewed the introductory definitions and necklace enumeration plus main theorem 3 and the adjacent proof.",
+        "method": "Full-text PDF inspection, section and theorem searches, rendered first-page inspection.",
+        "title": "A Universal Cycle for Strings with Fixed-Content",
+        "trigger": "Classic all-fixed-content universal-cycle result; potential logical dominance."
+      },
+      {
+        "assessment": "UNRESOLVED_LIMITED_ACCESS: abstract describes existence for constrained weight-like functions, not exact minimum-cover enumeration; residual comparison risk retained.",
+        "evidence": [
+          "Abstract first public July 24 2026; full document inaccessible in this run."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22350",
+        "material_read": "Accessible abstract only; PDF fetch failed, so no full-text noncoverage conclusion is drawn.",
+        "method": "Abstract search and attempted full-text retrieval.",
+        "title": "Weight-constrained cut-down de Bruijn sequences",
+        "trigger": "2026 study of arbitrary finite alphabets and weight functions could conceivably contain related general coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ce88ef7-d6f6-40e2-b07e-cf6fc7d5fb41",
+  "value": {
+    "rationale": "For the original unshortened constant-nonzero-weight language the support necklace obstruction prevents a single track in general; the minimum number and count of all optimal track families are natural exact invariants. An arbitrary-k closed product, including higher-weight components not covered by the elementary \\(k=2\\) case, is a useful structural enumeration. The reset-spectrum lemma explains how component tree counts depend only on the support period and primitive weight, and subsumes the classical all-nonzero de Bruijn case without merely repeating it.",
+    "status": "PASS"
+  }
+}
