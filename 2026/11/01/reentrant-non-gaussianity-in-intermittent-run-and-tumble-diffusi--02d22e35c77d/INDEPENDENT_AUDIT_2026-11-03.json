@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:16:12.509980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md complete tilted-generator proof at Git blob ce05de92a3869fb4120ace17180d3d96965394a2",
+        "verify.py Git blob 2e8bddb72132784658c105fe817c3bd4c7183527 inspected; my independent SymPy determinant and L4/cusp checks returned true",
+        "Santra–Olsen–Gupta 2024 arXiv:2408.16643 PDF p.8 Eq.(54),(55) checked in original page image and text"
+      ],
+      "rationale": "Reconstructed tilted 3x3 generator Q+diag(k,−k,Dk²) from model; independent SymPy determinant equals stated cubic and substitution λ(k)=L2k²+L4k⁴ makes coefficients through k⁴ vanish. L2=[c+b(b+2)D]/[(b+2)(b+c)]>0 and L4=c P(D)/[(b+2)^3(b+c)^3], with P=b(b+2)^3 D²−b(b+2)(4+3b+c)D+b(b+2)−c(b+c). Finite irreducible Markov spectral projection gives κ2=2tL2+O(1), κ4=24tL4+O(1), hence limit t kurt=6L4/L2². Quadratic discriminant=b(b+2)^2(b+c)^2(8+5b)>0, upward opening, constant term crosses at c*=(sqrt[b(8+5b)]−b)/2. Two positive roots only c<c*, b=c=r iff r<2; at b=c=1 independent exact simplification gives (27D²−24D+1)/(3D+1)². Passive occupation-time asymptotic Var[T0]/t=2bc/(b+c)^3 forces the positive D² term; an independent check of the source renewal transform agrees. Infinite limit derived analytically, not finite semigroup checks.",
+      "residual_risks": [
+        "At D roots asymptotic t kurt coefficient zero does not prescribe finite-t sign.",
+        "The published 2024 printed Eq.(54) conflicts with its exact renewal Eq.(55) in D² coefficient, so comparison must not assume that displayed formula valid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra et al derive the renewal transform and discuss kurtosis sign qualitatively; equal-rate PDF Eq.(55) agrees with our tilted-generator resolvent but Eq.(54) does not.",
+          "Datta–Beta–Großmann 2024 examine related intermittent motion and second-order transport correlation methods."
+        ],
+        "reasoning": "General Markov additive-functional spectral machinery allows computation but does not state the corrected root-positivity inequality, the sharp c*(b) threshold or special r=2 boundary. The published Eq.(54) cannot imply correct formula without identifying and repairing its mistake.",
+        "searches": [
+          "https://arxiv.org/abs/2408.16643",
+          "https://arxiv.org/abs/2406.15277"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2408.16643",
+        "https://doi.org/10.1039/D4SM01054J",
+        "https://arxiv.org/abs/2406.15277"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source exact Eq.(55) equal-rate propagator leads to L4 with positive D²; the source Eq.(54) coefficient, at r_ap=r_pa, omits that contribution.",
+          "Occupation time passive indicator correlation bc/(b+c)^2 exp[−(b+c)t] independently implies κ4/t D² coefficient=24bc/(b+c)^3."
+        ],
+        "reasoning": "The printed 2024 sign polynomial is not the reviewed one and cannot simply be optimized to recover the true reentrant phase. The new statement requires correction and full parameter root analysis; a hidden equivalent prior correction could change originality.",
+        "searches": [
+          "arxiv:2408.16643 Eq (47),(54),(55)",
+          "arxiv:2406.15277"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2024 arXiv:2408.16643 original PDF p.8 Eq.(54) presents a quadratic in D, and Eq.(55) is an exact equal-rate transform.",
+          "The displayed Eq.(54) D² coefficient has factor (r_ap−r_pa), hence vanishes when rates are equal, while differentiation of Eq.(55) and passive-state occupation covariance give strictly positive coefficient."
+        ],
+        "reasoning": "The source covers the model and contains a flawed printed asymptotic fourth-cumulant coefficient, not the corrected exact all-rate two-positive-root classification; corrected equation is derived independently from the finite-state tilted generator.",
+        "searches": [
+          "Santra Olsen Gupta 2024 intermittent active passive diffusion fourth cumulant Eq 54 55",
+          "b=c=1 fourth cumulant positive D squared passive occupation time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest returned fourth-cumulant effective-trial hierarchies and unrelated stochastic systems, not this 3-state switching model.",
+          "No exact model-specific quadratic table or 2-crossing threshold appeared in searched results."
+        ],
+        "reasoning": "A nonhit alone is not novelty evidence; mathematical comparison with source equation controls this assessment.",
+        "searches": [
+          "Resultary: intermittent active passive Brownian run and tumble long time fourth cumulant kurtosis sign changes two roots passive diffusivity",
+          "two switches sign kurtosis active passive Markov diffusion"
+        ]
+      },
+      "rationale": "Best-knowledge PASS specifically for CORRECTED global sign-phase formula and switching threshold; source already derives model renewal transform and prints an asymptotic kurtosis formula, but the latter has an inconsistent D² coefficient (for equal active/passive rates its term vanishes although occupation-time variance forces positive). Thus exact source formulas contain the data in principle, but the full correct sign classification is not a simple substitution into source display. Risk of competing correction remains.",
+      "residual_risks": [
+        "A corrected erratum or independent fourth-cumulant computation for the 2024 model may already state the same two-root phase diagram.",
+        "Published PDF Eq.(54) discrepancy is genuine; do not claim source has no fourth-cumulant expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE with material incorrect printed Eq.(54); does not settle corrected sign threshold",
+          "evidence": "At r_ap=r_pa, printed D² prefactor includes (r_ap−r_pa) but the exact equal-rate transform Eq.(55) implies nonzero D² term.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.16643",
+          "material_read": "Primary 14-page PDF relevant model sections 4–5, page 8 Eq.(52)–(55) and original page-8 screenshot; nearby source Eq.(55) and propagator material",
+          "method": "Compared original asymptotic coefficient D² to independent generator determinant, Eq.(55), and occupation variance",
+          "title": "Dynamics of switching processes: general results and applications to intermittent active motion",
+          "trigger": "Exact same CTMC and diffusivity parameter, fourth cumulant prior calculation"
+        },
+        {
+          "assessment": "NOT_COVERING exact fourth cumulant sign roots in inspected portions; full coverage risk preserved",
+          "evidence": "Datta et al 2024 primarily provide correlation/MSD and renewal transport, not corrected b,c,D root formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.15277",
+          "material_read": "Primary abstract, model and second-moment transport discussion/section summary via lawful OA",
+          "method": "Compared the observable (velocity correlations and dispersion) to fourth-cumulant sign classification",
+          "title": "The random walk of intermittently self-propelled particles",
+          "trigger": "Broader intermittent transport coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and relevant prior literature for Reentrant non-Gaussianity in intermittent run-and-tumble diffusion"
+      ],
+      "rationale": "A physically natural fourth-cumulant phase diagram for a tractable Markov intermittent transport model: a precise two-crossing (positive–negative–positive) kurtosis signature and exact switching threshold, despite strictly increasing long-run diffusivity. The negative and positive excess-kurtosis regimes distinguish migration mechanisms that second moments cannot identify. Natural full parameter classification, not chosen small slice.",
+      "residual_risks": [
+        "Long-time coefficient not full finite-time distribution; no experiment, general non-Poisson or asymmetric switching."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "At D roots asymptotic t kurt coefficient zero does not prescribe finite-t sign.",
+    "The published 2024 printed Eq.(54) conflicts with its exact renewal Eq.(55) in D² coefficient, so comparison must not assume that displayed formula valid.",
+    "Long-time coefficient not full finite-time distribution; no experiment, general non-Poisson or asymmetric switching.",
+    "A corrected erratum or independent fourth-cumulant computation for the 2024 model may already state the same two-root phase diagram.",
+    "Published PDF Eq.(54) discrepancy is genuine; do not claim source has no fourth-cumulant expression."
+  ],
+  "schema_version": 1
+}
