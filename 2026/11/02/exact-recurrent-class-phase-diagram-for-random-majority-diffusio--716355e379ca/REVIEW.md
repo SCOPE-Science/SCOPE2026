@@ -1,19 +1,21 @@
-# Scientific review: tripartite random-majority recurrence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete finite-state classification with explicit graph, update, tie-independence and positive-integer hypotheses. The proof first establishes a positive-probability one-step route from every labeled coloring to a monochromatic-by-part corner. It then analyzes all eight corner patterns by ordering the three part sizes; the displayed classes are checked to be closed and irreducible, and every state has a positive-probability route to one. This rules out unlisted recurrent classes without extrapolating from finite experiments. The two-large-part tie class is checked separately for small-part arbitrary colors, its period is exactly two, and the uniform stationary measure and deterministic disagreement count follow directly from transition probabilities. The standalone checker independently recovers the sink components for 216 lumped and 27 labeled parameter triples, with 104 tied-class support and numerical-count checks. There is no claimed uniform absorption-time bound.
+PASS
 
-## Originality — PASS with priority risk
+Actual RESULT.md gives a full Markov-chain proof. Within each part all neighborhoods agree; any tied part independently has positive probability of becoming monochromatic in one step, so every coloring reaches a corner with positive probability. For a>b>=c, smaller parts adopt the unique largest color, leading to consensus or a closed polarized two-cycle. For a=b>c the large parts strictly copy each other while the size-c part is independently uniformly redrawn, yielding one irreducible class of 2^(c+1) labeled states, period 2, uniform stationary law and fixed cut a(a+c). For a=b=c every nonconsensus corner has a positive-probability direct route to consensus. Finite-state reachability excludes further closed classes; no uniform hitting-time bound is needed. Independent full labeled 32-state transition-SCC computation for K_(2,2,1) produced sink sizes [1,1,4]; it does not replace all-size proof.
 
-Zehmakan (arXiv:2302.06760v1, Section 2.3 and Appendix A.4) establishes exponential absorbing classes on specially constructed graphs and analyzes cycle dynamics, but neither statement supplies the exact complete-tripartite three-regime theorem, including the all-equal consensus boundary and tie-largest uniform distribution. The 2019 Weber–Theisen–Motsch stochastic consensus paper studies a different updating mechanism, not independent binary neighbor-majority ties. Relevant literal/alias searches for complete-tripartite random majority and semantic comparisons of close indexed results found no exact dominating claim. A prior complete-bipartite classification has no third part and cannot yield the tie-largest noisy component by substitution. Residual risk: unindexed specialist literature or deeper results not identified by the accessible searches; full text of the less-relevant 2019 paper was not reviewed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely determines recurrent behavior on an infinite natural family rather than adding a single graph example. Equality of two largest communities triggers a \(2^{c+1}\)-state irreducible recurrent class, exact fair-coin stationary noise, and an invariant number of disagreeing edges; equality of all three eliminates that nonconsensus class. This distinguishes persistent stochastic polarization from eventual consensus and gives exact phase and stationary quantities at every finite size. Those precise structural boundaries are not implied by general examples of exponential recurrence.
+Best-knowledge PASS for the complete three-regime recurrent-class and stationary-disagreement classification on all complete tripartite graphs. Earlier fair-tie RMM paper establishes model and exponential absorbing examples, not this exact part-size phase boundary.
 
-## Scope and risks
+## value
 
-All source and proof comparisons are about this model only. Generalization to four or more parts, biased ties, nonbinary opinions or asynchronous updates is not established. Source completeness and external mathematical priority are not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact Markov classification for the canonical complete tripartite family reveals a sharp equality-of-largest-parts phase transition: deterministic two-cycle, exponentially large noisy polarized class with uniform law and invariant disagreement, or almost-sure consensus. It gives complete natural all-size recurrent geometry, not a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

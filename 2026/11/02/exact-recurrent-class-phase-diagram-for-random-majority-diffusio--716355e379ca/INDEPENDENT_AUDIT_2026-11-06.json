@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:45.879917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Actual RESULT.md gives a full Markov-chain proof. Within each part all neighborhoods agree; any tied part independently has positive probability of becoming monochromatic in one step, so every coloring reaches a corner with positive probability. For a>b>=c, smaller parts adopt the unique largest color, leading to consensus or a closed polarized two-cycle. For a=b>c the large parts strictly copy each other while the size-c part is independently uniformly redrawn, yielding one irreducible class of 2^(c+1) labeled states, period 2, uniform stationary law and fixed cut a(a+c). For a=b=c every nonconsensus corner has a positive-probability direct route to consensus. Finite-state reachability excludes further closed classes; no uniform hitting-time bound is needed. Independent full labeled 32-state transition-SCC computation for K_(2,2,1) produced sink sizes [1,1,4]; it does not replace all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zehmakan arxiv:2302.06760 proves general RMM graphs can support exponentially large absorbing sets, with an explicit clique/path construction and cycle theorems."
+        ],
+        "reasoning": "The general existence result does not determine the three largest-part regimes or exact stationary law of complete tripartite graphs. Qualitatively exponential recurrence was previously known.",
+        "searches": [
+          "synchronous random majority independent fair ties complete tripartite graph recurrent classes",
+          "arxiv:2302.06760 section 2.3 and Appendix A.4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2302.06760 PDF Section 2.3 and appendix references",
+        "arxiv:1901.10756 abstract",
+        "Resultary query synchronous random majority independent fair ties complete tripartite graph recurrent classes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper Section 2.3 and Appendix A construct exponential classes in a different graph, and its cycle result is not a complete-multipartite theorem. A bipartite special case has no third noisy community."
+        ],
+        "reasoning": "Neither result logically entails the sharply distinct a>b, a=b>c, and a=b=c recurrent-class law.",
+        "searches": [
+          "\"random majority\" \"tripartite\" absorbing classes",
+          "arxiv:2302.06760 section 2.3 and Appendix A.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same stochastic model is synchronous neighbor majority with independent fair ties, while deterministic tie-stay MM and copying/voter models are not equivalent. No complete-tripartite theorem found in targeted and Resultary searches."
+        ],
+        "reasoning": "Changing tie-rule fundamentally changes closed classes; comparisons must retain the independent fair flips and exact graph K_{a,b,c}.",
+        "searches": [
+          "synchronous random majority independent fair ties complete tripartite graph recurrent classes",
+          "\"random majority\" \"tripartite\" absorbing classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search of fair-tie majority tripartite models surfaced unrelated complete multipartite parity dynamics, forts, and majority tournaments, no direct class-size table."
+        ],
+        "reasoning": "These results have different update operators or invariants, so do not supply an exact recurrence table for this process.",
+        "searches": [
+          "synchronous random majority independent fair ties complete tripartite graph recurrent classes",
+          "\"random majority\" \"tripartite\" absorbing classes"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the complete three-regime recurrent-class and stationary-disagreement classification on all complete tripartite graphs. Earlier fair-tie RMM paper establishes model and exponential absorbing examples, not this exact part-size phase boundary.",
+      "residual_risks": [
+        "Specialized or unpublished complete-tripartite RMM studies might independently give the identical classification.",
+        "Absorption probabilities and quantitative expected times from arbitrary initial states are not derived."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its exponential absorbing-class example uses connected path and two cliques; not K_{a,b,c} classification.",
+          "evidence": [
+            "Theorem 2.6 constructs period Omega(2^n) on a special graph; paper contains no occurrence of tripartite."
+          ],
+          "identifier_or_url": "arxiv:2302.06760; https://arxiv.org/pdf/2302.06760",
+          "material_read": "Primary 12-page PDF: abstract, model definitions, Section 2.3 theorem 2.6 and Appendix A references; rendered Section 2.3 page inspected",
+          "method": "Read PDF text and screenshot of p.6, searched complete document for tripartite",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Originating same update/tie mechanism and prior exponential recurrence"
+        },
+        {
+          "assessment": "Different stochastic consensus update; no definitive full-text NOT_COVERING claim.",
+          "evidence": [
+            "Model described as stochastic averaging/copying, not independent randomized majority ties."
+          ],
+          "identifier_or_url": "arxiv:1901.10756",
+          "material_read": "Abstract and described model only",
+          "method": "Abstract-level screen; not a full-text exclusion",
+          "title": "Stochastic versus deterministic consensus dynamics on graphs",
+          "trigger": "Possible dominating general dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact Markov classification for the canonical complete tripartite family reveals a sharp equality-of-largest-parts phase transition: deterministic two-cycle, exponentially large noisy polarized class with uniform law and invariant disagreement, or almost-sure consensus. It gives complete natural all-size recurrent geometry, not a small numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Synchronous binary neighbor majority, three nonempty parts, independent fair tie coins.",
+    "No theorem about four or more parts, biased ties, nonbinary states or absorption-time bounds."
+  ],
+  "schema_version": 1
+}
