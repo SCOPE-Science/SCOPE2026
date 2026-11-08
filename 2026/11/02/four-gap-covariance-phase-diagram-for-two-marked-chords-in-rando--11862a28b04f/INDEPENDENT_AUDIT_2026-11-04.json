@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:48:27.156254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on two specified disjoint endpoint pairs leaves uniform matching of N=2n-4 vertices. Single-pair indicator expectation is 1/M, M=N-1; two disjoint pairs have joint expectation 1/(M(M-2)); overlapping different pairs cannot cooccur. For the two cut systems U,V, potential edge counts A=(a+b)(c+d), B=(a+c)(b+d), common pairs C=ad+bc and shared endpoint multiplicity Q give Cov=[M(M-1)C-MQ+2AB]/[M^2(M-2)]. Independent SymPy factorization verifies this numerator equals 2[(ad-bc)^2-ad(a+d-1)-bc(b+c-1)]. The noncrossing specialization is 2st(s-1)(t-1)/denominator >=0, crossing strict sign follows immediately. Exhausting positive four-part compositions for n4/n5 shows no positive, while (3,1,1,3) at n6 yields 36/245; (0,2,2,0) at n4 yields 8/9 when gaps may be empty. Independent full residual-matching enumeration confirmed balanced k=1,2 cases, explicit positive/negative witnesses and asymptotics. Universal n proof is indicator algebra, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy global crossing count moments/normal limit",
+          "Paguyo total-crossing normal-approximation rather than conditioned bivariate chord degrees"
+        ],
+        "reasoning": "Global statistics integrate over all chords and do not imply four-gap conditioned local covariance; ordinary elementary pair-indicator identities are acknowledged as prior known technique, not this factored geometric sign theorem.",
+        "searches": [
+          "Flajolet Noy 2000 analytic combinatorics chord diagram crossings moments",
+          "Paguyo 2021 2023 chord diagram crossing central limit",
+          "random chord diagram two marked chords crossing degree joint covariance four gap signs perfect matching"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1501.01489",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/abs/2104.01134",
+        "Resultary semantic: random chord diagram two marked chords crossing degree joint covariance four gap signs perfect matching",
+        "SCOPE repository filename/content keyword search (no indexed matches): random chord diagrams two marked chords covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acan §2 explicitly conditions on one chord span and calculates moments from matchings",
+          "The joint product calculation must separately account identical, overlapping and vertex-disjoint edge indicators, producing C,Q and mixed terms absent in one-cut theory"
+        ],
+        "reasoning": "The closest published result does not logically determine the joint covariance because marginals alone cannot fix dependence. The exact sign criterion and minimal n6 positive interior example require a new two-cut computation.",
+        "searches": [
+          "Acan arxiv 1501.01489 section 2 degree of random chord",
+          "Flajolet Noy random chord diagram global crossing expectation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan 2015 §2 computes mean/variance of crossings of one conditioned chord; only one cut involved",
+          "Own exact two-cut indicator covariance uses four cell sizes and accounts for pair overlap"
+        ],
+        "reasoning": "Perfect-matching cut-crossing covariance is an equivalent formulation of the two-chord degree statistic. A single-chord marginal distribution or two independent single-chord moment formulas cannot determine the covariance of distinct marked chords.",
+        "searches": [
+          "Acan 2015 random chord diagram single chord conditional degree covariance",
+          "random chord diagram two marked chords crossing degree joint covariance four gap signs perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-model four-cell phase diagram among top Resultary semantic entries; unrelated permutation inversion covariance appears",
+          "Independent exact matching computation verifies all formula signs at specified first positive boundaries"
+        ],
+        "reasoning": "This is a closed-form all-size identity, not a published sequence table. A prior tabulation of total crossing variance is insufficient to recover conditional four-cell law.",
+        "searches": [
+          "random chord diagram two marked chords covariance four gaps table",
+          "Resultary semantic random chord diagram two marked chords crossing degree joint covariance four gap signs perfect matching"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after primary-text and implication comparison: two-chord four-gap covariance/sign factorization beyond known one-chord and total-count statistics. Inaccessible relevant sources are recorded as residual priority risks rather than converted to false assertions.",
+      "residual_risks": [
+        "General perfect-matching disjoint-cut covariance identities might imply the formula implicitly despite different terminology.",
+        "Conditional two-prescribed-chord measure must not be confused with two randomly selected realized intersection-graph vertices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ONE_CHORD_MARGINAL_NOT_TWO_CHORD_COVARIANCE",
+          "evidence": "§2 defines single chord c1 and computes its conditional degree moments using one interval; no two fixed chords in this section.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "Complete PDF 27 pages available; read §1 definitions, §2 one-chord conditional degree and variance; inspected PDF p4 visually",
+          "method": "Official arXiv v1 full-text and screenshot of p4",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same uniform chord diagram and crossing-degree statistic"
+        },
+        {
+          "assessment": "BACKGROUND_GLOBAL_STATISTICS",
+          "evidence": "Concerns total crossings across diagram, not explicitly the four-gap conditional two-marked-chord covariance in accessible description.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Abstract/relevant section description from public metadata; not complete PDF audited in this run",
+          "method": "Open literature search + bibliographic comparison",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Possible broader crossing-moment theorem"
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": "Total crossings normal approximation is different from fixed-chord pairwise covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Abstract and general section-level public description only",
+          "method": "Public arXiv metadata and research literature comparison",
+          "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+          "trigger": "Related central limit theory for crossing count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint degree dependence of two prescribed chords is a natural local statistic of random circle graphs, not implied by one-chord degree marginals or global crossing totals. The four-gap law sharply separates impossible negative correlation for noncrossing marks from mixed signs for crossing marks, and exhibits bounded negative versus linearly increasing positive regimes. The exact finite-size threshold is a motivated geometry boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1501.01489",
+    "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+    "https://arxiv.org/abs/2104.01134"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two prescribed chords in uniform random perfect matching on 2n cyclic endpoints, the conditional crossing-degree covariance has an explicit four-cell rational formula and complete geometric sign law, with sharp first all-positive-gap positive case at n=6.",
+  "limitations": [
+    "Uniform matching conditioned on two prescribed chords, integer n>=4, empty four-cells allowed.",
+    "A covariance sign does not establish a full stochastic dependence order."
+  ],
+  "residual_risks": [
+    "General perfect-matching disjoint-cut covariance identities might imply the formula implicitly despite different terminology.",
+    "Conditional two-prescribed-chord measure must not be confused with two randomly selected realized intersection-graph vertices."
+  ],
+  "schema_version": 1
+}

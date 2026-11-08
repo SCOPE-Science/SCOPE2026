@@ -1,19 +1,21 @@
-# Scientific review of the four-gap covariance phase diagram
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem is an all-size rational covariance identity for two prescribed disjoint endpoint-pairs in a uniform perfect matching on a circle, for integers \(n\ge4\). The proof begins with exact single-pair and disjoint-two-pair matching probabilities, removes overlapping potential pairs through \(Q-C\), and factors a completely specified polynomial numerator. Its noncrossing specialization has manifestly nonnegative sign. For crossing chords the squared-opposite-gap-product inequality gives all three signs. The first-positive claim explicitly requires all four gap counts strictly positive; the manuscript supplies a positive counterexample at \(n=4\) when empty gaps are allowed. The strict-positive-gap minimal case is established by finite enumeration of the only positive four-part compositions at \(n=4,5\), together with an explicit \(n=6\) witness. The standalone checker independently enumerates all matching outcomes for 1,710 marked layouts through seven chords and cross-checks 19,149 algebraic compositions, all exactly.
+PASS
 
-## Originality (O): PASS, with bounded priority risk
+Conditioning on two specified disjoint endpoint pairs leaves uniform matching of N=2n-4 vertices. Single-pair indicator expectation is 1/M, M=N-1; two disjoint pairs have joint expectation 1/(M(M-2)); overlapping different pairs cannot cooccur. For the two cut systems U,V, potential edge counts A=(a+b)(c+d), B=(a+c)(b+d), common pairs C=ad+bc and shared endpoint multiplicity Q give Cov=[M(M-1)C-MQ+2AB]/[M^2(M-2)]. Independent SymPy factorization verifies this numerator equals 2[(ad-bc)^2-ad(a+d-1)-bc(b+c-1)]. The noncrossing specialization is 2st(s-1)(t-1)/denominator >=0, crossing strict sign follows immediately. Exhausting positive four-part compositions for n4/n5 shows no positive, while (3,1,1,3) at n6 yields 36/245; (0,2,2,0) at n4 yields 8/9 when gaps may be empty. Independent full residual-matching enumeration confirmed balanced k=1,2 cases, explicit positive/negative witnesses and asymptotics. Universal n proof is indicator algebra, not finite enumeration.
 
-Acan, arXiv:1501.01489v1, Section 2 derives one-chord span-conditional degree information, not a two-prescribed-chord covariance classified by all four arc gaps. Flajolet–Noy, INRIA RR3914, Section 2 treats *global* crossing moments; Paguyo, arXiv:2104.01134, Section 2 treats approximation of the *total* crossing count. Focused searches for two-chord joint degrees, fixed-cut crossing counts, and corresponding random perfect-matching covariance did not identify a direct prior statement. A general matching-indicator moment identity is an elementary ingredient and is not itself claimed as new. A broader, older two-cut moment theorem could implicitly contain the new factorization, so human historical review remains prudent.
+## originality
 
-## Value (V): PASS
+PASS
 
-Local dependence in random circle graphs is naturally described by joint degrees of prescribed chords, rather than only marginal degree limits or global crossing totals. The result supplies a complete finite-sample sign criterion, shows noncrossing positions cannot have negative covariance, and proves that crossing positions of identical diagram size can have both signs with positive space between all marked endpoints. The balanced negative covariance remains bounded away from zero, whereas an imbalanced positive family has linearly growing covariance, giving a geometrically motivated phase distinction beyond routine first moments.
+Best-of-knowledge originality after primary-text and implication comparison: two-chord four-gap covariance/sign factorization beyond known one-chord and total-count statistics. Inaccessible relevant sources are recorded as residual priority risks rather than converted to false assertions.
 
-## Limitations
+## value
 
-The result does not treat random selection of two vertices of the realized circle graph and does not infer a full bivariate dependence order. The all-size proof is independent of the finite exact checker. Priority is bounded by inspected literature, not guaranteed absolutely. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint degree dependence of two prescribed chords is a natural local statistic of random circle graphs, not implied by one-chord degree marginals or global crossing totals. The four-gap law sharply separates impossible negative correlation for noncrossing marks from mixed signs for crossing marks, and exhibits bounded negative versus linearly increasing positive regimes. The exact finite-size threshold is a motivated geometry boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
