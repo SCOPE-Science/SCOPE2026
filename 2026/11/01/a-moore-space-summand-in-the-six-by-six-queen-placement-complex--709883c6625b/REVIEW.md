@@ -1,15 +1,21 @@
-# Scientific review: six-by-six queen placement complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The included independent face enumerators agree on \((1,36,340,1024,982,248,4)\). The complete acyclic matching test verifies all \(8,980\) incidence directions, leaving \(34\) critical two-cells and \(53\) critical three-cells (plus a single ordinary zero-cell). Signed integral Morse boundary reduction uses \(33\) unimodular pivots and gives exactly one Smith factor \(2\). Since the resulting CW complex is simply connected and three-dimensional, its attaching maps are classified by this integer matrix. This establishes the full \(M(\mathbb Z/2,2)\vee\bigvee^{19}S^3\) homotopy equivalence, not merely its integral homology. Independently reduced original simplicial boundaries over three fields corroborate the ranks. The eight signed Lefschetz traces give the asserted complete rational symmetry character.
+## correctness
 
-## Originality — PASS
-The closest primary q-queens sources are Chaiken–Hanusa–Zaslavsky, arXiv:1303.1879 and arXiv:1402.4880. They classify enumerative configurations, not the integral simplicial attaching matrices or equivariant homology. Existing results for the five-by-five queen complex do not imply an integral two-torsion class in the six-by-six complex. Search variations included the queen attack-graph independence-complex alias, matching/packing terminologies, face vector, Moore space, torsion and dihedral representation. No statement covering this result was identified. Unindexed equivalent work remains possible; partial inspection of a historical independence-complex thesis is specifically not claimed to exclude all content.
+PASS
 
-## Value — PASS
-The exact emergence of integral homology torsion at the smallest nontrivial board where it occurs is a natural structural boundary, not an arbitrary parameter slice. The degree-two Moore summand establishes a genuinely non-sphere-wedge homotopy class, and the rational \(D_4\) character detects a single invariant third-homology line, which ordinary nonattacking-queen counts cannot reveal.
+For ordinary nonperiodic 6x6 queen attack graph on row-major 36 squares, independent backtracking reproduces exact augmented face-count vector (1,36,340,1024,982,248,4), and the first-vertex toggle pairs the empty face with a singleton and has 1,273 other pairs in the ordinary complex. The 2,635 augmented faces admit the audited global acyclic orientation; critical ordinary cells are 1 vertex, 34 two-cells and 53 three-cells. Independently recomputed signed integral Morse differential has dimensions 34x53, exactly 241 nonzero entries of absolute value <=2, rank over F2=33 and over F3=34; exact unimodular elimination has 33 unit pivots and one remaining row with gcd 2. Hence the Smith data and simply-connected 2-skeleton prove M(Z/2,2) wedge 19 S3, not just field Betti numbers. The audited finite verifier computes the D4 signed fixed-face Lefschetz character (-19,5,-7,5,-1,-1,5,5) and H3 character its negative; the eight character values sum to eight, leaving a one-dimensional invariant. Counts for all smaller square boards were regenerated; the source separately supplies their integral matching certificate for no torsion.
 
-## Limitations
-The classification is for ordinary nonperiodic boards and proves only the onset through board side six; larger sizes are open within this document. The code exhaustively certifies finite simplicial incidence and integer matrices; no independent external audit was performed. Search absence is not a general novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is the ordinary nonattacking-queen complex (diagonal attacks included), distinct from the classical rook chessboard complex and the q-queens lattice-counting functions. Read the primary square-board q-queens paper and checked Resultary records for a stronger result or exact 6x6 table. Their counts do not imply a degree-two cellular attaching map, first torsion occurrence or D4 character. Best-of-knowledge originality PASS with explicit residual risk for unindexed topological queen-placement calculations.
+
+## value
+
+PASS
+
+The nonattacking queen placements on a standard square board are canonical and naturally indexed by board side. The first integral torsion and exact Moore-space homotopy at side six, together with the natural D4 representation, give a meaningful threshold and topology beyond classical placement counts. The finite enumeration is a complete natural-object classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

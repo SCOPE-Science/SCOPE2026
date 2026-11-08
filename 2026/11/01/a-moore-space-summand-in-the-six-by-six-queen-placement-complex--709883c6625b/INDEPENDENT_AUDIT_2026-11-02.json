@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T01:17:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ordinary nonperiodic 6x6 queen attack graph on row-major 36 squares, independent backtracking reproduces exact augmented face-count vector (1,36,340,1024,982,248,4), and the first-vertex toggle pairs the empty face with a singleton and has 1,273 other pairs in the ordinary complex. The 2,635 augmented faces admit the audited global acyclic orientation; critical ordinary cells are 1 vertex, 34 two-cells and 53 three-cells. Independently recomputed signed integral Morse differential has dimensions 34x53, exactly 241 nonzero entries of absolute value <=2, rank over F2=33 and over F3=34; exact unimodular elimination has 33 unit pivots and one remaining row with gcd 2. Hence the Smith data and simply-connected 2-skeleton prove M(Z/2,2) wedge 19 S3, not just field Betti numbers. The audited finite verifier computes the D4 signed fixed-face Lefschetz character (-19,5,-7,5,-1,-1,5,5) and H3 character its negative; the eight character values sum to eight, leaving a one-dimensional invariant. Counts for all smaller square boards were regenerated; the source separately supplies their integral matching certificate for no torsion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The q-queens I/II literature calculates the numbers of nonattacking configurations for sizes, not cellular attaching maps.",
+          "Published generic independence-complex results do not specialize to a complete 6x6 queen graph torsion type without additional computation."
+        ],
+        "reasoning": "Enumeration polynomials and general abstract independence-complex definitions do not provide Moore attaching degree or D4 rational traces. No covering classification was identified.",
+        "searches": [
+          "Chaiken Hanusa Zaslavsky A q-Queens Problem I general theory arxiv:1303.1879",
+          "Chaiken Hanusa Zaslavsky A q-Queens Problem II Square Board arxiv:1402.4880",
+          "queens graph independence complex integral torsion classification"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and verify.py for Q6, plus METADATA/AUDIT",
+        "arXiv:1402.4880 square-board primary full text",
+        "arXiv:1303.1879 overview",
+        "Resultary queen, rook and board-size searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting all 6x6 placements does not determine their inclusion incidence or integral homology.",
+          "Rook graph neighborhood and lower-board queen complexes have different simplices/size."
+        ],
+        "reasoning": "The exact 2-torsion and equivariant character are not corollaries of any inspected count or known different-board homotopy type.",
+        "searches": [
+          "arxiv:1402.4880 full primary square-board q-queens",
+          "arxiv:1303.1879 q-queens",
+          "Resultary 4x4 rook graph independent complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A queen attack graph includes rows, columns and both diagonals; the rook chessboard complex omits diagonal attacks.",
+          "Classical q-queens papers count lattice configurations and are not homotopy classifications."
+        ],
+        "reasoning": "Compared the independence-complex formulation with queen-placement, rook matching, and square-board inside-out-polytope formalisms; only queen placement is equivalent, and no equivalent homotopy formula was found.",
+        "searches": [
+          "queen complex homotopy nonattacking",
+          "6 by 6 queens graph non attacking independence complex Moore Z2",
+          "chessboard complex queens versus rooks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-object exact homotopy or integral torsion table appears in the returned Resultary candidates.",
+          "A known 5x5 board torsion-free result pertains to a different index and does not force the 6x6 threshold."
+        ],
+        "reasoning": "Existing 6x6 solution-count tables distinguish placement numbers but do not encode the integral Morse matrix. No exact matching database result for this homotopy was located.",
+        "searches": [
+          "6x6 queens homology Moore space 19 three spheres",
+          "queen placement independence complex six by six torsion table",
+          "Resultary: six by six queens graph non attacking independence complex Moore Z2"
+        ]
+      },
+      "rationale": "This is the ordinary nonattacking-queen complex (diagonal attacks included), distinct from the classical rook chessboard complex and the q-queens lattice-counting functions. Read the primary square-board q-queens paper and checked Resultary records for a stronger result or exact 6x6 table. Their counts do not imply a degree-two cellular attaching map, first torsion occurrence or D4 character. Best-of-knowledge originality PASS with explicit residual risk for unindexed topological queen-placement calculations.",
+      "residual_risks": [
+        "A specialized unindexed algebraic-topology study of queen-placement complexes could duplicate the exact 6x6 result.",
+        "The dihedral character was checked by inspected signed-fixed-face algorithm and exact source output; the independently rebuilt chain matrix validates the integral homotopy, not an independent external peer review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the simplicial homotopy classification",
+          "evidence": "The square-board enumeration theorem concerns placements and characteristic-polynomial terms; no integral chain or Moore-space classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.4880",
+          "material_read": "Full accessible square-board primary mathematical text, counting definitions, formula and main theorems",
+          "method": "arXiv open-access full HTML",
+          "title": "A q-Queens Problem. II. The Square Board",
+          "trigger": "exact object 6x6 and possible combinatorial generating function"
+        },
+        {
+          "assessment": "NO COVERAGE SHOWN IN MATERIAL READ; remaining full-text risk",
+          "evidence": "The accessible description concerns nonattacking-placement counting; whole-paper topological exclusion not asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1879",
+          "material_read": "Public abstract and definition/background material",
+          "method": "arXiv bibliographic/abstract access",
+          "title": "A q-Queens Problem. I. General Theory",
+          "trigger": "same queen configurations, general formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonattacking queen placements on a standard square board are canonical and naturally indexed by board side. The first integral torsion and exact Moore-space homotopy at side six, together with the natural D4 representation, give a meaningful threshold and topology beyond classical placement counts. The finite enumeration is a complete natural-object classification rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only ordinary nonperiodic board sizes <=6 for the first-torsion claim; the explicit homotopy and D4 character only at size six.",
+  "schema_version": 1
+}
