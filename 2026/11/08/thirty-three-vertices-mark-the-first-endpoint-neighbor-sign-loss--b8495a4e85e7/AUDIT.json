@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact TR-BDF2 resolvent identity; rigorous path kernel and differentiation; hyperbolic derivative comparison proves strict n-monotonicity for n>=3; exact four-interval Bernstein proof for n=32; exact rational r=10/11 negative certificate for n=33; n=2 direct. The package-internal verification script replays both certificates and independently checks small tridiagonal matrix inverses. Neither finite tests nor access logs stand in for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaventura–Della Rocca §§3–4: uniform absolute-monotonicity and hybridization cover arbitrary problems but only under timestep restrictions; those results are weaker for this specific path coefficient.",
+        "Hosea–Shampine §2: stability analysis not an entrywise all-step nonnegative endpoint-coefficient theorem.",
+        "Previously examined complete-multipartite TR-BDF2 family is structurally different from P_n for n>=4; it does not encompass arbitrary paths."
+      ],
+      "reasoning": "General SSP results do not dominate the all-positive-h side of the present result, and do not yield its sharp minimum length. The previous complete-multipartite special family is not a superset of the path family. Older one-dimensional composite integrator work could conceivably cover a related boundary effect; its scope remains unresolved rather than asserted absent.",
+      "searches": [
+        "TR-BDF2 Neumann finite difference heat equation positivity graph families",
+        "\"TR-BDF2\" \"path graph\" positivity",
+        "arxiv:1510.04303v1",
+        "doi:10.1016/0168-9274(95)00115-8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.04303v1",
+      "doi:10.1016/0168-9274(95)00115-8",
+      "doi:10.1016/0377-0427(93)90030-F (bibliographic/secondary material only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1510.04303v1 §3 computes the SSP radius about 2.414 and examines method-level positivity.",
+        "Hosea–Shampine (1996) focuses on L-stability, embedded error estimates and implementation.",
+        "Carroll (1993) is cited by Hosea–Shampine as a related one-dimensional parabolic method-of-lines scheme but its full scientific content was not available."
+      ],
+      "reasoning": "The present statement addresses n-dependent sign of one matrix coefficient at arbitrary h; nonnegative scalar stability functions or strong-stability properties do not control this coefficient. An unresolved accessible snippet of Carroll does not establish inclusion or exclusion; preserve that meaningful residual source risk.",
+      "searches": [
+        "arxiv:1510.04303v1",
+        "Hosea Shampine Analysis and implementation of TR-BDF2 1996 full text",
+        "J. Carroll composite integration scheme parabolic PDEs one space dimension 1993 DOI 10.1016/0377-0427(93)90030-F"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonaventura–Della Rocca arXiv:1510.04303v1 §2–4: radius of absolute monotonicity and hybrid SSP strategies; no boundary-resolvent path length classification in inspected sections.",
+        "Hosea–Shampine (1996), §2 and conclusions: TR-BDF2 stability function and implementation, rather than Green-function ratio or endpoint transmission threshold."
+      ],
+      "reasoning": "Equivalent form would require an exact sign criterion for (F(hL_n))_{0,1} across all positive h and n. A method-wide absolute-monotonicity radius gives only uniform sufficient CFL-type bounds and does not imply the positive-for-all-h statement for n<=32 or the uniform h=110/b counterexample for all n>=33.",
+      "searches": [
+        "TR-BDF2 second order L stable path graph finite Neumann Laplacian endpoint adjacent transition negativity 33 vertices exact threshold",
+        "TR BDF2 rational stability map resolvent square tridiagonal path heat semigroup positivity off diagonal first dimension",
+        "maximum principle finite difference trapezoidal rule BDF2 path diffusion off diagonal entrywise positivity 32"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact numerical table or length cutoff was identified in accessible scientific text of the papers inspected.",
+        "The present threshold is certified for the entire real timestep half-line by exact positive Bernstein control coefficients, not inferred from a sampled table."
+      ],
+      "reasoning": "An exact table must give the endpoint-neighbor sign over all timesteps on the path family, or imply the existence/nonexistence boundary at 32/33. Neither the available TR-BDF2 method-level tables nor sampled numerical benchmarks provide that implication.",
+      "searches": [
+        "TR BDF2 Neumann path n 32 n 33 positive entry",
+        "TR-BDF2 positivity tables 32 vertices",
+        "TR-BDF2 path endpoint transport Green function"
+      ]
+    },
+    "rationale": "The exact size-32/33 endpoint-neighbor transition is not a scalar SSP radius, not a whole-operator sufficient condition, and not implied by the inspected TR-BDF2 stability-function or absolute-monotonicity results. The paper by Carroll (1993) on one-dimensional parabolic composite integration is a materially plausible uninspected priority risk; the conclusion is best-knowledge originality, not exhaustive publication certification.",
+    "residual_risks": [
+      "The 1993 Carroll one-dimensional parabolic-composite paper was not available in full, and may contain a stronger overlapping positivity result.",
+      "Unindexed older parabolic discretization or Green-function literature could contain an equivalent endpoint coefficient bound.",
+      "No independent source-priority or mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies exact numerical method and method-level limits; inspected material does not imply endpoint-adjacent path-size classification",
+        "evidence": "§3 identifies gamma=2-sqrt(2), stability function, absolute monotonicity radius; §4 studies hybrid alternatives. No path/Neumann/graph occurrence found in extracted full-text search.",
+        "identifier_or_url": "https://arxiv.org/pdf/1510.04303",
+        "material_read": "Abstract and introduction, §§2–4 including §3 stability function and absolute-monotonicity radius; relevant references and full-text searches for path, Neumann and graph",
+        "method": "Publisher-independent arXiv v1 PDF text with page-image inspection",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Same L-stable TR-BDF2 scheme and method-wide positivity theory"
+      },
+      {
+        "assessment": "Stability-function formula and numerical implementation, not an exact path-entry positivity cutoff in examined material",
+        "evidence": "§2 parameter gamma=2-sqrt(2); references J. Carroll 1993 one-dimensional parabolic solver.",
+        "identifier_or_url": "https://pages.mtu.edu/~struther/Courses/OLD/Other/LessOld/5628_11/TRBDF2_Hosea_AppNumMath_20_pp21-37_1996.pdf",
+        "material_read": "Abstract, introduction, §2 numerical method, conclusions and references, with page images",
+        "method": "Lawful full-text PDF and page images",
+        "title": "Analysis and implementation of TR-BDF2",
+        "trigger": "Earlier foundational same-method paper, including method-of-lines background"
+      },
+      {
+        "assessment": "Unresolved high-relevance source, explicitly retained as publication-priority risk",
+        "evidence": "Hosea–Shampine (1996) cite Carroll (1993), JCAM 46, 327–343, as studying a modified TR-BDF2-type method for parabolic PDEs in one dimension.",
+        "identifier_or_url": "https://doi.org/10.1016/0377-0427(93)90030-F",
+        "material_read": "Bibliographic details, secondary citation context and full-text access attempts only; no primary full text inspected",
+        "method": "ArXiv and lawful open-access searches did not retrieve the primary paper; full text was not accessible for inspection.",
+        "title": "A composite integration scheme for the numerical solution of systems of parabolic PDEs in one space dimension",
+        "trigger": "Potentially strongest older 1D path heat integrator overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8495a4e-85e7-4999-9c80-825f3cb5603f",
+  "value": {
+    "rationale": "The physically meaningful boundary-neighbor heat transfer coefficient is completely classified across all positive step sizes and all path orders. Sharp transition at 32/33 exposes non-monotone spatial transport for an L-stable second-order method even on a simple one-dimensional Neumann diffusion network. The result is more precise than broad SSP insufficiency and identifies a new measurable numerical boundary-layer failure; it does not claim entire-matrix positivity.",
+    "status": "PASS"
+  }
+}
