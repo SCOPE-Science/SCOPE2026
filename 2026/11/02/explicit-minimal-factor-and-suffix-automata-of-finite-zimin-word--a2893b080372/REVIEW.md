@@ -1,15 +1,21 @@
-# Scientific review: explicit Zimin factor automata
+# Independent mathematical audit
 
-## Correctness — PASS
-The ruler-position identity is proved by induction. Every factor has exactly one maximum-rank letter, which pins all its occurrences to centers spaced by a power of two. The resulting precise ending-position classes partition the state indices, establish every permitted transition and every forbidden one, and distinguish all reachable states by longest possible completion length. The suffix accepting-state criterion follows from divisibility of the final position. The edge totals are independently counted by label. The standalone checker gives an independent *implementation* of the online automaton and exhaustive finite occurrence sets for the stated ranges. Finite evidence is not used in place of the all-rank proof.
+## correctness
 
-## Originality — PASS, historically qualified
-The closest exact prior mathematical implication is the factor-membership criterion of Głowinski and Rytter (2013, Lemma 2). Its interleaving test decides membership but does not identify minimal right-context states, their labelled incidence graph, or their exact per-letter arc counts. Fici's 2009 treatment gives general automaton equivalence classes, state/edge bounds, and formulas; the 2011 general paper treats minimal-size automata and so may account for the easy *state count* as a corollary. The present assessed claim is the explicit canonical graph and edge-label law, not that state count in isolation. The same integer edge-total sequence occurs as the unrelated numerical entry OEIS A132925. Rytter–Shur 2014 addresses pattern embeddings rather than literal factors. No equivalent graph description was located in the searched records or inspected materials. The 2011 paper's complete text could not be inspected, which limits historical priority certainty.
+PASS
 
-## Value — PASS
-Minimal factor automata are a canonical data structure for substring languages. For the exponentially long finite Zimin family, the theorem fully determines each right-context class, every labelled arc, the suffix-accepting states, and the symbol-resolved edge inventory by arithmetic formulas. It thereby supplies a closed, succinct description of a natural automata invariant, rather than an isolated integer sequence or generic algorithm. The new structural description remains useful even though linear-time factor membership was already known.
+The ruler-word identity Z_n[p]=a_{1+nu2(p)} implies any factor has a unique occurrence of its largest-ranked symbol; any occurrence has fixed right endpoint residue modulo 2^r. Therefore each endpos equivalence class is E_{r,j}, earliest end position p in [2^(r-1),2^r-1]. Right extensions are exactly consecutive ruler letters or transitions from block ends to first a_s positions, establishing the explicit graph. Each p is reachable by the prefix ending at p; distinct states have different maximal continuation lengths N-p for factors, and different maximal suffix-completion lengths for the suffix language, proving both minimalities. Counts follow by counting consecutive prefix-path arcs and extra block-end arcs. Independently enumerated all substrings, complete end-position classes, suffix acceptances and labelled arcs for ranks 1 through 6; verifier code uses an independent classical suffix-automaton construction up to rank 11.
 
-## Limitations
-The statement concerns partial deterministic automata of literal contiguous factors and suffixes of finite Zimin words only. The result does not establish improved generic asymptotic matching speed, results for pattern substitutions, or exhaustive historical novelty. The closest inaccessible general source and the overlap with known state-count theory are explicitly recorded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge contribution is the full labelled rank-dependent arithmetic transition map and simultaneous minimal suffix/factor recognition, not generic DFA theory or the already catalogued total edge-count sequence.
+
+## value
+
+PASS
+
+The exact minimal automaton of a canonical recursive word family is a natural invariant. The ruler-map provides a succinct O(n)-bit state representation for an exponentially sized automaton, and the per-symbol arc law contains more information than the pre-existing integer sequence or membership algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

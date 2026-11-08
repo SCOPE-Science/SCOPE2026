@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:15:46.765205Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git directory tree f752b2ab6b86f995568de92f0085cb2328b0d6e7; RESULT.md blob bc93e131a0164ddf8f18d0ec3842a13ef8c35220; checker.py blob 3b4470a714c43d76e5ccb6c808305fb0e280d511",
+        "Independent actual substring enumeration with all end-position sets n=1..6",
+        "Głowinski–Rytter 2013 Lemma 2; Fici generic automata and endpos theory"
+      ],
+      "rationale": "The ruler-word identity Z_n[p]=a_{1+nu2(p)} implies any factor has a unique occurrence of its largest-ranked symbol; any occurrence has fixed right endpoint residue modulo 2^r. Therefore each endpos equivalence class is E_{r,j}, earliest end position p in [2^(r-1),2^r-1]. Right extensions are exactly consecutive ruler letters or transitions from block ends to first a_s positions, establishing the explicit graph. Each p is reachable by the prefix ending at p; distinct states have different maximal continuation lengths N-p for factors, and different maximal suffix-completion lengths for the suffix language, proving both minimalities. Counts follow by counting consecutive prefix-path arcs and extra block-end arcs. Independently enumerated all substrings, complete end-position classes, suffix acceptances and labelled arcs for ranks 1 through 6; verifier code uses an independent classical suffix-automaton construction up to rank 11.",
+      "residual_risks": [
+        "The finite enumeration verifies only ranks <=6; unrestricted statement follows from ruler/endpos proof.",
+        "Complete DFAs add one rejecting sink; suffixes/factors are literal words on n distinct symbols, not Zimin morphic pattern instances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici 2011 abstract announces general formulas for state counts and special factors; classic theory gives automaton construction/bounds but not a labelled Zimin graph in directly read material."
+        ],
+        "reasoning": "A general theorem might imply 2^n states or total edges after specialization, but the explicit ruler transition and per-letter distribution are stronger descriptions and not shown to be mechanical reprints.",
+        "searches": [
+          "Resultary: Zimin words explicit suffix automaton factor automaton ruler sequence arcs transition 2^n n choose 2",
+          "Fici 2011 DOI:10.1016/j.tcs.2011.03.007",
+          "Blumer et al 1985 smallest automaton recognizing subwords"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/253797153_Compressed_Pattern-Matching_with_Ranked_Variables_in_Zimin_Words",
+        "https://www.researchgate.net/publication/220795075_Combinatorics_of_Finite_Words_and_Suffix_Automata",
+        "https://doi.org/10.1016/j.tcs.2011.03.007 (abstract only)",
+        "https://oeis.org/A132925",
+        "Resultary Resultary: Zimin words explicit suffix automaton factor automaton ruler sequence arcs transition 2^n n choose 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical suffix automaton theory provides constructibility; Głowinski–Rytter provides factor testing."
+        ],
+        "reasoning": "Deriving the precise earliest-endpoint automaton and per-symbol arcs requires the Zimin ruler structure and occurrence residue lemma. The inaccessible plausible Fici 2011 full source is explicitly retained as a priority risk.",
+        "searches": [
+          "Resultary: Zimin words explicit suffix automaton factor automaton ruler sequence arcs transition 2^n n choose 2",
+          "Głowinski–Rytter Section 2 Lemma 2",
+          "Fici 2009 suffix automata endpos survey",
+          "Fici 2011 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier literal-factor membership criterion and classical end-position equivalence are general methods; no explicit Zimin state-to-arithmetic position rule in inspected sections."
+        ],
+        "reasoning": "A linear-time factor membership decision does not specify every labelled minimal factor/suffix transition or prove first-ending-position state indexing.",
+        "searches": [
+          "Resultary: Zimin words explicit suffix automaton factor automaton ruler sequence arcs transition 2^n n choose 2",
+          "Głowinski–Rytter arXiv:1307.1560 Lemma 2",
+          "Fici 2009 generic suffix automata survey"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical sequence has an existing OEIS entry but was not presented there as Zimin automaton arcs; Resultary records concern different automaton families."
+        ],
+        "reasoning": "A pre-existing integer sequence formula does not imply the identification with the Zimin minimal automaton or labelled edge law.",
+        "searches": [
+          "Resultary: Zimin words explicit suffix automaton factor automaton ruler sequence arcs transition 2^n n choose 2",
+          "OEIS A132925 for 2^n-1+binom(n,2)",
+          "Resultary automata/string attractor searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge contribution is the full labelled rank-dependent arithmetic transition map and simultaneous minimal suffix/factor recognition, not generic DFA theory or the already catalogued total edge-count sequence.",
+      "residual_risks": [
+        "Fici 2011 full primary text inaccessible: university repository restricted and authorized Oxford tool reported vpn_disconnected; no bypass or human-verification fiction.",
+        "A special-factors theorem may mechanically imply some unlabeled counts; exact labelled transition law was not found.",
+        "OEIS A132925 already contains identical total transition-number expression independent of this interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Interleaving criterion for membership, not a labelled minimal factor/suffix DFA classification",
+          "evidence": "Głowinski–Rytter 2013 Section 2 Lemma 2",
+          "identifier_or_url": "https://arxiv.org/abs/1307.1560",
+          "material_read": "Full available original text through author-hosted/research repository transcript, especially Section 2 and Lemma 2",
+          "method": "full-text HTML article",
+          "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+          "trigger": "Same literal Zimin words and factor membership"
+        },
+        {
+          "assessment": "Background automata theory, not Zimin-specific map",
+          "evidence": "Fici 2009 presentation, endpos theory",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-03564-7_16",
+          "material_read": "Accessible full presentation/report discussing special factors, end-position equivalence and general automaton bounds",
+          "method": "full research presentation HTML",
+          "title": "Combinatorics of Finite Words and Suffix Automata",
+          "trigger": "Generic state/edge and endpos characterization"
+        },
+        {
+          "assessment": "Cannot rule out a stronger special-factor statement from full paper; no observed explicit Zimin map",
+          "evidence": "Fici 2011 abstract says general automaton state formulas, Oxford VPN disconnected",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2011.03.007",
+          "material_read": "Abstract and Palermo repository bibliographic metadata only; full article restricted",
+          "method": "abstract and OA landing page only; authorized institutional access attempted",
+          "title": "Special factors and the combinatorics of suffix and factor automata",
+          "trigger": "Plausible stronger generic formulas and minimal automaton characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Głowinski–Rytter original factor algorithm",
+        "Fici classical automata theory",
+        "Direct independent rank1–6 factor/suffix classes"
+      ],
+      "rationale": "The exact minimal automaton of a canonical recursive word family is a natural invariant. The ruler-map provides a succinct O(n)-bit state representation for an exponentially sized automaton, and the per-symbol arc law contains more information than the pre-existing integer sequence or membership algorithm.",
+      "residual_risks": [
+        "Does not improve worst-case complexity of the known literal-factor membership algorithm; no claim for morphic Zimin-pattern instances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For rank-n finite literal Zimin words Z_n with 2^n-1 letters, an explicit ruler-arithmetic partial DFA with 2^n states is simultaneously the minimal factor automaton (all states final) and minimal suffix automaton (only 0 and block-end states final); reading a factor reaches its first occurrence end position. Exact label-s transition counts are 2^(n-s)+s-1 and total transitions 2^n-1+n(n-1)/2 for every n>=1.",
+  "limitations": [
+    "The finite enumeration verifies only ranks <=6; unrestricted statement follows from ruler/endpos proof.",
+    "Complete DFAs add one rejecting sink; suffixes/factors are literal words on n distinct symbols, not Zimin morphic pattern instances.",
+    "Fici 2011 full primary text inaccessible: university repository restricted and authorized Oxford tool reported vpn_disconnected; no bypass or human-verification fiction.",
+    "A special-factors theorem may mechanically imply some unlabeled counts; exact labelled transition law was not found.",
+    "OEIS A132925 already contains identical total transition-number expression independent of this interpretation.",
+    "Does not improve worst-case complexity of the known literal-factor membership algorithm; no claim for morphic Zimin-pattern instances."
+  ],
+  "schema_version": 1
+}

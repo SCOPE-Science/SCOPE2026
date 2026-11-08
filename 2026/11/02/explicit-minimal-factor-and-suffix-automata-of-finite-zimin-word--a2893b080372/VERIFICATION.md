@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `checker.py` uses only the Python standard library. From a working directory containing both files, execute `python3 checker.py`.
+# Independent mathematical audit
 
-The code independently constructs the standard online suffix automaton through rank 11, checks the absence of clones, compares all labelled transitions with the arithmetic construction, and verifies the per-label and total transition counts. For ranks 1–7 it exhaustively lists every distinct factor of the finite word, independently computes each complete set of ending positions, and verifies the predicted earliest-ending state, equivalence class, and suffix-final-state criterion. The final output is `ALL CHECKS PASSED`.
+## correctness
 
-These finite computations are diagnostic evidence only. The infinite rank quantifier, minimality, and exact labelled graph follow from the factor-occurrence and distinguishing-continuation arguments in the proof. No independent audit was performed. Historical-priority coverage remains limited by unavailable full text of a general automata comparison paper.
+PASS
+
+The ruler-word identity Z_n[p]=a_{1+nu2(p)} implies any factor has a unique occurrence of its largest-ranked symbol; any occurrence has fixed right endpoint residue modulo 2^r. Therefore each endpos equivalence class is E_{r,j}, earliest end position p in [2^(r-1),2^r-1]. Right extensions are exactly consecutive ruler letters or transitions from block ends to first a_s positions, establishing the explicit graph. Each p is reachable by the prefix ending at p; distinct states have different maximal continuation lengths N-p for factors, and different maximal suffix-completion lengths for the suffix language, proving both minimalities. Counts follow by counting consecutive prefix-path arcs and extra block-end arcs. Independently enumerated all substrings, complete end-position classes, suffix acceptances and labelled arcs for ranks 1 through 6; verifier code uses an independent classical suffix-automaton construction up to rank 11.
+
+## originality
+
+PASS
+
+Best-of-knowledge contribution is the full labelled rank-dependent arithmetic transition map and simultaneous minimal suffix/factor recognition, not generic DFA theory or the already catalogued total edge-count sequence.
+
+## value
+
+PASS
+
+The exact minimal automaton of a canonical recursive word family is a natural invariant. The ruler-map provides a succinct O(n)-bit state representation for an exponentially sized automaton, and the per-symbol arc law contains more information than the pre-existing integer sequence or membership algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
