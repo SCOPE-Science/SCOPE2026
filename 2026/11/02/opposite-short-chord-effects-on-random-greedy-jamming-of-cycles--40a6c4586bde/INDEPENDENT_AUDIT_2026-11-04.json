@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:46:47.112999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the minimum-priority first vertex gives exact rational recurrence F(G)=1+|V|^-1 sum_v F(G−N[v]), additive on disjoint components. Direct independent finite recurrence for n≤13 and a full separate replay of every allowed n=4..29 recovered only zeros at (5,2),(7,3); independently calculated exact n=29 values Δ29,2=−20784848750122134973/96152177125598343750 and Δ29,3=7886534621278669/174822140228360625. For large cycles, acceptance discrepancies caused by the new chord propagate only along strictly increasing-priority self-avoiding paths, of at most eight per path length from either chord endpoint. Factorial probability 1/(length+1)! and comparison of identical radius R local neighborhoods yield |Δ_n,d−Δ_29,d|≤17/1120 for n≥29 (r=6,R=12). Both n29 margins exceed this bound, proving the signs for all remaining n. Repository checker enumerates all finite n≤29 via exact rational recurrence; no finite experiment alone is used as infinite proof. Need distinguish random greedy process from maximum independent set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krivelevich et al Section 8 presents a nonmonotonicity example built from two stars and proves locality via increasing priority paths.",
+          "Their general local-limit theorems control asymptotic densities but do not determine the sign for each finite short-chord cycle without additional exact local comparison."
+        ],
+        "reasoning": "Established general nonmonotonicity and factorial influence are prior methods; the exact all-n two-chord comparison requires separate rational finite cutoff and quantitative tail bounds.",
+        "searches": [
+          "random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy",
+          "greedy MIS edge deletion nonmonotonicity local influence paths"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and chord_greedy_verifier.py",
+        "Krivelevich et al full Wiley HTML",
+        "Pippenger 1989 abstract/citation",
+        "Bennett–Bohman 2016 abstract",
+        "Resultary semantic query random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krivelevich et al 2023 open full text: Section 8 nonmonotonicity on star pair, not cycles with chord length 2/3.",
+          "Pippenger 1989 provides classical random adsorption but no verified source passage asserting this exact classification."
+        ],
+        "reasoning": "The sign reversal for both chord classes does not follow merely from general edge-nonmonotonicity; it needs exact parameter signs and error certificate.",
+        "searches": [
+          "random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy",
+          "greedy maximal independent set edge insertion cycle triangles quadrilaterals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krivelevich–Mészáros–Michaeli–Shikhelman Greedy maximal independent sets via local limits 2019/2023 studies same random-priority process.",
+          "Pippenger Random Sequential Adsorption on Graphs (1989) is the same basic jamming model."
+        ],
+        "reasoning": "Random sequential adsorption and random greedy independent sets are equivalent here under iid continuous priorities. A same-cycle-chord two-distance sign theorem was not found in inspected statements.",
+        "searches": [
+          "random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy",
+          "random sequential adsorption ring with extra chord triangle square adsorption expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search gave greedy-set laws for threshold and chain graphs, not a chorded-cycle table.",
+          "The independent exact n=29 rational values and exceptions were checked against actual proof numbers."
+        ],
+        "reasoning": "No published exact table identified; incomplete Pippenger full-text inspection leaves possibility of an older short-cycle count.",
+        "searches": [
+          "random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy",
+          "cycle chord jamming expected greedy occupancy table n 5 7"
+        ]
+      },
+      "rationale": "Random greedy MIS edge addition nonmonotonicity is known, and decreasing-priority influence-path locality is established. The assessed finding is the complete opposite sign classification of the first two chord lengths over ALL cycle sizes with small equality exceptions, not the general principle.",
+      "residual_risks": [
+        "The independent full finite replay covers every allowed n≤29; the larger-n conclusion relies on the analytic factorial path coupling, not finite checking alone.",
+        "Classical adsorption tables may hide this sign comparison; Pippenger 1989 full text not read.",
+        "Only expected occupancy, not stochastic order or longer chords."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General edge deletion nonmonotonicity using two stars and influence path method; no inspected uniform chorded-cycle sign classification.",
+          "evidence": "Krivelevich et al Section 8, especially nonmonotonic example.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+          "material_read": "Accessible full article HTML, Section 8 and locality/nonmonotonicity examples inspected",
+          "method": "HTML full-text section search",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "same random-priority model and known edge-nonmonotonicity"
+        },
+        {
+          "assessment": "Priority risk, short-cycle adsorption literature plausible; no whole-document noncoverage claim.",
+          "evidence": "Pippenger, SIAM J Discrete Math 1989.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Abstract, citation and accessible description only; paywalled full proof not obtained",
+          "method": "Search/abstract",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "early random greedy jamming on graphs"
+        },
+        {
+          "assessment": "Hypergraph large-degree setting; no matching cycle with one chord.",
+          "evidence": "Bennett–Bohman 2016 model differs in scale.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.20667",
+          "material_read": "Accessible abstract and model description",
+          "method": "Abstract comparison",
+          "title": "A note on the random greedy independent set algorithm",
+          "trigger": "same stochastic greedy selection terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural canonical one-edge perturbation and a sharp geometric parity-like contrast between triangle-forming versus quadrilateral-forming chord. Uses a quantitative finite-to-infinite locality certificate; demonstrates nonmonotonicity already within regular host cycles, a precise qualitative invariant of random sequential adsorption.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and chord_greedy_verifier.py",
+    "Krivelevich et al full Wiley HTML",
+    "Pippenger 1989 abstract/citation",
+    "Bennett–Bohman 2016 abstract",
+    "Resultary semantic query random greedy maximal independent set cycle adding short chord distance 2 3 expected jamming occupancy"
+  ],
+  "disposition": "passed",
+  "final_claim": "In random-priority greedy independent-set jamming on cycles, inserting distance-two chord strictly DECREASES expected occupancy for n≥4 except n=5 equality; inserting distance-three chord strictly INCREASES it for n≥6 except n=7 equality. Both infinite families proved.",
+  "limitations": [
+    "One chord only at cyclic distance d=2 or 3.",
+    "Random sequential priority occupancy, not maximum independent set size."
+  ],
+  "residual_risks": [
+    "The independent full finite replay covers every allowed n≤29; the larger-n conclusion relies on the analytic factorial path coupling, not finite checking alone.",
+    "Classical adsorption tables may hide this sign comparison; Pippenger 1989 full text not read.",
+    "Only expected occupancy, not stochastic order or longer chords."
+  ],
+  "schema_version": 1
+}

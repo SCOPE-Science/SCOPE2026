@@ -1,19 +1,21 @@
-# Scientific review: short-chord jamming signs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** First-vertex conditioning proves the exact rational recurrence, whose independent permutation replay agrees in six small comparisons. The infinite sign extension is justified by a coupling of fixed independent priorities: changing a chord propagates only along increasing-priority paths. At most two degree-three vertices allow at most eight self-avoiding paths per starting vertex per length, producing an explicit factorial-tail estimate. The exact twenty-nine-vertex differences have greater absolute magnitude than the error \(17/1120\). The locality comparison and the finite cutoff together cover every stated graph order.
+PASS
 
-## Originality
+Condition on the minimum-priority first vertex gives exact rational recurrence F(G)=1+|V|^-1 sum_v F(G−N[v]), additive on disjoint components. Direct independent finite recurrence for n≤13 and a full separate replay of every allowed n=4..29 recovered only zeros at (5,2),(7,3); independently calculated exact n=29 values Δ29,2=−20784848750122134973/96152177125598343750 and Δ29,3=7886534621278669/174822140228360625. For large cycles, acceptance discrepancies caused by the new chord propagate only along strictly increasing-priority self-avoiding paths, of at most eight per path length from either chord endpoint. Factorial probability 1/(length+1)! and comparison of identical radius R local neighborhoods yield |Δ_n,d−Δ_29,d|≤17/1120 for n≥29 (r=6,R=12). Both n29 margins exceed this bound, proving the signs for all remaining n. Repository checker enumerates all finite n≤29 via exact rational recurrence; no finite experiment alone is used as infinite proof. Need distinguish random greedy process from maximum independent set.
 
-**PASS, qualified.** The closest full-text source is Krivelevich–Mészáros–Michaeli–Shikhelman, arXiv:1907.07216, including its prior edge-deletion nonmonotonicity example and monotone-priority locality lemma. Neither their general statements nor the other inspected sources were found to imply opposite all-order chord signs on cycles. In particular, proving nonmonotonicity on arbitrary graphs does not yield the claimed sign classification for either family. Pippenger's 1989 work was accessible only at abstract level, and the mathematical literature may contain equivalent specialized results not located here; historical priority is not independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The question tests whether a single extra exclusion edge has a universal effect in a canonical one-dimensional jamming system. The theorem shows a strong geometry-dependent sign reversal on natural infinite families, and gives the complete exceptional orders. The exact finite census is needed only for a mathematically justified cutoff; the general part is a structural locality argument.
+Random greedy MIS edge addition nonmonotonicity is known, and decreasing-priority influence-path locality is established. The assessed finding is the complete opposite sign classification of the first two chord lengths over ALL cycle sizes with small equality exceptions, not the general principle.
 
-## Limitations
+## value
 
-Uniform random priorities and a single chord of distance two or three are essential to the proved scope. No full stochastic order, other-chord classification, or independently certified priority claim is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural canonical one-edge perturbation and a sharp geometric parity-like contrast between triangle-forming versus quadrilateral-forming chord. Uses a quantitative finite-to-infinite locality certificate; demonstrates nonmonotonicity already within regular host cycles, a precise qualitative invariant of random sequential adsorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 chord_greedy_verifier.py` with Python 3 and its standard library. It checks exact rational recurrence differences for all \(4\le n\le29\) at chord distance two and all \(6\le n\le29\) at chord distance three. The only exact equalities are \(\Delta_{5,2}=\Delta_{7,3}=0\). A separately implemented permutation enumeration confirms the six examples with \(n=6,7,8\) and both distances. The script also confirms the rational order-twenty-nine values and the bound \(17/1120\).
+## correctness
 
-The recurrence is proved by conditioning on the earliest random priority. The all-order extension requires a separate analytic influence-path lemma; the proof establishes a bound of eight simple paths at each length because the graph has only two degree-three junctions, and a factorial probability for monotone priorities. This is not a computational exhaustion of arbitrarily large graphs. No external proof certification or independent audit is claimed.
+PASS
+
+Condition on the minimum-priority first vertex gives exact rational recurrence F(G)=1+|V|^-1 sum_v F(G−N[v]), additive on disjoint components. Direct independent finite recurrence for n≤13 and a full separate replay of every allowed n=4..29 recovered only zeros at (5,2),(7,3); independently calculated exact n=29 values Δ29,2=−20784848750122134973/96152177125598343750 and Δ29,3=7886534621278669/174822140228360625. For large cycles, acceptance discrepancies caused by the new chord propagate only along strictly increasing-priority self-avoiding paths, of at most eight per path length from either chord endpoint. Factorial probability 1/(length+1)! and comparison of identical radius R local neighborhoods yield |Δ_n,d−Δ_29,d|≤17/1120 for n≥29 (r=6,R=12). Both n29 margins exceed this bound, proving the signs for all remaining n. Repository checker enumerates all finite n≤29 via exact rational recurrence; no finite experiment alone is used as infinite proof. Need distinguish random greedy process from maximum independent set.
+
+## originality
+
+PASS
+
+Random greedy MIS edge addition nonmonotonicity is known, and decreasing-priority influence-path locality is established. The assessed finding is the complete opposite sign classification of the first two chord lengths over ALL cycle sizes with small equality exceptions, not the general principle.
+
+## value
+
+PASS
+
+Natural canonical one-edge perturbation and a sharp geometric parity-like contrast between triangle-forming versus quadrilateral-forming chord. Uses a quantitative finite-to-infinite locality certificate; demonstrates nonmonotonicity already within regular host cycles, a precise qualitative invariant of random sequential adsorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
