@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The weighted categorical-tree overlap lemma is proved for arbitrary starting masses; concavity reduces the conditional-distribution minimum to categorical extreme vertices. The matching oldest-symbol kernel attains the exact value. Multinomial counting, a square-root change of measure, an aperiodic lattice local-limit argument, and oscillation bounds complete the proof. The standalone finite checker passed 12,277 assertions, but is not used as an infinite proof. The assumptions and the difference between a sufficient true-hitting condition and an exact threshold for the displayed upper bound are explicit.
+
+**Originality — PASS, provisional.** The closest literature is Skórski's arXiv:2610.40845v1. Its Theorems 3–4 establish binary sharp overlap, while Theorem 24 and Corollary 26 give an arbitrary-alphabet hitting theorem with an unspecified block overlap or a weaker Hellinger lower bound. The exact q-ary minimax overlap, its aperiodic sharp asymptotic constant, and the improved explicit parameter regime are not stated in the inspected portions. The general Doeblin theory of Makur and Singh does not provide those categorical constants. Searches for equivalents, stronger coverage and exact tables returned no direct covering item. This does not prove historical uniqueness, and older overlapping-chain results remain a risk.
+
+**Mathematical value — PASS.** The q-ary sharp constant fills the quantitative missing input of a natural finite-memory hitting theorem. The result distinguishes all alphabets of size at least three from the binary parity case, gives a complete finite-depth minimax formula, and strictly enlarges a sufficient normalized-hitting regime (for instance \(q=3,\ b=0.14\)). This is structural information rather than a numerical recomputation of the binary case.
+
+**Scientific limits.** We do not assert that the stated b-threshold is necessary for actual hitting times, that the asymptotic is uniform as b varies, or that historical priority has been independently settled. The exact hitting-time deviation identity and general head–tail inequality are credited to the motivating literature.
+
+**Closest sources.** Maciej Skórski, *Learning Finite-Memory Binary Sources*, arXiv:2610.40845v1, Theorems 3–4, 24 and Corollary 26; Anuran Makur and Japneet Singh, *Doeblin Coefficients and Related Measures*, arXiv:2309.08475v2, Sections II-A and II-E. Alhakim's *On the eigenvalues and eigenvectors of an overlapping Markov chain* (2004) was accessible as an abstract only, a residual comparison risk.
+
+Self-review: passed. Independent audit: not yet performed.
