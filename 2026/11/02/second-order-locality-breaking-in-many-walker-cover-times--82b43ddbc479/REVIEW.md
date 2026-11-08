@@ -1,19 +1,21 @@
-# Scientific review: second-order locality breaking in many-walker cover times
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stated general finite-chain result has a complete analytic derivation. Its critical steps are (i) expansion of the first-hit probability through degree \(d+1\), including the correct pre-hit holding-time contribution and all first-hit paths of length \(d+1\); (ii) inclusion-exclusion for the farthest-target cover; (iii) the \(d\geq2\) separation of the quadratic logarithm term from the \(N^{-1/d}\) correction; (iv) a quantitative near-target bound that is little-oh of the proposed correction after integrating any fixed positive moment; and (v) the pendant-leaf path comparison. The exact coefficient checker passed 6,807 rational comparisons on enumerated and weighted finite chains. A separate deterministic numerical quadrature matches the predicted coefficients in the explicit nontrivial two-target example. Those checks do not substitute for the analytic proof.
+PASS
 
-## Originality
+For finite irreducible continuous-time Markov chains and farthest target distance d>=2, killing Q on a nonempty J subset of farthest targets yields analytic F_J(t)=A_J t^d+B_J t^(d+1)+O(t^(d+2)). Direct first-hit path integration gives A_J=W_d(J)/d! and B_J=[W_(d+1)(J)-L_d(J)]/(d+1)!, with L_d summing exit rates at PRE-hit vertices only. Exact inclusion-exclusion of no-walker-hit events and δ=N^(-1/d) give a two-term exponential expansion; the binomial-log F_J^2 term is O(N^-1)=o(δ) precisely when d>=2. A union bound controls nearer targets at order o(N^(-(m+1)/d)); finite irreducible hitting tails justify integration for any real m>0. Attaching a non-target pendant at a shortest-path vertex changes no d or d+1 first-hit paths, but adds r to one exit rate, changing B by -r W_v/(d+1)!, hence raises K1 strictly for unique farthest target. Independent killed-generator power expansions for the 4- and 5-state tree give (A,B)=(1/2,-2/3) and (1/2,-5/6), matching mean second coefficients 4/3 and 5/3.
 
-PASS, subject to historical-priority risk. The central comparison is Kim–Lawley (arXiv:2310.07905, first posted 2023-10-11), which proves the leading moments for the same cover-time observable but does not give the displayed next coefficient or the positive pendant-edge response. The antecedent Lawley (arXiv:2008.04496, first posted 2020-08-11) proves leading extreme first-passage distributions/moments and gives the killed-generator survival representation, but not this cover-time expansion. These distinctions concern mathematical implications, not differences in terminology. Standard second-order extreme-value asymptotics may provide an abstract route to the analytic expansion; comprehensive historical exclusivity has not been proved. The intended scientific contribution is the explicit network path/holding-rate coefficient, near-target suppression at that order, and off-geodesic structural response.
+## originality
 
-## Value
+PASS
 
-PASS. The motivating cover-time work emphasizes independence of the leading coefficient from network alterations away from geodesic paths. Determining the first order where that independence fails addresses a natural sensitivity question: the same shortest-route network can have different large-population search times at the next sharp scale. The two-target pendant example gives explicit different \(N^{-1}\) corrections, and the general corollary proves a strictly positive response for any geodesic pendant attachment in the unique-farthest-target case. This is more than a routine substitution of parameters or a small numerical refinement.
+Kim-Lawley 2024/2026 arXiv:2310.07905v2 provides EXACT leading many-walker cover-time law K0 and shortest geodesic localization using inclusion-exclusion. The assessed result computes K1 from next-jump paths and prehit holding rates and establishes a concrete off-shortest-path perturbation. Lawley 2020 fastest passage gives first-order Weibull moments. Standard second-order extreme-value expansions might imply a SINGLE-J expansion but not the full target inclusion-exclusion/near-target truncation without extra argument.
 
-## Limitations and closest prior literature
+## value
 
-The result assumes a fixed finite irreducible continuous-time Markov chain and distance \(d\geq2\); it neither treats the boundary case \(d=1\) nor proves corrections under target growth or infinite-state limits. The finite checks are diagnostics, while all infinite claims rest on the written proof. The two closest original sources are Kim–Lawley (2023/2024) and Lawley (2020), both inspected in accessible full-text form in relevant theorem and method sections. General second-order phase-type or extreme-value results not found in the targeted searches remain a historical priority risk. No independent mathematical validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-state second-order coefficient separates geodesic products from exit-rate effects and quantifies exactly when/why the leading locality principle breaks. This is a motivated structural asymptotic with explicit counterexample on a tiny non-target pendant edge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

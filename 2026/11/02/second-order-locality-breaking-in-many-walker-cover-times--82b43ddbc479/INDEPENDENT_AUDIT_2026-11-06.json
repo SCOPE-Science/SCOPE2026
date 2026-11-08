@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:07:55.401363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite irreducible continuous-time Markov chains and farthest target distance d>=2, killing Q on a nonempty J subset of farthest targets yields analytic F_J(t)=A_J t^d+B_J t^(d+1)+O(t^(d+2)). Direct first-hit path integration gives A_J=W_d(J)/d! and B_J=[W_(d+1)(J)-L_d(J)]/(d+1)!, with L_d summing exit rates at PRE-hit vertices only. Exact inclusion-exclusion of no-walker-hit events and δ=N^(-1/d) give a two-term exponential expansion; the binomial-log F_J^2 term is O(N^-1)=o(δ) precisely when d>=2. A union bound controls nearer targets at order o(N^(-(m+1)/d)); finite irreducible hitting tails justify integration for any real m>0. Attaching a non-target pendant at a shortest-path vertex changes no d or d+1 first-hit paths, but adds r to one exit rate, changing B by -r W_v/(d+1)!, hence raises K1 strictly for unique farthest target. Independent killed-generator power expansions for the 4- and 5-state tree give (A,B)=(1/2,-2/3) and (1/2,-5/6), matching mean second coefficients 4/3 and 5/3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim-Lawley leading K_m is built from d and A(J), not B(J); source explicit first-order equivalence, no displayed B correction"
+        ],
+        "reasoning": "Next-order expansion and pendant-branch effect are not consequences of their stated geodesic-local theorem.",
+        "searches": [
+          "Kim-Lawley arXiv:2310.07905v2 Sections II.1–II.4 full HTML; Lawley arXiv:2008.04496"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2310.07905v2",
+        "https://arxiv.org/abs/2008.04496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limit Eσ^m~K0 N^(-m/d) does not fix N^(-1/d) relative correction; holding rates on new non-target branch leave first-order A invariant but change B."
+        ],
+        "reasoning": "Explicit two graphs show same first-order law does not imply equal second-order law.",
+        "searches": [
+          "Kim-Lawley 2024 Theorem 1 and Section II; Lawley 2020 first-passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-hit path Taylor coefficients equal killed-generator matrix-power coefficients, with B involving both d+1 paths and holding rates"
+        ],
+        "reasoning": "Potential equivalent phase-type Weibull minimum expansion would need to include multi-target inclusion-exclusion and nearer-target negligibility.",
+        "searches": [
+          "Resultary search second order expansion many independent random walkers cover time shortest path non geodesic off path branch holding rates; phase-type fastest-first-hitting second asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct killed-generator values (A=1/2,B=-2/3 or -5/6) yield 4/3 vs 5/3, not a published numerical table in inspected prior"
+        ],
+        "reasoning": "No exact off-path leaf response in searched tables; nonfindability is not proof of novelty.",
+        "searches": [
+          "Resultary many walker second-order cover-time query; Kim-Lawley Example and Fig 1"
+        ]
+      },
+      "rationale": "Kim-Lawley 2024/2026 arXiv:2310.07905v2 provides EXACT leading many-walker cover-time law K0 and shortest geodesic localization using inclusion-exclusion. The assessed result computes K1 from next-jump paths and prehit holding rates and establishes a concrete off-shortest-path perturbation. Lawley 2020 fastest passage gives first-order Weibull moments. Standard second-order extreme-value expansions might imply a SINGLE-J expansion but not the full target inclusion-exclusion/near-target truncation without extra argument.",
+      "residual_risks": [
+        "An unsurveyed general second-order phase-type extreme-value theorem may give the single-target B coefficient by specialization.",
+        "The integration away from t≈0 uses finite irreducibility and fixed graph; invalid if target sets or rates vary with N.",
+        "The d=1 case is not included because binomial logarithmic correction enters at order N^-1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives leading order and geodesic locality, not inspected second-order K1 or pendant effect",
+          "evidence": "Equation (4), Section II.1 (6)-(7), Section II.2 (10), II.3 (16)",
+          "identifier_or_url": "https://arxiv.org/html/2310.07905v2",
+          "material_read": "Full reflowed HTML article, abstract, Sections I-V, especially II.1 inclusion-exclusion and II.2-II.4 formula A(J) and K_m",
+          "method": "Lawful open HTML",
+          "title": "Cover times of many random walkers on a discrete network",
+          "trigger": "Same stochastic network, shortest paths, many-walker cover-time moments"
+        },
+        {
+          "assessment": "First-order fastest passage; no evidenced general cover K1 statement in accessible portion",
+          "evidence": "Leading Weibull and shortest-path rates",
+          "identifier_or_url": "https://arxiv.org/abs/2008.04496",
+          "material_read": "Accessible abstract and cited theorem description, not full-text coverage verdict",
+          "method": "Open abstract and reference comparison",
+          "title": "Extreme first-passage times for random walks on networks",
+          "trigger": "Prior fastest-hit Weibull moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-state second-order coefficient separates geodesic products from exit-rate effects and quantifies exactly when/why the leading locality principle breaks. This is a motivated structural asymptotic with explicit counterexample on a tiny non-target pendant edge.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed finite irreducible CTMC, iid walkers, all real m>0 and max directed shortest-hit distance d>=2; pendant locality-breaking statement requires unique farthest target and no initial mass at new leaf.",
+    "An unsurveyed general second-order phase-type extreme-value theorem may give the single-target B coefficient by specialization.",
+    "The integration away from t≈0 uses finite irreducibility and fixed graph; invalid if target sets or rates vary with N.",
+    "The d=1 case is not included because binomial logarithmic correction enters at order N^-1."
+  ],
+  "schema_version": 1
+}
