@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every odd q and nonzero t, the nondegenerate conic has k=q-chi_q(-1) points; distinct translated conics meet in at most two points. Reflection c -> a+b-c exhausts the possible centers for a pair, with uniqueness exactly for antipodal pairs. This proves the pair criterion; a triple has all eight traces exactly when it lies on a circle, avoids antipodal pairs, and k>=8. q=3,5 have k=4 and every triple on a circle has an antipodal pair. Uniqueness of circles through three points excludes four-point shattering. Summation over q^2 centers gives exact coefficients; every inequality and small boundary is checked in RESULT.md. Independent bitset enumeration of all traces covers all nonzero t for q=3,5,7,9 and t=1 for q=11,13. Finite tests supplement, not replace, the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fitzpatrick–Iosevich–McDonald–Wyman 2021, Theorem 1.3: VC dimension 3 for sufficiently large E; Section 3: at most three for arbitrary E.",
+        "Pham 2023, Theorem 1.4: VC dimension 3 for E subset F_q^2 with |E| asymptotically much larger than q^(13/7).",
+        "Both permit restricted subsets and prove an asymptotic scalar result, not a complete coefficient formula on the full plane, including q=3 and 5."
+      ],
+      "reasoning": "Earlier results are broader in permitting dense proper E but narrower in conclusion (VC scalar rather than exact shattering complex) and asymptotic in q. The known scalar VC dimension 3 for large q is explicitly attributed; the novel claim is not that scalar special case.",
+      "searches": [
+        "finite affine plane unit circles concepts radius exact VC dimension all odd q",
+        "arxiv:2108.13231v1 Theorems 1.3 and 1.6 and Sections 3–4",
+        "arxiv:2304.09375v1 Theorems 1.3 and 1.4 and Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.13231v1 (primary PDF, relevant statement and proof sections)",
+      "arxiv:2304.09375v1 (primary PDF, relevant theorem and configuration sections)",
+      "arxiv:2303.07878v1 (abstract/index only)",
+      "Publicly indexed finite-field quadratic-level Fourier-extension results (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier three-point uniqueness entails the degree-at-most-three bound; this component is not asserted as original.",
+        "Neither inspected earlier theorem counts q^2 k^2 / 4 common-circle pairs or q^2 k(k-2)(k-4)/6 shattered triples, nor proves their characterization.",
+        "The explicit q=3,5 exceptional behavior and quadratic-character dependence are not inferred from the earlier large-q existence theorems."
+      ],
+      "reasoning": "A scalar dimension-three theorem cannot determine the numbers or structures of all supports of sizes one through three. The new argument uses center-reflection and antipodal-pair multiplicity to close that gap. The new result contains a known scalar corollary, explicitly credited rather than used as the priority claim.",
+      "searches": [
+        "arxiv:2108.13231v1 Section 3 circle intersections and Section 4 configurations",
+        "arxiv:2304.09375v1 density theorem and Section 5 shattered triples",
+        "VC dimension unit circles finite field full plane q=3 q=5 q=7 shattered pairs triples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.13231v1 Sections 1, 3 and 4 use the identical class H_t^2 of finite-field distance circles; in Section 3 three distinct points determine one fixed-radius circle.",
+        "Hamming graph closed-neighborhood shattering polynomials involve Hamming rather than quadratic distance and do not imply the present conic-incidence coefficients.",
+        "The examined finite-field quadratic-level Fourier-extension research concerns norm optimization rather than VC trace counts."
+      ],
+      "reasoning": "The same fixed-radius circle concept family is present in the 2021 primary source, but its established three-point uniqueness and global VC ceiling do not imply exact counts or the antipodal-only criterion. Hamming balls and Fourier extension use different invariants. No identical all-field face enumerator was located.",
+      "searches": [
+        "exact shattering polynomial finite field unit distance circles center neighborhoods antipodal pairs q^2",
+        "VC dimension unit circles finite field full plane q=3 q=5 q=7 shattered pairs triples",
+        "finite-field unit-circle membership, shattering polynomial, q=3 q=5, antipodal pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact shattering-polynomial table surfaced in the examined public literature and mathematical research indices.",
+        "A related small-field sphere result concerns Fourier extremizers rather than membership-label trace counts.",
+        "The present finite checker directly verifies all radii for q=3,5,7,9 and radius one for q=11,13."
+      ],
+      "reasoning": "Search absence is not proof of novelty. Checked indexed sphere records measure Fourier optimization rather than exact face enumerations, and the earlier full-plane VC literature only provides scalar existence.",
+      "searches": [
+        "exact shattering polynomial finite field unit distance circles center neighborhoods antipodal pairs q^2",
+        "finite affine plane unit circles concepts radius exact VC dimension all odd q",
+        "finite-field unit-circle radius t shattering polynomial q^2 k^2",
+        "finite field circle antipodal pairs shattered triples all q"
+      ]
+    },
+    "rationale": "Inspected same-model circle VC sources from 2021 and 2023 establish the VC upper bound and large-q existence, but not the exact all-radius face enumerator, antipodal structural criterion, or small-field exceptional coefficients. Checked relevant public research literature and indexed mathematical statements for equivalent or stronger statements. The 2021 scalar VC=3 fact is explicitly credited; historical priority in alternate finite-conic terminology remains a real risk.",
+    "residual_risks": [
+      "Full historical literature may use antipodal finite conic design or incidence terminology and already contain an equivalent face enumerator.",
+      "The third listed paper was reviewed only at abstract level, not full text.",
+      "Unindexed older publications or inaccessible specialist literature were not exhaustively checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers known VC ceiling and asymptotic VC=3 on dense E, but inspected portions do not give complete full-plane shattering polynomial or antipodality criterion.",
+        "evidence": [
+          "arxiv:2108.13231v1 PDF pp. 1–2 and 4–6, Theorem 1.3, Section 3 near proof of VC upper bound, start of Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13231",
+        "material_read": "PDF Introduction, Theorems 1.3 and 1.6 and Remarks 1.4–1.7, Section 3 arguments for two-circle intersections and absence of shattered four-sets, initial Section 4 configurations; PDF page 2 screenshot.",
+        "method": "Opened primary arXiv PDF; read relevant extracted text with page positions; visually inspected page 2.",
+        "title": "The VC-dimension and point configurations in F_q^2",
+        "trigger": "Identical quadratic finite-field circle concept class"
+      },
+      {
+        "assessment": "Density-threshold and geometric-configuration existence results, not exact all-q full-plane coefficients.",
+        "evidence": [
+          "arxiv:2304.09375v1 PDF pp. 1–3 and 5–6, Theorem 1.4, Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.09375",
+        "material_read": "PDF abstract and introduction, Theorems 1.1–1.4, Section 2 circle preliminaries and relevant part of Section 5 listing shattered-triple configurations; PDF page 2 screenshot.",
+        "method": "Opened primary arXiv PDF; read theorem and proof scope from extracted full text with PDF page positions; visually inspected page 2.",
+        "title": "Parallelograms and the VC-dimension of the distance sets",
+        "trigger": "Improves the earlier VC dimension of finite-field distance-graph neighborhoods"
+      },
+      {
+        "assessment": "The described results bound VC dimensions under graph pseudorandomness rather than enumerate exact shattered supports; abstract-level comparison leaves a residual risk.",
+        "evidence": [
+          "arxiv:2303.07878v1 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.07878",
+        "material_read": "Abstract and publication/index summaries only; full text not examined.",
+        "method": "Read arXiv index/abstract available in web search",
+        "title": "VC-dimension and pseudo-random graphs",
+        "trigger": "Possible general graph-neighborhood theorem that could imply a more general exact polynomial"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a0deccaa-01de-491d-8c96-1e695354511c",
+  "value": {
+    "rationale": "The exact all-field full shattering-complex face vector is a natural invariant of finite-field distance incidence: pair/triple counts and support geometry cannot be recovered from a scalar VC dimension. Its quadratic-character dependence, sharp q=3,5 cutoff and invariance for every t !=0 give a complete structural answer in a canonical family. The count is motivated by prior study of distance-graph VC learning, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
