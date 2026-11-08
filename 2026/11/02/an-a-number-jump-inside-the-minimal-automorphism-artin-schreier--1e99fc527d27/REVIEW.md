@@ -1,19 +1,21 @@
-# Review of the a-number jump in the characteristic-three Artin–Schreier family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The genus and \(3\)-rank follow from the one-pole ramification formulas. The complete geometric automorphism proof is not a finite-field enumeration: uniqueness of the degree-three rational subfield follows from the Castelnuovo–Severi inequality because the genus is nine, and an exhaustive symbolic coefficient comparison forces all affine base changes to be trivial over the algebraic closure. The explicit nine differential forms have distinct pole orders and form a full canonical basis. The displayed semilinear Cartier images have rank four at \(a=0\) and five for every \(a\ne0\). The packaged standalone checker reproduces the coefficient and matrix computations in characteristic three. No claim about all Newton polygons or isomorphism classes is made.
+PASS
 
-## Originality
+For y^3-y=x^10+a x^8+x^7 over algebraically closed characteristic 3, one pole of order 10 gives g=9 and p-rank 0. A distinct rational degree-three subfield would violate Castelnuovo-Severi bound g<=4, forcing automorphisms to normalize deck group and preserve infinity. Comparing coefficients of f(ux+v)-eps*f(x)=h^3-h, with deg(h)<=3 and no finite poles, forces u=1,v=0,eps=1, so Aut=C3 for every a. Nine regular x^iy^j dx forms with pole order 3i+10j<=16 form a basis. Explicit Cartier-semilinear images have rank 4 for a=0, rank 5 for a !=0, hence a-number 5 at 0 and 4 elsewhere; independently recomputed full 9x9 image matrix over F3 for a=0,1,2. Geometric coefficient argument, not finite F3 enumeration, covers all algebraic extensions.
 
-**PASS, qualified.** The closest inspected primary work, Tafazolian–Kazemifard (arXiv:2610.13279, 2026), constructs minimal-automorphism Artin–Schreier curves for the admissible genus and \(p\)-rank ranges. Its degree-ten one-pole representative has the pattern \(x^{10}+x^8+x^5\), while Question 7.5 expressly leaves finer \(a\)-numbers for further investigation. It neither gives the current family \(x^{10}+ax^8+x^7\) nor implies its two exact Cartier ranks. Farnell–Pries's 2013 constancy theorem needs the pole-order congruence \(p\equiv1\pmod L\), absent when \((p,L)=(3,10)\). Pries–Zhu treats \(p\)-rank strata, not this simultaneous automorphism and \(a\)-number jump. The older genus-three/four classification of Duque-Rosero and collaborators does not cover genus nine. Searches using equation, parameterized-family, Cartier-rank and alternative automorphism formulations, together with a claim-level comparison against accessible prior records, produced no equivalent or stronger covering result. This is a provisional priority judgment: an obscure equivalent curve after coordinate change might exist, and no independent historical review was performed.
+## originality
 
-## Value
+PASS
 
-**PASS.** A recent question asks for fine Jacobian invariants while requiring the full automorphism group of an Artin–Schreier curve to be no larger than its forced deck group. This result gives two distinct \(a\)-numbers for curves defined over \(\mathbb F_3\), with unchanged characteristic, genus, \(3\)-rank and full geometric automorphism group; it also proves the complete jump locus of a natural one-dimensional family. The exact jump is not a deduction of the generic \(p\)-rank-stratification theorem or the constant-rank theorem, and it distinguishes nonisomorphic curves intrinsically.
+Minimal-automorphism Artin-Schreier existence and constant-rank results are known. The specific one-parameter x^10+a x^8+x^7 Cartier rank jump under a proven full C3 automorphism group appears unaccounted for in inspected accessible abstracts and claims. Relevant full 2026 primary paper could not be inspected (arxiv/OA failure, authorized Oxford vpn_disconnected); this is residual priority uncertainty, not proof of no coverage.
 
-## Limitations
+## value
 
-No assertion is made that all \(a\)-numbers can be prescribed for genus nine or more generally, or that the nonzero parameters give mutually nonisomorphic curves. The existence of an undiscovered equivalent earlier result is a historical-priority risk. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The new one-dimensional family gives two distinct exact Jacobian a-numbers while characteristic, genus, p-rank and the full geometric automorphism group remain fixed at the deck minimum; answers a motivated finer-invariants problem with a complete reduced jump support, not a generic curve count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
