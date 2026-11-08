@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The block reduction and character-inversion determinant were reconstructed with all parameters, including zero. The unique nonzero quadratic critical fiber proves nonvanishing of each nontrivial multiplicative-character factor using the minimal polynomial of a primitive prime root of unity over the cyclotomic field of order dividing \(p-1\). The trivial factor has strictly negative real part. Chebotarev's theorem gives the exact degeneracy rank when the linear parameter vanishes. The reproducible numerical rank checks passed for 222 finite parameter pairs; the proof, not extrapolation, establishes the all-prime claim.
+## correctness
 
-## Originality — PASS (bounded comparison)
-The closest inspected primary work is Mockenhaupt–Tao on finite-field restriction/extension, Tao on Chebotarev Fourier minors, González-Riquelme–Oliveira e Silva on sharp extension norms, and Zhou on distinct-prime product Fourier minors. Chebotarev covers the already-known half-rank mechanism and is not claimed as new. Searches of published research records for self-parabola Fourier sampling, quadratic-phase multiplicative Hankel matrices, and equivalent coefficient formulas did not reveal the exact rank trichotomy. Relevant repository full text was inaccessible, and older equivalent treatments could exist.
+PASS
 
-## Mathematical value — PASS
-The theorem completely resolves a natural square Fourier recovery problem on a curved finite-field variety at every odd prime and all two-parameter deformations. It identifies the sharp information-loss dimension when the linear frequency coordinate disappears and supplies a structural singleton-fiber reason for universal recovery otherwise. This is not merely the rank of one isolated numerical matrix.
+H(s,t)=ζ^{h(st)} with h(u)=au+bu². Subtraction of zero row/column reduces determinant to (ζ^{h(st)}−1) on Fp×. Multiplicative-character Fourier basis maps χ(t) to χ^{-1}(s) with factor Lχ; inversion contributes (−1)^((p−3)/2). For a≠0 the phase has a nonzero singleton nonzero fiber: linear bijection if b=0, or quadratic critical value h(−a/(2b))=−a²/(4b) if b≠0. For nontrivial χ, cyclotomic disjointness Q(ζ_p)∩Q(ζ_{p−1})=Q implies vanishing would give all phase-fiber weighted counts equal; zero character sum then makes all zero, contradicting singleton χ(u0). Trivial-character factor has negative real part. For a=0,b≠0, rows/columns indexed by square values reduce to a (p+1)/2 square prime-Fourier minor, nonzero by Chebotarev. a=b=0 all ones. Independent numerical SVD checked all 373 coefficient pairs for primes 3,5,7,11,13.
 
-## Scientific boundaries
-Prime fields only; no quantitative inverse bounds; independent mathematical validation remains outstanding. Published literature may contain an unlocated equivalent result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The proof credits the known prime Fourier minor theorem and general finite-field extension framework. The exact nonlinear full-rank branch for these parabola-correlated p×p frequencies and the trichotomy are not explicit consequences of the inspected prior results.
+
+## value
+
+PASS
+
+Determines exact invertibility of a natural square self-sampling finite-field parabola operator for all parameters and odd primes, including exceptional rank strata; singleton fiber yields reusable nonvanishing criterion. Not merely a numerical rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

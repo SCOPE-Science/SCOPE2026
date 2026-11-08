@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T06:56:24.842181Z",
+  "axes": {
+    "correctness": {
+      "rationale": "H(s,t)=ζ^{h(st)} with h(u)=au+bu². Subtraction of zero row/column reduces determinant to (ζ^{h(st)}−1) on Fp×. Multiplicative-character Fourier basis maps χ(t) to χ^{-1}(s) with factor Lχ; inversion contributes (−1)^((p−3)/2). For a≠0 the phase has a nonzero singleton nonzero fiber: linear bijection if b=0, or quadratic critical value h(−a/(2b))=−a²/(4b) if b≠0. For nontrivial χ, cyclotomic disjointness Q(ζ_p)∩Q(ζ_{p−1})=Q implies vanishing would give all phase-fiber weighted counts equal; zero character sum then makes all zero, contradicting singleton χ(u0). Trivial-character factor has negative real part. For a=0,b≠0, rows/columns indexed by square values reduce to a (p+1)/2 square prime-Fourier minor, nonzero by Chebotarev. a=b=0 all ones. Independent numerical SVD checked all 373 coefficient pairs for primes 3,5,7,11,13.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mockenhaupt–Tao and González-Riquelme–Oliveira e Silva prove global extension/restriction norm results; Zhou addresses Fourier minors over product groups of distinct prime orders."
+        ],
+        "reasoning": "Global Lp bounds do not automatically imply invertibility after restricting to p special frequencies. Distinct-prime product minor results cannot set two primes equal without changing assumptions.",
+        "searches": [
+          "arxiv:math/0204234",
+          "arxiv:2405.16647",
+          "arxiv:2505.01189"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0308286",
+        "https://arxiv.org/abs/math/0204234",
+        "https://arxiv.org/abs/2405.16647",
+        "https://arxiv.org/abs/2505.01189",
+        "Resultary: b205e1a359db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tao Chebotarev shows nonzero minors of the p-DFT and supplies a=0 rank, not a≠0 quadratic phase; sharp extension norms control integrated norms instead of this square submatrix rank."
+        ],
+        "reasoning": "Known ingredients do not by themselves imply full nonlinear rank; decisive added lemma is the singleton nonzero fiber and cyclotomic character sum argument.",
+        "searches": [
+          "arxiv:math/0308286 Lemma 1.3",
+          "arxiv:2405.16647 Theorems 1.1–1.3",
+          "Resultary hit b205e1a359db"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A parabola restriction matrix in Fp² is a square sampled Fourier matrix; in a=0 branch it reduces to a classical cyclic minor, while a≠0 requires a character-weighted singleton phase fiber."
+        ],
+        "reasoning": "The row/column rank trichotomy is an equivalent self-sampling formulation; prime Fourier-minor nonsingularity alone only covers the degenerate square-value branch.",
+        "searches": [
+          "Resultary: Rank of prime-field quadratic phase Fourier sampling matrix zeta^{a st+b s²t²}, self-sampling finite parabola",
+          "arxiv:math/0308286"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed seven-level Fourier-frame spectrum on a higher-dimensional finite-field paraboloid has a Gram spectrum, not this multiplicative Hankel matrix and its coefficient stratification."
+        ],
+        "reasoning": "Similar keyword/parameters are not exact database coverage; published records searched yielded no exact p×p rank table across all a,b.",
+        "searches": [
+          "Resultary search: finite-field parabola self-sampling Fourier rank quadratic phases",
+          "Resultary hit b205e1a359db"
+        ]
+      },
+      "rationale": "The proof credits the known prime Fourier minor theorem and general finite-field extension framework. The exact nonlinear full-rank branch for these parabola-correlated p×p frequencies and the trichotomy are not explicit consequences of the inspected prior results.",
+      "residual_risks": [
+        "Historical Fourier submatrix literature may include an equivalent character-sum criterion; bounded database search is not definitive.",
+        "No effective conditioning or stability conclusion follows from rank alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: classical a=0 branch",
+          "evidence": "Chebotarev gives the nonzero |Q| minor, an explicit dependency acknowledged.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0308286",
+          "material_read": "arXiv HTML statement and proof of prime Fourier-minor nonvanishing (Chebotarev)",
+          "method": "read primary arXiv HTML theorem and lemma",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "exact same prime Fourier minor needed at zero linear coefficient"
+        },
+        {
+          "assessment": "NOT_COVERING in inspected norm theorems",
+          "evidence": "Sharp extension norms and extremizers differ from this p-frequency self-sampling rank.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.16647",
+          "material_read": "arXiv HTML introduction and Theorems 1.1–1.3",
+          "method": "read accessible theorem portions",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "closely matching finite-field parabola Fourier extensions"
+        },
+        {
+          "assessment": "RELATED, whole-document noncoverage not claimed",
+          "evidence": "General restriction theory is credited but its theorems were not found to give the coefficient trichotomy.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0204234",
+          "material_read": "abstract and framework as cited; original full proof not rechecked",
+          "method": "abstract/context inspection",
+          "title": "Restriction and Kakeya phenomena for finite fields",
+          "trigger": "foundational parabola restriction theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines exact invertibility of a natural square self-sampling finite-field parabola operator for all parameters and odd primes, including exceptional rank strata; singleton fiber yields reusable nonvanishing criterion. Not merely a numerical rank table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0308286",
+    "https://arxiv.org/abs/math/0204234",
+    "https://arxiv.org/abs/2405.16647",
+    "https://arxiv.org/abs/2505.01189",
+    "Resultary: b205e1a359db"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Historical Fourier submatrix literature may include an equivalent character-sum criterion; bounded database search is not definitive.",
+    "No effective conditioning or stability conclusion follows from rank alone."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Odd prime fields over C, exact rank only; no extension to prime powers or uniform condition-number bounds; Chebotarev is a named external premise."
+  ]
+}
