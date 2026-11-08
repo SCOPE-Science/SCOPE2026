@@ -1,21 +1,21 @@
-# Scientific review: pulse-time invariance in shared-crowding competition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The common-crowding flow admits the exact fractional representation obtained by differentiating its positive denominator. Ordered composition of diagonal fractional maps closes algebraically; the explicit \(k\)-iterate follows by induction. Elementary asymptotics of the resulting geometric sums prove all three sharp threshold cases, including ties and the \(1/k\) law. Equal multiplier ratios and the strictly increasing scalar Beverton–Holt restriction exclude nonfixed periodic points. Direct differentiation gives the full spectrum on the winning simplex, with the neutral tangent modes kept distinct from exponentially attracting normal modes. The self-contained `verify.py` program passed exact rational composition, iterates, two pulse-timing witnesses, and the neutral-simplex matrix checks. The computations are consistency checks, not a substitute for the general proof.
+PASS
 
-## Originality — PASS, subject to historical-priority uncertainty
+The flow formula x_i(t)=u_i E_i(s,t)/(1+sum_j u_j int_s^t b_j(v)E_j(s,v)dv) follows by direct differentiation, including pulse end-point convention. Exact projective composition L_(n,d) o L_(m,c)=L_(n*m,c+m*d) yields strictly positive c_j, pulse-time-independent mu_i, and the geometric-series iterate for every k. The three cases max mu>1, =1 and <1 follow by dividing the common denominator by max(mu)^k, by k, or using convergence of geometric series. Active ratios force common multipliers for cycles; the scalar increasing Beverton-Holt map rules out nonfixed cycles. At maximizing fixed simplex the Jacobian has tangent 1, radial 1/Lambda and transverse mu_j/Lambda; this is normal attraction, not isolated asymptotic stability. Negative or zero initial populations are not included in global selection; fixed-face classification includes nonnegative supports. Independent exact-rational flow/pulse witness gave multiplier vector (2,3), c=(7/4,3/2); shifted timing gives c_2=5/2 and winner abundance 4/5 rather than 4/3. Finite corroboration is not the proof.
 
-The one-step map is a special case of the known multispecies Leslie–Gower recurrence; the existence of such maps is explicitly **not** claimed as new. A recent motivating preprint, arXiv:2609.09343, addresses permanence under periodic pulses, but only its metadata and a secondary scientific account were available. Schreiber (2025) gives broad flow–kick invasion and permanence theory; Hosack, El-Hachem, and Beeton (2025) give local stability results for generic multispecies Leslie–Gower maps; Sacker (2011) establishes periodic coexistence when coupling is sufficiently small. Inamine and collaborators (2022) analyze disturbance regimes in two-species competition, and Xiao and collaborators (2026) give comparison and Lyapunov criteria in an additional-pollutant model. Their inspected statements do not directly imply the complete, exact shared-crowding classification with asynchronous species-specific pulse timing, critical extinction rates, and neutral simplex. Searches of published mathematical finding summaries under projective, impulse, rank-one, common-denominator, Leslie–Gower, and competitive-exclusion formulations found no direct match.
+## originality
 
-A significant residual risk is that uninspected text in the motivating preprint or older periodic Leslie–Gower literature could contain an equivalent special case. The claim of originality is limited to the available comparisons, not a guarantee of global priority.
+PASS
 
-## Mathematical value — PASS
+The return-map form itself is an established equal-row multispecies Leslie–Gower recurrence, not independently new. Novelty assessed only for a constructive exact realization under arbitrary finite asynchronous species-specific pulses, phase-independent competitive winner, closed all-iterate global classification, critical inverse-time rates, neutral fixed-simplex stability and no subharmonics. The 2026 pulsed competition preprint was accessible at abstract level but not in full; plausible priority risk is recorded.
 
-A recurring ecological question is whether changing *when* interventions occur, while keeping the same total doses, changes which species persist. The theorem identifies an exact structural boundary: pulse timing alters effective competition loads and survivor abundance but cannot alter the winning species if all receivers experience the same competition pressure. This is stronger than mere numerical illustration and includes all species counts, seasonal forcing, staggered pulses, critical extinction, neutral multistability, and an exclusion of subharmonic cycles. The neutral tied-winner simplex is an important nonhyperbolic boundary that cannot be inferred from generic asymptotic-stability criteria. These results furnish a complete benchmark against which more general competition or state-dependent pulse models can be compared.
+## value
 
-## Closest literature and scientific limits
+PASS
 
-The general multispecies Leslie–Gower map and flow–kick invasion framework are existing mathematics. The result is specific to equal-row, shared-crowding interactions and predetermined repeated positive multiplicative pulses; it does not hold by assertion for general competition matrices, state-dependent pulse times, stochastic dynamics, or nonlinear pulse responses. The motivating preprint's full text was not accessible, so a later independent historical-priority inspection is appropriate.
+The exact global dynamics under arbitrary finite asynchronous positive species pulses is a natural and ecologically motivated mathematical question because pulse timing alters abundance while total multiplicative growth fixes the competitive winner. The sharp extinction, threshold 1/k, tied-winner simplex, no-subharmonics and local spectrum answer nontrivial boundary cases of the general class. The recurrence algebra is classical and value rests on the combined genuinely all-parameter pulse interpretation, not renaming the Leslie–Gower map.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

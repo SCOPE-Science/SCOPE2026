@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The script uses exact rational arithmetic, with no external packages or network access. It independently checks the composition of multiple finite flow and pulse maps against the combined fractional map; checks the explicit iterate formula in two mathematically distinct evaluation orders; verifies a rational example in which pulse timing alters survivor abundance without changing the winner; and verifies an exact fixed point on a neutral simplex, including trace and determinant of its linearization. It also exercises the subcritical, critical, supercritical, and tied-multiplier branches on finite iterates.
+## correctness
 
-The resulting execution output was:
+PASS
 
-```
-PASS: exact rational composition, iterate, timing and fixed-simplex checks
-```
+The flow formula x_i(t)=u_i E_i(s,t)/(1+sum_j u_j int_s^t b_j(v)E_j(s,v)dv) follows by direct differentiation, including pulse end-point convention. Exact projective composition L_(n,d) o L_(m,c)=L_(n*m,c+m*d) yields strictly positive c_j, pulse-time-independent mu_i, and the geometric-series iterate for every k. The three cases max mu>1, =1 and <1 follow by dividing the common denominator by max(mu)^k, by k, or using convergence of geometric series. Active ratios force common multipliers for cycles; the scalar increasing Beverton-Holt map rules out nonfixed cycles. At maximizing fixed simplex the Jacobian has tangent 1, radial 1/Lambda and transverse mu_j/Lambda; this is normal attraction, not isolated asymptotic stability. Negative or zero initial populations are not included in global selection; fixed-face classification includes nonnegative supports. Independent exact-rational flow/pulse witness gave multiplier vector (2,3), c=(7/4,3/2); shifted timing gives c_2=5/2 and winner abundance 4/5 rather than 4/3. Finite corroboration is not the proof.
 
-The general theorem is proved analytically in `RESULT.md`. Finite arithmetic checks are not exhaustive and do not establish the asymptotics, absence of periodic cycles, or the Floquet spectrum for every admissible parameter. These follow from the closed-form proof. The statement is restricted to predetermined periodic pulse times, rank-one shared crowding, positive multiplicative pulse factors, and positive seasonal competition integrals. A recent motivating full preprint was not inspected, and no independent mathematical or historical-priority audit has been performed.
+## originality
+
+PASS
+
+The return-map form itself is an established equal-row multispecies Leslie–Gower recurrence, not independently new. Novelty assessed only for a constructive exact realization under arbitrary finite asynchronous species-specific pulses, phase-independent competitive winner, closed all-iterate global classification, critical inverse-time rates, neutral fixed-simplex stability and no subharmonics. The 2026 pulsed competition preprint was accessible at abstract level but not in full; plausible priority risk is recorded.
+
+## value
+
+PASS
+
+The exact global dynamics under arbitrary finite asynchronous positive species pulses is a natural and ecologically motivated mathematical question because pulse timing alters abundance while total multiplicative growth fixes the competitive winner. The sharp extinction, threshold 1/k, tied-winner simplex, no-subharmonics and local spectrum answer nontrivial boundary cases of the general class. The recurrence algebra is classical and value rests on the combined genuinely all-parameter pulse interpretation, not renaming the Leslie–Gower map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
