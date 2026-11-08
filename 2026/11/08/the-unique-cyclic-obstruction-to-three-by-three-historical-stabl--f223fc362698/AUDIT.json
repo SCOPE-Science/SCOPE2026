@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact last-entry equivalence follows from two-sided incremental deferred acceptance for all stable five-agent markets (at most two stable outcomes). Both an exhaustive independent Python implementation and a separate C++ implementation enumerate all 46,656 profiles and agree on (stable,reachable) counts 34080,11484,12,1080. Explicit comparison to all 12 label-orbit images certifies unique obstruction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang Theorem 1 gives one terminal-agent counterexample; Theorem 2 gives augmented-history completeness (a different history class).",
+        "Cheng proves NP-completeness of ROM reachability and some general properties; no all-profile 3x3 enumeration identified."
+      ],
+      "reasoning": "Augmented-history completeness does not imply terminal-agent completeness, and the existence of an inaccessible middle matching proves only a lower bound, not that all other strict 3x3 markets are historically complete.",
+      "searches": [
+        "Semantic research-index query: historical reachability under population shocks 3 by 3 all 46656 strict marriage markets 12 cyclic orbit exactly 1/3888 inaccessible middle stable matching",
+        "Semantic research-index query: stable matching terminal agent history 3x3 exhaustive enumeration only cyclic profile middle stable unreachable",
+        "https://arxiv.org/html/2609.20176",
+        "https://rohitvaish.in/data/Papers/%5BCheng%2B%5D%20On%20the%20Stable%20Matchings%20that%20can%20be%20Reached%20When%20the%20Agents%20Go%20Marching%20in%20One%20by%20One.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.20176",
+      "https://doi.org/10.1137/140996690",
+      "https://arxiv.org/abs/2201.00645",
+      "https://oeis.org/A344666"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang cyclic example implies all 12 independent relabelings are deficient, giving a 12-profile lower bound.",
+        "Two exhaustive checkers prove no other deficient profile exists, a distinct finite universal claim."
+      ],
+      "reasoning": "The source example does not establish an upper bound. The new upper bound and equality of the deficiency set with a single relabeling orbit are not corollaries of the example or the stable-matching marginal table.",
+      "searches": [
+        "https://arxiv.org/html/2609.20176",
+        "\"historical reachability\" \"46656\" stable matchings",
+        "https://rohitvaish.in/data/Papers/%5BCheng%2B%5D%20On%20the%20Stable%20Matchings%20that%20can%20be%20Reached%20When%20the%20Agents%20Go%20Marching%20in%20One%20by%20One.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang arXiv:2609.20176 sections 2-3 defines arbitrary exit/reentry histories and the final-entry obstruction.",
+        "Cheng 2016 pp. 2048-2049 studies ROM-reachability under entry-only histories, and gives general structural properties, not the 3x3 orbit count."
+      ],
+      "reasoning": "The claimed property is not simply whether a single example is reachable nor solely entry-only ROM reachability. For 3x3, codimension-one predecessor reachability makes the arbitrary history property finite and exact; the full orbit exclusion is not supplied by these papers.",
+      "searches": [
+        "Semantic research-index query: stable matching historical reachability three by three complete strict marriage markets exact fraction exhaustive uniform preferences proposal-chain entry exit unreachable stable matchings",
+        "Semantic research-index query: random order mechanism stable matching reachable 3x3 exact enumeration random preference profiles terminal entrant chains",
+        "three by three stable marriage terminal agent historical reachability exact probability fraction",
+        "https://rohitvaish.in/data/Papers/%5BCheng%2B%5D%20On%20the%20Stable%20Matchings%20that%20can%20be%20Reached%20When%20the%20Agents%20Go%20Marching%20in%20One%20by%20One.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A344666 and Borodin et al. give 34080,11484,1092 as the total stable-count distribution for 3x3 profiles.",
+        "A public symmetry census of three-by-three stability profiles lists classes by number of stable matchings, not reachability under population histories."
+      ],
+      "reasoning": "Stability multiplicities do not determine the reachability status inside the 1092 profiles with three stable matchings; the present classification splits them into 1080 complete and 12 incomplete profiles.",
+      "searches": [
+        "\"12\" \"46656\" stable matching reachable",
+        "\"stable matchings\" \"one in 3888\" reachable",
+        "https://oeis.org/A344666",
+        "Semantic research-index query: nonreachability of stable matching three pairs probability 12 46656, first entrant last successor Yang 2026 cyclic example"
+      ]
+    },
+    "rationale": "Yang (2026) gives the cyclic counterexample and a 12-profile symmetry lower bound but no 3x3 all-profile converse. Cheng (2016) has broader reachability complexity results without the exact complete classification. Published stable-profile tables count numbers of stable matchings, not the unreachable subset; equivalent unindexed results remain possible.",
+    "residual_risks": [
+      "The full set of unindexed manuscripts and older reachability literature cannot be exhaustively excluded.",
+      "The publicly indexed symmetry census covering stability counts was compared by summary, not accessible in full during this check; it did not report historical reachability in its displayed summary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the orbit representative and lower bound; no census or unique-obstruction upper bound",
+        "evidence": [
+          "Section 3 Example 1: three stable outcomes in one cyclic market, middle unreachable",
+          "Theorem 1: existence of terminal-history incompleteness; Theorem 2: augmented history completeness"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.20176",
+        "material_read": "Full HTML, specifically definitions in section 2, complete example and proof of Theorem 1 in section 3, and comparison to augmented histories in section 4",
+        "method": "Read mathematical statements, example table, proof and related-work discussion",
+        "title": "Stable Matchings and Their Histories: Historical Reachability under Population Shocks",
+        "trigger": "Directly introduces the exact historical model and provides the cyclic 3x3 obstruction"
+      },
+      {
+        "assessment": "Different entry-only history class and general algorithms, not the exact three-by-three terminal-entry-exit orbit classification",
+        "evidence": [
+          "Pages 2048–2049 explain random-order mechanism and NP-completeness of target reachability",
+          "General property of reachable matchings involving best stable partners"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140996690",
+        "material_read": "Lawfully accessible full PDF, introduction pages 2047–2049 and main-results discussion, sampled further by text search",
+        "method": "Read text and inspected page image",
+        "title": "On the Stable Matchings That Can Be Reached When the Agents Go Marching in One By One",
+        "trigger": "Closely related entry-only random order reachability and structural implications"
+      },
+      {
+        "assessment": "Marginal numbers of stable matchings only; cannot determine terminal-history accessibility",
+        "evidence": [
+          "OEIS gives 34080,11484,1092 by 1,2,3 stable outcomes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00645",
+        "material_read": "ArXiv abstract and OEIS A344666 count table",
+        "method": "Compared counted invariant and table entries",
+        "title": "Sequences of the Stable Matching Problem / OEIS A344666",
+        "trigger": "Possible existing exact database of all 3x3 stable-match counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f223fc36-2698-47bc-80af-3bbc8fcb72f9",
+  "value": {
+    "rationale": "At the first complete strict market size with terminal-history failure, the exact 12-profile orbit classification shows that the cyclic counterexample exhausts every possible failure; probability 1/3888 under the canonical impartial-culture distribution quantifies practical rarity and separates the reachability notion from stable-match multiplicity.",
+    "status": "PASS"
+  }
+}
