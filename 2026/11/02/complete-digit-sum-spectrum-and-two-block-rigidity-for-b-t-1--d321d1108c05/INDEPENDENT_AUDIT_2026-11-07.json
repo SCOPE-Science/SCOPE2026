@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:55:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers b>=2,t>=1,M=b^t-1, folding a positive multiple N=Qb^t+R to Q+R strictly decreases the integer while preserving M-divisibility and weakly decreasing base-b digit sum; it terminates at M and gives lower bound t(b-1). Congruence modulo b-1 forces all digit sums in (b-1)N. For each 1<=r<t the explicit witness W_r=M(b^t+b^r+1)=b^(2t)+b^(t+r)-b^r-1 has exactly (t+r)(b-1) digitsum; W_0=M and disjoint shifted copies of M realize all k>=t. Under N<b^(2t), write N=Ab^t+B, 0<=A,B<=M, so A+B=M or 2M; the two sums yield only t(b-1) and 2t(b-1). This enforces sharp minimal length 2t+1 for each first intermediate (t+r)(b-1). t=1 is handled without a nonempty intermediate range. Independent exact enumeration b in {2,3,4},t=1..4 corroborates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Phunphayap et al. arXiv:2303.13017 Theorems 1 and 2 give congruence and concatenation but not all intermediate supports for fixed M=b^t-1.",
+          "Dartyge–Luca–Stănică 2009 studies digit-sum ranges and same-sum multiples in other regimes; inspected theorems are not the claimed exact all-base support + first-hitting length."
+        ],
+        "reasoning": "Generic results on progressions or multiples do not automatically imply a modulus-specific exact finite shortest witness; the folding/construction and two-block complement proof add that content.",
+        "searches": [
+          "positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity",
+          "Phunphayap Noppakaew Pongsriiam digit sums multiples 2023",
+          "Dartyge Luca Stanica digit sums of multiples 2009"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md b5981dbebdc7f7e5f0d72f9a0b9e53eef5274dc6 and verify.py 90286b89e9205cca5b605cc1eecd34e57f52ff90",
+        "https://arxiv.org/pdf/2303.13017",
+        "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+        "https://arxiv.org/abs/2504.02784",
+        "Resultary query: positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A theorem giving multiples of s_b(M)=t(b-1) covers k divisible by t but misses k=t+r for 1<=r<t.",
+          "The modulus-specific two-block decomposition A+B=M or 2M is an additional rigidity argument not supplied by asymptotic equidistribution."
+        ],
+        "reasoning": "Prior congruence restriction is necessary but not sufficient to infer the attainment of every allowed digit sum. The complete spectrum and sharp length are genuinely stronger than both known sides.",
+        "searches": [
+          "positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity",
+          "arxiv:2303.13017 Theorems 1 2 multiples digit sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known binary minimal weight t for multiples 2^t-1 agrees with the lower bound but does not supply the complete set of weights >=t.",
+          "Two-block rigidity addresses exact base-b digit length, not numerical ordering of multiple by size."
+        ],
+        "reasoning": "Equivalent formulations include binary Hamming weights of multiples of Mersenne numbers and base-b complement-block arithmetic; classifying only a minimal Hamming weight is weaker.",
+        "searches": [
+          "positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity",
+          "digit sums multiples 2^t-1 Hamming weight spectrum",
+          "multiples b^t−1 first intermediate digit sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query had no direct M=b^t-1 all-weight/length table hit.",
+          "Independent complete small two-block enumeration b=2,3,4,t=1..4 found only the two claimed sums and explicitly constructed missing intermediate sums at 2t+1 digits."
+        ],
+        "reasoning": "No database or table with the full spectrum and sharp intermediate-length assertion was retrieved; small tests do not prove priority.",
+        "searches": [
+          "positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity",
+          "digit sum of multiples b^t-1 table spectrum least length"
+        ]
+      },
+      "rationale": "Phunphayap et al. 2023 develop all digit-sums of multiples and prove congruence/concatenation inclusions, which for M=b^t-1 give only multiples of t(b-1), not missing intermediate k. Dartyge–Luca–Stănică 2009 analyze digit sums of multiples and same-sum conditions but inspected theorems do not state this all-base complete support or the exact first-hit length 2t+1. Best-of-knowledge novelty is the complete simple-modulus spectrum plus two-block threshold, with a substantive folklore/earlier-derivation risk.",
+      "residual_risks": [
+        "The elementary folding/construction may occur as folklore or a corollary in older radix digital-sum monographs; index-based negative search is not a priority proof.",
+        "Small brute force does not settle arbitrary b,t, which rests on the symbolic complement and witness construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes congruence and concatenation properties but not the all-base M=b^t-1 complete intermediate set or two-block minimum length",
+          "evidence": "Phunphayap–Noppakaew–Pongsriiam arXiv:2303.13017 Theorems 1–3, Question 3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13017",
+          "material_read": "Original full PDF mathematical definitions, Theorems 1–3 and Question 3 with proofs/relevant sections",
+          "method": "Full arXiv PDF; original-page screenshot",
+          "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+          "trigger": "same exact digit-sum-of-multiples sets"
+        },
+        {
+          "assessment": "Examined statements concern different digit-sum distribution and same-sum phenomena, not the submitted two-block complement threshold",
+          "evidence": "Dartyge–Luca–Stănică JNT 129 (2009), Theorems 1, 2, 4.",
+          "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+          "material_read": "OA full PDF, introductory theorems 1,2,4 and relevant proof sections",
+          "method": "Author OA PDF read and page-image inspection",
+          "title": "On digit sums of multiples of an integer",
+          "trigger": "potential older stronger theorem on same statistic"
+        },
+        {
+          "assessment": "Distribution estimates are not known to supply exact finite first-hitting length; cannot claim full-text noncoverage",
+          "evidence": "Toumi arXiv:2504.02784 abstract and stated scope.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.02784",
+          "material_read": "Abstract and metadata, not full proof",
+          "method": "arXiv abstract",
+          "title": "The level of distribution of the sum-of-digits function in arithmetic progressions",
+          "trigger": "strong potential asymptotic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact support of digit sums for an arithmetic progression at the natural repunit-complement modulus M=b^t-1, and the optimal first intermediate witness length, are natural number-theoretic invariants. The two-block boundary is sharp and genuinely supplements the known congruence and concatenation results, despite the elementary proof.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md b5981dbebdc7f7e5f0d72f9a0b9e53eef5274dc6 and verify.py 90286b89e9205cca5b605cc1eecd34e57f52ff90",
+    "https://arxiv.org/pdf/2303.13017",
+    "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+    "https://arxiv.org/abs/2504.02784",
+    "Resultary query: positive multiples b^t-1 complete base b digit sum spectrum minimal digit length two-block rigidity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only moduli b^t-1, not arbitrary moduli nor base-b repunits (b^t-1)/(b-1).",
+    "Shortest witness length determined only for k=t+r, 1<=r<t."
+  ],
+  "residual_risks": [
+    "The elementary folding/construction may occur as folklore or a corollary in older radix digital-sum monographs; index-based negative search is not a priority proof.",
+    "Small brute force does not settle arbitrary b,t, which rests on the symbolic complement and witness construction."
+  ],
+  "schema_version": 1
+}
