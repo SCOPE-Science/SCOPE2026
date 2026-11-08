@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for every feasible angle and every measurable curvature split in the full interval \([-1/2,1/2]\) satisfying both closure moments. Green's formula supplies the exact quadratic area functional. On differences of admissible profiles, its quadratic form equals \(\int(p^2-p'^2)\) with \(p=p'=0\) at the endpoints; Dirichlet Poincaré gives a strict negative sign even at angular length \(\pi\). For the proposed bang-bang profile, the first-variation convolution has an explicit positive obstacle off the central interval and zero obstacle within it; the moment constraint removes its Lagrange-multiplier term. The first variation is nonpositive, the quadratic remainder strictly negative for nonzero perturbations. Differentiation of the exact maximizing area gives a single algebraic critical angle; endpoint and sign analyses establish global optimality. The accompanying rational checker certifies a numerical enclosure and independent finite geometry examples, not the infinite-dimensional assertion.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Kominers, arXiv:2606.28612v1, develops the underlying paired-arc geometry and one cosine-profile counterexample. The inspected published fixed-angle optimizer and two-parameter optimizer restrict profiles to an affine cosine ansatz. The present statement optimizes all measurable bounded curvature splits subject only to two closure moments. Its extremizer has two saturated outer intervals and a central zero interval, not the previously optimized cosine form. It establishes a new strict numerical benchmark and analytic classification through a moment-constrained concave quadratic functional and dual certificate, neither supplied by the inspected antecedents. published-finding corpus semantic searches of several aliases and parameterizations did not identify an equivalent theorem. Residual risk: possible alternative convex-geometric/optimal-control phrasing outside those indexed records; search absence is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-The work solves a natural **infinite-dimensional** optimization left open by the cosine-profile examples rather than producing another arbitrary finite parameter tweak. The sharp optimizer, explicit curvature pattern, unique algebraic angle and strict area increase offer a structural benchmark relevant to the still-open maximum-area problem for reduced planar bodies. The claim is deliberately limited to its geometrically meaningful paired-arc family.
+Exact two-moment closure and Green area formula reduce feasible angles to [pi/4,pi/2]. For any admissible perturbation f, the sine-convolution p satisfies p=p' =0 at both ends and Q(f)=integral(p²-p'²)<0 by Dirichlet Poincare; the length-pi equality case is killed by p'(0)=0. Explicit dual obstacle H-lambda cosx vanishes in central interval and is 1-cos(|x|-alpha)>0 in saturated outer intervals, making first variation nonpositive and strict quadratic remainder negative. Differentiated optimized F(m) changes sign at the sole algebraic root. Independently recomputed derivative factorization and exact maximum numerical expression. The analytic proof, not samples, covers measurable profiles.
 
-## Limits and audit status
-This is not a global bound for every reduced planar body. The exact rational certificate validates the displayed area enclosure; analytic functional optimization is not replaced by finite tests. No independent scientific audit or publication-priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kominers 2026 introduced geometry and one smooth cosine profile. Two inspected published Resultary findings optimize a fixed-m cosine slice and then a two-parameter cosine class with areas 0.7871835 and 0.7888438. Their feasible sets are strict subfamilies. The present unrestricted measurable moment class has discontinuous bang-bang optimum, a strict concavity and KKT-type dual obstacle classification, and area 0.7945785; neither smaller-family theorem implies it. Best-of-knowledge with full-text access caveat to Kominers original.
+
+## value
+
+PASS
+
+A natural infinite-dimensional convex-geometric extremal problem, motivated by a counterexample to a thickness-one area conjecture, is solved exactly with a structural optimizing profile and unique algebraic angle. Useful independent benchmark for reduced-body extremal questions; not a mere extra numerical parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

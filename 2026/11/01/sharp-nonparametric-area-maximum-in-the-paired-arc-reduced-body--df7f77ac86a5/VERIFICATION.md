@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Execute `python verify.py` using standard Python 3 (no external dependencies). It prints `VERIFY_OK` if all checks pass. The program forms exact rational square-root and inverse-sine enclosures for the explicitly algebraic optimal angle, then proves the sharp area belongs to the rational interval \((0.79457850,0.79457852)\). The arcsine tail is bounded using positive decreasing coefficients and a geometric upper tail; hence its numerical enclosure is not a floating-point assertion.
+## correctness
 
-As a separate finite consistency check, the program constructs paired boundary curves at seven selected angles, compares polygonal area to the analytic closed area formula, verifies endpoint closure moments, and compares direct numerical convolution against the first-variation obstacle. These examples are not an exhaustive proof for all profiles or all angles.
+PASS
 
-The actual universal correctness argument is in RESULT.md: exact area functional, strict conditional negativity of its quadratic form using Dirichlet Poincaré, signed first-variation complementarity and algebraic one-variable derivative. In particular, the rational checks alone do not establish the global maximum, and historical uniqueness or independent audit has not been asserted.
+Exact two-moment closure and Green area formula reduce feasible angles to [pi/4,pi/2]. For any admissible perturbation f, the sine-convolution p satisfies p=p' =0 at both ends and Q(f)=integral(p²-p'²)<0 by Dirichlet Poincare; the length-pi equality case is killed by p'(0)=0. Explicit dual obstacle H-lambda cosx vanishes in central interval and is 1-cos(|x|-alpha)>0 in saturated outer intervals, making first variation nonpositive and strict quadratic remainder negative. Differentiated optimized F(m) changes sign at the sole algebraic root. Independently recomputed derivative factorization and exact maximum numerical expression. The analytic proof, not samples, covers measurable profiles.
+
+## originality
+
+PASS
+
+Kominers 2026 introduced geometry and one smooth cosine profile. Two inspected published Resultary findings optimize a fixed-m cosine slice and then a two-parameter cosine class with areas 0.7871835 and 0.7888438. Their feasible sets are strict subfamilies. The present unrestricted measurable moment class has discontinuous bang-bang optimum, a strict concavity and KKT-type dual obstacle classification, and area 0.7945785; neither smaller-family theorem implies it. Best-of-knowledge with full-text access caveat to Kominers original.
+
+## value
+
+PASS
+
+A natural infinite-dimensional convex-geometric extremal problem, motivated by a counterexample to a thickness-one area conjecture, is solved exactly with a structural optimizing profile and unique algebraic angle. Useful independent benchmark for reduced-body extremal questions; not a mere extra numerical parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
