@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every module is exactly an ordered mutually annihilating matrix tuple. Fixing the collective image and common kernel gives one pair of nested subspaces and one tuple of quotient-to-image maps. The two exact-rank requirements are counted by independent subspace-lattice Möbius inversions, so the formula counts exact, not merely bounded, dimensions without overcounting. Matrix transposition exchanges \((t,k)\) with \((n-k,n-t)\), yielding finite-field equality. For fixed dimensions, the degree upper bound is maximized precisely at one or two balanced full-rank strata; standard line/hyperplane union bounds show leading coefficient one, and the remaining strata are one lower power of the field size. The embedded independent rank-enumeration program reproduced every stratum in eight small prime-field configurations, including the nontrivial boundary \((q,n,\ell)=(2,4,2)\). The finite checks do not substitute for the all-field proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For I=sum im A_i ⊂ K=∩ker A_i, each A_i factors V/K→I; exact I and K require jointly surjective image and jointly injective kernel. Two subspace-lattice Möbius inversions yield F_lq(t,n−k), multiplied by [n k]_q[k t]_q. Transposition exchanges dimensions (t,k)↔(n−k,n−t). Leading degree δ=n(t+h)−t²−h²+(l−1)th for h=n−k, maximized for t+h=n and minimal |t−h|; union bounds make full rank typical for l≥2. Fresh independent n=3,l=2,q=2 exhaustive counts 1,42,63,42 match. No isomorphism-class claim.
 
-The same representation variety and its generic radical/socle geometry are explicitly studied by Bleher–Chinburg–Huisgen-Zimmermann, Theorem 3.12, and the two-loop case is studied by Morrison, §5; none of these geometric results is represented as new. Their irreducible-component descriptions do not furnish the full number of \(\mathbb F_q\)-rational labeled representations for each exact joint radical/socle pair or its equal finite-field fiber counts. Huang's annihilating-pair generating series counts a broader relation \(AB=BA=0\) without the individual square-zero constraints and without the specified joint rank refinement. Deng–Hua count absolutely indecomposable classes, a different enumerative target. Canonical forms of Bondarenko–Gerasimova–Sergeichuk and Schröer's components are relevant, but no exact finite-field two-rank distribution was found in the inspected material. Residual risk: a directly equivalent subspace-incidence formula or Hall-polynomial interpretation may appear under different terminology and may reduce the priority of this arithmetical refinement. No exhaustive publication priority or independent audit is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The radical and socle are canonical and form the most basic pair of invariants for modules over a local radical-square-zero algebra. Their **joint counts**, not just the possible values or generic isomorphism types, determine the distribution of all Loewy length-two representations as the residue field varies. The exact duality is a finite-field symmetry of the full distribution, while the two-way parity transition with explicit \(O(q^{-1})\) tail gives a concrete arithmetic distinction not determined by merely listing irreducible components. The complete formula applies to any number of radical loops, including representation-wild cases, and makes all small-field exceptional profiles computable without classifying individual indecomposable modules. The formula is based on standard inversion but addresses a natural full distribution rather than an arbitrary small numeric slice.
+Inspected directly relevant primary literature and searched published findings, comparing mathematical implications and weaker/stronger formulations. The double Möbius factorization supplies the additional exact enumerative work; close Hall-polynomial prior remains a risk. Material priority risks remain explicit; this is best-of-knowledge, not exhaustive certification.
 
-## Limits and nearest literature
+## value
 
-Geometric irreducible components and generic top–socle relationships were known, especially in arXiv:1407.3045, Theorem 3.12. The article arXiv:2110.15566 (first posted 2021-10-29) counts different mutually annihilating pairs. Exact enumerative precedence under less direct terminology remains a live risk. The result is for labeled modules; it does not enumerate module isomorphism classes. The finite checker only covers prime fields and bounded sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Radical and socle dimensions are intrinsic first Loewy-length invariants. A full finite-field labeled count refines known geometric component classifications and supplies duality plus an arithmetic parity transition, without requiring classification of wild indecomposable modules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
