@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof identifies exactly the states with \(F_n^2(c)=c\) by a signed-energy identity and the complete graph's persistence of tied labels. A strict reversal occurs precisely when each adjacent level gap is smaller than the sum of the two level multiplicities. Counting labelled level assignments and independent gaps gives a positive-composition sum. A rank-two transfer identity then yields the closed generating function, and a Perron pole argument yields the growth law. Direct and exact-series checkers passed on the supplied source paths. No finite check is presented as an all-size certificate.
+
+**Originality — PASS, with historical-priority risk.** Duffy et al. (arXiv:1609.05792, posted 2016-09-19) establish the underlying diffusion rule and strict-reversal principle; Long and Narayanan (arXiv:1704.04295, 2017) establish global eventual periods one or two. Neither inspected primary full text contains the complete-graph normalized periodic-point generating function or its asymptotic. Query comparisons also considered the exact coefficient sequence, the generating-function denominator, related chip-firing studies, and the distinction between first-return classification and quantitative recurrence. A broad general strict-reversal criterion logically reduces characterization to finite inequalities, but does not directly give this explicit rank-two enumeration and growth constant. Further historical indexing may reveal an antecedent; that remains a residual risk.
+
+**Mathematical value — PASS.** The number of recurrent states modulo an exact symmetry is a natural invariant of the finite diffusion dynamical system, rather than an arbitrary chip-total slice. The closed exponential generating function yields all graph orders, exact primitive orbit counts, and a sharp factorial-exponential growth rate. The factorization through just two transfer coordinates is a structural compression not supplied by general recurrence theorems.
+
+**Limitations.** This census excludes transients and basin sizes, works only for complete graphs with the original integer synchronous diffusion rule, and distinguishes labelled vertices. Historical-priority judgment is limited to inspected and discoverable sources. All numerical checks are finite.
+
+Self-review: passed. Independent audit: not yet performed.
