@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify_dodecahedron.py` in a standard Python 3 installation (using integer `bit_count`; Python 3.10 or newer is sufficient). The output in `verify_dodecahedron.out` records the exact observed results.
+# Independent mathematical audit
 
-The independent subset enumerators agree on every one of the \(2^{20}\) masks, yielding 63,143 faces including the empty set. The verifier constructs the forbidden length-two triples directly from all thirty graph edges, so no stored simplex table is assumed. It then constructs the deterministic matching from the published twenty-entry vertex order, proves disjointness and cover adjacency, checks the critical cell dimensions, and performs a topological sort of the full directed Hasse diagram. The sort visits all 63,142 nonempty faces and thereby checks acyclicity rather than merely assuming it from the matching algorithm.
+## correctness
 
-The graph is a fixed finite combinatorial object. The code supplies exhaustive finite verification of all steps needed for the homotopy assertion. The theoretical implication from an acyclic matching with just a critical zero-cell and six-cell to \(S^6\) is the discrete Morse theorem. No independent audit, separate experimental sample, or claimed generalization is implied.
+PASS
+
+The dodecahedral graph is explicitly GP(10,2), with 20 vertices and 30 edges; Ind₂ allows each induced selected vertex at most one selected neighbor, equivalently forbidding 60 centered graph wedges. Independent code rebuilt all 63,143 faces (including empty), the complete face vector and deterministic 20-pivot Morse matching, obtaining exactly 31,570 matched cover pairs and critical masks {2048 (vertex),156434 (six-simplex)}. Independently built every nonempty-face Hasse incidence, reversed matched arrows, and topologically sorted ALL 63,142 faces over 410,500 arrows; acyclicity is a finite exhaustive proof, not partial enumeration. Forman gives a CW complex with only one 0-cell and one 6-cell, hence integral homotopy S6 without assuming field homology forces homotopy.
+
+## originality
+
+PASS
+
+The fixed two-independence (induced max degree 1) complex on the 20-vertex dodecahedron is distinct from both ordinary independence (5,827 nonempty faces and wedge four S5) and the dodecahedral edge-matching complex. Known higher-independence theorems classify complete multipartite, whiskered, paths, cycles and perfect rooted trees, but not this nonchordal dodecahedral graph. The corresponding Petersen graph Ind₂=S3 is another graph, not a theorem implying the present result. No exact covered table located in Resultary or read primary mathematics; residual unindexed overlap remains.
+
+## value
+
+PASS
+
+The first natural higher-independence complex of an iconic twenty-vertex regular cubic graph is an exact integral homotopy classification, not a tiny arbitrary slice. It contrasts with the ordinary independence complex and provides a nonchordal benchmark for higher-independence topological methods. A researcher investigating dissociation complexes of polyhedral or generalized Petersen graphs could reasonably need this precise S6 fact; no downstream theorem is required for its mathematical utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

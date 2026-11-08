@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated complex is the hypergraph independence complex forbidding each selected length-two wedge in the cubic dodecahedral graph. Two exhaustive constructions agree on all 63,143 faces including the empty face. The explicit sequential vertex-toggle matching pairs 31,570 covers and leaves one critical zero-cell and one critical six-cell. Complete reversal-and-topological-sort verification of all 410,500 Hasse incidences proves acyclicity. The discrete Morse theorem yields a CW complex with only one zero-cell and one six-cell, hence an integral six-sphere. The claim does not rely on approximate ranks, partial enumerations, or finite observations about an infinite family.
+## correctness
 
-## Originality — PASS, with residual risk
-Directly relevant literature was checked at the level of definitions and scope: Conant–Thistlethwaite, arXiv:0808.0739, treats independence/theta complexes of hypergraphs and has different dodecahedral edge- and face-hypergraph calculations; Paolini–Salvetti, arXiv:1703.02586, treats higher-independence objects arising from braid/Artin graphs; Deshpande–Singh, arXiv:2001.05448, gives homotopy formulae for named graph families excluding the dodecahedron. Earlier exact ordinary dodecahedral independence-complex and edge-matching-complex results have incompatible face definitions. Direct searches for two-independence, dissociation, induced-wedge hypergraph and the specific generalized Petersen graph found no covering statement. This is a best-knowledge assessment rather than proof of global literature uniqueness; unindexed equivalents remain possible.
+PASS
 
-## Mathematical value — PASS
-The dodecahedral graph is a canonical vertex-transitive cubic Platonic-solid graph. Its first nontrivial higher-independence parameter produces a highly nonpure complex (510 maximal faces in dimensions seven, eight, nine and eleven) but an exact *single-sphere* integral homotopy type in dimension six. This supplies a sharp natural benchmark for when higher-independence constructions collapse far below maximal face dimension and contrasts structurally with the ordinary dodecahedral independence-complex result. The object and invariant are intrinsic, not an arbitrary induced subgraph or numeric slice.
+The dodecahedral graph is explicitly GP(10,2), with 20 vertices and 30 edges; Ind₂ allows each induced selected vertex at most one selected neighbor, equivalently forbidding 60 centered graph wedges. Independent code rebuilt all 63,143 faces (including empty), the complete face vector and deterministic 20-pivot Morse matching, obtaining exactly 31,570 matched cover pairs and critical masks {2048 (vertex),156434 (six-simplex)}. Independently built every nonempty-face Hasse incidence, reversed matched arrows, and topologically sorted ALL 63,142 faces over 410,500 arrows; acyclicity is a finite exhaustive proof, not partial enumeration. Forman gives a CW complex with only one 0-cell and one 6-cell, hence integral homotopy S6 without assuming field homology forces homotopy.
 
-## Limitations
-The proof is finite and does not provide a general formula for generalized Petersen graphs or automorphism characters. The priority comparison cannot rule out unindexed work. The result has no external independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed two-independence (induced max degree 1) complex on the 20-vertex dodecahedron is distinct from both ordinary independence (5,827 nonempty faces and wedge four S5) and the dodecahedral edge-matching complex. Known higher-independence theorems classify complete multipartite, whiskered, paths, cycles and perfect rooted trees, but not this nonchordal dodecahedral graph. The corresponding Petersen graph Ind₂=S3 is another graph, not a theorem implying the present result. No exact covered table located in Resultary or read primary mathematics; residual unindexed overlap remains.
+
+## value
+
+PASS
+
+The first natural higher-independence complex of an iconic twenty-vertex regular cubic graph is an exact integral homotopy classification, not a tiny arbitrary slice. It contrasts with the ordinary independence complex and provides a nonchordal benchmark for higher-independence topological methods. A researcher investigating dissociation complexes of polyhedral or generalized Petersen graphs could reasonably need this precise S6 fact; no downstream theorem is required for its mathematical utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
