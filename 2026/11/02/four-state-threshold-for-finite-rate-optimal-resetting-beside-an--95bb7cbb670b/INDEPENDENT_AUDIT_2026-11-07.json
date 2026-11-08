@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For transient states x,y, directed rates a=q_xo>0, b=q_xy, c=q_yo, d=q_yx, exact backward equations yield (r+b+c+d)/(ar+a(c+d)+bc), derivative b(c-a)/denominator^2 and hence no strict interior minimizer even with directed edges and traps at r=0. Independently solving the 3x3 four-state reset equations yields rational M=(r²+7r+9)/(r²+8r+7), derivative (r²-4r-23)/(denom²), one positive zero 2+3√3, negative then positive; its value is 2/3+√3/6. For any graph with h(v)<=a, the killing-intensity Feynman–Kac representation bounds survival below by e^-at and hence mean >=1/a. The finite-state resolvent has f(r)=a/r+O(r^-2), so renewal M(r)=(1-f(r))/(r f(r)) tends to 1/a. The independent checker verified the algebra and derivative. No result claims homogeneous equal-weight nearest-target finite optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General network resetting first-passage formulae apply to many graphs but lack a stated minimum-4 obstruction and sharp directed <=3 theorem."
+        ],
+        "reasoning": "Those formulae imply that individual instances can be solved, but do not, without the two-state backward classification and witness construction, imply the sharp minimality assertion; hazard comparison is textbook Feynman–Kac and excluded from novelty independently.",
+        "searches": [
+          "stochastic resetting optimal finite rate first passage adjacent target finite graph weighted nodes Hartmann Majumdar 2025",
+          "arXiv:1910.13568",
+          "arXiv:2111.01330"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.19903",
+        "arXiv:1910.13568",
+        "arXiv:2111.01330",
+        "Resultary semantic query stochastic resetting optimal finite rate first passage adjacent target finite graph weighted nodes Hartmann Majumdar 2025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hartmann–Majumdar homogeneous nearest neighbor satisfies q_vo<=a; four-state heterogeneous source x has target hazard 1 and another state y target hazard 3."
+        ],
+        "reasoning": "The old high-reset theorem covers homogeneous instances but not the heterogeneous counterexample; general restart techniques are acknowledged, and new minimality depends on the fixed-sign derivative for 3-state chains.",
+        "searches": [
+          "arXiv:2505.19903",
+          "arXiv:1910.13568",
+          "arXiv:2111.01330"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homogeneous lattice nearest-target mean decreases with reset rate in Hartmann–Majumdar. Four-state witness uses higher hazard at y=3 and zero hazard at z."
+        ],
+        "reasoning": "A discrete-time fundamental-matrix formula and high-rate renewal expression are not equivalent to the continuous-time minimal state-count classification; comparison kept total states including the target.",
+        "searches": [
+          "stochastic resetting optimal finite rate first passage adjacent target finite graph weighted nodes Hartmann Majumdar 2025",
+          "arXiv:2505.19903",
+          "arXiv:1910.13568"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related Markov hitting and discounted domination findings, no exact four-state MFPT optimum in displayed hits."
+        ],
+        "reasoning": "No matching case table identified; this cannot exclude a direct calculation in older finite Markov chain literature.",
+        "searches": [
+          "stochastic resetting optimal finite rate first passage adjacent target finite graph weighted nodes Hartmann Majumdar 2025",
+          "minimal continuous-time four-state weighted graph optimal stochastic resetting rate table"
+        ]
+      },
+      "rationale": "Renewal and resolvent calculations and the hazard comparison are established methods; Hartmann–Majumdar found rapid-reset optimality on homogeneous lattices. The new useful distinction is the sharp minimal four-total-vertex boundary for heterogeneous rates (with directed impossibility at <=3) and a symmetric weighted witness. General network resetting formulae do not explicitly supply that classification.",
+      "residual_risks": [
+        "General Markov-restart optimization results may implicitly derive the sharp four-state minimum under an equivalent sign-count classification.",
+        "Proof assumes a direct positive-rate target jump and treats r=0 traps separately; no claim of uniform-edge/regular-graph minimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Homogeneous lattice theorem is consistent with all-target-hazards <=source hazard, not an obstruction to weighted four-state witness",
+          "evidence": "Nearest-neighbor homogeneous result versus explicitly weighted transition graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.19903",
+          "material_read": "Substantive available manuscript on lattice model, renewal formula and nearest-target regime",
+          "method": "read accessible arXiv primary text",
+          "title": "Diffusion with stochastic resetting on a lattice",
+          "trigger": "Nearest-target infinite resetting theorem motivating counterexample"
+        },
+        {
+          "assessment": "General network setting might imply construction by specialization; no direct four-state sharp theorem demonstrated",
+          "evidence": "General transform formula; material comparison remains qualified.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+          "material_read": "Bibliographic/accessible abstract and general network reset framework, not complete result-by-result full text",
+          "method": "abstract inspection",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Plausible broader finite graph reset formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates a sufficient global hazard criterion from the first graph size that supports competing productive and dead-end excursions, thereby explaining how finite resetting optima emerge despite direct target access. It resolves a natural minimum-state obstruction rather than an arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2505.19903",
+    "arXiv:1910.13568",
+    "arXiv:2111.01330",
+    "Resultary semantic query stochastic resetting optimal finite rate first passage adjacent target finite graph weighted nodes Hartmann Majumdar 2025"
+  ],
+  "disposition": "passed",
+  "final_claim": "With direct positive-rate jump from restart vertex x to absorbing target o, no CTMC with <=3 total states (even directed) admits an isolated strict finite positive Poisson-reset optimal rate; an undirected weighted four-state graph with xo=xy=xz=1, yo=3 has M(r)=(r^2+7r+9)/(r^2+8r+7), uniquely minimized at r=2+3 sqrt(3). If every target hazard is <=q_xo=a, survival >=exp(-a t) and the high-reset mean 1/a is globally optimal.",
+  "limitations": [
+    "General Markov-restart optimization results may implicitly derive the sharp four-state minimum under an equivalent sign-count classification.",
+    "Proof assumes a direct positive-rate target jump and treats r=0 traps separately; no claim of uniform-edge/regular-graph minimality."
+  ],
+  "residual_risks": [
+    "General Markov-restart optimization results may implicitly derive the sharp four-state minimum under an equivalent sign-count classification.",
+    "Proof assumes a direct positive-rate target jump and treats r=0 traps separately; no claim of uniform-edge/regular-graph minimality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Homogeneous lattice theorem is consistent with all-target-hazards <=source hazard, not an obstruction to weighted four-state witness",
+      "evidence": "Nearest-neighbor homogeneous result versus explicitly weighted transition graph.",
+      "identifier_or_url": "https://arxiv.org/abs/2505.19903",
+      "material_read": "Substantive available manuscript on lattice model, renewal formula and nearest-target regime",
+      "method": "read accessible arXiv primary text",
+      "title": "Diffusion with stochastic resetting on a lattice",
+      "trigger": "Nearest-target infinite resetting theorem motivating counterexample"
+    },
+    {
+      "assessment": "General network setting might imply construction by specialization; no direct four-state sharp theorem demonstrated",
+      "evidence": "General transform formula; material comparison remains qualified.",
+      "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+      "material_read": "Bibliographic/accessible abstract and general network reset framework, not complete result-by-result full text",
+      "method": "abstract inspection",
+      "title": "Random walks on networks with stochastic resetting",
+      "trigger": "Plausible broader finite graph reset formula"
+    }
+  ]
+}
