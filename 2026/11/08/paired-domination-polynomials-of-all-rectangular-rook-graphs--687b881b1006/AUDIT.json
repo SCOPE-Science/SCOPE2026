@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The proof covers exact quantifiers m,n>=2: S dominates iff incidence graph has no simultaneously isolated row and column, and L(B_S) has perfect matching iff every edge-bearing component has even edge count; the latter is constructively proved by even-indegree orientation. Exponential formula and formal sign filtering yield the stated generating function, with inclusion-exclusion for domination. Minimum-size lower/upper bounds and all parity/square leading counts are checked casewise. Independent direct matching, formal-series, and occupancy programs agree on all tested coefficients and ten leading counts. Computations supplement rather than substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar–Henning–Rall papers present inequalities for Cartesian paired domination; accessible summary does not specify rook-set enumeration.",
+        "Choudhary–Margulies–Hicks arXiv:1109.2174 theorems 4 and 5 compare paired-domination numbers via product inequalities, without full polynomial.",
+        "Mertens arXiv:2401.00716 Theorem 4 gives the ordinary rook domination polynomial; it does not enforce a perfect matching of the selected subgraph."
+      ],
+      "reasoning": "Checked whether general Cartesian-product bounds or the complete ordinary domination polynomial subsume the paired count. Bounds on minimum cardinality and ordinary domination weights do not determine matching-filtered multiplicities; the distinct 2-by-2 degree-two coefficient gives a direct separation.",
+      "searches": [
+        "\"Paired-domination of Cartesian products of graphs\" Bresar Henning Rall 2007",
+        "\"A Note on Total and Paired Domination of Cartesian Product Graphs\" arxiv 1109.2174",
+        "\"paired domination polynomial\" \"Cartesian product\" complete",
+        "\"Domination Polynomial of the Rook Graph\" arxiv 2401.00716"
+      ]
+    },
+    "checked_sources": [
+      "Haynes and Slater (1998), DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+      "Brešar, Henning, Rall (2005) DOI 10.1016/j.endm.2005.06.059",
+      "Brešar, Henning, Rall (2007) Utilitas Mathematica 73, 255–265",
+      "Choudhary, Margulies, Hicks, arXiv:1109.2174 (2011)/EJC (2013)",
+      "Mertens, arXiv:2401.00716 (2024)",
+      "Bonisoli and Bonvicini (2017), DOI 10.37236/5660"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1998 founding predicate supplies definitions and general bounds.",
+        "The 2011/2013 product paper supplies minimum-number inequalities but no enumerator.",
+        "Ordinary rook polynomial on 2-by-2 has degree-two coefficient 6; paired polynomial has 4.",
+        "The even component matching criterion follows from older line-graph/claw-free matching theory; this is explicitly separated from the new counting formula."
+      ],
+      "reasoning": "The claimed result combines pairing of all selected incidence components with a two-sort exponential generating function and row/column isolation removal. None of the inspected prior theorems logically specifies this combined all-coefficient enumeration; techniques alone do not settle historical priority.",
+      "searches": [
+        "1998 Haynes Slater paired-domination graphs",
+        "2011 Choudhary Margulies Hicks Cartesian product paired domination",
+        "2024 Mertens rook domination polynomial",
+        "claw free connected even vertices perfect matching line graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The line-graph equality R_{m,n}=L(K_{m,n}) yields the equivalent classification of dominating edge subsets with every nontrivial component even-sized.",
+        "No matching full weight enumerator appeared in the searches; search absence alone is not a priority proof."
+      ],
+      "reasoning": "Compared the incidence-graph even-edge component predicate and all-coefficient generating function, not merely the words rook graph. No equivalent statement was identified. The isolated-component test alone is classical and is not claimed new.",
+      "searches": [
+        "\"paired domination polynomial\" \"rook\"",
+        "\"paired domination polynomial\" \"line graph\"",
+        "\"even edges\" \"paired domination\" \"rook graph\" polynomial",
+        "\"paired dominating sets\" \"complete bipartite\" line graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens 2024 reports ordinary rook domination coefficients and OEIS links for that different statistic.",
+        "Relevant indexed polynomial results on complete multipartite and chain graphs do not tabulate the rook graph family."
+      ],
+      "reasoning": "No exact table or database encompassing the new matching-filtered coefficients was identified among the inspected records. The search does not exclude private or unindexed historical tables.",
+      "searches": [
+        "paired domination polynomial rook graph coefficients",
+        "paired domination polynomial K_m square K_n",
+        "\"paired dominating\" \"rook\" \"OEIS\"",
+        "\"paired domination\" \"line graph of complete bipartite\""
+      ]
+    },
+    "rationale": "The all-coefficient paired-domination polynomial for arbitrary rectangular rook graphs and its parity-sensitive minimum multiplicities were not found in the inspected primary results or relevant public research-record comparisons. Ordinary domination, general paired-domination inequalities and paired polynomials on other graph classes do not logically imply this formula. The basic line-graph matching lemma and labelled exponential formula are recognized prior tools, not claimed independently new. Priority remains qualified by unavailable historical full texts.",
+    "residual_risks": [
+      "Complete publisher full texts of foundational 1998 and 2005/2007 products works were not all reviewed; they could contain calculations beyond the accessible abstract.",
+      "Unindexed historical tables or equivalent component-parity enumerations may exist.",
+      "The classical line-graph perfect matching lemma and labelled exponential formula have established priority; novelty is only claimed for their combined paired rook enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact predicate; no rook polynomial in accessible material. Full text remains a historical-priority uncertainty.",
+        "evidence": [
+          "First published online 1998-12-07 in Wiley metadata.",
+          "Abstract states paired domination requires the induced graph to have a perfect matching and discusses general bounds."
+        ],
+        "identifier_or_url": "doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+        "material_read": "Publisher abstract and article metadata; complete full text not accessible.",
+        "method": "Publisher metadata/abstract inspection and cited results cross-check.",
+        "title": "Paired-domination in graphs",
+        "trigger": "Foundational paired-domination definition and earliest eligible source date."
+      },
+      {
+        "assessment": "Focuses on product lower bounds and packings. Inaccessible full proof text remains an explicit residual priority risk.",
+        "evidence": [
+          "Abstract discusses paired-domination bounds via 3-packings rather than enumerators."
+        ],
+        "identifier_or_url": "doi:10.1016/j.endm.2005.06.059",
+        "material_read": "Accessible publication abstract and bibliographic description; not full paper.",
+        "method": "Research literature/publisher record review; alternate 2007 journal record also reviewed.",
+        "title": "Paired-domination of Cartesian products of graphs and rainbow domination",
+        "trigger": "Plausible early Cartesian-product theory involving same predicate."
+      },
+      {
+        "assessment": "Theorems 4 and 5 are product bounds; this text contains no rook paired-domination polynomial.",
+        "evidence": [
+          "Original arXiv posting timestamp 2011-09-09.",
+          "Theorem 4: product paired-domination number inequality; Theorem 5: n-factor extension.",
+          "No occurrences of rook, polynomial or enumerat in the PDF text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.2174",
+        "material_read": "Introduction, statements of all five theorems, sections of proofs for paired-domination inequalities, and full-document keyword searches.",
+        "method": "Original PDF text and rendered-page inspection; searches for rook, polynomial, enumeration, complete.",
+        "title": "A Note on Total and Paired Domination of Cartesian Product Graphs",
+        "trigger": "Highly relevant primary complete full-text Cartesian-product work."
+      },
+      {
+        "assessment": "Computes ordinary domination polynomial, not paired domination. No perfect-matching filter or paired generating function is given in read sections.",
+        "evidence": [
+          "Theorem 4 states D_{R_{m,n}}(z) for all dominating subsets.",
+          "No \"paired\" occurrence found in the parsed full text.",
+          "Its 2-by-2 degree-two coefficient is 6 rather than 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+        "material_read": "Abstract, introduction, complete main polynomial statements, their derivation and related generating-function sections (through p.6), with full-document search for paired.",
+        "method": "Original PDF text and screenshots of first and crucial derivation pages.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Exact same board family and complete polynomial, strongest plausible coverage."
+      },
+      {
+        "assessment": "Study of even 2-factors in line graphs, a stronger different matching structure under additional hypotheses; does not state the paired-domination rook count in accessible material.",
+        "evidence": [
+          "Abstract concerns even 2-factors and cubic decompositions, not domination enumerators."
+        ],
+        "identifier_or_url": "doi:10.37236/5660",
+        "material_read": "Abstract and bibliographic description, not full paper.",
+        "method": "Electronic Journal of Combinatorics public abstract inspection.",
+        "title": "Even Cycles and Even 2-Factors in the Line Graph of a Simple Graph",
+        "trigger": "Potentially stronger coverage of line-graph perfect matching technique."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "687b881b-1006-44f2-9376-ce8ade49ffca",
+  "value": {
+    "rationale": "A complete coefficient formula for paired domination of the canonical rook-graph family is a motivated exact graph invariant with a nontrivial matching restriction. It recovers all feasible cardinality counts, isolates an interpretable even-component structural obstruction and determines leading counts including parity- and square-boundary phases. Ordinary domination polynomials and general paired minimum inequalities do not give these enumerations; no downstream theorem or asymptotic result is claimed.",
+    "status": "PASS"
+  }
+}
