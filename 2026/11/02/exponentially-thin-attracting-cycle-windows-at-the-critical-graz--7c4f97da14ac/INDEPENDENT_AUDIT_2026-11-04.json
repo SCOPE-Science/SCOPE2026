@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:55:11.617712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exponentially-thin-attracting-cycle-windows-at-the-critical-graz--7c4f97da14ac/RESULT.md",
+        "same Git tree verifier file and VERIFIED Git blob maps"
+      ],
+      "rationale": "For rational gamma=q/p in (0,1) and critical nu=1/(1+gamma), direct substitution into the piecewise map gives the exact (not limiting) return P_M,lambda(z)=epsilon z+nu*(lambda^(-gamma)-epsilon)*((1-z)/(1-nu))^gamma, epsilon=nu^M. P(z)-z decreases strictly and changes sign at z=nu,1 for lambda in (nu^(1/gamma),1), so a unique fixed point yields exactly one nonlinear and M-1 strict linear visits, hence primitive period M. Eliminating the amplitude with the fixed-point equation yields multiplier epsilon-gamma(1-epsilon)z/(1-z); its unique -1 crossing occurs at z*=(1+epsilon)/(1+gamma+(1-gamma)epsilon), defining lambda*. Taylor expansion gives lambda*=1-4nu^(M+1)+O(nu^(2M)) and relative physical-mu window width =4gamma nu/(1-gamma)*nu^M+O(nu^(2M)). The return Schwarzian at flip is eventually strictly positive and transverse crossing gives a repelling local doubled-return orbit on stable side (subcritical flip). Independent high-precision parameter/root checks for gamma=1/2,1/3,2/5 and M=8,20,50 corroborate exact equations and limiting ratios; no extrapolation of numerical tests.",
+      "residual_risks": [
+        "Rational gamma in (0,1), critical nu=1/(1+gamma), M sufficiently large; upper grazing endpoint excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published classification treats strict nu<p/(p+q) or nu>p/(p+q), not the critical equality.",
+          "The related impact discontinuity mapping study concerns hybrid-flow return maps rather than the present scalar power law at critical equality."
+        ],
+        "reasoning": "A theorem stated only under strict inequalities does not logically cover the omitted endpoint; general flip normal-form theory predicts local type conditional on derivatives, not the existence/scaling of these M-cycles.",
+        "searches": [
+          "arxiv:2407.02782 Theorem 1 bifurcation classification strict inequalities",
+          "general grazing border collision stability period-doubling",
+          "arxiv:2407.02434"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: critical slope piecewise grazing map rational power exponent nu=p/(p+q) period M attracting windows flip near grazing",
+        "arxiv:2407.02782 Lima Perdigao equations (34)-(41) Theorem 1 critical slope",
+        "arxiv:2407.02434 impact ZDM PDM grazing",
+        "fractional-power grazing return map period M critical equality exponentially thin stability",
+        "di Bernardo Budd Champneys Kowalczyk Piecewise-smooth Dynamical Systems 2008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equality limiting return produces a -1 contact at endpoint, but finite epsilon shifts the flip into the admissible window.",
+          "The prior strict-regime statements cannot be specialized to a parameter explicitly excluded from their hypotheses."
+        ],
+        "reasoning": "The current proof uses their exact formula as input, but its new critical boundary-layer analysis is not asserted or mechanically implied by their strict-slope result.",
+        "searches": [
+          "Lima Perdigão arxiv:2407.02782 Theorem 1 and eq (34)-(35)",
+          "Lima Perdigão arxiv:2407.02434"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lima–Perdigão equation (34) is the same underlying finite-M map up to normalization; their theorem excludes the equality nu=p/(p+q).",
+          "Resultary adjacent grazing results cover other discontinuity maps or stability boundaries."
+        ],
+        "reasoning": "The exact return map as a formula is prior, but solving its excluded equality multiplier/root boundary and stable-width asymptotics requires retaining the term discarded by the leading approximation.",
+        "searches": [
+          "arxiv:2407.02782 equation (34) exact return",
+          "Resultary: critical slope piecewise grazing map attracting windows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing numerical diagrams and starting return identity do not contain the closed M-dependent lambda* or the 4gamma nu/(1-gamma) relative-window equivalent."
+        ],
+        "reasoning": "The result is a whole infinite sequence of exact finite-M intervals and asymptotic widths; an isolated bifurcation diagram is not a covering table.",
+        "searches": [
+          "grazing map period M stable parameter interval numerical table",
+          "arxiv:2407.02782 exact return (34), limiting map (35)"
+        ]
+      },
+      "rationale": "Lima–Perdigão 2024 derive the exact return and treat strict regimes nu greater or less than p/(p+q). Their leading return approximation discards epsilon=nu^M precisely at the equality case, so neither the boundary-layer attracting windows nor their size and subcritical flip follow from the published strict-case statement alone. Relevant Resultary grazing searches returned different systems. Other hybrid impact work and a historical monograph are not direct verified matches.",
+      "residual_risks": [
+        "The 2008 monograph and historical piecewise-smooth literature were not inspected in full; priority remains provisional.",
+        "The theorem applies only to one-nonlinear-step words for large M, not all attracting cycles.",
+        "The primitive period-2M orbit exists only locally in parameter; no uniform coexistence-width claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS model and exact finite return, not equality case at nu=p/(p+q)",
+          "evidence": "Theorem 1 strict slope cases; (34) exact return vs (35) leading approximation",
+          "identifier_or_url": "https://arxiv.org/abs/2407.02782",
+          "material_read": "full relevant Theorem 1, equations (4),(34)-(41), nearby return derivation and appendix references",
+          "method": "arXiv PDF primary text and theorem-page inspection",
+          "title": "One-dimensional Piecewise Smooth Rational Degree Maps",
+          "trigger": "identical family of continuous rational-power grazing maps"
+        },
+        {
+          "assessment": "different hybrid impact discontinuity maps",
+          "evidence": "model definitions and scope",
+          "identifier_or_url": "https://arxiv.org/abs/2407.02434",
+          "material_read": "abstract and introductory setup",
+          "method": "arXiv abstract and primary introductory reading",
+          "title": "Zero Time Discontinuity Mapping and Poincaré Discontinuity Mapping near a regular order-4 grazing point",
+          "trigger": "same author, nearby grazing dynamics"
+        },
+        {
+          "assessment": "ACCESS LIMITATION; possible historical general methodology, not asserted noncoverage",
+          "evidence": "named historical background source",
+          "identifier_or_url": "Springer 2008; di Bernardo, Budd, Champneys, Kowalczyk",
+          "material_read": "bibliographic description and cited references only; full monograph inaccessible",
+          "method": "secondary citations only",
+          "title": "Piecewise-smooth Dynamical Systems: Theory and Applications",
+          "trigger": "possible older root-power flip coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: critical slope piecewise grazing map rational power exponent nu=p/(p+q) period M attracting windows flip near grazing",
+        "arxiv:2407.02782 Lima Perdigao equations (34)-(41) Theorem 1 critical slope",
+        "arxiv:2407.02434 impact ZDM PDM grazing",
+        "fractional-power grazing return map period M critical equality exponentially thin stability",
+        "di Bernardo Budd Champneys Kowalczyk Piecewise-smooth Dynamical Systems 2008"
+      ],
+      "rationale": "The critical equality is a mathematically forced missing boundary between dynamical regimes. Retaining an exponentially small return correction reverses the limiting-map qualitative prediction and produces genuinely attracting primitive cycles with exact shrinking widths and a local flip type. The mechanism is structurally motivated, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "The 2008 monograph and historical piecewise-smooth literature were not inspected in full; priority remains provisional."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Rational gamma in (0,1), critical nu=1/(1+gamma), M sufficiently large; upper grazing endpoint excluded.",
+    "No global dynamics/other itineraries classified; no effective least M0 claimed."
+  ],
+  "schema_version": 1
+}
