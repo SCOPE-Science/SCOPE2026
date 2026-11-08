@@ -1,19 +1,21 @@
-# Review of the chorded-ring majority two-cycle theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof examines every possible flipping set. Flipping at a degree-two vertex forces both neighbors to flip, so an interior arc is entirely flipping or entirely stable; an endpoint cannot be the unique flipping vertex. Endpoint-only orbits require opposite endpoint phases and opposite stable neighbors from the two paths. One-path-flipping orbits require an odd active path; full alternation requires even cycle length. Stable arc interiors are classified exactly by compositions into runs of length at least two, with a separately checked length-two exception. These cases are disjoint and exhaustive. The Fibonacci/six-periodic rewriting follows from rational run generating functions. Complete small-parameter direct dynamics separately agrees in all three classes for 66 parameter pairs and 327,696 states; finite experiments corroborate rather than replace the proof.
+PASS
 
-## Originality
+On a primitive two-cycle in strict-majority-with-tie-inertia dynamics, a flipping degree-two vertex forces both its neighbours to flip. Hence each chord-endpoint path interior either flips entirely or is stable; the two degree-three chord endpoints must flip in any nontrivial orbit. This leaves exactly endpoint-only, one-full-path, or all-vertices flipping masks. Stable paths with both endpoints flipping are precisely binary words whose constant runs have length at least two, with a one-interior-vertex length-two special case. Compositions into k runs give binom(ell-k−2,k−1), partitioned into U_ell (odd runs) and V_ell (even runs). Endpoint parity conditions then yield N=2(U_dU_m+V_dV_m)+2[1_d_odd(U_m+V_m)+1_m_odd(U_d+V_d)]+1_n_even. Standard rational run generating functions produce the stated Fibonacci and six-periodic correction. Bare odd rings cannot alternate, while any legal chord has ≥4 orbits by explicit classes. Independently enumerated actual bit updates over ALL n=4..12 and legal chords and found exact agreement in three flip-mask classes; finite checks corroborate the all-n mask-and-run proof.
 
-**PASS, with stated residual risk.** Targeted searches for majority dynamics on chorded cycles, theta graphs with a direct chord edge, and Fibonacci periodic-orbit counts found no equivalent census. Goles–Olivos establishes period boundedness but not exact numbers. Benjamini et al. arXiv:1405.2486v1 treat period two and random/unimodular graphs; its relevant full-text sections contain no chorded-cycle exact enumeration. Nakar–Ron arXiv:2205.08972 concerns a degree-two cyclic rule, not the two degree-three chord endpoints. The distinction is substantive because every bare odd ring has zero primitive two-cycles while every single-chord odd ring has at least four. No assertion is made that failed searches prove novelty; the full 1980 original paper could not be inspected, and differently named graph families could conceal overlap.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The problem isolates the minimal nontrivial topology change to synchronous majority dynamics on a ring. Its sharp qualitative effect on odd rings is accompanied by a complete infinite-family integer census depending on both arc lengths, with a three-mechanism classification. The generating-function reduction yields Fibonacci growth and a six-periodic correction, giving a usable invariant for a natural perturbation of a classical cellular automaton rather than a computed table.
+Best-of-knowledge novelty is the exact labelled temporal two-cycle count for one-chord cycles and its three-mechanism/Fibonacci structural law. Goles/Olivos prove universal eventual period≤2, not a count by one chord separation in accessible abstract. Benjamini et al extend majority dynamics to graph classes with period bounds, not a chord census. Nakar/Ron classify homogeneous one-dimensional cyclic local rules, whereas the chord changes vertex degrees and their update rule at two marked sites. Resultary exact query returned unrelated periodic systems, no dominating count. The Goles original full article was inaccessible (authorized Oxford vpn_disconnected); this alone is not a scientific failure, but remains a material originality risk.
 
-## Scope and residual limitations
+## value
 
-No basin or transient-time classification is claimed. The theorem is not asserted for arbitrary theta graphs, other update rules, or multiple chords. A possible earlier equivalent theorem in inaccessible or differently indexed literature is an originality risk. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Adding one chord is the minimal topology-changing perturbation of an odd majority ring and creates temporal oscillations where the unchorded ring has none. The exact census for every legal n,d, with disjoint mechanisms and Fibonacci/six-periodic behavior, is a natural infinite family classification rather than an arbitrary finite sample. It gives a meaningful quantitative answer to how one edge changes recurrent dynamics, without claiming basin sizes or more chords.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
