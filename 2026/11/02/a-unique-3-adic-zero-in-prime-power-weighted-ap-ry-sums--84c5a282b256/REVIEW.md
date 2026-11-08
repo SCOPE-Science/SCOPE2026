@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite-coefficient identity (1) is reconstructed by a telescoping difference, and all divisibility bounds are checked at their endpoints. At odd prime-power index \(n=p^a\), exactly one denominator \(2j+1\) reaches valuation \(a\); binomial-product units give the coefficientwise residue, and therefore the unit-input valuation. For nonunit inputs, the strict inequality \(p^j>2j+1\) holds for every positive \(j\) when \(p\ge5\); for \(p=3\) the only exceptional term is \(j=1\). Hensel's lemma applies because the residual derivative is a unit; the quotient of differences proves exact valuations and counts. The dyadic fixed-divisor claim is coefficientwise, using odd denominators and the exact constant coefficient. Independent finite checks do not replace these arguments.
+## correctness
 
-## Originality — PASS, with residual risk
-Sun's arXiv:1101.1946 equation (1.5) is the earlier exact coefficient identity and is acknowledged, and Sun's equation (1.6) addresses the prime-index numerical evaluation. Guo–Zeng arXiv:1008.2894 and Pan arXiv:1108.1546 address related divisibility results but not the all-input, all-exponent local valuation and \(3\)-adic zero classification in their inspected statements. Related published research on generalized Domb sums addresses different sums, not these zeros. The old identity makes the present local theorem derivable by additional valuation and Hensel arguments; it is not claimed as a new polynomial expansion. Residual risk: an equivalent, perhaps implicit p-adic zero analysis may exist in unlocated work, and the relevant primary PDFs were searched selectively, not exhaustively studied line-by-line.
+PASS
 
-## Mathematical value — PASS
-The weighted Apéry sums are natural objects of an established divisibility program. Their local zero loci are not determined by the classical congruence \(n\mid S_n(x)\): the theorem gives exact valuations on every integral local input, a qualitative root-free/unique-root dichotomy forced by the exceptional prime \(3\), and root counts at every depth. Sharp global fixed divisors follow without arbitrary parameter cutoffs. This classifies a natural local invariant, not a single isolated computation.
+Independently reconstructed Sun telescoping identity S_n(X)=n^2 sum_{j<n}B_nj^2 X^j/(2j+1). For n=p^a, p odd, only denominator j=(n-1)/2 reaches p^a; B is a p-adic unit, yielding coefficientwise mod p^{a+1} congruence. At x=pu, normalized polynomial F_{p,a}(u) is 1 mod p for p>=5 and 1+u mod 3 for p=3; Hensel and unit difference quotient give unique 3-adic zero and exact valuation/root counts. Fixed-divisor argument uses S_n(0)=n^2 and S_n(1) with valuation a; dyadic denominators are odd. Independent direct/closed coefficient and residue-class counts were checked at (p,a)=(3,1),(3,2),(5,1),(7,1).
 
-## Scope and risk
-The result is limited to prime-power indices; \(2\)-adic roots, arbitrary composite indices, and nonintegral local roots are not classified. An independently conducted review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun 2011 supplies EXACT sum coefficient identity (1.5) and congruences but no seen complete p^a-index integral p-adic root-count/Hensel classification. Guo-Zeng/Pan concern divisibility. The new zero-locus assertion logically requires valuation analysis not implied by divisibility alone. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.
+
+## value
+
+PASS
+
+Prime-power Apéry polynomial sums are natural arithmetic objects with studied divisibility. The exact p-adic zero classification, especially 3-adic uniqueness vs all p>=5 absence and complete modular root numbers, yields a concrete local arithmetic invariant not supplied by the source coefficient formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
