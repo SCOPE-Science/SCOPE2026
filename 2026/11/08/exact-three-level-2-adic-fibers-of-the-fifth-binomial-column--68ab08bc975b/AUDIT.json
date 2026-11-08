@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For h=2^(k+2), the valuations v2(C(h,j))=k+2-v2(j) >=k for all 1<=j<=5 prove period. At n=1, the half-period shift has valuation k-1, proving minimality. The eight exact rational 2-adic expansions have odd normalized linear coefficients and every nonlinear coefficient divisible by two relative to that scale; thus each branch is a bijective isometry onto its claimed output coset. Summing branch Haar measures gives the density, and integrating residue balls gives exact c_k for all k. The checker verifies the table coefficients and exact finite distributions k=1..12, while the written proof handles all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat and Grabner, Distribution of Binomial Coefficients and Digital Functions, J. London Math. Soc. 64 (2001) 523–547, introduction equations (1.1) and Section 4: counts range over pairs (n,k) with k varying from 0 to n, and their results are triangular asymptotics, not fixed lower index five.",
+        "Sun–Zhang, arXiv:0812.3089v5, Theorem 1.1 and §2 proof: lifting produces representatives of all target residues, with no exact count over the full minimal period.",
+        "OEIS A349593 gives the periods of all fixed-index binomial polynomials modulo every positive modulus; OEIS A385557 specializes to fifth index and explicitly states a(2^e)=2^(e+2)."
+      ],
+      "reasoning": "OEIS A349593/A385557 fully cover the period component. Sun–Zhang covers image surjectivity and Barat–Grabner covers triangular-averaged asymptotics, but none of these statements determines the exact 2/4/12 multiplicities on a least period or the full 2-adic Haar density.",
+      "searches": [
+        "fixed lower index five binomial n choose 5 modulo 2^k residues period 2^(k+2) 2 4 12 occurrences",
+        "Sun Zhang binomial coefficients and ring of p-adic integers exact fiber distribution for 5-universal 2-power moduli",
+        "Barat Grabner Distribution of binomial coefficients and digital functions Sections 3 and 4 full-text",
+        "Sun Zhang Binomial coefficients ring p-adic integers Theorem 1.1 full-text"
+      ]
+    },
+    "checked_sources": [
+      "Sun–Zhang arXiv:0812.3089v5, §§1–2, Theorem 1.1 and Corollary 1.2",
+      "Barat–Grabner, J. London Math. Soc. 64 (2001), 523–547, introduction and §§3–4",
+      "A published article on valuations in a different binomial-congruence construction (not a fixed-column distribution)",
+      "A distinct archived exact third-binomial-column fiber theorem (claim compared for implication, not a source of the new proof)",
+      "OEIS A385557, https://oeis.org/A385557",
+      "OEIS A349593, https://oeis.org/A349593"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Present claim gives P_k=2^(k+2) and for k>=3, c_k(y)=2+2*1_{2|y}+8*1_{8|y}, while Sun–Zhang guarantees only c_k(y)>=1 over some finite window.",
+        "Barat–Grabner §4, Corollary 8 concerns the p-free parts of all binomial coefficients when both indices vary; that law has a different sampling domain and is not equivalent to the displayed three-level fixed-column density.",
+        "The component P_k=2^(k+2) is already implied by OEIS A349593, so the claimed new contribution is the exact c_k(y) formula and three-level Haar pushforward."
+      ],
+      "reasoning": "The present fiber law yields surjectivity, and its period substatement is covered by OEIS. The earlier results yield neither the fiber law nor the first three-level binomial-column phenomenon; period and image alone admit many inequivalent distributions.",
+      "searches": [
+        "5th binomial column 2-adic pushforward Haar distribution density 1/2 on odd outputs 1 on even nonzero mod eight 3 on zero modulo eight full preimage counts",
+        "fixed lower index five binomial n choose 5 modulo 2^k residues period 2^(k+2) 2 4 12 occurrences",
+        "Exact fifth binomial column n choose 5 2-adic pushforward Haar measure three distinct density levels 1/2 1 3, minimal period 2^(k+2)",
+        "arxiv:0812.3089v5 Corollary 1.2",
+        "Barat Grabner Theorem 6 Corollary 8 binomial coefficient distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun and Zhang arXiv:0812.3089, Corollary 1.2: all powers of two are universal for any fixed lower index, and its Theorem 1.1 proves existence of lifts, not their total multiplicities.",
+        "A related exact third-binomial-column formula gives a two-level dyadic output density, but concerns a distinct polynomial and does not determine the fifth-column distribution.",
+        "OEIS A349593 and A385557 already give P_k=2^(k+2) for the fifth column; that period is not claimed novel and does not determine the distribution of output fibers."
+      ],
+      "reasoning": "The equivalences used here are fixed-index Pascal-column fiber counts, the 2-adic Haar pushforward, and the eight-coset isometry decomposition. Qualitative surjectivity of the fifth column is weaker and cannot determine least period or the three multiplicity levels. A third-column formula cannot imply the fifth-column branch table.",
+      "searches": [
+        "5th binomial column 2-adic pushforward Haar distribution density 1/2 on odd outputs 1 on even nonzero mod eight 3 on zero modulo eight full preimage counts",
+        "2-adic scaled isometry eight residue classes binomial polynomial of degree 5",
+        "Exact fifth binomial column n choose 5 2-adic pushforward Haar measure three distinct density levels 1/2 1 3, minimal period 2^(k+2)",
+        "arXiv:0812.3089v5 Theorem 1.1 and Corollary 1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A related indexed study on valuations in a separate binomial congruence construction does not evaluate residue fibers of the fifth column.",
+        "The checked primary papers contain no table of 2,4,12 for fixed fifth-column output residues.",
+        "OEIS A385557, https://oeis.org/A385557, lists the exact minimal period for the fifth column over all moduli, including a(2^e)=2^(e+2).",
+        "OEIS A349593, https://oeis.org/A349593, gives a general formula for all fixed lower-index minimal periods. Neither page states a fiber-multiplicity law for the fifth column."
+      ],
+      "reasoning": "The exact least-period calculation is a known table identity and not claimed as original. The database entries and attached examples list periods (and some output sequences), not the all-level preimage count for each output residue. Direct search for fifth-column counts and the 2/4/12 multiplicity pattern found no covering table.",
+      "searches": [
+        "Binomial coefficients n choose 5 mod 2^k each odd residue occurs twice, even non-multiple of eight four, divisible by eight twelve, full residue counts",
+        "binomial polynomial choose n 6 value set modular prime powers frequency",
+        "fixed lower index five binomial n choose 5 modulo 2^k residues period 2^(k+2) 2 4 12 occurrences",
+        "site:oeis.org \"binomial(N,5)\" \"period\" modulo",
+        "OEIS A385557",
+        "OEIS A349593"
+      ]
+    },
+    "rationale": "The original component is the complete three-level residue-fiber law for the fifth binomial column, not the previously published least period or surjectivity. Sun–Zhang prove fixed-column 2-adic universality, OEIS A349593/A385557 record all fifth-column minimal periods, and Barat–Grabner study triangular-index distributions. These stronger/adjacent facts do not imply the 2/4/12 fiber counts or the three-level Haar pushforward. Targeted searches found no covering exact fifth-column count; unindexed equivalences remain possible.",
+    "residual_risks": [
+      "An equivalent fifth-column count could appear in unindexed classical binomial-coefficient congruence literature, a database, or an alternative polynomial/permutation formulation.",
+      "Targeted retrieval cannot prove that no stronger theorem exists elsewhere; no absolute priority claim is made.",
+      "OEIS records provide full minimal periods; any claim of originality for the period is excluded. The originality evaluation attaches only to the new fiber law and first three-density-level comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms all-power-of-two image surjectivity for lower index five, but supplies neither least periods nor the full residue-fiber distribution.",
+        "evidence": [
+          "Corollary 1.2 explicitly states each fixed column is dense in Z_2; Theorem 1.1 and §2 use induction to produce an index for each target; no fiber-multiplicity theorem is asserted in these sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0812.3089v5",
+        "material_read": "Introduction §§1, Theorem 1.1, Corollaries 1.1–1.2 and the full §2 lifting proof; abstract and arXiv v1 date",
+        "method": "Read accessible full HTML theorem statements, arguments and section text",
+        "title": "Binomial coefficients and the ring of p-adic integers",
+        "trigger": "Direct earlier theorem on density of fixed binomial columns in 2-adic integers"
+      },
+      {
+        "assessment": "Describes asymptotic counts in the complete triangular Pascal array with both indices varying, not the fixed fifth lower-index fiber law.",
+        "evidence": [
+          "Introduction equations (1.1) and §4 use pairs (n,k) with 0<=k<=n<N; Corollary 8 averages their p-free parts over that triangular sampling domain, with density normalized by N^2."
+        ],
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Author-hosted full PDF, introduction, §3 distribution statements, and §4 including valuation and p-free-part results",
+        "method": "Read extracted page text and inspected the first-page PDF image; compared definitions of sampling regions and Theorem 6/Corollary 8",
+        "title": "Distribution of binomial coefficients and digital functions",
+        "trigger": "A strongly relevant earlier paper with distribution of binomial coefficients modulo prime powers in its title"
+      },
+      {
+        "assessment": "They explicitly subsume the least-period formula, which is therefore treated as known normalization, but do not provide the target fiber distributions.",
+        "evidence": [
+          "A385557 formula a(2^e)=2^(e+2); A349593 formula T(n,p^e)=p^(e+floor(log_p n)); both concern periods rather than preimage multiplicities."
+        ],
+        "identifier_or_url": "https://oeis.org/A385557 ; https://oeis.org/A349593",
+        "material_read": "Complete two sequence records, formula section, comments, examples, cross references and date history",
+        "method": "Inspected sequence pages directly and compared period and output multiplicity statements",
+        "title": "Period of binomial(N,5) modulo n, OEIS A385557 / general period array OEIS A349593",
+        "trigger": "Exact database check for stated least-period component and possible broader classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68ab08bc-975b-4a71-adc3-ab047956a0d5",
+  "value": {
+    "rationale": "The archival fixed-binomial-column literature poses a qualitative 2-adic density problem. The result gives a sharp complete quantitative answer for its first three-level example: the full pushforward probability law, exact least periods, and explicit 2/4/12 counts for all powers of two. Its two-adic branch mechanism identifies a structural distinction among the five smallest columns and is potentially reusable for further p-adic image and fiber calculations. This is not mere enumeration or a trivial renaming of surjectivity.",
+    "status": "PASS"
+  }
+}
