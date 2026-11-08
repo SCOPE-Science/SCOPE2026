@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The graph and synchronous tie rule are explicit. Every mixed peripheral pair becomes the initial hub color after the first update and every uniform pair stays uniform; the subsequent hub sees a fixed 2u-vote pool and is fixed by time two. The exact strict/tied thresholds yield H_k and the first-entry, consensus and parity-tail formulas for all k>=1. Central binomial coefficients and geometric tail ratios prove the stated limits, not just finite experiments. The standalone adjacency-based checker exhaustively covers k=1..8, including boundaries k=1,2, while independent weighted blade-type enumeration verifies identities through k=100. Critical proof steps were reconstructed independently of the checker; no infinite computation is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1207.0893v1, Section 3.1: a multi-vertex part connected to larger disjoint cliques with self-loops, used to prove an information-aggregation counterexample.",
+        "arXiv:1405.2486v1, Introduction Theorem 1.1: finite-graph eventual period at most two; the other major results treat random graphs and infinite unimodular graphs.",
+        "A closely related larger-clique windmill model with K_3 blades admits a two-cycle basin, unlike the K_2 blades and strictly different formulas."
+      ],
+      "reasoning": "Neither the general eventual-period theorem nor the 2012 influence example yields the specific first-entry counts or the decoupling of frequent double hub changes from exponentially rare lasting changes. The larger-clique model and minority dynamics have different state transitions; no legitimate specialization covers the result.",
+      "searches": [
+        "synchronous majority dynamics on cycles transient period 2 convergence exact time rule 232 odd neighborhood",
+        "majority on windmill K1 join k K2 exact absorption hub reversal binomial distribution",
+        "finite graph majority dynamics transients period two exact basin counting cactus graph",
+        "Majority dynamics and aggregation of information in social networks arXiv 1207.0893 section 3.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.0893v1, https://arxiv.org/pdf/1207.0893",
+      "arXiv:1405.2486v1, https://arxiv.org/pdf/1405.2486",
+      "Public mathematical record on irreversible multipartite threshold conversion, distinct process",
+      "Searchable public sources for windmill/friendship graph and synchronous majority dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goles–Olivos eventual-two-period property quoted in arXiv:1405.2486v1, Introduction, states only an eventual period bound, not a uniform first-entry time or basin populations.",
+        "The 2012 Mossel–Neeman–Tamuz example uses multi-vertex influencers and larger clique blocks, so its influence claim cannot imply the K_1 join kK_2 exact probabilities.",
+        "Nearby related graph-dynamics claims used K_1 join kK_3 under majority, K_1 join kK_2 under minority, or three-state excitable dynamics; different update maps do not subsume this claim."
+      ],
+      "reasoning": "The examined prior statements are compared as implications, not by naming. Generic period-two convergence does not bound the first fixed entry by two, and no prior claim evaluates R_k or T_2. Results for different blade clique orders or minority/three-state updates have no identified specialization proving the same exact dynamic theorem.",
+      "searches": [
+        "arXiv:1405.2486v1 finite majority period two theorem",
+        "arXiv:1207.0893v1 influence small social type majority dynamics",
+        "synchronous binary majority friendship graph prior comparison",
+        "\"friendship graph\" \"majority\" \"two\" convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph F_k=K_1 join kK_2 is also termed a triangle windmill or Dutch windmill; see https://en.wikipedia.org/wiki/Friendship_graph.",
+        "The full finite claim is an exact first-fixed-entry, reversal and unanimity census, not simply a no-period-two statement.",
+        "The inspected 2012 and 2014 majority-dynamics preprints do not state such a triangle-windmill census in their relevant model and theorem sections."
+      ],
+      "reasoning": "Aliases (friendship, triangle windmill, Dutch windmill), equivalent simultaneous strict-majority and tie-retaining formulations, and both hub-opinion and settling-time language were searched. A period-at-most-two theorem does not imply a two-round cutoff or the parity-sensitive binomial tail. No equivalence implying the complete formula was located; this does not prove universal nonexistence.",
+      "searches": [
+        "\"friendship graph\" \"majority dynamics\" convergence",
+        "\"windmill graph\" \"majority dynamics\" synchronous",
+        "\"friendship graph\" \"majority rule\" 2 rounds",
+        "binary majority dynamics hub loyalty friendship graph W_k exact two step basin double flip probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed searches returned work on graph parameters, social majority dynamics on random graphs, and general opinion dynamics, but no table of F_k entry times or hub-reversal counts.",
+        "A published mathematical record about irreversible threshold conversion on complete multipartite graphs is not an exact dynamic census for synchronous friendship-graph majority.",
+        "The attached separate weighted category checker reproduces all new formulas through k=100, but it is not used as an originality certificate."
+      ],
+      "reasoning": "The exact invariant was searched by its graph aliases, algorithm, first-entry times and binomial-tail response, and compared with the closest structured results. Database silence is only negative evidence; an equivalent table outside the indexed sources is a genuine residual risk.",
+      "searches": [
+        "\"friendship graph\" \"majority\" update dynamics binary",
+        "\"friendship graph\" \"majority dynamics\" \"consensus\" windmill",
+        "synchronous strict majority tie retaining friendship graph windmill triangles sharing hub two-step convergence hub changes twice binomial tail probability",
+        "\"windmill\" \"majority dynamics\" \"fixed point\""
+      ]
+    },
+    "rationale": "The most relevant 2012 and 2014 original majority-dynamics papers were materially inspected and compared by implication. The general eventual-period theorem and a different small-influencer clique graph do not imply the exact friendship-graph two-step dynamic, parity-sensitive hub reversal, initial-condition census or sharp asymptotics. Nearby recorded examples use larger clique blades, minority updates or three-state dynamics. No covering result was found through targeted aliases and broader comparisons; this is a qualified best-knowledge determination, not certified world-wide priority.",
+    "residual_risks": [
+      "A different graph nomenclature or unindexed older enumeration may cover the exact distribution despite these searches.",
+      "The accessible primary sources do not constitute an exhaustive bibliography of graph-specific majority dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its influence example is not a triangular friendship graph; its aggregation theorem does not imply fixed-entry/reversal counts for K_1 join kK_2.",
+        "evidence": [
+          "https://arxiv.org/pdf/1207.0893, pp. 1–3 and 11: graph G_n=(A union B,E), |A|=1/(1-p), B partitioned into larger cliques with self-loops.",
+          "https://arxiv.org/abs/1207.0893, first public version 2012-07-04."
+        ],
+        "identifier_or_url": "arXiv:1207.0893v1; https://arxiv.org/pdf/1207.0893",
+        "material_read": "Abstract, opening model and scope, Section 3.1 construction and proof (page 11), and document-level searches for friendship graph, windmill and hub.",
+        "method": "Open-access arXiv full-text PDF, graphical page inspection, and document text search.",
+        "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+        "trigger": "Earlier original treatment of synchronous majority and small influential social types that might dominate a hub-loyalty result."
+      },
+      {
+        "assessment": "Provides general eventual period <=2 and random/infinite-graph behavior but neither the two-step K_1 join kK_2 cutoff nor exact first-entry and hub-reversal populations.",
+        "evidence": [
+          "https://arxiv.org/pdf/1405.2486, p. 2: update rule and Theorem 1.1.",
+          "https://arxiv.org/pdf/1405.2486, pp. 4–5: random graph results; no friendship-graph theorem in searched text."
+        ],
+        "identifier_or_url": "arXiv:1405.2486v1; https://arxiv.org/pdf/1405.2486",
+        "material_read": "Introduction, update rule and exact tie convention, Theorem 1.1 and main results summarized on pages 2–5, and document-level searches for friendship graph and windmill.",
+        "method": "Open-access original arXiv PDF, graphical page inspection and searchable full text.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Same synchronous tie-retaining open-neighbor majority model, with a general finite-graph theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f959a18-c56f-4bd4-8779-4638a30de985",
+  "value": {
+    "rationale": "The canonical friendship graph has one distinguished high-degree hub and k disjoint, locally stable blades, a motivated testbed for concentrated influence and consensus dynamics. The all-size exact law exhibits a mathematical separation: a limiting half of initial conditions produces two hub flips, yet the final hub bit departs from its initial bit with an exponentially small, sharply parity-dependent probability. The complete settling-time and consensus basin censuses are natural dynamical invariants, not arbitrary parameter slices, and the distinction is not a textbook consequence of the generic period-two theorem.",
+    "status": "PASS"
+  }
+}
