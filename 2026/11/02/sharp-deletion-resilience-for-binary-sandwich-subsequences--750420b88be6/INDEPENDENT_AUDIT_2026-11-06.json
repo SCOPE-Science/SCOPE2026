@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An exact gap-minimum formula for the least deletions needed to avoid 0 1^b 0 distinguishes retaining fewer than two zeros and first/last remaining zeros, with deletion cost outer-zero deletion plus max(0, interior-ones-b+1). The lower-bound dichotomy Z=r+2+z either z>=r or two disjoint open interzero intervals forces |w|>=b+2+2r+min(r,b-1). The explicit 0^{s+1}1^b(01)^r0, s=min(r,b-1), satisfies every gap case and has exactly the asserted length. Inverting monotone L_b(r) gives the n-dependent maximum. A fresh independent subsequence-DP versus gap-formula exhaustive comparison b=1..4, word lengths 0..11, and eighty larger witness checks corroborate the proof. Boundaries b=1, r=0, r=b-1 accounted for.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem III.2 p.6 concerns r-deletion elimination of 0110 at one length; the paper then studies covering-code rates, not a shortest robust witness for all b,r.",
+          "Deletion-ball descendant counting is not the universal survival of a fixed scattered subsequence."
+        ],
+        "reasoning": "No stronger inspected primary theorem covers the complete exact extremal profile; special b=2 impossibility is credited as earlier partial result.",
+        "searches": [
+          "Xie Sun Ge New bounds for covering codes under insertions or deletions arxiv:2606.15379 theorem III.2",
+          "Liron Langberg arxiv:1202.1644 deletion descendant enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_sandwich.py",
+        "Xie–Sun–Ge arxiv:2606.15379 pages1–3,5–14 with Theorem III.2",
+        "Liron–Langberg arxiv:1202.1644 abstract/bibliographic scope",
+        "Resultary semantic query: exact deletion robustness avoiding binary subsequence 0 1^b 0 arbitrary r deletions minimal word length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b=2, Xie–Sun–Ge proves L_2(r)>2r+4 for r>=1.",
+          "Current theorem proves L_2(r)=2r+5 and L_b(r)=b+2+2r+min(r,b-1) for all b>=1,r>=0."
+        ],
+        "reasoning": "Earlier lower obstruction is necessary but insufficient for equality or universal generalization; its logical implication is explicitly separated from the new sharpness.",
+        "searches": [
+          "Xie Sun Ge arxiv:2606.15379v1 Section III Theorem III.2",
+          "robust binary 0110 deletion subsequence r"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Robustness means every r-deletion descendant contains a prescribed scattered word, equivalently minimum deletion-to-avoid >=r+1.",
+          "Xie–Sun–Ge Theorem III.2 establishes nonexistence at n=2r+4 for b=2, but not sharpness at 2r+5 or general b."
+        ],
+        "reasoning": "Compared equivalent adversarial-erasure avoidance, one-target covering, and subsequence containment quantified over all deletions.",
+        "searches": [
+          "exact deletion robustness avoiding binary subsequence 0 1^b 0 arbitrary r deletions minimal word length",
+          "shortest r-deletion resilient supersequence 0110 scattered pattern",
+          "Xie Sun Ge theorem III.2 insertion covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned deletion-code sphere profiles and finite extremal code sizes, not this adversarial single-pattern survival threshold.",
+          "Independent brute DP checked all short binary words; no prior table used."
+        ],
+        "reasoning": "Finite tables are corroborative only; the claim is an all-parameter theorem with a genuinely new sharp witness/construction relative to the directly compared result.",
+        "searches": [
+          "exact deletion robustness avoiding binary subsequence 0 1^b 0 arbitrary r deletions minimal word length",
+          "Resultary binary deletion exact profile subsequence"
+        ]
+      },
+      "rationale": "Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.",
+      "residual_risks": [
+        "Equivalent robust-supersequence thresholds may appear in pattern-avoidance literature under different vocabulary.",
+        "Liron–Langberg full text was not inspected; not used for a whole-document negative claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem III.2 supplies b=2 forbidden-pattern nonrobustness at 2r+4, but no exact 2r+5 construction nor arbitrary b formula.",
+          "evidence": [
+            "p.6 Theorem III.2 and proof: an r-deletion subset avoids 0110 for every binary word of length 2r+4; Remark III.3 extends covering code block length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+          "material_read": "Authorized extracted full paper pages 1–3,5–14; in particular entire Theorem III.2, proof, Remark III.3 on page 6 and surrounding Sections III–IV.",
+          "method": "Authorized academic document text reading",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Identical pattern 0110 and deletion radius"
+        },
+        {
+          "assessment": "Counts deletion descendants; full-document exclusion not asserted.",
+          "evidence": [
+            "Number of distinct deletion subsequences is distinct from minimum deletions to destroy one prescribed pattern."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "Bibliographic abstract and claim descriptions; not full primary text.",
+          "method": "Source search and comparison to quantifiers",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Possible stronger deletion-result alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-pattern robust-supersequence length is an exact extremal synchronization invariant under adversarial deletion. The result sharply completes the known 0110 obstruction, gives an entire two-parameter transition and witnesses; a subsequent researcher can use the exact threshold in insertion/deletion covering arguments. It is not merely a marginal deletion-sphere statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary scattered subsequence 0 1^b 0 and complement only; no classification of all shortest extremizers, no arbitrary patterns."
+  ],
+  "schema_version": 1
+}

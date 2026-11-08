@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_sandwich.py` in the directory containing this file and compare stdout with `verification_output.txt`. The program exhausts all binary words of lengths 0 through 14 for each \(1\le b\le5\). Its dynamic program finds the largest subsequence avoiding \(0\,1^b\,0\) using the greedy matched-prefix state, while a separate combinatorial implementation minimizes over intervals between zero occurrences. The two values agree in 163,835 cases. The maximum over each length agrees with the piecewise formula in 75 cases. It additionally tests 960 constructions and 1,201 directly generated deletion masks.
+## correctness
 
-The exhaustive range is deliberately finite. The theorem for unbounded \(b\), \(r\) and word length depends on the zero-gap identity and case analysis in `RESULT.md`, not on extrapolation from the checker. No independent external mathematical audit or theorem-prover certification is asserted.
+PASS
+
+An exact gap-minimum formula for the least deletions needed to avoid 0 1^b 0 distinguishes retaining fewer than two zeros and first/last remaining zeros, with deletion cost outer-zero deletion plus max(0, interior-ones-b+1). The lower-bound dichotomy Z=r+2+z either z>=r or two disjoint open interzero intervals forces |w|>=b+2+2r+min(r,b-1). The explicit 0^{s+1}1^b(01)^r0, s=min(r,b-1), satisfies every gap case and has exactly the asserted length. Inverting monotone L_b(r) gives the n-dependent maximum. A fresh independent subsequence-DP versus gap-formula exhaustive comparison b=1..4, word lengths 0..11, and eighty larger witness checks corroborate the proof. Boundaries b=1, r=0, r=b-1 accounted for.
+
+## originality
+
+PASS
+
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
+
+## value
+
+PASS
+
+The fixed-pattern robust-supersequence length is an exact extremal synchronization invariant under adversarial deletion. The result sharply completes the known 0110 obstruction, gives an entire two-parameter transition and witnesses; a subsequent researcher can use the exact threshold in insertion/deletion covering arguments. It is not merely a marginal deletion-sphere statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
