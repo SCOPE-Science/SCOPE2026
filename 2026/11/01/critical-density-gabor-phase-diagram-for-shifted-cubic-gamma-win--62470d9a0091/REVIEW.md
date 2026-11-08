@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical-density frame criterion is reduction to the positive lower essential bound of a scalar Zak multiplier. The cubic geometric-moment identity is obtained by differentiating the geometric series, and it is checked with independent rational substitutions. The Möbius variable \(y=1/2+z/(1-z)\) converts the open disk into the right half-plane; the explicit cubic discriminant for \(0<u<1/2\), Descartes' sign rule for \(1/2<u<(1+\sqrt3)/2\), and Routh–Hurwitz for larger \(u\) show that every possible circle-zero occurs at the negative real point \(z=-e^{-\lambda}\). The derivative and endpoint signs of the resulting depressed cubic determine every positive zero and all frame parameters. Its shift identity proves the strict one-unit gap inequality needed to combine the two nonframe intervals. At the unique limiting boundary zero, nonvanishing transverse derivatives and compactness prove the exact local boundary minimum and the quadratic lower-frame-bound coefficient. These steps provide an infinite-dimensional argument; numerical sampling alone would not.
+PASS
 
-## Originality — PASS (provisional)
+Reconstructed Zak transform as e^{-λx}F_{c+x}(r e^{2πiω}), F_u rational from cubic geometric moments. Verified symbolic numerator identity F_u(-r)=P_r(u)/(1+r)^4, exact Cayley transform F_u=(1+w)H_u(y), cubic discriminant −12E(u), and Routh–Hurwitz determinant 6u(u−1)(2u−1). Root signs show any zero inside unit disc must lie on negative real z, so only ω=1/2 can vanish. P_r derivative and values at 0,1 give the r0=2−√3 root-count transition; shifted-series identity shows u_+−u_-<1, covering the parameter intervals. At c=u_+, the sole boundary Zak zero has nonzero real and frequency derivatives, with local minimum in ω and monotonic increase away from c boundary, while compactness rules out other global minima. Squaring P_r/(1+r)^4 gives exact boundary lower bound and leading 9(v_+²−r)²/(1+r)^6 δ². Independent sympy exact identities plus source finite checker inspection corroborate; no finite Zak grid is used as a universal proof.
 
-Faulhuber–Shafkulovska, arXiv:2204.02917, treat sharp bounds for ordinary one-sided and two-sided exponential and related windows, without the shifted cubic-gamma polynomial in the inspected Sections 2–3. Ghosh–Selvan, arXiv:2304.11322, study B-splines, totally positive functions and Hermite windows and primarily subcritical frame regions, not the critical cubic-gamma bifurcation. Kloos–Stöckler, arXiv:1311.7359, obtain a one-zero theorem for totally positive window classes; it does not imply the present *two*-zero regime for a different window family. Both exact statements and stronger-reduction possibilities were compared. No direct prior coverage of the simultaneous bifurcation, exact half-line and explicit onset was identified. Priority cannot be proved by searching; uninspected literature and indirect derivations remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Causal gamma envelopes form a natural smooth-at-origin family; adding a positive shift introduces a tunable jump. The resulting exact classification shows how jump amplitude restores the critical frame property even though the Zak transform can acquire two simultaneous zeros. The damping threshold \(e^{-\lambda}=2-\sqrt3\) is a structural change, not just an isolated numerical sample, and the sharp lower-bound onset quantifies stability as the frame region is entered. The fixed cubic degree, unit lattice and local expansion are substantive restrictions, not implicit generalizations.
+Classical Zak multiplier criterion is not new; cited totally-positive-window uniqueness and B-spline/exponential frame-bound studies do not contain the causal shifted cubic-gamma polynomial root diagram or damping-dependent two-zero regime. Published related sharp quadratic onset for a tent spline concerns a different window and noncritical lattice. Best-of-knowledge priority subject to further polynomial-exponential window literature.
 
-## Limits
+## value
 
-No claim of a minimum sampling density, a noncritical frame-set classification, perturbation robustness, or priority beyond the inspected accessible sources is made. The standard-library checker passed 6631 supplementary assertions but is not an independent infinite-dimensional proof. Independent mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact critical sampling stability for a natural shifted causal cubic-gamma family requires nontrivial control of complex Zak zeros and a delicate two-root phase, not merely plugging into the generic Zak criterion. The explicit threshold and quadratic optimal lower-bound coefficient identify a precise robustness/ill-conditioning phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

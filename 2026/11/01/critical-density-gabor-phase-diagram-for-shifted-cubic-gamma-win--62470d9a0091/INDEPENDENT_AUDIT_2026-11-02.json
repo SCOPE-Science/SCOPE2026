@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:55:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Zak transform as e^{-λx}F_{c+x}(r e^{2πiω}), F_u rational from cubic geometric moments. Verified symbolic numerator identity F_u(-r)=P_r(u)/(1+r)^4, exact Cayley transform F_u=(1+w)H_u(y), cubic discriminant −12E(u), and Routh–Hurwitz determinant 6u(u−1)(2u−1). Root signs show any zero inside unit disc must lie on negative real z, so only ω=1/2 can vanish. P_r derivative and values at 0,1 give the r0=2−√3 root-count transition; shifted-series identity shows u_+−u_-<1, covering the parameter intervals. At c=u_+, the sole boundary Zak zero has nonzero real and frequency derivatives, with local minimum in ω and monotonic increase away from c boundary, while compactness rules out other global minima. Squaring P_r/(1+r)^4 gives exact boundary lower bound and leading 9(v_+²−r)²/(1+r)^6 δ². Independent sympy exact identities plus source finite checker inspection corroborate; no finite Zak grid is used as a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kloos–Stöckler arXiv:1311.7359 proves a one-zero Zak result for totally positive windows; the shifted cubic family has a two-Zak-zero region by explicit P_r.",
+          "Ghosh–Selvan arXiv:2304.11322 discusses B-splines/totally positive/Hermite frame sets."
+        ],
+        "reasoning": "Those restricted-window results do not apply as dominating theorems to the displayed family whose Zak multiplier has different zero multiplicity/phase.",
+        "searches": [
+          "shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold",
+          "Kloos Stockler Zak transforms totally positive exponential B spline uniqueness",
+          "Ghosh Selvan 2023 Gabor B spline totally positive Hermite"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md pinned blob b4627612b886cd0f95ea591e17476f077fe13db4",
+        "checker.py pinned blob ff112953106c7c89dfa56a12c88517840b3941f1",
+        "Faulhuber Shafkulovska arXiv:2204.02917v2",
+        "Kloos Stöckler arXiv:1311.7359",
+        "Ghosh Selvan arXiv:2304.11322",
+        "Resultary semantic query: shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard critical-density criterion says frame iff ess inf |Zg|²>0 but does not identify P_r roots or eliminate off-axis Zak zeros.",
+          "The causally truncated cubic has explicit multiplier P_r(c+x), from which two-root overlap and sharp lower-bound coefficient follow by additional root geometry."
+        ],
+        "reasoning": "Classical criterion supplies the *framework*, not this nontrivial exact family classification.",
+        "searches": [
+          "shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold",
+          "arxiv:2204.02917v2 Sections 2.2-2.4 and 3",
+          "arxiv:1311.7359v1 introduction Zak zeros"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faulhuber & Shafkulovska arXiv:2204.02917v2 treats one-sided/two-sided exponentials and other ordinary window classes, not (t+c)^3 e^{-λt}1_{t>=0}.",
+          "The present cubic polynomial root P_r admits two distinct positive zero candidates for r>2−√3."
+        ],
+        "reasoning": "Shared Zak transform formalism is not equality of window, root polynomial, or exact frame phase diagram.",
+        "searches": [
+          "shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold",
+          "causal cubic polynomial exponential Gabor Zak transform zero critical density",
+          "Faulhuber Shafkulovska Gabor frame bound optimizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned sharp tent-spline onset and hat-spline Gabor calculations, whose window and lattice parameters differ, not a shifted cubic-gamma exact root table."
+        ],
+        "reasoning": "A similar power of δ does not mean the parameter-specific cubic phase diagram is tabulated or covered.",
+        "searches": [
+          "shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold",
+          "Resultary shifted cubic gamma critical density frame threshold",
+          "Resultary tent spline quadratic lower Gabor bound onset"
+        ]
+      },
+      "rationale": "Classical Zak multiplier criterion is not new; cited totally-positive-window uniqueness and B-spline/exponential frame-bound studies do not contain the causal shifted cubic-gamma polynomial root diagram or damping-dependent two-zero regime. Published related sharp quadratic onset for a tent spline concerns a different window and noncritical lattice. Best-of-knowledge priority subject to further polynomial-exponential window literature.",
+      "residual_risks": [
+        "The frame criterion is only for critical unit lattice and this fixed shifted cubic causal window; no arbitrary lattice classification.",
+        "Some closely relevant Gabor primary articles were accessible only in abstract/theorem overview; a hidden equivalent via polynomial-exponential windows remains possible.",
+        "One-sided boundary zeros count toward essential lower frame bound although the literal window value at a single point is immaterial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING specified cubic-gamma phase transition",
+          "evidence": "Analyzed different exponential/sech and truncated windows; no shifted causal cubic-gamma P_r threshold or two-zero r0 diagram.",
+          "identifier_or_url": "https://arxiv.org/html/2204.02917v2",
+          "material_read": "Lawful arXiv HTML article definitions and detailed sections on frame-bound optimization/window classes and examples",
+          "method": "read primary HTML including relevant sections",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "high relevance to exact lower Gabor bounds and one-sided exponentials"
+        },
+        {
+          "assessment": "NOT DECISIVELY EXCLUDED; assumption mismatch supports non-coverage",
+          "evidence": "One-zero conclusions require total positivity/exponential spline assumptions; explicit two-zero regime contradicts direct applicability of such a theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "Accessible abstract and theorem context only; full text not materially read",
+          "method": "abstract inspection",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "potential strong one-zero theorem"
+        },
+        {
+          "assessment": "RELATED; no whole-document exclusion",
+          "evidence": "Window families and frame regions presented are B-splines/totally-positive/Hermite, not shifted cubic-gamma; potential implicit broader criteria still a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11322",
+          "material_read": "Accessible abstract/theorem descriptions, not entire paper",
+          "method": "abstract inspection",
+          "title": "On Gabor frames generated by B-splines, totally positive functions, and Hermite functions",
+          "trigger": "same Gabor frame classification topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact critical sampling stability for a natural shifted causal cubic-gamma family requires nontrivial control of complex Zak zeros and a delicate two-root phase, not merely plugging into the generic Zak criterion. The explicit threshold and quadratic optimal lower-bound coefficient identify a precise robustness/ill-conditioning phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md pinned blob b4627612b886cd0f95ea591e17476f077fe13db4",
+    "checker.py pinned blob ff112953106c7c89dfa56a12c88517840b3941f1",
+    "Faulhuber Shafkulovska arXiv:2204.02917v2",
+    "Kloos Stöckler arXiv:1311.7359",
+    "Ghosh Selvan arXiv:2304.11322",
+    "Resultary semantic query: shifted cubic gamma causal polynomial exponential Gabor critical density Zak zero frame threshold"
+  ],
+  "disposition": "passed",
+  "final_claim": "A shifted causal cubic-gamma window g=(t+c)^3 exp(-λt)1_{t>=0} on the critical integer Gabor lattice has an exact cubic-root frame/nonframe boundary c>u_+(e^{-λ}), an axis-restricted two-Zak-zero phase transition at r=2−sqrt(3), and a sharp quadratic squared lower-frame-bound onset.",
+  "limitations": [
+    "The frame criterion is only for critical unit lattice and this fixed shifted cubic causal window; no arbitrary lattice classification.",
+    "Some closely relevant Gabor primary articles were accessible only in abstract/theorem overview; a hidden equivalent via polynomial-exponential windows remains possible.",
+    "One-sided boundary zeros count toward essential lower frame bound although the literal window value at a single point is immaterial."
+  ],
+  "residual_risks": [
+    "The frame criterion is only for critical unit lattice and this fixed shifted cubic causal window; no arbitrary lattice classification.",
+    "Some closely relevant Gabor primary articles were accessible only in abstract/theorem overview; a hidden equivalent via polynomial-exponential windows remains possible.",
+    "One-sided boundary zeros count toward essential lower frame bound although the literal window value at a single point is immaterial."
+  ],
+  "schema_version": 1
+}
