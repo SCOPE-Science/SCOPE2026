@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, check.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Independent finite binary-memory transfer-matrix spectral tests for four lag laws, checking both bounds and exact point-lag equality.",
+        "Independent reconstruction of Jensen/Gibbs steps, Cesaro old-history weight and iid weighted-sum variance including tail-free assumptions."
+      ],
+      "rationale": "For finite S, strictly positive destination law pi and positive survival k bounded below, the positive Feller operator K_tau has the exact product Feynman-Kac path representation under iid destination marks. Finite Gibbs duality and entropy chain rule give the upper bound via marginal averaging: each generated coordinate contributes total coefficient <=1, and old-history coefficient fraction b_n=E[min(T+1,n)]/n tends to zero by Cesaro for EVERY lag distribution, without moment assumptions. Jensen yields log norm(K_tau^n)/n<=max_q{log(m(q)+kmax b_n)-D(q||pi)}, hence r<=B=max_q m(q)e^{-D}. A product-q tilted law lower bounds log r by E_q log(sum tau_i k(X_i))-D(q||pi), with the prehistory error vanishing by the same b_n. Variance exactly Var_q(k)sum tau_i² and Taylor log curvature >=-1/kmin² yields the quantitative lower envelope at the unique strict-concavity optimizer q*. Point-mass tau=delta_L yields independent eventually generated factors and spectral radius m(pi). The two-state finite transfer tests agree for four distributions, including both point masses; no finite computation supplies the universal heavy-tail claim.",
+      "residual_risks": [
+        "Strict kmin>0, fully supported rank-one destination law and finite states are essential for bounded log/Gibbs arguments. No general irreducible non-rank-one kernel upper bound nor exact rate for arbitrary fixed tau claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older model gives benchmark comparison and a different upper estimate; the 2026 uniform-ancestral-memory model chooses an ancestor uniformly among a growing lineage, not with a fixed stationary lag law."
+        ],
+        "reasoning": "Neither inspected antecedent is a stronger all-tau, fixed-lag rank-one spectral upper theorem; standard Gibbs inequalities are ingredients, not the desired operator statement.",
+        "searches": [
+          "preferential relocation rank one killing memory law entropy spectral radius upper bound",
+          "Bertoin arXiv:2501.00306v1 section 3",
+          "Bertoin arXiv:2608.24356v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, check.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Bertoin–Minchev arXiv:2605.29030v1 full arXiv HTML and explicit question",
+        "Bertoin arXiv:2501.00306v1, arXiv:2608.24356v1",
+        "Resultary query: preferential relocation rank one killing memory law entropy spectral radius upper bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bertoin–Minchev obtain a lower bound for spreading and explicitly leave a matching upper bound unresolved in general; fixed-lag versus generation-dependent uniform ancestral sampling changes the Markov operator."
+        ],
+        "reasoning": "The new rank-one upper proof uses entropy chain rule and vanishing Cesaro old-history mass. The 2026 results do not imply this fixed-lag all-law inequality, though they motivate it.",
+        "searches": [
+          "preferential relocation rank one killing memory law entropy spectral radius upper bound",
+          "Bertoin–Minchev arXiv:2605.29030v1 after Figure 2",
+          "Bertoin arXiv:2608.24356v1 Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source Perron-tilt expression equals B because the rank-one tilted normalized left eigenvector has q(s)=pi(s)a(s)/sum pi a and Perron root m(q), with q(log a)=D(q||pi)."
+        ],
+        "reasoning": "The variational constants are equivalent, but Bertoin–Minchev state the universal upper inequality as a question; equality of constants is not prior proof of the all-tau bound or quantitative lower gap.",
+        "searches": [
+          "preferential relocation rank one killing memory law entropy spectral radius upper bound",
+          "Bertoin/Minchev arXiv:2605.29030v1 Corollary 5.2 and Question 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed semantic findings on entropy/Perron weights concern different settings and do not record the exact collision-dependent envelope or all-law dispersion limit."
+        ],
+        "reasoning": "An arbitrary probability law on N0 gives an infinite-dimensional functional parameter, so finite tables cannot establish universal coverage; search outcomes are only supporting due diligence.",
+        "searches": [
+          "preferential relocation rank one killing memory law entropy spectral radius upper bound",
+          "Resultary rank one memory killed chain search",
+          "SCOPE GitHub preferential relocation code search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Bertoin and Minchev arXiv:2605.29030 discuss preferential relocations and explicitly pose a universal upper Perron-tilt envelope after Corollary 5.2. Their dispersion lower-bound result does not settle a pointwise upper bound for every memory law; the present proof answers it in the strictly positive rank-one subclass with a quantitative collision lower envelope and arbitrary heavy tails. Bertoin 2025 provides a weaker bound; his 2026 uniform-ancestor process uses generation-dependent ancestry, not a fixed lag law. Direct application of their statements does not supply this theorem.",
+      "residual_risks": [
+        "General thermodynamic-formalism entropy-pressure theorems could imply this rank-one operator bound after substantial reformulation, despite absent exact wording.",
+        "The quantitative variance prefactor is a certified bound, not claimed optimal for every tau; strict positivity avoids log singularities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN UPPER QUESTION, SPECIAL CASE ADDRESSED",
+          "evidence": "Provides dispersed-law lower bound and poses upper bound; a rank-one all-tau solution with quantitative sum tau_i² lower correction is not stated there.",
+          "identifier_or_url": "arXiv:2605.29030v1",
+          "material_read": "Full arXiv HTML, operator definitions, Corollary 5.2, Figure 2 discussion and stated general Question 5.3",
+          "method": "full-text inspection",
+          "title": "Preferential relocations enhance survival for Markov chains with killing",
+          "trigger": "Same killed memory/relocation operator and the conjectured upper expression"
+        },
+        {
+          "assessment": "WEAKER/DIFFERENT UPPER ESTIMATE",
+          "evidence": "Does not yield the sharp Perron-tilt universal upper bound for the present fixed-lag rank-one operator.",
+          "identifier_or_url": "arXiv:2501.00306v1",
+          "material_read": "Relevant model and Section 3 bound inspected in accessible arXiv material",
+          "method": "primary text section inspection",
+          "title": "On a population model with memory",
+          "trigger": "Earlier genealogical memory spectral comparisons"
+        },
+        {
+          "assessment": "DIFFERENT AGE-DEPENDENT MODEL",
+          "evidence": "Uniformly chooses an ancestor of the current finite lineage; not a fixed lag probability distribution tau, hence no all-tau inequality for K_tau.",
+          "identifier_or_url": "arXiv:2608.24356v1",
+          "material_read": "Model, generation-dependent uniform genealogy and theorem statements including Theorem 14 inspected",
+          "method": "primary result and model inspection",
+          "title": "Another solvable population dynamic with uniform ancestral memory",
+          "trigger": "Rank-one survival and memory law superficially closest"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, check.py, REVIEW.md, METADATA.json/AUDIT.json, SLOGAN.txt, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Bertoin–Minchev arXiv:2605.29030v1 full arXiv HTML and explicit question",
+        "Bertoin arXiv:2501.00306v1, arXiv:2608.24356v1",
+        "Resultary query: preferential relocation rank one killing memory law entropy spectral radius upper bound"
+      ],
+      "rationale": "A mathematically motivated partial solution of a documented general open spectral-rate question in a structurally important rank-one case. It gives both a universal sharp upper envelope and a quantitative collision-probability stability estimate, separates arbitrarily remote concentrated lag from truly dispersed memory, and requires no tail restrictions. This is a structural result, not recomputation of a known constant.",
+      "residual_risks": [
+        "Motivated natural scoped theorem only; not a general result outside the exact stated hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strict kmin>0, fully supported rank-one destination law and finite states are essential for bounded log/Gibbs arguments. No general irreducible non-rank-one kernel upper bound nor exact rate for arbitrary fixed tau claimed.",
+    "General thermodynamic-formalism entropy-pressure theorems could imply this rank-one operator bound after substantial reformulation, despite absent exact wording.",
+    "The quantitative variance prefactor is a certified bound, not claimed optimal for every tau; strict positivity avoids log singularities."
+  ]
+}

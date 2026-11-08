@@ -1,19 +1,21 @@
-# Scientific review: sharp entropy envelope for rank-one killed chains
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent-mark Feynman–Kac representation is exact for rank-one rows. The Gibbs variational formula, entropy chain rule, coefficient bound on past versus newly drawn states, and Cesàro convergence prove the universal upper bound without moment hypotheses. A stationary iid change of measure, the Lipschitz bound for logarithms, and the exact weighted-sum variance prove the matching collision-dependent lower bound. Strict positivity handles all logarithms. Finite-memory exact path enumeration and transfer-matrix tests are reproducible auxiliary checks, not proofs of the limiting theorem. No unproved spectral approximation is used in the argument.
+PASS
 
-## Originality — PASS, qualified
+For finite S, strictly positive destination law pi and positive survival k bounded below, the positive Feller operator K_tau has the exact product Feynman-Kac path representation under iid destination marks. Finite Gibbs duality and entropy chain rule give the upper bound via marginal averaging: each generated coordinate contributes total coefficient <=1, and old-history coefficient fraction b_n=E[min(T+1,n)]/n tends to zero by Cesaro for EVERY lag distribution, without moment assumptions. Jensen yields log norm(K_tau^n)/n<=max_q{log(m(q)+kmax b_n)-D(q||pi)}, hence r<=B=max_q m(q)e^{-D}. A product-q tilted law lower bounds log r by E_q log(sum tau_i k(X_i))-D(q||pi), with the prehistory error vanishing by the same b_n. Variance exactly Var_q(k)sum tau_i² and Taylor log curvature >=-1/kmin² yields the quantitative lower envelope at the unique strict-concavity optimizer q*. Point-mass tau=delta_L yields independent eventually generated factors and spectral radius m(pi). The two-state finite transfer tests agree for four distributions, including both point masses; no finite computation supplies the universal heavy-tail claim.
 
-The earliest directly motivating source, Bertoin–Minchev, arXiv:2605.29030v1, explicitly poses the universal Perron-tilt upper inequality as a question after Corollary 5.2. Its result is a lower limit under spreading; it does not imply the bound for each lag law. Bertoin's arXiv:2501.00306v1 establishes a benchmark comparison with a different, nonsharp upper estimate. Bertoin's arXiv:2608.24356v1 concerns rank-one reproduction with a generation-dependent uniform-ancestry law rather than a fixed lag law, so its distinct exact growth constant cannot supply this bound. Searches for the sharp formula, the proposed question, and equivalent entropy formulations found no directly covering accessible claim. The universal rank-one result and its quantitative collision refinement are not claimed for general non-rank-one matrices. Unindexed results in general thermodynamic formalism and related infinite-memory models remain a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies an exact answer in a structural subclass of a question explicitly raised in the motivating paper, rather than a routine evaluation of its lower bound. It identifies the sharp universal spectral envelope, proves dispersed-memory attainment with no moment restrictions, gives a quantitative collision-probability stability law, and distinguishes spreading from merely shifting mass to remote lags. The nonconstant-survival strict gap between baseline and envelope makes the distinction substantive.
+Best-of-knowledge PASS. Bertoin and Minchev arXiv:2605.29030 discuss preferential relocations and explicitly pose a universal upper Perron-tilt envelope after Corollary 5.2. Their dispersion lower-bound result does not settle a pointwise upper bound for every memory law; the present proof answers it in the strictly positive rank-one subclass with a quantitative collision lower envelope and arbitrary heavy tails. Bertoin 2025 provides a weaker bound; his 2026 uniform-ancestor process uses generation-dependent ancestry, not a fixed lag law. Direct application of their statements does not supply this theorem.
 
-## Checked literature and limitations
+## value
 
-The relevant materials inspected include the question and Corollary 5.2 in arXiv:2605.29030v1; the model, spectral comparison and Section 3 upper estimate in arXiv:2501.00306v1; and the model, Theorem 1, the uniform-ancestry genealogy, and Theorem 14 in arXiv:2608.24356v1. The theorem assumes a finite, strictly positive rank-one kernel. Broader matrices and sharp rates for individual fixed lag laws remain outside its scope. Independent scientific and historical-priority checks have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically motivated partial solution of a documented general open spectral-rate question in a structurally important rank-one case. It gives both a universal sharp upper envelope and a quantitative collision-probability stability estimate, separates arbitrarily remote concentrated lag from truly dispersed memory, and requires no tail restrictions. This is a structural result, not recomputation of a known constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
