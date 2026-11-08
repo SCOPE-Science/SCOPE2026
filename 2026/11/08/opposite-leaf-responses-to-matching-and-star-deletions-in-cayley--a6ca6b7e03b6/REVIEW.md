@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The counted-leaf identity \(\Pr(v\text{ leaf})=\deg_G(v)\tau(G-v)/\tau(G)\) is a bijection between leaf-rooted spanning trees and a spanning tree on the remaining vertices with one attachment edge. Deleted matching and star Laplacian spectra give independent closed forms for tree counts; the vertex-orbit decomposition yields both claimed expected-leaf ratios. Strict Bernoulli inequality and strict Jensen inequality establish signs for all stated integer parameters, including the \(r=1\) neutrality boundary. The standalone exact-minor and small-graph enumeration checker passed 145 assertions. Finite checks corroborate but do not replace the proof.
+
+**Originality — PASS, with historical-priority risk.** Targeted published-mathematics and mathematical-record queries did not find this explicit paired expected-leaf sign reversal. Rapoport (2023) does provide a general algorithmic expression for the degree field, including leaf probabilities; therefore the mere ability to calculate these examples is covered. What is not identified in the inspected sections is the actual closed-form comparison and sign theorem, whose strict inequalities use extra structure. Fita Sanmartín et al. (2024) treat the expectation and variance of degree, a different statistic. The 2019 mean-subtree-order edge-addition paper concerns random **subtrees' size**, not degree-one vertices in **spanning trees**. An inaccessible or unindexed historical statement could still cover this classification.
+
+**Value — PASS.** A fixed count of edge deletions does not predict whether a random spanning tree has more or fewer expected leaves. The two most canonical overlap patterns (disjoint edges and common-center edges) produce the opposite strict signs, while one missing edge is neutral. The formulas classify the effect throughout each valid family and provide a concrete test case for claims of monotonicity under graph perturbations. This is a natural structural boundary, not a numerical experiment or an arbitrary parameter slice.
+
+**Limitations.** Neither all-deletion-pattern extremality nor distributional stochastic order is established. Historical novelty is assessed on accessible evidence, not certified. No external mathematical review was conducted.
+
+Self-review: passed. Independent audit: not yet performed.

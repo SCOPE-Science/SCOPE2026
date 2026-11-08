@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For any connected finite graph the number of spanning trees in which a fixed vertex is a leaf is its graph degree times the spanning-tree count of the vertex-deleted graph (zero when disconnected). This bijection, together with the exactly computed deleted-matching and deleted-star Laplacian spectra and Kirchhoff tree counts, yields the two displayed closed forms. The matching sign is the strict Bernoulli inequality; the star sign is strict Jensen for two unequal positive bases with weighted mean one. The connectedness, r=1, n=2r and r=n-2 boundaries were checked explicitly. A standard-library exact Bareiss/minor checker independently passed 181 assertions, with small-graph brute enumeration. Finite checks are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fita Sanmartín et al. (2024) present node-degree expectations and variances, not the expected count of leaves nor a cross-graph comparison.",
+        "Rapoport (2023) has general degree distributions and explicitly treats an undeleted complete graph; no evaluated strict comparison was identified in the inspected body."
+      ],
+      "reasoning": "A stronger universal theorem proving matching deletion always reduces and star deletion always increases the leaf mean for every host would dominate the result, but none was located. General matrix-tree determinant and joint degree formulas are computational frameworks, not themselves these sign inequalities. The possibility of uncataloged stronger coverage remains a residual risk.",
+      "searches": [
+        "\"expected number of leaves\" \"spanning tree\" \"edge deletion\" \"complete graph\"",
+        "spanning tree leaf count graph edge removal increases decreases expectation complete graph",
+        "arXiv:2409.13472v2 Section 3 Section 4 Appendix B",
+        "arXiv:2312.14992v1 Section 3.2 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.14992v1",
+      "arXiv:2409.13472v2",
+      "arXiv:1911.05794 abstract",
+      "Classical Kirchhoff matrix-tree theorem and Cayley/Pruefer enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kirchhoff and Prüfer enumeration imply basic counts; elementary Laplacian spectra of deleted matchings and stars yield counts when combined with them.",
+        "Rapoport general degree formulas in principle apply to each finite host but do not state the two closed expressions and sign reversal.",
+        "Cameron and Mol (2019) discuss mean order among random subtrees, not the expected number of degree-one vertices in uniformly random spanning trees."
+      ],
+      "reasoning": "The contribution explicitly excludes classical counting principles, one-edge tree-count identities and algorithmic degree probabilities. Its extra mathematical content is the exact two-pattern comparison with universal signs and sharp r=1 boundary; those conclusions require specializing Laplacian spectra and proving inequalities and were not located in inspected work. No independence from existing general formulas is asserted.",
+      "searches": [
+        "arXiv:2312.14992v1 complete-graph degree formula",
+        "arXiv:2409.13472v2 degree distribution polynomial",
+        "arXiv:1911.05794 mean subtree order under edge addition",
+        "complete graph minus an edge spanning tree count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rapoport (2023), arXiv:2312.14992v1, Theorem 3.7 supplies general degree-field expressions and Section 4 examines the unmodified complete graph; no specified paired deletion theorem in those sections.",
+        "Search results include general tree facts and edge-deletion spanning-tree counts, not an explicit matching-vs-star leaf-sign theorem."
+      ],
+      "reasoning": "The leaf statistic can be written as a sum of degree-one indicators, so general UST joint-degree probability formulas can compute it algorithmically. Neither inspected relevant source evaluates the two deletion families or states their opposed strict signs. The new assertion is about the interpreted exact comparison, not generic computational expressibility.",
+      "searches": [
+        "uniform spanning tree expected leaves K_n edge deletion matching versus star nonmonotonicity",
+        "Cayley tree conditional avoidance matching forbidden star deleted edges expected leaves",
+        "\"number of leaves\" \"uniform spanning tree\" \"matching\" \"star\"",
+        "arXiv:2312.14992v1 Section 3.2 / Section 4 complete graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved source descriptions contain no direct n,r table of expected leaf means comparing these two specified families.",
+        "The proof and exact checker independently derive the displayed expressions rather than importing entries from a database."
+      ],
+      "reasoning": "A known table or pre-evaluated pair of leaf-mean formulas would cover the claimed explicit computations, but neither a matching table nor a broader evaluative listing was identified in actual searches. This is best-knowledge evidence, not an exhaustive index of every table.",
+      "searches": [
+        "complete graph removed matching versus removed star spanning tree leaf expectation ratio",
+        "Cayley trees no edges from matching expected number leaves conditional spanning tree",
+        "expected leaves random spanning trees complete graph with removed star edges and perfect matching"
+      ]
+    },
+    "rationale": "The novel candidate is not the general ability to compute a UST leaf probability, which follows from known UST degree-field formulas, nor the classical graph-specific tree-count determinants. Rather, it is the explicitly evaluated pair of n,r-dependent leaf means and their strict, opposite signs for matching versus star deletions at equal removed-edge count, with the exact neutrality boundary at r=1. Searches of published mathematical literature and indexed findings with synonymous formulations did not retrieve an explicit equivalent theorem. Accessible full primary sources on generic UST degrees and moments were compared by implication, not merely by title. Historical-priority uncertainty persists: an earlier specialization or graph-extremal theorem might imply the comparison.",
+    "residual_risks": [
+      "Historical-priority searches cannot exclude a previously published specialized theorem or earlier table.",
+      "General UST degree-field formulas can produce these calculations after specialization; novelty lies only in the explicit sharp comparative sign theorem, not in computability.",
+      "2019 mean-subtree-order source was checked at abstract scope only; it is a different random object, not sufficient to claim every section lacks related content."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General degree-field representation and unperturbed complete-graph degree law are covered; the paired matching/star-deletion expectation and sign reversal were not identified",
+        "evidence": [
+          "arXiv:2312.14992v1 Section 1 explicitly describes general UST degree-field probabilities and Section 4 complete graph; first public 2023-12-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+        "material_read": "Abstract, Introduction, Section 3.2, Section 4 including Complete graphs, stated theorem scope",
+        "method": "Accessible arXiv HTML, direct reading and within-document term comparison",
+        "title": "Correlations in uniform spanning trees: a fermionic approach",
+        "trigger": "General degree-field distribution could imply the leaf-count statistic"
+      },
+      {
+        "assessment": "Weighted/unweighted vertex degree moments and computational polynomial framework; no evaluated leaf-count response to two shapes of edge deletion identified",
+        "evidence": [
+          "arXiv:2409.13472v2 Introduction 1.1 and Section 3-4 explicitly focus on node degree moments; first posted 2024-09-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.13472v2",
+        "material_read": "Abstract, Introduction and contribution, Section 3 and Section 4 statements and descriptions",
+        "method": "Accessible arXiv HTML full article sections",
+        "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+        "trigger": "The degree-moment and degree-polynomial formalism could dominate node-based calculations"
+      },
+      {
+        "assessment": "Mean order of uniformly random subtrees (vertex counts), a different statistic/model; low-priority historical risk remains",
+        "evidence": [
+          "arXiv:1911.05794 abstract studies expected subtree order after edge addition, not UST leaf count"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05794",
+        "material_read": "Abstract and publicly accessible scope description",
+        "method": "arXiv abstract and scope comparison; full body not used to assert noncoverage",
+        "title": "On the Mean Subtree Order of Graphs Under Edge Addition",
+        "trigger": "Edge perturbations and nonmonotonic random-tree statistics are an obvious neighboring comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6ca6b7e-03b6-4f8b-bfa5-3e493fb32aad",
+  "value": {
+    "rationale": "The sign of the change of mean leaf count under removing r edges is a natural robustness statistic in uniform random network trees. The two simplest ways for deleted edges to overlap, all disjoint versus all incident to one vertex, give strictly opposite effects for every admissible r>=2 despite identical host size and removed-edge counts, while r=1 is exactly neutral. This is an infinite-family structural boundary with explicit formulas, rather than a one-off graph counterexample or a small numeric perturbation. It does not claim extremality among all deletion patterns.",
+    "status": "PASS"
+  }
+}
