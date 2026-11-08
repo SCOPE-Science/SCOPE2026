@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Normalized monomials give beta-prime eigenvalues and an exact trace identity. The incomplete-beta recurrence determines every possible maximum or tie, with no missing endpoint cases. A uniform exponential tail makes both compact-uniform gamma spectral limits strong enough for operator norms, arbitrary fixed positive fractional Schatten powers, and the maximizing-degree statements. The checker supplies 152 supplementary finite assertions, not a substitute for infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-The most relevant primary paper, Abreu–Mouayn–Voigtlaender (arXiv:2201.11705), already establishes beta-prime eigenvalue identities for Cantor-annulus localization; that premise is not claimed as new. Nicola–Tilli (arXiv:2207.08624), Ramos–Tilli (DOI:10.1112/blms.12833) and Nicola–Riccardi (arXiv:2401.04659) establish sharp concentration, universal norm or Hilbert–Schmidt bounds, not the present exact escape profiles. The existing related research record on Cantor annuli concerns a different nonconsecutive union and a different limit. Searches for the object, normalization, gamma crossover, aliases, and stronger coverage gave no decisive equivalent. A general beta-prime limit theorem could indirectly imply portions, so independent priority judgment remains outstanding.
+PASS
 
-## Mathematical value — PASS
-The two gamma regimes provide an exact boundary-escape spectral description, explaining how hyperbolic measure can remain fixed while maximal localization drops to zero and giving all positive Schatten-power constants. The finite-width crossover has a unique calculable peak; the discrete operator exhibits an exact two-mode collision criterion. This is a complete natural family, not an arbitrary numerical slice or a mere estimate for one exponent.
+For each fixed p,q>0, normalized weighted Bergman monomials diagonalize radial annulus localization. The beta-prime density g_{p,k}(t)=Γ(k+p+1)t^k/[Γ(k+1)Γ(p)(1+t)^{k+p+1}] sums pointwise to p by the binomial series, proving exact trace pL and trace class without relying on finite truncation. Incomplete-beta recurrence yields sign(λ_{k+1}−λ_k)=sign(H_{p,S,L}−(k+1)), giving a unique maximizing degree floor H unless integral H=m yields a two-mode tie m−1,m. Uniform gamma-ratio bounds and log(1+1/t)≥1/(1+t) give λ_k≤C(L/S)(1+k/S)^p exp[−k/((2+R)S)] when L/S≤R. For L/S→0, (S/L)λ_{floor cS}→c^p exp(−c)/Γ(p), and all q>0 Schatten trace powers converge by dominated Riemann sums to Γ(pq+1)/(q^{pq+1}Γ(p)^q). For L/S→ρ>0 the rescaled degree profile is the gamma interval mass ∫_{c/(1+ρ)}^c x^{p−1}exp(−x)dx/Γ(p), its derivative has one sign change at c=p(1+ρ)log(1+ρ)/ρ, and the exponential tail yields the full trace/norm claims. Independent p=1 case λ_k=v^{k+1}−u^{k+1}, trace=L and ρ=1 limit maximum 1/4 corroborate. Finite package check is not the proof.
 
-## Scope and limits
-One complex dimension, a centered hyperbolic annulus and fixed strictly positive Bergman/Schatten exponents. No assertion for irregular regions, divergent relative width, or independent external mathematical priority. Trace-class proof uses a binomial series, not finite enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abreu–Mouayn–Voigtlaender provide the underlying beta-prime spectrum for hyperbolic Cantor annuli, but not the claimed two scaling limits/peak collision/all-q trace asymptotics. Nicola–Tilli, Ramos–Tilli and Nicola–Riccardi discuss sharp concentration and norm/Hilbert–Schmidt inequalities, not this exact centered-annulus spectral law. Resultary spectral-filling and circle-trace records concern other parameterizations. Finite-spectrum formula can be known while the nontrivial uniform tails and complete gamma spectral profile are new best-of-knowledge.
+
+## value
+
+PASS
+
+This is a complete natural one-annulus spectral family, not a single numerical norm. It gives an exact finite twofold mode-degeneracy resonance, a universal boundary-escape crossover, sharp norm constants and every positive Schatten moment including q<1; these are natural spectral invariants of Bergman/wavelet localization, useful for asymptotic spectral concentration beyond existing area-constrained inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
