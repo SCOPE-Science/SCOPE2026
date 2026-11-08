@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The single claim is a complete disk-radius and boundary-attainment classification for normalized trace-frame numerical ranges of bounded antilinear operators in complex Hilbert dimension at least two, together with singular-sequence recovery. The proof reduces the quadratic form to the antilinearly self-adjoint part, constructs a commuting-conjugation polar form, applies the positive Ky Fan principle, and proves a necessary and sufficient spectral-projection condition for attaining the Ky Fan maximum. It independently establishes zero-valued frames in every finite and infinite dimension, including the odd full-frame case. Consecutive radii reconstruct generalized singular values. The standalone finite checker passed 5,580 assertions for dimensions 2 through 10; it is illustrative, not the source of the universal proof. Boundary examples distinguish an attained closed disk from a nonattained open disk.
+## correctness
 
-## Originality (O): PASS, best-knowledge comparison
-Majumdar–Müller (arXiv:2610.16823v1, Section 7) introduces these normalized trace-frame numerical ranges and proves disk shape in infinite dimension; it supplies neither the explicit radius nor the exact boundary-attainment criterion nor spectral reconstruction. Kołaczek–Müller (2024) determines shape for the single-vector antilinear numerical range, a proper special case. Classical Ky Fan theory determines variational sums for positive operators but does not by itself classify the trace-frame numerical ranges, their open/closed endpoints, and their inverse-spectral content. Accessible mathematical research sources were searched using trace-frame, Takagi, Ky Fan, singular sequence, and equivalent numerical-range terminology. Existing two-Takagi-mode constrained numerical-range formulas determine top-two-mode quantities; they do not determine the third or later generalized singular values recovered here. The primary full-text comparison and residual risks are detailed in `AUDIT.json`.
+PASS
 
-## Mathematical value (V): PASS
-The trace numerical ranges introduced in recent work are natural spectral observables, but a disk-shape theorem without an exact radius leaves their quantitative content unspecified. The result identifies exactly what every frame size measures, characterizes whether the outer boundary is genuinely attainable in infinite dimensions, and shows that the entire sequence detects the symmetric antilinear component's compactness and Schatten membership. These are complete answers for a natural operator invariant, not arbitrary parameter slices or finite numerical tables. The statement also delineates the invisible skew-adjoint component and avoids claiming recovery of the full operator.
+Rebuilt the invariant quadratic reduction A -> B=(A+A#)/2, polar conjugation B=JQ with Q=(B^2)^1/2, absolute quadratic estimate and positive Ky Fan rank-k variational maximum. At a=sigma_k(Q), finite-rank E_Q((a,infinity)) and equality in the trace bound give the exact boundary condition dim E_Q([a,infinity))>=k. Complex Stiefel path-connectivity, phase rotation and explicit Takagi zero frames for even k and both odd-k cases fill the disk; consecutive Ky Fan sums recover sigma_k, essential norm compactness and Schatten membership. Correctly excludes dimension one and cannot recover skew-adjoint antilinear part. Our independent n=2..8 orthonormal-frame tests confirmed random-frame upper bounds, zero-frame pair construction and finite spectrum formula, not infinite proof.
 
-## Limitations and literature risks
-The classification does not recover the skew-adjoint antilinear component or the full spectral measure. Generalized singular values cannot distinguish nonunitarily equivalent positive operators with the same sequence. Classical complex-symmetric congruence and Ky Fan literature may contain an implicit equivalent formulation; an independent publication-priority review is still required. The cited 2012 background source was assessed at the level of its available abstract, not certified as fully excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary preprint arXiv:2610.16823 (Majumdar-Müller, 12 Oct 2026) introduces generalized trace numerical ranges and disk shapes; its actual Section 7 full text could not be obtained after failed arXiv/OA routes and institutional access disconnected. Classical Ky Fan and Takagi supply major proof ingredients. The explicit every-k radii, non-attainment boundary criterion and singular reconstruction were not located in checked accessible statements; exact prior equivalence remains a material priority risk.
+
+## value
+
+PASS
+
+A natural operator-theoretic family of k-frame observables has a complete sharp quantitative classification, especially infinite-dimensional boundary attainment and reconstruction of compact/Schatten behavior. It is more than an arbitrary matrix computation, despite relying on classical Ky Fan geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
