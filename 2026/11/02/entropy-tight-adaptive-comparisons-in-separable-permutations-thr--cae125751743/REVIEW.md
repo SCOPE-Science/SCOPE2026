@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The VC upper bound follows from a directed-cycle obstruction in any shattered comparison support; the lower bound is witnessed for every adjacent ascent/descent pattern by a direct sum of decreasing blocks. For each size through seven, the cardinality count bounds Littlestone depth from above and a complete, explicitly encoded adaptive comparison tree provides the matching lower bound. Independent direct/skew and pattern-filter enumerations agree, and an independent verifier tests every path and leaf in the certificates, including 1024 distinct witnesses at seven positions. Direct sums of independent seven-position trees prove the infinite-family inequality without extrapolating finite enumeration.
+## correctness
 
-## Originality — PASS under examined comparisons
-The 2019 first public version of Pinsky's separable-permutation study gives definitions, enumeration and a probabilistic limit, not the exact online comparison dimensions in the material examined (the opening definitions, generating-function portion and targeted searches throughout its full-text PDF). Ghazi et al. (2021) analyze general aggregation closure of Littlestone dimensions, not explicit comparison queries on the separable class. Searches for the precise forbidden patterns, Schröder permutations, thicket dimension, pairwise comparison trees and the seven-position numerical parameters did not locate a theorem implying the new finite table or the block-amplification lower bound. The closest indexed separable-permutation report concerns Wilf enumeration of stricter subclasses, not adaptive shattering. An indexed unrestricted-permutation theorem concerns a strictly larger class and supplies only an upper bound for this restriction; indexed results for one-pattern avoiding classes supply at most lower bounds for suitable contained subclasses, insufficient to yield the exact claim.
+PASS
 
-## Mathematical value — PASS
-The family \(\operatorname{Av}(2413,3142)\) is a canonical large Schröder permutation class with independent structural motivation in permutation patterns and series-parallel decomposition. Exact adaptive dimensions were not supplied by its standard counting formula, which yields only upper bounds. The proof isolates a sharp finite entropic saturation at seven positions and exhibits the first finite adaptive/static gap at four positions. More importantly, one explicit small certificate propagates by direct sums to a quantitatively unbounded adaptive advantage within a structurally restricted class, showing that canonical pattern avoidance need not suppress increasing online-versus-static complexity.
+The query domain consists of fixed-position pair comparisons, not comparisons of named labels. A shattered set of edges must form a forest because a cycle can be oriented as an impossible strict inequality cycle. Conversely adjacent-position queries realize all 2^(n-1) signs by direct sums of decreasing runs, proving VCdim=n-1 for every n>=1. For n=1..7 the independently re-enumerated separable concept counts 1,2,6,22,90,394,1806 and fresh exact version-space recursion independently found complete decision trees at depths 0,1,2,4,6,8,10; 2^d<=|S_n| supplies matching upper bounds. Original source stores a complete depth-ten tree in certificates.json and the inspected verifier checks its leaf witnesses; the independent depth recursion does not rely on its stored tree. Concatenating s independent seven-position decision trees under direct sums gives Ldim(S_7s)>=10s and a >=3s+1 VC gap. Finite calculations establish only the seven small cases; the all-n assertions follow from the stated structural arguments.
 
-## Sources, limits and remaining risk
-Primary sources examined: Pinsky, arXiv:1911.05565 (2019), and Ghazi–Golowich–Kumar–Manurangsi, PMLR 132 (2021). Additional source and formulation searches included separable permutations, inversion comparisons, permutation graphs/cographs, and online learning. No result beyond seven positions is asserted exactly; exhaustive historical priority, especially unindexed theses or equivalent graph formulations, remains unresolved. The proof artifacts verify the finite certificate and the stated exact count; they do not provide an external independent scientific review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the exact adaptive dimension table and resulting unbounded separable-permutation adaptive/static gap; neither Schröder enumeration nor generic closure bounds alone imply those depths. The claimed novelty is not the classical separable class or the elementary forest bound. Exact historical priority in alternative comparison-learning terminology remains unchecked.
+
+## value
+
+PASS
+
+The precise first strict gap n=4, exact entropy-tight adaptive dimension through n=7, and certified unbounded separation give a natural exact learning-theoretic invariant for a prominent permutation class. It is a motivated finite cutoff with an infinite structural consequence, not an arbitrary census of permutations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
