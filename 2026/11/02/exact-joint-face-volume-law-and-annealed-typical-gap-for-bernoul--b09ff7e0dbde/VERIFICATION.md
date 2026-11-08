@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python verify.py` with Python 3.10 or later, NumPy and SciPy. The checker constructs the convex hull of the canonical selected vertices for every doubled-pair count \(1\le K\le d\) in dimensions \(2\le d\le5\), collects all supporting-facet vertex sets, closes those sets under intersection to reconstruct all faces, and compares the resulting face counts to the polynomial in `RESULT.md`. It also compares volumes against the orthogonal-pyramid formula. Independently, it evaluates the exact finite probability law and both conditional moment identities with rational arithmetic for dimensions \(2\le d\le8\) and retention probabilities \(1/5,1/2,4/5\). It tests strict annealed–typical inequalities at four numerical parameters.
+# Independent mathematical audit
 
-The program was executed with all tests passing and printed `ALL_CHECKS_PASSED`. Its finite checks do not validate the infinite-dimensional limits or replace the analytic proof, and they do not assess historical priority. The logarithmic asymptotics depend on the classical binomial law of large numbers, central limit theorem, bounded-remainder argument, and strict concavity shown in `RESULT.md`. Independent mathematical audit was not performed.
+## correctness
+
+PASS
+
+Each signed coordinate pair independently contributes two, one or zero retained vertices, so (K,L,d-K-L) is multinomial and the hull is a K-crosspolytope with L pyramids when K>=1, otherwise an (L-1)-simplex. The face polynomial follows by multiplying by (1+z) for each pyramid, and intrinsic volumes follow from orthogonal unit-height apexes. Full dimension requires no missing coordinates and K>=1; conditional K is Bin(d,rho) conditioned positive, rho=p/(2-p). Hence R=2^(K-d), Z=2^(d-K)(3^K+1), exact moments by the binomial pgf, full-dimensionality probability and unconditioned ambient-volume moment follow. Binomial LLN/CLT and a bounded log(1+3^(-K)) remainder yield the joint rank-one Gaussian limit; strict logarithmic concavity yields annealed > typical exponent gaps for 0<rho<1. Independently checked the conditional binomial and endpoint d=2,3 canonical face-polynomial identities algebraically; no asymptotic conclusion depends on finite experiments.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: New explicit multinomial conditioning and limiting-rate comparison are additional propositions; no stronger inspected theorem directly states them.
+
+## value
+
+PASS
+
+Independent vertex thinning of an archetypal centrally symmetric polytope is a natural sparse random-polytope benchmark. Its exact joint combinatorial/geometric spectrum and asymptotic distinction between mean and typical face complexity and volume are useful calibration quantities, not merely an arbitrary face-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

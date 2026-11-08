@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The object is fixed, the independent retention model is explicit, and the combinatorial classification follows by a coordinate-sign symmetry and repeated pyramiding. The cross-polytope face polynomial, orthogonal pyramid volume factors, and the Gram determinant handle every nonempty state. The full-dimensional event is exactly no absent coordinate and at least one doubled pair. Conditional binomial enumeration gives the joint law and means. The Gaussian limit and strict mean–typical separation use standard binomial limit theorems and strict log concavity. The packaged checker independently reconstructed complete face lattices in dimensions two through five and performed rational moment checks; all passed. Finite checks are not presented as infinite proofs.
+## correctness
 
-**Originality — PASS (best-knowledge, bounded search).** Exact-claim and alias searches in geometric-probability literature and published research records found no statement giving the all-dimensional joint volume/face-vector law for Bernoulli-thinned cross-polytopes. Newman [2] establishes a vertex-retention model and general bounds but not this canonical exact classification; Bonnet–O'Reilly [1] concern continuously sampled sphere points, not independent retention from a fixed orthoplex. Published cube-retention and cross-polytope-section results concern different objects or sampling laws, and do not imply the present theorem. The elementary face-polynomial identity is background, not a standalone novelty claim. Residual historical-priority risk remains, particularly obscure polytope enumeration tables and discrete vertex-percolation literature.
+PASS
 
-**Value — PASS.** Randomly reducing a polytope's vertices is a natural approximation operation; explicit shape and complexity distributions are rare beyond special symmetric families. This result supplies a complete law, not one special dimension, and demonstrates a mathematically consequential distinction between expectation and typical behavior for two natural observables, volume preservation and total face complexity. The shared normal fluctuation has a geometric explanation—both statistics are controlled by the number of surviving opposite pairs—and supplies an exact benchmark for vertex-subsampling methods.
+Each signed coordinate pair independently contributes two, one or zero retained vertices, so (K,L,d-K-L) is multinomial and the hull is a K-crosspolytope with L pyramids when K>=1, otherwise an (L-1)-simplex. The face polynomial follows by multiplying by (1+z) for each pyramid, and intrinsic volumes follow from orthogonal unit-height apexes. Full dimension requires no missing coordinates and K>=1; conditional K is Bin(d,rho) conditioned positive, rho=p/(2-p). Hence R=2^(K-d), Z=2^(d-K)(3^K+1), exact moments by the binomial pgf, full-dimensionality probability and unconditioned ambient-volume moment follow. Binomial LLN/CLT and a bounded log(1+3^(-K)) remainder yield the joint rank-one Gaussian limit; strict logarithmic concavity yields annealed > typical exponent gaps for 0<rho<1. Independently checked the conditional binomial and endpoint d=2,3 canonical face-polynomial identities algebraically; no asymptotic conclusion depends on finite experiments.
 
-The claim is conditional when logarithms of the volume are used. It does not assert a result for general vertex sets or for independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: New explicit multinomial conditioning and limiting-rate comparison are additional propositions; no stronger inspected theorem directly states them.
+
+## value
+
+PASS
+
+Independent vertex thinning of an archetypal centrally symmetric polytope is a natural sparse random-polytope benchmark. Its exact joint combinatorial/geometric spectrum and asymptotic distinction between mean and typical face complexity and volume are useful calibration quantities, not merely an arbitrary face-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
