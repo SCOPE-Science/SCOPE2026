@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:54:46.846466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-rank-three-threshold-for-finite-powerset-meet-semilattices--5a1786b1ea8a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-rank-three-threshold-for-finite-powerset-meet-semilattices--5a1786b1ea8a/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261105T1138Z/independent_checks.py"
+      ],
+      "rationale": "Use Venn-region count vectors for k selected sets. Atomic equality and ternary M(X,Y,Z) are determined solely by supports of 2^k Venn cells. One additional selected set splits each region of size c into two counts (x,c−x), 0<=x<=c. The exact recursive extension-type T(c,r+1) is the set of all T(split(c),r). With one round left the four Venn-region counts truncate at 2; the 4+ splitting pattern stabilizes. For one selected set and two rounds left, independent exact recursion proves the 3-versus-4 reductions, giving truncation (min(a,3),min(b,3)); 16 such pointed two-round types are distinct. Root 3-round type therefore sees exactly S_n={(min(a,3),min(n−a,3)):0<=a<=n}, distinct for n=1..5 and stable for n>=6, establishing iff min(m,6)=min(n,6). Independent implementation recomputed 16 pointed types and the 6 root theories, verifying critical reductions; the universal 4+ bound and finite-state recursive semantics justify the infinite tail.",
+      "residual_risks": [
+        "Relational M-signature without complement, 0/1 constants or meet function; only finite full powersets and quantifier rank exactly three. Finite certificate alone is not infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General semilattice theory and EF games subsume proof techniques but not the particular finite relational meet structures and exact rank-three boundary."
+        ],
+        "reasoning": "The cited transformation semilattice structural theorem cannot imply this FO threshold; no more general result found in searched records.",
+        "searches": [
+          "https://arxiv.org/abs/1007.4845",
+          "Resultary semantic query: powerset meet semilattice Ehrenfeucht Fraisse three quantifier rank powersets n six"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1007.4845",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7",
+        "Libkin, Elements of Finite Model Theory (Springer 2004), Ehrenfeucht–Fraisse game definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General EF characterization permits the recursion; Boolean atom cutoff and inclusion-language threshold require careful signature translation."
+        ],
+        "reasoning": "The present rank-three theorem needs 16 distinct pointed types plus T((3,b),2)=T((4,b),2), which do not follow at the same rank from cited richer/poorer signature statements.",
+        "searches": [
+          "https://arxiv.org/abs/1007.4845",
+          "Libkin, Elements of Finite Model Theory",
+          "Resultary semantic query: powerset meet semilattice Ehrenfeucht Fraisse three quantifier rank powersets n six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A full Boolean algebra is a richer signature expansion of the meet semilattice; its known rank-three threshold is eight."
+        ],
+        "reasoning": "Restriction from richer language to meet only preserves equivalence but does not prove a sharper six cutoff or distinguish n<6; need exact Venn splitting profile.",
+        "searches": [
+          "Resultary semantic query: powerset meet semilattice Ehrenfeucht Fraisse three quantifier rank powersets n six",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known published table is the Boolean-language 8 cutoff, not 6 in ternary-M signature; no rank-three relational meet table located."
+        ],
+        "reasoning": "S_n is an exact infinite family structural classification, not a recomputation of the known eight-atom table. Search absence is not proof of novelty.",
+        "searches": [
+          "Resultary semantic query: powerset meet semilattice Ehrenfeucht Fraisse three quantifier rank powersets n six",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7"
+        ]
+      },
+      "rationale": "Known full Boolean algebra language has 2^q-atom cutoff, q=3 gives 8; known inclusion-only language admits threshold six but translating ternary meet to inclusion costs quantifier rank. The original transformations semilattice article studies embedding/extremal structure, not elementary equivalence. No identified implication makes the exact meet-relational six threshold a direct textbook restatement; equivalence with an obscure finite-model-theory lemma is residual risk.",
+      "residual_risks": [
+        "An unindexed EF-game classification of intersection semilattices or powerset reducts might establish the six cutoff.",
+        "The result cannot be carried to functional-meet or full Boolean-algebra signature with the same quantifier-rank bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant and family",
+          "evidence": "Extremal size/embedding questions for transformation semigroups do not determine rank-three EF equivalence of full powerset meet relational structures.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.4845",
+          "material_read": "Accessible source abstract and initial object definitions concerning transformation-semigroup maximal subsemilattices",
+          "method": "Abstract/intro-level source inspection",
+          "title": "The Largest Subsemilattices of the Semigroup of Transformations on a Finite Set",
+          "trigger": "primary semilattice literature with near-identical object name"
+        },
+        {
+          "assessment": "DIFFERENT LANGUAGE; no automatic domination",
+          "evidence": "For rank 3 Boolean language sees up to eight atoms, while the meet relation is a weaker reduct whose six cutoff is neither implied nor contradicted by this bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7",
+          "material_read": "Published Resultary record title and full semantic summary giving the 2^q atom cutoff in usual richer Boolean language",
+          "method": "Published summary comparison, not primary full mathematical package",
+          "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+          "trigger": "adjacent published finite-model-theory result potentially dominates"
+        },
+        {
+          "assessment": "General method prior",
+          "evidence": "The recursion applies an established finite-model-theory technique, but the exact meet-language pointed-type reduction requires computation.",
+          "identifier_or_url": "Libkin (Springer, 2004)",
+          "material_read": "Standard EF-game definitions and quantifier-rank correspondence only; no complete textbook section verified in this run",
+          "method": "Standard reference comparison",
+          "title": "Elements of Finite Model Theory",
+          "trigger": "classical EF game mechanics and powerset comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1007.4845",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7",
+        "Libkin, Elements of Finite Model Theory (Springer 2004), Ehrenfeucht–Fraisse game definitions"
+      ],
+      "rationale": "A sharp finite-index quantifier-rank stabilization theorem for a natural semilattice relational reduct is a meaningful logical complexity invariant. The exact six-type cutoff differs from richer Boolean algebra and cannot be read off from mere cardinality or full-language bounds.",
+      "residual_risks": [
+        "An unindexed EF-game classification of intersection semilattices or powerset reducts might establish the six cutoff.",
+        "The result cannot be carried to functional-meet or full Boolean-algebra signature with the same quantifier-rank bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1007.4845",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7",
+    "Libkin, Elements of Finite Model Theory (Springer 2004), Ehrenfeucht–Fraisse game definitions"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed EF-game classification of intersection semilattices or powerset reducts might establish the six cutoff.",
+    "The result cannot be carried to functional-meet or full Boolean-algebra signature with the same quantifier-rank bound."
+  ],
+  "schema_version": 1
+}

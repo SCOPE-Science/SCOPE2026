@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal four-or-more split reduction and ten exact pointed-type identities prove six-atom stabilization for all sizes. The companion Python checker exhaustively verifies those finite identities and the distinctness of all sixteen pointed rank-two types. The infinite claim follows from the symbolic truncation proof, not finite extrapolation.
+## correctness
 
-**Originality — PASS, qualified.** The source on transformation semilattices establishes structural extremal classifications but not this rank-three theory. The full Boolean-algebra eight-atom result is in a richer language; the known inclusion-only six-atom result is in a weaker language and does not logically imply the meet-relation claim. Accessible searches and statement-implication comparisons found no exact covering theorem. Unindexed priority and an uninspected full Boolean primary result remain risks.
+PASS
 
-**Mathematical value — PASS.** The classification of the foundational powerset intersection semilattice is complete and its six-atom threshold sharp. Its relation to the full Boolean eight-atom threshold clarifies which primitive operations bounded first-order quantification can exploit.
+Use Venn-region count vectors for k selected sets. Atomic equality and ternary M(X,Y,Z) are determined solely by supports of 2^k Venn cells. One additional selected set splits each region of size c into two counts (x,c−x), 0<=x<=c. The exact recursive extension-type T(c,r+1) is the set of all T(split(c),r). With one round left the four Venn-region counts truncate at 2; the 4+ splitting pattern stabilizes. For one selected set and two rounds left, independent exact recursion proves the 3-versus-4 reductions, giving truncation (min(a,3),min(b,3)); 16 such pointed two-round types are distinct. Root 3-round type therefore sees exactly S_n={(min(a,3),min(n−a,3)):0<=a<=n}, distinct for n=1..5 and stable for n>=6, establishing iff min(m,6)=min(n,6). Independent implementation recomputed 16 pointed types and the 6 root theories, verifying critical reductions; the universal 4+ bound and finite-state recursive semantics justify the infinite tail.
 
-Limits: relational ternary intersection, finite full powersets, positive atom counts, and quantifier rank three only. Neither independent mathematical validation nor exhaustive historical priority checking was done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known full Boolean algebra language has 2^q-atom cutoff, q=3 gives 8; known inclusion-only language admits threshold six but translating ternary meet to inclusion costs quantifier rank. The original transformations semilattice article studies embedding/extremal structure, not elementary equivalence. No identified implication makes the exact meet-relational six threshold a direct textbook restatement; equivalence with an obscure finite-model-theory lemma is residual risk.
+
+## value
+
+PASS
+
+A sharp finite-index quantifier-rank stabilization theorem for a natural semilattice relational reduct is a meaningful logical complexity invariant. The exact six-type cutoff differs from richer Boolean algebra and cannot be read off from mere cardinality or full-language bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
