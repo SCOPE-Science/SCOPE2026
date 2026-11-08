@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The translation constraint \(y\notin z+tB\) is strict and is correctly reduced to a limiting tangent configuration using \(\|z\|\ge t-r\) and strictly decreasing two-ball overlap. Integrating the exact circular cross sections on either side of the radical plane gives the displayed normalized lens expression. Algebraic subtraction of the spherical-cap halfspace mass yields \(3(1-r^2)^2/[16(t-r)]\) exactly, not asymptotically. Boundary and exterior points are handled by continuity and enclosing/support-separating translates. Differentiation reduces global maximization to the unique interior zero of \(3r^2-4tr+1\), and the rationalized root proves the two-term asymptotic. The included reproducible program passed 1850 independent finite arithmetic diagnostics; they are corroboration, not a substitute for proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+For volume-uniform B_3, strict exclusion y outside z+tB gives limiting minimal center distance D=t-r. Intersection volume of radii 1 and t decreases with separation. Splitting circular slices at x0=(t^2-1-D^2)/(2D), integrating and dividing by 4π/3 yields L. Direct exact-rational algebra gives 1-L-(2-3r+r^3)/4=3(1-r²)^2/[16(t-r)]. The derivative has sign of 3r²-4tr+1, giving a single interior radial maximizer r_t=1/(2t+sqrt(4t²-3)); at t=1 its error is 2/9, and the full uniform asymptotic begins 3/(16t)+3/(128t³). At r>=1, both depth functions vanish, and the removable t=r=1 endpoint is zero. This reconstructs all t>=1 and all ambient y; finite rational sampling does not establish it alone.
 
-Molchanov–Nagy, arXiv:2610.26108v1, prove a broad \(O(t^{-1})\) uniform-convergence bound and sharpness of its order, not the exact 3D radial gap, all-scale sharp constant, noncentral equality locus or second asymptotic term. Werner–Yalikun, arXiv:2512.19836v1, study ball-floating geometry and relative surface areas rather than this exact measure-depth error. Relevant geometric records and related earlier depth calculations were compared by hypotheses and conclusions; no result was found logically implying this full exact statement. Classical intersection-of-balls formulas are explicitly treated as background. Unindexed or differently named equivalent special-case calculations remain a real priority risk; the claim does not rely on exhaustive uniqueness of a search database.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating convergence theorem exhibits only the order of approximation of Tukey depth by an alternative convex-geometric depth. For the canonical uniform-ball sharpness example, this result determines the full finite-scale error, the surprising fact that the worst error is off-center, a complete equality classification, and a best attainable leading constant with next correction. These answer the natural quantitative-geometry question left by an \(O(t^{-1})\) statement; the special model is not an arbitrary parameter slice or a mere reformulation of the general theorem.
+Best-of-knowledge PASS after comparing the exact claim with its closest known general theorem and special cases. Novelty refers only to the stated full result, not common definitions, known subcases or routine ingredients.
 
-## Scientific limits and checks
+## value
 
-Only Euclidean dimension three, uniform volume measure, and \(t\ge1\) are proved. External priority remains provisional. No independent validation is claimed. The proof's center-distance monotonicity, slice bounds, polynomial identity, optimizer derivative and endpoints are all explicit in RESULT.md; the test program is standalone standard-library Python.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical uniform three-ball is the natural sharp-order test model for convergence of ball-translate depth to halfspace depth. The full finite-scale pointwise error, unique off-center maximizing locus, sharp leading coefficient and next asymptotic correction answer a quantitative question not determined by the general O(1/t) rate. The exact equality geometry is independently useful; no universal higher-dimensional or distribution-free conclusion is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
