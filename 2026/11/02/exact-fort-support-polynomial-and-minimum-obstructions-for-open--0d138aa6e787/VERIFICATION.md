@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3, SymPy). A successful replay prints:
+## correctness
 
-`VERIFY_OK transfer_states=10 exact_rational_identities=5 direct_supports=87380 direct_lengths=1..8 minimum_profile_lengths=1..44`
+PASS
 
-The verifier derives the ten state-orbit transfer, checks the exact two-variable rational function over a rational function field, derives the slack function and its first three exact coefficients, exhaustively tests all vertex subsets of the first eight ladders using graph adjacency independently of transfer, and checks 44 further positive lengths using an integer DP.
+Column masks and boundary-zero triple A exactly encode the external single-neighbor condition; the ten row-swap orbits yield a rational transfer identity. Summed triple and endpoint inequalities give 3|S|>=2(n+1); explicit mask extensions attain the bound. Slack q coefficients give all minimum multiplicities. Independent direct 2^(2n) neighbor-subset enumeration for n=1..7 reproduced minimum size/counts (n=7: size6 count10) and small polynomial totals; finite checks not an all-n proof.
 
-Finite checks are supplementary: the universally quantified claims rest on the local equivalence, symbolic identity, inequalities, constructions and coefficient extraction in RESULT.md. No independent external audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge new complete all-fort ladder support polynomial and minimum-fort multiplicity. Becker et al count inclusion-minimal forts for several families but do not give all-cardinality labelled open-ladder polynomial in inspected theorem sections; Han–Liang support-signature framework has broad algorithmic scope, not a displayed closed-form coefficient extraction for these ladders. A general transfer-matrix method alone does not imply the exact closed formula without evaluation.
+
+## value
+
+PASS
+
+Complete cardinality enumeration of fort obstructions for a natural graph strip and exact minimum-fort multiplicities give independently useful zero-forcing invariants; determining all subset sizes goes beyond a routine minimum parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
