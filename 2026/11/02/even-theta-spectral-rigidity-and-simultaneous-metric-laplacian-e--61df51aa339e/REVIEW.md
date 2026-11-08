@@ -1,11 +1,21 @@
-# Scientific review: even-theta spectral rigidity
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly decomposes the Laplacian into the antisymmetric twin eigenline and two irreducible Jacobi blocks. Their characteristic determinants are derived by a path-continuant recurrence, and the possible cross-sector common roots are excluded using evaluations at the only two candidate parameters. This establishes that all eigenvalues except possibly two are simple and that the eigenvalue two is doubled precisely for the indicated congruence class. Bipartite diagonal similarity transfers the result to the signless Laplacian. The distance-pair formulas prove the metric dimension for every even parameter, including both exceptions. The independent construction in `verify.py` checks exact characteristic polynomials and distance resolving sets for twelve even lengths through twenty-four, not as a substitute for the universal proof. Risk: mathematical normalization errors in the two symmetry blocks were specifically checked by direct characteristic-polynomial computation; no unproved infinite-range numerical extrapolation remains in the argument.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The closest scientific predecessor is Alfuraidan–Khan–Sauras-Altuzarra, arXiv:2610.26875v1, Theorem 25 and Problem 29. That theorem explicitly assumes *odd* third-path length; the claim here resolves the complementary *even* length case. The earlier Knor–Sedlar–Škrekovski article proves the metric-dimension classification already, so that fact is acknowledged as prior. Paone–Paone's generalized-theta formula for the signless-Laplacian eigenvalue two already entails its multiplicity in the even branch. This alone does not bound all other eigenvalue multiplicities or classify equality against metric dimension. Exact spectral simplicity and both maximum-multiplicity values are provided by the new cross-sector gcd argument. Published-result searches in multiple equivalent formulations produced no matching claim. Residual risks include an unlocated broader theta-graph spectral theorem and incomplete review of some older full documents.
+PASS
 
-**Mathematical value — PASS.** The motivating paper explicitly poses theta-family classification as an open direction. The new theorem closes its missing parity regime for the canonical family of two length-two arms: it identifies a simultaneous equality family not present in the odd case, a strict simple-spectrum family, and small exceptional metric dimensions. The nontrivial algebraic contribution is all-eigenvalue spectral simplicity from an exact even-folded pair of Jacobi blocks; it is not merely another evaluation of the already known multiplicity of eigenvalue two. The result has natural relevance to equality between metric resolving sets and spectral multiplicities.
+With r=2s even, theta G_r is bipartite so Q is conjugate to L. The difference of the two short-path midvertices is a Laplacian eigenline of eigenvalue 2. Decomposing its complement under terminal reflection gives an s-dimensional antisymmetric and (s+2)-dimensional symmetric irreducible Jacobi matrix. Their continuants are F_-=p_s+p_{s-1} and F_+=(t^2+2t-8)p_s+(2t-t^2)p_{s-1}, where t=2-lambda and p_{j+1}=t p_j-p_{j-1}. Shared roots would require t=+/-2 but those cannot annihilate F_-, hence only lambda=2 can be repeated; F_+(0)=0 iff s odd. Direct distances show metric dimension 3 for r=2,4 and 2 for even r>=6. Independent exact graph Laplacian factorization and exhaustive resolving-set BFS checked r=2,4,6,8,10, giving multiplicity pattern (2,1,2,1,2) and metric dimensions (3,3,2,2,2).
 
-The claim concerns exactly \(\Theta_{2,2,r}\) with even \(r\ge2\); no general-theta classification or independent verification is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The metric dimension is already classified in 2022 work and not claimed new. Alfuraidan et al. 2026 treats r odd in Theta_{2,2,r} and poses broader equality problem. Paone–Paone 2026 Cor 8.1 covers multiplicity of signless-Laplacian eigenvalue 2 on generalized theta graphs, but this does not by itself prove all other eigenvalues simple and determine maximal multiplicities/equality for even r. The precise even-branch all-spectrum rigidity is best-of-knowledge uncovered, with an inaccessible same-graph paper explicit risk.
+
+## value
+
+PASS
+
+A sharp parity-resolved all-eigenvalue simplicity theorem and simultaneous metric–ordinary/signless-Laplacian extremal equality on an infinite natural theta-graph family. It completes a structurally motivated branch left outside prior odd-r spectral analyses, rather than making a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
