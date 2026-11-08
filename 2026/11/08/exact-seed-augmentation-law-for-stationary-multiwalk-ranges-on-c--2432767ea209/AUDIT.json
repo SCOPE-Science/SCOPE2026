@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For any forbidden labeled set of b<n vertices, each uniform-start q-holding walk avoids it with probability ((n-b)/n)(1-(1-q)b/(n-1))^t; every exterior site has the same per-step survival probability. Independent walks multiply these factors, giving ((n-b)/n)^k alpha_b^T, exactly the avoidance probability of one T-step walk augmented with k-1 independent uniform vertices. Every labeled-set avoidance probability agrees, and finite Boolean-lattice inversion proves the full random-set identity. Its inclusion coupling and the factorial-moment formulas are exact. Boundary cases n=2, k=1, T=0, q=0 or 1, and b=n are checked. The independent exact-rational checker at check.py passes 5,560 finite state and combinatorial comparisons; they do not replace the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rivera–Sauerwald–Sylvester, arXiv:2011.07893v3, introduction and Section 3, cover-time and stationary-start bounds.",
+        "Dey–Kim–Terlov, arXiv:2302.14241v1, Theorem 1.1: general-graph expectation dominance, not stochastic dominance of final sets."
+      ],
+      "reasoning": "A general-graph expectation bound does not imply full set-order stochastic dominance or an equality in law on the complete graph. Cover-time estimates for many walkers do not yield finite-time allocation invariance of the labeled range. The theorem claimed here covers only K_n, so no general-graph resolution is asserted.",
+      "searches": [
+        "Collaboration of Random Walks on Graphs Conjecture 3.1 solved",
+        "supermultiplicativity stationary avoidance probabilities reversible discrete time Markov chain",
+        "multiple random walks complete graphs range distribution stochastic domination exact expectation k walkers Dey Kim Terlov"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2302.14241v1",
+      "https://arxiv.org/html/2011.07893v3",
+      "https://arxiv.org/html/2604.20829v2",
+      "2025 Proceedings of the American Mathematical Society journal version of Collaboration of Random Walks on Graphs (abstract and metadata only; full journal body not accessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary preprint arXiv:2302.14241v1 explicitly states the expectation comparison as Theorem 1.1 and asks Question 3.2 for the gap and Question 3.6 for stochastic dominance.",
+        "arXiv:2011.07893v3 gives related bounds, not finite set equality.",
+        "arXiv:2604.20829v2 treats one walk, with no independent-walker allocation formula."
+      ],
+      "reasoning": "The presented one-walk-plus-(k-1)-seeds identity directly implies a literal containment coupling and the exact positive expected gap. Conversely, the previously known expectation inequality cannot imply a random-set identity (means do not specify a law), and one-walk range formulas cannot imply allocation invariance without new argument.",
+      "searches": [
+        "collaboration of random walks stochastic domination complete graph range k independent walks versus single walks",
+        "stationary simple random walks on complete graph K_n multiple independent walkers stochastic dominance of number of distinct vertices visited compared to one walk of summed lifetimes",
+        "Collaboration of Random Walks on Graphs Question 3.2 Question 3.6 stochastic domination 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dey–Kim–Terlov 2023, arXiv:2302.14241v1, Theorem 1.1 and Section 3: range cardinality expectation and conjectural inequalities, not an exact augmentation identity.",
+        "Upadhyay et al. 2026, arXiv:2604.20829v2, Section 2: single-walk range-size law only."
+      ],
+      "reasoning": "Exact equality of labeled range sets implies cardinality laws and all avoidance events, which are strictly more information than a mean inequality. The comparison publications do not state an equivalence of independent multiwalker ranges to one T-step walk with k-1 uniform independent points; no matching equivalent set or occupancy generating-function identity was located.",
+      "searches": [
+        "independent restarts simple random walk complete graph range stochastic dominance partition refinement",
+        "complete graph random walk union of k independent ranges has same distribution as one walk of total steps plus k minus one independent uniform vertices exact set law",
+        "random walks complete graphs coupon collector factorial moments avoidance all subsets independent starting positions k walkers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Upadhyay et al., arXiv:2604.20829v2, formulae for the single-walk count of visited complete-network vertices.",
+        "Dey–Kim–Terlov, arXiv:2302.14241v1, no all-lifetimes multiwalker set-law table in the inspected body."
+      ],
+      "reasoning": "An exact single-walker range-size table cannot determine the distribution of the union of independent ranges with arbitrary fixed lifetime allocations, nor the labeled-set representation. The main result is a symbolic identity for all finite orders, not a small table recomputation.",
+      "searches": [
+        "2023 open problem distribution random greedy independent set paths cycles trees random order",
+        "random walk range process complete graph reset independent starts stochastically larger sampling without replacement complete graph",
+        "random walks complete graphs coupon collector factorial moments avoidance all subsets independent starting positions k walkers"
+      ]
+    },
+    "rationale": "The 2023 primary study states expected-range collaboration and asks for quantitative difference and stochastic dominance; it does not present the stronger exact labeled random-set law, lifetime-allocation invariance or independent seed augmentation. Broad multiple-walker cover-time work bounds completion rather than proving a finite-time set-law identity, and a 2026 paper treats a single walker on a complete network, not multiwalker augmentation. Full accessible primary preprint and focused comparison sections were read. A more general unindexed finite-state coupon-collector theorem or inaccessible journal text could alter historical priority; independent confirmation remains necessary.",
+    "residual_risks": [
+      "The 2025 journal version of Dey–Kim–Terlov was not accessible in full; accessible first preprint was read.",
+      "An unindexed classical coupon-collector, restart, or finite-chain identity could independently contain the same seed-augmentation law.",
+      "Theorem is specific to uniform-start identically parametrized complete-graph walks; it does not settle general-graph stochastic domination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers expected range inequality for general graphs and poses stochastic dominance; no exact all-allocations set-law augmentation on K_n was found in the inspected first version",
+        "evidence": [
+          "Theorem 1.1, Questions 3.2 and 3.6, Conjecture 3.1, arXiv:2302.14241v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.14241v1",
+        "material_read": "Full accessible first arXiv manuscript including introduction, Theorem 1.1, Section 3 questions and proofs",
+        "method": "Read the complete open HTML version and compared hypotheses and statement implications",
+        "title": "Collaboration of Random Walks on Graphs",
+        "trigger": "Original 2023 source, matching model and explicitly posed questions"
+      },
+      {
+        "assessment": "Cover-time estimates and techniques do not state the exact labeled random-set identity for K_n",
+        "evidence": [
+          "Introduction and Section 3, arXiv:2011.07893v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.07893v3",
+        "material_read": "Introduction, statement of principal results, and Section 3 covering stationary starts and geometric reset constructions",
+        "method": "Read accessible open HTML and compared finite-time random set claims with cover-time and mixing results",
+        "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+        "trigger": "Possible stronger multiple-walker range or cover-time theorem"
+      },
+      {
+        "assessment": "Computes complete-network statistics for one walk; does not supply independent multiwalker allocation-invariant final-set identity",
+        "evidence": [
+          "Section 2, arXiv:2604.20829v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.20829v2",
+        "material_read": "Abstract, introduction and Section 2 single-walker distinct-vertex law",
+        "method": "Read accessible open HTML and compare number of walkers, starts and target output",
+        "title": "Network exploration by random walks: A large deviation perspective",
+        "trigger": "Recent exact complete-graph range distributions that might dominate the proposed statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2432767e-a209-4636-9f19-8104103a709a",
+  "value": {
+    "rationale": "The identity answers the canonical K_n specialization of a published quantitative-collaboration question and a published stochastic-dominance question, strengthening both to equality of complete labeled-set laws. It gives exact finite-size gap, full distribution, all uncovered factorial moments, and provable invariance under allocation of a fixed transition budget. A path counterexample establishes a meaningful noncomplete boundary and shows the structural phenomenon is not tautological. Its scope is a natural benchmark graph class rather than an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
