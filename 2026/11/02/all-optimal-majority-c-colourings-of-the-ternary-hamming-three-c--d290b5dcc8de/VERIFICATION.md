@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Executable verification
 
-Use `python3 verify.py` from the same extracted package. The sole dependency is the Python standard library. The checker reconstructs the \(27\) graph vertices and six-neighbor adjacency of each vertex, without loading a precomputed graph. It checks every \(\binom{27}{j}\) subset for \(1\le j\le7\), confirms the exact degree-test solution counts \((0,0,0,0,0,54,0)\), and proves every six-element class is one of the \(54\) coordinate boxes. It examines all triples of these boxes, finding \(288\) valid complementary nine-classes, all using a common full coordinate. A structurally separate \(3\times3\) rook-graph matching enumeration confirms \(96\) quotients per axis, split \(24\) straight-line and \(72\) L-shaped residual triples. It verifies the explicit four-colour witness, checks all \(1296\) full graph automorphisms preserve adjacency, and computes partition orbit sizes \((18,54,216)\).
+# Independent mathematical audit
 
-The verifier's completed local execution printed `ALL_SMALL_CLASS_SUBSETS_OK 1285623`, `ALL_OPTIMAL_UNLABELLED_PARTITIONS_OK 288`, `INDEPENDENT_ROOK_PARTITION_COUNT_OK 96`, `FULL_AUTOMORPHISM_ORBIT_CENSUS_OK [18, 54, 216]`, `NAMED_FOUR_COLOURINGS_OK 6912`, and `VERIFY_OK`. No floating-point computations, timeouts, partial enumerations, external data, or probabilistic assumptions occur. The finite loops exhaust the fixed case; they neither prove a result for larger graphs nor confer independent certification.
+## correctness
+
+PASS
+
+For the ordinary 27-vertex K3 Cartesian three-cube, the weak-majority condition is induced same-class degree >=3. Direct independently reconstructed 27-bit adjacency and all sum_{k=1}^7 binom(27,k)=1,285,623 possible small class subsets yielded exactly 54 valid six-classes, no smaller/seven classes. They are the 54 3x2x1 coordinate boxes. Enumerating every disjoint triple of valid six-classes and testing the nine-vertex complement gave exactly 288 valid four-class partitions; the common full-length axis and class sizes (6,6,6,9) follow. Quotient rook graph counting gives 96 partitions per axis, with 24 line/72 L residuals, and original verifier explicitly constructs all 1296 graph automorphisms and computes 18,54,216 orbit sizes; all 288 times 4! =6912 onto named colorings. Complete exhaustion proves this fixed finite graph, not higher dimensions or the distance-two graph.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS restricted to common-axis rigidity, exhaustive optimizer classification and three orbit sizes; scalar four-color optimum and rectangular witness expressly credited to Lu. Inspected actual package verifier and independent exhaustive reconstruction, Resultary hits and primary-literature descriptions. Full relevant Lu paper was not accessible; arXiv abstract confirms maximum only, so priority of the optimizer census remains a risk, not certified uniqueness.
+
+## value
+
+PASS
+
+Natural extremal classification for a canonical small Hamming product resolves not just maximum class count but all optimal colorings, their geometric rigidity, labeled census and symmetry orbit types; meaningful finite structure needed to test general Hamming conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
