@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A fixed rank-\(r\) idempotent is conjugate to the standard block projection. Writing a rank-one idempotent as a normalized outer product reduces the commutator to two off-diagonal rank-one blocks. Its cubic identity gives the rational-canonical alternatives; the two dot-pair counts give every multiplicity. The counts sum to the independently known number of rank-one idempotents. The finite verifier passed explicit characteristic-two and odd-field checks. These computations complement, rather than replace, the unrestricted proof.
+## correctness
 
-**Originality — PASS relative to inspected sources and retrieved records.** Ferraz–Polcino Milies–Taufer count left ideals and individual idempotent generators, without counting product-trace-resolved commutator similarity types. Britnell–Wildon classify existence of commuting similarity classes, not the present fixed-rank intersection statistics. A closely related existing result treats two rank-one idempotents, not the interior mixed-rank family. The latter is expressly outside the new claim; the two-block rank-versus-corank parameters and limiting binomial law are not implications of its formula. Targeted mathematical research-record searches did not reveal a dominating interior-rank theorem. This is not proof of worldwide publication priority; possible restatements under matrix-semigroup or projection-geometry terminology remain a risk.
+PASS
 
-**Value — PASS.** In matrix semigroup theory, rank-one idempotents generate minimal one-sided ideals. The product scalar measures whether their interaction with a larger idempotent is square-zero, idempotent, or periodic, while the Lie commutator's rational-canonical type quantifies incompatibility. Their **complete simultaneous distribution** for every interior rank is a natural invariant; the nondegenerate limiting binomial rank law is not a single small-case table or routine normalization check. This does not classify two arbitrary-rank factors.
+For every prime power q and interior rank 2<=r<=n-2, conjugation sets Q=diag(I_r,0_s). Each rank-one idempotent uniquely equals uv^T up to q-1 reciprocal scalings, with v.u=1. Block multiplication gives C=[[0,-ad^T],[bc^T,0]], C^3=alpha(alpha-1)C and rank C equal to the sum of the two nonzero block indicators. The nonzero-alpha companion block follows since C is cyclic on its 2D image. Nilpotent ranks 0,1,2 give 0,J2,J3; zero and nonzero vector/covector fibers give the exact seven-row table. Sum is q^(n-1)(q^n-1)/(q-1); limiting rank law follows from the exact counts. Independently enumerated 120 (q=2,n=4,r=2), 1080 (3,4,2) and 496 (2,5,2) normalized outer products, including trace/rank and cubic-law checks. These finite enumerations do not prove all fields or dimensions.
 
-**Source and validation limits.** The pertinent 2017 source's complete displayed text and the relevant 2010 paper's full-text sections were inspected. Publication coverage is not exhaustive. Computational checks are finite and were executed on the included verifier; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact per-trace, per-commutator-similarity multiplicities for one rank-one and one interior-rank idempotent are not consequences of prior single-ideal generator counts, existence of commuting similarity pairs, or a separate rank-one/rank-one boundary classification. Broader simultaneous-rank-pair laws were not found. This is best-of-knowledge originality, with incomplete historical indexing remaining possible.
+
+## value
+
+PASS
+
+The joint similarity census and asymptotic binomial rank law for a natural family of finite-field idempotent pairs are precise matrix-semigroup invariants; the exact rank/corank dependence is useful beyond merely checking commutativity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

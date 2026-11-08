@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The theorem's unrestricted proof is the block calculation and finite-field dot-pair enumeration in `RESULT.md`. All characteristic-two cases are included in the proof: the companion polynomial need not be separable.
+## correctness
 
-Run `python verify.py` with Python 3. It independently enumerates normalized rank-one idempotents and their product-trace and commutator-rank cells for eleven parameter triples over fields of order \(2,3,4,5\). For the four \(n=4\) cases, explicit matrix multiplication independently checks idempotence, ranks, the cubic commutator identity, and the nilpotent-index distinction. The remaining cases check the dot-pair laws directly. It checks the total against \(q^{n-1}(q^n-1)/(q-1)\) and complement symmetry where supported by the implementation.
+PASS
 
-Actual execution passed all cases, with the final line: `VERIFY_OK all mixed-rank projection counts and cubic laws`.
+For every prime power q and interior rank 2<=r<=n-2, conjugation sets Q=diag(I_r,0_s). Each rank-one idempotent uniquely equals uv^T up to q-1 reciprocal scalings, with v.u=1. Block multiplication gives C=[[0,-ad^T],[bc^T,0]], C^3=alpha(alpha-1)C and rank C equal to the sum of the two nonzero block indicators. The nonzero-alpha companion block follows since C is cyclic on its 2D image. Nilpotent ranks 0,1,2 give 0,J2,J3; zero and nonzero vector/covector fibers give the exact seven-row table. Sum is q^(n-1)(q^n-1)/(q-1); limiting rank law follows from the exact counts. Independently enumerated 120 (q=2,n=4,r=2), 1080 (3,4,2) and 496 (2,5,2) normalized outer products, including trace/rank and cubic-law checks. These finite enumerations do not prove all fields or dimensions.
 
-The tests are finite and do not establish the infinite quantification. The source-literature comparison is subject to the residual publication-coverage limitation recorded separately in `REVIEW.md`. No external or independent mathematical validation is represented as having occurred.
+## originality
+
+PASS
+
+The exact per-trace, per-commutator-similarity multiplicities for one rank-one and one interior-rank idempotent are not consequences of prior single-ideal generator counts, existence of commuting similarity pairs, or a separate rank-one/rank-one boundary classification. Broader simultaneous-rank-pair laws were not found. This is best-of-knowledge originality, with incomplete historical indexing remaining possible.
+
+## value
+
+PASS
+
+The joint similarity census and asymptotic binomial rank law for a natural family of finite-field idempotent pairs are precise matrix-semigroup invariants; the exact rank/corank dependence is useful beyond merely checking commutativity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
