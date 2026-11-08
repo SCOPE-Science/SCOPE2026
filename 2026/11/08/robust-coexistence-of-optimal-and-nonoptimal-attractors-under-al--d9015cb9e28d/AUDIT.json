@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact ninth-degree polynomial factorization gives all nine roots; exact differentiation yields multipliers 9/2, zero on four roots, and 27±18√2 on four others, all strictly away from the unit circle. Four roots attract and five repel locally. The two-step nonminimum orbit and 5/32 mean loss are exact identities. Simplicity of all roots, polynomial degree nine and continuous multipliers give nine real persistent roots with identical stability split throughout an open parameter neighborhood via the implicit-function theorem. The standalone SymPy checker executed and reproduced these identities. No global attractor claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goujaud et al. (2022) Theorems 3.1 and 5.1 analyze spectral contraction on positive-definite quadratics and local convergence at a minimizer for smooth nonquadratic loss.",
+        "Oymak (2021) Theorem 1 analyzes a periodical large/small learning schedule for linear regression with a bimodal Hessian spectrum.",
+        "Neither entails an exact off-minimum superattracting two-phase orbit for a nonconvex quartic objective."
+      ],
+      "reasoning": "Local attraction at minimizers cannot rule out coexisting attracting states elsewhere. Quadratic schedules have no nonminimum finite orbit under the proven linear-contraction assumptions. The claimed nonminimum stable orbit is a different nonlinear global phenomenon.",
+      "searches": [
+        "Query: alternating learning rates quartic loss cubic gradient map two-periodic schedule exact global basin stability",
+        "Query: cyclic learning rate quartic gradient descent alternating steps two step loss monotonicity",
+        "PMLR:151:goujaud22a Sections 3–5 and Appendix E",
+        "arxiv:2102.10734v2 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "Hofmann, arXiv:2607.04993v1 (2026-07-06)",
+      "Goujaud et al., PMLR 151 (2022)",
+      "Oymak, arXiv:2102.10734v2 (2021)",
+      "Targeted bibliographic and semantic searches for unequal-step quartic cubic-gradient compositions",
+      "Published mathematical statements on related nonautonomous cubic-map dynamics compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hofmann (2026) Proposition 5 establishes that a constant rate 2 induces a Chebyshev map, not that alternating it with rate 1/2 yields four coexisting attractors.",
+        "Goujaud et al. (2022) local theorem guarantees convergence near minimizers but does not assert uniqueness of attracting periodic states; their global theorems are quadratic.",
+        "Oymak (2021) addresses linear-regression convergence only."
+      ],
+      "reasoning": "The new theorem is not a restatement of fixed-rate Chebyshev chaos or the general principle that a product of contractions can be stable. Its content is the precise coexistence of stable nonminimizing and minimizing two-step periodic states, exhaustive hyperbolic fixed-point census, and open persistence.",
+      "searches": [
+        "arxiv:2607.04993v1 Sections 2.1, 2.5, 2.6, 2.7, 2.10",
+        "PMLR:151:goujaud22a Theorem 5.1",
+        "arxiv:2102.10734v2 Theorem 1",
+        "Query: \"alternating\" \"quartic\" \"gradient descent\" \"periodic orbit\" \"two-cycle\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Epoch map is exactly g_{1/2}∘g_2 for an alternating scalar gradient step; shifting the schedule corresponds to g_2∘g_{1/2}, but no identified source gives the ninth-degree fixed-point factorization or stability census.",
+        "Hofmann (2026) Section 2.5 identifies g_2 with negative Chebyshev only when the SAME map is iterated."
+      ],
+      "reasoning": "Conjugacy/phase-shift reduction to one fixed-rate cubic is not valid: composition of different cubic maps is degree nine, while any single g_s is degree three. The constant-rate period-two formulas do not classify an alternating-rate two-phase orbit.",
+      "searches": [
+        "Query: g_{1/2} composition g_2 cubic map fixed points critical Chebyshev two attracting superstable cycles",
+        "Query: periodic learning rate gradient cubic map a b period two exact basin",
+        "arxiv:2607.04993v1 Sections 2.5–2.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches yielded nearby methods (Lion, GDPolyak, fixed-step cubic maps) but no exact table with nine roots or multipliers for the period-two 2 then 1/2 quartic schedule.",
+        "Exact result is independently reconstructed from polynomial algebra; no numerical database table is imported."
+      ],
+      "reasoning": "Absence of a search match is not novelty proof. Checked closest mathematically related fixed-rate and cyclic-step primary statements; none supplies the exact epoch-fixed count, locations, or coexistence.",
+      "searches": [
+        "Query: quartic potential gradient descent steps half and two superstable spurious 2 cycle sqrt 2",
+        "Query: period two learning rate quartic loss bad attractor coexistence minimizing fixed points",
+        "Query: \"periodic gradient descent\" \"quartic\" \"multiple attractors\""
+      ]
+    },
+    "rationale": "The four simultaneously attracting epoch-fixed points, two at nonminimum loss and two at the minima, and the complete nine-point exact census are statements about composing UNEQUAL real cubic-gradient steps; the motivating Hofmann paper analyzes individual constant steps and the 2021/2022 cyclical-rate studies give quadratic/global or nonlinear/local convergence but do not imply nonlinear off-minimum coexistence. Targeted bibliographic and semantic searches did not locate a mathematically implying result. Open priority risk is disclosed.",
+    "residual_risks": [
+      "There may be specialized literature on nonautonomous composition of cubic maps or cyclic gradient steps not indexed by targeted searches; no certified worldwide priority claim is made.",
+      "The maximal open parameter region and higher-epoch-period attractors are not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-rate real cubic and rate-2 Chebyshev behavior established; no two-rate composition fixed-point classification identified",
+        "evidence": "arXiv 2607.04993v1, Propositions 1–7; Section 2.5 Proposition 5 and Section 2.10 historical discussion",
+        "identifier_or_url": "https://arxiv.org/html/2607.04993v1",
+        "material_read": "HTML abstract, Sections 1, 2.1–2.10, listed appendices and related-work context; searched full document for alternating/cyclical learning-rate studies",
+        "method": "Read primary accessible HTML equations, propositions, and fixed-rate discussion, and searched full text",
+        "title": "The Map Behind the Flow: Finite-Step Gradient Descent as a Dynamical System",
+        "trigger": "Exactly same quartic loss and one-rate cubic-gradient family; full-priority comparison required"
+      },
+      {
+        "assessment": "Global statements are spectral contraction for quadratics; local nonlinear convergence near a minimizer, not a global census of off-minimum attracting epochs",
+        "evidence": "PMLR 151 (2022), Theorem 3.1 and Theorem 5.1; Introduction and discussion of limitations",
+        "identifier_or_url": "https://proceedings.mlr.press/v151/goujaud22a/goujaud22a.pdf",
+        "material_read": "Primary PDF abstract, Sections 1, 3, 4 overview, Section 5 and its Theorem 5.1; Appendix E theorem/proof discussion; first page visually checked",
+        "method": "Read publisher-hosted primary PDF extracted text, inspected first page visual and compared theorem assumptions",
+        "title": "Super-Acceleration with Cyclical Step-sizes",
+        "trigger": "Closest primary cyclic learning-rate convergence theorem potentially dominating result"
+      },
+      {
+        "assessment": "Linear-regression Hessian-spectral theorem not covering nonconvex quartic off-minimum orbits",
+        "evidence": "arXiv:2102.10734v2, pp. 1–2, Definition 1, Theorem 1",
+        "identifier_or_url": "https://arxiv.org/pdf/2102.10734",
+        "material_read": "Primary PDF abstract, Introduction, Definition 1 and Theorem 1 with linear-regression analysis; first page visually checked",
+        "method": "Read arXiv primary PDF text and screenshot",
+        "title": "Provable Super-Convergence with a Large Cyclical Learning Rate",
+        "trigger": "Earlier primary analysis of alternating stable and unstable learning-rate steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9015cb9-e28d-4f5c-8811-47c6a3b0eeae",
+  "value": {
+    "rationale": "The rates are intrinsically motivated landmarks: 2 is the exactly chaotic Chebyshev endpoint for a constant step; 1/2 is the zero-local-multiplier minimizer step. Their alternating composition has two robust nonoptimal superattracting two-phase orbits with positive average loss 5/32 simultaneous with two superattracting actual minima. The complete nine-epoch-fixed census plus open two-parameter persistence establishes natural multistability relevant to nonconvex cyclic optimization; it is not merely a finite numerical orbit, arbitrary unmotivated parameter slice, or a local stability tautology. No claim is made to general optimization guarantees.",
+    "status": "PASS"
+  }
+}
