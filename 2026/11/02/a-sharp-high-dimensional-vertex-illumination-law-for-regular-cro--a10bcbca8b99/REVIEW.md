@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each geometric inequality follows from the strict tangent-cone criterion for the cross-polytope; the \(2d\) illumination cones are disjoint up to null boundaries. Gaussian radial invariance yields the exact simplex/Dirichlet integral with its checked normalizing prefactor. Exact factorial moments give the order-\(d^{-1}\) correction; fourth-moment and higher raw-moment bounds justify all remainders and the stated \(O(d^{-3/2})\) error. Dirichlet-to-independent-exponential representation plus total-variation stability under bounded tilting proves the joint conditional Laplace limit. The actual standalone verifier programs corroborate special dimensions, exact Dirichlet-moment algebra and large-dimensional limits; their finite tests are not used as infinite proofs.
+## correctness
 
-**Originality — PASS, subject to priority uncertainty.** The Gaussian dominance solid angle itself is expressly credited to earlier cone-angle literature, most directly Kabluchko–Seidel (2020). An exact four-cube central-section phase law already identifies the same dominance event at dimension four, without an all-dimensional sharp asymptotic or conditional limit. Earlier Donoho–Tanner work (2006) treats asymptotic projection-face angles rather than this fixed-vertex, sharp two-term illumination probability and conditional coordinate law. Kabluchko–Schange (2026) provide explicit internal-angle formulas, including regular Euclidean cross-polytopes, but their angle theorems and cited remarks do not state the presented two-term high-dimensional asymptotic or conditional coordinate law. Naszódi (2009) treats deterministic/fractional illumination numbers, a mathematically different quantity. The two-term coefficient and conditional Laplace local-direction limit are not stated or established in the inspected passages of these works. The available search is not a proof of global historical originality; closely related unindexed or older asymptotic-angle analyses may exist.
+PASS
 
-**Value — PASS.** In a canonical convex polytope family, the probability that *one* isotropic direction illuminates a vertex decays superexponentially with dimension. An explicit prefactor, first correction, and distributional limit give quantitative and geometric information absent from the mere solid-angle integral; this distinguishes rare successful directions from deterministic covering counts. The conditional Laplace law is a natural local geometry consequence, not an arbitrary numerical slice.
+Geometric strict tangent cone at -e1 is u1>sum_{j>1}|uj|, so 2d cones disjoint modulo boundaries. Gaussian radial invariance, half-normal simplex substitution, radial Gamma integral yield exact Dirichlet prefactor. Dirichlet factorial moments give EY=(d-1)/(d+1), Var Y=1/d+O(1/d²), and E S²=4/d²+O(d^-3), hence EW=e^-1[1+7/(2d)+O(d^-3/2)] with fourth-moment control. Under W-tilted Dirichlet, W->e^-1 and boundedness imply total-variation closeness; independent Exp representation proves fixed-k signed Laplace limits and d(1-U1)->1. Independent sampling and symbolic spot checks support but do not replace the analytic proof.
 
-**Scientific limits.** The theorem does not produce a new finite-dimensional solid-angle identity, deterministic illumination number, or uniform error constant. Literature priority has not undergone independent audit. The relevant sections of the cited works have been compared, but older comprehensive angle tables cannot be excluded exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kabluchko–Seidel 2020 Proposition 2.3 (full PDF) already gives the exact cone/vertex solid angle as Gaussian coordinate dominance, hence no originality credit for finite-dimensional exact probability. A newer Kabluchko–Schange 2026 general exact-angle formula also subsumes some finite integrals. The specific first relative correction 7/(2d) AND fixed-k conditional symmetric Laplace law were not found in inspected primary statements; inaccessible newest full paper explicitly remains a priority risk.
+
+## value
+
+PASS
+
+PASS. It quantifies a canonical rare random illumination event in high dimension to sharp first correction, and establishes the local conditional geometry of successful directions. This goes beyond already-known exact cone-angle integrals and is a natural asymptotic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
