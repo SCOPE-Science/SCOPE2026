@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:08:04.050493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned finding explicitly excludes endpoint-to-endpoint moves and identifies undirected path order with its reversal. The inspected verify_paths.py DFS enumerates all 14-vertex Hamiltonian paths from every start and canonicalizes under reversal; the alternative edge-complement method checks all C(21,8)=203490 choices. Independent from-scratch graph code using Fano incidence (i-j mod7 in {0,1,3}) recovered exactly 504 paths, 672 legal endpoint-to-interior backbites, 336 degree-2 and 168 degree-4 states, and eccentricity multiset 168 at 24 and 336 at 25. Suppressing degree-two states yields a 168-vertex multigraph with 168 simple edges forming 56 disjoint triangles and 84 doubled matching pairs; contracting triangles yields connected cubic 56-vertex graph with BFS shells (1,3,6,12,15,18,1) and girth seven. The actual script explicitly enumerates 336 Fano automorphisms and checks arc transitivity, so the standard Foster census recognition of the unique nonbipartite cubic symmetric 56-vertex graph as Klein F056B supplies the final identification. This is a complete finite exhaustiveness argument, not sampled paths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazazi Theorem 1.1 requires a spanning P_n^2 and counts broader backbites, including the two endpoints; the Heawood graph has girth six and no triangles. Foster classification identifies a quotient, not its genesis from backbite moves."
+        ],
+        "reasoning": "The nearest broad connectivity result does not apply; the classification gives a recognition theorem but not the specific quotient construction or distance distribution.",
+        "searches": [
+          "Kazazi arXiv:2610.05068 Hamiltonian paths reconfiguration theorem",
+          "Foster census cubic symmetric graphs order56"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify_paths.py and verify_edges.py (independent algorithm inspected at least first)",
+        "arXiv:2610.05068 (Kazazi 2026 full text)",
+        "arXiv:1002.1960 (Dejter)",
+        "arXiv:cond-mat/0508094 (Oberdorf et al.)",
+        "Foster census F056B"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Kazazi text explicitly allows endpoint-to-endpoint backbites and its general connectivity criterion cannot apply to Heawood; the Dejter Klein construction does not enumerate Heawood paths."
+        ],
+        "reasoning": "Neither a generic move definition nor identification of K alone implies the 56 triangles/84 doubled edges and 504-state exchange graph under this narrower move.",
+        "searches": [
+          "arXiv:2610.05068 Sections 2 and 5 squared-path theorem backbite endpoint moves",
+          "arXiv:1002.1960 Coxeter to Klein construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oberdorf studies polymer lattice Hamiltonian path moves; Dejter constructs the Klein graph from Coxeter graph rather than this backbite state space."
+        ],
+        "reasoning": "Searched path reversal/endpoint rotation, Fano incidence and truncation aliases; no statement equating the Heawood path move graph with S(T2(K)) emerged.",
+        "searches": [
+          "Heawood Hamiltonian path backbite flip graph 504 Klein 56",
+          "Oberdorf Ferguson Jacobsen Kondev cond-mat/0508094",
+          "Dejter arXiv:1002.1960"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Foster census includes F056B but not a table of 504 Heawood-path states; 24 Heawood Hamiltonian cycles are known, distinct object."
+        ],
+        "reasoning": "The quotient is a known census entry; the reviewed 504-state graph and exact truncation metric are not presented as existing table entries.",
+        "searches": [
+          "Foster F056B cubic Klein order56 girth7 diameter6",
+          "Heawood Hamiltonian path transition graph degree 504 672"
+        ]
+      },
+      "rationale": "Backbite dynamics on compact polymer lattices and general Hamiltonian-path reconfiguration theory do not imply this exact Heawood graph, 504-state decomposition, Klein truncation or metric. The closest 2026 general theorem allows a different move (endpoint-to-endpoint included) and requires a spanning squared path, impossible for girth-six Heawood. The previously known Klein/Fano structures are credited. PASS with possible older disguised construction.",
+      "residual_risks": [
+        "Original source uses a specific backbite convention excluding endpoint-to-endpoint edges; published algorithms that include them require separate comparison.",
+        "Arc-transitive recognition invokes the classical Foster census, not an explicit independently constructed graph isomorphism in this run.",
+        "Older Fano/Klein path-move interpretation could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering these exact Heawood dynamics",
+          "evidence": "Its bb(w1,wn) rotations explicitly allowed; it assumes spanning square of a Hamiltonian path, impossible in triangle-free Heawood.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05068",
+          "material_read": "Full arXiv HTML including Definition of endpoint backbites, Theorem 1.1 and graph examples",
+          "method": "read original article sections and checked Heawood/Klein terms",
+          "title": "Connectivity of the reconfiguration graph of Hamiltonian paths",
+          "trigger": "Potential stronger all-graph reconfiguration theorem"
+        },
+        {
+          "assessment": "foundation only; no full-document noncoverage asserted",
+          "evidence": "Addresses statistical self-avoiding Hamiltonian walks on square lattices, not claimed precise Heawood quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508094",
+          "material_read": "Abstract and metadata, plus source/result references to algorithm; full text not independently inspected",
+          "method": "arXiv abstract search",
+          "title": "Secondary Structures in Long Compact Polymers",
+          "trigger": "Original backbite move history"
+        },
+        {
+          "assessment": "different target construction, possible terminology overlap risk",
+          "evidence": "Builds Klein from Coxeter graph; no independent evidence linking Heawood backbites.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.1960",
+          "material_read": "Abstract and available article metadata; not full text",
+          "method": "arXiv abstract/metadata search",
+          "title": "From the Coxeter graph to the Klein graph",
+          "trigger": "Plausible same target Klein graph"
+        },
+        {
+          "assessment": "supports recognition once quotient is proven arc-transitive and nonbipartite",
+          "evidence": "F056B is unique nonbipartite cubic symmetric graph on 56 vertices.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Klein_graphs",
+          "material_read": "Graph census summary; group size, girth and uniqueness at order56",
+          "method": "read census context, compare invariants",
+          "title": "Klein graph F056B in Foster census",
+          "trigger": "Identification of quotient graph by symmetric cubic census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact structural isomorphism from a nontrivial Hamiltonian-path reconfiguration state space to the truncation of a classic 56-vertex cubic symmetric graph is a motivated and reusable finite graph identification; 24/25 metric and action-orbit data are substantive combinatorial invariants, not mere relabeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify_paths.py and verify_edges.py (independent algorithm inspected at least first)",
+    "arXiv:2610.05068 (Kazazi 2026 full text)",
+    "arXiv:1002.1960 (Dejter)",
+    "arXiv:cond-mat/0508094 (Oberdorf et al.)",
+    "Foster census F056B"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original source uses a specific backbite convention excluding endpoint-to-endpoint edges; published algorithms that include them require separate comparison.",
+    "Arc-transitive recognition invokes the classical Foster census, not an explicit independently constructed graph isomorphism in this run.",
+    "Older Fano/Klein path-move interpretation could be unindexed."
+  ],
+  "schema_version": 1
+}

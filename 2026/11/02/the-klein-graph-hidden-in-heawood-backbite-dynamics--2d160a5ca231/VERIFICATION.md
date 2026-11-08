@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite Heawood backbite classification
+# Independent mathematical audit
 
-Use Python 3.10 or later; both programs depend only on its standard library:
+## correctness
 
-```text
-python3 verify_paths.py
-python3 verify_edges.py
-```
+PASS
 
-`verify_paths.py` defines the Fano incidence graph with the cyclic difference set, explores every Hamiltonian path by backtracking from every vertex, identifies reversal pairs, enumerates all endpoint-to-interior backbites, and checks all 504 breadth-first shortest-path trees. It forms the suppressed multigraph, finds 56 vertex-disjoint simple-edge triangles, constructs the 56-vertex quotient, checks its girth and all-root distance shells, and enumerates 336 explicit incidence graph automorphisms. It verifies that the quotient's full directed-edge set is one orbit. Expected output:
+The pinned finding explicitly excludes endpoint-to-endpoint moves and identifies undirected path order with its reversal. The inspected verify_paths.py DFS enumerates all 14-vertex Hamiltonian paths from every start and canonicalizes under reversal; the alternative edge-complement method checks all C(21,8)=203490 choices. Independent from-scratch graph code using Fano incidence (i-j mod7 in {0,1,3}) recovered exactly 504 paths, 672 legal endpoint-to-interior backbites, 336 degree-2 and 168 degree-4 states, and eccentricity multiset 168 at 24 and 336 at 25. Suppressing degree-two states yields a 168-vertex multigraph with 168 simple edges forming 56 disjoint triangles and 84 doubled matching pairs; contracting triangles yields connected cubic 56-vertex graph with BFS shells (1,3,6,12,15,18,1) and girth seven. The actual script explicitly enumerates 336 Fano automorphisms and checks arc transitivity, so the standard Foster census recognition of the unique nonbipartite cubic symmetric 56-vertex graph as Klein F056B supplies the final identification. This is a complete finite exhaustiveness argument, not sampled paths.
 
-```text
-PATH_DFS_504_BACKBITE_672_RADIUS24_DIAMETER25_PASS
-KLEIN_QUOTIENT_56_84_GIRTH7_DIAMETER6_ARC_TRANSITIVE_PASS
-THREE_PATH_SYMMETRY_ORBITS_OF_168_PASS
-```
+## originality
 
-`verify_edges.py` independently realizes the graph using dot-product orthogonality of nonzero binary triples, tests all 203,490 possible eight-edge complements of paths, and verifies connectivity of each candidate. It computes backbites as path edge-set changes rather than reordering path tuples, reconstructs the suppressed and contracted graphs, and checks all-root distances and girth. Expected output:
+PASS
 
-```text
-EDGE_COMPLEMENTS_203490_EXHAUSTIVE_504_HAMILTON_PATHS_PASS
-INDEPENDENT_BACKBITE_EDGES_672_DEGREE2_336_DEGREE4_168_PASS
-QUOTIENT_56_CUBIC_GIRTH7_DIAMETER6_PASS
-```
+Backbite dynamics on compact polymer lattices and general Hamiltonian-path reconfiguration theory do not imply this exact Heawood graph, 504-state decomposition, Klein truncation or metric. The closest 2026 general theorem allows a different move (endpoint-to-endpoint included) and requires a spanning squared path, impossible for girth-six Heawood. The previously known Klein/Fano structures are credited. PASS with possible older disguised construction.
 
-The classification of the 56-vertex arc-transitive nonbipartite cubic quotient as Klein graph F056B uses the published Foster census and its uniqueness classification. The verification establishes the hypotheses of that identification without importing the classification itself. No assertion of random-walk mixing time or of a result for arbitrary graphs is made. The displayed outputs were obtained from the packaged scripts before this review.
+## value
+
+PASS
+
+An exact structural isomorphism from a nontrivial Hamiltonian-path reconfiguration state space to the truncation of a classic 56-vertex cubic symmetric graph is a motivated and reusable finite graph identification; 24/25 metric and action-orbit data are substantive combinatorial invariants, not mere relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
