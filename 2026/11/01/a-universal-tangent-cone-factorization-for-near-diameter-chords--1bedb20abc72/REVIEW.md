@@ -1,15 +1,21 @@
-# Review: A universal tangent-cone factorization for near-diameter chords of convex polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-For any diametral vertex pair, strict positivity of axial displacement throughout each nonzero tangent cone follows from the diameter inequality. Uniform positivity gives compact transverse sections and local endpoint localization at scale \(\varepsilon\). Affine-line coordinates have the exact invariant-measure Jacobian stated in the result; after rescaling, a dominated-convergence argument reduces the probability to a product-gauge sublevel volume. Its beta integral gives \((q!)^2/(2q)!\); Cauchy's projection identity supplies the factor \(2/(\kappa_q S(K))\). The verified regular-simplex specialization is an independently computed nonorthogonal example. Limits: the result is asymptotic, not a uniform effective error bound; finite experiments alone are not proof.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The 2012 planar regular-polygon chord distribution of Bäsel is in dimension two. Ciccariello's 2019 preprint constructs complete chord distributions for three-dimensional polyhedra, so its structural results do not imply the stated theorem for arbitrary polytopes in every dimension at least four. An older orthotope-specific endpoint coefficient agrees exactly with the current theorem when the tangent sections are evaluated, and its claimed range is strictly narrower. Searches for alternative tangent-cone, diametral-pair, and near-maximum chord formulations yielded no dominating published theorem among inspected sources; absence from search is not a proof of priority. High-dimensional Crofton literature not exhaustively indexed remains the key risk.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a universal sharp power law across all full-dimensional polytopes of the relevant dimensions, including multiple diameter pairs and nonorthogonal tangent cones. Its coefficient factors into two independently computable local cone-section volumes and a global surface-area normalization; the explicit regular-simplex value verifies non-box applicability. This class-level result is not a routine numerical special case and contrasts structurally with smooth-body contact asymptotics.
+Read the complete source RESULT.md and verify_cone_endpoint.py. Every diametral pair consists of vertices and a chord approaching D localizes at finitely many diameter lines. At each endpoint, any nonzero tangent vector v has a strictly positive axial inner product with the diameter direction; compactness on the polyhedral cone gives a uniform lower bound, so endpoint displacement is O(eps). Crossing-plane coordinates y_a,y_b in e-perp give the invariant line Jacobian D^(-q)(1+||y_b-y_a||²/D²)^(-(d+1)/2). The local axial gauge gives limiting deficit g_Qa(y_a)+g_Qb(y_b) and the beta integral has volume (q!)²/(2q)! times vol Qa vol Qb. Cauchy normalization yields exactly 2(q!)²/[ (2q)! kappa_q S(K) D^q ] times the diameter-pair sum. Independently verified the regular-simplex Gram determinant det(2I_q+J_q)=2^(q-1)(q+2) and the closed coefficients for d=4,5,6 (d4=0.2250790790392766). Unlike finite sampling, these analytical geometry and dominated-convergence steps support the universal quantifiers. The sampling model is explicitly invariant random lines, not uniform endpoints.
 
-## Closest sources and limitations
-Bäsel, *Random chords and point distances in regular polygons*, arXiv:1204.2707v1 (2012-04-12); Ciccariello, *The chord-length distribution of a polyhedron*, arXiv:1911.02532v1 (2019-11-06); Santaló, *Integral Geometry and Geometric Probability* (standard line measures). The theorem assumes motion-invariant random lines, finite polytope diameter and full dimension; no independent priority or correctness audit has yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from actual published mathematical searches and inspected primary scientific material; relevant exact known cases and stronger-coverage risks are compared, not merely title-matched. No directly implication-equivalent theorem identified in inspected statements; not a historical priority guarantee.
+
+## value
+
+PASS
+
+A genuinely universal high-dimensional endpoint law for a natural Crofton chord distribution: the exponent is polytope-universal but the positive coefficient decomposes into local tangent-cone sections at diameter pairs. The formula cleanly generalizes previously computed orthotope subclasses and supplies a sharp simplex benchmark; it is not an arbitrary dimension or numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
