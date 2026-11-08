@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed \(1<\alpha<2\) and positive \(D,\kappa,r\), the statement is a stationary one-time maximum theorem, not a maximum over time. Last-zero excursions for a deterministic additive continuous driver show \(\sup_{s\le t}|X_s|\le\mathrm{range}(B_{[0,t]})\), giving the exact pathwise error bound \(\sup|X-B|\le\kappa\alpha t\,\mathrm{range}(B)^{\alpha-1}\). A Brownian reflection estimate makes that error superexponentially small compared with its Gaussian \(x^2\) tail; the fixed-age right-tail log-rate is exactly \(-1/(4Dt)\). Conditional independent-particle maxima therefore approach \(\sqrt{4Dt\log N}\). Conditioning on the exponential common reset age yields the Rayleigh CDF \(1-e^{-z^2}\). Since \(1/2-1/\alpha<0\), scaling by \((\log N)^{1/\alpha}\) tends to zero. The separate finite verifier checked 430,080 pathwise discrete analogues; it is not a proof of the limits.
+## correctness
 
-## Originality — PASS (best-knowledge, not independently certified)
-The motivating full text (de Mauro, Majumdar and Schehr, arXiv:2606.31634, Section VII, equation (222) and Table 1) offers the positive-power soft-confinement regime as an expectation supported by simulations, without proving this subquadratic regime. The exact age mixture is prior work from that article. Biroli, Larralde, Majumdar and Schehr (arXiv:2211.00563) prove the Rayleigh law for the free Brownian gas, not for nonzero confinement. The accessible abstract of arXiv:2509.06658 concerns a free gas with a different resetting-clock law, not a nonzero power potential. Related available results on Gaussian extremes with Gaussian \(\alpha\)-Wiener bridges and on ideal Bose gas tails have different stochastic objects. A comparison with available published mathematical findings found no equal or stronger statement for jointly reset particles and \(1<\alpha<2\). Possible alternative derivations in broad diffusion-tail literature remain a residual priority risk. Neither absence from searches nor model comparisons establishes uniqueness.
+PASS
 
-## Value — PASS
-The result resolves a substantial regime in an explicit open classification proposed by the motivating article, shows why finite-size observations can be misleading, and replaces a putative \((\log N)^{1/\alpha}\) soft-confinement edge with an exact nondegenerate Rayleigh distribution for every strictly confining subquadratic potential. It distinguishes stationary tail shape from fixed-reset-age far tails, rather than giving a routine parameter substitution. Limits: fixed parameters, single stationary snapshot, no quantitative convergence bound, no claim for \(\alpha\ge2\) or the borderline \(\alpha=1\).
+For each fixed reset age t>0 the inward pathwise drift and last-zero excursion give sup|X| <= range(B) and sup|X-B| <= kappa alpha t range(B)^(alpha-1) for any continuous driver. Brownian range has Gaussian concentration, so with 0<beta=alpha-1<1 the error is bounded by exp(-c x^(2/beta)), superexponential relative to the gaussian exp(-x^2/(4Dt)). Gaussian tail sandwich yields fixed-age log P(X_t>x)/x^2 -> -1/(4Dt). Conditional iid maxima then satisfy m_N(t)/sqrt(4Dt log N)->1 in probability. A common stationary Poisson reset age T~Exp(r), independent of conditional noises, integrates the limiting CDF by bounded convergence to 1-exp(-z^2) under sqrt((4D/r)log N) normalization. Since 1/2-1/alpha<0, the alternative proposed (log N)^(1/alpha) normalization gives zero. The proof never requires uniformity for t growing with N. Independent script checks analytic scaling algebra and finite deterministic inequalities; numerical checks alone are not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The common-reset-age renewal mixture for arbitrary potentials is known in de Mauro–Majumdar–Schehr (2026), and the Rayleigh extreme for free simultaneous-resetting Brownian particles is known in Biroli–Larralde–Majumdar–Schehr (2022). De Mauro Section VII equations 222–228 and Table 1 propose a different (log N)^(1/alpha) scaling for all alpha>1 on simulation/scaling evidence, rather than a proved result. The submitted strictly confining 1<alpha<2 theorem uses a fixed-time superGaussian pathwise drift perturbation and shows the free-gas Rayleigh law persists and the other normalization collapses. A general known sublinear-drift Gaussian large-deviation theorem could potentially imply the fixed-age step, but no covering complete conclusion for the common-reset mixture was identified.
+
+## value
+
+PASS
+
+The theorem settles a proposed but explicitly heuristic universality-class boundary in the contemporary common-resetting model. It demonstrates a mathematically important interchange-of-limits effect: far tails at fixed reset ages can dominate the particle maximum despite a genuine equilibrium confining potential. The exact Rayleigh law and collapse of the competing normalization give a usable sharp asymptotic benchmark across every strictly subquadratic confining exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

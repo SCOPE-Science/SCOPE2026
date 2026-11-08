@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:12:12.543641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/rayleigh-extremes-persist-under-subquadratic-confinement-in-a-co--1b5db48c212a/RESULT.md",
+        "Source verifier inspected; independent_symplectic.c or independent_five_checks.py",
+        "All exact Git tree hashes reconstructed from returned source blob IDs"
+      ],
+      "rationale": "For each fixed reset age t>0 the inward pathwise drift and last-zero excursion give sup|X| <= range(B) and sup|X-B| <= kappa alpha t range(B)^(alpha-1) for any continuous driver. Brownian range has Gaussian concentration, so with 0<beta=alpha-1<1 the error is bounded by exp(-c x^(2/beta)), superexponential relative to the gaussian exp(-x^2/(4Dt)). Gaussian tail sandwich yields fixed-age log P(X_t>x)/x^2 -> -1/(4Dt). Conditional iid maxima then satisfy m_N(t)/sqrt(4Dt log N)->1 in probability. A common stationary Poisson reset age T~Exp(r), independent of conditional noises, integrates the limiting CDF by bounded convergence to 1-exp(-z^2) under sqrt((4D/r)log N) normalization. Since 1/2-1/alpha<0, the alternative proposed (log N)^(1/alpha) normalization gives zero. The proof never requires uniformity for t growing with N. Independent script checks analytic scaling algebra and finite deterministic inequalities; numerical checks alone are not the infinite proof.",
+      "residual_risks": [
+        "Exponents 1,2 and >2 excluded; no uniform-in-age or finite-N convergence rate.",
+        "Only stationary simultaneous maximum over particles, not pathwise time maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2606.31634 Section VII states a simulation-supported expectation of soft-confined scaling for all alpha>1"
+        ],
+        "reasoning": "The source generality of potential does not imply its heuristic maximum conjecture is a theorem; its stated predicted scaling is opposite to the proven strict-subquadratic result.",
+        "searches": [
+          "collectively reset Brownian gas subquadratic confining potential 1<alpha<2 Rayleigh maximum scale log N fixed-age tail",
+          "de Mauro Majumdar Schehr confinement 2026 power law alpha greater than one scaling"
+        ]
+      },
+      "checked_sources": [
+        "collectively reset Brownian gas subquadratic confining potential 1<alpha<2 Rayleigh maximum scale log N fixed-age tail",
+        "Relevant published Resultary semantic results (none supplied a dominating claim)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/rayleigh-extremes-persist-under-subquadratic-confinement-in-a-co--1b5db48c212a/RESULT.md",
+        "https://arxiv.org/abs/2606.31634",
+        "https://arxiv.org/abs/2211.00563",
+        "https://arxiv.org/abs/2509.06658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2211.00563 unconfined Rayleigh law",
+          "arXiv:2509.06658 non-Poisson reset clock for free particles",
+          "arXiv:2606.31634 exact conditional stationary density"
+        ],
+        "reasoning": "The free law is the kappa=0 case and does not cover kappa>0 with 1<alpha<2; common-age mixing alone needs a fixed-age upper-tail theorem. The submitted pathwise comparison provides the missing scientific implication.",
+        "searches": [
+          "collectively reset Brownian gas subquadratic confining potential 1<alpha<2 Rayleigh maximum scale log N fixed-age tail",
+          "Biroli Larralde Majumdar Schehr extreme resetting Brownian gas 2022",
+          "de Mauro Biroli Majumdar Schehr non Poisson simultaneous reset 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-age pathwise Gaussian tail (RESULT.md Steps 1–2)",
+          "de Mauro et al arXiv:2606.31634 common-age mixture Eq 13"
+        ],
+        "reasoning": "An equivalent result would require the same fixed-age far-tail limit and common clock integration under positive subquadratic confinement, not merely a free-particle Rayleigh law. No directly matching statement was found.",
+        "searches": [
+          "collectively reset Brownian gas subquadratic confining potential 1<alpha<2 Rayleigh maximum scale log N fixed-age tail",
+          "Gaussian far tail for sublinear confining drift Brownian motion stationary simultaneous resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "de Mauro et al 2026 Table 1 lists heuristic universality classes, not a rigorously enumerated exact table of subquadratic extreme limits"
+        ],
+        "reasoning": "A literature database of exact finite census is not the natural setting for an infinite stochastic scaling theorem; the relevant published limiting-law table was checked and has a heuristic, conflicting claim.",
+        "searches": [
+          "collectively reset Brownian gas subquadratic confining potential 1<alpha<2 Rayleigh maximum scale log N fixed-age tail",
+          "simultaneous resetting Brownian gas max simulations table 1 de Mauro 2026"
+        ]
+      },
+      "rationale": "The common-reset-age renewal mixture for arbitrary potentials is known in de Mauro–Majumdar–Schehr (2026), and the Rayleigh extreme for free simultaneous-resetting Brownian particles is known in Biroli–Larralde–Majumdar–Schehr (2022). De Mauro Section VII equations 222–228 and Table 1 propose a different (log N)^(1/alpha) scaling for all alpha>1 on simulation/scaling evidence, rather than a proved result. The submitted strictly confining 1<alpha<2 theorem uses a fixed-time superGaussian pathwise drift perturbation and shows the free-gas Rayleigh law persists and the other normalization collapses. A general known sublinear-drift Gaussian large-deviation theorem could potentially imply the fixed-age step, but no covering complete conclusion for the common-reset mixture was identified.",
+      "residual_risks": [
+        "A general diffusion large-deviations theorem for inward sublinear drifts may give an alternative short proof, though an explicit reset-age result was not found.",
+        "The original source is recent and could receive an updated rigorous preprint resolving this regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREDICTION_ONLY: source states general-alpha scaling on simulation/scaling heuristic, whereas this is an exact strict-subquadratic limit.",
+          "evidence": [
+            "The heuristic does not supply a proof of the opposed normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "Accessible full primary HTML including model/renewal mixture Section II and Section VII equation 222, Table 1 and equations 224–228",
+          "method": "Read full accessible HTML and directly compared fixed-age versus N->infty steps",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "Same potential and joint common-resetting gas; proposed conflicting alpha-scaling"
+        },
+        {
+          "assessment": "COVERS_FREE_CASE_ONLY: kappa=0; no positive inward subquadratic force in the stated theorem.",
+          "evidence": [
+            "Known Rayleigh edge is a special case outside the theorem fixed kappa>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Accessible arXiv primary abstract and model/maximum summary",
+          "method": "Compared source scope, not assumed whole-document absence beyond inspected material",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Same limit law for shared resetting but without confinement"
+        },
+        {
+          "assessment": "Different clock generalization for free particles does not cover positive subquadratic confinement.",
+          "evidence": [
+            "A general reset-clock theorem still needs fixed-age confining diffusion tails."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Accessible primary abstract and model statement",
+          "method": "Compared model hypotheses and potential choices",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Broader clock class could dominate Poisson reset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/rayleigh-extremes-persist-under-subquadratic-confinement-in-a-co--1b5db48c212a/RESULT.md",
+        "https://arxiv.org/abs/2606.31634",
+        "https://arxiv.org/abs/2211.00563",
+        "https://arxiv.org/abs/2509.06658"
+      ],
+      "rationale": "The theorem settles a proposed but explicitly heuristic universality-class boundary in the contemporary common-resetting model. It demonstrates a mathematically important interchange-of-limits effect: far tails at fixed reset ages can dominate the particle maximum despite a genuine equilibrium confining potential. The exact Rayleigh law and collapse of the competing normalization give a usable sharp asymptotic benchmark across every strictly subquadratic confining exponent.",
+      "residual_risks": [
+        "Best knowledge novelty depends on the unresolved prior-art comparisons in axes.originality; exact calculation or reproducibility alone does not establish value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exponents 1,2 and >2 excluded; no uniform-in-age or finite-N convergence rate.",
+    "Only stationary simultaneous maximum over particles, not pathwise time maximum.",
+    "A general diffusion large-deviations theorem for inward sublinear drifts may give an alternative short proof, though an explicit reset-age result was not found.",
+    "The original source is recent and could receive an updated rigorous preprint resolving this regime."
+  ],
+  "schema_version": 1
+}
