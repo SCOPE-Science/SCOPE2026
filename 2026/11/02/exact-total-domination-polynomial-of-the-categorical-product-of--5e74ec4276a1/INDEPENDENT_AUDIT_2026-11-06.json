@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:57:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S a set of cells in K_m x K_n, a cell (i,j) is uncovered iff every chosen cell shares row i or column j, equivalently S subset X_{i,j} (its row-column cross). Counting failed subsets disjointly by active row and column supports yields empty and one-support contributions with mnz correction, 2x2 supports with exactly 2 opposite pairs and 4 triples (not the four-cell set), 2-by-s>=3 supports with a unique singleton row, symmetric cases, and r,s>=3 paired-star supports with unique center row/column and optional central edge. These contributions match the printed B_{m,n}(z); T=(1+z)^(mn)-B. Full crosses are exactly mn maximal failures of size m+n-1. m=2 simplifies to (sum_{j>=2}binom(n,j)z^j)^2; for both dimensions>=3 minimum coefficient 6 binom(m,3)binom(n,3). Independent direct open-neighborhood enumeration matched all coefficients for (m,n)=(2,2),(2,4),(3,3),(3,4),(4,4), 70416 checked vertex subsets. Unrestricted proof is support classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1708.01305",
+          "arXiv:1908.02445",
+          "arXiv:1607.00400",
+          "Mertens, arXiv:2401.00716 (Cartesian rook graph ordinary domination)"
+        ],
+        "reasoning": "Generic total-domination polynomial recurrences can compute a graph iteratively but do not already constitute this explicit all-(m,n) support-classification formula; scalar direct-product total-domination numbers are strictly less informative.",
+        "searches": [
+          "total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets",
+          "domination polynomial tensor product graph complement rook arrays rectangular covers"
+        ]
+      },
+      "checked_sources": [
+        "Source frozen Git RESULT.md blob b01398ad980d5ae4f3e42d04481a09a5aba1e593",
+        "Defant–Iyer, Domination and Upper Domination of Direct Product Graphs, arXiv:1708.01305 (full PDF relevant theorems)",
+        "Vemuri, Domination in Direct Products of Complete Graphs, arXiv:1908.02445 (full PDF theorem sections)",
+        "Hu et al., Total Domination Polynomials of Graphs, arXiv:1607.00400 (full PDF main results)",
+        "Resultary searches: total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets; domination polynomial tensor product graph complement rook arrays rectangular covers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1708.01305",
+          "arXiv:1908.02445",
+          "arXiv:1607.00400",
+          "Mertens, arXiv:2401.00716 (Cartesian rook graph ordinary domination)"
+        ],
+        "reasoning": "Scalar results imply the least nonzero degree at best, not every coefficient. Existing Cartesian rook graph polynomial changes adjacency and domination convention; it does not imply this expression by a simple relabeling.",
+        "searches": [
+          "total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets",
+          "domination polynomial tensor product graph complement rook arrays rectangular covers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1708.01305",
+          "arXiv:1908.02445",
+          "arXiv:1607.00400",
+          "Mertens, arXiv:2401.00716 (Cartesian rook graph ordinary domination)"
+        ],
+        "reasoning": "The complement rook graph has edges between cells in different rows AND different columns. Cartesian rook-graph domination and ordinary closed-neighborhood domination count different sets. In bipartite-edge language failures are sets contained in a two-star row/column cross; search did not locate this generating polynomial.",
+        "searches": [
+          "total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets",
+          "domination polynomial tensor product graph complement rook arrays rectangular covers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:1708.01305",
+          "arXiv:1908.02445",
+          "arXiv:1607.00400",
+          "Mertens, arXiv:2401.00716 (Cartesian rook graph ordinary domination)"
+        ],
+        "reasoning": "No finite database/table supplies the entire two-parameter polynomial. Resultary searches found multipartite factor cases and rook homology; none was the all-size polynomial of the categorical product.",
+        "searches": [
+          "total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets",
+          "domination polynomial tensor product graph complement rook arrays rectangular covers"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared exact claim and possible implications with relevant primary literature and two actual semantic published-record searches; a failed search is not proof of novelty. Scalar results imply the least nonzero degree at best, not every coefficient. Existing Cartesian rook graph polynomial changes adjacency and domination convention; it does not imply this expression by a simple relabeling.",
+      "residual_risks": [
+        "An unindexed complement-rook-graph, complete-bipartite edge-cross-avoidance or other dual presentation may already enumerate identical subsets.",
+        "The formula is for precisely two complete factors and open-neighborhood total domination, not ordinary domination or Cartesian rook graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deals with domination/upper domination scalar parameters rather than all-cardinality total-domination polynomial",
+          "evidence": "arXiv:1708.01305 theorem sections",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01305",
+          "material_read": "Available full primary PDF; graph definitions, direct-product domination theorems and bounds",
+          "method": "PDF open plus page screenshots and theorem searches",
+          "title": "Domination and Upper Domination of Direct Product Graphs",
+          "trigger": "Same categorical graph product"
+        },
+        {
+          "assessment": "Determines scalar domination behavior, not presented generating polynomial for all total dominating subsets",
+          "evidence": "arXiv:1908.02445, main results",
+          "identifier_or_url": "https://arxiv.org/abs/1908.02445",
+          "material_read": "Available PDF main theorem sections and special product examples",
+          "method": "PDF read and searched",
+          "title": "Domination in Direct Products of Complete Graphs",
+          "trigger": "Same complete-graph tensor product"
+        },
+        {
+          "assessment": "Provides general recurrences and evaluations for other graph families, no direct closed specialization identified",
+          "evidence": "arXiv:1607.00400, main results",
+          "identifier_or_url": "https://arxiv.org/abs/1607.00400",
+          "material_read": "Available full PDF definitions and recurrence/evaluations",
+          "method": "PDF open and inspect theorem statements",
+          "title": "Total Domination Polynomials of Graphs",
+          "trigger": "Potential general graph-polynomial implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed polynomial enumerates every total dominating set by size, not just the minimum, for a natural graph product. The maximal obstruction classification and polynomial factorization provide precise finite combinatorial data useful for reliability under independently activated vertices and for other graph-polynomial studies; not an arbitrary small-n census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source frozen Git RESULT.md blob b01398ad980d5ae4f3e42d04481a09a5aba1e593",
+    "Defant–Iyer, Domination and Upper Domination of Direct Product Graphs, arXiv:1708.01305 (full PDF relevant theorems)",
+    "Vemuri, Domination in Direct Products of Complete Graphs, arXiv:1908.02445 (full PDF theorem sections)",
+    "Hu et al., Total Domination Polynomials of Graphs, arXiv:1607.00400 (full PDF main results)",
+    "Resultary searches: total domination polynomial categorical product K_m x K_n complement rook graph cross avoiding subsets; domination polynomial tensor product graph complement rook arrays rectangular covers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not classify polynomial roots, higher-factor tensor products or other domination variants."
+  ],
+  "residual_risks": [
+    "An unindexed complement-rook-graph, complete-bipartite edge-cross-avoidance or other dual presentation may already enumerate identical subsets.",
+    "The formula is for precisely two complete factors and open-neighborhood total domination, not ordinary domination or Cartesian rook graphs."
+  ],
+  "schema_version": 1
+}

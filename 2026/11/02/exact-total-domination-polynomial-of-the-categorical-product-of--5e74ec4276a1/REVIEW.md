@@ -1,19 +1,21 @@
-# Mathematical review: exact total-domination enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated invariant uses **open-neighborhood total domination** on the categorical product \(K_m\times K_n\). The key lemma is an exact biconditional: \(S\) fails if and only if it is a subset of a row-column cross. The proof then divides every failure by its unique active-row and active-column support counts. The six exhaustive regimes have independent counts; uniqueness of the singleton row or the paired-star centers avoids multiplicity. The displayed polynomial covers the boundaries \(m=2\), \(n=2\), and \(m=n=2\), and the corollaries follow directly. An independent adjacency-based verifier compares all coefficients in eleven finite graphs, checks the obstruction lemma directly in three graphs, and performs 625 larger-parameter arithmetic checks. Testing corroborates the all-parameter proof; it is not treated as an infinite certificate.
+PASS
 
-## Originality — PASS under accessible evidence
+For S a set of cells in K_m x K_n, a cell (i,j) is uncovered iff every chosen cell shares row i or column j, equivalently S subset X_{i,j} (its row-column cross). Counting failed subsets disjointly by active row and column supports yields empty and one-support contributions with mnz correction, 2x2 supports with exactly 2 opposite pairs and 4 triples (not the four-cell set), 2-by-s>=3 supports with a unique singleton row, symmetric cases, and r,s>=3 paired-star supports with unique center row/column and optional central edge. These contributions match the printed B_{m,n}(z); T=(1+z)^(mn)-B. Full crosses are exactly mn maximal failures of size m+n-1. m=2 simplifies to (sum_{j>=2}binom(n,j)z^j)^2; for both dimensions>=3 minimum coefficient 6 binom(m,3)binom(n,3). Independent direct open-neighborhood enumeration matched all coefficients for (m,n)=(2,2),(2,4),(3,3),(3,4),(4,4), 70416 checked vertex subsets. Unrestricted proof is support classification.
 
-The closest foundational product papers are Defant–Iyer, arXiv:1708.01305 (2017), and Vemuri, arXiv:1908.02445 (2019). Their inspected proofs address scalar domination and total-domination bounds and selected structural cases; no direct all-size polynomial is stated. Hu et al., arXiv:1607.00400 (2016), provide general polynomial reduction techniques but not an evaluated categorical complete-graph-product enumerator. Mertens, arXiv:2401.00716 (2024), derives the ordinary domination polynomial of the *Cartesian* rook graph. The latter is not the graph or invariant here and its formula does not imply the present one merely by taking a complement. Narrow mathematical-record and web searches for categorical products, rook complements, cross-avoidance and full cardinality polynomials returned no equivalent all-size result. An enumeration of completed ordered total-domination histories, even when available, does not determine the number of unordered total-dominating vertex subsets at each cardinality. The current result is not presented as a discovery of the scalar optimum or the defining cross criterion alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact all-cardinality total-domination counts measure redundancy and robustness of open-neighborhood coverage in this natural dense graph product. The full formula yields the independent random-activation reliability for arbitrary probe availability, locates the complete failure boundary, and identifies all maximum failures without restricting to minimum sets. A disjoint support/paired-star decomposition provides structure, not just tabulated values. The two-row factorization and three-matching extremal coefficient are useful checks, but the substantive result is the two-parameter distribution itself. Its value does not depend on speculative downstream theorems.
+Qualified best-of-knowledge originality: compared exact claim and possible implications with relevant primary literature and two actual semantic published-record searches; a failed search is not proof of novelty. Scalar results imply the least nonzero degree at best, not every coefficient. Existing Cartesian rook graph polynomial changes adjacency and domination convention; it does not imply this expression by a simple relabeling.
 
-## Residual risks and scientific limits
+## value
 
-Unindexed edge-subset or complement-rook enumerations might cover the formula. A related older product-domination source was not inspected in full; available metadata describes scalar bounds, making direct polynomial coverage possible but not specifically indicated. Further independent priority and proof review would be useful. No result for three or more product factors, polynomial zeros, or coefficient log-concavity is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closed polynomial enumerates every total dominating set by size, not just the minimum, for a natural graph product. The maximal obstruction classification and polynomial factorization provide precise finite combinatorial data useful for reliability under independently activated vertices and for other graph-polynomial studies; not an arbitrary small-n census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
