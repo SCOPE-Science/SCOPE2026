@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact finite-path vacancy recurrence yields per-edge probability e^{-t}u_i(v)u_{n-i}(v), uniformly summable to mean e^{-2-x}. Earliest-clock dependency chains are strictly decreasing, with probability at most 2/R! beyond radius R. Truncation with R=ceil(3 log n), factorial-moment independence of disjoint windows and near-tuple O(R/n) bounds establish Poisson(e^{-2-x}); saturation equals no available edge. Poisson martingale maximal inequality transfers Gumbel from time to discrete attempts. The standalone verifier reproduced 6154 finite exact identities and controlled numerical checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Penrose, doi:10.1007/s002200100387, described jamming coverage, not termination-time extreme values",
+        "Gerin, arXiv:1411.8002, full text, first-order trial count"
+      ],
+      "reasoning": "Broader jamming-limit theorems about occupancy density or central-limit fluctuations of the final number of dimers do not imply a Poisson law for eligible placements at t=log n+x or the terminal Gumbel law. A general theorem on termination-time extremes could potentially cover this if its assumptions match; no such relevant theorem was identified in accessible full texts.",
+      "searches": [
+        "\"random sequential adsorption\" \"saturation time\" \"Gumbel\" one dimension",
+        "\"Page Rényi parking\" time number trials limit law",
+        "\"random parking\" \"jamming limit\" Penrose"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1411.8002, full text",
+      "doi:10.1016/j.spl.2016.09.019, full OA preprint",
+      "doi:10.1111/j.2517-6161.1959.tb00343.x, bibliographic/abstract only",
+      "doi:10.1103/PhysRevE.73.051604, abstract only",
+      "doi:10.1007/s002200100387, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerin arXiv:1411.8002: first-order convergence T_n/(n log n)→1",
+        "Shneer–van de Ven doi:10.1016/j.spl.2016.09.019: per-site final occupation and mean density",
+        "Page doi:10.1111/j.2517-6161.1959.tb00343.x: title and accessible abstract only"
+      ],
+      "reasoning": "The claimed second-order limit specifies fluctuations on a scale n around n(log n−2); the first-order law allows many incompatible order-n fluctuation laws. Final occupancy moments and one-site probabilities do not determine the hitting time. Page full text was not accessible; therefore it cannot be decisively ruled out as implicit historical coverage.",
+      "searches": [
+        "\"The Page-Rényi parking process\" number of trials T_n n log n",
+        "\"Per-site occupancy in the discrete parking problem\" Theorem 1 Corollary 2",
+        "\"The distribution of vacancies on a line\" Page 1959"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gerin, arXiv:1411.8002, theorem on first-order trial count",
+        "Shneer–van de Ven, doi:10.1016/j.spl.2016.09.019, Theorem 1 and Corollaries 1–2"
+      ],
+      "reasoning": "Continuous last-success time and discrete number of attempted placements are equivalent at order n after the Poisson-clock coupling, but prior first-order limit and terminal occupancy formulas do not entail their distributional order-n Gumbel fluctuations.",
+      "searches": [
+        "\"Page-Rényi parking process\" \"Gumbel\" trials",
+        "\"discrete dimer parking\" \"last successful\" \"Poisson\"",
+        "\"random sequential adsorption\" \"jamming time\" \"extreme value\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gerin, arXiv:1411.8002, Theorem on number of trials",
+        "Bea–Irurzun–Mola, doi:10.1103/PhysRevE.73.051604, abstract on mean attempts in two-dimensional models"
+      ],
+      "reasoning": "No inspected exact table or enumerated database gives the asymptotic rare-gap point process or a centered last-attempt distribution. Known means are not sufficient for this distributional identity. Uninspected historical tables remain a stated priority risk.",
+      "searches": [
+        "\"Page–Rényi\" \"Gumbel\"",
+        "\"discrete parking\" \"number of attempts until saturation\"",
+        "\"Page parking\" \"Poisson\" \"available\""
+      ]
+    },
+    "rationale": "The full Gerin manuscript proves T_n/(n log n)→1 but does not supply a centered Gumbel limit or a Poisson limit for still-available edges. The full Shneer–van de Ven paper concerns final per-site occupation and jamming density. These statements do not entail the identified order-n fluctuations. Broad historical priority remains a qualified risk.",
+    "residual_risks": [
+      "Unexamined original Page article (1959) might hide an implicit stronger formula.",
+      "Some historical papers on last-stage random sequential adsorption and mean attempts were only accessible as abstracts; independent priority review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides first-order count law and jamming behavior, not a terminal-time Poisson or centered Gumbel theorem",
+        "evidence": [
+          "arXiv:1411.8002, 2014-11-28 v1",
+          "Full article sections covering number of trials"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.8002",
+        "material_read": "Full arXiv article, including model, Poisson arrival representation, number-of-trials result and proof",
+        "method": "Read OA HTML and PDF (with page-image verification of PDF)",
+        "title": "The Page–Rényi parking process",
+        "trigger": "Identical random parking model with known first-order trial-count theorem"
+      },
+      {
+        "assessment": "Computes final site occupancy and jamming density, not the random number of attempts to saturation",
+        "evidence": [
+          "doi:10.1016/j.spl.2016.09.019",
+          "Preprint dated 2016-09-08"
+        ],
+        "identifier_or_url": "https://pure.hw.ac.uk/ws/files/14196654/parking6.pdf",
+        "material_read": "Full seven-page authorized open-access preprint, abstract, Theorem 1, Corollaries 1–2, proofs and closing references",
+        "method": "Read PDF text and inspected first scientific page as screenshot",
+        "title": "Per-site occupancy in the discrete parking problem",
+        "trigger": "Exact same discrete parking process, fixed-site distributions"
+      },
+      {
+        "assessment": "Cannot exclude an unobserved implicit terminal-time result; residual priority risk retained",
+        "evidence": [
+          "E. S. Page, JRSS B 21 (1959), 364–374"
+        ],
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1959.tb00343.x",
+        "material_read": "Bibliographic metadata and accessible abstract; complete paper not obtained",
+        "method": "Searched accessible OA/arXiv and attempted publisher page; full text inaccessible",
+        "title": "The distribution of vacancies on a line",
+        "trigger": "Historical original discrete-parking joint vacancy distribution may potentially include equivalent moment formulas"
+      },
+      {
+        "assessment": "Abstract describes mean numbers of attempts and square lattice; neither directly asserts 1D Gumbel fluctuation limit",
+        "evidence": [
+          "Physical Review E 73 (2006), 051604"
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.73.051604",
+        "material_read": "Abstract and bibliographic metadata, not full manuscript",
+        "method": "Read indexed abstract and checked model dimensions",
+        "title": "Scaling properties in the average number of attempts until saturation in random sequential adsorption processes",
+        "trigger": "Title directly concerns attempts until saturation"
+      },
+      {
+        "assessment": "Available description is about jamming coverage and not a terminal-time fluctuation result; full text remains unchecked",
+        "evidence": [
+          "Communications in Mathematical Physics 218 (2001), 153–176"
+        ],
+        "identifier_or_url": "doi:10.1007/s002200100387",
+        "material_read": "Abstract and bibliographic metadata, not complete text",
+        "method": "Compared stated theorems by available summaries and key terminology",
+        "title": "Random parking, sequential adsorption, and the jamming limit",
+        "trigger": "Broad general random parking limit theorem that may dominate a special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce815ac2-b985-43a8-ae4e-f82dca279f30",
+  "value": {
+    "rationale": "The classic first-order T_n/(n log n) result leaves order-n fluctuations unspecified. The exact limit, including the nontrivial shift two, provides a genuinely motivated sharp distributional description of the jamming latency for one of the standard one-dimensional RSA models. Poissonization and rare-window dependence control are substantive mathematical mechanisms.",
+    "status": "PASS"
+  }
+}
