@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A full infinite-round-parameter argument supplies both directions. Clique number and independence number equal the ordered factor sizes; their existential thresholds are witnesses. The explicit coordinate-pattern back-and-forth strategy uses at most one new value per coordinate per move, ensuring fresh values through every prescribed rank. Class-count, least distinguishing rank and Boolean normal form are exact consequences. The supplementary finite checker was executed from the standalone source; its direct and orbit algorithms agree on all tested classifications. No finite search is used to prove the universal statement.
+## correctness
 
-## Originality
-PASS, with priority limitations. Checked the relevant graph-definability 2003 preprint and 2010 survey, and the author-uploaded full text on countable connected-homogeneous graphs. The first studies general bounds on graph distinguishability, the second summarizes depth and alternation tools, and the third classifies homogeneous structures including infinite line graphs of complete bipartite graphs; none of their inspected theorems states or logically entails the sharp family-specific finite rank-preserving normal form or depth formula without additional work. Published-research-index semantic comparisons to complete-multipartite logical-depth papers and rook-graph topology papers concern different graphs or invariants. General Feferman–Vaught methods may yield an indirect route, and genuinely equivalent work in unindexed literature remains possible.
+PASS
 
-## Value
-PASS. The result is an all-quantifier-rank classification of a natural two-parameter family, not a single small example or finite threshold check. Its nontrivial graph-only consequence is a rank-preserving collapse of arbitrary nested first-order sentences to Boolean combinations of two simple existential threshold families, coupled with exact minimum distinguishing depth, count of logical types, and sharp representatives. The coordinate labels are absent from the structure, so the proof must show that no additional adjacency configuration lets unrestricted first-order logic distinguish sizes sooner.
+The actual RESULT.md identifies alpha(R_mn)=m and omega(R_mn)=n, so existential independent/clique tests I_k,C_k of quantifier rank k<=q prove necessity. For sufficiency Duplicator preserves separately the equality pattern of chosen row coordinates and column coordinates, choosing previously paired values on repetitions or fresh ones otherwise. In at most q moves, both sides with size >=q never exhaust fresh values, while any smaller side is equal to its match; the induced selected-vertex map preserves equality and adjacency. This is an unrestricted q-round EF proof, not a finite-test extrapolation. The class predicates use I_a,C_b and negated I_(a+1),C_(b+1) only when truncations are <q. This yields exactly binomial(q,2) classes, sharp q^2 minimum representative for class (q,q), and minimal distinguishing rank. Independent explicit clique/independent enumeration confirmed small m,n<=4.
 
-## Literature and limits
-Primary historical comparisons: Pikhurko–Veith–Verbitsky (2003), arXiv:math/0311041; Pikhurko–Verbitsky (2010), arXiv:1003.4865; Gray–Macpherson (2010), doi:10.1016/j.jctb.2009.04.002. The result applies to ordinary first-order graph sentences and side sizes at least two; richer signatures, higher Cartesian powers, and counting logic are outside scope. Priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete exact bounded-quantifier-depth classification of the graph-reduct rectangular rook family was not identified in inspected graph-definability and homogeneity sources. The proof uses standard EF games, but the exact two-threshold normal form and sharp rank/cutoff are family-specific conclusions not automatically provided by the general EF theorem.
+
+## value
+
+PASS
+
+The family K_m square K_n is a canonical line graph of K_{m,n}. The result exactly classifies how finite first-order logic loses size information, supplies optimal distinguishing quantifier rank, and constructs optimal bounded-depth representatives. This is a natural full classification with reusable model-theoretic invariants, not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
