@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:10:41.736722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Frozen verify.py"
+      ],
+      "rationale": "The symmetric positive-definite drift A=[[a+m,-m],[-m,b+m]] yields a unique centered stationary Ornstein–Uhlenbeck Gaussian covariance solving AP+PA=gg^T. Direct symbolic solution independently reproduces det(P)=[((b-a)st+m(t²-s²))²]/[4(ab+(a+b)m)(a+b+2m)²]. The component variances/covariance are positive; C=1 precisely when the numerator vanishes, hence m*=(a-b)st/(t²-s²)>0 for a>b,t>s. Symmetric/antisymmetric eigenmodes give C→1 as m→∞ without claiming identical trajectories. At (a,b,s,t)=(3,1,1,2), an exact derivative factor has (3m-4) times cubic 54m³-309m²-664m-360; Descartes and sign brackets prove exactly one later minimum. For full-rank forcing covariance [[1,99/50],[99/50,4]], det Q=199/2500>0, its correlation derivative factor has quartic 2609152m⁴-17076864m³-10302432m²+25830809m+22887750, exactly two positive roots by Descartes and disjoint sign changes, giving a robust maximum/minimum. Exact SymPy comparisons were independently executed. Only explicit examples assert uniqueness; linear stationary model, not extinction or nonlinear population synchrony.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kendall 2000; Liebhold 2006; Ripa 2000",
+          "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350"
+        ],
+        "reasoning": "None read as a continuous-time general theorem containing arbitrary a,b,s,t and sharp two-turning-point classification; Ripa full text not yet read",
+        "searches": [
+          "Resultary search: two patch stochastic Ornstein Uhlenbeck correlated environmental noise dispersal reentrant synchrony Pearson covariance exact finite coupling",
+          "Web: two-patch Ornstein Uhlenbeck dispersal correlation synchrony nonmonotonic",
+          "Web: Ripa 2000 analysing Moran effect and dispersal synchrony",
+          "DOI:10.1086/303350",
+          "DOI:10.1007/s10144-005-0248-6"
+        ]
+      },
+      "checked_sources": [
+        "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350",
+        "Liebhold, Johnson and Bjørnstad, Geographic variation in density-dependent dynamics impacts the synchronizing effect of dispersal and regional stochasticity, Population Ecology 48 (2006), DOI:10.1007/s10144-005-0248-6",
+        "Ripa, Analysing the Moran effect and dispersal, Oikos 89 (2000), DOI:10.1034/j.1600-0706.2000.890119.x",
+        "Ly and Ermentrout, Coupling regularizes individual units in noisy populations (2010), DOI:10.1103/PhysRevE.81.011911"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kendall 2000 DOI:10.1086/303350; Liebhold 2006 DOI:10.1007/s10144-005-0248-6",
+          "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350"
+        ],
+        "reasoning": "Homogeneous discrete-time constraints cannot directly imply heterogeneous continuous-time positive m*, and simulation of a second-order model does not derive two exact sign-classified extrema",
+        "searches": [
+          "Resultary search: two patch stochastic Ornstein Uhlenbeck correlated environmental noise dispersal reentrant synchrony Pearson covariance exact finite coupling",
+          "Web: two-patch Ornstein Uhlenbeck dispersal correlation synchrony nonmonotonic",
+          "Web: Ripa 2000 analysing Moran effect and dispersal synchrony",
+          "DOI:10.1086/303350",
+          "DOI:10.1007/s10144-005-0248-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "stationary Lyapunov covariance determinant; perfect Pearson synchrony iff common input is drift eigenvector",
+          "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350"
+        ],
+        "reasoning": "Liebhold 2006 discrete-time 2nd-order model and Kendall 2000 homogeneous models do not state the stationary continuous-time determinant cancellation; generic OU eigenvector condition is credited as known",
+        "searches": [
+          "Resultary search: two patch stochastic Ornstein Uhlenbeck correlated environmental noise dispersal reentrant synchrony Pearson covariance exact finite coupling",
+          "Web: two-patch Ornstein Uhlenbeck dispersal correlation synchrony nonmonotonic",
+          "Web: Ripa 2000 analysing Moran effect and dispersal synchrony",
+          "DOI:10.1086/303350",
+          "DOI:10.1007/s10144-005-0248-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query for two-patch OU reentrant synchrony",
+          "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350"
+        ],
+        "reasoning": "Returned unrelated ecological covariance/oscillator findings; no exact table or formula found, which does not prove novelty",
+        "searches": [
+          "Resultary search: two patch stochastic Ornstein Uhlenbeck correlated environmental noise dispersal reentrant synchrony Pearson covariance exact finite coupling",
+          "Web: two-patch Ornstein Uhlenbeck dispersal correlation synchrony nonmonotonic",
+          "Web: Ripa 2000 analysing Moran effect and dispersal synchrony",
+          "DOI:10.1086/303350",
+          "DOI:10.1007/s10144-005-0248-6"
+        ]
+      },
+      "rationale": "The standard OU Gramian and common-noise drift-eigenvector rank-one criterion are acknowledged prior mathematics, not new. The contribution is a sharp heterogeneous finite-dispersal tuning identity and global nonmonotonic correlation examples, including a nondegenerate environmental-noise covariance. Kendall et al. (2000) treat homogeneous two-patch discrete-time correlations, while Liebhold–Johnson–Bjørnstad (2006) study heterogeneous second-order discrete-time dynamics with simulation; their assumptions/conclusions do not directly subsume this continuous-time formula or two-extrema classification. Ripa (2000), Ly–Ermentrout (2010) are plausible unresolved comparison risks. No equivalent statement was found in the scoped published-research search; negative search is not priority certification.",
+      "residual_risks": [
+        "A more general stochastic linear-systems correlation theorem or the partially inspected Ripa (2000)/Ly–Ermentrout (2010) paper may contain equivalent implications.",
+        "Positive Pearson correlation is specific to positive forcing components and cooperative drift; general mixed-sign noise is outside theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MODEL_NOT_COVERING",
+          "evidence": "Analyzes discrete-time second-order feedback and simulation under dispersal; no stationary continuous-time OU determinant tuning identity or proof of two Pearson-correlation turning points.",
+          "identifier_or_url": "https://research.fs.usda.gov/download/treesearch/15589.pdf",
+          "material_read": "Complete eight-page open full text, including local demographic model, heterogeneous second-order discrete-time equations, figures and discussion",
+          "method": "Read and visually checked primary full PDF; compared dynamics and derived quantities",
+          "title": "Geographic variation in density-dependent dynamics impacts the synchronizing effect of dispersal and regional stochasticity",
+          "trigger": "Same dispersal/environmental synchrony mechanism in heterogeneous two-patch models"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_COVERAGE_RISK",
+          "evidence": "Abstract derives synchrony expression for a spatial population model, but does not present enough hypotheses to exclude specialized continuous-time OU results.",
+          "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2000.890119.x",
+          "material_read": "Journal abstract and bibliographic description only, not full article",
+          "method": "Read publisher abstract and compared announced conclusions",
+          "title": "Analysing the Moran effect and dispersal: their significance and interaction in synchronous population dynamics",
+          "trigger": "Plausible broader linearized dispersal-synchrony theorem"
+        },
+        {
+          "assessment": "NO_DIRECT_IMPLICATION_FROM_INSPECTED_MATERIAL",
+          "evidence": "Homogeneous model lacks asymmetric a,b,s,t tuning; a mathematical reduction would be required.",
+          "identifier_or_url": "https://doi.org/10.1086/303350",
+          "material_read": "Publisher abstract and accessible model description; full manuscript not independently re-read in this run",
+          "method": "Compared reported homogeneous/discrete-time assumptions against actual continuous-time OU parameters",
+          "title": "Dispersal, environmental correlation, and spatial synchrony in population dynamics",
+          "trigger": "Classical direct two-patch mathematical synchrony paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kendall et al., Dispersal, environmental correlation, and spatial synchrony in population dynamics, The American Naturalist 155 (2000), DOI:10.1086/303350",
+        "Frozen RESULT.md plus computed invariant"
+      ],
+      "rationale": "Spatial synchrony under environmental noise and dispersal is a naturally consequential population-model observable. A finite positive coupling can produce perfect stationary correlation even with unequal local relaxation and climate response; stronger mixing temporarily reduces correlation. An explicit full-rank forcing witness shows the reversal survives imperfectly correlated noise, giving a motivated qualitative counterexample to monotone-homogeneous intuition and a sharp tunable boundary. No claims about actual extinction or persistence are inferred.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A more general stochastic linear-systems correlation theorem or the partially inspected Ripa (2000)/Ly–Ermentrout (2010) paper may contain equivalent implications.",
+    "Positive Pearson correlation is specific to positive forcing components and cooperative drift; general mixed-sign noise is outside theorem.",
+    "Completed scientific assessment is not published: publication plan is not_ready owing to public provenance and attribution metadata."
+  ],
+  "schema_version": 1
+}
