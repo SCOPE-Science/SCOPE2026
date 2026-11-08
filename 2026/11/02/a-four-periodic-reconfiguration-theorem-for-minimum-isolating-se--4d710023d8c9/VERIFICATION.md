@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The theorem is established by the cyclic-gap argument in `RESULT.md`; the two Python programs are independently structured finite checks, not a substitute for the general proof.
+# Independent mathematical audit
 
-Run `python3 check_direct.py` to enumerate sets from the closed-neighborhood definition for cycle orders 4 through 22 and check all one-vertex replacements. Expected terminal marker: `CYCLE_ISOLATION_DIRECT_GRAPH_PASS`.
+## correctness
 
-Run `python3 check_gaps.py` to enumerate cyclic weak compositions for cycle orders 5 through 54 and check the exchange degrees and connectedness for orders up to 38. Expected terminal marker: `CYCLE_ISOLATION_GAP_MODEL_PASS`.
+PASS
 
-These scripts require only the Python standard library. The finite checks establish the asserted enumerations in their tested ranges. The proof, rather than finite extrapolation, establishes every order \(n\ge5\). The connected components of the graph for orders divisible by four are isolated points; the smaller order-four exception is recorded separately. No other verification channel has been performed.
+An edge survives N[S] precisely for four consecutive unselected cycle vertices, so cyclic selected gaps are <=4. Minimum k=ceil(n/4), deficits ai=4-di sum r in {0,1,2,3}; count distinguished minima by weak compositions. Deleting x merges adjacent gaps to L=8-a_minus-a_plus>=5, valid insertions at 9-L positions including x; degree=2r. Deficit-unit exchanges connect all weak compositions and wind a unit around all gaps to translate every selected vertex by one, establishing global labelled connectedness. r=0 and n=4 boundaries separated. Independent direct-definition enumeration and BFS checked n=4..15.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
+
+## value
+
+PASS
+
+The exact number, all-exchange regularity and four-periodic connectedness of globally minimum isolating configurations is a natural complete reconfiguration classification, not implied by the known isolation number; explicit solution graphs permit further mixing and mobility investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
