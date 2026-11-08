@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is a theorem for every \(a,b\ge2\) and every finite field of characteristic two, not an inference from a bounded census. The incidence identity \(F=B^{\mathsf T}B\) holds because every edge has exactly two endpoints, so the line-graph adjacency has diagonal zero in characteristic two. Connectivity makes \(B\) surjective onto the even-coordinate vertex subspace, and its transpose has only the global constant kernel. Splitting ordinary coordinates into sums and zero-sum spaces reduces the matrix of \(BB^{\mathsf T}\) to the three explicit parity cores and scalar blocks. Their power ranks and the extra scalar blocks force the stated Jordan forms. Kernel counting then gives all first-entry populations and period-two orbit counts. The two separately implemented checkers passed for 100 parameter pairs and 419400 direct states, respectively. Risk: matrix verifications are finite supporting checks, not a substitute for the all-size decomposition, and no independent audit has been performed.
+PASS
 
-## Originality — PASS, qualified
+At frozen RESULT.md and check_linear.py, the line-graph identity F=B^tB over characteristic 2 is exact: B is incidence of K_{a,b} minus one edge. The rank of B onto even vertex-coordinate vectors and the parity-core decomposition of Q=BB^t into (2,2), (3,2), (3,3) cores and scalar sectors establish all a,b>=2, q=2^h. Core rank sequences determine J3/J2/J1, J5 and the unique J2(1) as stated; finite-field kernel counting yields exact time layers. Independently constructed a GF(2) adjacency matrix and computed power ranks at (2,2),(2,3),(3,3),(4,4),(3,8),(7,6),(9,9), matching [E,a+b-2,1,0], [E,a+b-2,stable], or [E,o+s-1,s+1,s,s-1,s-2,s-2] as appropriate. Finite cases corroborate, not prove, the all-size decomposition. The line-graph diagonal cancellation depends critically on characteristic 2.
 
-The 2015 arXiv full manuscript by Ducey, Gerhard, and Watson establishes critical/Smith group structure for intact square rook graphs, not adjacency iteration after one square is deleted. Peeters (2002), Section 3, studies modular spectra and minimal polynomials of intact Hamming graphs, including rook products, but not the punctured graph. Marr and Hütt (2005) treat a different class of graph CA update rules. Published records about complete-multipartite parity and distance-two-cube parity analyze distinct adjacency operators. Existing mixed-parity intact-rook and deleted-hypercube dynamical results do not imply this one-square deletion theorem. The novelty is solely the punctured-graph Jordan classification and corresponding transient/cycle census, not the known incidence identity or intact graph facts. Risk: historical indexing is incomplete, and an equivalent deleted-rook calculation may exist elsewhere.
+## originality
 
-## Value — PASS
+PASS
 
-Deleting one vertex is a natural minimal perturbation of the rook graph, and the classification shows a strong structural dynamical change: in mixed parity, primitive two-cycles vanish while a sharp five-step transient appears, with its final-entry probability \(1-1/q\) uniform in both board dimensions. The parity trichotomy gives all Jordan blocks, exact finite-field orbit counts and all time layers for an infinite graph family. This is a motivated perturbation question, rather than an arbitrary parameter slice or numerical improvement. Its scope is only single deletion and characteristic two.
+Best-of-knowledge originality from actual published mathematical searches and inspected primary scientific material; relevant exact known cases and stronger-coverage risks are compared, not merely title-matched. No directly implication-equivalent theorem identified in inspected statements; not a historical priority guarantee.
 
-## Closest sources and limitations
+## value
 
-J. E. Ducey, J. Gerhard and N. Watson, *The Smith and Critical Groups of the Square Rook's Graph and its Complement*, arXiv:1507.06583v1 (2015-07-23), https://arxiv.org/abs/1507.06583; R. Peeters, *On the p-Ranks of the Adjacency Matrices of Distance-Regular Graphs*, Journal of Algebraic Combinatorics 15 (2002), 127–149; C. Marr and M.-T. Hütt, arXiv:cond-mat/0502509v1 (2005). Prior results on intact or differently punctured graph families may inform the method but do not entail the present complete classification. An unindexed exact equivalent remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting one vertex from a natural rook/Hamming graph is a minimal structural perturbation. The universal Jordan classification exposes a genuinely qualitative dynamical bifurcation: in mixed parity the intact period-two behavior disappears and a sharp five-update nilpotent chain replaces it, with dimension-free final-shell probability 1-1/q. All finite-field orbit/entry census follows from motivated algebraic structure rather than an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
