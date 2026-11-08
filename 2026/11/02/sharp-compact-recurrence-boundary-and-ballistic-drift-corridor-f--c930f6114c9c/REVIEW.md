@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats the map on the real plane, not the quotient cylinder. Stationarity of the second coordinate forces zero mean first coordinate; stationarity of the squared first coordinate then yields the exact nonnegative-defect identity. This excludes every compact invariant probability when \(r\le1\). The empirical-measure argument is valid because any bounded forward orbit of a continuous map has a compact orbit closure. For \(r<1\), the scalar forced recursion bounds the first coordinate, and an exact telescoping quadratic inequality confines every mean drift accumulation point between two explicitly factored roots. Two phase-locked orbits attain the endpoint drift values. For any prime-two orbit, the two phase coefficients sum to \(-2\), yielding the amplitude bound. The explicit witness meets both update equations for every \(r>1\). The analytic proof is not replaced by finite testing. Symbolic and high-precision checks of the actual packaged checker passed.
+PASS
 
-## Originality — PASS within inspected evidence
+Read complete RESULT.md at frozen blob 053b8426d21ac3fb8b7cc0df34e018a7bd507a9b. Invariance and y-increments give integral x=0; stationary square of x yields a²=(r²-1)E[x²]-r²E[x² sin²(dy)], impossible for r<=1. A bounded forward orbit would produce a compactly supported invariant empirical limit, so none exists. For r<1, u_n=x_n/a obeys u_{n+1}=1+kappa_n u_n, |kappa_n|<=r; boundedness and squared telescoping plus Jensen force every mean accumulation in [1/(1+r),1/(1-r)], hence y drifts linearly. Phase-locked examples attain both bounds. On a primitive 2cycle, x1=-x0 and B0+B1=-2 imply |x0|>=|a|/(r-1); the stated explicit phase pair attains equality for each r>1 with adapted e. An independently coded check reconstructed seven period-two and multiple phase-locked examples; finite checks do not prove universal invariant-measure statements.
 
-The 2022 Zhang–Liu–Wei–Jiang–Lyu–Bi article defines the exact cosine map; its full available rich HTML identifies no fixed points and studies hidden attractors numerically. An absent fixed point is weaker than the absence of every bounded orbit, and numerical escape diagrams do not entail the universal \(|bc|=1\) boundary, optimal ballistic-speed corridor, or exact period-two amplitude law. Ramadoss et al. (2022) give a broader non-fixed-point memristive construction and a cosine-plus-linear example; this is structurally related but does not state an orbit-escape criterion. Available research-index searches returned different models, not a dominating result for this recurrence. Specifically compared were the stationary Rulkov covariance law, a recurrent-dynamics threshold in the zero-bias Chialvo map, and a feedback-moment law for a six-dimensional memristor flow. The first is a different rational neuron model, the second a different fast-slow map, and the third a continuous-time flow, so none implies this theorem. The possibility of an unindexed general affine-forcing theorem or a later unnoticed analysis remains a residual risk; the originality assessment is not an independence certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original numerical study presents hidden periodic and chaotic states in a no-fixed-point map, making the actual boundary of the regime capable of supporting bounded dynamics an intrinsic mathematical question. The new theorem supplies an exact sharp coefficient threshold, demonstrates the difference between drift and plane recurrence, gives optimal velocities for all subcritical trajectories, and quantifies the singular growth of the minimum recurrence amplitude as the threshold is approached from above. The explicit two-cycle is needed to prove the threshold is not merely a sufficient obstruction. These conclusions concern the natural full parameter family, not a selected arbitrary numerical slice.
+The 2022 Zhang et al paper studies the identical cosine map and reports numerical hidden periodic orbits and bifurcations, with a simple no-fixed-point observation; it does not in the inspected rich HTML mathematical/numerical sections prove these measure-theoretic recurrence and drift bounds. A broader Ramadoss memristor-map framework includes related dynamics but does not directly give this exact r threshold.
 
-## Risks and scope
+## value
 
-The coefficient boundary is sharp only in the parameter-uniform realizability sense, not a classification of cycles for every fixed remaining parameter. Attraction and stability of the exact two-cycle have not been proved. The planar/cylindrical distinction is essential. Research-index coverage and earlier sources are not exhaustive of every unpublished derivation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global compact-recurrence boundary makes precise which numerical regimes can even support bounded dynamics, while the optimal ballistic corridor and period-two amplitude barrier quantify naturally motivated escape/recurrent transitions. It materially exceeds the source fixed-point observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

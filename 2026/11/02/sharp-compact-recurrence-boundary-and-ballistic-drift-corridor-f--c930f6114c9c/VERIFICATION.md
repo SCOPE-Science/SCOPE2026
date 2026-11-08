@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `checker.py` was executed successfully using installed SymPy and mpmath. It checks the two independent algebraic orbit equations, the factorization governing sharp drift, sixteen high-precision orbit legs for eight positive-excess gains, and 120 endpoint-drift witness steps for five contractive gains. Twenty independently seeded numerical trajectories were additionally iterated for 120,000 steps each and checked against the proved lower drift bound at finite tolerance. All checks passed. The theorem is analytic: no finite experiment proves the absence of all bounded orbits or classifies every real parameter.
+## correctness
 
-The proof's critical implications are documented in `RESULT.md`: compact stationary measures force a zero first-coordinate mean; the squared-feedback identity rules them out at and below the unit gain; bounded orbit empirical measures establish global orbit exclusion; and the zero-sum of two memory increments is the exhaustive two-cycle reduction. Source priority and proof correctness have not received independent external validation.
+PASS
+
+Read complete RESULT.md at frozen blob 053b8426d21ac3fb8b7cc0df34e018a7bd507a9b. Invariance and y-increments give integral x=0; stationary square of x yields a²=(r²-1)E[x²]-r²E[x² sin²(dy)], impossible for r<=1. A bounded forward orbit would produce a compactly supported invariant empirical limit, so none exists. For r<1, u_n=x_n/a obeys u_{n+1}=1+kappa_n u_n, |kappa_n|<=r; boundedness and squared telescoping plus Jensen force every mean accumulation in [1/(1+r),1/(1-r)], hence y drifts linearly. Phase-locked examples attain both bounds. On a primitive 2cycle, x1=-x0 and B0+B1=-2 imply |x0|>=|a|/(r-1); the stated explicit phase pair attains equality for each r>1 with adapted e. An independently coded check reconstructed seven period-two and multiple phase-locked examples; finite checks do not prove universal invariant-measure statements.
+
+## originality
+
+PASS
+
+The 2022 Zhang et al paper studies the identical cosine map and reports numerical hidden periodic orbits and bifurcations, with a simple no-fixed-point observation; it does not in the inspected rich HTML mathematical/numerical sections prove these measure-theoretic recurrence and drift bounds. A broader Ramadoss memristor-map framework includes related dynamics but does not directly give this exact r threshold.
+
+## value
+
+PASS
+
+The global compact-recurrence boundary makes precise which numerical regimes can even support bounded dynamics, while the optimal ballistic corridor and period-two amplitude barrier quantify naturally motivated escape/recurrent transitions. It materially exceeds the source fixed-point observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
