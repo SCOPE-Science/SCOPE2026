@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The orbit-barycenter construction is proved in RESULT.md. The main infinite-family step is the exact metric classification of admissible orbits and pairwise compatible orbits, after which the list of all triangles and the annular PL homeomorphism follow directly.
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 without external libraries. It enumerates original torus-grid point pairs, swap orbits, admissibility and compatibility at scales one and two for each integer \(7\le n\le25\), and verifies every face up to size four. The expected face vector is \((n,0,0)\) at scale one and \((2n,4n,2n)\) at scale two, with no faces containing four vertices. No finite enumeration is represented as an all-size proof.
+## correctness
 
-The integral homology is deduced from the explicit PL annulus model, without relying on rational rank computations. The source arXiv:2502.07134v1 was publicly available 2025-02-10. No external independent audit or scientific certification has been carried out.
+PASS
+
+A fixed point of a simplicial involution has equal barycentric weights on the two vertices of each exchanged orbit; the admissible-orbit complex is a genuine triangulation of the geometric fixed locus. For the torus l1 metric, singleton fixed orbits are diagonal D_i; a two-point (i,j)/(j,i) orbit has diameter 2δ_n(i,j), so at r=2 only adjacent pairs E_i appear. Direct cross-orbit distances yield exactly D_i~D_(i±1), E_i~E_(i±1), D_i~E_i and D_i~E_(i−1). The flag-complex triangles are precisely {D_i,D_(i+1),E_i}, {D_(i+1),E_i,E_(i+1)}; no four-clique exists for n>=7. These form two cyclic boundary rings joined by a triangulated annular strip, giving S1×[0,1], integral H0=H1=Z and no higher homology. At r<2 no pair orbit or diagonal edge survives, giving n discrete points. Scale interval is only [0,2], no claims above r=2.
+
+## originality
+
+PASS
+
+No stronger or equivalent covering result was established in the actual comparisons of statements/implications; this is a best-of-knowledge assessment with the precise unread-primary-source and alias risks separately documented.
+
+## value
+
+PASS
+
+The scale-two ambient torus-grid complex has known torus homotopy, but coordinate-transposition fixed points form an annulus with boundary; computing the complete geometric fixed locus rather than just diagonal vertices is a nontrivial natural symmetry refinement. Its sharp change from n points at r<2 to an integral H1 class at r=2 is a meaningful equivariant persistence threshold for a standard metric family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
