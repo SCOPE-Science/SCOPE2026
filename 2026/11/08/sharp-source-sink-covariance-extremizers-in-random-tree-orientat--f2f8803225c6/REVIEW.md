@@ -1,0 +1,11 @@
+# Scientific review: source–sink covariance extremizers
+
+**Correctness — PASS.** The exact local covariance accounts separately for identical, neighboring, and disjoint vertex pairs; each is derived from independent edge orientations. The energy decomposition reduces the upper bound to three exhaustive degree cases, each with a strict quantitative gap off the path. The lower bound holds uniformly for nonstars at orders at least seven, with a complete degree-adjacency table at orders four to six. The standalone verifier independently enumerates orientations through six vertices and all labeled trees through eight vertices; finite checks support, but are not substituted for, the general proof.
+
+**Originality — PASS with residual risk.** The inspected full texts of Linusson (2009) and Alm–Janson–Linusson (2009/2010) investigate directed-path connectivity correlations, not global source–sink-count covariance extremizers on fixed tree shapes. The material read from Engström (2013, Section 5.3) concerns source expectations and unique sources; Okoth–Wagner (2015) imposes vertex-label-driven orientations on sampled noncrossing trees instead of independently orienting a given tree. Actual publication-index and local-history searches did not locate the same extremal theorem. This is evidence of noncoverage among inspected sources, not proof of global priority; older or more general joint source–sink enumerators might conceal the result.
+
+**Mathematical value — PASS.** Sources and sinks quantify the input/output terminal structure of randomly oriented tree-shaped networks. The sharp extremal classification spans every tree of every order, identifies unique extremizers and explicit finite-size bounds, and demonstrates a strict sign reversal between paths and stars. It is not merely a computed moment or an arbitrary finite case.
+
+**Boundaries.** Fair independent orientations, fixed finite simple trees, and orders at least four only. Other graph classes, biased directions, or source–sink stochastic ordering are not asserted. All-order correctness is supported by the proof; independent external validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
