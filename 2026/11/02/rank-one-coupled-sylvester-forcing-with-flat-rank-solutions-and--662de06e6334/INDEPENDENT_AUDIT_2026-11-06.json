@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:01:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 and 0<tau<=1, the cyclic shift P and anticyclic Q have unit 2-norm condition number; E=I+tau e0 e0^T has kappa2<=2. Both F1=Q-P and F2=E-I are nonzero rank one. The pair X=I,Y=-I solves PX+YQ=-F1 and X+YE=-F2. Homogeneous elimination gives PU-U(E^-1 Q)=0; sigma(P) on |z|=1 while sigma(E^-1Q) has radius (1+tau)^(-1/n)<1, proving uniqueness. Both solutions have n flat singular values 1. For K_k rank k, (K_k,-K_k), R1=e_k e_{k-1}^T -e0 e_{n-1}^T (norm sqrt 2), R2=0; normalized max residual sqrt2/(2sqrt k+2); Frobenius relative forward error sqrt((n-k)/n). Choosing n=m²,k=m yields small residual with near-unit forward error. Independently reconstructed exact shifts and residual norms at n=2,5,8 and k=1,n-1. Uniform spectral separation and well-conditioned coupled operator are NOT asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zolotarev decay requires effective separation, while the present spectral gap is O(1/n) and coupled inverse operator is near singular."
+        ],
+        "reasoning": "Standard decay theorems do not imply low-rank solutions at vanishing effective separation; older general counterexample results might contain this particular construction.",
+        "searches": [
+          "rank one forcing coupled generalized Sylvester equations flat singular values normalized residual small",
+          "Beckermann–Townsend arXiv:1609.09494",
+          "Clouâtre et al. arXiv:2308.11533"
+        ]
+      },
+      "checked_sources": [
+        "Zulfiqar, Numerical Solution of Large-Scale Low-Rank Coupled Generalized Sylvester Equations, arXiv:2610.30804 (2026)",
+        "Clouâtre, Klippenstein, Slevinsky, Lifting Sylvester Equations: Singular Value Decay for Non-Normal Coefficients, arXiv:2308.11533 (2023)",
+        "Beckermann–Townsend, On the Singular Values of Matrices with Displacement Structure, arXiv:1609.09494"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary recent paper analyzes methods where solution has assumed low rank; this family explicitly violates that assumption. The full source is not read, so mathematical noncoverage beyond accessible abstract is not asserted."
+        ],
+        "reasoning": "A claim merely that low-rank forcing need not yield low-rank X is covered; the original result is confined to the simultaneous coupled, normalized residual counterexample.",
+        "searches": [
+          "rank one forcing coupled generalized Sylvester equations flat singular values normalized residual small",
+          "Zulfiqar arXiv:2610.30804 abstract",
+          "Clouâtre et al 2023 general counterexample discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity Sylvester solution under rank-one displacement forcing is acknowledged prior art; this is a pair of coupled equations with each forcing independently nonzero and specific normalized residual failure."
+        ],
+        "reasoning": "Distinguish a standard single Sylvester displacement counterexample from coupling two rank-one equations with disjoint spectrum and vanishing normalized-residual trial sequence.",
+        "searches": [
+          "rank one forcing coupled generalized Sylvester equations flat singular values normalized residual small",
+          "Clouâtre et al. arXiv:2308.11533",
+          "Zulfiqar arXiv:2610.30804"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary examples concern unrelated singular spectra and residual phenomena; no exact two-forcing Sylvester family returned in top 12."
+        ],
+        "reasoning": "No relevant exact parameter table was located; absence itself does not establish originality.",
+        "searches": [
+          "rank one forcing coupled generalized Sylvester equations flat singular values normalized residual small",
+          "Resultary: First-order critical-window singular spectra of nilpotent-shift resolvents"
+        ]
+      },
+      "rationale": "Counterexample combines two nonzero rank-one forcings, disjoint but dimension-collapsing generalized spectra, bounded individual coefficient condition numbers and explicit low-rank trial pairs giving vanishing normalized residual despite poor forward error. Known Sylvester examples establish only general low-rank forcing failure; the new conjunction is distinguished, subject to uninspected latest primary source.",
+      "residual_risks": [
+        "Full Zulfiqar 2026 paper not accessed (Oxford VPN disconnected); it might include a directly equivalent residual counterexample.",
+        "Inputs are individually well conditioned, but the coupled solution operator is NOT uniformly conditioned; cannot claim stronger stability failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "High-priority historical comparison remains incomplete; cannot assert whole-document noncoverage.",
+          "evidence": [
+            "arXiv:2610.30804; Oxford job 4af8d9dd1cb50d1273cf815e2d327c02"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30804",
+          "material_read": "Public abstract and bibliographic details; no full article text. Same-paper arXiv, lawful OA and authorized institutional attempts failed; Oxford returned vpn_disconnected.",
+          "method": "abstract, open-access attempts and authorized institutional retrieval",
+          "title": "Numerical Solution of Large-Scale Low-Rank Coupled Generalized Sylvester Equations",
+          "trigger": "Same coupled equations, residual definition and numerical method"
+        },
+        {
+          "assessment": "Known failure of general forcing-to-solution inference credited, not claimed novel.",
+          "evidence": [
+            "arXiv:2308.11533"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.11533",
+          "material_read": "Related prior discussion identified from original package; this run did not inspect the full text.",
+          "method": "bibliographic and claim comparison",
+          "title": "Lifting Sylvester Equations: Singular Value Decay for Non-Normal Coefficients",
+          "trigger": "Prior identity-matrix low-rank-forcing counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Termwise normalized residual is a practical numerical diagnostic; this explicit adversarial near-resonant family demonstrates a sharp scope limitation that low-rank forcing or residual smallness cannot overcome. No algorithm-specific iteration claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zulfiqar, Numerical Solution of Large-Scale Low-Rank Coupled Generalized Sylvester Equations, arXiv:2610.30804 (2026)",
+    "Clouâtre, Klippenstein, Slevinsky, Lifting Sylvester Equations: Singular Value Decay for Non-Normal Coefficients, arXiv:2308.11533 (2023)",
+    "Beckermann–Townsend, On the Singular Values of Matrices with Displacement Structure, arXiv:1609.09494"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent tests corroborate but do not establish unrestricted theorem.",
+    "Frozen public AUDIT.json and METADATA.json both contain operational scope_run_id; complete confidentiality-safe replacement bytes with original Git blob guards/content SHA-256 and semantic public-file validation were not staged. Withhold publication until exact guarded sanitization is prepared."
+  ],
+  "residual_risks": [
+    "Full Zulfiqar 2026 paper not accessed (Oxford VPN disconnected); it might include a directly equivalent residual counterexample.",
+    "Inputs are individually well conditioned, but the coupled solution operator is NOT uniformly conditioned; cannot claim stronger stability failure."
+  ],
+  "schema_version": 1
+}

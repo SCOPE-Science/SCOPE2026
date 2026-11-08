@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is symbolic and dimension-uniform. The substitutions \((X,Y)=(I_n,-I_n)\) satisfy both equations, and the homogeneous coupled system reduces to a Sylvester equation whose coefficient spectra have distinct radii. Both forcing matrices are explicitly rank one. Since \(P,Q\) are signed permutation matrices and \(E\) is a rank-one positive perturbation of the identity, the coefficient condition-number bound is exact. Flat solution singular values follow from the identity. The trial projector's two exact residual matrices yield \(\mathcal R=\sqrt2/(2\sqrt{k}+2)\) and relative forward error \(\sqrt{(n-k)/n}\); no unstated small-perturbation approximation enters the conclusion. The checker performed 1,035 supplementary finite exact checks. Risk: a small residual is not an assertion about actual algorithm iterates or the conditioning of the coupled operator.
+## correctness
 
-## Originality — PASS under documented scope
-Comparison was by implication. The motivating coupled-Sylvester paper assumes/targets low-rank solutions; it does not establish this explicit high-rank uniquely solvable coupled family and residual/forward-error separation. Clouâtre–Klippenstein–Slevinsky's identity examples **already establish** that low-rank Sylvester forcing can have high-rank solutions; that broad statement is deliberately excluded from the claimed novelty. Beckermann–Townsend's displacement-rank/spectral separation bounds also cover general mechanisms, but do not determine the precise two-equation rank-one witness, generalized spectral gap, and published residual ratio together. Multiple semantic research-record searches found no direct coverage. Remaining risk: older displacement-structure literature may contain an equivalent construction in different notation; semantic search cannot establish historical uniqueness, and some texts were checked only at abstract level.
+PASS
 
-## Mathematical value — PASS
-Low-rank iterative matrix-equation solvers are often assessed with termwise-scaled Frobenius equation residuals. This natural all-dimensional benchmark isolates a failure of **that** diagnostic to certify forward accuracy when the coupled operator becomes near-resonant, despite low rank of each forcing and uniformly well-conditioned input matrices. The exact \(m\)-versus-\(m^2\) scaling exhibits a genuine limiting discrepancy rather than an isolated numerical example. It provides a boundary case for solver experiments and an explicit reason to assess solution-rank assumptions or resolvent separation separately. Risk: near-resonance is an essential ingredient, and the result does not contradict existing theorems under stronger hypotheses.
+For n>=2 and 0<tau<=1, the cyclic shift P and anticyclic Q have unit 2-norm condition number; E=I+tau e0 e0^T has kappa2<=2. Both F1=Q-P and F2=E-I are nonzero rank one. The pair X=I,Y=-I solves PX+YQ=-F1 and X+YE=-F2. Homogeneous elimination gives PU-U(E^-1 Q)=0; sigma(P) on |z|=1 while sigma(E^-1Q) has radius (1+tau)^(-1/n)<1, proving uniqueness. Both solutions have n flat singular values 1. For K_k rank k, (K_k,-K_k), R1=e_k e_{k-1}^T -e0 e_{n-1}^T (norm sqrt 2), R2=0; normalized max residual sqrt2/(2sqrt k+2); Frobenius relative forward error sqrt((n-k)/n). Choosing n=m²,k=m yields small residual with near-unit forward error. Independently reconstructed exact shifts and residual norms at n=2,5,8 and k=1,n-1. Uniform spectral separation and well-conditioned coupled operator are NOT asserted.
 
-## Closest literature and scope
-Zulfiqar (2026), arXiv:2610.30804v1, coupled equations, projection algorithms, and normalized residual. Clouâtre et al. (2023), arXiv:2308.11533, prior examples of non-decaying singular values with rank-one Sylvester forcing. Beckermann–Townsend (2016), arXiv:1609.09494, established displacement-rank singular value inequalities. No independent historical-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Counterexample combines two nonzero rank-one forcings, disjoint but dimension-collapsing generalized spectra, bounded individual coefficient condition numbers and explicit low-rank trial pairs giving vanishing normalized residual despite poor forward error. Known Sylvester examples establish only general low-rank forcing failure; the new conjunction is distinguished, subject to uninspected latest primary source.
+
+## value
+
+PASS
+
+Termwise normalized residual is a practical numerical diagnostic; this explicit adversarial near-resonant family demonstrates a sharp scope limitation that low-rank forcing or residual smallness cannot overcome. No algorithm-specific iteration claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
