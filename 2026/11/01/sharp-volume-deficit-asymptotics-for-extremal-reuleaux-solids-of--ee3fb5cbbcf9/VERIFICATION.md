@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`, including the exact support-Jacobian volume identity, normalized curvature wave, limiting triangular derivative and periodic averaging. Neither computer arithmetic nor an external certificate is needed for the infinite proof.
+## correctness
 
-Execute `python3 verification/reuleaux_volume_check.py` with NumPy and SciPy installed. The program computes the solid volume in two independent ways: cross-sectional disk intersection integration and the axial support/Fourier volume identity. For the odd orders \(3,5,7,9,11\), the respective observed discrepancies were \(9.79\times10^{-10}\), \(3.24\times10^{-10}\), \(5.36\times10^{-11}\), \(1.38\times10^{-10}\), and \(7.77\times10^{-11}\). The target limit coefficient is \(\pi^3/48\approx0.6459640975\), while the measured scaled gaps decrease through \(0.667239661\), \(0.653480272\), \(0.649779233\), \(0.648267171\), \(0.647504153\). These finite calculations are consistency checks only.
+PASS
 
-The argument requires that the support function be globally \(C^1\) and piecewise \(C^2\); this holds for the regular Reuleaux odd-n polygon and justifies intervalwise support integration. Its status under independent mathematical validation is unperformed.
+PASS: For each odd n>=3, the support of the revolved width-one regular Reuleaux n-gon has h=1/2+f, f(π−θ)=−f(θ), and the meridional and azimuthal principal radii yield by integration by parts the exact identity π/6−V=(π/2)∫_0^π((f′)^2−2f²)sinθ dθ. The alternating radius equation f″+f=g(nθ) with g=±1/2 square wave, after F_n(t)=n²f(t/n), has uniformly C¹-convergent zero-mean even periodic solutions to F″=g. Its triangular derivative F′ has mean squared energy π²/48, weighted rapid-period averaging contributes 2, f² is lower order, giving the universal odd-sequence limit π³/48. The missing translation modes are fixed by dihedral symmetry, and the smoothness/endpoint conditions justify the Jacobian and parity. Hynd extremality is a cited prior theorem, not inferred from the volume computation. Independent symbolic integration reproduced energy π²/48; two independent disk-section and support Fourier numerical integrations for n=3,5,7,11,19,35 agree within 1.2e−7 and approach 0.6459640975. Numerical samples are corroboration, not proof of the infinite asymptotic.
+
+## originality
+
+PASS
+
+PASS on best available primary comparison: the volume-deficit coefficient of the explicit extremal revolution sequence is not supplied by Hynd’s extremality theorem, known planar Reuleaux area and Estermann asymptotics, or one-mode Legendre volume families. Older solid-volume identities could encode the coefficient; no exhaustive historical priority claim is made.
+
+## value
+
+PASS
+
+PASS: Gives an exact n^−2 geometric approach-to-ball rate for a canonical sequence of genuinely extreme width-one 3D convex bodies. The constant distinguishes extrinsic 3D volume loss from known planar area/inertia rates and is a reusable sharp quantitative geometric datum; neither arbitrary sampling nor a restatement of extremality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

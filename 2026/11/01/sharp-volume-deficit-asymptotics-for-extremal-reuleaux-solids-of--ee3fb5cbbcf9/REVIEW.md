@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shape and normalization are fixed (width one, odd \(n\), volume of radius-\(1/2\) ball \(\pi/6\)). The exact volume identity derives from both axial principal radii and integration by parts; the parity cancellations require an odd constant-width perturbation and are tracked in the proof. Rescaling \(F_n(t)=n^2f_n(t/n)\) yields an exactly forced periodic ODE and a convergent differentiated Fourier series. The triangular derivative limit has mean-square value \(\pi^2/48\); weighted homogenization doubles this mean and the volume identity multiplies by \(\pi/2\), proving the final \(\pi^3/48\). The support and disk-volume approaches agree numerically within \(10^{-9}\) for five independent orders. The numerical checks do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with residual historical uncertainty.** Hynd (arXiv:2501.16940) proves all such revolutions are *extreme*, which is treated as established. His accessible full text does not give this volume-deficit law. Similar available records on planar regular Reuleaux geometry concern the Estermann measure, moment, or isotropic constants; the axial smooth one-mode Legendre record concerns a different body family. Actual exact coefficient, alias, and implied-claim searches and their matched records are detailed in `AUDIT.json`. A classical volume formula for these solids may exist under older terminology; definitive historical priority is not asserted.
+PASS
 
-**Mathematical value — PASS.** The canonical regular odd-n sequence is a geometrically motivated approximation of the ball through *extreme* constant-width bodies. The exact deficit identifies a sharp physically meaningful scale for how near an extreme member may lie in volume to the maximizing ball. The result is an all-order structural asymptotic rather than a one-off calculation or arbitrary parameter restriction.
+PASS: For each odd n>=3, the support of the revolved width-one regular Reuleaux n-gon has h=1/2+f, f(π−θ)=−f(θ), and the meridional and azimuthal principal radii yield by integration by parts the exact identity π/6−V=(π/2)∫_0^π((f′)^2−2f²)sinθ dθ. The alternating radius equation f″+f=g(nθ) with g=±1/2 square wave, after F_n(t)=n²f(t/n), has uniformly C¹-convergent zero-mean even periodic solutions to F″=g. Its triangular derivative F′ has mean squared energy π²/48, weighted rapid-period averaging contributes 2, f² is lower order, giving the universal odd-sequence limit π³/48. The missing translation modes are fixed by dihedral symmetry, and the smoothness/endpoint conditions justify the Jacobian and parity. Hynd extremality is a cited prior theorem, not inferred from the volume computation. Independent symbolic integration reproduced energy π²/48; two independent disk-section and support Fourier numerical integrations for n=3,5,7,11,19,35 agree within 1.2e−7 and approach 0.6459640975. Numerical samples are corroboration, not proof of the infinite asymptotic.
 
-The theorem makes no assertion about a global stability constant, a next-order term, or monotonicity. The strongest novelty risk is undiscovered older body-of-revolution volume literature. The proof uses standard support geometry and Fourier averaging; no third-party numerical tables or uninspected PDFs are relied upon.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best available primary comparison: the volume-deficit coefficient of the explicit extremal revolution sequence is not supplied by Hynd’s extremality theorem, known planar Reuleaux area and Estermann asymptotics, or one-mode Legendre volume families. Older solid-volume identities could encode the coefficient; no exhaustive historical priority claim is made.
+
+## value
+
+PASS
+
+PASS: Gives an exact n^−2 geometric approach-to-ball rate for a canonical sequence of genuinely extreme width-one 3D convex bodies. The constant distinguishes extrinsic 3D volume loss from known planar area/inertia rates and is a reusable sharp quantitative geometric datum; neither arbitrary sampling nor a restatement of extremality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
