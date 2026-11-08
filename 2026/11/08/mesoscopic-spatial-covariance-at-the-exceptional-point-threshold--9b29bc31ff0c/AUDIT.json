@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all finite N and κ>0 the drift −κI+J is stable. The exact stationary Lyapunov integral yields the binomial covariance after integrating exp(−2κt) t^(2q+d)/(q!(q+d)!). Uniform de Moivre–Laplace/Stirling asymptotics when q/N≥ε and d=O(sqrt(N)) give the Gaussian spatial factor; the uniform binomial maximal-mass bound O((q+1)^−1/2) makes the omitted q<εN contribution O(sqrt(ε)). Detuning yields exp(−2ζu). Gaussian covariance convergence completes the finite-dimensional claim; integration by parts gives the erfc profile. VERIFY.py independently checked exact rational Lyapunov recursion and bounded convergence/quadrature tests (15,215 assertions). Numerical tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hennequin–Vogels–Gerstner (2012) studies nonnormal amplification in random neural networks, not the exact one-way Jordan covariance critical window.",
+        "Feng–Fouque–Ichiba (2020) describes directed-chain LQ games and Catalan-process limiting dynamics, not the specified stationary spatial crossover."
+      ],
+      "reasoning": "General stationary Lyapunov formulas hold for all stable linear systems and are conceded as existing background. None of the inspected relevant results specifies a theorem whose parameters, quantifiers and boundary geometry directly entail the displayed finite-size mesoscopic kernel without additional asymptotic analysis.",
+      "searches": [
+        "Non-normal OU drift nilpotent shift stationary covariance critical damping variance diverges as sqrt N with independent noise",
+        "Hatano Nelson nonreciprocal Ornstein Uhlenbeck 2026 Pal Gupta exceptional point g=0 open boundary chain noise amplification stationary variance critical damping thermodynamic limit",
+        "non-normal feedforward Ornstein Uhlenbeck chain critical size covariance boundary layer scaling square root n 2025 2026",
+        "Hennequin Vogels Gerstner 2012 non-normal neural amplification",
+        "arxiv:2003.08840 directed chain Gaussian stochastic games"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.05391",
+      "https://arxiv.org/abs/1805.01962",
+      "https://arxiv.org/abs/2003.08840",
+      "https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Detering–Fouque–Ichiba, arXiv:1805.01962, Section 4.2 and Remark 4.3: the infinite-chain subcritical stationary variance is \\(1/(2\\sqrt{1-u^2})\\) for unit noise, with growing variance at \\(u=1\\).",
+        "Pal–Gupta, arXiv:2609.05391: nonreciprocal OU exceptional-point models, covariance integrals, and polynomially dressed temporal relaxation; open-chain finite-size critical spatial kernel not stated in inspected sections.",
+        "The new statement takes stationary finite N before N→∞ with site separation of order sqrt(N); its kernel depends on detuning ζ and distance |y−z|, not just a one-site infinite-chain variance."
+      ],
+      "reasoning": "The known fixed-coupling stationary variance for κ>1 is a genuine special case of earlier theory and is not credited as new. The critical temporal t→∞ growth at infinite size is different from the finite stationary ensemble. The general Gaussian matrix-integral formula supplies a starting identity, not the explicit jointly scaled finite-size spatial kernel. A future stronger theorem may still subsume it, so originality is qualified rather than certified.",
+      "searches": [
+        "arxiv:1805.01962 Section 4.2 and Remark 4.3",
+        "arxiv:2609.05391 original covariance and exceptional-point results",
+        "Unidirectional Ornstein Uhlenbeck chain at exceptional point steady covariance amplification phase transition k=1 Gaussian boundary variance central binomial infinite chain",
+        "Jordan block Ornstein Uhlenbeck stationary variance critical finite chain central binomial erfc kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Detering–Fouque–Ichiba, arXiv:1805.01962, Section 4.2 and Remark 4.3: the infinite-chain subcritical stationary variance is \\(1/(2\\sqrt{1-u^2})\\) for unit noise, with growing variance at \\(u=1\\).",
+        "Pal–Gupta, arXiv:2609.05391: nonreciprocal OU exceptional-point models, covariance integrals, and polynomially dressed temporal relaxation; open-chain finite-size critical spatial kernel not stated in inspected sections.",
+        "Finite open-chain exact covariance is a binomially truncated stationary Lyapunov solution; its off-diagonal order-sqrt(N) asymptotic depends on a finite cutoff q/N≤1."
+      ],
+      "reasoning": "Reparameterizing the infinite chain by u=1/κ and changing the noise normalization recovers its previously known subcritical single-site variance, but not the distinct finite-size covariance field at detuning κ_N=1+ζ/N. The time-asymptotic Bessel formula uses time as a cutoff and does not by itself state the spatial finite-N kernel.",
+      "searches": [
+        "Nonreciprocal Ornstein Uhlenbeck Hatano Nelson open chain exceptional point feedforward Jordan stochastic amplification stationary boundary variance central binomial critical k=1 unbounded thermodynamic limit square root length exponential",
+        "Unidirectional Ornstein Uhlenbeck chain at exceptional point steady covariance amplification phase transition k=1 Gaussian boundary variance central binomial infinite chain",
+        "Non-normal OU drift nilpotent shift stationary covariance critical damping variance diverges as sqrt N with independent noise",
+        "Jordan block Ornstein Uhlenbeck stationary variance critical finite chain central binomial erfc kernel",
+        "arxiv:2609.05391 (covariance and exceptional-point formulas)",
+        "arxiv:1805.01962 (infinite directed OU covariance)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published record: the published \"Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode\" finding. Its summary concerns random projections of a single slowing OU mode, not nilpotent feedforward chains or a spatial covariance kernel.",
+        "Other results covered stationary moment laws for unrelated nonlinear flows, without this directed-chain model.",
+        "Another closely related published record reports certified finite-horizon norm peaks of deterministic matrices −I+2J at the five fixed sizes 8, 10, 12, 14, and 16; it does not assert a noise-driven stationary covariance or a growing-size joint spatial Gaussian limit."
+      ],
+      "reasoning": "No exact finite-size parameter table, kernel or matching research record was identified in the returned results; search coverage is not completeness or a uniqueness proof. The closest record has a different operator geometry: one diminishing eigenvalue versus an increasing Jordan block with eigenvalues tending to −1. A second nearby record analyzes deterministic finite-horizon matrix-exponential norms with coefficient 2 at five small sizes, not the stationary Gaussian covariance at coefficient approaching 1 with a coupled critical window. Its summary was available but full materials could not be retrieved; the observable and quantifiers nonetheless differ plainly.",
+      "searches": [
+        "Nonreciprocal Ornstein Uhlenbeck Hatano Nelson open chain exceptional point feedforward Jordan stochastic amplification stationary boundary variance central binomial critical k=1 unbounded thermodynamic limit square root length exponential",
+        "Unidirectional Ornstein Uhlenbeck chain at exceptional point steady covariance amplification phase transition k=1 Gaussian boundary variance central binomial infinite chain",
+        "Non-normal OU drift nilpotent shift stationary covariance critical damping variance diverges as sqrt N with independent noise",
+        "Hatano Nelson nonreciprocal Ornstein Uhlenbeck 2026 Pal Gupta exceptional point g=0 open boundary chain noise amplification stationary variance critical damping thermodynamic limit",
+        "published mathematical research-index searches for OU chain nonnormal stationary covariance",
+        "Open unidirectional Ornstein-Uhlenbeck chain finite-size stationary covariance diffusive spatial boundary layer erfc kernel critical Jordan block n scaling",
+        "Certified finite-horizon transient-peak intervals for Hurwitz-stable T_n=-I+2N n=8 10 12 14 16 2026/9/9 stationary covariance"
+      ]
+    },
+    "rationale": "The previously established directed OU infinite-chain stationary variance and temporal critical divergence are explicitly excluded from claimed novelty. The assessed result is the coupled stationary finite-size, detuning, and mesoscopic-distance kernel. Inspected primary results and published mathematical-record searches did not exhibit this joint limit, nor a stronger theorem directly implying its specific spatial covariance profile. Publication priority remains qualified by possible unlocated nonnormal finite-size asymptotic theory.",
+    "residual_risks": [
+      "Published search and relevant primary-document reading cannot prove global uniqueness; more general boundary-layer covariance asymptotics for nonnormal generators may exist.",
+      "Some source appendices or supplementary files may cover special cases not captured by this examination.",
+      "The general Lyapunov integral and subcritical stationary variance are known; only the explicit coupled finite-size mesoscopic scaling result is assessed as original.",
+      "Full text of the nearby finite-horizon Jordan transient-peak record was not accessible in this comparison; its available published summary has different parameters and observable. This does not certify absence of other stronger research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mechanism and Gaussian integral already known; no explicit order-N^(-1) damping/√N-distance stationary covariance kernel identified in inspected results.",
+        "evidence": [
+          "arxiv:2609.05391 original source (2026-09-04); model and covariance representations; finite-N exceptional-point relaxation emphasized."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.05391",
+        "material_read": "Primary HTML model and drift sections, covariance integral, exceptional-point results and relevant later discussion/appendix material; not asserted to have exhaustively searched every bibliography entry.",
+        "method": "Read relevant original full-text sections and compared spatial/temporal observables and scaling limits.",
+        "title": "Non-reciprocally interacting Ornstein-Uhlenbeck processes: Exceptional points, Anomalous relaxation, Pseudo-equilibrium and Boundary refrigeration",
+        "trigger": "2026 model of nonreciprocal OU exceptional points and covariance"
+      },
+      {
+        "assessment": "The subcritical infinite-chain stationary variance and critical t→∞ divergence are definitely known; no finite stationary detuning/spatial kernel is stated in the relevant section.",
+        "evidence": [
+          "Detering–Fouque–Ichiba, arXiv:1805.01962, Section 4.2 and Remark 4.3: the infinite-chain subcritical stationary variance is \\(1/(2\\sqrt{1-u^2})\\) for unit noise, with growing variance at \\(u=1\\).",
+          "Original PDF Section 4.2.1 contains Bessel integral and asymptotic dichotomy."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1805.01962",
+        "material_read": "Original PDF, Sections 1 and 4.2 including Remark 4.3, formulae (4.34), (4.38)–(4.40); title page visually checked.",
+        "method": "Full-text section comparison and PDF visual inspection.",
+        "title": "Directed Chain Stochastic Differential Equations",
+        "trigger": "Closest earlier one-way infinite OU chain and covariance"
+      },
+      {
+        "assessment": "Game equilibrium and infinite directed-chain Catalan behavior; no stationary open Jordan finite-size covariance profile identified in inspected results.",
+        "evidence": [
+          "arxiv:2003.08840, directed stochastic differential games and Gaussian limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.08840",
+        "material_read": "Original arXiv introduction, problem statements and relevant Gaussian/Catalan results.",
+        "method": "Primary text comparison of model, quantifiers and observables.",
+        "title": "Linear-Quadratic Stochastic Differential Games on Directed Chain Networks",
+        "trigger": "Potential dominating directed-chain Gaussian/Catalan limit result"
+      },
+      {
+        "assessment": "Nonnormal variance amplification is established background; the particular open-chain critical spatial kernel was not located.",
+        "evidence": [
+          "Hennequin, Vogels and Gerstner, Physical Review E 86 (2012)."
+        ],
+        "identifier_or_url": "https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+        "material_read": "Original paper overview and covariance/amplification discussions, with visual inspection of a relevant PDF page.",
+        "method": "Comparison of geometry and exact mathematical claim.",
+        "title": "Non-normal amplification in random balanced neuronal networks",
+        "trigger": "Potential broader nonnormal fluctuation amplification theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b29bc31-ff0c-44e0-9aca-6835a01396f6",
+  "value": {
+    "rationale": "The theorem supplies a previously unreported full joint spatial correlation profile and finite-size detuning crossover for a naturally observed noisy one-way chain at a high-order Jordan exceptional point. This is not merely re-evaluating the known infinite-chain variance: it identifies the √N mesoscopic observation scale and N^(1/4) typical fluctuations despite fixed finite spectral gap, gives all finite-dimensional Gaussian limits and a closed erfc correlation function. The observable quantifies where near-boundary nonnormal fluctuations remain coherent and how near-critical damping alters them.",
+    "status": "PASS"
+  }
+}
