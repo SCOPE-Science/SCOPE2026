@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:12:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree 8b1209013cd87289db469382a2b93868388bd121 RESULT.md and checker.py",
+        "independent_checks_6590.py: direct 2n x 2n matrices, partial traces, eigenvalues, n=2..8"
+      ],
+      "rationale": "On the REAL Hermitian trace-norm unit ball it suffices to optimize pure signed rank-one projections. Local-unitary invariance reduces to a Schmidt rank <=2 state with u in [0,1]. In the physical 2n-dimensional operator the 2x2 entangled block has eigenvalues 1/4 +/- (1/2)sqrt(1-bu^2); remaining diagonal eigenvalues contribute exactly 1/2+cu. Therefore F_n(u)=1/2+cu+max{1/2,sqrt(1-bu^2)}, with branch optimum u_n=c/sqrt(b(b+c^2)) and exact norm .5+sqrt((4+3c^2)/(4-c^2)). On the other branch 1+cu<=1+c is strictly smaller, including n=2; duality gives same spectral norm. Product states attain 1+c, separable mixtures cannot exceed it. Independently recomputed physical partial traces/eigenspectra at 28 (n,u) configurations for n=2..8.",
+      "residual_risks": [
+        "Conclusions are real-Hermitian induced norms, not unrestricted complex norms or CB/diamond norms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu et al. 2023 Theorem 1 (PDF page 2) bounds ||T_{alpha beta}(rho)||_KF for separable states",
+          "Standard trace norm duality does not give exact tensor-centering constant without Schmidt spectral maximization"
+        ],
+        "reasoning": "An all-dimensional Schatten-class projection norm theorem could cover the 2xn specialization, but none identified in the inspected relevant sources. The Bloch-coefficient criterion does not imply this operator-valued two-branch formula.",
+        "searches": [
+          "Hermitian qubit qudit two body correlation projection I-E_A-E_B+E_0 trace operator norm entangled maximizer",
+          "tensor product centered partial traces Schatten induced norm diamond norm entanglement"
+        ]
+      },
+      "checked_sources": [
+        "Zhu et al., arXiv:2305.00460v2, full PDF relevant sections",
+        "Resultary query Hermitian qubit qudit two body correlation projection I-E_A-E_B+E_0 trace operator norm entangled maximizer",
+        "Prior one-body marginal-projection result mentioned in source AUDIT.json (comparison only, not reused as verdict)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2023 PDF Eq (6)-(7): T_alpha beta blocks of coefficient matrices and Ky Fan nuclear norm",
+          "New claim computes eigenvalues of actual 2n x 2n double-centered P_n(rho), including entangled extremizer u_n"
+        ],
+        "reasoning": "Different matrix dimensions and norms preclude direct implication from 2023 published bounds; first-order marginal sums likewise do not imply second-order product projection.",
+        "searches": [
+          "Hermitian qubit qudit two body correlation projection I-E_A-E_B+E_0 trace operator norm entangled maximizer",
+          "arxiv 2305.00460 Theorem 1 physical correlation operator vs Bloch matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_n=(I-E_A)(I-E_B) under commuting local expectations",
+          "Zhu et al. 2023 Sec I Eq (2) defines Bloch tensor coefficient matrix with different output space"
+        ],
+        "reasoning": "Equivalent alias is tensor product of traceless depolarizing complements; physical trace norm is not the Ky Fan norm of the coefficient array, so the cited separability criteria are not the same invariant.",
+        "searches": [
+          "Hermitian qubit qudit two body correlation projection I-E_A-E_B+E_0 trace operator norm entangled maximizer",
+          "qubit qudit traceless tensor projection trace norm depolarizing complement Hoeffding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhu et al. paper examples concern coefficient-matrix separability thresholds, not physical norm values",
+          "Independent 2n-dimensional direct eigenspectra verify n=2..8"
+        ],
+        "reasoning": "No matching table of physical P_n endpoint norms recovered; the all-n Schmidt optimizer is a closed analytic expression, not tabular recomputation.",
+        "searches": [
+          "Hermitian qubit qudit two body correlation projection I-E_A-E_B+E_0 trace operator norm entangled maximizer",
+          "2xn double centered correlation projector induced trace norm exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The directly relevant 2023 Zhu et al. paper optimizes nuclear norms of rectangular Bloch correlation COEFFICIENT matrices, not the physical operator P_n(rho) or its real-Hermitian induced norm; it therefore does not determine this partially entangled Schmidt optimizer. A published one-body marginal projection theorem concerns linear sums rather than tensor double-centering. General operator-space or Hoeffding decomposition results may nonetheless encode the same constant.",
+      "residual_risks": [
+        "Older noncommutative Hoeffding or traceless depolarizing tensor-projection norm theorem might contain the exact Hermitian constant.",
+        "Other prior one-body result checked through described scope only, not independently reread in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-covering on mathematical objects: rectangular Bloch coefficient matrix nuclear norms differ from physical double-centered operator induced trace norms",
+          "evidence": [
+            "PDF p.2 Eq(6) T_alpha beta(rho) and Theorem 1 bound ||T||_KF for separable states"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.00460",
+          "material_read": "Primary eight-page PDF Sec I Bloch-coefficient definition, Sec II Theorem 1 and Eq(7), Sec III coefficient criteria; rendered PDF page 2 checked",
+          "method": "PDF text and mandatory screenshot of relevant theorem page",
+          "title": "A Family of Bipartite Separability Criteria Based on Bloch Representation of Density Matrices",
+          "trigger": "Same bipartite correlation language and trace/nuclear norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhu et al. physical-vs-coefficient correlation quantities",
+        "Assigned Schmidt spectrum and global branch comparison, n>=2"
+      ],
+      "rationale": "An exact physical-operator correlation-projection norm is a natural quantitative measure of centered two-body quantum correlations. Its optimal Schmidt profile changes from maximally entangled at n=2 to uniquely partially entangled for n>=3 and strictly exceeds the separable threshold, a structural entanglement-versus-product norm separation. The proof gives a full all-dimension formula, not an arbitrary finite instance.",
+      "residual_risks": [
+        "No conclusion is asserted for other tensor dimensions, diamond norm or entanglement detection completeness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Conclusions are real-Hermitian induced norms, not unrestricted complex norms or CB/diamond norms.",
+    "Older noncommutative Hoeffding or traceless depolarizing tensor-projection norm theorem might contain the exact Hermitian constant.",
+    "Other prior one-body result checked through described scope only, not independently reread in full.",
+    "No conclusion is asserted for other tensor dimensions, diamond norm or entanglement detection completeness."
+  ],
+  "schema_version": 1
+}

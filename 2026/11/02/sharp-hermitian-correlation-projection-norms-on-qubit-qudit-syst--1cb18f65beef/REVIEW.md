@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real Hermitian trace-norm unit ball reduces the induced norm to pure inputs, and local-unitary covariance reduces each such input to one Schmidt parameter. Explicit diagonalization gives the exact two-by-two block and every remaining diagonal entry, yielding the displayed piecewise formula \(F_n(u)\). Its concave branch has a unique critical point in the branch; its other branch is bounded by the product-state value. The algebraic inequality \((1-c)^2(c^2+2c+3)>0\) proves that the concave-branch maximum dominates for all relevant dimensions. Hermitian trace/spectral duality then gives the second norm. The separable bound follows from convexity and an attained product-state calculation. The standalone checker passed 958 supplementary numerical assertions. No infinite assertion relies on a finite enumeration.
+PASS
 
-## Originality — PASS, qualified
+On the REAL Hermitian trace-norm unit ball it suffices to optimize pure signed rank-one projections. Local-unitary invariance reduces to a Schmidt rank <=2 state with u in [0,1]. In the physical 2n-dimensional operator the 2x2 entangled block has eigenvalues 1/4 +/- (1/2)sqrt(1-bu^2); remaining diagonal eigenvalues contribute exactly 1/2+cu. Therefore F_n(u)=1/2+cu+max{1/2,sqrt(1-bu^2)}, with branch optimum u_n=c/sqrt(b(b+c^2)) and exact norm .5+sqrt((4+3c^2)/(4-c^2)). On the other branch 1+cu<=1+c is strictly smaller, including n=2; duality gives same spectral norm. Product states attain 1+c, separable mixtures cannot exceed it. Independently recomputed physical partial traces/eigenspectra at 28 (n,u) configurations for n=2..8.
 
-The closest inspected 2023 paper, arXiv:2305.00460, derives separability bounds for the nuclear norm of a Bloch-coordinate correlation **matrix**, not the trace norm of the centered physical operator or its induced real-Hermitian projection norm. A previous exact one-body marginal-projection norm concerns a different sum of local conditional expectations and implies neither the two-body formula nor entangled extremality. Searches for tensor-depolarizing complements, Hermitian induced trace norms, quantum correlation projections, Schmidt optimization and aliases did not reveal a decisive equivalent or a general theorem implying the formula. An older general noncommutative projection formula may exist under terminology not recovered by these searches; absence from search results is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The tensor product of two traceless local projections is a canonical two-body correlation extraction operator. This result exactly measures its endpoint Banach-space norm for all qubit–qudit dimensions, resolves the optimizing entanglement degree and proves a strict, attained separable-versus-entangled amplification gap. The result therefore gives a concrete sharp norm estimate and a family of sufficient entanglement witnesses, not merely a recomputation of a known Hilbert–Schmidt projection.
+Best-of-knowledge PASS. The directly relevant 2023 Zhu et al. paper optimizes nuclear norms of rectangular Bloch correlation COEFFICIENT matrices, not the physical operator P_n(rho) or its real-Hermitian induced norm; it therefore does not determine this partially entangled Schmidt optimizer. A published one-body marginal projection theorem concerns linear sums rather than tensor double-centering. General operator-space or Hoeffding decomposition results may nonetheless encode the same constant.
 
-## Closest literature and limitations
+## value
 
-X.-N. Zhu, J. Wang, G. Bao, M. Li, S.-Q. Shen and S.-M. Fei, *A Family of Bipartite Separability Criteria Based on Bloch Representation of Density Matrices*, arXiv:2305.00460v1, first posted 2023-04-30; full text inspected (abstract, definitions, theorems, examples, conclusions and references). Its Ky Fan/nuclear norms concern Bloch coefficient arrays, not the physical centered operator's Schatten norm. The calculation applies only to Hermitian matrices on \(\mathbb C^2\otimes\mathbb C^n\), not arbitrary complex matrices, ancilla-stabilized norms, general higher-dimensional pairs, or all entanglement-detection problems. Independent historical and mathematical checks are not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact physical-operator correlation-projection norm is a natural quantitative measure of centered two-body quantum correlations. Its optimal Schmidt profile changes from maximally entangled at n=2 to uniquely partially entangled for n>=3 and strictly exceeds the separable threshold, a structural entanglement-versus-product norm separation. The proof gives a full all-dimension formula, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
