@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the rational isomorphism \(\operatorname{MH}_{3,4}(H;\mathbb Q)\cong\mathbb Q[\operatorname{Aut}(H)]\). The proof fixes the explicit point/line incidence convention, the metric and boundary signs, establishes the free integral underlying group from primitive \(\partial_4\) and integral-surjective \(\partial_3\), and computes all \(336\) group-character values by an exact Euler-character identity. The executable enumerates the four chain statistics for every automorphism, checks that all nonidentity traces vanish and independently checks the mod-two boundary ranks; this finite check verifies the only finite universe claimed. The rational representation follows by semisimplicity. The integer lattice is not claimed to be the integral regular module.
+PASS
 
-## Originality — PASS relative to inspected literature
+PASS. Rebuilt the Fano incidence geometry with point/line dot product over F2 and the magnitude-chain definitions. Verified chain counts C2=840,C3=2268,C4=1134 from length-4 distance compositions; each nonzero ∂4 column is supported on unique distance-two-shortening 3-chain in girth-6 graph, so distinct columns do not overlap and exactly 42 backtracking directed-edge chains lie in ker∂4: rank∂4=1092, with primitive direct-summand image. Checked explicit integral preimages for all 2-chain endpoint cases, giving ∂3 integral surjectivity and free rank 2268-840-1092=336. Character follows from equivariant exact chain sequences as χ(C3)-χ(C2)-χ(C4)+χ(ker∂4); independently enumerated all 168 GL3(F2) collineations and their 168 point-line correlations, recomputed fixed-tuple traces for every element, obtaining {trace 336:1, trace 0:335}. Maschke semisimplicity and uniqueness of rational characters imply the claimed regular rational module. The group universe is genuinely exhausted, not a random subsample. The finite computation is supplemented by the proof of integral surjectivity.
 
-The closest published Heawood result (https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-the-first-off-diagonal-magnitude-homology-of-the-heawood-graph-h--6b25a5b68b42/RESULT.md) gives only the dimension over characteristic two. The more general finite-plane result (https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-endpoint-localized-first-off-diagonal-magnitude-homology-of-fini--f51b07cd11f1/RESULT.md) yields endpoint-localized fieldwise dimensions but has no equivariant trace or identification of a group module. Asao–Hiraoka–Kanazawa (https://arxiv.org/abs/2101.09044v1) provide the girth context, and Gu (https://arxiv.org/abs/1809.07240v1) provides general computational technique. A dimension of \(336\), even equal to the group order, does not force a regular action. Actual mathematical-record queries for Heawood/Fano/Levi names, \(\operatorname{MH}_{3,4}\), full automorphism character, regular representation, dualities and \(\mathrm{GL}(3,2)\) gave no covering claim. Residual risk: unindexed equivariant calculation or an implicit stronger published theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The full \(336\)-element character determines all rational irreducible multiplicities and precisely one full-symmetry invariant homology class, far beyond a rank computation. This is structurally motivated by the maximal symmetry of the canonical girth-six incidence graph. The result naturally tests how geometric automorphisms act on off-diagonal magnitude homology at the first sharp girth boundary. No generalized-plane character formula is asserted.
+PASS best knowledge: full previously published Heawood and finite-plane records give mod-two or fieldwise endpoint-localized ranks, respectively. Neither determines the action of all 336 graph automorphisms. Related full Heawood symmetry representations found by Resultary are on matching/independence complexes, not this magnitude chain complex. A coincidence of dimension with |Aut(H)| does not imply a regular representation.
 
-## Limitations and evidence
+## value
 
-The checker reconstructs the finite chain complex and automorphism group without outside data, while the proof supplies the integral surjectivity and finite-group character implication. The earlier papers and two closest published records were inspected for actual statement coverage; literature searches cannot establish absolute priority. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The full rational 336-element symmetry character is a natural representation-theoretic refinement of a known scalar rank at the first girth-six off-diagonal magnitude-homology boundary. It determines all irreducible multiplicities and full-subgroup invariant dimensions, not a routine restatement of the numerical rank or an arbitrary code test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Heawood magnitude regular-character theorem
+# Independent mathematical audit
 
-Run `python3 verify_fano_magnitude_regular.py` with Python 3.10 or later, using only the standard library. The expected terminal marker is `FANO_MAGNITUDE_REGULAR_CHARACTER_OK`; the complete recorded output is in `verify_fano_magnitude_regular.out`.
+## correctness
 
-The program enumerates seven points, seven lines, 21 edges, all 14×14 shortest-path distances and the length-four chain bases. It checks chain sizes (840, 2268, 1134), signs and boundary composition, the 42 distinct zero four-boundary columns, disjoint primitive supports and binary rank 840 of the three-boundary. The integral-surjectivity proof in `RESULT.md` establishes the needed stronger integral statement; mod-two rank by itself is not an integral certificate. The checker enumerates 168 invertible binary matrices and 168 correlations and verifies the identity trace 336 and zero for the other 335 group elements. Summary counts of every tested fixed-chain class are recorded in the output file.
+PASS
 
-The finite exhaustive computation is a direct check of this graph only. The proof gives the mathematical bridge from the finite boundary matrices to the rational module using group-character semisimplicity. No integral regular-lattice equivalence or independent external certification is asserted.
+PASS. Rebuilt the Fano incidence geometry with point/line dot product over F2 and the magnitude-chain definitions. Verified chain counts C2=840,C3=2268,C4=1134 from length-4 distance compositions; each nonzero ∂4 column is supported on unique distance-two-shortening 3-chain in girth-6 graph, so distinct columns do not overlap and exactly 42 backtracking directed-edge chains lie in ker∂4: rank∂4=1092, with primitive direct-summand image. Checked explicit integral preimages for all 2-chain endpoint cases, giving ∂3 integral surjectivity and free rank 2268-840-1092=336. Character follows from equivariant exact chain sequences as χ(C3)-χ(C2)-χ(C4)+χ(ker∂4); independently enumerated all 168 GL3(F2) collineations and their 168 point-line correlations, recomputed fixed-tuple traces for every element, obtaining {trace 336:1, trace 0:335}. Maschke semisimplicity and uniqueness of rational characters imply the claimed regular rational module. The group universe is genuinely exhausted, not a random subsample. The finite computation is supplemented by the proof of integral surjectivity.
+
+## originality
+
+PASS
+
+PASS best knowledge: full previously published Heawood and finite-plane records give mod-two or fieldwise endpoint-localized ranks, respectively. Neither determines the action of all 336 graph automorphisms. Related full Heawood symmetry representations found by Resultary are on matching/independence complexes, not this magnitude chain complex. A coincidence of dimension with |Aut(H)| does not imply a regular representation.
+
+## value
+
+PASS
+
+PASS. The full rational 336-element symmetry character is a natural representation-theoretic refinement of a known scalar rank at the first girth-six off-diagonal magnitude-homology boundary. It determines all irreducible multiplicities and full-subgroup invariant dimensions, not a routine restatement of the numerical rank or an arbitrary code test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
