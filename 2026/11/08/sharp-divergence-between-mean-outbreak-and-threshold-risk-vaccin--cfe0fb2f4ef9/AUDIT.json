@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, h>=2, 0<p<1, and uniform seed after deletion, the deterministic identity h*N_h-(h-1)*N_(h+1)=number of vertices in open components of size >=h yields an exact piecewise-affine expected count F_m. Its positive slope for m>=h and explicit positive difference (h-1)p^h between both-long and one-short splits prove every threshold-risk minimizer. Connected-pair probabilities give H_m with strictly increasing discrete increments, proving exactly the central mean minimizers. Their intersection occurs iff n<=2h, and at n>=2h+1 the risk gap is (h-1)p^h/(n-1). The standalone exact-rational checker reproduces 16,376 deterministic identities, 252 F_m cases, 36 mean-pair cases and 1,089 policy instances; finite tests are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altarelli et al. 2013/2014 set up probabilistic epidemic containment and expected infection-burden optimization on general graphs.",
+        "Miller 2008 gives network epidemic-size/probability inequalities rather than a complete intervention argmin for fixed-size event tails."
+      ],
+      "reasoning": "A general-graph vaccination method could dominate a path claim only if it proved the exact threshold-event argmin and common-optimum cutoff. The inspected primary formulas supply no such implication; aggregate bounds do not determine the strict path-ordering and exact gap.",
+      "searches": [
+        "tree network vaccination compare expected cluster size and probability outbreak at least k risk sensitive different optimal vertices",
+        "one vaccinated vertex line contact network compare mean epidemic size with tail probability of at least k infections universal sharp cutoff n=2k+1",
+        "arxiv:1309.2805"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0803.0999",
+      "https://arxiv.org/abs/1309.2805",
+      "https://doi.org/10.1103/PhysRevE.96.062305"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new formula T_v=(F_{v-1}+F_{n-v})/(n-1), F_m=hp^{h-1}(m-h+1)-(h-1)p^h(m-h) for m>=h, proves exact minimizers and all-p sharp cutoff.",
+        "The contextual literature characterizes distributions, bounds, or different mean-based vaccination goals; those do not alone imply threshold-tail minimizers."
+      ],
+      "reasoning": "Because threshold-event tails and the mean are different functionals, neither ordering of expected outbreak nor epidemic existence probability implies the claimed exact argmin of P(|C|>=h). The all-h path classification is not a mere restatement of an observed threshold crossover in a small graph.",
+      "searches": [
+        "path graph bond percolation one vertex immunization threshold outbreak at least h",
+        "arxiv:0803.0999",
+        "arxiv:1309.2805",
+        "doi:10.1103/PhysRevE.96.062305"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miller 2008 distinguishes probability of a network epidemic and its size, without optimizing a path deletion against the event |C|>=h.",
+        "Holme 2017 distinguishes network epidemic node-importance measures, including expected outbreak; no reported all-n,all-h threshold tail classification was identified in the studied results."
+      ],
+      "reasoning": "A purported equivalent must identify every minimizer of E|C| and P(|C|>=h) after a single deletion on P_n for all positive p and all integer thresholds. The inspected articles introduce related probabilistic tools and objectives, not that simultaneous optimizer family or the n=2h+1 incompatibility.",
+      "searches": [
+        "path graph bond percolation one vertex immunization threshold outbreak at least h",
+        "tree single vertex vaccination bond percolation minimize tail probability versus expected outbreak risk sensitive cutoff",
+        "arxiv:0803.0999",
+        "doi:10.1103/PhysRevE.96.062305"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holme 2017 reports exact calculations for small network graphs of epidemic node importance, but its objectives are not the fixed absolute threshold-risk of infection counts on arbitrary paths.",
+        "The theorem determines optimizers for every integer n,h, not solely a tabulated family of finite graph cases."
+      ],
+      "reasoning": "No applicable exact table or parameter-indexed record in examined sources gives the full all-order result. The 7-vertex witness alone would not establish novelty, but the complete mathematical classification is strictly beyond those checks.",
+      "searches": [
+        "optimal immunization trees outbreak tail threshold three infections 6 7 nodes",
+        "run length Bernoulli paths h consecutive vertices risk vaccination central versus peripheral optimal full classification",
+        "doi:10.1103/PhysRevE.96.062305"
+      ]
+    },
+    "rationale": "In inspected primary materials, probability/size bounding, expected-infection vaccination optimization, and exact node importance on small graphs do not establish the proposed all-n,all-h argmin classification for the absolute fixed-case outbreak tail on paths, nor the n=2h+1 common-optimum cutoff. Searches of aliases and possible stronger formulations found no decisive coverage. This is a limited-priority judgment, not a proof that no prior equivalent exists.",
+    "residual_risks": [
+      "There may be unindexed equivalent formulas in the run-count/graph-reliability literature or supplementary material not inspected.",
+      "A different optimization of epidemic-size distributions on arbitrary trees might subsume the result; no decisive primary coverage was identified.",
+      "Same-model literature assessment is not independent historical-priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related mathematical probability/size distinction, but no identical all-threshold path vaccination argmin or critical n=2h+1 theorem found.",
+        "evidence": [
+          "First public arXiv version March 6, 2008",
+          "Epidemic-size and epidemic-probability bounding results for network transmission"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0803.0999",
+        "material_read": "Accessible article text and substantive setup, epidemic definitions, random-seed assumptions, bounds discussion and conclusions",
+        "method": "Read available web-hosted article sections and equations; compared its network probability/size bounds with the full path intervention argmin.",
+        "title": "Bounding the Size and Probability of Epidemics on Networks",
+        "trigger": "Earliest archive-era primary article on epidemic size versus epidemic probability"
+      },
+      {
+        "assessment": "Optimizes infection marginals/expected burden, not the exact family of event probabilities P(|C|>=h) on P_n under single deletion.",
+        "evidence": [
+          "First public arXiv version September 11, 2013",
+          "Targeted containment formulated with infection-risk estimates and expected aggregate outcome"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.2805",
+        "material_read": "Accessible article text, model setup, probability equations, vaccination objective and numerical results sections",
+        "method": "Compared the defined optimization target and message-passing equations against exact fixed-case-count event-tail minimizers.",
+        "title": "Containing epidemic outbreaks by message-passing techniques",
+        "trigger": "Potentially dominating general-graph optimization for targeted vaccination"
+      },
+      {
+        "assessment": "Exact small-graph measures differ; no all-threshold all-path optimizer formula or sharp common-optimum cutoff identified.",
+        "evidence": [
+          "Physical Review E 96 (2017), article 062305",
+          "Three node-importance indices studied for small graph outbreaks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.96.062305",
+        "material_read": "Accessible article introduction, measure definitions, small-graph results and discussion",
+        "method": "Compared influence, vaccination and other stated node-ranking functionals with the specific probability of at least h infections and arbitrary-length paths.",
+        "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "trigger": "Exact small-graph epidemic importance might already contain the finite witness or a stronger theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cfe0fb2f-4ef9-4e3b-881b-aa28f8d0a1b9",
+  "value": {
+    "rationale": "Risk-sensitive allocation asks to minimize an event of at least h cases rather than expected cases. The result provides an exact all-order and all-threshold classification of which vertex should be protected, a sharp generic incompatibility threshold n=2h+1 and a quantified risk penalty. The distributional run-count identity applies to a natural path contact topology and avoids relying on a single tiny numerical counterexample. The observation remains a mathematical benchmark, not a claim of empirical treatment efficacy; small absolute tails can have limited public-health relevance for very large populations.",
+    "status": "PASS"
+  }
+}
