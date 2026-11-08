@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every finite generator, choose uniformization P=I+Q/lambda; diagonal R_s=(1-z)/(1-F_i(z)). First return gives inverse diagonal a_i/(1-z)+sum_{n>=1} f_{i,n}(1+...+z^{n-1}), strictly increasing for each nonabsorbing state, including transient/no-return mass. This proves continuous strict decrease from 1 to stationary mass (closed class) or 0 (transient), hence a unique threshold for each state below 1/2 and one global positivity interval. Cayley C=2R-I and nonnegative stochastic resolvent reduce all entrywise signs to these diagonals. Unconditional classification and directed-cycle identity follow exactly. Standalone script passed 5754 exact arithmetic checks for representative and random rational generators. Finite tests supplement, not substitute for, infinite/continuous proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanes–Iserles–Macnamara arXiv:2102.08242v2 (section 1 graph Laplacians and section 3 positivity-preserving exponential/splitting/Magnus methods) is broader in ODE classes but does not give this exact classical Crank–Nicolson step-window theorem.",
+        "Horváth (1998) develops Runge–Kutta positivity radii uniformly over problem classes, not the fixed-generator exact return-based threshold.",
+        "Fallat–Tsatsomeros (2002) treats matrix Cayley identities and M-matrix positivity classes; the paper does not analyze finite Markov first returns or exact step positivity intervals."
+      ],
+      "reasoning": "General worst-problem positivity radii provide uniform sufficient bounds, not a chain-specific all-step classification; schemes preserving positivity by construction do not dominate a theorem about sharp positivity of Crank–Nicolson itself. The Cayley identity alone does not imply monotonicity of each diagonal in a nonnormal resolvent, the critical additional lemma here.",
+      "searches": [
+        "Markov generator Cayley transform stochastic matrix positivity for all times diagonal resolvent monotonic",
+        "continuous time Markov chain resolvent diagonal strictly decreasing in step size Pade midpoint positivity",
+        "fast: positivity preserving numerical integration Markov chains Crank Nicolson finite generator published 2018 2020 2021",
+        "fast: 2020 2022 Runge-Kutta positivity preservation continuous-time Markov chain CTMC stochastic matrices"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.08242",
+      "https://arxiv.org/html/2102.08242v2",
+      "https://doi.org/10.13001/1081-3810.1086",
+      "https://doi.org/10.1016/S0168-9274(98)00050-6",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "https://www.maths.dur.ac.uk/users/mustazee.rahman/markov.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fallat–Tsatsomeros Lemma 2.2 already gives the transform identity I+C(A)=2(I+A)^{-1}.",
+        "The closest published reversible record explicitly proves monotonicity from the real symmetric spectral mixture and leaves nonreversible chain thresholds unresolved.",
+        "Elementary first-return renewal identities themselves are standard, but the monotone reciprocal representation with infinite return mass establishes the missing directed-case implication."
+      ],
+      "reasoning": "Combining the prior Cayley identity with positive resolvent entries yields a necessary/sufficient diagonal test but not, without an extra argument, a single interval: nonnormal rational diagonal entries can potentially be nonmonotone. The first-return decomposition proves strict monotonicity of the normalized Markov resolvent for every nonabsorbing state, closing the nonreversible gap. Unconditional reducible block classification is reported as a consequence, not as an independent new method or a separate novelty claim.",
+      "searches": [
+        "Crank Nicolson implicit midpoint stochastic nonnegative transition matrix finite irreducible Markov generator resolvent diagonal positivity threshold unique stationary probability return time",
+        "Crank Nicolson positivity step interval arbitrary nonreversible CTMC generator uniformization first return generating function strict diagonal resolvent monotonic",
+        "fast: \"return probabilities\" \"resolvent\" \"monotone\" \"Markov\" diagonal",
+        "fast: Fallat Tsatsomeros Cayley transform positivity classes 2002 pdf Lemma 2.2 M matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus record d475df91cd2a gives the general Cayley/resolvent diagonal criterion, but its sharp monotone cutoff is explicitly proved only for irreducible reversible generators.",
+        "In that prior record, the limitations explicitly state nonreversible later positivity windows are unclassified.",
+        "The new proof invokes first-return generating functions with possible never-return mass, making no spectral real-eigenvalue hypothesis."
+      ],
+      "reasoning": "The object and endpoint criterion match the closest prior, so neither the identity C=2R-I nor the reversible theorem is novel. The claim differs by quantifying over all finite generators, including complex-spectrum nonreversible and transient cases. It supplies strict diagonal monotonicity under arbitrary directional rates and the full interval law; no inspected result implied this via a stated nonreversible or renewal theorem of the same exact numerical consequence.",
+      "searches": [
+        "Crank Nicolson implicit midpoint stochastic nonnegative transition matrix finite irreducible Markov generator resolvent diagonal positivity threshold unique stationary probability return time",
+        "Crank Nicolson positivity step interval arbitrary nonreversible CTMC generator uniformization first return generating function strict diagonal resolvent monotonic",
+        "trapezoidal Markov chain positivity nonreversible irreducible exact directed 3 cycle golden ratio threshold",
+        "fast: finite Markov chain diagonal resolvent decreasing in time parameter off-diagonal nonreversible first return Laplace transform monotonic",
+        "fast: Crank Nicolson stochastic matrix positivity nonreversible generator single interval threshold stepsize all finite Markov chains"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own item 1102c3b3-899f-419b-9bac-ed675ef53d43 treats Crank–Nicolson on periodic symmetric heat grids; it does not quantify over arbitrary nonreversible or reducible finite CTMCs.",
+        "Own item 328da4f7-b295-49e7-8fd0-403441c16e71 treats a different Richardson-extrapolated backward-Euler rational method on directed cycles.",
+        "No matching published published-finding corpus item was returned for the full nonreversible, reducible, first-return assertion or for the explicit directed-three-cycle Crank–Nicolson boundary; the reversible record was consistently nearest."
+      ],
+      "reasoning": "A precomputed exact matrix table for an individual graph is not the universal first-return theorem. Checked the accessible current-week ledger by recoverable claims and queried published-finding corpus on the full theorem and directed cycle; neither contains an implication-equivalent claim. Failure to find a record alone is not proof of uniqueness, and this is retained as a risk.",
+      "searches": [
+        "trapezoidal Markov chain positivity nonreversible irreducible exact directed 3 cycle golden ratio threshold",
+        "reducible finite Markov generator implicit midpoint unconditional positivity iff disjoint union absorbing states balanced two-state pairs",
+        "fast: Cayley transform continuous time Markov chain stochastic positive stepsize threshold reducible chain",
+        "own ledger latest p0001_g000085: search claims for Crank–Nicolson, resolvent, directed cycle, return and generator"
+      ]
+    },
+    "rationale": "The strongest inspected identical-integrator prior establishes an exact diagonal-resolvent test for general generators and a monotone step cutoff only under reversibility; it expressly leaves nonreversible later positivity windows unclassified. The present proof proves strict diagonal resolvent monotonicity using a first-return generating function for every finite chain, so all generators have one sharp positivity window. Source comparisons with general RK positivity and Cayley M-matrix theory show those do not directly supply the claimed nonreversible crossing law. The reducible class and directed-three-cycle formula are consequences, not separate novel algorithms. The main remaining risk is an unlocated implication-equivalent Markov renewal result.",
+    "residual_risks": [
+      "Classical first-return renewal formulas may have been applied to exact Crank–Nicolson Markov positivity already under alternate stochastic Cayley terminology; broad web/semantic searches do not certify priority.",
+      "The 1998 general RK positivity paper was accessed only as an abstract; no whole-document NOT_COVERING claim is based on it.",
+      "The inspected arXiv paper had targeted full-text sections read, not all sections; an uninspected appendix or obscure historical reference remains possible.",
+      "The result does not claim novelty for the Cayley identity, reversible threshold, standard first-return identity, or reducible stationary-class elementary facts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the Cayley identity, general diagonal positivity test and reversible-irreducible interval; does not cover nonreversible monotonicity or reducible exact single-window classification.",
+        "evidence": [
+          "General criterion C=2R-I; reversible spectral diagonal mixture; stated limitation that later positivity windows for nonreversible generators are not classified."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Entire RESULT.md including Finding, proof, relationship and explicit Limitations.",
+        "method": "Public GitHub repository full-text fetch via read-only connector; scientific statement implication comparison.",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Exact same integrator and Markov-generator diagonal-resolvent criterion; decisive overlap source."
+      },
+      {
+        "assessment": "Studies schemes constructed to preserve positivity, not an exact positive-step horizon for classic Crank–Nicolson on all finite generators.",
+        "evidence": [
+          "Original 2021-02-16 v1 submission verified on arXiv; full HTML v2 permits nonsymmetric graph Laplacians and discusses exponential/splitting/Magnus schemes, distinct from rational Crank–Nicolson endpoint."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+        "material_read": "Full accessible HTML sections 1.1 and 3.3, abstract, references and targeted search of trapezoidal and midpoint instances.",
+        "method": "Primary arXiv full-text HTML inspection and keyword scans.",
+        "title": "Positivity-preserving methods for ordinary differential equations (first submitted as Positivity-preserving methods for population models)",
+        "trigger": "2021 motivating full-text paper for positive conservative nonsymmetric graph Laplacian evolution."
+      },
+      {
+        "assessment": "Supplies algebraic identity and M-matrix classes; no full Markov return threshold/monotonicity conclusion in inspected sections.",
+        "evidence": [
+          "Lemma 2.2: I+F=2(I+A)^{-1}; Theorem 4.1 concerns M-matrix Cayley factorization, not a Markov return function in step size."
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+        "material_read": "Open-access seven-page PDF extracted text, with visual screenshots of pages 2 and 5; Lemma 2.2 and Section 4 M-matrix theorems inspected.",
+        "method": "Open-access primary PDF and visual page inspection; comparison of Lemma 2.2, Theorems 4.1–4.5 with new first-return argument.",
+        "title": "On the Cayley Transform of Positivity Classes of Matrices",
+        "trigger": "Canonical Cayley matrix identity could dominate the algebraic portion of the claim."
+      },
+      {
+        "assessment": "General problem-class positivity radius, no confirmed equivalence to the sharp fixed nonreversible CTMC Markov return theorem. Full text unresolved.",
+        "evidence": [
+          "Abstract describes class-wide positivity/maximum stepsize analysis; specialist full-text comparison remains residual risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Bibliographic abstract/description; full paper not accessed.",
+        "method": "Published bibliographic abstract and 2026 prior full-text reference comparison.",
+        "title": "Positivity of Runge–Kutta and Diagonally Split Runge–Kutta Methods",
+        "trigger": "Problem-class Runge–Kutta positivity radii might imply a step frontier."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44735769-0264-48d5-8e83-722dc2e04911",
+  "value": {
+    "rationale": "A nonreversible finite generator can have complex eigenvalues, invalidating the positive real spectral mixture used by earlier exact Crank–Nicolson threshold analysis. The universal no-reentrance result closes that structural gap for all directed and reducible continuous-time Markov chains; it gives an exact numerical step-selection characterization and shows the only unconditionally safe chain classes. The directed three-cycle has the nontrivial sharp boundary 1+sqrt(5), strictly beyond the standard 2/lambda_max sufficient condition. This is a motivated qualitative integrator-stability boundary, not a mere arithmetic substitution or software reproduction.",
+    "status": "PASS"
+  }
+}
