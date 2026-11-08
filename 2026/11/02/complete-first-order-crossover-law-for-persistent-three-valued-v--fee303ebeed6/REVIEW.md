@@ -1,19 +1,21 @@
-# Self-review: Complete first-order crossover law for persistent three-valued valuations on two-level frames
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three phase cases are exhaustive because signed persistence forbids bottom-level true and false witnesses under a shared top world. They are disjoint and counted exactly by \(3^b\) and two copies of \(2^a-1\). Each conditional phase has a fixed finite set of rank/sign types whose multiplicities tend to infinity. Rank-bounded back-and-forth then supplies the universal first-order asymptotic normal form. The first-order bottom-signed event has exactly the phase-mass probability, proving necessity as well as sufficiency of crossover-weight convergence. Irrationality of \(\log_2 3\), rotation density and affinity of all FO limits establish the critical interval and the zero/one-only limits. Direct enumeration checked 25 size pairs and 2,385 valid valuations; finite tests do not establish the asymptotic theorem. The proof's endpoints and quantifier constraints were checked separately.
+PASS
 
-## Originality — PASS within inspected literature
+Read the final RESULT.md proof. Every admissible labeling belongs uniquely to neutral-minima phase of cardinality 3^b or to positive/negative-minima phases each of cardinality 2^a−1; opposite signs among minima contradict upward persistence and glut freedom. In each conditional phase independent binomial color populations tend to infinity, so q-round Ehrenfeucht–Fraisse games against one of three homogeneous countable reference structures determine every fixed-rank first-order sentence. Consequently phase-profile limits are precisely (1−w)epsilon_0+(w/2)(epsilon_++epsilon_-). The existential nonneutral-minimum sentence has exact probability w, giving the convergence converse. The homeomorphic logistic dependence on a−(log_2 3)b establishes the iff crossover. Irrational density of {n log_2 3} yields the critical cluster [1/2,2/3], and only constant binary phase profiles converge on it. Boundary conditions a,b→∞, fixed formula, exactly one atom, and sampling uniform over admissible labelings are essential.
 
-Sedlár–Vigiani (arXiv:2610.10008v1) gives the relevant persistence and no-glut semantics; it is not claimed as a novel semantic definition. Koponen (arXiv:2610.16163v1) analyzes random-expansion convergence from general model-theoretic conditions. Related published records treating \(\operatorname{hom}(G,P_3^\circ)\), weak-order mapping recurrences, finite crown targets, and random-poset parameter types are not directly the same object/limit statement. Searches also used V-shaped target, signed one-atom N3 models, constrained colors, phase coexistence and first-order limit terminology. The inspected material does not imply the combined exact phase-mass, EF crossover, complete spectrum and irrational-ratio interval. Relevant earlier work on random isotone maps could still give equivalent coverage. Source-specific access limits and comparisons are recorded in `AUDIT.json`; search absence alone was not used as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-A finite census would not alone be a substantive contribution; here it unlocks a complete first-order probabilistic classification for a natural family of nonclassical logical frames. The complete phase spectrum, necessity and sufficiency of convergence, and explicit sharp nonconvergent critical sequence make the invariant structurally useful for future random-model questions. Claims are restricted to the natural one-atom two-level glut-free model class and do not assert general Nelson-model convergence.
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
 
-## Limits
+## value
 
-Independent expert review has not been performed; original-priority risk from specialized poset homomorphism literature remains. Exact finite enumeration is illustrative. This result concerns the world-order/signed-predicate first-order reduct, not arbitrary modal formula probabilities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural logical probability model exhibits a complete first-order convergence transition and all sentence-limit spectra, not just a routine three-phase finite count. The critical irrational boundary gives a sharp nonconvergent first-order sequence despite every phase obeying a conditional zero-one law; this is a useful counterexample and explicit classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
