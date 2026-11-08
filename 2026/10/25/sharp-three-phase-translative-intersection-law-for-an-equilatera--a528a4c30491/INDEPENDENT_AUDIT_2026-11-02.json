@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:54:25.162100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T=conv{(1,0),(-1/2,±sqrt(3)/2)}, Q_r={|x|+|y|<=r}, all r>0 and planar translations, horizontal sections give symmetric triangle halfwidth A=(1-x)/sqrt(3) and diamond halfwidth B=r-|x-t|; vertical displacement cannot increase overlap. Square-in-triangle and triangle-in-diamond vertex inequalities yield r_-=3(sqrt(3)-1)/4 and r_+=(3+sqrt(3))/4 and the 2r² and 3sqrt(3)/4 plateaus (including boundaries). At t_*=(1+2r(1-sqrt(3)))/4 for each strict intermediate r, all six section breakpoint inequalities hold; exact symbolic integration of the three clipped pieces was independently recomputed to I_r(t)=3sqrt(3)/4-sqrt(3)(r_+-r)^2-2(t-t_*)² locally. Brunn--Minkowski gives concavity of sqrt I_r on the connected positive-overlap translation interval; an interior stationary point is globally maximizing and local strict concavity precludes a second horizontal optimizer. At each positive-length switch point of the halfwidth functions, any nonzero vertical displacement strictly loses positive area, giving unique planar optimum (t_*,0). Exact checks established continuity at both thresholds and the r=1 center overlap 2sqrt(3)-9/4, maximum 3/8+sqrt(3)/2, ratio (82-40sqrt(3))/13, and gap 21/8-3sqrt(3)/2. Independent Shapely planar clipping with numerical optimizers across 11 radii corroborated the expression; those finite tests are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feldman, arXiv:2608.04516, main theorem and Sections 1--5: universal two-body centroid alignment efficiency strictly above 4/9 in the plane, not exact triangle--diamond efficiency or maximizing displacement.",
+          "Chan--Hair (2025) Theorem 8: randomized linear-time fixed-input optimization; Section 2 Lemma 1 proves concavity of sqrt intersection area, employed but not claimed here as new.",
+          "de Berg et al. 1998 is the earlier general polygon overlap optimization algorithm, cited in the complete Chan--Hair paper; original full text was unavailable."
+        ],
+        "reasoning": "Universal centroid guarantees and optimization existence/algorithms are broader classes, but their conclusions do not imply the explicit piecewise M(r), sharp r±, or unique intermediate translation without new polygon-specific analysis. The Brunn--Minkowski concavity step and algorithms are known and credited. Original 1998 paper might hide a specialized example; inaccessible full text is recorded as priority risk, not claimed absent.",
+        "searches": [
+          "arXiv:2608.04516 Feldman arranging convex bodies maximum intersection volume centroid alignment",
+          "DOI:10.4230/LIPIcs.SoCG.2025.31 Chan Hair polygon maximum overlap translation",
+          "DOI:10.1007/PL00005845 de Berg Cheong Devillers van Kreveld Teillaud 1998 maximum overlap",
+          "Resultary semantic: maximum intersection of regular triangle and square translations optimal area geometric polygons"
+        ]
+      },
+      "checked_sources": [
+        "Feldman (2026), arXiv:2608.04516, full primary text Sections 1--5 + Appendix A",
+        "Chan--Hair (2025), DOI 10.4230/LIPIcs.SoCG.2025.31, full primary HTML Sections 1--6",
+        "de Berg et al. (1998), DOI 10.1007/PL00005845, bibliographic/secondary full-paper citations only; original full text inaccessible",
+        "Resultary/2026 published 362a2db45f5e complete RESULT.md",
+        "Resultary published semantic results e1f2caffe92c, 9cc93a56f053, 5fadf7c81348; indexed mathematical claims only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=1 the submitted exact centroid ratio is (82-40sqrt(3))/13, strictly above Feldman universal 4/9 bound; knowing the bound cannot determine the displayed pair-specific exact ratio.",
+          "General exact polygon optimization methods can compute overlap for a specified r but do not state an all-r analytic phase diagram; the submitted proof derives its switching geometry and equality cases directly.",
+          "The full published Minkowski square result derives M(c)=max{2/(1+c),1/(1-c)} as an inscribed triangle side length; no statement about ordinary Euclidean translative intersection area follows."
+        ],
+        "reasoning": "Earlier generic computational solvability and the known concavity are prerequisites, not a dominating formula that trivially specializes to the new three exact continuous-r branches. The only highly plausible inaccessible general article is honestly flagged. The assessment is best-of-knowledge originality and not a certification that no unindexed formula exists.",
+        "searches": [
+          "Feldman 2026 arXiv 2608.04516 main theorem and Appendix A centroid-alignment sharp ratio",
+          "Chan Hair 2025 SoCG Section 2 Lemma 1 and Theorem 8",
+          "de Berg et al 1998 preprint O(n+m) log(n+m) maximum overlap",
+          "Resultary published finding 362a2db45f5e full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chan--Hair (2025), DOI 10.4230/LIPIcs.SoCG.2025.31, Section 1 Problem 1 and Section 2 Lemma 1: generic convex polygon translative overlap and square-root concavity.",
+          "Published Resultary/2026 362a2db45f5e RESULT.md: translates the origin of a Minkowski square and maximizes inscribed equilateral Minkowski side length max{2/(1+c),1/(1-c)}, not intersection area."
+        ],
+        "reasoning": "The claim is equivalently an exact fixed-orientation cross-covariogram maximum for a 3-vertex triangle and a 4-vertex diamond, jointly parametrized by r. The generic algorithms compute a maximizer given fixed polygon coordinates but do not provide this uniform symbolic all-r classification or its equality cases; the nearest Minkowski square/triangle result optimizes oriented side length under a moving gauge origin, neither an equivalent objective nor a reduction implying these area formulas. No exact synonymous formulation was found, which is not proof of global novelty.",
+        "searches": [
+          "Resultary semantic: maximal overlap area equilateral triangle diamond square under translation fixed orientation exact three phase threshold centered alignment",
+          "Resultary semantic: equilateral triangle square maximum common area circumradius centroid translation exact 21/8-3sqrt3/2",
+          "Web: equilateral triangle square intersection maximize area translation diamond",
+          "Web: maximum overlap triangle square under translation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published 362a2db45f5e inscribed Minkowski equilateral side-length profile has a different invariant and parameters.",
+          "Resultary published e1f2caffe92c tensorizes universal centroid efficiency; 9cc93a56f053 concerns average area of independently rotated tangential polygons; 5fadf7c81348 is same-hypercube covariogram at fixed displacement magnitude."
+        ],
+        "reasoning": "The checked published finding corpus contains geometric overlap/translation results but no directly equivalent exact table of this triangle/diamond intersection area over all positive square sizes. Same parameter words and 3-phase patterns in unrelated objectives are not mathematical coverage. Search noncoverage is not proof of priority.",
+        "searches": [
+          "Resultary semantic: triangle diamond polygon overlap 3sqrt3/4 - sqrt3((3+sqrt3)/4-r)^2 optimal translation",
+          "Resultary semantic: equilateral triangle square maximum common area circumradius centroid translation exact 21/8-3sqrt3/2",
+          "Resultary semantic: maximum intersection of translated convex polygons fixed orientations sharp radius phase threshold triangle rhombus"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary comparison shows the novel asserted content is the complete exact fixed-orientation triangle/diamond continuous-size intersection area phase diagram, sharp size transitions and unique middle translation, not the generic maximum-overlap algorithm, Brunn--Minkowski concavity, or universal centroid efficiency. Full Feldman 2026 and Chan--Hair 2025 primary texts and the full closest published Resultary square/triangle record were compared by mathematical implication; no stated/easily implied matching all-r formula was found. The earlier general de Berg et al. 1998 primary paper was inaccessible in full after lawful public/preprint and authorized institutional attempts, and remains an explicit priority risk. Noncoverage searches do not certify historical novelty.",
+      "residual_risks": [
+        "Original 1998 de Berg et al. paper was not read in full; preprint/PDF public attempts failed and authorized institutional access returned vpn_disconnected. A hidden specialized triangle/square calculation cannot be excluded.",
+        "Earlier pre-digital geometric polygon intersection examples and unindexed tables may contain an equivalent sharp formula; search noncoverage is not a novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes universal sharp planar efficiency guarantee, not the fixed triangle--diamond optimal translation or all-size phase law.",
+          "evidence": "Feldman 2026: in dimension d, centered-to-optimal overlap is strictly greater than (2/(d+1))^d for convex bodies, giving >4/9 for d=2; no explicit 3-branch triangle/diamond formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04516",
+          "material_read": "Accessible primary arXiv HTML/full mathematical text, principal theorem, Sections 1--5 and Appendix A; sharp universal efficiency examples and central-core argument",
+          "method": "Primary open-access full-text reading and statement/implication comparison",
+          "title": "Arranging convex bodies for maximum intersection volume: the sharp efficiency of centroid alignment",
+          "trigger": "Primary recent universal centroid-efficiency theorem directly motivating the r=1 comparison"
+        },
+        {
+          "assessment": "Known general overlap optimization and Brunn--Minkowski square-root concavity, without the all-r triangle/diamond area formula, threshold classification or uniqueness statements.",
+          "evidence": "DOI 10.4230/LIPIcs.SoCG.2025.31, Section 2 Lemma 1 (sqrt overlap concavity), Section 1 and Theorem 8 (algorithmic maximum overlap for an arbitrary fixed input pair).",
+          "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2025.31",
+          "material_read": "Complete open-access primary HTML, Sections 1--6, including Problem 1, Lemma 1, Theorem 8 and geometry/oracle method",
+          "method": "Direct primary HTML full-text reading and comparison of algorithmic statements with proposed uniform symbolic profile",
+          "title": "A Linear Time Algorithm for the Maximum Overlap of Two Convex Polygons Under Translation",
+          "trigger": "Contemporary strongest general fixed-orientation convex polygon maximum overlap theorem"
+        },
+        {
+          "assessment": "Earlier general polygon overlap algorithm acknowledged; exact specialized contents remain unverified and are a residual historical-priority risk.",
+          "evidence": "Theory Comput. Syst. 31 (1998), 613--628, DOI 10.1007/PL00005845; Chan--Hair credits its O((n+m)log(n+m)) method. Original unread, so no whole-text negative claim.",
+          "identifier_or_url": "https://doi.org/10.1007/PL00005845",
+          "material_read": "Primary bibliographic metadata and detailed cited summary within Chan--Hair 2025; attempted INRIA preprint PDF but text extraction was garbled; attempted full PDF rendering received 403; HAL OA access blocked. Original full text not successfully read.",
+          "method": "Public preprint/open-access routes checked before authorized institutional request; institution returned VPN disconnected; no access bypass.",
+          "title": "Computing the maximum overlap of two convex polygons under translations",
+          "trigger": "1998 predecessor with potentially hidden regular-polygon examples"
+        },
+        {
+          "assessment": "Classifies gauge-equilateral inscribed triangle side lengths as the Minkowski-square origin varies; it does not bound the intersection area of a fixed Euclidean triangle and a translated diamond.",
+          "evidence": "Exact formula in published finding M(c)=max{2/(1+c),1/(1-c)}, achieved for different geometry and invariant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diagonal-origin-profile-for-equilateral-triangles-in-a-min--362a2db45f5e/RESULT.md",
+          "material_read": "Complete actual RESULT.md including definitions, proof, limitations and references",
+          "method": "Read-only published GitHub primary record at current repository ref",
+          "title": "Exact diagonal-origin profile for equilateral triangles in a Minkowski square",
+          "trigger": "Highest-ranking published finding matching triangle and square and a noncentral parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact one-parameter translative overlap classification for two canonical regular polygons of incompatible rotational symmetry solves a natural shape-matching problem rather than an arbitrary numeric instance. The sharp transitions correspond to full containment versus genuine partial contact; the unique intermediate optimizer supplies geometric rigidity; the exactly quantified centroid-alignment loss is a useful concrete benchmark beyond generic algorithmic solvability or universal bounds. A researcher studying fixed-orientation cross-covariograms or convex overlap can use the precise phase cutoffs and optimizers without recomputing the polygon geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Feldman (2026), arXiv:2608.04516, full primary text Sections 1--5 + Appendix A",
+    "Chan--Hair (2025), DOI 10.4230/LIPIcs.SoCG.2025.31, full primary HTML Sections 1--6",
+    "de Berg et al. (1998), DOI 10.1007/PL00005845, bibliographic/secondary full-paper citations only; original full text inaccessible",
+    "Resultary/2026 published 362a2db45f5e complete RESULT.md",
+    "Resultary published semantic results e1f2caffe92c, 9cc93a56f053, 5fadf7c81348; indexed mathematical claims only"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed prescribed relative orientations, circumradius one for T and r>0 for diamond; no rotations, other polygons or general dimension.",
+    "Shapely clipping and SymPy algebra verify finite/narrow identities; global maximum and all-r quantifiers depend on the reconstructed analytic proof.",
+    "Oxford institutional access to the older 1998 original failed due disconnected VPN; historical priority not externally certified.",
+    "Publication plan is an unexecuted minimal proposal, not a publication or external certificate."
+  ],
+  "residual_risks": [
+    "Original 1998 de Berg et al. paper was not read in full; preprint/PDF public attempts failed and authorized institutional access returned vpn_disconnected. A hidden specialized triangle/square calculation cannot be excluded.",
+    "Earlier pre-digital geometric polygon intersection examples and unindexed tables may contain an equivalent sharp formula; search noncoverage is not a novelty certificate.",
+    "Finite numerical polygon clipping and symbolic local identities do not independently establish global uniqueness; the analytic Brunn--Minkowski and strict-overlap argument supplies that step.",
+    "No external expert/Lean attestation or publication was performed; source tree was examined read-only."
+  ],
+  "schema_version": 1
+}
