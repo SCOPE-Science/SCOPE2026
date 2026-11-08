@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes the permutation size, edge-convention, and comparator normalization. The paired-edge identity is pathwise. The terminal-rank expectation is derived by equating two exact Eulerian insertion recurrences, not assumed. The only dependency beyond the prefix is its immediate boundary comparison; this gives the exact covariance formula. Cauchy–Schwarz and a simple-walk binomial recurrence establish a strict termwise gap. The one-dependent descent CLT, uniform integrability from exact second moments, and a valid Riemann-sum comparison give the stated asymptotics. The finite exact checker replayed successfully at four full permutation sizes and checked the rank identity through length eight.
+## correctness
 
-**Originality — PASS, qualified.** Fang et al. establish the original walk model and Brownian limit, not the finite occupation–endpoint covariance. Tang later proves the exact *marginal* arcsine law, not the finite joint covariance or strict comparison. This distinction was checked at statement-and-implication level, not merely by title. Related published mathematical findings on other permutation covariance statistics and generic maximum–endpoint symmetries do not imply this exact occupation–endpoint statement. Historical priority of the latter is still subject to unlocated literature.
+PASS
 
-**Value — PASS.** Identical marginal occupation distributions can obscure statistically meaningful differences in joint behavior with final displacement. The all-size strict gap, exact Eulerian sum, and order-\(n^{3/2}\) comparison quantify that distinction for the concrete non-Markovian permutation walk used as a model for rank-pattern statistics. This is not just a restatement of the known discrete-arcsine marginal or Brownian limit. The asymptotic correlation by itself is not claimed to be new.
+For increments from consecutive permutation comparisons, the pair of edges around each odd vertex contributes 2 exactly when S_{2k-1}>0, so N_{2n}=2Σ1_{D_{2k-1}≤k-1}. Conditioning on the previous rank-r permutation and using Eulerian insertion yields E[π_r|des=d]=r-d and E[U_r|des=d]=(r-d)/(r+1). Only the comparison sharing U_r remains correlated with early event; the covariance becomes a positive Eulerian absolute-deviation sum with factor 2r/(r+1). For independent signs, martingale orthogonality gives ΣE|W_{2k-1}|; variance of Eulerian descents (r+1)/12, Cauchy-Schwarz and exact binomial absolute moments give strict termwise smaller C_n. One-dependent CLT plus uniform integrability yields n^{3/2} constants. Direct exhaustive independent enumeration for n=1,2,3 reproduced the exact covariances. The arcsine marginal and beta-binomial variance are correctly cited as prior results, not derived from the finite check.
 
-**Risks and limits.** Literature searches cannot prove worldwide first priority. The formula does not characterize the complete joint law, and the comparator is restricted to an independent simple symmetric walk. Exact finite enumeration independently tests formulas but cannot replace the all-size proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparisons of the precise final claim, with material primary reading and relevant Resultary searches. These premises imply equal marginal N laws, but not equal (indeed they are unequal) joint laws with S. The present Eulerian rank calculation supplies the unprovided implication. Inaccessible primary work is named as residual risk rather than declared noncovering.
+
+## value
+
+PASS
+
+Shows a mathematically informative failure of a one-dimensional exact distribution to determine joint dependence: two canonical walks have the same occupation marginal but strict finite-size and asymptotic covariance gaps. Exact Eulerian formula and sign hold for all n and are useful for permutation-walk joint statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
