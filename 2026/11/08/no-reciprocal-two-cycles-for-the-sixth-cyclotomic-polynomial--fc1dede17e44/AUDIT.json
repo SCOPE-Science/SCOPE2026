@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact argument: mutual congruences force gcd(a,b)=1 and integer M=(F(a)+F(b)-1)/(ab). For a<b, the positive integer r=F(a)/b is smaller than a; the monic quadratic has roots b and r, so (r,a) has the same M and mutual congruences. Descent ends at (1,1), where M=1, contradicting M>1 outside that point. The squarefree n corollary uses the cited product formula, sixth-order root criterion including primes 2 and 3, and a finite graph cycle argument. The checker independently tests exact rational sums and reciprocal conditions for finite ranges only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primary: https://arxiv.org/html/2610.10572v1, §2 and §5 Proposition 1, equations (5.1) and associated conic bound.",
+        "Comparison: https://arxiv.org/html/2601.15229v1, §§1–2 (different Vieta conics).",
+        "Exact table: https://oeis.org/A317480 (integer-valued reciprocal-gcd sums, no two-cycle classification).",
+        "Published mathematical records were retrieved for nearby cyclotomic divisor, harmonic-number, and squarefree-semiprime subjects, but their statements involve other polynomials or other arithmetic functions."
+      ],
+      "reasoning": "The general descent machinery for a²−kab+b²=k does not by itself classify integral points of a²+b²−a−b+1=Mab; the linear terms change the recurrence and terminal equation. De Koninck–Letendre provides an upper bound on a potentially nonempty class but cannot imply its emptiness.",
+      "searches": [
+        "\"Vieta jumping and small norms in quadratic number fields\" \"p\" \"q\"",
+        "two-cycle prime divisor graph for Φ_6(x) no cycles of length two",
+        "arXiv:2601.15229v1 §§1–2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10572v1, §5 Proposition 1",
+      "arXiv:2601.15229v1, §§1–2",
+      "OEIS A317480",
+      "Other discoverable published-result records on cyclotomic pairs, reciprocal divisibility, squarefree semiprimes and harmonic sums were compared by statements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary: https://arxiv.org/html/2610.10572v1, §2 and §5 Proposition 1, equations (5.1) and associated conic bound.",
+        "Comparison: https://arxiv.org/html/2601.15229v1, §§1–2 (different Vieta conics).",
+        "Exact table: https://oeis.org/A317480 (integer-valued reciprocal-gcd sums, no two-cycle classification).",
+        "Published mathematical records were retrieved for nearby cyclotomic divisor, harmonic-number, and squarefree-semiprime subjects, but their statements involve other polynomials or other arithmetic functions."
+      ],
+      "reasoning": "A quantitative upper bound for solutions does not imply zero solutions. The fresh theorem gives exactly zero possible distinct prime pairs (indeed zero nontrivial integer pairs), while the 2026 paper still distinguishes a case with both first-power exponents. Its separately proved global S(X) bound is not claimed as new.",
+      "searches": [
+        "arXiv:2610.10572v1 §5 Proposition 1",
+        "De Koninck Letendre 2026 H(n)=sum 1/gcd(n,i), squarefree semiprime solutions excluded, mutual Φ_6(p) divisibility",
+        "arXiv:2601.15229v1 §§1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary: https://arxiv.org/html/2610.10572v1, §2 and §5 Proposition 1, equations (5.1) and associated conic bound.",
+        "Comparison: https://arxiv.org/html/2601.15229v1, §§1–2 (different Vieta conics).",
+        "Exact table: https://oeis.org/A317480 (integer-valued reciprocal-gcd sums, no two-cycle classification).",
+        "Published mathematical records were retrieved for nearby cyclotomic divisor, harmonic-number, and squarefree-semiprime subjects, but their statements involve other polynomials or other arithmetic functions."
+      ],
+      "reasoning": "A simultaneous congruence pair is equivalent (by automatic coprimality) to integrality of (a²+b²−a−b+1)/(ab). The 2026 paper retains such pairs in Proposition 1 rather than ruling them out. Searches did not identify an equivalent proved statement.",
+      "searches": [
+        "\"a^2+b^2-a-b+1\" \"ab\" divides",
+        "\"x^2-x+1\" \"y^2-y+1\" \"xy\"",
+        "Vieta descent classification all positive integer pairs a,b with a|b^2-b+1 and b|a^2-a+1; only (1,1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A317480 lines 14–49: definition, values, formula and links."
+      ],
+      "reasoning": "A317480 gives a list of qualifying integers and its h(n)/n formula; neither a table of admissible n nor its numerical onset rules out every semiprime, so the infinite nonexistence theorem is not implied by enumeration.",
+      "searches": [
+        "https://oeis.org/A317480",
+        "n=pq squarefree two prime factor h(n) divisible n gcd sums integer"
+      ]
+    },
+    "rationale": "The 2026 source counts, rather than excludes, the exact prime two-cycle system (Section 5, Proposition 1); an integer-descent emptiness theorem is not stated there. Lemmermeyer treats different conics and OEIS records values only. Meaning-based published-mathematics searches gave no covering result; older uncatalogued elementary material remains a historical-priority risk.",
+    "residual_risks": [
+      "Vieta descent is classical; an uncatalogued earlier exercise or lemma may prove this exact cyclotomic specialization.",
+      "The complete historical mathematical literature was not exhausted; semantic-search omission cannot establish uniqueness.",
+      "The claim does not address prime-square factors or show all squarefree solutions have at least four prime factors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: bounds number of mutual g-divisibility prime pairs but does not assert emptiness; provides the h(n)/n identity",
+        "evidence": [
+          "§1 h(n)/n and g(p)=p²−p+1",
+          "§5 Proposition 1 equations ap=g(q), bq=g(p), plus its conic bound",
+          "§7 cycles and smallest example"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+        "material_read": "Introduction and definitions, §§2–5, Proposition 1 and its proof, §7 heuristic and references",
+        "method": "Full-text HTML material read and compared equation (5.1), counted cases and mathematical implications",
+        "title": "The Integer Values of the Sum of Reciprocal GCDs",
+        "trigger": "Exact same polynomial and functional graph; §5 Proposition 1 is the closest theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: conics a²−kab+b²=k and a²−pab+b²=q lack the two linear terms present in this theorem",
+        "evidence": [
+          "§1 equation (1), Vieta maps and descent",
+          "§2 Theorem 6 equation (6) and Theorem 7 equation (7)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.15229v1",
+        "material_read": "Introduction and Sections 1–2, especially Proposition 2, Lemmas 3–5 and Theorems 6–7",
+        "method": "Read source HTML and compared exact conic normal forms, root maps, and terminal conditions",
+        "title": "Vieta jumping and small norms in quadratic number fields",
+        "trigger": "Classical Vieta-jumping might dominate the quadratic descent"
+      },
+      {
+        "assessment": "NOT_COVERING: table and formula do not constitute the nonexistence classification",
+        "evidence": [
+          "Entry A317480, definition and list through 24th term",
+          "Cross-link A057660, code and 2026 reference"
+        ],
+        "identifier_or_url": "https://oeis.org/A317480",
+        "material_read": "Definition, listed terms, comments, references and executable formula",
+        "method": "Read HTML entry and compared exact asserted properties",
+        "title": "OEIS A317480",
+        "trigger": "Exact database for qualifying n and formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc1dede1-7e44-4f75-b036-ff31bf8fa3e0",
+  "value": {
+    "rationale": "An exact zero theorem eliminates the distinct-prime, first-power two-cycle configuration for which the motivating 2026 paper devotes Proposition 1 to a nontrivial quantitative bound; it also gives a new structural necessity for squarefree integer-valued reciprocal-gcd sums: every prime factor is 1 modulo 6 and the prime-support size is at least 3. This is a motivated algebraic obstruction, not a numerical extension or a restatement of the global count. The broader squarefree three-cycle problem remains open within the present argument.",
+    "status": "PASS"
+  }
+}
