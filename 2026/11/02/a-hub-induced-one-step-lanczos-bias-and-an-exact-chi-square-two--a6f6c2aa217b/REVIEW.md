@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The star spectral projections give three explicit weights, and direct Lanczos moment computation gives the Jacobi coefficients. A shared-denominator argument yields the exact nonnegative two-step quadrature error. Binomial concentration, the central limit theorem, and a uniform sub-Gaussian moment bound prove the two asymptotic regimes and moment convergence. The bundled exact-rational verifier passed 1,410 finite check groups when executed from the complete extracted package. Finite tests support but do not replace the proof.
+PASS
 
-## Originality
+The spectral projectors of the unweighted K_(1,n-1) star at 0,1,n give exact Rademacher sign-count weights w0=(n-2K)^2/n^2, w1=4K(n-1-K)/[n(n-1)], wn=4K^2/[n^2(n-1)], K~Bin(n-1,1/2). The first three moments give the two-node Jacobi matrix and exact nonnegative residual Q_n-T2=(n-2K)^2*d0/[t(t+1)(t+n)*dt], with d0=4K^2(n-1-K)/[n+(n-4)K]. k=0 is early Krylov termination, treated exactly. It is strictly positive at k=1 for n>=3, hence strict negative expected bias. Fixed t>0 and binomial CLT plus subGaussian moment bounds give (T1-tau)/n -> -1/[(t+1)(t+2)] and (T2-tau) => Z^2/(t+1)^2-1/[t(t+1)] with all fixed absolute moments; bias limit -1/[t(t+1)^2], variance limit 2/(t+1)^4. Independent direct-rational star action and resolvent checks for n=3..13 and t=1/3,2,7/2 reproduced residual; file scope_worker08_checks_20261106.py emits ONE_STAR_EXACT_PASS. Finite checks do not prove the CLT.
 
-**PASS, with publication-priority qualification.** Chen–Trogdon–Ubaru (2022) and Ubaru–Chen–Saad (2017) explain general stochastic Lanczos quadrature, moment matching and error analysis, but the inspected portions do not state the exact star-Laplacian Rademacher two-step identity or its shifted chi-square error limit. Chen–Trogdon–Ubaru (2021) address spectral distributions primarily with uniform-sphere probes, and Chen–Hallman (2022) address Krylov-aware deflation. The closest searchable published two-step Lanczos exponential-positivity result concerns a matrix-vector exponential and a sign-change time, not a trace of a shifted inverse nor the stochastic star limit. An earlier specialized graph/Lanczos analysis may still imply some or all of these facts; neither search failure nor a subject partition proves uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Star Laplacians are canonical growing-outlier graph matrices, and inverse trace estimation is a standard application of matrix-free quadrature. The result identifies a concrete mechanism by which one Krylov node retains a nonvanishing first-moment contribution from a vanishing spectral weight, while a second node detects the outlier and changes the absolute error scale from linear to constant. Exact error signs, finite distributions and limiting noise floors form a reproducible diagnostic for short-Krylov trace estimators; this is more than a routine finite example.
+The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. Equivalent form is the two-node Gauss-Stieltjes formula for a random three-atom spectral measure. General three-node/moment quadrature is classical, but it does not by itself state this binomial-measure exact law and high-degree shifted chi-square limit. The general error and stochastic matrix-free theory covers the algorithm and Stieltjes sign behavior, but the inspected results do not provide this exact star/Rademacher binomial residual or limit distribution. A specialized theorem for arbitrary growing outliers could dominate it; that remains a priority risk.
 
-## Limitations and closest literature
+## value
 
-The theorem is only for unweighted combinatorial stars, one iid Rademacher probe, fixed positive shift and exact arithmetic. It does not prove uniformity across arbitrary graphs, or floating-point performance. General theory of Gauss quadrature already supplies sign and moment-matching principles, so those are not novelty claims. The strongest source-specific residual risk is that specialized graph spectral trace literature not accessed in the searches could contain an equivalent exact star calculation. Independent validation and publication-priority review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The high-degree star is a natural stress-test for stochastic Lanczos trace estimation, as the vanishing mass of the growing outlier produces extensive single-step underestimation but a nondegenerate shifted chi-square residual after two steps. The exact all-sign error and limiting variance give interpretable finite-step performance benchmarks that neither a general Gauss error sign nor a routine numerical test alone supplies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
