@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the shortness rule (leading 1 and second digit 0 or 1), classify representations by final digit: for even 2m the final digit must be 0 and g(2m)=g(m); for odd 2m+1≥3, last +1 and −1 contribute opposite signs so g(2m+1)=g(m)−g(m+1). With g(1)=g(2)=1, v(n)=(g(n),g(n+1)) evolves by (a,a−b) for a trailing 0 and (a−b,b) for trailing 1. These unimodular actions preserve coprimality, so the projective states P(equal), I(b=0), Z(a=0), X(negative or 0<a/b<1) cover all possibilities; X absorbs. The exact automaton recognizes g(n)=0 precisely at ordinary binary words 1(01*0)*10*. Counting paths gives F_{r−1} balanced r-bit numbers and F_{r+1}−1 below 2^r, density 0 and exponent log_2 φ. Independent literal enumeration and recurrence automaton comparisons tested n≤240. They do not substitute for the proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anders et al main theorem E(n)+O(n)=Stern(n) does not specify signed difference E(n)−O(n). The classical twisted Stern recurrence uses different recursion signs."
+        ],
+        "reasoning": "A general automatic-sequence theorem might imply regularity but not this exact zeros language or Fibonacci count without an additional sign-specific derivation.",
+        "searches": [
+          "Anders Dawsey Gupta Vandehey nonstandard binary representations Stern sequence 2023",
+          "Allouche twisted Stern sequence zero sets regular language"
+        ]
+      },
+      "checked_sources": [
+        "Anders et al arXiv:2308.07448, Theorem 1.1",
+        "Monroe arXiv:2108.12417",
+        "Allouche arXiv:1202.4171",
+        "Resultary search: short signed binary digit representations negative sign parity balanced Stern zero Fibonacci integer words"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work counts total representations and distributions of other digit statistics; the current signed count requires subtraction at odd digits and new four-state quotient."
+        ],
+        "reasoning": "Knowing E+O alone cannot determine E−O, and a change of signed weights is not a trivial specialization of a total-count theorem.",
+        "searches": [
+          "arxiv:2308.07448",
+          "arxiv:2108.12417",
+          "arxiv:1202.4171"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anders–Dawsey–Gupta–Vandehey arXiv:2308.07448 gives the same short digit constraint and total Stern count; twisted Stern polynomials are the closest recurrence alias."
+        ],
+        "reasoning": "The target is zero set of the negative-digit signed count, not total unsigned Stern, number-of-zero-digit Stern polynomials or unrestricted nonadjacent forms.",
+        "searches": [
+          "short signed binary digit representations negative sign parity balanced Stern zero Fibonacci integer words",
+          "parity negative signed binary digit representations short Stern sequence balanced Fibonacci words automaton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved indexed Resultary finding tabulates this particular negative-digit parity-balance set; the target is a family-wide formal language, not an isolated computed table."
+        ],
+        "reasoning": "No indexed matching table found, but unindexed twisted Stern zero sets remain a priority risk.",
+        "searches": [
+          "parity negative signed binary digit representations short Stern sequence balanced Fibonacci words automaton",
+          "Stern sequence parity negative digits OEIS Fibonacci zero"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison for Fibonacci law for parity-balanced short signed-binary representations: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.",
+      "residual_risks": [
+        "An unindexed twisted-Stern zero set result may coincide with this regular language.",
+        "Scope excludes unrestricted signed expansions, nonadjacent-form digit strings and fixed-length sequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes unsigned Stern count, not identified as supplying E−O zero language",
+          "evidence": [
+            "Theorem 1.1 counts all short representations via Stern; negative-digit parity refinement is distinct."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.07448",
+          "material_read": "Main definitions, Theorem 1.1 and representations/counting arguments from the accessible eight-page preprint",
+          "method": "Open arXiv PDF and rendered first-page inspection",
+          "title": "Non-standard binary representations and the Stern sequence",
+          "trigger": "Primary paper defining the identical short signed digits"
+        },
+        {
+          "assessment": "Examines signed-digit statistics; unable to exclude hidden equivalent formula",
+          "evidence": [
+            "Abstract emphasizes fixed-length and zero-digit distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.12417",
+          "material_read": "Title and abstract-level scope, not full paper text",
+          "method": "Bibliographic/public search",
+          "title": "Binary Signed-Digit Integers and the Stern Polynomial",
+          "trigger": "Potential stronger signed-digit distribution"
+        },
+        {
+          "assessment": "Different twisted recurrence signs; whole-document noncoverage not asserted",
+          "evidence": [
+            "A related signed recurrence family exists and should be considered as a historical alias."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.4171",
+          "material_read": "Title and recurrence-level scope as accessible, not full text",
+          "method": "Public literature search",
+          "title": "On the Stern sequence and its twisted version",
+          "trigger": "Possible alias of signed Stern recursion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign-parity refinement of the natural short signed-digit family distinguishes equal even/odd counts that the known Stern total count cannot detect. An explicit regular language, exact Fibonacci shell counts and density exponent constitute a useful exact classification in arithmetic automata and digital representations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Mathematical originality assessment is best-of-knowledge and not historical certification or formal verification.",
+    "Finite calculation checks are not a proof for unrestricted quantifiers; infinite claims rely on checked proof arguments.",
+    "Potentially public metadata is not sanitized; publication plan not_ready.",
+    "An unindexed twisted-Stern zero set result may coincide with this regular language.",
+    "Scope excludes unrestricted signed expansions, nonadjacent-form digit strings and fixed-length sequences."
+  ],
+  "schema_version": 1
+}

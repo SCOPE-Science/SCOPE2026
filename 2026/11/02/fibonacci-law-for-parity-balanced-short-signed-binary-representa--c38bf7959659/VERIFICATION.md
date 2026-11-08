@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The independent literal generator in `verify.py` enumerates all valid short expansions of each positive integer at most 1024, counting 29,525 distinct representations. It compares the unweighted count to the Stern recurrence and the sign-weighted difference to the last-digit recurrence. It then checks every positive integer below 131072 against the regular language and checks the Fibonacci shell and cumulative counts for binary lengths 1 through 17. Finally it checks the projective state transition rule through 131070.
+## correctness
 
-Run `python3 verify.py` using Python 3 and the standard library only. Expected final messages begin with `PASS:` and end with the sequence `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]`.
+PASS
 
-No finite test proves the statement for all positive integers. The full proof is in `RESULT.md`, and the exact signed-digit definition and the exclusion of the empty/boundary case are essential. Independent audit has not been performed.
+For the shortness rule (leading 1 and second digit 0 or 1), classify representations by final digit: for even 2m the final digit must be 0 and g(2m)=g(m); for odd 2m+1≥3, last +1 and −1 contribute opposite signs so g(2m+1)=g(m)−g(m+1). With g(1)=g(2)=1, v(n)=(g(n),g(n+1)) evolves by (a,a−b) for a trailing 0 and (a−b,b) for trailing 1. These unimodular actions preserve coprimality, so the projective states P(equal), I(b=0), Z(a=0), X(negative or 0<a/b<1) cover all possibilities; X absorbs. The exact automaton recognizes g(n)=0 precisely at ordinary binary words 1(01*0)*10*. Counting paths gives F_{r−1} balanced r-bit numbers and F_{r+1}−1 below 2^r, density 0 and exponent log_2 φ. Independent literal enumeration and recurrence automaton comparisons tested n≤240. They do not substitute for the proof for all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison for Fibonacci law for parity-balanced short signed-binary representations: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.
+
+## value
+
+PASS
+
+The sign-parity refinement of the natural short signed-digit family distinguishes equal even/odd counts that the known Stern total count cannot detect. An explicit regular language, exact Fibonacci shell counts and density exponent constitute a useful exact classification in arithmetic automata and digital representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
