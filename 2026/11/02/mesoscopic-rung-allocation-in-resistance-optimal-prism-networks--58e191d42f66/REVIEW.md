@@ -1,15 +1,21 @@
-# Self-review: mesoscopic rung allocation in resistance-optimal prism networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The full unrestricted weight domain, nonnegative budgets and disconnected-graph boundary are covered. Strict trace-inverse convexity and distinct edge off-diagonal entries give uniqueness; automorphisms force equal weights within the two price classes rather than assuming them. The block Laplacian spectrum yields an exact finite-\(n\) optimization equation. The uniform compact-limit argument based on the exact Fourier resolvent proves the sharp fractional exponent and the next-order coefficient. The accompanying runnable verifier completed 57 exact, direct-matrix, and numerical checks, including unconstrained per-edge optimizations. Finite numerical agreement is not presented as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The original 2006 and expanded 2008 Ghosh–Boyd–Saberi texts provide the convex resistance-design framework and work out other graph classes. Zhang–Yang (2006) and Cinkir (2015, 2017) evaluate fixed-edge resistance on circulant/ladder/prism geometries; no inspected statement optimizes priced ring/rung conductances or implies the two-term \(n^{7/3}\) trace law. The closest published weighted-ladder research record concerns spanning-tree inclusion, not resistance minimization. The accessible ledger's 43 earlier claims on other networks do not contain a prism optimum. The 2017 prism full text could not be inspected, so specialist prior coverage remains a real but nondispositive risk; no absence-of-search-result assertion is treated as proof of priority.
+PASS
 
-## Mathematical value — PASS
-The result predicts the full-budget allocation on a symmetric but nontrivial multiply connected family, including a distinctive mesoscopic rung-to-ring scaling \(n^{-2/3}\) and exact coefficient. It shows a one-third asymptotic reduction in resistance compared with equal edge weights for equal prices. This has clear use in resource allocation across two-layer periodic networks, beyond an isolated numerical invariant.
+For n>=3 with nonnegative independent edge conductances, fixed positive P,Q,B, the graph is connected at finite optimum and restricted Laplacian trace inverse is strictly convex in the edge weights since distinct edges give distinct off-diagonal entries. Uniqueness plus prism automorphisms forces common ring x_n>0 and rung y_n>0. Symmetric/antisymmetric Fourier modes give T=n(2P+Qt)/B*(a_n+sum_{k=0}^{n-1}1/(mu_k+2t)) and the stated unique scalar stationary equation. Exact cycle resolvent F_n(t)=n/(2sqrt(t(t+2)))*(1+rho(t)^n)/(1-rho(t)^n); testing t=s n^(-2/3), compactness upper/lower bounds on optimal s, uniform convergence yield minimizer s*=(18P^2/Q^2)^(1/3), t_n~s*n^(-2/3), T=(P/(6B))n^3+(Q*s/(4B))n^(7/3)+o(n^(7/3)). The n^5/3 rung scaling and equal-price 2/3 comparison follow. Independent full Laplacian traces n=3..7 and asymptotic n=200,400,800 checks corroborate, not replace proof.
 
-## Scope and limitations
-The large-size theorem holds at fixed positive prices and budget; it does not claim arbitrary price scaling, random failures or higher-width cylinders. The finite-size solution is implicit but exact via a uniquely determined scalar root. Only the documented self-review has been conducted, and specialized historical coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Ghosh–Boyd–Saberi established convex conductance design in general and solved trees/wheels/barbells, but not the prism two-class boundary-layer solution; Cinkir and Zhang–Yang fixed-edge resistance formulas do not optimize free conductances. The specialized 2017 prism full text was inaccessible, so priority remains qualified.
+
+## value
+
+PASS
+
+A natural freely priced three-edge-class network optimization yields exact finite-n weights and a nontrivial fractional n^-2/3 rung-allocation boundary layer with next-order n^7/3 trace correction; this can inform resistance-design asymptotics and is not merely computing a known unweighted index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
