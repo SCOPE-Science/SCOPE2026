@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:13:29.974816Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b>1 and -1<N,D<1, each alpha_j=sqrt((1+Nq^j)/(1+Dq^j)) is strictly positive and tends geometrically to 1. Beta_k=product_{j<k}alpha_j converges to P>0, so diagonal X e_j=beta_j e_j is bounded/invertible with W X=X S. If N>D the decreasing weights yield ||W^k||=beta_k, whence every invertible intertwiner has condition at least beta_k and then P; if N<D the increasing contractive weights have m(W^k)=beta_k and the S-isometry similarity gives condition at least 1/beta_k, then 1/P. In both cases the diagonal X attains, including N=D. Euler–Maclaurin applied to f(x)=log[(1+Ne^-x)/(1+De^-x)] with integrable derivatives gives log P=(Li2(-D)-Li2(-N))/(2h)+f(0)/4+O(h), h=log b, and both terms have common sign. With N=d+tau h, D=d, uniform Taylor expansion gives log P ->(tau/2)log(1+d)/d, with d=0 continuously 1. Independent finite product computations confirmed order-of-magnitude for three parameter pairs at b=1.1 and 1.01. The proof is exact operator-power and Riemann-sum analysis, not numerical sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shields criterion as cited by Hou–Ji–Xu gives a broad necessary and sufficient condition for similarity, while GRWS literature classifies positive moment properties.",
+          "The claimed lower bound uses all powers or minimum moduli, and the diagonal product intertwiner matches it, providing the least similarity condition number among non-diagonal operators."
+        ],
+        "reasoning": "An exact quantitative general weighted-shift similarity theorem may subsume this as a corollary; the inspected known results are primarily existence/qualitative rather than a stated optimal conditioning formula.",
+        "searches": [
+          "geometrically regular weighted shift similarity condition number infinite q-Pochhammer dilogarithm",
+          "Hou Ji Xu 2208.08387 Shields lemma weighted shifts",
+          "Benhida Curto Exner 2312.06390 MID safe quotients GRWS"
+        ]
+      },
+      "checked_sources": [
+        "Benhida Curto Exner arXiv:2309.05888 full PDF selected definitions and theorem statements",
+        "Hou Ji Xu arXiv:2208.08387 abstract and Shields context",
+        "Benhida Curto Exner arXiv:2312.06390 abstract",
+        "Resultary query: geometrically regular weighted shift similarity condition number infinite q-Pochhammer dilogarithm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GRWS paper treats spectral/moment positivity and definitions but not the exact all-intertwiner condition number in the selected material.",
+          "Shields existence theorem is consistent with finite nonzero P but the sharp constant requires power-norm/min-modulus lower bounds."
+        ],
+        "reasoning": "Generic weighted shift similarity criteria do not alone produce the displayed sharp q-product minimum and dilogarithm crossover; an overlooked exact quantitative theorem is the priority risk.",
+        "searches": [
+          "Benhida Curto Exner 2309.05888 Theorems GRWS",
+          "Shields 1974 weighted shift similarity criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benhida–Curto–Exner arXiv:2309.05888 defines exactly these weights and studies MID/hyponormality/subnormality.",
+          "Shields classical similarity criterion bounds products uniformly; this proves similarity existence but does not directly specify inf ||X||||X^-1|| for this monotone family."
+        ],
+        "reasoning": "Aliases include bounded diagonal conjugacy, shift similarity distance and product-ratio condition. Existing qualitative similarity of shifts is acknowledged, while exact norm-condition optimum and q-dilog crossover are distinct quantitative claims.",
+        "searches": [
+          "geometrically regular weighted shift similarity condition number infinite q-Pochhammer dilogarithm",
+          "Shields weighted shift similarity bounded products optimal norm constant",
+          "Benhida Curto Exner geometrically regular weighted shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned geometric shift numerical-radius and subnormality studies, not tables of sharp similarity constants for all N,D,q.",
+          "The product P is a standard q-Pochhammer type product, but a tabulated product alone does not establish global optimality among arbitrary intertwiners."
+        ],
+        "reasoning": "No exact table or database computing this minimal operator similarity invariant was located; standard q-product identities are existing input mathematics.",
+        "searches": [
+          "geometrically regular weighted shift similarity condition number infinite q-Pochhammer dilogarithm",
+          "Resultary geometrically regular weighted shift product condition number",
+          "q Pochhammer dilogarithm weighted shift similarity constant"
+        ]
+      },
+      "rationale": "Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.",
+      "residual_risks": [
+        "A classical sharp quantitative similarity result for arbitrary monotone weighted shifts might imply the formula.",
+        "Fixed-parameter dilogarithm error not uniform at N,D=-1 boundary; critical scaling fixes d,tau.",
+        "The underlying family and qualitative similarity are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same family, focus on moment positivity not quantitative similarity condition-number optimum",
+          "evidence": "Benhida–Curto–Exner arXiv:2309.05888, definitions and classification theorems",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.05888",
+          "material_read": "primary full PDF opened; abstract, introduction, definitions and theorem sections on moment/subnormality classifications examined; PDF pages visually checked",
+          "method": "arXiv full PDF text and page images",
+          "title": "Geometrically regular weighted shifts",
+          "trigger": "identical weight family and possible stronger coverage"
+        },
+        {
+          "assessment": "covers existence of similarities by bounded product ratios; exact minimal condition remains comparison risk",
+          "evidence": "Hou–Ji–Xu 2022 and Shields 1974 similarity criterion",
+          "identifier_or_url": "https://arxiv.org/abs/2208.08387",
+          "material_read": "arXiv title, abstract and cited Shields lemma context; complete primary paper not read",
+          "method": "public abstract and citation context",
+          "title": "On the N-hypercontractions and similarity of multivariable weighted shifts",
+          "trigger": "stronger Shields similarity criterion"
+        },
+        {
+          "assessment": "related moment-infinite divisibility, not decisive for exact similarity condition",
+          "evidence": "Benhida–Curto–Exner 2023 follow-up",
+          "identifier_or_url": "https://arxiv.org/abs/2312.06390",
+          "material_read": "title, abstract and bibliographic material only; full text not read",
+          "method": "public bibliographic material",
+          "title": "MID and safe quotients for GRWS",
+          "trigger": "follow-up same-family paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least norm condition number of a bounded intertwiner is a natural operator-theoretic invariant beyond a yes/no shift similarity criterion; the exact q-product and singular h^-1 dilogarithmic growth quantify severe instability near b=1. The O(h) parameter-coalescence crossover gives a sharp finite regime for an independently studied GRWS family, meaningful even without a theorem for nonmonotone shifts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Parameters b>1, -1<N,D<1, real positive monotone weights; no nonmonotone shifts.",
+    "Classical similarity literature may contain an exact condition-number theorem and is residual bibliographic risk.",
+    "A classical sharp quantitative similarity result for arbitrary monotone weighted shifts might imply the formula.",
+    "Fixed-parameter dilogarithm error not uniform at N,D=-1 boundary; critical scaling fixes d,tau.",
+    "The underlying family and qualitative similarity are not new."
+  ],
+  "schema_version": 1
+}

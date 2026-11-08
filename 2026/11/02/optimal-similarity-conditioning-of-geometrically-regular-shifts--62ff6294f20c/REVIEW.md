@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weights are positive, converge geometrically to one, and are monotone with sign determined by \(N-D\). Exact operator-power norms (for \(N>D\)) or minimum moduli (for \(N<D\)) give matching lower bounds for every similarity, regardless of its matrix form. The explicit diagonal similarity attains the bounds. Uniformly integrable Euler–Maclaurin remainders and a first-order parameter expansion yield both singular and critical-crossover laws. The packaged rational checker tests finite block extremality and numerical asymptotics, without treating finite tests as proof.
+## correctness
 
-**Originality — PASS, qualified.** The same weights and qualitative shift classifications occur in Benhida–Curto–Exner, arXiv:2309.05888, while Shields's criterion, reproduced in Hou–Ji–Xu, arXiv:2208.08387, gives existence of similarity from bounded product ratios. Neither inspected theorem determines the smallest condition number among all similarities or the asymptotic crossover. Actual searches for weighted-shift similarity constants, q-Pochhammer conditioning and analogous operator profiles did not reveal an implication covering this exact statement. Classical diagonal-conjugacy literature and full text of a related quotient paper remain bibliographic risks, not assertions of proven absence.
+PASS
 
-**Mathematical value — PASS.** The least similarity condition number is a natural invariant for this independently studied family, especially in the contractive parameter sector where all positive power norms are one and so do not quantify distance from the unilateral shift. Its exact product and sharp singular and critical limits supply nontrivial conditioning thresholds across the geometric parameter range.
+For b>1 and -1<N,D<1, each alpha_j=sqrt((1+Nq^j)/(1+Dq^j)) is strictly positive and tends geometrically to 1. Beta_k=product_{j<k}alpha_j converges to P>0, so diagonal X e_j=beta_j e_j is bounded/invertible with W X=X S. If N>D the decreasing weights yield ||W^k||=beta_k, whence every invertible intertwiner has condition at least beta_k and then P; if N<D the increasing contractive weights have m(W^k)=beta_k and the S-isometry similarity gives condition at least 1/beta_k, then 1/P. In both cases the diagonal X attains, including N=D. Euler–Maclaurin applied to f(x)=log[(1+Ne^-x)/(1+De^-x)] with integrable derivatives gives log P=(Li2(-D)-Li2(-N))/(2h)+f(0)/4+O(h), h=log b, and both terms have common sign. With N=d+tau h, D=d, uniform Taylor expansion gives log P ->(tau/2)log(1+d)/d, with d=0 continuously 1. Independent finite product computations confirmed order-of-magnitude for three parameter pairs at b=1.1 and 1.01. The proof is exact operator-power and Riemann-sum analysis, not numerical sampling.
 
-**Scope and limitations.** The result requires strictly positive monotone GRWS weights and does not cover arbitrary nonmonotone weighted shifts. The singular expansion is for fixed parameters in the open square, and the crossover fixes the base parameter and scaling coefficient. The claim does not assert priority beyond inspected evidence. No independent assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.
+
+## value
+
+PASS
+
+The least norm condition number of a bounded intertwiner is a natural operator-theoretic invariant beyond a yes/no shift similarity criterion; the exact q-product and singular h^-1 dilogarithmic growth quantify severe instability near b=1. The O(h) parameter-coalescence crossover gives a sharp finite regime for an independently studied GRWS family, meaningful even without a theorem for nonmonotone shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
