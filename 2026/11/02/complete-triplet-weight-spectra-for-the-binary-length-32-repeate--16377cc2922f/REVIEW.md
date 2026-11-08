@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-two factorization \(x^{32}-1=(x+1)^{32}\) establishes the complete code chain, dimensions and unique generator-message parametrization. The eleven-component Hasse syndrome is equivalent to divisibility by the generator; its transfer recurrence enumerates all ambient words for the first twelve codes while accurately closing both cyclic windows. For the remaining 21 codes the unique generator-message parametrization enumerates all members, up to \(2^{20}\) messages per code. The standalone C verifier checks every cell of the 33-by-33 integer coefficient matrix and its row sums/minimum-multiplicity fields; the Python cross-check separately reproduces selected rows across the algorithm boundary and the independent forbidden-`000` transfer-matrix identity. These are exact exhaustive finite calculations, not a finite experiment extrapolated to an infinite theorem. Critical assumptions are binary alphabet, 32 coordinates and cyclic length-three reads.
+PASS
 
-## Originality — PASS, with priority caveat
+The Hasse-derivative congruences H_j(c)=0 for j<i exactly characterize membership in C_i=((x+1)^i) in F_2[x]/(x^32-1), because x^32-1=(x+1)^32. For i<=11 the 11-bit syndrome/last-two-bits dynamic program counts each 32-bit word once, accumulating 30 ordinary triples and two cyclic wrap triples; for i>=12 distinct messages of degree <32-i yield all and only the 2^(32-i) words. The actual verify.c implements these recurrences and elementwise comparison with actual SPECTRUM.csv; the separate crosscheck.py handles both sides i=11/12. I inspected the C transitions, Gray updates and supplied CSV. Independently enumerated all messages for i=16,20,24,28,30,31,32; obtained A_16,32=17155 and the published minimum-weight counts for these rows. The program is a finite exhaustive algorithm, not an extrapolation; the complete 33-row C program was not independently rerun in this execution, so the remaining CSV coefficients rely on the inspected exhaustive code and existing package verification.
 
-The closest sources study minimum symbol-pair or \(b\)-symbol distances for repeated-root codes (Zhu–Sun–Wang, 2016; Mostafanasab–Sevim, 2017). Their minimum-weight conclusions do not imply the full numbers of codewords at every triplet weight. Complete \(b\)-symbol enumerator results for irreducible cyclic codes (Zhu–Shi–Özbudak, 2021; Vega, 2023) have a distinct algebraic regime: their code classes are not the nonsemisimple binary length-32 ideal chain. The full-space \(i=0\) coefficients are already obtainable from the general ambient-space recurrence of Abdukhalikov–Chen–Feng (2023); novelty is therefore asserted for the complete classification of the nontrivial repeated-root subcodes, not for that row. A comparison with related indexed claims and targeted literature did not identify the complete 33-row chain table. The possibility of a previously published but unindexed exact table is a residual historical-priority risk; lack of a search hit alone is not taken as proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical full chain of all binary repeated-root cyclic codes at a natural power-of-two length, the exact three-symbol weight distribution supplies information strictly richer than the known minimum distances. It quantifies the multiplicity of each nonzero read-vector support weight (hence exact event frequencies when codewords are uniformly sampled), including substantial changes in minimum-weight multiplicity hidden by identical minimum distances. The problem is a natural whole-family finite classification rather than a hand-picked code or a cosmetic numerical increment. It gives reproducible reference spectra for studies of overlapping-read channel codes, without claiming an all-length theorem or a new coding-performance bound.
+Existing repeated-root papers determine minimum b-symbol distances, not all 33 complete cyclic triplet-weight enumerators. Irreducible and semiprimitive complete-enumerator theorems have incompatible hypotheses at n=32 over characteristic two. An earlier general ambient-space recurrence covers C_0, expressly excluded from the claimed novelty; the remaining proper-ideal coefficient table is a narrow but distinct tabulation. Resultary semantic search found coding-spectrum records for different code families, not this repeated-root length-32 chain.
 
-## Closest sources and limitations
+## value
 
-The nearest sources are arXiv:1607.01887, arXiv:1704.03311, arXiv:2110.00805, DOI:10.1007/s10623-023-01193-w, and DOI:10.3390/math11194128. The result is confined to binary length 32 and three-symbol cyclic windows. Full historical priority and independent validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Every ideal in the natural binary length-32 repeated-root cyclic chain is accounted for, including exact multiplicities beyond minimum distances, enabling comparisons such as C_3 versus C_4 with equal distance six but 144 versus 112 minimum-weight words. The exact full finite spectrum is a motivated communication-code invariant and is independently useful as benchmark data. Neither an arbitrary code subset nor an unfounded generalization to other lengths is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

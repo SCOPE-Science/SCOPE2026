@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:03:14.303067Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Hasse-derivative congruences H_j(c)=0 for j<i exactly characterize membership in C_i=((x+1)^i) in F_2[x]/(x^32-1), because x^32-1=(x+1)^32. For i<=11 the 11-bit syndrome/last-two-bits dynamic program counts each 32-bit word once, accumulating 30 ordinary triples and two cyclic wrap triples; for i>=12 distinct messages of degree <32-i yield all and only the 2^(32-i) words. The actual verify.c implements these recurrences and elementwise comparison with actual SPECTRUM.csv; the separate crosscheck.py handles both sides i=11/12. I inspected the C transitions, Gray updates and supplied CSV. Independently enumerated all messages for i=16,20,24,28,30,31,32; obtained A_16,32=17155 and the published minimum-weight counts for these rows. The program is a finite exhaustive algorithm, not an extrapolation; the complete 33-row C program was not independently rerun in this execution, so the remaining CSV coefficients rely on the inspected exhaustive code and existing package verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Shi–Özbudak concern complete b-symbol distributions of irreducible codes; this code is repeated-root in characteristic 2.",
+          "Vega semiprimitive irreducible code hypotheses require gcd(length,q)=1, whereas gcd(32,2)=2.",
+          "Abdukhalikov–Chen–Feng give general b-symbol enumerators of ambient spaces, applicable to C_0 but not the complete proper-subcode chain as a stated theorem."
+        ],
+        "reasoning": "A general theorem for these exact proper ideals was not found; relevant stronger-looking theorems require different algebraic types, and the ambient-space row is attributed.",
+        "searches": [
+          "arXiv:2110.00805",
+          "DOI:10.1007/s10623-023-01193-w",
+          "DOI:10.3390/math11194128"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE Git tree f3868fb3e7ee3c11036928bc170b4280239b85f4: RESULT.md, SPECTRUM.csv, verify.c, crosscheck.py",
+        "https://arxiv.org/abs/1607.01887",
+        "https://arxiv.org/abs/1704.03311",
+        "https://arxiv.org/abs/2110.00805",
+        "https://doi.org/10.3390/math11194128",
+        "Resultary semantic query: complete triplet b-symbol weight enumerator repeated root binary cyclic code length 32 all ideals (x+1)^i weight distribution tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum triplet distance six in both C_3 and C_4 does not determine their different minimum multiplicities 144 and 112.",
+          "A general recurrence for unrestricted words covers the C_0 row, explicitly prior work."
+        ],
+        "reasoning": "Neither a minimum distance nor the one ambient-word enumerator logically determines the complete coefficients for all proper repeated-root ideals without additional computation. A generic finite enumeration algorithm is not an existing exact published table.",
+        "searches": [
+          "arXiv:1607.01887 distance result",
+          "arXiv:1704.03311 distance result",
+          "DOI:10.3390/math11194128 ambient recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3-symbol cyclic read weight is b=3 symbol weight; repeated-root code C_i is the unique (x+1)^i ideal at length 32.",
+          "Zhu–Sun–Wang and Mostafanasab–Sevim discuss symbol-pair and b-symbol distances, respectively, not the complete 33x33 coefficient array."
+        ],
+        "reasoning": "Equivalent code notation and symbol-read conventions were aligned; located distance theorems give minima but not all multiplicities. No matching full-table formulation was located.",
+        "searches": [
+          "Resultary: complete triplet b-symbol weight enumerator repeated root binary cyclic code length 32 all ideals (x+1)^i weight distribution tables",
+          "arXiv:1607.01887",
+          "arXiv:1704.03311"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary records concern small pair-code spectra, BCH codes, and other cyclic families rather than the all-ideal length-32 b=3 table.",
+          "The inspected source csv contains 33 index rows i=0..32 and triplet coefficient columns A_0..A_32."
+        ],
+        "reasoning": "No exact known database/table was found in the checked sources. This is a qualified priority search, not proof that no unpublished table exists.",
+        "searches": [
+          "Resultary semantic search for binary length-32 repeated-root cyclic triplet enumerator",
+          "actual SPECTRUM.csv and its 33x33 coefficient array",
+          "SCOPE related cyclic symbol-pair code search"
+        ]
+      },
+      "rationale": "Existing repeated-root papers determine minimum b-symbol distances, not all 33 complete cyclic triplet-weight enumerators. Irreducible and semiprimitive complete-enumerator theorems have incompatible hypotheses at n=32 over characteristic two. An earlier general ambient-space recurrence covers C_0, expressly excluded from the claimed novelty; the remaining proper-ideal coefficient table is a narrow but distinct tabulation. Resultary semantic search found coding-spectrum records for different code families, not this repeated-root length-32 chain.",
+      "residual_risks": [
+        "Unindexed or unpublished prior table for this precise length and ideal chain may exist.",
+        "The full 1089-entry C verification was not independently executed this run; algorithm and selected generator rows were inspected/checksummed, not an independent second exhaustive census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior minimum-distance coverage, not a complete length-32 3-symbol enumerator",
+          "evidence": "Theorems concern distance rather than all A_(i,w) coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.01887",
+          "material_read": "Public arXiv paper text, statements on symbol-pair minimum distances and repeated-root code families",
+          "method": "Read web-exposed primary text including theorem and assumptions",
+          "title": "The symbol-pair distance distribution of repeated-root cyclic codes over F_{p^m}",
+          "trigger": "Exactly the same repeated-root code objects"
+        },
+        {
+          "assessment": "Prior b-distance formulas do not report the all-ideal coefficient spectrum",
+          "evidence": "No 33x33 multiplicity table in inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.03311",
+          "material_read": "Accessible primary arXiv text, introductory definitions and distance results",
+          "method": "Primary text read and compared hypotheses/conclusions",
+          "title": "b-symbol distance distribution of repeated-root cyclic codes",
+          "trigger": "Same repeated-root and b-symbol generalization"
+        },
+        {
+          "assessment": "The unrestricted full-space row is prior; proper ideal tables not covered by stated ambient-space recurrence",
+          "evidence": "Full-space b-symbol distribution not a subcode-weight distribution.",
+          "identifier_or_url": "https://doi.org/10.3390/math11194128",
+          "material_read": "Article identification and cited general ambient enumerator statement; not claimed full-paper negative reading",
+          "method": "Statement-level comparison, cross-check with package citation",
+          "title": "On Linear Perfect b-Symbol Codes over Finite Fields",
+          "trigger": "Potential stronger ambient enumerator recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every ideal in the natural binary length-32 repeated-root cyclic chain is accounted for, including exact multiplicities beyond minimum distances, enabling comparisons such as C_3 versus C_4 with equal distance six but 144 versus 112 minimum-weight words. The exact full finite spectrum is a motivated communication-code invariant and is independently useful as benchmark data. Neither an arbitrary code subset nor an unfounded generalization to other lengths is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE Git tree f3868fb3e7ee3c11036928bc170b4280239b85f4: RESULT.md, SPECTRUM.csv, verify.c, crosscheck.py",
+    "https://arxiv.org/abs/1607.01887",
+    "https://arxiv.org/abs/1704.03311",
+    "https://arxiv.org/abs/2110.00805",
+    "https://doi.org/10.3390/math11194128",
+    "Resultary semantic query: complete triplet b-symbol weight enumerator repeated root binary cyclic code length 32 all ideals (x+1)^i weight distribution tables"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed or unpublished prior table for this precise length and ideal chain may exist.",
+    "The full 1089-entry C verification was not independently executed this run; algorithm and selected generator rows were inspected/checksummed, not an independent second exhaustive census."
+  ],
+  "schema_version": 1
+}
