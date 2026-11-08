@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every source load x and agent j the largest budget-feasible subset of x unit chores is min(x,b_j), so exact EF is precisely min(x,b_j)<=a_j. Any unsaturated agent must attain the maximal source load; all unsaturated loads coincide at t and all saturated loads are b_i<=t, yielding a_i=min(b_i,t), housekeeper h<=t, or the all-full case. The reverse implication is immediate. Distinct load vectors give the multinomial census. The adjacent feasible-workload bands have start gap R(t+1); the last nonempty gap occurs at t_* with R(t_*)>=t_*+1, since R is nonincreasing. This proves that F(t_*)-1 is impossible and all larger workloads are feasible. Exact independent direct-EF enumeration matched 6,066,226 assignments over 1206 parameter settings; the verifier checks 19525 heterogenous and 182 homogeneous capacity thresholds. No infinite conclusion is inferred solely from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elkind, Igarashi and Teh (2024) prove EFX/EF2 for indivisible chores and EF for divisible chores; indivisible exact EF counting is not among the inspected claims.",
+        "Barman et al. (2022/2023) prove relaxed indivisible-goods fairness with budgets, not the proposed exact census.",
+        "Manurangsi and Suksompong (2026), Asymptotic Fair Division: Chores Are Easier Than Goods, studies a random disutility model without these budgets; abstract inspected."
+      ],
+      "reasoning": "Neither general EFX/EF1/EF2 guarantee nor divisible EF implies exact EF load-vectors in an indivisible unit model. A probabilistic no-budget existence theorem is also not a stronger deterministic budgeted census. Priority risk remains for unknown structural results.",
+      "searches": [
+        "exact envy free budgeted identical size chores housekeeper counting allocations budgets integer water filling",
+        "\"Sharp feasibility threshold for exact envy-freeness under heterogeneous integer capacities and a housekeeper in budget-constrained chore allocation; Ferrers Durfee index census\"",
+        "arxiv:2410.23979v1, Sections 3-7 and relevant appendices",
+        "arxiv:2208.08168, full open source"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2410.23979v1",
+      "https://link.springer.com/chapter/10.1007/978-3-031-71033-9_4",
+      "https://arxiv.org/abs/2208.08168",
+      "https://doi.org/10.1137/25M180161X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2410.23979v1 : Definition 1 quantifies against every feasible subset of each source bundle, including the housekeeper; authors guarantee EF for divisible chores and weaker guarantees for indivisible chores.",
+        "https://arxiv.org/abs/2208.08168 : the source highlights possible failure of exact envy-freeness and proves EF2 and EF1 special-case existence, with charity.",
+        "https://link.springer.com/chapter/10.1007/978-3-031-71033-9_4 : First Online 31 August 2024."
+      ],
+      "reasoning": "The prior EF1/EFX/EF2 claims cannot imply exact EF for every workload: already four capacities five and eleven unit chores give no exact EF allocation. Prior EF for divisible chores does not imply a finite indivisible census. The proposed classification includes full load vectors, counting and last missing workload; none follows from the inspected source theorems alone.",
+      "searches": [
+        "Elkind Igarashi Teh Fair Division of Chores with Budget Constraints 2024 exact envy free unit chores housekeeper integer budgets counting",
+        "\"Fair Division of Chores with Budget Constraints\" Springer First Online 31 August 2024",
+        "\"Finding Fair Allocations under Budget Constraints\" Barman Khan Shyam Sreenivas arxiv 2208.08168"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact EF for homogeneous unit chores reduces to min(source load,budget)<=target load (deduced from arxiv:2410.23979v1, Definition 1).",
+        "arxiv:2208.08168 describes the analogous budgeted-goods / charity valuation model and aims for EF2 and EF1 guarantees in special cases."
+      ],
+      "reasoning": "The goods/chores mathematical duality does not by itself establish a new theorem. Both are compared at the level of the shared integer inequalities. The primary inspected exact statements stop short of a full EF allocation classification, multinomial census, and last-gap conductor.",
+      "searches": [
+        "budget constrained envy-free identical chores count all allocations homogeneous agents capacity",
+        "Exact count of envy-free housekeeper allocations of equal-size equal-disutility chores under unequal integer budgets. Water level min(b_i,t), last missing workload F(t_star)-1, R(t)>=t+1 Durfee condition.",
+        "arxiv:2410.23979v1, Section 2.1, Definition 1; Sections 5.1-5.5",
+        "arxiv:2208.08168, budgeted goods definition and special-case results"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared mathematical literature records returned no identified exact enumeration for the proposed budgeted unit-chores load-vectors.",
+        "A direct multinomial formula was proved for every integer parameter vector and checked against all 6,066,226 assignments in the enumerated finite test range."
+      ],
+      "reasoning": "The count is a symbolic full-family census, not a look-up of a finite pre-existing table. Negative search evidence is non-exhaustive; an unseen equivalent table or theorem remains possible.",
+      "searches": [
+        "\"Counting all allocations of identical unit chores with exact envy-freeness and integer time budgets; saturated or equal-load water filling\"",
+        "\"budgeted chores all size one cost one exact EF welfare floor capacity water filling\"",
+        "envy-free identical chores capacity budgets housekeeper feasibility threshold 2024"
+      ]
+    },
+    "rationale": "Inspected primary sources define budgeted EF, prove exact-EF existence for divisible chores, and prove weaker EF1/EF2/EFX guarantees for indivisible chores or goods. Their relevant inspected statements do not imply the entire indivisible-unit exact-EF load-vector census or the sharp last-gap threshold. The dual goods/chores integer inequality is explicitly compared, not counted as novelty. Searches for equivalent saturation, discrete water-filling and Durfee-index descriptions revealed no covering result. Residual risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "No comprehensive priority guarantee: a different unindexed exact-EF integer capacity census might already exist.",
+      "The publisher chapter was not read from the restricted publisher site; the accessible full-text author preprint was examined.",
+      "The 2026 probabilistic EF source was screened using its abstract only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model and proves relaxed indivisible guarantees and exact divisible EF; inspected text does not give the proposed all-load census or sharp last gap.",
+        "evidence": [
+          "Section 2.1, Definition 1: source bundles include housekeeper and budget-feasible subsets.",
+          "Sections 3-5: EFX, EF2 and EF1 for indivisible chores.",
+          "Section 6: exact EF for divisible chores."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.23979v1",
+        "material_read": "Full open-access HTML sections on preliminaries/Definition 1, Sections 3-7, theorem statements and relevant appendix/proof sections; DOI landing publication date checked separately.",
+        "method": "Read definitions and technical claims; compared exact EF versus EF1/EF2/EFX and indivisible versus divisible domains.",
+        "title": "Fair Division of Chores with Budget Constraints",
+        "trigger": "Identical indivisible-unit chores, budget-limited allocation, housekeeper and exact EF definition"
+      },
+      {
+        "assessment": "First online 31 August 2024, earlier than open arXiv release 31 October 2024.",
+        "evidence": [
+          "Springer metadata: First Online / Published 31 August 2024."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-71033-9_4",
+        "material_read": "Springer publication landing page, first-online date and abstract; full publisher chapter is not publicly accessible, while open author preprint was read.",
+        "method": "Verified Springer date and matched title/authors/DOI to open author preprint.",
+        "title": "Fair Division of Chores with Budget Constraints (published chapter)",
+        "trigger": "Earliest verified first-publication date"
+      },
+      {
+        "assessment": "Studies a mathematically close budgeted-goods model; inspected results do not supply the new unit-chore exact-EF census/last-gap threshold.",
+        "evidence": [
+          "First arXiv public release 17 August 2022.",
+          "Introduction and main guarantees: EF2 generally, EF1 in special cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.08168",
+        "material_read": "Open source introduction/model definitions, guarantee statements and special-case/cardinality results.",
+        "method": "Compared the charity-inclusive exact subset-comparison formulation and the published EF2/EF1 implications.",
+        "title": "Finding Fair Allocations under Budget Constraints",
+        "trigger": "Mathematical equivalence/duality with budgeted goods and charity"
+      },
+      {
+        "assessment": "Random heterogeneous chore disutilities without the prescribed integer budget/housekeeper exact census; abstract does not dominate the deterministic claim. Full paper not inspected.",
+        "evidence": [
+          "2026 journal abstract: high-probability existence under random disutilities as workload scales with population."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/25M180161X",
+        "material_read": "Journal abstract and model synopsis, not full text.",
+        "method": "Compared model assumptions and output claim.",
+        "title": "Asymptotic Fair Division: Chores Are Easier Than Goods",
+        "trigger": "Possible broader exact EF threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15a781e0-48d9-408e-97d0-7194e6220f41",
+  "value": {
+    "rationale": "The homogeneous unit-size/unit-disutility case is a natural testbed for exact fairness under time budgets; the exact EF relation includes an unconstrained housekeeper. The result solves all load vectors and exact labeled allocation counts for every integer budget profile, and identifies the last impossible workload via a sharp strict-Durfee index. This gives a nontrivial capacity-dependent existence threshold with arithmetic gaps, not just a routine existence bound: e.g. four budget-five agents cannot process eleven unit chores exactly fairly, yet twelve chores have 369600 distinct EF assignments and every larger workload admits EF. The result is meaningful even without a broader heterogeneous-weight theorem.",
+    "status": "PASS"
+  }
+}
