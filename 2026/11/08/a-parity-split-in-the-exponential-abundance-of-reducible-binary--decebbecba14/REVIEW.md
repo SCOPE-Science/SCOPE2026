@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every rank-preserving reducible uniform binary endomorphism admits two nonunit rank-preserving factors. The factor-length split proves the universal upper bound via a Fibonacci majorant for short images and a subexponential weighted-composition bound with a least-prime-factor correction for long images. Two explicit families produce the matching parity-dependent exponential lower bounds. An independent exhaustive checker confirms the finite counts through length eight. The finite checks do not establish the limits; the stated proof does.
+
+**Originality — PASS, qualified.** Bell, Foster and Reidenbach's March 2026 full manuscript (arXiv:2603.15177) and October 2026 proceedings manuscript (arXiv:2610.07122) provide general factor-basis characterizations and individual irreducibility tests. Neither inspected primary text states the sharp two-subsequence asymptotic enumeration. Related earlier work on one-generator-fixed binary maps and all-alphabet length-two maps does not imply the fixed-binary all-length asymptotic. Actual published-finding corpus, historical-claim and literature comparisons found no equivalent theorem. Unindexed quantitative word-combinatorics work may still exist; absolute priority is not independently certified.
+
+**Mathematical value — PASS.** The theorem quantifies generic irreducibility in a canonical uniform ensemble, pinpoints a sharp and unexpected parity split in the exponential size of its exceptional set, and identifies the two structural mechanisms behind the rates. It strengthens the existing decision framework in a genuinely enumerative direction. The argument does not determine exact general counts or multiplicative constants.
+
+**Closest literature and limitations.** P. C. Bell, E. Foster, D. Reidenbach, *Irreducibility of Semigroup Morphisms*, arXiv:2603.15177 (16 March 2026), and *Irreducibility of Endomorphisms of Finitely Generated Free Semigroups*, arXiv:2610.07122 (5 October 2026). The claim concerns nonempty image words over exactly two generators; general alphabets and nonuniform lengths are outside scope. Finite enumeration is corroboration, and there is no independent audit of historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
