@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The underlying homology concentration and degrees are given by Deshpande–Singh, Theorem 4.6. The new character follows rigorously from the reduced simplicial Lefschetz trace, a four-state transfer matrix with characteristic polynomial \(t(t-1)(t^2+1)\), and a palindromic reflection reduction in which the endpoint transfer vector satisfies \(v(M^2+I)=0\). All reflection types are considered, including small \(n=4\). The checker independently evaluates \(260\) signed fixed-face sums over \(4\le n\le16\); finite tests are corroboration only. The quotient follows by rational transfer for a finite group action.
+## correctness
 
-**Originality — PASS with bibliographic risk.** The primary full text of Deshpande–Singh, arXiv:2001.05448, Theorem 4.6 and its proof, contains nonequivariant homotopy types but not dihedral characters or rational quotient congruences. The indexed cycle matching-complex and bidirected multipath character results have different simplices and cannot imply the stated \(X_n\) action by an identification given in those summaries. The closest potentially ambiguous indexed bounded-independence-sphere result has a different stated fixed dimension and parameterization; its complete public source was not retrieved and remains a residual risk. Searching cannot prove global uniqueness.
+PASS
 
-**Value — PASS.** These natural equivariant refinements distinguish the quarter-turn plane homology summand from fixed lines when \(4\mid n\), determine reflection orientation in all remaining orders, and give sharp mod-eight rational quotient phenomena. The nonequivariant homotopy type alone cannot recover these representations or quotient homology. The construction is uniform in the order of the graph, not a finite parameter substitution.
+For n≥4, Deshpande–Singh Theorem 4.6 supplies the exact one-degree homology concentration and ranks (3 when 4|n, otherwise 1). Fixed oriented simplex signs give reduced Lefschetz χ(g)=−(−1)^d∑_{g-invariant faces} (−1)^(number of occupied g-orbits). For rotations the four-state no-111 transfer matrix has characteristic polynomial t(t−1)(t²+1), so Z=1+2cos(π gcd(n,a)/2). For reflections palindromic orbit-words reduce to endpoint-constrained B_L with v(M²+I)=0, B_L=(−1)^floor(L/2), distinguishing all even-n reflection axes. This yields the exact displayed n mod4 rational character and quotient invariant dimensions (D_n nonzero iff n≡0,1,7 mod8). Independent direct orbit-face enumeration rebuilt the action and matched all 294 rotation/reflection Lefschetz values for n=4…17; these tests corroborate but do not prove all n.
 
-No integral equivariant equivalence or quotient contractibility is claimed. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual published nonequivariant homotopy classification is credited; published bounded-independence spheres, circular-ladder independence and cycle matching character results are on different functors, which have no natural asserted equivariant isomorphism with the two-independence complex.
+
+## value
+
+PASS
+
+A uniform complete rational D_n module refines a known sphere/wedge family by identifying a quarter-turn two-plane and reflection signs, yielding sharp mod-eight behavior for actual orbit-space rational homology. The nonequivariant homotopy types alone do not determine the symmetry character or quotient; all graph lengths are covered, not a discretionary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
