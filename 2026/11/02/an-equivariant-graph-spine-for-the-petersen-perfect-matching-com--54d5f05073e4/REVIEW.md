@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six perfect matchings, pairwise single-edge intersections, and edge-in-two-matchings property appear in Ma–Mattiolo–Steffen–Wolf, arXiv:2208.14835, Proposition 2.1, and are independently re-enumerated by the exact checker. The explicit second-largest-coordinate retraction is continuous and fixes every radial arm and each facet-intersection vertex; it glues into an equivariant strong deformation retraction. The graph-chain boundary on the complete six-node graph has kernel canonically equal to the exterior square of the augmentation lattice. All 120 automorphisms pass the rational character identity. Orbit counts and graph connectivity prove all stated quotient homotopy types. The finite checks corroborate, but do not replace, the retraction and cellular proofs.
+PASS
 
-## Originality — PASS against inspected sources, with a bibliographic risk
+The Petersen graph has six perfect matchings; each graph edge belongs to exactly two and each matching pair meets in exactly one edge, with no triple facet intersection. Hence X is six 4-simplices pairwise glued at distinct vertices. The explicit retraction using the second-largest barycentric coordinate b(x) and weights max(x_i-b(x),0) maps each facet continuously and permutation-equivariantly onto its vertex-star and fixes its vertices, so glues to an S5-equivariant strong deformation retraction onto subdivided K6. The graph chain boundary on exterior square of Z[F] has kernel wedge^2 of its rank-five augmentation lattice, giving H1=Z^10 as an integral S5-module. Character calculations yield rational S^(3,1,1) plus S^(2,1,1,1); orbit graph counts give contractible S5/A5 quotients and C5 quotient wedge of two circles.
 
-The ordinary homotopy type of ten circles follows already from the six-matching intersection lemma and the nerve theorem, so that conclusion is not presented as independently new. The differentiated claim is an explicit \(S_5\)-equivariant strong deformation retract, the **integral module** and its **rational irreducible decomposition**, and precise orbit-space homotopy types. The full accessible texts of arXiv:2208.14835, arXiv:2209.02803 and arXiv:2407.05809 were checked for this precise representation and orbit conclusion. The closest indexed results describe the ordinary Petersen matching complex, its higher-matching analogue, related Petersen cut/configuration complexes, or a perfect-matching complex of the distinct Heawood graph. Those do not imply the asserted Petersen perfect-matching equivariant result merely by title or homology similarity. Unindexed equivalent work and an implicit unobserved general equivariant nerve result remain residual risks; indexed records whose full documents were inaccessible were not declared exhaustively checked.
+## originality
 
-## Value — PASS
+PASS
 
-The Petersen graph has an exceptional six-perfect-matching action of its full \(S_5\) automorphism group, and the induced ten-dimensional graph cycle lattice has a nonobvious nontrivial splitting. An explicit equivariant deformation retract makes the integral action and **all subgroup quotients** computable, not merely a Betti number. In particular the contractible full-symmetry quotient versus the rank-two five-cycle quotient is a concrete structural distinction. The result is self-contained and naturally motivated by the established six-matching incidence property, rather than an arbitrary selected finite invariant.
+Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.
 
-## Scientific boundaries
+## value
 
-The bare nonequivariant graph homotopy conclusion and matching-intersection lemma are previously implied or known, respectively. The checker's group computation is exhaustive only for this specific finite Petersen action; the deformation-retraction proof supplies the universal quantification over its 120 automorphisms and all subgroups. No result about other graphs, integral Specht-lattice splitting, or independent certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equivariant deformation and exact integral representation/quotient types refine a known nonequivariant wedge-of-ten-circles calculation for a natural, unusually symmetric perfect-matching complex. Provides concrete group-action topology data rather than an arbitrary count; the incidence facts and nonequivariant Betti number alone are explicitly not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

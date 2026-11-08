@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_petersen_perfect_matching.py` from this directory using Python 3 with no third-party modules. Required success sentinel: `PETERSEN_PERFECT_MATCHING_EQUIVARIANT_CERTIFICATE_OK`.
+## correctness
 
-The program constructs the Petersen graph as the disjoint-two-subset graph, enumerates all perfect matchings, verifies that every graph edge belongs to two perfect matchings and every distinct matching pair intersects in exactly one edge, builds every nonempty simplicial face, enumerates the complete 120-element automorphism action, tests the exterior-square homology character against \(\bigwedge^2 V\oplus (V\otimes\mathrm{sgn})\) for each group element, and counts quotient-graph cells for full, alternating and five-cycle subgroups.
+PASS
 
-**Exact observed output excerpt:** six matchings; fifteen graph edges; facet-derived face vector \((15,60,60,30,6)\); degree-one rank ten; traces \((10,-2,-2,1,1,0,0)\) on the conjugacy classes ordered as in the proof; quotient graph statistics \((2,1,0)\), \((2,1,0)\), and \((5,6,2)\), respectively (vertices, edges, cycle rank).
+The Petersen graph has six perfect matchings; each graph edge belongs to exactly two and each matching pair meets in exactly one edge, with no triple facet intersection. Hence X is six 4-simplices pairwise glued at distinct vertices. The explicit retraction using the second-largest barycentric coordinate b(x) and weights max(x_i-b(x),0) maps each facet continuously and permutation-equivariantly onto its vertex-star and fixes its vertices, so glues to an S5-equivariant strong deformation retraction onto subdivided K6. The graph chain boundary on exterior square of Z[F] has kernel wedge^2 of its rank-five augmentation lattice, giving H1=Z^10 as an integral S5-module. Character calculations yield rational S^(3,1,1) plus S^(2,1,1,1); orbit graph counts give contractible S5/A5 quotients and C5 quotient wedge of two circles.
 
-**Proof not outsourced to computation:** The second-largest-barycentric-coordinate formula explicitly defines a continuous equivariant strong deformation retraction of every facet onto a radial star, and its fixed intersection vertices ensure global gluing. The integral exterior-square homology formula follows from the graph-chain boundary. The finite exact checks substantiate the incidence and group-character calculations; no finite experiment is treated as proof of an unexamined infinite family.
+## originality
 
-Independent external audit or validation has not been performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.
+
+## value
+
+PASS
+
+Equivariant deformation and exact integral representation/quotient types refine a known nonequivariant wedge-of-ten-circles calculation for a natural, unusually symmetric perfect-matching complex. Provides concrete group-action topology data rather than an arbitrary count; the incidence facts and nonequivariant Betti number alone are explicitly not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
