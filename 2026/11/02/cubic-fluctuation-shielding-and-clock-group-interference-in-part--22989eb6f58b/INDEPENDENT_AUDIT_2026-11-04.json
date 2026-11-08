@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:55:09.384835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected finite weighted graph, nonempty reset S and unreset U, strictly positive grounded Laplacian H, and independent rate-r group clocks, the synchronous squared-distance Lyapunov generator  -2d^T A d-r d^T P d gives uniqueness and second moments. The first moment depends only on reset projection P, not the grouping: (A+rP)mu=omega. Reconstructed exact covariance equation AC+CA+r sum_g(C-R_g C R_g)=r sum_g P_g mu mu^T P_g. With t=1/r and C_SS=t^2 D_t, C_US=t^3 X_t, C_UU=t^3 Y_t, limiting block equations uniquely yield D=sum_g b_g b_g^T, X=-BD, HY+YH=2BDB^T. SPD H makes the Sylvester operator invertible; integral Gramian Q PSD and nonzero iff at least one Bb_g nonzero. Independent symbolic solution of the star full stationary covariance system gives Var(center)=nu^2/[(r+1)(r^2+5r+5)] for independent opposite-sign leaves, whereas common-clock symmetry forces exactly zero. The asymptotic r^-3 is per fixed graph; it can vanish.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Partial-reset primary article studies nonlinear synchronization and fast-reset pinned limit, not full grouped-clock finite covariance as inspected.",
+          "General linear PDMP theory supports exact moment equations and could yield the result with substantial symbolic asymptotics."
+        ],
+        "reasoning": "Earlier general PDMP closure can reproduce the starting linear system, not automatically its sharp mixed-block expansion and physical clock-partition counterexamples; these require further analysis. No universal novelty claim for closure.",
+        "searches": [
+          "Paramero-Arias and Riascos arXiv:2610.21842 full accessible article",
+          "Soltani and Singh arXiv:1711.04884 full PDF",
+          "Bressloff arXiv:2411.15534"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, VERIFY.py and verification statement (tree e90b9c46b967aac48166aa19a7e261afaf13ed9e)",
+        "arXiv:2610.21842 (primary full main-text rendering)",
+        "arXiv:1711.04884 (primary PDF)",
+        "arXiv:2411.15534 (abstract)",
+        "Resultary semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known grounded-Laplacian mean is consistent with mu_U=q-H^-1B mu_S.",
+          "General moment closure is recovered, but leading unreset covariance needs t^2, t^3 block scaling and partition-specific quadratic forcing."
+        ],
+        "reasoning": "Clock-group mean equality follows immediately from equal marginal reset rates, but the unreset covariance cancellation and reverse ordering do not follow from the mean or pinned limit alone.",
+        "searches": [
+          "Paramero-Arias/Riascos main text model and rapid-reset limit",
+          "Soltani–Singh primary PDF exact jump covariance framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resetting of subsets of a linearly coupled oscillator network can be analyzed as a linear PDMP with simultaneous group jumps.",
+          "General second-moment closure exists in Soltani–Singh; it does not by itself classify the r^-3 grounded graph Gramian."
+        ],
+        "reasoning": "Compared pinned linearized Kuramoto limit, renewal/PDMP moments, Poisson common-shock clock correlations. Equivalent formulation as a Lyapunov equation is standard; the specific graph Laplacian asymptotic and dependence on group projections are the assessed theorem.",
+        "searches": [
+          "Resultary semantic: partially reset linear Kuramoto network fast reset rate r cubic covariance unreset sites common versus independent Poisson clocks",
+          "arXiv:2610.21842v1 network subsystem resetting",
+          "arXiv:1711.04884 linear PDMP moment closure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact star variance nu^2/((r+1)(r^2+5r+5)) or all-group Gramian table appeared in searched material."
+        ],
+        "reasoning": "Continuous graph-and-partition family is not a fixed table; star numerator can be independently derived. Failure to find a table does not prove historical priority.",
+        "searches": [
+          "Resultary semantic: partially reset linear Kuramoto network fast reset rate r cubic covariance unreset sites common versus independent Poisson clocks",
+          "web: fast Poisson reset Laplacian covariance r^-3 unreset network groups common independent"
+        ]
+      },
+      "rationale": "The 2026 partial reset Kuramoto work establishes the fast-reset grounded-Laplacian pinned limit, and general linear PDMP work already gives exact moment closure. The present finite-dimensional theorem additionally identifies the order r^-3 unreset covariance Gramian for arbitrary clock partitions, its vanishing criterion, exact stationary star cancellation and reversal of any proposed clock-group ordering. Those are not stated in inspected primary results. As a specialization of general linear jump-moment theory, an unlocated theorem may in principle imply it; best-of-knowledge PASS is qualified.",
+      "residual_risks": [
+        "Potentially a stronger published PDMP small-holding-time covariance theorem already implies the specialized grounded Gramian."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS pinned Laplacian fast-reset limit and model context, NOT the stated grouped-clock covariance calculation in inspected text",
+          "evidence": "The resetting article analyzes subsystem synchronization; inspected equations lack arbitrary clock-partition covariance Gramian and the three-vertex cancellation/reversal.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21842",
+          "material_read": "Primary accessible complete main-text rendering, model, infinite-reset analysis, numerical finite-rate results and discussion",
+          "method": "arXiv linked full main-text rendering",
+          "title": "Synchronization induced by stochastic subsystem resetting in complex networks",
+          "trigger": "Same 2026 Kuramoto partially reset network and grounding limit"
+        },
+        {
+          "assessment": "COVERS generic exact moment-closure mechanism; graph-specific sharp r^-3 asymptotics not stated in inspected results",
+          "evidence": "Families of reset events with linear dynamics yield closed moment systems; additional grounded-Sylvester asymptotic is required for the submitted Q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.04884",
+          "material_read": "Primary full PDF: main exact first/second-moment equations and stationary moment statements; first-page visual inspection",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Linear piecewise-deterministic Markov processes with families of random discrete events",
+          "trigger": "A general PDMP theorem might cover arbitrary Poisson projection-jump moments"
+        },
+        {
+          "assessment": "BACKGROUND distinct global/medium resetting",
+          "evidence": "Global resets mediated by external coupling do not directly identify group-partition boundary Gramian.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.15534",
+          "material_read": "Accessible abstract and indexed model summary; not read as full noncoverage",
+          "method": "arXiv metadata/abstract",
+          "title": "Kuramoto model with stochastic resetting and coupling through an external medium",
+          "trigger": "Potential related reset synchronization framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Grouping reset clocks while holding each node reset rate and every stationary mean fixed isolates a genuine stochastic-correlation intervention. The exact cubic shielded covariance, its PSD forcing and an explicit example showing no universal ordering are motivated, structurally useful facts in network stochastic dynamics; the value is not merely existence of linear moment equations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md, VERIFY.py and verification statement (tree e90b9c46b967aac48166aa19a7e261afaf13ed9e)",
+    "arXiv:2610.21842 (primary full main-text rendering)",
+    "arXiv:1711.04884 (primary PDF)",
+    "arXiv:2411.15534 (abstract)",
+    "Resultary semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potentially a stronger published PDMP small-holding-time covariance theorem already implies the specialized grounded Gramian.",
+    "Finite r and r-to-infinity statements require fixed graph/partition; no assertion of nonlinear Kuramoto phase statistics."
+  ],
+  "residual_risks": [
+    "Potentially a stronger published PDMP small-holding-time covariance theorem already implies the specialized grounded Gramian.",
+    "Finite r and r-to-infinity statements require fixed graph/partition; no assertion of nonlinear Kuramoto phase statistics."
+  ],
+  "schema_version": 1
+}

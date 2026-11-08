@@ -1,22 +1,21 @@
-# Review: cubic fluctuation shielding under grouped subsystem resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is confined to finite connected weighted undirected graphs, exact real-valued harmonic drift, at least one reset and at least one unreset node, independent rate-\(r\) Poisson clocks assigned to a partition of reset nodes, and fixed frequencies. The synchronous-coupling quadratic generator has strictly positive damping \(2A+rP\), giving a unique invariant law with finite second moments. The first moment satisfies \((A+rP)\mu=\omega\) independently of group partition. The exact covariance generator gives the stated jump-dependent Lyapunov system without neglecting shared-clock effects. In the high-rate expansion, its reset-set, cross, and unreset blocks successively yield \(D\), \(-BD\), and the uniquely solvable grounded-Laplacian Sylvester equation; invertibility at zero perturbation justifies \(O(r^{-4})\). An exact opposite-frequency star construction exhibits invariant zero center position under a shared clock; an independent-clock rational covariance calculation gives the strictly positive formula. A self-contained rational solver reconstructs these facts in finite test cases. Residual limitation: finite checks are not a proof of the matrix limit, which is supported instead by the written analytic argument.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+For a connected finite weighted graph, nonempty reset S and unreset U, strictly positive grounded Laplacian H, and independent rate-r group clocks, the synchronous squared-distance Lyapunov generator  -2d^T A d-r d^T P d gives uniqueness and second moments. The first moment depends only on reset projection P, not the grouping: (A+rP)mu=omega. Reconstructed exact covariance equation AC+CA+r sum_g(C-R_g C R_g)=r sum_g P_g mu mu^T P_g. With t=1/r and C_SS=t^2 D_t, C_US=t^3 X_t, C_UU=t^3 Y_t, limiting block equations uniquely yield D=sum_g b_g b_g^T, X=-BD, HY+YH=2BDB^T. SPD H makes the Sylvester operator invertible; integral Gramian Q PSD and nonzero iff at least one Bb_g nonzero. Independent symbolic solution of the star full stationary covariance system gives Var(center)=nu^2/[(r+1)(r^2+5r+5)] for independent opposite-sign leaves, whereas common-clock symmetry forces exactly zero. The asymptotic r^-3 is per fixed graph; it can vanish.
 
-Paramero-Arias–Riascos, arXiv:2610.21842v1, develops subsystem reset-induced synchronization and the high-rate grounded-Laplacian mean-field limit, but does not provide a grouped-clock stationary fluctuation Gramian or an exact cancellation/reversal example in the studied main text. General piecewise-deterministic moment closures already exist (Soltani–Singh, arXiv:1711.04884, and their 2019 renewal-transitions article); this work does **not** claim the moment closure, the grounded Laplacian, or reset-created correlations as new. It claims the graph-specific leading cubic covariance, exact grouping-dependent nonzero criterion, and strict finite-rate cancellation on a physical three-node network. Targeted record and primary-literature searches found no explicit equivalent. The most material residual risk is that the general moment-framework full text, not fully retrievable for inspection, could imply some graph-specific formulas via an unstated specialization. Originality is not an independently certified priority claim.
+## originality
 
-## Value — PASS
+PASS
 
-Finite resetting in a partly pinned oscillator network may give the same deterministic mean for differently correlated reset protocols but sharply different stationary fluctuations. The cubic law and exact Gramian quantify how strongly stochastic reset perturbations penetrate never-reset nodes; groupwise cancellation is a strong design contrast, not a cosmetic parameter shift. The exact star shows zero variance for one clock versus strictly positive for independent clocks, and reversal for aligned frequencies. This addresses stochastic robustness beyond the fast-rate synchronization mean limit. The model remains a linearized rather than fully nonlinear phase-network result.
+The 2026 partial reset Kuramoto work establishes the fast-reset grounded-Laplacian pinned limit, and general linear PDMP work already gives exact moment closure. The present finite-dimensional theorem additionally identifies the order r^-3 unreset covariance Gramian for arbitrary clock partitions, its vanishing criterion, exact stationary star cancellation and reversal of any proposed clock-group ordering. Those are not stated in inspected primary results. As a specialization of general linear jump-moment theory, an unlocated theorem may in principle imply it; best-of-knowledge PASS is qualified.
 
-## Closest literature and risks
+## value
 
-* Paramero-Arias and Riascos, *Synchronization induced by stochastic subsystem resetting in complex networks*, arXiv:2610.21842v1; the publicly accessible main-text rendering was inspected for reset mechanism, fast-rate grounded limit, and finite-rate discussion.
-* Soltani and Singh, *Linear piecewise-deterministic Markov processes with families of random discrete events*, arXiv:1711.04884; abstract and indexed metadata inspected; full text could not be reliably retrieved through attempted open-access and institutional routes. General exact moments are already prior art; partial coverage of our specialization remains possible.
-* Soltani and Singh, *Moment Analysis of Linear Time-Varying Dynamical Systems with Renewal Transitions*, SIAM J. Control Optim. 57 (2019), DOI:10.1137/17M118351X; abstract inspected, general moment theory acknowledged.
-* Bressloff, *Kuramoto model with stochastic resetting and coupling through an external medium*, arXiv:2411.15534; distinct globally reset coupling geometry.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Grouping reset clocks while holding each node reset rate and every stationary mean fixed isolates a genuine stochastic-correlation intervention. The exact cubic shielded covariance, its PSD forcing and an explicit example showing no universal ordering are motivated, structurally useful facts in network stochastic dynamics; the value is not merely existence of linear moment equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
