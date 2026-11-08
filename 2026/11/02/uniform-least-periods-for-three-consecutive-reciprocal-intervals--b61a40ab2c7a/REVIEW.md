@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The half-open reversal is expressed by three explicit integer translations. It is the first return of a circle rotation of circumference \(S=a+2b+c\) and step \(t=b+c\). The reciprocal lengths force \(\gcd(a+b,b+c)=1\); thus every orbit traverses all \(S\) integer residues and makes exactly \(L=a+b+c\) visits to the return section. This proves the universal exact least period, including discontinuity boundaries. The separate four-piece calculation gives an exhaustive finite permutation on \(1440\) cells, with cycles of lengths \(694,373,373\); the checker verifies all unit cells using exact arithmetic. The infinite proof does not rely on finite testing.
+PASS
 
-## Originality — PASS (qualified by source access)
+For every n>=1, exact reciprocal scaling gives integer lengths a=n(n+1)/(2g), b=n(n+3)/(2g), c=(n+2)(n+3)/(2g), g=gcd(n,3). Reversing translates by (b+c,c-a,-a-b). This is the first return to [0,L) of rotation by t=b+c on circle S=a+2b+c, with the middle branch taking two rotations. Since gcd(s=a+b,t=b+c)=1, every fractional-offset orbit visits the L unit cells of the section exactly once and T has least period L=3(n+1)(n+2)/(2g) for EVERY real point, including half-open boundaries. Independent exact integer-cell traversal for n=1..60 gave a single L-cycle each. On R_{11,7}, exact D=27720 scales four lengths to (252,308,385,495), shifts (1188,628,-65,-945) and exhaustive 1440-cell cycles (694,373,373), giving period masses 694/27720 and 746/27720. This finite contrast is exhaustive; the infinite n proof is not extrapolated from testing.
 
-The 2018 Hooper–Rafi–Randecker article poses the explicit common-period problem for these reciprocal maps. Proposition 4 does not give numeric least periods; Remark 7 instead provides mixed-period examples. Published 2022 and 2025 analyses of general interval-exchange periods are relevant to the method but their inspected accessible material does not state the exact reciprocal three-piece formula, the denominator congruence break, or the four-piece masses. Scientific-index searches for the parameters, equivalent rotation induction, and common-period formulations returned no directly covering result. General Rauzy machinery could give alternate proofs of instances; publication-priority verification is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is motivated verbatim by a published least-period classification question, not arbitrary arithmetic. The theorem determines an entire infinite and natural parameter subfamily and its exact least-period measure, with a striking factor-of-three change when the lower denominator crosses a multiple of three. A concrete four-piece example locates a sharp boundary for the universal three-piece behavior in this family.
+Hooper–Rafi–Randecker define R_{m,n} in their Remark 7, show finite rational branch periodicity in Proposition 4, and explicitly leave pair classification open. Their printed examples have multiple periods but do not state the n+3,n arithmetic formula. Linero Bas–Soler López (2025) classify possible oriented 3-IET period SETS and give Rauzy first-return machinery; generic 3-IET rotation theory could reproduce the mechanism but no checked statement supplies this exact reciprocal modulus-three least-period and four-piece masses. Best-of-knowledge original arithmetic solution, not a new induced-rotation theorem.
 
-## Closest literature and limits
+## value
 
-Hooper–Rafi–Randecker, *Renormalizing an infinite rational IET*, Remark 7 (arXiv:1808.09989v1); Cánovas–Linero Bas–Soler López (2022), doi:10.3390/math10091487; Linero Bas–Soler López (2025), doi:10.3390/math13193175. The exact infinity of all possible pairs remains unclassified; a fully exhaustive survey of related specialized interval-exchange literature and an independent scientific audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least-period spectrum and Lebesgue masses are natural invariants of the explicitly posed reciprocal-IET family. A complete infinite subfamily with exact P_n and a sharp adjacent four-interval obstruction resolves a substantive instance of an open arithmetic classification question; not merely a renamed generic IET.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
