@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 all vertices are distinct and simple edges are checked. The normal-rung and deleted-rung fixed-state predicates are correctly encoded in 16-by-16 integer matrices T and B; row swap D implements the crossed seam. Every graph assignment corresponds bijectively to a trace term tr(T^(n-1)B D^delta). Entrywise exact multiplication establishes T^2(T^2-T-I)(T^6-I)=0; the eight exact starting traces n=3..10 then prove the claimed six-periodic Fibonacci formulas for all n>=3. Independent bitwise graph simulation confirms all 699008 configurations across n=3..9, and the matrix checker confirms values through 30. Intact cubic-ladder fixed minority is equivalent to majority full flip, and its Lucas-leading count gives the asymptotic denominator. Risks: matrix computations remain reproducible finite certificates, not hand-derived symbolic factorization; finite simulation is not itself an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A known intact-ladder full-flip formula has leading Lucas growth, but the two degree-two deleted-rung vertices require a different Boolean fixed-point predicate B.",
+        "Cen, Das and Fong (Scientific Reports 12, 14755, 2022) study finding ground states of Ising-encoded optimization problems and benchmark ladder examples; the inspected result scope does not count all local minima on singly defective ladders."
+      ],
+      "reasoning": "Standard general transfer-matrix methodology is not a displayed evaluation of the defective graph. The previous intact cubic graph formulas give neither the local defect counts nor the universal ratio without the new matrix computation. No known stronger all-bond-defect enumeration was found; residual search incompleteness is acknowledged.",
+      "searches": [
+        "published-finding corpus: Exact enumeration of one-spin-flip metastable cuts on Möbius ladders and circular ladder graphs, number of stable Ising configurations Lucas numbers, antiperiodic boundary twist correction",
+        "Literature: Ising ladder metastable states single bond deletion transfer matrix exact fixed count",
+        "Literature: Takata et al., A 16-bit Coherent Ising Machine for One-Dimensional Ring and Cubic Graph Problems (arxiv:1605.03847)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1605.03847",
+      "https://doi.org/10.1038/s41598-022-19102-x",
+      "https://doi.org/10.1103/PhysRevB.36.3844",
+      "https://doi.org/10.1038/s42005-021-00792-0",
+      "published-finding corpus semantic queries listed in checks above",
+      "Known intact cubic-ladder majority full-flip formula from prior mathematical records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known result: intact cubic-ladder majority full-flip counts equal Lucas numbers plus periodic seam corrections. Its graph is 3-regular, and fixed minority equals majority full flip only because every vertex degree is odd.",
+        "New result: removing rung zero creates degree-two vertices, whose tie-retention constraint q>=1 differs from the intact normal-rung condition q+vertical_opposite>=2, so the intact classification cannot simply be specialized.",
+        "The extracted transfer identity and independent graph simulation establish formulas for the new graph, not a restatement of the intact result."
+      ],
+      "reasoning": "The intact result determines the denominator U but not numerator V. The new fixed-state constraint is neither a specialization of uniform cubic conditions nor reducible by a parameter change; the six-residue numerator and constant response need separate proof.",
+      "searches": [
+        "published-finding corpus: Locally stable cuts and synchronous minority dynamics on prism graphs circular ladders C_n Cartesian K2: exact fixed point counts transfer matrix and entropy",
+        "Relevant intact-ladder majority full-flip result: A modulo-six twist resonance in synchronous majority dynamics on cubic cyclic ladders",
+        "Literature: Cen, Das and Fong (2022) exact benchmark sections on circular and Möbius ladders"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minority fixed points are single-spin-flip stable antiferromagnetic cuts; equivalently a vertex has at least half its neighbors of the opposite bit. This equivalence is exactly tested by the two distinct matrices T and B.",
+        "The nearest semantic results involving ladders concern cut-complex homology or Ising solver benchmarking, not a labelled count after deleting one rung."
+      ],
+      "reasoning": "The alternative Ising/local-max-cut language was included in searches. The candidate is the exact one-rung-deleted graph, not the intact prism and not an unweighted maximum-cut optimum formula.",
+      "searches": [
+        "published-finding corpus: one missing rung minority dynamics fixed points circular ladder Möbius ladder Fibonacci factor three antiferromagnetic metastability",
+        "published-finding corpus: single defective bond Ising ladder one-spin-flip stable metastable state enumeration open two-row ladder with seam",
+        "published-finding corpus: exact number of stable cuts of a circular ladder with one rung removed and Möbius ladder one rung deleted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fibonacci and Lucas sequences themselves are well-known; neither identifies the defective all-n fixed population, the six-residue terms, or the seam-gap values.",
+        "The direct exhaustive 3-through-9 enumeration was produced from an independent graph simulator and is not a previously located external database table."
+      ],
+      "reasoning": "Matching a known Fibonacci term is not enough to cover the entire exact perturbation theorem, including the distinctive coefficients and the two degree-two vertices.",
+      "searches": [
+        "published-finding corpus: exact number of stable cuts of a circular ladder with one rung removed and Möbius ladder one rung deleted",
+        "published-finding corpus: minority fixed-state cut-size polynomial and Fibonacci independent-set parity projection for cubic ladder graph K2 Cartesian Cn",
+        "OEIS: Lucas numbers and Fibonacci sequences; arxiv:1605.03847"
+      ]
+    },
+    "rationale": "The claim classifies fixed points on two specific one-rung-defective ladders. The closest known intact cubic-ladder full-flip majority census gives the reference asymptotic only: it uses three neighbor votes at every vertex and cannot imply the defective degree-two tie-retention test. published-finding corpus and literature searches on missing-rung minority fixed points, single-bond antiferromagnetic ladder defects and metastable-state census yielded no covering exact defect trace, six-periodic finite-size corrections, or three-over-square-root-five amplification. The full main PDF of Takata et al. (2016) could not be materially inspected, and an obscure published equivalent remains possible; priority is qualified, not absolute.",
+    "residual_risks": [
+      "Historical priority cannot be established exhaustively; the full 2016 source PDF and the complete 1987 paper were unavailable for material full-text comparison.",
+      "A less-indexed transfer-matrix calculation of one-bond-defect ladder metastability may already imply the result.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible sections focus on intact ladder Ising optimization; the full main paper cannot be certified as non-covering.",
+        "evidence": [
+          "Public arXiv submission dated 2016-05-12.",
+          "Accessible abstract discusses 16-spin Ising-machine problems including Möbius ladders; no exact one-rung-deleted fixed census found in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.03847",
+        "material_read": "arXiv dated abstract, indexed full-text excerpts, contextual model discussion; main PDF was inaccessible.",
+        "method": "arXiv and lawful online text search, checking abstract/specific indexed results and experimental graph model.",
+        "title": "A 16-bit Coherent Ising Machine for One-Dimensional Ring and Cubic Graph Problems",
+        "trigger": "The 2016 early public source treats Möbius ladders and cubic Ising benchmarks."
+      },
+      {
+        "assessment": "Optimizes finding global Ising minima; not an exact enumeration of one-spin-flip minima on one-rung-deleted graphs.",
+        "evidence": [
+          "Cen, Das, Fong, Scientific Reports 12, 14755 (2022), discusses Ising formulated optimization and ladder benchmarking.",
+          "The claim here is a full all-n metastable fixed-state enumeration following a single edge deletion, not global optimum search."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-022-19102-x",
+        "material_read": "Accessible complete article text, including methods, figures and benchmark results sections.",
+        "method": "Full open-access HTML inspection and focused searches within article for ladder graph, defects, stability and configuration census.",
+        "title": "A tree search algorithm towards solving Ising formulated combinatorial optimization problems",
+        "trigger": "Uses circular and Möbius ladder Ising benchmark examples."
+      },
+      {
+        "assessment": "Random-bond ferromagnetic model unlike the deterministic antiferromagnetic two-row defective ladder, but full-text coverage is unverified.",
+        "evidence": [
+          "Jacobs and Coram (1987) address the ferromagnetic random-bond metastability problem.",
+          "No deterministic exact defect-ladder trace found in available abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.36.3844",
+        "material_read": "Bibliographic abstract and indexed model description; not full publisher text.",
+        "method": "Title/abstract and model-conditions comparison.",
+        "title": "Ferromagnetic random-bond Ising model: Metastable states and complexity of the energy surface",
+        "trigger": "Metastable Ising states and complexity may dominate a local-spin stability count."
+      },
+      {
+        "assessment": "Optimization complexity, not the stated fixed-point defect susceptibility.",
+        "evidence": [
+          "Stroev and collaborators (2021) characterize computational optimization complexity; no covering local-fixed-state formula found in inspected sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s42005-021-00792-0",
+        "material_read": "Accessible open-access text excerpts on benchmark model and optimization goals.",
+        "method": "Compare object and claims in indexed open text.",
+        "title": "Computational complexity continuum within Ising formulation of NP problems",
+        "trigger": "General Ising optimization complexity across graph structures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7acb4d6f-373b-4fcc-ab18-dee1609896c7",
+  "value": {
+    "rationale": "Single-edge perturbation of a natural Ising/anti-coordination ladder changes an infinite-family local-stability population by an order-one asymptotic factor 3/sqrt(5), consistently for two different topologies, with explicit bounded modular seam corrections. The perturbation inserts degree-two tie-retention conditions and is not a routine substitution into the intact cubic graph. Understanding exact defect susceptibility and all-size metastable counts is a natural structural invariant of these networks. This is local fixed-state counting only, not an unmotivated finite table or a claim about solver performance.",
+    "status": "PASS"
+  }
+}
