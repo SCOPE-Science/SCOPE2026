@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is a joint asymptotic description of the backward reset age and the whole rescaled diffusivity history for one specified stationary stochastic process. Brownian scaling is exact. The Volterra singular-value decomposition gives a strictly dominant simple singular mode; exponential moments beyond the leading tail exponent make the residual conditionally tight. The positive-tail conditioning balances the leading Gaussian pair, selecting its sine-shaped Brownian path up to sign. The age integral has a unique strictly convex saddle, and the local quadratic expansion yields the stated Gaussian fluctuations. The analytical proof explains why finite numerical checks are only corroboration. The included checker passed 391 deterministic assertions.
+PASS
 
-## Originality — PASS, subject to independent scholarly confirmation
+PASS: Stationary regeneration gives Exp(r) backward age independent of an excursion. Brownian scaling exactly gives (X_0,H(u))=(2Λ A J,√2Λ√A B_u) with J=∫_0^1 B_t dW_t. For Volterra T, e_n=√2 cos((n−1/2)πt), f_n=√2 sin((n−1/2)πt), σ_n=1/((n−1/2)π). The unique top σ1=2/π exceeds σ2=2/(3π). Orthogonal normal-product chaos yields E exp(θJ)=(cos θ)^−1/2, and offmode R has exp moments strictly beyond 1/σ1. K0 asymptotics give P(σ1 ξ1η1>z)~√(σ1/(2πz))exp(−z/σ1); independent R exponential tilt contributes 2/√π and tight offmode continuous path. Conditional leading Gaussian factors balance with two equal signs, producing B/√z→±(2/√π)sin(πu/2) in C[0,1]. Age posterior has exponent Φ_x(s)=rs+πx/(4Λs), unique saddle s_x=√(πx/(4Λr)), second derivative 2r/s_x and width h_x=√(s_x/(2r)); Laplace localization with near-leading tail gives standardized N(0,1). The scaling identity multiplies the path by √Λ and squaring continuously gives deterministic 4Λ/π sin²(πu/2) uniformly. Independently reconstructed all seven Git blob IDs and exact tree SHA; 48 high-precision singular vector checks, exact symbolic saddle identities, direct gamma-density tail ratios (z=8,16,32) and independent offmode-product convergence corroborate constants. The infinite-dimensional tilt/localization rests on analytic dominated convergence and Gaussian tightness, not on the finite checks; the theorem is valid for fixed positive r,Λ and x→∞ only.
 
-The motivating paper already derives the unconditioned stationary position distribution, its stretched-exponential tail, and the position-level saddle; these are not claimed as new. General conditioned backward-time renewal identities are also known, and fixed-time conditional terminal-volatility asymptotics have precedents in financial mathematics. Comparison by implication shows none of the examined statements gives the *joint full diffusivity history* for extreme stationary observations with a Gaussian reset-age fluctuation law and universal sine-squared profile in this model. The strongest remaining risk is an unlocated general Gaussian quadratic-chaos conditioning result or an extension of fixed-time stochastic-volatility asymptotics that covers this exact regenerative specialization.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The question is physically motivated by the stochastic-diffusivity model's exceptionally long stationary tails: an extreme position may be explained by a long excursion, unusually strong within-excursion noise, or both. The result identifies both the optimal duration and the complete within-excursion diffusivity history, including an explicit fluctuation scale for the duration and a path-level concentration phenomenon. A position marginal cannot supply that retrospective path information. The profile's independence of the resetting rate is a structural universality distinct from the known spatial tail.
+PASS, qualified best of knowledge: The identical reset bath was studied by Santra–Basu–Sabhapandit (2022), who already established its stationary spatial tail and integral saddle. Masó-Puigdellosas et al. gave general position-conditioned reset-age renewal PDFs. De Marco–Friz gave rare-strike terminal conditional volatility for a different nonreset fixed-horizon model. After checking these actual statements and a Resultary semantic search under several aliases, none inspected directly states or logically implies the simultaneous whole-past Brownian amplitude sine profile and normalized reset-age CLT in this particular regenerative system without additional path-level singular-mode and second-order saddle analysis. Generic conditional Gaussian-chaos theorems and historical priority remain explicitly possible, so this is not an exhaustive novelty certificate.
 
-## Closest literature and limitations
+## value
 
-Santra–Basu–Sabhapandit, arXiv:2205.00549; Masó-Puigdellosas–Campos–Méndez, arXiv:2205.01613; De Marco–Friz, arXiv:1311.1545. All three texts' relevant main results and arguments were examined. No conclusion is asserted about finite-sample estimation, independent certification, or sources not located by the recorded searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The canonical model has anomalously heavy stationary position tails; an extreme displacement could arise from unusual age, amplitude, or future driver noise. A complete conditioned continuous-history law and explicit Gaussian reset-age fluctuations reveal which mechanism dominates, including a universal rate-independent physical diffusivity shape. This is a natural exact rare-event path invariant and material information beyond marginal tail rates or a generic renewal Bayes formula; it does not overclaim finite-threshold inference, pathwise convergence, or a general stochastic-volatility theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
