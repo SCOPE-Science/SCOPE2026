@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is precisely the impossibility of the Gamma-shape moment inequalities for every real \(\kappa\ge144\). The second moment bound forces \(0\le\mathbb E(X-\kappa)\le1\); the two families of rising-factorial moments sandwich the complete exponential moment generating function. For \(\lambda=3/(4\sqrt\kappa)\), a one-sided exponential interpolation bound and Cauchy–Schwarz conflict with the Gamma exponential lower bound. Both sides reduce to exact strict rational inequalities, independently checked with `verify_bounds.py`. All sums are justified by monotone convergence and finite upper exponential moments; no finite enumeration stands in for an infinite proof.
+## correctness
 
-## Originality — PASS under checked evidence
-The most relevant primary paper, Wikström (arXiv:2609.39622, first public version 2026-09-30), explicitly gives isolated nonexistence certificates, starting at shape \(50\), and says it has no proof of nonexistence for all shapes above a threshold. The present real half-line \(\kappa\ge144\) follows from a different global moment-generating-function contradiction and is not an implication of an isolated certificate. Its Theorem 1.2 states a sufficient criterion, not a necessity theorem. The relevant earlier Bergman moment work and weighted Fock upper-radius work do not assert the present uniform obstruction in the material checked. Indexed mathematical-record searches returned related Korenblum extremizer-rigidity and Gamma-function results, but no statement covering the moment infeasibility ray.
+PASS
 
-## Mathematical value — PASS
-The natural parameter is the shape of a Gamma radial weight in the weighted Fock Korenblum question. The source identifies infeasibility for all large real shapes as unresolved even though individual large shapes admit certificates. A global analytic cutoff replaces infinitely many isolated feasibility tests, clarifies a genuine limitation of the moment-duality method, and needs no numerical linear programming. The threshold is intentionally not represented as sharp.
+Let X>=kappa satisfy both families and Y=X-kappa. The j=2 upper bound gives E[Y]<=1. Summation of moment inequalities through monotone convergence gives (1-u)^{-kappa}<=E[e^{uX}]<=(1-u)^{-kappa-1} for 0<=u<1. With lambda=3/(4sqrt(kappa))<=1/16, the centered MGF satisfies M_Y(lambda)>=exp(9/32), M_Y(2lambda)<=(8/7)exp(9/7). Pointwise [(e^{lambda y}-1)^2]<=lambda*y*(e^{2lambda y}-1)/2 and Cauchy-Schwarz imply (M_Y(lambda)-1)^2 <=lambda E[Y](M_Y(2lambda)-1)/2<= (1/32)*((8/7)e^{9/7}-1). Rational bounds yield the strict contradiction (431649/4194304)>(23/224), with difference 6887/29360128. All steps hold for every real kappa>=144; the finite verifier checks only the terminal rational inequalities. I independently recomputed the exact rational bounds and analytic inequalities.
 
-## Closest literature and limitations
-- F. Wikström, *The sharp radius in Korenblum's maximum principle for the Fock space*, arXiv:2609.39622, Theorem 1.2, Corollary 1.4, Proposition 7.3, and Section 7.1 (relevant full text inspected).
-- F. Wikström, *Moment duality and an improved lower bound for Korenblum's constant*, arXiv:2607.17748 (abstract inspected; distinct Bergman-domain setting).
-- J. Wee and L. H. Khoi, *Korenblum constants for various weighted Fock spaces*, Complex Variables and Elliptic Equations 68 (2023), 1385–1406 (publisher abstract inspected).
+## originality
 
-The claim excludes the indicated moment measures only, not any other proof of Fock norm domination. The interval below shape \(144\) is not classified; no optimal transition is asserted. Historical priority and independent mathematical review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The relevant September 2026 Wikström work introduces the certificate and, according to the assigned source discussion, has a finite polynomial dual obstruction at a single shape kappa=50 and certain discrete verified shapes; a uniform real high-shape infeasibility theorem is a strictly stronger shape-quantified statement. The full Wikström preprint was inaccessible in this run, including authorized institutional access, so that assertion about the specific Proposition 7.3 is based on the source discussion and indexed material rather than independent full-paper reading. Best-of-knowledge originality survives with prominent risk and does not claim the radius fails.
+
+## value
+
+PASS
+
+Uniform infeasibility of a natural sufficient moment-measure criterion for an entire real tail is a structural limitation of a recognized analytic method. It identifies a genuine boundary of applicability, not merely a one-shape numerical dual certificate or a cheap normalization check. It may guide future searches for alternative Fock-radius techniques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

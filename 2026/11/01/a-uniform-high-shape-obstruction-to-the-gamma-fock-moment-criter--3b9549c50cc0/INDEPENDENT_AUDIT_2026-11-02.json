@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:52:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let X>=kappa satisfy both families and Y=X-kappa. The j=2 upper bound gives E[Y]<=1. Summation of moment inequalities through monotone convergence gives (1-u)^{-kappa}<=E[e^{uX}]<=(1-u)^{-kappa-1} for 0<=u<1. With lambda=3/(4sqrt(kappa))<=1/16, the centered MGF satisfies M_Y(lambda)>=exp(9/32), M_Y(2lambda)<=(8/7)exp(9/7). Pointwise [(e^{lambda y}-1)^2]<=lambda*y*(e^{2lambda y}-1)/2 and Cauchy-Schwarz imply (M_Y(lambda)-1)^2 <=lambda E[Y](M_Y(2lambda)-1)/2<= (1/32)*((8/7)e^{9/7}-1). Rational bounds yield the strict contradiction (431649/4194304)>(23/224), with difference 6887/29360128. All steps hold for every real kappa>=144; the finite verifier checks only the terminal rational inequalities. I independently recomputed the exact rational bounds and analytic inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general Korenblum radius bound does not imply infeasibility of a particular sufficient certificate.",
+          "The Resultary monotone-weight rigidity result concerns non-increasing radial weights, whereas Gamma weight t^{kappa-1}exp(-t) for kappa>=144 increases until t=kappa-1."
+        ],
+        "reasoning": "Different sufficiency, necessity and actual maximum-principle statements must be separated. Neither known weighted-Fock domination estimates nor a monotone radial weight result force the two-sided Gamma moment obstruction.",
+        "searches": [
+          "Wikström 2026 Korenblum Gamma Fock moment duality",
+          "Wee Khoi weighted Fock Korenblum constants 2023",
+          "Resultary:Universal extremal rigidity for monotone weighted Fock Korenblum radii"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:RESULT.md (blob 804b8f96f1db3b7bba450d107ba9ababb9451c41)",
+        "SCOPE2026:verify_bounds.py (blob ee7535b4010cf6ec2bb9c2be4e2414ec062239e8)",
+        "arxiv:2609.39622",
+        "arxiv:2607.17748",
+        "doi:10.1080/17476933.2022.2052862",
+        "Resultary:Universal extremal rigidity for monotone weighted Fock Korenblum radii"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The package reports feasible low shapes 0<kappa<=6.447..., disjoint from kappa>=144.",
+          "The moment inequalities are sufficient-certificate requirements; ruling them out has no logical implication that the underlying domination principle fails."
+        ],
+        "reasoning": "No strong prior statement inspected in full was shown to cover the claimed all-large-shape certificate nonexistence. The exact criterion-only logical implication is preserved; full access to the most relevant preprint is the main risk.",
+        "searches": [
+          "arxiv:2609.39622 Corollary 1.4 Proposition 7.3",
+          "arxiv:2607.17748 Bergman moment duality",
+          "doi:10.1080/17476933.2022.2052862"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source rewrites the criterion as simultaneous rising-factorial bounds with support X>=kappa.",
+          "The new contradiction uses the full exponentially generating family and an explicit real-ray lambda scaling."
+        ],
+        "reasoning": "Pointwise finite dual certificates for individual Gamma shapes are not a uniform theorem for all real kappa>=144. Direct equivalence to such a uniform result in prior work could not be established from accessible material; full-text inaccessibility remains a priority risk.",
+        "searches": [
+          "Resultary:Wikstrom Gamma Fock moment problem feasibility obstruction high shape",
+          "arxiv:2609.39622 Wikström sharp radius Fock space Theorem 1.2 Proposition 7.3",
+          "arxiv:2607.17748 moment duality lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The research package reports verified discrete shapes but explicitly distinguishes its all-real-kappa ray.",
+          "There is no numerical table able by itself to prove impossibility for a continuum of real shape parameters."
+        ],
+        "reasoning": "Discrete threshold certificates can be covered/known at individual shapes, but the accepted novelty is quantifier uniformity and the analytic proof for a full half-line, not reproducing a known finite table.",
+        "searches": [
+          "Wikström Proposition 7.3 discrete shapes kappa 50,200,300,500",
+          "Gamma Fock moment dual certificate table",
+          "Resultary Gamma moment high-shape criterion"
+        ]
+      },
+      "rationale": "The relevant September 2026 Wikström work introduces the certificate and, according to the assigned source discussion, has a finite polynomial dual obstruction at a single shape kappa=50 and certain discrete verified shapes; a uniform real high-shape infeasibility theorem is a strictly stronger shape-quantified statement. The full Wikström preprint was inaccessible in this run, including authorized institutional access, so that assertion about the specific Proposition 7.3 is based on the source discussion and indexed material rather than independent full-paper reading. Best-of-knowledge originality survives with prominent risk and does not claim the radius fails.",
+      "residual_risks": [
+        "Crucial original arxiv:2609.39622 could not be inspected in full (Oxford VPN disconnected); Proposition 7.3/Section 7.1 priority comparisons remain conditional on accessible abstract and inspected source references.",
+        "Threshold kappa=144 is a sufficient obstruction bound, not established optimal; no conclusion about actual sharp Korenblum radius or behavior for smaller shapes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible direct priority source not read in full. No final whole-paper NOT_COVERING conclusion asserted; risk retained while assessing best-of-knowledge novelty",
+          "evidence": "The assigned proof’s uniform result differs from the described finite dual certificates; no verified broader all-real ray was available in accessible source.",
+          "identifier_or_url": "arxiv:2609.39622",
+          "material_read": "Indexed abstract and bibliographic metadata and full pinned source’s explicit interpretation of Theorem 1.2/Proposition 7.3; full original paper inaccessible",
+          "method": "ArXiv/OA full-text attempts and authorized Oxford institutional paper retrieval; Oxford reported vpn_disconnected; no bypass",
+          "title": "The sharp radius in Korenblum’s maximum principle for the Fock space",
+          "trigger": "Exact source of criterion and potentially covering high-shape Proposition 7.3"
+        },
+        {
+          "assessment": "Bergman-space moment bounds are not verified as equivalent to the Gamma-Fock half-line infeasibility",
+          "evidence": "Different analytic space and criterion noted in inspected source.",
+          "identifier_or_url": "arxiv:2607.17748",
+          "material_read": "Search abstract and reference context only; not full text",
+          "method": "External literature search",
+          "title": "Moment duality and an improved lower bound for Korenblum’s constant",
+          "trigger": "Related moment method and possible stronger general theorem"
+        },
+        {
+          "assessment": "Inapplicable monotonic radial-weight hypothesis for high Gamma shape; not priority coverage",
+          "evidence": "Gamma weight is nonmonotone for kappa>1 and thus not included in the monotone-weight regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extremal-rigidity-for-monotone-weighted-fock-korenblum--4bcc547017ec",
+          "material_read": "Resultary returned title and substantive summary, not full source",
+          "method": "Semantic search of published records",
+          "title": "Universal extremal rigidity for monotone weighted Fock Korenblum radii",
+          "trigger": "Resultary result involving the same Korenblum functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform infeasibility of a natural sufficient moment-measure criterion for an entire real tail is a structural limitation of a recognized analytic method. It identifies a genuine boundary of applicability, not merely a one-shape numerical dual certificate or a cheap normalization check. It may guide future searches for alternative Fock-radius techniques.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026:RESULT.md (blob 804b8f96f1db3b7bba450d107ba9ababb9451c41)",
+    "SCOPE2026:verify_bounds.py (blob ee7535b4010cf6ec2bb9c2be4e2414ec062239e8)",
+    "arxiv:2609.39622",
+    "arxiv:2607.17748",
+    "doi:10.1080/17476933.2022.2052862",
+    "Resultary:Universal extremal rigidity for monotone weighted Fock Korenblum radii"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each real Gamma shape kappa>=144, no probability law supported on [kappa,infinity) simultaneously satisfies all two-sided rising-factorial moment inequalities used in the stated sufficient criterion for the Gamma-weighted Fock Korenblum radius. This is criterion infeasibility, not failure of domination itself.",
+  "limitations": [
+    "Crucial original arxiv:2609.39622 could not be inspected in full (Oxford VPN disconnected); Proposition 7.3/Section 7.1 priority comparisons remain conditional on accessible abstract and inspected source references.",
+    "Threshold kappa=144 is a sufficient obstruction bound, not established optimal; no conclusion about actual sharp Korenblum radius or behavior for smaller shapes."
+  ],
+  "residual_risks": [
+    "Crucial original arxiv:2609.39622 could not be inspected in full (Oxford VPN disconnected); Proposition 7.3/Section 7.1 priority comparisons remain conditional on accessible abstract and inspected source references.",
+    "Threshold kappa=144 is a sufficient obstruction bound, not established optimal; no conclusion about actual sharp Korenblum radius or behavior for smaller shapes."
+  ],
+  "schema_version": 1
+}
