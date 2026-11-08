@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph may be arbitrary connected finite and the edge probabilities heterogeneous in \((0,1)\). The key step is the exact Hilbert--Schmidt variance identity: the empty graph has positive probability and forces all peripheral eigenoperators to be common fixed points. Outside \(\pi\mathbb Z\), singleton-edge propagators generate the commutant of edge transpositions, which by graph connectivity is the two-dimensional span of the uniform-mode and complementary projections. The resulting projection formula, including the arbitrary-initial-state quantifier, is exact. On \(P_3\), the full Laplacian's \(0,1,3\) eigenvalues give the even/odd integer-\(\pi\) classification and exact finite-step decay. Standalone separately implemented diagnostics pass 129 assertion groups. Analytic proofs, not these finite tests, cover all graph sizes.
+## correctness
 
-**Originality — PASS on examined evidence.** The principal 2012 percolated-Laplacian source proves the fast-switching limit and presents finite-step relaxation numerically; the present sharp all-connected-graph fixed-step channel limit and integer-\(\pi\) obstruction are not its theorems. The 2012 coined-walk source provides the general attractor-operator methodology but uses a coin and conditional shift on a different Hilbert space. The 2014 quantum-consensus source uses swap Lindbladians on networks of qubits rather than finite-time exponentials of random subgraph Laplacians. Specific directed database and literature searches found no statement implying the exact theorem and three-site resonance; this is evidence only, not a proof of historical priority. The broader random-unitary and permutation-commutant principles are acknowledged. A differently normalized earlier derivation remains possible.
+PASS
 
-**Value — PASS.** A general finite-step, graph-independent relaxation formula for arbitrary connected networks resolves a mathematically and physically motivated asymptotic question left numerical in the original model. Its stroboscopic exceptional set exhibits exact nonuniform memory rather than a trivial small parameter correction: a localized three-site walker changes its limiting return probability from \(1/3\) to \(5/9\) or \(1\), even with strictly stochastic edge updates. This identifies a real order-of-limits and sampling hazard in quantum transport, not an arbitrary small-network statistic.
+The empty-edge realization U_empty=I has positive probability; Hilbert-Schmidt variance identity forces every peripheral eigenoperator of the random-unitary channel to have eigenvalue 1 and to commute with each U_A. For tau not in pi Z, each singleton unitary U_e=I+(e^(-2i*tau)-1)L_e/2 generates the same commutant as edge transposition S_e=I-L_e. Connected edge swaps generate S_n, whose matrix commutant is span{P,Q}. Contractivity rules out peripheral Jordan blocks; thus exponential convergence to the trace-preserving projection with conserved tr(P rho). For P3 at tau=k pi singleton unitaries are I and full-path U_full=P-Q for k odd, identity for k even, yielding Phi=(1-r)id+r Ad_(P-Q) and the finite-m exact coherence law. Independent dense-superoperator calculations for p=(0.37,0.42), tau=0.7,pi,2pi and 2000 iterations gave localized probabilities (1/3,1/3,1/3), (5/9,2/9,2/9), (1,0,0) to <4e-13. This is finite diagnostic; proof covers arbitrary finite connected G.
 
-Limits: independent edge refresh, strictly nondegenerate probabilities, unit edge weights and unnormalized graph Laplacian, ensemble averages, fixed step before long-time limit. The theorem does not classify resonances on every graph, quantify uniform spectral mixing rates, or settle historical priority without further independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction based on actual statement/implication comparisons: generic techniques or marginals are credited, and the explicit theorem-specific conclusions were not found as covered by the primary material inspected; no claim of exhaustively proven historical novelty. For every connected finite simple graph with independently resampled, strictly interior random edges and unit combinatorial Laplacian couplings, the finite-step averaged quantum channel has a universal exponential power limit onto span{P,Q} at each step time tau outside pi Z; on P3 exactly at odd/even pi multiples there is a sharp residual-coherence/identity obstruction with localized returns 5/9 and 1.
+
+## value
+
+PASS
+
+The sharp distinction between generic finite sampling and stroboscopic resonances is a structural mixing criterion for a natural noisy quantum-transport channel. It yields the entire asymptotic density operator (not only vertex probabilities) for every connected graph and a mathematically explicit three-vertex obstruction, clarifying the limits of fast-switching heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
