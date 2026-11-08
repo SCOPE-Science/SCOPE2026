@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph and the ordinary (not total) four-cut complex are defined by exact modular arithmetic and a connectivity predicate. Two independent algorithms reconstruct the same 6,994 nonempty faces from 260 disconnected four-subsets. A 3,484-pair acyclic matching is specified by a concrete vertex order, all 42,393 Hasse incidences are checked, and the only critical cells are one vertex and 25 six-cells. Discrete Morse theory yields an integral wedge of 25 six-spheres. A separate complete mod-two boundary calculation confirms the expected Betti vector but is not substituted for the integral proof. The signed Lefschetz calculation checks every one of 78 affine transformations, proving the rational character. The standard rational transfer argument yields the quotient homology statement.
+PASS
 
-## Originality
+The 13-point graph uses nonzero quadratic residues {1,3,4,9,10,12} and is SRG(13,6,2,3). Independently counted all C(13,4)=715 induced 4-sets: 260 disconnected, 455 connected; their 9-point complements generate exactly 6994 nonempty faces, f=(13,78,286,715,1287,1716,1664,975,260). Explicit pivot-order vertex-toggle matching pairs 3484 faces, with precisely one critical 0-cell and 25 critical 6-cells. A complete topological sort of all 42393 oriented Hasse incidences visits all 6994 faces, proving acyclicity and hence the integral homotopy wedge^25 S6. The complex is pure dimension8 and has nonzero H6, so cannot be pure shellable. All 78 affine maps x↦ax+b with a a square were checked as graph symmetries; direct signed simplicial Lefschetz traces equal twice the number of fixed graph vertices minus one, yielding identity25, 12 nonidentity translations -1, and remaining 65 affine maps 1. Character equality proves rational H6=Q⊕2Aug(Q[F13]), invariants rank1; finite group quotient rational homology follows from barycentric subdivision and transfer. An independently coded complete Morse and character check corroborates source code; mod-two boundary-rank checker is separate and is not misused to prove integral wedge.
 
-PASS against inspected accessible literature and mathematical finding records, not a claim of exhaustive bibliographic uniqueness. The original cut-complex paper's high-skeleton theorem does not apply: its necessary complete seven-skeleton is absent (52 missing seven-faces). That paper's studied families do not include the Paley graph. The sequel covers disjoint unions, squared paths, grids, paths and cycles; its equivariant calculations concern other groups and graphs. Adjacent documented exact four-cut results concern the Petersen, Grötzsch, triangular and 16-vertex strongly regular graphs, not this 13-vertex graph. No covering implication or exact table entry was identified. Index incompleteness and uninspected writings remain residual risks.
+## originality
 
-## Value
+PASS
 
-PASS. The 13-vertex Paley graph is a distinguished self-complementary strongly regular graph, not an arbitrary chosen slice. Its ordinary four-cut complex is nonempty although its total four-cut complex is void, and has a topological anomaly: a pure eight-dimensional complex with all reduced homology two degrees below the top. The complete integral sphere-wedge calculation resolves this natural named instance, while the nontrivial affine character determines a symmetry quotient's rational homology. The exact character and complete homotopy information are not consequences of the graph's strongly regular parameters or the paper's high-skeleton theorem. A general family theorem is not claimed or required.
+The standard cut-complex papers provide the definitions and powerful methods, but their actual hypotheses and treated graph families do not imply the P13 case, and a matching Paley-name directed-flag result is a different complex. PASS on a qualified searched basis, not claimed global priority.
 
-## Closest literature and limits
+## value
 
-Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675, sections 2 and 5–7; Bayer et al., *Topology of Cut Complexes II*, arXiv:2407.08158, sections 4–6. Other published calculations for different graph inputs and different variants provide context rather than the present conclusion. The finite programs prove this specific case only. A possible unindexed equivalent calculation is the remaining originality risk. No independent external audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 13-vertex Paley graph is a canonical symmetric strongly regular test case for graph cut topology. Its ordinary 4-cut complex is pure dimension8 but has all integral homotopy concentrated as 25 six-spheres, a motivated nonshellability witness, and the natural affine group action reduces to a simple nontrivial representation Q⊕2Aug. These exact topological and group-module invariants are not implied by the SRG parameters and distinguish ordinary from total cut constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
