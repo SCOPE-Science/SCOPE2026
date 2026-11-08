@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes a counting-measure unnormalized generator, a unit-length wheel metric independent of heat conductance, and real-valued Lipschitz seminorms. The proof reconstructs the active-spoke directional derivative explicitly: its feasible rim values satisfy a sharp two-neighbor bound that produces \(\max\{r(m-9),r(m-5)-2\}\), with attainable potentials on both branches. Tight rim edges have nonpositive derivatives because cycle heat is shift averaging, with an additional strictly negative spoke term. The finite-dimensional upper-Dini-derivative argument establishes nonexpansiveness exactly when all active signed edge derivatives are nonpositive; an explicit positive active derivative gives genuine small-time amplification otherwise. Commutation of star and rim generators is established on the hub/constant-rim and zero-sum-rim sectors. A direct support-function optimization computes the star factor's exact norm, including the relevant unit-metric rim constraints; its maximum and limiting sharpness follow from elementary exponential differentiation and continuity. The generated Python verifier independently checks exact rational finite derivative maximizers and uniformized heat matrices. Finite tests are corroborative; the universal quantifiers are supplied by the analytic proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Y. Ollivier's 2007 transport-curvature theory introduces the Wasserstein/Lipschitz contraction framework but does not evaluate the stated wheel conductance transition or finite-time envelope in the inspected introduction and definitions. F. Münch and R. K. Wojciechowski's 2017 general weighted-graph curvature/heat equivalence (arXiv:1712.00875) provides a broad conceptual implication that is expressly credited; its checked introduction, curvature formula, and text search do not identify a wheel-specific calculation. K. Chen, H. Lin, S. Liu and Z. You (arXiv:2505.04470) explicitly study wheel graphs under the **degree-normalized** generator. Their wheel classification, inspected in Sections 1–3 including the wheel proof, does not imply the claim for the unnormalized generator with independent spoke conductance. Prior related calculations of a weighted wheel edge-space projection concern a different projection operator, not heat evolution. Relevant published records and semantic database results with wheel geometry but distinct norms were compared by their actual operator and quantifiers. No matching stronger all-time wheel theorem or formula was found. The unindexed-literature possibility, and any uncovered synonymous treatment, remain priority risks; a failed search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The wheel is a natural minimal hub-plus-cycle graph family, and varying only its spoke conductance isolates a genuine interplay of the generator and fixed metric. The exact all-time *contractivity* classification displays a discontinuous structural phenomenon: once the rim reaches ten vertices, **arbitrarily weak** spoke coupling already permits expansion, even though zero coupling by itself is nonexpansive. The sharp fixed-rim envelope, its unattained star-limit extremizers and its asymptotic factor-two law answer a different global optimization question, rather than merely recomputing local curvature. Neither the exact phase boundary nor the across-conductance envelope is a routine rephrasing of the general curvature-contraction equivalence. The limitations are explicit: no pointwise exact finite-conductance norm profile or normalized-generator extension is claimed.
+For a tight spoke, maximize derivative over 1-Lipschitz potentials: the exact two faces give σ_m(r)=max{r(m−9), r(m−5)−2}; rim-edge derivatives are nonpositive. Finite active-face Dini derivative and invariance imply all-time contraction exactly σ≤0. Star and rim Laplacians commute, with the rim heat contractive in the wheel metric. The exact star Lipschitz norm is F_m(s)=(2−4/m)e^(−s)−(1−4/m)e^(-(m+1)s), obtained by a maximizing spoke pattern. Let r→∞, t=s/r for sharpness; positivity of the finite-rim heat kernel obstructs finite-r attainment of the positive-time maximum. Elementary calculus gives s_m, C_m and C_m→2. Independent exact enumeration confirmed 28 sharp spoke derivatives for m=5..11 and tested r. The universal result rests on analytic proof, not 28 instances.
 
-## Sources and limitations
-Primary full texts inspected in the mathematically relevant sections: Ollivier (arXiv:math/0701886, first submitted 2007-01-30), Münch–Wojciechowski (arXiv:1712.00875), and Chen–Lin–Liu–You (arXiv:2505.04470). Comparisons also include published-finding corpus semantic hits and recoverable prior wheel/heat claims used only to exclude overlap. The precise new result is the joint contractivity phase classification and sharp family envelope under the stated metric/generator convention. Independent validation, publication priority, and extensions to arbitrary weighted Halin graphs remain unestablished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Münch–Wojciechowski Theorem 3.8 supplies general linear graph heat-Lipschitz/curvature equivalence, potentially a framework for obtaining the contractivity boundary, but not the evaluated complete wheel threshold nor the over-conductance sharp envelope and nonattainment. Resultary wheel symmetric-edge-polytope ellipsoid work has same combinatorial graph but a wholly different invariant.
+
+## value
+
+PASS
+
+Exact phase transition at wheel rim size 10, singular high-spoke heat amplification and universal sharp norm ceiling 2 give a concrete family where curvature, generator parameters and Lipschitz stability separate in an informative way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

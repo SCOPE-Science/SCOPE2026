@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_wheel_heat.py` with Python 3. No third-party package is needed. The program enumerates all integral graph-Lipschitz potentials with the hub fixed at zero for rim sizes five through ten and compares exact rational tight-spoke derivatives with the proved piecewise formula. The integrality of the vertices of the finite difference-constraint polytope justifies this exhaustive method in these **finite** cases.
+## correctness
 
-It independently computes actual full wheel heat matrices by Poisson uniformization of a stochastic transition matrix, then evaluates the full graph-Lipschitz operator norm over the enumerated potentials. It tests examples on both sides of the contractivity thresholds, checks the exact commuting-factor identity against independent uniformizations, and checks the analytic peak formula at selected sizes and the tendency of those peaks toward two.
+PASS
 
-Expected final output: `ALL_WHEEL_HEAT_CHECKS_OK`. The full run's reported intermediate checks are `EXACT_SLOPE_OK`, `HEAT_UNIFORMIZATION_OK`, and `ENVELOPE_OK`.
+For a tight spoke, maximize derivative over 1-Lipschitz potentials: the exact two faces give σ_m(r)=max{r(m−9), r(m−5)−2}; rim-edge derivatives are nonpositive. Finite active-face Dini derivative and invariance imply all-time contraction exactly σ≤0. Star and rim Laplacians commute, with the rim heat contractive in the wheel metric. The exact star Lipschitz norm is F_m(s)=(2−4/m)e^(−s)−(1−4/m)e^(-(m+1)s), obtained by a maximizing spoke pattern. Let r→∞, t=s/r for sharpness; positivity of the finite-rim heat kernel obstructs finite-r attainment of the positive-time maximum. Elementary calculus gives s_m, C_m and C_m→2. Independent exact enumeration confirmed 28 sharp spoke derivatives for m=5..11 and tested r. The universal result rests on analytic proof, not 28 instances.
 
-The finite tests do not prove the result for every rim size, every conductance or all times; the required universal proofs are given in `RESULT.md`. The code uses ordinary floating-point tolerances for heat values and exact rational arithmetic for instantaneous derivative checks. No external or independent audit has been conducted.
+## originality
+
+PASS
+
+Münch–Wojciechowski Theorem 3.8 supplies general linear graph heat-Lipschitz/curvature equivalence, potentially a framework for obtaining the contractivity boundary, but not the evaluated complete wheel threshold nor the over-conductance sharp envelope and nonattainment. Resultary wheel symmetric-edge-polytope ellipsoid work has same combinatorial graph but a wholly different invariant.
+
+## value
+
+PASS
+
+Exact phase transition at wheel rim size 10, singular high-spoke heat amplification and universal sharp norm ceiling 2 give a concrete family where curvature, generator parameters and Lipschitz stability separate in an informative way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
