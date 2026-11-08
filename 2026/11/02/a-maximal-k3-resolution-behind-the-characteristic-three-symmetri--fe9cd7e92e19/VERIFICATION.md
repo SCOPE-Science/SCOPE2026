@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete standalone program `verify.py` was executed using Python 3 and the standard library. It constructs \(\mathbb F_9=\mathbb F_3[\omega]/(\omega^2+1)\), enumerates canonical projective points without duplicates, evaluates the displayed fourth elementary-symmetric polynomial on the correct hyperplane, checks critical points from the analytic gradient formula, and independently enumerates both the surface and the cone. Observed output:
+## correctness
 
-```text
-F_3: Q=25 B=76 Q_singular=15 B_singular=46
-F_9: Q=145 B=1306 Q_singular=15 B_singular=136
-NODE_HESSIAN_DETERMINANT_MOD3=1
-K3_F9_MAXIMAL=280; FROBENIUS_EIGENVALUES=+3^21,-3^1
-VERIFY_OK
-```
+PASS
 
-The enumeration includes exactly \(40\) and \(820\) points of \(\mathbb P^3\) and \(121\) and \(7381\) points of \(\mathbb P^4\) for the two fields. In particular, the point counts are exhaustive finite computations rather than samples. The displayed Hessian is independently derived in `RESULT.md` from the local defining quartic. The algebraic critical-point analysis proves geometric completeness beyond these finite fields. The all-extension formulas additionally use standard results for K3 resolutions and Weil bounds; the script does not attempt to replace those mathematical theorems. No separate human or external mathematical audit has occurred.
+On σ1=0 in characteristic3, symmetric σ4 is invariant under common translation x→x+c(1,…,1), proving that B is cone over Q=x0=0. Critical derivative equations x_i³+p2 x_i equal imply either all coordinates equal (vertex) or four equal and a pair differ oppositely, yielding precisely 15 lines and rational base nodes. At base representative (0,0,0,0,1,−1), the quadratic term −(uv+uw+vw) has nonzero Hessian determinant 1 mod3, giving A1 nodes. Isolated singularities imply Q integral normal; resolution of quartic rational double points gives K3. Exhaustive projective F3 and F9 counts Q=25,145 and B=76,1306 verified independently. Replacing each split rational node adds q points, so Y(F3)=70,Y(F9)=280. K3 b2=22 and |α|=3 make the F9 maximal count force α²=9 by triangle equality, and F3 trace gives 21 plus/one minus; point counts and zeta follow. Claim expressly excludes alternate nonflat five-coordinate char3 reduction.
+
+## originality
+
+PASS
+
+Beauville’s S6-symmetric pencil identifies complex t=2 Burkhardt quartic but not this special F3 fiber. Bruin–Nasserden’s primary arithmetic study explicitly excludes characteristic 3 and uses an inequivalent mod-3 reduction. General 15-node quartic/K3 geometry and Weil bounds are prior methods but do not give the exact F9 maximal arithmetic of this chosen model. Best-of-knowledge PASS; specialized supersingular quartic literature may contain an equivalent incarnation.
+
+## value
+
+PASS
+
+A concrete characteristic-three degeneration of a famous quartic with fifteen nodal K3 base, maximal F9 resolution, and complete rational point/zeta data, including a decisive warning that distinct integral models have different modular fibers. A natural arithmetic-geometric invariant of significant objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review: characteristic-three symmetric Burkhardt quartic
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is confined to the six-coordinate integral equation. Newton identities and translation invariance prove the cone description. The additive critical-point equation determines all geometric singular supports; a nonzero local Hessian determinant proves fifteen ordinary nodes on the quartic base. The K3 minimal resolution has exact independent counts of 70 and 280 over the first two finite fields, obtained by complete enumeration and fifteen exceptional conics. Since 280 is the K3 Weil upper bound over the quadratic extension, equality fixes every squared Frobenius eigenvalue; the first trace then fixes their signs. Thus no infinite assertion is inferred from an unjustified finite pattern. The standalone verifier has been executed successfully.
+## correctness
 
-**Originality — PASS, qualified.** Beauville identifies the symmetric pencil and its complex Burkhardt member, but the characteristic-three cone and exceptional point counts are not given there. Ren–Sam–Sturmfels treat a characteristic-zero tropical model. Bruin–Nasserden explicitly exclude characteristic three and use a five-coordinate form whose coefficientwise reduction is a different, reducible fiber. Dolgachev gives the general characteristic-zero fifteen-nodal surface geometry, not the arithmetic of this specific reduction. No covering identity for the explicit geometric degeneration together with the maximal K3 Frobenius spectrum was located in the searches undertaken. An earlier unindexed special-fiber or finite-field K3 computation remains a priority risk; absence of search matches is not evidence of absolute uniqueness.
+PASS
 
-**Mathematical value — PASS.** The old question is the behavior of a distinguished symmetric quartic and its moduli-theoretic geometry at the excluded prime three. The result gives a complete geometric degeneration into fifteen concurrent singular lines, explains the influence of the integral model, and determines a natural arithmetic invariant of the base K3 resolution. Quadratic-extension maximality and the complete zeta functions are substantially stronger than a simple bad-prime observation or a finite-point table.
+On σ1=0 in characteristic3, symmetric σ4 is invariant under common translation x→x+c(1,…,1), proving that B is cone over Q=x0=0. Critical derivative equations x_i³+p2 x_i equal imply either all coordinates equal (vertex) or four equal and a pair differ oppositely, yielding precisely 15 lines and rational base nodes. At base representative (0,0,0,0,1,−1), the quadratic term −(uv+uw+vw) has nonzero Hessian determinant 1 mod3, giving A1 nodes. Isolated singularities imply Q integral normal; resolution of quartic rational double points gives K3. Exhaustive projective F3 and F9 counts Q=25,145 and B=76,1306 verified independently. Replacing each split rational node adds q points, so Y(F3)=70,Y(F9)=280. K3 b2=22 and |α|=3 make the F9 maximal count force α²=9 by triangle equality, and F3 trace gives 21 plus/one minus; point counts and zeta follow. Claim expressly excludes alternate nonflat five-coordinate char3 reduction.
 
-**Limitations.** The singular scheme at the cone vertex, threefold resolution, Artin invariant, Picard lattice, and stable degeneration of other integral models are not determined. The full historical priority of the precise arithmetic assertion awaits external examination. Primary descriptions of fifteen-nodal quartics over the complex numbers do not automatically specialize to this characteristic-three K3.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Beauville’s S6-symmetric pencil identifies complex t=2 Burkhardt quartic but not this special F3 fiber. Bruin–Nasserden’s primary arithmetic study explicitly excludes characteristic 3 and uses an inequivalent mod-3 reduction. General 15-node quartic/K3 geometry and Weil bounds are prior methods but do not give the exact F9 maximal arithmetic of this chosen model. Best-of-knowledge PASS; specialized supersingular quartic literature may contain an equivalent incarnation.
+
+## value
+
+PASS
+
+A concrete characteristic-three degeneration of a famous quartic with fifteen nodal K3 base, maximal F9 resolution, and complete rational point/zeta data, including a decisive warning that distinct integral models have different modular fibers. A natural arithmetic-geometric invariant of significant objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
