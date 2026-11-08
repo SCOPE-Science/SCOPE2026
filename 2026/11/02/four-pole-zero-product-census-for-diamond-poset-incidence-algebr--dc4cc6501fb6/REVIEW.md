@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The interval-basis multiplication yields exactly the diagonal, first-layer, and unique top interval equations. In the three endpoint regimes with at least one nonzero endpoint, the final top-interval equation is a rank-one linear equation with exactly \(q\) solutions. In the zero-zero endpoint regime it becomes one dot-product condition; additive-character orthogonality computes the correction \(q^3(2q-1)\) per middle layer. Exhaustive independent left-multiplication rank computations confirm fourteen small fields and widths, including actual \(\mathbb F_4\) arithmetic. The recurrence minimality follows from strict inequalities between the four bases for all \(q\ge2\). This verification does not substitute finite experiments for a proof.
+PASS
 
-## Originality — PASS, provisional
+Rebuilt incidence-basis convolution coordinates: diagonal zero products, local a0 u_i + x_i b_i=0, a_i v_i+y_i b∞=0, and top a0 w+z b∞+Σ_i x_i v_i=0. When (a0,b∞) not both zero, top equation has q free (z,w) choices, yielding 2q²(q-1)G10^m+q(q-1)^2 G11^m, with G10=q²(q²+q-1), G11=q²(2q-1). For endpoints both zero, finite-field additive-character orthogonality gives q³[G00^m+(q-1)H^m] where G00=q³(3q-2) and H=q³(2q-1). All four bases are positive/distinct for q>=2, nonzero coefficients and Vandermonde force minimal order four; largest B1 dominates. Checked ordered one-sided vs two-sided conventions, m=0 (two-point chain), m=1 (full triangular 3x3), extension-field char2. Independent exhaustive left-multiplication rank count verified q=2,m=0..3; q=3,m=0..2; q=5,m=0. Source verifier additionally handles genuine F4 and fourteen small cases. These finite counts corroborate the full Fourier argument.
 
-Quinn (arXiv:1501.02481; doi:10.2206/kyushujm.67.117) concerns incidence algebra presentations and lex-shellability, not ordered zero-product enumeration. Ekhad and Zeilberger (arXiv:math/9512224) count single elements with square zero in upper triangular algebras, a different constraint. Jia and Xiao (arXiv:2608.26853) investigate functional identities conditioned on two-sided zero products, not counting ordered pairs. The closest prior archival result for outward-star incidence algebras does not address the sum of composable path products and has different algebras. A same-family earlier result for radical-square-zero group involutions has the equation \(u^2=0\) inside the radical, not unrestricted \(ab=0\). Search comparisons did not reveal equivalent or dominating four-exponential formulas. Searches alone are not proof of historical novelty; a general zero-product matrix-fiber theorem remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The zero-product relation is a natural invariant of finite associative algebras. This family is the first simple incidence-poset step beyond a two-level star in which the top interval receives nontrivial products from every intermediate point. The formula resolves the global coupling uniformly across all field orders and unbounded poset widths. The four distinct exponential bases yield a provably minimal order-four recurrence rather than a finite table or a routine extension of an uncoupled case. It supplies a concrete benchmark for finite-field counting of multiplication fibers and distinguishes one-sided zero-product complexity from square-zero and commuting counts.
+Best-of-knowledge original four-pole count and order-four recurrence for one-sided ordered pairs in this diamond incidence algebra. General incidence-algebra multiplication, square-zero single matrices and identities of maps preserving zero products are prior results with different quantifiers.
 
-## Closest literature and limitations
+## value
 
-No claim is made for arbitrary posets, geometric irreducibility, unordered pairs, or two-sided zero products. The earlier upper-triangular single-variable count, outward-star count, and zero-product-determined functional-identity results are not equivalent. Publication priority is provisional and the proof has not received independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact one-sided zero-product counts for an incidence-algebra family with nontrivial composable length-two paths are natural algebraic incidence statistics. The four distinct poles and minimal recurrence isolate how the central dot-product couples middle vertices and distinguish diamonds from two-level stars. An exact all-q count is a useful classification fact, not a mere routine multiplication identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
