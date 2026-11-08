@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:02:16.575759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE assigned RESULT.md blob 37a15f9a3599e2c1328504e2a582d6405b4ebfb1",
+        "SCOPE assigned verify.py blob 613bf53ae7b5fb3cb05475c6da2d8250ffe6c109",
+        "Averkov et al. arXiv:2508.20009v2 §4–5, especially Lemma 5.2 and Theorem 4.6",
+        "Independent gcd-based graph enumeration in seven box models"
+      ],
+      "rationale": "PASS. The affine integral unimodular transform z+U preserves the full lattice, gcd of integer differences, and diameter-graph adjacency; reduce to axis box with lengths t a_i. The lattice diameter is L=t max a_i by the coordinate bound g<=max |delta_i| and a maximal coordinate edge achieving g=L. To have gcd L, every short coordinate difference vanishes and each maximum-length coordinate difference belongs to {0,±L}, nonzero somewhere. Fix shorter coordinates, interior values in long coordinates and the subset J of endpoint coordinates; every endpoint assignment on J is adjacent to every other and no edge leaves the clique K_{2^{|J|}}. Choosing J and the frozen values gives N_s=B binom(k,s)(L-1)^{k-s}, including L=1 and 0^0=1. Summing choose(2^s,2) gives B/2[(L+3)^k-(L+1)^k] and direct leading term k prod_i(a_i)/a times t^{d-1}; the chromatic polynomial and Borsuk number 2^k follow exactly from these disjoint cliques. Distinct diameter edges cannot be collinear with three binary-corner vertices, so segments equal maximal-diameter lines. Independently enumerated all integer-point pairs and gcds for seven boxes, including dimensions 1..3 with tied/untied sides, and reproduced full clique multiplicities and edge numbers. Unlimited d and t come from the coordinatewise proof, not finite enumeration.",
+      "residual_risks": [
+        "Only unimodular integral affine boxes, not general rational or skew nonunimodular parallelotopes.",
+        "The general clique property and 2^d universal upper bound are prior work, not novel subclaims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Averkov et al. Theorem 4.6 proves eventual quasipolynomiality of diameter segment counts of general lattice polytopes; general 2^d discrete Borsuk bound in Section 5.",
+          "Example 4.7 in that source exhibits a nontrivial period-three skew parallelogram."
+        ],
+        "reasoning": "Broader statements guarantee existence/form (eventually) but not exact coefficients, absence of quasiperiod, clique multiplicity, labeled color counts or the stronger optimal 2^k value for tied longest directions.",
+        "searches": [
+          "lattice diameter graph box parallelotope clique component chromatic polynomial discrete Borsuk Averkov Brose De Loera"
+        ]
+      },
+      "checked_sources": [
+        "On Lattice Diameter Segments: Algorithms and Structure — https://arxiv.org/html/2508.20009v2",
+        "Resultary semantic search: lattice diameter graph box parallelotope clique component chromatic polynomial discrete Borsuk Averkov Brose De Loera",
+        "Resultary targeted search: lattice diameter segments box rectangular parallelotope exact N_s clique K_{2^k} polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every clique is at most 2^d in prior Lemma 5.2; this implies beta<=2^d but not beta=2^k or number of cliques for each k.",
+          "The current proof identifies maximal gcd differences and the unique frozen-coordinate clique decomposition."
+        ],
+        "reasoning": "A general upper bound and eventual polynomial/quasipolynomial do not uniquely specify the all-t exact box polynomial, clique spectrum or chromatic factorization. The cube k=d sharpness is old, while all anisotropic tie values and multiplicities are additional.",
+        "searches": [
+          "lattice diameter graph box parallelotope clique component chromatic polynomial discrete Borsuk Averkov Brose De Loera",
+          "lattice diameter segments box rectangular parallelotope exact N_s clique K_{2^k} polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Averkov et al. (2025/26) Lemma 5.2: every bounded lattice diameter graph decomposes into cliques of size at most 2^d.",
+          "Their theorem supplies a graph structure bound, not the box-specific multiplicities or entire chromatic polynomial."
+        ],
+        "reasoning": "The general complete-component property itself is covered and explicitly credited. The exact count N_s for each clique order, all-t polynomial and k-tie partition transition do not follow without a new box equality classification.",
+        "searches": [
+          "lattice diameter graph box parallelotope clique component chromatic polynomial discrete Borsuk Averkov Brose De Loera",
+          "lattice diameter segments box rectangular parallelotope exact N_s clique K_{2^k} polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary search returned nearby Ehrhart lattice-segment factors but not a published complete exact box diameter clique spectrum.",
+          "Published general arXiv theorem has no table of B binom(k,s)(L-1)^{k-s}."
+        ],
+        "reasoning": "No identical table located; positive evidence for distinctness is the mathematically weaker published universal theorem, not the absence of a search hit.",
+        "searches": [
+          "lattice diameter segments box rectangular parallelotope exact N_s clique K_{2^k} polynomial"
+        ]
+      },
+      "rationale": "PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: the general lattice-diameter clique decomposition and universal 2^d bound are explicitly OLD, but do not supply exact box component multiplicities, chromatic factorization or all-dilation polynomial.",
+      "residual_risks": [
+        "Specialized box counting results might have appeared in combinatorial literature under a different name; no definitive historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of general clique property, coloring interpretation, universal upper bound and eventual quasipolynomiality; not of explicit box spectrum or all-dilation counts.",
+          "evidence": "Lemma 5.2 states all components cliques ≤2^d; Section 5 ties Borsuk number to graph chromatic number.",
+          "identifier_or_url": "https://arxiv.org/html/2508.20009v2",
+          "material_read": "Full accessible arXiv HTML sections 2–5, especially Theorem 4.6, Example 4.7, Lemma 5.2 and its proof; conclusion and definitions",
+          "method": "Web arXiv full scientific text read, including precise graph definition and bound",
+          "title": "On Lattice Diameter Segments: Algorithms and Structure",
+          "trigger": "same lattice-diameter graph invariant and discrete Borsuk number"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/exact-lattice-diameter-graphs-and-counting-polynomials-of-unimod--f17360601e62/RESULT.md",
+        "Published same-object and neighboring-object comparisons described in originality"
+      ],
+      "rationale": "PASS. Unimodular boxes form a canonical Ehrhart/geometric-combinatorics family. The full explicitly counted sizes of all components determine the segment polynomial, complete chromatic polynomial, direction count, and the exact tie-sensitive optimal discrete Borsuk partition, at every integer dilation rather than eventually. This natural complete family classification is more than a restatement of an existing universal bound, even though the proof is elementary.",
+      "residual_risks": [
+        "Coordinatewise classification is straightforward once the model is fixed; its significance is the complete exact natural family rather than a new abstract structural principle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE assigned RESULT.md blob 37a15f9a3599e2c1328504e2a582d6405b4ebfb1",
+    "SCOPE assigned verify.py blob 613bf53ae7b5fb3cb05475c6da2d8250ffe6c109",
+    "Averkov et al. arXiv:2508.20009v2 §4–5, especially Lemma 5.2 and Theorem 4.6",
+    "Independent gcd-based graph enumeration in seven box models",
+    "https://arxiv.org/html/2508.20009v2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unimodular integral affine boxes, not general rational or skew nonunimodular parallelotopes.",
+    "The general clique property and 2^d universal upper bound are prior work, not novel subclaims.",
+    "Coordinatewise classification is straightforward once the model is fixed; its significance is the complete exact natural family rather than a new abstract structural principle.",
+    "Specialized box counting results might have appeared in combinatorial literature under a different name; no definitive historical-priority certification."
+  ],
+  "residual_risks": [
+    "Only unimodular integral affine boxes, not general rational or skew nonunimodular parallelotopes.",
+    "The general clique property and 2^d universal upper bound are prior work, not novel subclaims.",
+    "Specialized box counting results might have appeared in combinatorial literature under a different name; no definitive historical-priority certification.",
+    "Coordinatewise classification is straightforward once the model is fixed; its significance is the complete exact natural family rather than a new abstract structural principle."
+  ],
+  "schema_version": 1
+}

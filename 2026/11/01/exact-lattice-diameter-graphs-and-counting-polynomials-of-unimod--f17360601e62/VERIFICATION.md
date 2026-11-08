@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-Run the included standard-library script using `python3 verify.py`. It enumerates integer points from first principles, examines *every* unordered pair in each finite instance, calculates coordinate-difference gcds, constructs the diameter graph, traverses the connected components, checks complete adjacency within each component, and compares computed values against the claimed formula. It does not obtain graph edges from the claimed equality characterization. It also transforms boxes by explicit unimodular integral matrices and verifies that the same counts persist.
+## correctness
 
-The actual script execution returned `PASS 207 independent finite axis-box and unimodular-image instances (all pairs enumerated)`. Exhaustive parameter sweep: all positive integer side-length vectors with dimensions one through four and lengths one through three; dilations one in every dimension and also two in dimensions at most three; plus 48 unimodular image cases. Representative output is displayed by running the script. No third-party libraries, network, or unspecified data are needed.
+PASS
 
-The infinite proof uses four independently inspectable deductions: (1) every gcd is bounded by the longest dilated side length; (2) equality forces each difference coordinate to be zero or its full longest-side displacement; (3) the endpoint/interior pattern gives pairwise-adjacent binary corner choices and freezes all other values; (4) a binomial sum gives the segment count and a componentwise falling-factorial product gives the chromatic polynomial. An integer unimodular matrix preserves lattice points and gcd because both the matrix and inverse have integral coefficients.
+PASS. The affine integral unimodular transform z+U preserves the full lattice, gcd of integer differences, and diameter-graph adjacency; reduce to axis box with lengths t a_i. The lattice diameter is L=t max a_i by the coordinate bound g<=max |delta_i| and a maximal coordinate edge achieving g=L. To have gcd L, every short coordinate difference vanishes and each maximum-length coordinate difference belongs to {0,±L}, nonzero somewhere. Fix shorter coordinates, interior values in long coordinates and the subset J of endpoint coordinates; every endpoint assignment on J is adjacent to every other and no edge leaves the clique K_{2^{|J|}}. Choosing J and the frozen values gives N_s=B binom(k,s)(L-1)^{k-s}, including L=1 and 0^0=1. Summing choose(2^s,2) gives B/2[(L+3)^k-(L+1)^k] and direct leading term k prod_i(a_i)/a times t^{d-1}; the chromatic polynomial and Borsuk number 2^k follow exactly from these disjoint cliques. Distinct diameter edges cannot be collinear with three binary-corner vertices, so segments equal maximal-diameter lines. Independently enumerated all integer-point pairs and gcds for seven boxes, including dimensions 1..3 with tied/untied sides, and reproduced full clique multiplicities and edge numbers. Unlimited d and t come from the coordinatewise proof, not finite enumeration.
 
-Finite checks support but do not establish any quantification over arbitrary dimensions or side lengths. The result does not cover arbitrary lattice parallelepipeds whose edge basis has determinant of absolute value greater than one, nor nonintegral dilations. The best-knowledge historical comparison is not a substitute for an independent literature audit.
+## originality
+
+PASS
+
+PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: the general lattice-diameter clique decomposition and universal 2^d bound are explicitly OLD, but do not supply exact box component multiplicities, chromatic factorization or all-dilation polynomial.
+
+## value
+
+PASS
+
+PASS. Unimodular boxes form a canonical Ehrhart/geometric-combinatorics family. The full explicitly counted sizes of all components determine the segment polynomial, complete chromatic polynomial, direction count, and the exact tie-sensitive optimal discrete Borsuk partition, at every integer dilation rather than eventually. This natural complete family classification is more than a restatement of an existing universal bound, even though the proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
