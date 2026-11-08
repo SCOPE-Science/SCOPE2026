@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "On exactly two scalar quadratics with positive unequal curvatures and distinct minimizers, each component proximal map is an affine contraction. Each two-component epoch has common multiplier r=(1+ha)^(-1)(1+hb)^(-1) in (0,1); its two random offsets differ by h^2 ab(u-v)r. The IID Bernoulli offset recurrence gives the stationary mean and variance and exact risk in RESULT.md, with no unproved convergence assumption. Differentiating risk gives strictly positive curvature 4r Delta^2/((1-r)^2(1+r)), and constrained minimization yields the stated clipped p_star and unique threshold. Taylor expansion gives the two displayed distinct h^2 and h^3 constants; direct rational verifier (verify.py) passed 15624 assertions with recorded output. Finite tests validate arithmetic rather than infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das, Schölkopf and Muehlebach 2022 present general finite-epoch convergence of proximal-point RR but fix the order law to uniform permutations or adversarial bounds, so their broader objective/method classes do not specify the claimed exact p optimization. Traoré et al. 2023 analyze stochastic proximal methods with variance reduction but no constrained two-order optimization. A prior scalar capped stochastic Polyak stepsize result changes gradient weights, not individual-proximal order coupling."
+      ],
+      "reasoning": "General convergence guarantees do not imply an exact probability-dependent stationary error or the nonmonotone random-to-deterministic optimal design. No accessible dominating theorem stating such a result was identified in the checked source material.",
+      "searches": [
+        "random reshuffling stochastic proximal point biased random order unequal curvatures stationary distribution",
+        "incremental proximal point algorithms arbitrary ordering different curvatures stationary bias random reshuffling noninterpolation quadratic",
+        "Eisenmann Stillfjord randomized operator splitting exact scalar two component variance antithetic permutation stability convergence",
+        "arxiv:2308.09310"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.02953",
+      "arxiv:2308.09310",
+      "arxiv:2102.09718",
+      "arxiv:2102.06704"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 implicit PPM-RR source covers uniform/adversarial permutation convergence but not arbitrary fixed biased two-order stationary risk. The 2021 permutation SGD source proves explicit-gradient order sensitivity and rates, not this implicit map. The similarly named ProxRR source uses a single end-of-epoch regularizer prox. Previous explicit-gradient two-component quadratic random-reshuffling analyses address different operators and sampling comparisons."
+      ],
+      "reasoning": "The operator difference invalidates direct substitution of the published explicit-SGD or regularizer-prox formulas. A general bound over all orders is strictly weaker than the exact quadratic risk function whose constrained optimizer changes regime, so the present statement is not a mere special case or corollary of the documented source results.",
+      "searches": [
+        "random reshuffling stochastic proximal point two component quadratic reshuffling stationary mean error optimal permutation probabilities",
+        "weighted random reshuffling permutation probabilities optimization stationary bias scalar quadratic proximal point methods",
+        "randomized operator splitting exponential decay implicit Euler two operators Bernoulli choice variance and bias",
+        "arxiv:2206.02953",
+        "arxiv:2102.09718",
+        "arxiv:2102.06704"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-order composition has fixed slope and Bernoulli offset, so equivalent formulations include Bernoulli AR(1) random affine recursions, randomly ordered resolvents, and two-component implicit incremental minimization. Das et al. arXiv:2206.02953 gives individual resolvents with uniform random reshuffling; Rajput et al. arXiv:2102.09718 uses explicit-gradient permutations."
+      ],
+      "reasoning": "Common moment identities are acknowledged as standard. None of the actually inspected comparable statements simultaneously optimizes stationary risk of the unequal-curvature componentwise implicit two-map recursions and gives the exact p_star(h), h_c and sharp h asymptotics.",
+      "searches": [
+        "two-component quadratic proximal point random reshuffling biased permutation curvature weighted sampling stationary mean and second moment optimal order",
+        "scalar affine contractions randomly ordered proximal maps stationary variance phase transition deterministic order large stepsize",
+        "stochastic proximal point cyclic random reshuffling two scalar quadratic components different minimizers stationarity mean variance ordering probability optimal",
+        "arxiv:2206.02953",
+        "arxiv:2102.09718"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact expressions can be calculated from Bernoulli affine recursion and are not claimed as a new database/table entry. Mishchenko, Khaled and Richtárik 2021 use explicit component gradient steps followed by a single regularizer prox; they do not tabulate these individual-component-proximal stationary order risks."
+      ],
+      "reasoning": "A matching risk/optimizer table or its encompassing analytic statement was not located in the published searches and examined primary text. The proof supplies exact uncountable-parameter classification, not a finite lookup of sample outputs.",
+      "searches": [
+        "proximal point stochastic incremental quadratic reshuffling stationary error h cubed versus h squared",
+        "two affine proximal maps random order stationary mean matching full quadratic minimizer optimal random permutation risk deterministic crossover",
+        "arxiv:2102.06704"
+      ]
+    },
+    "rationale": "The specific optimized quantity is the stationary squared error under IID epochs choosing biased permutations of two *individual component proximal* maps. Prior exact results on explicit-gradient permutation SGD or random reshuffling with a single regularizer proximal call do not imply this formula. Componentwise implicit PPM random reshuffling in Das et al. supplies the closest method, but the inspected full text treats uniform/adversarial/shuffle-once orders and convergence bounds rather than the exact stationary-risk minimum over biased laws, its deterministic transition, and the curvature-weighted cancellation. The new contribution is the complete constrained classification, not the elementary affine moment recursion. Specialist precedence risk remains.",
+    "residual_risks": [
+      "Classical random affine recursion theory may contain an equivalent special two-offset probability-optimization formula in a different vocabulary.",
+      "Earlier work on incremental proximal maps with biased random reshuffling or deterministic order may explicitly contain this exact stationary-risk transition despite not surfacing in the accessible searches; independent specialist review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact biased-order stationary mean-square minimizer, threshold and asymptotic classification; confirms closely related implicit algorithm and priority for uniform reshuffling.",
+        "evidence": "The reported PPM-RR analyses uniform random orders, shuffle-once and adversarial orders with finite-epoch convergence estimates rather than the stationary risk at every Bernoulli permutation weight.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.02953",
+        "material_read": "Accessible arXiv full-text HTML, including introduction, algorithmic definitions of componentwise implicit PPM-RR and RR/SO/ordered cases, rate theorem statements and discussion.",
+        "method": "Read article full-text HTML and compare operator definitions, quantified permutation laws and theorem conclusions.",
+        "title": "Sampling without Replacement Leads to Faster Rates in Finite-Sum Minimax Optimization",
+        "trigger": "Individual-component implicit proximal point reshuffling is the closest matching algorithm."
+      },
+      {
+        "assessment": "NOT_COVERING the stationary biased two-permutation optimization; discusses variance-reduced PPA methodology and rates.",
+        "evidence": "No exact two-scalar-component fixed-step probability clipping / curvature-last threshold in the inspected statements.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.09310",
+        "material_read": "Accessible full-text arXiv HTML, abstract, model setup, algorithm and convergence/variance results.",
+        "method": "Read primary full-text HTML and check update operators and risk quantifiers.",
+        "title": "Variance reduction techniques for stochastic proximal point algorithms",
+        "trigger": "Stochastic proximal point methodology and potential stronger variance results."
+      },
+      {
+        "assessment": "NOT_COVERING the exact *implicit component-proximal* biased stationary order law; establishes important permutation-order precursor.",
+        "evidence": "Results involve explicit-gradient SGD and optimal order/rates; implicit scalar contraction maps and stationary Bernoulli mixing law are not the paper’s theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.09718",
+        "material_read": "Accessible arXiv full-text HTML, introduction, explicit SGD update construction, central results and flip-flop discussion.",
+        "method": "Compare explicit-gradient and proximal operator formulas and scope of order results.",
+        "title": "Permutation-Based SGD: Is Random Optimal?",
+        "trigger": "Direct risk of already known strategic ordering of two quadratic components."
+      },
+      {
+        "assessment": "NOT_COVERING this componentwise implicit two-map stationary optimization; ProxRR here has a distinct gradient-plus-regularizer-prox operator.",
+        "evidence": "ProxRR algorithm applies component gradient steps and the regularizer proximal operator only once per epoch.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.06704",
+        "material_read": "Accessible full arXiv HTML first-version introduction, algorithm details, problem formulation and proximal regularization discussion.",
+        "method": "Check whether proximal calls occur on individual f_i or once on shared regularizer after SGD updates.",
+        "title": "Proximal and Federated Random Reshuffling",
+        "trigger": "Name ProxRR appears especially close; could imply exact algorithm overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a43de971-59ce-4942-8027-040865281d12",
+  "value": {
+    "rationale": "Changing the permutation law leaves the exact same two proximal component calls per epoch and same strongly convex finite-sum objective. The result sharply classifies every admissible Bernoulli order law, finds the unique unbiased law, and identifies an unexpected interior-to-deterministic risk-optimal phase transition as step size increases. The h^2 versus h^3 stationary squared-error difference supplies genuine numerical-design consequence in a canonical non-interpolating model. This is a complete analytically motivated benchmark, not a renamed textbook limit or arbitrary parameter slice; no higher-dimensional universality is asserted.",
+    "status": "PASS"
+  }
+}
