@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The exact angular generator recurrence independently reconstructs the Laplace transforms of second and fourth projected moments; cancellation of the quadratic terms produces the linear fourth-cumulant coefficient. The angular two-moment constraint is both necessary and sufficient via chord laws and convex mixing. Inversion maps its disk to a circle for nonreal first harmonic and to a half-plane for real first harmonic, so the endpoints, attainment and sign regions follow without numerical optimization. Exact rational examples and independently propagated finite-time moments test the critical normalizations. Assumptions exclude the nonmixing second harmonic.
+
+**Originality (PASS, qualified).** Sevilla, arXiv:1905.07090, Eq. (54), already gives the complete *forward* fourth-moment transform for arbitrary turning kernels. Britton et al., arXiv:2608.23519, separately compute arbitrary-order moments and their long-time leading Gaussian term. Olsen and Löwen, arXiv:2405.14326, optimize second-order diffusion. The separate classification of all compatible second Fourier moments at prescribed first harmonic and the global, attainable fourth-cumulant envelopes, including the chiral and achiral sign thresholds, were not found in those sources or indexed comparisons. An unindexed general angular-moment optimization could still subsume this result; novelty is not independently certified.
+
+**Value (PASS).** All permitted laws at fixed first angular moment have the same entire velocity autocovariance, while their fourth-cumulant rates can have opposite signs. The exact feasible interval and finite-angle extreme laws give an experimentally interpretable design boundary, including a sharp no-positive chiral curve and positive-only real anti-persistence range. This is a natural constrained inverse-design problem, not a single arbitrary parameter sample. It does not assert new leading Gaussian behavior, and it gives no precision guarantee for finite-time or noisy data.
+
+The excluded nonrelaxing angular mode \(w=1\) and possible unpublished global extremality results are explicit residual risks. Finite verifier checks cannot replace the proof; independent priority review remains open.
+
+Self-review: passed. Independent audit: not yet performed.
