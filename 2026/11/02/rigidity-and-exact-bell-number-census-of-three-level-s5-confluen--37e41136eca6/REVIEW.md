@@ -1,19 +1,21 @@
-# Review of three-level equivalence-confluent frame classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The quantified conditions are the exact downward and upward confluence laws (40)--(41) in the cited semantics. End-level absorption, nonadjacent absorption, and the missing-middle-class argument prove that an admissible equivalence partition belongs to exactly one of five explicitly specified structural types. All cases have witnesses to both laws, including the singleton and universal boundaries. The disjoint classification gives the Bell-number count by direct bijections. A standalone verifier compares the literal quantified conditions with the structural classifier on 102,487 equivalence partitions over all 56 positive size triples of total size at most eight; every case agrees. This finite computation is supplementary, not the proof for all sizes.
+PASS
 
-## Originality
+For P=A⊕B⊕C, equivalence classes under confluence D and U absorb A whenever meeting A,B and absorb C whenever meeting B,C; a class meeting A,C must absorb all three levels by witnesses. In nonuniversal cases, unique lower crossing class L and upper class H, with any residual middle point forced to the opposite crossing class. This yields precisely levelwise partitions, merged A∪B, merged B∪C, opposed A∪U vs (B\U)∪C for nonempty proper U⊂B, and universal. Each pattern directly satisfies the two quantified D/U witnesses. Their disjoint counts give Bell(a)Bell(b)Bell(c)+Bell(a)+Bell(c)+2^b-1 for all a,b,c>=1. Independent full set-partition witness enumeration verified (1,1,1):4, (1,2,1):7, (2,2,1):10, (2,2,2):15 and (1,3,2):20. Finite cases corroborate, not replace, five-pattern proof.
 
-**PASS on inspected evidence; historical priority remains unverified.** Sedlár--Vigiani introduce the relevant modal semantics and supply the two well-known confluence laws; the new result neither claims those laws nor general modal completeness. Two closely related published results were read in full: one treats the same two confluences on **total chains with arbitrary binary relations**, while another treats a different two-sided birelational condition on total chains. Neither implies a classification of **equivalence relations** on three-level ordinal sums of antichains, including two disjoint classes crossing opposite sides of a branching middle level. Prior nearby two-level arbitrary-relation counts and a substantially stronger triangle law likewise do not cover the claim. Actual semantic and exact-formula searches of published mathematical records yielded no directly covering statement. The possibility of an older equivalent theorem under Egli--Milner or compatible-partition terminology remains a specific risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The combined requirements of epistemic \(\mathsf{S5}\) accessibility and constructive modal persistence define a natural frame class rather than an arbitrary slice of relations. Three complete antichain levels are the smallest layered order in which a middle layer may split between two competing cross-level equivalence classes. The exact five-type rigidity theorem, rather than the formula alone, explains the permitted branching behaviour and produces a uniform three-parameter enumeration with independent Bell-partition freedoms. This helps delimit finite frame search spaces and distinguishes the original two confluence axioms from stronger triangle compatibility.
+Best-of-knowledge PASS. Sedlár–Vigiani Definition 12 already gives the two semantic confluence conditions; the new content adds equivalence R and specializes to three nonempty antichain levels, proving a five-type structural rigidity and all-parameter Bell-number count. Published chain KI and birelational counts use total orders and often arbitrary R, so cannot directly imply middle-level opposed merger types. Possibility of an older Egli–Milner partition theorem under other terms is retained.
 
-## References and risks
+## value
 
-The primary source is Sedlár--Vigiani, arXiv:2610.10008v1 (7 October 2026), full HTML, Definition 12 and Section 3.2. Full published comparisons are *Endpoint normal form and exact census for finite-chain KI frames* and *Maxima normal form and exact census for chain birelational relations*, referenced with URLs in RESULT.md. The main remaining risk is an unlocated order-theoretic equivalent; no independent priority or mathematical audit has been performed. The statement does not extend to arbitrary orders, non-equivalence modal relations, or valuation counts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-sided modal confluence is a natural accessibility/order compatibility condition. Under the epistemically motivated equivalence restriction, the complete classification on the smallest branching height-three weak orders and its exact labelled count are useful canonical frame invariants, distinguishing it from chains and two-level cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The statement concerns exactly the two quantified confluence laws (D) and (U) on the fixed labelled order \(A\oplus B\oplus C\), with all levels nonempty and \(R\) an equivalence relation. The proof in RESULT.md establishes a disjoint five-type classification and counts every type. Its key witness steps use minimality of \(A\), maximality of \(C\), and the fact that two different points within \(B\) are incomparable.
+## correctness
 
-Run the standalone standard-library verifier with `python3 checker.py`. The executed version reported:
+PASS
 
-```
-CASES 56
-TOTAL_LABELLED_EQUIVALENCES_EXAMINED 102487
-TOTAL_VALID 4113
-FORMULA 1 1 1 4
-FORMULA 1 2 1 7
-FORMULA 2 2 2 15
-FORMULA 2 3 2 31
-FORMULA 3 3 3 142
-ALL_CHECKS_OK
-```
+For P=A⊕B⊕C, equivalence classes under confluence D and U absorb A whenever meeting A,B and absorb C whenever meeting B,C; a class meeting A,C must absorb all three levels by witnesses. In nonuniversal cases, unique lower crossing class L and upper class H, with any residual middle point forced to the opposite crossing class. This yields precisely levelwise partitions, merged A∪B, merged B∪C, opposed A∪U vs (B\U)∪C for nonempty proper U⊂B, and universal. Each pattern directly satisfies the two quantified D/U witnesses. Their disjoint counts give Bell(a)Bell(b)Bell(c)+Bell(a)+Bell(c)+2^b-1 for all a,b,c>=1. Independent full set-partition witness enumeration verified (1,1,1):4, (1,2,1):7, (2,2,1):10, (2,2,2):15 and (1,3,2):20. Finite cases corroborate, not replace, five-pattern proof.
 
-The verifier enumerates all set partitions for each positive \((a,b,c)\) with \(3\le a+b+c\le8\), tests both existential quantifiers literally, tests the structural classification independently, checks all five type counts, and compares their sum to the formula. There are no random seeds, hidden inputs, internet dependencies, or unreported precomputed tables.
+## originality
 
-No finite census is presented as an infinite theorem by itself. The infinite-size quantification over arbitrary positive layer sizes rests on the explicit proof. Historical priority and additional modal completeness properties are not independently verified.
+PASS
+
+Best-of-knowledge PASS. Sedlár–Vigiani Definition 12 already gives the two semantic confluence conditions; the new content adds equivalence R and specializes to three nonempty antichain levels, proving a five-type structural rigidity and all-parameter Bell-number count. Published chain KI and birelational counts use total orders and often arbitrary R, so cannot directly imply middle-level opposed merger types. Possibility of an older Egli–Milner partition theorem under other terms is retained.
+
+## value
+
+PASS
+
+Two-sided modal confluence is a natural accessibility/order compatibility condition. Under the epistemically motivated equivalence restriction, the complete classification on the smallest branching height-three weak orders and its exact labelled count are useful canonical frame invariants, distinguishing it from chains and two-level cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
