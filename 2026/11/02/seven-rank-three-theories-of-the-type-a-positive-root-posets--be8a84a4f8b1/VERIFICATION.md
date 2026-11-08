@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The finite certificate evaluates complete three-move extension types, not a sample of formulas or a bounded collection of graph invariants. In `type_recursion.cpp`, each atomic triple diagram records all pairwise equalities and all six directed strict-containment tests. For each ordered pair, all third moves are scanned. Nested type sets are then constructed for each first move and for the empty tuple. Interning a set changes only its representation, not membership or equality.
+# Independent mathematical audit
 
-Reproduction: `sh reproduce.sh` compiles the C++17 program, evaluates parameters 1 through 26, evaluates the structurally independent Python implementation through 12, and compares both outputs byte-for-byte with the supplied logs. The recorded replay returned `VERIFIED`. The Python version uses independent endpoint ordering and direct immutable nested sets, not the C++ bit encoding or map internals.
+## correctness
 
-Sharpness is also justified analytically: strict chains of lengths up to seven have existence sentences of quantifier rank at most three, and the maximum strict chain in the rank-\(n\) root poset has \(n\) elements. For the infinite tail, the complete three-round interval game is covered by the 26-point endpoint-gap invariant, with thresholds 0, 2, 8, 26. No computation is used to infer infinitely many cases by extrapolation.
+PASS
 
-The finite verification for parameters 13 through 26 has one complete C++ implementation, with independent Python agreement for parameters through 12; both scripts and outputs are provided. The proof covers the stated strict-order signature only. Formal proof-assistant certification and independent external auditing have not been performed.
+For nonempty intervals [i,j] on a line of n points, strict root order is proper interval containment, no extra predicates or named simple roots. A rank-3 sentence exists chains of length k<=7: pick x with r lower and s upper chain elements, r+s+1=k, r,s<=3; the two side clauses each have rank<=2 and the outer quantifier adds 1. For upper bound, exact full atomic triple diagram H_n = { { {At(x,y,z):z}:y}:x} completely characterizes quantifier rank 3. The source C++ enumerates n=1..26, corroborated by a separate immutable Python code through n=12. Independently implemented a new exhaustive C++ ordered triple signature for all n<=26 and recovered exactly seven theories, with n>=7 identical through 26. For n>=26 the proved endpoint-gap EF game invariant t_0=0,t_(r+1)=3t_r+2, t_3=26 maintains exact small gaps and large gaps, for at most two endpoints per interval move, hence uniform rank-three tail; combine finite census and infinite EF argument. The rank-three threshold is sharp.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Finite linear-order EF bounds can be transferred to intervals using two endpoints per move but their coarse threshold t3=26 does not establish the exact seven cutoff. These general root-system studies have broader object families but do not imply the claimed first-order rank-3 equality of finite type-A reducts. None of the compared root-poset enumerations implies rank-3 elementary-equivalence for all n>=7. Interval interpretation plus the basic EF game gives a much weaker sufficient cutoff 26; the sharp finite range remains additional work.
+
+## value
+
+PASS
+
+Complete sharp classification of the first useful nontrivial finite-model-theoretic type spectrum for the natural type-A root-poset containment reduct, including a finite representative of at most 28 roots. Exact finite certification plus a uniform infinite EF game argument settles a mathematically natural structural question; the seven cutoff is not a mere renaming of ordinary finite-linear-order EF theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

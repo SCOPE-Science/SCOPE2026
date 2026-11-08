@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty intervals [i,j] on a line of n points, strict root order is proper interval containment, no extra predicates or named simple roots. A rank-3 sentence exists chains of length k<=7: pick x with r lower and s upper chain elements, r+s+1=k, r,s<=3; the two side clauses each have rank<=2 and the outer quantifier adds 1. For upper bound, exact full atomic triple diagram H_n = { { {At(x,y,z):z}:y}:x} completely characterizes quantifier rank 3. The source C++ enumerates n=1..26, corroborated by a separate immutable Python code through n=12. Independently implemented a new exhaustive C++ ordered triple signature for all n<=26 and recovered exactly seven theories, with n>=7 identical through 26. For n>=26 the proved endpoint-gap EF game invariant t_0=0,t_(r+1)=3t_r+2, t_3=26 maintains exact small gaps and large gaps, for at most two endpoints per interval move, hence uniform rank-three tail; combine finite census and infinite EF argument. The rank-three threshold is sharp.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panyushev studies Hasse edge types and ideals of root posets.",
+          "Cuntz–Stump study enumerative/noncrystallographic root-poset properties.",
+          "Standard EF gap bounds only imply coarse stabilization, not the evaluated 7 cutoff."
+        ],
+        "reasoning": "These general root-system studies have broader object families but do not imply the claimed first-order rank-3 equality of finite type-A reducts.",
+        "searches": [
+          "Panyushev 2005 arXiv:math/0502385",
+          "Cuntz–Stump 2012 arXiv:1212.2876",
+          "Libkin Elements of Finite Model Theory, EF on finite orders"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob a7bc2c5575ee74d6c9ea880900af810c82c931c4",
+        "Pinned independent_types.py fc50c4bf4a4b256f7fd2504c937521a0084bb8d3",
+        "Pinned type_recursion.cpp e192076a6bbb6029635f064cfd5833d78f7a1eb7",
+        "Panyushev 2005 full PDF",
+        "Cuntz–Stump 2012 full PDF",
+        "Standard Libkin finite model theory EF formulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new claim requires actual strict inclusion language rank-three equivalence and exact boundary 7, not e.g. rank distributions/edge counts."
+        ],
+        "reasoning": "None of the compared root-poset enumerations implies rank-3 elementary-equivalence for all n>=7. Interval interpretation plus the basic EF game gives a much weaker sufficient cutoff 26; the sharp finite range remains additional work.",
+        "searches": [
+          "Panyushev arXiv:math/0502385, main root-poset theorems",
+          "Cuntz–Stump arXiv:1212.2876, root-poset enumeration",
+          "Libkin EF on linear orders"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Search located general root-poset and finite-poset results but no rank-three interval-poset classification.",
+          "Identification with intervals is a known root-poset realization; the signature omits endpoints."
+        ],
+        "reasoning": "Finite linear-order EF bounds can be transferred to intervals using two endpoints per move but their coarse threshold t3=26 does not establish the exact seven cutoff.",
+        "searches": [
+          "Resultary: rank three theory positive root posets type A interval containment first order 7 cutoff",
+          "Web: type A positive root posets quantifier rank three equivalence interval containment finite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact nested set-of-atomic-extension computation for n=1..26 yields groups indexed by min(n,7).",
+          "No matching published database/table was retrieved in searched primary references."
+        ],
+        "reasoning": "The finite n=7..26 census is not inherited from a standard numerical root-poset table; the infinite n>=26 tail requires an independent endpoint-gap EF proof.",
+        "searches": [
+          "Resultary: rank three theory positive root posets type A interval containment first order 7 cutoff",
+          "Pinned type_recursion.cpp and independent_types.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Finite linear-order EF bounds can be transferred to intervals using two endpoints per move but their coarse threshold t3=26 does not establish the exact seven cutoff. These general root-system studies have broader object families but do not imply the claimed first-order rank-3 equality of finite type-A reducts. None of the compared root-poset enumerations implies rank-3 elementary-equivalence for all n>=7. Interval interpretation plus the basic EF game gives a much weaker sufficient cutoff 26; the sharp finite range remains additional work.",
+      "residual_risks": [
+        "An unindexed rank-3 interval containment classification could cover this result; targeted scientific searches and accessible primary studies found none.",
+        "Finite C++ and Python verifiers implement nested types; transcription/reimplementation error mitigated by separate exact C++ checker, not formal verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains different root-poset invariants; no rank-three interval reduct classification in inspected results",
+          "evidence": [
+            "Panyushev 2005, arxiv math/0502385, root-poset edge classification"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502385",
+          "material_read": "Primary full PDF accessible; introduction and main results on root-poset Hasse-edge classes and related ideals inspected, including page images",
+          "method": "Read relevant theorem statements and compared signature/questions",
+          "title": "The poset of positive roots and its relatives",
+          "trigger": "Exact type-A root-poset object, potential dominating classification"
+        },
+        {
+          "assessment": "Noncrystallographic root-poset realizations and statistics, not bounded-rank logical theories",
+          "evidence": [
+            "Cuntz–Stump 2012 arxiv1212.2876, main noncrystallographic results"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.2876",
+          "material_read": "Primary full PDF accessible; introduction and main root-poset enumeration statements inspected with page images",
+          "method": "Compared quantified objects and main enumerative statements",
+          "title": "On root posets for noncrystallographic root systems",
+          "trigger": "Broad generalization to other root systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete sharp classification of the first useful nontrivial finite-model-theoretic type spectrum for the natural type-A root-poset containment reduct, including a finite representative of at most 28 roots. Exact finite certification plus a uniform infinite EF game argument settles a mathematically natural structural question; the seven cutoff is not a mere renaming of ordinary finite-linear-order EF theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob a7bc2c5575ee74d6c9ea880900af810c82c931c4",
+    "Pinned independent_types.py fc50c4bf4a4b256f7fd2504c937521a0084bb8d3",
+    "Pinned type_recursion.cpp e192076a6bbb6029635f064cfd5833d78f7a1eb7",
+    "Panyushev 2005 full PDF",
+    "Cuntz–Stump 2012 full PDF",
+    "Standard Libkin finite model theory EF formulation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strict interval containment only; no named linear order, cover relation, simple roots, higher ranks or other root systems.",
+    "Upper tail n>=26 depends on symbolic EF endpoint gap argument; n=7..26 exact finite computation must remain reproducible."
+  ],
+  "residual_risks": [
+    "An unindexed rank-3 interval containment classification could cover this result; targeted scientific searches and accessible primary studies found none.",
+    "Finite C++ and Python verifiers implement nested types; transcription/reimplementation error mitigated by separate exact C++ checker, not formal verification."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contains different root-poset invariants; no rank-three interval reduct classification in inspected results",
+      "evidence": [
+        "Panyushev 2005, arxiv math/0502385, root-poset edge classification"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/math/0502385",
+      "material_read": "Primary full PDF accessible; introduction and main results on root-poset Hasse-edge classes and related ideals inspected, including page images",
+      "method": "Read relevant theorem statements and compared signature/questions",
+      "title": "The poset of positive roots and its relatives",
+      "trigger": "Exact type-A root-poset object, potential dominating classification"
+    },
+    {
+      "assessment": "Noncrystallographic root-poset realizations and statistics, not bounded-rank logical theories",
+      "evidence": [
+        "Cuntz–Stump 2012 arxiv1212.2876, main noncrystallographic results"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1212.2876",
+      "material_read": "Primary full PDF accessible; introduction and main root-poset enumeration statements inspected with page images",
+      "method": "Compared quantified objects and main enumerative statements",
+      "title": "On root posets for noncrystallographic root systems",
+      "trigger": "Broad generalization to other root systems"
+    }
+  ]
+}

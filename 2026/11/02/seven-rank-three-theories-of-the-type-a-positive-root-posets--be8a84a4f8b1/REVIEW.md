@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The positive roots of \(A_n\) are the nonempty intervals of \([n]\) ordered by containment. A rank-three chain-height formula separates each parameter below seven from every larger parameter. Exact finite three-round types, reconstructed from all ordered triples and both directions of the strict relation, classify all parameters from 1 to 26. The independent Python implementation agrees through 12. A proved endpoint-gap strategy gives three-round equivalence of all parameters at least 26, closing the infinite range without numerical extrapolation. The critical nonstandard finite certificate is reproducible from the included programs and logs.
+PASS
 
-## Originality
+For nonempty intervals [i,j] on a line of n points, strict root order is proper interval containment, no extra predicates or named simple roots. A rank-3 sentence exists chains of length k<=7: pick x with r lower and s upper chain elements, r+s+1=k, r,s<=3; the two side clauses each have rank<=2 and the outer quantifier adds 1. For upper bound, exact full atomic triple diagram H_n = { { {At(x,y,z):z}:y}:x} completely characterizes quantifier rank 3. The source C++ enumerates n=1..26, corroborated by a separate immutable Python code through n=12. Independently implemented a new exhaustive C++ ordered triple signature for all n<=26 and recovered exactly seven theories, with n>=7 identical through 26. For n>=26 the proved endpoint-gap EF game invariant t_0=0,t_(r+1)=3t_r+2, t_3=26 maintains exact small gaps and large gaps, for at most two endpoints per interval move, hence uniform rank-three tail; combine finite census and infinite EF argument. The rank-three threshold is sharp.
 
-PASS, qualified by incomplete historical priority. Panyushev's full accessible preprint addresses root-poset Hasse edges, ideals and covering polynomials; Cuntz and Stump study root-poset antichains, classification and noncrystallographic types, not finite first-order rank-three equivalence of the type-A family. Comparisons with linear-order games and published bounded-rank results for different poset and grid families do not imply the sharp cutoff seven in the strict interval-containment structure. Exact-keyword, alias, implication, mathematical-record and literature queries identified no decisive covering theorem. A plausible older unindexed logical study of root posets remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Type-A positive-root posets are a standard root-system family with unbounded rank, width and numbers of roots, and their combinatorial properties are extensively studied. The exact finite-model-theoretic cutoff is a natural unknown invariant of that family: rank-three logic detects precisely six finite exceptions and cannot detect rank growth beyond seven, even though the root count grows quadratically. The result provides a sharp classification and finite representative bound, not merely a routine instance of the known linear-order bound; the interval-poset interpretation moves two dependent endpoints in each round.
+Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Finite linear-order EF bounds can be transferred to intervals using two endpoints per move but their coarse threshold t3=26 does not establish the exact seven cutoff. These general root-system studies have broader object families but do not imply the claimed first-order rank-3 equality of finite type-A reducts. None of the compared root-poset enumerations implies rank-3 elementary-equivalence for all n>=7. Interval interpretation plus the basic EF game gives a much weaker sufficient cutoff 26; the sharp finite range remains additional work.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to strict root order for \(A_n\) and rank three; it does not classify other root types, richer vocabularies or higher quantifier ranks. The finite portion from 13 to 26 is checked by one exhaustive C++ implementation; the independent Python code reaches 12. Relevant primary sources are Panyushev (2005, arXiv:math/0502385v1) and Cuntz–Stump (2012, arXiv:1212.2876v1); both were materially inspected. General finite-order EF results give a proof method, not this exact threshold. Historical priority is not exhaustively resolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete sharp classification of the first useful nontrivial finite-model-theoretic type spectrum for the natural type-A root-poset containment reduct, including a finite representative of at most 28 roots. Exact finite certification plus a uniform infinite EF game argument settles a mathematically natural structural question; the seven cutoff is not a mere renaming of ordinary finite-linear-order EF theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
