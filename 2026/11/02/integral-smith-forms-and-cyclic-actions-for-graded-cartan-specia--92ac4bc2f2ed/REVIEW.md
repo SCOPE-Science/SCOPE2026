@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integral cokernel calculation is proved by mutually inverse ring presentations, not by an empirical pattern. In the quotient \(\mathbb Z[z]/(z^n-1,\sum_{j=0}^{L-1}(az)^j)\), the second relation forces \(w^L=1\); \(z^n=1\) then forces \(a^{\operatorname{lcm}(n,L)}=1\), making \(a\) invertible in the indicated quotient. Bézout reduction gives \(w^g=c\); the Cartan relation becomes \(B(1+\cdots+w^{g-1})=0\). The converse recovers both original relations. A primitive vector split yields the full integral invariant factors, including the singular specialization \(a=1\) and \(g=1\). The finite checker independently tested 406 exact Smith forms and 1458 modular ranks. No finite test is treated as an infinite proof.
+PASS
 
-## Originality — PASS (historical-priority provisional)
+For n≥1,L≥3,a≥1 set g=gcd(n,L),h=lcm(n,L),D=a^h−1,B=Σ_(j=0)^(L/g−1) a^(nj). The cyclic group-ring cokernel Z[z]/(z^n−1,Σ_(j<L)(az)^j), substituting w=az after showing D=0, is S[w]/(w^g−a^(nu),B(1+...+w^(g−1))) where u(n/g)+v(L/g)=1. The relation B(c−1)=0 makes BN_g(w) a fixed primitive coefficient vector, leaving S^(g−1)⊕S/(B), i.e. SNF 1^(n−g), B,D^(g−1); handles a=1 with D=0 and n=1,g=1. Exact independent Smith tests on representative matrices, including 6,4,2, agreed. Finite test grid is not general proof. The stated P_n action is z=a^(−1)w in S.
 
-This statement goes beyond the known determinant and beyond polynomial-field circulant Smith forms: it determines all integral torsion invariant factors after arbitrary positive-integer evaluation and records the cyclic action. Bessenrodt–Holm (arXiv:math/0511610, inspected HTML introduction, Cartan definitions and Proposition 4.1) proves graded weighted-Cartan determinant and unimodular diagonalization for gentle quadratic algebras; the novelty claim excludes their \(L=2\) special case. Zhao–Zhang's 2020 journal abstract states precisely the same determinant specialization and is credited; its full text was inaccessible. Telloni–Williams (2014, PDF definitions and theorem hypotheses inspected) deals with Smith forms over polynomial fields, where unimodularity cannot be specialized to the integral ring without losing unit control. Marcos–Mendoza–Sáenz (2018, HTML introduction and main theorems inspected) studies Cartan groups mainly of standardly stratified systems and radical-square-zero algebras, not the present integral evaluated cyclic family. No direct result was retrieved from the mathematical similarity index. The 2017 Xie–Zhang–Zan article and full 2020 article remain genuine unresolved priority risks; the result is not claimed independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Integer-valued graded Cartan specializations are natural arithmetic evaluations of a standard representation-theoretic invariant. Their entire prime-primary torsion and modular rank-jump spectrum is stronger than a determinant, and the explicit cyclic action retains information erased by the abstract Smith group. The formulas cover a two-parameter family of self-injective Nakayama algebras and every positive integral grading evaluation, including singular ordinary Cartan forms; the phase boundary at \(\gcd(n,L)>1\) yields free rank exactly \(g-1\). This is a uniform structural classification rather than a single table entry.
+Earlier weighted Cartan, circulant polynomial and q-Cartan determinant literature directly overlaps determinants and some normal forms. Zhao–Zhang 2020 abstract expressly says diagonalizable and gives same determinant: it could contain an integral SNF derivation. Its full six-page primary text could not be read (authorized institutional attempt returned vpn_disconnected), so the residual priority risk is substantial. Best current scientific comparison distinguishes all-integer specialization and explicit cyclic action, absent from available abstract and other inspected work. This is a qualified PASS, not assertion of total noncoverage.
 
-## Boundaries and residual risks
+## value
 
-The proof has no claim outside uniform cyclic monomial truncations. Known quadratic-gentle and determinant results are credited, not repackaged as new. The unavailable 2017 and 2020 primary full texts could contain a stronger integral statement; their absence limits confidence about historical priority. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The integral torsion invariants and module structure under cyclic permutation are natural invariants for graded Cartan specializations of a standard self-injective representation-theory family, finer than determinant or rational similarity. A closed all-n,L,a formula including singular a=1 and mod-p ranks is useful in exact representation computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
