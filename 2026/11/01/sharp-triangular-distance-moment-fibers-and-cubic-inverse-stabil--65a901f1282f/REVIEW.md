@@ -1,11 +1,21 @@
-# Scientific review: triangular distance-moment fibers
+# Independent mathematical audit
 
-**Correctness (PASS).** Barycentric monomial integration yields the exact first three even distance moments as symmetric polynomials in the squared side lengths. These three polynomial identities were rederived by exact symbolic integration rather than assumed from published all-moment formulas. Heron's polynomial identity, a plane–sphere intersection parameterization, and the cubic product identity establish the entire feasible moment region and both isosceles sharp endpoints. The first three moments determine the elementary symmetric functions of the side squares, hence determine the triangle. An explicit exact two-moment collision demonstrates insufficiency. A componentwise application of Rouché's theorem gives a uniform cube-root inverse bound on nondegenerate compact shape families, while an explicit near-equilateral family shows that no higher Hölder exponent can hold uniformly. Exact symbolic integration and independent numerical quadrature passed; numerical checks are not substitutes for the universal proof.
+## correctness
 
-**Originality (PASS, with historical-priority uncertainty).** Bäsel's point-distance distribution for right triangles and Tong–Pan's point-distance distributions for arbitrary triangles are acknowledged. Reichenwallner's Proposition 4 explicitly derives **all** moment orders of random pair distances in arbitrary triangles, so the mere existence or computation of forward distance moments is **not** new. The independently evaluated claim concerns the sharp inverse image of the first three even moments: a complete first-two-moment fiber, a complete semialgebraic feasible triple classification, isosceles maximizers/minimizers of the sixth moment at fixed lower moments, the minimal three-even-moment cutoff, and the optimal cube-root modulus. The inspected full texts and related research records were compared on implications and do not state this package of inverse theorems. Nonetheless a general forward formula could enable an unrecorded analogous inverse argument; priority is not independently certified. The closest separate prior geometrical reconstruction and random-chord findings concern different observables, as described in AUDIT.json.
+PASS
 
-**Value (PASS).** A finite collection of rotation-invariant geometric measurements is a natural inverse statistic when the triangle's orientation and labels are unobserved. The characterization gives both a sharp realizability test for measured moment triples and the complete ambiguity remaining after only two measurements; the endpoints are geometrically distinguished isosceles shapes. The optimal Hölder exponent identifies a genuine cubic ill-conditioning mechanism near equilateral triangles, relevant to any attempt to reconstruct shapes from noisy moments. This is a natural complete classification, rather than an isolated numerical benchmark or a reformulation of the known forward moment formulas.
+Exact barycentric simplex factorial moments yield m1=e1/18,m2=(e1^2-2e2)/60,m3=(23e1^3-62e1e2+20e3)/4200 for elementary symmetric functions of squared side lengths. I independently symbolically integrated all three polynomials in four barycentric variables and verified them identically, and checked both isosceles endpoints with exact sixth-moment gap d^3/420. The fixed e1,e2 plane-sphere circle has theta in [0,pi/3], h<alpha ensures positive sides, and Heron positivity ensures triangle inequalities. e3 varies by (h^3/4)cos3theta, proving full fiber; cubic roots recover the sides. Rouché componentwise root clustering yields the 1/3 inverse modulus, and an explicit near-equilateral pair shows optimality.
 
-**Limitations.** The results concern nondegenerate planar Euclidean triangles and area-uniform independent endpoints, not arbitrary polygons, boundary chords, or other pair-sampling laws. The stability estimate has constants dependent on upper and lower side-size bounds. The proof is a mathematical analysis of exact moments and supplies no statistical estimator or finite-sample confidence bounds. Full historical priority remains uncertain because older implicit inverse deductions are difficult to rule out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+Exact rotationally invariant pair-distance measurements give a natural shape-reconstruction problem. The theorem provides a complete realizability region, rigorously identifies two-measurement ambiguity and its isosceles extremizers, establishes a sharp three-moment cutoff, and quantifies intrinsic cubic ill-conditioning near equilateral shape rather than just recomputing known forward moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
