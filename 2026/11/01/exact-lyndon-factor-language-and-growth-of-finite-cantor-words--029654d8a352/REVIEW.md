@@ -1,15 +1,21 @@
-# Scientific review of the finite Cantor Lyndon-factor classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The key lemma that a non-letter binary Lyndon factor begins in \(0\) and ends in \(1\) is proved directly by comparing proper suffixes. In the two-copy construction, the new central run is strictly longer than every old run. Crossing factors beginning before it fail the Lyndon condition; crossing factors beginning inside it are classified by the threshold on their initial zeros. At the equality boundary, a smaller proper suffix excludes the candidate whenever its right-hand prefix extends through the inner central run. These cases exhaust every position and factor endpoint. The language decomposition gives the count without identifying distinct pairs accidentally. The independently written checker agrees with each whole language for ranks \(0\) to \(5\). The finite tests are supplemental; the induction proves all ranks.
+## correctness
 
-## Originality
-PASS, qualified. The closest inspected work is Goc–Saari–Shallit (arXiv:1207.5124), whose Section 3 gives \(k\)-regularity for the lengthwise Lyndon complexity of an infinite \(k\)-automatic word, and Saari (arXiv:1207.4233), whose results treat Fibonacci and recurrent-word Lyndon bounds. Glen–Simpson–Smyth (arXiv:1701.00928) prove general maxima, averages and Christoffel-word results, not a binary Cantor family classification. Comparisons against available related research claims and targeted bibliographic searches found no exact threshold recursion or rank count. This is a qualified priority assessment: absence from searched sources is not proof of global novelty.
+PASS
 
-## Mathematical value
-PASS. A language-level all-ranks classification, not merely an enumerated table, identifies the precise new Lyndon factors created at each Cantor substitution step. It yields the exact nontrivial growth \(\Theta(N^{\log_3 6})\) as a function of word length and a lengthwise counting formula through ternary Cantor digit positions. The problem is a natural finite-prefix counterpart to automatic-sequence Lyndon complexity, with the recursive longest-gap mechanism explaining the result.
+Every nontrivial binary Lyndon factor starts with 0 and ends 1. For n>=2 with U=C_{n-1}=V0^gV, central new gap of G=3g zeros, any crossing Lyndon factor cannot begin in left U (new gap makes later proper suffix smaller); it must be 0^t u for u prefix of U ending 1. If t>g, the leading maximal zero run makes every proper suffix lexicographically larger, so new Lyndon factor; t<=g produces an already present word if u stays in first V, otherwise an internal 0^g suffix is strictly smaller. Distinct t and ending-one prefixes yield exactly 4*6^(n-2) new words; summing yields exact all-rank formula and ternary-digit length strata. Independently constructed all substrings, direct proper-suffix Lyndon test and exact set differences for ranks 0..5: counts 1,3,7,31,175,1039. Induction rather than bounded test proves all n.
 
-## Scope and remaining risks
-The result concerns distinct contiguous factors of complete finite binary Cantor iterates under the order \(0<1\). It does not treat occurrence multiplicities, circular factors or arbitrary truncations. Generalization to other substitutions is not asserted. The literature comparison may miss alternative descriptions, and no independent mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Automatic-sequence Lyndon complexity k-regularity and general maximum/average Lyndon-factor bounds are known; neither yields exact finite Cantor iterate new-factor language. Relevant accessible primary text and semantic searches found no dominating same substitution finite-factor theorem. Residual priority risk is an alternative formula in morphic/automatic word combinatorics.
+
+## value
+
+PASS
+
+Exact description of every distinct Lyndon factor newly introduced at each level of a canonical 3-automatic substitution, not just a finite table: gives lengthwise strata and nontrivial N^(log_3 6) growth. This is a natural morphic-word complexity invariant with structurally motivated gap recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
