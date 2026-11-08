@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The union is exactly the collection of enlarged-simplex points with a scaled barycentric coordinate at least one. For regular simplices, the Euclidean metric on zero-sum barycentric differences is \(\ell/\sqrt2\) times coefficient Euclidean norm. A feasible segment step from any noncovered point to the cap corresponding to its largest coefficient gives the explicit pointwise envelope; that envelope strictly decreases with that coefficient. Equality and uniqueness follow by independently projecting the centroid orthogonally to each cap. All boundary cases, including \(\lambda=0\), the full-convexification endpoint \(\lambda=d\), and \(\lambda>d\), are covered. The standalone verifier passed 16,848 exact-arithmetic test instances; the proof is analytic, not an extrapolation from them.
+PASS
 
-## Originality — PASS, with priority limitations
+For d>=2, n=d+1 and s=1+lambda, the nonconvex union is exactly the barycentric cap union max_i x_i>=1 in sP; it fills sP iff lambda>=d. Regular simplex zero-sum barycentric differences have norm squared ell^2/2 times sum of squared coefficients. For a point outside the caps with m=max x_i<1, the radial feasible point on x_i=1 yields dist^2 <=(ell^2/2)*s(1-m)^2/(s-m). Its derivative in m is s(1-m)(m+1-2s)/(s-m)^2<0, so only the centroid can attain the global bound. Orthogonal projection of the centroid to a cap has other coordinates lambda/d and attains exactly ell^2(d-lambda)^2/[2d(d+1)], giving the claimed positive-part Hausdorff law and unique deepest point. The lambda=0 and lambda=d boundaries are covered. Examined the exact-rational active-set verification source; its 16,848 reported instances are ancillary, not a universal proof.
 
-The full accessible text of Meyer (arXiv:2610.26744v1) was inspected against the exact object, metric and parameter range. It establishes qualitative finite-convexification criteria, not the exact Hausdorff profile or unique deepest point. Comparisons with the published indexed results on discrete simplex vertex averages and simplex skeleton sums distinguish their operations and conclusions from the continuous one-sided union in this theorem. Related primary publications on vertex-generated polytopes and Hausdorff Minkowski averages were checked to the available abstract level; overlap within unavailable passages cannot be ruled out. Prior conclusions do not logically entail the present continuous metric profile, but exhaustive historical priority has not been established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite convexification asks not only whether a nonconvex set eventually fills its convex hull, but also how the remaining geometric defect approaches zero. A regular simplex and its vertices form a natural canonical test, not an arbitrary slice or artificial parameter choice. The result determines the complete all-dimensional one-parameter Hausdorff law, its exact sharp threshold, a unique deepest-hole classification, and a strict stability envelope from barycentric asymmetry. It supplies a reproducible benchmark for quantitative finite convexification rather than a routine known-table recalculation.
+Meyer's general convexification criteria and the related vertex-generated-polytope literature concern thresholds/coverings, not the exact Euclidean Hausdorff gap for every real dilation with unique deepest-point rigidity. Published simplex skeleton Minkowski averages and discrete vertex averages change the set operation, so their exact distances do not imply this continuous one-sided union profile. This is a qualified best-of-knowledge PASS; some plausible older geometric papers were not fully read and historical priority is not certified.
 
-## Limitations
+## value
 
-No claim is made for arbitrary simplices in the Euclidean norm or for other convexifiers. Text-level historical comparisons are limited to accessible material, with some adjacent works inspected through abstracts or indexed summaries only. Independent mathematical verification is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full one-parameter Hausdorff defect profile for canonical regular simplices, with unique extremizer and quantitative off-center stability, is independently useful in quantitative convexification. It is not merely the known convexification threshold or a finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

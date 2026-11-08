@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:41:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/sharp-hausdorff-gap-and-unique-deepest-point-for-vertex-thickene--029ae4243994/RESULT.md",
+        "2026/11/01/sharp-hausdorff-gap-and-unique-deepest-point-for-vertex-thickene--029ae4243994/verify.py",
+        "2026/11/01/sharp-hausdorff-gap-and-unique-deepest-point-for-vertex-thickene--029ae4243994/VERIFICATION.md"
+      ],
+      "rationale": "For d>=2, n=d+1 and s=1+lambda, the nonconvex union is exactly the barycentric cap union max_i x_i>=1 in sP; it fills sP iff lambda>=d. Regular simplex zero-sum barycentric differences have norm squared ell^2/2 times sum of squared coefficients. For a point outside the caps with m=max x_i<1, the radial feasible point on x_i=1 yields dist^2 <=(ell^2/2)*s(1-m)^2/(s-m). Its derivative in m is s(1-m)(m+1-2s)/(s-m)^2<0, so only the centroid can attain the global bound. Orthogonal projection of the centroid to a cap has other coordinates lambda/d and attains exactly ell^2(d-lambda)^2/[2d(d+1)], giving the claimed positive-part Hausdorff law and unique deepest point. The lambda=0 and lambda=d boundaries are covered. Examined the exact-rational active-set verification source; its 16,848 reported instances are ancillary, not a universal proof.",
+      "residual_risks": [
+        "The strict envelope is a pointwise upper bound, not a full closed formula for the distance at arbitrary barycentric points; no arbitrary-affine or non-Euclidean extension is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer arXiv:2610.26744v1 generalizes *whether* a set convexifies, but does not supply this sharp Euclidean error law.",
+          "Artstein-Avidan/Falah/Slomka arXiv:2407.20604 treats vertex-generated polytopes and Schneider-type covering, and cannot be excluded wholesale from abstract-only reading."
+        ],
+        "reasoning": "An exposed-face covering criterion that settles eventual equality does not imply the Euclidean Hausdorff deficit at every subthreshold lambda or deepest-hole rigidity.",
+        "searches": [
+          "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+          "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+          "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+          "arXiv:2407.20604 vertex generated polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+        "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+        "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+        "arXiv:2407.20604 vertex generated polytopes",
+        "arXiv:2610.26744v1",
+        "arXiv:2407.20604v1",
+        "Resultary:2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold lambda=d is shared with a cap-coverage condition, but threshold knowledge does not determine ell(d-lambda)/sqrt(2d(d+1)) or centroid uniqueness.",
+          "Neither finite k-fold vertex averages nor repeated Minkowski addition equals V+lambda P; no identity reducing them was found."
+        ],
+        "reasoning": "The exact threshold lambda=d is a weaker consequence; the full gap function and unique maximizing centroid require independent Euclidean metric normalization and proof.",
+        "searches": [
+          "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+          "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+          "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+          "arXiv:2407.20604 vertex generated polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer arXiv:2610.26744v1, full accessible theorem/criteria: qualitative finite convexification, rather than lambda-by-lambda Euclidean distance maximizers.",
+          "Resultary 2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d computes k-fold discrete Minkowski vertex averages, not V+lambda P."
+        ],
+        "reasoning": "Different convexification constructions may look equivalent barycentrically; the k-fold average of vertices is discrete whereas V+lambda P is a union of continuous caps.",
+        "searches": [
+          "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+          "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+          "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+          "arXiv:2407.20604 vertex generated polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722 identifies simplex-skeleton sum thresholds, not this all-parameter metric table.",
+          "Resultary exact deep-hole spectrum for simplex vertex averages has a different integer averaging parameter and point set."
+        ],
+        "reasoning": "Published exact deep-hole data applies to discrete average sets, not a database of continuous vertex-homothetic unions; this is a specific nonimplication, not a search-based novelty proof.",
+        "searches": [
+          "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+          "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+          "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+          "arXiv:2407.20604 vertex generated polytopes"
+        ]
+      },
+      "rationale": "Meyer's general convexification criteria and the related vertex-generated-polytope literature concern thresholds/coverings, not the exact Euclidean Hausdorff gap for every real dilation with unique deepest-point rigidity. Published simplex skeleton Minkowski averages and discrete vertex averages change the set operation, so their exact distances do not imply this continuous one-sided union profile. This is a qualified best-of-knowledge PASS; some plausible older geometric papers were not fully read and historical priority is not certified.",
+      "residual_risks": [
+        "Older unindexed finite-convexification or vertex-generated-polytope geometry might contain an equivalent formula; arXiv:2407.20604 was not fully inspected.",
+        "Search nonhits do not establish novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold criteria overlap, but all-lambda exact Euclidean Hausdorff law and deepest-point rigidity not asserted in inspected text",
+          "evidence": [
+            "https://arxiv.org/html/2610.26744v1"
+          ],
+          "identifier_or_url": "arXiv:2610.26744v1",
+          "material_read": "Accessible full HTML: introduction, main criteria and theorem statements; theorem implications compared with present distance profile",
+          "method": "Read mathematical HTML text and compare set operations/quantifiers",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Same qualitative Minkowski convexification and exposed-face conditions"
+        },
+        {
+          "assessment": "Related; uninspected full proof remains residual priority risk",
+          "evidence": [
+            "https://arxiv.org/abs/2407.20604"
+          ],
+          "identifier_or_url": "arXiv:2407.20604v1",
+          "material_read": "Abstract and available indexed mathematical summary only",
+          "method": "Public abstract/summary inspection; no full-text noncoverage inference",
+          "title": "Vertex generated polytopes",
+          "trigger": "Same vertices and simplex covering context"
+        },
+        {
+          "assessment": "Discrete k-fold vertex averages differ from V+lambda P; no implication established",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d"
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d",
+          "material_read": "Resultary published record title and complete indexed summary, not full research package",
+          "method": "Semantic record search/summary reading",
+          "title": "Exact deep-hole spectrum of regular-simplex Minkowski vertex averages",
+          "trigger": "Similar Euclidean simplex deep-hole terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/sharp-hausdorff-gap-and-unique-deepest-point-for-vertex-thickene--029ae4243994/RESULT.md",
+        "Resultary: regular simplex union vertices plus homothetic simplex Minkowski Hausdorff gap covering threshold centroid",
+        "Resultary: regular simplex vertex union scaled regular simplex Hausdorff gap",
+        "arXiv:2610.26744v1 finite convexification by Minkowski summation exact metric gap",
+        "arXiv:2407.20604 vertex generated polytopes"
+      ],
+      "rationale": "An exact full one-parameter Hausdorff defect profile for canonical regular simplices, with unique extremizer and quantitative off-center stability, is independently useful in quantitative convexification. It is not merely the known convexification threshold or a finite test.",
+      "residual_risks": [
+        "Restricted to regular Euclidean simplices; for nonsimilar affine images the metric normalization changes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The strict envelope is a pointwise upper bound, not a full closed formula for the distance at arbitrary barycentric points; no arbitrary-affine or non-Euclidean extension is inferred.",
+    "Older unindexed finite-convexification or vertex-generated-polytope geometry might contain an equivalent formula; arXiv:2407.20604 was not fully inspected.",
+    "Search nonhits do not establish novelty.",
+    "Restricted to regular Euclidean simplices; for nonsimilar affine images the metric normalization changes."
+  ],
+  "schema_version": 1
+}

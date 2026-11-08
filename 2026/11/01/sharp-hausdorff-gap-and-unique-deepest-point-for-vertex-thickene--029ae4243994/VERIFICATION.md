@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The universal proof is given in `RESULT.md`; the standalone `verify.py` provides independent rational finite diagnostics. It implements exact nearest-point projection of each scaled barycentric coefficient vector onto all \(d+1\) caps, using a sorted active-set method for the remaining coordinate simplex. This is algebraically distinct from the proof's radial trial point. It checks the exact maximum at each centroid, the global sharp bound, the pointwise stability envelope, and off-centroid strictness in all positive-gap cases.
+## correctness
 
-Command executed against the included program:
+PASS
 
-```sh
-python verify.py
-```
+For d>=2, n=d+1 and s=1+lambda, the nonconvex union is exactly the barycentric cap union max_i x_i>=1 in sP; it fills sP iff lambda>=d. Regular simplex zero-sum barycentric differences have norm squared ell^2/2 times sum of squared coefficients. For a point outside the caps with m=max x_i<1, the radial feasible point on x_i=1 yields dist^2 <=(ell^2/2)*s(1-m)^2/(s-m). Its derivative in m is s(1-m)(m+1-2s)/(s-m)^2<0, so only the centroid can attain the global bound. Orthogonal projection of the centroid to a cap has other coordinates lambda/d and attains exactly ell^2(d-lambda)^2/[2d(d+1)], giving the claimed positive-part Hausdorff law and unique deepest point. The lambda=0 and lambda=d boundaries are covered. Examined the exact-rational active-set verification source; its 16,848 reported instances are ancillary, not a universal proof.
 
-Actual output:
+## originality
 
-```
-PASS 16848 exact rational checks of projection/bound/rigidity
-PASS exact formula at every centroid and all tested boundary regimes
-```
+PASS
 
-It covers Euclidean simplex dimensions \(2\) to \(6\), nine dilation parameters, and both small full grids and seeded interior rational samples; all calculations use `fractions.Fraction`. The test count refers to rational input vectors, not distinct continuous cases. These tests cannot certify the universal theorem or its historical novelty. Boundary and uniqueness arguments remain mathematical, as reconstructed in the proof. The self-review passed; no independent mathematical audit or external proof certification has been performed.
+Meyer's general convexification criteria and the related vertex-generated-polytope literature concern thresholds/coverings, not the exact Euclidean Hausdorff gap for every real dilation with unique deepest-point rigidity. Published simplex skeleton Minkowski averages and discrete vertex averages change the set operation, so their exact distances do not imply this continuous one-sided union profile. This is a qualified best-of-knowledge PASS; some plausible older geometric papers were not fully read and historical priority is not certified.
+
+## value
+
+PASS
+
+An exact full one-parameter Hausdorff defect profile for canonical regular simplices, with unique extremizer and quantitative off-center stability, is independently useful in quantitative convexification. It is not merely the known convexification threshold or a finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
