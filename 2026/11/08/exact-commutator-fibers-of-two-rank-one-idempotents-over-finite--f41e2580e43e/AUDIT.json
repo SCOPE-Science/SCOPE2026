@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every prime-power \\(q\\), a fixed rank-one idempotent P yields \\(Q=\\begin{pmatrix}a&b\\\\c&1-a\\end{pmatrix}\\) with \\(a(1-a)=bc\\), and target \\(C=\\begin{pmatrix}0&b\\\\-c&0\\end{pmatrix}\\). This bijection reduces the fiber count to \\(\\rho_q(\\det C)\\) times compatible ordered decompositions \\(k^2=L\\oplus M\\). Their counts are \\(q(q+1)\\) for C=0, \\(2q\\) for nonzero nilpotent C, \\(q+1-e(C)\\) for nonscalar invertible traceless C, and zero for other cases. The scalar equation has quadratic-character or Artin--Schreier trace root counts. An independently proved character sum counts the odd-characteristic image, and a determinant-stratum count gives the even image. Actual package checker enumerated every pair and target over fields of orders 2,3,4,5,7,8,9,11 including three extension fields; logged outputs matched. No finite enumeration is used as a proof of the unrestricted theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Drnovšek--Radjavi--Rosenthal 2002, DOI 10.1016/S0024-3795(01)00533-X, accessible review specifies necessary and sufficient commutator existence criteria; full text not available.",
+        "Khurana--Lam--Shomron 2010 arXiv:1003.5420, determinant formula is for arbitrary two-by-two input matrices, and its specialization gives the known scalar necessary relation."
+      ],
+      "reasoning": "The general determinant identity is stronger in input scope but weaker in output information: it does not determine how many projector pairs produce each fixed target. The published idempotent-commutator existence characterization may dominate qualitative support but cannot be claimed to cover numerical fibers from the accessible text; its full-text absence is disclosed.",
+      "searches": [
+        "A characterization of commutators of idempotents Rosenthal Radjavi Drnovsek 2002",
+        "On commutators of idempotents 2024 arxiv 2311.16724",
+        "A quantum-trace determinantal formula for matrix commutators 2010"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1003.5420",
+      "https://doi.org/10.1016/S0024-3795(01)00533-X",
+      "https://arxiv.org/abs/1808.02308",
+      "https://arxiv.org/abs/2311.16724",
+      "https://arxiv.org/abs/0907.4436"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 published determinant identity specializes to \\(\\det[P,Q]=\\operatorname{tr}(PQ)(1-\\operatorname{tr}(PQ))\\) for rank-one P,Q; that implication is explicitly credited.",
+        "The 2018 Theorem B characterizes when some idempotent commutator is invertible in a ring, not the count for each prescribed matrix.",
+        "The 2023 Theorem 2.2 requires compatible square roots for a fixed first projector, whereas the present count also enumerates first projectors across all rational eigenline geometries."
+      ],
+      "reasoning": "The present proof uses a distinct enumeration of compatible lines, the multiplicity of scalar roots, and target determinant strata. These steps are not logical consequences of a determinant constraint or mere existence theorem without further counting arguments. The inaccessible 2002 full text remains the main unresolved historical comparison.",
+      "searches": [
+        "Khurana Lam Shomron quantum trace determinant 2010 Theorem 4.1",
+        "Khurana Lam commutators anti-commutators idempotents invertible 2018 Theorems A B",
+        "Rosenthal Radjavi Drnovsek commutators of idempotents existence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Drnovšek 2023, arXiv:2311.16724, Theorem 2.2 is a criterion for a fixed first projector via compatible square roots; this does not enumerate all possible first projectors or total target multiplicities.",
+        "Khurana--Lam 2018 arXiv:1808.02308 concerns invertibility and ring-theoretic equivalences."
+      ],
+      "reasoning": "Replacing idempotents by involutions for odd characteristic preserves commutator representability under scaling but supplies no counted preimages. A fixed-projector existence formulation is logically weaker than the complete map-fiber law.",
+      "searches": [
+        "commutators of idempotents finite fields 2 by 2",
+        "commutator rank one idempotents finite field",
+        "arXiv:2311.16724 Theorems 2.1--2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source retrieved in these exact targeted searches presented tables of all finite-field fibers or a formula for the image size.",
+        "The complete checker tables in this package are generated from the new proof and independently verified directly, not copied from a known table."
+      ],
+      "reasoning": "The search produced existing idempotent-commutator characterizations and generic commutator results; no exact enumerative table was identified. Search absence is treated only as limited supporting evidence and not as a novelty proof.",
+      "searches": [
+        "number of pairs idempotents prescribed commutator matrix finite field",
+        "finite field rank one projection commutator determinant prescribed trace 2x2",
+        "commutators of idempotents finite fields count commutator fibers"
+      ]
+    },
+    "rationale": "The inspected archival determinant theorem and subsequent idempotent-commutator criteria establish identities, existence or invertibility, but not the complete targetwise number of ordered rank-one idempotent pairs or the characteristic-dependent image-size formula. Separate algebraic derivations of the compatible-projector count and character sums supply new information beyond those theorems. A plausible inaccessible 2002 full text remains an explicit historical-priority risk.",
+    "residual_risks": [
+      "The original 2002 Drnovšek--Radjavi--Rosenthal paper was not inspected in full; it could contain a specialization or counting consequence beyond its abstract.",
+      "An unidentified finite-field idempotent commutator character sum or convolution result could imply the same explicit multiplicities or image size.",
+      "No independent literature-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING complete prescribed rank-one-projector fiber counts; covers necessary determinant identity.",
+        "evidence": [
+          "Sections 1--4 derive determinant expressions for arbitrary input matrices; no enumeration of the fixed-target idempotent pair count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.5420",
+        "material_read": "ArXiv full HTML text, introduction, preliminary determinant identities, Theorems 3.4 and 4.1, corollaries and stated application scope.",
+        "method": "Primary HTML theorem and implication comparison",
+        "title": "A quantum-trace determinantal formula for matrix commutators, and applications",
+        "trigger": "Direct determinant identity for the same two-by-two commutator, and archive-dated anchor"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT: accessible summaries give existence criteria, not exact counts, but no full-text NOT_COVERING assertion is justified.",
+        "evidence": [
+          "MaRDI mathematical review records an existence characterization; direct full-text access denied."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00533-X",
+        "material_read": "Only abstract, secondary mathematical review, and later 2023 theorem citing the work; original full article could not be obtained.",
+        "method": "Publisher access attempt, legal OA search, mathematical review",
+        "title": "A characterization of commutators of idempotents",
+        "trigger": "Original directly relevant characterization of commutators of idempotents"
+      },
+      {
+        "assessment": "NOT_COVERING exact finite-field preimage multiplicities; discusses existence of units as commutators and algebraic identities.",
+        "evidence": [
+          "Theorem B and Section 3 characterize invertible idempotent commutators, not a targetwise finite-field census."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.02308",
+        "material_read": "ArXiv full HTML text: introductory Theorems A--E, Sections 2--5 including matrix ring criteria and invertibility classifications.",
+        "method": "Primary theorem/statement comparison",
+        "title": "Commutators and Anti-Commutators of Idempotents in Rings",
+        "trigger": "Plausibly dominating general idempotent commutator theory"
+      },
+      {
+        "assessment": "NOT_COVERING exact finite-field rank-one-pair fibers; Theorem 2.2 is an existence criterion for a fixed projector decomposition.",
+        "evidence": [
+          "Square-root conditions for prescribed blocks are not sums over all projectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.16724",
+        "material_read": "ArXiv full HTML text, Theorems 2.1, 2.2 and their proofs, later operator applications.",
+        "method": "Primary theorem and formula comparison",
+        "title": "On commutators of idempotents",
+        "trigger": "Later full-text update of original characterization"
+      },
+      {
+        "assessment": "INAPPLICABLE to commutator fibers without new argument, because it characterizes additive combinations rather than commutators.",
+        "evidence": [
+          "Theorems 1--8 classify matrices of the form alpha P + beta Q, not PQ-QP."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0907.4436",
+        "material_read": "ArXiv HTML introduction, main composite characterizations and characteristic-two case.",
+        "method": "Operation-level implication comparison",
+        "title": "On linear combinations of two idempotent matrices over an arbitrary field",
+        "trigger": "Nearby matrix-decomposition literature; same input constraints but different word map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f41e2580-e43e-4d50-9d63-a67424b5a1b0",
+  "value": {
+    "rationale": "Exact preimage cardinalities are a natural invariant of a restricted matrix word map, sharpening classical existence and determinant results. The theorem classifies every target across all finite fields, exposes the exact eigenline dependence and the characteristic-two trace obstruction, and computes the global image size including the odd \\(q\\bmod 4\\) correction. Unlike a single arbitrary finite slice, this has an infinite-parameter structural interpretation.",
+    "status": "PASS"
+  }
+}
