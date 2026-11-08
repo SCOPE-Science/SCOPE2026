@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The OU Gaussian increments yield exactly the source phase kernel and first-harmonic response; the strict log-concavity proof gives increasing hazard, strict survival submultiplicativity, \\(M_0M_2<2M_1^2\\), and h prime strictly negative. This proves the unique-root sign structure and all boundary cases. High-rate Watson expansion and inverse-function theorem prove both displayed endpoint laws. Numeric verifier corroborates 61 checks; it is not relied on for the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hayashi arXiv:2609.35838v1, Sec. II.3 Eq. (20): sufficient conditions for at least one minimum; Sec. III.2: three numerical optimum values.",
+        "Tönjes arXiv:1003.1549 abstract: colored-noise Kuramoto instability, no endogenous Glauber spin field.",
+        "Zhang–Strogatz Nature Communications 12, 3273 (2021), public article: network temporal-structure resource optimization, not self-consistent spin-phase threshold."
+      ],
+      "reasoning": "The strongest directly relevant prior is Hayashi, whose exact threshold identity is broader as a formula but whose stated optimality theorem guarantees only existence under conditions. New strict log-concavity work is required to conclude uniqueness and a sharp all-parameter phase boundary. Other cited models change the coupling mechanism, so their advertised theorems do not directly entail the result. Indirect coverage from unexamined appendices elsewhere is a residual risk.",
+      "searches": [
+        "Reon Hayashi spin-phase Ornstein-Uhlenbeck susceptibility switching threshold sharp beta criterion 2026",
+        "Ising Kuramoto 2609.35838",
+        "\"Synchronization transition in the Kuramoto model with colored noise\" 2010",
+        "\"Synchronization with on-off coupling: role of time scales in network dynamics\" 2009",
+        "\"Designing temporal networks that synchronize under resource constraints\" 2021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.35838v1 (full relevant HTML)",
+      "arxiv:1003.1549 (abstract)",
+      "doi:10.1038/s41467-021-23446-9 (open article abstract/overview)",
+      "doi:10.1103/PhysRevE.79.045101 (publisher abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hayashi Eqs. (11),(15),(17)–(22): exact threshold, necessary critical-point equation, sufficient existence and a large-rate derivative, but no strict global one-crossing theorem.",
+        "Hayashi Eq. (21): \\(G(t)=1-Dt^2/(2\\tau)+O(t^3)\\); new proof uses the full curvature \\((\\log G)\\prime\\prime(t)=-(D/\\tau)e^{-t/\\tau}\\) to exclude all further turning points.",
+        "A standard increasing-hazard property of strictly log-concave densities is used only as an independently reconstructed lemma, not claimed as a new general theorem."
+      ],
+      "reasoning": "The antecedent published formula permits differentiation but does not, alone, compare derivatives across all switching rates. Its sufficiency condition is shown to be necessary by proving h has exactly one monotone branch; the nontrivial added inequality rules out additional minima. The endpoint laws require further moment expansions and inversion. Thus the new claim is a sharp analytical refinement, not the published existence claim renamed.",
+      "searches": [
+        "Memory-induced optimal switching in a dynamic Ising-Kuramoto model Hayashi 2609.35838 unique minimum switching gamma",
+        "Reon Hayashi spin-phase Ornstein-Uhlenbeck susceptibility switching threshold sharp beta criterion 2026",
+        "strict log-concavity phase correlation implies single global switching optimum nonmagnetic hybrid Kuramoto",
+        "Laplace weighted first moment ratio coefficient variation OU phase correlation threshold",
+        "Ising Kuramoto 2609.35838"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hayashi arXiv:2609.35838v1, Sec. II.3 Eqs. (13)–(16): critical rate solves a Laplace-moment mean-time equation, but gives no monotonicity theorem.",
+        "New proof reduces uniqueness to \\(M_0 M_2<2M_1^2\\) for the strictly log-concave OU tilted density.",
+        "No synonym search returned a same-model uniqueness result; the publication-priority risk is nonzero."
+      ],
+      "reasoning": "Equivalent optimizer formulations were compared: stationary points of \\(K_c\\), maxima of \\((\\mu+\\beta_s\\gamma)M_0/2\\), zero of \\(h(\\gamma)-\\mu/\\beta_s\\), and a strict coefficient-of-variation inequality. The source derives the stationary equation, but does not establish that h is strictly decreasing, which is the needed implication for global uniqueness.",
+      "searches": [
+        "Memory-induced optimal switching in a dynamic Ising-Kuramoto model Hayashi 2609.35838 unique minimum switching gamma",
+        "strict log-concavity phase correlation implies single global switching optimum nonmagnetic hybrid Kuramoto",
+        "\"Ising-Kuramoto\" \"unique\" \"optimum\" switching colored 2026",
+        "\"spin–phase\" \"Glauber\" \"memory\" \"uniqueness\" synchronization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hayashi arXiv:2609.35838v1 Sec. III.2 lists example optimal rates 2.629, 1.826, and 1.024 for three correlation times at \\(\\beta_s=2\\); it does not tabulate a necessary and sufficient beta_s boundary.",
+        "The searched published-result records contained no located statement of the exact critical response \\(\\beta_c=\\mu M_1(0)/M_0(0)\\) or its onset asymptotics for the Hayashi model."
+      ],
+      "reasoning": "The existing numerical examples are special parameter values of the known threshold, not an exact table or exhaustive classification of interior stationary points. The numerical check at D=tau=mu=1 reproduces the published rounded \\(\\gamma_*=1.826\\) and separately obtains the new all-beta threshold.",
+      "searches": [
+        "Memory-induced optimal switching in a dynamic Ising-Kuramoto model Hayashi 2609.35838 unique minimum switching gamma",
+        "Laplace weighted first moment ratio coefficient variation OU phase correlation threshold",
+        "arxiv:2609.35838",
+        "2026 source Hayashi Eq. 20 beta condition optimum uniqueness",
+        "Laplace weighted first moment ratio coefficient variation OU phase correlation threshold"
+      ]
+    },
+    "rationale": "Full source text checked for the identical threshold and its stated sufficient criterion, against new strict log-concavity uniqueness and endpoint laws; published-result synonym/parameter searches did not disclose dominating coverage. Qualification: formula itself is prior and independent priority validation is absent.",
+    "residual_risks": [
+      "The source supplies the exact threshold formula; uniqueness is a nontrivial refinement derived from it, not a new independent model or physical mechanism.",
+      "Full texts of some older related switching and colored-noise papers were not inspected; analogous abstract optimization inequalities could exist.",
+      "The indexed literature searches do not establish universal uniqueness of publication priority.",
+      "Independent human mathematical and priority audits remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical threshold is known. New global no-multiple-extrema proof and boundary asymptotics are not stated in checked text.",
+        "evidence": [
+          "arXiv:2609.35838v1, first public 2026-09-24, Sec. II.3 Eq. (20) guarantees at least one optimum",
+          "Sec. III.2 computes \\(\\gamma_*=2.629,1.826,1.024\\) for selected tau values",
+          "Appendix A reconstructs two additive response kernels"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.35838",
+        "material_read": "Title, original public date; entire relevant Sections II.1–II.4, III.2, IV and Appendix A in available HTML; equations (7)–(22) and (26)–(36).",
+        "method": "Read primary HTML full text and compared the threshold, the existence criterion and numerical optima with the new quantified statement.",
+        "title": "Memory-induced optimal switching in a dynamic Ising–Kuramoto model",
+        "trigger": "Identical model, OU kernel, switching-rate threshold and candidate exact optimum"
+      },
+      {
+        "assessment": "The advertised analysis omits the Glauber spin coupling; no direct implication established; full-text coverage risk retained.",
+        "evidence": [
+          "R. Tönjes, arXiv:1003.1549, published 2010; abstract treats globally coupled identical phase oscillators under colored noise"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.1549",
+        "material_read": "Primary arXiv abstract and publisher abstract; full text not read.",
+        "method": "Compared advertised object and available abstracts against endogenous spin response.",
+        "title": "Synchronization Transition in the Kuramoto Model with Colored Noise",
+        "trigger": "Possible stronger colored-noise phase-response result"
+      },
+      {
+        "assessment": "External time-varying network design is not the internal Glauber switching susceptibility; indirect transfer remains possible but unverified.",
+        "evidence": [
+          "Zhang and Strogatz, Nature Communications 12, 3273 (2021), resource-constrained network structure changes"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41467-021-23446-9",
+        "material_read": "Open access article abstract, introduction and public overview; not every proof/appendix.",
+        "method": "Compared optimization variable and physical model.",
+        "title": "Designing temporal networks that synchronize under resource constraints",
+        "trigger": "Optimization of synchronization through switching mechanisms"
+      },
+      {
+        "assessment": "Different physical model, so the reported intermediate time-scale advantage does not itself entail the current claim.",
+        "evidence": [
+          "Chen, Qiu and Huang, Physical Review E 79, 045101(R) (2009), publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.79.045101",
+        "material_read": "Publisher abstract only; full text not accessible in current inspection.",
+        "method": "Compared on-off network coupling to spin–phase stochastic internal relaxation.",
+        "title": "Synchronization with on-off coupling: Role of time scales in network dynamics",
+        "trigger": "Prior intermediate switching optimum in temporal networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34418163-aae9-4db6-9949-c1b7b624d780",
+  "value": {
+    "rationale": "The exact existence-only sufficient condition from the motivating recent model leaves open the number and location of competing switching optima. The theorem gives a sharp all-parameter switching landscape, excludes secondary minima and gives quantitative onset/strong-response scales, directly relevant to choosing the operating rate in a spin–phase synchronization model. This is a structural application of a nontrivial moment inequality, not an arbitrary numerical slice or a renaming of the threshold formula.",
+    "status": "PASS"
+  }
+}
