@@ -1,19 +1,21 @@
-# Scientific review: Exact three-voter delegation-cycle transitions and the welfare mismatch window
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The precise three-voter random-participation game is reduced analytically to the longest nonrepeating delegate path. The identity \(U_i=p\tau+hpq F_i\) holds for every profile and parameter, because the first casting voter at path depth \(j\) occurs with probability \(pq^j\). Reflection reduces the 27 labeled profiles to 15 representatives, for which one-voter deviations and welfare surpluses are compared symbolically. The thresholds \(\alpha=(1+2q)/(1+q)\), \(\beta=1+1/(2q)\), and \(\gamma=1+1/q\) are correctly ordered for \(0<q<1\). Exact separate first-caster event enumeration and delegate-path calculations agree on 6,723 profile/voter/parameter utilities, and all 83 rational parameter scenarios reproduce every equilibrium, welfare maximizer, and the welfare gap. Finite computation is corroboration; the exhaustive symbolic comparisons establish the real-parameter claims.
+PASS
 
-## Originality (PASS, with limitations)
+For three equally spaced default-delegation voters under independent turnout p∈(0,1), q=1−p, normalized tolerance t=τ/h≥0, reconstructed expected first-caster payoff U_i=pτ+hpq F_i, F_i=sum q^{j−1}(t−distance in units h) over unique delegate path. All 27 profiles reduce to 15 reflection classes. Explicit binding one-step gains classify PNE at α=(1+2q)/(1+q), γ=1+1/q, while welfare comparison between 2(t−1),3(t−1)+q(t−2),(1+q)(3t−4) changes optimum at β=1+1/(2q). Hence Δ=hpq[2q(t−1)−1] for β<t≤γ, zero otherwise. Independently enumerated all 8 turnout subsets for all 27 profiles, deviations and welfare at 3 rational p choices and 9 tolerance values including threshold ties, reproducing every set and gap. This is fully analytic for all p,t rather than finite sampling.
 
-The complete primary manuscript by Brill et al., *Cycles in Liquid Democracy: A Game-Theoretic Justification* (arXiv:2607.12610v1, July 14, 2026), was inspected in its model, existence, equilibrium structure, welfare, and appendices. Its existence and cycle-structure results and general welfare bounds do not state the exact equal-turnout, equally spaced three-voter tolerance diagram, the distinct efficiency-transition threshold, or the resulting positive welfare-loss window. The broader qualitative model and cycle relevance are acknowledged as prior work. A related earlier sufficient large-tolerance claim implies three-cycles only beyond a larger threshold than the present sharp boundary, and does not imply the intermediate equilibria or welfare-loss formula. Earlier liquid democracy research [2,3] studies materially different payoff conventions. Actual semantic research-record searches for these aliases, all threshold expressions and the implications did not identify an equivalent finding. Search incompleteness and unpublished work remain priority risks.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem isolates a minimal symmetric instance in a recently introduced model where equilibrium-cycle formation and welfare-optimal cycle formation occur at **different exact thresholds**. It gives a complete phase diagram, accounts for ties, and exhibits a nonempty parameter interval in which *every* equilibrium fails to maximize welfare despite symmetric turnout and evenly spaced agents. This supplies a substantive structural boundary and exact welfare penalty, not simply a small numerical example.
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. The primary Brill random-turnout model is retained exactly, but its qualitative cycle result does not determine which of 27 profiles are Nash or welfare optimal as p,t vary
 
-## Limits and closest literature
+## value
 
-Exact only for three equally spaced agents, common participation, the original default-delegation utility, and pure Nash equilibria. A different utility convention, additional voters, or heterogeneous participation can change the classification. The 2026 primary preprint contains more general existence and structural statements but no identified dominating phase classification; previous general large-tolerance sufficiency is strictly weaker in this subclass. No external independent audit or comprehensive priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest symmetric stochastic delegation market already displays distinct equilibrium and welfare thresholds and an exact strictly positive inefficiency window. The full 27-profile phase diagram and threshold/tie classification supply a natural minimal counterexample to presumed symmetry-driven efficiency, with interpretable economic comparative statics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
