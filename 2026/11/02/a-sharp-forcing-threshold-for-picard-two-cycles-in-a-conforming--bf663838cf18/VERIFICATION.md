@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact checker `checker.py` verifies mesh integrals over four simplices, the mass-inverted finite element eigenvalue, the nonlinear Picard scalar reduction, the factorization of the second iterate, the explicit cycle and residuals, and representative exact rational cases. The proof in `RESULT.md` establishes the global statements for every admissible forcing by a monotone two-step dynamical argument. Finite checks are supplementary, not exhaustive evidence for a continuum of parameters.
+# Independent mathematical audit
 
-The source result uses a sufficiently small timestep for its convergence guarantee; the example with \(\tau=1\) is not asserted to satisfy that condition. The mathematical review was performed without independent validation. Historical novelty remains subject to later specialist review, particularly the unavailable full companion manuscript.
+## correctness
+
+PASS
+
+Read actual KIT full-paper equations (3.16), (4.1), their coefficients Gamma and Lemma 4.1 small-tau conditions; the scalar reduction uses mass 1/6 and stiffness 4, normalized eigenvalue 24, alpha=1/12,beta=1/72. The second iterate factorizes as -(x^3+x-a)(x^2-a*x+1)/((1+x^2)^2+a^2), verified independently with SymPy. This gives global half-line convergence for a<=2 and exactly one attracting primitive 2-cycle for a>2, with p q=1, p+q=a and 4/a^2 derivative product. Not a challenge to a theorem that requires small enough tau.
+
+## originality
+
+PASS
+
+Elementary one-dimensional rational decreasing-map period doubling is known; the evaluated contribution is the concrete actual conforming Kirchhoff Picard solver specialization with an exact forcing boundary and unbounded spurious phase. Source authors prove convergence for sufficiently small tau, not unconditional tau=1 convergence.
+
+## value
+
+PASS
+
+The one-degree-of-freedom conforming FE instance is a motivated minimal counterexample warning that uniqueness of an implicit wave stage does not guarantee undamped Picard convergence. The exact forcing bifurcation and unbounded solver residual are useful numerical-analysis boundaries, not an arbitrary substitution of a rational map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

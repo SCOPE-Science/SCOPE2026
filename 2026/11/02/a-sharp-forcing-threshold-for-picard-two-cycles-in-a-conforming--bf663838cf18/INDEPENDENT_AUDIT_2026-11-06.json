@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:00:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual KIT full-paper equations (3.16), (4.1), their coefficients Gamma and Lemma 4.1 small-tau conditions; the scalar reduction uses mass 1/6 and stiffness 4, normalized eigenvalue 24, alpha=1/12,beta=1/72. The second iterate factorizes as -(x^3+x-a)(x^2-a*x+1)/((1+x^2)^2+a^2), verified independently with SymPy. This gives global half-line convergence for a<=2 and exactly one attracting primitive 2-cycle for a>2, with p q=1, p+q=a and 4/a^2 derivative product. Not a challenge to a theorem that requires small enough tau.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+          "arxiv:2609.27707 companion paper abstract",
+          "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+        ],
+        "reasoning": "Dörich et al. Lemma 4.1 states Picard convergence only for tau <= tau0 depending on data. It neither asserts unconditional convergence nor contradicts the tau=1 counterexample; companion earlier three-layer paper full text is not read.",
+        "searches": [
+          "Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing",
+          "Resultary 2026/10/4/SCOPE-a-sharp-projection-free-invariant-neighborhood-for-the-he-you-yu--d7aa3f27e56e",
+          "https://publikationen.bibliothek.kit.edu/1000198608/194522452",
+          "https://arxiv.org/abs/2609.27707"
+        ]
+      },
+      "checked_sources": [
+        "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+        "arxiv:2609.27707 companion paper abstract",
+        "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+          "arxiv:2609.27707 companion paper abstract",
+          "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+        ],
+        "reasoning": "The source equation supplies an iteration map, but its conditional convergence theorem does not entail the global tau=1 attractor classification. The abstract rational-map fact plus a specific FE reduction gives this specialized claim.",
+        "searches": [
+          "Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing",
+          "Resultary 2026/10/4/SCOPE-a-sharp-projection-free-invariant-neighborhood-for-the-he-you-yu--d7aa3f27e56e",
+          "https://publikationen.bibliothek.kit.edu/1000198608/194522452",
+          "https://arxiv.org/abs/2609.27707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+          "arxiv:2609.27707 companion paper abstract",
+          "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+        ],
+        "reasoning": "Equivalent abstract scalar map F_a(x)=a/(1+x^2) has classical attracting two-cycle for a>2; this dynamical property alone is prior. Its exact realization in source equation (4.1) is the assessed statement.",
+        "searches": [
+          "Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing",
+          "Resultary 2026/10/4/SCOPE-a-sharp-projection-free-invariant-neighborhood-for-the-he-you-yu--d7aa3f27e56e",
+          "https://publikationen.bibliothek.kit.edu/1000198608/194522452",
+          "https://arxiv.org/abs/2609.27707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+          "arxiv:2609.27707 companion paper abstract",
+          "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+        ],
+        "reasoning": "No external exact forced one-node Kirchhoff Picard 2-cycle threshold table found in targeted/Resultary searches; not a finite-table originality argument.",
+        "searches": [
+          "Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing",
+          "Resultary 2026/10/4/SCOPE-a-sharp-projection-free-invariant-neighborhood-for-the-he-you-yu--d7aa3f27e56e",
+          "https://publikationen.bibliothek.kit.edu/1000198608/194522452",
+          "https://arxiv.org/abs/2609.27707"
+        ]
+      },
+      "rationale": "Elementary one-dimensional rational decreasing-map period doubling is known; the evaluated contribution is the concrete actual conforming Kirchhoff Picard solver specialization with an exact forcing boundary and unbounded spurious phase. Source authors prove convergence for sufficiently small tau, not unconditional tau=1 convergence.",
+      "residual_risks": [
+        "This is a highly specialized one-dimensional P1 subspace and deliberately large tau=1; not a general FE solver divergence theorem.",
+        "Prior scalar rational-map period-doubling is classical; older FE papers may already present an isomorphic solver counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms exact discretization and conditional local convergence domain; contains no explicit global tau=1 period-two forcing threshold in inspected sections",
+          "evidence": "Eq (3.16) uses Gamma and weighted FE average; Eq (4.1) uses lagged Gamma; Lemma 4.1 assumes tau below a data-dependent tau0.",
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000198608/194522452",
+          "material_read": "Open-access 28-page full primary PDF; Section 3 equation (3.16) and Section 4 equation (4.1), first interior index, Lemma 4.1 with small-time-step condition and proof; pp 7–10 visibly inspected",
+          "method": "KITopen publisher PDF, text extraction plus visual screenshots of pages 7–10",
+          "title": "Conservative Finite Element Methods for Kirchhoff-Type Equations",
+          "trigger": "Exact source of the discretization and Picard map"
+        },
+        {
+          "assessment": "Not ruled out; possible historical overlap remains",
+          "evidence": "KIT paper Introduction characterizes companion as time-discrete local convergence and energy analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27707",
+          "material_read": "Record/abstract and source paper cross-reference only; primary full text not successfully read",
+          "method": "Bibliographic search and cross-reference in KIT paper",
+          "title": "Conservative Three-Layer Schemes for Kirchhoff-Type Equations",
+          "trigger": "Direct earlier companion from same equation family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-degree-of-freedom conforming FE instance is a motivated minimal counterexample warning that uniqueness of an implicit wave stage does not guarantee undamped Picard convergence. The exact forcing bifurcation and unbounded solver residual are useful numerical-analysis boundaries, not an arbitrary substitution of a rational map.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dörich–Krumbiegel–Rogava–Rupp–Vashakidze, KITopen 2026/59, equations (3.16), (4.1), Lemma 4.1",
+    "arxiv:2609.27707 companion paper abstract",
+    "Resultary Kirchhoff equation conforming finite element Picard iteration attracting period two nonconvergence forcing"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the specified conforming one-center P1 mesh, Kirchhoff (3.16)/(4.1) with tau=1, theta=gamma=1/2 and positive material parameters gives F_g(x)=(g+2)/(2(1+x^2)); the implicit equation uniquely solves x+x^3=(g+2)/2, while Picard iterates converge to the unique fixed point for 0<=g<=2 and to an attracting non-solution 2-cycle for g>2, with multiplier 16/(g+2)^2.",
+  "limitations": [
+    "This is a highly specialized one-dimensional P1 subspace and deliberately large tau=1; not a general FE solver divergence theorem.",
+    "Prior scalar rational-map period-doubling is classical; older FE papers may already present an isomorphic solver counterexample."
+  ],
+  "residual_risks": [
+    "This is a highly specialized one-dimensional P1 subspace and deliberately large tau=1; not a general FE solver divergence theorem.",
+    "Prior scalar rational-map period-doubling is classical; older FE papers may already present an isomorphic solver counterexample."
+  ],
+  "schema_version": 1
+}
