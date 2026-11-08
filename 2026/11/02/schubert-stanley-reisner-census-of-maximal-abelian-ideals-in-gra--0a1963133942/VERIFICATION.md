@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_abelian_ideal_schubert.py` with Python 3 and no third-party packages. The program constructs every row-reduced-echelon \(\alpha(G)\)-subspace independently of the formula; it directly tests its edge-coordinate brackets and compares the resulting count with the independent-support graph formula.
+## correctness
 
-Every labeled simple graph on \(1\), \(2\), \(3\), or \(4\) vertices is checked over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\), giving \(225\) cases. Four more graphs (the five-vertex path, five-cycle, five-clique and six-vertex path) are checked over \(\mathbb F_2\) and \(\mathbb F_3\), giving \(8\) more cases. The two four-vertex witnesses are additionally checked directly over \(\mathbb F_5\), giving \(2\) more cases, for \(235\) independently enumerated cases in total. The arithmetic of \(\mathbb F_4\) uses the irreducible polynomial \(u^2+u+1\). Additional checks confirm the exact witness formulas for four field sizes and their invariance under vertex relabeling.
+PASS
 
-Expected final output contains `GRAPH_MAXIMAL_ABELIAN_SCHUBERT_OK 235` and the witness count list. All \(235\) cases passed when this package was prepared. These computations are not a proof for arbitrary fields or larger graphs. The proof in `RESULT.md` identifies the equations in every echelon stratum and establishes the unbounded all-fields statement.
+Reconstructed definitions over any field including characteristic two: L_G=V+Z with alternating bracket projecting wedge^2 V to graph edge coordinates. Any maximum abelian subalgebra contains entire center Z and becomes an ideal; RREF pivot vertices of commuting d-plane are an independent set, giving d<=alpha(G), attained by a maximum independent coordinate plane, total dimension m+alpha(G). Fix pivot S: maximal independent sets dominate all nonpivots. Edge equations force nonpivot column either zero (two pivot neighbors) or t_v e_{s(v)} (unique pivot neighbor); echelon orientation allows only s(v)<v. Remaining edge equations are precisely squarefree products t_ut_v when adjacent u,v have different pivot owners, making each chart a reduced Stanley–Reisner coordinate arrangement over arbitrary k. Over F_q, nonzero supports independent in H_S yield sum_S I_H(q-1). Witness K3 disjoint K1 vs P4: same ordinary independence polynomial but different Grassmann/Plücker loci P² vs meeting P¹s, counts q²+q+1 and 2q+1. Independently enumerated 150 graph-field combinations (all labeled graphs through 4 vertices over F2,F3) using RREF and direct bracket checks; exact agreement. Finite checks corroborate the all-graph scheme argument. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 18ca47ec79735877ec33f6be5a7dc9b4b9d2e325
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.
+
+## value
+
+PASS
+
+The finite-field census of *maximum-dimensional* abelian ideals and explicit Schubert chart geometry are natural invariants of a standard graph-to-Lie construction. The nonisomorphic projective-plane versus reducible-lines witness establishes this invariant is not determined by the previously studied ordinary graph independence polynomial, giving a mathematically meaningful refinement rather than routine recounting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
