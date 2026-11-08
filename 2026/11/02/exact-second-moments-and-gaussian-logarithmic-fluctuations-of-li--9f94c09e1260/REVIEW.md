@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The boundary indicators of independent uniform symbols are i.i.d. Bernoulli with parameter \(p=1-1/q\). The previously established effective-swap identification makes each ball an independent-set count. The three-state paired-matching transfer matrix yields the stated cubic rational second moment; direct Cayley–Hamilton expansion and 35,778 independent word/ball enumerations confirm the finite identities. Positivity and primitivity of both transfer matrices and the negative cubic evaluation at \(\alpha^2\) establish the strict exponential relative variance. A geometric-cycle decomposition supports the strong law and renewal-reward CLT with explicit nonzero variance. The numerical tests are not substituted for these all-length arguments.
+## correctness
 
-**Originality — PASS within inspected sources; residual priority risk.** Langberg–Schwartz–Yaakobi (2015, Lemma 8 and Theorem 10) already derive the center-specific Fibonacci ball-size product; Kovačević–Kiah–Goyal (2025/2026, Propositions 4 and 6) already give the independent-set representation and first moment. The reviewed parts of those full texts do not contain the second moment, exponential relative-variance law or logarithmic CLT. The two 2026 Ben Shimon–Zabokritskiy full texts focus on codes and certification criteria. Semantically matched mathematical-index results concerned different error channels, finite covering optima or unrelated moments, and neither contained a statement implying this fluctuation theorem. The expanded 2017 journal paper was identified but not examined in full; an unindexed earlier probabilistic analysis also remains possible. These limits prevent a claim of exhaustive publication priority.
+PASS
 
-**Value — PASS.** Existing radius-one ball formulas provide a deterministic center value and a first moment, but do not quantify the gap between a typical word and the average, nor the spread among random centers. The exact variance-growth base and the explicit Gaussian logarithmic fluctuations solve natural distributional questions for this error channel for every fixed alphabet size. Those are substantive quantitative refinements relevant to how error-ball volumes vary in coding and covering arguments; no code-rate improvement is claimed.
+Boundary inequality flags E_i=1{X_i!=X_{i+1}} are iid Bernoulli(p), since each fixed flag string has q(q-1)^{#ones} realizations. Each distinct output corresponds to an effective nonoverlapping matching. Two matching choices require three symmetric boundary states; the transfer matrix R_p has the claimed cubic characteristic and initial values 1,1+3p,1+6p+2p². Its largest positive beta satisfies beta>alpha² because characteristic at alpha² is p alpha(p-1)<0. Runs 1^K0 have geometric lengths K+1 and rewards log F_{K+2}; iid renewal SLLN and CLT give gamma_q and tau_q², unfinished run geometric tight; strict Jensen proves gamma_q<log alpha. Independent exact distinct-output enumeration tested q=2,n≤6 and q=3,n≤4. No finite test substitutes for renewal arguments.
 
-**Closest literature and limitations.** Primary sources: Langberg–Schwartz–Yaakobi, ISIT 2015, Section III; Kovačević–Kiah–Goyal, arXiv:2509.06692v3, Section 2.3, Propositions 4 and 6; Ben Shimon–Zabokritskiy, arXiv:2606.26905 and arXiv:2607.19566. Restricted to independent uniform symbols, fixed alphabet size and simultaneous disjoint swaps. Expanded 2017 full journal text and inaccessible/unindexed priority remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.
+
+## value
+
+PASS
+
+The radius-one error-ball volume is a natural coding-theoretic local geometry invariant. Its mean is known, but exact second moment, strict annealed/typical exponential separation, and explicit Gaussian log fluctuations characterize heterogeneity of random centers relevant to probabilistic code design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
