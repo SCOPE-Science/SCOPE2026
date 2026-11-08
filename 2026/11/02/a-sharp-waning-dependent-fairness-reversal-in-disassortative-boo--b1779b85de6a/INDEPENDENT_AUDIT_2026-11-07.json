@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:18:05.049951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal groups with periodic inter-booster times, mean susceptibility is s(u)=1-u(1-e^-1/u). Inversion-symmetric Perron root of M=(diag(1-alpha/2,1-alpha/2)+offdiag(alpha/2))diag(s(u+ub/2),s(u-ub/2)) gives rho-double-prime(0)=u^2/4[(d2s/du2)-2(alpha-1)/alpha*(ds/du)^2/s], with the first derivative squared as required. With Q=s s\"/(2s\"(u)^2) (here denominator denotes [s-prime]^2), direct differentiation at t=1/u gives dQ/dt=-t N(t)/(2(e^t-1-t)^3); N coefficients vanish through n=5 and are positive at every n>=6 by (n-1)[2^(n-2)(n-8)+n^2-n+4]. Thus Q increases strictly from 0 to 1 in u, yielding one crossover for 1<alpha<=2; alpha<=1 always positive curvature. Independently recalculated 15 local eigenvalue curvatures and u_c(2)=0.23803677671827. The zero-curvature equality case is deliberately not classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "doi:10.1257/mic.5.2.1",
+          "doi:10.1007/s00285-022-01858-5"
+        ],
+        "reasoning": "General vaccination-allocation theorems in static coverage variables can favor unfair allocation, but different resource scaling prevents direct implication of the monotone function Q(u) and unique recurrent-booster threshold.",
+        "searches": [
+          "disassortative two-group vaccination period exponential waning fairness allocation local curvature threshold epidemic reproduction",
+          "doi:10.1257/mic.5.2.1",
+          "doi:10.1007/s00285-022-01858-5"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-024-02171-z",
+        "https://doi.org/10.1257/mic.5.2.1",
+        "https://doi.org/10.1007/s00285-022-01858-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "doi:10.1007/s00285-024-02171-z"
+        ],
+        "reasoning": "Proposition 6 only applies alpha<=1; for alpha>1 its argument does not force rho\"(0)>=0. The assessed derivative sign flips, with an explicit alpha=2 unfair endpoint counterexample.",
+        "searches": [
+          "disassortative two-group vaccination period exponential waning fairness allocation local curvature threshold epidemic reproduction",
+          "doi:10.1007/s00285-024-02171-z"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "doi:10.1007/s00285-024-02171-z"
+        ],
+        "reasoning": "A two-group positive 2x2 next-generation matrix is the same spectral problem as the source epidemic model; its local b-curvature after deterministic renewal averaging is the new exact invariant.",
+        "searches": [
+          "disassortative two-group vaccination period exponential waning fairness allocation local curvature threshold epidemic reproduction",
+          "doi:10.1007/s00285-024-02171-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "doi:10.1007/s00285-024-02171-z"
+        ],
+        "reasoning": "The threshold is a unique root of a transcendental function over all rates; no exact published table/finite enumeration claim is involved. Numerical 0.238... is subordinate to the analytic inequality.",
+        "searches": [
+          "disassortative two-group vaccination period exponential waning fairness allocation local curvature threshold epidemic reproduction",
+          "doi:10.1007/s00285-024-02171-z"
+        ]
+      },
+      "rationale": "The original Foutel-Rodier–Charpentier–Guérin article fixes the model, spectral constraint and fair-allocation result for alpha<=1. Galeotti–Rogers and Delmas–Dronnier–Zitt already show unfair/static allocation effects. Here the exact unique threshold in recurrent deterministic boosters with exponential waning and alpha>1 is distinct; a universal nonlinear-cost theorem might give an implicit version.",
+      "residual_risks": [
+        "The deterministic booster law is treated through stationary renewal susceptibility; no claim of a full PDE well-posedness theorem under point-mass waiting times.",
+        "The transition is local in imbalance; behavior at exact zero curvature and global allocation optimum remain open.",
+        "Another general nonlinear spectral-cost theorem could imply the special Q(u) boundary without using identical notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 6 proves equal allocation for assortative/well-mixed alpha<=1, not unique disassortative waning-dependent local curvature change",
+          "evidence": "Proposition 6 alpha-range and two-group spectral matrix",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-024-02171-z",
+          "material_read": "Full open-access article, introduction, sections 4.2, 5.3–5.4, Proposition 6 and equation (25)",
+          "method": "publisher OA full-text and parallel arXiv PDF section inspection",
+          "title": "Foutel-Rodier, Charpentier and Guerin, Optimal vaccination policy to prevent endemicity: a stochastic model",
+          "trigger": "identical contact/susceptibility resource framework and nearest fair-allocation proposition"
+        },
+        {
+          "assessment": "Known concentration-benefit background, but no whole-document exclusion is asserted",
+          "evidence": "Proposition 2 and group-contact structure",
+          "identifier_or_url": "https://doi.org/10.1257/mic.5.2.1",
+          "material_read": "Publicly indexed primary title, abstract and prior-work discussion as reproduced in the inspected source package; no full article text independently inspected",
+          "method": "bibliographic and secondary citation comparison (not full primary reading)",
+          "title": "Galeotti and Rogers, Strategic Immunization and Group Structure",
+          "trigger": "earlier disassortative group-targeting reversal"
+        },
+        {
+          "assessment": "Addresses permanent vaccination, and full-text noncoverage is not claimed",
+          "evidence": "Theorem 4.2 and permanent vaccination model",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01858-5",
+          "material_read": "Published model summary/abstract plus original package citation to Theorem 4.2; no full source independently inspected",
+          "method": "abstract and cited theorem summary only",
+          "title": "Delmas, Dronnier and Zitt, Optimal vaccination: various (counter) intuitive examples",
+          "trigger": "potential broader eigenvalue-based vaccination allocation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes the precise local allocation-direction gap in the disassortative range omitted by a fair-allocation theorem for the originating recurrent-vaccination model. Quantifies how resource intensity reverses which allocation lowers disease-free invasion potential, including a sharp threshold and explicit nonlocal witness. Not a global optimization or epidemic-outcome result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The deterministic booster law is treated through stationary renewal susceptibility; no claim of a full PDE well-posedness theorem under point-mass waiting times.",
+    "The transition is local in imbalance; behavior at exact zero curvature and global allocation optimum remain open.",
+    "Another general nonlinear spectral-cost theorem could imply the special Q(u) boundary without using identical notation."
+  ]
+}

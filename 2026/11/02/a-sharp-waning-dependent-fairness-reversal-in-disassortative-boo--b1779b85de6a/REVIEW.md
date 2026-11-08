@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact local curvature classification of a finite positive matrix under periodic, exponentially waning vaccination; it is not a nonlinear epidemic asymptotic theorem. The renewal average \(s(u)\) and the positive Perron root are derived directly. The displayed Taylor series fixes the normalization \(u_i=u(1\pm b/2)\) and yields the precise curvature. The derivative of \(Q\) has a global sign because the entire analytic series of \(N(t)\) is positive for positive \(t\), with explicit coefficients for every integer order. The endpoint comparison is an independent concrete check. Standalone symbolic and finite-difference verification passed; this finite testing supplements rather than replaces the proof. There is no result claimed at the degenerate zero-curvature point beyond existence and uniqueness of the threshold.
+PASS
 
-## Originality — PASS, with identified residual risks
+For equal groups with periodic inter-booster times, mean susceptibility is s(u)=1-u(1-e^-1/u). Inversion-symmetric Perron root of M=(diag(1-alpha/2,1-alpha/2)+offdiag(alpha/2))diag(s(u+ub/2),s(u-ub/2)) gives rho-double-prime(0)=u^2/4[(d2s/du2)-2(alpha-1)/alpha*(ds/du)^2/s], with the first derivative squared as required. With Q=s s"/(2s"(u)^2) (here denominator denotes [s-prime]^2), direct differentiation at t=1/u gives dQ/dt=-t N(t)/(2(e^t-1-t)^3); N coefficients vanish through n=5 and are positive at every n>=6 by (n-1)[2^(n-2)(n-8)+n^2-n+4]. Thus Q increases strictly from 0 to 1 in u, yielding one crossover for 1<alpha<=2; alpha<=1 always positive curvature. Independently recalculated 15 local eigenvalue curvatures and u_c(2)=0.23803677671827. The zero-curvature equality case is deliberately not classified.
 
-The originating Foutel-Rodier–Charpentier–Guérin paper, which supplies the matrix and dose constraint, establishes fair allocation for \(\alpha\le1\), not the exact disassortative local transition. Galeotti–Rogers already established that targeting a particular group can benefit disassortative **perfect vaccination**; Delmas–Dronnier–Zitt contain broad static coverage optimization results. These reduce the conceptual novelty of asymmetric vaccination but not the precise unique dose-rate threshold under deterministic boosters and exponential waning, since they optimize a different resource variable. Searches of published mathematical records, relevant literature, and related formulations located no full implication of the claimed boundary. Unindexed prior results and a more general nonlinear-cost comparison remain residual risks, so novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The literature's assortative theorem leaves the disassortative two-group regime unresolved in its recurrent-vaccine setting. The exact unique threshold distinguishes scarce from abundant booster resources, quantifies when fairness improves or worsens invasion, and supplies a noninfinitesimal numerical counterexample. A strict monotone-function proof establishes uniqueness over all dose rates rather than a numerical crossover for one configuration. The finding has meaningful structural content while remaining deliberately local, not a global allocation or eradication theorem.
+The original Foutel-Rodier–Charpentier–Guérin article fixes the model, spectral constraint and fair-allocation result for alpha<=1. Galeotti–Rogers and Delmas–Dronnier–Zitt already show unfair/static allocation effects. Here the exact unique threshold in recurrent deterministic boosters with exponential waning and alpha>1 is distinct; a universal nonlinear-cost theorem might give an implicit version.
 
-## Scope and access limitations
+## value
 
-Deterministic inter-booster times are assessed via stationary renewal susceptibility, without proving the original stochastic/PDE theorem under singular waiting laws. Results do not extend to heterogeneous group sizes, arbitrary waning, global dose allocation, or equality-point fourth-order type. Source comparisons used the open-access 2024 journal full text, accessible full text of Galeotti–Rogers and Delmas–Dronnier–Zitt, exact claim comparison, and semantic mathematical-record search. Unindexed equivalent analyses are possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closes the precise local allocation-direction gap in the disassortative range omitted by a fair-allocation theorem for the originating recurrent-vaccination model. Quantifies how resource intensity reverses which allocation lowers disease-free invasion potential, including a sharp threshold and explicit nonlocal witness. Not a global optimization or epidemic-outcome result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
