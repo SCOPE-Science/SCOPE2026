@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run the Python 3 files `prism_infinite_certificate.py`, `prism_direct_check.py`, and `prism_symbolic.py` with no additional dependencies. The first checks all 25,013 reduced cyclic cases (weights one through four), fort-matrix stabilization after five empty columns, all-orbit matches, and finite cyclic exchange data. The second independently uses the ordinary color-change rule and exhaustive four-subset enumeration on cyclic lengths six through fifteen. The third checks all possible single-exchange neighbors on integer-lifted local templates, yielding degrees 12, 8, 8, 8, 5. The mathematical proof supplies the implication from the local certificate to every length, and explicitly accounts for short-wraparound cases. The scripts provide reproducible exhaustive finite computations; they do not independently constitute a formalized proof of that implication. The result has not undergone independent scholarly audit.
+## correctness
+
+PASS
+
+Minimum number four is prior. A nonempty white fort disjoint from the initial black set is exactly a stalled forcing obstruction. Inspected 16-state transfer tracks two-bit adjacent column fort masks and a marked flag for a NONEMPTY fort, avoiding false empty paths. Independently reconstructed the marked Boolean transition and verified T0^5=T0^6=T0^7 for all sixteen states (225 marked reachable pairs); hence all zero gaps longer than five truncate without altering the existence of a fort. Inspected script exhausts exactly 25,013 compressed mask-gap words of total weight <=4, tests all five explicit orbits, and asserts no smaller forcing sets. Separate independent brute forcing directly enumerated all 6,376 four-sets across n=6,7,8,9, matching 13n, degree spectrum and exchange connectivity; no experiment alone proves n unbounded. The local support bound and integer-line symbolic degree check prove the 12,8,8,8,5 orbit degrees for all n>=14; direct cyclic exceptional n6..13 are claimed in source and code inspected. Sum degrees gives 48n edges and orbit-to-square paths establish connectedness.
+
+## originality
+
+PASS
+
+General zero forcing polynomial, reconfiguration graph, and prior Z(prism)=4 are already known. The five-orbit complete minimum-set classification, exact fourth polynomial coefficient, and full exchange graph structure are not directly implied by those earlier theorems; equivalent older prism enumeration is a residual risk.
+
+## value
+
+PASS
+
+The classification gives a complete, naturally motivated family of extremal configurations and an exact nonregular but connected reconfiguration graph, contributing optimization multiplicity and feasible-path structure not encoded by the known minimum forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

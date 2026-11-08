@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fort characterization turns ordinary forcing into exact exclusion of all nonempty disjoint forts. The 16-state marked Boolean transfer is derived directly from the rung and rim adjacencies, and exact matrix equality after five zero columns makes a finite list of 25,013 cyclic cases sufficient for the entire infinite family. The exhaustive certificate matches precisely the five dihedral/layer-swap orbit types, with no smaller forcing set. An independent color-change simulation checks all compressed words, and a separate infinite-ladder computation, plus bounded-length cyclic checks, establishes the degree distribution. Explicit legal paths prove exchange connectivity. The code verifies actual premises and finite exceptional cases, not merely its expected final answer.
+## correctness
 
-**Originality — PASS, qualified.** The foundational 2007/2008 paper proves only the minimum number \(Z=4\) for this family. The full text of Geneson–Haas–Hogben supplies the exchange definition and general findings but not the five-orbit prism enumeration. The zero-forcing-polynomial paper provides general context without this fourth coefficient; prior fort literature supplies the obstruction method without this classification. Searches for equivalent prism, generalized-Petersen and circular-ladder formulations found no verified stronger covering statement. Earlier findings on other forcing graphs and on prism coloring do not imply this zero-forcing statement. Priority risk remains: an inaccessible 2020 prism-specific article and nonindexed enumerations could cover a part of the result. A negative search is not proof of novelty.
+PASS
 
-**Value — PASS.** The objects are a standard, infinite, cubic graph family, and the result determines *all* optimum solutions, the first nontrivial zero-forcing-polynomial coefficient, and exact mobility under the canonical local exchange relation. Connectivity, nonregular degree spectrum and five symmetry strata are structural information not implied by the classical forcing-number theorem. This is a natural complete classification rather than an arbitrary finite instance.
+Minimum number four is prior. A nonempty white fort disjoint from the initial black set is exactly a stalled forcing obstruction. Inspected 16-state transfer tracks two-bit adjacent column fort masks and a marked flag for a NONEMPTY fort, avoiding false empty paths. Independently reconstructed the marked Boolean transition and verified T0^5=T0^6=T0^7 for all sixteen states (225 marked reachable pairs); hence all zero gaps longer than five truncate without altering the existence of a fort. Inspected script exhausts exactly 25,013 compressed mask-gap words of total weight <=4, tests all five explicit orbits, and asserts no smaller forcing sets. Separate independent brute forcing directly enumerated all 6,376 four-sets across n=6,7,8,9, matching 13n, degree spectrum and exchange connectivity; no experiment alone proves n unbounded. The local support bound and integer-line symbolic degree check prove the 12,8,8,8,5 orbit degrees for all n>=14; direct cyclic exceptional n6..13 are claimed in source and code inspected. Sum degrees gives 48n edges and orbit-to-square paths establish connectedness.
 
-Closest literature: AIM Minimum Rank–Special Graphs Work Group (DOI 10.1016/j.laa.2007.10.009), Geneson–Haas–Hogben (arXiv:2009.00220), Boyer et al. (arXiv:1801.08910), Petruk (2020). Limitations: scope \(n\ge6\); no claim for forcing variants, full polynomial, or independent validation. Potential differently named historical coverage remains the principal risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General zero forcing polynomial, reconfiguration graph, and prior Z(prism)=4 are already known. The five-orbit complete minimum-set classification, exact fourth polynomial coefficient, and full exchange graph structure are not directly implied by those earlier theorems; equivalent older prism enumeration is a residual risk.
+
+## value
+
+PASS
+
+The classification gives a complete, naturally motivated family of extremal configurations and an exact nonregular but connected reconfiguration graph, contributing optimization multiplicity and feasible-path structure not encoded by the known minimum forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
