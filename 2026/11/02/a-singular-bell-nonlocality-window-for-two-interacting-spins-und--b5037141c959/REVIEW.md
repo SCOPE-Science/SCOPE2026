@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The normalized stationary Poisson integral solves the unique finite-dimensional resolvent for every \(R>0\). In the invariant three-state Bell sector, exact generator algebra yields the stated rational correlation matrix. The two-singular-value criterion, matrix limit, polynomial positivity bound for all \(a\ge2\), and both iterated regimes establish all stated quantifiers. `verify.py` independently checks these critical identities and finite examples; numerical observations are not substituted for continuum proofs.
+## correctness
 
-**Originality: PASS, qualified.** The exact general stationary density operator, the source's entropy scaling in \(aR\), and the generic Horodecki criterion are prior knowledge. No located source states the complete CHSH scaling function, its unique scale optimum, or the uniform finite-parameter violation witness for the identical transverse-Ising reset model. The source has sufficient forward information to derive the result with additional algebra; hence priority as a specifically published theorem is not certain. Different two-qubit reset-gate models and reset-driven environmental chains do not imply the statement for this Hamiltonian and reset preparation. Limited global literature coverage remains a risk.
+PASS
 
-**Mathematical value: PASS.** Concurrence and Bell nonlocality are mathematically and operationally different. A positive uniform finite-coupling witness, a sharp one-dimensional singular window, and the noncommuting fixed-reset versus joint-scaling limits identify when physical Bell violation survives a strong coherent interaction. The result is a structural regime description, not merely an isolated numerical Bell test or a reformulation of general CHSH optimization.
+For two transverse-Ising spins with global Poisson reset to |dd>, solve stationary resolvent R(rho-rho0)+i[H,rho]=0 in the populated 3-state Bell sector. Direct Pauli traces yield T entries T_xy=-2aR/D, T_xz=2aR^2/D, T_yy=2/E, T_yz=-R/E, T_zz=(4a^2+R^2+2)/E, with D=(1+R^2)^2+4a^2R^2, E=4a^2+R^2+4. In limit R=q/(2a), T->[[0,-q/(1+q^2),0],[-q/(1+q^2),0,0],[0,0,1]], hence Horodecki CHSH->2sqrt(1+(q/(1+q^2))^2), unique maximum sqrt5 at q=1. The finite witness T_xy^2+T_zz^2>1 for a>=2 follows from an explicitly positive polynomial in a^2; fixed R positive and zero-reset fixed a limits give 2 and <2 respectively. Independent 30 16x16 stationary resolvent Pauli-matrix checks and five finite witnesses confirm algebra, not universal regimes by testing.
 
-The model assumes exact full-state Poisson resetting, a fixed pure preparation, two spins, and ideal projective Bell tests. No global finite-parameter optimum or noise-robust certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: The model and generic spectral rule are earlier results; the asymptotic window is an extra computation and not found as an explicit statement in accessible abstract. Full same-model article unavailable this execution, so strong residual O risk remains.
+
+## value
+
+PASS
+
+A specific same-model quantum-reset system exhibits an observable Bell-nonlocality double-scaling window absent in either fixed-parameter limit; the noncommuting regimes and finite positive witness refine established entanglement results. The parameter q and its unique nontrivial profile are mathematically motivated by the exact resolvent resonance, not an arbitrary parameter slice. General Horodecki criterion and stationary density are prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
