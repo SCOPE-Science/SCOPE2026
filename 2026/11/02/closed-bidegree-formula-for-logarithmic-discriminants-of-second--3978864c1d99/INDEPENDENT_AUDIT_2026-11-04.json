@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:05:01.558269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Δ(2,n) the Ehrhart function equals binom(2k+n−1,n−1)−n binom(k+n−2,n−1), since at most one coordinate exceeds k. Backward differences give degree v=2^(n−1)−n and sectional genus g=1+(n−4)2^(n−3), hence Hurwitz h=n(2^(n−2)−2). Positive-dimensional torus orbits are smooth; each of binom(n,2) singular vertices has local 2×(n−2) rank-one determinantal Segre cone. For generic vertex coefficient ε, a generic local transverse system has m=n−2 simple nearby branches with linear leading ε scales, evaluation determinant leading ε^(m−1) times a nonzero Cauchy/interpolation determinant; its trace-pairing discriminant contributes 2(m−1)=2(n−3). Subtract these vertex exponents from coefficient degree (n−1)h to obtain b=n(n−1)(2^(n−2)−n+1). Independent exact integer degree and Ehrhart checks confirm (b,h)=(12,8),(80,30),(330,84),(1092,210) for n=4–7; the general local argument, not the numeric table, bears the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hurwitz degree and singular torus orbit factorization apply generally but leave local extraneous valuations for specific singular charts uncomputed."
+        ],
+        "reasoning": "The general theorem is not a computationally closed bidegree formula, and obtaining the vertex splitting determinant 2(n−3) is the required additional argument.",
+        "searches": [
+          "Goertz Sturmfels Telen arXiv:2610.29204 Theorems 4.1 and 5.2",
+          "Sturmfels arXiv:1410.6703 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Goertz, Sturmfels and Telen, The Logarithmic A-Discriminant (2026), arXiv:2610.29204, Theorems 4.1, 5.2 and Example 8.3",
+        "Sturmfels, The Hurwitz Form of a Projective Variety (2014), arXiv:1410.6703, Theorem 1.1",
+        "Resultary: logarithmic A discriminant second hypersimplex Hurwitz degree extraneous factors closed formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n=4..7 cases are direct prior instances of the new formula. The local Segre-cone trace determinant is an extra computation not entailed numerically by those cases; general Hurwitz degree alone gives h but not b."
+        ],
+        "reasoning": "Matched the prior formulas and examples by implication: main interest is universal n and local singular-orbit exponent, excluding the known cases as separate novelty.",
+        "searches": [
+          "Goertz Sturmfels Telen 2026 Example 8.3",
+          "Sturmfels 2014 Hurwitz Form theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Logarithmic discriminant can be formulated as a specialized Hurwitz form divided by exponent-only and singular-orbit factors; current result computes all Δ(2,n) exceptional exponents, missing from the formal general factorization."
+        ],
+        "reasoning": "Compared the different normalization conventions explicitly (coefficient degree versus exponent degree), rather than merely matching the first four bidegree numbers.",
+        "searches": [
+          "arXiv:2610.29204v1 Theorem 5.2, Example 8.3",
+          "Resultary search: logarithmic A discriminant hypersimplex Delta(2,n) bidegree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 8.3 lists n=4,5,6,7 pairs (12,8),(80,30),(330,84),(1092,210). These exact four values are already known; new expression covers all n>=4 and identifies local multiplicities."
+        ],
+        "reasoning": "The four table entries must not be claimed as new computations; finite interpolation of them alone is not proof for unbounded n.",
+        "searches": [
+          "Goertz Sturmfels Telen arXiv:2610.29204 Example 8.3 Table 3",
+          "Resultary: logarithmic A discriminant second hypersimplex Hurwitz degree extraneous factors closed formula"
+        ]
+      },
+      "rationale": "Goertz–Sturmfels–Telen state general Hurwitz factorization and give precisely the first four second-hypersimplex bidegrees as numerical examples, then ask for formulas. Their general theorem supplies framework, not an explicit all-n vertex multiplicity proof. The exact uniform 2(n−3) local discriminant exponent and closed all-n bidegree were not shown in the inspected article and are the claimed additional contribution.",
+      "residual_risks": [
+        "Trace-discriminant local flatness and identification of only the vertex coefficient divisors are key nonstandard steps; further specialist verification desirable.",
+        "Potential unindexed full discriminant computation not located; finite examples alone cannot establish novelty or general correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General specialization and first four bidegrees are prior; all-n formula and uniform vertex extraneous power absent in inspected source.",
+          "evidence": "Theorems 4.1 and 5.2; Example 8.3 Table 3",
+          "identifier_or_url": "arXiv:2610.29204v1 (2026-10-21)",
+          "material_read": "Full accessible arXiv HTML with Theorems 4.1, 5.2, Example 8.3 and Table 3",
+          "method": "ArXiv HTML full article rendering, relevant numbered theorem and example inspection",
+          "title": "The Logarithmic A-Discriminant",
+          "trigger": "Exact discriminant and a table for second hypersimplices"
+        },
+        {
+          "assessment": "Provides degree in terms of degree and sectional genus, but not Δ(2,n) coefficient corrections",
+          "evidence": "Theorem 1.1",
+          "identifier_or_url": "arXiv:1410.6703v2",
+          "material_read": "Public full article and theorem-level passages available; no assertion of all sections exhaustively read",
+          "method": "ArXiv theorem inspection",
+          "title": "The Hurwitz Form of a Projective Variety",
+          "trigger": "General projective Hurwitz degree could imply h"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating primary source explicitly supplies only a finite table and asks for singular-case degree formulas; the present proof yields the all-n formula and exact local singular factor for a natural hypersimplex family. This is a substantive algebraic-geometric computation, not mere interpolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goertz, Sturmfels and Telen, The Logarithmic A-Discriminant (2026), arXiv:2610.29204, Theorems 4.1, 5.2 and Example 8.3",
+    "Sturmfels, The Hurwitz Form of a Projective Variety (2014), arXiv:1410.6703, Theorem 1.1",
+    "Resultary: logarithmic A discriminant second hypersimplex Hurwitz degree extraneous factors closed formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All-n formula relies on generic transverse branch and trace pairing argument; independent numerical checks stop at small n.",
+    "Theorem applies to complex second hypersimplices with the specific normalized logarithmic discriminant; positive-characteristic or general Δ(r,n) cases excluded.",
+    "Trace-discriminant local flatness and identification of only the vertex coefficient divisors are key nonstandard steps; further specialist verification desirable.",
+    "Potential unindexed full discriminant computation not located; finite examples alone cannot establish novelty or general correctness."
+  ],
+  "schema_version": 1
+}

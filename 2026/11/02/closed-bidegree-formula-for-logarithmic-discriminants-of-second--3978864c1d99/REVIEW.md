@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Ehrhart count is exact, the sectional genus follows by general linear-section differences, and the singularity computation identifies precisely \(\binom n2\) Segre-cone vertices. The explicit rational splitting witness gives exactly \(m=n-2\) nearby simple solutions and the interpolation argument proves evaluation determinant order \(m-1\), so the trace discriminant has order \(2m-2\). Theorem 5.2 of [1] then gives the stated degree subtraction. The finite checker corroborates n=4..12 but is not substituted for this proof.
+## correctness
 
-**Originality — PASS, with risk.** The closest work is Goertz--Sturmfels--Telen, arXiv:2610.29204v1 (Theorems 4.1, 5.2 and Example 8.3), which gives the general factorization and four suspected numerical cases but explicitly leaves singular toric degree formulas open. Sturmfels, arXiv:1410.6703v2, gives only the generic Hurwitz degree. The all-n formula and the local rank-one-cone correction do not follow from the earlier table alone. Equivalent older formulas under different descriptions remain a possibility.
+PASS
 
-**Value — PASS.** This is the natural second-hypersimplex family singled out in the motivating paper's explicit open computational question. The result determines a complete exact family rather than a single extrapolated example, and explains why the singularity degree correction grows with n.
+For Δ(2,n) the Ehrhart function equals binom(2k+n−1,n−1)−n binom(k+n−2,n−1), since at most one coordinate exceeds k. Backward differences give degree v=2^(n−1)−n and sectional genus g=1+(n−4)2^(n−3), hence Hurwitz h=n(2^(n−2)−2). Positive-dimensional torus orbits are smooth; each of binom(n,2) singular vertices has local 2×(n−2) rank-one determinantal Segre cone. For generic vertex coefficient ε, a generic local transverse system has m=n−2 simple nearby branches with linear leading ε scales, evaluation determinant leading ε^(m−1) times a nonzero Cauchy/interpolation determinant; its trace-pairing discriminant contributes 2(m−1)=2(n−3). Subtract these vertex exponents from coefficient degree (n−1)h to obtain b=n(n−1)(2^(n−2)−n+1). Independent exact integer degree and Ehrhart checks confirm (b,h)=(12,8),(80,30),(330,84),(1092,210) for n=4–7; the general local argument, not the numeric table, bears the unrestricted proof.
 
-**Limits.** The conclusion is characteristic zero and second-hypersimplex specific. The checker verifies finite arithmetic, while the indefinite assertion rests on the written Segre-cone and trace-pairing proof. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goertz–Sturmfels–Telen state general Hurwitz factorization and give precisely the first four second-hypersimplex bidegrees as numerical examples, then ask for formulas. Their general theorem supplies framework, not an explicit all-n vertex multiplicity proof. The exact uniform 2(n−3) local discriminant exponent and closed all-n bidegree were not shown in the inspected article and are the claimed additional contribution.
+
+## value
+
+PASS
+
+The motivating primary source explicitly supplies only a finite table and asks for singular-case degree formulas; the present proof yields the all-n formula and exact local singular factor for a natural hypersimplex family. This is a substantive algebraic-geometric computation, not mere interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
