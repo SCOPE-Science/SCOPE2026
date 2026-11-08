@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:15:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-ell-1-snowflake-threshold-and-cut-rigidity-for-equal-block--8c35bbb3adef/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-ell-1-snowflake-threshold-and-cut-rigidity-for-equal-block--8c35bbb3adef/check_metric.py",
+        "Independent scope_worker01_current_checks.py and .log"
+      ],
+      "rationale": "For every cut S with block counts a_i, directly count mean U on within-block pairs and W on cross-block pairs. Their exact difference W-(n-1)U/n =2 Σ_{i<j}(a_i-a_j)²/[r(r-1)n²] is a sum of squares. Cut-cone decomposition transfers it to all finite real ℓ1 metrics; noncontractive pair bounds imply D≥max(1,t(n-1)/n). Choose one vertex from each block uniformly to define B=n/2 Eδ_S, and P=1/2 Σδ_Ai; then B has pair distances 1 within and (n-1)/n across, while P has 0 within and 1 across. For t≤n/(n-1), tB+(1-t(n-1)/n)P realizes the original distances; above, tB attains D=t(n-1)/n. Equality in sums of squares and pairwise averages enforces balanced-support cuts and metric rigidity. All r,n≥2, t∈[1,2], and threshold equality explicitly covered. Independent exact Fraction all-cut enumeration for (2,3),(3,2),(3,3), respective 64,64,512 cuts corroborates identity; the analytic identity proves arbitrary r,n.",
+      "residual_risks": [
+        "No claim about unequal blocks, variable within-block metrics, or minimum embedding dimension.",
+        "The all-cut finite checks are diagnostic, not a complete check over all sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mori defines c1(G) as worst graph metric over all edge weights; its K_{2,n} result is not the fixed homogeneous metric. General decomposition bounds are non-sharp. Avis–Deza gives the cut cone theory used as the lower-bound framework."
+        ],
+        "reasoning": "Neither a supremum over metrics, a cut cone characterization, nor a nonsharp embedding bound implies the exact continuously parameterized least distortion and support equality.",
+        "searches": [
+          "Abraham–Filtser–Gupta–Neiman arXiv:1708.04073",
+          "Mori arXiv:2602.23745",
+          "Avis–Deza Networks 21 (1991) cut cone"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.05848",
+        "arXiv:2602.23745",
+        "arXiv:1708.04073",
+        "Avis–Deza 1991 DOI 10.1002/net.3230210602",
+        "Resultary search equal-size complete multipartite L1 distortion",
+        "Published Resultary 2026/10/11 sharp facet jumps full RESULT.md",
+        "Published Resultary 2026/10/11 projection constants full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Necessary negative type threshold can be inferred, but sufficient L1 realization by explicit positive cuts and supercritical distortion formula require a new sharp construction and variance identity."
+        ],
+        "reasoning": "No inspected statement implies the full sharp formula plus all-optimum cut rigidity without independent derivation.",
+        "searches": [
+          "Obata arXiv:2206.05848 negative-type obstruction",
+          "Mori arXiv:2602.23745 Theorem c1(K2,n)",
+          "Classical cut decomposition of finite L1 metrics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary yielded sharp facet jumps for interpolated complete multipartite Lipschitz-free balls, a different facet count, plus projection constants. Obata establishes a quadratic-embedding obstruction; negative type is necessary but not sufficient for exact L1 distortion."
+        ],
+        "reasoning": "The source graph/parameters are the same, but different target invariants. Match must be exact L1 metric embedding optimum, not graph naming or polytope facets.",
+        "searches": [
+          "Resultary actual semantic query: equal-size complete multipartite two-level graph metric L1 embedding distortion t snowflake sharp cut inequality",
+          "Higashitani Jochemko Michałek complete multipartite symmetric edge polytope",
+          "Obata arXiv:2206.05848"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The r=2,n=3,t=2 boundary value 4/3 has prior coverage; exact all-r,n,t numerical formula and balanced supporting-cut equality are not found in the compared discrete tables."
+        ],
+        "reasoning": "One boundary special case is prior; the complete family and rigidity have distinct content. This search is not a comprehensive table census.",
+        "searches": [
+          "Resultary actual semantic query: equal-size complete multipartite two-level graph metric L1 embedding distortion t snowflake sharp cut inequality",
+          "Resultary sharp facet count jumps for multipartite metrics"
+        ]
+      },
+      "rationale": "The negative-type literature for complete multipartite powered graph metrics supports necessity of the isometric cutoff, but an L1 distortion equality and every-optimum supporting-cut rigidity are different assertions. Facet-count and Lipschitz-free projection-invariant findings for the same graphs are not the pointwise L1 embedding distortion. Originality attaches to matching construction and rigidity, not the classical cut cone or numerical necessary obstruction.",
+      "residual_risks": [
+        "An older cut-cone or hypermetric identity may imply the variance equality; specialist priority is best of knowledge.",
+        "Numerical cutoff alone partly follows earlier negative-type work; new contribution must retain the construction and rigidity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives conditional-negative-type obstruction, not L1 distortion or cut-support rigidity.",
+          "evidence": [
+            "arXiv:2206.05848, Theorems 1.1–1.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.05848",
+          "material_read": "Full 19-page PDF, introduction, quadratic-embedding definition and principal theorems; special conditions for complete multipartite graphs",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Complete Multipartite Graphs of Non-QE Class",
+          "trigger": "Potential dominating negative type theorem for same two-level multipartite graph metric"
+        },
+        {
+          "assessment": "Its graph invariant optimizes worst edge weights and differs from this fixed homogeneous two-level metric.",
+          "evidence": [
+            "arXiv:2602.23745, definition of c1(G)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.23745",
+          "material_read": "Full six-page PDF, problem definition and main theorem",
+          "method": "arXiv PDF text and first-page screenshot",
+          "title": "The exact value of c_1(K_{2,n})",
+          "trigger": "Exact metric distortion for close graph family"
+        },
+        {
+          "assessment": "Counts facets of a Lipschitz-free unit ball; does not evaluate ℓ1 metric-embedding distortion or balanced-cut rigidity.",
+          "evidence": [
+            "Resultary 2026/10/11 sharp facet jumps RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09/RESULT.md",
+          "material_read": "Full RESULT.md Finding, Lipschitz dual-ball tight-graph facet classification, endpoint discussion and proof",
+          "method": "Primary GitHub raw scientific full text, not search snippet",
+          "title": "Sharp facet jumps for interpolated complete-multipartite Lipschitz-free balls",
+          "trigger": "Exactly the same two-level multipartite metric and parameter t"
+        },
+        {
+          "assessment": "Computes Banach projection norm in Lipschitz-free space, not least ℓ1 distortion of the underlying point metric; its given cluster radii are ≤1 whereas present within-block distances t∈[1,2].",
+          "evidence": [
+            "Resultary 2026/10/11 projection constants RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-optimal-projection-constants-for-clustered-finite-metric-f--bd13acd51aa3/RESULT.md",
+          "material_read": "Full RESULT.md on within-cluster fluctuation-subspace projection and proof",
+          "method": "Primary GitHub raw scientific full text",
+          "title": "Sharp optimal projection constants for clustered finite metric free spaces",
+          "trigger": "Same equidistant-cluster structure and close cardinality-dependent thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/sharp-ell-1-snowflake-threshold-and-cut-rigidity-for-equal-block--8c35bbb3adef/RESULT.md",
+        "arXiv:2206.05848",
+        "arXiv:2602.23745"
+      ],
+      "rationale": "Real ℓ1 embeddability of natural balanced complete multipartite shortest-path snowflakes has a sharp exact threshold and quantitative supercritical distortion. The sum-of-squares supporting-cut criterion classifies all optimal embeddings at and above the threshold, beyond a routine toy example.",
+      "residual_risks": [
+        "The equal-block hypothesis is essential; broad multipartite metrics and dimension-minimization are not settled."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only equal block sizes r,n≥2 and t∈[1,2] in real ℓ1; no unequal-block theorem."
+  ]
+}

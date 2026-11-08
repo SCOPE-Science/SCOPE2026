@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The pair means are normalized over \(r\binom n2\) within-block unordered pairs and \(\binom r2 n^2\) cross-block pairs. Direct cut counting yields the exact identity \(W-(n-1)U/n=2\sum_{i<j}(a_i-a_j)^2/[r(r-1)n^2]\). The resulting lower bound applies to every nonnegative cut sum, hence every finite real \(\ell_1\) metric. Explicit cut averages \(B=(n/2)\mathbb E\delta_S\) and \(P=\frac12\sum_i\delta_{A_i}\) have the asserted pair-distance profiles, so both branches meet the lower bound for all integers and every real parameter. Nonnegative equality terms give the support rigidity, and averaging of saturated pair inequalities gives distance rigidity. An exact-rational standalone checker independently validates 15,792 cut-identity assertions and 1,164 constructed pair distances; numerical cut-cone LPs for 24 small cases agree. Neither finite test replaces the general proof.
+## correctness
 
-## Originality — PASS, qualified
-Bibliographic searches used metric distortion, homogeneous multipartite cuts, snowflake thresholds, equal-block variance, and equivalence terminology. Closest complete findings concern facet counts of the associated Lipschitz-free balls and relative projection constants on clustered free spaces. Their full scientific statements were read, and they do not imply a metric \(\ell_1\) distortion formula or its sharp cut-support equality condition. General graph-metric embedding results and the classical cut cone support tools but do not state the parameterized value. Higashitani–Jochemko–Michałek's complete-multipartite endpoint facet classification determines a different invariant. Obata's (2022) complete-multipartite quadratic-embedding obstruction, together with an earlier published powered-metric negative-type classification, yields the *necessity* of the same numerical threshold for isometric real \(\ell_1\) embedding. The new claim is not priority for that negative-type obstruction; the sufficiency as an \(\ell_1\) embedding, exact optimal distortion beyond it, and rigidity require separate cut constructions. An existing historical claim also includes the \(r=2,n=3,t=2\) boundary; that special case is explicitly not a priority claim. Equivalent old cut-cone/hypermetric literature remains a real residual risk, so this is a self-review best-knowledge determination, not independent or exhaustive historical certification.
+PASS
 
-## Value — PASS
-The object is a standard two-level shortest-path metric and its snowflake interpolation. A complete all-size, all-block-count formula identifies the exact transition between isometric and necessarily distorted \(\ell_1\) realization, plus the surprisingly block-count-independent sharp exponent and an equality-classification of all optimal cuts. This answers a natural metric embedding question, not an arbitrary finite slice or reparameterization of an already known table. It has a self-contained all-parameter proof and explicit realizations; no unproved extension to unequal block sizes is asserted.
+For every cut S with block counts a_i, directly count mean U on within-block pairs and W on cross-block pairs. Their exact difference W-(n-1)U/n =2 Σ_{i<j}(a_i-a_j)²/[r(r-1)n²] is a sum of squares. Cut-cone decomposition transfers it to all finite real ℓ1 metrics; noncontractive pair bounds imply D≥max(1,t(n-1)/n). Choose one vertex from each block uniformly to define B=n/2 Eδ_S, and P=1/2 Σδ_Ai; then B has pair distances 1 within and (n-1)/n across, while P has 0 within and 1 across. For t≤n/(n-1), tB+(1-t(n-1)/n)P realizes the original distances; above, tB attains D=t(n-1)/n. Equality in sums of squares and pairwise averages enforces balanced-support cuts and metric rigidity. All r,n≥2, t∈[1,2], and threshold equality explicitly covered. Independent exact Fraction all-cut enumeration for (2,3),(3,2),(3,3), respective 64,64,512 cuts corroborates identity; the analytic identity proves arbitrary r,n.
 
-## Limitations and closest comparisons
-The real unweighted equal-block case and the specified finite metric family alone are covered. The closest publication concerning graph embedding is Abraham–Filtser–Gupta–Neiman (2017); the classical cut-cone reference is Avis–Deza (1991). Related polytope facet counts and free-space projection constants are not a formula for the underlying metric's least \(\ell_1\) distortion. The older cut-cone literature was not exhaustively searchable, and the exact novelty comparison is qualified accordingly. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The negative-type literature for complete multipartite powered graph metrics supports necessity of the isometric cutoff, but an L1 distortion equality and every-optimum supporting-cut rigidity are different assertions. Facet-count and Lipschitz-free projection-invariant findings for the same graphs are not the pointwise L1 embedding distortion. Originality attaches to matching construction and rigidity, not the classical cut cone or numerical necessary obstruction.
+
+## value
+
+PASS
+
+Real ℓ1 embeddability of natural balanced complete multipartite shortest-path snowflakes has a sharp exact threshold and quantitative supercritical distortion. The sum-of-squares supporting-cut criterion classifies all optimal embeddings at and above the threshold, beyond a routine toy example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
