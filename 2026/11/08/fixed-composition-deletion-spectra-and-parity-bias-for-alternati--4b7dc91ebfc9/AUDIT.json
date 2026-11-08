@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Greedy earliest embedding yields exactly c(v)=v_1+equal-adjacencies <=t. Affine bijection gives correct distinct-output normalization. The two-state matrix and recurrence produce the stated rational GF; maximal fixed-content runs prove the exact threshold; complement pairing and positive run-composition subtraction prove the parity defect including all edge cases. The actual packaged verify.py separately computes direct deletion sets through N=17 and independent transfer/run coefficients through m=64 (all checks pass). Finite tests corroborate, not substitute for, the general algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin 2004 Theorem 2 covers extrema of total counts and Theorem 5 counts by host and output length, with no Hamming-content variable.",
+        "Alon et al. 2022, arXiv:2209.11882, focuses deletion-code bounds, longest common subsequences and shortest common supersequences of two hosts."
+      ],
+      "reasoning": "The prior unweighted count is a specialization at u=1 and cannot determine the separate values of B(m,t,k). Pairwise LCS bounds and arbitrary-source extremal totals do not imply the phase-dependent composition profile.",
+      "searches": [
+        "weight-constrained deletion sphere of alternating word largest sphere Levenshtein",
+        "alternating word subsequence fixed number of ones weight distribution deletion balls",
+        "distinct subsequences alternating binary string composition enumerator"
+      ]
+    },
+    "checked_sources": [
+      "Flaxman–Harrow–Sorkin (2004), DOI 10.37236/1761",
+      "Alon–Bourla–Graham–He–Kravitz (2022), arXiv:2209.11882",
+      "Menon–Singh (2023), arXiv:2306.07870",
+      "Research record: exact variance of binary two deletion sphere size",
+      "Research record: exact preasymptotic profile for n n 3 3 in binary deletion recon",
+      "Research record: closed form law for binary subsequence universality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of Flaxman–Harrow–Sorkin 2004 is graded by (host length, subsequence length) but not ones content.",
+        "Menon–Singh 2023 arXiv:2306.07870 counts host words with a prescribed pattern occurring a given number of times, a different quantifier and multiplicity notion.",
+        "An inspected research record on the exact preasymptotic profile for binary three-deletion reconstruction concerns maximum intersection sizes of deletion balls, not the composition profile of one ball."
+      ],
+      "reasoning": "The published statements specialize or change the object but do not have an implication that fixes each weight count and the signed k versus m-k difference. The new proof uses a phase-sensitive transfer matrix and run-composition cancellation.",
+      "searches": [
+        "binary alternating host distinct subsequences by number ones zero runs binomial weight enumerator",
+        "fixed composition alternating source deletion descendants spectrum complement asymmetry",
+        "fixed composition distinct subsequences alternating host deletion channel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin 2004 §2 Theorems 2 and 5 provide greedy matching and totals by lengths only (https://doi.org/10.37236/1761).",
+        "A checked mathematical research record: Exact variance of binary two-deletion sphere size counts unweighted variance, not composition-resolved outputs."
+      ],
+      "reasoning": "Equality-bit indicators give an affine Hamming-ball description, but counting the Hamming weight of its nonlinear inverse requires a different transfer/run analysis. No inspected equivalent theorem, coefficient table or phase-asymmetry formula was identified.",
+      "searches": [
+        "alternating binary word deletion descendants Hamming weight refined exact fixed composition spectrum",
+        "binary alternating host distinct subsequences by number ones zero runs binomial weight enumerator",
+        "alternating binary word subsequences weight distribution number ones deletion sphere"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A checked mathematical research record Closed-form law for binary subsequence universality concerns distribution of universality indices, not fixed-composition output counting.",
+        "The indexed 2004 Flaxman–Harrow–Sorkin tables are unweighted."
+      ],
+      "reasoning": "No exact match for the three-variable spectrum or the parity-defect binomial factor was found among inspected sources or research-record hits; a missing indexed result remains possible.",
+      "searches": [
+        "subsequence spectra alternating word circular run weight distribution rational trivariate generating function",
+        "binary alternating string fixed-composition deletion descendants exact Hamming weight generating function parity asymmetry",
+        "alternating binary word deletion sphere weight enumerator compositions rational generating function"
+      ]
+    },
+    "rationale": "The 2004 extremal distinct-subsequence theorem and its unweighted bivariate count are credited; the claimed contribution is the complete composition-resolved trivariate enumerator, exact support saturation, and signed parity bias for a specified alternating source. Full-text theorem and method comparisons and research-record searches found no matching composition refinement. This is a best-knowledge originality assessment, not a uniqueness proof.",
+    "residual_risks": [
+      "A nonindexed older composition-refined enumerator or equivalent run-composition identity might overlap; absence from search is not proof of novelty.",
+      "The standard greedy criterion and unweighted count already appear in 2004; they are prerequisites, not new contributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS alternating extremal totals and unweighted two-variable enumerator; DOES NOT COVER the fixed-output-Hamming-composition variable or signed phase bias in inspected statements.",
+        "evidence": [
+          "Theorem 2 (roughly text lines 354–390) treats max distinct length-m counts.",
+          "Theorem 5 (roughly lines 1255–1418) defines F_d(x,y) only with host and output lengths."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/1761",
+        "material_read": "Author-posted full text: §2 definitions, greedy matching Eq.(1), Theorem 2 and proof; §2 Theorem 5 and generating-function proof sketch, plus nearby discussion",
+        "method": "Read full HTML text of author-posted version available at https://www.researchgate.net/publication/220343121_Strings_with_Maximally_Many_Distinct_Subsequences_and_Substrings",
+        "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+        "trigger": "Same alternating source, same distinct-output object and known total generating function"
+      },
+      {
+        "assessment": "NOT COVERING the fixed-Hamming-composition census of one alternating host; quantifies over codebooks and pairs of source words.",
+        "evidence": [
+          "First public timestamp 2022-09-23, arXiv abstract and §1 definitions.",
+          "Pairwise longest-common-subsequence and shortest-common-supersequence results concern multiplicity by pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11882",
+        "material_read": "Full HTML introduction, definitions of k-deletion code, sections on pairwise common subsequences and related extremal multiplicities, and appendix treatments of longest common/shortest common subsequences",
+        "method": "Read arXiv HTML text sections and corresponding abstract/author/date metadata",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "Middle-period primary deletion-channel motivation and potential stronger deletion-ball theorems"
+      },
+      {
+        "assessment": "NOT COVERING: counts frequencies with which a prescribed pattern embeds in varying hosts, rather than distinct output words at fixed weight for one host.",
+        "evidence": [
+          "Abstract defines B_{n,p}(k) as number of hosts containing p exactly k times.",
+          "§1 contrasts distinct subsequences with the paper’s occurrence-count model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Full arXiv HTML introduction and main subsequence occurrence-count setup, including §3 results on short-run patterns",
+        "method": "Read arXiv HTML text and mathematical definitions",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Potentially equivalent pattern/host interchange and known run statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b7dc91e-bfc9-4e6b-a6f4-06fb78faad0e",
+  "value": {
+    "rationale": "A deletion channel with fixed received-word Hamming content requires classwise counts, not merely its total ambiguity. This complete infinite-family weight profile, sharp saturation frontier and exact signed parity skew reveal distinct nontrivial structural information and enable precise fixed-composition output analysis; the problem is natural rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
