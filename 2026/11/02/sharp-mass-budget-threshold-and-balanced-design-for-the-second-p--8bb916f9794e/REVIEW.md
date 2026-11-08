@@ -1,11 +1,21 @@
-# Scientific review: phonon defect-pair threshold and balanced design
+# Independent mathematical audit
 
-**Correctness — PASS.** The Birman--Schwinger reduction is exact for any two distinct mass-defect sites and positive host/defect masses. Its two monotone eigenvalue branches have band-edge limits \(+\infty\) and \(4dab/(a+b)\), and the high-frequency limits both lie below \(1\). This proves the mode-count threshold and excludes nonpositive/out-of-band alternatives using positivity and the constant-coefficient exterior recurrence. At equality an explicit bounded alternating threshold solution is exhibited. The fixed-budget optimum follows from strict monotonicity in the product \(ab\) and AM--GM, with no unexplored boundary maximizer. The Taylor expansion has nonzero negative slope at positive threshold parameters, establishing quadratic onset. An executable checker independently tests analytic root predictions against finite mass-weighted Jacobi matrices. **Risk:** its finite-section eigenvalues resolve only modes with adequate exponential localization; this does not affect the analytic proof.
+## correctness
 
-**Originality — PASS on inspected evidence, subject to stated substantial priority risk.** Searches for unequal impurity mass/separation/eigenvalue threshold, fixed-deficit equal splitting, threshold-resonant modes and the quadratic band-edge law produced no equivalent identified statement among the accessible matched records. The complete modern primary reports on one/two granular defects distinguish their physical contact model and approximate mode formulas from the uniform-spring infinite-chain fixed-mass-budget design theorem. Classical 1955 and 1957 papers develop methods on the same class of objects and could imply all or part of this statement; their full texts were not accessible for claim-level exclusion. This is an open priority risk and is not described as proof of novelty.
+PASS
 
-**Value — PASS.** The exact existence threshold and unique optimal allocation give a physical design rule for deciding whether two light defects create a second phonon-localized branch, while the quadratic detachment quantifies the weak localization regime. The sharp boundary distinguishes an extended threshold resonance from a true bound vibrational mode. The optimality and critical exponent concern the natural pair of defects and total defect budget, not an arbitrary numerical slice.
+The mass-weighted Jacobi operator is a finite-rank perturbation with essential band [0,4] and no square-summable band solutions. For λ=2+2cosh t the exactly evaluated 2×2 Birman–Schwinger eigenvalues F±(t) are strictly decreasing; F+(0+)=∞, F−(0+)=4dab/(a+b), F±(∞)<1. These endpoint inequalities imply exactly one versus two simple above-band eigenvalues and the equality resonance. At fixed s=a+b, F− increases strictly with ab, whose unique maximizer is a=b=s/2. Expansion F−(t)=4dab/s−[4ab d²(a²+b²)/s³]t+O(t²) gives the stated quadratic weak-mode gap and localization length on compact strictly-positive threshold paths. Independently rechecked numerical roots, monotonicity and onset for 24 parameter cases; they corroborate rather than establish the infinite theorem.
 
-**Scope:** Uniform springs, two mass impurities lighter than host masses, infinite monatomic chain, linear undamped vibrations only. No claim of comprehensive historical priority, nonlinear continuation, finite-size convergence rate, or physical realizability for arbitrary mass-engineering methods.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical resolvent/transfer-matrix work already studies two impurities, and a 1962 article explicitly discusses critical conditions for localized modes. Available descriptions do NOT resolve whether they contain the specific unequal-light-mass threshold together with the uniquely balanced fixed-budget optimizer and uniform quadratic onset. The additional joint classification is assessed best-of-knowledge rather than certified new; the unresolved 1955–1962 priority risk is substantial.
+
+## value
+
+PASS
+
+The joint phase boundary, equality resonance and optimal allocation under a fixed mass-deficit budget answer a physically natural discrete-spectral design question. The quadratic gap and diverging localization length are sharp, nontrivial threshold data not just a renamed single-defect formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
