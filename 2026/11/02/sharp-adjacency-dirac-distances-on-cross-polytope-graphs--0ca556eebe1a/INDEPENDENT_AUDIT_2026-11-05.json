@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:42:01.858297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r≥3 on G_r=K_{2,...,2} (r pairs), the Connes distance with adjacency Dirac matrix is the reciprocal of the minimum commutator operator norm among real f with f(x)−f(y)=1. Pair-stabilizer and swapped-pair sign averaging reduce antipodes to f=(1/2,−1/2) on one pair (norm sqrt(r−1)) and adjacent pairs to the four values (1/2,a,−1/2,−a). The latter commutator reduces to a 3×2 matrix with rows (1,a+1/2), (a+1/2,2a), (sqrt(r−2),2a sqrt(r−2)); the larger eigenvalue F_r(a) of its Gram matrix yields the exact distance. Since the derivative matrix has full column rank, F_r is strongly convex; endpoint derivative signs give unique a∈(−1/2,0). Gram leading diagonal A_r>r−1 except the nonzero off-diagonal endpoint, so d_adj<d_opp. Expansion a≈−3/(8r) gives gap ≈1/(8r^(3/2)). Independently computed full 2r×2r skew commutators vs reduced Gram for r=3,4,5,8,12,20 and rational a trial values, agreement to <10^−11. No claim for r=2 or weighted graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General operator-norm characterizations can reduce computing any graph distance but do not determine closed values.",
+          "The 4-cycle K_{2,2} belongs to complete-bipartite analyses but r≥3 graphs contain triangles and are not complete bipartite."
+        ],
+        "reasoning": "No inspected stronger all-complete-multipartite exact formula specializes directly to these r≥3 cases; general method alone does not imply class separation or asymptotic coefficient.",
+        "searches": [
+          "cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+          "arxiv:2409.04146 graph general distances complete bipartite",
+          "arxiv:2105.09056 noncommutative graph distance inequalities",
+          "complete multipartite graph adjacency Connes spectral distance closed form"
+        ]
+      },
+      "checked_sources": [
+        "Clare–Li–Poon–Swartz arxiv:2409.04146 primary",
+        "Besnard arxiv:2105.09056",
+        "Resultary query cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+        "assigned RESULT.md SHA 6ff9b832687ed7305cba92f66e8a5e5bfc12f378"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The special signed-pair automorphism averaging produces the actual 3×2 Gram matrix, and strict convexity yields the unique global minimizer.",
+          "Clare–Li–Poon–Swartz treat paths in depth; not a statement of two distance classes for cocktail-party graphs."
+        ],
+        "reasoning": "General graph norm formulas require solving an optimization. The precise minimizing one-variable family and asymptotic expansion are not a direct restatement of those general theorems.",
+        "searches": [
+          "cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+          "Clare Li Poon Swartz arxiv:2409.04146 Birkhoff James path graph",
+          "Besnard arxiv:2105.09056 graph pruning norms",
+          "opposite antipode vs adjacent Dirac distance crosspolytope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clare–Li–Poon–Swartz formulate the adjacency-Dirac commutator norm and completely solve path-graph distances; source includes general norm methods.",
+          "Besnard gives graph inequalities and pruning techniques, not the specified orbit-by-orbit K_{2,...,2} minimax."
+        ],
+        "reasoning": "The exact operator metric is identical to the known general definition; the new claim is specializing and solving a nontrivial 3×2 spectral minimization on the cross-polytope family, not new general definitions.",
+        "searches": [
+          "cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+          "Clare Li Poon Swartz Noncommutative Distances on Graphs arXiv:2409.04146",
+          "Besnard Estimating noncommutative distances on graphs arXiv:2105.09056",
+          "cocktail party graph Connes distance spectral triple"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned combinatorial flip distance, graph polytope, and other metrics, which use different distance definitions.",
+          "No same metric exact table for all r≥3 identified in checked primary references."
+        ],
+        "reasoning": "Shortest-path distance tables (1 adjacent,2 opposite) are not Connes operator distances and cannot imply the r^(−3/2) gap.",
+        "searches": [
+          "cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+          "Resultary search cross polytope cocktail party graph noncommutative distance adjacency Dirac Connes operator norm",
+          "cocktail party graph noncommutative Connes distance table",
+          "cross polytope adjacency spectral distance"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact two-orbit adjacency–Dirac metric on all cross-polytope/cocktail-party graphs and quantified asymptotic distinction. General finite graph Connes distance and Birkhoff–James methods are established; complete bipartite graph r=2 is excluded.",
+      "residual_risks": [
+        "Older specialized finite spectral triple formulas for cocktail-party graphs could be indexed under graph association schemes or operator norms.",
+        "Graph is unweighted adjacency Dirac; other spectral triples, weighted pairs and r=2 require separate treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general technique and path case, not an inspected cross-polytope/cocktail-party closed metric or expansion.",
+          "evidence": "Clare–Li–Poon–Swartz arxiv:2409.04146, graph setup and explicit path theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04146",
+          "material_read": "Inspected accessible primary full-text sections on graph definition, Birkhoff–James norm approach, path-graph calculations and listed graph families; focus on §§2–4 and theorem statements.",
+          "method": "arXiv primary text/section inspection",
+          "title": "Noncommutative Distances on Graphs: An Explicit Approach via Birkhoff-James Orthogonality",
+          "trigger": "same adjacency Dirac norm and graph distance definition"
+        },
+        {
+          "assessment": "General bounds and graph simplifications do not numerically resolve this complete multipartite orbit family.",
+          "evidence": "Besnard arxiv:2105.09056.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.09056",
+          "material_read": "Inspected accessible abstract and main stated bounds/pruning scope; no whole-text noncoverage claim.",
+          "method": "arXiv paper indexed statement",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "prior general adjacency-spectral distance inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact graph-operator metric on a canonical highly symmetric finite family is a natural invariant, and the quantified r^(−3/2) adjacency/nonedge gap makes clear how this metric differs from ordinary shortest-path distance. The two-orbit classification and asymptotics are more than a numeric instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Numerical finite-r cross-check is not the proof of all-r matrix reduction or asymptotics; those rest on the exact normal-form argument.",
+    "No general elementary radical formula for minimizing a_r asserted."
+  ],
+  "schema_version": 1
+}

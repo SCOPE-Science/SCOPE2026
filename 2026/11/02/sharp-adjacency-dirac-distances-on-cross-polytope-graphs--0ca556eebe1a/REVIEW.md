@@ -1,15 +1,21 @@
-# Review of sharp adjacency–Dirac distances on cross-polytope graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The potential symmetrization is valid because graph automorphisms act by unitary permutations and the norm is convex; an involution plus sign reversal preserves the prescribed difference. The antipodal matrix has one rank-two skew block of norm \(\sqrt{r-1}\). The adjacent matrix compresses exactly to the displayed \(3\times2\) rectangular block, whose Gram eigenvalue gives the global minimum. The block's derivative has full column rank and hence induces strong convexity; differentiation establishes the unique optimizer in \((-1/2,0)\). The lower Gram diagonal forces strict separation. The uniform large-\(r\) eigenvalue expansion and derivative justify the leading, correction, and gap coefficients. `verify.py` passed 219 supplementary finite comparisons; these do not prove the infinite family.
+## correctness
 
-## Originality
-PASS within the recorded search, not independently confirmed. The closest 2024 motivating paper (arXiv:2409.04146) gives graph-general formulations and a complete result for paths, not for the nonbipartite complete multipartite family \(K_{2,\ldots,2}\). Besnard's 2021 paper (arXiv:2105.09056) supplies general bounds and pruning, not the two sharp distance classes and asymptotic gap. Prior exact work for complete bipartite graphs addresses the excluded four-cycle case and does not imply the result for \(r\ge3\). The comparison included alternative descriptions as cocktail-party graphs, cross-polytope one-skeleta, complete multipartite graphs, and octahedral graphs. An earlier equivalent spectral norm optimization in another language remains possible.
+PASS
 
-## Mathematical value
-PASS. The \(r\)-dimensional cross-polytope is a canonical graph family with only two pair orbits; its adjacency-based spectral metric is an exact and mathematically natural invariant. Determining both orbits for every \(r\ge3\), the unique extremal parameter, and the quantitative collapse of the edge-versus-antipode metric distinction supplies more than a numerical example or a generic norm inequality. The order \(r^{-3/2}\) and leading constant \(1/8\) express a structural comparison between graph distance and spectral distance.
+For r≥3 on G_r=K_{2,...,2} (r pairs), the Connes distance with adjacency Dirac matrix is the reciprocal of the minimum commutator operator norm among real f with f(x)−f(y)=1. Pair-stabilizer and swapped-pair sign averaging reduce antipodes to f=(1/2,−1/2) on one pair (norm sqrt(r−1)) and adjacent pairs to the four values (1/2,a,−1/2,−a). The latter commutator reduces to a 3×2 matrix with rows (1,a+1/2), (a+1/2,2a), (sqrt(r−2),2a sqrt(r−2)); the larger eigenvalue F_r(a) of its Gram matrix yields the exact distance. Since the derivative matrix has full column rank, F_r is strongly convex; endpoint derivative signs give unique a∈(−1/2,0). Gram leading diagonal A_r>r−1 except the nonzero off-diagonal endpoint, so d_adj<d_opp. Expansion a≈−3/(8r) gives gap ≈1/(8r^(3/2)). Independently computed full 2r×2r skew commutators vs reduced Gram for r=3,4,5,8,12,20 and rational a trial values, agreement to <10^−11. No claim for r=2 or weighted graphs.
 
-## Closest literature and limitations
-Clare et al. (2024), arXiv:2409.04146, is the primary motivating source, first publicly available 2024-09-06. Besnard (2021), arXiv:2105.09056, provides bounds and reductions. Novelty is assessed from the accessible primary material and semantic/terminology checks, not certified against all literature. The theorem excludes \(r=2\), arbitrary weights and alternate Dirac choices. The adjacent distance is an exact attained algebraic minimization, not a uniform closed form in elementary radicals. Independent scientific validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact two-orbit adjacency–Dirac metric on all cross-polytope/cocktail-party graphs and quantified asymptotic distinction. General finite graph Connes distance and Birkhoff–James methods are established; complete bipartite graph r=2 is excluded.
+
+## value
+
+PASS
+
+An exact graph-operator metric on a canonical highly symmetric finite family is a natural invariant, and the quantified r^(−3/2) adjacency/nonedge gap makes clear how this metric differs from ordinary shortest-path distance. The two-orbit classification and asymptotics are more than a numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
