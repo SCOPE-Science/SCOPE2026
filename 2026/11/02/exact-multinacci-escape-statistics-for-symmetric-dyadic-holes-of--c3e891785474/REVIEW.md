@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The half-dyadic hole consists of exactly two length-\(m\) negative-doubling cylinders, which become one forbidden difference word \(10^{m-2}\) after a bijective adjacent-symbol equality recoding. Decomposing a surviving binary string at its last \(1\) proves the all-length recurrence, and its generating function evaluated at \(1/2\) proves the expectation. A Perron root of the finite-type transfer matrix proves the escape exponent; finite exact-rational checks are supplementary and passed. Boundary ambiguity changes only measure-zero events. The proof does not rely on finite enumeration to assert an infinite theorem.
+PASS
 
-## Originality — PASS under inspected evidence
+The full binary branch coding of the piecewise slope-2 map is a fair Bernoulli itinerary. Exactly the two length-m cylinders flanking 1/2 form the hole; adjacent-symbol equality bits give a 2-to-1 reduction to avoiding the single word 1 followed by m-2 zeros. Last-one decomposition yields b_{r,l}=1+sum_{j=1}^r b_{r,l-j}, including r=0; from t+m-1 cylinders derive P(tau>=t)=b_{r,t+r}/2^(t+r), r=m-2. Generating function at 1/2 and subtraction of first r+1 unconstrained lengths yields E tau=2^(m-1)-m+1. Perron root gives escape log(2/lambda_m), entropy log(lambda_m) and dimension log(lambda_m)/log2 for m>=4; r<=1 has entropy zero. Small-hole expansion follows (2-lambda)*lambda^r=1. Null precritical boundary points do not change Lebesgue results. Finite independent direct counts for m=2..7,t=1..6 corroborated but did not supply the infinite proof.
 
-Ding–Steiner–Sun (arXiv:2610.03327v1) establishes general negative-doubling survivor entropy and dimension, while the published three-phase symmetric-hole published-finding corpus finding establishes a periodic-orbit and zeta trichotomy only for left endpoints at most \(2/5\). Neither inspected text supplies the full all-resolution first-hit probability recurrence and unconditional exact mean. Classical compound-pattern waiting-time theory offers general algorithms, so priority under another coding is the principal residual risk; the narrower standard entropy/dimension consequences are not independently claimed new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated exact family, not an arbitrary parameter slice: symmetric dyadic holes are the canonical shrinking neighborhoods of the discontinuity for the natural symbolic partition. The result supplies every finite-time Lebesgue tail, a simple all-resolution mean \(2^{m-1}-m+1\), the exact first resolution with positive survivor entropy, and sharp small-hole escape behavior. It separates measure-theoretic escape from periodic-orbit enumeration.
+Closest dynamical papers address entropy/dimension or periodic/zeta changes; general finite-state waiting-time algorithms could compute any fixed forbidden list but the inspected results did not state the explicit simultaneous all-m recurrence and first-hitting mean. This is a qualified best-of-knowledge assessment, not a claim of novelty of finite-state methods, Perron entropy or Hausdorff formula.
 
-## Sources, limitations and independent status
+## value
 
-Primary: Y. Ding, W. Steiner, Y. Sun, *Open dynamical systems in topologically expansive decreasing Lorenz maps*, arXiv:2610.03327v1, 2 October 2026. Closest exact orbit comparison: *A three-phase periodic-orbit and zeta trichotomy for symmetric negative-doubling holes*, public research finding dated 11 October 2026. Broader methods: B. C. Johnson and J. C. Fu (2014) and K. Jin (2016) on pattern waiting time. General classical automaton machinery may imply each instance, while the inspected evidence does not already state the uniform formulas. The theorem is confined to the specified map and uniform initial distribution. Historical priority and verification should be evaluated independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Symmetric dyadic neighborhoods are the canonical critical-hole refinements of this map. The closed all-resolution finite-time survival distribution and exact expected escape time are natural probabilistic invariants; the first positive-entropy scale m=4 gives a substantive boundary beyond routine fixed-parameter counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
