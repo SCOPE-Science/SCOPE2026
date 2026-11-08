@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T00:10:23.024093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix n=d+1 affinely independent vertices d≥2 and independent Dirichlet(1,…,1) barycentric samples. Reconstructed the four-point Dirichlet contraction yielding Q=(1+c)/2+(1+c)H/T²+3cW/T² where C is the centered vertex second-moment matrix, T=tr C, H=tr C², W=∑||w_i||⁴ and c=n(n+1)/((n+2)(n+3)). Inequalities H≥T²/d and W≥T²/n yield exactly the asserted nonnegative stability sum and regular-simplex rigidity from AAᵀ∝I with A1=0. The zero-sum scalar fourth-moment bound is k_n=(n²−3n+3)/(n(n−1)); its Lagrange multiplier cubic and three-coordinate perturbation reduce global maxima to the one-versus-rest two-level shape (n=3 identity handled separately). Coordinate Cauchy–Schwarz gives W≤k_nT², and rank(C)=d≥2 ensures H<T², yielding strict upper bound; axial collapse reaches it and interpolation covers every intermediate value. Inspected exact Dirichlet rational checker and the proof separately; its finite diagnostics do not establish the d-uniform assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang arXiv:2610.01916 main theorems address distance distribution under convex-body operations; Bäsel arXiv:2101.03815 computes regular polygon second/fourth moments."
+        ],
+        "reasoning": "The general convex-body CDF theorem does not imply Euclidean simplex-shape kurtosis extrema, and a regular-polygon table cannot prove rigidity over deformed simplices in arbitrary dimensions.",
+        "searches": [
+          "Brunn Minkowski theory distribution random pairs convex bodies arxiv 2610.01916 distance fourth moments",
+          "moments distance random two points regular polygons Basel 2101.03815"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md tree 4efe315322302e083644aa082ab295b21e20fe9a",
+        "verify_simplex_kurtosis.py blob 99e5a374b0f7907c09cd754c7c17be018ac7392c",
+        "arXiv:2610.01916",
+        "arXiv:2101.03815",
+        "arXiv:1903.07757 (planar arbitrary polygon distance algorithm)",
+        "Resultary:2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Difference-body gauge distance depends on each shape and has affine invariance unlike Euclidean distance; its beta law cannot be specialized to the Euclidean Q shape range."
+        ],
+        "reasoning": "The lower equality, upper unattained limit, and stability all require separate vertex Gram/tensor inequalities absent from prior inspected statements.",
+        "searches": [
+          "normalized Euclidean fourth interpoint distance simplex regular extremal lower upper",
+          "simplex pair distance convex body gauge beta moment lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q=E(D^4)/E(D²)^2=1+Var(D²)/(E D²)^2; analytic formula in terms H/T² and W/T²."
+        ],
+        "reasoning": "Direct distance-moment, squared-distance dispersion and inertia-tensor formulations all describe the same optimization; indexed regular-polygon moment values cover only one endpoint/example.",
+        "searches": [
+          "uniform random pair distance fourth moment simplex extremal regular simplex variance kurtosis shape stability",
+          "Dirichlet simplex squared interpoint distance coefficient of variation shape optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176 concerns difference-body gauge distance; Bäsel 2101.03815 regular polygon moment table."
+        ],
+        "reasoning": "Neither exact database value nor gauge beta stochastic bound provides the claimed all-shape Euclidean normalized fourth moment or exact stability remainder.",
+        "searches": [
+          "Resultary: uniform random pair distance fourth moment simplex extremal regular simplex variance kurtosis shape stability",
+          "random two points simplex regular polygon fourth moment table"
+        ]
+      },
+      "rationale": "Primary Bäsel 2021 computes moments for *regular* planar polygons, including the equilateral triangle, not a universal optimization over all simplex shapes or d≥2. Wang 2026 develops Brunn–Minkowski properties of distance CDFs for general convex bodies and does not state the shape-normalized fourth-moment interval. The published Resultary beta gauge-distance theorem is for difference-body gauge, not Euclidean Q. A previously known zero-sum ℓ4 moment bound is used as an ingredient and is not claimed original. Unlocated older simplex distance shape inequalities remain a residual risk.",
+      "residual_risks": [
+        "Potential older unindexed simplex kurtosis shape optimization or equivalent vertex-Gram inequality.",
+        "The scalar quartic Lagrange perturbation proof was reconstructed, but no formal Lean proof was supplied; finite numeric and exact rational tests alone do not prove all dimensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING normalized fourth Euclidean pair-distance shape optimization.",
+          "evidence": [
+            "General convex-body distribution functions under variations do not provide explicit simplex Q endpoints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01916",
+          "material_read": "Full arXiv HTML text main theorems and Sections 1–4; searched simplex/fourth/moment statements and inspected hypotheses.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "A Brunn–Minkowski Theory for the Distribution of Random Pairs of Points in Convex Bodies",
+          "trigger": "Broad distance-distribution theory might dominate narrow simplex moments."
+        },
+        {
+          "assessment": "COVERS regular triangle special-case numeric moments, not general d-simplex extrema/stability.",
+          "evidence": [
+            "Regular polygon parameter is fixed shape, with no all-deformation comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.03815",
+          "material_read": "Full arXiv HTML paper including explicit regular-polygon formulas and Section 9 second/fourth moments.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "The moments of the distance between two random points in a regular polygon",
+          "trigger": "Contains regular-triangle fourth distance moment and Voss formulas."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Normalized fourth interpoint-distance moment Q equals one plus squared coefficient of variation of squared distance, a natural shape-dispersion statistic. The full sharp interval over *every* Euclidean simplex shape/dimension and sum-of-squares rigidity give a meaningful multidimensional optimization and stability result, beyond an isolated numeric regular-triangle value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md tree 4efe315322302e083644aa082ab295b21e20fe9a",
+    "verify_simplex_kurtosis.py blob 99e5a374b0f7907c09cd754c7c17be018ac7392c",
+    "arXiv:2610.01916",
+    "arXiv:2101.03815",
+    "arXiv:1903.07757 (planar arbitrary polygon distance algorithm)",
+    "Resultary:2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "d≥2 Euclidean simplices with volume-uniform independent samples only; the upper endpoint is a nonattained supremum.",
+    "Potential older unindexed simplex kurtosis shape optimization or equivalent vertex-Gram inequality.",
+    "The scalar quartic Lagrange perturbation proof was reconstructed, but no formal Lean proof was supplied; finite numeric and exact rational tests alone do not prove all dimensions.",
+    "No claim of exhaustive external certification or priority.",
+    "Unchanged source package contains operational provenance; publication not ready."
+  ],
+  "schema_version": 1
+}

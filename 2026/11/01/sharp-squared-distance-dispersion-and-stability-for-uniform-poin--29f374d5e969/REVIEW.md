@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The only claimed theorem concerns independent volume-uniform points in a nondegenerate Euclidean simplex of dimension \(d\ge2\). The Dirichlet moment formula is derived and contracted to a trace expression for \(\mathbb E\|X-Y\|^2\) and \(\mathbb E\|X-Y\|^4\). A nonnegative exact identity proves the sharp lower endpoint and regular-simplex rigidity. The upper endpoint uses a proved zero-sum scalar quartic lemma and a coordinatewise Cauchy--Schwarz argument; full covariance rank makes the inequality strict. An explicit collapsing family attains the upper endpoint in the limit; a continuous axial contraction of a regular simplex shows no gap in the range. The packaged verifier passes 90,001 exact rational diagnostics. Remaining check risk: no external proof audit has been performed, and finite diagnostics are not substitutes for the analytic argument.
+## correctness
 
-## Originality (PASS, residual historical-priority uncertainty)
-The closest pair-distance literature does not imply the claimed optimization. Wang (arXiv:2610.01916, Sections 1--4 and main theorems) studies Brunn--Minkowski properties of radial distance distributions, not simplex fourth-moment extrema. Bäsel (arXiv:2101.03815, Section 9) gives fourth moments for regular polygons only; in dimension two this covers the regular-triangle numerical case but not all triangular shapes. Pure--Durrani--Tong--Pan (arXiv:1903.07757, Sections II--IV) describe an algorithm for pairwise distances in arbitrary *planar* polygons, not all-dimensional shape extremizers or the remainder. Published zero-sum \(\ell_4\) inequalities overlap the scalar ingredient, which is not claimed original. Indexed mathematical results and accessible prior claims were checked for equivalence and stronger implications. Residual risk: obscure earlier normalized-moment extremal inequalities may be difficult to retrieve; indexing and partitioning do not certify uniqueness.
+PASS
 
-## Mathematical value (PASS)
-The dimensionless quantity \(Q-1\) is the coefficient of variation squared of the *squared* interpoint distance, a natural model of shape-induced geometric dispersion. The result classifies the exact possible range for every dimension, proves rigidity at the regular shape, identifies the nonattained worst case, and supplies a quantitative stability certificate rather than only a numerical constant. It is not an arbitrary slice of a table; its hypotheses range over all Euclidean simplex shapes.
+Fix n=d+1 affinely independent vertices d≥2 and independent Dirichlet(1,…,1) barycentric samples. Reconstructed the four-point Dirichlet contraction yielding Q=(1+c)/2+(1+c)H/T²+3cW/T² where C is the centered vertex second-moment matrix, T=tr C, H=tr C², W=∑||w_i||⁴ and c=n(n+1)/((n+2)(n+3)). Inequalities H≥T²/d and W≥T²/n yield exactly the asserted nonnegative stability sum and regular-simplex rigidity from AAᵀ∝I with A1=0. The zero-sum scalar fourth-moment bound is k_n=(n²−3n+3)/(n(n−1)); its Lagrange multiplier cubic and three-coordinate perturbation reduce global maxima to the one-versus-rest two-level shape (n=3 identity handled separately). Coordinate Cauchy–Schwarz gives W≤k_nT², and rank(C)=d≥2 ensures H<T², yielding strict upper bound; axial collapse reaches it and interpolation covers every intermediate value. Inspected exact Dirichlet rational checker and the proof separately; its finite diagnostics do not establish the d-uniform assertions.
 
-## Limits and validation
-The result is for positive-volume simplices and no other sampling model. Its upper endpoint is approached only in a degenerate limiting sense. There is no publication-priority guarantee and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Bäsel 2021 computes moments for *regular* planar polygons, including the equilateral triangle, not a universal optimization over all simplex shapes or d≥2. Wang 2026 develops Brunn–Minkowski properties of distance CDFs for general convex bodies and does not state the shape-normalized fourth-moment interval. The published Resultary beta gauge-distance theorem is for difference-body gauge, not Euclidean Q. A previously known zero-sum ℓ4 moment bound is used as an ingredient and is not claimed original. Unlocated older simplex distance shape inequalities remain a residual risk.
+
+## value
+
+PASS
+
+Normalized fourth interpoint-distance moment Q equals one plus squared coefficient of variation of squared distance, a natural shape-dispersion statistic. The full sharp interval over *every* Euclidean simplex shape/dimension and sum-of-squares rigidity give a meaningful multidimensional optimization and stability result, beyond an isolated numeric regular-triangle value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
