@@ -1,0 +1,9 @@
+# Review of a fifth-degree terminal-ray obstruction
+
+**Correctness (PASS).** The generating function has only simple nontrivial cyclotomic poles because the three odd generators are pairwise coprime; extracting the polynomial part yields the exact all-index period shift. A direct bijective two-branch count, evaluated using elementary parity-corrected floor sums, gives the two adjacent base counts for each residue class of the initial generator. Shifting by \(q-1\) periods converts a drop of \(q\) to a drop of exactly one. Full expressions for both counts and the terminal-ray logical implication appear in RESULT.md. Two distinct exact integer counting methods and a recurrence-count check corroborate 190 finite cases; those cases do not replace the symbolic proof.
+
+**Originality (PASS, with risk).** The 2022 Komatsu–Ying arithmetic-progression formulas address \(p\le\lfloor a/2\rfloor\), while the present witness has \(p\) of fifth-degree size in \(a\). The later 2024 symmetry paper supplies general concepts, and the 2026 consecutive-odd paper solves different long-run Frobenius problems without stating this unbounded three-generator drop law. Targeted published-record and prior-claim searches found no covering statement; nevertheless, general Ehrhart/quasipolynomial methods and unindexed denumerant work are significant residual derivability risks. No uniqueness is asserted.
+
+**Value (PASS).** This is an infinite, exact, quantitative obstruction family for the natural three-consecutive-odd case that the arithmetic-progression paper explicitly highlights as difficult beyond small \(p\). The fifth-degree lower bound on possible eventual complete-symmetry onset is a motivated structural boundary for an established representation-threshold question, not an arbitrary isolated numerical case. It does not establish eventual complete symmetry or its sharp onset.
+
+Self-review: passed. Independent audit: not yet performed.
