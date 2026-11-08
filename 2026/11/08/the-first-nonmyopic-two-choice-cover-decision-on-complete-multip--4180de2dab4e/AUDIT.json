@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exchangeability gives exact finite partwise states, and two i.i.d. uniform with-replacement offers give the rational Bellman recurrence. A finite uniform positive chance of a forced 1- or 2-edge path to each missing vertex makes all policies proper. Complete rational policy evaluation and Bellman-improvement checks enumerate 58 graph types with 7,391 states through order eight and all 29 order-nine types with 11,956 states. Unique strict exception graph K_(1,2,6); exactly three reduced failing decision states. A separate labeled-subset numerical Bellman computation agrees at the exact witness values to <1e-9. This is a finite exact proof; no infinite-order extension is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.7 gives NP-hardness on general maximum-degree-three graphs using graph-gadget reductions, not a finite universal lower bound.",
+        "The ITCS 2020 abstract and selected PDF material present general speedup and decision-complexity bounds."
+      ],
+      "reasoning": "An existence theorem implicit in NP-hardness can yield nontrivial optimal choices on other graph classes but does not imply the nine-vertex uniqueness and lower-order classification for complete multipartite graphs. The exact rule here concerns uniform independent choices with replacement.",
+      "searches": [
+        "complete multipartite covering random walk with choice optimal policy versus greedy unseen",
+        "\"complete multipartite\" \"choice random walk\" \"cover time\"",
+        "arxiv:1911.05170 Theorem 1.7",
+        "doi:10.4230/LIPIcs.ITCS.2020.76"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05170v2 full HTML",
+      "doi:10.4230/LIPIcs.ITCS.2020.76",
+      "doi:10.1017/S0963548321000183",
+      "doi:10.1016/j.comnet.2007.09.012 abstract/citation only",
+      "Public published-finding corpus mathematical-finding search (actual queries recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 source Section 7.2 requires connected visited X and studies optimal NextStep; its hard instances use large gadgets rather than K_(1,2,6).",
+        "The 2008 Avin–Krishnamachari empirical rule prefers vertices with fewer previous visits; it is not a proof that unseen-first choice is optimal under full-information expected cover-time minimization."
+      ],
+      "reasoning": "Neither the general-complexity theorem nor greedy-rule performance studies entail the claim that all ≤8 multipartite graphs admit unseen-first optimal decisions or that K_(1,2,6) is the sole failing type at order nine. A claimed exact census would directly dominate our classification, but none was identified in accessible inspected text.",
+      "searches": [
+        "arxiv:1911.05170 Sections 1.1, 2, 7.2, 7.3",
+        "power of two choices random walks cover time non-greedy explore already visited vertex strategy nine nodes multipartite",
+        "\"K_{1,2,6}\" \"random walk\" \"cover\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Georgakopoulos et al. 2021 Section 7.2 describes the precise optimal NextStep decision using the current connected visited set; no first finite multipartite example is stated.",
+        "The local fresh-versus-seen comparison is exactly the sign of two Bellman continuation values at an offered pair."
+      ],
+      "reasoning": "The exact policy comparison is reformulated as optimal cover-time NextStep on a with-replacement controlled random walk. This is the same *model* as the source, not the same *theorem*: general decision hardness does not classify first failing graph or prove smaller graphs obey the greedy availability rule.",
+      "searches": [
+        "two-choice random walks complete multipartite graphs optimal cover strategy prefer visited over unvisited nine vertex K1,2,6",
+        "power of two choices random walks cover time non-greedy explore already visited vertex strategy nine nodes multipartite",
+        "smallest counterexample greedy always take unvisited vertex for two-choice covering complete multipartite graph",
+        "arxiv:1911.05170 Section 7.2 NextStep"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-finding corpus hits instead include random-order maximal-independent-set variance on complete multipartite graphs, a different stochastic model, and lazy random-walk mixing on spider graphs.",
+        "Primary Table 1 of arxiv:1911.05170 compares asymptotic cover/hitting times on standard classes rather than exact minimal graphs violating new-vertex preference."
+      ],
+      "reasoning": "No accessible matching exact policy table was found. Source record searches are evidence of comparison, not an exhaustive database or proof of uniqueness. All small-class counts in the theorem are independently derived by the included rational checker.",
+      "searches": [
+        "smallest counterexample greedy always take unvisited vertex for two-choice covering complete multipartite graph",
+        "\"two choices\" \"greedy\" \"cover time\" \"not optimal\" random walk",
+        "\"two choice\" \"cover\" \"unvisited\" \"optimal\" random walk",
+        "published-finding corpus semantic query: two-choice random walks complete multipartite graphs optimal cover strategy prefer visited over unvisited nine vertex K1,2,6",
+        "published-finding corpus semantic query: smallest counterexample greedy always take unvisited vertex for two-choice covering complete multipartite graph"
+      ]
+    },
+    "rationale": "The 2019/2021 foundational paper defines the identical two-offer cover-control problem and proves general NP-hardness, without the claimed complete-multipartite order-nine first exception. Its results do not imply a nine-vertex minimum. Conference precursor and nearby greedy-walk methods likewise do not provide that statement. Actual research-record searches and accessible published mathematical comparisons uncovered no dominating same-object claim. Originality remains historical best-knowledge rather than certified priority.",
+    "residual_risks": [
+      "The 2008 empirical choice-walk paper was not inspected in full, though its optimization objective differs.",
+      "A previously published but poorly indexed exact small-graph optimization table may exist.",
+      "An independent reviewer has not verified the implementation or the finite exhaustion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same process and hardness framework, but no specific K_(1,2,6) or first-multipartite-boundary result; text search for multipartite has no match",
+        "evidence": [
+          "Section 2, with-replacement independent neighbor proposals",
+          "Section 7.2, Theorem 1.7 on NextStep NP-hardness",
+          "Table 1 covers asymptotic topologies, not complete multipartite policy tables"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1911.05170v2",
+        "material_read": "Full HTML including introduction, model preliminaries, Results, Sections 7.1–7.3 and cited-literature discussion; searched multipartite, greedy, NP-hard",
+        "method": "Primary arXiv lawful OA full HTML with full-text find",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Exact model and optimal next-step problem"
+      },
+      {
+        "assessment": "General optimal decision computational hardness and cover-time bounds, not the exact finite multipartite classification",
+        "evidence": [
+          "2020-01-06 publication date, 19 page PDF",
+          "Abstract: computing cover-time-optimal strategy is NP-hard"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2020.76",
+        "material_read": "Open-access publication abstract, metadata, citation/reference list and portions of full PDF inspected",
+        "method": "Dagstuhl open-access primary source and PDF",
+        "title": "Choice and Bias in Random Walks",
+        "trigger": "Earlier conference presentation of the same choice-walk model"
+      },
+      {
+        "assessment": "Same mathematical work as arXiv, not additional evidence of exact first failure",
+        "evidence": [
+          "Online date 2021-05-28, DOI 10.1017/S0963548321000183",
+          "MSC classes include 60J10"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548321000183",
+        "material_read": "Available journal full-text sections on model, cover-time optimization and related work; publication metadata",
+        "method": "Open Cambridge version and institutional open copy; inspected text/representative pages",
+        "title": "The Power of Two Choices for Random Walks, journal version",
+        "trigger": "Check journal revisions of foundational preprint"
+      },
+      {
+        "assessment": "Empirical visit-load-balancing walk is not a fully optimized conditional cover-time policy; full-text priority risk remains",
+        "evidence": [
+          "Described in Georgakopoulos et al., Section 1.1 as favoring fewer prior visits and mostly empirical"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.comnet.2007.09.012",
+        "material_read": "Bibliographic metadata and discussion in foundational primary paper, not independently obtained full article",
+        "method": "Citation-and-abstract level only",
+        "title": "The Power of Choice in Random Walks: An Empirical Study",
+        "trigger": "Earlier heuristic rules preferring less-frequently visited vertices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4180de2d-ab4e-4109-9ec3-f946b1715d75",
+  "value": {
+    "rationale": "The precise first failure of greedy fresh-vertex preference in the highly symmetric complete multipartite class is a natural structural boundary for optimal controlled cover walks, not an arbitrary statistic. The strict optimal-versus-myopic policy reversal is exact and small yet subtle, and the complete census identifies a unique nine-vertex graph type. It is motivated by the practical and mathematical design of cover-time policies, while not claiming any broad complexity result or infinite-order theorem.",
+    "status": "PASS"
+  }
+}
