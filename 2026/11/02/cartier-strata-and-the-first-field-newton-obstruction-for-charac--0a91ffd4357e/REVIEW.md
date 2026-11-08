@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For perfect characteristic-two fields, the smoothness criterion \(\gcd(g,h)=1\), Cartier matrix and stable semilinear rank are proved directly. The four differential valuations give a full basis, and the two relevant dimension counts establish the geometric \(2\)-rank and \(a\)-number. The exact finite-field code enumerates the complete \(\mathbb F_4\) parameter set, evaluates the four power sums, reconstructs degree-eight Weil polynomials, and checks their Newton polygons; `VERIFY_OK` is reproduced independently from the package paths. Finite enumeration proves only the finite part, and is not substituted for the all-field proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2006 original cyclic trigonal study concerns complex Abelian functions, not Cartier ranks. Kudo--Harashita provide broader superspecial genus-four results but no exact characteristic-two coefficient criterion. General trielliptic work gives moduli-level rank and generic slope constraints, not this explicit smooth-normal-form stratification or the complete 48-model \(\mathbb F_4\) exclusion. The closest accessible earlier genus-three Picard finding has a different genus, holomorphic differential representation, and Newton structure: it neither proves the genus-four result nor implies the enumerated \(\mathbb F_4\) Newton obstruction. Residual risk: an older or unindexed exhaustive finite-field genus-four table might encode the counts implicitly, and recent genus-four supersingular literature was not exhaustively inspected beyond accessible material.
+PASS
 
-## Mathematical value — PASS
-The theorem gives an exact geometric stratification for the full normalized genus-four cyclic trigonal family, rather than an arbitrary coefficient slice. The uniform \(a=2\) phenomenon, codimension-one rank-zero locus, complete counts in every finite extension, and absence of supersingularity among all first-quadratic-field models jointly answer a natural arithmetic-geometric question connected to searches for supersingular genus-four curves. The obstruction is not a mere failed test of a single curve; it is exhaustive over a canonical finite-field parameter space. It does not settle the larger-field rank-zero Newton stratification or all cyclic triple covers.
+Write f=xg²+h² with g=x²+ux+v, h=wx+z; smooth iff gcd(g,h)=1. Riemann–Hurwitz gives genus four; the four differentials dx/y, dx/y², xdx/y², x²dx/y² have distinct nonnegative pole valuations. Semilinear Cartier sends ω0 to ω3+uω2+vω1, ω2 to ω0, others to zero, hence rank exactly 2, a=2, and stable rank 0 iff u=0. Count polynomial coprimality over any q=2^m directly. For q=4 independent exact GF(4^j), j=1..4, curve point counts and Weil polynomial Newton hull across all 192 smooth coefficient quadruples reproduced 48/144 NP split and 15/51 distinct polynomials. Finite enumeration establishes ONLY the stated F4 obstruction, not NP for all rank-zero parameters over all fields.
 
-## Closest literature and limitations
-Relevant original and comparative studies are listed in RESULT.md and the structured audit. Historical uniqueness is not inferred from silence. No isomorphism-class census, characteristic-zero claim, or all-field supersingularity exclusion is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Mantovan–Pries–Tang prove broad Newton polygons for cyclic-cover families and their p=2 M[10] table includes BOTH 1/4,3/4 and supersingular polygons as possible geometric phenomena; therefore these polygons themselves are PRIOR. Their table does not classify which of the 48 normalized F4 coefficient quadruples realize each polygon or prove no supersingular one over F4. The present novel candidate is the coefficientwise Cartier formula, exact finite-field marked counts, and concrete F4 non-occurrence, not a new global Newton-polygon shape.
+
+## value
+
+PASS
+
+Distinguishes geometric Newton-polygon admissibility from arithmetic field-of-definition realization for the natural genus-four trielliptic family, with exact smallest-field obstruction and marked-model census. These are natural finite algebraic invariants of a moduli family, rather than a random finite slice; the rank-two formula also organizes all perfect characteristic-two fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
