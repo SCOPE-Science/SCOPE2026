@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness: PASS.** The exact factor decomposition distinguishes all run shapes and handles overlap of factors with matching repeated runs. The only four-run palindrome-pair factors arise from equal first/third or second/fourth block lengths. The four exhaustive parameter regions yield exact identities and rigorous integer inequalities; balanced positive integers give equality for every length at least eight, and exhaustive integer compositions close four exceptional short lengths. An independently implemented direct-factor enumerator agrees with the count for 1,470 words; a separate parameter search covers 395,010 four-run tuples. Finite checks support, but do not replace, the symbolic proof.
+
+**Originality: PASS (qualified).** Borchert and Rampersad (arXiv:1509.05396), Section 4, present the unrestricted exact maximum as a conjecture and provide candidate examples; their statement that three-run words are palindrome pairs does not determine the factor enumeration for four-run hosts. Guo, Shallit and Shur (arXiv:1503.09112) characterize palindrome-pair words, not maximum distinct palindrome-pair factor sets in bounded-run hosts. Searches for four-run, four-block and aliases did not reveal a result logically implying this four-run bound and equality classification. This is a qualified historical comparison, not a proof of priority; unindexed equivalent work remains a risk.
+
+**Value: PASS.** The theorem resolves a natural nontrivial infinite subfamily of a published extremal conjecture, identifies a strict four-run deficit, and gives all sharp equality cases. The result requires a full factor classification and integer-optimization argument, rather than mere renaming or a computed numerical table. It deliberately does not assert the unrestricted conjecture.
+
+Self-review: passed. Independent audit: not yet performed.
