@@ -1,15 +1,21 @@
-# Review of isolated-edge–triangle covariance reversal
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact event that an edge is a two-vertex connected component leaves a uniform \(G(n-2,m-1)\) graph on the other vertices, so conditional and unconditional triangle means are hypergeometric edge probabilities. Covariance linearity yields the exact factorization; rational cancellation determines the unique real zero, lying strictly between consecutive integers. The independent-edge calculation uses the same local conditioning with independent residual edges. The finite rational checks were replayed from the supplied verification program, which tests all 33,792 graphs on five or six vertices and one hundred larger-size threshold identities. The infinite result is proved analytically, not by enumeration.
+PASS
 
-## Originality
+Conditioning on a prescribed isolated K2 removes its two vertices and forces the other m−1 edges to be uniform in the Q=C(n−2,2) remaining potential edges. The conditional triangle mean C(n−2,3)(m−1)_3/(Q)_3 minus the unconditional mean yields the stated exact covariance and factorization. The positive prefactor times A_n(m−3)−B_n m changes sign at m*=n/2+1−(n+5)/(3n²−6n−1), strictly between ceil(n/2) and its successor. In G(n,p) conditioning on K2 excludes both endpoints and yields strictly negative −C(n,2)(n−2)^2p^4(1−p)^{2n−4}. Sparse scale m=⌊cn/2⌋ gives c³(c−1)e^(−2c)/2.
 
-PASS to the available-literature standard, subject to historical-priority risk. Semantic searches covered isolated-edge components, components of size two, triangles, edge-conditioned graph models, and sign reversal; no recovered statement implied the sharp threshold. The closest published component–triangle covariance concerns the **total** component count under independent-edge percolation, which is a distinct statistic and setting. A previous isolated-vertex versus subgraph-count result does not supply this isolated-edge-component covariance. Amir et al. (2005), *Giant Components in Biased Graph Processes*, full HTML introduction, principal theorems and random-process section inspected: their critical edge-count scale concerns giant components and isolated vertices, not exact joint covariance of isolated edges with triangles. Chatterjee (2010), *The missing log in large deviations for triangle counts*, HTML introduction, main theorem and proof sections inspected: these are triangle upper-tail bounds, not joint covariance identities. Kim and Vu (2004), *Divide and conquer martingales and the number of triangles in a random graph*, abstract checked only; no entire-paper exclusion is claimed. Other classical mixed-component-moment results may contain equivalent material.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The two statistics are natural competing local structures in random-graph sampling. The exact integer boundary in the fixed-edge model, the opposite sign in the independent-edge model, and the explicit sparse scaling limit show that transferring dependence assumptions between the two canonical Erdős–Rényi ensembles can reverse the answer. The critical-window placement is an interpretable structural boundary, not an arbitrary parameter slice. The theorem makes no claim of stochastic-order strengthening.
+Resultary returns a related total-component-count versus triangle identity in independent bond percolation, not isolated-edge component count in fixed-edge G(n,m). Reviewed random graph process and triangle tail papers do not explicitly state current covariance transition.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact finite-size sign reversal at the critical linear edge count contrasts the fixed-edge and independent-edge ensembles for a natural local-component/global-subgraph pair. A practitioner studying conditioned random graphs can use the closed covariance and sparse limit; the location is sharp, not merely numerical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

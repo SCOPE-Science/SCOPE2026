@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:16:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md steps 1–4; Git blob 1360be976a827ee4668eeb723454047806d154eb",
+        "verify.py Git blob 8a8fcb6da3493093ec2c2629e5254e19946916d8"
+      ],
+      "rationale": "Conditioning on a prescribed isolated K2 removes its two vertices and forces the other m−1 edges to be uniform in the Q=C(n−2,2) remaining potential edges. The conditional triangle mean C(n−2,3)(m−1)_3/(Q)_3 minus the unconditional mean yields the stated exact covariance and factorization. The positive prefactor times A_n(m−3)−B_n m changes sign at m*=n/2+1−(n+5)/(3n²−6n−1), strictly between ceil(n/2) and its successor. In G(n,p) conditioning on K2 excludes both endpoints and yields strictly negative −C(n,2)(n−2)^2p^4(1−p)^{2n−4}. Sparse scale m=⌊cn/2⌋ gives c³(c−1)e^(−2c)/2.",
+      "residual_risks": [
+        "No conclusion of stochastic dependence, mechanism, or higher moments from covariance sign."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest published record is total-component/triangle covariance under independent bond percolation; it does not specialize to a fixed-edge conditional size-two component count. Chatterjee studies upper-tail large deviations, not bivariate moment identity."
+        ],
+        "reasoning": "A published total-component covariance cannot simply be substituted for isolated K2 count; a separate combinatorial derivation is required.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "Chatterjee arXiv:1003.3498"
+        ]
+      },
+      "checked_sources": [
+        "G. Amir et al arXiv:math/0511526 graph process",
+        "RESULT.md exact conditioning argument",
+        "Entire published SCOPE 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174/RESULT.md, Git blob f236b7f9a6baed0db048dc227d3c6cede37434d5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary conditional graph distribution G(n−2,m−1) is standard, but the exact rational coefficient, unique integer sign boundary, and G(n,p) contrast are not explicit consequences of those reported results."
+        ],
+        "reasoning": "The claim evaluates a new statistic pair and reveals a sign reversal, while respecting known random graph baselines.",
+        "searches": [
+          "arXiv:math/0511526 graph process",
+          "arXiv:1003.3498 triangle tails",
+          "Resultary total-component/triangle covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An isolated K2 count is count of size-two connected components, not number of isolated vertices or total components. The fixed-edge hypergeometric law differs from binomial G(n,p).",
+          "Full published Resultary original: different random variable K (all components), and independent-edge Bernoulli model rather than fixed m; no simple substitution gives isolated K2 conditional covariance."
+        ],
+        "reasoning": "Checked graph-statistic aliases (isolated K2, 2-components, component-size distribution and mixed triangle moments) rather than treating generic covariance as identical.",
+        "searches": [
+          "Resultary query covariance isolated edge components triangles G(n,m) critical m n/2 positivity",
+          "arXiv:math/0511526",
+          "arXiv:1003.3498"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked explicit table for covariance signs of isolated K2 and triangle counts across m was found. Exhaustive n=5,6 values match formula but are newly generated independent checks, not a previously known table."
+        ],
+        "reasoning": "Absence of a matching search result is not proof of priority; general mixed-moment databases remain a residual risk.",
+        "searches": [
+          "Resultary mixed covariance query",
+          "G(n,m) conditional factorial-moment literature search"
+        ]
+      },
+      "rationale": "Resultary returns a related total-component-count versus triangle identity in independent bond percolation, not isolated-edge component count in fixed-edge G(n,m). Reviewed random graph process and triangle tail papers do not explicitly state current covariance transition.",
+      "residual_risks": [
+        "Old general factorial-moment identities or enumeration tables for component sizes and subgraph counts may imply the formula indirectly.",
+        "No exhaustive survey of historical mixed-moment primary texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed noncovering of the exact claimed fixed-edge isolated-K2 covariance: published theorem is total component count K and cycle rank R under independent Bernoulli bond percolation; for G(n,c/n) only 0<c<1 asymptotic treated.",
+          "evidence": [
+            "Published formula Cov(K,T)=−p³(1−p)² Σtri [Pr(Ctau=2)+(p+2)Pr(Ctau=3)] where K counts all components, contrasted with this G(n,m) isolated-size-2 J.",
+            "Original published G(n,c/n) theorem only for fixed 0<c<1 while current J statistic has fixed-edge sparse limit any c>0."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Entire original published RESULT.md including the exact three-point connectivity covariance proof, sparse asymptotics and stated limitations.",
+          "method": "GitHub published RESULT.md full text, Git blob f236b7f9a6baed0db048dc227d3c6cede37434d5",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Closest semantic published Resultary entry"
+        },
+        {
+          "assessment": "Triangle upper-tail bounds do not directly give exact isolated-K2/triangle covariance",
+          "evidence": [
+            "Large deviation analysis of triangle count."
+          ],
+          "identifier_or_url": "arXiv:1003.3498",
+          "material_read": "Title, abstract, and central upper-tail theme",
+          "method": "primary bibliographic and accessible theorem-summary reading",
+          "title": "The missing log in large deviations for triangle counts",
+          "trigger": "Triangles in G(n,p) might entail mixed covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "G(n,m) conditional hypergeometric triangle count",
+        "Published total-component/triangle percolation comparison"
+      ],
+      "rationale": "The exact finite-size sign reversal at the critical linear edge count contrasts the fixed-edge and independent-edge ensembles for a natural local-component/global-subgraph pair. A practitioner studying conditioned random graphs can use the closed covariance and sparse limit; the location is sharp, not merely numerical.",
+      "residual_risks": [
+        "Historical general mixed-moment formulas could subsume this as an evaluation, but the exact isolated K2 sign transition has substantive mathematical content."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only homogeneous simple random graph models; n≥5.",
+    "Signs do not establish causation or stochastic monotonicity.",
+    "Metadata first_public_date points to earlier cited graph process, and scope_run_id is operational provenance."
+  ],
+  "schema_version": 1
+}
