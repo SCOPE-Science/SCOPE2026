@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` in this directory with Python 3 and SymPy installed. The checker is standalone: it independently forms full rational transition matrices from the edge sets of twelve regular bases, compares their characteristic polynomials to the predicted two-subspace factorization, tests stationarity and detailed balance, and evaluates the rational consensus variance. Four rational hub-copying rates per graph give 48 complete-matrix instances. A symbolic derivative identity and 97 additional exact size/variance comparisons give 145 reported finite instances.
+## correctness
 
-Actual execution result: `PASS: 145 exact full-matrix/variance instances; tested 12 regular periphery graphs including connected, disconnected, bipartite and nonbipartite examples.` The checker ran against this file's code before delivery. No stochastic simulation, floating-point agreement alone, or assumption of an enumerated infinite family is used as a proof. The all-size assertion is established by the invariant-subspace decomposition and exact scalar optimization in `RESULT.md`. The finite computations only test implementation, signs, multiplicities and boundary formulas.
+PASS
 
-Limitations: the included tests do not constitute an independent proof, independent specialist audit, or complete bibliographic priority determination. Independent audit status remains not performed.
+Hub/periphery block splitting gives 2-by-2 eigenvalues 1,-p and zero-sum peripheral eigenvalues (1−p)mu_j/d. Detailed balance gives stationary pi_h=p/(1+p), each peripheral 1/[N(1+p)]; reversibility makes SLEM the sharp weighted-L2 contraction, while independent equal-variance initial errors give sigma² sum pi². Variance derivative is 2sigma²(p−1/N)/(1+p)^3 and speed is the max of two monotone lines, so the displayed Pareto interval and exact penalty follow. L>=1 follows trace A_H²=Nd, d<=N-2. Fresh independent full transition-matrix eigen/variance checks succeeded for 15 cases of connected and disconnected regular bases.
+
+## originality
+
+PASS
+
+Cheng et al. establish general degree-weighted social-learning stationary and convergence formulas (same power bias) but do not state the full regular-base cone spectral factorization and finite-network Pareto parameter interval in inspected main text and Appendix C. General reversible-chain and windmill eigenvalue methods are prior, while exact two-objective classification and N/9 variance-divergence witness are the assessed gain.
+
+## value
+
+PASS
+
+The full finite-N Pareto frontier and a family where fastest convergence entails nonvanishing estimation variance versus consistent minimum-variance consensus provide a transparent, mathematically motivated quantitative speed–wisdom tradeoff. This precise fact can guide analysis of hub-biased learning networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
