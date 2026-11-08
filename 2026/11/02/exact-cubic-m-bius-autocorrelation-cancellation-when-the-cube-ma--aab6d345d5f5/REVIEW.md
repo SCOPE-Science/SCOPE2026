@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Pellet's discriminant identity is valid in odd characteristic, including non-squarefree polynomials when the quadratic character vanishes. In characteristic different from three the depressed-cubic change of variables is bijective, and the cube-map hypothesis permits the exact two-root character correlation, with one equal-root parameter and precisely \(q-1\) distinct-root parameters. In characteristic three the full cubic discriminant formula reduces to a linear dependence on the constant coefficient for nonzero quadratic coefficient; the negative contribution cancels the repeated-character contribution of the zero-quadratic-coefficient stratum. Quantifiers include every odd prime power of the designated form and every nonzero constant shift. The executable root-and-derivative checker is independent of these character manipulations, but finite checks are not an infinite proof.
+## correctness
 
-**Originality — PASS with explicit residual risk.** The directly relevant 2012 preprint of Carmon–Rudnick proves growing-field cancellation bounds for fixed degree and shifts, whereas the present claim is an *exact zero for all field orders* in a natural arithmetic subset. Keating–Rudnick's 2015 work addresses Möbius correlations and averages, not the identical finite-degree-three equality. Targeted searches found no exact precedent in the accessible literature or research database. These searches do not certify uniqueness; a historical special case or an overlooked stronger identity remains possible.
+PASS
 
-**Value — PASS.** Exact two-point Möbius correlations are the natural finite-field analogue of the Chowla problem, and fixed-degree exact cancellation is not supplied by an asymptotic estimate. The parameter restriction is dictated by cube-permutation arithmetic, and a distinct characteristic-three proof makes the uniform statement nontrivial. The nonzero values in excluded fields show a genuine arithmetic boundary rather than a cosmetic hypothesis. This is a complete infinite-family evaluation of a motivated natural sum, without claiming a new general theorem for all polynomial degrees.
+For odd q with gcd(3,q-1)=1 and h!=0 constant, Pellet identity makes mu(f)mu(f+h)=chi(Disc(f)Disc(f+h)). If char!=3, depress T^3+aT²+bT+c and substitute U=-4A³ using cube bijection. For each B, sum_U chi((U-27B²)(U-27(B+h)²)) is q-1 exactly at B=-h/2 and -1 otherwise, yielding 0 on summing all q B and a. In char 3, Disc=a²b²-b³-a³c, so a!=0 contributes -q(q-1), while a=0 contributes +q(q-1); cancellation is exact. The proof covers odd prime powers including extensions of char 3. Independent root/squarefreeness computation gives zero for all nonzero constant h in F_3 and F_5 (and h=1 in F_11); excluded F_7 gives -91 at h=1 and 77 at h=2. Actual finite-field source checker was read, not trusted as proof.
 
-**Limitations.** Even characteristic, nonconstant shifts, and \(q\equiv1\pmod3\) are outside the statement; an exhaustive historical literature audit or independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for an exact all-field cubic shift identity distinguished from Carmon–Rudnick asymptotic polynomial Möbius correlation bounds. The quadratic-character sum is classical and not itself novel. The characteristic-three direct cancellation is a meaningful additional component.
+
+## value
+
+PASS
+
+The exact zero over an infinite arithmetic class of finite fields is a sharp small-degree exception to generic square-root cancellation estimates, including characteristic three and extension fields. Precise finite-field correlations are natural arithmetic invariants; the excluded q≡1 (mod 3) boundary is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

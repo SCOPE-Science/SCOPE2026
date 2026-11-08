@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The algebraic proof treats all applicable odd finite fields and all nonzero constant shifts. `verify_mobius.py` is standalone and uses finite-field coefficient tables and polynomial root multiplicities rather than the discriminant-character reduction. Execute it with `python3 verify_mobius.py` from the same directory. It reports `VERIFY_OK fields 10 shift_cases 130`, including fields of orders \(9\), \(25\), and \(27\). The negative-control orders \(7\), \(13\), and \(25\) have nonzero correlations for some shifts. Root multiplicity detection is complete for cubics: a repeated factor of a cubic must contain a repeated linear factor. The checks constitute finite corroboration, not a proof for infinitely many fields. No external or independent review has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For odd q with gcd(3,q-1)=1 and h!=0 constant, Pellet identity makes mu(f)mu(f+h)=chi(Disc(f)Disc(f+h)). If char!=3, depress T^3+aT²+bT+c and substitute U=-4A³ using cube bijection. For each B, sum_U chi((U-27B²)(U-27(B+h)²)) is q-1 exactly at B=-h/2 and -1 otherwise, yielding 0 on summing all q B and a. In char 3, Disc=a²b²-b³-a³c, so a!=0 contributes -q(q-1), while a=0 contributes +q(q-1); cancellation is exact. The proof covers odd prime powers including extensions of char 3. Independent root/squarefreeness computation gives zero for all nonzero constant h in F_3 and F_5 (and h=1 in F_11); excluded F_7 gives -91 at h=1 and 77 at h=2. Actual finite-field source checker was read, not trusted as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for an exact all-field cubic shift identity distinguished from Carmon–Rudnick asymptotic polynomial Möbius correlation bounds. The quadratic-character sum is classical and not itself novel. The characteristic-three direct cancellation is a meaningful additional component.
+
+## value
+
+PASS
+
+The exact zero over an infinite arithmetic class of finite fields is a sharp small-degree exception to generic square-root cancellation estimates, including characteristic three and extension fields. Precise finite-field correlations are natural arithmetic invariants; the excluded q≡1 (mod 3) boundary is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

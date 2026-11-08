@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:04:01.838267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd q with gcd(3,q-1)=1 and h!=0 constant, Pellet identity makes mu(f)mu(f+h)=chi(Disc(f)Disc(f+h)). If char!=3, depress T^3+aT²+bT+c and substitute U=-4A³ using cube bijection. For each B, sum_U chi((U-27B²)(U-27(B+h)²)) is q-1 exactly at B=-h/2 and -1 otherwise, yielding 0 on summing all q B and a. In char 3, Disc=a²b²-b³-a³c, so a!=0 contributes -q(q-1), while a=0 contributes +q(q-1); cancellation is exact. The proof covers odd prime powers including extensions of char 3. Independent root/squarefreeness computation gives zero for all nonzero constant h in F_3 and F_5 (and h=1 in F_11); excluded F_7 gives -91 at h=1 and 77 at h=2. Actual finite-field source checker was read, not trusted as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carmon–Rudnick Theorem 1.1 bounds a fixed-degree r-factor correlation by O(q^{n-1/2}) with constants; this is not the assertion of exact vanishing at every eligible q.",
+          "Keating–Rudnick studies related averages and asymptotic regimes, not the displayed exact cubic zero in the inspected material."
+        ],
+        "reasoning": "The established broader frameworks allow nonzero correlations of the bounded scale, so do not imply this arithmetic-class exact cancellation without additional cubic algebra.",
+        "searches": [
+          "Carmon Rudnick arxiv:1205.1599 Theorem 1.1 constant shifts n=3",
+          "Keating Rudnick arxiv:1504.03444 polynomial Möbius correlations short intervals"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1205.1599",
+        "https://arxiv.org/abs/1504.03444",
+        "Resultary query: polynomial Mobius cubic constant shift exact autocorrelation finite fields cube bijection discriminant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 gives an upper bound; mathematically |S|<=Cq^{5/2} for cubics does not enforce S=0.",
+          "The proof separately handles char 3 because cubic depression fails there."
+        ],
+        "reasoning": "The prior bound is consistent with and weaker than an exact zero. No implication of the latter from the stated theorems is demonstrated.",
+        "searches": [
+          "Carmon Rudnick Chowla conjecture rational function field theorem 1.1 square-root bound",
+          "cubic exact character sum n=3 constant shift char 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pellet converts the Möbius correlation to an exact quadratic-character double-discriminant sum.",
+          "Resultary returned finite-field discriminant works on other polynomial families, not cubic Mobius two-shift identity."
+        ],
+        "reasoning": "Equivalent character-sum and squarefree-parity formulations were considered. The result is exactly a finite-field cubic correlation, not only an asymptotic bound.",
+        "searches": [
+          "Resultary semantic: polynomial Mobius cubic constant shift exact autocorrelation finite fields cube bijection discriminant",
+          "cubic polynomial Möbius autocorrelation exact zero constant shifts Pellet discriminant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite-root computation gives zero in eligible small prime fields but nonzero F7 examples.",
+          "No equivalent exact table or formula found in Resultary hits."
+        ],
+        "reasoning": "The universal identity includes arbitrarily large extension fields, which cannot be established by finite computation; existing small-q tables might encode special cases but not necessarily the theorem.",
+        "searches": [
+          "Resultary cubic Möbius correlation finite field q=3 5 7 11",
+          "function field cubic mu f mu f+1 exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for an exact all-field cubic shift identity distinguished from Carmon–Rudnick asymptotic polynomial Möbius correlation bounds. The quadratic-character sum is classical and not itself novel. The characteristic-three direct cancellation is a meaningful additional component.",
+      "residual_risks": [
+        "Earlier exact cubic character-sum evaluations may state this as a corollary.",
+        "Characteristic-three and extension-field literature not exhaustively searched; best-of-knowledge priority only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounded asymptotic correlation, not an all-q exact zero in inspected theorem",
+          "evidence": "Theorem 1.1 supplies O(q^{n-1/2}) correlation estimates, which permit nonzero correlations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1599",
+          "material_read": "Full accessible PDF; inspected first pages including Theorem 1.1 and relevant treatment of constant shifts, with page-image confirmation",
+          "method": "Full PDF targeted theorem and proof-context reading",
+          "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field",
+          "trigger": "Closest primary theorem on the same two-polynomial Möbius correlation"
+        },
+        {
+          "assessment": "No exact universal cubic constant-shift identity verified",
+          "evidence": "The source concerns short interval/arithmetic progression distributions and related asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03444",
+          "material_read": "Title, abstract and relevant cited context; not fully read",
+          "method": "Bibliographic and targeted conclusion comparison",
+          "title": "Squarefree polynomials and Möbius values in short intervals and arithmetic progressions",
+          "trigger": "Possibly stronger polynomial Mobius correlation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact zero over an infinite arithmetic class of finite fields is a sharp small-degree exception to generic square-root cancellation estimates, including characteristic three and extension fields. Precise finite-field correlations are natural arithmetic invariants; the excluded q≡1 (mod 3) boundary is substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1205.1599",
+    "https://arxiv.org/abs/1504.03444",
+    "Resultary query: polynomial Mobius cubic constant shift exact autocorrelation finite fields cube bijection discriminant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier exact cubic character-sum evaluations may state this as a corollary.",
+    "Characteristic-three and extension-field literature not exhaustively searched; best-of-knowledge priority only.",
+    "Finite independent verification does not establish unbounded quantifiers; correctness relies on the reconstructed source proof.",
+    "High-priority inaccessible full primary sources remain noted as best-of-knowledge originality risks, not scientific failure.",
+    "Public-bound METADATA.json and AUDIT.json both contain private scope_run_id operational provenance; reviewed exact blobs but complete confidentiality-sanitized public replacement bytes with verified source-tree/blob guards and hashes were not prepared."
+  ],
+  "schema_version": 1
+}
