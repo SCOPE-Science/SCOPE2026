@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:08:12.720834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed denominator M>=2 and coprime numerators, Carvalho's exact order-class recurrence gives (M-z phi(M))F_M=1+z sum_{1<d<M, d|M}phi(d)F_d. For M=p^s m with p largest prime, the only divisors whose phi(d)/d equals rho=(p-1)/p are powers p^j. By induction on divisors, modulo functions holomorphic at z0=p/(p-1), F_{p^j e} is congruent to F_{p^j}, and the totient identity sum_{e|m}phi(e)=m collapses all pole principal parts to the prime-power F_{p^s}=p^{-s}(1-rho z)^{-s}. The multiplier M-z phi(M) is nonzero at z0 for m>1; all other possible poles have modulus >=1/eta_M>1/rho. This justifies the coefficient error O_M(n^{tau(M)} eta_M^n), leading polynomial-binomial term, and tail factor 1/(1-rho)=p; density of infinite orders zero is cited rather than assumed pointwise. Independently rebuilt the rational-function recurrence using SymPy and checked cancellation for all M=2..90, and directly iterated T using exact rational arithmetic over one modulus period for M=3,4,6,10,12 and orders 1..3. The infinite proof is divisor induction, not finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carvalho proves recurrence, prime-power order counts and finite-order density one, but no generating-function dominant singularity or composite-tail asymptotic.",
+          "Azevedo et al. prove density one for quasi-quadratic iteration and a closely related recurrence."
+        ],
+        "reasoning": "None of the inspected stronger-looking density-one or prime-power formulas implies uniform pole cancellation for every composite denominator without an additional divisor induction.",
+        "searches": [
+          "Carvalho arxiv 2605.21802 theorem 3.1 corollary 3.2 theorem 4.4",
+          "Azevedo Carvalho Machiavelo arxiv 1210.0042 theorem 2.3 theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.21802",
+        "https://arxiv.org/pdf/1210.0042",
+        "Resultary search: rational stopping-time orders largest prime-power asymptotic dominant pole",
+        "https://arxiv.org/abs/2605.21802"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Carvalho Theorem 3.1 and Corollaries 3.2,4.3 give precise premises; Theorem 4.4 covers mass one, not its exponential convergence profile.",
+          "The 2012 work has the same type of divisor recurrence but no inspected singularity comparison."
+        ],
+        "reasoning": "An exact-order recurrence makes the new theorem derivable by algebra but not logically contained in statements of prior finite-order density one or exact prime-power count; the current proof adds an all-principal-parts cancellation lemma.",
+        "searches": [
+          "Carvalho Rational dynamics of a prime-representing map full pdf Sections 3-4",
+          "Azevedo Dynamics of a quasi-quadratic map full pdf Sections 2-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2012 map x -> x ceil(x) differs dynamically, but has an equivalent exact-order recurrence and a density-one conclusion; no inspected full-pole analysis.",
+          "The 2026 Carvalho paper directly proves the exact-class recurrence for the floor/fractional-part map."
+        ],
+        "reasoning": "The theorem is not a renaming of the dynamical map: its new conclusion is the full Laurent principal part and all coefficients of the sharp tail, although the mechanism transfers to any family with the same recurrence.",
+        "searches": [
+          "\"rational stopping order\" \"dominant pole\"",
+          "Resultary: rational stopping-time orders largest prime-power asymptotic dominant pole",
+          "Azevedo Carvalho Machiavelo 1210.0042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Carvalho provides exact residue-count recurrence, not a full table of all composite-denominator dominant Laurent parts.",
+          "The independent symbolic check obtains F_6(z)=1/(3-2z)+1/(2-z)-2/(3-z)."
+        ],
+        "reasoning": "Existing finite counts cannot by themselves establish the all-M dominant-pole identity; no identical published table was identified, which does not prove priority.",
+        "searches": [
+          "exact order sequence A(n,M) composite denominators rational stopping map table",
+          "Resultary: rational stopping-time orders largest prime-power asymptotic dominant pole"
+        ]
+      },
+      "rationale": "Best-of-knowledge new analytic dominant-pole cancellation and composite-denominator sharp large-order tail; the exact recurrence and p-power density are acknowledged prior work. The other map has the same recurrence, so a differently phrased earlier asymptotic remains a real risk.",
+      "residual_risks": [
+        "An unindexed singularity analysis of the shared 2012/2026 recurrence could already contain an equivalent asymptotic.",
+        "Coefficient error constants depend on fixed M; no uniform large-M conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "direct premises are prior; composite analytic pole and sharp tail not stated in inspected source",
+          "evidence": [
+            "Theorem 3.1 states A(n,M) divisor recurrence; Corollary 4.3 identifies relative densities; Theorem 4.4 proves their sum is one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.21802",
+          "material_read": "10-page primary PDF: targeted reading of the introduction, Theorem 3.1 and its recurrence proof, Corollaries 3.2 and 4.3, and Theorem 4.4 in Sections 3-4",
+          "method": "primary arXiv PDF full text, mathematical formula and paragraph comparison",
+          "title": "Rational dynamics of a prime-representing map",
+          "trigger": "exact same map and exact order-class counts"
+        },
+        {
+          "assessment": "shared exact-order recurrence and density-one are covered; full-pole profile not observed",
+          "evidence": [
+            "x -> x ceil(x) is dynamically distinct, but the exact density recurrence is comparable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.0042",
+          "material_read": "12-page primary PDF: targeted reading of map definition, Section 2 Theorem 2.3 recurrence context, and Section 3 density-one theorem",
+          "method": "primary arXiv PDF text reading",
+          "title": "Dynamics of a quasi-quadratic map",
+          "trigger": "closely related recurrence for different rational map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-denominator stopping statistics for a natural rational map are motivated by the open individual finite-order question. The theorem gives a sharp general asymptotic with both leading constant and polynomial factor, and proves a nonobvious dominance/cancellation by the largest prime-power component. It is not a routine restatement of density one or a small computational improvement; all lower prime factors contribute only exponentially smaller terms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed denominator M before n->infinity; not a uniform-in-M estimate.",
+    "No claim that every rational has finite stopping order.",
+    "Finite checks were corroborations; proof relies on the published exact-order recurrence."
+  ],
+  "schema_version": 1
+}
