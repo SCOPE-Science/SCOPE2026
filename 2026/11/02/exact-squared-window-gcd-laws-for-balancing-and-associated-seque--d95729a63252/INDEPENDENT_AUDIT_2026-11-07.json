@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob fccefb9f63b6740991bcf1c958df3ec701bfd541",
+        "Git verification/verify.py blob 856b26deeb547fd6061c0749bb0546c2a45163ea",
+        "independent_checks_output.txt: BALANCING_GCD_CASES 300"
+      ],
+      "rationale": "For each X=B,C,c the exact Pell identities reduce the k-consecutive square sum to (B_k Q_{s+4n}±k)/D. The gcd of all terms is the gcd of the base numerator and B_k H_s divided by D, where H_s=gcd_n(Q_{s+4n}-Q_s) equals 96 if s≡2 mod4 and 16 if s≡0 mod4, from strong divisibility of Pell numbers. At odd primes >=5 the gcd is min of valuations of k and B_k; the extra 3-adic factor occurs only for c at k≡3 mod6; 2-adic congruences modulo 16 yield precisely the factor 1/2 for B at even k. These steps establish G_C(k)=gcd(k,B_k), G_B(k)=d_k or d_k/2 by parity and G_c(k)=3d_k iff k≡3 mod6, all k>=1. Independent direct recurrence/window gcds for k<=100, n<=20 verify 300 finite tests, not the infinite-gcd argument.",
+      "residual_risks": [
+        "Independent finite gcd tests only support, but do not establish, gcd over all starting indices.",
+        "The fourth cobalancing-number sequence remains outside the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika–Spilker 2022 generalized Fibonacci squares use coefficient-one recurrence, whereas B,C,c all satisfy X_{n+2}=6X_{n+1}-X_n."
+        ],
+        "reasoning": "The family hypotheses do not admit a direct balancing specialization. Standard Pell identities are inputs, not prior complete three-family gcd statements.",
+        "searches": [
+          "balancing Lucas-balancing Lucas-cobalancing sums k consecutive squares gcd gcd(k,B_k) Pell",
+          "https://arxiv.org/abs/2204.12626"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+        "https://arxiv.org/abs/2204.12626",
+        "Resultary query: balancing Lucas-balancing Lucas-cobalancing sums k consecutive squares gcd gcd(k,B_k) Pell"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Question 30 is an open invitation for squared gcd formulas, not a theorem. The other paper studies a different recurrence."
+        ],
+        "reasoning": "Neither prior statement implies the factor-two/factor-three exceptional cases plus d_k size without the Pell-gcd and p-adic derivations.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf Question 30",
+          "https://arxiv.org/abs/2204.12626 main theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 30 asks for squared sums of balancing and related sequences; observed parity/three factors are listed without a closed all-k magnitude."
+        ],
+        "reasoning": "The proposed equalities strengthen preexisting relative ratios by determining d_k exactly; a ratio observation does not imply the magnitude.",
+        "searches": [
+          "balancing Lucas-balancing Lucas-cobalancing sums k consecutive squares gcd gcd(k,B_k) Pell",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf Question 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The JIS paper presents empirical squared-window patterns and labels their explanation a question; the checked formulas hold over arbitrary k."
+        ],
+        "reasoning": "Existing finite data are acknowledged; the infinite exact expression is not a recomputation of the table.",
+        "searches": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf tables",
+          "balancing Lucas-balancing Lucas-cobalancing sums k consecutive squares gcd gcd(k,B_k) Pell"
+        ]
+      },
+      "rationale": "The 2023 primary Journal of Integer Sequences paper explicitly poses squared-window gcds of these four balancing-associated families as Question 30 and tabulates some factor-two/factor-three numerical ratios; it does not give the three unrestricted gcd(k,B_k) formulas as established theorems. The 2022 generalized Fibonacci-square result assumes a different recurrence coefficient. The new assertion is the three magnitude formulas and proof, not the earlier numerical patterns.",
+      "residual_risks": [
+        "An unindexed more general Lucas-sequence gcd theorem may subsume these formulas.",
+        "The 2023 numerical factor-ratio patterns are earlier observations and are not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior observations and the open problem are acknowledged, not equivalent to all-k formulas.",
+          "evidence": [
+            "Question 30 asks for four square-window gcds; displayed observations mention factors two and three."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+          "material_read": "Primary complete journal PDF including definitions, numerical square-sum discussion and Question 30 near page 21–22; page-image inspection",
+          "method": "Primary PDF mathematical question and adjacent data read",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Exact same square-window question"
+        },
+        {
+          "assessment": "Coefficient-one recurrence is not the balancing coefficient-six case by substitution.",
+          "evidence": [
+            "The generalized Fibonacci recurrence is X(n+2)=X(n+1)+X(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Primary accessible preprint theorem hypotheses and main recurrence discussion",
+          "method": "Primary theorem/parameter inspection",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Possible general squared-window theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf Question 30",
+        "Exact Pell-gcd proof in RESULT.md"
+      ],
+      "rationale": "It resolves three natural, explicitly posed cases of a published four-family gcd problem and reduces infinite-window arithmetic to the computable index invariant gcd(k,B_k). The unsolved cobalancing-number fourth family is excluded; the partial resolution has independent number-theoretic value.",
+      "residual_risks": [
+        "Full classification of primes dividing d_k is not supplied; formula is nevertheless explicit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment; not a formal certificate or historical-priority guarantee.",
+    "Publication plan not_ready due verified existing public metadata provenance/privacy and unverified first_public_date; no source edits were prepared."
+  ],
+  "schema_version": 1
+}

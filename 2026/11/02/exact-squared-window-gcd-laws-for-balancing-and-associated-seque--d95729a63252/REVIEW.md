@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes three exact square-window identities, reduces each infinite gcd to two integers using \(Q_{m+4}-Q_m=8P_{m+2}\) and Pell strong divisibility, and computes valuations at \(2\), at \(3\), and at every larger prime. The 2-adic division by \(k\) is legitimate because \(\nu_2(B_k)=\nu_2(k)\). The verified code compares direct sums and window gcds but is not used in place of a proof.
+## correctness
 
-## Originality — PASS within accessible literature
-The motivating 2023 paper expressly poses the four-family squared-window problem and records the parity and factor-three phenomena numerically, not as the three proved formulas \(\gcd(k,B_k)\). The separate 2022 generalized Fibonacci-square theorem has companion coefficient one and therefore does not by itself cover the coefficient-six recurrence. Similar mathematical records about Lucas periods and balancing reciprocal tails do not imply the claim. Residual risk: a later paper or unstated derivation from general Lucas identities could cover part of the result, so independent bibliographic confirmation remains useful.
+PASS
 
-## Value — PASS
-The claim resolves three natural, explicitly asked infinite-family cases, gives an exact closed gcd at every window length, and explains the nontrivial parity and prime-three deviations. It does not assert resolution of the fourth sequence or a full prime-divisor classification of \(\gcd(k,B_k)\).
+For each X=B,C,c the exact Pell identities reduce the k-consecutive square sum to (B_k Q_{s+4n}±k)/D. The gcd of all terms is the gcd of the base numerator and B_k H_s divided by D, where H_s=gcd_n(Q_{s+4n}-Q_s) equals 96 if s≡2 mod4 and 16 if s≡0 mod4, from strong divisibility of Pell numbers. At odd primes >=5 the gcd is min of valuations of k and B_k; the extra 3-adic factor occurs only for c at k≡3 mod6; 2-adic congruences modulo 16 yield precisely the factor 1/2 for B at even k. These steps establish G_C(k)=gcd(k,B_k), G_B(k)=d_k or d_k/2 by parity and G_c(k)=3d_k iff k≡3 mod6, all k>=1. Independent direct recurrence/window gcds for k<=100, n<=20 verify 300 finite tests, not the infinite-gcd argument.
 
-## Sources and limitations
-The 2023 Mbirika–Schrader–Spilker article and the 2022 Mbirika–Spilker preprint were inspected as primary texts. Any preexisting numerical patterns in the former are credited. The cobalancing-number branch and independent mathematical validation are outside this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 primary Journal of Integer Sequences paper explicitly poses squared-window gcds of these four balancing-associated families as Question 30 and tabulates some factor-two/factor-three numerical ratios; it does not give the three unrestricted gcd(k,B_k) formulas as established theorems. The 2022 generalized Fibonacci-square result assumes a different recurrence coefficient. The new assertion is the three magnitude formulas and proof, not the earlier numerical patterns.
+
+## value
+
+PASS
+
+It resolves three natural, explicitly posed cases of a published four-family gcd problem and reduces infinite-window arithmetic to the computable index invariant gcd(k,B_k). The unsolved cobalancing-number fourth family is excluded; the partial resolution has independent number-theoretic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
