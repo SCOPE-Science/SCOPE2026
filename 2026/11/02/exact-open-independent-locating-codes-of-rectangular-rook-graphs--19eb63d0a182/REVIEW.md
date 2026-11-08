@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every selected rook has exactly one selected neighbor, forcing its selected cell to belong to a disjoint pair sharing one row or one column. Interpreting such a pair as two edges in a complete bipartite graph gives a vertex-disjoint two-edge path. The proof excludes two unused original vertices by either non-domination or identical signatures and proves the one-unused-side orientation restriction using a selected-versus-unselected singleton collision. For the three surviving types, incidence labels give a direct injection from every cell to a nonempty signature, and exact pair assignments establish the formula. The attached checker evaluated the original graph predicate for 1,501,038 subsets on seventeen boards, with zero discrepancies. The infinite result relies on the proof, not on test extrapolation.
+PASS
 
-## Originality
+The theorem treats all integers m,n>=2 and every labeled code. Selected rook vertices each with exactly one selected neighbor form disjoint K2 components in L(K_m,n), hence vertex-disjoint selected P3 edge paths in K_m,n. Distinct empty original vertices cause empty or duplicate signatures, so at most one unused; an unmatched vertex forces the other-side-centered orientation. For spanning configurations, m=2a+b,n=a+2b and selecting centers/leaf pairings gives m!n!/(2^(a+b)a!b!); unmatched case gives n!/2^m or m!/2^n. Sufficiency follows from distinct component incidence-set signatures. Independently checked direct open-neighborhood signatures over 366416 candidate subsets of nine boards, matching all nine formula counts. This finite test corroborates but does not replace the all-size combinatorial proof.
 
-PASS under the inspected literature, with residual priority uncertainty. The foundational 2017 article establishes the definition, general necessary properties, the high-girth criterion, and path/tree/infinite-grid examples. Its high-girth result does not apply to the rectangular rook graphs. The 2021 preprint/2022 article extends structural recognition to other graph classes and gives necessary local conditions, not a complete two-parameter classification of rook-graph codes. Targeted searches for rook, Cartesian, line-graph, bipartite-edge-code and three-vertex-path-factor equivalents found no claim implying the present exact count or boundary. Results about other domination or identifying-code notions do not imply the stronger joint open-independence and pairwise open-signature condition. An unindexed or differently worded theorem remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. For a natural two-parameter family of line graphs, the theorem settles existence, classifies every code, supplies the exact code-size polynomial, and explains a sharp arithmetic phenomenon: a square board has any such code exactly when its side length is divisible by three. The one-unused-row-or-column possibilities at dimensions \(n=2m+1\) and \(m=2n+1\) are structurally distinct boundary families, not arbitrary finite exceptions. These facts address the constrained fault-location question motivating open-independent OLD codes, rather than only recomputing a scalar domination number.
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
 
-## Sources and limits
+## value
 
-Relevant primary comparisons are Seo and Slater (2017), DOI 10.5614/ejgta.2017.5.2.2, Sections 2–4, and Cappelle et al. (first public preprint 14 March 2021), arXiv:2103.07972, Sections 1–4. They contain the general definitions and related results, but the inspected statements do not subsume this classification. The proof does not address unrestricted OLD codes or arbitrary line graphs. Different terminology in edge-location literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural rectangular rook graph family models open-neighborhood fault localization; exact existence, complete all-code labeled enumeration, forced cardinality and sharp exceptional one-unused orientation are useful structural graph parameters rather than isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

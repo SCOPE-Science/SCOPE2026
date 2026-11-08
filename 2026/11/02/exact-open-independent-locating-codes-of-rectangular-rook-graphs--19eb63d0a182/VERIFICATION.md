@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 check_rook_old.py` using Python 3.8 or later. No external packages are required. The program constructs the exact open neighborhoods of the \(m\)-by-\(n\) rook graph, enumerates every candidate subset, checks that selected cells each have precisely one selected neighbor, and checks that all selected-neighbor signatures over **every** cell are nonempty and pairwise different. It compares this direct implementation with the proposed exact count.
+## correctness
 
-The seventeen checked board sizes are \((1,1),(1,2),(1,3),(1,4),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8),(3,3),(3,4),(3,5),(3,6),(4,4),(4,5)\), totaling 1,501,038 subsets. The direct counts include \(C_{2,4}=6\), \(C_{2,5}=30\), \(C_{3,3}=9\), \(C_{3,6}=90\), and \(C_{4,5}=180\), with zero values for all other tested boards with both dimensions at least two. All seventeen cases passed in a direct run.
+PASS
 
-The proof covers all \(m,n\ge2\) by disjoint-path structure and signature injectivity; the finite enumeration is an independent diagnostic, not an infinite certificate. The code-size polynomial follows from the proved classification. Priority against unindexed results is not established by computation. Independent mathematical audit has not been performed.
+The theorem treats all integers m,n>=2 and every labeled code. Selected rook vertices each with exactly one selected neighbor form disjoint K2 components in L(K_m,n), hence vertex-disjoint selected P3 edge paths in K_m,n. Distinct empty original vertices cause empty or duplicate signatures, so at most one unused; an unmatched vertex forces the other-side-centered orientation. For spanning configurations, m=2a+b,n=a+2b and selecting centers/leaf pairings gives m!n!/(2^(a+b)a!b!); unmatched case gives n!/2^m or m!/2^n. Sufficiency follows from distinct component incidence-set signatures. Independently checked direct open-neighborhood signatures over 366416 candidate subsets of nine boards, matching all nine formula counts. This finite test corroborates but does not replace the all-size combinatorial proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.
+
+## value
+
+PASS
+
+The natural rectangular rook graph family models open-neighborhood fault localization; exact existence, complete all-code labeled enumeration, forced cardinality and sharp exceptional one-unused orientation are useful structural graph parameters rather than isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
