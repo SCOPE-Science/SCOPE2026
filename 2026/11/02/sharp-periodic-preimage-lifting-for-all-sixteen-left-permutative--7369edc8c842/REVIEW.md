@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The target is an indexed binary ring of length \(n\ge1\), and an enlargement is defined by repeating that target exactly \(m\) times. Inverse local determinism of each left-permutative rule produces four pair-state maps \(T_{G,0}\) and \(T_{G,1}\). A cyclic predecessor for the repeated target is equivalent to a fixed point of the \(m\)-th power of the composed map. The minimum permitted enlargement therefore equals its shortest cycle length. This establishes the universal fourfold bound without relying on experimental extrapolation. Direct closure of all sixteen finite transformation monoids, followed by exhaustive closure of the appropriate augmented word automata, proves the exceptional-word characterizations for arbitrarily long outputs. The independent forward-image check compares 5,120 target/replication pairs with the inverse criterion for cyclic lengths at most twelve. All scripted assertions pass with `VERIFY_OK`.
+PASS
 
-## Originality: PASS (historical-priority qualification)
+For each left-permutative rule f(a,b,c)=a XOR g(b,c), invert the left bit given output d and the next pair (b,c): T_{g,d}(2b+c)=2(d XOR g(b,c))+b. Cyclic closure of the n-target inverse recurrence equals a fixed point of its word composition Φ; closure after repeating the target m times is equivalent to a fixed point of Φ^m, so the minimum m is the shortest cycle length of a four-element transformation. Independently enumerated all 16 complete two-generator transformation monoids and all reachable augmented states including length mod 6, weight parity, both uniform flags and nonemptiness. Every reachable descriptor obeyed the exceptional-language claims, which thereby cover arbitrary word lengths (not merely words shorter than a cutoff). Rule 30 triple lift arises only for 1^n with 3 not dividing n; Rule 90 quadruple lift iff length and weight odd; Rule 165 quadruple lift iff length odd and weight even. Both composition conventions and independent original forward-ring comparisons were inspected; my new independent BFS verifies a finite closure sufficient for every length.
 
-Wolfram (1983) supplies the classical 256-rule taxonomy. Martin–Odlyzko–Wolfram (1984) studies linear-rule algebra, which substantially covers the linear constituents, but the inspected abstract does not state a simultaneous sixteen-rule classification. Mariot–Leporati–Dennunzio–Formenti (2017) gives a more general method for computing a particular periodic target's minimum predecessor period. The present finite inverse-pair mechanism is not novel. The specific new object checked is the simultaneous all-output classification for all sixteen rules with exact regular exceptional languages, including the uniform nonlinear triple-lift exceptions. The accessible 2017 full postprint was inspected for the main method and examples; none of the inspected material supplies this classification. Searches of research records and the primary literature found no stronger statement that directly implies the complete list. Risks remain from unindexed work and incomplete full-text access to the 1984 classical paper. A computational method's generality is distinguished from publication of this exact all-rule table.
+## originality
 
-## Value: PASS
+PASS
 
-One-step surjectivity on the bi-infinite lattice guarantees each periodic target can have a periodic preimage, but does not determine the smallest necessary ring enlargement. For finite-ring initial conditions that enlargement is an intrinsic reachability obstruction; this theorem sharply distinguishes the exceptional threefold nonlinear patterns from the fourfold parity obstruction of the linear rules, and proves that no larger factor is required in the entire natural sixteen-rule class. Every extremal value is witnessed by a short word. This simultaneous structural classification is more informative than a routine single-instance execution of the known period-computation algorithm.
+Known surjective-CA preimage-period algorithms and linear cellular automata are acknowledged. The assessed incremental claim is one simultaneous explicit all-output classification of all 16 left-permutative radius-one rules, including four nonlinear uniform-word triple-lift exceptions and the exact linear odd-parity fourfold cases. The accessible closest primary postprint develops general de Bruijn algorithms and linear bipermutive cases but, in the inspected sections, does not state or imply this compiled exception classification. Best-of-knowledge PASS, not an absolute historical novelty certificate.
 
-## Sources and scientific limitations
+## value
 
-- Stephen Wolfram, *Statistical mechanics of cellular automata*, Rev. Mod. Phys. 55 (1983), DOI: https://doi.org/10.1103/RevModPhys.55.601.
-- O. Martin, A. M. Odlyzko and S. Wolfram, *Algebraic Properties of Cellular Automata*, Commun. Math. Phys. 93 (1984), DOI: https://doi.org/10.1007/BF01223745; bibliographic/abstract comparison only, full text not inspected.
-- L. Mariot, A. Leporati, A. Dennunzio and E. Formenti, *Computing the Periods of Preimages in Surjective Cellular Automata*, Natural Computing 16 (2017), DOI: https://doi.org/10.1007/s11047-016-9586-x; author-hosted postprint: https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf. Material inspected: abstract, introduction, inverse de Bruijn method, examples, linear case and concluding portions.
+PASS
 
-The result is not an assertion of novelty for the generic de Bruijn construction or the individual linear rules. It does not characterize the number of predecessors or multistep dynamics. No independent scientific validation has been performed.
+Periodicity of a predecessor after enlarging a specified cyclic ring is a natural finite-state reachability invariant not determined by bi-infinite surjectivity. A sharp universal fourfold bound, exact rule partition and regular all-length exceptional languages supply structural information across the complete 16-rule family and identify the qualitatively different nonlinear period-3 versus linear period-4 obstructions; this is more than a single algorithm execution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

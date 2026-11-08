@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each left-permutative rule f(a,b,c)=a XOR g(b,c), invert the left bit given output d and the next pair (b,c): T_{g,d}(2b+c)=2(d XOR g(b,c))+b. Cyclic closure of the n-target inverse recurrence equals a fixed point of its word composition Φ; closure after repeating the target m times is equivalent to a fixed point of Φ^m, so the minimum m is the shortest cycle length of a four-element transformation. Independently enumerated all 16 complete two-generator transformation monoids and all reachable augmented states including length mod 6, weight parity, both uniform flags and nonemptiness. Every reachable descriptor obeyed the exceptional-language claims, which thereby cover arbitrary word lengths (not merely words shorter than a cutoff). Rule 30 triple lift arises only for 1^n with 3 not dividing n; Rule 90 quadruple lift iff length and weight odd; Rule 165 quadruple lift iff length odd and weight even. Both composition conventions and independent original forward-ring comparisons were inspected; my new independent BFS verifies a finite closure sufficient for every length.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017 method treats surjective CA generally and computes periods for specified outputs; its generality is procedural, not a theorem explicitly giving exact all-word exceptional languages.",
+          "The check reconstructs the complete finite transformation semigroups, not bounded output samples."
+        ],
+        "reasoning": "A general algorithm could derive the table via finite computation, but its stated theorems do not explicitly imply the precise 16-rule partition without that additional computation/classification.",
+        "searches": [
+          "Mariot–Leporati–Dennunzio–Formenti 2017 full author postprint",
+          "left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py and exact Git tree/blob identities",
+        "Mariot et al. 2017 full author postprint",
+        "Martin–Odlyzko–Wolfram 1984 bibliographic/abstract",
+        "Wolfram 1983 bibliographic",
+        "Resultary semantic query: left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general algorithm supplies the inverse construction, while the assigned theorem adds all sixteen simultaneous exact spectra and regular exceptional languages."
+        ],
+        "reasoning": "Known linear and generic preimage-period results are logically compatible and provide ingredients, but not an inspected prior implication of the complete exact nonlinear/linear case distinction.",
+        "searches": [
+          "2017 postprint §§ inverse de Bruijn, linear case, conclusions",
+          "1984 algebraic linear CA paper",
+          "Resultary semantic search left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inverse-pair transformations are four-vertex de Bruijn backward transition maps; the minimum factor equals shortest functional-graph cycle.",
+          "For the linear ECA members, known linear CA algebra likely recovers parity cases."
+        ],
+        "reasoning": "Algorithms can compute an individual shortest predecessor period, but do not themselves publish the simultaneous exact exceptional-language table for sixteen rules. Linear special cases are properly credited.",
+        "searches": [
+          "left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification",
+          "Mariot et al. (2017) de Bruijn preimage-period algorithms",
+          "Martin–Odlyzko–Wolfram (1984) linear ECA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full computed monoid sizes for G=0..15: 7,41,21,5,21,8,12,41,41,12,8,21,5,21,41,7; every exceptional condition validated by closed finite automata.",
+          "No matching explicit table was located in returned Resultary rankings."
+        ],
+        "reasoning": "Rule-number tables classify local rules, not ring-predecessor minimum factors; a missing indexed table does not prove novelty.",
+        "searches": [
+          "left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification",
+          "Wolfram 1983 256-rule taxonomy",
+          "Resultary semantic cellular automata query"
+        ]
+      },
+      "rationale": "Known surjective-CA preimage-period algorithms and linear cellular automata are acknowledged. The assessed incremental claim is one simultaneous explicit all-output classification of all 16 left-permutative radius-one rules, including four nonlinear uniform-word triple-lift exceptions and the exact linear odd-parity fourfold cases. The accessible closest primary postprint develops general de Bruijn algorithms and linear bipermutive cases but, in the inspected sections, does not state or imply this compiled exception classification. Best-of-knowledge PASS, not an absolute historical novelty certificate.",
+      "residual_risks": [
+        "The classic 1984 paper was not reviewed in full and may encode the linear-rule cases.",
+        "An unindexed or differently named all-rule preimage table could cover more of the asserted classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General per-target preimage-period algorithm; no encountered all-16 left-permutative explicit lift-language classification. Does not establish absence from uninspected literature.",
+          "evidence": [
+            "Mariot, Leporati, Dennunzio, Formenti (2017), Natural Computing 16, 367–381, DOI 10.1007/s11047-016-9586-x"
+          ],
+          "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+          "material_read": "Full accessible author postprint: abstract, introduction, inverse de Bruijn construction, statements and examples of linear bipermutive rules, closing material.",
+          "method": "Read public full-text PDF including page screenshot and substantive sections",
+          "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+          "trigger": "Same preimage-period question in surjective one-dimensional CA"
+        },
+        {
+          "assessment": "Potential prior algebraic coverage of Rule 90/165 parity special cases; not evidence for nonlinear all-rule table.",
+          "evidence": [
+            "Martin, Odlyzko, Wolfram (1984), Commun. Math. Phys. 93, 219–258"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Bibliographic and available abstract/context only; full paper NOT read.",
+          "method": "Primary bibliographic/abstract comparison",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Closest classical linear-rule predecessor algebra"
+        },
+        {
+          "assessment": "Supplies ECA framework and known taxonomy; no claimed novelty for the rule classification itself.",
+          "evidence": [
+            "Wolfram (1983), Rev. Mod. Phys. 55, 601–644"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+          "material_read": "Available public bibliographic/introductory context; full paper not inspected.",
+          "method": "Primary bibliographic and classification-context comparison",
+          "title": "Statistical mechanics of cellular automata",
+          "trigger": "Classical ECA taxonomy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Periodicity of a predecessor after enlarging a specified cyclic ring is a natural finite-state reachability invariant not determined by bi-infinite surjectivity. A sharp universal fourfold bound, exact rule partition and regular all-length exceptional languages supply structural information across the complete 16-rule family and identify the qualitatively different nonlinear period-3 versus linear period-4 obstructions; this is more than a single algorithm execution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, verify.py and exact Git tree/blob identities",
+    "Mariot et al. 2017 full author postprint",
+    "Martin–Odlyzko–Wolfram 1984 bibliographic/abstract",
+    "Wolfram 1983 bibliographic",
+    "Resultary semantic query: left permutative elementary cellular automata periodic output least period preimages multiplier rule 30 90 all 16 rules classification"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every indexed nonempty binary ring word, the minimum repeated-ring predecessor factor is the shortest cycle length of its four-state inverse map. Across all 16 left-permutative ECA the exact spectra are {1}, {1,2}, {1,2,3} or {1,2,4}, with precisely the stated uniform-word and parity exceptional languages.",
+  "limitations": [
+    "Single synchronous update, binary radius-one left-permutative rules; indexed cyclic target of given length, not necessarily primitive period.",
+    "No multiplicity census or general multistep inverse theorem."
+  ],
+  "residual_risks": [
+    "The classic 1984 paper was not reviewed in full and may encode the linear-rule cases.",
+    "An unindexed or differently named all-rule preimage table could cover more of the asserted classification."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General per-target preimage-period algorithm; no encountered all-16 left-permutative explicit lift-language classification. Does not establish absence from uninspected literature.",
+      "evidence": [
+        "Mariot, Leporati, Dennunzio, Formenti (2017), Natural Computing 16, 367–381, DOI 10.1007/s11047-016-9586-x"
+      ],
+      "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+      "material_read": "Full accessible author postprint: abstract, introduction, inverse de Bruijn construction, statements and examples of linear bipermutive rules, closing material.",
+      "method": "Read public full-text PDF including page screenshot and substantive sections",
+      "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+      "trigger": "Same preimage-period question in surjective one-dimensional CA"
+    },
+    {
+      "assessment": "Potential prior algebraic coverage of Rule 90/165 parity special cases; not evidence for nonlinear all-rule table.",
+      "evidence": [
+        "Martin, Odlyzko, Wolfram (1984), Commun. Math. Phys. 93, 219–258"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+      "material_read": "Bibliographic and available abstract/context only; full paper NOT read.",
+      "method": "Primary bibliographic/abstract comparison",
+      "title": "Algebraic Properties of Cellular Automata",
+      "trigger": "Closest classical linear-rule predecessor algebra"
+    },
+    {
+      "assessment": "Supplies ECA framework and known taxonomy; no claimed novelty for the rule classification itself.",
+      "evidence": [
+        "Wolfram (1983), Rev. Mod. Phys. 55, 601–644"
+      ],
+      "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+      "material_read": "Available public bibliographic/introductory context; full paper not inspected.",
+      "method": "Primary bibliographic and classification-context comparison",
+      "title": "Statistical mechanics of cellular automata",
+      "trigger": "Classical ECA taxonomy"
+    }
+  ]
+}
