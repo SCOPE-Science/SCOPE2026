@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:55:21Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "Dimension n>=3, with singleton blocks at n=3 and Dirichlet convention only when both p,q>=2.",
+        "Fixed dimension before eps→0; no joint large-n uniformity.",
+        "The scalar width law itself is classical Gaussian-range-related background; originality assessment focuses on joint angular conditional limit."
+      ],
+      "proof_sources": [
+        "Pinned RESULT.md 62e8becdd67f9d077313c6e47807932644d7102d Steps1–5",
+        "Pinned verify.py f265d5635bc64948f16944afef8d766d21642b88",
+        "Independent constants and slope calculations n=3–7, separate from package checker"
+      ],
+      "rationale": "The minimum width occurs exactly at the balanced two-level partitions of centered unit vectors; its value sqrt[n/(2ab)] and finite minimizing direction count are reconstructed. The spherical chart (u0+v)/sqrt(1+||v||²) has exact Jacobian and width = (sqrt(n/(ab))+phi(v))/(sqrt2 sqrt(1+||v||²)); phi positive homogeneous and coercive on block zero-sum tangent space. Setting v=sqrt2 eps z yields convergence of bounded domain indicators to the full-dimensional polytope K:phi<=1, with zero boundary volume, so normalized conditional densities converge in L1 and hence total variation. Exact block simplex volume F_p(s)=sqrt(p)p^{p−1}s^{p−1}/(p−1)! and beta convolution give Vol(K)=p^{p−1/2}q^{q−1/2}/(n−2)!, yielding C_n and the Dirichlet(maxA,−minB,slack) law including singleton convention. The sharp lower and upper slope identities follow from extremal bounds for zero-sum vectors. Independent evaluation confirmed C3=C4=12/pi, C5=120 sqrt3/pi² and slope examples n=3–7; no finite extrapolation replaces the chart proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Har-Peled and Robson establish minimum width and balanced minimizing directions.",
+          "Kabluchko–Litvak–Zaporozhets treat Gaussian maxima, expected width and high-dimensional regular polytope width relations.",
+          "Resultary 2026 full RESULT.md on Bang homothetic core gives the same balanced minimum-width orientations as input, not probability or conditional tangent laws."
+        ],
+        "reasoning": "These prior results cover minimum/equality configurations and scalar random-width background but do not state the fixed-dimensional total-variation tangent-polytope blow-up and explicit Dirichlet splitting.",
+        "searches": [
+          "arxiv:2301.02616 minimum width regular simplex balanced partitions",
+          "arxiv:1511.08479 width regular polytopes expected Gaussian range",
+          "Resultary Bang homothetic core every simplex b077f6e663a4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2301.02616 relevant full width theorem",
+        "arxiv:1511.08479 relevant width/Gaussian sections",
+        "doi:10.1093/biomet/41.3-4.482 bibliographic only (full text not read)",
+        "Resultary b077f6e663a4 full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing balanced minimizing normals and scalar width moments does not determine the full conditional location distribution on their tangent coordinate planes."
+        ],
+        "reasoning": "The explicit polytope limit, exact m-dimensional volume law and angular slope extremizers need a local chart and finite-dimensional simplex integration beyond minimum width characterization; not an immediate corollary of expected Gaussian range.",
+        "searches": [
+          "Har-Peled Robson arxiv:2301.02616",
+          "Kabluchko Litvak Zaporozhets arxiv:1511.08479",
+          "Resultary Bang simplex b077f6e663a4 primary RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Width is normalized range of a centered Gaussian vector restricted to the unit sphere.",
+          "David–Hartley–Pearson (1954) internally studentized range gives a classical scalar distribution but no angular conditional result established from accessible material."
+        ],
+        "reasoning": "Scalar width distribution and Gaussian sample range are equivalent under deterministic normalization; the full conditional tangent vector law is strictly finer than a scalar CDF, and potential historical angular refinements are a risk.",
+        "searches": [
+          "Regular simplex minimum projection width near-minimum angular conditional tangent polytope Dirichlet limit density small epsilon",
+          "internally studentized Gaussian sample range small lower tail conditional order statistics angles",
+          "regular simplex Gaussian range normal sample range standard deviation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1954 statistics reference covers scalar studentized-range distribution; no exact conditional tangent-coordinate table identified in the inspected publication summaries."
+        ],
+        "reasoning": "Leading constants C3,C4,C5 may be extractable from classical scalar range CDF, and that subclaim alone is not used to assert originality. No matching vector-valued Dirichlet conditional table located; full 1954 text remains a priority risk.",
+        "searches": [
+          "Resultary semantic Regular simplex minimum projection width near-minimum angular conditional tangent polytope Dirichlet limit density small epsilon",
+          "Biometrika 1954 range to standard deviation table",
+          "Dirichlet joint conditional Gaussian sample extrema near smallest normalized range"
+        ]
+      },
+      "rationale": "Balanced minimum width and scalar normalized Gaussian range are known. Best-of-knowledge distinct contribution is full vector-valued conditioned blow-up, canonical tangent polytope/Dirichlet law, and extremal angular slopes.",
+      "residual_risks": [
+        "Full David–Hartley–Pearson 1954 article inaccessible/not inspected; it may cover scalar tail or angular conditional refinements.",
+        "Other classical studentized range literature might implicitly derive parts of the fixed-n density, but no decisive implication-equivalent theorem was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact minimum/balanced two-level normals, not conditional random angular perturbations",
+          "evidence": [
+            "Minimum width of regular n-simplex; balanced vertex partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.02616",
+          "material_read": "Main width statement and equality case proof, plus page screenshot of primary PDF",
+          "method": "Inspected public arXiv PDF relevant theorem pages",
+          "title": "On the Width of the Regular n-Simplex",
+          "trigger": "Exact same simplex width minimizers"
+        },
+        {
+          "assessment": "Random projection expectation and distribution background; inspected portions do not give near-minimum tangent vector conditional law",
+          "evidence": [
+            "Gaussian range representation for regular simplex width, not tangent Dirichlet limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "Introduction, width/Gaussian comparison and relevant primary results, including screenshot",
+          "method": "Read arXiv preprint sections and mathematical normalization",
+          "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+          "trigger": "Gaussian range aliases and random projections"
+        },
+        {
+          "assessment": "Strong candidate covering scalar marginal; direct comparison of joint angular refinement remains unconfirmed",
+          "evidence": [
+            "David–Hartley–Pearson (1954), Biometrika 41, 482–493; scope and original proofs not independently inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/41.3-4.482",
+          "material_read": "Bibliographic citation from the pinned research package; original mathematical full text not obtained",
+          "method": "Not represented as full-text reading, priority exception only",
+          "title": "The Distribution of the Ratio, in a Single Normal Sample, of Range to Standard Deviation",
+          "trigger": "Potentially equivalent studentized Gaussian sample-range statistic"
+        },
+        {
+          "assessment": "Minimizing direction equivalence, but not conditional law or rare-width asymptotic",
+          "evidence": [
+            "Exact balanced-partition width minimizers in source Resultary theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4",
+          "material_read": "Full RESULT.md source blob including theorem, proof and equality cases",
+          "method": "GitHub connector fetch of blob c7a4887d9b69a99c9fdf1e1e90074a29f2f5e98f",
+          "title": "Bang's homothetic core is exact for every simplex",
+          "trigger": "Relevant published statement on balanced minimizing width directions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md 62e8becdd67f9d077313c6e47807932644d7102d Steps1–5",
+        "Pinned verify.py f265d5635bc64948f16944afef8d766d21642b88",
+        "Independent constants and slope calculations n=3–7, separate from package checker"
+      ],
+      "rationale": "Rare near-minimal projection orientations of a regular simplex are a natural geometric-probability problem; exact tail coefficient plus the full angular conditional law and sharp stability slopes provide much more structural information than a scalar width mean or minimum.",
+      "residual_risks": [
+        "Scalar distribution is classical; worth attaches to joint angular scaling, not merely reproduction of old range constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed n>=3, exactly regular simplex and Haar directions; no perturbed simplex or simultaneous n→∞ limit.",
+    "1954 statistical primary original not read in full; priority uncertainty retained."
+  ],
+  "schema_version": 1
+}
