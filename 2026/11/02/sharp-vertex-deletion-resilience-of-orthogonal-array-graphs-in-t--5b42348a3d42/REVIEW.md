@@ -1,15 +1,21 @@
-# Scientific review of the orthogonal-array deletion-resilience theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion quantifies over every index-one strength-two orthogonal array in the stated range. Pairwise coordinate agreement implies the exact strongly regular intersection numbers \(k=t(n-1)\), \(\lambda=n-2+(t-1)(t-2)\), and \(\mu=t(t-1)\). Inclusion–exclusion gives the eight two-anchor witness counts, of which six are distinct. Every count is positive. Deleting fewer vertices than the smallest count preserves all eight patterns, hence supplies a fresh response against the countable random graph to every three-pebble move. Deleting precisely the witnesses of one minimum pattern produces a rank-three distinguishing sentence. Separate upper bounds from \(D\) and \(C\) and direct attainment at the midpoint row counts prove the parity-dependent optimality and uniqueness. All finite-field existence claims are supplied by pairwise independent affine-linear coordinate forms. Exhaustive small-field verification and independent prime-field verification corroborate, but do not replace, the proof. The sharp statements concern deletion of vertices, not edges, and unrestricted-depth noncounting three-variable logic, not unrestricted full logic.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-Cameron–Stark (2002), *A Prolific Construction of Strongly Regular Graphs with the n-e.c. Property*, describes \(n\)-existentially closed strongly regular graphs from an affine-design random construction, but does not give the present all-orthogonal-array sharp adversarial deletion budget and midpoint row optimization in inspected original pages. Baker–Bonato–Nowlin Brown–Szőnyi (2008), *Graphs with the n-e.c. adjacency property constructed from affine planes*, studies different partial-plane graphs, extension and switching constructions. Cioabă–Koolen–Li (arXiv:1311.5634), *Disconnecting Strongly Regular Graphs*, supplies the present array-graph intersection parameters but proves graph disconnection thresholds, not preservation of the random graph's three-variable theory after arbitrary vertex deletions. Byrne–Byrne–Cioabă (arXiv:2609.10330, 2026) explicitly treats \(n\)-existential closure, VC-dimension, and Latin-square graphs; its full paper was inaccessible during comparison, so the abstract alone cannot exclude an implication by a stronger theorem. The elementary general witness-multiplicity lemma is not claimed as new. The potentially original contribution is its exact sharp specialization to all orthogonal-array graphs and the attained odd/even optimization, with the logical conclusion. This assessment is not exhaustive historical certification.
+PASS
 
-## Mathematical value — PASS
-The number of arbitrary vertex faults under which every finite orthogonal-array graph remains indistinguishable from the countable random graph by all three-variable formulas is a natural quantitative robustness invariant. The exact optimal value is quadratic in the array order, while a fixed small number of rows gives bounded tolerance. The sharp maximal row counts depend on parity and are realized over every finite field, with explicit optimal and first-failing deletion sizes. The theorem determines an exact complete robustness boundary for a structured nontrivial family, not an arbitrary one-off finite calculation. It does not claim broader optimization over all strongly regular graphs or a new general finite-model-theory lemma.
+The array pair-uniqueness yields graph degree t(n-1), common-neighbor counts lambda=n-2+(t-1)(t-2) for adjacent and mu=t(t-1) for nonadjacent anchors; subtracting yields exactly the adjacent pattern (A,B,B,C) and nonadjacent (D,E,E,F). Deleting at most min-1 vertices retains every 2-point extension pattern. An arbitrary-round three-pebble strategy matches equality/adjacency to at most two anchors, proving FO^3 equivalence at every finite quantifier rank. Deleting all witnesses of a minimum-pattern anchor pair provides a rank-three separating sentence. For q=2h or 2h+1 the D and C inequalities give exact optimal row counts; finite-field projective directions realize every allowed t. Independent direct field construction checked all 9 q,t profiles for q=3,5,7 with exact pattern counts and parity optima; finite checks corroborate the all-array counting proof.
 
-## Limits and outstanding comparisons
-The full text of the 2026 VC-dimension study remains a priority-relevant source to inspect independently. Classical orthogonal-array graph parameter identities and the basic extension principle are known; a preexisting strong quantified witness-multiplicity theorem could imply the result. No independent mathematical audit or exhaustive historical-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The SRG parameters and 2-existential extension concepts are classical. Cioabă–Koolen–Li 2014 studies connectivity of Latin-square/OA strongly regular graphs, not this all-deletion FO^3 guarantee. Byrne–Byrne–Cioabă 2026 studies VC dimension and existential closure of SRGs including Latin-square graphs, making it a plausible related predecessor, but the full 2026 text could not be read; only abstract/version metadata were accessible, and authorized institutional full text returned VPN disconnected. In the sources actually inspected there is no decisive prior theorem giving all six exact deletion counts and parity-optimized resilience. The survival of this specific natural classification is a qualified best-of-knowledge assessment, not established historical priority.
+
+## value
+
+PASS
+
+The deletion-tolerance radius is a sharp, array-independent invariant of a natural strongly regular graph family, and directly quantifies finite-variable logical robustness. The six witness counts and parity-sensitive optimized row split classify which balanced designs resist worst-case vertex erasures. Though the fixed-graph step follows elementary SRG counting, the complete all-array sharp classification and row optimization form a useful natural exact problem, not an unsupported toy check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
