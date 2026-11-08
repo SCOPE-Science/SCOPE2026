@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:41:20.266136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Entire frozen RESULT.md and verify_certificate.py",
+        "Independent exact BigInt regeneration and byte-by-byte coefficient table comparison: 955 positives, minimum 47",
+        "Source Long 2026 abstract states left-PGF extremality for all p, N=4, j=2",
+        "AM–GM and Poisson race identity"
+      ],
+      "rationale": "For four independent positive coupon probabilities, Poissonized last-arrival conditioning gives exact G_p(z)=z Σ_k∫p_k e^(−p_k t)∏_{i≠k}(1−e^(−p_i t)+(z−1)p_i t e^(−p_i t))dt. Expanding at z=1 produces middle tail T=P(U≥3)=6Σ A_i/(1−p_i)^3−6Σ A_i−48∏p_i. After sorting unnormalized weights as r,r+v,r+v+w,r+v+w+z, multiplying 47/144−T by positive 144 S^4 Q yields a degree-16 integer polynomial. Independently regenerated all 955 nonzero coefficients by a fresh arbitrary-precision polynomial map, compared all against the actual 955-row source certificate.tsv; every coefficient exactly agreed and was strictly positive (minimum 47), with explicit positive r^14 v²,r^14 w²,r^14 z² terms. This proves P(U≥3)≤47/144 strict off uniform for the whole continuous simplex. U≥1 is certain; Long left-PGF order yields U≥2 via z↓0; U=4=24∏p_i≤3/32 by AM–GM. The exact uniform PMF (97,97,67,27)/288 sums to one, giving full ordinary stochastic domination.",
+      "residual_risks": [
+        "One analytical premise (Long 2026 left-PGF inequality) is cited from prior publication; full primary manuscript inaccessible though the accessible abstract states precisely that theorem.",
+        "Polynomial coefficient positivity is exact exhaustive symbolic algebra, not human-readable simple factorization.",
+        "No statement for five or more types, other siblings or arbitrary nonuniform comparisons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long primary abstract explicitly covers all positive p and all N,j for PGF/Laplace and binomial moments.",
+          "Doumas–Spektor theorem concerns strict expectation maximization; Long earlier paper gives expectation and monotonic N under uniform."
+        ],
+        "reasoning": "Broader parameter coverage on weaker order types does not dominate ordinary stochastic order even at N=4; no exact middle-tail theorem was stated in available primary material.",
+        "searches": [
+          "Long 2026 radial transform extremality all number of types and siblings",
+          "Doumas Spektor 2026 equal probabilities expected deficit",
+          "Long Extremality and Limit Laws arXiv:2606.29635"
+        ]
+      },
+      "checked_sources": [
+        "Actual coupon Git tree af5288d6f2708f19b8f055abced3beaa0ea1a13d",
+        "Long arXiv:2606.31391 abstract",
+        "Doumas–Spektor arXiv:2606.21591 abstract",
+        "Long arXiv:2606.29635 abstract",
+        "Resultary semantic query: four type sibling coupon collector stochastic dominance uniform ordinary tail one singleton at stopping"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PGF order for z∈(0,1) yields P(U=1) inequality via z↓0 but does not isolate P(U≥3).",
+          "The exact polynomial certificate proves the remaining k=3 inequality, while k=4 follows from AM–GM."
+        ],
+        "reasoning": "The old transform bound genuinely implies part of the conclusion, which receives no novelty credit; the nontrivial remaining tail is not a corollary of transform order on its own.",
+        "searches": [
+          "Long 2026 Theorem 2.2 left PGF implies U≥2 but not U≥3",
+          "Long 2026 Remark 5.6 stochastic order distinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "U is number of types appearing exactly once at the last first arrival; ordinary first-order domination amounts to three strict/weak upper tails for support {1,2,3,4}.",
+          "All binomial moments (or Laplace/PGF order for 0<z<1) do not in general imply first-order stochastic order."
+        ],
+        "reasoning": "Distinguished ordinary stoch dominance from other integral-transform orders; k=3 is the genuinely independent comparison.",
+        "searches": [
+          "four type sibling coupon collector stochastic dominance uniform ordinary tail one singleton at stopping",
+          "sibling deficit type four singletons at cover-time stochastic order",
+          "Long 2026 arXiv:2606.31391 PGF binomial moment radial extremality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 955 table entries are a mathematical positivity certificate, independently regenerated from the rational upper-tail expression.",
+          "Uniform PMF is (97,97,67,27)/288 with middle tail 47/144."
+        ],
+        "reasoning": "A uniform probability value alone does not imply global maximization over the entire 3-dimensional simplex; exhaustive symbolic coefficient positivity is the substantive result, not a known distribution table.",
+        "searches": [
+          "four coupon types P(U≥3) 47/144 stochastic order",
+          "955 coefficient polynomial nonuniform coupon probabilities exact certificate"
+        ]
+      },
+      "rationale": "Best-of-knowledge original four-type *ordinary* stochastic order against uniform, especially the middle tail k=3. Long already proves PGF and binomial-moment extremality and, together with AM–GM, the other threshold comparisons; these are credited. The accessible full Long manuscript could not be inspected, so an undiscovered appendix for the four-type ordinary order remains a priority risk, but the independent new exact 955-coefficient proof supplies the missing implication and motivates best-of-knowledge pass.",
+      "residual_risks": [
+        "Full Long same-object paper could not be inspected because institutional VPN was disconnected; an appendix might contain the four-type ordinary-tail result.",
+        "No extension to higher coupon types or later siblings.",
+        "Independent algebra verified positivity certificate, but not a full formal proof assistant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS PGF and moment inequalities; possible unseen ordinary first-order stochastic order in text/appendix not resolved; DO NOT CLAIM WHOLE-DOCUMENT NONCOVERAGE",
+          "evidence": "arXiv:2606.31391 2026-06-30, Oxford job 72217ce4f83304fbc2c4ff976d67618e",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31391",
+          "material_read": "Primary arXiv abstract identifying left/right PGF and binomial-moment radial comparisons; full original text unavailable",
+          "method": "Primary abstract reading and alternate lawful OA search; authorized Oxford tool reported vpn_disconnected",
+          "title": "Radial Transform Extremality for the Siblings of the Coupon Collector",
+          "trigger": "Same model, same distribution, possibly strongest pre-existing all-threshold result"
+        },
+        {
+          "assessment": "COVERS expectation only, not sufficient for all first-order tails",
+          "evidence": "Doumas–Spektor 2026-06-19 arXiv:2606.21591",
+          "identifier_or_url": "https://arxiv.org/abs/2606.21591",
+          "material_read": "Full primary abstract with quantified expectation dominance and explicit non-Schur-concavity",
+          "method": "Primary arXiv abstract reading",
+          "title": "Equal probabilities maximize the expected deficit in the siblings of the coupon collector",
+          "trigger": "Prior uniform extremality in the same four-type model"
+        },
+        {
+          "assessment": "N-monotonicity holding at uniform and expectation maximality over p are different comparisons from fixed N=4 p versus uniform stochastic order",
+          "evidence": "Long 2026-06-28 arXiv:2606.29635",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+          "material_read": "Primary abstract describing mean and uniform-N stochastic monotonicity",
+          "method": "Primary arXiv abstract reading",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Another same-author earlier extremality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact source formula for the middle tail, independent 955-term symbolic proof, and Long transform theorem for the easier tail"
+      ],
+      "rationale": "A genuinely nontrivial first-order stochastic dominance theorem at four types, sharply separating ordinary upper-tail order from expectation, PGF and binomial-moment extremality. The complete 955-term positive polynomial settles a natural missing interior tail and an exact uniform extremizer, not just an arbitrary finite recomputation.",
+      "residual_risks": [
+        "The fixed N=4 classification does not settle the general ordinary-stochastic-order problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Long full text unavailable through arXiv/OA and institutional VPN disconnected; publication priority qualified.",
+    "No ordinary stochastic statement for N≥5 or other sibling indices."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Four positive coupon probabilities and the second sibling's missing-type count are defined exactly. The Poisson last-first-arrival PGF gives the coefficients \(C_2\) and \(C_3\), hence the middle tail \(C_2-2C_3\); an explicit denominator-clearance identity reduces the gap from \(47/144\) to an integer homogeneous polynomial. A complete exact-arithmetic expansion establishes 955 strictly positive nonzero coefficients and explicit witnesses for every nonuniform ordered vector. The boundary tails follow from Long's proved left-PGF comparison and AM–GM, not from the coefficient table. The packaged standard-library checker reproduces 1942 assertions. The eight finite examples are supplementary, not the infinite-population proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Long's full text, especially Proposition 2.1, Theorem 2.2, Theorem 5.3 and Remark 5.6, was compared at the statement and implication level: it proves two transform orders and binomial-moment extremality and expressly leaves ordinary stochastic order open. Doumas–Spektor proves only mean extremality, and Long's companion paper treats expected deficit and stochastic monotonicity in the *number of types* at uniform. None of these claims implies the previously missing four-type middle tail. Relevant mathematical-record searches and available previous claims found no matching complete ordinary stochastic dominance theorem for the second sibling on four types. Prior broad combinatorial distribution literature could contain an equivalent result; this priority risk remains.
+PASS
 
-## Mathematical value — PASS
-The open ordinary stochastic-order strengthening has a first genuinely interior threshold at four types: for smaller positive numbers of types the endpoints are governed by known PGF and product inequalities. This theorem settles all four thresholds at that natural first test case and supplies the exact sharp interior bound and a reproducible all-parameter certificate, without claiming the whole open problem.
+For four independent positive coupon probabilities, Poissonized last-arrival conditioning gives exact G_p(z)=z Σ_k∫p_k e^(−p_k t)∏_{i≠k}(1−e^(−p_i t)+(z−1)p_i t e^(−p_i t))dt. Expanding at z=1 produces middle tail T=P(U≥3)=6Σ A_i/(1−p_i)^3−6Σ A_i−48∏p_i. After sorting unnormalized weights as r,r+v,r+v+w,r+v+w+z, multiplying 47/144−T by positive 144 S^4 Q yields a degree-16 integer polynomial. Independently regenerated all 955 nonzero coefficients by a fresh arbitrary-precision polynomial map, compared all against the actual 955-row source certificate.tsv; every coefficient exactly agreed and was strictly positive (minimum 47), with explicit positive r^14 v²,r^14 w²,r^14 z² terms. This proves P(U≥3)≤47/144 strict off uniform for the whole continuous simplex. U≥1 is certain; Long left-PGF order yields U≥2 via z↓0; U=4=24∏p_i≤3/32 by AM–GM. The exact uniform PMF (97,97,67,27)/288 sums to one, giving full ordinary stochastic domination.
 
-## Scope and limitations
-No global all-\(N\) theorem, higher sibling, radial stochastic monotonicity, or independent validation is claimed. The positivity proof is a complete finite symbolic identity rather than a concise human factorization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original four-type *ordinary* stochastic order against uniform, especially the middle tail k=3. Long already proves PGF and binomial-moment extremality and, together with AM–GM, the other threshold comparisons; these are credited. The accessible full Long manuscript could not be inspected, so an undiscovered appendix for the four-type ordinary order remains a priority risk, but the independent new exact 955-coefficient proof supplies the missing implication and motivates best-of-knowledge pass.
+
+## value
+
+PASS
+
+A genuinely nontrivial first-order stochastic dominance theorem at four types, sharply separating ordinary upper-tail order from expectation, PGF and binomial-moment extremality. The complete 955-term positive polynomial settles a natural missing interior tail and an exact uniform extremizer, not just an arbitrary finite recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
