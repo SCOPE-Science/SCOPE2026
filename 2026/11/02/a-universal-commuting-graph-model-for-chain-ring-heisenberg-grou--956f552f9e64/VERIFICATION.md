@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and boundaries
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No nonstandard dependencies or network access are needed. The verifier constructs multiplication and determinant-zero tests for modular and truncated-polynomial rings independently. It enumerates the ordered commuting-tuple relation directly, without the proof's valuation stratification, and tests \(11\) ring/length/arity configurations.
+# Independent mathematical audit
 
-For cross-ring graph comparisons, the verifier computes normalized primitive projective directions at every quotient level. It numbers roots and children to build an explicit graph isomorphism, then checks every ordered vector-pair adjacency relation for \((q,\ell)\in\{(2,2),(2,3),(2,4),(3,2),(3,3)\}\). In the \((2,3)\) case it additionally tests the entire \(512\)-vertex group graph, all \(262144\) ordered vertex pairs. The final line should read `VERIFY_OK 11 exact commuting-tuple censuses and 5 exhaustive cross-ring graph-isomorphism maps`.
+## correctness
 
-The exact proof of the infinite-family theorem is in `RESULT.md`. No finite experiment substitutes for its projective-line lifting or centralizer-count arguments. The full simple graph includes all group elements and excludes self-loops. The test is not an external certification or independent mathematical audit.
+PASS
+
+For finite commutative chain rings R, the UT3 commutator equals the determinant ab′-a′b. Valuation s and primitive projective directions over R/(pi^(ell-s)) give determinant-zero adjacency; uniform q-to-one lifts give the same rooted direction forest for all rings of residue size q and length ell. Centralizer size q^(2ell+s) yields exactly ell noncentral degrees and recovers (q,ell) from the graph. Thus the full graph is a function exactly of (q,ell). Explicit R=Z/8 and S=F2[t]/(t^3) have the same graph and non-isomorphic abelian central quotients C8^2 vs C2^6 and derived groups C8 vs C2^3, so cannot be isoclinic. The projective primitive-pair lemma and determinant valuation boundary s+t>=ell were reconstructed. Independent exact integer centralizer checks across length 1,2,3 models corroborate but do not replace this infinite-family proof.
+
+## originality
+
+PASS
+
+The published Arvind--Cameron 2022 class-two isoclinism conjecture, not simply the field construction, is directly negated by a concrete family member. The known two-generated class-two commuting-graph theorem applies to groups with a two-generator quotient and therefore does not cover H(F2[t]/t^3) with a six-generator central quotient. Full-graph rather than noncentral-graph convention and characteristic independence distinguish the statement. Best-of-knowledge PASS with explicit priority risk.
+
+## value
+
+PASS
+
+A concrete counterexample to a named group-theoretic conjecture together with an all-length combinatorial classification of full commuting graphs is substantive structural mathematics. Graph degrees recover ring size/length but lose additive exponent, a useful obstruction to graph-based isoclinism recognition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
