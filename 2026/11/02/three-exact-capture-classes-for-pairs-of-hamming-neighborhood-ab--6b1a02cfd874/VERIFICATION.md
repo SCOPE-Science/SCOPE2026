@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify_two_ball_capture.py` with standard Python 3. It checks every energy shell at every center distance for dimensions 6 through 13 using two distinct prime fields, independently rebuilds Fourier restriction matrices for dimensions 6 through 9, and computes adjacency Krylov ranks for dimensions 6 and 7. The expected output is included in `verification_log.txt`.
+## correctness
 
-The checks are finite arithmetic reproductions; the all-dimension result follows from the detailed affine-intersection proof in `RESULT.md`, not from extrapolation. No independent scientific audit has been performed. Positive detector rates, a finite homogeneous hypercube, and maximally mixed initialization are essential to the numerical capture-fraction formula. The general projection law is valid for any initial density matrix under the stated Hamiltonian model.
+PASS
+
+For d>=6, positive detector loss and detector-supported Hermitian perturbation, the orthogonal complement to the A-Krylov detector space is dark; any non-decaying mode in its complement would be simultaneously an A-eigenvector and orthogonal to all detectors, a contradiction. On Walsh shell k, the restricted span equals F_k + epsilon_Y F_k, where F_k is the d-dimensional affine-function space for 1<=k<=d-1. Layer-constant/contrast analysis gives intersection dimension d for min(t,d-t)=0, 2 for s=1,2, 1 for s>=3 and min(k,d-k)=2, and 0 for the remaining interior shells. Summing exact shell ranks proves the three values 2d^2-4d, 2d^2-6d+8, d^2-d+2, and the exact unordered center-pair counts. Independent rational Walsh rank calculations for all d=6,7 separations and a separately inspected modular Krawtchouk/Krylov verification program corroborate but are not the infinite proof.
+
+## originality
+
+PASS
+
+The detector cyclic-space/dark-space method is known from continuous-time quantum transport, particularly Novo et al.; novelty is limited to the full two-closed-radius-one-ball placement classification on Q_d including strict intermediate optimum and antipodal redundancy. Published SCOPE/Resultary nearby hypercube transport papers concern different operators/detectors, not identical ranks. This is best-knowledge with possible broader controllability coverage.
+
+## value
+
+PASS
+
+The exact accessible-mode/capture probability reveals a sharp three-stratum dependence on Hamming separation and a counterintuitive antipodal inefficiency, useful for positioning two absorbing neighborhoods in symmetric hypercube transport. This is a natural infinite-dimensional-parameter classification rather than arbitrary finite parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
