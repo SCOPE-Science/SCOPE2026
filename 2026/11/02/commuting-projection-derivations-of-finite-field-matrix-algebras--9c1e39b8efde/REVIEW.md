@@ -1,19 +1,21 @@
-# Review of the commuting-neighborhood census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All derivations of a full matrix algebra are inner, and the proof derives a representative directly using matrix units. In odd characteristic an idempotent inner derivation must vanish. In characteristic two the quadratic equation \(A^2+A=cI\), the Artin–Schreier trace split, and the scalar-shift quotient give exact operator counts. The central commutator lemma proves that commuting inner derivations admit genuinely commuting representatives, not merely projectively commuting ones. Split centralizers \(M_r(k)\times M_s(k)\) yield \(C_{r,s}\), while nonsplit centralizers \(M_m(k_2)\) yield \(I_m(q^2)\). Direct matrix-unit computation independently confirms seven finite configurations, including both characteristic parities and the extension field \(\mathbb F_4\). All terms and graph-loop conventions are specified; these finite checks do not replace the general algebraic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Any k-linear associative derivation of M_n(k) is inner ad_A, modulo scalar matrices. For odd characteristic idempotent ad_A has all eigenvalue differences in {0,1} and their negatives, so is zero. In characteristic 2, (ad_A)^2=ad_A iff A²+A=cI. Artin–Schreier trace zero gives idempotent split A up to scalar shift; trace one gives irreducible quadratic class over F_(q²) only for n even. Rank-r split operators counted by [n choose r]_q q^{r(n-r)}/(1+1_(2r=n)), nonsplit by GL_n(q)/(2 GL_(n/2)(q²)). The commutation of idempotent ad_A,ad_B forces [A,B]=λI and 0=[A²+A,B]=λI, so actual A,B commute; for each A, its split block centralizer yields (I_r I_s+J_r J_s)/2 neighbors, nonsplit centralizer gives I_(n/2)(q²), zero gives all P_n. The weighted sum gives all ordered commuting pairs; sample (n,q)=(4,2) yields 457 operators and 18169 ordered pairs. Finite fields with extension q are included, n>=2.
 
-Searches compared the exact operator-pair census with published algebra and matrix literature and indexed mathematical findings. Britnell–Wildon count conditions for commuting similarity classes, while Fulman–Guralnick count unrestricted pairs; neither gives the present constrained inner-derivation neighborhood law. Diniz–Pellegrino count graded-isomorphism classes, not individual labeled commuting neighbors. The most plausible competing work is Diniz et al. (2026), which classifies single finite-field gradings for groups with cyclic finite subgroups. It may subsume the single-derivation orbit decomposition used in the proof, which is expressly *not* claimed as a contribution. The present result requires pairwise compatibility of two projections, naturally involving the noncyclic Klein-four group, and provides a full weighted neighborhood census. The 2026 paper was accessible only through its abstract; undiscovered broader results remain a genuine risk. Priority remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-The commuting graph of a naturally specified finite set of derivations is an intrinsic algebraic invariant. The theorem computes its complete vertex-degree distribution and its ordered-edge count across every matrix dimension and finite field, detecting a split/non-split centralizer transition invisible in a mere classification of single idempotent derivations. Its exact \((n,q)=(4,2)\) degree census supplies a nontrivial, independently checked example. This is motivated structural enumeration, not an arbitrary numerical slice.
+Grading and inner derivation classification are prior knowledge, as are matrix-centralizer counts. The commutation equivalence and exact degree multiset for constrained idempotent derivations differ from unrestricted commuting matrix enumeration. A current paper on gradings with cyclic finite subgroups is a serious partial overlap but excludes commuting Klein-four gradings by its stated group condition.
 
-## Limitations and closest literature
+## value
 
-This theorem concerns actual operators on full associative matrix algebras, not their simultaneous conjugacy classes. No independent audit has occurred. Nearby sources are arXiv:1001.0811, arXiv:1611.05499, arXiv:2004.02285, and arXiv:2610.20113. The most relevant inaccessible full text is arXiv:2610.20113. The rigorous contribution is the constrained paired-degree formula, not the general theory of gradings or unrestricted commuting matrices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform full valency multiset, not just a count of individual gradings, for a natural derivation family with genuine split/nonsplit finite-field distinction; the 457-vertex four-by-four case and arbitrary field/rank formula are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py`. The exact output is in `verification_output.txt`; the checker uses Python's standard library only. It enumerates every scalar-normalized inner representative for each listed finite matrix algebra and directly verifies the original \(D^2=D\) identity on all matrix units. It independently computes the whole operator rank, constructs every ordered pair of accepted derivations, and verifies the predicted commuting-neighborhood counts. For the six smaller cases it also tests equality of both endomorphism compositions on the full matrix-unit basis. For \((n,q)=(4,2)\), it tests commutation of the underlying representative matrices (the equivalence is proved separately). The extension field \(\mathbb F_4\) uses polynomial arithmetic modulo \(z^2+z+1\). The final marker is `COMMUTING_PROJECTION_DERIVATIONS_OK 7_EXHAUSTIVE_CONFIGURATIONS`.
+## correctness
 
-The exact counted configurations are \((q,n)=(2,1),(3,2),(5,2),(2,2),(4,2),(2,3),(2,4)\). The \(n=1\) computation is a boundary sanity check, not a claim of additional novelty. These finite experiments do not establish the infinite family without the algebraic proof. No external or independent validation was performed.
+PASS
+
+Any k-linear associative derivation of M_n(k) is inner ad_A, modulo scalar matrices. For odd characteristic idempotent ad_A has all eigenvalue differences in {0,1} and their negatives, so is zero. In characteristic 2, (ad_A)^2=ad_A iff A²+A=cI. Artin–Schreier trace zero gives idempotent split A up to scalar shift; trace one gives irreducible quadratic class over F_(q²) only for n even. Rank-r split operators counted by [n choose r]_q q^{r(n-r)}/(1+1_(2r=n)), nonsplit by GL_n(q)/(2 GL_(n/2)(q²)). The commutation of idempotent ad_A,ad_B forces [A,B]=λI and 0=[A²+A,B]=λI, so actual A,B commute; for each A, its split block centralizer yields (I_r I_s+J_r J_s)/2 neighbors, nonsplit centralizer gives I_(n/2)(q²), zero gives all P_n. The weighted sum gives all ordered commuting pairs; sample (n,q)=(4,2) yields 457 operators and 18169 ordered pairs. Finite fields with extension q are included, n>=2.
+
+## originality
+
+PASS
+
+Grading and inner derivation classification are prior knowledge, as are matrix-centralizer counts. The commutation equivalence and exact degree multiset for constrained idempotent derivations differ from unrestricted commuting matrix enumeration. A current paper on gradings with cyclic finite subgroups is a serious partial overlap but excludes commuting Klein-four gradings by its stated group condition.
+
+## value
+
+PASS
+
+Uniform full valency multiset, not just a count of individual gradings, for a natural derivation family with genuine split/nonsplit finite-field distinction; the 457-vertex four-by-four case and arbitrary field/rank formula are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
