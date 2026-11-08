@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Loss identity/Unique cap/Long-budget asymptotics/Short-budget order and reversal",
+      "verify.py deterministic quadrature and optimizer checks",
+      "Exact integer inequalities 11/20>1/2 and 3^11>2^17"
+    ],
+    "rationale": "For every pair of interior occupancy probabilities and positive rates the loss conditions on first-site occupancy and exact exponential first-detection time. The derivative is the product of a positive factor and a strictly increasing function, giving one global optimal cap. The root identity yields the two-term cap asymptotic. Separating lower-order integration terms produces the exact leading missed-detection coefficient and ratio; the independent integer inequality proves the witness. A standalone script checks the conditional integral via numerical quadrature, derivatives, optimality grids, and both asymptotic orientations; finite tests are supplementary, not an infinite proof. All equal-rate, endpoint-cap and horizon cases are explicitly handled in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guillera-Arroita et al. (2014), Methods and Results: sitewise removal-survey effort levels, expected survey-cost budget, no single-crew chronological order or hard deadline. Their Discussion explicitly acknowledges stochastic actual spending. DOI 10.1002/ece3.1056.",
+        "Hauser and McCarthy (2009), DOI 10.1111/j.1461-0248.2009.01323.x, is explicitly identified by the 2014 paper as a nonremoval-survey baseline; its abstract describes expected treatment cost rather than an order-sensitive stochastic deadline.",
+        "Brown (1980), DOI 10.1287/opre.28.6.1275, optimizes single-moving-target detection probability rather than the number of independent occupied habitats detected."
+      ],
+      "reasoning": "The present theorem concerns a different constraint (a pathwise common deadline), coupled ordered visits, and time released to the second site upon first-site detection. Sitewise resource allocation without actual time coupling and search for exactly one hidden target do not dominate the claim. Broader unspecified stochastic-scheduling literature remains a residual risk, not a decisive known cover.",
+      "searches": [
+        "Guillera-Arroita Hauser McCarthy 2014 optimal surveillance sequential order site scheduling adaptivity",
+        "Hauser McCarthy 2009 streamlining search and destroy optimal surveillance allocation site occupancy first detection ecological",
+        "search resource allocation monitoring several sites detection exponential time unknown occupancy optimal sequential search index 2012 2014"
+      ]
+    },
+    "checked_sources": [
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1056",
+      "https://doi.org/10.1111/j.1461-0248.2009.01323.x",
+      "https://doi.org/10.1287/opre.28.6.1275"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary 2014 paper constrains expected survey costs and ranks initial allocation by sitewise expected marginal intensity and management savings; its Methods and Discussion do not implement a sequential realized-time recycling rule. DOI 10.1002/ece3.1056.",
+        "The new result exhibits a rational parameter tuple with initial detection-intensity order opposite the asymptotic log-absence order. This follows from the proof identity and the integer comparison 3^11>2^17, not from a missing numerical table."
+      ],
+      "reasoning": "There is a strict model/claim separation: an expected-cost cap vector does not determine the conditional second-site survey duration after an early first detection. The new order-ratio calculation gives a specific comparison absent from the inspected primary statements. This does not exclude that a different general theorem could imply the specialization.",
+      "searches": [
+        "Optimal surveillance strategy for invasive species management when surveys stop after detection expected budget actual stochastic costs 2014",
+        "stochastic scheduling jobs probability absent exponential processing time expected completed jobs optimal order deadline"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2014 primary text explicitly models Poisson first detections and surveys stopped at the first detection, but formulates expected-total-cost allocation, not ordered actual-deadline switching (https://doi.org/10.1002/ece3.1056).",
+        "The classic 1980 source is a moving-single-target search characterization rather than independent, simultaneously possibly occupied habitats with additive detection rewards (https://doi.org/10.1287/opre.28.6.1275)."
+      ],
+      "reasoning": "A one-target search and sitewise expected-budget Kuhn–Tucker optimization do not themselves imply the optimal first-site abandonment cap or the limiting comparison of two orders. The closest retrieved claims concern other search objectives. No exact-equivalent formulation was verified; an unlocated older search model could still contain one.",
+      "searches": [
+        "optimal search two locations independent occupancy exponential detection arrival optimal sequential search order fixed time budget expected number detected optimal switching",
+        "one switch search plan \"two\" \"sites\" \"detection\" \"deadline\" occupancy",
+        "defective exponential random service time two job deadline expected reward order optimal switching horizon asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The most relevant published ecological surveillance source supplies cost-allocation formulas and numerical comparisons of removal and nonremoval design, not a two-order hard-horizon table (https://doi.org/10.1002/ece3.1056).",
+        "The accessible 2009 abstract and 1980 abstract have different objective/constraint descriptions, without the proposed index ratio (https://doi.org/10.1111/j.1461-0248.2009.01323.x; https://doi.org/10.1287/opre.28.6.1275)."
+      ],
+      "reasoning": "Semantic similarity searches and direct literature searches did not identify this particular exact formula, numerical table, or equivalent indexed order law. Non-appearance does not establish worldwide uniqueness or priority.",
+      "searches": [
+        "Two site ecological invasive surveillance fixed actual total effort stop on first site detection then visit second optimize cap conditional occupancy Poisson detection probability",
+        "asymptotic optimal survey search order -log absence probability occupancy detection rate two-site hard budget",
+        "optimal switching threshold sequential surveillance two independent sites rare species detection exponential one visit",
+        "site survey removal stop detection hard budget expected number detections posterior hazard long-horizon logarithmic absence"
+      ]
+    },
+    "rationale": "The accessible full 2014 motivating study restricts expected survey expenditure and optimizes per-site capacities, not a realized single-crew deadline with ordered one-switch time recycling. The 2009 baseline is nonremoval, and the classical moving-target search is a different one-target objective. The exact cap and changed long-horizon log-absence ranking were not located in the checked statements or semantic searches; this is provisional historical priority, not an independence certification.",
+    "residual_risks": [
+      "An earlier theorem in operations research or Bayesian search for independent defective exponential service times could imply this particular two-site order comparison without matching ecological terminology.",
+      "The complete 2009 nonremoval paper and the 1980 moving-target article were not materially read beyond their accessible abstracts and direct descriptions; they were not labeled wholly not covering from snippets alone.",
+      "The stated novelty is within the inspected literature and available comparison records, not independently established historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its formulas allocate sitewise survey effort under an expected-cost restriction, not the exact hard-deadline one-switch order and long-time coefficient ratio.",
+        "evidence": "Source first public online 2014-04-11; the budget constraint is explicitly on expected survey costs, with stochastic actual costs acknowledged in Discussion.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1056",
+        "material_read": "Accessible HTML: abstract, Introduction, Methods (Poisson detection, removal design and cost/budget optimization), Results (Kuhn–Tucker ranking) and Discussion (realized survey cost variability), plus supporting-appendix description; supplement not read",
+        "method": "Direct article-section reading and comparison of objectives, constraints, decision variables and implications",
+        "title": "Optimal surveillance strategy for invasive species management when surveys stop after detection",
+        "trigger": "Same ecological detection model and resource-allocation motivation; most plausible direct prior"
+      },
+      {
+        "assessment": "Known to use a nonremoval design, hence no immediate reallocation after first detection, but full-text priority comparison remains limited.",
+        "evidence": "2009 DOI and its explicit nonremoval comparator role in the 2014 Methods/Results.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2009.01323.x",
+        "material_read": "Accessible publisher abstract, bibliographic description, and 2014 primary article comparison; full 2009 manuscript not inspected",
+        "method": "Abstract and later primary-paper comparison; attempted institutional-access full-text retrieval without access",
+        "title": "Streamlining search and destroy: cost-effective surveillance for invasive species management",
+        "trigger": "Foundational allocation paper cited directly by the 2014 source"
+      },
+      {
+        "assessment": "Single moving target and detect-at-least-once objective differ from two independent possible occupancies and additive detected-site reward.",
+        "evidence": "The 1980 abstract describes a single moving target and maximum overall detection probability.",
+        "identifier_or_url": "https://doi.org/10.1287/opre.28.6.1275",
+        "material_read": "Accessible published abstract describing single-target moving-object search and characterization, not full article",
+        "method": "Compared number of targets, reward functional, search time discretization and assumptions",
+        "title": "Optimal Search for a Moving Target in Discrete Time and Space",
+        "trigger": "Classical exponential-detection and finite-time-budget search result that might provide broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d4516c5-339f-4715-a618-abbf9c2cd58a",
+  "value": {
+    "evidence": [
+      "2014 source limitation: stochastic realized survey costs under expected-budget planning",
+      "Exact all-parameter cap rule and long-deadline coefficient in RESULT.md",
+      "Rational order reversal example verified analytically and corroborated computationally"
+    ],
+    "rationale": "This closes a directly motivated small but complete sequential survey question left outside the expected-budget sitewise ecological model. A hard realized deadline and early time recycling produce a unique cap at every horizon, and the comparative priority index changes from occupancy-times-detection-rate in the short regime to rate-times-log-absence in the long regime. An exact robust parameter example forces a change in optimal visiting order. These features matter as transparent benchmarks for finite-horizon survey planning, even without extending to arbitrary adaptive multistate policies.",
+    "status": "PASS"
+  }
+}
