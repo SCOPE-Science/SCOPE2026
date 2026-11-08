@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closed probability cube is forward invariant. The logistic infected-strategy equation has an explicitly integrable decaying solution. Differentiating the displayed positive relative entropy produces the exact cancellation and a remainder bounded by twice the transient unprotected-infected fraction. Its integral proves a finite prevalence-error energy and keeps infection and susceptible strategies strictly interior, while bounded derivatives and convergence of the infection coordinate force the susceptible fraction to its unique compatible limit. The symbolic program checks the identity; finite trajectories are supplementary. The theorem requires all of the stated strict positivity and interior inequalities.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+Independently differentiated the exact Bernoulli/population entropy and factored its derivative after equilibrium substitutions: -beta_p*A(z)*(y-q)^2+Delta*w*((y-q)*(1-y)*A(z)-(1-q)*(1-alpha)*y*(z-p)); the symbolic difference was exactly zero. Scalar logistic equation makes w integrable. Nonnegative entropy bounds force y>0 and z strictly interior uniformly; integrability and uniform continuity imply y->q. Bounded second derivative and derivative decay then identify z->p by dividing y equation by y; w->0. Degenerate boundaries are explicitly excluded and positive finite rates have no small/large assumption. Mathematical compactness/convergence proof was reconstructed, not inferred from simulations.
 
-The closest original SIS-replicator papers establish equilibrium existence/local stability and explore singular fast-learning reductions rather than global finite-speed attraction with an explicit three-variable entropy budget. The related networked paper derives equilibria for a reduced system. A different mean-field imitation model permits periodic solutions, but has fundamentally different strategy payoffs and equations. Searches of relevant mathematical research records using epidemic/replicator/global-entropy aliases found related disease-free threshold and endemic uniqueness results, not one implying this claim. Earlier general relative-entropy methods are plausible sources of an equivalent derivation, and a missed specialized paper remains a bibliographic risk; no publication-priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Local stability of a mixed endemic equilibrium does not by itself exclude competing attractors or recurrent outbreaks when epidemiological and behavioral variables react at comparable speeds. Global finite-speed convergence is therefore a substantive structural gap in the motivating framework, and the explicit integral budget measures transient sensitivity to initially unprotected infected individuals. The result applies on a nonempty open parameter region and a nontrivial three-dimensional initial domain, rather than a single tuned example.
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
 
-## Scope and residual risks
+## value
 
-The proof does not apply on invariant pure-strategy or infection-free faces, when protected transmission vanishes, at threshold equalities, for a distinct behavior payoff law, or for heterogeneous contacts. Algebraic cancellations were checked, but independent mathematical review has not been performed. The novelty conclusion is limited by completeness of accessible mathematical literature and indexing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full-speed global basin and explicit finite dissipation budget exclude competing recurrent dynamics in a natural mixed-protection endemic regime. They go beyond local mixed-equilibrium stability and singular-limit calculations, and give an interpretable nonasymptotic transient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

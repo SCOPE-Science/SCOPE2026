@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite-rate mixed-endemic convergence theorem
+# Independent mathematical audit
 
-**Analytic identity.** `verify.py` creates symbolic independent variables for epidemic prevalence, susceptible and infected unprotected fractions, costs, transmission, recovery, and learning parameters. After substituting the two equilibrium relations, exact simplification of the difference between the derivative of the proposed entropy and the claimed negative-square-plus-transient expression gives identically zero. This establishes the critical algebraic calculation but not the global convergence proof by itself.
+## correctness
 
-**Admissible exact example.** Rational checks produce \(q=1/4\), \(p=1/2\) and verify strict interior inequalities. They also reproduce the equilibrium vector field exactly.
+PASS
 
-**Numerical consistency.** Deterministic high-accuracy ODE integration from \((0.02,0.08,0.95)\), \((0.98,0.92,0.2)\), and \((0.4,0.2,0.7)\) converges toward \((1/4,1/2,0)\). This is diagnostic evidence only; the analytic argument uses forward invariance, exact entropy differentiation, integrability of the infected behavior variable, and a uniform-continuity convergence argument.
+Independently differentiated the exact Bernoulli/population entropy and factored its derivative after equilibrium substitutions: -beta_p*A(z)*(y-q)^2+Delta*w*((y-q)*(1-y)*A(z)-(1-q)*(1-alpha)*y*(z-p)); the symbolic difference was exactly zero. Scalar logistic equation makes w integrable. Nonnegative entropy bounds force y>0 and z strictly interior uniformly; integrability and uniform continuity imply y->q. Bounded second derivative and derivative decay then identify z->p by dividing y equation by y; w->0. Degenerate boundaries are explicitly excluded and positive finite rates have no small/large assumption. Mathematical compactness/convergence proof was reconstructed, not inferred from simulations.
 
-**Limits.** No exhaustive continuous-state verification, quantified computational roundoff certificate, or independent audit is claimed. The exact theorem excludes the specified invariant boundary faces and does not imply stochastic persistence or convergence for other payoff forms.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
+
+## value
+
+PASS
+
+The full-speed global basin and explicit finite dissipation budget exclude competing recurrent dynamics in a natural mixed-protection endemic regime. They go beyond local mixed-equilibrium stability and singular-limit calculations, and give an interpretable nonasymptotic transient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
