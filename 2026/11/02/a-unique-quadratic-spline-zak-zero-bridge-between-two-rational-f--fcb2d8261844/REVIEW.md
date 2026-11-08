@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The order-three centered B-spline samples have exactly seven nonzero indices for every \(2<b<8/3\); their symmetric Zak sum is precisely the displayed cubic in \(\cos(2\pi\nu)\). Endpoint sign factorizations force a root in \((-1,-1/2)\). The Möbius substitution and Descartes rule give at most one positive transformed root for \(2<b\le78/31\); positivity of the cubic derivative gives uniqueness for the complementary scale interval. The root is simple, so the implicit-function theorem gives analyticity, and explicitly differentiated jets give the two sharp endpoint asymptotics. The packaged exact-arithmetic checker reproduces the critical algebraic identities. No finite numerical sample is used to certify a universal statement.
+PASS
 
-## Originality: PASS under inspected literature
+On x=0 and 2<b<8/3, centered order-3 cardinal B-spline support entails exactly k=-3,-2,-1,0,1,2,3; symmetric sum is cubic P_b(t) in t=cos(2*pi*nu) with coefficients from B3(k/b). Direct checks recover P_b(-1)=-3(b-2)^2/(4b^2)<0 and P_b(-1/2)=(3b-8)^2/(8b^2)>0. Möbius substitution t=(u-1)/(u+1) yields coefficient signs with exactly one change for 2<b<=78/31; for 78/31<b<8/3 the derivative of P_b has positive leading coefficient and negative discriminant, so P_b is increasing. Hence precisely one t_b in (-1,-1/2), and two conjugate frequencies nu_b and 1-nu_b. The root is simple and analytic in the chamber. At b=2, P_2=(t+1)^2/2 gives h=t+1~[(6+sqrt42)/4](b-2), hence square-root departure of nu from 1/2. At b=8/3, P_t=3/32, P_b=0, P_bb=81/256 yield t_b+1/2=-(27/16)(8/3-b)^2+O((8/3-b)^3) and the stated frequency coefficient. Independent symbolic checks confirmed endpoint signs, derivatives and exact rational isolations at b=201/100,9/4,13/5; finite samples were not used as an all-b proof.
 
-The closest source is Hasannasab and Lemvig, arXiv:2609.13116, especially Proposition 4.2, Remark 1, and Sections 5–6. Its rational-frequency and order-two zero results neither identify this continuously moving pair for order-three \(B_3\) on \(x=0\) nor give its two endpoint exponents; its order-three examples focus on the distinct line \(x=1/2\). The Gabor non-frame constructions in arXiv:1507.03982 and arXiv:2601.07642 establish rational obstructions, not this linewise classification. Published hat-spline order-two results do not dominate the different order-three claim. Searches across aliases, zeros, spline order, and frequency parameters disclosed no exact or stronger coverage, but absence of indexed records cannot prove absolute priority.
+## originality
 
-## Value: PASS
+PASS
 
-The 2026 Zak-zero paper identifies additional odd-order cancellations as a remaining issue. The entire first seven-sample chamber for the smallest odd order is resolved here by a nontrivial global cubic-root argument, including its two different endpoint critical exponents. These are structural, parameter-uniform facts about symmetry-axis Zak zeros, motivated by the role such zeros play in understanding Gabor frame obstructions; no full frame obstruction is inferred.
+The directly relevant Hasannasab–Lemvig (arXiv:2609.13116) primary abstract advertises a complete B2 hat-spline classification for all scales and higher-order classification for lambda>1, while the assessed B3 chamber corresponds to lambda=1/b in (3/8,1/2), strictly below one. Its full text was unavailable via arXiv, OA mirrors and authorized institutional access (VPN disconnected); no assertion of full-document noncoverage is made. A nonprimary detailed synopsis notes more complicated higher-order zeros and rational Gabor obstructions, without identifying this exact x=0 B3 moving branch. Earlier Lemvig–Nielsen and Lemvig frame-set works concern rational zeros and nonframe conditions, not complete continuously moving quadratic-spline x=0 zero pairs. Best-of-knowledge novelty is qualified by inability to read the closest full paper and possibly implicit trigonometric-polynomial literature.
 
-## Limitations and risks
+## value
 
-The full two-dimensional Zak-zero locus, all other scale chambers, and the Gabor frame set remain unclassified. Another formulation in older spline or generalized trigonometric-polynomial literature may imply the result. The arXiv:2609.00481 comparison was at abstract level only, but explicitly concerns the order-two rather than order-three spline. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete support-knot chamber of symmetry-axis zeros for the smallest odd-order B-spline resolves a natural local classification problem, including both pair multiplicity and distinct endpoint critical exponents. Zak zeros directly inform Gabor frame obstructions although no frame-set result follows here. The cutoff 8/3 is dictated by activation of the k=+-4 spline sample, not an arbitrary numerical interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
