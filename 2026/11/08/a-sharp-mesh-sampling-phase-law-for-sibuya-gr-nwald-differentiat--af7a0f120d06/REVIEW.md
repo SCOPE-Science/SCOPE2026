@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact Sibuya probability formula, its two-term Gamma-quotient expansion, the beta-integral evaluations, and a right-grid quadrature remainder \(o(h)\) yield the claimed nonzero first-order mesh bias. The \(k^{-1-\alpha}\) tail gives the exact variance cutoff \(2\beta=\alpha\); below it the leading finite variance is the beta-integral constant, and the leading risk has a unique positive balancing mesh. The proof explicitly separates finite verifier checks from the infinite-series arguments. No claim of global optimality outside the small-mesh leading-risk problem is made.
+
+**Originality — PASS (qualified).** The 2022 originating paper establishes the Sibuya sampling construction and a conditional finite-variance CLT, while the 2026 follow-up develops Sibuya simulation and extensions. Neither inspected primary text states the combined non-\(L^1\) power-tail finite-target / infinite-MSE boundary, the first nonzero mesh-bias constant, and the resulting sharp coupled sampling budget. General Gamma-quotient asymptotics, basic beta identities and bias–variance calculus are established tools and are not claimed as inventions. Equivalent unindexed specialist work or derivations in broader fractional numerical analysis remain possible.
+
+**Value — PASS.** Polynomial growth toward the infinite past is a natural boundary-data model for the nonlocal Marchaud operator. The calculation identifies the precise range where an otherwise unbiased-per-mesh Monte Carlo sampler has infinite MSE, and when it does not, supplies a fully explicit leading sampling-budget law with a nonzero constant. It is a diagnostic benchmark for sampler choice and mesh refinement, not a general optimality theorem for fractional solvers.
+
+**Scientific limitations.** The datum is not in the source paper's classical \(L^1\) domain, the result is pointwise at \(t=1\), computational cost per Sibuya draw is not modeled, and truncation or importance sampling may eliminate the infinite-variance problem. Generalized fractional derivative identities beyond the absolutely convergent Marchaud expression are not asserted. All precedence conclusions remain subject to independent literature verification.
+
+Self-review: passed. Independent audit: not yet performed.

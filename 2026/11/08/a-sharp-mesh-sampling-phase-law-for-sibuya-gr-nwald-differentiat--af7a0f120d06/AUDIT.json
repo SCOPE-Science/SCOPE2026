@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Exact positive Gamma-ratio p_k=alpha Gamma(k-alpha)/(Gamma(1-alpha)Gamma(k+1)) yields the two-term tail expansion with coefficient alpha(alpha+1)/2. Beta integration gives the finite Marchaud target. The absolutely continuous lattice integrand has integrable derivative and vanishing endpoints, hence its grid error is o(h), allowing an exact first-order bias term. The k^{2beta-alpha-1} tail proves the iff finite-variance condition; a second beta integral gives its sharp h^{-alpha}/N constant, and strict convexity gives the unique leading-risk balancing mesh. The standalone package verifier passed 2062 finite identity/numerical checks. Finite tests are not used as proof of infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leonenko--Podlubny 2022, DOI 10.1007/s13540-022-00017-3, §§2-4, 6-7: Sibuya estimator and conditional finite-variance CLT; no two-term mesh-risk theorem in inspected text.",
+        "Leonenko--Podlubny 2026, DOI 10.1007/s13540-026-00547-0, §§2-4: full Sibuya probability-tail construction and sampling extensions; not a mesh-plus-budget risk classification.",
+        "The 2021 fractional-PDE Monte Carlo analysis (DOI 10.1515/fca-2021-0012) concerns approximate solution random walks and CLT bounds, not the fixed-point Sibuya power-tail numerical differentiator in the checked abstract."
+      ],
+      "reasoning": "General fractional-derivative convergence in L1 or for bounded smooth functions does not directly dominate this non-L1 power-tail example with infinite MSE and sharp leading bias. General numerical Monte Carlo CLTs require finite moments and cannot yield the infinite-variance branch. A mathematically broader exact mesh-risk theorem covering these data would dominate; none was identified in the material read.",
+      "searches": [
+        "Sharp mesh step sampling budget phase transition for Sibuya Grünwald Letnikov Monte Carlo derivative on one-sided power-tail functions, bias O(h), variance h^{-alpha}, infinite variance if 2beta >= alpha",
+        "Sibuya Monte Carlo fractional derivative asymptotic mean squared error variance mesh size sample complexity",
+        "Monte Carlo Grünwald Letnikov fractional derivative Sibuya random index heavy tail infinite variance moment threshold and optimal importance sampling computational cost"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s13540-022-00017-3",
+      "doi:10.1007/s13540-026-00547-0",
+      "https://wrap.warwick.ac.uk/id/eprint/189445/ (abstract only; fractional PDE solution Monte Carlo, not same pointwise estimator)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leonenko--Podlubny 2022, DOI 10.1007/s13540-022-00017-3, §§2-4, 6-7: Sibuya estimator and conditional finite-variance CLT; no two-term mesh-risk theorem in inspected text.",
+        "Leonenko--Podlubny 2026, DOI 10.1007/s13540-026-00547-0, §§2-4: full Sibuya probability-tail construction and sampling extensions; not a mesh-plus-budget risk classification.",
+        "Earlier numerical covariance results on Gaussian quadrature, stochastic Runge–Kutta, and random time steps concern different random variables and methods; they do not imply this power-tail Sibuya Grünwald formula."
+      ],
+      "reasoning": "The 2022 p_k tail immediately implies a moment cutoff after the test function is chosen, so that elementary subclaim is credited as consequence of known probability asymptotics. Neither the first-order constant alpha(alpha-beta)/2 times the beta integral nor its coupling to variance and a fine-mesh budget is a stated or directly dominated theorem in inspected primary sources. The result is not offered as novelty of the Sibuya distribution, beta integral, or generic bias-variance balancing.",
+      "searches": [
+        "Sharp mesh step sampling budget phase transition for Sibuya Grünwald Letnikov Monte Carlo derivative on one-sided power-tail functions, bias O(h), variance h^{-alpha}, infinite variance if 2beta >= alpha",
+        "Fractional Marchaud Grünwald Monte Carlo beta power tail data exact beta function leading bias and variance constant",
+        "Monte Carlo Sibuya heavy tail exponent beta alpha 2beta infinite variance coupled mesh MSE optimal N^{-2/(2+alpha)}",
+        "Leonenko Podlubny 2022 numerical fractional differentiation Monte Carlo polynomial backward power nonintegrable tail",
+        "Sibuya Grünwald-Letnikov Monte Carlo variance asymptotic h^(-alpha) power tails"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leonenko--Podlubny 2022, DOI 10.1007/s13540-022-00017-3, §§2-4, 6-7: Sibuya estimator and conditional finite-variance CLT; no two-term mesh-risk theorem in inspected text.",
+        "Leonenko--Podlubny 2026, DOI 10.1007/s13540-026-00547-0, §§2-4: full Sibuya probability-tail construction and sampling extensions; not a mesh-plus-budget risk classification."
+      ],
+      "reasoning": "The claim is equivalently a first nonzero discretization coefficient for an exact Sibuya expectation, together with the moment regime and asymptotic fine-mesh MSE. The beta-integral and p_k tail are standard; the compared texts provide the estimator and tail but do not state their combined asymptotic theorem for polynomial infinite-past data.",
+      "searches": [
+        "Fractional Marchaud Grünwald Monte Carlo beta power tail data exact beta function leading bias and variance constant",
+        "Leonenko Podlubny 2022 numerical fractional differentiation Monte Carlo polynomial backward power nonintegrable tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed finding returned an exact beta-function table for the Sibuya mesh-bias/variance pair.",
+        "The 2022 and 2026 primary articles give Sibuya weights and examples, not this two-constant table."
+      ],
+      "reasoning": "The beta function constants are analytically computable and are not asserted to be unknown special functions. The new part is the exact coefficient connection and joint risk threshold. Searches cannot establish the absence of unindexed tables.",
+      "searches": [
+        "Monte Carlo Sibuya heavy tail exponent beta alpha 2beta infinite variance coupled mesh MSE optimal N^{-2/(2+alpha)}",
+        "Monte Carlo Grünwald Letnikov fractional derivative Sibuya random index heavy tail infinite variance moment threshold and optimal importance sampling computational cost",
+        "Leonenko Podlubny 2022 numerical fractional differentiation Monte Carlo polynomial backward power nonintegrable tail"
+      ]
+    },
+    "rationale": "The originating 2022 work establishes the sampling representation and a CLT conditional on finite variance. The 2026 follow-up develops Sibuya simulation and fractional operators. Inspected primary full HTML formula/argument sections do not present this exact first-order non-L1 power-tail mesh bias together with the variance cutoff and coupled sharp risk constants. General Sibuya tails and classical beta/Gamma tools are acknowledged as prior. Unindexed equivalent results remain a residual risk.",
+    "residual_risks": [
+      "A specialized exact asymptotic calculation for the same Sibuya power-tail datum could exist outside the searched indexes and accessible articles.",
+      "The elementary moment cutoff follows readily from the published p_k tail; novelty depends on the combined sharp bias and coupled MSE constants, not on the cutoff alone.",
+      "The 2021 Monte Carlo fractional-PDE paper was compared at abstract level only; its different object was not treated as excluding coverage from unseen full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the Sibuya/Grünwald Monte Carlo estimator, tail, and conditional CLT, not the present sharp power-tail mesh-plus-budget theorem. The present non-L1 function is outside stated source L1 classes.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s13540-022-00017-3",
+          "Equations (2.2)-(2.4) and (3.1)-(3.6); text explicitly says CLT if Var f(t-Yh)<infinity."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13540-022-00017-3",
+        "material_read": "Full accessible HTML mathematical sections 2–4, example section 6 and conclusion section 7; especially equations (2.2)-(2.4), (3.1)-(3.3), (3.4)-(3.6) and conditional CLT and variance definition.",
+        "method": "Publisher open-access full HTML, formula-level reading and theorem/assumption comparison",
+        "title": "Monte Carlo method for fractional-order differentiation",
+        "trigger": "Originating 2022 numerical derivative estimator and likely direct coverage"
+      },
+      {
+        "assessment": "Contains Sibuya probability-tail and simulation schemes, but no inspected mesh-bias constant, power-tail variance dichotomy, or coupled mesh sampling law.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s13540-026-00547-0",
+          "Section 3 explicitly states p_k~alpha k^{-1-alpha}/Gamma(1-alpha); Section 4 gives unmodified estimator."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13540-026-00547-0",
+        "material_read": "Full accessible HTML sections 2–4, especially Section 3 distribution, equation (3.1), asymptotic p_k and Section 4 Monte Carlo operator construction; section headings and abstract for remaining extensions.",
+        "method": "Publisher open-access full HTML, primary formulas and claim comparison",
+        "title": "Sibuya probability distribution and numerical evaluation of fractional-order operators",
+        "trigger": "Later same-author work on Sibuya tails and stochastic Grünwald differentiation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af7a0f12-0d06-4bcd-ad2d-cf84d7c5ba36",
+  "value": {
+    "rationale": "An explicitly calculable non-L1 but Marchaud-admissible past-tail datum is a natural stringent benchmark for nonlocal numerical differentiation. It reveals that the unmodified Monte Carlo fractional-derivative sampler can have infinite MSE even though the target is finite and the expected discrete operator exists, and gives exact, usable first-order mesh bias, variance, and N-dependent balancing constants in the finite-variance regime. This is a numerical-stability and query-budget classification, not merely an isolated numeric example or textbook CLT restatement.",
+    "status": "PASS"
+  }
+}
