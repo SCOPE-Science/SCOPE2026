@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:35:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From uniformly random entrance order, waiting continuation r_k=k-k z_k+sum_{l>k}z_l and full-voluntariness inequalities g_k=r_k-average_{l>k} r_l >=0 are affine. Edgewise half-squared Shapley adjustment is strictly convex b² sum w_k z_k²/2, with w_k=binom(n,k)(n-k)k(k+1). For every n 2..7 the source gives exact rational primal and nonnegative dual certificate Wz=A_I^T lambda; unique global optimizer follows without relying on numerical solver. For n<=6 each z_k<=1 so p_k=a+bk(1-z_k)>=0; n7 z6=1200/929. Constrained n7 certificate with active z6=L and affine lambda(L),mu(L) nonnegative on L∈[1,1200/929] proves entire continuum, cost identity checked symbolically. Independent Fraction algebra rebuilt six KKT systems, endpoint/nonnegative analysis and polynomial penalty; no extrapolation to n>=8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lim supplies a universally solvable QP algorithm; Sprumont studies existence of payment allocations satisfying monotonicity."
+        ],
+        "reasoning": "A general convex QP specification permits computing but does not itself state the exact sharp 7-player active-set transition. PMAS existence is weaker than uniqueness/least-squares optimum; need not match the canonical signed flow.",
+        "searches": [
+          "Shapley voluntary coalition payment flows pairwise synergy seven player nonnegative Euclidean closest Lim",
+          "arXiv:2609.20421v1 Theorem/Proposition 5",
+          "Sprumont 1990 population monotonic allocation schemes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.20421v1 full arXiv HTML §§2-5 Appendix A.6",
+        "DOI:10.1016/0899-8256(90)90006-G (cross-reference only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general result reduces to QP but no exact solution of n7 active-set inequalities is supplied.",
+          "Constant incumbent q=b/2 is a simple feasible nonnegative flow, so existence alone was not new and cannot explain negative signed optimum."
+        ],
+        "reasoning": "This exact first negative sign is not logically an immediate corollary of QP existence; one must derive and verify the rational KKT active-set and penalty. Existing framework is explicitly credited.",
+        "searches": [
+          "arXiv:2609.20421v1 Proposition 5 §4.1 and proof §A.6",
+          "Sprumont 1990 PMAS",
+          "Shapley voluntary coalition payment flows pairwise synergy seven player nonnegative Euclidean closest Lim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lim Proposition 5 has exactly the objective 1/2 sum binom(n,k)(n-k)k(k+1)q_k² with participation constraints.",
+          "Lim gives two- and three-player special cases, but not this pairwise a,b n=7 rational table."
+        ],
+        "reasoning": "Same optimization is a genuine earlier framework, but evaluated first violation threshold and constrained active-set solution are narrower new concrete results, not a title-only novelty claim.",
+        "searches": [
+          "Shapley voluntary coalition payment flows pairwise synergy seven player nonnegative Euclidean closest Lim",
+          "arXiv:2609.20421v1 Proposition 5 §§4.1 and A.6",
+          "DOI:10.1016/0899-8256(90)90006-G"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lim primary source lists 2-3 player transfer formulas and separate glove-game matrices; find search of full text returned no seven-player statement."
+        ],
+        "reasoning": "These existing small examples are not a table for all 2..7 pair-synergy optimal transfers or their constrained penalty.",
+        "searches": [
+          "Shapley voluntary coalition payment flows pairwise synergy seven player nonnegative Euclidean closest Lim",
+          "arXiv:2609.20421v1 §§4.1 and appendix explicit examples"
+        ]
+      },
+      "rationale": "Lim September 2026 primary full manuscript explicitly proves the general symmetric-cardinality quadratic program and n2/n3 examples; this is not claimed new. The concrete n2..7 solved rational active-set table, sharp first negative-payment n7 ratio and constrained cost phase diagram are not stated in Lim §§4.1 or A.6. Sprumont PMAS ensures other nonnegative allocations exist, not Euclidean closeness. Best-of-knowledge PASS qualified by possibility of preexisting computational active-set tables.",
+      "residual_risks": [
+        "Strong methodological overlap: all finite values are computed from Lim’s existing general QP; novelty and value rest on the sharp explicit n=7 limitation, not new characterization of feasible flows.",
+        "Possible supplemental Lim examples or unindexed optimization notes give identical n=7 active set; exact cross-model restrictions matter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_QP_PRIOR; SPECIFIC_7_PLAYER_THRESHOLD_NOT_FOUND",
+          "evidence": "Proposition 5 establishes unique symmetric-cardinality projection and binomial edge weights, not listed n=7 pair-synergy KKT table or nonnegative penalty.",
+          "identifier_or_url": "arXiv:2609.20421v1",
+          "material_read": "Full open arXiv HTML: introduction and §§2-5, Proposition 5 eq.36 around lines 289-298, two-player and three-player solutions, Appendix A.6 proof lines 507-520; searched pairwise and seven (no occurrences), and appendix examples",
+          "method": "Primary arXiv rendered full HTML via web turn101017view1",
+          "title": "Stable Allocations, Unstable Payment Paths: The Shapley Value and Voluntary Coalition Formation",
+          "trigger": "Same objective/protocol and closest primary potential coverage"
+        },
+        {
+          "assessment": "EXISTENCE_ONLY_COMPARED",
+          "evidence": "A nonnegative monotone allocation exists in a convex TU game; that does not force unique least-squares closest signed flow to be nonnegative.",
+          "identifier_or_url": "DOI:10.1016/0899-8256(90)90006-G",
+          "material_read": "Bibliographic information, statement of PMAS family and Lim related literature §1.1; not full original 1990 journal text",
+          "method": "Cross-reading and bibliographic comparison",
+          "title": "Population Monotonic Allocation Schemes for Cooperative Games with Transferable Utility",
+          "trigger": "Could imply all payments are nonnegative and therefore apparently contradict first sign"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite first binding nonnegative-payment boundary is a natural economically meaningful constraint in a canonical pair-synergy game. It precisely separates a signed canonical minimum from a feasible limited-liability minimum and quantifies the necessary extra adjustment, useful without a theorem for arbitrary n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.20421v1 full arXiv HTML §§2-5 Appendix A.6",
+    "DOI:10.1016/0899-8256(90)90006-G (cross-reference only)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For v(S)=a|S|+b*binomial(|S|,2), a>=0,b>0, uniform-order one-step deferral, the unique Euclidean-closest fully voluntary signed Shapley-terminal flow is componentwise nonnegative for 2<=n<=6, but at n=7 the last entrant payment is a-1626b/929. The exact closest nonnegative flow in 0<=a<=1626b/929 has q/b=(1/2,1/2,15(2-L)/47,12(2-L)/47,20(2-L)/47,L), L=1+a/(6b), and squared adjustment penalty 21b²(1200-929L)²/43663.",
+  "limitations": [
+    "Only 2<=n<=7, a>=0,b>0, uniform random entry, exact Euclidean metric and expected Shapley; does not assert impossibility of nonnegative voluntary Shapley implementation.",
+    "All checked Git source blobs were read at pinned commit, but Git directory tree digests were not independently retrieved from the connector; assignment provides source_tree_sha; no false independently recomputed tree claim."
+  ],
+  "residual_risks": [
+    "Strong methodological overlap: all finite values are computed from Lim’s existing general QP; novelty and value rest on the sharp explicit n=7 limitation, not new characterization of feasible flows.",
+    "Possible supplemental Lim examples or unindexed optimization notes give identical n=7 active set; exact cross-model restrictions matter."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_QP_PRIOR; SPECIFIC_7_PLAYER_THRESHOLD_NOT_FOUND",
+      "evidence": "Proposition 5 establishes unique symmetric-cardinality projection and binomial edge weights, not listed n=7 pair-synergy KKT table or nonnegative penalty.",
+      "identifier_or_url": "arXiv:2609.20421v1",
+      "material_read": "Full open arXiv HTML: introduction and §§2-5, Proposition 5 eq.36 around lines 289-298, two-player and three-player solutions, Appendix A.6 proof lines 507-520; searched pairwise and seven (no occurrences), and appendix examples",
+      "method": "Primary arXiv rendered full HTML via web turn101017view1",
+      "title": "Stable Allocations, Unstable Payment Paths: The Shapley Value and Voluntary Coalition Formation",
+      "trigger": "Same objective/protocol and closest primary potential coverage"
+    },
+    {
+      "assessment": "EXISTENCE_ONLY_COMPARED",
+      "evidence": "A nonnegative monotone allocation exists in a convex TU game; that does not force unique least-squares closest signed flow to be nonnegative.",
+      "identifier_or_url": "DOI:10.1016/0899-8256(90)90006-G",
+      "material_read": "Bibliographic information, statement of PMAS family and Lim related literature §1.1; not full original 1990 journal text",
+      "method": "Cross-reading and bibliographic comparison",
+      "title": "Population Monotonic Allocation Schemes for Cooperative Games with Transferable Utility",
+      "trigger": "Could imply all payments are nonnegative and therefore apparently contradict first sign"
+    }
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review: closest voluntary Shapley payment flows in pair-synergy games
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is limited to \(2\leq n\leq7\), \(a\geq0\), and \(b>0\). The full-entry protocol, Euclidean objective, payments, and nonnegativity requirements are explicitly defined. Symmetry follows from uniqueness of the strictly convex nearest-flow problem. The consent inequalities and objective are independently derived from the payoff sequence, and exact KKT certificates certify each unique global optimum. In the constrained seven-agent phase the binding upper payment constraint, all remaining primal inequalities, nonnegative dual variables, and stationarity are algebraically verified. The squared-distance penalty is obtained by direct substitution, not numerical fitting. The exact-rational checker reconstructs the defining constraints and tests full-state Bellman comparisons. It does not claim finite checking proves any broader cardinality theorem.
+PASS
 
-## Originality — PASS, with residual publication risk
+From uniformly random entrance order, waiting continuation r_k=k-k z_k+sum_{l>k}z_l and full-voluntariness inequalities g_k=r_k-average_{l>k} r_l >=0 are affine. Edgewise half-squared Shapley adjustment is strictly convex b² sum w_k z_k²/2, with w_k=binom(n,k)(n-k)k(k+1). For every n 2..7 the source gives exact rational primal and nonnegative dual certificate Wz=A_I^T lambda; unique global optimizer follows without relying on numerical solver. For n<=6 each z_k<=1 so p_k=a+bk(1-z_k)>=0; n7 z6=1200/929. Constrained n7 certificate with active z6=L and affine lambda(L),mu(L) nonnegative on L∈[1,1200/929] proves entire continuum, cost identity checked symbolically. Independent Fraction algebra rebuilt six KKT systems, endpoint/nonnegative analysis and polynomial penalty; no extrapolation to n>=8.
 
-Lim (2026), arXiv:2609.20421, Section 4.1, Proposition 5 gives the parent quadratic program and three-player special cases. The parent reduction is prior art; the novelty here is its explicit pair-synergy active-set solution through seven players, the first *negative-entrant* optimum, the sharp price-of-nonnegativity threshold, and the exact constrained optimizer and penalty. We inspected that paper's main sections and Appendix A.6. The general population-monotonic allocation-scheme theory of Sprumont (1990) concerns monotonic feasibility and does not specify a Shapley-flow Euclidean projection or these multipliers. Published mathematical findings were searched for aliases including convex TU games, pairwise interaction games, least-squares voluntary payment adjustment, signed-to-nonnegative flows, and active-set thresholds. Nearby hits concerned different power indices or games and did not imply the present theorem. No equivalent statement was identified, but unpublished exact-QP notes and unindexed publications remain a real risk. No uniqueness claim is inferred merely from database partitioning or failed keyword searches.
+## originality
 
-## Value — PASS
+PASS
 
-Limited liability (nonnegative payments) is a motivated institutional restriction explicitly treated in the source problem. The theorem identifies the smallest player count within a complete seven-player cutoff where nonnegative-flow and signed-flow *closest implementations* differ, despite the continued existence of nonnegative voluntary implementations. It measures the correction as a sharp real-parameter phase boundary and an exact adjustment-cost penalty. This distinguishes feasibility of voluntary implementation from the geometry of the canonical least-squares solution and gives a reproducible benchmark for restricted cooperative payment design. Only the exact formulas and first-sign transition, not the source's general QP framework, carry the value assessment.
+Lim September 2026 primary full manuscript explicitly proves the general symmetric-cardinality quadratic program and n2/n3 examples; this is not claimed new. The concrete n2..7 solved rational active-set table, sharp first negative-payment n7 ratio and constrained cost phase diagram are not stated in Lim §§4.1 or A.6. Sprumont PMAS ensures other nonnegative allocations exist, not Euclidean closeness. Best-of-knowledge PASS qualified by possibility of preexisting computational active-set tables.
 
-## Closest literature and limitations
+## value
 
-Closest: Tongseok Lim, *Stable Allocations, Unstable Payment Paths: The Shapley Value and Voluntary Coalition Formation*, arXiv:2609.20421v1 (2026-09-17), especially Proposition 5 and its examples. Related: Yves Sprumont, *Population Monotonic Allocation Schemes for Cooperative Games with Transferable Utility*, Games and Economic Behavior 2 (1990), 378–394. No universal characterization is asserted for \(n>7\), alternative norms or entry rules, or general convex games. Unindexed equivalent work is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite first binding nonnegative-payment boundary is a natural economically meaningful constraint in a canonical pair-synergy game. It precisely separates a signed canonical minimum from a feasible limited-liability minimum and quantifies the necessary extra adjustment, useful without a theorem for arbitrary n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

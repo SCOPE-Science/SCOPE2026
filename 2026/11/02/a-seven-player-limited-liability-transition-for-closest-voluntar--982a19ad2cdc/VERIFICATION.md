@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility and limitations
+# Independent mathematical audit
 
-Run `python check.py` from a directory containing this file and the included standalone `check.py`; it needs only Python 3 and no external dependencies. The checker recomputes the normalized statewise consent inequalities and weighted norm from the pair-synergy game. It tests the exact rational KKT table for all six sizes \(2\leq n\leq7\), the nonnegative-constrained seven-player solution at five rational values of the parameter \(L\), and the complete statewise Bellman inequalities for several cases. It explicitly enumerates all \(7!\) entry permutations in three seven-player scenarios and confirms their induced mean terminal allocations.
+## correctness
 
-Observed execution output:
+PASS
 
-`VERIFY_OK cases=14 exact_inequalities=111 enumerated_paths=15120 direct_consent_states=1623`
+From uniformly random entrance order, waiting continuation r_k=k-k z_k+sum_{l>k}z_l and full-voluntariness inequalities g_k=r_k-average_{l>k} r_l >=0 are affine. Edgewise half-squared Shapley adjustment is strictly convex b² sum w_k z_k²/2, with w_k=binom(n,k)(n-k)k(k+1). For every n 2..7 the source gives exact rational primal and nonnegative dual certificate Wz=A_I^T lambda; unique global optimizer follows without relying on numerical solver. For n<=6 each z_k<=1 so p_k=a+bk(1-z_k)>=0; n7 z6=1200/929. Constrained n7 certificate with active z6=L and affine lambda(L),mu(L) nonnegative on L∈[1,1200/929] proves entire continuum, cost identity checked symbolically. Independent Fraction algebra rebuilt six KKT systems, endpoint/nonnegative analysis and polynomial penalty; no extrapolation to n>=8.
 
-Correctness for the continuum of \(a\) and \(b\) values follows from the explicitly displayed affine certificate, interval sign checks, and strict convexity in `RESULT.md`, not from finitely many checker runs. The result is bounded to \(n\leq7\). Scientific originality remains subject to publication-priority risk; no independent audit has been performed.
+## originality
+
+PASS
+
+Lim September 2026 primary full manuscript explicitly proves the general symmetric-cardinality quadratic program and n2/n3 examples; this is not claimed new. The concrete n2..7 solved rational active-set table, sharp first negative-payment n7 ratio and constrained cost phase diagram are not stated in Lim §§4.1 or A.6. Sprumont PMAS ensures other nonnegative allocations exist, not Euclidean closeness. Best-of-knowledge PASS qualified by possibility of preexisting computational active-set tables.
+
+## value
+
+PASS
+
+The finite first binding nonnegative-payment boundary is a natural economically meaningful constraint in a canonical pair-synergy game. It precisely separates a signed canonical minimum from a feasible limited-liability minimum and quantifies the necessary extra adjustment, useful without a theorem for arbitrary n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
