@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:16:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md ded39d69dd0882dd5bcad4a52d88aa7a321d37b6 all four proof steps",
+        "Git verify.py 71fdf2ee39ff9812885343e61e9f068159c809cf inspected",
+        "Independent forward-DP enumeration over 1,176 (n,k) pairs n<=50 and 3,245 divisor-modulus histogram checks; exact formula, uniformity criterion and spread bounds matched"
+      ],
+      "rationale": "For n>=3, 2<=k<n and m>=2|k, the gaps of S=<n,n+1,...,n+k> are precisely intervals [t(n+k)+1,(t+1)n-1] for t=0,...,L-1 with L=ceil((n-1)/k). Comparing to blocks [tn+1,(t+1)n-1] deletes tk/m of each residue, yielding N_r=count(1<=x<Ln;x=r mod m)-count(1<=t<L;tn=r mod m)-(k/m)*C(L,2). For gcd(n,m)=1, both uncorrected counts have spread <=1, hence sharp spread <=2; explicit n=2m-1,k=m achieves 2 for m>=4. Polynomial cyclic derivative shows equidistribution iff gcd(n,m)=1 and (n=1 mod m or L=0 mod m), using nontrivial proper cyclic arcs without translation symmetry. Special m=2,3 and m|n cases follow by explicit incomplete-block/resonance counts. All statements require m|k.",
+      "residual_risks": [
+        "General proof depends on interval filling and cyclic arc argument; finite DP cannot prove the unbounded statement.",
+        "The m=2 absolute spread-zero remark is limited to coprime regime, as explicitly distinguished from m|n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor Theorem 4.5 assumes an arithmetic progression of nonzero Apéry elements; for generic 2<=k<n-1 the Apéry elements r+n*ceil(r/k) fail that structure.",
+          "Maximal embedding k=n-1 is a known covered boundary case."
+        ],
+        "reasoning": "Earlier classifications cover special or different semigroup families; the reviewed claim must not re-label special already known boundaries as new.",
+        "searches": [
+          "Shor arXiv:2101.01760 Theorem 4.5 and Corollary 5.10 arithmetic progression Apery",
+          "Robles-Pérez Rosales arXiv:2310.09287"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md original Git blob ded39d69dd0882dd5bcad4a52d88aa7a321d37b6",
+        "Verification script verify.py original Git blob 71fdf2ee39ff9812885343e61e9f068159c809cf",
+        "Resultary semantic search with record-specific aliases and related published SCOPE records",
+        "Primary literature compared by statements and theorem assumptions; precise inspections listed separately"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Apéry equidistribution criteria imply a decision algorithm but do not by themselves state the displayed sharp spread bound.",
+          "Special maximal embedding and arithmetic-Apéry cases are prior covered."
+        ],
+        "reasoning": "The explicit residue-multiset identity and gcd/length iff plus sharp 2 discrepancy are not stated in the inspected corollaries; generic tools can be specialized, but that requires family-specific proof.",
+        "searches": [
+          "arXiv:2101.01760 Proposition 3.9 general Apéry criterion",
+          "arXiv:2101.01760 Theorem 4.5 Corollary 5.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shor Proposition 3.9 equates gap equidistribution to an Apéry multiset property; this is equivalent at the decision level, but does not state displayed N_r for every interval width.",
+          "Resultary semantic near hits concern Wilf gap or distinct prime gaps, not this histogram."
+        ],
+        "reasoning": "Recasting the criterion through Apéry residues is possible, but the quantitative two-discrepancy and exact histogram are additional assertions. No implication from just the abstract generic criterion was assumed.",
+        "searches": [
+          "arXiv:2101.01760 numerical semigroup gaps modulo m Apéry Proposition 3.9",
+          "Resultary: gap equidistribution interval generated numerical semigroup n n+1 ... n+k modulus k divisor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct DP checks are fresh computational evidence, not a prior exact table.",
+          "No indexed published exact infinite-parameter table was identified in the actual searches."
+        ],
+        "reasoning": "No evidence of a known full histogram table in checked material, with residual risk that standard formulas yield the same statement.",
+        "searches": [
+          "numerical semigroup interval generator exact gap residue histogram modulus divides k table",
+          "Resultary: gap equidistribution interval generated numerical semigroup n n+1 ... n+k modulus k divisor"
+        ]
+      },
+      "rationale": "Shor 2021 gives an Apéry-multiset equidistribution criterion and various special generator configurations, which must be credited. The new derivation gives a concrete all-interval-width residue histogram, sharp general spread bounds and resonance classification; an indirect consequence of a published generic Apéry formula may cover portions of the claim but no stronger exact family statement was found in inspected theorem sections.",
+      "residual_risks": [
+        "The general Apéry framework is prior art and may encode aspects indirectly; historical-priority comparison is best of knowledge.",
+        "Unindexed equivalent formulation or dominating prior result remains possible; search failure alone is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Apéry criterion and special arithmetic-progression/maximal-embedding cases are credited. No directly stated sharp all-width histogram and two-discrepancy theorem found in these sections; specialization could imply part of result.",
+          "evidence": [
+            "Proposition 3.9 relates gaps to Apéry residue counts.",
+            "Theorem 4.5 imposes arithmetic progression on nonzero Apéry elements; generic interval semigroups need not satisfy it.",
+            "Maximal embedding boundary corollaries include special parameter cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01760",
+          "material_read": "PDF introductory framing; Proposition 3.9 and Theorem 4.5 and Corollary 5.10 on rendered pages",
+          "method": "Open-access PDF text and rendered pages",
+          "title": "Equidistribution of numerical semigroup gaps modulo m",
+          "trigger": "General exact Apéry criterion and possible dominating theorem for gap residues"
+        },
+        {
+          "assessment": "Monotone Apéry and multiplicity/ratio invariants are relevant background, not evidence of complete modulo-divisor histogram coverage; residual uncertainty remains.",
+          "evidence": [
+            "No exact residue-histogram theorem established from available abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.09287",
+          "material_read": "Abstract and bibliographic statement, not full article",
+          "method": "Open-access abstract/targeted retrieval",
+          "title": "Numerical semigroups with monotone Apéry set and fixed multiplicity and ratio",
+          "trigger": "Potentially equivalent interval-generator Apéry invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The exact object/invariant and structural classification in RESULT.md original Git blob ded39d69dd0882dd5bcad4a52d88aa7a321d37b6",
+        "The motivating prior theorem statements discussed in originality comparisons"
+      ],
+      "rationale": "Determines a natural complete residue-gap invariant and exactly when gaps balance for an infinite, widely studied generator family; the sharp universal discrepancy and unbounded resonance quantify arithmetic behavior beyond standard genus/Frobenius numbers.",
+      "residual_risks": [
+        "Narrow exact invariant carries no claim of major downstream theorem or universal utility; it is justified by natural metric/combinatorial object and nontrivial complete classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Modulus m must divide k and sharp spread-two estimate requires coprimality.",
+    "The general Apéry framework is prior art and may encode aspects indirectly; historical-priority comparison is best of knowledge."
+  ],
+  "schema_version": 1
+}
