@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The finite identity is properly attributed to Pain. The proof checks the correction kernel on all prime powers, shows absolute convergence for \(\Re z>1/2\), proves the exact local cancellation \(H_p(1)=1\), and computes \(H'(1)\) by differentiated Euler factors. Nonnegative dominated convergence handles every fixed \(t<1\); partial summation and the zeta tail handle every fixed \(t>1\); the hyperbola estimate for the divisor function supplies the critical second term and stated error. Integer/fraction tests check local identities and a numeric sieve checks examples; neither is represented as an infinite proof.
+
+**Originality — PASS, qualified.** Pain's complete accessible HTML, §§2–4 and Appendix A, gives the finite parameter identity, Euler products, and a Selberg-sieve analogy, but no global summatory trichotomy or critical prime derivative. The nearby Kaltenböck et al. 2021 article studies the different GCD-averaging form \(M_r(x;f)\), not this precise divisor sum. Targeted web and mathematical-record queries for weighted totient-squarefree averages, derivative constants, shifted exponents and equivalent Euler products found no covering statement; historical indexing cannot establish absolute priority.
+
+**Mathematical value — PASS.** A single parameter produces three genuinely different growth laws. The supercritical coefficient \(\zeta(t)/t\) is unexpectedly independent of the Euler-factor corrections, because those corrections individually become one at the pole. The boundary exhibits collision of two zeta poles; the explicit second coefficient and power-saving remainder quantify the transition. This is a structural mean-value result for the full recent one-parameter family, not a renamed isolated special value. The proof does not claim a new general divisor-summatory theorem, a uniform crossover theorem or optimal errors.
+
+Residual risk: a pre-existing equivalent analytic treatment of this exact multiplicative family may be absent from the accessible indexes; the key elementary steps are established rigorously, but independent specialist priority verification has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
