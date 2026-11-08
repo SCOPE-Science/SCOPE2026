@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an exact complete zero-sum decomposition: \(m(\ell-1)\) negative sibling modes, \(m-1\) copies of a two-dimensional interbranch form, and one radial two-dimensional form. The strictly positive Hankel-Gram comparison shows the interbranch block cannot become singular before the radial block. The radial scalar determinant changes sign in the correct interval; negative-type inheritance and strict-downward propagation give uniqueness. The radial endpoint has nullity exactly one and the centered Gram matrix loses one rank. An explicit Taylor expansion proves the inverse-square diagonal law. The independent-distance checker reproduced 600 integer/rational quadratic identities and 30 critical inertia calculations. No finite experiment is used as a proof of an infinite assertion.
+## correctness
 
-## Originality — PASS, qualified
-The strongest direct precedent is Caffarelli–Doust–Weston, *Metric trees of generalized roundness one*, arXiv:1008.3418, Section 5: it numerically reports the binary depth-two value and discusses upper/lower bounds, but does not give the uniform scalar root or diagonal inverse-square scaling. Doust–Weston, arXiv:0705.0411, supplies generic tree bounds; Li–Weston, arXiv:0901.0695, gives strictness inheritance; Sánchez, arXiv:1108.0451, provides a general computable distance-matrix criterion. The general criterion covers each finite instance algorithmically, so the contribution is the explicit family-wide classification and its asymptotic—not a new criterion or new binary numerical measurement. Targeted mathematical-record searches and accessible previous claim comparisons found no duplicate or stronger evaluated theorem. Indexing gaps and unexamined literature remain risks.
+PASS
 
-## Mathematical value — PASS
-Already in the 2010 preprint the exact generalized roundness of even small spherically symmetric finite trees was identified as computationally difficult. The natural radius-two family is resolved for two independent branching parameters by an explicit two-by-two mode reduction, a strict positivity mechanism, and exact endpoint embedding dimension. The diagonal inverse-square excess law is structurally different from the inverse-first-power behavior in simpler star and double-star families and gives a benchmark for finite-tree metric geometry. This is an evaluated family theorem, not a routine individual matrix computation.
+Reconstructed the all-vertices rooted tree distance classes, sibling, interbranch S and radial P blocks and their exact dimensions. The identity P/m-S=m times a positive Laplace Gram matrix for 1<p<2 forces the radial sector to cross first. The determinant equation a_m c_m,l = l b_m^2 has a unique root in (1,log2(2m/(m-1))); one radial nullity gives endpoint rank. Independent bracketing numerics give p2,2≈1.5271730883 and p3,3≈1.2973684654, correcting potentially spurious unrestricted determinant roots. Analytic expansion of determinant near p=1 gives b²(p_b,b−1)→1/log(32/27).
 
-## Limits
-The theorem is confined to unit-edge two-level regular rooted trees with all vertices included. It does not establish analogous formulas for arbitrary heights or heterogeneous branches. The matched binary numerical value was previously recorded and is not independently novel. Residual literature priority risk exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+The two independent branching parameters define a natural benchmark for metric tree negative type. Exact evaluated generalized roundness, the radial critical mode, and the unexpected quadratic decay of excess above one solve a question already probed numerically in prior primary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

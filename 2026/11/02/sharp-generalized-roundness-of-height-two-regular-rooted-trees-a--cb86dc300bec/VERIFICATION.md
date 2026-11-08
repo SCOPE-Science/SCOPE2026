@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify_two_level_tree.py` in a Python 3 environment with NumPy, SciPy and mpmath. The code independently builds the graph by breadth-first search. Exact rational and integer arithmetic check the full quadratic form against the invariant-block identities for multiple trees and integer powers. Numerical full-matrix inertia is checked immediately below and above the predicted endpoint for 30 tree sizes; a separate high-precision calculation tests the diagonal scaling against the analytic constant.
+## correctness
 
-Recorded successful run:
+PASS
 
-```
-EXACT_POWERED_DISTANCE_DECOMPOSITION_OK 600
-CRITICAL_FULL_MATRIX_INERTIA_OK 30
-ROOTED_BINARY_DEPTH_TWO_OK 1.527173088279971
-INVERSE_SQUARE_BRANCHING_CONSTANT_OK 5.885848553716
-ALL_TWO_LEVEL_TREE_CHECKS_OK
-```
+Reconstructed the all-vertices rooted tree distance classes, sibling, interbranch S and radial P blocks and their exact dimensions. The identity P/m-S=m times a positive Laplace Gram matrix for 1<p<2 forces the radial sector to cross first. The determinant equation a_m c_m,l = l b_m^2 has a unique root in (1,log2(2m/(m-1))); one radial nullity gives endpoint rank. Independent bracketing numerics give p2,2≈1.5271730883 and p3,3≈1.2973684654, correcting potentially spurious unrestricted determinant roots. Analytic expansion of determinant near p=1 gives b²(p_b,b−1)→1/log(32/27).
 
-The exact code checks are finite diagnostics; the strict positive definiteness of the two-by-two Hankel kernel is proved by a Laplace-transform integral, uniqueness of the critical point uses strict-downward negative-type propagation, and the asymptotic limit follows from uniform Taylor estimates. None of these universal claims rests solely on numerical tests.
+## originality
 
-Scientific reproducibility is provided; independent mathematical audit and external validation have not been performed.
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+The two independent branching parameters define a natural benchmark for metric tree negative type. Exact evaluated generalized roundness, the radial critical mode, and the unexpected quadratic decay of excess above one solve a question already probed numerically in prior primary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
