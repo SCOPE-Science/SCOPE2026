@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:16:01.821313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For integer s>=3 and r,n>=1, characteristic roots alpha,alpha^{-1}, alpha>2, C=s^2-4>=5, z=alpha^{-2r}<1/4. With S=sum_{k>=n} U_{rk}^{-2} and A=U_{rn}^2-U_{r(n-1)}^2 integer, Binet gives AS=(1-z)(1-z^{2n-1})sum_{j>=0}z^j/(1-z^{n+j})^2. Lower bound using (1-w)^{-2}>1+2w yields AS>(1-z^{2n-1})(1+2z^n/(1+z))>1 (since 2(1-z^{2n-1})>z^{n-1}(1+z)). Upper bound AS-1< (32/9)z^n and S>Cz^n>=5z^n gives AS-1<S. Hence A-1<S^{-1}<A, proving floor exactly. Independent rational partial sums checked the inequalities for 96 parameter triples (s=3..6,r=1..3,n=1..8); finite checks do not establish infinity. At s=2,r=1,n=2 statement fails.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Park Theorem 18 proves the displayed floor for sufficiently large s, not a uniform bound s>=3; source conjecture states the wider target."
+        ],
+        "reasoning": "A uniformly valid all-s theorem would dominate this result but was not identified; Park covering only sufficiently large s is strictly weaker.",
+        "searches": [
+          "Park Arithmetic properties of generalized Fibonacci sequences Theorem 18 arxiv:1407.8086",
+          "Amdeberhan Chen Moll Sagan arxiv:1306.6511 Conjecture 4.6"
+        ]
+      },
+      "checked_sources": [
+        "record RESULT.md Git blob cbacc2e92a26ab7441419e856440a8faf0ff42e6",
+        "record verify.py Git blob 67e66531ad441efa99430789b4bf63ce10314d24",
+        "arxiv:1306.6511 Conjecture 4.6",
+        "arxiv:1407.8086 Theorem 18 full HTML",
+        "doi:10.1155/2014/402540",
+        "Resultary query hyperbolic Lucas sequences reciprocal square sums floor identities all parameters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Park requires sufficiently large s; 2014 Yuan–He–Zhou treats reciprocal cubes. Neither yields a proven s>=3 squared-tail formula."
+        ],
+        "reasoning": "The new uniform Binet-series inequality supplies the missing finitely many small-s cases in one argument; the cubic-power branch is distinct.",
+        "searches": [
+          "arxiv:1407.8086 Theorem 18",
+          "arxiv:1306.6511 Conjecture 4.6",
+          "doi:10.1155/2014/402540"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sequence U is the q=-1 generalized Fibonacci/Lucas unit-determinant recurrence, and product z=alpha^{-2r} converts sums into hyperbolic series."
+        ],
+        "reasoning": "Notation differs but same reciprocal-square clause is prior conjecture; equivalent reformulations were counted as the same problem rather than new claims.",
+        "searches": [
+          "hyperbolic Lucas sequences reciprocal square sums floor identities all parameters",
+          "Amdeberhan Chen Moll Sagan generalized Fibonacci polynomial reciprocal square sum conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on cubic/fifth-power Fibonacci tails and Lucas periods, not an all-s reciprocal-square floor classification; 96 independent finite instances checked."
+        ],
+        "reasoning": "Tables of examples cannot settle infinite s,r,n; no matching exhaustive database or all-parameter table located.",
+        "searches": [
+          "hyperbolic Lucas sequences reciprocal square sums floor identities all parameters",
+          "reciprocal square generalized Fibonacci floor table s=3 s=4 s=5 r n"
+        ]
+      },
+      "rationale": "Best knowledge PASS for removing the sufficiently-large-s hypothesis of Park Theorem 18 over all hyperbolic integer s>=3. Park full text inspected; it does not claim unrestricted lower s. Original Amdeberhan-Chen-Moll-Sagan paper conjectures the formula. Distinguish other reciprocal powers and other recurrence determinants.",
+      "residual_risks": [
+        "Conjecture paper full body not available; interpretations of parameter s and r must match exactly, which is checked using the unit-determinant recurrence.",
+        "Could exist unlocated later solution or general recurrence theorem implying this case; failed search is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem covers sufficiently large s, not the claimed all integer s>=3; exact same formula in restricted parameter range",
+          "evidence": [
+            "arxiv:1407.8086, Theorem 18"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.8086",
+          "material_read": "Full ar5iv HTML (~408 lines); Theorem 18 and proof, lines 208-225",
+          "method": "read full public ar5iv source",
+          "title": "Arithmetic properties of generalized Fibonacci sequences",
+          "trigger": "Closest prior direct theorem for same reciprocal square tail"
+        },
+        {
+          "assessment": "Original formulation is conjectural for general parameters, not claimed proven in accessible passages",
+          "evidence": [
+            "arxiv:1306.6511, Conjecture 4.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1306.6511",
+          "material_read": "Conjecture 4.6 citation and available source context; complete HTML not accessible",
+          "method": "available abstract/problem excerpts and citation comparison",
+          "title": "Generalized Fibonacci polynomials and Fibonomial coefficients",
+          "trigger": "Original conjecture"
+        },
+        {
+          "assessment": "Power three does not imply power two",
+          "evidence": [
+            "doi:10.1155/2014/402540"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2014/402540",
+          "material_read": "Abstract and identified Theorem 1 concerning reciprocal cube tails",
+          "method": "source metadata/abstract comparison",
+          "title": "On the Sum of Reciprocal Generalized Fibonacci Numbers",
+          "trigger": "same recurrence, different exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves a specifically posed conjectural floor identity throughout the natural hyperbolic integer parameter regime, with uniform non-asymptotic margins and a demonstrably necessary exclusion s=2.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "record RESULT.md Git blob cbacc2e92a26ab7441419e856440a8faf0ff42e6",
+    "record verify.py Git blob 67e66531ad441efa99430789b4bf63ce10314d24",
+    "arxiv:1306.6511 Conjecture 4.6",
+    "arxiv:1407.8086 Theorem 18 full HTML",
+    "doi:10.1155/2014/402540",
+    "Resultary query hyperbolic Lucas sequences reciprocal square sums floor identities all parameters"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only s>=3 integer, r,n positive, second powers, determinant-one recurrence; s=2 counterexample and no claims for higher powers.",
+    "Conjecture paper full body not available; interpretations of parameter s and r must match exactly, which is checked using the unit-determinant recurrence.",
+    "Could exist unlocated later solution or general recurrence theorem implying this case; failed search is not novelty proof."
+  ],
+  "schema_version": 1
+}

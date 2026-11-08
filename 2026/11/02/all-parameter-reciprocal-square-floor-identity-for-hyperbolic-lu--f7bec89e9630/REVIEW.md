@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The recurrence has the exact Binet formula with real reciprocal roots for every integer \(s\ge3\). Substituting \(z=\alpha^{-2r}\in(0,1/4)\) yields explicit formulas for the infinite reciprocal-square tail \(S\) and the integer difference \(A\). The elementary inequalities \((1-w)^{-2}>1+2w\) and \((1-w)^{-2}\le(1-z^n)^{-2}\) yield the strict bounds \(AS>1\) and \(AS-1<S\). The uniform numerical constants \(32/9<5\le s^2-4\) close both bounds for every quantifier, including \(n=1\). The supplied checker independently certifies rational enclosures for 256 selected triples; it is not substituted for proof.
+## correctness
 
-**Originality — PASS with residual risk.** The original 2013 article states the identical reciprocal-square identity as Conjecture 4.6; Park (2014) proves it for sufficiently large \(s\), whereas the present claim removes that qualification on the entire admissible \(s\ge3\) domain. The closely related Yuan--He--Zhou article concerns third powers, not the same infinite reciprocal-square claim. Explicit published-record and equivalent-formulation searches identified no implication establishing the uniform bound, and available previously recorded cubic, fourth- and fifth-power reciprocal-tail results concern different sequences/powers. A later unlocated full proof or a broadly applicable published tail theorem might subsume the result; this is a residual risk and independent literature confirmation is still needed.
+PASS
 
-**Mathematical value — PASS.** The result settles the nondegenerate integer-parameter range of the precise reciprocal-square problem singled out as a published conjecture, uniformly over every subsequence step and starting index. The uniform strict sandwich provides more information than a finite parameter check, and resolves small hyperbolic parameters that the prior sufficiently-large-\(s\) theorem does not cover by its stated hypotheses. The boundary \(s=2\) is a genuine counterexample, not an arbitrary slice.
+For integer s>=3 and r,n>=1, characteristic roots alpha,alpha^{-1}, alpha>2, C=s^2-4>=5, z=alpha^{-2r}<1/4. With S=sum_{k>=n} U_{rk}^{-2} and A=U_{rn}^2-U_{r(n-1)}^2 integer, Binet gives AS=(1-z)(1-z^{2n-1})sum_{j>=0}z^j/(1-z^{n+j})^2. Lower bound using (1-w)^{-2}>1+2w yields AS>(1-z^{2n-1})(1+2z^n/(1+z))>1 (since 2(1-z^{2n-1})>z^{n-1}(1+z)). Upper bound AS-1< (32/9)z^n and S>Cz^n>=5z^n gives AS-1<S. Hence A-1<S^{-1}<A, proving floor exactly. Independent rational partial sums checked the inequalities for 96 parameter triples (s=3..6,r=1..3,n=1..8); finite checks do not establish infinity. At s=2,r=1,n=2 statement fails.
 
-**Closest evidence and limits.** ACMS arXiv:1306.6511 Conjecture 4.6 states this formula; Park arXiv:1407.8086 Theorem 18 establishes a sufficiently-large-\(s\) case; Yuan--He--Zhou DOI 10.1155/2014/402540 addresses third powers for the same recurrence. The theorem covers only \(s\ge3\), exponent two, and determinant one. Exact rational finite verification covers \(256\) parameter triples. Equivalent later coverage is not ruled out by unsuccessful searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best knowledge PASS for removing the sufficiently-large-s hypothesis of Park Theorem 18 over all hyperbolic integer s>=3. Park full text inspected; it does not claim unrestricted lower s. Original Amdeberhan-Chen-Moll-Sagan paper conjectures the formula. Distinguish other reciprocal powers and other recurrence determinants.
+
+## value
+
+PASS
+
+Solves a specifically posed conjectural floor identity throughout the natural hyperbolic integer parameter regime, with uniform non-asymptotic margins and a demonstrably necessary exclusion s=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
