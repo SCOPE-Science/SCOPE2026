@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Exterior Hodge duality maps boundary generators to signed u-wedge-edge generators with Gram nI-D^TD; projection formula follows from the K_n incidence Laplacian. Facet codimension equals the dimension of circulations supported on a facet normal, hence normals are exactly oriented simple cycles and their distances follow. The centered insphere is unique because triangle flows span C. For signed cube vertices the exact squared norm is (nm-||Dσ||²)/4, and parity gives the global minimum tournament imbalance 0 for odd n or n for even n; explicit cyclic regular/near-regular tournaments attain it. Strict convexity and generic exposure classify distinct contact vertices. Signed-edge permutation symmetry is irreducible on C, forcing unique John and Löwner ellipsoids to be the two computed balls. Exact checks for n=5,6 and an independent n=5 facet enumeration agree with every normalization and small-case count.
+
+## Originality — PASS (provisional historical priority)
+Pohoata–Zhu (arXiv:2503.21752v1) introduces the same acyclohedra and volume/hypertournament structure, but the inspected mathematical sections do not give the Hodge-cographic metric theorem, cycle-shell distances, radii, or extremal ellipsoids. The closest cographic published result studies conv(±Πe), not the sum of segments Π([-1/2,1/2]^m); they are not equal and the first result does not determine the second. Vertex-transitive zonotope metric formulas assume a property absent here, as the radial contact classification gives more than one vertex shell. Searches included equivalent cographic, tournament, cycle-space, and projected-cube terms. Cycle-space matroid structure and regular tournaments are credited as known inputs; novelty is provisional pending broader historical review.
+
+## Mathematical value — PASS
+Natural complete classification of an infinite, source-motivated family: all facet shells and their multiplicities, a unique inball and all its tangencies, a parity-sensitive minimum sphere with all contacts, and the John–Löwner ellipsoids. The interaction of graph-cycle length and tournament imbalance, with an exact Hodge isometry, supplies structural geometry absent from volume and hypertournament counts; n=5 has 74 facets in three distinct metric shells, while n=6 has 394 facets and 2640 outer contacts. These are not arbitrary unmotivated finite slices.
+
+## Source comparison and limitations
+The primary 2025 Pohoata–Zhu acyclohedron paper provides the original object. Published orthogonal cographic symmetric-edge results instead study a convex hull of signed projected edge vectors. Published vertex-transitive zonotope metric results assume an inapplicable vertex-transitivity hypothesis. Finite certificates are limited to orders five and six; a theorem for all orders requires the proof in RESULT.md. An equivalent statement in unindexed literature or the uninspected journal revision could affect priority.
+
+Self-review: passed. Independent audit: not yet performed.
