@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact integer potential \\(b=(d-1)s-c-a\\) is nondecreasing under both types of stacking, including all root-simplex cases and the first deleted vertex when no original vertex is deleted. For every nonempty cut \\(S\\), this proves \\(\\omega(G-S)\\le(d-1)|S|-(d-2)\\). The Kleetope of a stacked polytope with \\(N\\) original vertices has exactly \\((d-1)N-(d-2)(d+1)\\) independent new vertices after the \\(N\\) original vertices are deleted, so its upper toughness ratio tends to \\(1/(d-1)\\). Since \\(d-2>0\\), the finite-graph lower bound is strict. A standalone standard-library checker completed 35,816 exhaustive small-graph cut checks and 32 exact Kleetope checks; the universal conclusion uses the induction, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pineda-Villavicencio (arXiv:2610.12836), Theorem 1.5, has arbitrarily small toughness for unrestricted simplicial d-polytopes, not for stacked ones; Proposition 2.6 supplies an independent-apex construction but no universal lower bound.",
+        "Kabela (arXiv:1707.08026) and Markenzon-Waga (arXiv:2002.09244) address k-tree and planar 3-tree toughness rather than the exact all-d≥4 stacked-polytope threshold."
+      ],
+      "reasoning": "No inspected stronger published theorem implies the proposed lower bound: a lower-toughness counterexample in the larger simplicial class cannot contradict a restriction, and the high-toughness Hamiltonicity hypotheses are conditional statements, not universal structural estimates.",
+      "searches": [
+        "Published mathematical-record semantic query: toughness of graphs of stacked simplicial d-polytopes universal sharp lower bound 1/(d-1)",
+        "Web: stacked polytopes graphs toughness 1/(d-1) sharp bound d trees connectivity components deleting S",
+        "Web: \"stacked\" \"toughness\" \"polytopes\" \"lower\"",
+        "Web: toughness k trees stacked polytopal graphs lower bound sharp"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.12836",
+      "doi:10.1007/s00454-016-9777-3",
+      "arxiv:2002.09244",
+      "arxiv:1707.08026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pineda-Villavicencio states Kleetope independence but no matching uniform separator inequality; an extra facet-budget argument is required.",
+        "Chen provides the restriction that characterizes stacked-polytopal d-trees, but does not derive toughness from it.",
+        "Markenzon-Waga cover planar Apollonian subclass toughness in dimension three only.",
+        "Kabela proves Hamiltonicity for sufficiently tough k-trees and constructs tough special examples; neither statement is a lower bound for every stacked d-polytope."
+      ],
+      "reasoning": "The closest constructions imply the sharpness upper example after counting facets, but not the universal lower bound. The combined new sharp theorem requires an independent induction using the exposed-facet budget, so it is not merely a restatement of the cited results.",
+      "searches": [
+        "arXiv:2610.12836 Theorem 1.5 and Proposition 2.6",
+        "Chen 2016 DOI:10.1007/s00454-016-9777-3 Section 2.4 Theorem 2.4",
+        "arXiv:2002.09244 Sections 4 and 6",
+        "arXiv:1707.08026 Sections 1, 3, 5 and 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent result among the ranked published mathematical-record results; the highest-ranked results concerned unrelated polytope volume, inball or graph metrics.",
+        "Chen (2016), Section 2.4, characterizes stacked-polytopal graphs as d-trees with no three (d+1)-cliques sharing d vertices, without a component-count theorem.",
+        "Kabela (arXiv:1707.08026), Sections 1, 3, 5 and 6, discusses k-tree Hamiltonicity under toughness assumptions, not the claimed universal stacked-polytopal bound."
+      ],
+      "reasoning": "Rephrasing the bound as component-count control or positive toughness of the uniquely facet-stacked d-trees does not produce an inspected prior implication. The excluded general k-trees allow reusing a d-clique arbitrarily many times, so their existing Hamiltonicity results are not equivalent.",
+      "searches": [
+        "Published mathematical-record semantic query: For each stacked simplicial d polytope, graph toughness > 1/(d−1) and sharp limiting Kleetopes",
+        "Published mathematical-record semantic query: component count at most (d-1) times removed vertices minus (d-2), for facet stacked polytopes",
+        "Web: \"stacked\" \"toughness\" \"1/(d-1)\"",
+        "Web: toughness \"stacked d-polytopes\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant ranked published research-records returned no exact covering table or formula."
+      ],
+      "reasoning": "The claim is a general infinite-dimensional-class inequality and sharp infimum, not a finite database entry. No matching exact entry or prior claim was found in the queried sources.",
+      "searches": [
+        "Published mathematical-record semantic query: For each stacked simplicial d polytope, graph toughness > 1/(d−1) and sharp limiting Kleetopes",
+        "Published mathematical-record semantic query: component count at most (d-1) times removed vertices minus (d-2), for facet stacked polytopes",
+        "Published mathematical finding index query: exact terms toughness, stacked polytope, hamiltonic, kleetope"
+      ]
+    },
+    "rationale": "Actual published mathematical-record queries and relevant primary full-text comparisons found no prior theorem implying both the facet-budget separator inequality and the exact all-\\(d\\ge4\\) stacked-class toughness infimum. The motivating paper supplies only the Kleetope construction lemma, while the lower bound requires a separate cut invariant. Priority remains provisional.",
+    "residual_risks": [
+      "A previously unindexed or implicit general clique-tree separator result could subsume this observation; targeted searches do not establish global historical uniqueness.",
+      "The dimension-three case has classical planar structure; no novelty is attributed to it.",
+      "The same 2026 paper contains a related Kleetope ingredient but not the inspected lower-bound statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related and geometrically motivating, but not a stacked-class universal lower bound",
+        "evidence": [
+          "Theorem 1.5 yields arbitrarily small toughness in unrestricted simplicial dimensions at least four",
+          "Proposition 2.6 gives independent new apex vertices after Kleetope operation",
+          "The constructions use a stacked factor but the resulting unrestricted simplicial polytope is not asserted to be stacked"
+        ],
+        "identifier_or_url": "arxiv:2610.12836",
+        "material_read": "Abstract; Introduction, Theorem 1.5, Proposition 2.6 and its construction in Section 3; targeted full-text search for stacking and toughness",
+        "method": "Full accessible arXiv HTML inspected through sections and text search",
+        "title": "Connectivity, toughness, and hamiltonicity of simplicial polytopes",
+        "trigger": "Same toughness invariant, simplicial polytope class and Kleetope constructions"
+      },
+      {
+        "assessment": "Establishes the class of stacked-polytopal d-trees, not the toughness threshold",
+        "evidence": [
+          "Section 2.4 defines stacked polytopes recursively",
+          "Theorem 2.4 gives the no-three-maximal-cliques-over-one-facet characterization"
+        ],
+        "identifier_or_url": "doi:10.1007/s00454-016-9777-3",
+        "material_read": "Open-access full-text Section 2.4, Definition 2.4, Theorem 2.4, Introduction and abstract",
+        "method": "Publisher full-text HTML section inspection",
+        "title": "Apollonian Ball Packings and Stacked Polytopes",
+        "trigger": "Precise structural characterization of the graph class"
+      },
+      {
+        "assessment": "Provides planar 3-tree subclass toughness, but no higher-dimensional sharp universal stacked-polytope infimum",
+        "evidence": [
+          "Theorem 11 onward classifies toughness of planar Apollonian subclasses",
+          "The conclusions leave a planar class open; no higher-dimension bound"
+        ],
+        "identifier_or_url": "arxiv:2002.09244",
+        "material_read": "Accessible arXiv full-text sections 1, 4, 5, 6 and conclusions",
+        "method": "Primary full-text HTML inspection",
+        "title": "Toughness and Hamiltonicity in Random Apollonian Networks",
+        "trigger": "Closest natural 3-dimensional stacked-polytope graph subclass"
+      },
+      {
+        "assessment": "Hamiltonicity under conditional toughness assumptions and constructed examples, not a universal lower-bound theorem for stacked polytopal d-trees",
+        "evidence": [
+          "The main statements assume toughness greater than k/3 for Hamilton-connectivity",
+          "No stacked-polytope-specific theorem was located in the inspected full text"
+        ],
+        "identifier_or_url": "arxiv:1707.08026",
+        "material_read": "Accessible arXiv full-text introduction, Section 3, Section 5 and Section 6; targeted search for stacked",
+        "method": "Primary arXiv full-text HTML inspection",
+        "title": "Long paths and toughness of k-trees and chordal planar graphs",
+        "trigger": "Broader k-tree class and potential dominating toughness theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b048cd5e-fc64-4e5f-a195-1b033d59e840",
+  "value": {
+    "rationale": "The result gives the exact best possible positive toughness threshold \\(1/(d-1)\\) for stacked convex polytopes of every dimension \\(d\\ge4\\), even though the motivating 2026 theorem shows no positive uniform threshold for the larger class of simplicial polytopes. A monotone exposed-facet budget explains why the recursively stacked class is different, and the explicit Kleetope family proves sharpness. This is a structural infinite-family comparison rather than a finite computation.",
+    "status": "PASS"
+  }
+}
