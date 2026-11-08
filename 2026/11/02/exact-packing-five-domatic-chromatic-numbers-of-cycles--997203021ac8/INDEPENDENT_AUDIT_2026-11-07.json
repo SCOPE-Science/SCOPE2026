@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:48:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For every simple labelled C_n with n>=5 and exactly five disjoint broadcast-dominating layers, the universal four-color lower bound follows from c2<=floor(n/3),c3<=floor(n/4), making total incidences 3c1+5c2+7c3=5n+2(c3-c1)<5n for 3-color palettes. Singleton-layer counting gives 6 for n=5,6. Independently reimplemented depth-first enumeration of ALL four-palette cyclic packing words for n=7,8,9,11,12,13,14,18: counts 28,68,72,440,760,1092,1554,17172 (sum 21186); only 44 at n11 meet depth>=5, and each has a six-clique in the forced-distinct relation, forbidding five layers. Independently checked all 35 shipped radii/layer witness pairs n=5..39 for packing and every vertex/layer broadcast. Independently checked 171 spliced examples lengths 30..200. The proof for all n>=30 uses the exact centered 9-symbol local window property and shared 8-symbol prefix between n10 and n30..39, allowing repeated 10-symbol addition; neither infinite coverage nor negative completeness is inferred from a finite sample. Boundary n19 is the eventual threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original arXiv:2610.03477 abstract: χ_{ρ,3}=χ_ρ on connected min-degree>=2, and path P_n results for k<=5; general framework of S-packing k-domatic."
+        ],
+        "reasoning": "Monotonicity in k gives at best lower bounds for C_n at k5; a 5-domatic path construction cannot automatically be made cyclic under wraparound packing and coverage. Thus no known sourced dominating theorem implies the 5-layer cycle spectrum.",
+        "searches": [
+          "Resultary: packing 5 domatic coloring of cycle graph χ rho,5 Brešar Ferme Hu",
+          "web: general S-packing k-domatic bound and monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Brešar–Ferme–Hu 2026 arXiv v1 abstract and accessible review of its results",
+        "Brešar et al 2020 survey bibliographic description",
+        "Resultary targeted same-invariant and cycle queries",
+        "Assigned verify.py algorithm and witnesses.json entire contents; independent exhaustive cycle obstruction and construction checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior χ_{ρ,5}(P_n)=5 for n>=8 and χ_{ρ,k}(C_n) exact for k in {3,4}; current gives χ_{ρ,5}(C_n)=4 for all n>=19, showing cycles and paths can have different minima under five broadcast layers."
+        ],
+        "reasoning": "The path k5 and cycle k3/4 results do not logically imply the complete k5 cycle classification. The current n19 tail and eight exceptional lengths are nontrivial new cases; full paper unavailable leaves an explicit content risk rather than proof of novelty.",
+        "searches": [
+          "Resultary: packing 5 domatic coloring of cycle graph χ rho,5 Brešar Ferme Hu",
+          "web: primary abstract path and cycle k=3,4,5 split"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar, Ferme, Hu arXiv:2610.03477v1 abstract defines exactly f, packing radius >j and five disjoint broadcast-dominating layers."
+        ],
+        "reasoning": "Compared exactly χ_{ρ,5}(C_n), not ordinary packing chromatic number or ordinary domatic number. The source published abstract states cycle exact results for k=3,4 and five-layer results for paths/infinite path; no k5 cycle statement in available material.",
+        "searches": [
+          "Resultary: packing 5 domatic coloring of cycle graph χ rho,5 Brešar Ferme Hu",
+          "web: arxiv:2610.03477 packing 5 domatic cycles exact numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned witnesses.json supplies 35 exact 5-layer cycle certificates (not external prior). Relevant surveyed literature treats ordinary packing colorings or paths and k3/4 cycles."
+        ],
+        "reasoning": "No identified previously published table of all 5-layer cycle exceptional orders or universal n>=19 tail. A computed finite table could not by itself prove the all-length cutoff; shared eight-symbol splicing supplies that step.",
+        "searches": [
+          "Resultary: packing 5 domatic coloring of cycle graph χ rho,5 Brešar Ferme Hu",
+          "web: packing 5 domatic C_n tables 7 8 9 11 12 13 14 18"
+        ]
+      },
+      "rationale": "PASS with explicit access risk. Brešar–Ferme–Hu 2026 introduce the identical packing k-domatic invariant, give paths for k=3,4,5 and cycles for k=3,4, but their published abstract and detailed available secondary exposition do not claim the cycles k=5 classification. Paths k=5 neither close cyclic boundary constraints nor force the 8 exceptional small-cycle obstacles; lower k cycle formulas do not imply five layers. An inaccessible full preprint remains a priority risk, and absence from its abstract is not a document-wide NOT_COVERING proof. The independently enumerated finite obstructions and splicing lemma supply the mathematical distinction.",
+      "residual_risks": [
+        "Full 26-page Brešar–Ferme–Hu paper unavailable despite lawful open attempts; protected institutional route reported vpn_disconnected, so a hidden appendix or unindexed updated theorem may cover k5 cycles.",
+        "The n11 lower bound relies on full enumeration of 440 packings and 44 forced K6s, independently replayed but not replaced with an algebraic theorem.",
+        "Splicing theorem requires exactly the local radius<=4 and complete cyclic nine-window semantics; tested on a bounded n range in addition to inspecting the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; cannot assert whole-document NOT_COVERING. Available results explicitly limit full cycle formulas to k=3,4.",
+          "evidence": "Abstract: exact χρ,k(P_n) for k=3,4,5, exact χρ,k(C_n) for k=3,4; generic packing k-domatic definition.",
+          "identifier_or_url": "arXiv:2610.03477v1; https://arxiv.org/abs/2610.03477",
+          "material_read": "Accessible original arXiv abstract (dated 2026-10-02), bibliographic and detailed available secondary review; full 26-page preprint could not be retrieved.",
+          "method": "arXiv abstract/open-access alternate attempts; institutional full-text route blocked",
+          "title": "Partitioning an S-packing coloring into broadcast dominating sets",
+          "trigger": "exact same χρ,k invariant and neighbouring k=5 path, k=3/4 cycle cases"
+        },
+        {
+          "assessment": "KNOWN_BACKGROUND; 2020 work predates the new five-layer invariant.",
+          "evidence": "Packing color constraints alone do not supply simultaneous 5 broadcast dominating layers.",
+          "identifier_or_url": "DOI:10.7151/dmgt.2320",
+          "material_read": "Bibliographic record and abstract/secondary descriptions, not entire survey.",
+          "method": "Open bibliographic and literature overview",
+          "title": "A survey on packing colorings",
+          "trigger": "baseline packing chromatic cycle results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A complete exact chromatic spectrum for the fixed five-layer broadcast condition on cycles addresses the natural next unclassified parameter of a recent graph invariant, including sharp n19 eventual threshold and eight scattered exceptions. The reusable 8-symbol splicing plus complete small-instance obstructions supply mathematical classification, not merely a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 26-page Brešar–Ferme–Hu paper unavailable despite lawful open attempts; protected institutional route reported vpn_disconnected, so a hidden appendix or unindexed updated theorem may cover k5 cycles.",
+    "The n11 lower bound relies on full enumeration of 440 packings and 44 forced K6s, independently replayed but not replaced with an algebraic theorem.",
+    "Splicing theorem requires exactly the local radius<=4 and complete cyclic nine-window semantics; tested on a bounded n range in addition to inspecting the proof."
+  ],
+  "schema_version": 1
+}

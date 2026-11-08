@@ -1,11 +1,21 @@
-# Review of the cycle packing five-domatic classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The five-domatic lower bound with three colors follows from an exact incidence inequality. The five- and six-cycle singleton-layer obstructions are independent of computation. For the eight other low-order obstructions, the supplied verifier enumerates all valid four-palette packing words and certifies either insufficient coverage depth or a forced-distinct six-clique; it examines 21,186 words in all. It also checks 35 explicit full coloring/partition certificates. The eight-symbol splicing lemma proves the indefinite ten-step extension from the ten compatible base lengths, not merely the finite tested range. The checker reproduced `VERIFY_OK` from the packaged files.
+## correctness
 
-**Originality (PASS, provisional priority).** Brešar, Ferme and Hu (arXiv:2610.03477v1, 2026-10-02) treat cycles exactly for three and four broadcast layers and paths for five, but do not state the complete five-layer cycle result. The older packing-coloring survey does not involve five independent broadcast covers. Targeted primary-text, alias, indexed-record and accessible previous-claim comparisons identified no covering theorem. Search absence does not establish universal priority.
+PASS
 
-**Mathematical value (PASS).** The result gives a complete, natural infinite-family classification for a recently defined invariant. It identifies a sharp threshold at cycle length 19, ten genuine smaller exceptions, and a reusable local splicing principle that bridges finite certificates to all lengths. The exact spectrum is stronger than the previously published path and smaller-layer calculations.
+PASS. For every simple labelled C_n with n>=5 and exactly five disjoint broadcast-dominating layers, the universal four-color lower bound follows from c2<=floor(n/3),c3<=floor(n/4), making total incidences 3c1+5c2+7c3=5n+2(c3-c1)<5n for 3-color palettes. Singleton-layer counting gives 6 for n=5,6. Independently reimplemented depth-first enumeration of ALL four-palette cyclic packing words for n=7,8,9,11,12,13,14,18: counts 28,68,72,440,760,1092,1554,17172 (sum 21186); only 44 at n11 meet depth>=5, and each has a six-clique in the forced-distinct relation, forbidding five layers. Independently checked all 35 shipped radii/layer witness pairs n=5..39 for packing and every vertex/layer broadcast. Independently checked 171 spliced examples lengths 30..200. The proof for all n>=30 uses the exact centered 9-symbol local window property and shared 8-symbol prefix between n10 and n30..39, allowing repeated 10-symbol addition; neither infinite coverage nor negative completeness is inferred from a finite sample. Boundary n19 is the eventual threshold.
 
-**Limitations.** Only simple cycles and five layers are classified. Finite computational exhaustiveness applies to a bounded set of small cycle lengths, while the infinite tail depends on a separate proved lemma. The 2020 survey was consulted through bibliographic and abstract material rather than exhaustively inspected; comprehensive historical priority and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit access risk. Brešar–Ferme–Hu 2026 introduce the identical packing k-domatic invariant, give paths for k=3,4,5 and cycles for k=3,4, but their published abstract and detailed available secondary exposition do not claim the cycles k=5 classification. Paths k=5 neither close cyclic boundary constraints nor force the 8 exceptional small-cycle obstacles; lower k cycle formulas do not imply five layers. An inaccessible full preprint remains a priority risk, and absence from its abstract is not a document-wide NOT_COVERING proof. The independently enumerated finite obstructions and splicing lemma supply the mathematical distinction.
+
+## value
+
+PASS
+
+PASS. A complete exact chromatic spectrum for the fixed five-layer broadcast condition on cycles addresses the natural next unclassified parameter of a recent graph invariant, including sharp n19 eventual threshold and eight scattered exceptions. The reusable 8-symbol splicing plus complete small-instance obstructions supply mathematical classification, not merely a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
