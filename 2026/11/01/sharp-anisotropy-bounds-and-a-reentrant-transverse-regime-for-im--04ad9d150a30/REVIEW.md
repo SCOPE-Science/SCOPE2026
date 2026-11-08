@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary Fourier generator identity determines the first two harmonics for arbitrary Borel angular reset distributions, and conditional first-harmonic relaxation gives an exact exponential covariance. The integrable Green--Kubo kernel establishes the effective-diffusivity tensor, while Jensen and unit-circle support constraints give globally sharp bounds, attainment and unique extremizers. Direct differentiation proves the complete universal-sign phase diagram, including endpoint regimes. A separate checker agrees with published delta-reset coefficients and passes 412 numerical/algebraic identities. The proof explicitly treats off-diagonal diffusion as distinct from coordinatewise anisotropy.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest original paper, Baouche et al., arXiv:2405.06769v1, evaluates Poisson resets to a fixed angle, whereas this theorem optimizes across arbitrary reset-angle probability measures **at fixed prescribed polarization**, classifies exact extremizers, and proves an open reentrant forced-transverse interval. Chaki et al. (passive shape anisotropy) and Olsen--Löwen (relative angular reorientation and chirality) do not state this optimization in inspected primary material. Semantic mathematical-record queries did not identify direct coverage but are not proof of uniqueness. A general published trigonometric moment optimization coupled to Markovian propulsion theory might imply some components; further independent priority checking remains necessary.
+PASS
 
-## Value — PASS
-The polarization of the reset actuator is a natural, measurable steering-fidelity constraint. The exact sharp attainable anisotropy interval and unique extremizers answer an experimental design question for all angular reset laws, while the strict bounded forbidden-rate window shows a nonmonotone loss and recovery of achievable longitudinal dominance. The result is an integrated sharp classification rather than a recomputation of the fixed-angle diffusion formula.
+At angular stationarity, the generator gives E e^{inθ}=r ν_n/(r+n²D_r) for each n≠0. First-harmonic relaxation at k=r+D_r gives velocity covariance e^{-kt} Cov(u0); integrating Green–Kubo gives D_eff=DI+(v²/k)(E[u0u0^T]-p1² diag(a²,0)). Since E cos2θ=p2 Reν2, Δ=Dx-Dy=(v²/k)(p2 Reν2-p1² a²). Jensen gives 2a²-1≤Reν2≤1 and sharp unique extremal laws ν=½(δ_{acos a}+δ_{-acos a}) and ν=((1+a)/2)δ0+((1-a)/2)δπ, with all intermediate values by mixing. The upper-bound sign is F(Λ)-a², F=(1+Λ)²/(Λ(Λ+4)), F′=2(Λ-2)(Λ+1)/(Λ²(Λ+4)²), minimum3/4 at Λ=2. This proves the forced-transverse open interval between the two exact roots for √3/2<a<1, the tangent case a=√3/2, and deterministic reset a=1 threshold Λ=1/2. Independently evaluated roots for a=0.9: ~0.9425886647 and ~5.5837271247. The axes are fixed by mean polarisation; off-diagonal terms need not vanish.
 
-## Scientific limitations
-The theorem is for a planar constant-speed, nonchiral particle with independent angular diffusion and Poisson resetting, comparing fixed Cartesian diffusion coordinates under prescribed first angular moment. No claims about principal diffusion eigenvalues for asymmetric laws, information-theoretic optimality, or independent publication priority are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Baouche–Franosch–Meiners–Kurzthaler model explicitly permits resetting to a distribution of angles, so a novelty claim based only on allowing arbitrary reset laws would be false. Its explicit fixed-direction diffusivities are a special case recovered here. The newly assessed element is the globally sharp optimisation over all Borel reset laws of a prescribed first harmonic, unique extremizers and reentrant all-law sign phase diagram. The separate chiral relative-reorientation and anisotropic passive-particle works do not directly imply this constrained optimization, subject to broader moment-method priority risk.
+
+## value
+
+PASS
+
+Steering uncertainty naturally fixes mean orientation rather than a full angle distribution. Exact anisotropy envelopes, extremal calibration distributions and a rate interval where every allowed law is transverse are concrete transport-design information; the reentrant sign boundary is not merely an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
