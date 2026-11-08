@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Open-neighborhood domination is exactly accounted for by untouched-endpoint rectangles and isolated selected K2 components. Each legal selected-edge prefix remains a forest; first-side exhaustion yields length <= s-c+q with q<=c. The equality case forces a matching and n=m+1. Two explicit sequences attain each bound, including the 2x2 endpoint. Exhaustive programs independently use dominated-set versus selected-set states and match the formula for all enumerated instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bresar et al. arXiv:1712.08780v1, Section 5, Theorem 5.1: Cartesian-product bounds specifically for products of paths and cycles.",
+        "Bresar-Henning-Rall arXiv:1601.07525v1: general regular graph and tree bounds do not determine complete-graph Cartesian products."
+      ],
+      "reasoning": "A Cartesian product result would dominate this claim if it included complete factors; the checked Cartesian section does not. General bounds cannot force the exceptional equality or the three-regime formula.",
+      "searches": [
+        "\"Grundy total domination\" \"K_m \\square K_n\" (web)",
+        "\"Grundy total domination\" \"line graph\" \"complete bipartite\" (web)",
+        "On Grundy total domination number in product graphs arXiv:1712.08780v1, Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.07525v1",
+      "arXiv:1712.08780v1",
+      "DOI:10.13001/ela.2022.6737",
+      "Scientific-record searches on Grundy total domination, rook graphs, and skew zero forcing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abiad et al. Lemma 3.5 gives Z^+(K_r square K_r)=(r-1)^2+1, not Z^-.",
+        "Bresar et al. arXiv:1712.08780v1 records duality but not the value for complete-factor products."
+      ],
+      "reasoning": "The known Z^+ expression and the known standard Z expression do not determine skew Z^- at n=m+1; our result differs by one. The prior implication needed to subsume the theorem is therefore absent from the inspected statements.",
+      "searches": [
+        "Bresar-Henning-Rall arXiv:1601.07525v1 main theorem statements",
+        "Bresar et al. arXiv:1712.08780v1 Section 5",
+        "Abiad et al. DOI:10.13001/ela.2022.6737 Lemma 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bresar et al. arXiv:1712.08780v1, introduction: gamma_gr^t(G)=|V|-Z^-(G) is a published equivalence.",
+        "Semantic scientific-record searches returned related but not equivalent results on ordinary Grundy domination of multipartite graphs and rook-graph topology, not the stated open-neighborhood formula."
+      ],
+      "reasoning": "Both gamma_gr^t and Z^- expressions are treated as the same claim via known duality. Ordinary domination, closed-neighborhood Grundy, standard zero forcing, and PSD forcing are not equivalent to skew forcing; the near-square case distinguishes them numerically.",
+      "searches": [
+        "Grundy total domination line graphs complete bipartite graph exact sequences (semantic record search)",
+        "skew zero forcing of rook graphs L(K_{m,n}) Cartesian product K_m square K_n formula (semantic record search)",
+        "\"skew zero forcing\" \"rook graph\" \"Grundy total\" line graph (web)",
+        "\"Grundy total domination\" \"rook\" \"complete\" (web)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact rook-graph parameter table occurred among the cited search results; topical matches predominantly concern different neighborhood rules and different Cartesian factors."
+      ],
+      "reasoning": "An existing exact skew or total-Grundy rook-graph table would cover the result regardless of title. The actual targeted searches did not identify one; this negative evidence is not a uniqueness proof.",
+      "searches": [
+        "Grundy total dominating sequences rook graph Cartesian product K_m square K_n (web)",
+        "skew zero forcing rook graph Cartesian product complete graphs (web)",
+        "Grundy total domination Cartesian complete graph products phase transition square rectangular (semantic record search)"
+      ]
+    },
+    "rationale": "The 2016 founding paper and 2017 product paper do not state the complete-factor rook graph formula in their inspected pertinent sections. A 2022 result concerns PSD forcing and does not imply the skew forcing exceptional near-square term. Prior ordinary rook-graph zero-forcing formulas address a different rule. Source and semantic searches detected no equivalent or stronger coverage; risk of unindexed priority remains.",
+    "residual_risks": [
+      "Unindexed older computations of skew forcing or total dominating sequences on line graphs may exist.",
+      "No independent scholarly literature-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes framework and bounds, not this exact rook-graph theorem",
+        "evidence": [
+          "arXiv:1601.07525v1 pages 1-8, Theorems 4.2/4.4/5.1, no rook or Cartesian result in extracted text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.07525",
+        "material_read": "PDF abstract, definitions, introduction, principal theorem statements and section summaries, searched for rook, line graph and Cartesian product",
+        "method": "Full-text searchable PDF, direct page inspection",
+        "title": "Total Dominating Sequences in Graphs",
+        "trigger": "Defining paper; primary MSC 05C69 and first-public date"
+      },
+      {
+        "assessment": "Its Cartesian results concern paths and cycles; no complete-factor formula found",
+        "evidence": [
+          "arXiv:1712.08780v1 pages 3 and 14-17, Theorem 5.1; introduction duality statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.08780",
+        "material_read": "PDF abstract, introduction, product decomposition and Cartesian-product Section 5 including theorem statement and proof scope",
+        "method": "Searchable PDF text and direct page inspection",
+        "title": "On Grundy Total Domination Number in Product Graphs",
+        "trigger": "Possible stronger coverage for graph Cartesian products and skew duality"
+      },
+      {
+        "assessment": "PSD forcing value only; does not assert skew rook-graph evaluation",
+        "evidence": [
+          "Abiad et al. (2022), page 284, Lemma 3.5; the cited general line-graph theorem is explicitly for PSD forcing"
+        ],
+        "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/206533710/vol38_pp280_294.pdf",
+        "material_read": "Preliminaries and Section 3.2, especially Lemma 3.5 and its proof",
+        "method": "Searchable PDF and direct page inspection",
+        "title": "Constructions of Cospectral Graphs with Different Zero Forcing Numbers",
+        "trigger": "Exact forcing result for line graphs of complete bipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a40144b-b932-49ff-92cc-3b9a203436e4",
+  "value": {
+    "rationale": "An exact uniform classification of the maximum open-neighborhood greedy length on a natural two-parameter family, with a non-obvious adjacent-width exception. A structural forest-and-component proof explains the phase boundary and translates to the classical skew-forcing invariant. This is not merely a relabeling or a small isolated numerical computation.",
+    "status": "PASS"
+  }
+}
