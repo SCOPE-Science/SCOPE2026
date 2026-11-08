@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The verification is self-contained. Run `python3 verify.py`, `python3 independent_check.py`, and `python3 amplification_check.py` together in one directory with Python 3; no third-party module is used. The first program exhausts all simple labeled graphs through five vertices and tests maximality by independence and external domination. The second implements a different maximality test via complement cliques and checks shattering via depth-by-depth Boolean tree search. Both obtain no strict gaps through four vertices and exactly \(90\) labeled five-vertex strict gaps in two isomorphism classes of respective sizes \(60\) and \(30\). The third program tests the connected cograph family at its first two parameters.
+# Independent mathematical audit
 
-The mathematical proof of the infinite formula is in RESULT.md; finite checks are not treated as proof for all \(m\). Neither source priority beyond the documented comparisons nor external independent scientific audit is certified.
+## correctness
+
+PASS
+
+Maximal independent sets are characterized by independence plus domination, which is used in complete labeled graph enumeration at n=1..5 (1+2+8+64+1024 graphs). Independent recomputation finds 90 gaps of (1,2) in exactly two canonical orbits of 60 and 30. The four maximal independent sets of F={a},{b},{c,e},{d,e} have VC=1; e followed by c or a builds depth-2 online tree. In the connected join G_m, maximal sets consist of singleton universal vertex or a Cartesian product of four choices per block, giving 4^m+1 hypotheses. Concatenated online trees give L>=2m, information bound 4^m+1<2^(2m+1) gives L<=2m. VC>=m by selecting e in each block; projection across blocks and absence of all three nonempty traces for any F-pair prove VC<=m, including singleton-support case. Join and union preserve P4-free. Exhaustive n<=5 verification is full finite enumeration, not extrapolated to all cographs.
+
+## originality
+
+PASS
+
+Best-of-knowledge, scoped novelty for the exact theorem and parameter regime after checking actual primary results and Resultary; prior methods/ingredients and exact overlaps are acknowledged rather than used as evidence of novelty. No decisive stronger theorem covering this precise claim was identified; remaining priority uncertainty is explicit.
+
+## value
+
+PASS
+
+The earliest-order separation between adaptive and static membership shattering is a natural finite classification. Amplification proves unbounded discrepancy even inside connected P4-free graphs, an unexpectedly restrictive and motivated family of learnable concept classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
