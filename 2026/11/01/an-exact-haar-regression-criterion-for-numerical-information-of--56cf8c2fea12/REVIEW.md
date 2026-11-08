@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complex Haar fourth-moment formula gives the exact best affine squared error. Block-unitary averaging reduces the conditional mean of every quadratic form to weighted spectral masses. Affine independence of the distinct spectral values makes those masses barycentric functions of the numerical value, proving optimality among all measurable regressors. For an affinely dependent spectrum, extreme-vertex boundary behavior contradicts simultaneous affine conditional means of every spectral projection. The symmetric three-level example is integrated exactly and gives squared errors 1/24 and 1/18. The standalone exact-rational checker passed 3210 assertions. Finite computations do not prove universal statements.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Johnson's first-public 21 October 2026 operator-information theorem characterizes zero-error pointwise functional dependence on numerical range maps. It does not give optimal nonlinear mean-square prediction or characterize the normal matrices for which nonlinear prediction cannot improve on affine prediction. The 2011 numerical-shadow theory and the 2026 Dirichlet distribution literature supply marginal laws and geometry, not an identified stronger conditional-regression classification. Mathematical-record and prior-claim searches found no equivalent or dominating statement; older conditional Dirichlet projection identities could imply parts of the result, and publication priority remains unsettled.
+PASS
 
-## Mathematical value — PASS
-The question is a motivated quantitative refinement of exact numerical information. The theorem completely classifies when the natural finite-dimensional operator pencil is optimal even against nonlinear measurable predictors, and exhibits a minimal three-level obstruction with a sharp 25% loss reduction. Its scope is normal matrices, not all bounded operators. This provides a natural exact invariant, not a mere computation of an arbitrary matrix.
+For complex Haar x on the n-sphere, E|<Rx,x>|²=(tr RR*+|tr R|²)/(n(n+1)). Hilbert–Schmidt orthogonality to span_C{I,A,A*} makes the stated distance bound the exact best affine L² error. With normal A=Σλ_j P_j, block-Haar symmetry yields E[<Bx,x>|T]=Σ T_j tr(BP_j)/rank P_j with Dirichlet positive block masses; affine-independent distinct λ_j (at most three noncollinear planar vertices) uniquely recover all T_j from Z=Σλ_jT_j, hence this predictor is affine in Z and Zbar and is the nonlinear conditional expectation. Conversely, if every spectral projector has affine conditional mean, at extreme spectral vertices it tends to Kronecker boundary values; for ≥3 collinear distinct λ, a nonextreme spectral value gives an affine function zero at both segment ends but positive mean, and for non-simplex polygons a nonextreme λ or ≥4 extreme vertices forces an affine function zero at three noncollinear vertices but positive mean. Thus an actual spectral projection strictly beats affine regression. The exact n=3 symmetric Dirichlet joint density gives predictor (1-|t|)/2, conditional variance E=1/24, affine residual 1/18. No claim for nonnormal/infinite-dimensional operators.
 
-## Closest literature and limitations
-D. M. Johnson, *Numerical Information of Hilbert Space Operators*, arXiv:2610.29826v1 (2026); C. F. Dunkl et al., *Numerical shadows: measures and densities on the numerical range* (2011); L. Zhang, *Exact probability laws of random inner products: Dirichlet splines, overlaps, uncertainty, and Bargmann invariants* (arXiv:2610.25196, 2026). The first was inspected in full accessible HTML. The latter two were examined through accessible abstracts and bibliographic records only, not represented as full-document negative searches. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for complete normal-matrix classification of equality of the best nonlinear Haar mean-square prediction and the best affine prediction, including strict failure and exact three-level error. Johnson 2026 Thm 4.2 and Thm 5.2 give pointwise zero-error/factorization and sigma-algebra inclusion B∈span{I,A,A*}, not conditional expectation for arbitrary B or its L² residual. Numerical shadow/Dirichlet spline literature motivates marginal laws but no dominating conditional regression classification was identified in bounded primary comparison.
+
+## value
+
+PASS
+
+A natural, nontrivial quantitative analogue of pointwise numerical information: determines exactly when observing one normal numerical shadow leaves no nonlinear regression advantage for any quadratic observable and exhibits the first 3-level obstruction with exact 25% loss reduction. The spectral-simplex boundary is structural, not a contrived matrix calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
