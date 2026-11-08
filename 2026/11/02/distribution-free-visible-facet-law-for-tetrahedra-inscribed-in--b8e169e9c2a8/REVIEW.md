@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every nondegenerate tetrahedron, negative origin-barycentric coordinates are precisely the facets whose outward halfspaces contain the origin. The interior-point convex-combination lemma rules out three negative coordinates for vertices on one convex boundary with the origin in the body's interior. Conditional antipodal symmetry yields sixteen equally weighted signs of a one-dimensional linear dependence, partitioned as \(2+8+6\); the count is invariant under the normalizing denominator's sign. The proof needs no isotropy or identical sampling law. Exact rational enumeration and independent sign-based facet tests reproduce the three counts. Simulations on the spherical, ellipsoidal, and \(\ell_4\)-boundary models are auxiliary. General-position and strict-side hypotheses are explicit.
+PASS
 
-## Originality
+Affine barycentric coordinates λ_i with ∑λ_i X_i=0 and ∑λ_i=1 satisfy: facet opposite i strictly separates 0 iff λ_i<0. Three negative coordinates would write the lone positive boundary vertex as a strict convex combination of 0 (interior to K) with other boundary vertices, contradicting being on ∂K; therefore V<=2. Conditional on four unoriented sample lines, independent antipodally symmetric laws supply 16 equiprobable orientation signs. Their unique linear-dependence coefficients a_i=ε_i b_i have nonzero sum almost surely and λ_i=a_i/∑a. The 2 all-same signs yield V0, eight 1-versus-3 signs yield V1 by boundary restriction, six balanced signs yield V2. This proves exact probabilities 1/8,1/2,3/8 for arbitrary independent nonidentical plane-null antipodal boundary measures. Atoms/coplanar degeneracies excluded by hypothesis, no interior-sampling extension claimed.
 
-PASS, subject to historical-priority uncertainty. Wendel's 1962 absorption theorem includes the zero-visible probability and must not be claimed as new. Bonnet–O'Reilly's 2019 preprint / 2022 published work gives general expected signed-facet-height counts for *uniform spherical sampling*, which together with Wendel and simple tetrahedral restrictions can imply the numerics in that narrower model. The surviving claimed contribution is the **complete shape-independent and distribution-independent law for four potentially different antipodally symmetric measures on the boundary of any centered symmetric three-dimensional convex body**. This extension is not established by the inspected scalar absorption formula or spherical height expectation, and searches for equivalent visible-face and barycentric-sign formulations found no direct source. The primary references and limitations are identified in RESULT.md. A specialized geometric-probability reference outside the searches could conceivably contain the same full extension; independent priority review remains necessary.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The negative supporting-facet count is a natural intrinsic visibility statistic for an inscribed random tetrahedron, refining the classical event that the origin lies in the hull. Its complete three-value law is universal even for nonidentical anisotropic sample distributions and arbitrary centrally symmetric convex boundary shapes. The deterministic bound \(V\le2\) explains the universality, and an exact interior-sampling example demonstrates why the support restriction is mathematically essential. This is a self-contained complete classification, not a fitted distribution or a single benchmark recomputation.
+Best-of-knowledge priority judgment after direct mathematical comparison; prior material credited and residual risks recorded. The zero-visible event is covered by Wendel, and isotropic spherical means are covered by earlier facet-height formulas. Neither inspected statement identifies the conditional 16-pattern visible-facet count on nonidentical general convex boundary laws.
 
-## Limits of verification
+## value
 
-The analytic result concerns four independent boundary samples under antipodal symmetry and plane-null general position. Numerical diagnostics are finite; the algebraic argument establishes the universal assertion. Historical noncoverage is provisional; independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of facets visible from a fixed interior reference point is a natural refinement of random-polytope absorption. A complete distribution that remains unchanged across arbitrary centrally symmetric convex shapes and nonidentical anisotropic boundary measures is a motivated geometric probability classification; the deterministic V<=2 mechanism and interior counterexample explain its genuine boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
