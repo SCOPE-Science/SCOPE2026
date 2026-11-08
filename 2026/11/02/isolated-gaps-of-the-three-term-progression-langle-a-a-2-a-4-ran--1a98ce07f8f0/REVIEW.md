@@ -1,19 +1,21 @@
-# Review of the isolated-gap classification
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claimed set follows from an explicit Apéry representative in each residue \(2j\pmod a\), namely \(w_j=a\lceil j/2\rceil+2j\). The adjacent-residue calculation is exhaustive: no gap with \(j\le s\) has its predecessor in the semigroup, whereas for \(s+1\le j\le2s\) both neighbors belong precisely when \(u\ge\lceil(j-s)/2\rceil-1\). Together with the gap constraint \(u\le\lceil j/2\rceil-1\), this proves the exact set for every odd \(a\ge3\). Distinct residues permit direct summation; the genus and Frobenius formulas follow from the same minima. The accompanying checker independently compared exact sets for 150 odd multiplicities, covering 1,158,925 gaps and 579,425 isolated gaps. These finite tests are not used as an infinite proof.
+PASS
 
-## Originality (O): PASS, with residual bibliographic risk
+Every semigroup word with t coins is at+2r with 0<=r<=2t; each increment realized because {0,1,2} coin increments fill this range. For residues 2j mod odd a, the minimum is w_j=a ceil(j/2)+2j; increasing r by a can only increase its minimum. For j<=s the left neighbor of any gap is itself missing. For j>s, the two neighbor coordinates are j-s-1 and j-s with u+1 as quotient, giving the precise lower/upper ceiling bounds. Summation of their integer intervals gives floor[s(s+2)/2], and summing Apéry quotients gives genus s(s+2); the largest representative gives Frobenius. Independent dynamic membership enumeration checked every isolated gap, genus, maximum and minimum for all 109 odd a=3..219; no finite enumeration is mistaken for proof for all a.
 
-Singh–Ram (arXiv:2406.09848v1, 2024), read in its accessible full-text form, classifies isolated gaps only for embedding dimension two. Smith (2022) supplies general Apéry observations and two-generator results; only the abstract and its detailed discussion in Singh–Ram were accessible. Moreno-Frías–Rosales (2020), whose original eight-page article was inspected, classifies zero isolated gaps for embedding dimension three, not the positive isolated-gap set or its cardinality in this arithmetic progression. Çelik (2023) studies \(\langle a,a+2\rangle\) and halves of two-generator semigroups; its inspected original article does not imply the present three-generator formula. A later article on multiplicity-three semigroups intersects the case \(a=3\), not the full odd-parameter family. Searches of relevant mathematical records, bibliographic sources, and accessible related claims found no equivalent statement, but unindexed or implicit deductions remain possible. A search failure is not a novelty proof.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The 2024 explicit enumeration for two generators motivates a natural next test case: the smallest nonconsecutive three-term arithmetic progression with coprime generators. Here the entire isolated-gap set has a structured triangular-strip description; the striking exact relation \(|I(S_a)|=\lfloor g(S_a)/2\rfloor\) explains its quadratic growth and shows that roughly half the gaps are isolated, unlike the bounded isolated-gap behavior of the consecutive-step progression. The same proof locates both extreme isolated gaps. This is a complete natural-family classification of an arithmetic semigroup invariant, not an arbitrary finite census, a table recomputation, or a claim about all three-generated semigroups.
+Smith and Singh–Ram discuss isolated gaps for two-generated semigroups. Moreno-Frías–Rosales characterize absence of isolated gaps at embedding dimension three, not the positive exact set and half-genus identity for this special arithmetic progression. Arithmetic-progression Apéry representatives are standard, but their exact two-neighbor overlap and number are additional calculations; a wider progression theorem could still subsume them.
 
-## Limitations and closest sources
+## value
 
-The statement applies only to odd \(a\ge3\) and step size two; finite verification covers just the displayed range. Smith's full text and some later related full texts were not accessible, and the novelty assessment cannot rule out every implicit consequence of older general algorithms. No independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-term arithmetic progression is a natural first family beyond embedding dimension two; determining the entire isolated-gap set, not only the Frobenius number, yields the sharp fraction of gaps isolated and an exact genus identity. It is a self-contained classification of a canonical combinatorial-semigroup invariant rather than arbitrary parameter experimentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
