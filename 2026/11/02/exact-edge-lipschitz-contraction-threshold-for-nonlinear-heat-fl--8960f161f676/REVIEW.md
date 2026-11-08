@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact right derivative of the maximal active edge difference is bounded by the explicit scalar coefficient in the theorem. Internal clique edges have at least the required negative contribution from every common neighbor; hub–blade edges additionally receive at most one positive unit per vertex in other blades. The scalar minimization of \(s^{p-1}+(1-s)^{p-1}\) on \([0,1]\) is elementary and sharp at endpoints for \(p\le2\) and at the midpoint for \(p\ge2\). A single feasible vertex signal attains the upper bound. Global well-posedness follows from the maximum principle and monotonicity of the flux; the active-edge differential inequality yields nonincrease exactly for nonpositive coefficient, while the attaining signal proves failure otherwise. Scaling proves unbounded *instantaneous normalized* growth only for the nonlinear failing cases.
+PASS
 
-The full finite-family phase diagram follows by ordering the blade sizes. The standard-library checker reconstructs edges and derivatives directly from the graph rather than using the closed formula, with 108 exact sharpness tests, 2536 finite grid cases and 384 sampled phase configurations. These finite tests corroborate but do not replace the analytical proof.
+For finite clique bouquets K_1∨(disjoint K_{r_i}) with unit masses and conductances and 1<p<∞, the active edge derivative is bounded by μ_p=max_i[N-r_i-2-(r_i-1)c_p] times L_G^(p-1). For a hub–blade edge, each other-blade vertex contributes at most +1; direct edge -2, blade common vertices at most -c_p by the sharp scalar minimum of t^(p-1)+(1-t)^(p-1). Internal blade edge gap has no positive other-blade contribution. The explicitly configured hub=1, active blade vertex=0, other vertices 0 or 1/2 and outsiders 2 attains μ_p; dissipativity and maximum principle yield global flow, time-continuity and necessity/sufficiency. Since μ decreases with r_i, all m-blade cases reduce to r_min; thresholds m=1 always, m>=4 never, m=3 only three size-1 blades, m=2 iff b<=2+(a-1)c_p. Homogeneity gives unbounded normalized *instantaneous* rate for p≠2 when μ>0, not fixed-time amplification.
 
-## Originality — PASS, qualified
+## originality
 
-Mugnolo, *Parabolic theory of the discrete p-Laplace operator* (arXiv:1207.1996), proves order preservation and contraction in vertex-function norms (not a graph-edge seminorm). Hua–Mugnolo (arXiv:1410.1584) treats solution time regularity, extinction and conservation, not the blade-by-blade edge-gradient classification. Münch–Wojciechowski (arXiv:1712.00875) associates linear heat Lipschitz decay with curvature; the nonlinear exponent-dependent threshold is not an implication of a linear result. Exact-semantic comparisons to earlier claims in related areas distinguish the new *individual nonlinear graph-edge maximum* from both linear edge-total-variation decay and two-input edge-Lipschitz stability. The searches and source inspections recorded in the structured assessment did not identify an evaluated theorem covering the same coefficient and phase diagram. This is a best-knowledge originality judgment, not a guarantee of first publication. Unindexed equivalent coverage remains a risk.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge PASS for one-trajectory edge-Lipschitz contraction phase diagram; vertex ℓ∞ semigroup contractivity and linear curvature theory do not imply an edge seminorm inequality for nonlinear flows. The exact coefficient, sharp attaining witness and exponent transition are not supplied by inspected earlier theorems. Unindexed nonlinear curvature equivalences remain possible.
 
-The problem compares a familiar nonlinear graph heat flow with a natural, very concrete seminorm not controlled by order preservation alone. The answer classifies an infinite standard graph family, including the complete-graph boundary, a three-leaf exceptional case, all two-blade asymmetries and a genuine critical exponent for balanced blades of size at least three. It identifies exact short-time optimal growth and distinguishes the qualitative fact of contraction from failure by an unbounded normalized instantaneous rate for nonlinear exponents. This is a structural phase diagram, not an arbitrary finite graph calculation.
+## value
 
-## Scope and scientific risks
+PASS
 
-Only finite unit-mass, unit-conductance clique bouquets and one-input edge gradients are covered. The critical normalized-rate divergence has no fixed-positive-time implication. Broader literature may contain a previously unnoticed equivalent criterion, particularly under Markov-semigroup curvature or nonlinear graph-diffusion terminology. The full primary texts inspected provide important general principles but do not directly establish the evaluated blade formula.
+Natural graph-edge variation can expand even under order-preserving p-heat. The theorem gives an exact infinite-family structural phase diagram and sharp nonlinear transition, not a routine vertex maximum principle or isolated graph computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
