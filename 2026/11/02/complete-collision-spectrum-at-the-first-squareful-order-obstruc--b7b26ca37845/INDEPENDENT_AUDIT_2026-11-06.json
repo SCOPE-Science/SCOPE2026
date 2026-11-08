@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:52:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/complete-collision-spectrum-at-the-first-squareful-order-obstruc--b7b26ca37845/RESULT.md at cee6a8611931dc24cf27d27764642f895841c83e Git blob 484887232b29095360b616b34822804d43a777e6",
+        "2026/11/02/complete-collision-spectrum-at-the-first-squareful-order-obstruc--b7b26ca37845/verify.cpp Git blob cd121df9f08eedbc2d8c9c94e36b9cad105e8871e6",
+        "independent_checks_cpp_output.txt"
+      ],
+      "rationale": "For each of the 10! permutations of exponents 1,...,10 assigned to bases 1,...,10, integer residues i^{sigma(i)} mod 10 determine a 10-bit support mask. The source proves a finite injection-state recurrence D_i(J,R); an independently written exhaustive lexicographic C++ loop enumerated all 3,628,800 permutations and reproduced histogram [K=5:9792,K=6:537408,K=7:1822464,K=8:1175040,K=9:84096], zero outside these K, including no K=10 and exact 84096/3628800=73/3150. The exhaustive finite domain is the entire claim, with no extrapolation.",
+      "residual_risks": [
+        "No conclusion claimed for moduli other than ten or limiting random-permutation behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leonetti 2026 Theorem 1.3 characterizes all even nice n, including exclusion of n=10; a general existence theorem determines only the K=10 coefficient zero, not the distribution over K<10.",
+          "A characterization of Sophie Germain primes - II"
+        ],
+        "reasoning": "Leonetti 2026 Theorem 1.3 characterizes all even nice n, including exclusion of n=10; a general existence theorem determines only the K=10 coefficient zero, not the distribution over K<10.",
+        "searches": [
+          "power permutations modulo 10 exact number distinct residues collision spectrum Leonetti Sophie Germain",
+          "broader results from closest literature: arxiv:2609.20208v1"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.cpp",
+        "independent_checks.cpp R3_POWER 3,628,800 exact permutations",
+        "Leonetti arxiv:2609.20208v1 full five-page text, Theorem 1.3 and proof",
+        "Leonetti arxiv:1305.0893 prior cited theorem",
+        "Resultary query for collision spectrum modulo 10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.3 implies zero perfect residue systems for n=10, i.e. coefficient z^10=0, but cannot imply coefficient z^9=84096 or lower coefficients. The independent lexicographic census proves those finite quantities."
+        ],
+        "reasoning": "Theorem 1.3 implies zero perfect residue systems for n=10, i.e. coefficient z^10=0, but cannot imply coefficient z^9=84096 or lower coefficients. The independent lexicographic census proves those finite quantities.",
+        "searches": [
+          "power permutations modulo 10 exact number distinct residues collision spectrum Leonetti Sophie Germain",
+          "primary theorem comparison: arxiv:2609.20208v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leonetti proves whether K=n is achievable, not the number of permutations attaining each 5<=K<=9. The five-bin spectrum and near-complete probability are additional exact invariants of the SAME arithmetic object.",
+          "arxiv:2609.20208v1"
+        ],
+        "reasoning": "Leonetti proves whether K=n is achievable, not the number of permutations attaining each 5<=K<=9. The five-bin spectrum and near-complete probability are additional exact invariants of the SAME arithmetic object.",
+        "searches": [
+          "power permutations modulo 10 exact number distinct residues collision spectrum Leonetti Sophie Germain",
+          "aliases: nice numbers, complete residue systems of permuted powers, near-nice permutation collision count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact coefficient list 9792,537408,1822464,1175040,84096 was located in scholarly/Resultary exact table searches. No known database lists all support-size counts at this n in inspected material."
+        ],
+        "reasoning": "No exact coefficient list 9792,537408,1822464,1175040,84096 was located in scholarly/Resultary exact table searches. No known database lists all support-size counts at this n in inspected material.",
+        "searches": [
+          "power permutations modulo 10 exact number distinct residues collision spectrum Leonetti Sophie Germain",
+          "exact source coefficients/thresholds and standard databases: arxiv:2609.20208v1"
+        ]
+      },
+      "rationale": "Leonetti (2018 and 2026) proves precise existence/nonexistence of nice residue-permutation systems and specifically rules out n=10 because n=2p with p-1 non-squarefree. The 2026 five-page article was read fully, including Theorem 1.3 and the construction proof: no distribution for K=5,...,9 is given. These boolean existence results cannot yield the five support-size counts without additional computation. Targeted Resultary and exact-number search found no identical spectrum, but unpublished enumeration remains possible.",
+      "residual_risks": [
+        "An older finite table or unpublished code could contain the identical modulus-ten histogram.",
+        "No conclusion claimed for moduli other than ten or limiting random-permutation behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.3 determines possibility of K=10 only, not the five-bin collision enumeration",
+          "evidence": [
+            "Leonetti (2026), Theorem 1.3: even n>=6 nice iff p=n/2 prime and p-1 squarefree",
+            "Pages 2–5: construction of a complete residue system, no enumeration of incomplete support-size strata"
+          ],
+          "identifier_or_url": "arxiv:2609.20208v1",
+          "material_read": "All five pages, abstract, Theorems 1.1–1.3, Claims 1–2, explicit permutation construction and reference list",
+          "method": "Authorized full-text extraction after arxiv/OA search, pages 1–5, manually inspected mathematical text",
+          "title": "A characterization of Sophie Germain primes - II",
+          "trigger": "Exact generalized nice-number criterion containing modulus ten obstruction"
+        },
+        {
+          "assessment": "Known n=10 exclusion acknowledged; no statement of collision distribution could be established from inspected material",
+          "evidence": [
+            "Leonetti 2026 Introduction Theorem 1.2 reproduces 2018 necessary squarefree condition"
+          ],
+          "identifier_or_url": "arxiv:1305.0893 ; Int. J. Number Theory 14 (2018)",
+          "material_read": "Theorems and introductory statements reproduced and cited in fully read 2026 sequel; 2018 full text not inspected",
+          "method": "Primary-article cross-reference via sequel",
+          "title": "A characterization of Sophie Germain primes",
+          "trigger": "Original nice-number definition and first observation modulus ten is not nice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/complete-collision-spectrum-at-the-first-squareful-order-obstruc--b7b26ca37845/RESULT.md",
+        "Relevant prior work: arxiv:2609.20208v1"
+      ],
+      "rationale": "Modulus 10 is the first even 2p case where p prime but p-1 squareful, precisely a natural boundary of the complete power-permutation criterion. The exact collision spectrum measures HOW non-nice it is, including the sharp frequency of nine residues. A full finite classification of this first arithmetic obstruction is intrinsically motivated, though narrow; it asserts no general congruence family.",
+      "residual_risks": [
+        "An older finite table or unpublished code could contain the identical modulus-ten histogram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older finite table or unpublished code could contain the identical modulus-ten histogram.",
+    "No conclusion claimed for moduli other than ten or limiting random-permutation behavior.",
+    "Publication not_ready because no privacy-neutral public replacements or verified complete Git-tree manifest are supplied; source GitHub unchanged."
+  ],
+  "schema_version": 1
+}
