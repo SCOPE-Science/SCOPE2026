@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric fixed-set identification follows directly from unique barycentric coordinates on invariant simplex supports; its orbit-compatibility lemma is verified in the full arbitrary-poset proof. For chain third factors, the graph-and-cones long exact sequence is solved over the integers. The key map has a **primitive image** given by an explicit subset of an integral fundamental-cycle basis, proving free abelian homology and ruling out undetected torsion. The boundary cases \(n=1,2\) are handled separately. A standalone stdlib-only checker independently compared 83,572 chain-face candidates and 9,728 general-three-point-poset subset candidates and recomputed finite mod-two Betti numbers. These computations corroborate rather than replace the all-parameter proof.
+PASS
 
-## Originality — PASS with identified residual risk
+A simplex of the coordinate-transposition fixed realization has barycentric weights constant on each orbit of vertices in [2]×[2]×Q; these orbits are A_q={(0,0,q)}, B_q={(0,1,q),(1,0,q)}, D_q={(1,1,q)}. Every orbit is an antichain. Compatibility of unions of two orbits is exactly incomparability of the corresponding elements of [3]×Q, including B/B and cross-level comparisons; so the fixed orbit complex is simplicially identical to A([3]×Q), giving the actual PL homeomorphism for all finite nonempty Q. For Q=[n], the only edges are level pairs with first index>second, and triangles A_iB_jD_l for i>j>l, hence f=(3n,3 binom(n,2),binom(n,3)). Model it as bipartite A–D graph G plus cones at B_j over links L_j. The relative H2 groups have rank binom(n−2,3) and H1(F,G) rank 2(n−2); the map to H1(G) hits exactly the primitive coordinate direct summand indexed by chord gaps≥2, rank binom(n−3,2), leaving quotient rank n−3 with no torsion. Long exact sequence yields H0=Z3, H1=Z^(3n−7) for n≥3, H2=Z^binom(n−3,3), n=1/2 boundary separately. Independent enumeration of faces/boundary ranks for n=1..10 reproduced exact f-vectors, mod2 Betti and first H2 at n=6. The integral theorem rests on the explicitly primitive image, not on mod-two ranks or a finite extrapolation.
 
-The primary 2026 three-factor chain-product paper analyzes antichain enumeration rather than geometric fixed loci. The closely related 2026 two-factor comparability-graph independence-complex paper provides nonequivariant topology, which may already imply numerical homology of the folded target; no originality is claimed for that standalone target calculation. Direct implication from those nonequivariant theorems does not produce the arbitrary-finite-poset PL fixed-point reduction for an involution on \([2]\times[2]\times Q\). Comparisons with available earlier local claims found a coordinate-swap result on \([n]\times[n]\), which is not the present three-factor product. published-finding corpus searches for exact product, orbit-antichain, coordinate-swap and parameter-variant formulations returned no covering item. Novelty is a best-knowledge comparison, not guaranteed uniqueness; equivalent unindexed work is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural transposition of equal product factors yields an exact fixed-locus model for every finite third-factor poset, upgrading ordinary enumeration and nonequivariant homology to direct geometric equivariant information. The integral chain-family computation identifies a nontrivial dimension-two onset at \(n=6\) despite a constant number of components, and does so with a structural primitive-image proof. The reduction is useful for transferring any invariants computed on \(\mathcal A([3]\times Q)\) to the actual fixed locus, rather than merely providing a numerical special case.
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
 
-## Sources, limitations and residual risks
+## value
 
-Primary full open text inspected: Chen–Dong–Tang arXiv:2609.28983v1, especially the chain-product antichain enumeration section. Closely related full PDF inspected: Barik–Mondal–Mukherjee arXiv:2604.12606v1, especially its chain-product comparability-graph discussion. The folded target is a familiar two-factor antichain complex, so earlier results may cover its Betti numbers; the asserted original advance is the PL identification of the actual geometric fixed locus for all finite third-factor posets. Unindexed equivalent folding identities remain possible. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural involution swapping two identical chain factors has an exact fixed-locus description for any finite third-factor poset, a structural PL reduction available to transfer topology and invariants beyond the chain case. The integral homology of the chain specialization exhibits a precise first fixed two-cycle at n=6 and an explicit torsion-free primitive-image mechanism. Value resides in the fixed-space bridge, not in treating standalone two-factor Betti ranks as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
