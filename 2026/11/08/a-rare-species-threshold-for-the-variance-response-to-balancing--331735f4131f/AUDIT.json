@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every positive sampling vector the two moment formulas follow from inclusion-exclusion and tail sums. With two common-species abundances parameterized by t=bc, exact differentiation at the symmetric locus gives V_t=-32Q(a)/(1-a²)^4. The strictly increasing quintic Q has one root in (0,1/3). Its sign gives the local extrema for all noncritical a. At the root the exact quartic coefficient 128R(a)/(1-a²)^6 is positive by rational interval bounds. A direct conditional rare/nonrare coupling proves strict full-detection stochastic improvement for all n≥3. A two-species closed form rules out variance-increasing balancing at smaller species counts. Standalone verify.py independently cross-checks exact finite-state moments and symbolic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long, arXiv:2604.25108v2 Theorem 7.8: variance strictly increases radially away from the fully uniform law.",
+        "Long, arXiv:2604.25108v2 §7.6: pairwise smoothing is not guaranteed to decrease variance.",
+        "Anceaume et al., arXiv:1402.5245v1: expectation/tail ordering and moment identities."
+      ],
+      "reasoning": "Radial motion from (1/3,1/3,1/3) is distinct from tangential motion (0,+delta,-delta) at (a,(1-a)/2,(1-a)/2) for a != 1/3. The global uniform-minimizer theorem and general failure of pairwise smoothing do not locate where local second curvature changes sign, nor identify a quartic degeneracy or exact critical frequency.",
+      "searches": [
+        "Yu minimum variance coupon collector probability simplex 2017",
+        "Long arxiv 2604.25108 finite variance extremality radial proof",
+        "Anceaume Busnel Sericola uniform minimum coupon completion 2014",
+        "Doumas Papanicolaou coupon collector asymptotic variance unequal probabilities"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1402.5245v1",
+      "https://arxiv.org/abs/1608.00155",
+      "https://doi.org/10.1017/jpr.2017.23",
+      "https://arxiv.org/html/2604.25108v2",
+      "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+      "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known ecological majorization gives faster completion time under balancing, but ordering distributions stochastically does not order their variances.",
+        "Long establishes that pairwise variance smoothing is not a global inequality; it does not state a threshold stratifying fixed-rare abundance a.",
+        "The proposed polynomial Q(a), strict monotonicity Qprime(a)>0, sign switch, and quartic case are obtained by fresh exact moment differentiation."
+      ],
+      "reasoning": "The exact new mathematical implication is a three-way local classification by the rare proportion, not mere existence of a majorization counterexample. Known tail ordering plus known global uniform variance extremality cannot determine the sign of transverse Hessian on the equal-common-probability locus; the explicit threshold is genuinely additional.",
+      "searches": [
+        "arXiv:1608.00155 Schur majorization speed of parasitization",
+        "arXiv:2604.25108v2 sections 7.5 7.6 variance extremality pairwise smoothing",
+        "arXiv:1402.5245v1 generalized coupon collector moments",
+        "2017 Yaming Yu minimum variance coupon collector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Long, arXiv:2604.25108v2 §7.6, states pairwise variance smoothing can fail but supplies no rare-frequency curvature threshold.",
+        "Zoroa et al., arXiv:1608.00155 §§3,6, distinguish fixed-time observed richness variance from completion-time order."
+      ],
+      "reasoning": "Aliases checked: unequal-probability coupon collection, ecological full-detection time, majorization/Robin-Hood transfer, local variance Hessian, and balancing common coupon probabilities. The qualitative non-Schur-convexity alias is decisively covered by Long and is not presented as new; the quintic phase boundary is not equivalent to that weaker existence claim.",
+      "searches": [
+        "coupon collector completion-time variance Schur convex rare probability",
+        "three species rare probability variance balancing threshold coupon collector",
+        "Long 2604.25108 section 7.6 pairwise variance smoothing",
+        "arXiv:1608.00155 ecological full observation stopping time variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed result 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed considers reset collectors and large-size asymptotics.",
+        "Indexed result 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac concerns successive discovery indicators.",
+        "Indexed result 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813 concerns counts at a fixed sample size."
+      ],
+      "reasoning": "The located exact records treat different random variables or reset mechanisms; no located table lists the three-species fixed-rare balancing curvature or unique root. Index-search absence is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus query: coupon collector 3 categories two equal frequent rare species phase transition variance curvature probability",
+        "published-finding corpus query: completion time variance not Schur-convex despite stochastic dominance under Robin Hood balancing ecological coupon collector three species",
+        "web: coupon collector variance three coupons equal two species",
+        "web: coupon collector curvature rare variance majorization"
+      ]
+    },
+    "rationale": "Long (2026), §7.6 explicitly states the qualitative failure of pairwise variance smoothing for ordinary coupon collection, and Yu (2017) and Long (2026) prove global uniform variance minimality. Those existing conclusions are excluded from the novelty claim. The new mathematical statement is the exact natural rare-abundance boundary a*=0.147902... defined by a unique quintic root, with a sign-changing local curvature, positive fourth-order degenerate case, and sharp three-species ecological interpretation. Anceaume (2014) supplies moment/distribution formulae; Zoroa et al. (2016) supplies stochastic ordering in ecological sampling. Neither the global radial minimum nor the qualitative existence of counterexamples implies the local Hessian sign along fixed-rare-frequency balancing, and no located statement gives this boundary. Unexamined literature remains a priority risk.",
+    "residual_risks": [
+      "The 2017 Yu two-page full text was not accessible; priority for any unknown local expansion in that note remains unverified.",
+      "A broader historical literature search may reveal prior calculations of the same quintic threshold; these searches are not an independent priority certification.",
+      "The local curvature result does not imply a complete global variance monotonicity classification on the probability simplex."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies standard identities and completion ordering, not the rare-frequency Hessian transition.",
+        "evidence": [
+          "Dated 2014-02-21 in preprint header",
+          "Sections 3–5 provide moments and minimization of expected/full-collection tails."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.5245v1",
+        "material_read": "Open HTML preprint; abstract, definitions, sections 1–3 and minimization discussion in sections 4–5.",
+        "method": "Direct text reading and comparison of moment and majorization statements",
+        "title": "New results on a generalized coupon collector problem using Markov chains",
+        "trigger": "Same completion-time random variable and exact moment identities"
+      },
+      {
+        "assessment": "Explains ecology and stochastic sampling dominance; fixed-time count variance does not determine completion-time variance.",
+        "evidence": [
+          "Preprint header dated 2016-07-30",
+          "Section 3: variance of number of parasitized hosts after n draws",
+          "Section 6: Robin Hood transfer and stochastic dominance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.00155",
+        "material_read": "Public full HTML: introduction, fixed-time variance section 3, stopping time section 4, and majorization section 6.",
+        "method": "Direct section-by-section HTML text comparison",
+        "title": "The coupon collector urn model with unequal probabilities in ecology and evolution",
+        "trigger": "Ecological sampling model, diversity counting and majorization"
+      },
+      {
+        "assessment": "Full-text inspection unavailable. Long states and re-proves the uniform-minimum result. A hypothetical unlocated local Hessian discussion is a residual originality risk.",
+        "evidence": [
+          "Publisher record dated 2017-06-22; two-page letter",
+          "Long 2026 §7.2 attributes the one-complete-set global minimum to Yu."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2017.23",
+        "material_read": "Publisher landing page citation, preview statement and references only; no body text available.",
+        "method": "Publisher page inspected after open-access/preprint search; corroborated scope in Long 2026 §1 and §7.",
+        "title": "Minimum variance in the coupon collector’s problem",
+        "trigger": "Plausibly covers completion-time variance and global minimization"
+      },
+      {
+        "assessment": "Theorem 7.8 proves global radial minimum at uniform. Section 7.6 already notes pairwise smoothing failure. Does not provide the exact unique three-species rare-frequency threshold or the quartic degeneracy.",
+        "evidence": [
+          "First public date 2026-04-28 (abstract header)",
+          "Theorem 7.8 and proof §§7.5",
+          "§7.6 explicitly notes local pairwise variance-smoothing failure."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25108v2",
+        "material_read": "Direct full HTML sections 1, 7.1–7.6, 8, and bibliography; explicit comparison with Theorem 7.8 and §7.6.",
+        "method": "Read primary mathematical claims and proofs, compared radial trajectories with fixed-a balancing directions.",
+        "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+        "trigger": "Most relevant stronger general completion-time variance result and prior counterexamples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "331735f4-131f-445b-a762-8c034c8d13c9",
+  "value": {
+    "rationale": "The fixed-rare-proportion, equal-common-species locus is a canonical ecological survey design section, not an arbitrary isolated numerical slice. Its precise rare-abundance threshold changes the direction of uncertainty under balancing although the completion-time distribution improves at every sample horizon; the degeneracy at threshold and sharp minimal richness are meaningful exact boundaries. Qualitative pairwise-smoothing failure is prior and not claimed; the exact phase diagram provides motivated additional information beyond general variance minimization.",
+    "status": "PASS"
+  }
+}
