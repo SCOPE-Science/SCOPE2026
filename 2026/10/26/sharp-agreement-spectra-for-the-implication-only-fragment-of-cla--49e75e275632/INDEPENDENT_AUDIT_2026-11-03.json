@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:44:06.405302Z",
+  "axes": {
+    "correctness": {
+      "boundary_cases": [
+        "n=1: 1 and 2 agreements; n=2: 1,2,3,4 agreements by explicit variable-only terms.",
+        "j=2^m tautology T; r=1 at recursion ell=1; r=2^(m−1) at ell=m−1.",
+        "x≈(x→y) agrees only on (x,y)=(1,1), giving floor 1/4.",
+        "No constants in signature, x→x tautology is a term, variable reuse and unused variables allowed."
+      ],
+      "critical_lemmas": [
+        "Rightmost terminal variable true forces term true, including the case of two identical terminal variables.",
+        "Term disjunction (U→V)→V is classical OR even with overlapping variables.",
+        "Truth-count recursion: exactly r false assignments when A true and fresh variables zero.",
+        "Family II agreement count 3·2^(n-2)−j and Family III count 2^(n-1)+j; other two families at stated intervals.",
+        "Realization of dyadic p=d/2^n after denominator enlargement and agreement of unused variables."
+      ],
+      "rationale": "For every implication-only term t, if its rightmost leaf is assigned 1 then t evaluates 1, yielding at least 1/4 agreeing assignments for any pair; x≈(x→y) attains exactly 1/4. An explicit truth-count induction constructs every j in [2^(m-1),2^m] using T=(A→x_(ell+1))∨ remaining variables, where ∨ is itself an implication-only term. Four agreement-equation families give, in order, [2^(n-2),2^(n-1)], [2^(n-1),5·2^(n-3)], [5·2^(n-3),3·2^(n-2)] and [3·2^(n-2),2^n]. Direct truth splits verify their formulas; n=2 and n=1 are explicit. No primitive constants are used. Thus the stated complete dyadic interval follows for arbitrary n. Independent bitmask evaluation confirmed 263 truth-count and 388 agreement witnesses through n=8 and exhaustive clone closure sizes (2,6,38,942) through n=4, including 888848 pair comparisons; finite evidence is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardó 2026 April Theorem 4.3: full primal clone gives all dyadic probabilities in [0,1].",
+          "Cardó–Kearnes–Szendrei October Theorem 4.3: 2-element nonabelian algebras have infinite PSpec; it gives neither sharp endpoints nor all counts.",
+          "Cardó–Kearnes–Szendrei October Example 4.2: majority-only exact [1/2,1] dense dyadic spectrum; different clone."
+        ],
+        "reasoning": "The implication clone is neither primal (it preserves the all-ones tuple and lacks false constant) nor the majority clone. A larger Boolean signature gives set inclusion only, not equality for this reduct. General infinity of the reduct spectrum follows from its disjunction term but does not entail full density with lower endpoint 1/4 or fixed-arity integer saturation.",
+        "searches": [
+          "arXiv:2604.08446v1 Theorems 4.3, 4.4, Section 7",
+          "arXiv:2610.37841v1 Theorem 4.3 and Example 4.2",
+          "web: clone of material implication binary term functions 2 6 38 942"
+        ]
+      },
+      "checked_sources": [
+        "Carles Cardó, Probabilistic equational spectrum, primality and approximation in finite algebras, arXiv:2604.08446v1 (2026-04-09), Definition 2.1, Table 1, final paragraph Section 7: material implication spectrum explicitly unknown.",
+        "Cardó, Kearnes, Szendrei, Finite algebras whose equational probability spectrum contains a big gap, arXiv:2610.37841v1 (2026-10-27), Sections 1 and 4, Example 4.2 and Theorem 4.3: exact majority-algebra spectrum, general finite/infinite dichotomy but no exact implication formula.",
+        "Carles Cardó, On semigroups and groupoids with minimal probabilistic spectrum, arXiv:2603.19487v2 (2026-04-10), Sections 2–4: minimal spectrum {1/2,1}, quasigroup/semigroup classification.",
+        "Resultary published-finding semantic searches: exact material-implication equational spectrum and sharp agreement-count interval; no matching exact mathematical statement among returned ranked findings."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cardó April: same exact algebra remains open; primal/general clones cover other signatures.",
+          "Cardó–Kearnes–Szendrei October: implication algebra is nonabelian and its spectrum is infinite by the 2-element dichotomy, which is strictly weaker than the new exact dense proper interval and fixed n agreement counts.",
+          "Cardó March minimal spectrum classification cannot cover a system with realized probability 1/4."
+        ],
+        "reasoning": "Prior infinity/clone containment is not the target converse realization theorem: one must produce all 3·2^(n-2)+1 agreement counts at each arity n≥2, including the sharp 1/4 bound. Constructive four-family proof supplies exactly this extra mathematical conclusion; neither inspected full-text source implies it.",
+        "searches": [
+          "arXiv:2610.37841v1 Sections 1 and 4, Example 4.2 and Theorem 4.3",
+          "arXiv:2604.08446v1 Definition 2.1, Section 4 Table 1, Theorems 4.3–4.4, Section 7",
+          "arXiv:2603.19487v2 Section 2 and main minimal-spectrum results",
+          "web: material implication equational probability spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations in the implication groupoid are exactly agreements of classical implication-only formulas on uniform Boolean inputs.",
+          "Cardó arXiv:2604.08446v1, Section 7 names PSpec(({0,1},→)) as unknown; Section 4 Table 1 operation (1,1,0,1).",
+          "Cardó arXiv:2603.19487v2 Proposition 1(vi): anti-isomorphic groupoids have equal spectrum."
+        ],
+        "reasoning": "Material implication, its opposite groupoid via reversing trees and pairwise truth-agreement probabilities are equivalent formulations. Explicitly checked matching operation and all-variable semantics; the named primary predecessor leaves this case open and the searches did not retrieve the exact interval theorem. Search absence alone is not novelty proof.",
+        "searches": [
+          "Resultary semantic: probabilistic equational spectrum two-element material implication algebra agreement probability dyadic [1/4,1]",
+          "Resultary semantic: sharp agreement counts of equations between classical implicational formulas on n variables all integers 2^(n-2) to 2^n",
+          "web: equational satisfaction spectrum material implication algebra truth agreement two implicational formulas exact probability",
+          "arXiv:2604.08446v1 Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact operation table (1,1,0,1) is listed among unknown two-element groupoid spectra in Cardó Table 1, §4.",
+          "The same author explicitly reiterates the unknown implication spectrum in §7 of the April paper."
+        ],
+        "reasoning": "The most direct classification table is an exact object match but has an unknown entry rather than a computed spectrum. The October follow-up includes an exact majority spectrum, not this exact binary reduct. No verified external exact table gives the target.",
+        "searches": [
+          "arXiv:2604.08446v1 Section 4 Table 1 two-element groupoids",
+          "web: Carles Cardó probabilistic equational spectrum implication 1 1 0 1",
+          "Resultary two exact-semantic queries listed under equivalent_formulations"
+        ]
+      },
+      "rationale": "As of the latest checked 2026-10-27 primary paper, no inspected source implies the exact implication-only [1/4,1] dyadic spectrum or its sharp integer interval at each fixed arity. Direct predecessor explicitly lists the identical groupoid spectrum as unknown. Published analogous majority case and general two-element finite/infinite dichotomy do not cover this claim. Priority is best-of-knowledge, not exhaustive.",
+      "residual_risks": [
+        "Post-clone or older Boolean-implication equivalence literature under other terminology may contain a redundant all-arity agreement-spectrum theorem.",
+        "Search and source review are finite and do not establish absolute historical priority; the 2026-10-27 paper is the latest directly relevant inspected primary source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Noncoverage: the paper explicitly names the spectrum of the material-implication reduct as unknown and does not supply its exact sharp arity counts.",
+          "evidence": [
+            "Section 2 Definition 2.1 defines equation probability as fraction of satisfying tuples.",
+            "Section 4 Table 1 labels operation (1,1,0,1) spectrum unknown; final paragraph Section 7 explicitly names ({0,1},→).",
+            "Theorem 4.3 concerns primal algebras whose term clones include all operations and produces [0,1] dyadics; implication-only is not primal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.08446v1",
+          "material_read": "Full available HTML was consulted with detailed inspection of Section 2 Definition 2.1, Section 3 term-clone results, Section 4 Table 1 and Theorems 4.3–4.4, and concluding Section 7 paragraph.",
+          "method": "Compared operation table, signature, term-definability hypotheses, all-arity scope, Table 1 and explicit open-problem statement.",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Exact two-element material-implication groupoid and identical definition of equational probability."
+        },
+        {
+          "assessment": "Noncoverage of the exact implication spectrum: Example 4.2 proves a [1/2,1] dyadic spectrum for the majority reduct (different algebra), while Theorem 4.3 only establishes finite vs infinite spectrum for two-element algebras. Implication clone includes ∨, giving the infinity conclusion, not the exact [1/4,1] formula.",
+          "evidence": [
+            "Example 4.2, pp.20–23: for majority algebra the spectrum is dyadic in [1/2,1].",
+            "Theorem 4.3, p.24: PSpec(A) finite iff a two-element algebra A is abelian; derives infinity for nonabelian clones by minimal operations ∧, ∨ or majority.",
+            "No exact arity-by-arity implication-agreement construction in inspected theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.37841v1",
+          "material_read": "30-page PDF: substantive sections read include Introduction pages 1–4, Section 4 pages 16–25 (Examples 4.1–4.2 and Theorems 4.3–4.6), further examples on pages 25–27; not claimed cover-to-cover reading of remaining pages.",
+          "method": "Read extracted full-text passages and inspected PDF page 1 rendering; compared quantifiers and specific algebra operations, including majority clone and Post-lattice dichotomy.",
+          "title": "Finite algebras whose equational probability spectrum contains a big gap",
+          "trigger": "Published later than original record and same equational probability invariant with two-element clone calculations."
+        },
+        {
+          "assessment": "Inapplicable to this nonminimal dense spectrum; no exact implication-only probability formula.",
+          "evidence": [
+            "Section 2 Definition 1 and Proposition 1 characterize equational probability, clone inclusion and anti-isomorphism.",
+            "Minimal spectrum consists only of 1/2 and 1 for two-element structures; this reviewed algebra realizes 1/4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.19487v2",
+          "material_read": "HTML abstract, definitions and basic clone relation in Section 2, Sections 3–4 on minimal-spectrum quasigroups/semigroups and main theorems.",
+          "method": "Checked the minimal-spectrum hypothesis and compared the witness 1/4 with its {1/2,1} target set.",
+          "title": "On semigroups and groupoids with minimal probabilistic spectrum",
+          "trigger": "Same general finite groupoid probability spectrum; plausible broader algebra classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_relevance": [
+        "Canonical implication-only propositional logic semantics and groupoid equational probability.",
+        "Exact completion of an expressly unknown two-element entry in published classification; the fixed-arity saturation is stronger than merely proving density.",
+        "Sharp structural distinction among clones: implication [1/4,1] versus majority [1/2,1], and primal full [0,1] dyadics."
+      ],
+      "rationale": "The precise spectrum of the canonical 2-element implication groupoid was an explicitly identified unknown case in an existing systematic groupoid classification; all fixed-arity integer agreement counts are fully and constructively classified. The coexistence of a sharp positive floor and dyadics dense in a proper interval is a mathematically informative contrast with the semilattice and majority reducts. This is a natural exact invariant and a reusable family of explicit witness terms, not a routine substitution or an arbitrary finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Carles Cardó, Probabilistic equational spectrum, primality and approximation in finite algebras, arXiv:2604.08446v1 (2026-04-09), Definition 2.1, Table 1, final paragraph Section 7: material implication spectrum explicitly unknown.",
+    "Cardó, Kearnes, Szendrei, Finite algebras whose equational probability spectrum contains a big gap, arXiv:2610.37841v1 (2026-10-27), Sections 1 and 4, Example 4.2 and Theorem 4.3: exact majority-algebra spectrum, general finite/infinite dichotomy but no exact implication formula.",
+    "Carles Cardó, On semigroups and groupoids with minimal probabilistic spectrum, arXiv:2603.19487v2 (2026-04-10), Sections 2–4: minimal spectrum {1/2,1}, quasigroup/semigroup classification.",
+    "Resultary published-finding semantic searches: exact material-implication equational spectrum and sharp agreement-count interval; no matching exact mathematical statement among returned ranked findings."
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Post-clone or older Boolean-implication equivalence literature under other terminology may contain a redundant all-arity agreement-spectrum theorem.",
+    "Search and source review are finite and do not establish absolute historical priority; the 2026-10-27 paper is the latest directly relevant inspected primary source.",
+    "Potential status-provenance leak in public source metadata prevents ready publication."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the 2-element material-implication algebra and equations of variable-only terms; no primitive constants, conjunction or negation.",
+    "The finite checker covers constructions up to arity 8 and full clone closure only to arity 4; it does not certify universal quantification.",
+    "Absolute historical priority remains uncertain outside inspected clone/logic literature."
+  ]
+}
