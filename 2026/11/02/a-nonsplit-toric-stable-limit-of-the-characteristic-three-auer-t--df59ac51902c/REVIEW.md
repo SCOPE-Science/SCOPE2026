@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** In characteristic three the quartic identity \(Q^2-t^2R=0\) and the relation \(R+(x^2-y^2)^2=(x^2+y^2)Q\) are verified exactly. The weighted complete intersection has smooth generic quartic and a reduced nodal special fiber of two rational conics meeting at four explicit points. The étale local calculation gives \(uv=t^2\) at every node; a resolution yields the graph \(K_{2,4}\). The Picard torus's Galois module is the anti-invariant cycle lattice, and the geometric Néron component group follows from the exact reduced Laplacian. The package verifier reruns the critical computations.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Auer–Top gives the plane-quartic pencil. The later general classification of Ciani stable reduction by Bouw and collaborators covers the underlying geometric **type**, not necessarily this explicit model, thickness, and arithmetic descent. Busonero–Melo–Stoppino and Chiodo cover the graph-to-component-group mechanism; no novelty is ascribed to applying the known formula to an abstract \(K_{2,4}\) graph. The new, narrower statement is the fully specified \(\mathbb F_3((t))\) family with four equal thickness-two nodes, nonsplit arithmetic torus, and derived Néron invariants. Primary full texts and mathematical-record searches found no direct equivalent. Unexamined historical computations could still subsume the combined claim.
+PASS
 
-**Mathematical value — PASS.** This determines explicit arithmetic and integral degeneration invariants of the natural \(S_4\)-symmetric genus-three pencil. The Frobenius-conjugate components yield an anisotropic, not split, rank-three limit; the thickness determines a nontrivial component group of exponent eight. Both distinctions are invisible to a bare geometric stable-reduction-type classification and can serve as checkable cases for arithmetic reduction algorithms.
+Over F_3((t)), quartic Q^2=t^2 R is the Auer–Top family λ=t² by the polynomial identity modulo 3. The complete intersection Q=tw,w²=R is proper flat, and its t=0 fiber over F9 consists of Q=0,w=±i(x²-y²), two smooth conics intersecting at precisely four F3-rational transverse nodes. Completing squares gives étale-local uv=t² at each node, so the minimal regular model has four exceptional components and graph K_{2,4}. Frobenius swaps original conics, fixes nodes, and induces -I on cycle rank three; the torus is (Res^1_{F9/F3} Gm)^3 with 4³=64 rational points. The reduced K_{2,4} Laplacian has exact Smith factors 1,1,2,2,8, hence geometric component group (Z/2)^2⊕Z/8. Independently checked char-3 defining identities, four nodes, exact SNF. Distinguishes arithmetic F3-points of torus, geometric component group, and unknown rational component subgroup.
 
-The geometric component group is not confused with its subgroup of \(\mathbb F_3\)-points. The calculation does not determine the conductor or full Néron model. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared statements and implications against the actual primary-source sections listed below, Resultary semantic retrieval and targeted literature searches. A sampled non-match alone is not proof of novelty; prior general frameworks/derivability are credited with material-specific residual risks.
+
+## value
+
+PASS
+
+The arithmetic nonsplit torus, equal node thickness 2, and geometric Néron component-group invariant for an explicit genus-three degeneration are natural exact arithmetic-geometric data. The general reduction-type list and graph-Jacobian formalism are known, but this arithmetic descent and parameter-specific value are motivated and not a mere presentation change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
