@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each unselected 2-subset uv, its number of selected disjoint 2-subsets is t-deg_H(u)-deg_H(v). This gives necessary-and-sufficient degree-sum bounds 2 at t=k+2 and 3 at t=k+3. The first excludes every smaller candidate; the second forces maximum degree at most 3, then either the complete K4 only when k=3 or exactly three degree-2 vertices forming a triangle with a disjoint k-edge matching. Both converses hold. Selected-edge neighborhoods separate the K4 exception from both tuple notions. Literal independent enumeration checks 2,351,118 candidate sets for k=2,3 at sizes k+2,k+3; the finite tests support but do not prove the general argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2312.15464, Proposition 9 establishes gamma_k=gamma_(xk)=gamma_(txk)=k+3 at n=2k+3 for r=2, but states no classification of all ordinary k-dominating sets.",
+        "arXiv:2308.15603, Theorem 20 and ensuing paragraph establishes the tuple-minimum triangle-plus-matching class, and hence its labelled count."
+      ],
+      "reasoning": "The entire triangle-plus-matching class, all three scalar minima, and the number of tuple minima are covered by earlier stronger results and are acknowledged as such. Neither inspected statement gives the extra K4 ordinary-minimizer family or the exact comparison of optimal-set collections. The current claim is restricted to this noncovered structural distinction.",
+      "searches": [
+        "arXiv:2312.15464 full Section 3: Theorem 7 and Proposition 9",
+        "arXiv:2308.15603 full Section 4: Theorem 20 and following paragraph",
+        "\"k-domination\" Kneser \"complete graph on four\" optimal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2308.15603",
+      "https://arxiv.org/abs/2312.15464",
+      "https://arxiv.org/abs/2308.15603",
+      "https://www.researchgate.net/publication/387781379_k-Domination_ivariants_on_Kneser_graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From Cornet--Torres one can already count k-tuple minima: choose three triangle vertices and pair the other 2k. This is not claimed original.",
+        "Proposition 9 gives existence of those minimizers and equality of all three values, which does not logically establish equality of their respective minimizer families.",
+        "At k=3 the concrete six selected edges of a K4 are ordinary 3-dominating in KG(9,2), but each selected edge has just one selected open neighbor and two closed-neighborhood members, disproving minimizer-family equality."
+      ],
+      "reasoning": "The K4 counterexample shows decisively that the desired all-ordinary-minimizers classification cannot be a corollary of equality of minimum values or the theorem classifying the stricter tuple minima. The complete proof shows that this is the only possible failure and that it occurs at exactly one parameter.",
+      "searches": [
+        "Cornet--Torres Theorem 20 and post-theorem classification",
+        "Brešar et al. Theorem 7, Proposition 9 and Remark 6",
+        "\"Kneser\" \"k-domination\" \"triangle\" \"matching\" extremal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cornet--Torres arXiv:2308.15603, Section 4, Lemma 18 and Theorem 20, gives degree-occurrence conditions for k-tuple domination and classifies all k-tuple minima.",
+        "Brešar--Cornet--Dravec--Henning arXiv:2312.15464, Remark 6 gives the basic condition for ordinary k-domination."
+      ],
+      "reasoning": "For families of 2-subsets, occurrence numbers coincide with degrees in an underlying selected-edge graph. Earlier closed-neighborhood conditions imply triangle-plus-matching minima, but do not imply that the weaker ordinary outside-only condition excludes the six-edge K4 at k=3. The new classification explicitly incorporates that additional family.",
+      "searches": [
+        "\"minimum k-dominating sets\" Kneser K(n,2) enumeration",
+        "\"k-domination\" Kneser \"2k+3\" K4",
+        "\"K(9,2)\" \"3-dominating\" \"126\"",
+        "arXiv:2308.15603 Section 4, occurrence-degree characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical Table 1 in arXiv:2312.15464 lists k=2, r=2 scalar values; Proposition 9 handles the general threshold.",
+        "Cornet--Torres arXiv:2308.15603 includes numerical values and an explicit k-tuple class at this boundary."
+      ],
+      "reasoning": "The published scalar tables and the already classified tuple optima cover part of the context, but they are not an enumerator of ordinary k-domination optima with the K4 exception. Absence from the checked sources does not prove global absence.",
+      "searches": [
+        "\"K(9,2)\" \"3-domination\" optimal sets count",
+        "\"3-dominating\" \"Kneser\" K4 six edges",
+        "arXiv:2312.15464 Table 1 and Proposition 9",
+        "2023 k-tuple domination Kneser n=2k+3 minima types"
+      ]
+    },
+    "rationale": "Prior studies already prove the scalar minima and the complete tuple-minimizer family. The carefully restricted additional claim is an all-minimizer theorem for ordinary k-domination, identifying exactly one non-tuple isomorphism type occurring only for k=3. Relevant original full texts and research-record searches have not revealed this strengthening. This is a provisional literature assessment, not a certification of priority.",
+    "residual_risks": [
+      "An equivalent classification of ordinary k-domination minima may exist in a separate unindexed paper or thesis.",
+      "The linked later journal description is consistent with the inspected arXiv statements, but the journal full text has not been independently searched.",
+      "The sole additional optimum type is a sharp exceptional family; the already published scalar equality and tuple-minima count must not be presented as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the triangle-and-matching tuple classification and its enumerative consequence; does not give the weaker ordinary k-domination exception.",
+        "evidence": [
+          "Theorem 20 and the next paragraph state that every gamma_(xk)-set at n=2k+3 is, up to automorphism, the union of a 3-edge triangle and k matched edges.",
+          "Lemma 18 characterizes k-tuple conditions through occurrence numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+        "material_read": "Full introductory definitions and relevant Section 4, particularly Lemma 18, Theorem 20 and its immediate afterword (PDF pages 12-14, including page images).",
+        "method": "Open-access preprint full-text and page inspection.",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Theorem 20 treats the same boundary and claims to describe all tuple minima."
+      },
+      {
+        "assessment": "COVERS cardinality equality and triangle-plus-matching construction but not exhaustive ordinary minimizers.",
+        "evidence": [
+          "Proposition 9 establishes gamma_k=gamma_(xk)=gamma_(txk)=k+3 for n=2k+3 with k>=2.",
+          "Its construction chooses three mutually intersecting edges and k disjoint matching edges and checks k-tuple total domination."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+        "material_read": "Relevant complete Sections 1 and 3 in openly accessible arXiv full text, including definitions, Theorem 7, Remark 6, Proposition 9 and the proof.",
+        "method": "Open-access arXiv full-text reading.",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Closest prior ordinary-k-domination and total-tuple theorem at the identical threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30beda24-51ae-42bb-ad54-5cbba9034b44",
+  "value": {
+    "rationale": "The exact boundary at which three domination numbers agree is mathematically motivated by published threshold theorems. The new infinite rigidity theorem answers whether that equality extends to the actual minimizing families: yes for all k>=2 except that k=3 admits precisely 126 extra labelled ordinary minima of a qualitatively different K4 type. The classification is complete and exposes a genuine difference between outside-only and closed/open neighborhood requirements. It is not merely the known matching count or a random small-case census.",
+    "status": "PASS"
+  }
+}
