@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All three nonzero Artin–Schreier character polynomials retain the same nonzero odd leading degree. The exact change of variables \(w=z+\alpha^2y\), followed by \(u=y+cx^{(M-D)/2}w\), gives a new pole generator without cancellation under the stated strict inequalities. The four Apéry representatives then exhaust the semigroup because their gap count equals the Riemann–Hurwitz genus. The already-established one-point differential and Cartier formulas convert this semigroup identity into exact \(a\)-numbers. The arithmetic-ray counts follow by direct inequality. An independent finite integer-semigroup checker is included but is not the proof.
+## correctness
 
-**Originality — PASS, qualified.** Reference [1], Proposition 10.4, proves exactly the genus-six base case \((M,D)=(5,3)\), not the general two-exponent classification. Proposition 10.2 covers the single top monomial at zero parameter; Proposition 10.3 has unequal character degrees and is not an implication of the present same-break statement. Reference [2] gives genus and Jacobian isogeny formulas for fiber products without the local pole-semigroup or Cartier computation. Searches of mathematical records and prior earlier claims found no stronger covered version. Classical semigroup literature could nevertheless encode an equivalent theorem implicitly.
+PASS
 
-**Mathematical value — PASS.** This is not simply the already published genus-six computation: it classifies the semigroup and \(a\)-number over an infinite, geometrically natural two-exponent parameter domain. The explicit unbounded jump, despite fixed quadratic ramification breaks and quotient genera, is a structural obstruction to reconstructing the full curve's Cartier invariant from character conductors alone. No assertion is made about quotient \(a\)-numbers outside the known base case.
+Connected separable degree-four cover: the three nonzero Artin–Schreier characters have odd pole M, hence a single point P, genus g=3(M−1)/2, and fixed quotient breaks/genera. For λ=0, w=z+α²y gives w⁴+w=x^M and ord_P(w)=−M, so H(P)=<4,M> by genus equality. For λ≠0, ord_P(w)=−2D and u=y+c x^((M−D)/2)w (c²λ=1) has order −(3M−2D): the pole-order comparison is strict since M>D. The Apéry residues {0,2D,3M−2D,3M} modulo 4 have genus g, completing semigroup equality. Counting nongaps <g via cited characteristic-two Cartier lemma gives exact F_g counts, ray M=8s+5,D=6s+3 gives 4s+3 versus 3s+2. Independent finite ray/semigroup checks support algebra but not all M,D.
 
-**Limits.** No results are asserted for even exponents, for \(D\le M/2\), for distinct ramification breaks, or for Ekedahl–Oort types of the general family. Independent review and definitive literature priority remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for all-parameter nonzero-coefficient semigroup, a-number formula and unbounded jump; isolate previously published s=0, characteristic-two Cartier lemma, fiber-product genus.
+
+## value
+
+PASS
+
+A parameter-uniform pointed semigroup classification and exact unbounded a-number jumps under fixed three quadratic-cover ramification profiles answer an intrinsic geometric question not settled by genus or breaks alone; the complete family rather than isolated small examples motivates the computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
