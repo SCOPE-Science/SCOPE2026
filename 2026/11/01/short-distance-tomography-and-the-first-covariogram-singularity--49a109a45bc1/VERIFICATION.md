@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The argument is a complete analytic proof for arbitrary dimension \(d\ge2\) and positive orthotope side lengths. `RESULT.md` gives definitions, normalization, exact ball integrals, finite Vandermonde inversion, generic sample-number minimality, and the spherical-cap asymptotic. No computational result is used to extrapolate an infinite theorem.
+# Independent mathematical audit
 
-Run `python3 verify.py` from this package directory. The standard-library checker passed 76 diagnostic assertions at preparation time. It independently evaluates the two-dimensional polar formula, tests normalizations and first/last coefficients in dimensions two through five, solves Vandermonde inverse problems, numerically checks first-cap asymptotics for planar rectangles and squares, and simplifies the three-dimensional onset coefficient to \(m/2\).
+## correctness
 
-The checker is a diagnostic, not a proof of the general statement, not an exhaustive literature search and not independent certification. The claim's sampling theorem applies only when the tested radii lie inside the common short-range polynomial regime. The asymptotic describes the first threshold and not subsequent transitions. Independent audit has not been performed.
+PASS
+
+The triangular difference density V^-1 product_i(1-|z_i|/ell_i)_+ and unit-ball Dirichlet integrals give the displayed polynomial exactly while r<=min ell_i. R^d/V=1/kappa_d fixes the first and last coefficients; the other elementary symmetrics recover positive inverse side lengths by Vieta. The finite nodes yield a Vandermonde matrix, with local sharpness on the fixed-product distinct-root manifold by the inverse/implicit function theorems. Just above the first threshold r=a+epsilon<sqrt(2)a, exactly 2m disjoint coordinate caps contribute; beta integral integral_0^1 v(1-v)^((d-1)/2)dv=4/((d+1)(d+3)) gives exponent and coefficient, including m/2 in d=3. Independent 2D direct polar integration reproduced pi*r^2/(ab)-4*r^3(a+b)/(3a^2b^2)+r^4/(2a^2b^2). This does not assert large-radius finite-sample uniqueness or reconstruct general convex bodies.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
+
+## value
+
+PASS
+
+Full-dimensional short-radius inverse tomography of a natural box family combines an exact local polynomial, a sharp minimal measurement number and a first boundary-singularity law. It is more than a forward formula or a finite table; the domain restriction is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

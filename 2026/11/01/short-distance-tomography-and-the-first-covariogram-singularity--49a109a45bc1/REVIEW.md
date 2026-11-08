@@ -1,19 +1,21 @@
-# Research review: Short-distance tomography and the first covariogram singularity of orthotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has three linked exact components: the all-dimensional short-distance probability polynomial, reconstruction of every side-length ratio from its shape-dependent coefficients with sharp finite sampling count, and the positive asymptotic first departure at the shortest-side radius. The first follows from the product triangular density for differences of independent coordinatewise uniforms and an explicit Dirichlet ball integral. Reconstruction follows from Vieta's formulas and a nonsingular Vandermonde system. Generic minimality follows from the local diffeomorphism between distinct positive roots and elementary-symmetric coefficients on the fixed-product hypersurface, followed by the implicit-function theorem. For the endpoint singularity, only one coordinate can lie outside its interval near the first threshold; each shortest-coordinate spherical cap contributes a positive beta-integral and multiplicities add. The leading constant is checked algebraically and independently by planar quadrature. The included verifier passed 76 diagnostic assertions. The infinite statements are proved analytically, not inferred from diagnostics.
+PASS
 
-## Originality — PASS, with residual literature risk
+The triangular difference density V^-1 product_i(1-|z_i|/ell_i)_+ and unit-ball Dirichlet integrals give the displayed polynomial exactly while r<=min ell_i. R^d/V=1/kappa_d fixes the first and last coefficients; the other elementary symmetrics recover positive inverse side lengths by Vieta. The finite nodes yield a Vandermonde matrix, with local sharpness on the fixed-product distinct-root manifold by the inverse/implicit function theorems. Just above the first threshold r=a+epsilon<sqrt(2)a, exactly 2m disjoint coordinate caps contribute; beta integral integral_0^1 v(1-v)^((d-1)/2)dv=4/((d+1)(d+3)) gives exponent and coefficient, including m/2 in d=3. Independent 2D direct polar integration reproduced pi*r^2/(ab)-4*r^3(a+b)/(3a^2b^2)+r^4/(2a^2b^2). This does not assert large-radius finite-sample uniqueness or reconstruct general convex bodies.
 
-The closest primary works address different implications. Wang's 2026 radial pair-distance Brunn--Minkowski and Minkowski-measure results give the motivating invariant but no finite-data orthotope inverse theorem. Lellouche--Souris provide the already known planar-rectangle distribution and higher-dimensional equal-edge cube cases, and their forward convolution method is fully credited. Mémoli--Needham study general global-distance inverse problems, but the inspected theorem inventory concerns curves, manifolds and metric graphs, not this orthotope finite-jet classification. The related published geometric findings located by semantic search concern **random projection widths/volumes**, polygonal quartic coefficients, or cubical Minkowski topology, not the proposed \(d-1\)-sample pair-distance reconstruction and first-cap singular coefficient. No inspected statement implies the complete final claim. Older specialized covariogram literature may contain an equivalent inverse observation; full historical priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The radial distance law discards directional data, so recovery of an anisotropic body from finitely many *unlabeled scalar distance probabilities* is a substantive inverse problem. The theorem gives a full all-dimensional reconstruction within a natural class, proves that \(d-1\) measurements are generically optimal, identifies the exact operational short-range boundary, and quantifies the first nonanalytic transition with a multiplicity-sensitive constant. The three-dimensional universal \(m/2\) cubic onset is an additional geometric consequence. This is not merely a restatement of the forward rectangle density or an arbitrarily selected numerical invariant. It does not claim stability under noisy measurement or shape rigidity beyond orthotopes.
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
 
-## Closest literature and limits
+## value
 
-The forward convolution representation and the planar-rectangle case are classical and explicitly excluded from originality. One relevant 2019 right-parallelepiped covariogram paper and one 2022 covariogram/distance-distribution article were available primarily by abstract; neither accessible description asserts finite-sample all-dimensional reconstruction. A related published finite-moment tomography theorem uses random hyperplane projection volumes rather than point-pair distances. Complete bibliographic priority and independent expert audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full-dimensional short-radius inverse tomography of a natural box family combines an exact local polynomial, a sharp minimal measurement number and a first boundary-singularity law. It is more than a forward formula or a finite table; the domain restriction is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
