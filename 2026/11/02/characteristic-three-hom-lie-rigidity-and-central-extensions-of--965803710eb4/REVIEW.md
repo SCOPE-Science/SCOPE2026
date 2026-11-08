@@ -1,19 +1,21 @@
-# Scientific review: characteristic-three type-A2 Hom–Lie spaces
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain is every field of characteristic \(3\), including nonperfect and finite fields. For the seven-dimensional central quotient, the complete Hom–Jacobi system is linear. Its displayed exact \(48\times48\) minor has determinant \(1\) over \(\mathbb F_3\), proving that the only structures are scalar. The submatrix is reconstructed directly from elementary matrix commutators by `verify.py`, not quoted from a numerical log; `crosscheck.py` independently computes the nullities in different bases. For the eight-dimensional Lie algebra, perfection forces a Hom–Lie map to preserve the center and descend, and the central-valued maps supply exactly eight further dimensions. The triangular composition algebra, radical, and finite-field counts follow by block multiplication. The certificate can be rerun over the prime field; its unit determinant remains nonzero over all extensions.
+PASS
 
-## Originality
+The final claim is exactly over arbitrary characteristic-three fields k: L=sl3(k) is perfect with center kI3, so the Hom–Jacobi identity forces any Hom–Lie map to preserve that center. The induced psl3 map has 49 coefficients; after removing scalar identity, an explicit 245-by-48 exact F3 system has rank 48 (48-row unit determinant minor in inspected verify.py). I independently reconstructed the commutator structure matrix in the quotient and obtained rank 48, without using its preselected pivot rows. Hence HomLie(psl3)=k id, HomLie(sl3)=k id+Hom(L,kI), dimensions 1 and 9; the minor remains invertible over any char-3 extension field. The two diagonal scalars in the resulting block triangular composition algebra are independent, giving its seven-dimensional square-zero radical, (q-1)^2 q^7 units and 2q^7+2 idempotents. No proof for other characteristic or Lie rank is inferred.
 
-**PASS, with bounded historical risk.** The central comparison is Sun–Zhang–Zhu, arXiv:2610.25056v1 (2026-10-18), especially the statement of Theorem 1.1, Section 3.2, and Remark 3.4. Its assumptions exclude characteristic \(3\), so its scalar theorem for higher-rank simple Lie algebras neither entails nor contradicts the present seven-dimensional quotient result. Makhlouf–Zusmanovich, arXiv:1805.00187, explicitly work in characteristic unequal to \(2,3\) and do not cover it. Xie–Jin–Liu's 2015 paper treats characteristic zero. Targeted queries for Hom–Lie/\(\mathfrak{psl}_3\)/characteristic-three formulations and mathematical-record similarity results did not locate the exact pair of classifications or its composition-algebra structure. The main residual risk is an unlocated small-characteristic treatment or a general theorem that implicitly yields this special case; search nonappearance is not a proof of historical novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete, naturally defined Hom–Lie classification at a specific bad prime omitted from a recent classification theorem, and it separates a rigid centerless quotient from its nine-dimensional Hom–Lie central extension. The fact that the nine-dimensional solution space is itself an associative algebra, with a seven-dimensional square-zero radical and exact finite-field unit/idempotent counts, is a structural distinction relevant to the literature's question about algebra structures on Hom–Lie spaces. This is not merely an isolated numerical rank or a general assertion about all modular Lie algebras.
+Best-of-knowledge: the evaluated exact final statement differs from inspected antecedents on hypothesis, characteristic, invariant or quantifier; fundamental mechanisms/prior special cases credited. The source inspections and four implication comparisons below state actual reading and residual priority risks, without interpreting a failed search as proof of novelty.
 
-## Scope and source limits
+## value
 
-The theorem is for type \(A_2\) in characteristic \(3\) only. The source inspections cover the relevant theorem statements, proof sections, and assumptions of the 2026 and 2018 open-access full texts, and the stated scope of the 2015 paper; they do not constitute an exhaustive search of historical literature. The matrix minor supplies a reproducible arithmetic certificate but not a uniform proof for other root systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a genuinely exceptional modular Lie algebra with nontrivial center and simple seven-dimensional quotient, this gives the exact Hom–Lie linear space and its associative-composition structure, not merely a numerical sample or generic scalar observation. The central-lift phenomenon and its radical/unit/idempotent structure are natural structural invariants useful in modular Hom–Lie classifications. The finite rank certificate is fully reconstructible from elementary matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

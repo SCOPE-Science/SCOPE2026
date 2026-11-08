@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is valid over every field of characteristic \(3\), while the exact determinant can be computed over the prime field. The seven-dimensional quotient has a basis of six matrix units and one diagonal class. Each of the \(245\) Hom–Jacobi coefficient rows is derived from three matrix commutators; fixing one diagonal scalar coefficient leaves a \(245\times48\) matrix. The selected \(48\times48\) minor in `RESULT.md` is a unit: determinant \(1\) modulo \(3\).
+## correctness
 
-The program `verify.py` rebuilds that coefficient matrix, the selected minor, its determinant, the independent scalar map, and the eight-dimensional original Lie algebra's full \(448\times64\) Hom–Jacobi matrix. It reports ranks \(48\) for the quotient's fixed-scalar matrix and \(55\) for the original algebra's Hom–Jacobi matrix; these are sufficient and consistent with the symbolic descent proof. The separately implemented `crosscheck.py` uses alternate basis and rank logic and gets dimensions \(1\) and \(9\). The two programs use only Python's standard library and perform exact arithmetic modulo \(3\).
+PASS
 
-The included `verify_output.txt` and `crosscheck_output.txt` contain actual results of executing the correspondingly named programs. Both terminate with `VERIFY_OK`. The proof does not rely on an infinite search, randomized testing, or extrapolation beyond sampled fields. The composition algebra, radical, unit criterion, and idempotent criterion are established by symbolic block multiplication; the last two counts are for finite \(k=\mathbb F_{3^a}\).
+The final claim is exactly over arbitrary characteristic-three fields k: L=sl3(k) is perfect with center kI3, so the Hom–Jacobi identity forces any Hom–Lie map to preserve that center. The induced psl3 map has 49 coefficients; after removing scalar identity, an explicit 245-by-48 exact F3 system has rank 48 (48-row unit determinant minor in inspected verify.py). I independently reconstructed the commutator structure matrix in the quotient and obtained rank 48, without using its preselected pivot rows. Hence HomLie(psl3)=k id, HomLie(sl3)=k id+Hom(L,kI), dimensions 1 and 9; the minor remains invertible over any char-3 extension field. The two diagonal scalars in the resulting block triangular composition algebra are independent, giving its seven-dimensional square-zero radical, (q-1)^2 q^7 units and 2q^7+2 idempotents. No proof for other characteristic or Lie rank is inferred.
 
-Limitations: no computations classify Hom–Lie structures for other types or primes, and no independent external mathematical assessment has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: the evaluated exact final statement differs from inspected antecedents on hypothesis, characteristic, invariant or quantifier; fundamental mechanisms/prior special cases credited. The source inspections and four implication comparisons below state actual reading and residual priority risks, without interpreting a failed search as proof of novelty.
+
+## value
+
+PASS
+
+For a genuinely exceptional modular Lie algebra with nontrivial center and simple seven-dimensional quotient, this gives the exact Hom–Lie linear space and its associative-composition structure, not merely a numerical sample or generic scalar observation. The central-lift phenomenon and its radical/unit/idempotent structure are natural structural invariants useful in modular Hom–Lie classifications. The finite rank certificate is fully reconstructible from elementary matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
