@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The canonical MGF formula is obtained by applying the published transform to the explicit bounded jump law. Direct expansion yields the exact coefficients of the derivative numerator. Their signs are established for every integer degree, not extrapolated from tests: the four-term convolution lower bound and its positive quadratic minorant prove strict negativity of all degrees at least five. This produces one positive zero of the derivative numerator below the critical parameter and none at or above it. Analytic expansion at the collapsing zero proves the linear optimizer and quadratic scale-gap laws. The appended verifier corroborates the critical algebraic identities and finite cases.
+## correctness
 
-## Originality: PASS (subject to historical-priority risk)
-Chen's full 2026 preprint supplies the general variational representation and notes that its specific two-point example does not prove uniqueness. A narrower prior analysis has already settled only the single example at mixing weight 1/40, while another analyzes rare weights below 0.0001. Neither statement covers the interval-wide classification, explicit boundary probability or critical scaling proved here. Searches for two-point-jump sub-gamma phase classification and mathematical-record similarities yielded no direct equivalent. The principal remaining risk is a general variation-diminishing result that could imply this particular coefficient-sign classification.
+PASS
 
-## Mathematical value: PASS
-The optimizers of a sharp concentration bound determine its usable constant in applications; a numerical maximum or a single fixed-weight example does not identify when the controlling mechanism changes. This theorem classifies the entire motivated high-mixing branch from the source's example through pure large jumps, proves uniqueness globally, and identifies an exact bifurcation and asymptotic critical law. The lower endpoint is explicitly only a proved sufficient boundary, and the claim does not present a full all-weight phase diagram.
+The MGF transform from the primary Chen variational theorem yields a_n=2 E[J^{n+2}]/((1+24p)(n+2)!). Independent exact SymPy algebra confirmed b2,b3,b4, the p4/pc formulas and strict b5-b7 negativity on test parameters. The proof of b_n<0 for every n>=5 uses distinct convolution terms indexed 1,2,n-2,n-1 and the quadratic lower bound, not finite experiments. Sign variation of H/t^3 proves uniqueness; its near-critical expansion proves the optimizer and scale exponents.
 
-## Scope and limits
-Jumps are restricted to values 1 and 5, the mixing probability to the stated interval, and the quadratic proxy to the true variance. No claim for smaller mixing probabilities. The exact coefficient argument is independent of computational truncation. Scientific independence and ultimate priority are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen (2026) primary full HTML Section 7.2 explicitly handles the SAME jumps 1 and 5 but only p=1/40, derives the variational function and identifies an interior maximizer while stating uniqueness is not proved. The new result proves the unique optimizer and full regime on p>=p4 with exact pc and critical exponents. General M-class machinery is prior art; equivalent total positivity criteria remain possible.
+
+## value
+
+PASS
+
+The full local-to-interior phase diagram for a natural two-atom compound-Poisson law resolves a gap left by the exact source example, with algebraic threshold and critical scaling of the optimal concentration constant. No general-new-class claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
