@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed stationary fourth-cumulant formulas were reconstructed from the generator through fourth order and symbolically verified against independent polynomial expressions. Strictly decreasing normalized cubic/quadratic polynomials establish exactly one simple sign change when allowed; positivity of all remaining coefficients settles the other parameter regime. Compactness of the stationary linear filter and all parameter boundaries are explicit; numerical samples are supplementary.
+## correctness
 
-**Originality — PASS, with residual risk.** The main 2024 paper already provides the full degree-by-degree moment recurrence and uses higher cumulants numerically; no forward moment construction is claimed new. The theorem instead classifies the exact sign of both fourth cumulants globally in the two positive parameters, establishing the \(4/3\) threshold absent from the inspected main text. Patel–Chaudhuri's nearby fourth-cumulant phase diagrams involve continuously diffusing headings with thermal forcing, not binary telegraph switching. The same mathematical model stationary covariance identifiability result concerns a different observable. The exact moment recurrence makes the algebra accessible and is an originality risk; an undiscovered stronger fourth-cumulant theorem could imply the classification.
+PASS
 
-**Mathematical value — PASS.** Kurtosis sign is a natural, amplitude-independent diagnostic of departures from Gaussian steady-state fluctuations in the model studied by the cited work. The sharp all-parameter classification distinguishes the velocity's universal sign reversal from the position's threshold-dependent reversal, and it gives exact nonvanishing limiting excess kurtoses. These are structural and model-specific conclusions, not merely isolated polynomial evaluations; no new phenomenological modality transition is inferred.
+PASS: Generator identities for M_ij and L_ij follow from telegraph flip rate u/2 (decay of sign mean u) and stable damped linear flow. An independently written SymPy moment-equation solver for mixed moments through degree four reproduces exactly M20=(1+u)/[k(k+u+u^2)], M02=u/(k+u+u^2), and both rational Kx=-6Px/(kH), Kv=-6uPv/H. For u>0, Bv,Cv>0 and d(Pv/k^2)/dk=-9-Bv/k^2-2Cv/k^3<0 with opposite endpoint signs; unique simple Kv crossover. For Px, Bx,Cx>0, leading coefficient 12-9u gives no positive root at u<=4/3 and a single simple root when u>4/3 via d(Px/k)/dk=12-9u-Cx/k^2<0. The exact variance scaling yields the stated k->infinity standardized excess kurtoses. Finite rational substitutions are corroboration, not the root-count proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. Equivalent formulation means stationary fourth cumulants or excess kurtosis of this same dichotomous telegraph oscillator; changing normalization preserves signs. The generic stationary recurrence is prior art, but it does not state or trivially imply the global strict polynomial root count without further analysis.
+
+## value
+
+PASS
+
+PASS: Defines a mathematically motivated sharp threshold u=4/3 and separate single-crossing phase structure for fourth cumulants of one canonical inertial telegraph oscillator. Unlike routine moment substitution, the parameter-global one-root and no-root regimes exclude spurious positive oscillations and distinguish velocity and position, a useful exact boundary for non-Gaussian stationary statistics; modality and Gaussianity are NOT inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

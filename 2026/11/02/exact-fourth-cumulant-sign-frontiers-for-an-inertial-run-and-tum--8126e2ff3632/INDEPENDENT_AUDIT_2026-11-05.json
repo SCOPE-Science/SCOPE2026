@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:14:43.563474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Generator identities for M_ij and L_ij follow from telegraph flip rate u/2 (decay of sign mean u) and stable damped linear flow. An independently written SymPy moment-equation solver for mixed moments through degree four reproduces exactly M20=(1+u)/[k(k+u+u^2)], M02=u/(k+u+u^2), and both rational Kx=-6Px/(kH), Kv=-6uPv/H. For u>0, Bv,Cv>0 and d(Pv/k^2)/dk=-9-Bv/k^2-2Cv/k^3<0 with opposite endpoint signs; unique simple Kv crossover. For Px, Bx,Cx>0, leading coefficient 12-9u gives no positive root at u<=4/3 and a single simple root when u>4/3 via d(Px/k)/dk=12-9u-Cx/k^2<0. The exact variance scaling yields the stated k->infinity standardized excess kurtoses. Finite rational substitutions are corroboration, not the root-count proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model primary paper derives general monomial recursions and variance; these contain computations sufficient in principle to derive Kx/Kv but not a theorem classifying positive stiffness roots.",
+          "Colored-noise spectra/covariance alone do not determine fourth cumulants."
+        ],
+        "reasoning": "A broader model including other forcing types could dominate this special case only with a derived fourth-cumulant sign theorem; the cited ABP model is not a parameter specialization of dichotomous noise. No decisive dominating result identified.",
+        "searches": [
+          "arxiv:2406.06120 full 20-page PDF",
+          "arxiv:2404.01107",
+          "doi:10.1103/PhysRevE.48.4309"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2406.06120",
+        "https://arxiv.org/abs/2404.01107",
+        "doi:10.1103/PhysRevE.48.4309",
+        "Resultary semantic query 1 as recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source supplies recursion and moments, but not the strict monotonicity Pv/k² or Px/k across all k,u.",
+          "The fourth-order statistics of rotational Brownian headings differ from telegraph noise."
+        ],
+        "reasoning": "Old inputs are acknowledged; analytic coefficient-sign/root monotonicity arguments are required to reach this new classification. A follow-up might have already done them and is a residual risk.",
+        "searches": [
+          "arxiv:2406.06120 equations (20)-(29)",
+          "arxiv:2404.01107 model equations",
+          "doi:10.1103/PhysRevE.48.4309"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutta et al. Phys. Rev. E 110 044107 (2024) uses exactly xdot=v, vdot=-v-kx+telegraph and stationary cumulant recursion, but presents no u=4/3 sign frontier in inspected equations.",
+          "Patel-Chaudhuri 2404.01107 uses rotational Brownian forcing with distinct fourth-order law."
+        ],
+        "reasoning": "Equivalent formulation means stationary fourth cumulants or excess kurtosis of this same dichotomous telegraph oscillator; changing normalization preserves signs. The generic stationary recurrence is prior art, but it does not state or trivially imply the global strict polynomial root count without further analysis.",
+        "searches": [
+          "telegraph inertial run tumble harmonic oscillator stationary fourth cumulant kurtosis stiffness sign threshold Dutta Kundu Basu",
+          "arxiv:2406.06120 Sec. III-V / PDF pp.5-11",
+          "arxiv:2404.01107 active Brownian kurtosis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned indexed examples concern Gaussian-chaos kurtosis and forced Duffing/other oscillators, not the same stationary telegraph fourth cumulants."
+        ],
+        "reasoning": "The search is a coverage check, not a novelty certificate. No matching or dominating tabulated sign thresholds surfaced.",
+        "searches": [
+          "telegraph inertial run tumble harmonic oscillator stationary fourth cumulant kurtosis stiffness sign threshold Dutta Kundu Basu",
+          "Resultary nearest record: 2026/9/19/SCOPE-skewness-splits-flat-chaos-gaussianization--78000fe178d9"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. Equivalent formulation means stationary fourth cumulants or excess kurtosis of this same dichotomous telegraph oscillator; changing normalization preserves signs. The generic stationary recurrence is prior art, but it does not state or trivially imply the global strict polynomial root count without further analysis.",
+      "residual_risks": [
+        "A later same-model fourth-order paper or less explicit appendix may already derive the same sign frontiers.",
+        "The numerical location of sample roots is supporting only; no density-modality or phase-transition claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches dynamical model and recurrences; no displayed sharp fourth-cumulant positive-root classification in inspected full document.",
+          "evidence": [
+            "Recurrence Eq.(20)-(21), second moments Eq.(29); later Fourier cumulant expansion uses high moments but different claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.06120",
+          "material_read": "Read full twenty-page PDF, including Eq. (20)-(29) on moment recursions, second moments and higher-cumulant reconstruction in later sections.",
+          "method": "Read text and visually checked relevant equation page (PDF p.6) plus targeted full-text search.",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Exact physical model and moments"
+        },
+        {
+          "assessment": "ABP continuous orientational diffusion is not the binary telegraph drive; any stronger formula for dichotomous noise remains unverified.",
+          "evidence": [
+            "Model has rotational diffusion and thermal forcing unlike symmetric two-state telegraph process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.01107",
+          "material_read": "Read title/abstract and model description; NOT a complete independent read of all sections on this execution.",
+          "method": "Scope and model comparison, primary full-text negative conclusion not asserted.",
+          "title": "Exact moments for trapped active particles: inertial impact on steady-state properties and re-entrance",
+          "trigger": "Plausible active-particle kurtosis phases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Defines a mathematically motivated sharp threshold u=4/3 and separate single-crossing phase structure for fourth cumulants of one canonical inertial telegraph oscillator. Unlike routine moment substitution, the parameter-global one-root and no-root regimes exclude spurious positive oscillations and distinguish velocity and position, a useful exact boundary for non-Gaussian stationary statistics; modality and Gaussianity are NOT inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Model uses symmetric dichotomous telegraph noise and deterministic linear damping (no thermal forcing).",
+    "Numerical moments do not imply the full density shape; parameter roots unique only for k>0,u>0.",
+    "A later same-model fourth-order paper or less explicit appendix may already derive the same sign frontiers.",
+    "The numerical location of sample roots is supporting only; no density-modality or phase-transition claim follows."
+  ],
+  "schema_version": 1
+}
