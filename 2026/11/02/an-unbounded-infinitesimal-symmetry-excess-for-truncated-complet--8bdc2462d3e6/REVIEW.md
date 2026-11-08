@@ -1,19 +1,21 @@
-# Review of the characteristic-two truncated complete-intersection classification
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The generator-image theorem is reconstructed directly from a monomial basis, the defining equations \(X^2=Y^n=0\), and invertibility on \(\mathfrak m/\mathfrak m^2\). The square relation removes all low \(y\)-degrees in \(\varphi(x)\). The parity of \(n\) controls exactly one coefficient of \(\varphi(y)\). Both nonzero linear coefficients are required for invertibility; the remaining choices are independent. The algebra-derivation relation supplies the separately derived tangent-space dimension. Finite-field brute-force checks over \(\mathbb F_2\) and \(\mathbb F_4\) match the formulas. Proof and tests use no infinite extrapolation from enumeration.
+PASS
 
-## Originality: PASS (best-knowledge, with residual risk)
+The exact normal form follows since X^2=h(y)^2=0 iff ord_y(h)>=ceil(n/2), while Y^n=(n mod2)x f^{n-1}g forces g(0)=0 only for odd n; for n>=3 the tangent determinant is j(0)f'(0). Nakayama gives exactly the automorphisms. Free-coefficient counting gives (G_m)^2 x A^{3n-4+floor(n/2)+1_even} for the reduced variety and (q-1)^2 q^d finite-field points. Derivations constrain neither D(x) nor D(y) in even n, and constrain the two constant-y-degree components of D(y) for odd n: dimensions 4n, 4n-2; dimension excess floor(n/2)+1 is unbounded. n=2 excluded. Independent brute-force F2 data: n=3:64, n=4:2048, n=5:8192, n=6:262144 and tangent dimensions 10,16,18,24; the symbolic relation argument, not the finite checks, proves every field/size.
 
-Deo–Maitra's full 1997 paper treats graded automorphisms in characteristic zero. Ceken et al. study different algebras by discriminants. The 2004 Geiß–Voigt abstract treats a general nonsmoothness criterion, but its full text was inaccessible, so possible specialized overlap remains a risk. Díaz et al. (arXiv:2408.02197) treat zero-dimensional monomial algebras under a characteristic-zero hypothesis; the characteristic-two result is not a corollary. Searches for the exact algebra, tensor-product aliases, finite-field count and non-smooth tangent difference uncovered no equivalent theorem. A different established square-zero-variable complete-intersection calculation concerns \(k[x_1,\ldots,x_d]/(x_i^2)\), not \((x^2,y^n)\) with \(n\ge3\). These are statement-and-hypothesis comparisons, not novelty certificates.
+## originality
 
-## Value: PASS
+PASS
 
-The first asymmetric two-generator monomial complete intersections are a standard natural class of Artinian algebras with Hilbert series determined by their truncation heights. Their entire ungraded automorphism group, its finite-field order, the parity discontinuity, and the growing dimension of infinitesimal automorphisms that do not integrate to reduced-group directions are intrinsic structural invariants. The unbounded defect distinguishes characteristic two from characteristic-zero smooth-group intuition and is not a mere isolated small-table entry. The exact finite-field census is reusable as a group-order and orbit-stabilizer input.
+Best-of-knowledge PASS for the complete characteristic-two asymmetric truncation automorphism normal form and quantified unbounded group-scheme tangent excess, not for generic non-smooth automorphism groups or standard derivation formulas. Char-zero monomial-algebra descriptions and different Leibniz algebra examples do not imply this char-two normal form. Specialist unindexed local-algebra automorphism literature remains a priority risk.
 
-## Limits
+## value
 
-The full nonreduced scheme structure is not classified. The dimension-two symmetric boundary is outside the theorem. Specialized older literature may cover parts; the strongest identified related sources were compared by assumptions and conclusions, and one plausible old source was abstract-only. Independent mathematical validation and publication-priority certification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The infinite family of local complete intersections is a standard algebraic object, and failure of smoothness of the automorphism group scheme is a meaningful algebraic-geometric structural feature. The exact free-coefficient normal form, finite-field census, parity split and unbounded tangent-to-reduced-dimension excess are not a routine check of a single tiny example: they quantify an entire natural deformation-symmetry phenomenon. The claim is bounded to n>=3 and does not purport to find full nilpotent thickness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
