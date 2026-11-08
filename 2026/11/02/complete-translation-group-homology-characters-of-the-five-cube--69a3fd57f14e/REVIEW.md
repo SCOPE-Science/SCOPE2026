@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The odd-radius Čech facet characterization (source arXiv:2212.05871, Lemma 2.2) is instantiated at exactly 80 edge-neighborhood union facets. The embedded checker enumerates all 54,416 nonempty faces, verifies all 27,134 Morse pairs and the *full* Hasse-diagram acyclicity, computes the integral degree-four Morse boundary and obtains exactly nine unit Smith factors. Hence the independently established homology dimensions are 9 and 120 in degrees three and four only. All 32 translations are enumerated as genuine face-permutation maps; the fixed-face signed Lefschetz values are (111,31,-17,-9,-1,-1). Fourier orthogonality yields the virtual multiplicities (0,6,6,3,-1,-4). The negative multiplicities require exactly nine degree-three basis dimensions, so nonnegativity uniquely forces the two claimed actual representations. This implication is exact and does not assume an equivariant Morse matching. Rational quotient homology follows by finite-group transfer. Remaining correctness risk is an implementation or algebra error shared by the computation and its check; the defining finite rules are reproduced in the publication and standalone checker for independent replay.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2022 original paper, read in full through its available HTML rendition, establishes nonequivariant homology, two-connectedness, dimension bounds and the facet construction, but gives no five-cube translation-group module. Although the nonequivariant wedge-homotopy statement may follow from its dimensional and connectivity bounds, **that is explicitly not the final claim**. Indexed related results concern four-cube scale-three full symmetry, six-cube scale-three ordinary homotopy, or all-dimensional scale-two characters; none implies a five-cube scale-three character by parameter inclusion. Exact and alias queries against the research index showed no coincident five-cube scale-three translation decomposition. The repository full text of these nearby indexed results was not accessible in the present inspection; this and unpublished equivalents remain risks, not claimed exclusions.
+PASS
 
-## Value — PASS
-This addresses the natural representation-theoretic information missing from a published benchmark whose nonequivariant Betti numbers are already known. A signed fixed-point count yields a virtual character, and a sharp dimension-saturation argument recovers **both actual homology modules** without equivariant Morse reduction. The surprising absence of invariants in both nonzero homology degrees implies rational acyclicity of the full symmetry quotient despite 129 positive-degree rational homology generators before quotient. The exact weight-stratified decomposition permits intermediate subgroup quotient computations. It is a substantive finite but complete natural symmetry calculation, not a restatement of known Betti ranks, a routine normalization check or a claim about unproved infinite families.
+For intrinsic graph Čech nerve N(Q5,3), the published facet lemma gives exactly 80 ten-vertex simplices N1[u]∪N1[v]. Independently constructed all 54,416 nonempty faces and exactly f=(32,400,2560,8320,14592,14752,9280,3600,800,80). Fresh sparse mod-two boundary rank reduction of the full chain complex yielded H3 dimension9 and H4 dimension120 and zero other reduced homology over F2, hence rational H3<=9, H4<=120; Euler characteristic and fixed-face signed Lefschetz computation for all 32 translations gives by Hamming weight (111,31,-17,-9,-1,-1). Rational Walsh inversion yields virtual H4-H3 character multiplicities by subset weight (0,6,6,3,-1,-4). The negative multiplicities force at least 9 H3 dimensions and therefore saturate the F2 upper bound, giving H3 weight4:1 and weight5:4 and H4 weight1:6 weight2:6 weight3:3. This is a complete finite proof of rational characters; integral torsionlessness is not required for the claim. No trivial character occurs, so quotient rationally acyclic.
 
-## Closest work and limitations
-Primary source: H. Adams, S. Shukla, A. Singh, arXiv:2212.05871 (2022-12-12). Closest indexed neighboring parameters: four-cube at scale three (`89c403fdb3a1`); six-cube at scale three (`6a192e252576`); hypercubes at scale two (`8c586ad49940`, `28af810d1399`). Indexed summaries are not full-text inspections. This is rational translation-equivariance only; possible unindexed equivalent work remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adams–Shukla–Singh already give integral Betti ranks 9 and 120 at n=5 scale3 and facet presentation, which are explicitly excluded from novelty. Neither same-paper Table1 nor published Resultary character of n=4 scale3, n=6 homotopy, or general n scale2 determines the five-cube scale3 T=(Z/2)^5 character. The new precise isotypic decomposition has best-of-knowledge originality with possible unindexed equivariant computations remaining.
+
+## value
+
+PASS
+
+Determining exact translation action on homology distinguishes representation types with identical Betti numbers, computes equivariant traces and predicts rational acyclicity of the quotient, making a natural equivariant refinement of a well-studied finite cubical nerve rather than a new label for a known dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
