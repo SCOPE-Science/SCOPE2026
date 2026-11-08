@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for a single, explicitly defined family of trace cubics and its reduced canonical incidence configuration. In characteristics at least seven the singular-locus calculation gives exactly ten ordinary nodes, while pairing equations give fifteen distinct canonical planes. The incidence rule is a direct sign test and yields sixty flags. The exact finite calculation considers all 720 permutations and every positive power through each cycle order, establishing the complete table. Galois descent of the six embeddings transfers it to every finite field and all degree-six étale algebras. Proof limits are stated: no claim about full scheme structure of all planes or arbitrary characteristics.
+## correctness
 
-## Originality — PASS, with historical qualification
-Dolgachev (2015) supplies the geometric nodes, planes and \((15_4,10_6)\) configuration. Cheltsov–Tschinkel–Zhang (2023) analyze \(S_6\)-subgroups, fixed nodes and invariant planes, but not Frobenius orbit spectra of the sixty flags. Pokora–Szemberg (2026) present a different complete geometric construction without finite-field flag descent. A separate integral incidence-cokernel calculation of this configuration does not imply its 60-point Frobenius orbit spectra. Targeted scientific-record searches found no equivalent eleven-class incidence-descent table. Residual risk is an unindexed earlier enumeration or an existing general character formula whose specialization yields the table.
+PASS
 
-## Mathematical value — PASS
-The incidence flags express whether two independently descended geometric structures can coexist in one rational incidence. The classification identifies two and only two twist types in which both structures descend but no incidence does, a genuine arithmetic-geometric obstruction, rather than just another count of rational geometric objects. It also gives the complete field extension data and finite étale zeta functions for all sixty flags in every finite-field trace form. These are natural complete invariants of the distinguished configuration and can inform arithmetic questions involving degenerations, incidence geometry and rational desingularizations, without asserting any unproved downstream theorem.
+Over geometric splitting E=kbar^6, singular gradient of cubic sum x_i^3 subject sum x_i=0 gives coordinates ±a and exactly three plus, three minus for p≥7; ten nodes. Opposite-pair equations give fifteen pairing planes; a node lies in a plane exactly when each matching edge crosses its triple partition. Hence 60 flags of degrees 6 (nodes) and 4 (planes). Frobenius acts on six embeddings as permutation type factor partition; all k-extension counts and zeta follow from cycle lengths. Independently enumerated all ten bipartitions, fifteen matchings, sixty incidences and all 720 permutations and matched entire eleven-type table and the two absence-of-rational-incidence cases. Inspected source verify.py and confirmed orbit algorithm and finite exhaustive domain. No claim about full cubic zeta or full possibly nonreduced Fano scheme.
 
-## Closest literature and limits
-The classical construction and larger birational group results are properly credited. The proof covers characteristic at least seven and the canonical distinguished planes; it does not address other characteristics or full Fano-scheme multiplicities. It does not prove priority over inaccessible or unindexed literature, nor does it substitute for an external mathematical referee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS after comparing mathematical implications, high-relevance primary material and related Resultary records; no decisive prior domination identified. Residual risks explicit.
+
+## value
+
+PASS
+
+Complete arithmetic incidence classification of the natural ten-node/fifteen-plane Segre cubic configuration, including two explicit descent obstructions and exact finite-etale zeta functions; refines established complex geometry without claiming new Segre cubic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
