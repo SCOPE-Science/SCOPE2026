@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Under the precise finite connected single-sink stationary ASM model, conservation and permutation of recurrent states prove the Green-column expectation. The rooted-tree Green kernel, rank-one Laplacian update, bound on descendant-subtree sizes, equality on a path and discrete integer optimization together prove the infinite-family statement. Two complementary exact rational verification programs check 20,796 missing-edge instances and 7,035 source-incident path instances, respectively, all within \(N\le5\); finite tests are corroboration rather than the proof.
+
+**Originality — PASS on examined evidence, provisional.** Direct comparison of arXiv:0905.2823, arXiv:1105.4036 (especially Propositions 2.3.4 and 2.4.4), arXiv:1106.5358, arXiv:1605.02713, related indexed mathematical findings, and a related earlier cycle perturbation claim found no full coverage of the exact optimal one-edge perturbation over **all** sink-adjacent-leaf rooted trees. Fixed-cactus block formulas and fixed-tree mean formulas are established prior work, not claimed as new. Residual risk remains from unindexed earlier specializations, including old lollipop calculations.
+
+**Mathematical value — PASS.** This sharp extremal theorem quantifies an apparently paradoxical increase in stationary avalanche activity after adding a single edge, with a globally extremizing topology and chord position, an exact discrete transition law and a square-root-scale deficit. A source whose mean toppling count is precisely one can achieve \(N+O(\sqrt N)\) expected topplings with one extra edge even under maximum-degree-three constraints. The object and observable are natural in finite sandpile dynamics; the statement is more than enumeration of special graphs.
+
+**Limits and closest literature.** See arXiv:1105.4036 for separable-graph block behavior and arXiv:0905.2823 for earlier mean avalanche formulas on trees; those supply technical context, but no inspected passage settles this cross-tree extremal problem. Exact computations were confined to small graphs; the general quantifiers rely on the proof. Independent priority evaluation has not been completed.
+
+Self-review: passed. Independent audit: not yet performed.

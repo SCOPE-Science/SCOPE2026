@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Balance in the finite stationary recurrent sandpile implies expected total topplings = 1^T L^{-1}e_r. The exact rooted-tree Green kernel and Sherman--Morrison give 1+(sum subtree sizes -1)/(d+2) for a chord from source to depth d; a root-to-chord path loses at least i-1 other vertices from its ith descendant set, yielding the universal sharp upper bound and attainment on a path. The integer maximizer and asymptotic follow by consecutive differences. Complementary exact rational tests check 20,796 all-edge augmentations and 7,035 rooted-source chord instances for N<=5.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1605.02713 abstract identifies graph families for avalanche polynomial characterization: trees, cycles, wheels, complete graphs",
+        "arxiv:1105.4036 Sec.2.3 and 2.4 treat arbitrary separable graph block paths and individual cycles."
+      ],
+      "reasoning": "Their general frameworks allow evaluation on any fixed cactus, but they neither assert nor give a sharp bound uniform over all tree structures and edge positions. An unrestricted exact single-graph computational framework is not itself the claimed extremal theorem; the new inequality and optimizer need an additional argument.",
+      "searches": [
+        "Abelian sandpile adding edge to tree expected avalanche size maximum expectation sharp bound",
+        "avalanche size edge addition random recurrent sandpile graph Braess paradox tree",
+        "arxiv:1105.4036",
+        "arxiv:1605.02713",
+        "arxiv:1106.5358"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0905.2823",
+      "arxiv:1105.4036",
+      "arxiv:1106.5358",
+      "arxiv:1605.02713",
+      "previous ledger finding 407b2e00-4342-42fc-adcf-e34396526967"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Matter--Nagnibeda Prop 2.3.4 makes descendant firings predictable for block attachments, and Prop 2.4.4 analyzes cycle avalanches.",
+        "Cori--Micheli--Rossin (2009) calculate means and variances for tree distributions.",
+        "The preceding related chorded-cycle ledger claim 407b2e00... concerns adding chords to a cycle, not adding one chord to any tree."
+      ],
+      "reasoning": "The narrow triangle/pendant-tail example is implied by the separable-block theory and is explicitly not the novelty asserted here. The accepted claim maximizes, over every rooted tree and every missing edge, a stationary mean from the rank-one Laplacian update, identifies a globally extremizing path/chord placement, and evaluates its sharp asymptotic deficit. No inspected prior theorem directly dominates this universal inequality with equality and optimizer.",
+      "searches": [
+        "arxiv:1105.4036 Proposition 2.3.4",
+        "arxiv:1605.02713",
+        "arxiv:0905.2823",
+        "Sandpile mean avalanche size increases by unbounded factor when adding a single edge to a rooted tree, even subcubic; rank one Green function inverse",
+        "Rooted tree sandpile unicyclic graph edge insertion average toppling count subtree sizes LCA sign classification",
+        "Expected total sandpile avalanche edge addition single cycle unbounded amplification graph.",
+        "maximal amplification expected number sandpile topplings one added edge rooted tree leaf injection, path optimal, 2 sqrt(n) deficit",
+        "sharp bound expected sandpile avalanche tree adding single edge rooted leaf path extremal",
+        "Abelian sandpile single edge added to tree sharp maximum avalanche mean at distance two square root network size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matter--Nagnibeda Proposition 2.3.4 on separable block-path dependence; arxiv:1105.4036, p.8",
+        "Stationary Green-function identity and Sherman--Morrison reduction are general known tools, not the maximized perturbation statement."
+      ],
+      "reasoning": "Equivalent descriptions would optimize expected total topplings after a single edge insertion into a tree with a sink-adjacent source, or optimize the associated root Green column over tree shapes and chord depth. The relevant block-path formula gives broad decomposition but not the universal extremum or square-root optimal chord depth.",
+      "searches": [
+        "Sandpile mean avalanche size increases by unbounded factor when adding a single edge to a rooted tree, even subcubic; rank one Green function inverse",
+        "Rooted tree sandpile unicyclic graph edge insertion average toppling count subtree sizes LCA sign classification",
+        "Expected total sandpile avalanche edge addition single cycle unbounded amplification graph.",
+        "arxiv:1105.4036 Proposition 2.3.4",
+        "arxiv:0905.2823"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched mathematical-result index returned neighboring spanning-tree, random-walk and burning results but no matching mean-toppling table.",
+        "Cori--Micheli--Rossin analyze tree avalanches without edge-augmentation maxima."
+      ],
+      "reasoning": "The claim is an all-size extremal formula, not a lookup of finite values. Existing exact graph-family tables and avalanche polynomials may cover individual path/chord examples but not the universal sharp maximization across arbitrary trees.",
+      "searches": [
+        "maximal amplification expected number sandpile topplings one added edge rooted tree leaf injection, path optimal, 2 sqrt(n) deficit",
+        "sharp bound expected sandpile avalanche tree adding single edge rooted leaf path extremal",
+        "Abelian sandpile single edge added to tree sharp maximum avalanche mean at distance two square root network size",
+        "arxiv:0905.2823",
+        "arxiv:1605.02713"
+      ]
+    },
+    "rationale": "Examined primary literature and indexed neighboring claims cover fixed-tree avalanche laws, separable-block dynamics, and fixed graph families but not this universal maximum across every tree and missing edge with optimally placed chord and square-root deficit. Existing triangle/cactus special cases are not claimed as new. Priority remains provisional.",
+    "residual_risks": [
+      "An unindexed exact single-edge perturbation optimization could predate this analysis; priority is provisional, not a uniqueness certificate.",
+      "The 2004 Cori--Dartois--Rossin lollipop calculations may cover specific graph instances, though no examined statement supplies the global sharp bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses fixed-tree avalanche polynomials and their averages, not maximum over added edges and all original trees.",
+        "evidence": [
+          "arxiv:0905.2823 v1 (2009-05-18), https://arxiv.org/html/0905.2823v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0905.2823v1",
+        "material_read": "Abstract, introduction and sections on tree mean/variance, via full-text HTML",
+        "method": "Read publicly available arXiv HTML and source summary",
+        "title": "Avalanche polynomials",
+        "trigger": "Earlier exact mean avalanche statistics on trees; potential implication by tree formulas"
+      },
+      {
+        "assessment": "Subsumes trivial triangle-with-tail calculations, but does not state or evaluate the global sharp one-edge maximum over tree topologies or chord placements.",
+        "evidence": [
+          "arxiv:1105.4036, Proposition 2.3.4 p.8; Proposition 2.4.4 p.9"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1105.4036",
+        "material_read": "Full-text pages 7-10 including Lemma 2.3.2 and Propositions 2.3.4 and 2.4.4; examined page images",
+        "method": "arXiv PDF text and PDF screenshots",
+        "title": "Abelian Sandpile Model on Randomly Rooted Graphs and Self-Similar Groups",
+        "trigger": "Likely strongest prior coverage via separable-graph block decomposition and cycles"
+      },
+      {
+        "assessment": "Characterizes polynomial of fixed trees, cycles, wheels and complete graphs, not all possible edge augmentations of trees.",
+        "evidence": [
+          "arxiv:1605.02713 pp.1-2; abstract lists treated graph classes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1605.02713",
+        "material_read": "Abstract, introduction, graph-family theorem statements; checked opening PDF page image",
+        "method": "arXiv PDF text and PDF screenshot",
+        "title": "The Avalanche Polynomial of a Graph",
+        "trigger": "Graph-family exact toppling distributions and plausible lollipop examples"
+      },
+      {
+        "assessment": "Provides foundational stationary framework, not the claimed extremal optimization.",
+        "evidence": [
+          "arxiv:1106.5358, abstract and finite ASM background"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1106.5358",
+        "material_read": "ArXiv description and earlier available full-text overview sections on finite recurrent states",
+        "method": "arXiv HTML/abstract and available full text",
+        "title": "Abelian sandpiles: an overview and results on certain transitive graphs",
+        "trigger": "Stationary recurrent sandpile/Green-function foundation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2bf94d7-10a5-4361-8e53-7a4c612e6706",
+  "value": {
+    "rationale": "A sharp, structurally motivated perturbation extremum for a natural stationary finite sandpile observable: from mean one to a linear-in-N optimal mean using one edge, with exact graph topology and optimized chord distance. Quantifies how a local connectivity modification can amplify global avalanche activity, with maximum degree at most three.",
+    "status": "PASS"
+  }
+}
