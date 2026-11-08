@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inverse is exhaustively solved by setting \(q=e^{ah}>0\) and \(z=bh/(1+bh)\). The identity \(m_1^2-m_2=q^2(bh)^2\) yields both signs and all feasibility conditions; a direct expansion yields the exact third-horizon discriminant. The global third-horizon uniqueness follows from Rolle's theorem applied to an exponential times an affine function, whose second derivative has at most one root. The sign crossing at \(1+1/z\) and the opposed asymptotic factors are exact; the operator extension is by the shared known invertible heat propagator. The standalone rational/float script reports 22,426 checks. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+The actual frozen RESULT.md defines the DIRECT step-size-parametrized map S_t=e^{at}(1+bt)e^{tL}, with h>0, known symmetric negative semidefinite L and two positive multipliers. Setting q=e^{ah}>0 and beta=bh gives m1=q(1+beta), m2=q²(1+2beta), so Delta=m1²-m2=q²beta². Positive m1,m2 impose beta>-1/2, hence exactly the two roots z=±sqrt(Delta)/m1 when 0<m2<m1² and unique beta=0 at equality. At s=t/h, M(s;z)=m1^s(1-z)^{s-1}(1+(s-1)z); the cubic m3 relation follows by expansion. An independent SymPy expansion gives branch separation 4 m1³z³=4Delta^{3/2} and exact witness m3+=2816/15625, m3-=-4096/15625. For an extra horizon the exponential-affine branch difference has at most three distinct real zeros, because its second derivative is exponential times a nonconstant affine function; 0,1,2 already are zeros. For 1/(1+z)<m1<1, q+<1<q- and beta-<0, establishing opposite direct long-horizon behavior along ker L. Strict observed contraction uses ||exp(tL)||<=1. Crucial scope: S_{nh} here is a direct long step and NOT the iterate S_h^n; the claim does not apply to higher-order ETDRK4 or a semigroup.
 
-The accessible NEXT paper states that the linear/nonlinear decomposition can be a convention and studies high-order exponential neural PDE solvers; it does not supply this two-positive-horizon alias classification or direct-horizon negative-growth boundary. The original confluent Prony paper contains the family of exponential polynomials and has stronger general reconstruction theorems: we do not claim their construction is new, nor that requiring a third sample is new in that generality. The exact coupled inverse/cusp/long-horizon sign classification was not found in relevant searches or accessible local result records. The closeness to elementary confluent Prony algebra leaves a meaningful historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete and sharp inverse phase diagram for two positive observed discrete time maps identifies a potentially severe model-selection hazard: two contracting observed maps cannot distinguish a decaying from a sign-reversing growing directly evaluated propagator. The explicit \(3/2\)-power discrimination scale quantifies how a third horizon resolves the ambiguity and becomes ill conditioned near coalescence. The parameter family is small, but the object is a natural split-integrator model; no downstream theorem is required for its exact stability/identifiability boundary to be useful.
+The exact two-horizon positive-branch classification, cubic third-horizon discriminant, and opposite DIRECT long-horizon behavior are narrower than general exponential-polynomial reconstruction. The first-order split exponential–Euler map is not the higher-order exponential integrator of the motivating NEXT work. Established confluent Prony algorithms are relevant but do not by the inspected passages expressly assert this exact positivity-constrained two-map/cusp/sign theorem. Novelty is best-of-knowledge and qualified by specialized identifiability literature.
 
-## Closest literature, risks, and boundaries
+## value
 
-Primary source: arXiv:2609.31539v1, full accessible paper, especially introduction, decomposition convention, method and inverse-problem discussion. Close mathematical precursor: arXiv:1106.1137v3, original confluent Prony polynomial-exponential measurements and reconstruction. This does not apply to NEXT's actual ETDRK4 scheme, noisy estimates, semigroup-constrained data or repeated short steps. The full historical literature on specialized exponential-affine step-size identification is not exhaustively searchable, and an equivalent formula might predate this calculation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Observing two time maps and attributing growth to an exponential generator versus an explicit reaction is a natural inverse-model identifiability problem. This self-contained theorem supplies the exact alias locus, the third-observation resolution scale Delta^{3/2}, and a sharp counterexample to extrapolating directly evaluated long-horizon maps from short-time contraction. Although elementary algebra underlies it, the combined precise inverse and stability boundary is a motivated structural fact, not a generic algebra substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
