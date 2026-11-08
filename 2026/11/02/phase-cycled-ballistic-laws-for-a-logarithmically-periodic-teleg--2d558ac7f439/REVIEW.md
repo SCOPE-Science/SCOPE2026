@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The time transformation produces the exact generator \(L_s=(j-z)\partial_z+r(s)(\operatorname{flip}-1)\). Marked Poisson refreshing at rate \(2r\) supplies a two-sided periodic pullback law, while a shared-refresh coupling gives a quantitative all-initial-data attraction bound. Applying the generator to \(zj\) and \(z^2\) proves stable periodic moment equations and the nonconstant-rate if-and-only-if criterion. Linearization of these equations yields the explicit harmonic response. The included independent quadrature and ODE tests check the coefficient and its phase but are not used as proof.
+PASS
 
-## Originality — PASS, with residual risk
+For λ(t)=r(log(1+t))/(1+t) with continuous positive T-periodic r, s=log(1+t), Z_s=e^{-s}X_{e^s−1}, J_s=S_{e^s−1} yield generator (j−z)∂z+r(s)(f(z,−j)−f(z,j)). Marked Poisson refreshing at intensity 2r(s) realizes the exact flip hazard via Bernoulli 1/2 marks. A two-sided stationary-in-period marked process yields Z*_s=∫_{−∞}^s e^{−(s−u)}J*_u du and exponential coupling (rate min(1,2r*)). This establishes unique phase-periodic laws and all subsequential ballistic weak limits independent of initial direction. Moment equations a′=1−(1+2r)a, v′=2a−2v imply v periodic and bounded strictly between 0 and 1; constant v forces constant a then constant r, proving iff. Harmonic perturbation q_1(s)=−4/k Re[e^{iωs}/((k+iω)(2+iω))] with k=1+2c; numerical independent periodic-ODE solve at c=.9, ε=.003, ω=1.7 differs from linear response by 8.26e−7 (<O(ε²)), showing nonconstant variance. The finite numerical test does not prove attraction or all r.
 
-Pradhan--Roy--Ray (arXiv:2605.20116) derive general discrete-time second-moment recurrences and the inverse-time pure-power ballistic transition; the exact correlation equations are not claimed as original. Garra--Orsingher (arXiv:1411.0648) establish inverse-time telegraph/Beta distributions. De Gregorio--Garra (2026) also treat singular Euler--Poisson--Darboux coefficients. Cressoni--Viswanathan--da Silva (2018) treat log-periodicity in a different memory-damaged walk. The asserted contribution is full phase-indexed weak-limit convergence with a sharp no-limit criterion for an exogenously log-periodic reversal rate, plus its quantitative harmonic response. No directly covering result was identified in the inspected material or searched research records. General nonautonomous PDMP or evolution-family literature could subsume parts, so priority remains qualified.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 inverse-time persistence transition motivates asking whether ballistic order implies an ordinary scaling law. The theorem answers no for every nonconstant periodic logarithmic modulation, identifies the exact necessary-and-sufficient condition for such a law, and supplies a measurable oscillation coefficient. It separates anomalous transport magnitude from distributional scale invariance, rather than providing an arbitrary numerical example or a routine parameter substitution.
+The constant inverse-time rate continuous telegraph Beta/Euler–Poisson–Darboux laws (Garra–Orsingher 2014) and discrete-time critical ballistic persistent walks (Pradhan–Roy–Ray 2026) are prior. An accessible full 24-page Pradhan article studies discrete-time p_t and second moments, not this continuous Poisson log-periodic family. Cressoni et al. (2018) log-periodicity concerns a memory-damaged discrete-time process, so cannot be identified without a model reduction. A general nonautonomous stochastic-evolution theorem might imply periodic attraction and remains a qualified priority risk; no exact same claim located.
 
-## Scope and limitations
+## value
 
-The statement concerns a single two-speed continuous-time walker with positive continuous periodic logarithmic-time hazard and independent Poisson reversals. Existence and uniqueness of the periodic family are proved analytically; numerical checks do not constitute an infinite-time proof. No independent audit or external novelty certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ballistic-order mean-square displacement does not entail one rescaled weak law. Exact family of all subsequential laws and a sharp nonconstant-hazard iff criterion exhibit discrete scale invariance and quantify harmonic variance oscillations. This addresses a motivated class of persistent-motion models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
