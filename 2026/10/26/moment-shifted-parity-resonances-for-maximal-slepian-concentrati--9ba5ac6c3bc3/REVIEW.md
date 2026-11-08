@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim includes explicit band normalization, the two equal spatial intervals, and the strict single-interval positivity hypothesis. The block parity reduction is exact; positivity of the one-interval sinc kernel yields a strictly simple principal mode with spectral gap. Uniform far-separation expansion of the cross block and analytic perturbation show a signed sine term of order \(L^{-1}\) and a moment correction of order \(L^{-2}\). Their derivative controls unique transverse crossings in disjoint windows; the one-interval spectral gap excludes higher multiplicity. The included quadrature comparison supports normalization but is not used as the proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+For Bℓ<1, k_B(t−s)>0 on I×I, so the compact A has a unique positive even norm-one principal u and gap γ>0. Reflection of the left component makes the full operator exactly [[A,C_L],[C_L,A]] with C_L kernel k_B(2L+t+s) and ||C_L||=O(L^-1); its parity operators are A±C_L. Analytic perturbation of the isolated top eigenvalue yields λ(A+C)−λ(A−C)=2<u,Cu>+O(||C||^3), with derivative error O(||C||^2||C_L' ||)=O(L^-3). Expanding the cross kernel gives Δ=M² sin(2πBL)/(πL)−MM1 cos(2πBL)/(πL²)+O(L^-3) and Δ'=2BM² cos(2πBL)/L+O(L^-2); the factors 2MM1 follow from evenness and the sine product identity. Positivity M,M1>0 fixes nonzero coefficients. On J_n the sine has opposite endpoint signs while cos has fixed sign bounded away from zero, proving exactly one transverse crossing for each sufficiently large integer n. The one-interval gap isolates these as the top two full eigenvalues, and root substitution gives L_n=n/(2B)+M1/(πMn)+O(n^-2). A separate Nystrom calculation at B=1,ℓ=.8, Gauss–Legendre sizes 32 and 56 reconstructed all seven frozen Git blob tree entries and roots for n=6,10,20,40,80; numerical values are corroboration, not proof.
 
-The possibility of bandpass degeneracies is **known** from Morrison (1963, 1965). The distinct asserted content is an infinite family of **maximal** concentration-eigenvalue parity crossings with an explicit positive \(n^{-1}\) separation displacement. The accessible full works of SenGupta et al. and Hogan–Lakey treat the bandpass concentration equations, spectral numerical methods and parity sectors without this quantified conclusion. Fahs–Krasovsky concerns the two-interval Fredholm determinant in a different scaling. Full original Morrison articles were unavailable; they remain the principal historical-priority risk. No search alone is regarded as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The crossing locations quantify exactly when the optimal concentrated signal changes parity and becomes nonunique for two widely separated observation windows. The strict moment correction depends on the principal prolate mode and is not an arbitrary perturbation parameter. It refines earlier knowledge of possible bandpass degeneracy into a shape-sensitive asymptotic spectral law with an exact multiplicity and transversality mechanism.
+Best-of-knowledge: general bandpass degeneracies, exact Fourier duality, parity compression, and numerical high-modulation pairing are known. The audited claim adds an infinite sequence of exact crossings of the maximal eigenvalue, uniquely and transversely in specified windows, and a positive shape-dependent 1/n moment shift. Primary full texts of SenGupta et al. (2012) and Hogan–Lakey (2017), and the relevant main theorems of Fahs–Krasovsky (2020), do not logically imply these quantitative conclusions. Morrison 1963/1965 full texts remain inaccessible serious historical-priority risks; no whole-document novelty is claimed against them.
 
-## Scope and limitations
+## value
 
-Only fixed bandwidth and equal windows with \(B\ell<1\), for sufficiently large integer resonance index. The implicit large-index cutoff and the uniqueness question outside the stated resonance windows are not determined. Historical claims of general bandpass degeneracy are explicitly prior art. Independent examination is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal Slepian concentration on two separated equal windows is a canonical spectral-geometric problem; crossings select between symmetric and antisymmetric optimal signals and produce exact top-eigenvalue nonuniqueness. Quantifying an infinite crossing locus with a nonzero shape-dependent moment coefficient is a motivated spectral refinement beyond previously known possibility of degeneracy and numerical high-frequency pairing. The result is a structural analytic all-large-index theorem, not an unmotivated finite-table correction; restrictions on Bℓ and equal components are clearly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
