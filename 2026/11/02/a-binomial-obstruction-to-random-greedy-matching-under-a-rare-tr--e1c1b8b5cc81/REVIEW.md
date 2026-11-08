@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is quantified for all integers \(n\ge16k\ge16\). Every transition uses the exact number of feasible edges; a marked rare vertex is matched with conditional probability at least \(1/m\) at the first step of each level \(m\ge4k\). The telescoping survival product and union bound yield \(kM/n\), and the simultaneous fair-coin coupling yields \(k^2/[4(M-k)]\). After rare vertices disappear, only a complete bipartite graph remains, so the terminal deficit is the absolute endpoint imbalance. The exact checker provides supporting finite evidence (165 assertions), not an infinite proof.
+PASS
 
-## Originality
+For deterministic complete tripartite K_{n,n,k}, n>=16k, uniform among currently feasible edges, exact state (a,b,c)=(m-x,m-y,k-x-y). At AB level m>=4k, a fixed unmatched C vertex meets the first edge with probability (a+b)/(ab+c(a+b))>=1/m; successive-level survival telescopes to <=M/n, hence all C vertices absorbed above M with failure probability <=kM/n. At each rare edge, A/B endpoint conditional probability a/(a+b) differs from 1/2 by <=k/[4(M-k)], coupled across <=k choices, giving <=k^2/[4(M-k)] mismatch. If all rare vertices matched, final dense imbalance exactly |k-2X|. Therefore TV bound kM/n+k^2/[4(M-k)], M=ceil(sqrt(kn)), and convergence for k=o(n^(1/3)); conditional binomial CLT gives folded-normal scaled law. Maximum matching leaves k mod 2 vertices (given n>=k), so p_odd=2^(1-k)binom(k,(k-1)/2), p_even=2^-k binom(k,k/2). Independent exact-rational state DP checked 104 n/k cases and representative TV bounds, not an infinite proof.
 
-**PASS, with residual priority risk.** The inspected author-hosted complete text of Arnosti analyzes random bipartite input and algorithm comparisons rather than a dense tripartite rare-class law; the full open-access work of Krivelevich and collaborators supplies the line-graph equivalence but not a terminal binomial defect law. The 2014 Song–Miao–Wang–Zhao article addresses extrema among maximal matching sizes, not the random-greedy terminal law in its accessible abstract. Actual searches of published mathematical research records found nearest results about greedy independent sets on multipartite or chain graphs, not the matching-defect law. Complete versions of two older candidate papers could not be inspected, leaving an explicit historical-priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** A fixed or subcubic-growing rare third class perturbs a complete bipartite core on a vanishing vertex fraction yet produces a nonvanishing probability of losing matching optimality. The full limiting law, a finite quantitative approximation, exact fixed-class success probabilities and a folded-normal growing-class regime distinguish it from a routine size bound. The precise rare-class obstruction is useful for studying robustness of dense greedy matching under structural contamination.
+Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A binomial obstruction to random greedy matching under a rare tripartite perturbation: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.
 
-## Scope and limitations
+## value
 
-The result assumes uniformly selected currently feasible edges, equal large part sizes and a smaller third class. It does not claim a sharp convergence rate or a description when the third class is comparable to a dense part. Complete historical coverage is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines an entire terminal-defect distribution and a nontrivial rate at which a vanishing third part in a dense deterministic multipartite graph prevents random edge-greedy from finding a maximum matching. The persistent parity/central-binomial obstruction is a motivated natural randomized-algorithm observable, beyond worst-case approximation ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

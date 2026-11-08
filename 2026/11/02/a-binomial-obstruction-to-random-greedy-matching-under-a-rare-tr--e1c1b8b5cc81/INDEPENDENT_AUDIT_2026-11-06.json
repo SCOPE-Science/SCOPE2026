@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:51:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81/checker.py"
+      ],
+      "rationale": "For deterministic complete tripartite K_{n,n,k}, n>=16k, uniform among currently feasible edges, exact state (a,b,c)=(m-x,m-y,k-x-y). At AB level m>=4k, a fixed unmatched C vertex meets the first edge with probability (a+b)/(ab+c(a+b))>=1/m; successive-level survival telescopes to <=M/n, hence all C vertices absorbed above M with failure probability <=kM/n. At each rare edge, A/B endpoint conditional probability a/(a+b) differs from 1/2 by <=k/[4(M-k)], coupled across <=k choices, giving <=k^2/[4(M-k)] mismatch. If all rare vertices matched, final dense imbalance exactly |k-2X|. Therefore TV bound kM/n+k^2/[4(M-k)], M=ceil(sqrt(kn)), and convergence for k=o(n^(1/3)); conditional binomial CLT gives folded-normal scaled law. Maximum matching leaves k mod 2 vertices (given n>=k), so p_odd=2^(1-k)binom(k,(k-1)/2), p_even=2^-k binom(k,k/2). Independent exact-rational state DP checked 104 n/k cases and representative TV bounds, not an infinite proof.",
+      "residual_risks": [
+        "Finite independent computations are diagnostic only for quantified unbounded theorems; correctness relies on the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnosti author full PDF studies RANDOM-EDGE against randomized vertex/ranking algorithms averaged over random bipartite inputs; Krivelevich et al local-limit work concerns greedy independent sets."
+        ],
+        "reasoning": "Neither has a theorem with a deterministic three-part complete graph, a small exceptional part, or the full binomial terminal-defect law under the same model, in materially read portions; no stronger implication identified.",
+        "searches": [
+          "complete tripartite K n n k random greedy maximal matching unmatched vertices binomial limiting distribution",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://arxiv.org/abs/1907.07216"
+        ]
+      },
+      "checked_sources": [
+        "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://arxiv.org/abs/1907.07216",
+        "Resultary semantic record search: complete tripartite K n n k random greedy maximal matching unmatched vertices binomial limiting distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnosti Section 1 explicitly distinguishes RANDOM-EDGE from RANDOM-VERTEX; the 2014 multipartite matching article treats deterministic maximal matching/edge domination."
+        ],
+        "reasoning": "The 2014 extremal bounds describe allowable cardinalities, not probability mass under random edge order. General randomized matching worst-case guarantees likewise cannot imply the binomial distribution or precise coupling rate.",
+        "searches": [
+          "complete tripartite K n n k random greedy maximal matching unmatched vertices binomial limiting distribution",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://doi.org/10.1080/00207160.2013.818668"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform feasible-edge choice equals accepting edges in a uniformly random edge permutation; random-edge greedy studied by Dyer–Frieze (1991)."
+        ],
+        "reasoning": "This algorithmic alias is acknowledged. A general random-edge greedy model/approximation bound does not itself imply the complete K_{n,n,k} defect distribution or this TV coupling.",
+        "searches": [
+          "complete tripartite K n n k random greedy maximal matching unmatched vertices binomial limiting distribution",
+          "https://doi.org/10.1002/rsa.3240020104"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a complete-multipartite random-greedy maximal independent-set variance result: vertex-first MIS is one whole part, a distinct process; no K_{n,n,k} random-edge defect distribution appeared."
+        ],
+        "reasoning": "No comparable table or known exact law located; finite state-DP checks are new calculation, not originality proof.",
+        "searches": [
+          "complete tripartite K n n k random greedy maximal matching unmatched vertices binomial limiting distribution",
+          "Resultary semantic record search (10 ranked hits)"
+        ]
+      },
+      "rationale": "Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A binomial obstruction to random greedy matching under a rare tripartite perturbation: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.",
+      "residual_risks": [
+        "Original Dyer–Frieze 1991 full text not materially read; broad model alias could hide specialized results.",
+        "Convergence rate supplied is sufficient but not shown optimal; claim restricted to k=o(n^(1/3)) and dense balanced parts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Random bipartite-graph averages, not deterministic complete tripartite limit law",
+          "evidence": "Arnosti pp.1–2, RANDOM-EDGE definition, comparison theorems",
+          "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "material_read": "22-page author-posted April 2021 PDF; abstract, Introduction/algorithm definitions, main theorem descriptions and scope",
+          "method": "web PDF text and screenshot",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Same random-edge greedy mechanism; possible stronger statistical theorem"
+        },
+        {
+          "assessment": "Prior randomized greedy model and general performance; full-text overlap remains a residual risk",
+          "evidence": "Dyer–Frieze, RSA 2 (1991), pp.29–45",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Journal abstract/metadata only; full 1991 article not read",
+          "method": "public search",
+          "title": "Randomized greedy matching",
+          "trigger": "Original general random-edge greedy algorithm"
+        },
+        {
+          "assessment": "General local-limit MIS tools, no explicit tripartite terminal defect identified",
+          "evidence": "Krivelevich et al, 2019",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "Title, abstract, local-limit scope only; entire paper not read",
+          "method": "arXiv description",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Potential line-graph duality to random greedy matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81/RESULT.md",
+        "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://arxiv.org/abs/1907.07216"
+      ],
+      "rationale": "Determines an entire terminal-defect distribution and a nontrivial rate at which a vanishing third part in a dense deterministic multipartite graph prevents random edge-greedy from finding a maximum matching. The persistent parity/central-binomial obstruction is a motivated natural randomized-algorithm observable, beyond worst-case approximation ratios.",
+      "residual_risks": [
+        "Mathematical value is confined to the exact objects, parameters and quantifiers stated; no broader downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Dyer–Frieze 1991 full text not materially read; broad model alias could hide specialized results.",
+    "Convergence rate supplied is sufficient but not shown optimal; claim restricted to k=o(n^(1/3)) and dense balanced parts.",
+    "Public-facing original metadata and audit JSON contain scope_run_id; no sanitized replacements and guard validation staged; plan not_ready, no GitHub publication."
+  ],
+  "schema_version": 1
+}
