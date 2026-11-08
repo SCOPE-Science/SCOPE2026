@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every nonnegative real m by (d+1) matrix without zero rows and d,m>=1, projection of any Euclidean ball onto the standard d-simplex bounds its radius by 1/(d+sqrt(d)), with unique projected center at equality. At that center, fiber lower and upper halfspaces impose independent intervals rho<=x_i<=rho(B_i-H_i); these exist iff B_i>=1+H_i for every row. Containment in all defining halfspaces proves sufficiency. For positive integral entries the contained product simplex times unit cube proves strictness when d>=2. In Ferroni sparse A, B and H are explicitly calculated, and (B-1)^2-H^2=2[alpha sqrt(d)(beta-1)+beta(alpha-1)] proves exactly one degenerate parameter pair. Contact facets correspond to saturated center-coordinate bounds. Standalone verifier reported 1,120 independent numerical LPs and 19,865 successful assertions; finite checks only corroborate the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haase–Paffenholz–Piechnik–Santos arXiv:1405.1687v3 Section 2.2.1: convex-geometric chimney constructions used to pull back regular unimodular triangulations, not explicit Euclidean incenter loci.",
+        "General polytope inball optimization via linear programming applies algorithmically but does not directly state the saturation criterion for this family."
+      ],
+      "reasoning": "General inball linear programming, although capable of recovering answers case-by-case, is not a published closed-form theorem covering the iff criterion, all-parametric full center boxes, and the strict positive-integral regime. Existing chimney results are enumerative/triangulation, not a stronger inball statement. The construction specializes to a concrete coordinate metric that is not preserved under arbitrary affine equivalence.",
+      "searches": [
+        "Ferroni Cayley sums of rectangular prisms Nakajima polytopes Euclidean inradius inscribed ball 2026",
+        "\"Cayley sum\" \"rectangular prisms\" \"inradius\" \"inscribed\"",
+        "\"Nakajima polytope\" inradius incenter Euclidean ball",
+        "\"Cayley sum\" \"largest inscribed ball\" boxes",
+        "\"Cayley polytope\" \"incenter\" \"boxes\""
+      ]
+    },
+    "checked_sources": [
+      "Ferroni, arXiv:2609.10513v2, https://arxiv.org/html/2609.10513v2, introduction and construction/geometry sections read",
+      "Haase et al., arXiv:1405.1687v3, https://arxiv.org/html/1405.1687v3, relevant Section 2.2.1 read",
+      "Comparable public theorem: an affine incenter cube for square Monge polytopes (different inequalities, not logically covering)",
+      "Comparable public theorem: simplex-controlled inball of redundant-facet partial permutohedra (different objects)",
+      "Comparable public theorem: three-barrier inradius of staged-tree prismatoids (different object and normal lengths)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferroni Proposition 2.1 already implies the displayed halfspace description, and Proposition 2.3 establishes smoothness of all entrywise-positive integer A; neither result evaluates metric facet offsets, a simultaneous inball radius, or the set of optimal ball centers.",
+        "Haase et al. Theorem 2.8 is a unimodular triangulation-preservation theorem; it says nothing about Euclidean insphere radius."
+      ],
+      "reasoning": "The fiber formula is prior known and acknowledged, so no novelty is assigned to it. Deriving normalized Euclidean upper-facet distances H_i, comparing them with the uniquely forced simplex incenter, proving an all-row exact iff criterion, and classifying all equality centers is extra geometric content. The positive-integral regime and one-point-to-cube transition are consequences of the new classification, not claimed to be new input.",
+      "searches": [
+        "2026 Cayley sum Nakajima rectangular boxes simplex projection incenter locus exact saturation",
+        "Ferroni Cayley sums of rectangular prisms Nakajima polytopes Euclidean inradius inscribed ball 2026",
+        "arXiv:2609.10513v2 Proposition 2.1 and Proposition 2.3",
+        "arXiv:1405.1687v3 Section 2.2.1 chimney polytopes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferroni arXiv:2609.10513v2 Section 2, Proposition 2.1 gives coordinate fiber inequalities and Proposition 2.3 gives smoothness, but no inradius, Chebyshev-center, or Euclidean-insphere theorem.",
+        "Searches across mathematical research summaries found related but distinct incenter-locus results for Monge, partial permutohedron and prismatoid polytopes."
+      ],
+      "reasoning": "An equivalent statement would specify the Euclidean inball saturation of a simplex-projected Cayley sum of rectangular boxes, or an explicit complete center locus derived from those same inequalities, possibly under the names Nakajima polytope, chimney polytope, insphere, Chebyshev radius, or largest contained ball. Ferroni supplies the inequalities but not their joint distance-to-facet optimization. No covering metric equivalent identified.",
+      "searches": [
+        "Cayley sum of rectangular boxes P0 [0,alpha]^d and Pi [0,beta e_i] Euclidean inradius contact facets",
+        "2026 Cayley sum Nakajima rectangular boxes simplex projection incenter locus exact saturation",
+        "Cayley polytope C(A) alpha1 betaI largest Euclidean ball y simplex α β",
+        "\"Cayley sum\" \"incenter\" \"boxes\"",
+        "\"Nakajima\" \"Chebyshev center\" polytope",
+        "Ferroni arXiv:2609.10513 Cayley sum rectangular prism inradius largest inscribed Euclidean ball Chebyshev center",
+        "Cayley polytope coordinate boxes a_ij simplex projection sharp radius rho_d incenter box"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ferroni 2026 records the alpha,beta family to investigate Ehrhart coefficient behavior; not a table of insphere radii or Chebyshev center loci.",
+        "The closest accessible historical ledger claims involving Ferroni Cayley polytopes concern Ehrhart h* positivity/log-concavity or a distinct four-dimensional Ehrhart polynomial."
+      ],
+      "reasoning": "A table of finite Ehrhart counts or of unrelated inradii cannot imply an all-dimensional exact center-box theorem. Source and record searches found no covering database or coordinate-parameter table.",
+      "searches": [
+        "Cayley sum of rectangular boxes P0 [0,alpha]^d and Pi [0,beta e_i] Euclidean inradius contact facets",
+        "2026 Cayley sum Nakajima rectangular boxes simplex projection incenter locus exact saturation",
+        "Ferroni Cayley sums of rectangular prisms Nakajima polytopes Euclidean inradius inscribed ball 2026",
+        "\"Cayley sum\" \"largest inscribed ball\" boxes"
+      ]
+    },
+    "rationale": "The source manuscript studies the exact same coordinate box-Cayley construction but establishes triangulations, smoothness and Ehrhart-theoretic results, not a Euclidean inradius saturation theorem or a complete Chebyshev center box. The Nakajima/chimney source supplies triangulation methods, not insphere metric extremizers. Compared exact statement and logical implications with related known incenter-locus and prismatoid results, as well as accessible historical claims; no result found that implies the full row criterion and fiber-center classification. Historical priority is provisional; absence of a database hit does not establish novelty.",
+    "residual_risks": [
+      "A historically equivalent geometric Chebyshev-radius theorem for box-Cayley or Nakajima polytopes may exist outside indexed/inspected sources; independent priority review remains unperformed.",
+      "Generic formulae for inballs of arbitrary halfspace polytopes allow individual parameter evaluation, and a reader could independently derive this elementary criterion; this is not the same as locating a published all-parameter classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_PRIOR_INPUT_NOT_COVERING",
+        "evidence": "Proposition 2.1 provides the fiber inequalities; Proposition 2.3 gives smoothness with positive entries; later results concern enumerative Ehrhart and unimodality properties; no inball or full incenter locus.",
+        "identifier_or_url": "https://arxiv.org/html/2609.10513v2",
+        "material_read": "Full Section 2 (including Propositions 2.1-2.4), introduction and relevant portions of later Ehrhart sections; full-document term searches for inradius/Euclidean.",
+        "method": "Direct open-access HTML/PDF inspection and full-document relevant term/statement comparison.",
+        "title": "Unimodality shenanigans in Ehrhart theory",
+        "trigger": "Defines exactly the same box-Cayley polytopes and sparse alpha,beta matrices."
+      },
+      {
+        "assessment": "RELEVANT_CONSTRUCTION_NOT_METRIC_COVERAGE",
+        "evidence": "Section 2.2.1 studies preservation/existence of regular unimodular triangulations under chimney construction, not the sharp Euclidean inball or its center set.",
+        "identifier_or_url": "https://arxiv.org/html/1405.1687v3",
+        "material_read": "Abstract, introduction and Section 2.2.1 on chimney polytopes and pull-back subdivisions; searched full HTML for inradius/incenter, neither occurs.",
+        "method": "Direct arXiv open-access HTML inspection focused on plausible covering theorem.",
+        "title": "Existence of unimodular triangulations - positive results",
+        "trigger": "Underlying earlier Nakajima/chimney theory cited in Ferroni Proposition 2.2."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1443bc5-b9c5-41eb-aeb1-5db43a21b05e",
+  "value": {
+    "rationale": "For a natural infinite-dimensional Cayley-polytope family highlighted by a new 2026 source, the result resolves a sharp structural metric question: exactly which arbitrary nonnegative box width matrices allow the maximum possible projected-simplex radius, and precisely what are ALL centers and contacting facets. Entrywise-positive integer matrices (known to define smooth polytopes) have identical inradius independent of matrix sizes while retaining a full fiber-dimensional family of centers; the sparse alpha,beta family has an exceptional unique center and otherwise a cube of optimal centers. These are motivated complete classifications and extremal-equality regimes rather than a small numerical increment or table recomputation.",
+    "status": "PASS"
+  }
+}
