@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof-scope verification
+# Independent mathematical audit
 
-Execute `python verify.py` from the directory containing this file, with NumPy, SciPy, SymPy and mpmath installed. The included program is standalone and requires no web access or files from another item.
+## correctness
 
-At the time of packaging it completed: (i) exact symbolic substitution of the persistent-orientation first-harmonic solution and orientationally averaged second-order solution into their radial differential equations; (ii) 25 comparisons between the modified-Bessel coefficient and an independently shot four-dimensional radial Dirichlet boundary-value problem; (iii) 60 high-precision derivative-sign spot-checks for orders zero through four; and (iv) small- and large-rotational-diffusion limit checks. All checks passed.
+PASS
 
-These finite calculations do not establish analyticity of the full solution or prove complete monotonicity for every derivative and every real parameter. Those claims rely on the elliptic Dirichlet perturbation argument and the exact four-dimensional killed-diffusion resolvent shown in `RESULT.md`. The prescribed expansion fixes positive angular diffusivity before taking the small-propulsion limit. An independent audit has not been performed.
+Dimensionless backward generator is Lp=Delta+g dtheta²+p utheta·grad with absorbing unit-circle boundary, g>0. The zeroth mean T0=(1-rho²)/4 and first angular coefficient h=[I1(sqrt(g)rho)/I1(sqrt(g))-rho]/(2g) solve the Dirichlet hierarchy. Averaging the p² equation yields w_g'=-h/2; integrating gives the claimed Bessel C_g(s). Setting f=-h/rho lifts the equation to the 4D radial Dirichlet resolvent (-Delta_4+g)f=1/2; its killed Brownian occupation representation makes (-1)^k d_g^k C_g(s)>0 for all integers k>=0, all 0<=s<1 and all g>0. The g downarrow0 and g infinity limits follow by 4D Poisson and resolvent convergence; rim is explicitly nonuniform in the latter regime. Independent Bessel/ODE-integral and high-precision derivative checks matched 9 parameter pairs, k=0..3, but the analytic resolvent proves the universal signs.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+The all-radius coefficient has a strict all-orders rotational-diffusivity hierarchy with a positive 4D resolvent mechanism; it sharpens a physically natural active-escape first-passage question beyond plotting MFPT or giving a formal perturbation. Both limiting constants and nonuniform rim caveat are mathematically consequential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

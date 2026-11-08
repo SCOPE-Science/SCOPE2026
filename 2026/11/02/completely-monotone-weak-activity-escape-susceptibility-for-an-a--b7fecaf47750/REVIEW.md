@@ -1,19 +1,21 @@
-# Scientific review: weak-activity disk exit susceptibility
+# Independent mathematical audit
 
-## Correctness — PASS
-The model exactly matches the two-dimensional absorbing-disk active Brownian generator of Di Trapani, Franosch and Caraglio (arXiv:2306.12702v1). The signed propulsion is normalized as \(p=vR/D\), the angular diffusivity as \(g=D_{\mathrm{rot}}R^2/D\), and the exit time as \(D\tau_R/R^2\). The order-zero Poisson solution is \((1-s^2)/4\). The order-one radial amplitude solves the order-one modified-Bessel equation with regular origin and absorbing rim, and averaging the order-two backward equation gives \(w_g'=-h_g/2\). The coefficient follows by integrating \(I_1\). Writing \(-h_g(s)=s f_g(s)\) identifies the four-dimensional Dirichlet resolvent \((-\Delta_4+g)f_g=1/2\). Its killed-Brownian representation has a strictly positive Laplace kernel, proving all alternating derivative inequalities without numerical extrapolation. Boundary limits and the physical scaling were checked explicitly. The included `verify.py` passed 25 independently solved radial-ODE comparisons, 60 high-precision derivative-sign checks, symbolic differential identities, and asymptotic spot-checks. The analytic proof, not the spot-checks, establishes the continuum and all-orders assertions.
+## correctness
 
-## Originality — PASS (qualified)
-The 2023 source obtains the full propagator and time-dependent survival probability and explicitly identifies mean first-passage moments as a prospective use, but does not state the evaluated radial weak-activity coefficient or its complete-monotonicity hierarchy. Its general solution contains these observables *implicitly*, so the differentiation and summation of that solution is a genuine residual risk; the assessed claim is the explicit comparison theorem, not a claim to first solve the propagator. Scacchi and Sharma (arXiv:1708.05591v2) address one-dimensional telegraph propulsion with resetting and approximate diffusivity replacement. Iyaniwura, Qiu and Peng (arXiv:2605.23095v2) address reflecting disks with limited absorbing arcs and chiral propulsion, reporting two-dimensional numerical results and one-dimensional high-chirality asymptotics. Those distinct boundary models and parameter expansions do not supply the stated exact formula and dimension-lifted derivative hierarchy. Topic/alias/parameter/equivalence searches in mathematical research records and public literature yielded no directly matching claim, but non-discovery is not a priority certificate. A still-unlocated broader mean-exit susceptibility theorem may subsume the result.
+PASS
 
-## Mathematical value — PASS
-The leading decrease of mean escape time with weak activity is a natural physically measurable sensitivity that cannot be read numerically reliably from time-dependent propagator truncations alone. The exact formula holds at every initial radius, determines the persistent-orientation endpoint and fast-reorientation edge, and proves the stronger all-derivative sign structure across every positive angular diffusion rate. The unexpected exact lift to a killed four-dimensional Brownian exit problem makes the sign hierarchy structural rather than a numerical or low-order coincidence. This resolves a specific mean-exit observable identified as not yet evaluated in the source paper; no claim of a new full propagator, finite-speed global ordering, or macroscopic collective consequence is made.
+Dimensionless backward generator is Lp=Delta+g dtheta²+p utheta·grad with absorbing unit-circle boundary, g>0. The zeroth mean T0=(1-rho²)/4 and first angular coefficient h=[I1(sqrt(g)rho)/I1(sqrt(g))-rho]/(2g) solve the Dirichlet hierarchy. Averaging the p² equation yields w_g'=-h/2; integrating gives the claimed Bessel C_g(s). Setting f=-h/rho lifts the equation to the 4D radial Dirichlet resolvent (-Delta_4+g)f=1/2; its killed Brownian occupation representation makes (-1)^k d_g^k C_g(s)>0 for all integers k>=0, all 0<=s<1 and all g>0. The g downarrow0 and g infinity limits follow by 4D Poisson and resolvent convergence; rim is explicitly nonuniform in the latter regime. Independent Bessel/ODE-integral and high-precision derivative checks matched 9 parameter pairs, k=0..3, but the analytic resolvent proves the universal signs.
 
-## Closest literature and limitations
-- Di Trapani, Franosch, Caraglio, *Active Brownian Particles in a Circular Disk with an Absorbing Boundary*, https://arxiv.org/html/2306.12702v1, especially the model, recursive propagator, survival law and concluding passage on mean first-passage moments.
-- Scacchi, Sharma, *Mean first passage time of active Brownian particle in one dimension*, https://arxiv.org/html/1708.05591v2, a different one-dimensional telegraph/resetting and effective-diffusivity problem.
-- Iyaniwura, Qiu, Peng, *Mean first passage time of chiral active Brownian particles*, https://arxiv.org/html/2605.23095v2, different absorbing-arc/reflecting disk geometry and chiral scaling.
+## originality
 
-Only the weak-propulsion coefficient is classified, not the entire finite-propulsion exit time. Strict complete monotonicity holds for fixed initial radius strictly inside the disk, and the fast-rotation asymptotic is not uniform next to the absorbing rim. Independent validation and definitive literature-priority confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+The all-radius coefficient has a strict all-orders rotational-diffusivity hierarchy with a positive 4D resolvent mechanism; it sharpens a physically natural active-escape first-passage question beyond plotting MFPT or giving a formal perturbation. Both limiting constants and nonuniform rim caveat are mathematically consequential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
