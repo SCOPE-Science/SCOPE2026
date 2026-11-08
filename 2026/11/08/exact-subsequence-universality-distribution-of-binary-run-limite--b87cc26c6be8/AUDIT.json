@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Unique formal-power-series solution of an explicitly defined finite-state arch/run recurrence gives the exact all-r bivariate rational function. The coefficient recurrence, zero-index cases, 2k minimal boundary, and k+1 versus 2^k transition follow algebraically and combinatorially. A simple noncancelled dominant pole and implicit differentiation establish the rate for fixed r. Packaged independent finite DP, direct subsequence tests, and constrained totals concur but are not relied on as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 regular-language paper establishes generic counting algorithms for deterministic and nondeterministic automata, without an explicit all-r bivariate generating function for 1^(r+1) avoidance.",
+        "The ranking/unranking paper enumerates unconstrained words; the later revisited paper abstract primarily refines decision and parameterized complexity rather than giving this enumerator."
+      ],
+      "reasoning": "General algorithmic ability to construct coefficients for a fixed r does not state, and by itself does not algebraically identify, the compact parameter-uniform rational identity, its k+1 versus 2^k boundary, or its analytic rate. The new theorem remains a genuine closed-form specialization, not a claim that constrained enumeration was previously impossible.",
+      "searches": [
+        "arXiv:2311.10658v1 k-Universality of Regular Languages counting automata words",
+        "arXiv:2304.04583v1 Ranking and Unranking k-subsequence universal words",
+        "arXiv:2503.18611 k-Universality of Regular Languages Revisited"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.10658v1 (full text)",
+      "arXiv:2304.04583v1 (full text)",
+      "arXiv:2108.13968v1 (full text)",
+      "arXiv:2503.18611 (abstract only)",
+      "Closed-form law for binary subsequence universality (published full result read)",
+      "Fibonacci extremals for shortest absent subsequences of binary words (published full result read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known greedy-arch theorem gives the index interpretation but not run-bounded enumeration.",
+        "A regular-language counting algorithm may compute any particular finite-r instance but does not provide the stated parameter-uniform fraction or the exact shortest-boundary family.",
+        "The unrestricted full-language fraction is a limit case and cannot recover finite-r counts without new run-tracking analysis."
+      ],
+      "reasoning": "The novelty rests on the simultaneous all-r closed form and its exact structural consequences, not on arch factorization, regularity of a forbidden-factor language, or isolated finite coefficients. General computational decidability is not a mathematical statement of these identities.",
+      "searches": [
+        "arXiv:2311.10658v1 Section 4 counting regular-language universal words",
+        "arXiv:2108.13968v1 absent subsequences arch factorization",
+        "published Closed-form law for binary subsequence universality full-language result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inspected complete explicit unrestricted binary distribution has (1+z)/(1-z-2uz^2), different from the constrained formula for every finite r.",
+        "Search results about Fibonacci words concern antipowers, formal-language entropy, or other invariants rather than complete scattered-subsequence index distributions."
+      ],
+      "reasoning": "Fixed ambient binary subsequences and the forbidden contiguous block are not interchangeable with factors, absent-subsequence multiplicity, or unrestricted enumeration. The unrestricted full-language formula is recovered only after removal of the bounded-one-run condition; it does not imply the finite-r coefficients or shortest-length phase transition.",
+      "searches": [
+        "binary words avoiding 11 Fibonacci language subsequence universality index generating function distribution",
+        "subsequence universality golden mean shift no consecutive ones counts exact rational bivariate generating function",
+        "Fibonacci words no adjacent ones precise subsequence universality distribution 2k k+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact parameterized n,k,r table or rational generating function for the claimed statistic emerged in the queried mathematical records or searched primary literature.",
+        "A published full-binary generating function was inspected and compared statement-by-statement; it counts a strictly larger unrestricted class."
+      ],
+      "reasoning": "The numerical distributions are not merely recalculations of a known table: the all-r identities and phase transition provide a concise symbolic theorem. Negative searches alone are not treated as a proof of novelty.",
+      "searches": [
+        "run-length-limited binary words forbidden powers of one exact scattered subsequence universality generating function",
+        "subsequence-universality index statistics run-length limited languages {0,1} avoid 111, generating function 1+z-z^(r+1)-u z^(r+2)",
+        "entropy or mean universality rate of binary Fibonacci tribonacci languages with bounded one runs"
+      ]
+    },
+    "rationale": "After comparing full primary literature, adjacent later work, an explicit unrestricted-binary enumerator, relevant absence results, and searches for constrained-code aliases and parameters, no prior theorem stating this all-r constrained bivariate GF, minimal transition, or rate was identified. General DFA counting algorithms imply effective calculation for fixed r but not these closed expressions; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An equivalent symbolic generating function might be indexed under constrained coding or weighted-automaton statistics rather than subsequence universality.",
+      "The 2025 revisited regular-language work was compared from its abstract only; a hidden appendix identity has not been ruled out.",
+      "Generic regular-language counting machinery covers computability and may permit separate derivations of particular fixed-r distributions, although no parameter-uniform formula was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHMIC_BUT_NOT_EXPLICITLY_COVERING",
+        "evidence": "Defines k-universality for regular languages and gives algorithms counting k-universal accepted words/paths, without the proposed all-r one-run-avoidance formula or the shortest-boundary profile.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Full text, in particular definitions, counting sections, proofs, and conclusions",
+        "method": "Open-access preprint text and PDF pages examined for counts, run exclusions, and explicit rational forms",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Identical universality statistic and the larger class of regular constraints"
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN_UNRESTRICTED",
+        "evidence": "Counts and ranks unconstrained k-subsequence-universal words over a fixed alphabet; no restriction excluding 1^(r+1).",
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Full open-access text, definition and counting/ranking algorithm sections",
+        "method": "Read preprint and compared counting domain and parameter roles",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Direct fixed-length binary universality counts"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_ENUMERATOR",
+        "evidence": "Studies absent subsequences, including arch methods; individual paper often uses alphabet of a word, while the present theorem explicitly fixes a binary alphabet. No all-r constrained GF is stated.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+        "material_read": "Full open-access text; definitions and arch-factorization results",
+        "method": "Read preprint and compared definitions/quantifiers",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Foundational arch lemma and alternate absence terminology"
+      },
+      {
+        "assessment": "NO_DIRECT_IMPLICATION_IDENTIFIED_WITH_LIMITED_MATERIAL",
+        "evidence": "Discusses decision and FPT algorithms for existence of universal words in regular languages. Without full-text comparison, equivalence is a residual risk rather than a proved absence.",
+        "identifier_or_url": "https://arxiv.org/abs/2503.18611",
+        "material_read": "Abstract and bibliographic scope, not full text",
+        "method": "Read accessible dated abstract and compared claimed problems",
+        "title": "k-Universality of Regular Languages Revisited",
+        "trigger": "Possible stronger later treatment of the same regular-language setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b87cc26c-6be8-44f3-87ba-64e9f0b59518",
+  "value": {
+    "rationale": "The forbidden-one-run code family is a canonical hierarchy of regular constrained source languages. The theorem provides a complete exact distribution over all lengths, indices, and run limits, with a sharp linear-versus-exponential minimal-word transition and a nontrivial explicit mean index rate. It supplies mathematically motivated structure and exact invariants not reducible to a trivial normalization, an arbitrary cutoff, or a known table.",
+    "status": "PASS"
+  }
+}
