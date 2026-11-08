@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre gives v2(binomial(2r,r))=s2(r). For odd n, term k=n-1 has valuation 3*s2(n-1) because 3n-2 odd; earlier k=n-1-j contribute at least 4j+3s2(n-1-j)>=3s2(n-1)+j, hence unique least 2-adic valuation. For n=2 mod4, the recurrence S_n=16S_{n-1}+(3n-2)binom(2n-2,n-1)^3 has first-term valuation 3s2(n-1)+1 using odd n-1 and digit addition, while the last term has at least 3s2(n-1)+2. No cancellation changes the first minimum. n divisible by 4 is explicitly excluded. Independently computed recurrence and valuations at 135 qualifying positive indices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General binomial congruences, Domb hypergeometric and Dwork supercongruences",
+          "Mao–Zhang 2015; Zhang–Yuan 2021"
+        ],
+        "reasoning": "The broader divisibility result does not fix the valuation; the cited Dwork congruence excludes p=2 and the Domb sums are different weighted objects.",
+        "searches": [
+          "2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits",
+          "Mao–Zhang 2015; Zhang–Yuan 2021"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1511.05553 Theorem 1.1 and proof",
+        "https://doi.org/10.3934/math.2021671 abstract",
+        "Resultary semantic query: 2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Does 2n*binom(2n,n) divisibility force the s2(n-1) formula?",
+          "Mao–Zhang Theorem 1.1"
+        ],
+        "reasoning": "No: a divisibility statement only gives a lower bound; an exact value requires proving a unique 2-adic-minimal summand and handling n=2 mod4 cancellation.",
+        "searches": [
+          "2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits",
+          "Mao–Zhang Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact two-adic valuation of truncated weighted cubed-central-binomial sum",
+          "Mao–Zhang arXiv:1511.05553 Theorem 1.1"
+        ],
+        "reasoning": "Identical sequence previously studied; source gives divisibility lower bound only, not equality by s2(n-1) for 4∤n.",
+        "searches": [
+          "2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits",
+          "Mao–Zhang arXiv:1511.05553 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact value tables for cubed central binomial convolution",
+          "Mao–Zhang Theorem 1.1; Resultary published valuation-query hits"
+        ],
+        "reasoning": "Published same-sum result supplies only modulus; Resultary hits are separate Domb and Thue–Morse valuations, not exact same S_n.",
+        "searches": [
+          "2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits",
+          "Mao–Zhang Theorem 1.1; Resultary published valuation-query hits"
+        ]
+      },
+      "rationale": "Mao–Zhang proves the earlier divisibility of S_n by 2n*binom(2n,n), not the exact 2-adic valuation on the 3 residue classes. Other nearby Domb/Thue–Morse valuations concern different sequences. Digit-sum subadditivity and unique-minimal-valuation arguments are standard, but applying them to yield this high-density exact formula is a legitimate new statement relative to inspected sources.",
+      "residual_risks": [
+        "The proof uses elementary known digit-sum facts, but the exact high-density valuation of the specified sequence is the assessed claim.",
+        "Unindexed older binomial-sum congruences may contain an equivalent formula.",
+        "No theorem is asserted for n divisible by four, other primes, or complete valuation census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes 2n*binom(2n,n) divisibility; does not state exact binary digit valuation formula in the inspected theorem/proof",
+          "evidence": [
+            "Theorem 1.1 and proof"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.05553",
+          "material_read": "Complete relevant theorem (Theorem 1.1) and its proof in accessible author preprint",
+          "method": "open author full text",
+          "title": "Mao and Zhang, Proof of Suns conjectures on super congruences and the divisibility of certain binomial sums",
+          "trigger": "Same exact summand and sequence"
+        },
+        {
+          "assessment": "Reported result only at odd primes, so not a 2-adic exact valuation of this sequence",
+          "evidence": [
+            "abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2021671",
+          "material_read": "Abstract and stated prime assumptions",
+          "method": "publisher open abstract",
+          "title": "Zhang and Yuan, Proof of a Dwork-type supercongruence by induction",
+          "trigger": "Nearby hypergeometric congruence potentially implying valuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact power of two dividing a natural previously studied binomial-convolution sequence is useful arithmetic information not determined by a mere divisibility lower bound. The three-quarter domain is mathematically motivated by a distinct possible cancellation mechanism at multiples of four, not an arbitrary tiny slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1511.05553 Theorem 1.1 and proof",
+    "https://doi.org/10.3934/math.2021671 abstract",
+    "Resultary semantic query: 2-adic valuation sum (3k+1) central binomial coefficient cubed 16^(n-1-k) binary digits"
+  ],
+  "disposition": "passed",
+  "final_claim": "For S_n=sum_{k=0}^{n-1}(3k+1)*binom(2k,k)^3*16^(n-1-k) and all positive integers n not divisible by 4, v2(S_n)=3*s2(n-1) when n odd, and 3*s2(n-1)+1 when n=2 mod 4.",
+  "limitations": [
+    "The proof uses elementary known digit-sum facts, but the exact high-density valuation of the specified sequence is the assessed claim.",
+    "Unindexed older binomial-sum congruences may contain an equivalent formula.",
+    "No theorem is asserted for n divisible by four, other primes, or complete valuation census.",
+    "Git connector did not supply a complete tree listing; Git assignment tree SHA was preserved as returned but independent tree reconstruction is unavailable.",
+    "Original public-intended operational provenance was not sanitized; scientific PASS is not authorization to publish."
+  ],
+  "residual_risks": [
+    "The proof uses elementary known digit-sum facts, but the exact high-density valuation of the specified sequence is the assessed claim.",
+    "Unindexed older binomial-sum congruences may contain an equivalent formula.",
+    "No theorem is asserted for n divisible by four, other primes, or complete valuation census."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes 2n*binom(2n,n) divisibility; does not state exact binary digit valuation formula in the inspected theorem/proof",
+      "evidence": [
+        "Theorem 1.1 and proof"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1511.05553",
+      "material_read": "Complete relevant theorem (Theorem 1.1) and its proof in accessible author preprint",
+      "method": "open author full text",
+      "title": "Mao and Zhang, Proof of Suns conjectures on super congruences and the divisibility of certain binomial sums",
+      "trigger": "Same exact summand and sequence"
+    },
+    {
+      "assessment": "Reported result only at odd primes, so not a 2-adic exact valuation of this sequence",
+      "evidence": [
+        "abstract"
+      ],
+      "identifier_or_url": "https://doi.org/10.3934/math.2021671",
+      "material_read": "Abstract and stated prime assumptions",
+      "method": "publisher open abstract",
+      "title": "Zhang and Yuan, Proof of a Dwork-type supercongruence by induction",
+      "trigger": "Nearby hypergeometric congruence potentially implying valuations"
+    }
+  ]
+}
