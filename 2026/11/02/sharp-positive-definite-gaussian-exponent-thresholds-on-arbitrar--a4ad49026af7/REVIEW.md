@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the exact zero-sum distance quadratic form and reduces the problem to an equality-sharp part-mass problem. The unique-large-part secular equation is strictly monotone and has precisely one root; tied maxima have a forced radical. The geometric conclusions follow from the established conditional-negative-type/Gaussian equivalence and double-centering. The self-contained checker corroborates 119 finite profiles, with exact rational computations; its finite scope is explicit.
+## correctness
 
-## Originality
-PASS under bounded primary literature comparison. Sánchez (arXiv:1108.0451v1, 2 August 2011) proves the two-part \(K_{n,m}\) case, a general distance-matrix test, and a broader class of graph-gap statements. These are prior results and not credited as new. The inspected primary text does not state the arbitrary unequal-part scalar root, complete endpoint nullity, or sharp \(\log_2 3\) gap with equality classification. Deza–Maehara (1990) treats truncated graph metrics generally by characteristic-polynomial methods; its full text was not accessible, and an equivalent direct specialization remains a material historical risk. Source comparison therefore supports only bounded, not independent, originality.
+PASS
 
-## Value
-PASS. The result provides a complete sharp universal positivity diagram for Euclidean Gaussian kernels built from a natural family of graph distances. The new parameter-free equality descriptions and exact embedding ranks are substantive structural information, and the unique star exception and sharp next-best threshold have a natural extremal motivation. The general infinite-family classification is not justified solely by executable finite tests.
+Independently derived Q_p(α)=2^p[t Σ_j S_j²−Σ_u α_u²] for zero-sum α, with t=1−2^(−p), and Cauchy–Schwarz reduces equality-sharply to the part-mass diagonal form Σ(t−1/n_j)S_j². Tied maximum parts yield threshold 1/n1 and radical multiplicity r−1; unique maximum gives a strictly monotone scalar secular root and one-dimensional radical. Double centering and Schoenberg yield the exact embedding dimensions/all-scale Gaussian criterion, and isometric K_3,1, K_2,1,1, K_2,2 subspaces plus strict monotonicity yield the sharp gap/equality classification. Eighteen independent centered spectral tests straddle nine profiles. The κ of a fixed Gaussian scale beyond p* is not claimed classified.
 
-## Boundaries
-No assertion is made about a fixed-scale Gaussian kernel beyond the universal exponent. The code corroborates finite cases only. Earlier matrix-formula literature may give another approach to the same boundaries, and no external audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Sánchez 2011 establishes complete bipartite p-negative type and general finite-metric matrix characterization; the bipartite specialization is already covered. The arbitrary unequal multi-part secular equation, endpoint ranks, and sharp log_2 3 equality classification were not present in the inspected full Sanchez text. Deza–Maehara general metric transform work may contain an equivalent specialization; its full text was unavailable.
+
+## value
+
+PASS
+
+PASS: all-scale kernel positivity on complete multipartite shortest-path metrics is a standard natural p-negative type problem. The complete k-part secular threshold, endpoint nullities, Euclidean embedding dimensions and next-best gap resolve nontrivial structural questions beyond the previously known bipartite case; not just reapplying Schoenberg.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
