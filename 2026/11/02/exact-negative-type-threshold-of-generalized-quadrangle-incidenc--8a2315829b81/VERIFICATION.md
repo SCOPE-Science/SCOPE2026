@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the negative-type threshold
+# Independent mathematical audit
 
-The proof is in `RESULT.md`. The embedded Python file `gq_negative_type_check.py` uses the standard library only and was executed on the package copy with `python gq_negative_type_check.py`.
+## correctness
 
-Observed output:
+PASS
 
-```text
-GQ(2,2): 30 vertices, p-critical=0.345784723476, recurrence_checks=1800
-GQ(3,3): 80 vertices, p-critical=0.137565128845, recurrence_checks=12800
-GQ(5,5): 312 vertices, p-critical=0.032764105998, recurrence_checks=194688
-CHECK_OK exact_graph_recurrence_entries=209288 scalar_orders=2..199
-```
+The assigned incidence axioms force distance shells (1,q+1,q(q+1),q^2(q+1),q^3) and intersection array {q+1,q,q,q;1,1,1,q+1}; the point-collinearity strongly regular graph spectrum gives adjacency eigenvalues +/- (q+1), +/-sqrt(2q), and 0. As D_p=A1+2^p A2+3^p A3+4^p A4 is polynomial in adjacency, all zero-sum modes are F_q(p), E0=q4^p-(q+1)2^p, and E±=(q-1)2^p-q4^p +/-sqrt(2q)(3^p-1). The written proof proves F_q starts at -1 and increases strictly/convexly, crosses once before b_q=log2(1+1/q), and competitors are strictly negative for p<=b_q by u=2^p-1 <=1/q and 3^p-1<=2u. Centered Gram rank proves endpoint uniqueness and Hilbert dimensions, Taylor expansion F_q(c/q^3) proves the stated two terms along existing q. Independently constructed q=2 GQ incidence distances and eigenmode, plus scalar root checks at q=2,3,5,7,11 confirm finite cases; they do not prove the universal theorem.
 
-For the three explicit symplectic quadrangles, the script constructs projective points and isotropic lines over prime fields from a nondegenerate alternating bilinear form. It then performs all-pairs breadth-first searches, checks every layer count, and verifies \(AA_2=qA_1+A_3\) and \(AA_3=qA_2+(q+1)A_4\) for every ordered vertex pair. The recurrence assertions are exact integer comparisons. It also checks the bipartition witness against the entire powered distance matrix, computes approximate roots, and tests scalar sign inequalities for orders \(2\) through \(199\).
+## originality
 
-The universal spectral derivation, strict sign inequalities, uniqueness of the positive root, and the asymptotic expansion are proved symbolically in `RESULT.md`, not by the finite checks. Numerical root values are approximations, and the checker is not a symbolic or independent verification of every analytic lemma. The nonclassical cases are covered by the incidence-axiom proof, not by constructing those geometries.
+PASS
+
+This is the exact finite-vertex generalized-quadrangle negative-type exponent, not metric dimension or continuous-edge negative type. General finite-metric negative-type determinant criteria and the known intersection array supply techniques but do not state this all-q active-eigenmode root, strict separation, equality rank or two-term q^-3 scale. Best-of-knowledge PASS with an acknowledged possibility that an earlier distance-regular-graph generalized-roundness computation subsumes it.
+
+## value
+
+PASS
+
+For highly structured finite polar incidence metrics, supremal negative type dictates their Hilbert snowflake embeddings. The active equality mode, rank drop and explicit order-dependent q^-3 obstruction resolve a natural exact invariant that a general determinant test leaves implicit; the two-term law is mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

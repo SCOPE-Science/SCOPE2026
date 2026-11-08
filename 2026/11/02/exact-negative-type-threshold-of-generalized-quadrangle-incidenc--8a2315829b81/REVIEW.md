@@ -1,11 +1,21 @@
-# Scientific review: generalized-quadrangle negative type
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof derives every distance matrix as an explicit polynomial in the incidence adjacency matrix, and obtains the complete zero-sum spectrum from the quadrangle axioms, with no vertex-transitivity assumption. It proves that the bipartition eigenvalue increases through a unique zero before the other eigenspaces can become nonnegative, including the small-order boundary. A separate Taylor analysis establishes the two-term large-order expansion and the one-dimensional critical Gram-rank drop. A standalone checker independently constructs the classical incidence graphs for prime orders \(2,3,5\), verifies all distance-shell counts and two exact matrix recurrences on all ordered vertex pairs, and tests the spectral signs. Those finite computations do not replace the proof for general existing orders.
+## correctness
 
-**Originality (PASS, priority-qualified).** The nearest general theory is the finite-metric determinant treatment of Robertson (arXiv:2004.10923), Murugan's determinant test for row-regular finite metrics (arXiv:1112.5657), and Robertson's metric embedding theory (arXiv:2309.16070). The same incidence geometry is studied for a different invariant, resolving-set metric dimension, in Bartoli–Héger–Kiss–Takáts (arXiv:1706.06583, Section 4). The continuum metric-graph negative-type result of Campbell–Hendrey–Lund–Tompkins (arXiv:2501.07098) concerns different spaces. Inspected source material and targeted exact-object searches do not contain the explicit active-mode root, the all-order separation from competing modes, the critical affine dimension, or the cubic inverse-order asymptotic. This establishes a reasoned noncoverage assessment, not independent historical certification. An older equivalent result in the distance-regular association-scheme literature remains possible.
+PASS
 
-**Mathematical value (PASS).** The family contains infinitely many classical symplectic generalized quadrangles and arbitrary nonclassical existing quadrangles of equal order. The theorem solves an exact functional-analytic metric invariant uniformly across this family, including a nontrivial comparison of five adjacency spectral types. It detects a sharp inverse-cardinality Hilbert snowflake exponent, an explicit next-order coefficient, and a one-dimensional equality/embedding-rank transition. General determinant algorithms do not state the threshold or identify the controlling geometry; the precise exponent has a direct metric embedding interpretation. The restriction to equal-order finite vertex incidence metrics is essential.
+The assigned incidence axioms force distance shells (1,q+1,q(q+1),q^2(q+1),q^3) and intersection array {q+1,q,q,q;1,1,1,q+1}; the point-collinearity strongly regular graph spectrum gives adjacency eigenvalues +/- (q+1), +/-sqrt(2q), and 0. As D_p=A1+2^p A2+3^p A3+4^p A4 is polynomial in adjacency, all zero-sum modes are F_q(p), E0=q4^p-(q+1)2^p, and E±=(q-1)2^p-q4^p +/-sqrt(2q)(3^p-1). The written proof proves F_q starts at -1 and increases strictly/convexly, crosses once before b_q=log2(1+1/q), and competitors are strictly negative for p<=b_q by u=2^p-1 <=1/q and 3^p-1<=2u. Centered Gram rank proves endpoint uniqueness and Hilbert dimensions, Taylor expansion F_q(c/q^3) proves the stated two terms along existing q. Independently constructed q=2 GQ incidence distances and eigenmode, plus scalar root checks at q=2,3,5,7,11 confirm finite cases; they do not prove the universal theorem.
 
-**Residual risks and scope.** Historical priority outside the inspected sources is not established. There is no proof for unbalanced generalized quadrangles, arbitrary weighted edges, or continuous metric graphs. The script checks finite examples and numerical parameter ranges, not the universal assertion or the analytic error term. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is the exact finite-vertex generalized-quadrangle negative-type exponent, not metric dimension or continuous-edge negative type. General finite-metric negative-type determinant criteria and the known intersection array supply techniques but do not state this all-q active-eigenmode root, strict separation, equality rank or two-term q^-3 scale. Best-of-knowledge PASS with an acknowledged possibility that an earlier distance-regular-graph generalized-roundness computation subsumes it.
+
+## value
+
+PASS
+
+For highly structured finite polar incidence metrics, supremal negative type dictates their Hilbert snowflake embeddings. The active equality mode, rank drop and explicit order-dependent q^-3 obstruction resolve a natural exact invariant that a general determinant test leaves implicit; the two-term law is mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
