@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, verify_kemeny.cpp, verify_pairwise.py",
+        "school_census.cpp SCHOOL_CENSUS_INDEPENDENT_OK",
+        "Hamdan Theorem 1 and four-pair discrepancy proof"
+      ],
+      "rationale": "With four unit-capacity schools, four students and a uniformly random common strict preference, for a fixed student serial order rho each school s is assigned to each rank t with probability 1/4, hence conditional expected justified envy equals (1/4) sum_s KT(rho, pi_s). A fresh independent C++ program enumerated all 24^4=331776 ordered priority quadruples and each of the 24 serial orders, reproducing all 13 optimal-score counts and all 9 nonzero optimal-multiplicity counts; total sum of K=2488608 and unique optimum frequency=51192. Therefore E[min envy]=8641/4608; a uniformly random order yields 3 for every fixed priority profile. A score-constant adjacency swap proves K=12 iff each unordered student pair is split exactly two-versus-two, occurring 2376 times.",
+      "residual_risks": [
+        "Uniform common preferences and independently uniform strict priorities are essential; the mean does not describe arbitrary school markets.",
+        "The finite program enumerates the entire specified space; C++ uses integer comparisons and checks histogram totals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Kemeny algorithms/medians produce a mapping from a priority profile to an optimum; they do not supply exact counts for the 331,776 inputs or tie-structure frequencies."
+        ],
+        "reasoning": "A more general theorem specifying exact four-permutation medians could dominate; inspected general works provide variational definitions and statistical bounds without those enumerated coefficients.",
+        "searches": [
+          "https://arxiv.org/abs/2603.05660",
+          "Clémençon-Irurozki 2026 general ranking distribution theory",
+          "four school Kemeny median distributions optimal serial dictatorship justified envy"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.05660",
+        "https://arxiv.org/html/2602.10640v1",
+        "Resultary query: four school Kemeny median distributions optimal serial dictatorship justified envy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known school-mechanism identity E[JE|pi,rho] = sum_s KT(rho,pi_s)/4, the exact K and argmin multiplicity histograms require 24^4*24 finite comparisons. A new adjacency-swap argument shows K=12 iff all six student pairs split 2-2 across the schools."
+        ],
+        "reasoning": "Hamdan proves optimality principle, but not these profile counts, mean 8641/4608, exact 2376 no-benefit profiles or 51192 uniquely optimal profiles. The new census is quantitative information beyond the theorem statement.",
+        "searches": [
+          "https://arxiv.org/abs/2603.05660",
+          "Hamdan Theorem 1 and Section 5",
+          "https://arxiv.org/html/2602.10640v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamdan Theorem 1 already says that minimizing expected justified envy over serial order equals minimizing total Kendall distance to school priorities. Clémençon-Irurozki develop general consensus ranking distributions, not the exact S4^4 sampling distribution."
+        ],
+        "reasoning": "The optimization equivalence is completely known, but not the exhaustive law of its optimal value K and number M of minimizers over 4 independently uniform priority permutations.",
+        "searches": [
+          "four school Kemeny median distributions optimal serial dictatorship justified envy",
+          "Hamdan arXiv:2603.05660 Theorem 1 Kemeny justified envy",
+          "https://arxiv.org/html/2602.10640v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual new hist K: 24,288,1560,5472,14232,28800,46896,62208,66744,56160,34056,12960,2376; M support {1,2,3,4,5,6,8,12,24}; no exactly matching published four-school table found."
+        ],
+        "reasoning": "Related four-agent profile censuses cover RSD efficiency and stochastic dominance under different random preference sampling, not Kemeny medians of four independent school-priority rankings. No matching table located, but unindexed prior census possible.",
+        "searches": [
+          "four school Kemeny median distributions optimal serial dictatorship justified envy",
+          "Kemeny four rankings S4 finite histogram 331776",
+          "Resultary four-agent serial dictatorship rank aggregation"
+        ]
+      },
+      "rationale": "Hamdan already establishes the general Kemeny/expected-justified-envy equivalence, which is not claimed new. The exact finite four-priority score and optimizer multiplicity distributions, exact mean, and 2-2 split characterization are distinct data not established by inspected Kemeny distribution sources.",
+      "residual_risks": [
+        "An unindexed small-S4^4 Kemeny median census may have already produced same table; failure to find it is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Kemeny reduction is prior and excluded from originality; no S4^4 exact histogram in inspected text",
+          "evidence": [
+            "Theorem 1 shows expected envy minimized by Kemeny for equal strict common random preferences and unit capacities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.05660",
+          "material_read": "Full arXiv HTML main text, Theorem 1, results Section 4, discussion Section 5 and proof/appendix portions",
+          "method": "web arXiv HTML",
+          "title": "Making Serial Dictatorships Fair",
+          "trigger": "Identical serial dictatorship fairness setting and Kemeny equivalence"
+        },
+        {
+          "assessment": "General statistical Kemeny theory, not four-independent-rankings finite law or optimal-order counts",
+          "evidence": [
+            "Section 2.1 formula for median ranking risk; Appendix B sampling simulations and local medians, not enumerating four-school priority profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.10640v1",
+          "material_read": "Full arXiv HTML overview, Sections 2-4 and Appendices A/B including local medians and statistical bounds",
+          "method": "web arXiv HTML (multiple sections/pages)",
+          "title": "Beyond Kemeny Medians: Consensus Ranking Distributions — Definition, Properties and Statistical Learning",
+          "trigger": "Plausible broader ranking-distribution and Kemeny theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "four-school fairness distribution",
+        "Kemeny ranking aggregation"
+      ],
+      "rationale": "The complete first small four-school risk spectrum is a natural finite invariant of optimal fairness under uncertain common preferences, including frequencies of unique ties and of zero improvement. Its joint distribution is not implied by the mechanism-to-Kemeny theorem and is useful for exact benchmarks.",
+      "residual_risks": [
+        "Small-market exact law, no asymptotic market-size conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Optimization is before preference is revealed and is conditional expected case count, not ex-post envy freedom.",
+    "Four labeled student/school profiles; independent uniform school priority and a common uniform preference.",
+    "Known Kemeny optimization criterion is fully credited to Hamdan.",
+    "Publication withheld for metadata sanitization and source guards."
+  ],
+  "schema_version": 1
+}
