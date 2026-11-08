@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a path/cycle component with order at most k, the complete component weakly blocks any split, so it must stay intact. For a component >k, splitting coalitions into induced connected pieces preserves utility. Any piece of length <k may absorb adjacent endpoint without utility decrease for either side and with one strict gain, forcing all pieces length k; divisibility follows. Conversely any deviation improving a boundary endpoint of a full k-block must keep its utility-two internal neighbors and recurse through the original block, requiring k+1 vertices. k=1/2 and cycle boundary cases handled. Larger cycles have k tiling offsets, paths one; intact small labeled components can merge subject to total weight ≤k and are counted by restricted multivariate Bell EGF. Independent direct checks gave P4,k3 0; P6,k3 1; C6,k3 3; edge plus two isolated,k3 4. No heterogeneous weights or maximum degree>2 covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Igarashi–Elkind AAMAS 2016 imposes induced connected coalition feasibility; general bounded coalition complexity in Levinger et al. has no degree-two census"
+        ],
+        "reasoning": "Connected-communication feasibility differs from all coalitions size≤k. Complexity on general graphs does not automatically imply a componentwise divisibility theorem or exact labeled small-component Bell count.",
+        "searches": [
+          "Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count",
+          "arXiv:2306.01378",
+          "arXiv:2402.10815v1",
+          "Igarashi-Elkind AAMAS 2016"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.01378 (full primary PDF pertinent sections)",
+        "Igarashi–Elkind AAMAS 2016",
+        "arXiv:2402.10815v1",
+        "Resultary semantic query: Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Levinger paper provides a clique of size k+1 with no strict core; the new proof shows even path P_{k+1} is empty and that order>k components must be k-divisible"
+        ],
+        "reasoning": "A clique counterexample does not entail the stronger sparse path obstruction or characterize positive cases; communication-restricted tree examples are not equivalent to unit-friendship capacity-only games.",
+        "searches": [
+          "Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count",
+          "arXiv:2306.01378",
+          "arXiv:2402.10815v1",
+          "Igarashi-Elkind AAMAS 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levinger–Hazon–Simola–Azaria arXiv:2306.01378, bounded coalition size; Hanaka–Köhler–Lampis arXiv:2402.10815, ordinary core bounded deviation"
+        ],
+        "reasoning": "The graph game with utilities equal to internal neighbor counts is an additively separable hedonic game. Ordinary core requires all deviators strictly improve, not the weak blocking strict core; replacing this condition cannot justify the classification.",
+        "searches": [
+          "Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count",
+          "arXiv:2306.01378",
+          "arXiv:2402.10815v1",
+          "Igarashi-Elkind AAMAS 2016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact census table in primary bounded-coalition strict core Section 5.2 and Appendix A.5; original RESULT provides labeled-component exponential formula"
+        ],
+        "reasoning": "Standard restricted Bell numbers count packaged small components once they are known to be indivisible; that combinatorial counting technique is prior, but the global characterization yielding the factor k^c is not listed in inspected sources.",
+        "searches": [
+          "Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count",
+          "arXiv:2306.01378",
+          "arXiv:2402.10815v1",
+          "Igarashi-Elkind AAMAS 2016"
+        ]
+      },
+      "rationale": "The friendship-game definitions and general bounded-size strict-core complexity are prior work. Here the exact path/cycle component-divisibility criterion and weighted-Bell enumeration under weak blocking and unrestricted disconnected coalitions is a distinct complete classification not implied by general hardness, ordinary-core or connected-communication restrictions. Mathematical value arises from an exact infinite network class and complete partition count.",
+      "residual_risks": [
+        "Equivalent degree-two exact strict-core classification could occur under anonymous or symmetric hedonic-game terminology.",
+        "Weighted Bell factor uses standard combinatorics; originality concerns characterization and linkage, not EGF technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_DEFINITIONS_PRIOR_NO_DEGREE_TWO_COUNT",
+          "evidence": [
+            "Section 5.2 strict core; no path/cycle exact existence/census statement in examined portions"
+          ],
+          "identifier_or_url": "arXiv:2306.01378",
+          "material_read": "Accessible full primary PDF; inspected definition sections 3, 5.2 and Appendix A.5 on strict core",
+          "method": "Compared weak-blocking convention, allowed capacities, clique obstruction and complexity scope",
+          "title": "Socially Aware Coalition Formation with Bounded Coalition Size",
+          "trigger": "Exact utility and blocking definitions, potential general theorem"
+        },
+        {
+          "assessment": "DIFFERENT_FEASIBILITY",
+          "evidence": [
+            "Communication graph requires connected feasible coalitions"
+          ],
+          "identifier_or_url": "AAMAS 2016 pp.242–250, https://www.ifaamas.org/Proceedings/aamas2016/pdfs/p242.pdf",
+          "material_read": "Source introduction, problem setting and described connected-coalition restriction; entire text not inspected this run",
+          "method": "Compared admissible coalitions and deviations to capacity-restricted friendship model",
+          "title": "Hedonic Games with Graph-restricted Communication",
+          "trigger": "Sparse tree communication and strict-core literature"
+        },
+        {
+          "assessment": "DIFFERENT_STABILITY_NOTION",
+          "evidence": [
+            "Ordinary core uses strictly improving blockers; parameterization distinct"
+          ],
+          "identifier_or_url": "arXiv:2402.10815v1",
+          "material_read": "Accessible theorem summaries and sections 2/5 described in published record; not a full-paper read here",
+          "method": "Compared ordinary core and deviation cap semantics to weak blocker strict core",
+          "title": "Core Stability in Additively Separable Hedonic Games of Low Treewidth",
+          "trigger": "Potential low-treewidth dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete all-k existence/partition classification for natural degree-two positive friendship networks, including sharp path divisibility obstruction and labeled disconnected-component census; exact counts can be needed for welfare/stability enumeration and are not inferred from generic core hardness alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2306.01378 (full primary PDF pertinent sections)",
+    "Igarashi–Elkind AAMAS 2016",
+    "arXiv:2402.10815v1",
+    "Resultary semantic query: Strict core additively separable hedonic games maximum degree two path cycle bounded coalition size divisibility exact count"
+  ],
+  "disposition": "passed",
+  "final_claim": "The mathematical theorem in the assigned pinned RESULT.md survives unchanged within the scope and limitations documented above.",
+  "limitations": "Only undirected simple max-degree-2 graphs, unit symmetric friend utilities, cap k for both coalitions and deviators, weak blocking. Bell count is exact, not asserted polytime for unbounded k.",
+  "residual_risks": [
+    "Equivalent degree-two exact strict-core classification could occur under anonymous or symmetric hedonic-game terminology.",
+    "Weighted Bell factor uses standard combinatorics; originality concerns characterization and linkage, not EGF technique."
+  ],
+  "schema_version": 1
+}
