@@ -1,15 +1,21 @@
-# Review of uniqueness of the asymptotic Farey inversion minimizer
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first reduces every inverted pair to the interval with right boundary \((a+1)/(b-1)\). The published uniform Farey-count bound [2, Sections 3 and 5] rules out all left endpoints except the two central congruence types once \(n\ge5{,}504{,}798\). In those types, the proof explicitly identifies an additional reduced fraction beyond the previously published \(U(n)\)-element lists in each noncanonical case; the exceptional \(K_m\) case is handled with the coprimality restriction on its right endpoint. The surviving two canonical families have exactly \(U(n)\) intervening fractions by the explicit Farey continuation in [1]. Their right endpoints are minimal and reduced, so larger endpoints strictly increase the interval count. Exact-rational finite checks corroborate, but do not replace, the symbolic proof. Risk: the numerical cutoff and uniform analytic estimate are inherited from [2] rather than reproved here.
+## correctness
 
-## Originality — PASS
-The exact minimum \(f(n)\) and the canonical witnessing pairs are already in [1,2]. The new result counts **all** minimizing pairs and proves the count is exactly one, with a unique explicit endpoint pair for each order. [1, Section 2] explicitly suggests classifying bounded-gap badly ordered pairs as a stronger problem; [2] provides lower bounds sufficient for a minimum value, not strict separation of all other endpoint choices. [3] gives the asymptotic value. OEIS A386893 tabulates the minimum, not optimizer multiplicity. Searches for equivalents, aliases, and optimizer counts found no earlier statement. Risk: an unindexed prior derivation may exist; the result is not independently priority certified.
+PASS
 
-## Mathematical value — PASS
-Uniqueness of a global extremal pair is a natural and previously unclassified invariant. It sharpens the exact numerical resolution of Erdős Problem 1005 into geometric rigidity of the only optimal Farey interval, meeting the near-optimal pair-classification direction explicitly suggested by [1]. The infinite theorem distinguishes the precise minimizing interval from all nested/off-center competitors. The explicit cutoff is sufficient, not optimal, and no statement is made about all almost-minimizers.
+For all integers n>=5,504,798 with n=4m+r, an inverted ordered Farey pair (a/b,c/d) satisfies c/d>=(a+1)/(b-1), reducing the minimal intervening count to C_n(a,b). The published Wang-Xie-Zhao uniform bound gives C>U(n) when b<=n/4 or b-2a outside {1,2}; its explicit error E(n)<n/36-4 was independently checked numerically at the stated cutoff (positive margin 0.01549...). Remaining coprime starts have nested I_t, J_t, K_t intervals. For nonterminal I/J/K families, the proof lists additional reduced fractions strictly in the corresponding intervals, increasing the known lower U(n); r=3 exceptional K_m requires an actual inverted right endpoint beyond the non-coprime immediate candidate and gains extra m/(2m-1). The sole surviving I_m for r=0 or J_m for r=1,2,3 has the known reduced right endpoint; a later endpoint adds at least one interior Farey term. Consequently exactly one minimizing ordered pair at each n in scope, with known f(n) values m+1,m+2,m+2,m+4. Independent brute exact Farey sample n=120..123 and n=144 found only the canonical pair; finite checks do not establish the cutoff theorem.
 
-## Closest literature and limits
-[1] van Doorn, arXiv:2509.00121v1, Sections 2–3; [2] Wang–Xie–Zhao, arXiv:2608.15681v1, Theorems 3.1 and 4.1 and Section 5; [3] Cipollini, arXiv:2607.23302v1 (abstract); OEIS A386893. The principal inherited step is the analytic bound for off-center intervals; the strict near-center witnesses are given explicitly in the proof. No claim of novelty is made for the numerical minimum or for the canonical witness pairs themselves.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified novelty lies only in the all-large-n uniqueness/equality classification; van Doorn already constructs the exact witnesses, and Wang-Xie-Zhao already proves the exact minimum and analytic off-center exclusion. Full text of Wang-Xie-Zhao was not retrieved, so it may already imply the uniqueness as a corollary; no decisive covering result was identified in accessible checked theorem statements.
+
+## value
+
+PASS
+
+A sharp optimizer classification for a canonical Farey inversion problem is an independently meaningful extremal arithmetic statement even though the numerical minimum is known; the analytic cutoff is explicit and its non-optimality is disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers n>=5,504,798 with n=4m+r, an inverted ordered Farey pair (a/b,c/d) satisfies c/d>=(a+1)/(b-1), reducing the minimal intervening count to C_n(a,b). The published Wang-Xie-Zhao uniform bound gives C>U(n) when b<=n/4 or b-2a outside {1,2}; its explicit error E(n)<n/36-4 was independently checked numerically at the stated cutoff (positive margin 0.01549...). Remaining coprime starts have nested I_t, J_t, K_t intervals. For nonterminal I/J/K families, the proof lists additional reduced fractions strictly in the corresponding intervals, increasing the known lower U(n); r=3 exceptional K_m requires an actual inverted right endpoint beyond the non-coprime immediate candidate and gains extra m/(2m-1). The sole surviving I_m for r=0 or J_m for r=1,2,3 has the known reduced right endpoint; a later endpoint adds at least one interior Farey term. Consequently exactly one minimizing ordered pair at each n in scope, with known f(n) values m+1,m+2,m+2,m+4. Independent brute exact Farey sample n=120..123 and n=144 found only the canonical pair; finite checks do not establish the cutoff theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang-Xie-Zhao published uniform lower bounds exclude left endpoints away from one half; Cipollini establishes asymptotic optimum."
+        ],
+        "reasoning": "A stronger characterization of equality cases in the Wang theorem would cover this uniqueness even without the word unique; checked accessible theorem descriptions do not assert that coverage. Its full proof remains an important unresolved bibliographic risk but not a demonstrated domination.",
+        "searches": [
+          "Farey sequence inverted numerator denominator minimizer uniqueness Erdős problem 1005",
+          "Wang Xie Zhao 2608.15681 exact formula all minimizers theorem 4.1",
+          "Cipollini 2607.23302 Farey optimality"
+        ]
+      },
+      "checked_sources": [
+        "van Doorn, arXiv:2509.00121v1 full HTML Theorem 1 and Section 2",
+        "Wang-Xie-Zhao, arXiv:2608.15681v1 abstract and secondary theorem descriptions",
+        "Cipollini, arXiv:2607.23302v1",
+        "OEIS A386893",
+        "Resultary search: Farey sequence inverted numerator denominator minimizer uniqueness Erdős problem 1005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Van Doorn exact witness exists, and Wang-Xie-Zhao lower bound proves its minimality; the inspected new argument adds strict extra fractions to rule out every alternative central starting pair plus a unique endpoint argument."
+        ],
+        "reasoning": "Existence and the value do not logically entail unique minimizer; the new strict-inequality comparisons are the substantive addition. Must credit possible implication of full source equality proof if later inspected.",
+        "searches": [
+          "van Doorn 2509.00121 Theorem 1 pair and construction",
+          "Wang Xie Zhao 2608.15681 theorem 1.2 theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "van Doorn (arXiv:2509.00121) constructs U(n) and candidate pairs; Wang-Xie-Zhao (arXiv:2608.15681) supplies exact minimum, not visibly all equality cases in accessible statements."
+        ],
+        "reasoning": "Order-reversal / Mayer-Erdos formulation is directly equivalent to the claimed inversion optimization and is credited; the assessment specifically tests uniqueness of attaining pair, not the established count.",
+        "searches": [
+          "Farey sequence inverted numerator denominator minimizer uniqueness Erdős problem 1005",
+          "Erdos 1005 Mayer similarly ordered Farey fractions all minimizers uniqueness",
+          "Farey interval inversion endpoint uniqueness van Doorn 2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A386893 lists f(n), the minimum number intervening; not number of minimizing pairs. Resultary search returned no same ordered-optimizer census."
+        ],
+        "reasoning": "A table of values of f(n), or finite empirical unique minimizers, does not decide which pairs attain the minimum for every n>=5,504,798. A full minimizer table might, but none was identified.",
+        "searches": [
+          "OEIS A386893 least number inverted Farey between pair",
+          "Farey sequence inverted numerator denominator minimizer uniqueness Erdős problem 1005"
+        ]
+      },
+      "rationale": "Qualified novelty lies only in the all-large-n uniqueness/equality classification; van Doorn already constructs the exact witnesses, and Wang-Xie-Zhao already proves the exact minimum and analytic off-center exclusion. Full text of Wang-Xie-Zhao was not retrieved, so it may already imply the uniqueness as a corollary; no decisive covering result was identified in accessible checked theorem statements.",
+      "residual_risks": [
+        "Wang-Xie-Zhao primary full text not retrieved; their proof may implicitly give uniqueness via equality characterization.",
+        "Cutoff sufficient but not proved minimal; finite small-order checks are only corroborative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Constructed witnesses and value bounds are prior; material read does not classify all minimizers",
+          "evidence": "van Doorn (2025), Theorem 1 and Section 2",
+          "identifier_or_url": "https://arxiv.org/html/2509.00121v1",
+          "material_read": "Full primary HTML text, Theorem 1 and Section 2 discussion including explicit Farey pair constructions and further near-optimal question.",
+          "method": "primary full-text arXiv HTML",
+          "title": "Improved bounds for the Mayer–Erdős phenomenon on similarly ordered Farey fractions",
+          "trigger": "exact matching construction and equality candidates"
+        },
+        {
+          "assessment": "Provides essential analytic bound; stronger equality case remains genuine priority risk",
+          "evidence": "Wang, Xie, Zhao 2026, Theorems 1.2,3.1,4.1 and §5 as cited in original package; actual external reading partial",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15681",
+          "material_read": "Primary abstract/theorem summary and secondary indexed account of the numbered counting bounds; complete primary Section 5/proof not accessible during run.",
+          "method": "primary abstract/metadata web retrieval",
+          "title": "An exact formula for Erdős’ problem 1005",
+          "trigger": "strongest competing exact minimum and off-center exclusion"
+        },
+        {
+          "assessment": "Establishes asymptotic minimum, not identified all-large-n unique optimizer",
+          "evidence": "Cipollini 2026, arXiv:2607.23302",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23302",
+          "material_read": "Bibliographic abstract and published summary, not full primary proof",
+          "method": "primary abstract/metadata web retrieval",
+          "title": "Optimality of Wouter van Doorn's Upper Bound for the Mayer–Erdős Farey Problem",
+          "trigger": "same asymptotic extremal problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp optimizer classification for a canonical Farey inversion problem is an independently meaningful extremal arithmetic statement even though the numerical minimum is known; the analytic cutoff is explicit and its non-optimality is disclosed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n<5,504,798 not classified; U(n) and witnesses preexisting.",
+    "Originality risk from inaccessible complete Wang-Xie-Zhao equality analysis."
+  ],
+  "schema_version": 1
+}
