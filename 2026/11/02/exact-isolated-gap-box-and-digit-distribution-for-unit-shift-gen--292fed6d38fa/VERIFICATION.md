@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility of the isolated-gap classification
+# Independent mathematical audit
 
-The ordinary Python 3 verifier `verify_repunit_isolated.py` was executed against this theorem's exact generator formula. It independently computes each Apéry set via Dijkstra shortest paths over residues, compares it to the digit-height formula, checks membership through all gaps up to the computed Frobenius number, constructs the isolated-gap set using both adjacent membership tests, and compares the result to the claimed digit box and stratum counts.
+## correctness
 
-Observed complete output:
+PASS
 
-```
-PASS: 24 complete families; 84180 gaps classified; 1533 isolated gaps; 154 strata checked
-```
+Using the published Apéry representative theorem w(q)=q+m L_n(q), verified that canonical digit strings cover residues 0,...,m-1 without collision and heights concatenate as L_n=(L_{n-1}+0,...,L_{n-1}+b-1,b). Adjacent jumps are +1 or 1-b. Isolated gaps correspond exactly to internal peaks with left +1 and right 1-b; residue 0 and terminal residue fail separately. Peaks form the disjoint digit box q=b+sum_{i=3}^n d_i r_{i-1}, giving x=(b-1)m+b+sum d_i a_i and the claimed count, polynomial and extrema. Independently generated Apéry sets by residue-Dijkstra and enumerated all gaps in 16 parameter families, checking 64 exact assertions. This supports the universal structural proof but does not replace it.
 
-The tested parameter region is all \(2\le b\le6\), \(2\le n\le6\) with repunit multiplicity \(r_n\le5000\). The theorem domain is \(n\ge3\); dimension two is tested as a boundary check. These computations establish exact finite cases only. The universally quantified theorem is supported by the proof in `RESULT.md`, which uses the previously established Apéry formula explicitly acknowledged there.
+## originality
 
-No independent audit or external formal certification has been performed.
+PASS
+
+Branco–Colaço–Ojeda 2021 prove the general canonical Apéry theorem and Frobenius formula, both attributed prior, but do not state the resulting isolated-gap box. Singh–Ram 2024 and Smith 2022 treat especially embedding-dimension-two cases, whereas this theorem requires n>=3. Full Smith text unavailable, so mathematical priority is qualified; no identified stronger result covers the full unit-shift all-n distribution.
+
+## value
+
+PASS
+
+Isolated gaps and perfection are independently motivated semigroup invariants. The theorem completely classifies a natural infinite arithmetic family, encoding every gap without duplicates and giving an exact exponential cardinality and nontrivial height-stratum generating function; it is not merely the old Frobenius number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

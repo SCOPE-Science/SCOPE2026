@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A cited, verified Apéry-set theorem gives canonical digit representatives. The proof independently reconstructs their residue order and height recursion, handles residue zero and the terminal residue, proves the necessary-and-sufficient local-peak criterion, then enumerates every peak through disjoint translated blocks. This proves the complete set, cardinality, stratification and extrema for every integer \(b\ge2\), \(n\ge3\). The packaged independent shortest-path enumeration matches all 24 tested families; testing is not an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest original primary work, Branco–Colaço–Ojeda (arXiv:2112.01106, Theorem 15), describes the general Apéry set, and its Theorem 22 already determines the Frobenius number. Those parts are correctly excluded from the novelty claim. The cited embedding-dimension-two isolated-gap formulas (Singh–Ram, arXiv:2406.09848; Smith, DOI:10.3906/mat-2107-54) do not imply the stated \(n\ge3\) digit box by a direct special-case identification. Targeted public-literature and published-research-record comparisons found no stated equivalent or stronger full isolated-gap classification for this same family. General Apéry algorithms can compute examples but do not themselves state the closed all-parameter digit distribution. The full Smith paper remained inaccessible; prior implicit publication cannot be categorically ruled out.
+PASS
 
-**Mathematical value — PASS.** Isolated gaps are a motivated numerical-semigroup invariant studied by Smith, Singh–Ram and the perfect-semigroup literature. The theorem completely classifies this invariant for a natural arbitrary-embedding-dimension arithmetic family, in a reproducible digit parameterization. The exact non-overlapping box, exponential count, and closed quotient-stratum polynomial are structural information not implied merely by knowing genus, Frobenius number, or pseudo-Frobenius type. This is not a one-off small computation.
+Using the published Apéry representative theorem w(q)=q+m L_n(q), verified that canonical digit strings cover residues 0,...,m-1 without collision and heights concatenate as L_n=(L_{n-1}+0,...,L_{n-1}+b-1,b). Adjacent jumps are +1 or 1-b. Isolated gaps correspond exactly to internal peaks with left +1 and right 1-b; residue 0 and terminal residue fail separately. Peaks form the disjoint digit box q=b+sum_{i=3}^n d_i r_{i-1}, giving x=(b-1)m+b+sum d_i a_i and the claimed count, polynomial and extrema. Independently generated Apéry sets by residue-Dijkstra and enumerated all gaps in 16 parameter families, checking 64 exact assertions. This supports the universal structural proof but does not replace it.
 
-**Scientific limitations.** Unit shift only; the dimension-two boundary is prior-covered; Frobenius formula is credited prior. The review did not establish exhaustive worldwide priority; the abstract of Smith (2022) was accessible but its full text was not. Finite verification tests 24 instances, not all integer parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Branco–Colaço–Ojeda 2021 prove the general canonical Apéry theorem and Frobenius formula, both attributed prior, but do not state the resulting isolated-gap box. Singh–Ram 2024 and Smith 2022 treat especially embedding-dimension-two cases, whereas this theorem requires n>=3. Full Smith text unavailable, so mathematical priority is qualified; no identified stronger result covers the full unit-shift all-n distribution.
+
+## value
+
+PASS
+
+Isolated gaps and perfection are independently motivated semigroup invariants. The theorem completely classifies a natural infinite arithmetic family, encoding every gap without duplicates and giving an exact exponential cardinality and nontrivial height-stratum generating function; it is not merely the old Frobenius number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
