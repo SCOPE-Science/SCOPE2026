@@ -1,15 +1,21 @@
-# Review of seven-element parity-switching semigroup
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph identity \(A^2=I+J\) is established by the parity of common-neighbor counts. The relations \(A^3=A\), \(B^2=J\), and \(AJ=0\) exhaust every word product. Direct formulas for the hub and leaf-pair bits prove ranks, map distinctness for \(m\ge2\), periodic-point counts and transient bounds. The exact expectation follows from two disjoint waiting-time cases. Independent enumeration for \(m=1,\ldots,6\) verifies all nonasymptotic numerical checks; no finite enumeration is substituted for the universal proof.
+## correctness
 
-## Originality — PASS within reviewed sources
-The full primary papers by Rollier--Baetens (2026) and Pasqualetti--Borra--Bullo (2013) were compared at the level of dynamics: the first studies real adjacency-based Lyapunov spectra, while the second supplies general finite-field consensus criteria but no friendship switching classification. Fran, Saputri and Kiftiah (2021), Theorems 6--7, had already proved the mod-two friendship-graph adjacency square is graphical; this algebraic precursor is explicitly acknowledged and not claimed as new. The closely related published complete-multipartite parity cycle census was read in full and concerns a graph class excluding \(F_m\) for \(m\ge2\); it also addresses fixed, not switched, rules. Record and literature searches for friendship/windmill graphs, XOR updates, switching products, and exact cycle counts did not reveal a stronger covering theorem. Unindexed specialized switching-linear-network papers remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The friendship graph is a natural graph family with a unique hub and triangles, not an arbitrary chosen matrix. The complete seven-map semigroup simultaneously determines sharp universal finite-time reset words, deterministic orbit counts and random-switching annihilation statistics; this provides a structural counterpart to graph-Lyapunov diagnostics and finite-field consensus design, beyond merely observing the nilpotence of one product.
+All vertices have even degree and every two distinct vertices share exactly one neighbor, so A²=I+J and AJ=JA=0 over GF2. Since |F_m| odd, J²=J, A³=A, B²=J, AB²=0. Because A,B commute, their word normal forms are exactly seven. Leaf-pair sum coordinates show ranks B=m+[m even], AB=m-[m odd]; A,A² rank 2m; all distinct m>=2, including parity boundary. Fixed A points count 2^(m+[m odd]), A² fixed 2^(2m) giving primitive two-cycles, and B²=J gives the two uniform fixed points. Random stopping requires first A and second B, yielding stated disjoint survival law and mean. Independent full GF2 basis/exhaustive states m=2..6 support but unbounded m proven by matrix identities.
 
-## Boundary
-The result is strictly over the binary field. In particular, no claim is made that real tangent-space spectra are incorrect or that each individual configuration has the stated random uniform-reset time. The special case \(m=1\) does not have seven distinct products.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Common-neighbor square and finite-field consensus theory exist, and another published parity automaton census applies to complete multipartite graphs. Friendship graph m>=2 is not complete multipartite, and the full joint A/B seven-word normal form, fixed-point ranks and uniform reset law are not direct consequences of the inspected prior results. Best-knowledge PASS with linear switching-system indexing risk.
+
+## value
+
+PASS
+
+An exact switching semigroup, minimal uniform reset word and exact random-reset tail are natural finite-field dynamics and fault-tolerant synchronization invariants, in a canonical non-complete-multipartite graph family. It is a structural classification for every m rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
