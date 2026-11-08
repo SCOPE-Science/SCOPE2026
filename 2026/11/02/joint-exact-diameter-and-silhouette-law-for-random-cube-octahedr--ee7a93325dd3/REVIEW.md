@@ -1,15 +1,21 @@
-# Self-review of the cube-shadow diameter and octahedral silhouette law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full proof reduces cube projection diameter to the minimum signed body-diagonal scalar product, and octahedron projected vertex count to a strict triangle inequality in the three absolute normal components. Each reduction uses exact Euclidean projection and planar convex-hull geometry. The normalized Haar sphere splits into 48 sign/order chambers; the proof identifies both endpoints of every circular level arc and converts its azimuthal span into the exact density through spherical coarea. Algebraic substitutions give the two inverse-cosine branches, while their endpoint derivatives give the three sharp probability asymptotics. The six-vertex marginal equals the independently known spherical-triangle value. Running `python3 verify.py` from the delivered directory checks 1600 direct geometric examples, numerical density normalization, 160000 independent Haar normals and endpoint expansions, but the continuum proof is analytic. The full distribution has no atoms. Only the regular three-dimensional pair and the specified sampling measure are asserted.
+## correctness
 
-## Originality
-**PASS on the available evidence; historical priority provisional.** Kabluchko–Prochno–Thäle (2019) give large-dimensional limits for random cube projections, not this fixed-dimensional law. Lonke (2020) gives an incidence criterion for projected cube vertices. Black–Criado (2024) establish expected shadow-vertex bounds using geometric diameter and other parameters, not the probability distribution of a shadow's geometric diameter. Three particularly close published special-polytope results were inspected at full RESULT.md level: a diameter law for *central octahedron sections*, an inradius law for *octahedron projections*, and an exact hexagonal-shadow probability for octahedra. The first two are different under polarity; the last provides the credited six-vertex marginal but not its joint distribution with cube-shadow diameter. Multiple semantic searches were performed for aliases, polarity reductions, and the signed-coordinate slack. No source inspected establishes the complete density and endpoint transition. This is not a proof of historical uniqueness; unindexed coordinate-order-statistic treatments remain a risk.
+PASS
 
-## Mathematical value
-**PASS.** The statistic is the diameter of a random planar shadow of one of the most canonical convex polytopes, jointly with the combinatorial type of the polar polytope's shadow. It is also the reciprocal inradius of a random central octahedron section. The full elementary law distinguishes quadrilateral from hexagonal shadow regimes, identifies the sharp nontrivial six-vertex lower-diameter threshold, and computes two different quadratic onset constants and a square-root upper tail. A marginal face-count probability alone cannot give these metric laws. The result is a complete, motivated finite-dimensional geometric-probability classification, not an arbitrary numerical slice.
+Every projected cube-vertex displacement can be extended to a signed space diagonal without reducing squared projected length, so D²=3−min_signed(u1±u2±u3)²=3−(a−b−c)². Planar projected octahedron has one redundant opposite pair iff a>b+c, yielding N=4 for L>0 versus 6 for L<0. Forty-eight signed/ordered sphere chambers turn level sets of L into spherical arcs, giving density through coarea with two explicit endpoint branches. Mapping L→D produces stated joint densities, support sqrt2≤D≤sqrt3, N=6 only D≥sqrt(8/3), and endpoint asymptotics by arc slopes. Independent 1200-unit-normal tests compared formula to all 26 nonzero cube vertex differences; source checker additionally performs convex hull, density normalization and sampling.
 
-## Closest literature and limitations
-The closest distinct full-text comparisons are (a) *Exact inradius law for random planar projections of the regular octahedron* (published published-finding corpus record 5fbcddcea5e5), (b) *Exact Haar diameter law for central sections of the regular octahedron* (record 4948185eba2f), and (c) *Sharp triaxial octahedron shadow bound and quadratic shape stability* (record c544249c351b). Further primary works are arXiv:1910.02676, arXiv:2010.05758, and arXiv:2406.06936. The claimed law does not extend to unequal boxes, other dimensions, oblique projections, affine sections, or a distribution of shadow areas. Priority has not been independently audited, and a mathematically equivalent unindexed result remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known hexagonal silhouette marginal is only the N distribution. Published exact section-diameter of octahedron and projection-inradius of octahedron concern different variables under polarity; correct dual for cube projection diameter is octahedron section inradius. General random projection bounds do not imply an exact 3D joint density. Best-of-knowledge, not a guarantee of global historical priority.
+
+## value
+
+PASS
+
+The correlated geometry of diameter and silhouette combinatorics in an archetypal polar polytope pair is natural; the onset D=sqrt(8/3), conditional densities and endpoint changes go beyond known marginal probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

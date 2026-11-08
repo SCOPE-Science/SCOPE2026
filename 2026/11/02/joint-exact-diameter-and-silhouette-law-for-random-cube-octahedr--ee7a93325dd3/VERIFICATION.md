@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory with `RESULT.md` and the checker. It uses only the standard Python library, with a fixed pseudorandom seed. On the checked package, the output was:
+## correctness
 
-```text
-EXACT_SECTOR_NORMALIZATION_AND_SHADOW_PROBABILITY_PASSED
-INDEPENDENT_ALL_VERTEX_PAIRS_AND_OCTAHEDRON_HULLS_PASSED 1600
-INDEPENDENT_HAAR_SIGNED_SLACK_CDF_CHECKS_PASSED 7
-SHARP_LOWER_AND_SIX_VERTEX_ONSET_EXPANSIONS_PASSED
-ALL_CHECKS_PASSED
-```
+PASS
 
-The checker enumerates the 26 nonzero possible difference directions between cube vertices for 1600 independent unit normals. It independently builds a Euclidean two-plane frame, computes the planar convex hull of the projected six octahedron vertices, and checks the predicted count. It integrates each analytic density branch and checks the known exact six-vertex probability, then compares seven CDF values with 160000 seeded independent Gaussian directions normalized onto the sphere. Three shrinking-threshold integrations test the lower and six-vertex onset constants. These are finite and numerical checks, not a replacement for the analytic proof of the full distribution or its exact endpoint asymptotics. No independent audit or certification is represented.
+Every projected cube-vertex displacement can be extended to a signed space diagonal without reducing squared projected length, so D²=3−min_signed(u1±u2±u3)²=3−(a−b−c)². Planar projected octahedron has one redundant opposite pair iff a>b+c, yielding N=4 for L>0 versus 6 for L<0. Forty-eight signed/ordered sphere chambers turn level sets of L into spherical arcs, giving density through coarea with two explicit endpoint branches. Mapping L→D produces stated joint densities, support sqrt2≤D≤sqrt3, N=6 only D≥sqrt(8/3), and endpoint asymptotics by arc slopes. Independent 1200-unit-normal tests compared formula to all 26 nonzero cube vertex differences; source checker additionally performs convex hull, density normalization and sampling.
+
+## originality
+
+PASS
+
+Known hexagonal silhouette marginal is only the N distribution. Published exact section-diameter of octahedron and projection-inradius of octahedron concern different variables under polarity; correct dual for cube projection diameter is octahedron section inradius. General random projection bounds do not imply an exact 3D joint density. Best-of-knowledge, not a guarantee of global historical priority.
+
+## value
+
+PASS
+
+The correlated geometry of diameter and silhouette combinatorics in an archetypal polar polytope pair is natural; the onset D=sqrt(8/3), conditional densities and endpoint changes go beyond known marginal probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
