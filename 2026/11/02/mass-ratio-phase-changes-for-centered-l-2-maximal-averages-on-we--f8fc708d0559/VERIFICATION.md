@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-With Python and the dependencies from `requirements.txt`, run `python verify_weighted_star_maximal.py` from the directory containing this file. The checker reconstructs the centered star ball averages and the weighted Hilbert form, rather than loading a previous calculation.
+## correctness
 
-It performs exact rational tests at hub masses \(1/10\), \(1\), and \(100\): for every competing radius word on the three-vertex path, Sylvester's criterion verifies strict positive definiteness of \(LW-A^{\mathsf T}WA\) with the rational thresholds specified in `RESULT.md`. Each claimed winner has a rational input vector whose exact Rayleigh quotient exceeds the corresponding threshold, and the winner's characteristic polynomial is checked symbolically. A repeated radius word induced by swapping the two leaves is treated as the same mathematical selector type.
+PASS
 
-The script also compares the compressed spectral formula against the complete raw-selector enumeration on 25 combinations of leaf count and hub mass, checks 2520 random nonnegative inputs, and tests numerical convergence in the small-hub and large-hub regimes. These finite tests corroborate but do not prove the general exact spectral formula or the asymptotic assertions; those depend on the group-symmetry and perturbation arguments written in `RESULT.md`.
+For each q>=2 and hub mass h>0, the centered maximal operator takes at the hub max(a,mu), and at a leaf max(b_i,(h a+b_i)/(h+1),mu). Coordinate maxima over positive linear averages commute with the weighted sum-of-squares maximum, and each nonnegative selector achieves its Hilbert norm on a nonnegative vector. Within-group permutation averaging of a nonnegative top generalized eigenvector gives the exact <=4 dimensional B_{r,k}; finite selector enumeration yields the 2*binom(q+2,2) formula. At h->0 the hub coordinate decouples and the remaining complete-graph selector has larger singular-value root Phi(k/q). At h->infty only selector G/all-I leaves has nonzero maximal first-order coefficient sqrt(q) h^-1/2, proving eventual dominance for fixed q; the two-level matrix gives Phi(q/(h+q)). I independently built all 18 full weighted selector matrices for q=2 and obtained winning patterns ING (and IGN) at h=1/10 with top squared norm 1.448834067224, INN at h=1 with 1.593070330817 and GII at h=100 with 1.129190655674, with exactly the specified rational characteristic factors. The package verify_weighted_star_maximal.py was read, not blindly trusted. The three examples prove >=2 phase changes, not a complete change count; numerical tests are not used as asymptotic proof.
 
-All results are self-reviewed; no independent mathematical audit has been performed. The record does not certify uniqueness relative to unpublished or inaccessible literature.
+## originality
+
+PASS
+
+The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.
+
+## value
+
+PASS
+
+The mass parameter changes which graph-ball scales dominate and even whether a sharp extremizer respects the symmetry of identically weighted leaves. The finite spectral evaluation, two singular one-sided mass regimes and rigorous asymmetric three-vertex phase witnesses form a natural maximal-analysis classification beyond the already known counting-measure value, with clear scope and potential for use in weighted graph maximal inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

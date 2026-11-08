@@ -1,19 +1,21 @@
-# Review: mass-ratio phase changes for centered \(L^2\) maximal averages
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim uses exactly the centered balls of a unit-edge star and the same vertex masses in the ball averages and the Hilbert norm. The finite-selector identity holds because each coordinate maximum is independent and the squared weighted norm is coordinatewise nondecreasing on nonnegative vectors. Nonnegative right singular vectors exist for every positive selector; within-selector leaf exchangeability compresses the sharp norm to four weighted-normalized coordinates. Both mass-limit arguments use finitely many such matrices at each fixed leaf number, so no unproved uniform limit exchange is required. In the large-hub expansion, the only selector with the largest first-order eigenvalue gain has global averaging at the hub and singleton averaging at every leaf; the spectral gap is strict for sufficiently large hub mass. Exact rational Sylvester inequalities certify every competing selector in the three three-vertex examples. The in-package checker verifies each decisive arithmetic identity from its own matrices. The proof does not infer infinite statements from finite tests.
+PASS
 
-## Originality
+For each q>=2 and hub mass h>0, the centered maximal operator takes at the hub max(a,mu), and at a leaf max(b_i,(h a+b_i)/(h+1),mu). Coordinate maxima over positive linear averages commute with the weighted sum-of-squares maximum, and each nonnegative selector achieves its Hilbert norm on a nonnegative vector. Within-group permutation averaging of a nonnegative top generalized eigenvector gives the exact <=4 dimensional B_{r,k}; finite selector enumeration yields the 2*binom(q+2,2) formula. At h->0 the hub coordinate decouples and the remaining complete-graph selector has larger singular-value root Phi(k/q). At h->infty only selector G/all-I leaves has nonzero maximal first-order coefficient sqrt(q) h^-1/2, proving eventual dominance for fixed q; the two-level matrix gives Phi(q/(h+q)). I independently built all 18 full weighted selector matrices for q=2 and obtained winning patterns ING (and IGN) at h=1/10 with top squared norm 1.448834067224, INN at h=1 with 1.593070330817 and GII at h=100 with 1.129190655674, with exactly the specified rational characteristic factors. The package verify_weighted_star_maximal.py was read, not blindly trusted. The three examples prove >=2 phase changes, not a complete change count; numerical tests are not used as asymptotic proof.
 
-**PASS, qualified.** The foundational finite-graph work of Soria–Tradacete (arXiv:1410.6204) and counting-measure strong-\(L^2\) star formulas of González-Riquelme–Madrid (arXiv:2005.03146, arXiv:2011.02630) were inspected in their available full-text presentations. The weighted hub-mass problem is not covered by their counting-measure assumptions, and their theorems do not yield the asymmetric-leaf extremizer at hub mass \(1/10\), the whole mass-dependent finite spectral formula, or the eventual sharp high-hub two-level formula. The already-known uniform-mass three-point value and the previously studied complete-graph endpoint are not counted separately. Accessible earlier results on weighted *variation* of star maximal operators are about an edge-variation seminorm, not the strong weighted Hilbert norm, so do not imply the claim. Searches of published research records found other star norms (including bounded-Lipschitz dual norms) with different operators, not equivalent coverage. A differently indexed exact weighted-star strong-\(L^2\) theorem remains a possible publication overlap and warrants independent bibliographic review.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact weighted finite-graph maximal constants matter because counting measure can hide symmetry-breaking extremizers, and hub masses naturally model heterogeneous sampling or atom weights. The formula classifies an infinite two-parameter family in polynomially many fixed-size spectral problems rather than exponentially many radius assignments; it exhibits three genuinely different attained selector structures already on the minimal noncomplete star. The sharp large-hub asymptotic and eventual rigidity identify the qualitative mechanism behind one extreme-mass regime. No wider graph family or universal inequality is claimed.
+The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.
 
-## Closest literature and limitations
+## value
 
-The closest published works are Soria–Tradacete (2014 preprint), González-Riquelme–Madrid (May 2020 preprint), and their November 2020 sequel. Their unweighted formulas and extremizers must not be redescribed as new. The present result concerns a finite star with leaf masses all one, arbitrary positive hub mass, and exponent two. There is no claimed explicit optimal threshold value for the large-hub regime, no proof that the three selector patterns exhaust all transition stages, and no extension to unequal leaf masses. The originality assessment is based on accessible literature, mathematical claim comparisons and available published search records, not a proof of global uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mass parameter changes which graph-ball scales dominate and even whether a sharp extremizer respects the symmetry of identically weighted leaves. The finite spectral evaluation, two singular one-sided mass regimes and rigorous asymmetric three-vertex phase witnesses form a natural maximal-analysis classification beyond the already known counting-measure value, with clear scope and potential for use in weighted graph maximal inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
