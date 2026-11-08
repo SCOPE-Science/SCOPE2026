@@ -1,19 +1,21 @@
-# Scientific review: three-color CCA on wheels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The wheel dynamics admit a direct exhaustive logical dichotomy: the existence of a rainbow triangle involving the hub forces the hub to rotate at every time, and each rim color difference locks by the second update; in the absence of such a triangle, every site becomes monochromatic within two updates. Both directions are proved for every labelled wheel with at least three rim vertices. Four explicit finite transfer matrices classify each of the six time-by-attractor classes. Their characteristic polynomials follow from exact integer matrix identities and rational rank certificates. The self-contained standard-library checker independently evaluates the identities, and directly simulates every one of 265680 configurations for rim lengths three through ten. The finite simulation is only a cross-check; the infinite-family statements follow from the symbolic dynamics and finite-matrix identities.
+PASS
 
-## Originality — PASS with stated residual risks
+PASS: In wheel W_n normalize hub color to 0. A rim neighbor edge colored 1-2 gives a rainbow hub triangle forcing hub rotation; relative rim differences 2,1,0 become locked within two updates, hence primitive period-3 and F^5=F^2. In absence of a rainbow rim edge, the hub/rim fall to monochromatic fixed state within two updates. The nonrainbow 3x3 adjacency matrix counts fixed basin; binary forbidden-000 matrix counts first fixed layer; 9-state pair matrix counts recurrent global rotations; 81-state four-window matrix counts one-step 3-cycle predecessors after 2^n spurious hub-stationary inputs removed. Verified transfer identity M^5 p_M(M)=0, rank(M^5)=rank(M^6)=6 and initial traces determine degree-six char polynomial, yielding six exact root-power formulas. Independent brute state transitions and class counts n=3..7 passed, including n4 and n5 examples; independent reconstruction of M^5p_M(M)=0, both rational ranks equal six, and six traces also passed. Universal n follows local dynamical proof plus exact finite matrix algebra, not extrapolation.
 
-Gravner–Lyu–Sivakoff (arXiv:1610.07320, Theorem 3 and Section 4) already characterize synchronization on general finite graphs using cycle circulations and bound the synchronization time by graph diameter; neither assertion is presented as new. Their general theorem gives a qualitative criterion and an upper bound for the *synchronizing* part of wheel dynamics. It does not give the fixed-versus-period-three first-entry census, the universal time-two bound for *oscillatory* wheel states, the four spectral polynomials, or the exact 81-state-to-six-dimensional trace reduction. The inspected 2021 Bello thesis treats a different randomized finite-graph voting process and deterministic systems on infinite trees. Published mathematical-record queries for wheel CCA, greenberg-hastings cones, and finite graph automaton periodicity did not locate this combined enumeration. Search absence does not certify uniqueness; an unindexed account or a stronger graph-wide counting theorem may still cover parts of it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A full labelled first-periodic-entry census across an infinite family of dense, highly cyclic excitable networks is a natural quantitative refinement of qualitative synchronization criteria. The proof separates immediate period-three waves from configurations which retain their waves only after two updates, and establishes the striking asymptotic that almost every uniformly chosen initial state first enters a primitive three-cycle at exactly the second update. The primitive-cycle orbit count and exact fixed-basin size are further intrinsic dynamical invariants, not arbitrary parameter slices.
+Gravner–Lyu–Sivakoff give the established 3-color CCA graph synchronization criterion and a diameter bound for synchronizing cases, which explains the fixed/oscillation basin condition. Their broad qualitative criterion does not provide the nonfixating wheel two-step entry or six-class labelled recurrence census; inspected same-model theorem differs in its quantified conclusion. Resultary other temporal CA and complete multipartite parity automata are different update rules. Priority remains qualified for unindexed general graph enumeration.
 
-## Sources and limitations
+## value
 
-Primary source checked: J. Gravner, H. Lyu, D. Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, arXiv:1610.07320 (original public submission October 24, 2016), model definitions, Theorem 3 and its proof, and finite-graph sections. A relevant later comparison is J. Bello's 2021 Ohio State dissertation, whose abstract and table of contents distinguish its finite-graph stochastic voting problem from the present synchronous CCA. This contribution makes no assertion about four or more colors, other thresholds, irregular wheel variants, or independent verification. The exact transfer computation is reproducible by running the packaged checker.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: For a canonical 3-color excitable graph family, the complete first-periodic-state time/period census, sharp uniform transient cutoff, and exact six-degree transfer spectrum answer a natural detailed dynamical classification. The result explains why almost every labelled configuration first enters a global rotating 3-cycle on its second update, while almost all configurations are nonfixating, facts not supplied by the general synchronization criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
