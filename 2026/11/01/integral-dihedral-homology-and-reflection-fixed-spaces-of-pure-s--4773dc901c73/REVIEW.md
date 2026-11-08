@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted claim follows from the rooted-path facet classification and Mayer–Vietoris cover in Knudson–Owens–White; equivariant Alexander duality supplies the integral induced lattice and its determinant sign. The pre-existing cyclic character determines the lower-degree rotation, while the independently derived orbit-index face classification determines reflection fixed spaces and their Lefschetz traces. The rational quotient calculation follows by exact averaging. Direct finite checker results corroborate but are not used as an infinite proof. The interval lemma, all degree boundaries and reflection parities were checked, including the low cases \(n=7,8,9\).
+## correctness
 
-## Originality — PASS (qualified)
-The primary paper proves nonequivariant homotopy groups but no dihedral actions. The closest published-finding corpus cyclic result explicitly leaves even nonmultiple-of-three graded homology unresolved and does not examine reflections, integral induced lattices, or geometric fixed spaces. Full-strong and ordinary-matching dihedral results use different objects. Remaining risk is an implicit argument in earlier literature or unindexed sources; all known stronger comparisons were considered by implication.
+PASS
 
-## Value — PASS
-The exact all-length integral dihedral action, two-component reflection fixed sets with axis-dependent simplex dimensions, and sharp modulo-three quotient-rank distinction give substantive new structural understanding of a natural 2026 topological construction beyond a Betti table or a routine single-instance calculation.
+PASS: Reconstructed the n(n-1) rooted-path facets from the incidence convention, split E/O via the two all-sign Alexander-dual subcomplexes, and checked Mayer–Vietoris with A cap B homotopy S1 for d>2. Equivariant combinatorial Alexander duality introduces determinant sign (-1)^(n-1); the rotation Lefschetz plus known pure cycle homology forces trivial rank-one or cubic rank-two rotation module, with reflection swapping top summands. Independently enumerated reflection-orbit face complexes for n=7,8,9,10,11,12,14,18 and both even reflection classes, finding exactly two contractible simplex components and reduced Lefschetz 1. The all-n interval-argument is the proof, not the finite check. Reflection trace 0 on top and +1 on H2 then yields a trivial lower integral character; invariant rational quotient follows Frobenius reciprocity. Scope n>=7, not n=6 where degrees coalesce.
 
-## Limitations
-No integral quotient torsion computation, no full equivariant homotopy splitting, and no exhaustive proof of absence from unindexed literature. Source theorem inputs are explicitly cited; finite checks do not prove infinite claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: This builds on the published rotation-character calculation and Knudson–Owens–White nonequivariant wedges, but establishes previously unclassified integral D_n modules, all graded rotations, geometric reflection fixed spaces, and quotient rational Betti groups. Known ordinary matching and full strong matching complexes are distinct objects. Best of knowledge with possible unindexed equivariant treatments.
+
+## value
+
+PASS
+
+PASS: Geometric fixed spaces and actual integral D_n-actions distinguish equivariant topology not captured by nonequivariant spheres or Euler virtual characters. Explicit quotient rational Betti groups are a natural invariant and the even-length missing graded rotation case is substantively resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
