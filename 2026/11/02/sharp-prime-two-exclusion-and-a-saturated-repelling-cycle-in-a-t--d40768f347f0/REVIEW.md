@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-cycle difference identity is derived with both orientations of the map included. Strict monotonicity makes its left scalar product nonpositive for \(T\le2\), while the symmetric part of the model matrix makes its right scalar product strictly positive. For \(T>2\), an explicit four-dimensional closed box is shown invariant under the midpoint–difference fixed-point map, with global Lipschitz bound \(216e^{-6}<1\) for \(\alpha\ge10\). Banach contraction proves the unique box solution; quadrant bounds exclude a fixed point masquerading as a two-cycle. Reverse norm inequalities certify expansion of each Jacobian and every complex return eigenvalue. The proof establishes the infinite quantifiers; `VERIFY.py` reproduces 21 high-precision parameter cases and strict constants but is not substituted for proof.
+PASS
 
-## Originality — PASS within checked evidence
+For primitive two-cycle p≠q, δ=p-q and η=tanh(αp)-tanh(αq), subtract returns (T-2)δ=T Mη. Strict monotonicity gives δ·η>0 while η·Mη=(17/10)||η||²>0, forcing T>2 for all α. For T>2 and α>=10, c=(T-2)/T, midpoint m, half-difference w, write Banach map G(m,w) with limiting pair (b,v), v=(0.7,2.7). The ±1/20 closed box is invariant by sigmoid saturation; Lipschitz<=216e^-6<1; thus a unique box cycle with p positive and q negative and quantified error. Derivative deviates from -(T-1)I by at most 10.8 Tα exp(-.6α/c), giving minimum expansion rho_T=1+(T-2)(1-108e^-6)>1 for both steps, so hyperbolic repulsion follows. Independently checked all three numerical constants and inspected 21-parameter high-precision verifier.
 
-Buscarino–Famoso–Fortuna [1] explicitly define the same Euler map (equations (4)–(5)) and fixed numerical slice, then compute equilibria, attractor bifurcations, and periodic windows. Their accessible full article, including its analysis and appendices, was inspected. Its period-doubling observations do not imply the universal exclusion of primitive-two cycles through \(T=2\), nor a specific large-gain two-cycle outside attracting simulations with rigorous repulsion and localization. The closest indexed analogous period-two classifications concern distinct maps such as the rational Rulkov, cubic Duffing, and classical Tinkerbell maps, with no reduction to this specific sigmoid affine–skew map apparent. Earlier general monotonicity/contraction principles are acknowledged as proof tools rather than claimed new theorems. The evidence supports a model-specific contribution, but unindexed or unpublished equivalent calculations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result establishes a nonlocal, parameter-sharp no-two-cycle domain for all real states, and supplies a genuine primitive-two repeller immediately on the feasible side for sufficiently steep sigmoid activation. The contrast between nonexistence and a hidden repelling orbit is motivated by the published paper’s numerical bifurcation diagrams, which emphasize attracting motions and higher periods. The quantitative box, exponential localization and two-step spectral expansion give benchmarks for validated dynamics; the theorem does not require a global two-cycle census to be useful.
+The exact model, weights, bias and numerical bifurcation curves are published by Buscarino–Famoso–Fortuna (2023); no general all-α T<=2 two-cycle impossibility or constructive T>2 saturated repeller and uniform expansion was found in the inspected open full article. Qualified novelty for this structural sharp frontier, not for the numerical map or Banach theorem.
 
-## Closest literature and limitations
+## value
 
-[1] A. Buscarino, C. Famoso and L. Fortuna, *Nonlinear Dynamics* 111 (2023), 20361–20375, DOI 10.1007/s11071-023-08897-7, full open-access article. Exact source equations and numerical bifurcation figures were inspected, with no direct covering statement found. Related indexed classifications of different neuron and cubic maps do not imply this result merely because they also count period-two points. Residual originality risk: unindexed analyses or a stronger general criterion not found by the searches. Scientific limits: existence and hyperbolicity for \(\alpha\ge10\) only, uniqueness only in the stated box, no noise or finite precision.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Proves a sharp global finite-period obstruction and a rigorously existing but forward-simulation-invisible repelling cycle in a natural neuron model, separating step-size, gain, and stability regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

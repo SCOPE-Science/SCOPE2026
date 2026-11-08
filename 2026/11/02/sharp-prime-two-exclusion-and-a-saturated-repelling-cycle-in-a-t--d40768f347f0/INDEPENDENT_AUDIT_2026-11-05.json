@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:48:32.258050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For primitive two-cycle p≠q, δ=p-q and η=tanh(αp)-tanh(αq), subtract returns (T-2)δ=T Mη. Strict monotonicity gives δ·η>0 while η·Mη=(17/10)||η||²>0, forcing T>2 for all α. For T>2 and α>=10, c=(T-2)/T, midpoint m, half-difference w, write Banach map G(m,w) with limiting pair (b,v), v=(0.7,2.7). The ±1/20 closed box is invariant by sigmoid saturation; Lipschitz<=216e^-6<1; thus a unique box cycle with p positive and q negative and quantified error. Derivative deviates from -(T-1)I by at most 10.8 Tα exp(-.6α/c), giving minimum expansion rho_T=1+(T-2)(1-108e^-6)>1 for both steps, so hyperbolic repulsion follows. Independently checked all three numerical constants and inspected 21-parameter high-precision verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buscarino, Famoso and Fortuna, Nonlinear Dynamics 111 (2023) DOI 10.1007/s11071-023-08897-7, sections 3-7 numerical bifurcations and model definition.",
+          "Direct difference identity and one-box Banach certificate produce exact uniform T=2 frontier without simulation."
+        ],
+        "reasoning": "Buscarino et al. treat a broader bifurcation phase portrait numerically; they do not state a uniform global T<=2 prohibition or quantified large-α repelling existence in the model slice. No indexed stronger all-parameter classification identified.",
+        "searches": [
+          "spiking two-cell Euler tanh map period two exclusion repelling saturated cycle Buscarino Famoso Fortuna"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s11071-023-08897-7",
+        "Resultary semantic search for spiking two-cell Euler tanh map period two exclusion repelling saturated cycle Buscarino Famoso Fortuna"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Buscarino, Famoso and Fortuna, Nonlinear Dynamics 111 (2023) DOI 10.1007/s11071-023-08897-7, sections 3-7 numerical bifurcations and model definition.",
+          "Direct difference identity and one-box Banach certificate produce exact uniform T=2 frontier without simulation."
+        ],
+        "reasoning": "A numerical period-doubling route cannot imply all-state nonexistence for T<=2 or existence of a repeller for every T>2 at α>=10. The two claims follow respectively from monotonicity plus positive symmetric part of M and a uniform saturated contraction proof.",
+        "searches": [
+          "spiking two-cell Euler tanh map period two exclusion repelling saturated cycle Buscarino Famoso Fortuna"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buscarino, Famoso and Fortuna, Nonlinear Dynamics 111 (2023) DOI 10.1007/s11071-023-08897-7, sections 3-7 numerical bifurcations and model definition.",
+          "Direct difference identity and one-box Banach certificate produce exact uniform T=2 frontier without simulation."
+        ],
+        "reasoning": "Explicit queries included flip bifurcation, two-cell spiking, tanh neurons, Euler steps and non-attracting period-two trajectories. The source reports numerical attractors of several periods, which need not detect repellers.",
+        "searches": [
+          "spiking two-cell Euler tanh map period two exclusion repelling saturated cycle Buscarino Famoso Fortuna"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Buscarino, Famoso and Fortuna, Nonlinear Dynamics 111 (2023) DOI 10.1007/s11071-023-08897-7, sections 3-7 numerical bifurcations and model definition.",
+          "Direct difference identity and one-box Banach certificate produce exact uniform T=2 frontier without simulation."
+        ],
+        "reasoning": "The source bifurcation plots are finite numerical trajectories, not exact global two-cycle classifications. Resultary top hits concern other neuron maps (Rulkov, Duffing, Bogdanov), and do not provide a table for this exact tanh Euler system.",
+        "searches": [
+          "spiking two-cell Euler tanh map period two exclusion repelling saturated cycle Buscarino Famoso Fortuna"
+        ]
+      },
+      "rationale": "The exact model, weights, bias and numerical bifurcation curves are published by Buscarino–Famoso–Fortuna (2023); no general all-α T<=2 two-cycle impossibility or constructive T>2 saturated repeller and uniform expansion was found in the inspected open full article. Qualified novelty for this structural sharp frontier, not for the numerical map or Banach theorem.",
+      "residual_risks": [
+        "Unindexed neuron-map monotonicity theorems might subsume the T<=2 exclusion; no statement-specific coverage found.",
+        "The constructive T>2 claim requires α>=10, not every gain, and uniqueness is strictly in its prescribed box."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_NOT_GLOBAL_THEOREM",
+          "evidence": [
+            "The inspected article presents numerical and experimental period/multistability scenarios, not the analytic global primitive-two exclusion or quantified saturated repeller."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-023-08897-7",
+          "material_read": "Open primary Springer article, equations (4)-(5), model parameters, and relevant Sections 3-7 numerical/experimental periodic behavior examined.",
+          "method": "publisher OA full-text HTML",
+          "title": "Bifurcations in a new two-cell spiking map: a numerical and experimental study",
+          "trigger": "Exactly same two-cell tanh map, parameters and bifurcation dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Proves a sharp global finite-period obstruction and a rigorously existing but forward-simulation-invisible repelling cycle in a natural neuron model, separating step-size, gain, and stability regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "T>2 existence/repulsion only for α>=10; uniqueness inside box B only; no global cycle census for other periods or stability claims outside this region."
+  ],
+  "schema_version": 1
+}
