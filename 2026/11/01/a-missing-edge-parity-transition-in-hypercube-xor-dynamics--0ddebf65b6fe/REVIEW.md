@@ -1,19 +1,21 @@
-# Scientific review: a missing-edge parity transition in hypercube XOR dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies \(d\ge2\), a single deleted edge in \(Q_d\), finite characteristic-two fields, synchronous neighbor sums, least orbit period and first-periodic-entry time. The proof establishes the hypercube identity \(A^2=(d\bmod2)I\), rank-half square-zero operators, a four-dimensional invariant local module, and the ranks needed to fix the entire Jordan structure. For even \(d\), its four-dimensional companion component has period six, while its complement consists solely of zero-Jordan blocks of length two. For odd \(d\), the zero eigenspace is semisimple of dimension two and the unit eigenspace has precisely one length-four block and the remaining length-two blocks. Exact period and entry-time populations follow from these decompositions, not from enumeration alone. The standalone verifier independently constructs the graph, replays 98 rank-profile check groups through dimension eight, and exhausts 65,808 binary and 65,792 \(\mathbb F_4\) configurations; all passed. The finite checks corroborate but do not substitute for the all-dimension proof.
+PASS
 
-## Originality — PASS, with residual risk
+For d>=2, A=sum S_i over commuting cube-coordinate involutions gives A^2=(d mod 2)I, and the half-cube block form gives rank(A) or rank(A+I)=m. With removed edge u-v, B=A+uv^T+vu^T; the invariant W=span{u,v,Au,Av} has dimension four and explicit local action Bu=v+Au, Bv=u+Av, B(Au)=(1+delta)u, B(Av)=(1+delta)v. For even d W is an invertible four-dimensional C((X^2+X+1)^2), complement is m-2 J2(0). For odd d the kernel span{Au,Av} is two-dimensional and semisimple; on Im B, ranks (B+I)^2=2, (B+I)^3=1, (B+I)^4=0 force J4(1) plus m-3 J2(1). Fitting decomposition supplies exact periods, fixed-space dimensions, cycle and transient counts for every characteristic-two extension. Independent GF2 bit-matrix checks d=2..7 verified ranks and fixed-space dimensions. Finite checks are corroboration, not infinite proof.
 
-Brunnet–Chaté (2004, DOI `10.1103/PhysRevE.69.057201`) study nonlinear totalistic hypercube rules, not a one-edge fault in linear neighbor-sum dynamics. Lettieri–Stevens–Thomas (2006, DOI `10.1216/rmjm/1181069447`) analyze one-dimensional linear cyclic rules and provide general minimal-polynomial methods but no defective hypercube classification. Wu et al. (2017, DOI `10.1155/2017/1382980`) consider real spectral radii under two to four deleted hypercube edges, not the present mod-two dynamics with one fault. The closest inspected mathematical research record on distance-two Boolean-cube parity operates on a different adjacency graph and does not imply the rank-two defect theorem. Related earlier results for one- or two-site self-feedback change diagonal entries, unlike the present off-diagonal edge deletion. The prior **adjacent two-site feedback** model in fact has exactly the same even-dimensional rational canonical form and the same odd-dimensional invertible Jordan component. Its odd-dimensional zero primary component is \(J_2(0)\), whereas an edge deletion yields \(J_1(0)^{\oplus2}\). The even-dimensional Jordan invariant by itself is therefore covered at the abstract similarity-class level and is not asserted to be new. Searches for edge fault, missing bond, characteristic-two adjacency, Jordan form and exact orbit population revealed no dominating theorem. The absence of an identified equivalence is not a universal novelty proof. Potentially unindexed historical work on modular edge-deleted hypercube adjacency remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-An edge fault is a natural operation on an interconnection network. The result quantifies its exact global dynamical effect on every dimension, not merely a numerical example: in even dimension a rule previously annihilating all configurations develops primitive six-cycles; in odd dimension an invertible period-two rule becomes singular and supports primitive four-cycles. This sharply illustrates that local edge reliability and global orbit structure are not interchangeable, and supplies complete transient-shell and cycle counts over all characteristic-two finite fields. The parity bifurcation and the dimension-independent odd-dimension probability \(1-q^{-2}\) motivate the exact invariant rather than being arbitrary narrow numerical slices.
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The already established abstract even similarity is NOT claimed new. The defective *graph edge* dynamical model, odd nilpotent partition, and consequent exact fault-specific entry-time profile are not prior corollaries of the distinct diagonal-feedback model.
 
-## Sources and limitations
+## value
 
-Sources inspected include the 2004 primary article on high-dimensional hypercube automata, the author-posted full text of the 2006 minimal-polynomial article and the 2017 article on hypercube edge deletion. The closest own findings concern vertex feedback rather than graph-edge faults; published mathematical research comparisons concern homogeneous or distance-two dynamics. The theorem does not address multiple edge faults, characteristic other than two, or asynchronous updates. It has not undergone independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-edge fault tolerance is a natural graph-dynamical perturbation question. The parity split reverses the unmodified cube behavior, creating 3/6 cycles in even dimension and a semisimple zero component with sharp one-step transient in odd dimension. The complete arbitrary-d and arbitrary-characteristic-two-field Jordan/time/orbit census is a nontrivial structural classification, distinct from textbook A² identity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

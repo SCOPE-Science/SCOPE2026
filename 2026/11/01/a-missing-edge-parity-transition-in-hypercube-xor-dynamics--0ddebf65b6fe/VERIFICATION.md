@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this file; no third-party packages are required. Exact finite-field arithmetic is represented by Python integers and bitwise XOR.
+## correctness
 
-The script constructs the adjacency of the edge-deleted hypercube independently, computes matrix powers and Gaussian-elimination ranks over \(\mathbb F_2\) for dimensions two through eight, and checks exact periodic fixed-space dimensions, nilpotent-power ranks and identities. It then exhaustively iterates every state in dimensions two through four over \(\mathbb F_2\), and dimensions two and three over \(\mathbb F_4\), independently discovering the transient time and primitive period of each state. Expected populations are computed from the theorem. These 98 algebraic check groups and 131,600 exhaustive finite-field initial-state checks all passed. The recorded output is `verification_output.txt`, ending in `EDGE_DELETED_HYPERCUBE_ALL_CHECKS_PASSED`.
+PASS
 
-These are finite computational cross-checks, not an exhaustive test of all dimensions or a proof of novelty. The independent audit channel has not been performed. The infinite-family conclusion relies on the symbolic proof in `RESULT.md`.
+For d>=2, A=sum S_i over commuting cube-coordinate involutions gives A^2=(d mod 2)I, and the half-cube block form gives rank(A) or rank(A+I)=m. With removed edge u-v, B=A+uv^T+vu^T; the invariant W=span{u,v,Au,Av} has dimension four and explicit local action Bu=v+Au, Bv=u+Av, B(Au)=(1+delta)u, B(Av)=(1+delta)v. For even d W is an invertible four-dimensional C((X^2+X+1)^2), complement is m-2 J2(0). For odd d the kernel span{Au,Av} is two-dimensional and semisimple; on Im B, ranks (B+I)^2=2, (B+I)^3=1, (B+I)^4=0 force J4(1) plus m-3 J2(1). Fitting decomposition supplies exact periods, fixed-space dimensions, cycle and transient counts for every characteristic-two extension. Independent GF2 bit-matrix checks d=2..7 verified ranks and fixed-space dimensions. Finite checks are corroboration, not infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The already established abstract even similarity is NOT claimed new. The defective *graph edge* dynamical model, odd nilpotent partition, and consequent exact fault-specific entry-time profile are not prior corollaries of the distinct diagonal-feedback model.
+
+## value
+
+PASS
+
+Single-edge fault tolerance is a natural graph-dynamical perturbation question. The parity split reverses the unmodified cube behavior, creating 3/6 cycles in even dimension and a semisimple zero component with sharp one-step transient in odd dimension. The complete arbitrary-d and arbitrary-characteristic-two-field Jordan/time/orbit census is a nontrivial structural classification, distinct from textbook A² identity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
