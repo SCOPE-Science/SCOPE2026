@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For every n≥3, 1≤r≤n, 0≤k≤n, each elected candidate contributes to r ballot counts, fixing their sum rk. Strictly decreasing marginal Thiele weights imply strict discrete concavity; two counts differing by at least two can be transferred abstractly to raise their score, yielding a universal upper bound attained only by floor/ceiling counts. The periodic mechanical binary committee has exactly k ones and realizes those counts for every window by telescoping, so iff is proved. For r=3 sparse winners are n-cycles with gaps≥3, dense winners are complements, and intermediate winners are runs of zeros/ones of lengths 1/2, yielding the exact marked-gap/marked-run formulas with factors n/k and n/t. The extracted standard-library checker passed 131064 exhaustive triple-window committee tests (n=3..16) and 24064 general-block/weight evaluations. The analytic proof, not the tests, establishes all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peters and Lackner 2020 Theorem 12 produces an optimal SPOC committee, but no all-optimal-set classification or enumeration",
+        "Manurangsi and Sornat 2026 supplies VI one-optimum polynomial algorithms and a score-concavity theorem",
+        "Lassota and Sornat 2026 supplies dominated-candidate structure and algorithmic results, rather than the exact rotation-specific set and count",
+        "Janeczko–Faliszewski 2023 Section 4 proves unrestricted PAV winner-counting hardness; Section 5 studies randomly generated interval-profile ties, not exhaustive full-rotation exact winner counts"
+      ],
+      "reasoning": "Computing one optimal committee is weaker than specifying all committees attaining the optimum; a polynomial algorithm need not imply a closed-form count. The new statement requires strict equality for every local block, explicit simultaneous Thiele universality, and run enumeration; those implications are not supplied by the inspected stronger-domain algorithms.",
+      "searches": [
+        "https://www.dominik-peters.de/publications/spoc-journal.pdf Theorem 12 section 7",
+        "https://arxiv.org/pdf/2604.05953",
+        "https://arxiv.org/abs/2607.28575",
+        "\"PAV\" \"symmetric\" \"consecutive\" committees",
+        "https://arxiv.org/pdf/2305.01769"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.08884 (full HTML abstract/results/reductions)",
+      "https://www.dominik-peters.de/publications/spoc-journal.pdf (full text relevant Section 7 and visual PDF inspection)",
+      "https://arxiv.org/pdf/2604.05953 (relevant theorem/algorithm sections and visual PDF inspection)",
+      "https://arxiv.org/abs/2607.28575 (full HTML result statements)",
+      "Research-index semantic queries with exact technical terms and equivalent binary-word terms",
+      "https://arxiv.org/pdf/2305.01769 (full relevant sections 1, 3–5; visual PDF page inspection)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ai 2026 general #OptimalPAV classification proves difficulty for unrestricted instances, not all-optimizer structure for n translates of an r-block",
+        "Peters–Lackner 2020 single-committee optimization is compatible with a potentially exponentially sized set of optimum committees",
+        "Other inspected Thiele algorithm results do not contain the necessary strict-concavity-plus-rotation equality argument or the binomial triple-run formula",
+        "Janeczko–Faliszewski 2023 Section 4 proves unrestricted PAV winner-counting hardness; Section 5 studies randomly generated interval-profile ties, not exhaustive full-rotation exact winner counts"
+      ],
+      "reasoning": "The statement implies easy exact score and closed winner-set recognition for a specific cyclic profile, plus exact counting when r=3. General hardness and generic optimization do not imply these formulas, nor are they contradicted. In particular a known one-optimum result is logically insufficient to count optima; direct examination of all relevant primary results revealed no stronger exact-count assertion.",
+      "searches": [
+        "https://arxiv.org/html/2609.08884",
+        "https://www.dominik-peters.de/publications/spoc-journal.pdf",
+        "https://arxiv.org/abs/2604.05953",
+        "https://arxiv.org/abs/2607.28575",
+        "In approval based multiwinner voting with n candidates arranged cyclically, n ballots each approving r consecutive candidates, strictly concave PAV/Thiele score maximized exactly by committees whose sliding-window selected counts differ at most 1; exact number winners for r=3 is circular binary strings avoiding 000 and 111.",
+        "https://arxiv.org/pdf/2305.01769"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned indexed record asserted circular binary run prohibition equivalent to all cyclic PAV winners; first close index records describe IRV profile enumeration, not Thiele ballots",
+        "For cyclic triple ballots, the theorem is equivalent to counting cyclic binary words forbidding 000 and 111 at intermediate density; the low/high density equivalent forms are cyclic spacing-three packings. Both exact equivalent formulations were compared by search."
+      ],
+      "reasoning": "The cyclic full-rotation PAV condition was searched both in native election terminology and in balanced binary circular-word/run terminology. Results lacked the asserted iff and enumeration; however an unindexed necklace/spacing result could establish the pure counting identities and remains a residual risk.",
+      "searches": [
+        "Proportional approval voting PAV circular consecutive triple approvals cyclic three-interval ballots exact winner count forbidding 000 111",
+        "PAV Thiele voting sliding-window cyclic voters k winners balance local densities necklace circular words",
+        "PAV committee election with voters approving cyclic intervals of length 3, optimal committees enumeration and balanced words",
+        "In approval based multiwinner voting with n candidates arranged cyclically, n ballots each approving r consecutive candidates, strictly concave PAV/Thiele score maximized exactly by committees whose sliding-window selected counts differ at most 1; exact number winners for r=3 is circular binary strings avoiding 000 and 111.",
+        "\"PAV\" \"cyclic\" \"optimal committees\" \"interval\"",
+        "\"Thiele\" \"cyclic\" \"balanced\" \"approval\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A highly ranked indexed source, Exact small cover-free-family numbers for paths, cycles and wheels, counts cover-free incidence families rather than PAV score optima",
+        "The exact n=12 counts 1,12,42,40,3,72,174,72,3,40,42,12,1 were generated from the proved formula and checked by committee-by-committee score enumeration; no matching published PAV table was located"
+      ],
+      "reasoning": "Compared the parameter-specific enumeration to indexed graph/cycle combinatorics and existing voting tables; the closest cycle source concerns cover-free families, which neither contains nor dominates the PAV winner-set counts. The absence of a catalog hit does not certify a new integer sequence.",
+      "searches": [
+        "Optimal PAV committees under cycle or path approval graphs, exact counting winners and independence sets",
+        "PAV committee election with voters approving cyclic intervals of length 3, optimal committees enumeration and balanced words",
+        "PAV proportional approval voting cyclic candidate intervals exact optimum balanced committee circle",
+        "\"PAV\" \"circular\" \"counting\" committees"
+      ]
+    },
+    "rationale": "Direct research-index queries, own accessible ledger titles/claims, targeted web searches and primary-text comparisons identified no equivalent all-optimum strict-Thiele cyclic-rotation structure or triple-window exact count. The 2020 circle-domain algorithm , the 2023 PAV counting-hardness paper, and three 2026 Thiele/PAV papers have broader optimization or computational-complexity conclusions, but none inspected implies this specific full winner set/count without new symmetry and run-counting arguments. Novelty is best-knowledge rather than certified; related combinatorial word identities and unindexed research are publication-priority risks.",
+    "residual_risks": [
+      "The same explicit circular-word run enumeration may already appear under terms other than social choice, perhaps as a standard binary circular-run formula; no claim of independently established publication priority.",
+      "Research-index search is similarity-based and is not an exhaustive archive; a low relevance score is not evidence of uniqueness.",
+      "The theorem intentionally does not cover unequal vote weights, incomplete rotations, merely non-strict Thiele scores (for necessity), or r>3 exact count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General elections are treated by hardness/completeness results; the exact n-rotation local-balance criterion, universal strict-Thiele winner set, and triple-window count are not given",
+        "evidence": [
+          "https://arxiv.org/abs/2609.08884; abstract and sections 1–2, esp. all-optimal counting and reductions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.08884",
+        "material_read": "Article abstract, introduction, related work, problem definitions, results and reduction descriptions, including entire optimal-set questions",
+        "method": "Full open-access HTML textual inspection; comparative result statements and reduction scope",
+        "title": "The Complexity of Membership, Uniqueness, and Counting for Optimal Proportional Approval Voting Committees",
+        "trigger": "Direct 2026 work on enumerating every PAV optimum"
+      },
+      {
+        "assessment": "A polynomial-time method for producing one optimal committee on a larger circle single-peaked domain does not characterize all optimum committees, enforce this local-balance iff, or count all triple-window optima",
+        "evidence": [
+          "https://doi.org/10.1613/jair.1.11732; Section 7, Theorem 12; https://www.dominik-peters.de/publications/spoc-journal.pdf"
+        ],
+        "identifier_or_url": "https://www.dominik-peters.de/publications/spoc-journal.pdf",
+        "material_read": "Full text relevant algorithms and results in Section 7 (PAV on SPOC, Theorem 12) and underlying problem definitions, including pp. 477–481; visual PDF page inspected",
+        "method": "Open lawful author-hosted PDF, read relevant sections, inspect page screenshot",
+        "title": "Preferences Single-Peaked on a Circle",
+        "trigger": "Stronger general circle-domain optimization could imply the new special-case assertion"
+      },
+      {
+        "assessment": "Provides polynomial-time one-committee algorithm and global optimum-score concavity on VI; neither implies specific full-rotation all-winner structure nor count without additional theorems",
+        "evidence": [
+          "https://arxiv.org/abs/2604.05953, abstract and main results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.05953",
+        "material_read": "PDF introduction and main algorithm/concavity results, including pages 1–3 and 10–12; page image inspected",
+        "method": "Read open-access arXiv PDF text and relevant page screenshot",
+        "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+        "trigger": "Potential domination by concavity-based exact optimization for structured voters"
+      },
+      {
+        "assessment": "Dominance hierarchy and VI parameterized/winner algorithms do not assert the cyclic strict-concavity equality family or its run counting",
+        "evidence": [
+          "https://arxiv.org/abs/2607.28575; sections 1, 3–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.28575",
+        "material_read": "Full HTML, introduction and winner structure/dominance/algorithmic results and cited scope",
+        "method": "Read arXiv complete open-access HTML and result statements",
+        "title": "Algorithms for Structured Elections under Thiele Voting Rules",
+        "trigger": "Published Thiele structural results might already cover winner-set identity"
+      },
+      {
+        "assessment": "No deterministic n-voter fully translated r-consecutive circular ballot model, local floor/ceiling iff, or closed cyclic run count; experiments use random interval profiles",
+        "evidence": [
+          "https://arxiv.org/pdf/2305.01769; Section 4 Proposition 4.2 and Section 5 interval model"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.01769",
+        "material_read": "Full preprint text relevant Sections 1, 3, 4 and 5, including all main counting-hardness results and interval-model generation; visual PDF page inspected",
+        "method": "Open-access arXiv PDF full-text inspection and page screenshot",
+        "title": "Ties in Multiwinner Approval Voting",
+        "trigger": "Original paper on exact tie counts in PAV with experiments on interval preferences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60337c4a-7d66-4897-85ba-b56b25244686",
+  "value": {
+    "rationale": "Exactly identifying all size-k winners for a natural fully translated cyclic interval profile, simultaneously over every strictly concave Thiele scoring rule, provides a natural structural classification not merely a single optimal example. A closed count for r=3 measures tie multiplicities and changes qualitatively across sparse, intermediate and dense seat fractions; these are motivated objects in PAV winner counting and deterministic tie-breaking. The contribution is meaningful despite being a narrow tractable special class of broader hardness results; it does not rest on arbitrary parameters or a tiny numerical gain.",
+    "status": "PASS"
+  }
+}
