@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-equal-or-rainbow condition on three colors is equivalent to a mod-three linear sum, with constants removed because two colors cannot form a nontrivial connected lean coloring. The kernel dimension follows from a cyclic polynomial gcd; the quadratic factor of \(1+t+t^3\) has roots of order eight, giving nullity one or three and therefore exactly zero or 24 nontrivial ternary assignments. The explicit eight-periodic words account for every such assignment and its monochromatic-edge frequency. Four concrete cyclic four-color blocks satisfy the local triple condition, and all concatenation boundaries were checked. The Fano Steiner property supplies the separate order-seven five-color optimum and its exact count. The standalone verifier passed 560 gcd-vs-rank comparisons, 56 direct assignments comparisons, exhaustive Fano counts, periodic cases and 293 constructive checks. Finite tests are not substituted for the general proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For H_n on Z/n with edges {i,i+1,i+3}, n>=7, two lean colors force all triples monochromatic and hence the connected graph constant, impossible. Three-color lean edge means c_i+c_(i+1)+c_(i+3)=0 over F3. Kernel dimension of 1+t+t^3 on Z/(t^n−1) equals degree gcd; 1+t+t^3=(t−1)(t²+t+2) and roots of irreducible quadratic have exact order 8. Thus 3 solutions (all constant) unless 8|n, when 27 solutions and exactly 24 nonconstant named minima, all 8-periodic with two monochromatic triples per period. Explicit valid 4-color block words of sizes 4,9,10,11 (shared prefix 012 and boundary-compatible suffix) concatenate to every n>=8. At n=7 the edges form Fano STS, each repeated-color class must contain a complete line, and two Fano lines intersect, so nonconstant coloring needs >=5 colors; a line plus four distinct colors gives exactly 7·5·4!=840. Independently checked all q<=5 n=7 colorings, three-color recurrence n8..23 and explicit 4-color words n8..300. Infinite proof algebraic and constructive, not inferred from finite checks.
 
-Piehowski's 2026 work establishes the lean-number definition and general theory, but the inspected connected-uniform, overlap-construction and future-work material does not state this all-order cyclic-generator classification or the 24/840 named optimum counts. A further directly relevant primary comparison is Erskine (2021), Theorems 2.5 and 3.4: it treats these exact cyclic triples and proves blocking-set and **strong-coloring** theorems, including the all-order strong chromatic spectrum. Strong coloring imposes rainbow triples on every edge; its results do not imply the lean spectrum, its sharp four-color constructions for lengths not divisible by four, or the 24/840 optimal counts. The classical cyclic configuration source identifies the Fano and Möbius–Kantor instances and studies another invariant, splittability. Fox tricoloring already supplies the elementary mod-three conversion, explicitly excluded from novelty. Searches comparing cyclic coloring, ternary kernel, and hypergraph lean terminology did not identify a statement implying the three-part spectrum and counts. Equivalent work under older ternary coding/Latin tricoloring terminology is an unresolved priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an all-order, complete minimum-color classification of a natural family linking the first two classical cyclic three-configurations, with a sharp divisibility transition, exact number and structure of the ternary optima, an exceptional Fano boundary, explicit constructions in the complementary lengths, and an infinite strict separation from strong coloring. These conclusions are stronger than isolated computation or a routine renaming of the Fox congruence.
+Piehowski 2026 introduced the lean invariant and broad bounds, so lean colorability itself is prior. Erskine 2021 Theorem 3.4 studies exactly the same cyclic block {0,1,3} but STRONG coloring demands every triple rainbow; thus its strong-color numbers do not fix the weaker lean spectrum or exact 24/840 optima. Fox tricoloring equivalence with F3 linear equations is also classical, not newly claimed.
 
-## Constraints on the claim
+## value
 
-There is no claim of a general formula for arbitrary cyclic generators, a count of all optimum four-color configurations, a knot-theoretic result, or external verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is a classical cyclic 3-configuration including the Fano seven-point system. The all-order sharp lean spectrum has a genuine 8-divisibility phase transition and exact optimizer multiplicities; the strict gap from the already-studied strong chromatic number is a structural distinction with mathematical motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
