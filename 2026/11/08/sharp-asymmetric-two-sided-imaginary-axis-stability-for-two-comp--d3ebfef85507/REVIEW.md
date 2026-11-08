@@ -1,0 +1,11 @@
+# Review of the asymmetric two-sided imaginary stability frontier
+
+**Correctness — PASS (same-model).** Equation (1) follows by direct complex multiplication. The endpoint disk intersection is a necessary condition and gives \(A+B\leq2\); at equality the disks are externally tangent, so the optimizer is unique. The explicit coefficient produces the signed factorization \(u y^2(y-A)(y+B)\), proving sufficiency on the *entire continuum* and its exact boundary. Separate one-sided arguments use local stability and the endpoint-disk rightmost coordinate. The real-coefficient comparison is the sharp scalar quadratic inequality. Independent standard-library rational tests verify the algebra but are not the infinite proof.
+
+**Originality — PASS (qualified self-review).** The closely related George–Koellermeier–Jung–Mangan article already contains the one-sided \(\pm 2i\) extrema and symmetric real-coefficient optimum. The Ketcheson–Ahmadia optimization formulation is general and its imaginary-axis examples constrain real coefficients. Neither inspected treatment states the two-sided asymmetric, unique closed-form frontier or the parameterized gain. A general old extremal-polynomial or control-theory formula might imply the result, so historical priority is not independently established.
+
+**Mathematical value — PASS.** For applications with complex (not conjugate-symmetric) imaginary spectra, the required two-sided frequency band is a natural numerical-stability design constraint. The result classifies its complete phase-geometry trade-off, including endpoint limits and uniqueness, with no optimization or root search. A prespecified small matrix spectrum with gaps, higher accuracy order, or nonnormal dynamics may behave differently.
+
+**Closest literature and limits.** Theorem 1 and proof in George et al. (arXiv:2601.07730v2, Section 3.2) supply the one-sided endpoints; Ketcheson–Ahmadia (2012, Section 4.1) supplies the real-coefficient symmetric-interval context. Searches did not identify a closed form for the unequal two-sided complex-coefficient problem, but unsuccessful retrieval is not a proof of priority. The theorem makes no assertion of independent validation or applicability beyond the stated class.
+
+Self-review: passed. Independent audit: not yet performed.
