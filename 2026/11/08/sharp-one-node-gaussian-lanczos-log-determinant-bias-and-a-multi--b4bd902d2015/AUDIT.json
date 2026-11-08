@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The first-node Lanczos Ritz value is exactly the Gaussian Rayleigh quotient. Gaussian radius/angular independence yields the displayed bias; Jensen establishes nonnegativity and strict coordinatewise log-eigenvalue convexity forces every maximizer onto a spectral box vertex. Dirichlet aggregation yields the beta integral. The closed dimension-two evaluation, beta-moment Taylor expansion, and dominated-convergence high-conditioning expansion derive the remaining exact conclusions. Replayed Python 3 standard-library tests returned VERIFY_OK 3934; tests are ancillary, not a proof of the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ubaru–Chen–Saad (2017), sections on Gaussian quadrature and error bounds, gives general multi-step SLQ bounds but not sharp spectral expected-bias maxima.",
+        "Cortinovis–Kressner (2022), logdet application, derives trace-estimator concentration rather than the exact one-node bias optimizer.",
+        "Cortinovis–Toni (2026), Sections 1 and 3.3, uses a single Gaussian probe with several nodes and analyzes approximate quadratic-form error, not the one-node expected signed error."
+      ],
+      "reasoning": "The broader algorithms contain the one-node setting as a formal case but their established bounds do not imply exact attaining spectra or near/far κ multiplicity behavior.",
+      "searches": [
+        "stochastic Lanczos log determinant two point spectrum Gaussian probe expected Jensen gap bias",
+        "SLQ log determinant one iteration Gaussian spectrum extrema all eigenvalues 1 kappa bias",
+        "fast estimation tr f A stochastic Lanczos quadrature 2017 Ubaru Chen Saad"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.07004",
+      "https://doi.org/10.1137/16M1104974",
+      "https://doi.org/10.1002/nla.70106",
+      "https://doi.org/10.1007/s10208-021-09525-9",
+      "https://proceedings.mlr.press/v139/chen21s.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mbingui–Tambue–Karambal (2026), abstract, presents OSLQ and error bounds but not the finite dimensional one-node extremal law in the inspected abstract.",
+        "Cortinovis–Toni (2026), Section 3.3, states a general matrix-log quadrature approximation and a convergence bound for m Lanczos steps; this neither specifies a worst bias over the condition-number ball nor an equality spectral family.",
+        "Ubaru–Chen–Saad (2017) establishes generic SLQ error estimates, not equality at the beta-distributed endpoint spectra."
+      ],
+      "reasoning": "The new mean-error maximum involves expectation before optimization and a nonlinear logarithmic Rayleigh quotient. High-probability absolute-error inequalities, asymptotic spectral empirical measures and generic quadrature accuracy imply neither exact extremality nor the j-dependent beta formula. A stronger classical log-sum-exp inequality could cover the theorem, but none was located.",
+      "searches": [
+        "arxiv:2606.07004",
+        "doi:10.1002/nla.70106",
+        "doi:10.1137/16M1104974",
+        "Gaussian Rayleigh quotient log expectation minus log determinant two point spectrum extremal beta integral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem equivalently optimizes n E_{u uniform sphere} log(u^T A u)-logdet A for bounded log-eigenvalue spread; beta-integral spectral endpoints follow from the sphere-square Dirichlet law.",
+        "Cortinovis–Toni (2026), Section 3.3, describes the Gaussian Lanczos quadratic form, but not this expectation extremal optimization."
+      ],
+      "reasoning": "A matching formula for the first Lanczos node need not use the term logdet; searches included random Rayleigh quotient, spherical log average, and Dirichlet Jensen-gap terminology. No covering identity or optimizer was found in the inspected material.",
+      "searches": [
+        "Gaussian Rayleigh quotient log expectation minus log determinant two point spectrum extremal beta integral",
+        "spherical logarithmic energy spectral eigenvalue spread sharp Jensen gap Dirichlet expectation eigenvalues",
+        "spherical logarithmic energy spectral eigenvalue spread sharp Jensen gap Dirichlet expectation eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen–Trogdon–Ubaru (2021) analyzes randomized spectral-measure approximation, not a tabulation of these sharp one-node biases.",
+        "The exact beta integrals are not a recomputation of a numerical dataset or eigenvalue table."
+      ],
+      "reasoning": "Searches for a tabulated sharp constant or finite-n optimizer returned only general Lanczos, random-matrix and spectral-measure studies; no exact condition-number/multiplicity table was found.",
+      "searches": [
+        "stochastic Lanczos one node expected logdet overestimation Gaussian sharp condition number spectrum",
+        "Gaussian angular integral log Rayleigh quotient one step Gauss quadrature eigenvalue",
+        "Analysis of stochastic Lanczos quadrature for spectrum approximation Chen Trogdon Ubaru 2021"
+      ]
+    },
+    "rationale": "Direct statement-level comparison across contemporary and foundational stochastic Lanczos quadrature, randomized logdet trace estimates, and few-step Lanczos output studies identified no source that implies the sharp Gaussian one-node mean-bias maximization, all finite-dimensional equality cases, or the multiplicity crossover. This is qualified by inaccessible complete text of arXiv:2606.07004 and possible classical equivalent log-sum-exp extremal formulations.",
+    "residual_risks": [
+      "The complete arXiv:2606.07004 preprint was unavailable for line-by-line comparison; only its abstract and method summary were reviewed.",
+      "Equivalent historical results for Gaussian spherical log-quadratic means or Dirichlet log-sum-exp inequalities might cover portions of the theorem outside searched nomenclature.",
+      "No independent mathematical review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Context/motivation, no explicit extremal expected bias in abstract; coverage cannot be ruled out from abstract alone",
+        "evidence": [
+          "First public v1 2026-06-05",
+          "Describes OSLQ, Hutch++ and general error bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.07004",
+        "material_read": "ArXiv abstract, method names and summary of error-bound claims; full preprint unavailable for line-by-line inspection",
+        "method": "Full abstract and publication metadata inspected",
+        "title": "Optimal Stochastic Krylov based Techniques for Large-Scale Log-Determinant Estimation",
+        "trigger": "Closest dated recent stochastic Lanczos logdet motivation"
+      },
+      {
+        "assessment": "General algorithm and inequalities, not sharp one-node Gaussian expectation extremizers",
+        "evidence": [
+          "Stochastic Lanczos quadrature approximates matrix-function quadratic forms by Gaussian quadrature",
+          "Generic sampling and polynomial/quadrature errors rather than exact beta-spectrum extremality"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/16M1104974",
+        "material_read": "Accessible complete Cornell-hosted PDF, with algorithm and error analysis sections read and representative pages rendered",
+        "method": "Fulltext/PDF inspection of SLQ construction and quadrature error bounds",
+        "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+        "trigger": "Foundational general quadrature and log determinant trace method"
+      },
+      {
+        "assessment": "One probe but multiple Lanczos steps; no sharp one-node expectation bias or multiplicity phase transition",
+        "evidence": [
+          "Section 3.3 equation (32) gives norm-squared times e1^T log(T_m)e1",
+          "Numerical tests commonly fix m=10 steps"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.70106",
+        "material_read": "Accessible full HTML: introduction and contributions, Sections 2 and 3.3 on quadrature, 4 on error control, and numerical experiment discussion",
+        "method": "Primary fulltext inspection with one probe versus one node explicitly separated",
+        "title": "Detecting When One Probe Vector is Enough for Preconditioned Log-Determinant Approximation",
+        "trigger": "Single-Gaussian-probe wording creates likely equivalence risk"
+      },
+      {
+        "assessment": "Concentration and randomized trace estimator bounds, not exact one-node quadrature bias maximization",
+        "evidence": [
+          "Distinguishes trace-estimator sampling from Lanczos approximation",
+          "No explicit global optimizing spectral multiplicity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10208-021-09525-9",
+        "material_read": "Accessible full HTML: theorem and application sections on Gaussian trace and log determinants",
+        "method": "Read mathematical formulas and logdet estimator application, compared quantifiers and error metric",
+        "title": "On Randomized Trace Estimates for Indefinite Matrices with an Application to Determinants",
+        "trigger": "General randomized trace/determinant error framework may dominate new estimate"
+      },
+      {
+        "assessment": "Concerns Wasserstein spectral measure approximations; does not claim sharp logdet expected-bias in abstract",
+        "evidence": [
+          "Chen, Trogdon, Ubaru (2021), ICML 139:1728–1739"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/chen21s.html",
+        "material_read": "Publisher abstract and summary; complete paper not inspected",
+        "method": "Primary abstract statement comparison",
+        "title": "Analysis of stochastic Lanczos quadrature for spectrum approximation",
+        "trigger": "Potential few-iteration uniform-sphere Lanczos coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4bd902d-2015-4df0-a061-54615ebfbb6f",
+  "value": {
+    "rationale": "The one-node Gaussian Lanczos logdet estimator is a natural minimum-cost Krylov surrogate. Its systematic overestimate affects practical calibration and cannot be read off from ordinary trace unbiasedness. This theorem solves a condition-number-constrained expected-error extremal problem in every dimension, attains it with explicit two-level spectra, and proves a nontrivial near- versus far-conditioning optimizing-multiplicity change. It is stronger than a sign/Jensen check and supplies exact quantitative benchmarks without claiming multistep performance.",
+    "status": "PASS"
+  }
+}
