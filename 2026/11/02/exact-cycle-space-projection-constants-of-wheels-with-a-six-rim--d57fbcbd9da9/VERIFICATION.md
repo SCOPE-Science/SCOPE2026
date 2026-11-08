@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 wheel_projection_verify.py` with Python 3 and no external dependencies.
+## correctness
 
-The checker uses exact rational arithmetic for every displayed primal vector and finite dual certificate. It constructs each projection from the proposed cyclic columns, checks all facial cycles are fixed, checks the full edge-column norm, and validates the cancellation constraints. It checks the Laurent identity algebraically as a finite integer-polynomial identity, which is the core of the all-size proof, and checks its cyclic representatives for rim sizes from 7 to 200. The observed output was:
+PASS
 
-`CHECK_OK 109531 exact rational and Laurent identities n=3..200`
+Facial basis Fw=(Dw,w) identifies cycle space, and finite cyclic averaging preserves projection range while reducing to a circulant U with V=I-UD. Column norms become max{||u||1+||Du||1, ||e0-Du||1+||D(e0-Du)||1}. Explicit rational primal u attains 3/2,5/3,7/4,9/5. Matching dual signed certificates n=3..6 and Laurent polynomial identity S+(z^-1-1)T-(z^-1-1)R-(z^-1-1)^2H=0 prove lower bound uniformly for n>=7 including collision n=7. Independent exact Laurent check and rational direct primal n=3..19; finite check does not replace formal identity.
 
-No sampling over a finite range by itself establishes the theorem for arbitrarily large graphs. The separate proof in `RESULT.md` uses a formal Laurent identity valid for all positive rim lengths and verifies the only possible support overlap at rim size seven. The cyclic symmetrization lemma is a direct finite-group averaging argument. No external independent review, third-party certification, or formal proof assistant verification has been performed.
+## originality
+
+PASS
+
+Qualified: Dilworth–Kutzarova–Ostrovskii cycle-space projection framework and averaging are known, and their later cycle-space study treats other graph families. The exact wheel relative l1 optimization and six-rim saturation are not identified in relevant full-text sections; a hidden wheel specialization remains possible.
+
+## value
+
+PASS
+
+Determines a natural Banach-space/graph-theoretic minimization on every wheel, including the surprising uniform plateau despite growing cycle spaces, with matching primal-dual certificates. It is not a general claim for weighted wheels or quotient norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
