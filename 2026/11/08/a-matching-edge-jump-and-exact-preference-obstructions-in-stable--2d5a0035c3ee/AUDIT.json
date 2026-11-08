@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "An acyclic orientation has maximum directed reachability at most 4 when a matching edge occurs and n>=3, at most 3 for m=0 or n=2, at most 2 for n=1. Koana--Oh--Yoneda Theorem 3.1 makes these stable upper bounds. An explicit fixed ranking of the 5-vertex induced obstruction makes all 12 proper 3-colour assignments carry a mutual-envy pair. With Koana--Oh--Yoneda subgraph monotonicity and elementary triangle/K2 and K2,n lower bounds this proves every case. A separate Grundy proof uses at most two neighbour colours in the matching-plus-isolates part. A deterministic exhaustive enumeration over precisely 7776 preference profiles and 12 proper assignments per profile, tested by DFS and transitive closure, gives 624 (576 unavoidable mutual, 48 longer cycles essential). Both direct tests and analytic proof have been reconstructed and replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General acyclic-reachability bound supplies the four-colour upper bound but not its tightness.",
+        "Grundy number remains 3 on this family; the published Grundy lower bound cannot imply the needed lower bound of 4.",
+        "Theorem 3.4 monotonicity transfers a new explicit five-vertex obstruction to every positive-matching family member."
+      ],
+      "reasoning": "Checked implication strength: published general methods supply only parts of the proof, not the new sharp value. K_{2,n} is m=0 baseline, not positive m.",
+      "searches": [
+        "stable chromatic number K_{2,3} plus an edge in the triple part",
+        "stable chromatic number of K_2,n with one added edge inside larger part, exact chi stable four for n at least three",
+        "arXiv:2609.00569 Theorem 3.1, Theorem 3.3, Proposition 3.4, Proposition 3.7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.00569",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+      "Koana--Oh--Yoneda Related Work comparison to Samaris 2023 (indirect)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published stable chromatic number K_{2,n}=3 for n>=2.",
+        "Published monotonicity and reachability bounds yield inequalities 3<=chi_stable<=4 for positive matching.",
+        "The result for K_{2,3,3} is about a distinct complete tripartite graph; the 624/576/48 census is not covered by its value 6."
+      ],
+      "reasoning": "The new theorem closes the 3-to-4 interval for matching-added K_{2,n} and quantifies minimally obstructing preferences. Neither the published bipartite value nor the specified indexed graph-value theorem implies the new jump or profile count.",
+      "searches": [
+        "arXiv:2609.00569 Proposition 3.7 complete bipartite graph K_{2,n}",
+        "published-finding corpus exact stable chromatic K_{2,3,3} claim ID b34a81e3d305",
+        "stable chromatic number of K_2,n with one added edge inside larger part"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The envy digraph model is exactly that of arXiv:2609.00569.",
+        "Related Pareto colourings discussed by Koana et al are incomparable with their stable-colouring definition."
+      ],
+      "reasoning": "Same notion and aliases were checked; the statement about a join with a matching and the exact five-vertex obstruction are absent from the inspected principal paper. Pareto efficiency is not an equivalent formulation.",
+      "searches": [
+        "stable chromatic number preference rankings no envy directed cycles graph coloring complete multipartite graphs and joins",
+        "preference stable coloring complete bipartite with chord internal edge triangle, near-bipartite plus one edge",
+        "Koana--Oh--Yoneda arXiv:2609.00569 Sections 2-3.4, preference-stable coloring and envy digraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed exact number refers to K_{2,3,3} and gives 6.",
+        "No located exact table contains the 7776-profile census for the five-vertex K_{2,3}+xy graph."
+      ],
+      "reasoning": "Exact table/result query and local accessible ledger claims gave no matching result, but search absence alone is not uniqueness proof.",
+      "searches": [
+        "preference stable colouring corona chordal graphs 2026",
+        "stable chromatic number K_{2,3} plus an edge in the triple part",
+        "published-finding corpus: 2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305"
+      ]
+    },
+    "rationale": "The primary complete-bipartite theorem covers zero matching edges, not positive matching size: adding a matching edge creates a uniform four-colour lower obstruction while keeping Grundy number 3. The closest indexed specific preference-stable graph result is for K_{2,3,3} and does not entail this induced-subgraph obstruction or census. Full arXiv primary text and source comparisons found no equivalent or dominating statement; historical priority remains provisional.",
+    "residual_risks": [
+      "Historical novelty cannot be proved by search; unpublished and inaccessible equivalent claims may exist.",
+      "Only public indexed summary of the closest published-finding corpus record was available; no claim of having read its complete manuscript.",
+      "The profile census is self-computed and not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.1 orientation, Theorem 3.3 Grundy, Proposition 3.4 monotonicity and Proposition 3.7 complete-bipartite provide reusable tools. They do not furnish a four-colour lower bound for the matching-edge family or enumerate obstructing preference profiles.",
+        "evidence": [
+          "arXiv:2609.00569, Sections 2, 3.1--3.4, 5 and Appendix A; source date 2026-09-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.00569",
+        "material_read": "Full HTML manuscript including sections 1, 2, 3, appendix and displayed results in sections 3.1--3.4; searched matching, diamond, added-edge cases.",
+        "method": "Read arXiv HTML and compare theorems/propositions and their logical implications for the specified graphs.",
+        "title": "Graph Coloring with Color Preferences",
+        "trigger": "Introduces exact invariant and solves complete bipartite baseline."
+      },
+      {
+        "assessment": "It gives stable chromatic number six for a specific complete tripartite graph. That does not imply an exact formula for noncomplete multipartite graphs with a matching inside one side or the five-vertex preference-census numbers.",
+        "evidence": [
+          "Public title and claim summary: preference-stable chromatic number of K_{2,3,3} equals 6."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-stable-chromatic-number-of-the-complete-tripartite-graph-k-2-3-3--b34a81e3d305",
+        "material_read": "Public searchable summary only; full paper not verified.",
+        "method": "Compared the public stated graph, parameter and proof implications with the present theorem.",
+        "title": "Stable chromatic number of the complete tripartite graph K_{2,3,3}",
+        "trigger": "Closest semantically retrieved preference-stable chromatic number claim."
+      },
+      {
+        "assessment": "Pareto optimality is incomparable with their stability notion; no implication to the present graph family follows from it.",
+        "evidence": [
+          "Koana--Oh--Yoneda, Related Work states incomparability of Pareto optimality and stable colouring."
+        ],
+        "identifier_or_url": "Koana--Oh--Yoneda arXiv:2609.00569, Related Work, discusses Samaris 2023",
+        "material_read": "Koana--Oh--Yoneda discussion in full text; prior thesis itself not read.",
+        "method": "Compared properties of Pareto-optimality versus absence of envy cycles as stated by the principal authors.",
+        "title": "Graph coloring with preferences and Pareto optimality (prior work discussed by Koana et al.)",
+        "trigger": "Possible alias of preferences and stable colouring."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d5a0035-c3ee-429b-9c65-603b8366fe72",
+  "value": {
+    "rationale": "The exact sharp four-colour threshold after a single within-part matching edge identifies a structural discontinuity in a new preference-aware graph invariant. Its witness is fixed, independent of graph order, despite the ordinary Grundy lower bound staying at three. On the minimal obstruction the 624/576/48 exact breakdown detects a substantial distinction between mutual envy and blocking cycles of length at least three, relevant to proposed stability tests.",
+    "status": "PASS"
+  }
+}
