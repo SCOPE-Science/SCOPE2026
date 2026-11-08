@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytical argument in `RESULT.md` proves the claim from exact covering-space minima, a product-density integral and derivative signs. The verification program is not an infinite mathematical certificate.
+# Independent mathematical audit
 
-Reproduction: run `python3 verify.py` using Python 3 and its standard library. The recorded execution is in `verification_log.txt`.
+## correctness
 
-Actual checks: independent numerical quadrature at ten dimensionless aspect ratios, yielding normalized absolute errors at most \(3.21\times10^{-10}\); direct comparison against eleven covering-image distances for 100,000 point pairs, all matching; seeded Monte Carlo using 1,020,000 additional point pairs across six aspect ratios; and bisection of the fixed-area optimizer plus finite spot checks. All assertions passed.
+PASS
 
-Limits: numerical integration, Monte Carlo and finite coverings over sampled coordinates do not prove statements for all positive parameters. The proof justifies the necessary covering-image truncation, integral evaluations and uniqueness without experiments. Historical-priority assessment has not been independently audited.
+PASS: The universal strip with glide-reflection deck transformation is convex, so the squared geodesic is the minimum of two parity-image squared lengths. For independent uniform longitudinal coordinates, |x-x'| has triangular density, and transverse product (y/w)(y'/w) has density -1/2 log|z|. Integrating the piecewise positive-part expression yields both rational/log formulas, including exactly A=1. A=1 expansion has leading mismatch (A-1)^4/48. For F(A)=Phi(A)/sqrt(A), derivative has sign - for A<1, and h(A)/(144 A^(5/2)) for A>1 with h=3A^2-24A+18log A+21, h'=6(A-1)(A-3)/A, giving one unique global min >3. Independent deterministic high-precision integration at five aspect ratios matched expressions. No extrinsic embedding assumption.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.
+
+## value
+
+PASS
+
+PASS: Expected squared intrinsic geodesic distance is a canonical metric-measure dispersion statistic, and a naturally constrained fixed-area shape problem has a unique nontrivial optimum. The exact phase regularity C^3/not C^4 at transverse half-width threshold and comparison with untwisted cylinder are meaningful geometry beyond a quotient-distance formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
