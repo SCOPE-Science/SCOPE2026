@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For b=1, exact reciprocal comparison forces z_n<=1/(q n+z0^{-1}) and y_{n+1}<=a z_n. Exact ratio y_n/z_n gives a quadratic expansion y_n=a z_n+d z_n^2+O(z_n^3). Taylor expansion of the exact inverse recurrence gives u_{n+1}-u_n=c+k z_n+O(z_n^2), c>0. Summing first yields u_n=c n+O(log n) and z_n=1/(cn)+O(logn/n^2); both the latter error and z_n^2 are summable, proving the finite-part limit. Exact rational coefficient identities and three finite numerical orbits are verified in verify.py; finite tests are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Zhang Theorem 4.1 concerns convergence to the *positive* fixed point, possible only for b>1; the paper states b>1 is required for that equilibrium.",
+        "A semantically nearby mathematical index result concerns logarithmic relaxation in a continuous bullying-index flow, not this two-species recurrence."
+      ],
+      "reasoning": "Generic parabolic iteration predicts reciprocal linear drift but does not itself provide this precise coupled-map coefficient, uniform whole-quadrant domain, and sharp positivity-constrained cancellation surface. No inspected broader theorem was shown to subsume the final statement. An unlocated general theorem remains a residual risk.",
+      "searches": [
+        "published-finding corpus query: b=1 exactly Li Zhang exponentially regulated predator prey map global extinction rate reciprocal prey 1/z_n = (q+alpha a)n + log n",
+        "\"Neimark-Sacker bifurcation and dynamical behavior in a discrete predator-prey\" arxiv pdf",
+        "Published source DOI:10.3934/math.2026964, Sections 2–5 and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-964.pdf",
+      "https://www.aimspress.com/article/doi/10.3934/math.2026964",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-critical-relaxation-at-the-bullying-index-thre--becd784ce552"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1: interior equilibrium iff b>1; Lemma 2.1: origin LAS for b<1 and saddle for b>1; Theorem 4.1: rate toward stable positive E1.",
+        "Section 3 gives z_n bounded above by a scalar Beverton–Holt orbit; it does not give equality or the coupling-corrected n^{-1} coefficient."
+      ],
+      "reasoning": "Scalar comparison gives at best z_n<=1/(q n+constant), but does not determine the precise c=q+alpha a (which is strictly larger than q) or the logarithmic correction k/c. Neither equilibrium-existence criteria nor interior geometric spectral rates imply the stated global boundary asymptotics.",
+      "searches": [
+        "Li–Zhang 2026 PDF full text Theorem 2.1, Lemma 2.1, Lemma 3.1, Theorem 4.1, conclusions",
+        "published-finding corpus query: critical boundary b=1 discrete Ricker Beverton Holt predator prey positive quadrant asymptotics second order logarithmic correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Zhang 2026 PDF Sections 2, 3 and 4: Eq. (2.1), Theorem 2.1, Lemma 2.1, Theorem 4.1",
+        "In the exact PDF, origin Jacobian eigenvalues are 0 and b; the local origin lemma explicitly covers b<1 and b>1 only."
+      ],
+      "reasoning": "The claimed formula is orbitwise at the unit-eigenvalue boundary b=1 and includes a nonzero/cancelled logarithmic term. Linear eigenvalue labels and geometric convergence at an interior equilibrium are not equivalent to, and do not imply, this nonhyperbolic global expansion. Searches for reciprocal clocks and center-manifold aliases did not reveal matching coverage.",
+      "searches": [
+        "\"Neimark-Sacker bifurcation and dynamical behavior\" \"b=1\"",
+        "\"10.3934/math.2026964\" \"critical\" \"extinction\"",
+        "published-finding corpus query: critical boundary b=1 discrete Ricker Beverton Holt predator prey positive quadrant asymptotics second order logarithmic correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li–Zhang PDF does not include a coefficient table for the b=1 reciprocal clock; Section 4 studies a stable positive fixed point.",
+        "Record matches concern distinct models and do not list the parameter function k for this recurrence."
+      ],
+      "reasoning": "The target is an asymptotic theorem, not a finite table entry. Direct checks of the source equations and relevant indexed mathematical records found no database/table with the same map and coefficient.",
+      "searches": [
+        "published-finding corpus query: two dimensional map y'=a z exp(-y)/(1+p y), z'=z exp(-alpha y)/(1+q z), center manifold quadratic cubic extinction",
+        "2026 Li Zhang predator prey 10.3934/math.2026964 reciprocal log n",
+        "Published Li–Zhang PDF equations and Theorem 4.1"
+      ]
+    },
+    "rationale": "The exact model is due to Li and Zhang (2026), whose full-text relevant sections show local stability and positive-equilibrium geometric rates, not the b=1 parabolic global expansion. Direct mathematical-record and primary-literature searches for aliases, coefficient formulas and superseding statements found no covering result. Prior scalar boundedness comparison is one-sided and does not imply the corrected coefficient c or k. General parabolic iteration machinery and unseen prior work remain residual priority risks.",
+    "residual_risks": [
+      "Historical priority is provisional: broad parabolic center-manifold results may imply a version after nontrivial specialization.",
+      "Other mathematical literature not returned by queries may contain an identical coupled-map formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers boundedness and interior equilibrium stability; critical b=1 extinction clock and cancellation not stated in inspected mathematically relevant sections",
+        "evidence": [
+          "Eq. (2.1), Theorem 2.1 (p. 5), Lemma 2.1 (pp. 5–6), Section 3 (pp. 7–8), Theorem 4.1 (p. 9), conclusion (p. 17)"
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/8/PDF/math-11-08-964.pdf",
+        "material_read": "Open-access PDF, pp. 1–11 (model, fixed points, boundedness, rate theorem, bifurcation setup) and pp. 16–17 (conclusions and scope); full text indexed including remaining normal-form sections",
+        "method": "Direct PDF text reading and a page-image cross-check of printed equations on p. 4",
+        "title": "Neimark-Sacker bifurcation and dynamical behavior in a discrete predator-prey system with exponential terms",
+        "trigger": "Identical coupled recurrence, positive equilibrium threshold b>1 and critical b=1 gap"
+      },
+      {
+        "assessment": "Different continuous-time bullying-index ODE, not an equivalent recurrence; no whole-document noncoverage inference",
+        "evidence": [
+          "Abstract states critical t^{-1} decay for y(t) and logarithmic correction in a different ODE."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-logarithmic-critical-relaxation-at-the-bullying-index-thre--becd784ce552",
+        "material_read": "Search-index title and abstract only",
+        "method": "Semantic record comparison",
+        "title": "Sharp logarithmic critical relaxation at the bullying-index threshold",
+        "trigger": "Similar second-order logarithmic decay at ecological threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5fcebfad-c8fa-4f37-a042-924b03aaeb54",
+  "value": {
+    "rationale": "At b=1 a unit Jacobian multiplier makes interior-equilibrium geometric convergence theory inapplicable. The theorem gives global critical extinction amplitudes for both species, a trajectory-dependent finite-part clock and a sharp nonempty sign-change/cancellation surface for the logarithmic term. Those quantities matter for long-time approximation and separate models with identical n^{-1} leading rates.",
+    "status": "PASS"
+  }
+}
