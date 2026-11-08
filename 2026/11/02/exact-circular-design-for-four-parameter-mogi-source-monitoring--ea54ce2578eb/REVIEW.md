@@ -1,19 +1,21 @@
-# Scientific review: exact circular Mogi monitoring design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a local four-parameter, three-component, equal-Gaussian-noise Fisher D-optimality statement under a common station radius. The Mogi forward-model Jacobian has been differentiated independently and its ten unique inner products are displayed in `RESULT.md`. Angular rotational averaging bounds the determinant, with attainable equality at every regular polygon with at least three stations; strict concavity and the explicit first/second angular blocks characterize all angular optima. The balanced Fisher determinant is positive for nonzero source strength and positive radius. The derivative of its one-dimensional radius profile is factored exactly, and its sign proves one global radial maximizer. The accompanying executable checked four-station and three-station Fisher blocks, the determinant, a strict angular-loss example, and the radial polynomial identity. No numerical sampling is used as proof of the global result.
+PASS
 
-## Originality — PASS, subject to historical priority
+For ideal Mogi surface displacement μ=A(x−X,y−Y,d)/[(x−X)²+(y−Y)²+d²]^(3/2), local 4-vector parameters (A,d,X,Y) and n≥3 full three-component isotropic iid Gaussian observations on one common radius r, explicit differentiated Jacobian columns yield FIM. Angular rotation conjugates parameter X,Y block, and strict concavity logdet bounds any FIM by group average. Equality iff FIM itself invariant, equivalent to vanishing first and second complex angular sums; regular n-gon reaches it for all n≥3. Balanced determinant is (n⁴ A⁶/σ⁸) r²(d²+(5/2)r²)²/(r²+d²)^14, positive for r,d,A>0. With z=r²/d², derivative of z(1+5z/2)²/(1+z)^14 =−(5z+2)(55z²+11z−2)/(4(1+z)^15), unique positive maximizer z=(sqrt(561)−11)/110; zero at endpoints guarantees global radius optimality. Independently computed full Fisher blocks and determinant in exact SymPy arithmetic and checked unbalanced angular strict loss and derivative root.
 
-Mogi's displacement field, the use of three-component GPS to infer four source parameters, and general Fisher D-optimality are established prior methods. Masterlark (2007; DOI: 10.1029/2006JB004860) treats physical departures from the ideal Mogi model; Fournier, Freymueller and Cervelli (2009; DOI: 10.1029/2008JB005837) study source-position/strength estimation and uncertainty for an observed GPS network. The inspected primary sections do not present the exact common-radius Fisher determinant, necessary-and-sufficient angular moment conditions, or algebraic global optimal radius. A 2008 USGS station-placement simulation report is closer in application, but its complete PDF could not be accessed. A distinct exact analysis of coaxial Mogi-source peak splitting concerns a different objective. Targeted equation-, alias- and implication-level searches found no equivalent or strictly covering theorem. An unlocated exact special-case design and consequences of more general invariant-design theorems remain plausible priorities, not verified absences.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete experimental-design classification for a natural restricted geometry: any number of equally noisy full-vector instruments on one selectable radius. It separates a universal angular balance criterion from a unique physically dimensioned radius, jointly estimating depth, strength and two unknown horizontal coordinates. The polynomial radius and the sufficiency/necessity of two angular harmonics are reusable benchmarks for simulation-based volcano-monitoring network placement. It does not claim optimality among arbitrary mixed-radius arrays, unequal/colored noise models, or field networks with topography, elastic heterogeneity and constrained access. The application is mathematical, not a validated deployment recommendation.
+The first/second Fourier angular necessary-and-sufficient condition and unique algebraic common ring radius jointly optimize four unknowns in an ideal Mogi inverse model; specific published empirical GNSS inversion and geophysical error studies do not appear to state the exact theorem.
 
-## Closest literature and residual limits
+## value
 
-Masterlark (2007) cautions that model error may dominate precision; Fournier et al. (2009) use four-parameter Mogi inversion with observed and bootstrap network uncertainties; USGS Scientific Investigations Report 2008-5114 describes network placement/uncertainty simulations. These sources support the motivation and model but do not, in the material inspected, imply the exact joint theorem. The strongest unresolved historical comparison is the inaccessible full 2008 report and potentially other specialized survey-design results. The determinant maximizes local information, not global nonlinear inverse precision.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem solves an entire natural restricted experiment-design family: how to position n full-vector GNSS stations on a common ring while estimating both source strength, depth and horizontal position. Exact moment conditions plus universal depth-scaled radius form a reproducible benchmark for simulation and design comparison, without claiming real-world optimal monitoring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-design-for-four-parameter-mogi-source-monitoring--ea54ce2578eb/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-design-for-four-parameter-mogi-source-monitoring--ea54ce2578eb/check.py",
+        "/mnt/data/scope_worker03_20261106T2340Z/independent_checks_output.txt"
+      ],
+      "rationale": "For ideal Mogi surface displacement μ=A(x−X,y−Y,d)/[(x−X)²+(y−Y)²+d²]^(3/2), local 4-vector parameters (A,d,X,Y) and n≥3 full three-component isotropic iid Gaussian observations on one common radius r, explicit differentiated Jacobian columns yield FIM. Angular rotation conjugates parameter X,Y block, and strict concavity logdet bounds any FIM by group average. Equality iff FIM itself invariant, equivalent to vanishing first and second complex angular sums; regular n-gon reaches it for all n≥3. Balanced determinant is (n⁴ A⁶/σ⁸) r²(d²+(5/2)r²)²/(r²+d²)^14, positive for r,d,A>0. With z=r²/d², derivative of z(1+5z/2)²/(1+z)^14 =−(5z+2)(55z²+11z−2)/(4(1+z)^15), unique positive maximizer z=(sqrt(561)−11)/110; zero at endpoints guarantees global radius optimality. Independently computed full Fisher blocks and determinant in exact SymPy arithmetic and checked unbalanced angular strict loss and derivative root.",
+      "residual_risks": [
+        "Local common-radius design only; depends on a correct ideal point-source model, positive depth and amplitude, equal iid isotropic full-vector noise.",
+        "Not an optimal design among stations at different radii or a deployment recommendation under real topography/heteroscedasticity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Masterlark 2007 documents physical model error, not common-radius D-optimal theorem.",
+          "USGS 2008 report potentially related network-placement simulations, complete PDF not obtained and no whole-document noncoverage asserted."
+        ],
+        "reasoning": "Broader physical monitoring simulations need not mathematically imply an exact local idealized 4-param analytic D-optimum, but inaccessible survey report remains a priority risk.",
+        "searches": [
+          "Masterlark Mogi assumptions 2007 2006JB004860",
+          "USGS Scientific Investigations Report 2008-5114 monitoring station placement",
+          "Mogi source optimal volcano GPS ring array"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-design-for-four-parameter-mogi-source-monitoring--ea54ce2578eb/RESULT.md",
+        "Resultary semantic search: Mogi source Fisher information D optimal radius angular station placement 4 parameters",
+        "https://doi.org/10.1029/2006JB004860",
+        "https://doi.org/10.1029/2008JB005837",
+        "https://pubs.usgs.gov/sir/2008/5114/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mogi 1958 forward field and standard Fisher logdet concavity are prior ingredients.",
+          "The exact determinant and angular equalities follow from the explicit four-column Jacobian not quoted in those prior scientific studies."
+        ],
+        "reasoning": "Prior physical model plus generic Jensen principle provides an approach to a derivation but does not constitute published algebraic solution of the exact common-radius optimization as a stated implication; fully general invariant-design theorem could still dominate.",
+        "searches": [
+          "DOI:10.1029/2006JB004860",
+          "DOI:10.1029/2008JB005837",
+          "Mogi 1958 single-source deformation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fournier, Freymueller and Cervelli 2009 employ three-component GPS and infer Mogi source location/volume with real uncertainty; no exact ring formula in inspected work.",
+          "General Kiefer invariant optimal design can motivate angular averaging but does not numerically determine the Mogi-specific unique radius."
+        ],
+        "reasoning": "The four-parameter exact determinant depends on the Mogi Jacobian and on full-vector noise assumptions; general group-symmetry theorems do not uniquely fix the radius.",
+        "searches": [
+          "Mogi source Fisher information D optimal radius angular station placement 4 parameters",
+          "Mogi D optimal ring station spacing Fisher determinant information depth horizontal source 4 parameters",
+          "DOI:10.1029/2008JB005837 optimal station network"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source objective yields a unique irrational radius ratio from polynomial 55z²+11z−2=0.",
+          "No matching specialized analytic table identified in targeted Mogi survey-design search."
+        ],
+        "reasoning": "A practical station-layout sensitivity table with a different noise model or fixed source parameters does not by itself give the stated joint 4-param exact optimum; failed search alone is not a novelty proof.",
+        "searches": [
+          "Mogi station geometry radius depth ratio 0.339591",
+          "geodetic volcano D optimal Mogi array table optimal radius"
+        ]
+      },
+      "rationale": "The first/second Fourier angular necessary-and-sufficient condition and unique algebraic common ring radius jointly optimize four unknowns in an ideal Mogi inverse model; specific published empirical GNSS inversion and geophysical error studies do not appear to state the exact theorem.",
+      "residual_risks": [
+        "An exact specialized geophysical monitoring design derivation or general group-invariant D-optimal design result could imply parts of the theorem.",
+        "Complete 2008 USGS report not available; this is an access/priority risk, not itself scientific rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "physical validity caveat; not exact four-parameter ring FIM optimum",
+          "evidence": "Masterlark 2007",
+          "identifier_or_url": "https://doi.org/10.1029/2006JB004860",
+          "material_read": "Forward equation, model-assumption errors, deformation and inversion outcomes from primary article sections",
+          "method": "primary science source and relevant sections",
+          "title": "Magma intrusion and deformation predictions: Sensitivities to the Mogi assumptions",
+          "trigger": "same Mogi point-source and model limitations"
+        },
+        {
+          "assessment": "estimation and empirical network study, not the exact constrained D-optimal Fisher theorem",
+          "evidence": "Fournier et al. 2009",
+          "identifier_or_url": "https://doi.org/10.1029/2008JB005837",
+          "material_read": "Source model and GPS inverse uncertainties, practical network context and method discussion",
+          "method": "primary article available scientific sections",
+          "title": "Tracking magma volume recovery at Okmok volcano using GPS and an unscented Kalman filter",
+          "trigger": "three-component GPS four-param Mogi inversion"
+        },
+        {
+          "assessment": "UNKNOWN whole-document coverage; explicitly flagged, not declared not-covering",
+          "evidence": "USGS 2008 station-placement and sensitivity report",
+          "identifier_or_url": "https://pubs.usgs.gov/sir/2008/5114/",
+          "material_read": "Landing-page/available description only; full PDF inaccessible, no source theorem proof read",
+          "method": "web search and attempted open, access restricted",
+          "title": "USGS Scientific Investigations Report 2008-5114",
+          "trigger": "plausible station-placement simulation prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-design-for-four-parameter-mogi-source-monitoring--ea54ce2578eb/RESULT.md",
+        "https://doi.org/10.1029/2006JB004860",
+        "https://doi.org/10.1029/2008JB005837",
+        "https://pubs.usgs.gov/sir/2008/5114/"
+      ],
+      "rationale": "The theorem solves an entire natural restricted experiment-design family: how to position n full-vector GNSS stations on a common ring while estimating both source strength, depth and horizontal position. Exact moment conditions plus universal depth-scaled radius form a reproducible benchmark for simulation and design comparison, without claiming real-world optimal monitoring.",
+      "residual_risks": [
+        "Model uncertainty, correlated or anisotropic errors and mixed radius stations can shift optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local common-radius design only; depends on a correct ideal point-source model, positive depth and amplitude, equal iid isotropic full-vector noise.",
+    "Not an optimal design among stations at different radii or a deployment recommendation under real topography/heteroscedasticity.",
+    "An exact specialized geophysical monitoring design derivation or general group-invariant D-optimal design result could imply parts of the theorem.",
+    "Complete 2008 USGS report not available; this is an access/priority risk, not itself scientific rejection.",
+    "Model uncertainty, correlated or anisotropic errors and mixed radius stations can shift optimum.",
+    "Scientific best-of-knowledge judgment, not a formal proof certificate or priority attestation; no publication authorization."
+  ],
+  "schema_version": 1
+}
