@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a quartic graph each edge has six neighbours. A red edge uv forces r(u)+r(v)=5, a blue edge forces r(u)+r(v)=3. The five red-degree types form the forced connected transition chain 0,3,2,1,4, exactly the distance layers of the zero-red set, with neighbour counts (i,4-i). Conversely alternate edge colours between consecutive layers give red degrees 0,3,2,1,4 and meet the exact per-edge condition. Double-counting consecutive cross-edges gives sizes (a,4a,6a,4a,a), hence order 16a, and opposite parity layers give bipartiteness. All 16 singleton centers were checked in the two order-16 graphs, and different four-cycle totals certify non-isomorphism. The standalone executable verifies independently by direct edge condition; no finite experiment is used to infer the unrestricted theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalinowski et al., arXiv:2605.23828v1, Proposition 21: upper colour bounds for even-degree graphs, not existence with two colours.",
+        "Antoniuk–Prorok–Salia, arXiv:2607.00212v1, Theorems 2 and 4: upper bounds five/four for larger families.",
+        "Pękała–Przybyło, arXiv:2608.04122v1, Section 5: an even-or-odd degree homogeneity necessary condition, strictly weaker than the quarter-root distance partition and order multiple 16."
+      ],
+      "reasoning": "Bounds permitting three, four or five colours cannot imply exact two-colourability or count all two-colourings. The homogeneous-parity condition holds in every 4-regular graph, including K5, which has zero such colourings, so it does not cover the theorem.",
+      "searches": [
+        "two-color strong majority edge coloring 4-regular graphs completely regular codes cube intersection array (4,3,2,1;1,2,3,4)",
+        "equitable 5-partition 4-regular graph color degree 0 1 2 3 4 binomial 1:4:6:4:1",
+        "strong majority edge colouring quartic graph two colors n divisible by sixteen",
+        "strong-majority line graph bipartition 4 regular hypercube layers graph cover",
+        "arXiv:2605.23828v1",
+        "arXiv:2608.04122v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23828v1",
+      "arXiv:2607.00212v1",
+      "arXiv:2608.04122v1",
+      "doi:10.1007/s00373-024-02766-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier 2026 papers imply structural degree parity at most, while new theorem implies connected bipartite graph order divisible by 16 plus a bijection with exactly specified code sets.",
+        "Freyberg–Marr imply a 6-regular line graph with an NBC has equal numbers of coloured vertices and divisible-by-four edge count. This falls short of a quartic-root order divisible by 16 or a five-layer code bijection.",
+        "Historical same-area cubic-graph bijection concerns 3-regular graphs and efficient radius-one dominating sets; its hypotheses exclude the present 4-regular graph."
+      ],
+      "reasoning": "Even-degree quartic graphs such as K5 do not satisfy the new iff, so broad upper bounds and necessary parity do not imply it. The code object has radius four rather than the radius-one efficient domination used in the unrelated cubic classification. Sources were compared by exact implications, not titles alone.",
+      "searches": [
+        "arXiv:2605.23828v1",
+        "arXiv:2608.04122v1",
+        "doi:10.1007/s00373-024-02766-9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A strong-majority 2-edge-colouring of a quartic graph is exactly a neighbourhood-balanced 2-vertex-colouring of its 6-regular line graph, since every edge sees 6 adjacent edges.",
+        "Freyberg–Marr (2024), Section 1 NBC definition and Section 3 Theorem 9 classify 4-regular *circulants*, not 6-regular line graphs of arbitrary quartic graphs.",
+        "A code with the prescribed intersection array is a completely regular code; the present theorem characterizes when that object exists and counts the associated colourings."
+      ],
+      "reasoning": "The equivalent line-graph formulation is taken seriously: general NBC balance theorems restrict red/blue class sizes, whereas the specific line-graph root constraints force the five-layer quartic-root structure; neither cited article states the latter universal bijection.",
+      "searches": [
+        "two-colour strong-majority edge colourings 4-regular graphs equitable partition binomial 1 4 6 4 1 hypercube code",
+        "2-color strong majority edge coloring quartic graph layer 0 1 2 3 4 perfect code 16 vertices",
+        "strong-majority edge coloring 4 regular graphs 2 colors equitable 5 cells distance partition",
+        "two-color strong majority edge coloring 4-regular graphs completely regular codes cube intersection array (4,3,2,1;1,2,3,4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused mathematical-record hits returned strong-majority exact index for complete graphs (only K4 as two-colour exception), higher-colour bipartite threshold, and related but different majority colourings.",
+        "The closed code criterion applies to all finite connected quartic graphs, including but not determined by the named 16-vertex examples."
+      ],
+      "reasoning": "No exact database table or code census applying to the unrestricted infinite graph class was identified; absence from search is not proof of uniqueness. The Q4 and switched-Q4 counts are newly checked against direct enumeration rather than read from a known table.",
+      "searches": [
+        "two-colour strong-majority edge colourings 4-regular graphs equitable partition binomial 1 4 6 4 1 hypercube code",
+        "2-color strong majority edge coloring quartic graph layer 0 1 2 3 4 perfect code 16 vertices",
+        "strong-majority edge coloring 4 regular graphs 2 colors equitable 5 cells distance partition",
+        "two-color strong majority edge coloring 4-regular graphs completely regular codes cube intersection array (4,3,2,1;1,2,3,4)",
+        "equitable 5-partition 4-regular graph color degree 0 1 2 3 4 binomial 1:4:6:4:1",
+        "strong majority edge colouring quartic graph two colors n divisible by sixteen",
+        "strong-majority line graph bipartition 4 regular hypercube layers graph cover"
+      ]
+    },
+    "rationale": "Inspected the initiating full preprint, relevant 2026 followups and the earlier mathematically equivalent neighbourhood-balanced line-graph viewpoint. Their published results supply upper bounds, a homogeneous degree-parity necessary condition, and NBC classifications of other families, not the exact connected quartic five-layer iff. No semantically dominating result surfaced in focused mathematical-record and primary-literature searches; historical priority remains provisional.",
+    "residual_risks": [
+      "Historical classifications of completely regular codes or line-graph neighbourhood-balanced partitions might contain an equivalent conclusion under a different name; no exhaustive global priority proof is claimed.",
+      "A later version of the 2026 preprints could differ; the stated earliest-source date refers to version one.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and upper bounds but does not characterize named two-colourings of all connected quartic graphs by a five-layer code.",
+        "evidence": "arXiv:2605.23828v1, strong-majority edge-colouring definition and Proposition 21.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+        "material_read": "Thirteen-page full text; definitions, early propositions and even-degree arguments including the relevant end section.",
+        "method": "Open-access preprint; text and visually inspected relevant PDF pages.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Introduces the exact edge-colouring notion and contains general even-degree bounds."
+      },
+      {
+        "assessment": "General upper bound of five and four for graphs without degrees two or four; no universal exact characterization of quartic two-colourability.",
+        "evidence": "arXiv:2607.00212v1, Theorems 2 and 4 and discussion of degrees 2 and 4.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.00212",
+        "material_read": "Accessible manuscript text: introduction, main bounds, relevant construction and proof descriptions.",
+        "method": "Open abstract and alternative lawful full-text manuscript view.",
+        "title": "Strong Majority Edge-Coloring",
+        "trigger": "Potential stronger general existence theorem involving degree four."
+      },
+      {
+        "assessment": "Section 5 proves only homogeneous vertex-degree parity in each connected component as a necessary condition for 2-colourability; no distance-regular five-layer iff or counting bijection for quartic graphs.",
+        "evidence": "arXiv:2608.04122v1, Section 5, opening paragraph, and Theorem 4.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+        "material_read": "Full alternative text of 14-page preprint; introduction, Theorem 4 and its supporting context, Section 5 concluding remarks and the 2-colour necessary condition.",
+        "method": "Open preprint abstract plus accessible full-text rendering; arXiv PDF direct unavailable.",
+        "title": "On Strong Majority Edge Colourings with Few Colours",
+        "trigger": "Nearest later paper to the exact low-colour problem, with a potentially covering 2-colour statement."
+      },
+      {
+        "assessment": "The 4-regular circulant classification applies to the graph being vertex-coloured; for a quartic root graph, its line graph is 6-regular and outside that classification. General balance identities imply at most weaker parity restrictions.",
+        "evidence": "Freyberg and Marr (2024), Definition of NBC, Proposition 2, Corollary 2, Theorem 9.",
+        "identifier_or_url": "https://doi.org/10.1007/s00373-024-02766-9",
+        "material_read": "Open-access HTML article inspected for definition, general results and quartic circulant classification in Sections 1-3.",
+        "method": "Publisher open-access HTML full text.",
+        "title": "Neighborhood Balanced Colorings of Graphs",
+        "trigger": "The edge-colouring problem is equivalent to a neighbourhood-balanced vertex 2-colouring on the line graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1361fb8b-b4d5-4260-937c-f31386219dda",
+  "value": {
+    "rationale": "The motivating 2026 strong-majority edge-colouring problem lacked an exact two-colour quartic classification. A universal bijection with the strongly structured four-cube completely regular codes is mathematically informative: it yields nontrivial sharp order divisibility and bipartiteness, exact interpretation of the colouring count and two differently enumerated minimum-order graph examples. The passage from edge constraints to distance layers is an explanatory structural result for an unrestricted infinite class, not a mere restatement of an existing upper bound.",
+    "status": "PASS"
+  }
+}
