@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The unique binary tiling 1(1|00)* gives F_L length-L members. For every nonmaximal word, replacing its final 00 tile and the trailing ones by the minimal compatible tail computes its unique immediate successor, giving Δ_t. There are F_{L-t-2} prefixes; Fibonacci summation exhausts all F_L−1 internal gaps. Explicit inter-layer boundaries yield gaps 1/2. Summing across layers and taking Fibonacci ratios gives the complete dyadic geometric frequency law. Self-contained checker independently compared all layers 1..20 and direct indicator enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baum and Sweet (1976) is the seminal automatic-sequence source; the publicly accessible bibliographic page concerns continued fractions of algebraic power series in characteristic two.",
+        "OEIS A060142 and A086747 list the sequence/recurrences; none of the inspected relevant passages supplies the full claimed gap theorem."
+      ],
+      "reasoning": "A full general return-time theorem for this named sequence could dominate this result, but no such theorem was identified in the inspected passages or searched published finding summaries. The 1976 full paper was inaccessible and is not represented as fully checked; its priority risk remains.",
+      "searches": [
+        "Baum Sweet A060142 ordered one positions exact set of consecutive gaps first differences 2^(odd)+1 and 2^(even)+2",
+        "Baum-Sweet one positions exact successive gap distribution gap spectrum 3 6 9 18 33 Fibonacci",
+        "Baum Sweet sequence gaps between consecutive ones distribution first differences Fibonacci 2001",
+        "https://annals.math.princeton.edu/1976/103-3/p12"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A060142",
+      "https://oeis.org/A086747",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+      "https://annals.math.princeton.edu/1976/103-3/p12",
+      "https://mathworld.wolfram.com/Baum-SweetSequence.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known set description: positive elements are binary strings with even zero-run lengths.",
+        "New exact target: for all L and 0<=t<=L-3 the layer has F_{L-t-2} occurrences of the immediate gap Δ_t, with a full spectrum and dyadic probability law.",
+        "Kimberling (2000) addresses a different self-generating set defined by x->2x and x->4x-1, not this S."
+      ],
+      "reasoning": "The new statement follows from a specific nontrivial order-statistic lemma about the lexicographically next tiled binary word; it is not quoted or logically implied as a previously stated corollary in inspected texts. Same underlying set does not by itself document the numerical gap-law theorem. Historical priority remains qualified, not proven.",
+      "searches": [
+        "Baum Sweet A060142 ordered one positions exact set of consecutive gaps first differences 2^(odd)+1 and 2^(even)+2",
+        "consecutive terms of Baum Sweet index set gaps return time spectrum 1 2 3 6 9 18 33 66",
+        "binary regular language 1(1|00)* successor gap spectrum",
+        "Baum-Sweet one positions exact successive gap distribution gap spectrum 3 6 9 18 33 Fibonacci",
+        "OEIS A060142 successive differences full gap values dyadic Fibonacci law",
+        "Baum Sweet set zero runs even lengths lexicographic successor 00 1^t gap law",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A060142 defines the same increasing set by the closures 2x+1 and 4x and provides the odd-part-composition indexing interpretation; OEIS A086747 defines the Baum–Sweet binary zero-run indicator.",
+        "Those two representations generate the same set S by appending 1 or 00 to positive binary words."
+      ],
+      "reasoning": "The equivalent membership descriptions do not themselves state the immediate-successor map, the precise multiset of adjacent differences per binary length, or its dyadic frequency limit. Even when rewriting the known recurrence as 1(1|00)*, the predecessor/successor ordering and per-type multiplicities are additional claims.",
+      "searches": [
+        "binary regular language 1(1|00)* successor gap spectrum",
+        "Baum Sweet set zero runs even lengths lexicographic successor 00 1^t gap law",
+        "https://oeis.org/A060142",
+        "https://oeis.org/A086747"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A060142 prints the first 60 elements and a separate table through 10000; these finite tables demonstrate sample gaps but are not a proven complete infinite spectrum.",
+        "A086747 supplies the binary indicator and formal recurrence, not a table of all per-layer first-difference frequencies."
+      ],
+      "reasoning": "Finite tables and known membership are not identical to exact full range classification. The claim is not a recomputation of a table; it proves formulas for every L and all gap types, including limiting frequencies.",
+      "searches": [
+        "consecutive terms of Baum Sweet index set gaps return time spectrum 1 2 3 6 9 18 33 66",
+        "OEIS A060142 successive differences full gap values dyadic Fibonacci law",
+        "https://oeis.org/A060142",
+        "https://oeis.org/A086747",
+        "Baum-Sweet first differences return time distribution 00 11 blocks Fibonacci"
+      ]
+    },
+    "rationale": "S itself and its tiling definition are previously known, particularly OEIS A060142/A086747. The claimed complete adjacent-gap spectrum, exact layerwise multiplicities, and dyadic limit were not identified in full examined matching records or available semantic published-result summaries; alternate-name implication and historical-priority limitations are explicitly retained. This is qualified same-model originality, not an independent certification.",
+    "residual_risks": [
+      "An unindexed first-difference characterization under odd-composition or automatic-word aliases may establish the same formulas.",
+      "The 1976 article was accessible bibliographically but its entire full text was not inspected; no claim of full-text negative coverage is made.",
+      "A source documenting exact successor formulas (rather than just the sequence itself) could cover this result implicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same set is established; complete gap spectrum/multiplicities/frequency not stated in inspected material",
+        "evidence": [
+          "A060142 definition and initial terms",
+          "A060142 comments connecting positive terms to A086747",
+          "Original author/entry March 5, 2001"
+        ],
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Definition, initial 60 terms, annotations, alternative odd-composition characterization, program, references, original author date",
+        "method": "Read accessible HTML sections",
+        "title": "OEIS A060142: ordered set closed under 2x+1 and 4x",
+        "trigger": "Exact matching indicator support and possible consecutive-term table"
+      },
+      {
+        "assessment": "Same positive-index indicator; a(0) normalization expressly selected as 1. No explicit first-gap law found.",
+        "evidence": [
+          "A086747 comments specify choice of a(0)=0 or 1",
+          "A086747 recurrences a(2n+1)=a(n), a(4n)=a(n), a(4n+2)=0"
+        ],
+        "identifier_or_url": "https://oeis.org/A086747",
+        "material_read": "Definition, printed initial terms, comments explaining differing zero-index convention, binary recurrences and references",
+        "method": "Read accessible HTML sections",
+        "title": "OEIS A086747: Baum–Sweet sequence",
+        "trigger": "Original automatic sequence and recurrence; a(0) normalization"
+      },
+      {
+        "assessment": "The studied closures x->2x and x->4x-1 define a different set, so its theorem does not imply the present adjacent-gap theorem.",
+        "evidence": [
+          "2000 article abstract and definition x->2x, x->4x-1",
+          "Article central theorem on positions of even elements"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "material_read": "Full HTML mathematical article, including initial set definition and proof of rank theorem",
+        "method": "Read full-text HTML",
+        "title": "A Self-Generating Set and the Golden Mean",
+        "trigger": "Cross-linked by OEIS A060142 and plausible Fibonacci-type coverage"
+      },
+      {
+        "assessment": "Historical source and residual priority risk; not used to exclude possible coverage in the unavailable full article",
+        "evidence": [
+          "Annals of Mathematics 103 (1976), 593–610; title and author information"
+        ],
+        "identifier_or_url": "https://annals.math.princeton.edu/1976/103-3/p12",
+        "material_read": "Bibliographic landing page only; no full paper",
+        "method": "Read publisher record; no substantive full-text inspection",
+        "title": "Continued Fractions of Algebraic Power Series in Characteristic 2",
+        "trigger": "Seminal first publication on the underlying Baum–Sweet indicator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98bde352-d9b4-4621-be90-e0a4ecb2a231",
+  "value": {
+    "rationale": "The number-theoretically natural return gap between successive one positions of the classical Baum–Sweet automatic word is determined completely, not just as a sample table. Exact Fibonacci counts at every dyadic level and a nondegenerate limit reveal a structural distribution and exponential lacunarity of allowed large gaps. These are useful for recurrence and sampling questions and are not a mere restatement of membership or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
