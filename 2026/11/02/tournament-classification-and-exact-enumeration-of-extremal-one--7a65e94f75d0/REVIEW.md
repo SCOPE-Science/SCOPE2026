@@ -1,9 +1,21 @@
-# Review of the bounded-trifference classification
+# Independent mathematical audit
 
-**Correctness — PASS.** Anchor fibers contain at most two words; equality forces complementary binary rows. The complete triple-separation predicate reduces to the odd triangle-parity equations; a constructive gauge normalization makes every unordered-pair parity one. Each tournament yields a code, and the only duplicate normalized representations of a fixed labeled code are global converses. The all-length proof, including \(n=2\), and the column-switching equivalence were reconstructed; exhaustive independent finite tests through \(n=5\) also agree. Risk: finite checks alone could not establish arbitrary length, but the direct algebraic proof does.
+## correctness
 
-**Originality — PASS under accessible evidence, with priority uncertainty.** The closest 2026 results address general asymptotic trifference or bounded layers with \(r\ge2\), not the explicit classification and all-length labeled count for exactly one symbol \(2\). Broad and terminology-specific mathematical-record searches found no statement equivalent under code/tournament switching. The complete Bhandari–Khetan article was inspected: Lemma 3.1 proves the optimum and constructs one extremal family, but does not classify all equality cases. The full 2026 Amarnani thesis remained inaccessible: a matching classification there would supersede this claim. The elementary upper bound \(2n\) is expressly not claimed as novel, and no independent priority certificate is claimed.
+PASS
 
-**Value — PASS.** The result exactly describes an infinite family of extremal one-bounded perfect-three-hash codes, enumerates all labeled optimizers, and identifies the natural quotient under coordinatewise binary-symbol symmetries. The tournament/cut-switching correspondence makes the bounded-layer geometry transparent and supplies a usable benchmark in research on \(r\)-bounded trifference. This does not solve unrestricted trifference or improve its general asymptotics.
+In each equality code the two words in each unique-2-position fiber must be complementary off their anchor: any third word anchored at a different position forces that binary opposition. Choose first rows e_ij; the three distinct-anchor words can fail separation precisely when delta_ij xor delta_ik xor delta_jk=0 for delta_ij=e_ij xor e_ji. Every triangle must have odd parity. Fiber swaps s_i normalize all deltas to 1, giving antisymmetric binary tournament incidence, and conversely every tournament gives trifference. All 2^binom(n,2) tournaments identify codes only in global converse pairs, hence exactly 2^(binom(n,2)-1) labeled maxima and at most 2n words. Coordinatewise binary flips toggle columns and upon renormalization toggle exactly crossing edges, yielding cut switching; permutation relabels vertices. Boundary n=2 works without triangle equations. Independently re-enumerated all complementary-pair choices for n=2,3,4 and obtained 1,4,32 labeled maxima, with no use of saved logs; finite checks are not the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published primary results on the same subject and Resultary related findings were compared at the level of claimed mathematical implication; strongest already-covered components are credited and excluded from the novelty claim. The remaining specific classification appears new in actually inspected material, subject to listed source-access and indexing risks.
+
+## value
+
+PASS
+
+The known maximum 2n is elementary and not the contribution. The complete all-length structure of every maximizer, exact labeled multiplicity and precise switching-equivalence relation give an independent classification of a natural bounded-symbol layer of trifferent codes, relevant to extremal constructions and code symmetries, and are not a renaming of the particular transitive-tournament construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
