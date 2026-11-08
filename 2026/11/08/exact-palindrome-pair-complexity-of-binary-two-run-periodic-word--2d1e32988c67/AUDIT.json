@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive run decomposition proves exact length-3 condition; full runs must alternate, both endpoint partiality conditions are necessary and sufficient. Counting uses uniquely determined partial run lengths and length-L primitive rotations. Standalone dynamic programming passed 3240 cases and 36720 phase tests; no infinite claim rests only on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1509.05396 Lemma 13: at most three runs imply palindrome pair; Theorem 18: complete general classification of minimal binary non-pairs.",
+        "arXiv:1509.05396 Section 6 defines PP complexity and asks for explicit formulas on words such as Fibonacci and Thue–Morse.",
+        "arXiv:2009.02934 and 2201.09556 compute prefix palindromic lengths on particular automatic sequences."
+      ],
+      "reasoning": "The general binary minimal-obstruction theorem is legitimately broader as a qualitative membership criterion; it does not present or simplify to the stated convolution count without a further infinite-family run-phase argument. The prefix results do not imply factor-length counts for two-run periodic words.",
+      "searches": [
+        "Borchert–Rampersad arXiv:1509.05396 Section 5 Theorem 18 and Section 6",
+        "Frid–Laborde–Peltomäki arXiv:2009.02934 Introduction and automatic-word results",
+        "Bulgakova–Frid–Scanvic arXiv:2201.09556 Introduction and definitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1509.05396",
+      "arxiv:2009.02934",
+      "arxiv:2201.09556",
+      "published-finding corpus queries documented above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 paper gives broad minimal-non-pair classification but states no coefficient formula for factors of (0^a1^b)^omega.",
+        "The 2020 and 2022 papers concern prefix palindromic lengths of automatic words, not the factor count."
+      ],
+      "reasoning": "The prior 2015 theorem could be used as a nontrivial alternative input for membership checking, and the basic at-most-three-run observation is already known. Here the run-endpoint dichotomy yields a complete symbolic count, its periodicity, and sharp threshold; none is quoted as a prior theorem. The independent proof is not a claim of logical independence from those earlier techniques.",
+      "searches": [
+        "web: \"palindrome pair complexity\" periodic word exact formula",
+        "web: \"palindrome pair\" \"0^a1^b\" factors",
+        "arxiv:1509.05396 Section 6 explicit PP complexity problem",
+        "published-finding corpus: exact number of factors with palindromic length 3 in a periodic word / Christoffel word"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest results included 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c (string attractors, not palindrome-pair factors) and 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6 (closed-rich words, different invariant).",
+        "Borchert–Rampersad arXiv:1509.05396 Theorem 18 classifies minimal non-palindrome pairs; Section 6 introduces pair-factor complexity but not this periodic family formula."
+      ],
+      "reasoning": "The aliases palindrome pair, product of two palindromes, palindromic length at most two, and PP factor complexity were compared. The exact coefficient theorem concerns length-by-length counts, not the global list of minimal forbidden structures.",
+      "searches": [
+        "published-finding corpus: palindromic length exactly 3 for factors of periodic binary word 0^a 1^b and exact count by length and cyclic phase, convolution of interior run lengths",
+        "published-finding corpus: palindrome pair factors of (0^a1^b) infinite word periodic binary length n, exact spectrum minimal palindromic factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed OEIS entry connected to this two-parameter palindrome-pair factor table.",
+        "published-finding corpus search results were dominated by unrelated palindromic attractor, period-doubling and coding results; none stated the factor-count formula."
+      ],
+      "reasoning": "These are limited exact-table checks, not evidence that all external integer sequence databases were exhausted. The result is a bivariate parameterized family rather than a single sequence.",
+      "searches": [
+        "web search: site:oeis.org \"palindrome pair\" \"periodic\" factors",
+        "web search: site:oeis.org \"palindromic length\" \"0^a1^b\"",
+        "published-finding corpus: exact number of factors with palindromic length 3 in a periodic word / Christoffel word"
+      ]
+    },
+    "rationale": "Exact factor-length coefficient and generating-function law with two-run threshold was not stated in the inspected relevant primary materials or indexed searches. The general 2015 characterization of minimal non-palindrome pairs is acknowledged as stronger for obstruction membership, but it does not itself give the new exact periodic-factor count; residual risk remains.",
+    "residual_risks": [
+      "Unindexed equivalent specialization of the 2015 binary minimal-non-palindrome-pair classification could exist.",
+      "Search and human-style full-text comparisons are not exhaustive mathematical novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong background coverage of minimal non-pairs, no stated exact two-run periodic factor-count law.",
+        "evidence": [
+          "Lemma 13 any at-most-three-run word is a palindrome pair",
+          "Theorem 18 classifies minimal non-palindrome pairs globally",
+          "Section 6 defines PP complexity and raises its enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+        "material_read": "Full HTML text, with particular attention to Sections 1, 2, 5 (Lemmas 13–17, Theorem 18), and 6 (complexity questions).",
+        "method": "Primary arXiv full-text reading",
+        "title": "Words with many palindrome pair factors",
+        "trigger": "Most directly relevant palindrome-pair complexity and minimal-obstruction theory"
+      },
+      {
+        "assessment": "Prefix invariant for automatic words; neither all-factor counts nor this two-run periodic family are covered.",
+        "evidence": [
+          "Introduction defines PPL and reports paperfolding/Rudin–Shapiro results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.02934",
+        "material_read": "Abstract, introduction, definitions and described scope of automatic-word results",
+        "method": "Primary arXiv HTML reading",
+        "title": "On prefix palindromic length of automatic words",
+        "trigger": "Prior exact palindromic-length computations for infinite words"
+      },
+      {
+        "assessment": "Exact prefix invariant on a 3-automatic word; no two-run periodic palindrome-pair factor-count theorem.",
+        "evidence": [
+          "Section 1 and Section 2 define palindromic length and frame its exact computation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.09556",
+        "material_read": "Abstract, introduction, notation, definitions and early proof section of full HTML",
+        "method": "Primary arXiv HTML reading",
+        "title": "Prefix palindromic length of the Sierpinski word",
+        "trigger": "Guiding 2022 source in the relevant literature interval"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d1e3298-8c67-4d06-8c21-89d31b145167",
+  "value": {
+    "rationale": "Natural palindrome-pair factor complexity was explicitly defined in prior literature. Complete infinite two-run source classification yields a nontrivial two-variable convolution, a sharp all-pair threshold and an exact stable periodicity law, useful as a controlled comparison family.",
+    "status": "PASS"
+  }
+}
