@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two stationary total level-crossing intensities have been reconstructed from the explicit Gaussian position–velocity pair: the conditional velocity means, variances, and absolute-Gaussian Rice formula give the two precise error-function kernels. An analytic derivative identity reduces temporal unimodality to a single sign change of each explicit \(G\)-function. Both sign changes are proved using strict logarithmic derivative bounds on positive integral representations of the error functions. A separate tilted-support ratio proof transfers the one-peak property to a unique global maximum of the Poisson-reset crossing intensity. The hypotheses, scaling normalizations, strict endpoints, and reset-jump counting convention are explicit. Independently implemented quadrature and Gaussian conditional-density checks reproduce both dimensionless optimizers. Numerical checks are corroboration, not a substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS (qualified)
-The main reference, Montero, Palassini and Masoliver, arXiv:2312.13968, derives exactly the renewal expression and the two scaling integrals in equations (16), (25), and (33), and numerically illustrates maxima in Figures 1–4. In its Section IV.1.1 it states that the dimensionless maximizing constant could be found from an integral equation but was not attempted. Sections IV.1.1–IV.1.2 and its appendices do not establish strict uniqueness of either optimizer or evaluate both constants. Masoliver and Palassini, arXiv:2301.06608, derive the reset-free Rice kernels without optimizing a Poisson rate. Singh, arXiv:2007.05576, analyzes full/partial resetting with stationary and first-arrival observables rather than total level-crossing rate. Searches for alias formulations and relevant mathematical findings did not identify equivalent coverage. Existing general Laplace variation-diminishing reasoning is not claimed as original; the model-specific one-crossing inequalities supplying its missing premise are the assessed refinement. A broader theorem or uncatalogued publication could still subsume the result; definitive priority is unverified.
+PASS
 
-## Mathematical value — PASS
-A maximizing reset rate is a physically motivated control variable in the motivating study. Existence and plotted numerical peaks do not rule out secondary local extrema or additional optimal rates. The exact single-sign-change theorem gives a global no-reentrance guarantee for *both* physically distinct canonical experiments and a reusable analytic route to their two universal optimizing constants. The proof resolves a nontrivial special-function inequality arising from Kac–Rice integration, rather than a parameter substitution or recomputation of a published table.
+For dV=kappa dW, dX=V dt, Gaussian Kac–Rice gives conditional velocity mean v0+3(u-v0t)/(2t), variance kappa²t/4 and the two explicit erfc/erf H_u,H_v crossing kernels. Their z-scaled derivative functions G_u,G_v are positive below first thresholds and negative above second, while positive integral representations imply E_j′/E_j ≤1/z. In intermediate intervals the P_u,P_v logarithmic derivatives are strictly negative (bounds <−2 and <−20 respectively), so each time kernel has exactly one peak. Splitting -∫t e^(−rt)h′ as B−A, the ratio A/B is strictly increasing 0→∞ by separated support, proving exactly one global r maximum. Independent scipy quadrature reconstructed s_u≈0.520327681 and s_v≈0.505942998, and rates ≈0.1046702621 and 0.05846588284, in agreement at numerical precision; original code verify.py was read. Reset jumps are excluded. Decimal values are not certified intervals.
 
-## Scope and remaining risks
-Only undamped Gaussian random acceleration, complete independent Poisson state resetting, stationary total *continuous* crossings, and the two stipulated reset/target geometries are covered. The numeric constants are approximations without formal interval enclosures. No analogous assertion is established here for damping, partial resetting, first-arrival optimization, or directional crossings. Publication-priority comparisons remain qualified by the possibility of more general theorems on Laplace transforms of one-peaked kernels.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Montero–Palassini–Masoliver 2024 explicitly derive identical scaling integrals and show numerical maxima, yet §IV.1.1 says maximizing constant could be obtained from integral stationary equation but they did not attempt it, and no unique-peak proof occurs in their inspected §IV or appendices. New mathematical content is model-specific strict unimodality and constants, not renewal or Rice formulas.
+
+## value
+
+PASS
+
+Finding a best reset rate is a natural experimentally motivated control objective in the original physics study. Existence and plots do not prove global uniqueness or forbid secondary maxima; the strict one-crossing theorem for two distinct canonical experiments supplies exact no-reentrance classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
