@@ -1,19 +1,21 @@
-# Scientific review: unseen–doubleton occupancy dependence
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The joint Dirichlet–multinomial mass function gives exact one- and two-category probabilities; aggregation over distinct category labels produces the covariance factorization. The ratio of consecutive factors has denominator-minus-numerator exactly \(a(a+2)>0\); the continuous extension is strictly decreasing by concavity of the digamma function and eventually falls below one by log-convexity of the gamma function. An endpoint-corrected Riemann-sum expansion yields the constant-order threshold shift and the finite critical-window covariance limit. Exact rational composition enumeration independently confirms 170 finite instances; 8,316 further exact-rational checks confirm the successive-ratio identity and its signs. Numerical experiments are not the infinite-parameter proof.
+PASS
 
-## Originality (PASS, qualified)
+Reconstructed the exact Dirichlet–multinomial joint mass function from integrating categorical likelihood against Dirichlet(a,...,a); single empty and doubleton probabilities and the ordered distinct-pair joint event yield Cov(C0,C2)=k²uv(R−1) for N≥2, zero at N≤1. Algebra gives R_{N+1}/R_N=1−a(a+2)/[((k−1)a+N−2)((k−1)a+N)] strictly in (0,1); R_2=(ka+1)/((k−1)a+1)>1. In the positive continuous gamma extension, ψ strict concavity makes log R strictly decreasing by equal-mean two-point comparison with larger spread (a+1 vs 1); strict logconvexity Γ gives limiting R∞<1. Thus unique r>2. Re-derived the endpoint-corrected expansion logR(k,λk+b)=L1(λ)/k+L2(λ,b)/k²+O_a(k^{-3}), with L1=(a−(a+1)λ)/(a+λ), L2=−(a+1)+a(a+2)(a+3/2−b)/(a+λ)²; it yields r=(a/(a+1))k+(a+3)/(2(a+1))+O_a(k^{-1}). Marginal limits yield exact displayed D_a linear critical covariance profile. At a=1, cancellation yields r=(k+2)/2. Independently enumerated 112 complete Dirichlet-multinomial finite compositions with exact rational weights and computed actual C0–C2 covariance; 2805 independent rational successive-ratio checks; high-precision gamma evaluation at k 100, 400, 1600 and a 1/2,1,2,5 confirmed second-order coefficients (not an infinite proof).
 
-Keener–Wu (2006, DOI:10.1142/9789812772558_0008) already analyze this symmetric mixture and derive the leading occupancy-count covariance asymptotics. The generic law, exact probability formula, and leading covariance scale are prior art. Independent multinomial frequency-count covariance sign laws cover a distinct boundary model reached as \(a\to\infty\), not the finite-\(a\) model. The inspected full paper does not state the complete **finite-\(k\) one-crossing sign classification**, its **constant-order threshold shift**, or the associated **critical covariance profile**. Griffiths–Spanò (arXiv:1003.5131) investigate Dirichlet–multinomial canonical correlations; Bartroff–Goldstein–Işlak (arXiv:1402.6769) investigate size-biased concentration for occupancy counts. Those inspected results do not imply the specific sign classification as stated. Keener–Rothman–Starr (1987, DOI:10.1214/aos/1176350604) is particularly plausible older coverage of joint occupancy moments, but its full text was not obtained; this residual historical-priority risk remains. No assertion of independent historical certification is made.
+## originality
 
-## Value (PASS)
+PASS
 
-The count of unseen categories measures sample coverage, and the doubleton count is a standard frequency-of-frequencies input in species richness estimation. Positive covariance at small samples reflects concentration into pairs leaving categories unseen; negative covariance in denser samples reflects competing occupancy requirements. The exact global sign change, its non-Poisson shape dependence, and its sharp finite-size location are substantive structural facts. At the critical load, a leading-order covariance theorem gives zero and does not resolve sign; the explicit constant-order shift and limiting linear profile do.
+Best-of-knowledge: classical symmetric Dirichlet-multinomial joint law and first-order occupancy covariance are established prior work. The narrow surviving contribution is the strict single sign transition for Cov(C0,C2) as sample size N varies with fixed k,a; its O(1) shifted crossing and nonzero finite critical-window linear covariance law at fixed a. Targeted published-result and primary-source comparisons did not locate stronger coverage. Plausible 1987 same-family source remains inaccessible: this is an explicit residual priority risk rather than proof of absence.
 
-## Limits
+## value
 
-The theorem assumes an exchangeable, symmetric Dirichlet mixture of fixed positive shape and at least three categories. It does not extend to asymmetric concentrations or jointly varying shape without further work. Earlier random-partition treatments could conceal equivalent results; an independent literature and proof audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unseen count C0 is the natural coverage statistic and doubletons C2 a frequency-of-frequencies measure in species richness/occupancy inference. Their dependence is a mathematically motivated joint invariant for a standard overdispersed symmetric DM allocation. A complete sign transition as sample size increases is stronger than elementary moment recomputation. The first-order covariance vanishes at λ=a/(a+1), so its explicit constant-order finite-size correction and nondegenerate limiting linear critical-window covariance resolve a genuinely delicate boundary not decided by the standard first-order theory. Fixed-a shape dependence is substantive, not arbitrary cherry-picked parameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

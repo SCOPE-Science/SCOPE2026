@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:19:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen source files RESULT.md (10,752 Git-byte), verify.py (2706 Git-byte), VERIFICATION.md; source tree afaf3abebb346e534ec2404288d6ea394d92734e",
+        "Independent exact rational enumeration in local checks 112 parameter cells and 2805 ratio steps, with gamma numerical confirmations",
+        "Gamma function strict log-convexity and polygamma ψ strict concavity; detailed endpoint-corrected Euler sum in RESULT.md"
+      ],
+      "rationale": "Reconstructed the exact Dirichlet–multinomial joint mass function from integrating categorical likelihood against Dirichlet(a,...,a); single empty and doubleton probabilities and the ordered distinct-pair joint event yield Cov(C0,C2)=k²uv(R−1) for N≥2, zero at N≤1. Algebra gives R_{N+1}/R_N=1−a(a+2)/[((k−1)a+N−2)((k−1)a+N)] strictly in (0,1); R_2=(ka+1)/((k−1)a+1)>1. In the positive continuous gamma extension, ψ strict concavity makes log R strictly decreasing by equal-mean two-point comparison with larger spread (a+1 vs 1); strict logconvexity Γ gives limiting R∞<1. Thus unique r>2. Re-derived the endpoint-corrected expansion logR(k,λk+b)=L1(λ)/k+L2(λ,b)/k²+O_a(k^{-3}), with L1=(a−(a+1)λ)/(a+λ), L2=−(a+1)+a(a+2)(a+3/2−b)/(a+λ)²; it yields r=(a/(a+1))k+(a+3)/(2(a+1))+O_a(k^{-1}). Marginal limits yield exact displayed D_a linear critical covariance profile. At a=1, cancellation yields r=(k+2)/2. Independently enumerated 112 complete Dirichlet-multinomial finite compositions with exact rational weights and computed actual C0–C2 covariance; 2805 independent rational successive-ratio checks; high-precision gamma evaluation at k 100, 400, 1600 and a 1/2,1,2,5 confirmed second-order coefficients (not an infinite proof).",
+      "residual_risks": [
+        "No uniform asymptotic is claimed when a varies with k; only fixed a.",
+        "Numerical gamma and finite enumeration do not independently prove the universal gamma monotonicity or analytic k asymptotics.",
+        "Source verify.py was inspected, not rerun; original claimed test counts were not adopted as independently reproduced."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keener-Wu treats broad symmetric Dirichlet multinomial occupancy sums and first-order covariance expansions, with error terms too large to determine the sign exactly at the first-order zero.",
+          "Published uniform iid occupancy one-switch result is for Cov(observed richness, K_r) as r changes at fixed n; it uses independent equal-probability boxes, not Cov(C0,C2) as N changes under persistent Dirichlet P.",
+          "Kernel/canonical-correlation and concentration theorems target different mathematical observables."
+        ],
+        "reasoning": "A broad asymptotic result alone does not logically entail the exact finite one-switch or O(1) root correction; the published one-switch theorem changes frequency index rather than sample size and uses a different probability model. No identified stronger theorem dominates all stated parameters.",
+        "searches": [
+          "Keener and Wu 2006 Theorem 1 and Corollary 1 author-hosted PDF",
+          "Griffiths and Spanò arXiv:1003.5131 orthogonal kernels and canonical correlations",
+          "Bartroff, Goldstein and Işlak arXiv:1402.6769 concentration of occupancy counts",
+          "Resultary published 2026/10/4 SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md, REVIEW.md, AUDIT.json and SLOGAN.txt",
+        "Keener and Wu 2006 DOI 10.1142/9789812772558_0008 author PDF",
+        "Griffiths–Spanò arXiv:1003.5131 PDF",
+        "Bartroff–Goldstein–Işlak arXiv:1402.6769 PDF",
+        "Keener–Rothman–Starr 1987 DOI 10.1214/aos/1176350604 abstract; no full text",
+        "Resultary semantic queries and complete published Resultary RESULT.md for related occupancy claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-sample covariance is elementary from DM law, so it is not a novelty claim.",
+          "At λ=a/(a+1), the first-order cross covariance coefficient vanishes, necessitating second-order expansion to determine crossing and window profile.",
+          "The 1987 partition source shares the broad model but could not be inspected in full; no decisive prior-coverage implication was established from accessible material."
+        ],
+        "reasoning": "The inspected 2006 leading asymptotic error cannot settle the constant-order shift and strict all-N crossing. The iid-frequency one-switch across r has no limit argument giving the fixed finite-a DM theorem. 1987 historical implication risk remains material and separately disclosed.",
+        "searches": [
+          "Keener-Wu DOI:10.1142/9789812772558_0008; exact covariance and critical first-order asymptotics",
+          "Keener Rothman Starr 1987 DOI:10.1214/aos/1176350604; public abstract, OA and author-hosted searches",
+          "Resultary iid occupancy richness-frequency one-switch formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same statistics are occupancy frequencies C0 and C2; Dirichlet-multinomial counts marginalizing P are exchangeable but dependent. The covariance factor k²uv(R-1) is derivable from standard joint DM mass formula.",
+          "Keener-Wu 2006 develops generic occupancy-sum and covariance asymptotics; it supplies moment machinery but not this complete finite sign and critical shift statement in inspected theorems."
+        ],
+        "reasoning": "Equivalent naming includes empty boxes, unseen species, occupancy frequency C0, doubletons, species-frequency spectrum and frequency-of-frequencies. Exact covariance alone follows from classical moments, but the universal strict-N sign transition with constant-order crossing and critical covariance profile was not directly obtained from inspected works.",
+        "searches": [
+          "Resultary query: Dirichlet multinomial covariance number of unobserved empty categories and doubleton counts sign transition threshold critical window finite-size shift",
+          "Resultary query: unseen species doubletons covariance sign switching symmetric Dirichlet multinomial occupancy Keener Wu 2006",
+          "Keener-Wu 2006 DOI:10.1142/9789812772558_0008, available author PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related iid frequency-count, missing-mass, and empty-indicator covariance claims, none tabulating the fixed-a all-N crossing.",
+          "A 2006 paper gives the model and asymptotic moments; the exact small sample probabilities are derivable but not presented as a table of shift/profile invariants."
+        ],
+        "reasoning": "No relevant database or published parameter table was found containing the k,a-dependent shifted threshold. This is a limited search, not proof a historical exact table does not exist.",
+        "searches": [
+          "Resultary semantic retrieval, three independent descriptions of symmetric DM empty-doubleton covariance",
+          "Published Resultary finite occupancy covariance records 2026/9/20 and 2026/10/4",
+          "Keener-Wu moment and occupancy covariance formulas"
+        ]
+      },
+      "rationale": "Best-of-knowledge: classical symmetric Dirichlet-multinomial joint law and first-order occupancy covariance are established prior work. The narrow surviving contribution is the strict single sign transition for Cov(C0,C2) as sample size N varies with fixed k,a; its O(1) shifted crossing and nonzero finite critical-window linear covariance law at fixed a. Targeted published-result and primary-source comparisons did not locate stronger coverage. Plausible 1987 same-family source remains inaccessible: this is an explicit residual priority risk rather than proof of absence.",
+      "residual_risks": [
+        "Full text of highly plausible Keener–Rothman–Starr 1987 partition paper inaccessible: university VPN disconnected, job 87afcdae7efa14d1458095371b5941f0; no no-coverage claim based on abstract.",
+        "Older occupancy/partition literature may state the same monotonic ratio or threshold in another notation; searched corpus not exhaustive.",
+        "The exact covariance and leading moment identities are elementary/classical and expressly excluded from novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides DM probability and broad first-order occupancy covariance limit; no all-finite N sign-root and fixed-a critical-window second-order statement located in inspected passages.",
+          "evidence": "Keener and Wu (2006) Theorem 1 (p.3), Corollary 1 (pp.7–8); formula first-order covariance with O(k^{-2}) pair error.",
+          "identifier_or_url": "https://www.stat.uchicago.edu/~wbwu/papers/keener.pdf",
+          "material_read": "Accessible author-hosted 14-page PDF: model/definitions, general occupancy function framework, Theorem 1 and Corollary 1 through pages 1–8 and structure of remaining results",
+          "method": "Read PDF text and checked pages/images",
+          "title": "On Dirichlet Multinomial Distributions",
+          "trigger": "Precisely same DM occupancy model and general covariance asymptotics"
+        },
+        {
+          "assessment": "INACCESSIBLE; not classified as NOT_COVERING and not treated as automatic originality failure.",
+          "evidence": "Keener, Rothman and Starr (1987), Annals of Statistics 15:1466–1481, DOI 10.1214/aos/1176350604; full text blocked by institutional VPN connection.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176350604",
+          "material_read": "Publisher abstract/bibliographic information, plus lawful open and author-hosted access attempts; no usable full text",
+          "method": "Publisher/author searches; authorized institutional full-text attempt returned VPN disconnected",
+          "title": "Distributions on Partitions",
+          "trigger": "Older same-family partitions work could imply occupancy moments"
+        },
+        {
+          "assessment": "Does not present N-dependent empty-doubleton covariance sign classification in material inspected; distinct dependence kernels.",
+          "evidence": "Griffiths and Spanò arXiv:1003.5131, introductory and Dirichlet–multinomial canonical-correlation theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5131",
+          "material_read": "Accessible 51-page arXiv PDF introduction, definitions, kernel/canonical-correlation sections",
+          "method": "Read primary arXiv PDF and inspected pages",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Potentially broader Dirichlet-multinomial dependence"
+        },
+        {
+          "assessment": "Concentration of threshold occupancy counts, rather than offdiagonal finite covariance sign; no implication located.",
+          "evidence": "Bartroff, Goldstein and Işlak (2014), arXiv:1402.6769, Theorem 3.4.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6769",
+          "material_read": "Accessible arXiv full PDF: introduction, model hypotheses and Theorem 3.4",
+          "method": "Read relevant primary theorem and assumptions",
+          "title": "Bounded size biased couplings, log concave distributions and concentration of measure for occupancy models",
+          "trigger": "Occupancy count thresholds may dominate concentration/sign results"
+        },
+        {
+          "assessment": "Different axis of switch (frequency r versus sample N); different stats (richness vs unseen), iid uniform instead of symmetric DM mixture.",
+          "evidence": "Published result: Cov(K,K_r) exact uniform iid law with r threshold; does not cover Cov(C0,C2) in DM fixed shape.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Entire published RESULT.md mathematical theorem, proof and hypotheses, Git blob 8838c14cbce160e36ffc784101b18b821bbc369a",
+          "method": "Read primary public GitHub source",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Published prior with superficially identical one-switch vocabulary"
+        },
+        {
+          "assessment": "Discovery indicator covariance of adjacent draws differs from occupancy-count covariance across all draws under random P.",
+          "evidence": "Published result concerns Cov(D_{n+1}, D_{n+2}) with fixed iid species law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+          "material_read": "Entire published RESULT.md including conditional missing-mass identity, examples and limitation",
+          "method": "Read primary public GitHub source",
+          "title": "Exact missing-mass covariance identity and sign reversal for successive species discoveries",
+          "trigger": "Related sign reversal in species sampling"
+        },
+        {
+          "assessment": "Covariance and inverse of empty indicators for iid fixed p; neither concerns doubleton count nor Dirichlet-mixture all-N sign switch.",
+          "evidence": "Published result proves empty-indicator covariance offdiagonal negative for fixed iid p; does not imply C0–C2 under mixing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "material_read": "Entire published RESULT.md theorem, proof and limitations",
+          "method": "Read primary public GitHub source",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "Same empty box indicators may determine aggregate covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finding, proof, scope and role of critical λ",
+        "Keener and Wu first-order occupancy-sum covariance and comparison"
+      ],
+      "rationale": "The unseen count C0 is the natural coverage statistic and doubletons C2 a frequency-of-frequencies measure in species richness/occupancy inference. Their dependence is a mathematically motivated joint invariant for a standard overdispersed symmetric DM allocation. A complete sign transition as sample size increases is stronger than elementary moment recomputation. The first-order covariance vanishes at λ=a/(a+1), so its explicit constant-order finite-size correction and nondegenerate limiting linear critical-window covariance resolve a genuinely delicate boundary not decided by the standard first-order theory. Fixed-a shape dependence is substantive, not arbitrary cherry-picked parameterization.",
+      "residual_risks": [
+        "The exact covariance factorization alone is classical and not independently valuable/original as a new theorem.",
+        "Applications to estimators were not proved; value rests on the precise natural covariance dependence classification itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No external scientific certification or author attribution is claimed.",
+    "The 1987 original source could not be read in full after authorized access returned VPN disconnected; O is best-of-knowledge with this explicit risk.",
+    "Independent exact finite composition enumeration covered 112 cells, not the entire infinite parameter family; analytic proof covers universal fixed-a claims.",
+    "Existing metadata and self-review audit files include an operational identifier and inaccurate first_public_date provenance; do not publish unchanged."
+  ],
+  "schema_version": 1
+}
