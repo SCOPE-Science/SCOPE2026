@@ -1,15 +1,21 @@
-# Review of the equivariant higher-independence classification
+# Independent mathematical audit
 
-## Correctness — PASS
-All 16,384 vertex subsets of the explicitly defined 14-vertex graph have been evaluated by independently implemented bitset search and union-find. The four complete matchings have, respectively, \(216,1133,2190,3234\) pairs, and directed topological-sort certificates check acyclicity over \(1435,10248,22211,35189\) incidences. Only a point and positive-dimensional equal-degree critical cells survive, so discrete Morse theory gives the integral wedge-of-spheres homotopy types directly; there is no unverified attaching map. A separate full binary boundary calculation agrees with the Betti numbers. Signed fixed-simplex Lefschetz sums compute all dihedral characters. Exact four-stage boundary reduction computes persistence, including the nonzero cutoff-two-to-three degree-five map. Re-executing the bundled script from the final package and comparing canonical outputs is an additional integrity check, not independent peer review.
+## correctness
 
-## Originality — PASS against accessible literature and prior records
-The 2020 source introducing higher-independence complexes explicitly treats cycles, paths, complete multipartite, fully whiskered and perfect rooted-tree cases; none is \(GP(7,2)\). The 2021 chordal work does not apply to this graph's induced seven-cycle. An inspected public Petersen graph result is only for \(GP(5,2)\), and a generalized Petersen graph-power theorem concerns Vietoris–Rips complexes, not higher-independence complexes. The prior available result ledger contains higher-independence work on dodecahedral/Desargues, Petersen, Chvátal and Paley graphs, not the present graph or uniform result. Searches under the object, graph aliases, exact dimension/character fingerprints and stronger family hypotheses did not yield a result implying the four-stage integral homotopy, inclusion rank, or dihedral representation. Equivalent unindexed results and hidden implications remain realistic residual risks, rather than being ruled out by database silence.
+PASS
 
-## Value — PASS
-This is a natural initial-filtration classification for a named well-covered cubic graph, not a parameter cherry-picked for one numerical rank. It identifies a nontrivial degree-five persistence map between spheres and an eight-sphere wedge, plus complete rational dihedral characters distinguishing sign and augmentation modules. These determine information that the nonequivariant Betti ranks alone cannot recover and supply an exact benchmark outside established chordal and cycle families. No broad or downstream theorem is needed for this finite natural classification, and none is claimed.
+Independently enumerated all 16,384 vertex masks with induced connected-component bound and verified stage counts (including empty) 435, 2269, 4390, 6476. Fresh Morse matching/complete directed Hasse acyclicity checks gave matched pairs 216,1133,2190,3234 and critical cells (0:1,3:1),(0:1,5:1),(0:1,5:8),(0:1,6:6), establishing integral wedges S3,S5,8S5,6S6. Independent 6475-simplex F2 persistence reduction gives finite bars (degree3 [1,2) one), (degree5 [2,4) one and [3,4) seven), and six degree6 classes alive at the end cutoff4. All four stages were independently subjected to orientation-signed fixed-face Lefschetz traces for identity/rotation conjugacy representatives/reflection, yielding (1,1,1,1,1),(1,1,1,1,-1),(8,1,1,1,-2),(6,-1,-1,-1,0); thus rational modules 1, epsilon, 2epsilon+augmentation, augmentation. Mod-two degree5 map K2->K3 nonzero hence nonzero/injective integral map Z->Z^8. No infinite-family claim.
 
-## Limitations
-No integral representation lattice or primitive-index result; no behavior beyond cutoff four; no all-parameter generalized Petersen theorem. Independent human audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary-theorem/parameter/complex comparison and semantic Resultary query ('higher independence complex generalized Petersen GP(7,2) equivariant dihedral persistence') found no examined theorem that implies the precise claim. Matching graph names, smaller parameters, different simplicial constructions and broad hypotheses were compared by mathematical implication; failed retrieval is not absolute novelty proof. See four structured comparisons and residual risks.
+
+## value
+
+PASS
+
+GP(7,2) is a natural well-covered nonchordal cubic graph (49 independent facets of size5). A complete four-cutoff integral homotopy sequence, nontrivial degree-five inclusion map and dihedral character changes provide an independently useful combined equivariant and persistent invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
