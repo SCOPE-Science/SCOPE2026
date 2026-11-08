@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For a hub joined to disjoint clique blades, the vertex deletion is the join of all blade \((t-2)\)-skeleta and the hub link is the join of their \((t-3)\)-skeleta. The mapping-cone identity is an equality of simplicial complexes. The link has dimension \(k(t-2)-1\), while the deletion is either contractible or \((k(t-1)-2)\)-connected, making the inclusion null. Standard simplex-augmentation chains give the integral homology \(\bigwedge^r\ker\varepsilon\); join Künneth and the equivariant mapping-cone exact sequence establish both integral modules with all orientation signs. The complete character formula follows by exterior-power determinants and tensor-cycle traces. Boundary cases with small blades are explicitly treated. A finite, separately executable checker verifies 16 graph parameter choices and 3,886 signed automorphism traces, but all-parameter correctness rests on the proof, not those tests.
+
+## Originality — PASS, with an explicitly bounded priority risk
+The full first-public v1 manuscript of Ghosh and Selvaraja (arXiv:2602.09623v1, 10 February 2026) was inspected. Its block-graph shellability theorem applies here and is acknowledged as prior art. Its paper-level discussion does not supply the present explicit two-grade homotopy calculation or the natural integral automorphism modules, and it does not compute exchanges of entire blades. Moradi (2018) treats higher clique ideals and other graph classes, not this homology action. A search of published mathematical findings for clique-free windmills, aliases, split constructions, augmentation/exterior-power representations and broader shellability returned no result implying the same statement. In particular, similarly named windmill general-position and block-graph neighborhood-complex results concern different simplicial complexes. No database search establishes universal uniqueness: an unindexed special-case or general equivariant complex theorem remains a real residual risk.
+
+## Mathematical value — PASS
+The complete two-grade homotopy decomposition detects a natural mixed-dimensional transition, and the integral \(\Gamma\)-module equations distinguish representations with the same Betti numbers. The sign for interchanging entire clique blades is forced by graded topological join geometry and can change the invariant homology even when nonequivariant ranks agree. This is a uniform, parameter-explicit refinement for an infinite family of block graphs, rather than a numerical table extension or renaming of the known shellability property.
+
+## Boundaries and closest literature
+The homotopy equivalence is ordinary, not \(\Gamma\)-equivariant. No fixed-point homotopy classification, torsion outside the stated groups, or arbitrary-block-graph extension is claimed. Closest prior literature: Ghosh–Selvaraja, arXiv:2602.09623v1, particularly Section 3, and Moradi (2018) on clique ideals. Source text read is reported in the structured audit; independent audit and validation are unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
