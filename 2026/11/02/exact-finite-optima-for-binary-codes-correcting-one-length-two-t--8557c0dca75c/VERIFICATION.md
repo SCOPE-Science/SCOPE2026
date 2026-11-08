@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The package contains `verify.cpp`, `crosscheck.py`, and `alpha.csv`. Compile `verify.cpp` using `g++ -std=c++17 -O3 verify.cpp -o verify` and execute `./verify` in the same directory. It should enumerate all length-3 through length-15 exact code maxima and end with `VERIFY_OK`.
+## correctness
 
-Run `python3 crosscheck.py` to reconstruct all direct one-duplication descendant sets for every binary input and solve their exact compatibility graphs for source lengths three through nine, ending with `CROSSCHECK_OK`. This cross-check does not rely on the derivative or composition reduction.
+PASS
 
-The C++ algorithm generates the same 56 graph types whose exact independence numbers are listed in `alpha.csv`, proves each maximum by an exhaustive color-bound branch-and-bound enumeration, and checks every codeword and every duplicated output of the constructed code. The external-table file is supplied for human inspection, not substituted for executable checking.
+The two-bit prefix/derivative map is bijective and tandem duplication inserts 00 into one derivative zero run. Distinct parity/root classes cannot confound; within each class one duplication collision is equivalent to L1-distance 2 among compositions. Therefore maximum M(n) is weighted sum of α(m,t) for exactly 56 distinct graph types up to n=15. Reviewed verify.cpp uses exhaustive maximum-clique branch/color upper bounds and witness checks, not timeout as negative evidence; independent scipy.optimize.milp solved every one of 56 integer maximum independent sets to proven optimality (including 126-vertex graph), and weighted sums reproduced all thirteen n=3..15 optima. Independent direct original-channel maximum clique checks n=3..6 matched.
 
-No independent scientific or external audit was performed. The exhaustive domain ends at length fifteen. Reproduction depends on a C++17 compiler that supports GCC's bitset set-bit iteration extension; `crosscheck.py` uses the Python standard library.
+## originality
+
+PASS
+
+The signed table n=3..15 solves the finite exact-one binary length-two tandem-duplication code optimum, building on the already-published derivative and constant-weight L1 graph reduction; direct MILP independently certified all 56 class-graph optima.
+
+## value
+
+PASS
+
+The 3..15 exact one-error code sizes are natural finite capacity invariants for tandem-duplication correction. The table quantifies the first departures from unique-root unbounded-duplication codes and can serve as a benchmark for finite code constructions; all values have independent exact optimization certificates, not a handpicked arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
