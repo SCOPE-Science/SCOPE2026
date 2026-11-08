@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is restricted to uniformly chosen unlabelled isomorphism classes of coloured bijections. Burnside's necklace formula gives an ordinary multiset generating function with exactly one dominant simple pole for any fixed \(q\geq2\). This yields exact geometric multiplicity limits with exponential coefficient errors. The independent bound for necklaces missing a prescribed local colour word establishes exponentially likely saturation of long-cycle neighbourhoods; bounded-degree Hanf locality converts every first-order sentence into finitely many capped necklace-multiplicity conditions. All their limit probabilities are rational and all errors exponential. The separate \(q=1\) argument uses classical partition asymptotics and does not claim a new zero-one theorem. The standalone checker verifies finite coefficient identities and limit examples; it is not treated as an infinite proof.
+## correctness
 
-**Originality — PASS in inspected evidence.** Kuželka (arXiv:2608.30580) proves model-counting complexity and an automorphism-marking reduction rather than these probabilistic conclusions. Albert–Bouvel–Féray (arXiv:1808.05459v2) explicitly credit the uncoloured unlabelled zero-one law to Compton. Burris–Yeats (DMTCS 2008, Section 6.1) supply a broad zero-one criterion, which does not assert the \(q\geq2\) rational convergence and exponential bounds. Independent indexed literature searches found no matching theorem; nearest results concern labelled structures or different necklace invariants. Historical priority is not established by a failed search: older Compton transfer principles might subsume part or all of the result and were not inspected in their original full text.
+PASS
 
-**Value — PASS.** The finding gives a complete first-order limiting-probability description in a model class singled out by unlabeled unary-function counting. It distinguishes two natural sampling measures, identifies a sharp colour boundary, and obtains a quantitative rate that is not implied by first-order convergence alone. The exceptional-word bound and Hanf reduction explain why an infinite collection of possible coloured cycles reduces to finitely many rational parameters.
+For q>=2 an isomorphism class of a colour-partitioned bijection is exactly a multiset of directed q-colour necklaces, with Euler product ∏(1-z^d)^(-N_q(d)); Burnside gives N_q(d)=q^d/d+O(d q^(d/2)). Taking logarithms isolates H_q(z)/(1-qz), with H analytic and nonzero for |z|<q^(-1/2), so u_{n-s}/u_n=q^(-s)+exponentially small error. Marking finitely many specified necklaces gives independent geometric limits (1-q^(-d))q^(-jd) and rational capped-multiplicity event limits. For each local colour word v of radius R, necklaces deficient in T occurrences grow at exponential base beta<q by disjoint-block binomial bound; the multiset Euler product for deficient components converges beyond 1/q, proving exponential saturation of all long-cycle local types. Bounded-degree Hanf threshold locality then reduces any fixed first-order sentence (with function graph translated to binary relation) to finitely many capped short-necklace multiplicities, proving rational limit with exponential error. Excluding n=0 from sampling is harmless; q=1 is explicitly prior, with slower partition-ratio convergence. Independent Burnside counts for q=2 d<=7 and exact coefficient ratios were checked; not substituted for locality theorem.
 
-**Scientific limits.** Only bijections, fixed named colour partitions and ordinary first-order sentences are covered. No priority certificate or independent validation is claimed. The existing uncoloured zero-one law is credited as known. General older component-distribution literature remains a possible broader ancestor; one original paper was not available in full text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The uncoloured-unlabelled zero-one law, necklace Burnside counts, and combinatorial transfer ideas are classical. Kuželka 2026 treats closely related unary functions, automorphisms and unlabelled counting, but accessible abstract alone does not resolve all conclusions; full text is an explicitly prioritized residual risk. No inspected source states the complete q>=2 rational first-order limit with exponential error under *uniform isomorphism-class* sampling and independent geometric necklace counts.
+
+## value
+
+PASS
+
+The explicit all-sentence first-order limiting distribution and exponential convergence in a natural unlabelled model with named colours is a sharp transition from the known uncoloured zero-one law. Independent geometric necklace multiplicities give concrete nontrivial rational probabilities. This is a motivated logical/probabilistic classification, not a numerical sample or renaming of labelled Poisson laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
