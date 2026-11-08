@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard-library interpreter. The script requires no external files, packages, network or random seeds. It constructs the 12 graph vertices and 18 graph edges directly.
+## correctness
 
-Actual successful checks: 1,104 augmented simplices; face vector \((18,117,336,420,192,20)\); matching polynomial \((1,18,117,336,420,192,20)\) by independent vertex-deletion recursion; 545 acyclic ordinary-face-poset pairs; 13 critical cells, one in dimension zero and twelve in dimension three; 4,002 complete codimension-one incidences and successful topological sort of all 1,103 nonempty simplices; reduced mod-two Betti numbers \((0,0,0,12,0,0)\). The discrete-Morse result proves the integral wedge of spheres, not merely the mod-two ranks.
+PASS
 
-The same script checks all 24 element actions of \(D_6\times C_2\), the exact signed Lefschetz character rows, character orthogonality, the rational irreducible multiplicities, the layer-swap eigenspace dimensions \((5,7)\), and a unique fixed rational homology line.
+For exactly the twelve-vertex graph C6 square K2 with its 18 rim/rung edges and the ordinary (not perfect-only) matching complex, face enumeration gives 1,104 augmented faces with 1,18,117,336,420,192,20 by size. I independently constructed the face family from edge-disjoint endpoint masks and replayed the pivot-toggle matching: 546 augmented pairs, 12 residual four-edge faces; after removing the empty pair there is one critical 0-cell and twelve critical 3-cells. I independently oriented all 4,020 augmented Hasse incidences, checked a topological order of all 1,104 vertices (4,002 nonempty incidences), hence acyclicity. Forman then gives an integral wedge of twelve S3, not just Betti ranks. The inspected code computes signed fixed-matching reduced Lefschetz sums for all 24 graph automorphisms and exact rational D6 x C2 orthogonality; its character rows and multiplicities are consistent (total dimension 12, layer trace -2 -> 5/7 eigenspaces, trivial multiplicity one). The independent checker specifically confirms the topological premise; no universal prism assertion is inferred.
 
-The Morse matching is not asserted to be group-equivariant; the homology character is computed independently from signed simplicial traces. There is no claim about larger circular ladders, integral representation lattices, or independent validation.
+## originality
+
+PASS
+
+Best-of-knowledge distinct finite graph/complex and representation. The close ladder paper treats independence and perfect-matching complexes, not ordinary all-matchings; the 3-regular prism is not outerplanar, and a published total three-cut result studies a different functor. Search absence is not proof of novelty; most recent full ladder manuscript remains inaccessible.
+
+## value
+
+PASS
+
+The nonouterplanar smallest even cyclic ladder after the cube has a natural ordinary matching complex with maximal nonperfect matchings; both its integral homotopy and the FULL D6 x C2 character are meaningful missing exact invariants, not just a finite count. The 5 versus 7 layer eigenspace split and the unique global invariant line cannot be recovered from a wedge multiplicity or the recently studied perfect-matching subcomplex. One explicit graph can be a useful symmetry benchmark without an all-ladder theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

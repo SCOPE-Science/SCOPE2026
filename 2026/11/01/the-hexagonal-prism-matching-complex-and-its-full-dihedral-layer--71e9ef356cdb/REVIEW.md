@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex and edge sets of the graph and all quantifiers are explicit. Exact enumeration yields 1,104 augmented faces and the matching polynomial independently yields the same face counts. The checker constructs all 545 matching pairs in the ordinary face poset and checks all 4,002 oriented incidences for a directed cycle; it finds one critical 0-cell and twelve critical 3-cells and no others. Discrete Morse theory therefore proves the integral homotopy equivalence, rather than inferring it from a finite-field Betti number. The character is evaluated directly on all 24 graph automorphisms, and exact orthogonality checks its decomposition. No claims are made for other prism sizes.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The nearest first-version primary manuscript on ladder complexes (Agarwal–Basak, arXiv:2608.30601v1, Introduction, Definitions, Theorems and Future Directions) determines independence and perfect-matching complexes, not the full ordinary edge matching complex. Its revised v2 abstract similarly names only those objects; the complete revised text could not be obtained and is a residual risk. The outerplanar theorem (Bayer–Jelić Milutinović–Vega, arXiv:2411.04601) excludes this 3-regular prism. Matsushita's 2019 open-grid setting does not identify the cyclic closure. Indexed findings on the total three-cut complex of the same graph, and on the six-rung open ladder matching complex, concern different complexes or graphs, and do not determine the stated \(D_6\times C_2\) homology action. Searches under the line-graph independence-complex equivalence and all named symmetries found no covering theorem, which alone is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This is the first non-cubical even-width circular ladder for which a complete ordinary-matching-complex sphere-wedge certificate and its full natural automorphism representation are furnished together. The representation-theoretic refinement distinguishes its five layer-even and seven layer-odd homology dimensions and exhibits a unique full-group invariant class, none of which follows from knowing the Betti number. The distinction from the recently studied perfect-matching complex is mathematically substantive: six maximal four-edge and 72 maximal five-edge matchings are not even contained in its perfect-matching subcomplex. The result is a natural nonouterplanar finite benchmark; it neither claims nor needs an all-parameter classification.
+For exactly the twelve-vertex graph C6 square K2 with its 18 rim/rung edges and the ordinary (not perfect-only) matching complex, face enumeration gives 1,104 augmented faces with 1,18,117,336,420,192,20 by size. I independently constructed the face family from edge-disjoint endpoint masks and replayed the pivot-toggle matching: 546 augmented pairs, 12 residual four-edge faces; after removing the empty pair there is one critical 0-cell and twelve critical 3-cells. I independently oriented all 4,020 augmented Hasse incidences, checked a topological order of all 1,104 vertices (4,002 nonempty incidences), hence acyclicity. Forman then gives an integral wedge of twelve S3, not just Betti ranks. The inspected code computes signed fixed-matching reduced Lefschetz sums for all 24 graph automorphisms and exact rational D6 x C2 orthogonality; its character rows and multiplicities are consistent (total dimension 12, layer trace -2 -> 5/7 eigenspaces, trivial multiplicity one). The independent checker specifically confirms the topological premise; no universal prism assertion is inferred.
 
-## Closest sources and limitations
-Agarwal–Basak, arXiv:2608.30601v1 (detailed first-version text); arXiv:2608.30601v2 (abstract only); Bayer–Jelić Milutinović–Vega, arXiv:2411.04601 (scope and abstract); Matsushita, doi:10.37236/8480 (publisher abstract). Unindexed equivalent work and an unexamined revised section remain residual originality risks. Mathematical verification is reproducible, not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct finite graph/complex and representation. The close ladder paper treats independence and perfect-matching complexes, not ordinary all-matchings; the 3-regular prism is not outerplanar, and a published total three-cut result studies a different functor. Search absence is not proof of novelty; most recent full ladder manuscript remains inaccessible.
+
+## value
+
+PASS
+
+The nonouterplanar smallest even cyclic ladder after the cube has a natural ordinary matching complex with maximal nonperfect matchings; both its integral homotopy and the FULL D6 x C2 character are meaningful missing exact invariants, not just a finite count. The 5 versus 7 layer eigenspace split and the unique global invariant line cannot be recovered from a wedge multiplicity or the recently studied perfect-matching subcomplex. One explicit graph can be a useful symmetry benchmark without an all-ladder theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
