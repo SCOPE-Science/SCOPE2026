@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact substitution of the published two-stage CS-SAM update yields t_next=t|1-gamma F_rho(t)|. Strict F_rho decrease and strict (tF_rho) increase establish subcritical global contraction, the unique supercritical cycle and its global attraction despite overshoots; a reciprocal-increment proof yields the exact critical k^{-1} constant. Exact rational example rho=1, gamma=10/3 has two-cycle x=+-1/ell, and the standalone checker passes 11,865 auxiliary checks. These tests do not replace the infinite-dimensional quantifiers of the analytic proof; the theorem is scalar only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vankov et al., arXiv:2410.10800v3, Sections 3-4: convergence-complexity and stepsize guarantees for one-stage gradient methods; no sharp two-stage CS-SAM criterion or positive-perturbation periodic-orbit classification is stated.",
+        "Oikonomou--Loizou, Theorem 3.1: general generalized-smooth convergence rates assume chi(rho,gamma)>0, implying rho<log2; they do not give an if-and-only-if global scalar threshold valid at arbitrary rho.",
+        "Rossi--Campelo--Oliveira, arXiv:2610.20415v1, Section 2.2: CAP-SAM changes the perturbation radius using a history-dependent sharpness ratio, not the CS-SAM double-normalized fixed-rho update."
+      ],
+      "reasoning": "The examined broad convergence theorems provide sufficient bounds for different parameter regimes or different update rules. Their conclusions neither establish supercritical limit-cycle attraction nor imply the exact gamma=2/(1+rho) boundary and its equality asymptotics.",
+      "searches": [
+        "L0 L1 smooth normalized gradient descent scalar quadratic exact periodic orbit large steps",
+        "gradient normalized by 1+absolute value x global attracting 2-cycle overstep phase transition",
+        "Vankov Rodomanov Nedich Sankar Stich Optimizing L0 L1 Smooth Functions by Gradient Methods arXiv:2410.10800v3 Section 3 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2610.29192v1",
+      "https://jmlr.org/papers/volume24/23-043/23-043.pdf",
+      "https://arxiv.org/html/2410.10800v3",
+      "https://arxiv.org/pdf/2610.20415v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Oikonomou--Loizou gives the defining CS-SAM algorithm and a conservative global convergence certificate but no assertion that supercritical trajectories converge to a unique nonzero period-two orbit for M=a(1+ell|x|).",
+        "Bartlett--Long--Bousquet analyze rho * gradient/gradient-norm perturbations; their oscillation is driven by a fixed-radius discontinuity, in contrast to a continuous gradient-proportional perturbation near zero.",
+        "Rossi--Campelo--Oliveira introduce a memory-dependent radius control and a stochastic asymptotic convergence bound, without matching fixed-rho two-scale recurrence."
+      ],
+      "reasoning": "Neither a sufficient small-step theorem nor a standard-SAM cycle implies global convergence for every gamma below an exact boundary, the critical 1/k coefficient, or global supercritical attraction to an explicit two-cycle for CS-SAM with positive gradient-dependent curvature. The final claim is stronger in these specific senses, but makes no claim for the general function class.",
+      "searches": [
+        "Oikonomou Loizou CS-SAM Theorem 3.1 chi rho gamma and constant-scale quadratic Appendix E",
+        "Bartlett Long Bousquet dynamics sharpness-aware minimization fixed-radius quadratic two-cycle theorem",
+        "One Size Does Not Fit All curvature-aware adaptive perturbation CAP-SAM method equation 3",
+        "2026 curvature-scaled CS-SAM two-cycle overstep phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oikonomou--Loizou, arXiv:2610.29192v1, pp. 2 and 6-9: two-scale update and conservative sufficient convergence parameters; the scalar quadratic numerical illustration chooses constant curvature scale and obtains a linear update.",
+        "Oikonomou--Loizou, arXiv:2610.29192v1, Proposition 2.1 and Appendix C: the explicit nonzero two-cycle is for fixed-radius standard SAM, whose perturbation does not vanish with the gradient.",
+        "Bartlett--Long--Bousquet, JMLR 24(316), 2023, Sections 3-4: standard SAM quadratic cycles have a fixed-radius perturbation and a different scalar map."
+      ],
+      "reasoning": "A conventional fixed-radius SAM cycle and a constant-scale CS-SAM linear recurrence are not equivalent to the double-scaled rational map with M(x)=a(1+ell|x|), ell>0. The latter has global supercritical attraction and a critical inverse-time amplitude law; neither earlier statement logically implies that rational phase portrait.",
+      "searches": [
+        "Curvature-scaled sharpness-aware minimization CS-SAM scalar quadratic gradient-dependent curvature scale two-cycle",
+        "Normalized gradient-scaled SAM strong convex quadratic rational iteration critical inverse k decay unique attracting symmetric two-cycle",
+        "arXiv:2610.29192v1 equations (CS-SAM), Theorem 3.1, Proposition 2.1, Appendix C and E"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record search surfaced the nearest distinct titles: Exact chattering band and transverse spectrum of constant-step Lion; A sharp flip frontier for the Polar-Express surrogate on scalar quadratics; A loose SPS lower bound restores the scalar gradient-descent stability ceiling.",
+        "Exact source search located Oikonomou--Loizou arXiv:2610.29192v1 but not a catalog or computed table giving the global two-parameter CS-SAM phase boundary."
+      ],
+      "reasoning": "The surfaced exact parameter thresholds concern other update mechanisms, not the CS-SAM two-stage composition. No matching all-parameter phase-portrait table was found. Failure to find one is not by itself evidence of novelty; the statement-by-statement source comparisons above supply the substantive distinction.",
+      "searches": [
+        "Curvature-Scaled Sharpness-Aware Minimization CS-SAM scalar quadratic variable gradient curvature upper scale L0 + L1 |gradient| global two-cycle overstepsize 2/(1+rho) boundary",
+        "Curvature-scaled sharpness-aware minimization CS-SAM Oikonomou Loizou exact scalar quadratic global convergence arbitrary perturbation rho critical learning step 2/(1+rho) periodic oscillations",
+        "Generalized smoothness CS-SAM gradient dependent curvature L0+L1 absolute gradient over-relaxation global attracting orbit",
+        "CS-SAM curvature scaled sharpness aware minimization quadratic step size cycle convergence"
+      ]
+    },
+    "rationale": "Relevant primary full-text comparisons found only general sufficient CS-SAM stepsize criteria, a constant-scale linear example, ordinary SAM cycles, distinct one-stage gradient scaling and a distinct dynamic-radius variant. Statement-level comparison did not identify a source implying the exact two-stage rational global threshold, critical decay and unique nonzero supercritical attractor with ell>0. Historical priority is qualified, not certified.",
+    "residual_risks": [
+      "A differently named, unindexed analysis of the identical rational map may subsume the result.",
+      "The parameter scaling is admissible but intentionally nonminimal for a quadratic; applications depend on use of such bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces algorithm, bounds general rates, and provides standard-SAM rather than positive-scale CS-SAM two-cycle; no exact full scalar phase portrait in inspected relevant passages.",
+        "evidence": [
+          "Equation CS-SAM p. 2; Theorem 3.1 p. 7; Proposition 2.1 p. 4; Section 4.1 p. 9; Appendix C p. 22; Appendix E p. 28."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.29192v1",
+        "material_read": "Relevant passages in PDF pp. 1-9, the Appendix C proof at p. 22, and the Appendix E experiment protocol at pp. 28-29; actual update, theorem bounds and examples compared.",
+        "method": "Primary PDF text and page render; compared exact maps and quantifiers.",
+        "title": "Curvature-Scaled Sharpness-Aware Minimization: Convergence Beyond Smoothness",
+        "trigger": "Defines the exact two-scale iteration and its previously sufficient step constraints."
+      },
+      {
+        "assessment": "Uses fixed-radius standard SAM update, not the gradient-dependent two-stage curvature-scaled rule. The previously established cycles do not cover the new rational-map phase portrait.",
+        "evidence": [
+          "Section 3 equation (2), p. 2; theorem for quadratic SAM in Sections 3-4."
+        ],
+        "identifier_or_url": "https://jmlr.org/papers/volume24/23-043/23-043.pdf",
+        "material_read": "Relevant mathematical passages in PDF Sections 1, 3 and 4 (main theorem and update on pp. 1-7), with selected conclusion/local-analysis sections.",
+        "method": "Primary PDF text and page render, direct update-rule comparison.",
+        "title": "The Dynamics of Sharpness-Aware Minimization: Bouncing Across Ravines and Drifting Towards Wide Minima",
+        "trigger": "Potentially stronger full-text coverage for SAM two-cycles on convex quadratics."
+      },
+      {
+        "assessment": "Focuses on one-stage gradient methods and complexity guarantees; does not supply the two-stage CS-SAM global bifurcation theorem.",
+        "evidence": [
+          "Definition 2.1; Section 3 step formulas (10),(13); Section 4 normalized gradient method."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.10800v3",
+        "material_read": "Selected full-text HTML passages in Sections 1-4 (smoothness definition, parameter nonuniqueness, step rules and convex convergence) and Appendix A.1.",
+        "method": "Read relevant primary HTML mathematical text and compare algorithm state and claims.",
+        "title": "Optimizing (L0,L1)-Smooth Functions by Gradient Methods",
+        "trigger": "Earlier potentially broad gradient-dependent stepsize/normalized gradient literature."
+      },
+      {
+        "assessment": "Historical radius-dependent CAP-SAM differs from fixed-rho CS-SAM and does not cover the rational-map global phase boundary.",
+        "evidence": [
+          "Section 2.2 formula for dynamic radius based on gradient ratio; Section 3.1 stochastic rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.20415v1",
+        "material_read": "Relevant PDF passages in pp. 1-4, especially Section 2.2 update (3) and Section 3.1 theorem.",
+        "method": "Primary PDF text and rendered method page.",
+        "title": "One Size Does Not Fit All: Curvature-Aware Adaptive Perturbation for SAM",
+        "trigger": "A superficially close 2026 curvature-adaptive SAM variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b52e2697-411c-43f0-92f4-791381cd5c9e",
+  "value": {
+    "rationale": "This is a complete exact global classification of a new two-scale optimization update at every perturbation and step size, not merely local linear stability. It isolates a sharp convergence/nonoptimal-cycle boundary, the critical inverse-time coefficient, and a qualitative contrast with the constant-scale divergence law, giving a mathematically motivated parameter and curvature-scale sensitivity diagnostic. This precise question is not answered by the source paper’s conservative sufficient theory.",
+    "status": "PASS"
+  }
+}
