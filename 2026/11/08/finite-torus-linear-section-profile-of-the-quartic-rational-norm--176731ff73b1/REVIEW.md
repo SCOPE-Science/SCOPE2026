@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The six upper bounds follow from a complete factor/resultant case split for spaces of dimensions one through three, the Vandermonde collinearity criterion for four sections, and projective injectivity for five sections. Each is attained by an explicit linear subspace. Injectivity of torus evaluation holds for \(q\ge5\). Exact arithmetic independently checks the complete field-of-five point-subset exclusions and witnesses over three prime fields. No computational finite-field census is used as a proof for all fields.
+
+**Originality (PASS; provisional historical priority).** Hansen's original Hirzebruch construction and Little–Schenck's Minkowski approach concern code dimension and minimum distance. The full-text 2018 projective-torus paper gives generalized weights of different complete-intersection/Reed–Muller-type codes. The 2015 rational-normal-scroll paper evaluates on the entire projective scroll and gives minimum-distance bounds/values rather than the dense-torus six-level linear-section profile. Geil–Thomsen (2011) includes this same six-monomial space as the weighted-degree-three \((1,2)\) code, but its exact statements concern dimension, minimum distance, and decoding, not the full six-level generalized-weight hierarchy. The 2020 hypersimplex paper treats squarefree monomials. No identical or dominating result was identified in the sources checked, and the full-data search found no matched finding. A missed earlier finite-geometry classification remains a priority risk, not a claim of exhaustive literature uniqueness.
+
+**Value (PASS).** This determines a complete, natural geometric incidence invariant of the quartic rational normal scroll over all finite fields of adequate cardinality. The third extremum, one entire ruling plus precisely one extra point, distinguishes the higher-incidence geometry beyond Hansen's minimum distance. The full six-level hierarchy also supplies exact support invariants for the attached natural toric code rather than an arbitrary finite example.
+
+**Limits.** The claim concerns distinct dense-torus rational points only. It excludes small fields, does not classify all extremizing subspaces, and has not received independent specialist review.
+
+Self-review: passed. Independent audit: not yet performed.
