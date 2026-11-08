@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Both graph constructors satisfy the strongly regular relation \\(A^2=4I+2\\mathbf1\\mathbf1^{\\mathsf T}\\). Explicit spectral projectors yield the necessary/sufficient dark-subspace formula \\(D_T=15-\\operatorname{rank}B_T-\\operatorname{rank}C_T\\) for each nine-site subset. Strict positivity of losses proves all no-jump eigenvalues have strictly negative imaginary parts if and only if D_T=0. All 11,440 masks per graph were enumerated exactly by a fraction-free rank checker, independently matched by a two-prime Krylov checker with rigorous Hadamard minor bounds. Complete count and positive-loss quantifiers are proved; no sampling-to-infinity inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gamble et al. (arXiv:1002.3003), Sections II.2-II.3 and III, prove baseline one-particle SRG Green-function restrictions; no nine-detector loss census was found in those sections.",
+        "Rudinger et al. (arXiv:1207.4535), Sections III-VI and Table I, analyze graph certificates from discrete/continuous walks and include the (16,6,2,2) pair, without placing nine lossy monitors.",
+        "Godsil et al. (arXiv:1710.02181), Theorem 9 in Section 4, gives two-vertex edge/loop perturbations; its scope does not include nine arbitrary absorber sites or placement counts.",
+        "Wananiyakul, Steuding and Tongsomporn (2022), indexed Section 4, distinguish the same pair with a generalized adjacency-matrix characteristic polynomial; this is a different spectral deformation, not a local positive-loss or detector-placement count."
+      ],
+      "reasoning": "Single- and two-particle walk-isomorphism limitations and two-vertex perturbation formulas supply relevant structure but do not entail the exact 3,936 versus 7,200 full-capture counts. Nor do they imply the dark-dimension histograms without further graph-specific combinatorial enumeration.",
+      "searches": [
+        "\"Shrikhande\" \"rook\" \"minimum\" \"control\" \"9\" vertices",
+        "strongly regular graphs same parameters induced marked subgraph quantum walks all times cospectral perturbations isospectral",
+        "\"Shrikhande\" \"star complement\" \"rook\" enumeration",
+        "\"How to Distinguish Cospectral Graphs\" Shrikhande rook absorber"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0903.3288v1",
+      "arxiv:1002.3003v1",
+      "arxiv:1207.4535v1",
+      "arxiv:1710.02181v1",
+      "doi:10.3390/math10244802 (indexed Section 4 only; full text rate-limited)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously available two-site loss result on primitive strongly regular graphs establishes bright dimension five for two traps, which cannot imply existence or counting of full capture under nine traps.",
+        "Earlier graph-state and classical Ising comparisons of the rook and Shrikhande graphs concern different Hilbert spaces/observables, not the one-excitation no-jump dark-space rank.",
+        "Agliari, Mülken and Blumen (arXiv:0903.3288), Sections III-VI, analyze loss and trapping on cycles, not this cospectral SRG pair."
+      ],
+      "reasoning": "Neither the general SRG eigenspace multiplicities nor the known two-trap case alone determine how frequently nine particular coordinates are jointly injective on the six- and nine-dimensional eigenspaces. The new exact finite census establishes that missing graph-specific invariant; the matched-induced-subgraph equivalence is used as a limitation, not to overstate discrimination.",
+      "searches": [
+        "quantum walks on strongly regular graphs distinction via local loss absorption trap placements minimal eigenspace multiplicity",
+        "strongly regular graph minimum number control vertices full eigenspace rank trap sites Shrikhande rook",
+        "\"Shrikhande\" \"rook\" \"zero forcing\" size spectrum quantum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For any real-symmetric graph adjacency matrix, the number of surviving lossless modes is the sum of eigenspace kernel dimensions under restriction to monitored sites.",
+        "Godsil et al. (arXiv:1710.02181), Section 4, writes strongly regular spectral projectors in the span of the identity, adjacency matrix and its complement; this implies the known projector/Gram formulation.",
+        "The star-set formulation for eigenvalue -2 concerns rank of the restricted -2 projector, but full capture additionally needs the rank-six +2 sector."
+      ],
+      "reasoning": "The rank criterion is mathematically equivalent to PBH observability and star-set language and is not asserted to be new. What is compared for novelty is the complete labelled-nine-site dark-dimension distribution on the two concrete graphs; no inspected formulation supplies these pair-specific counts or their all-positive-loss interpretation.",
+      "searches": [
+        "\"Shrikhande\" \"rook\" \"absorbing\" \"quantum walk\"",
+        "star sets Shrikhande graph 9 vertices counts star complement",
+        "strongly regular graphs spectral projectors local traps coherent perfect absorption monitored quantum dynamics induced marked subgraphs identical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two independently replayed exact enumerators output the complete joint rank table with total 11,440 for each graph.",
+        "For the rook graph, 4,096 nine-site sets have full rank in the -2 eigenspace, consistent with the \\(4^3\\cdot4^3=4{,}096\\) spanning trees of \\(K_{4,4}\\) after the line-graph/star-complement correspondence.",
+        "The searches did not surface a published exact table of nine-monitor all-mode capture counts for this pair."
+      ],
+      "reasoning": "The numbers 4,096 and 7,312 by themselves describe only one spectral sector; complete quantum absorption requires simultaneous full rank of both nontrivial eigenspaces. No matching exact quantum-absorption census was found; absence of a search result is not used as a proof of novelty.",
+      "searches": [
+        "\"Shrikhande\" \"3936\" \"7200\" controllability",
+        "\"Shrikhande\" \"7200\" star complements",
+        "\"Shrikhande\" \"7312\" star sets",
+        "\"rook graph\" \"4096\" star complements",
+        "Shrikhande 9 vertex star complements counts eigenvalue -2 enumeration"
+      ]
+    },
+    "rationale": "Statement-level searches of published quantum-walk/trapping, strongly regular spectral-perturbation and star-complement literature, alongside accessible previous claims, found the known algebraic reduction and smaller-trap results but not the complete nine-monitor joint spectral-rank census. Two fully exact algorithms independently establish the new pair-specific numbers 3,936 and 7,200; their novelty is not inferred solely from failed searches. Priority risk persists for unindexed star-set or observability tables.",
+    "residual_risks": [
+      "The general projector/Gram identity and the nine-sensor multiplicity lower bound are established techniques, not standalone novelty.",
+      "An unindexed enumeration of star sets on the Shrikhande graph, or a specialized PBH observability placement catalogue, could overlap with part or all of the pair-specific census.",
+      "The result is finite and exact but has not undergone independent scientific review.",
+      "The indexed Section 4 of Wananiyakul et al. (2022) was inspected, but rate limiting prevented a complete article read; the excerpt concerns a different adjacency deformation and does not decide the nine-absorber census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats cycle traps and long-time survival, not sixteen-vertex strongly regular graphs or nine-site placement counts.",
+        "evidence": [
+          "arXiv submission 2009-03-19",
+          "Section IV gives nondecaying survival for periodic ring traps",
+          "Section VI discusses dependence on trap configurations"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0903.3288v1",
+        "material_read": "Sections II-VI, including trapping definitions, organized and random absorber results and conclusions",
+        "method": "Open full lawful arXiv HTML and inspect physical model and resulting survival claims",
+        "title": "Continuous-Time Quantum Walks and Trapping",
+        "trigger": "Physical meaning of dark states and positive local losses"
+      },
+      {
+        "assessment": "Shows baseline SRG Green-function constraints and multiparticle graph-isomorphism comparisons, not local nine-monitor absorption census.",
+        "evidence": [
+          "arXiv 1002.3003 public 2010-02-16",
+          "Section II.3 derives one-particle Green functions from SRG three-dimensional adjacency algebra"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1002.3003",
+        "material_read": "Full-text arXiv rendering, Section II.2-II.3 and Sections III-VI with emphasis on the one-particle Green-function proof",
+        "method": "Inspect full-text arXiv rendering and inspect formula A^2 in span of I,A,J and the one-particle certificate argument",
+        "title": "Two-particle quantum walks applied to the graph isomorphism problem",
+        "trigger": "Earlier one-particle indistinguishability on strongly regular graph families"
+      },
+      {
+        "assessment": "Tests single-particle discrete and multi-particle walk graph certificates; its (16,6,2,2) comparison lacks lossy nine-site monitors and the exact dark-dimension histogram.",
+        "evidence": [
+          "arXiv v1 2012-07-19",
+          "Table I lists pair (16,6,2,2)",
+          "Section V explicitly reports no single-particle certificate distinction for this pair"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1207.4535",
+        "material_read": "Pages 1-3 and 6-7, Sections II-VI and Table I; full-text keyword checks for marked sites, absorbers and traps",
+        "method": "Read lawful arXiv full-text PDF and inspect page screenshots plus extracted article text",
+        "title": "Comparing algorithms for graph isomorphism using discrete- and continuous-time quantum random walks",
+        "trigger": "Explicit pair (16,6,2,2) and quantum-walk discrimination results"
+      },
+      {
+        "assessment": "Two-vertex edge/loop perturbation and state transfer; does not supply an arbitrary nine-site positive-loss rank census or its distribution across this graph pair.",
+        "evidence": [
+          "First public 2017-10-05; supporting comparator, not focal archival anchor",
+          "Section 4 equations express SRG eigenspace projectors in three-dimensional adjacency algebra",
+          "Theorem 9 is explicitly a two-vertex perturbation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1710.02181v1",
+        "material_read": "Sections 2-4 including Theorems 4 and 9 and explicit spectral projectors; introduction and results section",
+        "method": "Read full lawful arXiv HTML rather than relying on abstract alone",
+        "title": "State transfer in strongly regular graphs with an edge perturbation",
+        "trigger": "Potentially dominating theorem for low-rank perturbations of strongly regular graphs"
+      },
+      {
+        "assessment": "Their characteristic-polynomial deformation does distinguish the cospectral pair, but indexed Section 4 contains no site-loss Hamiltonians or nine-subset absorption census. An unread portion remains an explicitly recorded limited-access risk.",
+        "evidence": [
+          "2022-12-16 publication of Mathematics 10(24),4802",
+          "Section 4 treats the 4-by-4 rook graph and Shrikhande graph using generalized adjacency matrices and neighborhood distinctions",
+          "Publisher and DOI full-page requests returned HTTP 429"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10244802",
+        "material_read": "Abstract, introduction and indexed Section 4 excerpt on the 16-vertex pair; complete article could not be fetched due HTTP 429",
+        "method": "Inspect indexed full-text passage in web search; attempt direct publisher and DOI full-text retrieval, both rate-limited",
+        "title": "How to Distinguish Cospectral Graphs",
+        "trigger": "Exact Shrikhande/rook comparison could provide a stronger graph-discrimination theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e582bde-2af1-406a-84d4-8d4093fea2fd",
+  "value": {
+    "rationale": "The least feasible detector number is forced by a natural ninefold eigenvalue degeneracy, making the complete exact minimal-placement census a motivated invariant rather than an arbitrary selected subset size. Two indistinguishable-at-spectrum strongly regular quantum networks have sharply different fractions of fully capturing nine-site placements (3,936/11,440 versus 7,200/11,440), plus different complete dark-space distributions. The invariant can guide coherent detector-placement robustness and distinguishes global placement distributions while acknowledging local induced-pattern equivalence.",
+    "status": "PASS"
+  }
+}
