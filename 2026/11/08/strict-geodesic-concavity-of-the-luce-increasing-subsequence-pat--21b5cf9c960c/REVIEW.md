@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The explicit change of variables \(v=1-e^{-fu}\) changes the action density to \(\sqrt{v'+kH(v)}\), with \(k=-f'/f\ge0\) and \(H''=-1/(1-v)\le-1\). This supplies a nonlinear interpolation closed within the admissible path class and a quantitative Jensen inequality. Strictness follows from equality conditions for the square root and uniqueness of the scalar initial-value ODE on compact subintervals. Finiteness follows from the integrated transformed density. The finite numerical diagnostics passed 240 parameter configurations, but the proof, not the diagnostics, justifies the universal quantifiers.
+
+**Originality — PASS, with historical-priority risk.** Borga–Dubach (arXiv:2610.30382v2, Lemma 3.14 and Remark 3.15) derive this specific variational problem and expressly leave optimal-path uniqueness unsettled. The new result proves at-most-one optimal locally absolutely continuous path, not existence. Rolla–Teixeira (arXiv:0804.1810) prove a curvature-based uniqueness criterion for a different inhomogeneous lattice last-passage action; their stated theorem does not contain the displayed Luce transformation or directly imply it. Earlier Luce-permuton material and targeted scientific-claim searches found no explicit covering result. A general theorem implying this strict concavity under an unrecognized equivalence remains a residual priority risk.
+
+**Value — PASS.** Establishing uniqueness conditional on existence is a substantive part of an explicitly motivated open path-optimization question. The quantitative Jensen curvature identity is useful for variational comparisons and for assessing approximation schemes. It covers all positive nonincreasing continuously differentiable weight profiles bounded away from zero, not an arbitrary numerical example.
+
+**Closest literature and limitations.** Borga–Dubach (2026) supplies the functional; Rolla–Teixeira (2008) supplies an analogous but structurally different uniqueness methodology. Existence, smoothness, singular-path maxima, and profiles with \(f(1)=0\) remain unresolved by this finding. No independent mathematical validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
