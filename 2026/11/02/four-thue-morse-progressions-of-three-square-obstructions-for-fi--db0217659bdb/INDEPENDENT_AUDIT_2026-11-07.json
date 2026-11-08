@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Six-block exact product dissection F(X)=P(X)(1-X^64)^-30 F(X^64) expresses each residue section as P_r(Y)/[(1-Y)^30 T(Y)^5]; independently reconstructed degree-1605 P with all four target sections identical modulo 32. A mod-8 polynomial Q satisfying Q(Y)(1+Y^32)=(1-Y)^6 Q(Y²) and finite H identity proves T(Y)^6=Q(Y)/(1-Y^32) mod8 by uniqueness of constant-one formal Mahler solutions. The independent checker verified Q and H polynomial congruences, and P_*=16(1-Y)^24+12H mod32. Unit-denominator division then establishes 16/(1-Y)+12T(Y) mod32 at all k. Legendre three-squares excludes 28 mod32 (4*(8m+7)), and permits 4 mod32; adjacent Thue–Morse cancellation yields density 1/2 per progression, four of 64 giving 1/32. Independent coefficient recurrence checked initial 4096 terms only as auxiliary. Entire exceptional set density remains unknown.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sobolewski–Ulas classifies three-square representation for m=2^j-1, explicitly asks about other m; the five-color case is not one of those. The 2017 paper develops dissection methods."
+        ],
+        "reasoning": "General automatic sequences and methods imply computability of a modulus-32 finite automaton but not these precise four 64-progressions and their exact all-k characterization without a nontrivial polynomial certificate.",
+        "searches": [
+          "arXiv:2211.16622 Sections 2-7, Problems 7.2/7.4",
+          "arXiv:1703.01955 Section 4",
+          "five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.16622 Sections 2–7",
+        "arXiv:1703.01955",
+        "Resultary 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f",
+        "Resultary semantic query five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing m=2^j-1 theorems have a parameter restriction excluding m=5. Finite polynomial Mahler congruence shows the new m=5 formula beyond generic inverse-product definitions."
+        ],
+        "reasoning": "General binary partitions modular arithmetic plus Legendre does not imply these progressions unless the explicit congruence is established; the checked finite identities supply that extra content.",
+        "searches": [
+          "arXiv:2211.16622 Problem 7.2 and 7.4",
+          "arXiv:1703.01955",
+          "five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is inverse fifth-power binary product F=T^-5, while nearby Resultary automaticity result concerns positive fifth powers T^5. Published three-square results focus on colors m=2^j-1."
+        ],
+        "reasoning": "Equivalent formulations under binary digit parity and modular sections were compared; matching the number five or the words Thue–Morse is insufficient, since power sign and represented integers differ.",
+        "searches": [
+          "five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas",
+          "arXiv:2211.16622",
+          "arXiv:1703.01955",
+          "Resultary 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "P_48,P_49,P_52,P_53 identical coefficient lists with 15 nonzero entries and 25-term bound, independently checked; no matching published table surfaced."
+        ],
+        "reasoning": "A precomputed automaton/table could cover a special corollary even without matching theorem title; relevant indexed sources did not exhibit this one, leaving a table-priority risk.",
+        "searches": [
+          "five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas",
+          "b5 64n+48 64n+49 64n+52 64n+53 modulo 32 Thue Morse",
+          "three square binary partition five colours congruence table"
+        ]
+      },
+      "rationale": "Gawron–Miska–Ulas and Sobolewski–Ulas provide the general modular binary partition framework and solved special color counts 2^j-1, not the four explicit m=5 residue identities. Automaticity alone does not give this explicit evaluated pattern or density lower bound. The overlap in proof technique is acknowledged.",
+      "residual_risks": [
+        "An explicit m=5 mod-32 automaton in the general power-product literature may implicitly imply the progression formulas; the complete 2017 full text was not read here.",
+        "The claimed 1/32 is density of a constructed subset, not of all exceptional indices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known full classification for m=2^j-1; questions on other m leave m=5 unaddressed by inspected theorems",
+          "evidence": "Explicit parameter domain and open questions compared to four residue congruences.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.16622",
+          "material_read": "Substantive accessible primary full text, Sections 2–7 including Problem 7.2 and Problem 7.4",
+          "method": "read lawful accessible primary text",
+          "title": "Values of binary partition function represented by a sum of three squares",
+          "trigger": "Same exact three-square invariant for colored binary partitions"
+        },
+        {
+          "assessment": "Provides related coefficient techniques; complete implicit five-color arithmetic table not ruled out",
+          "evidence": "Full-text priority residual risk retained rather than whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.01955",
+          "material_read": "Accessible bibliographic/abstract text and theorem references; full mathematical paper was not independently read for this run",
+          "method": "abstract and cited theorem comparison",
+          "title": "Arithmetic properties of coefficients of power series expansion of products of (1-X^(2^j))^t",
+          "trigger": "Prior general 2-adic binary partition coefficient dissection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The case of five colors lies outside previously settled 2^j-1 colored partition cases; exact infinite Thue–Morse progression identities give a clean positive-density family of three-square obstructions and answer a natural segment of the unsolved broader classification rather than pretending to determine all exceptional coefficients.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2211.16622 Sections 2–7",
+    "arXiv:1703.01955",
+    "Resultary 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f",
+    "Resultary semantic query five coloured binary partitions three squares Thue Morse arithmetic progressions Sobolewski Ulas"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each r in {48,49,52,53} and all k>=0 the five-colored binary partition coefficient b5(64k+r) ≡16+12(-1)^s2(k) mod32; it is a sum of three squares exactly for odd Thue–Morse sign -1 on these progressions. The four-progressions obstruction subset has natural density 1/32, implying a lower density bound for all three-square failures.",
+  "limitations": [
+    "An explicit m=5 mod-32 automaton in the general power-product literature may implicitly imply the progression formulas; the complete 2017 full text was not read here.",
+    "The claimed 1/32 is density of a constructed subset, not of all exceptional indices."
+  ],
+  "residual_risks": [
+    "An explicit m=5 mod-32 automaton in the general power-product literature may implicitly imply the progression formulas; the complete 2017 full text was not read here.",
+    "The claimed 1/32 is density of a constructed subset, not of all exceptional indices."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known full classification for m=2^j-1; questions on other m leave m=5 unaddressed by inspected theorems",
+      "evidence": "Explicit parameter domain and open questions compared to four residue congruences.",
+      "identifier_or_url": "https://arxiv.org/abs/2211.16622",
+      "material_read": "Substantive accessible primary full text, Sections 2–7 including Problem 7.2 and Problem 7.4",
+      "method": "read lawful accessible primary text",
+      "title": "Values of binary partition function represented by a sum of three squares",
+      "trigger": "Same exact three-square invariant for colored binary partitions"
+    },
+    {
+      "assessment": "Provides related coefficient techniques; complete implicit five-color arithmetic table not ruled out",
+      "evidence": "Full-text priority residual risk retained rather than whole-document noncoverage claim.",
+      "identifier_or_url": "https://arxiv.org/abs/1703.01955",
+      "material_read": "Accessible bibliographic/abstract text and theorem references; full mathematical paper was not independently read for this run",
+      "method": "abstract and cited theorem comparison",
+      "title": "Arithmetic properties of coefficients of power series expansion of products of (1-X^(2^j))^t",
+      "trigger": "Prior general 2-adic binary partition coefficient dissection"
+    }
+  ]
+}

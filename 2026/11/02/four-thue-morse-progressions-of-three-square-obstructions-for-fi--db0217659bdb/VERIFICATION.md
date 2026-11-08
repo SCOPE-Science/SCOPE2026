@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The complete finite certificates are reproduced by `python3 verify.py` (Python 3 standard library only). The script constructs the six-factor numerator of degree 1605 over the integers reduced modulo 32, proves the four projected numerator identities coefficient-by-coefficient, verifies the two polynomial equations over the integers modulo eight that identify the Thue–Morse sixth power, and checks the final numerator identity modulo 32. A separate recurrence checks 32768 partition coefficients as an additional guard. The exact certificate gives an infinite proof because the formal-series functional equation has a unique solution with the specified constant coefficient. The finite recurrence comparison is not used to extrapolate an infinite statement. The result identifies a subset of all exceptional indices; it makes no assertion about their full density. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Six-block exact product dissection F(X)=P(X)(1-X^64)^-30 F(X^64) expresses each residue section as P_r(Y)/[(1-Y)^30 T(Y)^5]; independently reconstructed degree-1605 P with all four target sections identical modulo 32. A mod-8 polynomial Q satisfying Q(Y)(1+Y^32)=(1-Y)^6 Q(Y²) and finite H identity proves T(Y)^6=Q(Y)/(1-Y^32) mod8 by uniqueness of constant-one formal Mahler solutions. The independent checker verified Q and H polynomial congruences, and P_*=16(1-Y)^24+12H mod32. Unit-denominator division then establishes 16/(1-Y)+12T(Y) mod32 at all k. Legendre three-squares excludes 28 mod32 (4*(8m+7)), and permits 4 mod32; adjacent Thue–Morse cancellation yields density 1/2 per progression, four of 64 giving 1/32. Independent coefficient recurrence checked initial 4096 terms only as auxiliary. Entire exceptional set density remains unknown.
+
+## originality
+
+PASS
+
+Gawron–Miska–Ulas and Sobolewski–Ulas provide the general modular binary partition framework and solved special color counts 2^j-1, not the four explicit m=5 residue identities. Automaticity alone does not give this explicit evaluated pattern or density lower bound. The overlap in proof technique is acknowledged.
+
+## value
+
+PASS
+
+The case of five colors lies outside previously settled 2^j-1 colored partition cases; exact infinite Thue–Morse progression identities give a clean positive-density family of three-square obstructions and answer a natural segment of the unsolved broader classification rather than pretending to determine all exceptional coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
