@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is every integer pair \(n,m\ge3\), positive circumradii, all real relative angles, and Haar-uniform angles for the stochastic claims. Convex mixed area is expressed as an edge-normal support sum. A finite centered grid and Dirichlet-kernel identity collapse every orientation to \(\cos\delta\); this is exact even at nearest-vertex switching angles. Strict monotonicity and uniform phase folding yield the extrema and the entire CDF. The variance asymptotic follows uniformly from \(\alpha\to0\). The independent Qhull checker tests thousands of instances but does not replace the proof. Risk: an unverified mistake in the standard support first-variation identity would affect the theorem; that identity is separately well-established in convex geometry.
+## correctness
 
-**Originality — PASS (best knowledge, not priority certification).** Full primary texts of the 2015 Minkowski-algorithm work, the 2019 regular-particle orientation-profile study, and the 2026 fixed-orientation polygon-mixture study were materially inspected. The 2019 triangle/square analytic profiles and 2026 fixed-angle table values are already covered, explicitly acknowledged and excluded as stand-alone discoveries. Neither gives the complete arbitrary mixed-side-count angular law with pushforward CDF and gcd-controlled sharp variance. Closest available published geometric records treat translative convex hulls, intersections of many randomly rotated polygons, Reuleaux triangles, or repeated random reflections. Risk: an older all-order formula under a different hard-particle or mixed-area terminology could subsume the result.
+PASS
 
-**Mathematical value — PASS.** The new object is the regular-polygon pairwise excluded area, fundamental to hard-body planar collision geometry. The complete exact angle profile, distribution, all extremal phases and arithmetic resonance distinguish a natural classification rather than a single tabulated value. Equal-order and consecutive-order particles have leading variance orders separated by four powers. This does not imply a theorem about packing fractions or multiparticle phases.
+Using the planar mixed-area first variation, V(K,L)=1/2 sum_edges edge_length h_L(normal), edge normals from a regular n-gon reduce modulo 2pi/m to gcd(n,m) copies of a centered grid of n/g points. The exact finite cosine/Dirichlet sum is (g sin(pi/m)/sin(alpha)) cos d(theta), with alpha=pi*g/(nm). Thus A=A0+2C cos d, valid also at support-switch boundaries by continuity. Folding uniform orientation modulo 2alpha yields d~Uniform[0,alpha], exact CDF and density; variance follows from integrated cosine and Taylor expansion var(cos(alpha U))=alpha^4/45+O(alpha^6) as n,m ->infty. Independently compared against 245 geometric convex hulls of pairwise vertex sums for n,m=3..9, five angles each; max absolute discrepancy 7.11e-15. Finite checks supplement the proof.
 
-**Limitations.** All proofs are analytic; numerical checks are finite. Uniform relative rotation and Euclidean regularity are necessary hypotheses. Low-order prior special cases and fixed-angle numerical observations are not claimed original. Independent scientific and historical priority review is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for joint all-(n,m) exact rotation profile, random-orientation pushforward distribution and arithmetic covariance/gcd asymptotic. Fixed-angle triangle/square formulas, self-pair parity formulas, mixed-area identity, and generic polygon Minkowski algorithms are established prior results and excluded from novelty.
+
+## value
+
+PASS
+
+Two-species hard-particle excluded area is a standard natural geometric/physical observable. Explicit gcd-controlled resonance changes variance decay from k^-4 (same order) to k^-8 (coprime consecutive orders); complete distribution and phase classification are a motivated nontrivial structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

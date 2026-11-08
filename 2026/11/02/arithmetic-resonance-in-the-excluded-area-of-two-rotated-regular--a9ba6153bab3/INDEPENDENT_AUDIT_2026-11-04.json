@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:14:03.500901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the planar mixed-area first variation, V(K,L)=1/2 sum_edges edge_length h_L(normal), edge normals from a regular n-gon reduce modulo 2pi/m to gcd(n,m) copies of a centered grid of n/g points. The exact finite cosine/Dirichlet sum is (g sin(pi/m)/sin(alpha)) cos d(theta), with alpha=pi*g/(nm). Thus A=A0+2C cos d, valid also at support-switch boundaries by continuity. Folding uniform orientation modulo 2alpha yields d~Uniform[0,alpha], exact CDF and density; variance follows from integrated cosine and Taylor expansion var(cos(alpha U))=alpha^4/45+O(alpha^6) as n,m ->infty. Independently compared against 245 geometric convex hulls of pairwise vertex sums for n,m=3..9, five angles each; max absolute discrepancy 7.11e-15. Finite checks supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baram et al algorithms compute arbitrary convex polygon Minkowski sums via sorted edges at fixed angle; that general computational construction can evaluate but does not state the gcd cosine profile.",
+          "Geigenfeind-de las Heras simulate broad polygon shapes but give analytic illustrations only for selected low orders."
+        ],
+        "reasoning": "General ability to calculate an area or support function is not itself the proved compact all-order formula, unless a stronger explicit formula implies it; none found in inspected primary results.",
+        "searches": [
+          "arxiv:1502.06195",
+          "arxiv:1902.05961",
+          "arxiv:2606.21812",
+          "Minkowski sum excluded area two rotated regular polygons full angular orientation gcd resonance distribution"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md full theorem and proof, blob cb2ded540f31a1ce4eac4921252aad8ff0c42fdc",
+        "Frozen AUDIT.json and REVIEW.md for context only, not relied upon as proof.",
+        "https://arxiv.org/abs/1902.05961",
+        "https://arxiv.org/abs/2606.21812",
+        "https://arxiv.org/abs/1502.06195"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Geigenfeind 2019 Fig.2 includes equilateral triangles/squares as known angle profiles.",
+          "Moud 2026 fixed-angle regular polygon pairs and self parity values are reproduced as special cases.",
+          "The additional gcd grid-cosine identity simultaneously covers all unequal orders and makes stochastic law and asymptotic resonance explicit."
+        ],
+        "reasoning": "Known special cases, numerical methods and raw mixed-area identities are not falsely claimed original; no inspected theorem directly dominates formulae (1)-(7).",
+        "searches": [
+          "arxiv:1902.05961",
+          "arxiv:2606.21812",
+          "arxiv:1502.06195"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geigenfeind-de las Heras III.1 plots identical regular polygons at varying angle, with analytic triangle and square values; the theorem here treats arbitrary unequal n,m and random orientation.",
+          "Moud gives fixed-orientation mixed-pair tables and self-pair parity formulas, not the continuous all-angle distribution."
+        ],
+        "reasoning": "Aliases include excluded area, Minkowski sum, virial coefficient, regular-polygon support functions, gcd angular interference. Existing identical-particle profiles are special cases but not the entire n,m family with exact law and asymptotics.",
+        "searches": [
+          "Minkowski sum excluded area two rotated regular polygons full angular orientation gcd resonance distribution",
+          "arxiv:1902.05961",
+          "arxiv:2606.21812"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Moud presents tabulated fixed-orientation pair data; the current formula reproduces such points but determines every real angle and law.",
+          "Published Resultary rotational Reuleaux average concerns curved Reuleaux bodies; the translative hull ratio uses convex hull of translates rather than Minkowski addition."
+        ],
+        "reasoning": "Existing finite tables do not imply the full probability distribution or exact variance. Full coverage was compared by operations and quantifiers rather than title/parameter matching.",
+        "searches": [
+          "Minkowski sum excluded area two rotated regular polygons full angular orientation gcd resonance distribution",
+          "arxiv:2606.21812",
+          "Resultary: rotational Minkowski average Reuleaux triangle, translative convex hull regular polygon"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for joint all-(n,m) exact rotation profile, random-orientation pushforward distribution and arithmetic covariance/gcd asymptotic. Fixed-angle triangle/square formulas, self-pair parity formulas, mixed-area identity, and generic polygon Minkowski algorithms are established prior results and excluded from novelty.",
+      "residual_risks": [
+        "An unindexed old hard-particle virial-coefficient/integral-geometry paper may already provide an equivalent all-pairs angular formula.",
+        "Uniform relative orientation is assumed; no many-particle phase transition or arbitrary irregular polygon claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE: analytic equilateral triangle and square curves and numerical pentagon/hexagon profiles; no general unequal-order gcd distribution",
+          "evidence": [
+            "§III.1 Fig.2 presents analytic symbols for line segment, equilateral triangle and square, numerical regular pentagon and hexagon."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.05961",
+          "material_read": "Accessible complete arXiv HTML, especially §II.2, §III.1 Fig.2, and regular-polygon conclusions",
+          "method": "Open arXiv rendered full article",
+          "title": "The excluded area of two-dimensional hard particles",
+          "trigger": "Same angle-dependent excluded area and regular polygons"
+        },
+        {
+          "assessment": "PRIOR_FIXED_ORIENTATION: exact tabular values but no complete relative-angle pushforward law",
+          "evidence": [
+            "Provides fixed-orientation pair tables for regular polygon binary mixtures, and self-pair parity formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.21812",
+          "material_read": "Full lawfully accessible author-uploaded text including fixed-angle computations, pair tables and parity self-pair formulas",
+          "method": "Open author manuscript mirrored on ResearchGate",
+          "title": "Saturation Coverage in Binary Mixtures of Oriented Regular Polygons via Random Sequential Adsorption",
+          "trigger": "2026 same two-order polygon pairs and excluded-area tables"
+        },
+        {
+          "assessment": "METHOD_ONLY: general geometric algorithm, not gcd angular profile",
+          "evidence": [
+            "Convex pair Minkowski sums computed via sorted boundary edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.06195",
+          "material_read": "Full accessible manuscript, algorithmic construction for convex polygons via edge directions",
+          "method": "Open arXiv full-text manuscript",
+          "title": "Exact Minkowski Sums of Polygons With Holes",
+          "trigger": "General Minkowski sum algorithm might dominate explicit claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-species hard-particle excluded area is a standard natural geometric/physical observable. Explicit gcd-controlled resonance changes variance decay from k^-4 (same order) to k^-8 (coprime consecutive orders); complete distribution and phase classification are a motivated nontrivial structural result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed old hard-particle virial-coefficient/integral-geometry paper may already provide an equivalent all-pairs angular formula.",
+    "Uniform relative orientation is assumed; no many-particle phase transition or arbitrary irregular polygon claim."
+  ],
+  "schema_version": 1
+}

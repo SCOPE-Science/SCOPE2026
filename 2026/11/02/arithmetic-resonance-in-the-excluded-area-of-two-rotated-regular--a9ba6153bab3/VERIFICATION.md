@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The theoretical identities come from the convex mixed-area edge-support formula, the exact trigonometric finite grid sum, and an analytic probability pushforward. Numerical verification is a diagnostic, not proof for all orders, radii or angles.
+## correctness
 
-Run `python verify.py` from the extracted package with Python 3, NumPy, and SciPy installed. The program constructs every pairwise vertex sum, obtains the convex hull via Qhull and compares area against the derived formula for 3,888 deterministic pseudorandom configurations over orders from 3 through 20. It also independently verifies 28 extremizing boundary configurations, six midpoint-quadrature moment profiles and five previously published fixed-orientation table entries. The final row's embedded verifier must be extracted and executed before relying on reported checks. All evaluations use finite double-precision arithmetic; the exact proof is in RESULT.md.
+PASS
 
-Independent audit status: not performed.
+Using the planar mixed-area first variation, V(K,L)=1/2 sum_edges edge_length h_L(normal), edge normals from a regular n-gon reduce modulo 2pi/m to gcd(n,m) copies of a centered grid of n/g points. The exact finite cosine/Dirichlet sum is (g sin(pi/m)/sin(alpha)) cos d(theta), with alpha=pi*g/(nm). Thus A=A0+2C cos d, valid also at support-switch boundaries by continuity. Folding uniform orientation modulo 2alpha yields d~Uniform[0,alpha], exact CDF and density; variance follows from integrated cosine and Taylor expansion var(cos(alpha U))=alpha^4/45+O(alpha^6) as n,m ->infty. Independently compared against 245 geometric convex hulls of pairwise vertex sums for n,m=3..9, five angles each; max absolute discrepancy 7.11e-15. Finite checks supplement the proof.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for joint all-(n,m) exact rotation profile, random-orientation pushforward distribution and arithmetic covariance/gcd asymptotic. Fixed-angle triangle/square formulas, self-pair parity formulas, mixed-area identity, and generic polygon Minkowski algorithms are established prior results and excluded from novelty.
+
+## value
+
+PASS
+
+Two-species hard-particle excluded area is a standard natural geometric/physical observable. Explicit gcd-controlled resonance changes variance decay from k^-4 (same order) to k^-8 (coprime consecutive orders); complete distribution and phase classification are a motivated nontrivial structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
