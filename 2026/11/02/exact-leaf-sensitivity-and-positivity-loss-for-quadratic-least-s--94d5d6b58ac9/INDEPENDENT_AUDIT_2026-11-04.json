@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:44:15.356237Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/verify.py"
+      ],
+      "rationale": "Use zero-hub W0=span{x,x²} with Gram inverse [[48,-60],[-60,80]], orthogonal complement hub function q=1-4x+(10/3)x² of squared L2 norm 1/9. Kernel K_ij=delta_ij K0+9q(x)q(y)/k, so tip evaluation has quadratic p_t(y)=10(2+t)y²-12(1+t)y+3t on its edge and 3t q on other edges, t=1/k. Integrate absolute values via two interior roots and discriminant 24(t²+2t+6); derivative of h(t)=(t²+2t+6)^(3/2)/(t+2)² has sign t-1. Reproduction of constant 1 makes negative-kernel mass (E_k-1)/2. Fresh independent exact Gram inversion verified for stars k1..4 at all sampled edges, and inspected source SymPy script of 18 further k. Distinguish point-evaluation norm from global operator norm.",
+      "residual_risks": [
+        "Do not claim global L∞ operator norm; only tip and hub evaluation functionals.",
+        "Real L∞ input, piecewise quadratic values match at hub; edge derivatives unconstrained."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shadrin proves general uniform L∞ stability independent of knot sequence; graph-starlike degree-two space has no derivative matching and varying branch count."
+        ],
+        "reasoning": "Uniform spline stability alone gives an inequality, not exact tip E_k or branch threshold; Kayumov/Arioli use different differential/order or linear spaces.",
+        "searches": [
+          "Shadrin Acta Mathematica 187 (2001) de Boor conjecture",
+          "Kayumov arXiv:math/0408418 second-order L-splines",
+          "Arioli Benzi doi:10.1093/imanum/drx029"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/verify.py",
+        "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+        "https://arxiv.org/abs/math/0408418",
+        "https://doi.org/10.1093/imanum/drx029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broad norm boundedness does not imply exact E_k=(...) or its sharp monotonicity, and affine metric graph/simplicial variants have different reproducing kernels."
+        ],
+        "reasoning": "One can derive E_k directly with elementary Gram inversion, but doing so is a specific new all-k explicit invariant, not merely restating an existing inequality.",
+        "searches": [
+          "Shadrin 2001 general boundedness",
+          "arXiv:math/0408418",
+          "Resultary affine projector positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Object is piecewise quadratic L2 projection with value continuity at hub, evaluated at a specified leaf; not affine projection on simplex or global operator norm."
+        ],
+        "reasoning": "All cases involve projection norms, but interval/multisimplex and graph star differ in incidence, reproduction and kernel; paper explicitly avoids confusing point evaluation with global L∞ operator norm.",
+        "searches": [
+          "Shadrin 2001 L∞ norm of L2 spline projector de Boor conjecture",
+          "Arioli Benzi 2018 metric graph finite elements",
+          "Resultary 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit is affine simplex projector positivity defect, not the same Gram matrix or star endpoint; exact star table not identified."
+        ],
+        "reasoning": "The graph-star point-kernel integral depends explicitly on 1/k and cannot be recovered from tabulated affine simplex values.",
+        "searches": [
+          "Resultary semantic search metric star quadratic least squares projector positivity loss",
+          "Shadrin 2001",
+          "arXiv:math/0408418"
+        ]
+      },
+      "rationale": "General de Boor/Shadrin spline-projector norm boundedness does not determine this exact value at leaves, nor branch monotonicity and positivity threshold. Kayumov works with second-order differential-operator L-splines, and Arioli–Benzi with linear quantum-graph finite elements. Published affine-simplex projector positivity concerns a different polynomial space and domain. Best-of-knowledge original exact star-quadratic norm is not automatic from qualitative boundedness, though elementary Gram specializations could have been previously tabulated.",
+      "residual_risks": [
+        "A past unindexed graph-spline endpoint-kernel calculation could already equal the formula; primary full papers not exhaustively read.",
+        "The object is restricted to equilateral stars and hub value continuity, not general network spline projection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General qualitative boundedness; no whole-document noncoverage claim",
+          "evidence": "It controls interval spline projectors uniformly in knots, not exact metric-star branching amplification in stated theorem.",
+          "identifier_or_url": "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+          "material_read": "Bibliographic theorem statement and accessible result description; full 2001 manuscript not read in this run",
+          "method": "Compared stated de Boor bound quantifiers with exact star leaf formula",
+          "title": "The L∞-norm of the L2-spline projector is bounded independently of the knot sequence",
+          "trigger": "Qualitative general L∞ stability, potential domination"
+        },
+        {
+          "assessment": "Different function spaces in accessible description; remains an accessibility-priority risk",
+          "evidence": "Second-order L-splines refer to differential operator order, not edgewise quadratic polynomials joined only at hub.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Primary arXiv abstract and described second-order differential-operator framework; not full text",
+          "method": "Compared L-spline degree and graph continuity hypotheses",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Possible spline degree confusion"
+        },
+        {
+          "assessment": "Linear graph finite elements do not automatically supply quadratic L2 tip norm",
+          "evidence": "Projectors and graph mass matrices studied in piecewise linear setting.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "Publication record and abstract describing linear finite elements; not full text",
+          "method": "Compare exact polynomial degree and endpoint evaluation against methods",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Graph projection/finite-element technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/verify.py",
+        "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+        "https://arxiv.org/abs/math/0408418",
+        "https://doi.org/10.1093/imanum/drx029"
+      ],
+      "rationale": "The natural sensitivity of least-squares projection at leaves and exact loss of positivity matter for stability of polynomial reconstruction on branching networks; one formula classifies every branching count and reveals a nontrivial sharp threshold. It is not presented as the full global norm.",
+      "residual_risks": [
+        "A past unindexed graph-spline endpoint-kernel calculation could already equal the formula; primary full papers not exhaustively read.",
+        "The object is restricted to equilateral stars and hub value continuity, not general network spline projection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9/verify.py",
+    "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+    "https://arxiv.org/abs/math/0408418",
+    "https://doi.org/10.1093/imanum/drx029"
+  ],
+  "disposition": "passed",
+  "final_claim": "For L2 projection to continuous-at-hub degree<=2 edge polynomials on a k-edge unit metric star, an explicit sharp tip L∞ evaluation norm E_k is strictly increasing in k, with exact limit, threshold E_k>5/2 iff k>=3, exact negative excursion (E_k-1)/2 for 0<=f<=1, and hub norm independent of k.",
+  "limitations": [
+    "Do not claim global L∞ operator norm; only tip and hub evaluation functionals.",
+    "Real L∞ input, piecewise quadratic values match at hub; edge derivatives unconstrained."
+  ],
+  "residual_risks": [
+    "A past unindexed graph-spline endpoint-kernel calculation could already equal the formula; primary full papers not exhaustively read.",
+    "The object is restricted to equilateral stars and hub value continuity, not general network spline projection."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General qualitative boundedness; no whole-document noncoverage claim",
+      "evidence": "It controls interval spline projectors uniformly in knots, not exact metric-star branching amplification in stated theorem.",
+      "identifier_or_url": "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+      "material_read": "Bibliographic theorem statement and accessible result description; full 2001 manuscript not read in this run",
+      "method": "Compared stated de Boor bound quantifiers with exact star leaf formula",
+      "title": "The L∞-norm of the L2-spline projector is bounded independently of the knot sequence",
+      "trigger": "Qualitative general L∞ stability, potential domination"
+    },
+    {
+      "assessment": "Different function spaces in accessible description; remains an accessibility-priority risk",
+      "evidence": "Second-order L-splines refer to differential operator order, not edgewise quadratic polynomials joined only at hub.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+      "material_read": "Primary arXiv abstract and described second-order differential-operator framework; not full text",
+      "method": "Compared L-spline degree and graph continuity hypotheses",
+      "title": "Least-squares approximation by second-order L-splines",
+      "trigger": "Possible spline degree confusion"
+    },
+    {
+      "assessment": "Linear graph finite elements do not automatically supply quadratic L2 tip norm",
+      "evidence": "Projectors and graph mass matrices studied in piecewise linear setting.",
+      "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+      "material_read": "Publication record and abstract describing linear finite elements; not full text",
+      "method": "Compare exact polynomial degree and endpoint evaluation against methods",
+      "title": "A finite element method for quantum graphs",
+      "trigger": "Graph projection/finite-element technique"
+    }
+  ]
+}
