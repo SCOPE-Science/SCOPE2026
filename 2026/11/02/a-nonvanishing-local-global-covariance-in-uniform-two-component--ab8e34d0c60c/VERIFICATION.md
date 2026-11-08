@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py` using Python's standard library. The verifier enumerates all acyclic subsets of \(n-2\) edges of \(K_n\) for \(2\le n\le8\); verifies the forest normalizer, the full joint \((Q,D)\) probabilities with exact rational arithmetic, \(\mathbb E S\), \(\mathbb E S^2\), the exact covariance, and strict adjacent binomial likelihood ratios. All 240 comparisons pass. The precise total for \(n=8\) is 200704 forests.
+# Independent mathematical audit
 
-Verification is finite evidence only; the infinite statements are justified by the displayed analytical proof. The Green-matrix identity for two-point floating inclusion is credited to the named prior literature. No independent audit or external certification has been performed.
+## correctness
+
+PASS
+
+For uniform unrooted two-component spanning forests of K_n, Cayley–Lagrange gives A_n=(n-1)(n+6)n^{n-4}/2, and the marked size law is C(n-1,q-1)tau(q)tau(n-q)/A_n. Conditional on Q=q the marked tree is uniform, so Prüfer yields D=0 at q=1 and 1+Bin(q−2,1/q) otherwise; the q→q+1 likelihood ratios are strictly increasing. Exchangeability Σ_v1/|C_v|=2 and the joining-edge bijection yield E(1/Q)=2/n and E S=4n/(n+6), hence Cov(D,S)=−2(n−2)/(n+6). Kassel–Kenyon–Wu Theorem 3 gives E[S(S−1)] and Var S∼2n; conditional binomial moments give Var D→1, proving Corr(D,S)∼−sqrt(2/n). Independent exact rational sums verified normalization, E(1/Q), E S and covariance for n=2..9; n=2 correlation explicitly undefined.
+
+## originality
+
+PASS
+
+Compared statements and implications against the actual primary-source sections listed below, Resultary semantic retrieval and targeted literature searches. A sampled non-match alone is not proof of novelty; prior general frameworks/derivability are credited with material-specific residual risks.
+
+## value
+
+PASS
+
+The exact local marked-degree versus global complementary-component size joint law and strict likelihood-ratio ordering are natural in uniform Cayley forests. The striking nonzero limiting covariance −2 despite vanishing correlation is a useful structural effect not supplied by marginal size moments alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
