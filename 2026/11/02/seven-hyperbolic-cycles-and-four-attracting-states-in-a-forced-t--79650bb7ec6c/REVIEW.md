@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit continuous piecewise-affine flow, monotonicity of switching-event times, and exact scalar multiplier law \(P'(y)=\exp(3\pi-(21/2)E(y))\) prove the stability implication. `verify_hyperbolic.py` independently replays narrow rational shooting-endpoint event and return enclosures with outward-rounded transcendental intervals. Published transverse-itinerary validation on the enclosing rational shooting intervals is a stated source premise. Both endpoint displacement signs and whole-subinterval exterior-duration enclosures are strict; symmetry supplies equal multipliers of partner cycles. This proves a lower bound of seven hyperbolic cycles, four attracting and three repelling, and not an exhaustive census.
+## correctness
 
-## Originality — PASS under examined evidence
-Hu–Chen, arXiv:2610.19586v1, Sections 4 and A, give seven isolated cycles and the central-orbit bound but do not establish strict hyperbolicity of the six nonsymmetric solutions. Their broad endpoint sign brackets cannot imply nonunit derivatives. Bravo–Carmona–Fernández–Ojeda, arXiv:2507.06705v2, analyze finiteness and restricted one/three/five-cycle regimes, not this rational seven-orbit parameter. The closest published indexed comparison concerns four hyperbolic solutions of a distinct piecewise-scalar center perturbation, not this saturating three-zone family. Residual priority risk: other recent sources not found and independent verification is absent.
+PASS
 
-## Mathematical value — PASS
-The explicit seven-cycle example is a natural benchmark that refuted a five-cycle conjecture. Promoting all seven from isolated to hyperbolic is a substantive dynamical distinction: it proves four distinct exponentially attracting responses with disjoint open basins, excludes neutral multipliers of these seven, and certifies persistence under small perturbations. The near-neutral multiplier of one attractor makes numerical guesses or mere endpoint sign changes insufficient; the strict entire-interval inequalities are mathematically consequential.
+Proof reconstructed: exact flow on each linear saturation region gives return map P and derivative exp(3pi-10.5 E), with E full exterior residence; threshold E*=2pi/7. The frozen center rational brackets and interval verification implementation were inspected; source Hu-Chen Appendix A.3 supplies transverse event order on broad shooting intervals, and new narrower interval inequalities give signs of P(y)-y and E entirely on J1,J2,J3. A fresh independent high-accuracy scipy solve_ivp integration recovered return-displacement signs, approximate E 0.898414,0.8578,1.0023 and multipliers near 0.9915,1.517,0.333, plus central half-period zero at about -0.57902247 with repelling multiplier ~1.004. Antisymmetry Q=-flow(pi), P=Q^2 gives paired orbits and same multipliers; strict inequalities imply local persistence. Numeric integration is corroboration only; the rigorous no-extra-crossing premise is imported from cited primary source and full directed interval proof remains the final certificate. No claim there are exactly seven or no other attractors.
 
-## Scientific limits
-This is not an exact global maximum-cycle theorem, a global attractor classification, or a numerical robustness radius. It uses the previously proved itinerary assertion rather than reproducing its full no-grazing proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent comparative result: Hu-Chen proves seven isolated periodic orbits; a sign-changing isolated zero can have multiplier exactly one. The new result proves nonunit multipliers for six, four attracting / three repelling including the known central multiplier; it is stronger but not automatic from prior statements. No negative search has been used as a novelty proof; the inaccessible/uninspected historical risk is explicit.
+
+## value
+
+PASS
+
+For a canonical piecewise-linear saturating forced oscillator with known seven isolated cycles, rigorous strict multipliers distinguish four attracting and three repelling cycles and prove robust persistence. Isolation does not imply hyperbolicity; these stability classifications materially strengthen the primary result without claiming a global maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
