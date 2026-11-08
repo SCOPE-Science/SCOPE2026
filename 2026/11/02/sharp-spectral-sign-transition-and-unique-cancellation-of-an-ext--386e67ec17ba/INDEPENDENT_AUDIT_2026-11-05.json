@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:49:52.112867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every SPD symmetric A and nonzero fixed terminal v, diagonalization gives Δ=1/2 Σc_j(z_j^2−1)>0 and D=1/4 Σc_j(z_j−1)(z_j−3), where c_j=λ_j|v_j|²,z_j=e^(hλ_j)>1. Thus D/Δ is a positive modal-drop-weighted mean of increasing r(hλ)=(e^(hλ)−3)/(2(e^(hλ)+1)), proving sharp eigenvector-attained bounds. For fixed v, write M=Σ c(z−1)²/Σ c(z−1). Each y_j=z_j−1 and logarithmic growth ℓ_j=y_j′/y_j increase with λ_j; differentiating M yields Σ p_j y_j′+Cov_p(y,ℓ)>0. Since M(0+)=0 and M(infinity)=infinity, exactly one positive h solves M=2, between ln3/b_active and ln3/a_active with strict interior if distinct active rates. Independent exact witness A=diag(1,2),h=ln2,v=(sqrt6,1) gives E(v)=4,E(w)=28,E(2v−w)=4 so D=0 and Δ=24.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shergill-Williams derives step acceptance and physical energy uniform bounds in SSAV-BDF2, using first-order monitor discrepancy",
+          "General BDF2 modified energies involve different discrete energy functionals"
+        ],
+        "reasoning": "Those broader convergence and modified-energy estimates do not algebraically imply the exact fixed-terminal spectral sign transition on the true continuous trajectory as a stated theorem.",
+        "searches": [
+          "arxiv:2610.30454v1",
+          "web: modified energy BDF2 quadratic stability G-stability"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.30454v1",
+        "arxiv:2610.30454 full accessible primary rendered text",
+        "Resultary search:symmetric energy monitor exactly sampled quadratic gradient flow extrapolated energy defect one sign change and cancellation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Proposition 1: E_sym−E=1/2 h E_dot+O(h²), only small h",
+          "Primary Section 4 ensures accepted discrete symmetric energy monotonicity under step controller, not exact all-h modal ratio"
+        ],
+        "reasoning": "The O(h) expansion implies the correct small-h negative sign but neither unique zero for arbitrary spectra nor sign positive for larger h, which need exact exponential modal algebra. Thus claims are not simple published corollaries.",
+        "searches": [
+          "arxiv:2610.30454v1 Sec3.1 Eq7 Prop1",
+          "arxiv:2610.30454v1 Sec4",
+          "symmetric energy monitor exactly sampled quadratic gradient flow extrapolated energy defect one sign change and cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shergill-Williams eq (7) is exactly S_h(v)=1/2(E(v)+E(2v-w))",
+          "Their Proposition 1 determines the small-h first-order sign"
+        ],
+        "reasoning": "The monitor is identical, not newly invented. The claimed extra theorem is an exact all-h SPD spectral characterization with one zero; the primary source gives an asymptotic relation, not these finite-lookback if-and-only-if statements.",
+        "searches": [
+          "symmetric energy monitor exactly sampled quadratic gradient flow extrapolated energy defect one sign change and cancellation",
+          "arxiv:2610.30454v1",
+          "web: SSAV BDF2 symmetric energy extrapolation quadratic exact sampling sign change"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of h*=root M(h)=2 or all-spectrum cancellation example identified in indexed results",
+          "The two-mode coefficients (6,1) and lookback ln2 give D=0, Δ=24 by direct computation"
+        ],
+        "reasoning": "The exact spectral sign-changing locus is a continuum, not a finite catalog; the concrete two-mode cancellation is not found in primary source. Negative search results are not priority guarantees.",
+        "searches": [
+          "symmetric energy monitor exactly sampled quadratic gradient flow extrapolated energy defect one sign change and cancellation",
+          "arxiv:2610.30454v1 Eq7 Proposition1"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Shergill-Williams arXiv 2610.30454 full primary §3.1 Eq (7) defines the very same symmetric energy, Proposition 1 gives a first-order O(h) dissipation linkage; its later algorithms concern adaptive SSAV-BDF2 and do not state the global exactly-sampled SPD spectral ratio envelope, unique all-h fixed-terminal zero, or two-mode exact cancellation. The source owns the monitor; only the new finite-lookback classification is assessed as original.",
+      "residual_risks": [
+        "An older quadratic-energy monitoring analysis under a different numerical-analysis name may contain the exact all-h formula.",
+        "The statement is only for exact SPD flows with terminal v fixed as h varies; extrapolated discrete solutions do not follow this law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original monitor and O(h) relation directly covered; exact SPD finite-h sign uniqueness and cancellation not stated in inspected sections",
+          "evidence": [
+            "Eq (7),(8),(9); Proposition1; Algorithm1; arxiv:2610.30454v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30454",
+          "material_read": "Primary full arXiv rendered text: §3.1 Eq7-9 and Proposition1; §3.2 minimax; §4 discrete energy acceptance and physical bound",
+          "method": "Read full accessible arXiv textual rendering, searched Proposition1, symmetric energy, crossover and algorithms",
+          "title": "Energy-rate equidistribution for adaptive SSAV--BDF2 integration of gradient flows",
+          "trigger": "Exact same extrapolated symmetric-energy definition, strongest possible coverage candidate"
+        },
+        {
+          "assessment": "Cannot rule out strong abstract operator lemmas; not treated as negative scientific evidence",
+          "evidence": [
+            "Axioms 15(2),126 (2026)"
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2075-1680/15/2/126",
+          "material_read": "Bibliographic metadata/context only",
+          "method": "No full-text reading in this audit",
+          "title": "An Energy-Stable S-SAV Finite Element Method for the Generalized Poisson–Nernst–Planck Equation",
+          "trigger": "Possible broader S-SAV modified energy schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a sharp negative-to-positive sign transition and an exact zero-with-positive-loss counterexample reveal a meaningful finite-lookback limitation of a practically motivated energy monitor. The all-spectrum fixed-terminal uniqueness law and eigenvalue bounds are useful as calibration and benchmark facts without implying numerical scheme failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "SPD finite-dimensional exact gradient flow, with terminal v fixed; not nonlinear or nonnormal dynamics and not SSAV-BDF2 numerical instability."
+  ],
+  "schema_version": 1
+}

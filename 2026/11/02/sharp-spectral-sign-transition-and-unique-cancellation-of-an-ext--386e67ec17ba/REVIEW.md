@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The modal identities follow by explicit expansion of the positive-definite quadratic energy. Dividing each modal defect by its strictly positive energy drop produces a monotone scalar factor, yielding both sharp spectral bounds. The positive-weight effective amplification mean has strictly positive derivative: the pointwise derivative is positive, and its covariance term is nonnegative by synchronized eigenvalue ordering. It ranges from zero to infinity, proving exactly one sign change for every fixed nonzero terminal state. The constructed two-mode witness has exact energies \(4\), \(28\), and \(4\) and physical energy loss \(24\). A standalone Python 3 verifier passed exact and seeded finite tests, but these are not substituted for the proof. Risks: no assertion is made for varying terminal states, indefinite energies, or numerical solver iterates.
+PASS
 
-## Originality — PASS within the accessible evidence
+For every SPD symmetric A and nonzero fixed terminal v, diagonalization gives Δ=1/2 Σc_j(z_j^2−1)>0 and D=1/4 Σc_j(z_j−1)(z_j−3), where c_j=λ_j|v_j|²,z_j=e^(hλ_j)>1. Thus D/Δ is a positive modal-drop-weighted mean of increasing r(hλ)=(e^(hλ)−3)/(2(e^(hλ)+1)), proving sharp eigenvector-attained bounds. For fixed v, write M=Σ c(z−1)²/Σ c(z−1). Each y_j=z_j−1 and logarithmic growth ℓ_j=y_j′/y_j increase with λ_j; differentiating M yields Σ p_j y_j′+Cov_p(y,ℓ)>0. Since M(0+)=0 and M(infinity)=infinity, exactly one positive h solves M=2, between ln3/b_active and ln3/a_active with strict interior if distinct active rates. Independent exact witness A=diag(1,2),h=ln2,v=(sqrt6,1) gives E(v)=4,E(w)=28,E(2v−w)=4 so D=0 and Δ=24.
 
-The motivating full-text preprint (arXiv:2610.30454v1) defines the symmetric energy and derives its small-step expansion, but the inspected statements and subsequent algorithm sections do not give an exact finite-step sign threshold, sharp spectral relative-loss inequality, unique multirate crossing, or a two-active-mode zero-defect witness. The general quadratic modified-energy/SAV literature is closer in theme than in the claimed continuous-trajectory quantity. Searches of published research records for equivalent extrapolated-energy aliases, spectral bounds, two-mode cancellation, and threshold resonance returned no statement implying these results. This is a best-knowledge originality determination, not a proof of priority. Historical modified-energy sources and the inaccessible complete text of a recent S-SAV finite-element paper remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The symmetric-energy defect is explicitly used as a dissipation-informed adaptive time-step monitor. An exact sharp cutoff \(h\lambda_{\max}<\log3\) is therefore a motivated finite-step safe-sign criterion for its quadratic spectral benchmark. The unique multirate transition and exact positive-dissipation/zero-defect example distinguish small-step asymptotic calibration from large-step energy sensing and explain how active modes can cancel. The result does not establish a global algorithmic failure, but a complete and reusable spectral diagnostic boundary is useful independently of an entire convergence theorem.
+PASS best of knowledge: Shergill-Williams arXiv 2610.30454 full primary §3.1 Eq (7) defines the very same symmetric energy, Proposition 1 gives a first-order O(h) dissipation linkage; its later algorithms concern adaptive SSAV-BDF2 and do not state the global exactly-sampled SPD spectral ratio envelope, unique all-h fixed-terminal zero, or two-mode exact cancellation. The source owns the monitor; only the new finite-lookback classification is assessed as original.
 
-## Source comparison and remaining limits
+## value
 
-The closest source is Shergill–Williams (arXiv:2610.30454v1), especially Section 3.1, formula (7), Proposition 1, and the subsequent scheme sections. Axioms 15(2), 126 concerns modified energy for a distinct S-SAV discretization; only indexed excerpts were available (full text access returned an HTTP 429), so no whole-document exclusion is claimed. Additional related numerical multistep and SAV literature may contain an equivalent sign classification not found by the documented searches. All proofs and checks concern the exact trajectory, not computed BDF2 iterates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a sharp negative-to-positive sign transition and an exact zero-with-positive-loss counterexample reveal a meaningful finite-lookback limitation of a practically motivated energy monitor. The all-spectrum fixed-terminal uniqueness law and eigenvalue bounds are useful as calibration and benchmark facts without implying numerical scheme failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
