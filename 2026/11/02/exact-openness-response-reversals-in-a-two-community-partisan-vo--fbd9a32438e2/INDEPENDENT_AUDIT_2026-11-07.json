@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:59:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source mean-field equations yield F1=1/2[(1+h1-2h1 x)((1-g1)x+g1 y)-(1-h1)x] and analogous F2 with h2<0. At any interior stationary point x>y: if x<=y, F1=h1 x(1-x)+A1(Q1-x)/2>0. With J=[[a,b],[c,d]], the row sums are h1(1-x-Q1), h2(1-y-Q2); -J^{-1}F_{g_i} gives exact derivatives and signs. Stable hyperbolic branch requires trace(J)<0,det(J)>0. Rational witness x=9/10,y=3/4,g1=g2=1/4,h1=5/28,h2=-2/19 has F=0, J=[[-109/448,3/28],[5/38,-3/40]], determinant 1413/340480>0, trace -713/2240<0, dP/dg1=688/785>0 and dP/dg2=-1220/471<0. Independently recomputed with exact rational symbolic Jacobian and implicit derivatives. Local undirected-block realization by reducing p11 while preserving symmetric p12=p21 and p22. No global monotonicity implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source derives consensus stability conditions and Figure4 polarization plots; Masuda et al address partisan voter models with different independent exposure structure."
+        ],
+        "reasoning": "Published source covers model and portions of qualitative polarization, but does not algebraically imply the universal separate derivative criteria or strict nonmonotone witness at stable interior equilibrium.",
+        "searches": [
+          "arxiv:2303.09587 Eq (10)-(16), Appendix A.2",
+          "arxiv:1003.0768",
+          "arxiv:1012.2462"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verification.py Git blobs",
+        "arxiv:2303.09587 full primary text",
+        "arxiv:1003.0768 full primary preprint",
+        "https://sites.santafe.edu/~redner/pubs/pdf/truth.pdf full primary paper",
+        "DOI:10.1103/PhysRevE.104.044312 abstract only",
+        "Resultary Search: two community partisan voter model equilibrium polarization derivative modularity mixing openness response reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published plots on increasing segregation examine selected regimes, not fixed g2 and varying g1 at h1!=|h2|.",
+          "Exact dP/dg1 and dP/dg2 have opposite signs at one admissible stable equilibrium."
+        ],
+        "reasoning": "Even when prior discusses correlation of segregation and polarization, it does not imply either the all-stable-branch sign tests or this counterexample; exact implicit differentiation of the same ODE is extra mathematics.",
+        "searches": [
+          "Zimmaro et al 2023 Fig4, Eqs 10-16",
+          "prior partisan voter equations and analytic consensus results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim uses exactly the two-community normalized Zimmaro et al ODE, not an altered model.",
+          "Equilibrium polarization is P=x-y on the strict x>y stationary branch."
+        ],
+        "reasoning": "Aliases modularity, homophily and between-block mixing checked; a sign reversal for one exposure direction is distinct from general comparative static opinion plots.",
+        "searches": [
+          "Resultary Search: two community partisan voter model equilibrium polarization derivative modularity mixing openness response reversal",
+          "Zimmaro Contucci Kertész 2023 Eq (10) and Fig 4",
+          "separate homophily exposure fraction gamma1 gamma2 partial derivatives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rational witness is independently evaluated, not a known external tabulated stationary example."
+        ],
+        "reasoning": "Parameter plots and computational tables of consensus thresholds cannot by themselves determine the two partial derivative fractions for this rational point.",
+        "searches": [
+          "Resultary Search: two community partisan voter model equilibrium polarization derivative modularity mixing openness response reversal",
+          "2023 modular voter polarization figures"
+        ]
+      },
+      "rationale": "Zimmaro–Contucci–Kertész derived the same mean-field system and examined equilibrium polarization/segregation numerically and consensus thresholds, but did not give the asymmetric, separate-openness derivative sign identities or this strict stable rational reversal. Older partisan voter models and algorithmic bias papers have different dynamics or fewer independent exposure controls. Best-of-knowledge novelty is specifically the exact local response theorem, not the ODE or the observation that polarization may vary.",
+      "residual_risks": [
+        "Deterministic mean-field, interior hyperbolic equilibrium, small one-parameter perturbations only; no finite stochastic network assertion.",
+        "The 2021 filtering paper full text not read; obscure previously published sensitivity identity remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_COVERED_LOCAL_DERIVATIVE_NOT_STATED",
+          "evidence": [
+            "2023 Eq(10) supplies ODE; Fig4 and Appendix A.2 give studied polarization/stability; no separate sign identities in inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09587",
+          "material_read": "Full arXiv article definitions, Section 3.2 equations (10)-(16), Figures 3-5 and Appendix A.2, source normalization and stability criteria",
+          "method": "Full 28-page arXiv PDF text with page screenshots for the model and plots",
+          "title": "Voter-like Dynamics with Conflicting Preferences on Modular Networks",
+          "trigger": "Identical model, potentially complete polarization response"
+        },
+        {
+          "assessment": "DIFFERENT_MIXING_PARAMETER_OBJECT",
+          "evidence": [
+            "Masuda–Gibert–Redner 2010 well-mixed cases, not independently varied community openness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0768",
+          "material_read": "Full short preprint, update rules and equations (9)-(10), plots of states",
+          "method": "Full original arXiv PDF text and relevant page image",
+          "title": "Heterogeneous Voter Models",
+          "trigger": "Foundational partisan voter dynamics and stability"
+        },
+        {
+          "assessment": "NOT_COVERING_INDEPENDENT_TWO_BLOCK_EXPOSURES",
+          "evidence": [
+            "Masuda–Redner 2011 does not supply the exact two-block ODE derivative classification."
+          ],
+          "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/truth.pdf",
+          "material_read": "Full author-posted paper, definitions, equations (1)-(2), comparison of preferences and lattice simulations",
+          "method": "Author-hosted OA PDF text and relevant page image",
+          "title": "Can partisan voting lead to truth?",
+          "trigger": "Potential broader partisan voter monotonicity theorem"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_UNRESOLVED",
+          "evidence": [
+            "Peralta–Neri–Kertész–Iñiguez 2021 uses algorithmic filtering; full-text comparison not completed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.104.044312",
+          "material_read": "Primary abstract, bibliographic metadata; full text not obtained this run",
+          "method": "Publisher abstract and source context",
+          "title": "Effect of algorithmic bias and network structure on coexistence, consensus, and polarization of opinions",
+          "trigger": "Potential broader polarization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated exact model-level counterexample to universal monotonic decrease in polarization with openness, with independent community exposure controls, complete local sign criteria and a physically admissible undirected two-block realization. Clarifies the extent of prior numerical segregation intuition; meaningful even without global stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verification.py Git blobs",
+    "arxiv:2303.09587 full primary text",
+    "arxiv:1003.0768 full primary preprint",
+    "https://sites.santafe.edu/~redner/pubs/pdf/truth.pdf full primary paper",
+    "DOI:10.1103/PhysRevE.104.044312 abstract only",
+    "Resultary Search: two community partisan voter model equilibrium polarization derivative modularity mixing openness response reversal"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic mean-field, interior hyperbolic equilibrium, small one-parameter perturbations only; no finite stochastic network assertion.",
+    "The 2021 filtering paper full text not read; obscure previously published sensitivity identity remains possible."
+  ],
+  "residual_risks": [
+    "Deterministic mean-field, interior hyperbolic equilibrium, small one-parameter perturbations only; no finite stochastic network assertion.",
+    "The 2021 filtering paper full text not read; obscure previously published sensitivity identity remains possible."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MODEL_COVERED_LOCAL_DERIVATIVE_NOT_STATED",
+      "evidence": [
+        "2023 Eq(10) supplies ODE; Fig4 and Appendix A.2 give studied polarization/stability; no separate sign identities in inspected statements."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2303.09587",
+      "material_read": "Full arXiv article definitions, Section 3.2 equations (10)-(16), Figures 3-5 and Appendix A.2, source normalization and stability criteria",
+      "method": "Full 28-page arXiv PDF text with page screenshots for the model and plots",
+      "title": "Voter-like Dynamics with Conflicting Preferences on Modular Networks",
+      "trigger": "Identical model, potentially complete polarization response"
+    },
+    {
+      "assessment": "DIFFERENT_MIXING_PARAMETER_OBJECT",
+      "evidence": [
+        "Masuda–Gibert–Redner 2010 well-mixed cases, not independently varied community openness."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1003.0768",
+      "material_read": "Full short preprint, update rules and equations (9)-(10), plots of states",
+      "method": "Full original arXiv PDF text and relevant page image",
+      "title": "Heterogeneous Voter Models",
+      "trigger": "Foundational partisan voter dynamics and stability"
+    },
+    {
+      "assessment": "NOT_COVERING_INDEPENDENT_TWO_BLOCK_EXPOSURES",
+      "evidence": [
+        "Masuda–Redner 2011 does not supply the exact two-block ODE derivative classification."
+      ],
+      "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/truth.pdf",
+      "material_read": "Full author-posted paper, definitions, equations (1)-(2), comparison of preferences and lattice simulations",
+      "method": "Author-hosted OA PDF text and relevant page image",
+      "title": "Can partisan voting lead to truth?",
+      "trigger": "Potential broader partisan voter monotonicity theorem"
+    },
+    {
+      "assessment": "ABSTRACT_ONLY_UNRESOLVED",
+      "evidence": [
+        "Peralta–Neri–Kertész–Iñiguez 2021 uses algorithmic filtering; full-text comparison not completed."
+      ],
+      "identifier_or_url": "https://doi.org/10.1103/PhysRevE.104.044312",
+      "material_read": "Primary abstract, bibliographic metadata; full text not obtained this run",
+      "method": "Publisher abstract and source context",
+      "title": "Effect of algorithmic bias and network structure on coexistence, consensus, and polarization of opinions",
+      "trigger": "Potential broader polarization result"
+    }
+  ]
+}

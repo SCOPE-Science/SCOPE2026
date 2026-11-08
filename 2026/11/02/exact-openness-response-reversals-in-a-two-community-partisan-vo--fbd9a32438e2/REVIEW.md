@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-The source equation (10) reduces exactly to the displayed two-dimensional vector field with \(Q_i\) and \(A_i\). An interior equilibrium has \(x>y\) by a strict algebraic comparison. The implicit-function derivative identities are proved from the full Jacobian; the conditions \(\operatorname{tr}J<0\), \(\det J>0\) ensure a locally attracting branch. The rational witness satisfies both equilibrium equations, a strictly negative trace, a strictly positive determinant, and the exact opposite signed derivatives. Independent exact symbolic re-execution of the packaged checker confirms the calculations. The argument proves local, not global, parameter sensitivity.
+## correctness
 
-## Originality
-The closest source is Zimmaro--Contucci--Kertész (2023), especially its modular mean-field equations (10)--(16), Figure 4 and Appendix A.2. That publication derives stability boundaries and plots equilibrium polarization, but gives neither the two signed derivative formulas nor the strict stable openness-reversal example. Masuda--Gibert--Redner (2010) and Masuda--Redner (2011) treat homogeneous/fully mixed partisan-voter populations and consensus, without the separate two-community openness response. Peralta--Neri--Kertész--Iñiguez (2021) studies a different algorithmic filtering mechanism. Published mathematical record and accessible historical claim comparisons did not show an implication covering the result. A hidden equivalent algebraic identity in secondary literature is possible; absence from searches is not a proof of novelty.
+PASS
 
-## Mathematical value
-The direct source discusses how social segregation increases polarization. The new criterion shows that this inference is not universally valid under asymmetric preference strengths, even with two equal communities and an undirected network: increasing the openness of one community can increase their stationary opinion gap. The sign conditions are exact and apply throughout the stable interior parameter regime, not just at the example. The result makes community-targeted interventions distinguishable from simultaneous increases in openness.
+The source mean-field equations yield F1=1/2[(1+h1-2h1 x)((1-g1)x+g1 y)-(1-h1)x] and analogous F2 with h2<0. At any interior stationary point x>y: if x<=y, F1=h1 x(1-x)+A1(Q1-x)/2>0. With J=[[a,b],[c,d]], the row sums are h1(1-x-Q1), h2(1-y-Q2); -J^{-1}F_{g_i} gives exact derivatives and signs. Stable hyperbolic branch requires trace(J)<0,det(J)>0. Rational witness x=9/10,y=3/4,g1=g2=1/4,h1=5/28,h2=-2/19 has F=0, J=[[-109/448,3/28],[5/38,-3/40]], determinant 1413/340480>0, trace -713/2240<0, dP/dg1=688/785>0 and dP/dg2=-1220/471<0. Independently recomputed with exact rational symbolic Jacobian and implicit derivatives. Local undirected-block realization by reducing p11 while preserving symmetric p12=p21 and p22. No global monotonicity implied.
 
-## Scientific limits
-Only the deterministic two-community mean-field closure is proved. The explicit perturbation is local; no statement about exact finite-network dynamics, global monotonicity, or all-parameter global stability is made. Bibliographic uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zimmaro–Contucci–Kertész derived the same mean-field system and examined equilibrium polarization/segregation numerically and consensus thresholds, but did not give the asymmetric, separate-openness derivative sign identities or this strict stable rational reversal. Older partisan voter models and algorithmic bias papers have different dynamics or fewer independent exposure controls. Best-of-knowledge novelty is specifically the exact local response theorem, not the ODE or the observation that polarization may vary.
+
+## value
+
+PASS
+
+A motivated exact model-level counterexample to universal monotonic decrease in polarization with openness, with independent community exposure controls, complete local sign criteria and a physically admissible undirected two-block realization. Clarifies the extent of prior numerical segregation intuition; meaningful even without global stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
