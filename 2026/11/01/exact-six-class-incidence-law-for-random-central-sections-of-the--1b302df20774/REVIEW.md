@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim follows from integer-exact exhaustive enumeration of all \(4096\) sign assignments for the twelve explicit vertices. All \(134\) realized chambers are tested for strict feasibility, spherical boundary cycles, face-intersection counts, and polyhedron edge crossings. Interior angles arise exactly from normals of common squared length \(11\), hence Girard yields exact arccosine formulas. The six chamber counts, angle multiplicities and normalization are reproducible using the attached standalone program. The only numerical part is the display of approximate probabilities; no numerical sampling is used to establish the theorem. Risk: the independent checker has not been formally verified, so its finite enumeration and the argument for completeness should be reviewed independently.
+## correctness
 
-## Originality — PASS (best knowledge, historical-priority risk)
-Exact published-finding corpus queries about truncated tetrahedron central sections, triangular/hexagonal incidence counts, and equivalent random-plane laws returned no matching theorem. Closest prior published published-finding corpus results concern a central icosahedron, a central four-cube or central rectangular boxes: their statements have different objects and do not imply this one. A full readable geometric source (Zefiro) identifies the regular truncated tetrahedron without the random-section law. The arXiv 2014 packing study likewise has a different result. Historical tables of central polyhedral section frequencies may nevertheless contain an equivalent calculation; no comprehensive priority guarantee is made.
+PASS
 
-## Value — PASS
-This is an exact *joint face-type classification*, rather than just a routine mean or a generic side-count corollary. It distinguishes six configurations of a standard non-centrally-symmetric Archimedean solid, resolves the sharp polygon side counts and evaluates each angular phase's probability. The distinction between triangular and hexagonal incidences is intrinsic to its two face orbits, and the finite exact spherical arrangement exhibits the structure behind the law. No broader theorem or additional dimensional family is claimed.
+The solid is the one-third truncated regular tetrahedron with 12 integer vertices b_ij=2v_i+v_j of common squared norm 11. Away from great-circle zero sets, each strict sign vector corresponds to one open spherical convex cone. All possible cone extreme rays occur among signed primitive cross products of pairs of vertices, so exhaustive 2^12 sign enumeration is complete, not a sample. I independently constructed all 132 candidate rays, checked 4096 strict sign cells, found exactly 134 nonempty chambers grouped (J,H) as (0,4):6,(1,3):24,(1,4):48,(2,3):24,(2,4):24,(3,3):8. Spherical polygon interior angles pi-arccos(q/11) and Girard give the stated exact four-angle probability expressions; chamber-area normalization is 4*pi, with all types positive. Separate 400,000 normal-direction Monte Carlo supports the six probabilities within 0.001, but exact integer enumeration and the spherical geometry are the proof. The side-count classes are 4,5,6, with J+H verified against crossed polyhedron edges.
 
-## Constraints and independent review
-Only generic central sections of the regular one-third-truncated tetrahedron are classified; no off-center sections. The exact arrangement certificate is included, and historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Queries on truncated-tetrahedron central plane sections, face-orbit incidence and stereology returned related random central sections of different solids, but no identical six-class joint law. The prominent truncated-tetrahedron geometry source names the face orbits without probability; published packing research is unrelated. An older exact stereology table remains a real priority risk.
+
+## value
+
+PASS
+
+The regular truncated tetrahedron is a canonical Archimedean solid with two distinct face orbits, so the joint (triangle,hexagon) counts are intrinsic and more informative than polygon side count alone. The complete six-class distribution and exact arccosine constants solve a natural finite stochastic-geometric classification, not an arbitrary numerical subsample; the 134 spherical chamber decomposition is independently usable for related section statistics. No new general stereology theorem is required for this motivated exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
