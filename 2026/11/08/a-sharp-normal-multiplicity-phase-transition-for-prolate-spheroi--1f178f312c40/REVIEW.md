@@ -1,0 +1,11 @@
+# Scientific review: normal multiplicity in prolate spheroids
+
+**Correctness — PASS.** The normal-stationarity equation and double-root astroid give the almost-sure two/four normal classification. The caustic–spheroid crossing has one admissible root, so its piecewise volume integral is exhaustive. An exact polynomial factorization reduces that integral to the proposed radical expression. The unit-ball normalization gives a strict set inclusion for increasing aspect ratio; the high-aspect asymptotic comes from an explicit bounded-interval integral. Independent cross-section quadrature, seeded sampling and meridian root counts agree with the formula. The mathematical argument does not infer a universal statement from simulations.
+
+**Originality — PASS (best knowledge, priority provisional).** The 1995 Hug and 2014 Domokos–Lángi sources develop general mean-normal quantities, bounds and identities; the 2023 Aliyev work treats the ellipsoid caustic and the rotated-astroid normal-count regions. None of the materially inspected passages gives the full volume-normalized prolate law, its algebraic crossover correction, inverse monotonicity, or the \(r^{-4}\) deficiency coefficient. The planar ellipse mean-normal distribution is in two dimensions, with a different sampling measure, and cannot directly imply the three-dimensional volume law. Relevant nineteenth-century and twentieth-century literature could contain an earlier equivalent integral or specialize a more general formula; this remains a priority risk.
+
+**Value — PASS.** The exact probability profile answers the natural mean-normal invariant for an explicit family of smooth convex solids, including a geometric phase transition, a complete inverse property, and a sharp dimensional tail law. The singularity comes from intersection of the caustic with the body rather than from a contrived parameter restriction. This is more than a routine normalization: both a nontrivial cut-and-integrate calculation and a sharp inverse/asymptotic analysis are necessary.
+
+The result treats volume-uniform sampling in prolate revolution ellipsoids; it excludes oblate and triaxial cases. Historical priority, external replication and independent mathematical validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
