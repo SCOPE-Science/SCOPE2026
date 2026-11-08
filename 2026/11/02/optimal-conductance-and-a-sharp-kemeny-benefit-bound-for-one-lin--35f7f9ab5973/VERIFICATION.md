@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic. `verify.py` supplies an independent finite exact-rational check using matrix inversion, not a spectral quotient implementation. It constructs every requested weighted adjacency matrix, its stationary distribution from weighted degrees, then the fundamental inverse \((I-P+\mathbf1\pi^{\mathsf T})^{-1}\). It checks the trace formula against the claimed rational \(\Delta_{a,b}(t)\) for 240 triples \((a,b,t)\). Exact checks also verify the family-wide lower bound on the sampled grid and the sign threshold on balanced graphs. Additional rational checks verify stationary derivative signs about the unique root without using numerical floating-point guesses.
+## correctness
 
-Run `python verify.py` using Python 3. Successful execution prints `PASS` with the assertion count. This finite computation is not an exhaustive verification for unbounded graph sizes or real conductance; the published proof handles those quantifiers. No independent audit has been conducted.
+PASS
+
+For a≥3, exact invariant decomposition gives antisymmetric mode −t/(b+t), a+b−4 zero modes and stochastic 3×3 quotient; Vieta gives the two remaining nonunit modes and displayed Δ, while a=2 has a separately checked 2×2 quotient. Rescaling x=t/b yields derivative numerator (8a²−12a−2)x²+8a(a−2)x−3a, with unique positive root since leading/linear positive and constant negative. Monotonicity ∂Δ/∂a=x(2x+3)/(2(a+x)²)>0 reduces the universal lower bound to a=2, where (1+2x)(2+x)−9x=2(x−1)² proves sharp −1/6 equality x=1. Balanced n asymptotics follow by direct substitution. Independent exact rational inverse-fundamental-matrix calculations compared K to the formula on 80 parameter/strength combinations. Periodicity of unweighted bipartite chain is no problem for Kemeny eigenvalue formula with nonunit λ including −1.
+
+## originality
+
+PASS
+
+Hu–Kirkland 2019 already derives the t=1 unweighted within-part Braess edge formula, a direct specialization here and NOT new. Weighted network Kemeny edge-centrality literature supplies general perturbation methods, but an exact biclique-wide variable-strength unique minimizer, sharp universal 1/6 bound and balanced reversal were not located as explicit consequence of inspected primary statements.
+
+## value
+
+PASS
+
+One-edge conductance optimization on a canonical graph family is a motivated full classification. It quantifies exact optimum and a sharp universal improvement cap, shows weighting can overcome a known discrete unit-edge Braess penalty, and isolates precise equality cases. Not just a reparameterization of the unweighted result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

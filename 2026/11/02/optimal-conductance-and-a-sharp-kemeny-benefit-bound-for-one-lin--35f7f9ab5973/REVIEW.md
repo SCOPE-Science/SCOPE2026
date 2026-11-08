@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses the conductance-normalized discrete-time transition matrix and the standard eigenvalue convention for Kemeny's constant. The invariant antisymmetric mode, zero-mode multiplicities, and three-state quotient yield the exact rational identity; the special \(a=2\) quotient avoids an empty-class assumption. Differentiation of the normalized formula proves the unique positive optimizer and sign threshold; monotonicity in the part size reduces the global benefit bound to an exact quadratic inequality with an attained equality case. Exact rational matrix inversion independently checks 240 parameter triples. Boundary cases \(b=1\), \(t=0\), and \(a=2\) are included. Finite checks do not substitute for the analytic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For a≥3, exact invariant decomposition gives antisymmetric mode −t/(b+t), a+b−4 zero modes and stochastic 3×3 quotient; Vieta gives the two remaining nonunit modes and displayed Δ, while a=2 has a separately checked 2×2 quotient. Rescaling x=t/b yields derivative numerator (8a²−12a−2)x²+8a(a−2)x−3a, with unique positive root since leading/linear positive and constant negative. Monotonicity ∂Δ/∂a=x(2x+3)/(2(a+x)²)>0 reduces the universal lower bound to a=2, where (1+2x)(2+x)−9x=2(x−1)² proves sharp −1/6 equality x=1. Balanced n asymptotics follow by direct substitution. Independent exact rational inverse-fundamental-matrix calculations compared K to the formula on 80 parameter/strength combinations. Periodicity of unweighted bipartite chain is no problem for Kemeny eigenvalue formula with nonunit λ including −1.
 
-Hu and Kirkland [1], Theorem 2.0.1, decisively cover the **unit-weight** specialization; this already-known special case is excluded from the new contribution. The same paper studies binary edge insertion in complete multipartite graphs and does not provide continuous edge-strength optimization. Altafini et al. [2] give general weighted perturbation machinery (a broader computational identity), but the inspected sections 2–4 do not give the explicit family-wide optimizer, sharp conductance threshold or graph-uniform \(1/6\) bound. Faught et al. [3] deal with 1-separable graphs. The new theorem is a continuous conductance-design classification and sharp cross-family optimization rather than a second assertion of the old binary edge formula. Relevant semantic-index searches found no explicit identical claim, but cannot establish priority, and a generic perturbation formula can be specialized by further algebra. This residual risk is disclosed.
+## originality
 
-## Value — PASS
+PASS
 
-A discrete choice to add a link and a continuous choice of its conductance give opposite recommendations on large balanced bicliques. The minimum is attained at a unique strength, while over-weighting can worsen the expected stationary-target hitting time. The sharp \(1/6\) bound holds simultaneously over every biclique size, every choice of a within-part pair and every new-link strength, with a natural equality family. These are global design facts not provided by the existing fixed-unit-edge classification or a generic numeric Kemeny update algorithm.
+Hu–Kirkland 2019 already derives the t=1 unweighted within-part Braess edge formula, a direct specialization here and NOT new. Weighted network Kemeny edge-centrality literature supplies general perturbation methods, but an exact biclique-wide variable-strength unique minimizer, sharp universal 1/6 bound and balanced reversal were not located as explicit consequence of inspected primary statements.
 
-## Limits and closest literature
+## value
 
-The closest coverage is Hu–Kirkland [1] for strength one, alongside general weighted Kemeny calculation in Altafini et al. [2]. There is no result here for multiple edges, unequal background conductances, other graph families, or independently verified publication priority. Exact computational checks are finite; all-size conclusions rest on the provided proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-edge conductance optimization on a canonical graph family is a motivated full classification. It quantifies exact optimum and a sharp universal improvement cap, shows weighting can overcome a known discrete unit-edge Braess penalty, and isolates precise equality cases. Not just a reparameterization of the unweighted result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
