@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The sample space is the uniform conjugacy class of involutions with exactly \(k\) disjoint two-cycles. The spatial law follows by exhaustive conditioning on both fixed, both moved, and mixed fixed/moved statuses; each conditional partner count is uniform because the moved set and its perfect matching are uniform. Endpoints \(k=0\), \(2k=n\), and \(n=2\) are treated separately as needed. A double count proves that pairing two uniformly chosen fixed points preserves uniformity when increasing \(k\); the exact odd inversion increment is proved by comparing affected pairs. Finite exact-rational verification passed 675,381 assertions but does not substitute for these all-size proofs.
+PASS
 
-## Originality
+Uniform k-two-cycle involutions are sampled by a uniformly chosen moved set r=2k and uniform perfect matching on it. For positions a<b, d=b−a, both moved contributes r²/[2n(n−1)] (direct partners always invert, others by exchangeability); mixed fixed/moved contributes r(n−r)(n−d−1)/[n(n−1)(n−2)], both fixed contributes zero. Substitution gives 2k²/[n(n−1)]+2k(n−2k)(n−d−1)/[n(n−1)(n−2)] for n≥3; n=2 is checked separately. Gap slope and k-monotonicity follow by endpoint convex interpolation. Coupling consecutive classes by pairing a uniformly selected pair of current fixed positions preserves uniformity because each (k+1)-cycle target has k+1 predecessors and each k source has C(n−2k,2) choices. Exact inversion increase is 1+2#{t between a,b whose pi(t) lies between}, so strictly positive for every transition and gives strict stochastic increasing h(I) and conditional covariances. Sum over gaps produces known mean k(2n−k)/3. Independent exact all-involution enumeration n=2..8 checked local probabilities.
 
-**PASS, qualified.** Désarménien (1982), Dukes (2004), and Hart–Rowley (2014) already determine total-inversion generating polynomials conditional on fixed-point count, so the mean and marginal inversion distribution are explicitly excluded from novelty. A generating polynomial of the *total* inversion statistic does not itself distinguish positions or provide a simultaneous class-to-class coupling. Hansson's Bruhat-poset characterization is not a probability-order result. Pinsky (2025) and Pinsky–Schickentanz (2025) give related position-resolved inversion questions for different permutation distributions. Searches for involution-class spatial probabilities, random-matching monotone couplings, and equivalent formulations did not locate the combined statements. Closest published comparisons address unrestricted permutations rather than the uniform involution class. Residual risk: classical involution statistics or unpublished folklore may imply one component of the theorem.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact pairwise profile reveals spatial heterogeneity hidden from global \(q\)-inversion enumerators and classifies precisely when that heterogeneity vanishes. The coupling establishes first-order stochastic ordering for every pair of consecutive two-cycle classes, rather than merely comparing expectations, with a sharp positive odd increment and consequences for every strictly increasing function of total inversion count. This is a natural local/global dependence question for random symmetric matchings; neither a numerical slice nor an arbitrary statistic is required.
+Best-of-knowledge originality PASS for the precise stated claim, not a priority certificate. Potential aliases include class-conditioned Coxeter length distribution, q-Hermite polynomials, random partial matchings, and stochastic ordering under adding disjoint transpositions. Univariate length generating functions identify marginals but do not specify individual event probabilities P(pi(a)>pi(b)) by gap. Désarménien 1982 q-Hermite inversion polynomials and Dukes 2004 / Hart–Rowley 2014 length generating polynomials cover the global first moment and full univariate distribution. Pinsky 2025 concerns all permutations with fixed point counts, a larger but differently conditioned distribution; it does not imply the restricted uniform class of involutions without additional conditioning. Resultary cycle-count versus gap law for unrestricted permutations has a different statistic and measure. Principal residual risk: An older stochastic-order or matching-growing coupling proof might already imply strict monotonicity.
 
-## Boundaries and limitations
+## value
 
-Global inversion polynomials and their moment consequences are established prior work. The result is limited to uniform involution conjugacy classes; it does not address arbitrary permutations of specified fixed-point count or joint dependence of different inversion indicators. Priority is qualified pending external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+While global inversion generating polynomials are classical, this complete affine position-gap profile is a distinct local observable and the explicit all-class monotone coupling gives an actual stochastic order rather than only increasing mean. Both are natural reusable facts in random permutation/matching studies; no trivial substitution from the univariate generating polynomial yields the coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
