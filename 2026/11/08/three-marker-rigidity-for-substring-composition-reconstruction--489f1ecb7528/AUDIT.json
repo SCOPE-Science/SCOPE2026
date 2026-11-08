@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact Q0/Q2/Q3 polynomial identities are derived by enumerating factor endpoints. Second finite differences of Q0 reconstruct the four unordered zero-run lengths (including zero entries); normalized Q3 recovers the unordered endpoints by their sum and product; the factorized Q2 difference distinguishes all remaining non-reversal assignments. Burnside counts exactly the reversal classes. Independently replayed finite cases: 1,820 gap tuples, 17,550 weight-three words, 4,096 orientation tuples, and a published weight-four witness. No finite check is treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acharya et al. prove full reconstruction for lengths n with n+1 prime, twice prime, and n=7; this leaves infinitely many lengths.",
+        "Gupta–Mahdavifar prove properties of an algorithm and constructed codebooks, not universality over all three-one words.",
+        "Ye–Elishco Section VII treats loss within length-resolved spectra and Section III prefix/suffix composition, with different assumptions."
+      ],
+      "reasoning": "The nearest all-word positive theorems are restricted to special lengths; the other broader frameworks describe factorization or sufficient code conditions, not a theorem that implies every three-one binary input is uniquely determined for all n. A general *criterion* may be specialized by the present proof but does not dominate the result as an explicit consequence.",
+      "searches": [
+        "arxiv:1403.2439 all string lengths reconstructable prime or twice prime",
+        "arxiv:2201.09955 reconstruction code unique reconstruction gap vector",
+        "arxiv:2208.14963 prefix suffix composition all binary strings",
+        "\"string reconstruction\" \"at most three ones\" compositions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT.2010.5513668",
+      "arxiv:1403.2439",
+      "arxiv:2201.09955",
+      "arxiv:2208.14963v2",
+      "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+      "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "571e7f16-9c14-4ca2-9e76-481ed81f3063"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acharya et al. Section 4 already give the weight-four length-eight pair; this portion is not claimed novel.",
+        "Acharya et al. Theorems 18/20 imply recoverability for arbitrarily sparse words only at special lengths, not all n.",
+        "Gupta–Mahdavifar gap representation Lemma 1 is bijective parameterization, not uniqueness under a sparse set of composition channels."
+      ],
+      "reasoning": "The new mathematical implication is (Q0,Q2,Q3 equality for weight-three) => equality or reversal for every n≥3, with a three-gap-channel decoding and Burnside fiber count. A known full-spectrum length-eight collision implies only sharpness, not this universal positive implication.",
+      "searches": [
+        "String reconstruction with exactly three nonzero positions substring composition inverse problem",
+        "arxiv:1403.2439 theorem 18 theorem 20 all words reconstruction",
+        "arxiv:2208.14963 all strings prefix suffix compositions",
+        "published-finding corpus search: Every binary word of Hamming weight at most three uniquely reconstructible"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acharya et al. 2014/2015 define equicomposable binary words via full substring Parikh-vector spectra and bivariate factorization; Gupta–Mahdavifar use the same zero-gap encoding, but do not state the three-marker result.",
+        "No exact weight-three equivalent emerged from the queries, though absence is not proof."
+      ],
+      "reasoning": "Full substring composition equivalence is exactly equality of all four channels when the total number of ones is three. The new theorem proves the stronger injectivity of only Q0,Q2,Q3 modulo reversal. Published general algebraic characterizations do not themselves imply this all-n injectivity without further specialized argument.",
+      "searches": [
+        "Every binary word of Hamming weight at most three is uniquely reconstructible up to reversal from the complete multiset of substring Parikh vectors (substring compositions)",
+        "Equicomposable binary strings with three ones or lower, zero-gap reconstruction with polynomial counts of zero, two and three ones",
+        "\"equicomposable\" \"three 1s\" strings",
+        "\"equicomposable\" \"weight 3\" strings",
+        "\"equicomposable\" \"three ones\"",
+        "arxiv:1403.2439",
+        "arxiv:2201.09955"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2010 Table I enumerates confusable words of lengths through 14 and identifies the first weight-four pair, not all length-n weight-three rigidity.",
+        "Own accessible record 571e7f16-9c14-4ca2-9e76-481ed81f3063 concerns an exact n=23 complete-spectrum census rather than a uniform three-one structural theorem.",
+        "published-finding corpus ID 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e counts short length channels (r=2), not three-marker fragment-weight channels."
+      ],
+      "reasoning": "Finite tables, fixed-length censuses, and results on short substring *lengths* do not cover the claimed all-length sparse reconstruction; the proposed observation partitions substrings by number of ones, not by their length cutoff.",
+      "searches": [
+        "String reconstruction from all substring compositions minimal Hamming weight of non-reconstructible ambiguous binary words exactly four",
+        "Weighted sparse strings composition multiset three marker exact reconstruction polynomial P0 P2 P3",
+        "published-finding corpus search: exact binary r=2 length-limited composition reconstruction",
+        "Accessible own ledger claim 571e7f16-9c14-4ca2-9e76-481ed81f3063",
+        "ISIT 2010 Table I confusable sequences length <=14"
+      ]
+    },
+    "rationale": "Exact weight-three all-length rigidity and reconstruction from fragment-weight channels 0,2,3 are not stated by the inspected primary works. Published length-eight weight-four witness and special-length full-word uniqueness are acknowledged as known. Specific overlap searches returned closest but non-implying indexed findings. Risk remains from unindexed implicit corollaries.",
+    "residual_risks": [
+      "The claim may be an unindexed or implicit specialized corollary of a polynomial factorization result; failure to locate it is not proof of first discovery.",
+      "The 2010 conference text was inspected in an openly accessible HTML transcription rather than a directly checked publisher PDF; the 2014 fuller primary preprint mitigates this risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the length-eight four-one counterexample and general construction, but not universal reconstruction for all words containing three ones nor recovery from channels zero, two and three alone. Its finite table is not an all-length theorem.",
+        "evidence": [
+          "Published ISIT 2010 conference text Table I and Sections III-V; https://www.itsoc.org/publications/papers/on-reconstructing-a-string-from-its-substring-compositions"
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT.2010.5513668; https://paperzz.com/doc/8803595/on-reconstructing-a-string-from-its-substring",
+        "material_read": "Complete accessible conference text, introduction, Table I of ambiguous strings through length 14, interleaving construction and polynomial formulation",
+        "method": "HTML text inspection of openly viewable copy and title-specific search",
+        "title": "On Reconstructing a String from its Substring Compositions",
+        "trigger": "Earliest conference treatment of exact substring-composition reconstruction and small confusable strings"
+      },
+      {
+        "assessment": "Identifies equivalence via bivariate generating polynomial products and proves all-word recoverability for certain lengths; explicitly states the four-one confusable example. No inspected fixed-weight-three all-n uniqueness or selective three-channel result.",
+        "evidence": [
+          "Initial preprint publicly submitted 2014-03-10; Sections 2, 4, 5 and Theorems 17,18,20; https://arxiv.org/abs/1403.2439"
+        ],
+        "identifier_or_url": "arxiv:1403.2439; https://arxiv.org/abs/1403.2439",
+        "material_read": "Full accessible HTML manuscript with detailed inspection of abstract, Sections 2-5, selected core theorems in Sections 6-11, example in Section 4, searches for weight and sparse",
+        "method": "Primary open-text reading and searched text, comparing the domain and implication of theorems",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Closest full general model and factorization-based inverse theorem"
+      },
+      {
+        "assessment": "Defines the same gap representation for arbitrary weight, but proves algorithmic and codebook results rather than this universal three-marker rigid fiber classification from the specified three weight channels.",
+        "evidence": [
+          "Definition 1 and Lemma 1 on zero-gap vectors, algorithm and reconstruction-code sections; arxiv:2201.09955"
+        ],
+        "identifier_or_url": "arxiv:2201.09955; https://arxiv.org/abs/2201.09955",
+        "material_read": "Accessible full HTML, Introduction, Sections II-IV and theorem/code statements, searched for low Hamming weight and sparse claims",
+        "method": "Section-level primary text inspection and exact-term find",
+        "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+        "trigger": "Competing full-string algorithm using the same nonnegative zero-gap vectors"
+      },
+      {
+        "assessment": "Studies prefix/suffix multiset equivalence and error/length-limited composition observations; no all-n result for three-one words using only fragment-weight channels is stated. Prefix/suffix spectra are not the same three channels.",
+        "evidence": [
+          "Sections II, III, VII and VIII; https://arxiv.org/html/2208.14963v2"
+        ],
+        "identifier_or_url": "arxiv:2208.14963v2; https://arxiv.org/html/2208.14963v2",
+        "material_read": "Primary HTML Abstract, Introduction, definitions, portions of Sections III-V and VII-VIII, and weight-three term searches",
+        "method": "Primary full-document browsing with focused sections and terminology search",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Plausible stronger partial-observation reconstruction theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "489f1ecb-7528-4e54-acb6-cb6f33fbaed3",
+  "value": {
+    "rationale": "Full substring-composition reconstruction is a cited inverse problem with nontrivial ambiguity. This all-n classification locates the first permitted Hamming weight where nonreverse ambiguity becomes possible, shows that a whole measurement channel is unnecessary for three markers, and gives an explicit inverse and exact orbit census. It is a motivated structural threshold rather than a routine fixed-n computation; the known weight-four example is not passed off as novel.",
+    "status": "PASS"
+  }
+}
