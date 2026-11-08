@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The unbounded assertion follows from a four-round strategy preserving three-vertex incidence diagrams and exact positive extension counts for every Latin square of order at least four. The two exceptional cases are separated by a degree-two rank-four sentence and a fully exhaustive finite four-round type recursion, respectively. The full recursion includes equality and repeated choices. Two standalone verifiers independently corroborate the finite boundary and the local structural diagrams; neither is substituted for the infinite proof.
+## correctness
 
-**Originality — PASS (qualified).** The closest primary full text (Devillers–Hall, 2005 manuscript/2006 publication) treats automorphism-group rank and not quantifier rank. Curtin–Daqqa concerns a different graph construction from Latin squares. The standard Ehrenfeucht technique does not logically supply this exact cutoff. In the more informative three-sorted row/column/symbol signature a distinct cutoff had been studied; the present two-type, uncoloured, undirected incidence graph is not a quantifier-rank-preserving reformulation. A general unlocated low-depth incidence-structure theorem might nevertheless subsume the result; historical priority is not certified.
+PASS
 
-**Value — PASS.** This is a complete sharp low-depth classification of the incidence graphs of all Latin squares, including those without automorphism regularity. It measures precisely the expressive effect of forgetting sorts while introducing block vertices. The result gives a uniform finite representative ceiling and an explicit sharp depth at which the first parameter distinctions appear; it is not merely a single computed example.
+Using the graph of the TD(3,n) incidence relation in RESULT.md, reconstruct the Ehrenfeucht-Fraisse game. For all n>=4, preserving the hidden incidence diagram through three moves and matching four-vertex adjacency masks establishes rank-four equivalence; block-intersection counts and n>=4 positivity provide the infinite argument. Order-two has a degree-two vertex witnessed at quantifier rank 4. Exhaustive finite atomic-type recursion distinguishes order-three from order-four examples, including repeats and equality, without extrapolating its finite result. Independent rerun of the recursive classifier reproduced three round-four signatures for n=2,3,4, including cyclic/Klein squares. Rank<=3 equivalence follows extension masks for any n>=2.
 
-Scope restrictions: rank at most four, orders at least two, ordinary undirected incidence adjacency only; no claim for higher ranks, arbitrary transversal designs, or external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: Devillers and Hall, Rank 3 Latin square designs (JCTA 2006), addresses automorphism permutation rank rather than first-order quantifier rank; Curtin and Daqqa studies Latin-square cell-adjacency strongly-regular graphs rather than the point-block incidence graph. Risk: A more general low-depth FO theorem for unlabeled transversal-design incidence graphs could subsume the claimed three-class classification.
+
+## value
+
+PASS
+
+A sharp first-order indistinguishability classification of all uncoloured Latin-square incidence graphs is a natural finite-model-theoretic invariant; three theories and minimal representatives at 10,18,28 vertices are exact, not a random finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

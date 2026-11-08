@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `sh reproduce.sh` in the directory containing this file and the two Python source files. The scripts require Python 3 and only the standard library.
+# Independent mathematical audit
 
-`verify_rank4.py` evaluates full recursive Ehrenfeucht–Fraïssé types in pure equality-and-adjacency logic, including repeated selected vertices, on Latin-square incidence graphs of orders 2, 3, 4 (both nonisotopic group tables), and 5. The check gives one rank-three theory and the three rank-four classes stated in the theorem. This exact finite computation proves the specific rank-four order-three-versus-order-four separation, but not the infinite stabilization.
+## correctness
 
-`verify_geometry.py` independently constructs hidden incidence-diagram classes on up to three selected vertices, compares their fourth-vertex adjacency extension sets for the two nonisotopic order-four squares, and checks the universal integer count inequalities. It finds 2, 10 and 85 structural classes at tuple lengths 1, 2 and 3 in each order-four example. The uniform infinite strategy in RESULT.md rests on the displayed exact formulas and case analysis, not on extrapolating these finite runs.
+PASS
 
-The archived `verification_output.txt` is the actual output of the reproduction script. The deterministic programs can be rerun separately. Neither an independent mathematical review nor an exhaustive claim of historical priority is implied.
+Using the graph of the TD(3,n) incidence relation in RESULT.md, reconstruct the Ehrenfeucht-Fraisse game. For all n>=4, preserving the hidden incidence diagram through three moves and matching four-vertex adjacency masks establishes rank-four equivalence; block-intersection counts and n>=4 positivity provide the infinite argument. Order-two has a degree-two vertex witnessed at quantifier rank 4. Exhaustive finite atomic-type recursion distinguishes order-three from order-four examples, including repeats and equality, without extrapolating its finite result. Independent rerun of the recursive classifier reproduced three round-four signatures for n=2,3,4, including cyclic/Klein squares. Rank<=3 equivalence follows extension masks for any n>=2.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Devillers and Hall, Rank 3 Latin square designs (JCTA 2006), addresses automorphism permutation rank rather than first-order quantifier rank; Curtin and Daqqa studies Latin-square cell-adjacency strongly-regular graphs rather than the point-block incidence graph. Risk: A more general low-depth FO theorem for unlabeled transversal-design incidence graphs could subsume the claimed three-class classification.
+
+## value
+
+PASS
+
+A sharp first-order indistinguishability classification of all uncoloured Latin-square incidence graphs is a natural finite-model-theoretic invariant; three theories and minimal representatives at 10,18,28 vertices are exact, not a random finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
