@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Exact branch-and-bound searches compatibility graphs from all graph edges, using proper coloring for certified clique upper bounds and strict pruning to preserve all optimal ties; it establishes the full n=1..8 sequence and exactly twelve maximizers at n=8. Independent MILP solves the same n=1..8 values with optimum status. Distance and singleton-neighbor structural argument proves automorphism group order two, and all optima are reversal-paired.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravier et al. arXiv:1504.00829 Theorem 2.2 and Corollary 2.4 cover q_k(n), not induced matchings.",
+        "Saygı–Eğecioğlu DOI 10.1016/j.dam.2016.07.004 gives closed formulas for q_k(n) only.",
+        "Klavžar DOI 10.1007/s10878-011-9433-z surveys Fibonacci-cube structural invariants, not this exact induced-matching census.",
+        "Drambyan 2025 dissertation abstract p.19 states chi_s prime(F_n)=2n−1 for n≥3; this color-count equality neither fixes largest color class nor counts extremal induced matchings."
+      ],
+      "reasoning": "Known all-dimensional theorems for ordinary disjoint cubes are not stronger than the current induced matching claim: optimum values for a relaxation do not imply optimum for a stricter feasible set. Nor do their cardinality formulas count the stronger maximizers.",
+      "searches": [
+        "research-record search: Fibonacci cube Gamma_8 maximum induced matching 12 twelve optimal strong matchings six reversal orbits",
+        "research-record search: Fibonacci cube strong matching number first failure Fibonacci sequence dimensional index eight",
+        "web: \"induced matching\" \"Fibonacci cube\" 8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1504.00829 (full online text)",
+      "doi:10.1016/j.dam.2016.07.004 (full open PDF)",
+      "doi:10.1007/s10878-011-9433-z (available survey preprint sections)",
+      "doi:10.1137/140986980 (abstract)",
+      "Published research record: Cyclomatic bounds and sharp matching-induced-matching gaps",
+      "Published research record: Complete prescribed-difference matching multiplicity spectrum in dimension four",
+      "Drambyan–Petrosyan, Strong edge-colorings of Fibonacci cubes (2020 conference abstract, full p.30)",
+      "Drambyan, On Strong Edge Colorings of Graphs (2025 dissertation abstract, p.19)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 disjoint-cube theorem covers vertex-disjoint subgraphs with possible edges between them; explicit q_1(4)=4 versus strong matching 2 demonstrates it cannot imply same invariant.",
+        "The 2016 extension retains q_k(n) and never adds the crossedge condition.",
+        "The indexed cyclomatic-gap result concerns trees and connected unicyclic graphs, unlike Γ8, which contains many cycles.",
+        "For n=8 the known strong chromatic index of 15 gives a partition of 130 graph edges into 15 induced matchings, but does not determine the maximum single induced matching (12), much less its twelve maximizers and six symmetry orbits."
+      ],
+      "reasoning": "One cannot infer maximum strongly separated edges from the number of merely vertex-disjoint edges, nor does a general gap bound or matching-complex homotopy type determine the complete set of strong maximizers. No inspected source implies the statement.",
+      "searches": [
+        "arXiv:1504.00829 full-text sections 1–3; q_k(n), Theorem 2.2, Corollaries 2.4–2.5",
+        "doi:10.1016/j.dam.2016.07.004 full-text introduction and formula sections",
+        "research-record search: induced matching number and maximum induced matchings of Fibonacci cubes and Lucas cubes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gravier et al. arXiv:1504.00829 §1–2 defines vertex-disjoint Q_k-packings without induced separation; at k=1 this is ordinary matching, not induced matching.",
+        "Joos–Nguyen DOI 10.1137/140986980 defines the strong matching number but gives graph-degree bounds, not this census.",
+        "Drambyan–Petrosyan 2020, Strong edge-colorings of Fibonacci cubes, p. 30, derives a bound for the strong chromatic index, a coloring/partition parameter distinct from maximum induced-matching size."
+      ],
+      "reasoning": "The claim was compared under aliases strong matching, induced edge packing, distance-two edge packing, independent sets of the square of a line graph, and one-dimensional subcube packings. The disjoint-hypercube invariant omits crossedge exclusion; broad bounds do not determine a specific value or maximizer count.",
+      "searches": [
+        "research-record search: induced matching number and maximum induced matchings of Fibonacci cubes and Lucas cubes",
+        "research-record search: strong matching enumeration in Fibonacci cube graphs",
+        "web: Fibonacci cube \"induced matching number\" \"strong matching\" 2021 2010",
+        "web: \"Fibonacci cubes\" \"induced matchings\" graph",
+        "web: \"Fibonacci cube\" \"strong matching\" \"induced matching\"",
+        "web: \"Fibonacci cubes\" \"strong edge coloring\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published research record directly reported the 1–8 strong-matching sequence or 12 maximizers at n=8; nearest induced-matching record was Cyclomatic bounds and sharp matching-induced-matching gaps.",
+        "arXiv:1504.00829 Table 1 gives q_1(n) ordinary matching for low n, with q_1(4)=4 whereas the induced matching number is 2."
+      ],
+      "reasoning": "The exact machine-enumerated counts are not consequences of the inspected published ordinary-matching tables; mathematical-record database semantic search has coverage limits and cannot establish historical absence.",
+      "searches": [
+        "research-record search: strong induced matching number Fibonacci cube Gamma_n optimal n=8 12 edges graphs dimension eight",
+        "research-record search: Fibonacci cubes disjoint edges with no edges between endpoints versus vertex-disjoint cube packings",
+        "web: \"Fibonacci cubes\" \"induced matchings\" graph"
+      ]
+    },
+    "rationale": "Directly relevant published papers inspect ordinary vertex-disjoint cube packing, whose weaker constraints do not imply the exact strong matching number. The first discrepancy and exact n=8 optimum-orbit classification were not matched by targeted synonym/parameter queries of indexed mathematical records and primary literature; unindexed research remains a historical-priority risk.",
+    "residual_risks": [
+      "Search-index incompleteness cannot rule out an earlier exact induced matching computation for Γ8.",
+      "The 2016 general bound was inspected only in abstract; its hypothesis maximum degree ≤4 excludes Γ8, but this is not a full-text exclusion.",
+      "No independent scholarly review or formal proof-assistant certification is claimed.",
+      "The complete 2025 dissertation was not obtained; its abstract concerns strong chromatic index, but a separate unpublished induced-matching result cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "not covering; disjoint means vertex-disjoint, not induced, and does not give n=8 strong-matching optimum/census",
+        "evidence": [
+          "Online record first posted 2015-04-03; Table 1 states q_1(4)=4; Theorem 2.2 is for q_k(n)."
+        ],
+        "identifier_or_url": "arXiv:1504.00829; https://arxiv.org/abs/1504.00829",
+        "material_read": "full online text §§1–3, especially definitions, Lemma 2.1, Theorem 2.2, corollaries, concluding question",
+        "method": "web full-text reading and direct quantifier/invariant comparison",
+        "title": "On Disjoint hypercubes in Fibonacci cubes",
+        "trigger": "same Fibonacci-cube graph and maximum disjoint one-cubes"
+      },
+      {
+        "assessment": "not covering; still vertex-disjoint cube packing rather than induced matchings",
+        "evidence": [
+          "Published online 2016-07-26, first-page abstract specifies q_k(n) of disjoint subgraphs."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2016.07.004; https://sites.cs.ucsb.edu/~omer/DOWNLOADABLE/disjoint_hypercubes16.pdf",
+        "material_read": "the available full PDF, including first-page abstract/introduction and Section 3 formulas",
+        "method": "full PDF text inspection with page-image check",
+        "title": "Counting disjoint hypercubes in Fibonacci cubes",
+        "trigger": "close follow-up giving explicit maximum counts for Fibonacci-cube packings"
+      },
+      {
+        "assessment": "not covering the present exact strong matching and symmetry census",
+        "evidence": [
+          "Covers representations, recursive decomposition, graph invariants, theoretical chemistry and networking context."
+        ],
+        "identifier_or_url": "doi:10.1007/s10878-011-9433-z; https://doi.org/10.1007/s10878-011-9433-z",
+        "material_read": "accessible full preprint PDF: introduction, structure, graph invariants, and open problems",
+        "method": "full PDF sectional inspection and first-page screenshot",
+        "title": "Structure of Fibonacci cubes: a survey",
+        "trigger": "plausibly broad reference listing invariants and graph symmetries"
+      },
+      {
+        "assessment": "general maximum-degree-four bound, not directly applicable to this exact n=8 census (maximum graph degree eight)",
+        "evidence": [
+          "Abstract states degree-at-most-four conditions and lower bound."
+        ],
+        "identifier_or_url": "doi:10.1137/140986980",
+        "material_read": "publisher abstract only",
+        "method": "web abstract comparison",
+        "title": "Induced Matchings in Graphs of Degree at Most 4",
+        "trigger": "alias strong matching and possible generic implication"
+      },
+      {
+        "assessment": "not covering; only bounds the minimum number of color classes in a strong edge coloring, not maximum class size or optima",
+        "evidence": [
+          "Shows 2n−1≤chi_s prime(F_n)≤2n for n≥3; no maximum induced-matching value or count."
+        ],
+        "identifier_or_url": "https://science.rau.am/uploads/documents/1630056841.pdf (2020 proceedings, printed p.30)",
+        "material_read": "entire one-page published English conference abstract and preceding Russian abstract/results, PDF page image",
+        "method": "PDF full-text and screenshot of printed p.30",
+        "title": "Strong edge-colorings of Fibonacci cubes",
+        "trigger": "same Fibonacci cube family and precisely the induced-matching conflict relation via strong edge coloring"
+      },
+      {
+        "assessment": "different parameter; exact strong chromatic index does not imply our strong matching census; residual risk from unavailable full dissertation",
+        "evidence": [
+          "States chi_s prime(F_n)=2n−1 for n≥3 without claiming an induced matching maximum or maximizer count."
+        ],
+        "identifier_or_url": "https://www.ysu.am/sites/default/files/2025-07/Aram_PhD_abstract%20%282%29%20%281%29.pdf",
+        "material_read": "English abstract page 19, definition and item 1 result; full dissertation not obtained",
+        "method": "PDF text reading and screenshot of abstract page",
+        "title": "On Strong Edge Colorings of Graphs (2025 dissertation abstract)",
+        "trigger": "potential later stronger coverage of strong edge colorings on Fibonacci cubes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "964346fd-9d78-4f6b-856f-d4c90cfa1300",
+  "value": {
+    "rationale": "Strong matchings represent mutually noninterfering communication links, a natural and strictly stronger analogue of the disjoint edge packings previously studied in Fibonacci cubes. The exact first observed Fibonacci-pattern breakdown together with all maximizers and six symmetry orbits constitutes a useful reproducible boundary benchmark for future structural recurrence and packing investigations, not a routine restatement of vertex-disjoint matching counts.",
+    "status": "PASS"
+  }
+}
