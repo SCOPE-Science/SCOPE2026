@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every ring length n>=3 the pair-transfer de Bruijn matrix counts exactly all input-pair collisions. Exact polynomial expansion of its characteristic polynomial and an independently established gap-product/renewal formula agree. Aperiodic positive renewal singularity gives a unique dominant pole and unit leading constant, and the all-zero fibre has strictly smaller exponential growth; independent enumeration and symbolic checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen 1989 Section 5 gives expressions for Shannon measure entropy using arbitrary preimage counts, and an appendix treating Rule 4 explicitly. Koller–Hudcová 2025 Sec. Counting trajectories uses transfer matrices for the cardinality of specified transient/attractor classes."
+      ],
+      "reasoning": "Their general methods are capable in principle of supporting further calculation, and no claim is made that the methods are new. The inspected theorems do not directly entail the cyclic paired-input collision-moment enumeration or its degree-six Perron rate without additional summation and spectral analysis.",
+      "searches": [
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "https://arxiv.org/pdf/2508.09768",
+        "https://www.complex-systems.com/abstracts/v01_i06_a02/"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1103/RevModPhys.55.601",
+      "https://www.complex-systems.com/abstracts/v03_i05_a02/",
+      "arXiv:1305.6533",
+      "arXiv:2508.09768",
+      "doi:10.1007/BF01221109"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wolfram 1983 establishes elementary cellular-automaton context; Jen 1989 enumerates general preimage fibres and examines Shannon entropy; Koller–Hudcová 2025 counts short trajectories with a transfer method rather than collision pairs."
+      ],
+      "reasoning": "A known per-word fibre expression is not equivalent to a stated closed sum of its squares; in particular the dominant nonzero-output renewal contribution and its algebraic rate require a further weighted cyclic composition and singularity computation. Related general-purpose transfer techniques can derive, but do not by themselves explicitly state, the asserted specialized theorem.",
+      "searches": [
+        "doi:10.1103/RevModPhys.55.601",
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf#page=33",
+        "https://arxiv.org/pdf/2508.09768",
+        "elementary cellular automaton rule 4 010 isolated ones exact preimage basin collision entropy Renyi order two cyclic ring asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 4 fibres under independently uniform inputs; collision probability equals the squared fibre-size sum divided by the square of the input-space size. Jen 1989 supplies first moments and per-word preimage formulas, but not the exact cyclic second moment as stated."
+      ],
+      "reasoning": "Checked collision, Rényi-two, coalescence of two independent copies, second moment and paired transfer terminology as equivalent forms. None of the inspected sources states the polynomial or asymptotic normalization of this particular statistic.",
+      "searches": [
+        "elementary cellular automaton rule 4 010 isolated ones exact preimage basin collision entropy Renyi order two cyclic ring asymptotic",
+        "rule 4 binary cellular automaton second moment basin sizes image probability two independent random rings identical eventual fixed state",
+        "binary cellular automaton rule 4 zero output no isolated 1 renewal generating function exponential collision entropy",
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf#page=33"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jen 1989 lists per-word Rule 4 preimage formulae but not a table or sequence of pair-collision counts. Independent finite checks give moments 28,106,314,948,2986,9434 for ring sizes 3–8."
+      ],
+      "reasoning": "Exact table/sequence and transfer-matrix second-moment aliases were sought; no pre-existing table or named second-moment polynomial matching this all-length claim was found. Search absence is not a proof of historical uniqueness.",
+      "searches": [
+        "https://www.complex-systems.com/abstracts/v03_i05_a02/",
+        "rule 4 binary cellular automaton second moment basin sizes image probability two independent random rings identical eventual fixed state",
+        "binary cellular automaton rule 4 zero output no isolated 1 renewal generating function exponential collision entropy",
+        "arXiv:2508.09768"
+      ]
+    },
+    "rationale": "Jen 1989 already supplies general one-step preimage formulae, including Rule 4; the new claim is instead the exact all-length cyclic second-fibre-moment sequence and its algebraic exponential collision law. Searches in prior mathematical records, accessible historical claims and current primary literature found no stated covering theorem. The main residual risk is inaccessible relevant historical literature.",
+    "residual_risks": [
+      "Jen 1988 article on cylindrical cellular automata was not available in full text; potential equivalent specialized results cannot be excluded.",
+      "The wider, unindexed mathematical or computational literature might already report the same collision generating function or its algebraic rate.",
+      "Fukś and Jen establish much of the standard single-fibre enumeration; this work claims novelty only for the aggregate second-moment and asymptotic rate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FIBRES_ALREADY_KNOWN; NOT_IDENTIFIED_SQUARED_CYCLIC_SUM",
+        "evidence": [
+          "Appendix A explicitly lists preimages for Rule 4 and Rule 32 on linear strings; Section 5.2 computes Shannon spatial measure entropy, not exact cyclic squared fibres."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Full accessible PDF text, Section 5 on Shannon spatial measure entropy, Appendix A Rule 4 expression on printed page 453, checked by page image",
+        "method": "Full PDF text navigation and targeted page-image examination",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Same elementary rule and arbitrary one-step preimages"
+      },
+      {
+        "assessment": "DIFFERENT_TRAJECTORY_CARDINALITY_STATISTIC",
+        "evidence": [
+          "The paper counts initial configurations reaching attractors of designated transient and period; it does not identify paired-input collisions or the Rule 4 degree-six second-moment rate."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2508.09768",
+        "material_read": "Full accessible PDF text relevant abstract, counting-trajectories definition, formulas (4)-(10) and accompanying diagram on PDF page 3",
+        "method": "PDF text examination and screenshot of the transfer/trajectory definitions",
+        "title": "Counting Short Trajectories in Elementary Cellular Automata using the Transfer Matrix Method",
+        "trigger": "Recent transfer-matrix method potentially encompassing finite-ring dynamics"
+      },
+      {
+        "assessment": "DIFFERENT_PREIMAGE_SEQUENCES",
+        "evidence": [
+          "The article concerns preimage-count sequences, emulation and expected density; no cyclic pair-collision moment theorem was identified."
+        ],
+        "identifier_or_url": "arXiv:1305.6533; doi:10.25088/ComplexSystems.14.1.29",
+        "material_read": "Accessible full journal PDF main body and abstract, focused on sequences of preimages and their recurrence behavior",
+        "method": "Primary PDF text and article-level comparison",
+        "title": "Sequences of Preimages in Elementary Cellular Automata",
+        "trigger": "General preimage sequences potentially specializing to Rule 4"
+      },
+      {
+        "assessment": "PLAUSIBLE_GENERAL_PREIMAGE_TECHNIQUE; FULL_TEXT_NOT_READ",
+        "evidence": [
+          "Abstract studies recurrence and scaling of specific minimum or maximum preimage quantities, not explicitly the ring-wide squared-fibre moment."
+        ],
+        "identifier_or_url": "https://www.complex-systems.com/abstracts/v01_i06_a02/",
+        "material_read": "Publicly available article abstract and publication description",
+        "method": "Abstract-level inspection only",
+        "title": "Scaling of Preimages in Cellular Automata",
+        "trigger": "Earliest closely related preimage work"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+        "evidence": [
+          "Could contain relevant ring preimage results; no assertion of whole-document noncoverage is made."
+        ],
+        "identifier_or_url": "doi:10.1007/BF01221109",
+        "material_read": "Bibliographic descriptions only; full text unavailable",
+        "method": "Open-access and arXiv attempts followed by authorized institutional-access attempt; full text not obtained",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Directly plausible cyclic boundary-condition scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e563a917-b862-474a-a51e-234fd55791c2",
+  "value": {
+    "rationale": "Exact collision probability measures one-step deterministic information coalescence under a uniform input distribution, a meaningful invariant not supplied by fixed-point or preimage-existence counts. Its all-ring rational second moment and algebraic limiting Rényi-two rate are natural complete statistics for a canonical elementary rule, with a nontrivial dominance comparison between the zero basin and the aggregate of other basins.",
+    "status": "PASS"
+  }
+}
