@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:01:37.319974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-hopf-criticality-transition-in-a-logit-game-with-environme--ffc33c1d1e71/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-hopf-criticality-transition-in-a-logit-game-with-environme--ffc33c1d1e71/verify_hopf_criticality.py"
+      ],
+      "rationale": "For 0<θ<1, R>s>0, T,P,ε>0, the sigmoid logit equation xdot=logistic(βg)−x and logistic resource n-dot=εn(1−n)((1+θ)x−1) have x*=1/(1+θ), n*(β)=(K−C/β)/D, K=R−θs,D=R+T+θ(P−s),C=(1+θ)log(1/θ). The Jacobian trace along this branch has strictly positive β slope q(1+θ)(RP+sT)/D, a negative entry trace at branch threshold and det>0; hence unique interior transversal Hopf β_h. At Hopf standard canonical linear X,Y coordinates make the first Lyapunov coefficient equal to H(ε)/16, with H=−(1+θ)(R+T+P−s)/(qD)+εβ_h n_h(1−n_h)[(1−3θ)(P−s)−(3−θ)(R+T)]. The proof computes explicit third derivatives and uses the full planar Hopf formula; environment cross derivatives G_xy matter only through g_xx=g_yy=0 in that coefficient. A fresh independent calculation differentiated the original nonlinear sigmoid/resource vector field symbolically with Sympy and substituted its canonical planar coefficient, matching H/16 to ~1e−14 for θ=.1/R=2/s=.5/T=.5/P=50 at ε=1 and30, and an θ=.8 example. The sign change at ε_c≈23.6071 is realized by admissible positive payoff matrices. Equality H=0 correctly excludes nondegenerate Hopf criticality and no Bautin conclusion is asserted.",
+      "residual_risks": [
+        "Unindexed later follow-up to Paarporn or supplementary calculation may contain a matching l1 formula.",
+        "At ε=ε_c the second Lyapunov coefficient is not computed; no Bautin/cycle multiplicity conclusion is justified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gong et al compute a coefficient for polynomial replicator-mutator update, not sigmoid logit; Gavin–Cao–Paarporn analyze static one-dimensional logit games with no environmental Hopf."
+        ],
+        "reasoning": "General planar Hopf theory provides an algorithm, but not the specific evaluated closed sign classification nor its admissible subcritical domain without new algebra.",
+        "searches": [
+          "arXiv:2205.10734",
+          "arXiv:2409.05044",
+          "arXiv:2311.02745"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: logit learning environmental feedback Hopf first Lyapunov coefficient subcritical game resource Paarporn",
+        "Web: Paarporn logit environmental dynamics first Lyapunov coefficient",
+        "arXiv:2311.02745v1",
+        "arXiv:2205.10734",
+        "arXiv:2409.05044",
+        "eLife:e82954"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paarporn obtains trace-zero β_h, which is a hypothesis used in the new cubic coefficient computation. Sign of ℓ1 and its reversal with ε is not implied by trace=0 or determinant>0."
+        ],
+        "reasoning": "The new theorem extends the source local-linear result and supplies an admissible parameter witness violating any assumed all-supercritical inference. It does not claim global stable cycles or Bautin unfolding at ℓ1=0.",
+        "searches": [
+          "arXiv:2311.02745v1 Theorem 4.1",
+          "arXiv:2205.10734"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hopf coefficient in canonical normal form is equivalent to the cubic radial coefficient; original source derives linear trace crossing but explicitly leaves first Lyapunov sign for future."
+        ],
+        "reasoning": "Equivalent center-manifold/Bautin-normal-form terms were considered. This is a coefficient on the same nonlinear sigmoid logit-resource ODE, not just a renamed general Hopf theorem.",
+        "searches": [
+          "arXiv:2311.02745v1",
+          "Resultary: logit learning environmental feedback Hopf first Lyapunov coefficient subcritical game resource Paarporn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original figures numerically display stable cycles; the source expressly does not compute l1."
+        ],
+        "reasoning": "A numerical orbit diagram or linear threshold table does not give universal H(ε) or critical ε_c for all parameter values.",
+        "searches": [
+          "arXiv:2311.02745 Figure 1 and Section IV",
+          "Web: Hopf numerical l1 logistic environment game"
+        ]
+      },
+      "rationale": "Primary same-model source Keith Paarporn arXiv:2311.02745v1 (full eight pages inspected, p.4 and Conclusion) locates the logit environmental Hopf threshold but explicitly says sign and computation of its first Lyapunov coefficient require future analysis. The present exact evaluated H(ε) with super/subcritical switch is new relative to that result; its own statement of β>β_h periodic orbit side does not establish sign in the admitted unresolved regime. Gong et al arXiv:2205.10734 analyzes different replicator–mutator polynomial update; static logit equilibria and other environmental games do not imply the same model-specific coefficient. Search did not find covering Resultary or primary formula; unresolved older/unindexed work remains risk.",
+      "residual_risks": [
+        "Unindexed later follow-up to Paarporn or supplementary calculation may contain a matching l1 formula.",
+        "At ε=ε_c the second Lyapunov coefficient is not computed; no Bautin/cycle multiplicity conclusion is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source explicitly leaves first Lyapunov coefficient for further analysis; no exact sign formula.",
+          "evidence": "arXiv:2311.02745, p.4 lines corresponding to near [731-741] and Conclusion p.5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.02745",
+          "material_read": "Entire 8-page arXiv primary PDF, model equations Section III, fixed points Theorem 3.1, Hopf Theorem 4.1 pp.4–5 and Conclusion.",
+          "method": "Read PDF text and visually checked pages of original model and Hopf theorem.",
+          "title": "The madness of people: rational learning in feedback-evolving games",
+          "trigger": "same full nonlinear ODE and Hopf threshold"
+        },
+        {
+          "assessment": "Different replicator-mutator polynomial update and environmental game; does not imply sigmoid logit coefficient.",
+          "evidence": "arXiv:2205.10734 (2022).",
+          "identifier_or_url": "https://arxiv.org/abs/2205.10734",
+          "material_read": "Accessible manuscript abstract and update rule/scoped mathematical model.",
+          "method": "Read primary accessible summary and equation type.",
+          "title": "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback",
+          "trigger": "possible prior Hopf coefficient for feedback game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: logit learning environmental feedback Hopf first Lyapunov coefficient subcritical game resource Paarporn",
+        "Web: Paarporn logit environmental dynamics first Lyapunov coefficient",
+        "arXiv:2311.02745v1",
+        "arXiv:2205.10734",
+        "arXiv:2409.05044",
+        "eLife:e82954"
+      ],
+      "rationale": "The first Lyapunov coefficient is a natural decisive nonlinear invariant at a trace-zero crossing. Explicit classification of its sign and a nonempty subcritical region for changing environmental timescale resolves a clear gap left in the same logit game model, changing cycle stability/direction beyond linear Hopf location. The degenerate equality is precisely excluded from unproved higher-order claims.",
+      "residual_risks": [
+        "Unindexed later follow-up to Paarporn or supplementary calculation may contain a matching l1 formula.",
+        "At ε=ε_c the second Lyapunov coefficient is not computed; no Bautin/cycle multiplicity conclusion is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: logit learning environmental feedback Hopf first Lyapunov coefficient subcritical game resource Paarporn",
+    "Web: Paarporn logit environmental dynamics first Lyapunov coefficient",
+    "arXiv:2311.02745v1",
+    "arXiv:2205.10734",
+    "arXiv:2409.05044",
+    "eLife:e82954"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed later follow-up to Paarporn or supplementary calculation may contain a matching l1 formula.",
+    "At ε=ε_c the second Lyapunov coefficient is not computed; no Bautin/cycle multiplicity conclusion is justified.",
+    "Finite computational checks corroborate specific cases only; the asserted infinite/all-real theorem rests on the reviewed symbolic argument.",
+    "Exact evaluated source blob hashes and assigned source-tree SHA were verified; publication remains withheld because public metadata was not sanitized."
+  ],
+  "residual_risks": [
+    "Unindexed later follow-up to Paarporn or supplementary calculation may contain a matching l1 formula.",
+    "At ε=ε_c the second Lyapunov coefficient is not computed; no Bautin/cycle multiplicity conclusion is justified."
+  ],
+  "schema_version": 1
+}

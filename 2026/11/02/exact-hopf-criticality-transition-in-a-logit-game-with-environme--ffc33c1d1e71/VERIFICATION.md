@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_hopf_criticality.py`. The program requires only a Python 3 standard-library installation. It independently computes the Hopf cubic coefficient (a) from the planar derivative formula and (b) from a normalized complex-eigenvector Kuznetsov multilinear contraction, and compares both to the closed payoff expression. It also checks the Hopf trace condition and verifies that the equilibrium is interior.
+## correctness
 
-For the original paper's plotted parameters \((\theta,R,s,T,P,\varepsilon)=(0.8,1.5,0.5,0.5,0.25,0.5)\), the calculated \(\beta_h\) is about \(5.676683215269\) and \(\ell_1\) is about \(-0.618878506352\).
+PASS
 
-For the positive-payoff witness \((0.1,2,0.5,0.5,50)\), the calculated critical environmental speed is \(\varepsilon_c\approx23.607116993784\). The coefficient is approximately \(-5.560417137554\) at speed 1 and \(+1.572385202232\) at speed 30. The program additionally performs 100 reproducible randomized parameter checks, with a fixed seed.
+For 0<θ<1, R>s>0, T,P,ε>0, the sigmoid logit equation xdot=logistic(βg)−x and logistic resource n-dot=εn(1−n)((1+θ)x−1) have x*=1/(1+θ), n*(β)=(K−C/β)/D, K=R−θs,D=R+T+θ(P−s),C=(1+θ)log(1/θ). The Jacobian trace along this branch has strictly positive β slope q(1+θ)(RP+sT)/D, a negative entry trace at branch threshold and det>0; hence unique interior transversal Hopf β_h. At Hopf standard canonical linear X,Y coordinates make the first Lyapunov coefficient equal to H(ε)/16, with H=−(1+θ)(R+T+P−s)/(qD)+εβ_h n_h(1−n_h)[(1−3θ)(P−s)−(3−θ)(R+T)]. The proof computes explicit third derivatives and uses the full planar Hopf formula; environment cross derivatives G_xy matter only through g_xx=g_yy=0 in that coefficient. A fresh independent calculation differentiated the original nonlinear sigmoid/resource vector field symbolically with Sympy and substituted its canonical planar coefficient, matching H/16 to ~1e−14 for θ=.1/R=2/s=.5/T=.5/P=50 at ε=1 and30, and an θ=.8 example. The sign change at ε_c≈23.6071 is realized by admissible positive payoff matrices. Equality H=0 correctly excludes nondegenerate Hopf criticality and no Bautin conclusion is asserted.
 
-These finite checks are not a proof of claims quantified over all real parameters, nor are they an independent scientific audit. The full analytical reduction, positivity inequalities, exact assumptions and boundary cases appear in RESULT.md. The sign of the first coefficient classifies local nondegenerate Hopf orbits only, not global recurrence or the degenerate equality.
+## originality
+
+PASS
+
+Primary same-model source Keith Paarporn arXiv:2311.02745v1 (full eight pages inspected, p.4 and Conclusion) locates the logit environmental Hopf threshold but explicitly says sign and computation of its first Lyapunov coefficient require future analysis. The present exact evaluated H(ε) with super/subcritical switch is new relative to that result; its own statement of β>β_h periodic orbit side does not establish sign in the admitted unresolved regime. Gong et al arXiv:2205.10734 analyzes different replicator–mutator polynomial update; static logit equilibria and other environmental games do not imply the same model-specific coefficient. Search did not find covering Resultary or primary formula; unresolved older/unindexed work remains risk.
+
+## value
+
+PASS
+
+The first Lyapunov coefficient is a natural decisive nonlinear invariant at a trace-zero crossing. Explicit classification of its sign and a nonempty subcritical region for changing environmental timescale resolves a clear gap left in the same logit game model, changing cycle stability/direction beyond linear Hopf location. The degenerate equality is precisely excluded from unproved higher-order claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
