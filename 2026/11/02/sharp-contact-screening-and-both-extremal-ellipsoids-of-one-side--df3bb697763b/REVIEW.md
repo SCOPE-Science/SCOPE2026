@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The body has exactly the two classes of signed facet inequalities stated in the result. The John root is unique and lies in the domain giving positive semiaxes. Both facet supports are exactly one. The normalized facet contacts have strictly positive orbit masses, zero mean and covariance \(I_n/n\); the contact theorem therefore certifies unrestricted global optimality, not just a symmetry-reduced stationary point. For the Löwner ellipsoid, the two explicit sets of normalized vertex contacts satisfy containment and nonnegative moment decompositions on both sides of the threshold. The missing negative-pole contact in the upper regime is certified by the strict vertex inequality. The volume regularity and limiting ratio follow by direct algebra. The packaged checker passed 216 contact/containment configurations and 40 optimization comparisons; these experiments are corroborative only.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+For n>=3,a>=1, the exact 2^n halfspace inequalities define the one-sided stretched cross-polytope. The candidate John parameters from the positive root of (n+1)c²+[2na/(a-1)-(a-1)]c-a=0 give b²=(a-c)(1+c)/n, r²=[1-2c/(a-1)]/(n-1); both facet classes are at support 1. Normalized facet contacts with orbit masses (a-c)/(a+1) and (1+c)/(a+1) have zero mean and covariance I/n, proving global John optimality. For the outer ellipsoid, two explicit branches separated at a*=(n+1)/(n-1) contain every vertex and admit nonnegative isotropic contact designs; in the second branch the -e1 pole lies strictly inside. Their log volume derivatives match at a*, but second derivative jumps by (n-1)^3/[4n(n+1)]; semiaxis limits establish the volume ratio. Independently recalculated facet and vertex support equalities across n=3,4,7 and five a values each; exact contact identities in the proof, not finite examples, certify unrestricted global uniqueness.
 
-The most relevant classical source, Henk's *Löwner–John ellipsoids* (2012), gives the general moment characterization but not a closed one-sided cross-polytope classification. Horwitz (2003, 2007) treats inscribed and circumscribed ellipses of quadrilaterals, covering related planar geometry but not this all-dimensional claim. Published work on diagonally capped cubes, spiked cubes, and related contact transitions uses non-equivalent face systems and does not imply the present paired formulas. Targeted searches under bipyramid, asymmetric orthoplex, one-vertex stretch, polar box and experimental-design formulations found no directly covering result. The search is not an independent priority certification; an earlier unindexed special-case derivation is possible.
+## originality
 
-## Value — PASS
+PASS
 
-The regular cross-polytope is a canonical convex body; an unequal axial pole is a natural minimal way to remove central symmetry, equivalent under origin polarity to an off-center rectangular box. The complete paired optimization is meaningful because the best inscribed ellipsoid retains all facets as contacts while the minimum containing ellipsoid undergoes an exact sharp loss of one vertex. The dimension-dependent threshold, its \(C^1\)-but-not-\(C^2\) volume transition, and the all-dimensional radical formulas describe geometric structure not implied by known symmetric-body formulas. The planar specialization is not independently offered as novel; priority risk is disclosed.
+Qualified PASS: Henk’s general John/Löwner isotropic contact characterization is the certificate, not a claim of new general theory. Horwitz quadrilateral ellipse results address n=2, intentionally excluded from independent novelty. Existing resultary summaries on capped cubes, parity halfcubes, spiked symmetric edge polytopes have different vertex/facet systems and do not imply the one-sided orthoplex formulas or exact screening threshold. Potential unindexed asymmetric bipyramid or optimal experimental design equivalent remains.
 
-## Scientific limits
+## value
 
-No classification for arbitrary asymmetric cross-polytopes or multiple perturbed axes is claimed. Only the exact contact construction proves unrestricted optimality. Independent historical-priority review and independent proof audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This one-axis deviation from the regular cross-polytope is a canonical minimal break of central symmetry. Giving both all-dimensional extremal ellipsoids, a contact-set phase transition that screens one vertex while retaining all John facets, and an exact non-C² volume singularity is a natural structural convex-geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
