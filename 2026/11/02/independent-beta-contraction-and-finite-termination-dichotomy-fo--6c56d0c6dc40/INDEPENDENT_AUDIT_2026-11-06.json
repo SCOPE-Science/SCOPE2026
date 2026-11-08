@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:06:40.996847Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At rank-one sketches, RCGLS Algorithm 1 sets p_k proportional to the previous H-orthogonal projection of g_k. Exact line search makes e_k H-orthogonal to p_(k-1), so the scalar g_k^T H e_k cancels and each step removes the H-orthogonal component along w_k=P_(k-1)g_k. For d>=3, conditional w_k has full Gaussian density on a (d-1)-plane, and aligning with a fixed nonzero e_k is measure-zero; first step similarly nonterminating for d>=2. d=2 hyperplane dimension one forces termination at second step. With H=I, conditional normalized w_k is uniform on an m-sphere in dimension m=d initially, d-1 thereafter: exact squared surviving factor Beta((m-1)/2,1/2), independent of history and hence independent across k. Beta expectations and log-moment strong law yield stated mean and negative digamma exponent. Independent Gaussian simulations for d=3,4,7 with 20,000 paths showed first/second/third mean factors [0.663462,0.501726,0.499113], [0.747321,0.665344,0.667037], [0.857792,0.832789,0.834012], close to exact predictions. Infinite zero-termination and independence rely on the conditional measure proof, not simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 in arXiv:2605.25034 gives conditional expected linear contraction bound, not full distribution/independence.",
+          "Sun–Han–Xie Remark 3.6 obtains finite termination with full rank-sized memory, and covers rank-two endpoint."
+        ],
+        "reasoning": "Generic projection analysis and full-memory finite termination are genuine prior ingredients, but their theorem statements do not dominate the higher-dimensional one-memory nontermination and exact beta product in the original algorithm.",
+        "searches": [
+          "Zeng Cai Han Xie randomized conjugate gradient least squares Theorem 2.4 beta distribution",
+          "Sun Han Xie connecting randomized iterative methods Krylov Remark 3.6 finite termination"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.25034",
+        "https://arxiv.org/html/2505.20602v1",
+        "https://arxiv.org/abs/2207.07615",
+        "Resultary search: Gaussian sketch conjugate gradient beta nontermination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source expected rate inequality does not imply full beta-factor independence or exact almost-sure exponent.",
+          "Known full-history finite termination does not establish failure of finite termination for the one-step-memory algorithm in dimensions >=3."
+        ],
+        "reasoning": "New conditional density/alignment and sphere-conditioning lemmas are essential to the exact law, beyond a generic expected contraction inequality; rank-two termination explicitly prior.",
+        "searches": [
+          "arxiv 2605.25034 Algorithm 1 conditional expectation Theorem 2.4",
+          "arxiv 2505.20602 Remark 3.6 rank finite convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The error process is an orthogonal sequential one-step-memory projection, equivalent to products of random spherical complement factors.",
+          "ArXiv 2605.25034 Algorithm 1 exactly matches projected sketch and line-search formula when S_k=g_k."
+        ],
+        "reasoning": "Spherical beta ratios themselves are standard, but identifying the conditional random subspace and the history-free factor law in this exact RCGLS memory scheme is required to obtain the theorem; no matching explicit earlier one-step-memory statement identified.",
+        "searches": [
+          "random Gaussian rank one RCGLS beta projection factor independent products",
+          "Resultary: Gaussian sketch conjugate gradient beta nontermination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact mean factor ((d-1)/d)((d-2)/(d-1))^(k-1) follows from beta product; 20,000-sample per-dimensional simulations independently corroborate first three factor means."
+        ],
+        "reasoning": "This is a distributional theorem, not a finite table. Numerical samples support formulas but cannot establish novelty or a probability-zero claim.",
+        "searches": [
+          "RCGLS Gaussian factor Beta((d-2)/2,1/2) moment distribution",
+          "randomized CGLS exact Gaussian error law product beta"
+        ]
+      },
+      "rationale": "Zeng–Cai–Han–Xie (arXiv:2605.25034v1) Algorithm 1 exactly defines RCGLS and Theorem 2.4 establishes expected convergence inequality, not the exact product law. Sun–Han–Xie (arXiv:2505.20602v1) give a related projected-memory solver and full-memory finite termination at rank r (Remark 3.6); the d=2 finite-memory consequence is prior knowledge, not newly claimed. The surviving novel statement is the d>=3 almost-sure nontermination and the full independent beta-factor distribution plus exact exponential rate. No directly implying distribution theorem identified in topical searches, but unindexed randomized-projection analyses remain a risk.",
+      "residual_risks": [
+        "A general theorem on randomized successive orthogonal projections may imply the beta factors after recognizing the memory-induced random hyperplane.",
+        "The beta product requires exactly H=I, independent rank-one standard Gaussian sketches and exact arithmetic; for general H only finite-nontermination result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_ALGORITHM_WEAKER_BOUND",
+          "evidence": [
+            "Algorithm 1 lines 165–197 provides projected previous direction; Theorem 2.4 lines 243–250 is an expectation inequality, not an exact beta law."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.25034",
+          "material_read": "Full openly accessible 2026 arXiv HTML: Algorithm 1, Section 2.2–2.3, Theorem 2.4 and relevant calculations",
+          "method": "Inspect exact update, line-search/orthogonality and expectation theorem; compare quantifiers and distributions",
+          "title": "Randomized conjugate gradient least squares",
+          "trigger": "Identical algorithm and strongest immediate source"
+        },
+        {
+          "assessment": "STRONG_FRAMEWORK_PRIOR_PARTIAL",
+          "evidence": [
+            "Remark 3.6 lines 351–360 gives finite termination when memory ℓ>=rank(A); does not assert independent beta factors for RCGLS one-direction recursion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.20602v1",
+          "material_read": "Full openly accessible 2025 arXiv HTML: Sections 2–4, projection framework, Remark 3.6 and Appendix proofs",
+          "method": "Read update scheme and finite-termination rank assumptions; compare one-direction versus rank memory",
+          "title": "Connecting randomized iterative methods with Krylov subspaces",
+          "trigger": "Related prior memory-dependent projection algorithm and finite termination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full exact distribution and almost-sure rate for a contemporary randomized least-squares solver quantify reliability beyond expectation bounds. The sharp finite-termination dichotomy by dimension identifies a genuine algorithmic limit of one-direction memory, not a routine numerical inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Contraction law only isotropic H=I; finite-precision thresholds and adaptive/discrete sketches outside claim."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact projection identity follows from the source algorithm and the previous-step line-search orthogonality. For a nonzero Gaussian projected direction, zero error is equivalent to alignment with the current error. Hyperplane dimension distinguishes two-dimensional almost-sure termination from higher-dimensional measure-zero alignment. In the isotropic regime the conditional direction is uniform on a sphere of deterministic dimension and its squared complement is beta-distributed with a history-free conditional law. This proves independence, expectation and the logarithmic almost-sure limit. Exact rational and 40,000 simulated path checks corroborate specific finite cases; simulations are not used to prove universal results.
+## correctness
 
-## Originality: PASS under accessible published-source comparison
-The May 2026 RCGLS paper establishes expected-rate bounds and states the exact method, not an independent beta product law. The May 2025 Sun–Han–Xie projection framework closely subsumes the *algorithmic construction* and already implies the two-dimensional finite-termination endpoint. Therefore the dimension-two result is explicitly credited as prior knowledge; the candidate's proposed contribution is the sharp higher-dimensional obstruction and particularly the full independent-factor distribution and its exact asymptotics. The earlier projection-based least-squares solver retains more projection history, changing its finite-termination mechanism. Targeted research-record and literature searches returned no known matching stronger distributional theorem. Full historical priority is not independently established.
+PASS
 
-## Value: PASS
-The distributional theorem quantifies the actual error-reliability profile of a current randomized solver, including all moments computable from its beta factors, its almost-sure speed and the precise distinction from conjugate gradients' finite-step termination. The separation at dimension three is natural: a single previous-direction constraint leaves an at-least-two-dimensional random search space, preventing exact alignment almost surely while still giving exponential contraction. This is not an arbitrary numeric slice. The beta law is limited to orthonormal design, and the finite-step obstruction remains valid for general full-column-rank design.
+At rank-one sketches, RCGLS Algorithm 1 sets p_k proportional to the previous H-orthogonal projection of g_k. Exact line search makes e_k H-orthogonal to p_(k-1), so the scalar g_k^T H e_k cancels and each step removes the H-orthogonal component along w_k=P_(k-1)g_k. For d>=3, conditional w_k has full Gaussian density on a (d-1)-plane, and aligning with a fixed nonzero e_k is measure-zero; first step similarly nonterminating for d>=2. d=2 hyperplane dimension one forces termination at second step. With H=I, conditional normalized w_k is uniform on an m-sphere in dimension m=d initially, d-1 thereafter: exact squared surviving factor Beta((m-1)/2,1/2), independent of history and hence independent across k. Beta expectations and log-moment strong law yield stated mean and negative digamma exponent. Independent Gaussian simulations for d=3,4,7 with 20,000 paths showed first/second/third mean factors [0.663462,0.501726,0.499113], [0.747321,0.665344,0.667037], [0.857792,0.832789,0.834012], close to exact predictions. Infinite zero-termination and independence rely on the conditional measure proof, not simulation.
 
-## Sources and remaining limits
-Zeng et al. (arXiv:2605.25034v1), especially Algorithm 1 and Theorem 2.4; Sun et al. (arXiv:2505.20602v1), especially Remarks 3.5–3.6; and Brust and Saunders (arXiv:2207.07615) were inspected as principal comparisons. Generic spherical beta identities are classical, and specialized unpublished or less discoverable randomized-projection formulas may still overlap. The result assumes independent continuous rank-one Gaussian sketches and exact arithmetic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zeng–Cai–Han–Xie (arXiv:2605.25034v1) Algorithm 1 exactly defines RCGLS and Theorem 2.4 establishes expected convergence inequality, not the exact product law. Sun–Han–Xie (arXiv:2505.20602v1) give a related projected-memory solver and full-memory finite termination at rank r (Remark 3.6); the d=2 finite-memory consequence is prior knowledge, not newly claimed. The surviving novel statement is the d>=3 almost-sure nontermination and the full independent beta-factor distribution plus exact exponential rate. No directly implying distribution theorem identified in topical searches, but unindexed randomized-projection analyses remain a risk.
+
+## value
+
+PASS
+
+A full exact distribution and almost-sure rate for a contemporary randomized least-squares solver quantify reliability beyond expectation bounds. The sharp finite-termination dichotomy by dimension identifies a genuine algorithmic limit of one-direction memory, not a routine numerical inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
