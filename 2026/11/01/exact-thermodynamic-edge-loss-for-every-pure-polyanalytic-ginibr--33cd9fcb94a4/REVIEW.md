@@ -1,23 +1,21 @@
-# Scientific review of the finite pure-level edge-loss law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the exact positive \(L^1\)-asymptotic constant at each fixed integer pure Landau level. The normalization is checked directly against the orthonormal complex Hermite definition and finite correlation kernel in Abreu–Gröchenig–Romero, arXiv:1704.03042, equations (1.4), (1.7), and (1.8). Radial Laguerre orthogonality yields probability densities; the infinite pure-level kernel has constant unit intensity. Equality of the finite intensity and disk masses reduces the absolute \(L^1\) error *exactly* to twice the sum of radial probability tails.
+PASS
 
-The Laguerre tridiagonal Jacobi matrix gives exact mean and variance. A finite-degree generating-function argument proves compact-uniform Hermite edge asymptotics, not merely a fitted numerical limit. Chebyshev bounds control the full complement of the \(O(\sqrt N)\) edge window and justify passing to an integral of the limiting tail. Mehler's identity evaluates the resulting Hermite absolute moment, giving the two central-binomial branches. All quantifiers are fixed-level \(N\to\infty\); the high-level asymptotic is explicitly sequential. The accompanying finite checks are not treated as proof.
+The fixed pure-level Hermite-index cutoff r>=0, j<N has intensity 0<=rho<=1, total mass N in area-normalized u=pi|z|^2 coordinates. Thus its L1 discrepancy with the area-N disk equals exactly twice the sum of radial Laguerre-density tails P(U_{j,r}>N), not an approximation. From Laguerre Jacobi recurrence E[U]=j+r+1, Var(U)=2jr+j+r+1, and coefficient extraction from L_r^{j-r}(u) at u=j+s sqrt(j), the normalized edge density tends to phi(s)*He_r(s)^2/r! for fixed r. Weak convergence and a uniform Chebyshev k^{-2} cutoff bound justify the full sqrt(N)-scaled Riemann tail sum and give c_r=E|Y_r|. Mehler diagonal generating function yields sqrt(2/pi)*(1+t)^2/(1-t^2)^{3/2}, giving both even/odd central binomial formulas, strictly positive at every fixed level; Stirling gives c_r~4 sqrt(r)/pi in the sequential high-r regime. Independent numerical Hermite absolute moments for r=0..8 matched each exact closed coefficient to <3e-15. Finite quadratures are not asymptotic proof and no growing-r uniformity is asserted.
 
-## Originality — PASS, subject to historical-priority risk
+## originality
 
-The most directly relevant antecedent, Abreu–Gröchenig–Romero (2017), gives the same finite pure ensembles and \(O_r(\sqrt N)\) upper bound (Theorem 1.2) and explicitly says sharpness for positive levels is believed, not demonstrated. Its Theorem 1.8 contains the related radial distribution law, but neither theorem states a lower bound or an exact leading constant. The present result resolves that quantitative gap with a global tail-sum convergence proof and binomial constants at *all* levels. Haimi–Hedenmalm (2011) provides polyanalytic local/edge structures, and Haimi–Wennman (2016) gives pure-level linear-statistics fluctuations; neither text inspected states this exact absolute global intensity defect. Results on spectrally selected finite Weyl–Heisenberg ensembles are not automatically estimates for Hermite-index truncated pure ensembles; the focal paper itself distinguishes the two.
+PASS
 
-The semantic mathematical database was queried for pure polyanalytic Ginibre edge intensity, sharp \(L^1\) boundary loss, Hermite absolute moments, and equivalent Weyl–Heisenberg language. It returned no implication covering the present finite pure ensemble limit; the closest returned Hermite-mask half-line spectral-gap result studies a different operator and invariant. A claim-only overlap reading of the available earlier research ledger identified related Landau disk-concentration eigenvalues and Hermite masks but no global finite-pure-ensemble intensity constant. Nonmatching search results do not establish absolute uniqueness. In particular, stronger forms of local edge convergence and unexamined later work could make the quantitative constant implicit; the priority conclusion remains provisional pending broader independent literature review.
+The directly same finite pure polyanalytic Ginibre ensemble is defined in Abreu–Gröchenig–Romero (2019), whose Theorem 1.2 proves only O_r(sqrt N) and explicitly states positive-level sharpness is expected, not proved; Theorem 1.8 supplies radial law, not the global exact L1 constant. Haimi–Hedenmalm local edge kernels and Haimi–Wennman fluctuation CLTs do not present this fixed-index global error. Novelty rests on the evaluated limiting tail sum, not known Laguerre or Hermite identities.
 
-## Mathematical value — PASS
+## value
 
-The 2017 focal paper identifies matching lower-order sharpness for positive levels as an unresolved quantitative point. The exact constant is positive at every level, nontrivially depends on the Landau index, has a closed central-binomial expression, and grows like \(4\sqrt r/\pi\) in a sequential high-index limit. It turns a uniform geometric upper-order statement into a sharp thermodynamic law for a canonical determinantal ensemble. The normalization, proof, and numerical tests are reproducible without a new external classification or a broad conjectural framework.
+PASS
 
-## Limitations and reproducibility
+For pure finite polyanalytic Ginibre ensembles, an existing primary paper gives a sqrt(N) upper bound and explicitly raises sharpness at positive Landau levels as an open quantitative expectation. The exact strictly positive coefficient for every fixed r resolves that natural gap, producing a closed binomial sequence and its sequential high-r behavior. This is structurally meaningful thermodynamic edge information for canonical determinantal ensembles rather than a re-tabulation of normalized Laguerre densities.
 
-No joint \(r,N\)-limit, noncircular domain, spectral-cutoff variant, or fluctuation/variance result is claimed. No independent mathematical validation has occurred. The package contains a self-contained exposition and a finite `check.py` script; symbolic and numerical checks are supplementary only. The explicit exact density identities, variance, convergence/tail argument, and Mehler coefficient extraction are the essential proof components.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

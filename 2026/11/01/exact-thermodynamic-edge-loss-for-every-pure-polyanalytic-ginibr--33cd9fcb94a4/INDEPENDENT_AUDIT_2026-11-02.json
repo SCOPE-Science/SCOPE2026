@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:16:01.531528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed pure-level Hermite-index cutoff r>=0, j<N has intensity 0<=rho<=1, total mass N in area-normalized u=pi|z|^2 coordinates. Thus its L1 discrepancy with the area-N disk equals exactly twice the sum of radial Laguerre-density tails P(U_{j,r}>N), not an approximation. From Laguerre Jacobi recurrence E[U]=j+r+1, Var(U)=2jr+j+r+1, and coefficient extraction from L_r^{j-r}(u) at u=j+s sqrt(j), the normalized edge density tends to phi(s)*He_r(s)^2/r! for fixed r. Weak convergence and a uniform Chebyshev k^{-2} cutoff bound justify the full sqrt(N)-scaled Riemann tail sum and give c_r=E|Y_r|. Mehler diagonal generating function yields sqrt(2/pi)*(1+t)^2/(1-t^2)^{3/2}, giving both even/odd central binomial formulas, strictly positive at every fixed level; Stirling gives c_r~4 sqrt(r)/pi in the sequential high-r regime. Independent numerical Hermite absolute moments for r=0..8 matched each exact closed coefficient to <3e-15. Finite quadratures are not asymptotic proof and no growing-r uniformity is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2019 Theorem 1.2 upper bound C_r sqrt N does not yield any positive matching lower bound or exact c_r.",
+          "Local edge kernels, even if they could be integrated after new uniform integrability work, do not automatically state this precise finite pure-index global L1 constant.",
+          "CLTs concern fluctuation distributions, a different functional."
+        ],
+        "reasoning": "The stronger nearby theories are acknowledged as inputs/context; no verified theorem directly implies the evaluated constant with no additional asymptotic argument.",
+        "searches": [
+          "Abreu Gröchenig Romero Theorem 1.2 Theorem 1.8 1704.03042",
+          "Haimi Hedenmalm polyanalytic Ginibre edge local limits 1106.2975",
+          "Haimi Wennman polyanalytic Ginibre fluctuations 1612.07974"
+        ]
+      },
+      "checked_sources": [
+        "Abreu–Gröchenig–Romero 2019 Theorem 1.2 and Theorem 1.8",
+        "arxiv:1704.03042 original 2017-04-10",
+        "arxiv:1106.2975",
+        "arxiv:1612.07974",
+        "Resultary semantic query pure polyanalytic Ginibre ensemble finite Weyl-Heisenberg Hermite index cutoff sharp L1 edge asymptotic coefficient sqrt N Hermite moments",
+        "Resultary 5e08b6020a88 Hermite half-line mask"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r>0 the 2019 paper explicitly says it believes the O(sqrt N) estimate sharp.",
+          "The new theorem proves a positive fixed-r limit with exact central-binomial c_r for every r>=0, strengthening the bound.",
+          "Prior radial law gives each summand but does not itself justify summing across the entire N-dependent edge window with uniform tail control."
+        ],
+        "reasoning": "This result settles a natural previously stated quantitative gap; it is narrower than general-edge fluctuation theorems and does not imply arbitrary-domain asymptotics.",
+        "searches": [
+          "arxiv:1704.03042 Theorem 1.2 sharpness believed",
+          "arxiv:1704.03042 Theorem 1.8 Laguerre radial law",
+          "arxiv:1106.2975 polyanalytic edge kernels"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact same quantity: fixed r, j=0..N-1, L1 norm of one-point intensity minus indicator of area-N disk divided by sqrt N.",
+          "Other Hermite half-line spectral-gap tables (Resultary 5e08b6020a88) involve spectral determinants, not spatial intensity error."
+        ],
+        "reasoning": "The search compared the exact ensemble/cutoff/metric; no identical leading constant emerged. The focal 2019 paper identifies positive-level matching lower order as not established.",
+        "searches": [
+          "pure polyanalytic Ginibre ensemble finite Weyl-Heisenberg Hermite index cutoff sharp L1 edge asymptotic coefficient sqrt N Hermite moments",
+          "pure Landau level Ginibre finite Hermite index truncation sharp L1 boundary loss",
+          "finite Weyl-Heisenberg ensembles pure polyanalytic intensity total variation edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closed values c_0=0.79788456..., c_1=1.595769..., c_2=1.994711... come from an absolute Hermite-squared moment, not standard scalar Ginibre bulk intensity alone.",
+          "Resultary results include Hermite half-line mask determinant but no same finite pure intensity coefficient table."
+        ],
+        "reasoning": "No matching table found; existing Mehler generating function is a classical tool, not by itself the claimed N->infinity L1 limit.",
+        "searches": [
+          "pure polyanalytic Ginibre ensemble finite Weyl-Heisenberg Hermite index cutoff sharp L1 edge asymptotic coefficient sqrt N Hermite moments",
+          "Hermite squared gaussian absolute moment binomial pure Ginibre edge coefficient",
+          "Resultary polyanalytic Ginibre L1 thermodynamic boundary"
+        ]
+      },
+      "rationale": "The directly same finite pure polyanalytic Ginibre ensemble is defined in Abreu–Gröchenig–Romero (2019), whose Theorem 1.2 proves only O_r(sqrt N) and explicitly states positive-level sharpness is expected, not proved; Theorem 1.8 supplies radial law, not the global exact L1 constant. Haimi–Hedenmalm local edge kernels and Haimi–Wennman fluctuation CLTs do not present this fixed-index global error. Novelty rests on the evaluated limiting tail sum, not known Laguerre or Hermite identities.",
+      "residual_risks": [
+        "An uninspected specialized local edge asymptotic might imply the L1 constant after standard uniform-integrability steps; this is a realistic priority caveat.",
+        "No joint N,r limit or arbitrary-domain perimeter coefficient is proved.",
+        "Only abstracts and relevant sections of two 2011/2016 arxiv texts were read; absence from entire documents is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes O_r(sqrt N) only and explicitly expects positive-level sharpness; no leading constant in those statements",
+          "evidence": [
+            "Theorem 1.2 eqs (1.9),(1.10), following sentence",
+            "Theorem 1.8 generalized Laguerre radial probabilities"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-019-02226-2",
+          "material_read": "Accessible full Springer HTML §§1.1–1.2, Theorems 1.2 and 1.8, related radial formulas and proof context",
+          "method": "Read actual theorem text, assumption r>0, and explicit sharpness conjectural sentence",
+          "title": "Harmonic Analysis in Phase Space and Finite Weyl–Heisenberg Ensembles",
+          "trigger": "Same finite (r,N)-pure polyanalytic ensemble and L1 rate"
+        },
+        {
+          "assessment": "Polyanalytic kernels and local edge behavior, no inspected global finite-pure absolute L1 c_r",
+          "evidence": [
+            "arxiv:1106.2975 abstract and introductory pure/full-level distinctions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.2975",
+          "material_read": "Primary 31-page PDF abstract, introduction and selected definitions/edge discussion; first page rendered; not entire paper",
+          "method": "Compared objects, cutoff and type of limit",
+          "title": "The Polyanalytic Ginibre Ensembles",
+          "trigger": "Potential local edge result implying finite pure global intensity law"
+        },
+        {
+          "assessment": "Fluctuation CLT does not state L1 expectation-intensity coefficient in inspected portions",
+          "evidence": [
+            "arxiv:1612.07974 abstract, introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.07974",
+          "material_read": "Primary 19-page PDF abstract, introduction and pure-level fluctuation definitions, rendered first page; not entire text",
+          "method": "Compared exact quantities and theorem scope",
+          "title": "A Central Limit Theorem for Fluctuations in Polyanalytic Ginibre Ensembles",
+          "trigger": "Another primary paper on pure levels and edge observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For pure finite polyanalytic Ginibre ensembles, an existing primary paper gives a sqrt(N) upper bound and explicitly raises sharpness at positive Landau levels as an open quantitative expectation. The exact strictly positive coefficient for every fixed r resolves that natural gap, producing a closed binomial sequence and its sequential high-r behavior. This is structurally meaningful thermodynamic edge information for canonical determinantal ensembles rather than a re-tabulation of normalized Laguerre densities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N->infinity at each fixed r, then r->infinity sequentially.",
+    "No jointly growing r or arbitrary shape/spectral cutoff claim.",
+    "Uninspected stronger edge local limit might carry implicit coverage.",
+    "All source file content derived from pinned Git blob contents; source tree verified as Git tree object matching assignment SHA.",
+    "Published independent audit unavailable: operations intentionally none and publication not_ready owing to public metadata confidentiality."
+  ],
+  "schema_version": 1
+}
