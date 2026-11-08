@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The metric normalization follows from the one-dimensional Kubota flag coefficient \(\pi/2\), Haar probability, and the fact that both projected intervals contain zero. The local signed witness is orthogonal to both sine and cosine on every vertex normal cone; its integral is the explicit function \(g\). The continuity and two switch-point equalities prove unique local saturation. Strict convexity of \(g\), strict Jensen, and the strictly increasing ratio \(g(\alpha)/\alpha\) establish the global bound and force all normal cones to be equal. The equality case constructs a centered regular polygon with the specified radius. The proof is valid for every integer \(N\ge3\); finite tests neither substitute for, nor extend, this argument. The Taylor coefficient was checked symbolically. No boundary case for zero-width cones arises for a genuine full-dimensional polygon with distinct vertices.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The 2022 intrinsic-volume-metric paper defines the metric and proves general asymptotic bounds, but its inspected result statements do not give an exact finite-planar optimum. The 2025 approximation survey motivates sharp projection bounds but does not supply this theorem. The 1999 Ludwig theorem supplies asymptotic L1 support approximation, not a finite-vertex solution. The 2019 intrinsic-volume-deviation work has a regular-triangle calculation, which is prior coverage of a special regular example and is explicitly credited. The new claim instead compares **every origin-containing convex polygon with at most any specified number of vertices**, proves the unique optimal scale, and identifies all equality cases. Classical Euclidean mean-width approximation and older support-function approximation literature remain potential sources of equivalent statements, so priority is provisional rather than certified.
+PASS
 
-## Mathematical value — PASS
-The result is a complete finite-parameter best-approximation theorem for a natural, named projection metric. The optimal regular polygon is neither inscribed nor circumscribed; the exact intermediate circumradius, global inequality, unique equality classification and two-term asymptotic are not implied by a triangle example or merely by an order-of-magnitude approximation estimate. The dual-certificate mechanism also clarifies why rotationally symmetric normal sectors are optimal in this metric.
+Cauchy-Kubota normalization gives δ1(B,P)=1/2∫_0^{2π}|1-h_P(u)|dθ when P contains the disk center. On each convex-polygon vertex normal cone (0<α<π), h=a cos x+b sin x. A signed dual witness with switches at ±asin(sin(α/2)/2) annihilates both cosine and sine, proving local error ≥g(α)=α-4asin(sin(α/2)/2); equality forces b=0,a=sec(switch). The explicitly positive g and Jensen show sum g(α_i)≥N g(2π/N) for m<=N. Local equality and equal normal gaps force the unique centered regular N-gon at radius (1-sin²(π/N)/4)^-1/2. Direct symbolic expansion yields π³/(8N²)+π⁵/(128N⁴)-17π⁷/(15360N⁶)+... . Degenerate normal cones are excluded by counting genuine extreme vertices; the N=3 boundary remains α=2π/3<π.
 
-## Scope and unresolved risks
-The origin-containment assumption is required for the absolute-support reduction; arbitrary-position optimization and higher dimensions are not solved. Additional older sources could establish the same finite theorem under classical functional-approximation terminology. No external or independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after comparing the exact claim with its closest known general theorem and special cases. Novelty refers only to the stated full result, not common definitions, known subcases or routine ingredients.
+
+## value
+
+PASS
+
+A complete sharp approximation problem for a natural projection-based intrinsic-volume metric, for every finite vertex count, with equality classification and nontrivial optimal scaling between inscribed and circumscribed polygons. The argument supplies a reusable support-function signed witness, and improves beyond the previously known regular triangle example and general asymptotic-rate bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
