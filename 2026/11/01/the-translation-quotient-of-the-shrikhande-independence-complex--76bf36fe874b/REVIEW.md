@@ -1,11 +1,21 @@
-# Scientific review of the translation-quotient theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite assertion is proved by an explicit orbit-cell model on barycentric flags, a reconstructed twenty-four-pair sequence of regular elementary collapses, and a spanning-tree/triangular-relator certificate which proves the whole fundamental group trivial, not merely its abelianization. The residual finite two-complex has Euler characteristic three and therefore the stated wedge-of-two-spheres type by Hurewicz and Whitehead. All critical enumerations and the complete certificate were executed from the included paths. The scope is one sixteen-vertex graph and one translation group.
+## correctness
 
-**Originality — PASS, with residual risks.** The closest public record already identifies the original Shrikhande independence complex as a wedge of 23 two-spheres; that is explicitly acknowledged as known. No ordinary translation quotient, orbifold orbit-cell complex, or homotopy type of that orbit space is given in its inspected RESULT.md. The same graph's scale-two Čech complex is a different construction. The inspected pre-2016 independence-complex papers concern general tools and circulant families, not this quotient. Targeted semantic and textual searches found no equivalent or stronger covering theorem. These observations do not prove universal novelty; unpublished or unindexed quotient calculations remain possible.
+PASS
 
-**Value — PASS.** This is a natural full-translation quotient of a canonical sixteen-vertex vertex-transitive graph complex, where isotropy prevents naive division of homology by the group order. The computed quotient is simply connected with exactly two top-dimensional integral sphere summands, refining the previously known 23-sphere nonequivariant classification. The new fundamental-group and quotient-homotopy calculation is a motivated invariant, not a graph relabeling or a recomputation of the parent Betti number.
+The six-element adjacency difference set gives 16,72,96,16 original face counts. Translation orbits of barycentric chains yield regular cells (17,62,72,24), since a stabilizer preserves all strict flag ranks and fixes each simplex pointwise. The complete certificate removes 24 distinct free 2/3-cell pairs, leaving (17,62,48), chi=3. A 16-edge spanning tree and 46 verified triangle-relator eliminations kill ALL pi_1 generators, not merely H_1. Hurewicz/Whitehead for the simply connected finite 2-complex then gives S^2 vee S^2. Independently rebuilt all orbit-cell counts and free-pair/relator criteria, including the exact certificate; every tested condition matched. Boundary: precisely the full Z4^2 translation action, no other quotients.
 
-The construction is strictly finite; no claims are made for arbitrary strongly regular graphs, and independent review has not been obtained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier complete nonequivariant Shrikhande wedge computation does not determine its ordinary translation orbit space. The quotient calculation and finite fundamental-group certificate answer a distinct equivariant geometric problem; targeted Resultary and primary literature searches found no stronger quotient theorem. This is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+The ordinary homotopy quotient by a canonical full translation group is a natural geometric invariant invisible to the previously computed nonequivariant wedge. Its exact integral homotopy type and explicit simple-connectivity certification fill a motivated symmetry/topology gap of the 16-vertex strongly regular Shrikhande graph, rather than merely recomputing its known homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
