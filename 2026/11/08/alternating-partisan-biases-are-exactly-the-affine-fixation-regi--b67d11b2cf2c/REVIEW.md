@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness (C): PASS
+
+The generator is evaluated from the actual site-wise directed update rate, and its paired-edge identity has only constant, linear, and pairwise Walsh terms. Harmonicity of an affine fixation probability forces each distinct edge quadratic coefficient to vanish. Independently the linear terms force the vertex-normalized affine coefficients to form a harmonic graph function, hence to be constant by connectedness; boundary values fix their normalization. Conversely edge-cancelling preferences annihilate the generator termwise, and finite-state almost-sure absorption establishes Dirichlet uniqueness. The proof handles every finite connected simple graph, including the two-vertex case, without extrapolating from enumeration. The accompanying exact-rational verifier passed 54,452 generator assertions across 771 graphs and 18 independent transient-chain solves. The claim excludes preferences at absolute strength one where absorbing states may differ.
+
+## Originality (O): PASS with documented residual risk
+
+The 2008 Sood–Antal–Redner theorem conserves the degree-weighted mean only in unbiased voter copying; biased selection in that paper favors a global mutant state, unlike site-specific opposed innate preferences. The 2010/2011 Masuda–Redner models and the full initiating 2023 Zimmaro–Contucci–Kertész paper define opposing preferences but analyze mean-field/network-modularity effects, not an exact all-graph absorbing-fixation if-and-only-if classification. The 2023 Llabrés–San Miguel–Toral stochastic paper actually derives exit probabilities, but expressly limits to complete graphs and uses an approximation in the low-bias regime. Their 2026 local-ordering paper addresses pair approximations and link densities rather than finite-graph absorption, according to available primary abstracts and substantial public textual material; its full preprint was not accessible for page-by-page inspection. Searches for martingales, duality, all connected graphs, degree-weighted consensus, bipartite antagonistic preferences, and exact fixation conditions found no implying result. A mathematical novelty search cannot guarantee priority against unpublished or unindexed work, particularly the accessible only-in-part 2026 paper.
+
+## Value (V): PASS
+
+The nontrivial question is whether antagonistic personal preferences necessarily destroy the classical voter-model harmonic fixation law, and precisely which heterogeneous social topologies avoid that destruction. The theorem gives an exact all-graph answer, separates bipartite from odd-cycle topologies, admits a continuum of genuinely nonzero preference strengths, and applies to every initial condition rather than only symmetric population averages. The strict iff and the explanation via cancellation of edgewise quadratic drift make this a reusable structural benchmark for microscopic partisan opinion models; it is neither a single numerical example nor mere substitution into a known unbiased formula.
+
+## Source coverage and limitations
+
+Main source: Zimmaro, Contucci and Kertész (2023), arXiv:2303.09587v1, full PDF including rate tables, results and appendices. Closest competing exact-process source: Llabrés, San Miguel and Toral (2023), arXiv:2301.09563, full text sections on all-to-all stochastic exit probabilities. Unbiased exact graph-law source: Sood, Antal and Redner (2008), article body including complete-bipartite and degree-martingale sections. Earlier partisan source: Masuda and Redner (2011), author's lawful full text. Other relevant 2026 local-ordering work is not fully inspected. The theorem does not claim nonlinear fixation formulas outside the edge-cancellation class, time-to-consensus, or dynamics at \(|h|=1\).
+
+Self-review: passed. Independent audit: not yet performed.
