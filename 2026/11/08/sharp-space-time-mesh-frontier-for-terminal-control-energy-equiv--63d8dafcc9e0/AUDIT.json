@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact scalar finite-horizon Gramian follows from geometric summation and 1−r²=z(2+(2θ−1)z)/(1+θz)². The weighted spatial sine eigenbasis simultaneously diagonalizes exact and theta Gramians. Explicit uniform upper/lower bounds follow from r^(2N)≤exp(−N(1−r²)), λmin≥4, and both bounded mesh parameters. Necessity is proved on the highest mode: unbounded (2θ−1)λk kills the prefactor, while unbounded λk² with bounded first parameter kills 1−r^(2N). The two critical limits follow from an exact log expansion. The embedded verifier executed successfully with 108 checks; no finite test stands in for an all-m proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyer–Hubert–Le Rousseau 2011 abstract covers abstract theta schemes and relaxed uniform observability for partial/boundary controls; author slides inspected but full article inaccessible.",
+        "Boyer–Hernández-Santamaría 2025 focuses filtered high modes and boundary moment systems; §5.2 explicitly assumes a positivity-constrained spectral set for moment functions."
+      ],
+      "reasoning": "Broad partial-actuation controllability results do not by their public statements imply uniform two-sided terminal-control cost equivalence for every arbitrary target and all high modes, nor a sharp joint theta/time-grid frontier. The inaccessible 2011 full text leaves qualified priority risk.",
+      "searches": [
+        "published-finding corpus: spectral controllability threshold time step to spatial grid Crank Nicolson discrete heat controls high frequency energy",
+        "published-finding corpus: joint two-parameter critical law theta method Crank Nicolson terminal controllability Gramian finite horizon lambda k squared and (2 theta minus 1) lambda k",
+        "Web: heat control Crank Nicolson h squared observability fully discrete"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.40461v1",
+      "https://link.springer.com/article/10.1007/s00211-025-01484-5",
+      "https://link.springer.com/article/10.1007/s00211-011-0368-1",
+      "https://www.math.univ-toulouse.fr/~fboyer/lib/exe/fetch.php?media=exposes%3AIHP10.pdf",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kwon–Nunda 2026 uses Crank–Nicolson full distributed control but checks only low-frequency convergence and soft-to-hard penalty behavior.",
+        "Boyer–Hernández-Santamaría 2025 equation (160) covers the infinite-time theta denominator; the finite horizon factor 1−r^(2N) is crucial when λk² is order one.",
+        "Boyer–Hubert–Le Rousseau 2011 full article is inaccessible; abstract asserts relaxed observability but not uniform all-terminal spectral equivalence."
+      ],
+      "reasoning": "The candidate supplies if-and-only-if conditions for all spatial modes, distinct critical high-mode constants for CN versus BE, and an explicit two-parameter limiting profile. The pre-existing infinite-horizon moment denominator is a proper ingredient, not claimed as a novel standalone fact; missing 2011 material is treated as residual risk.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson time discretized heat equation controllability Gramian exact finite-step spectral formula high frequency mesh coupling time step spatial grid",
+        "published-finding corpus: joint two-parameter critical law theta method Crank Nicolson terminal controllability Gramian finite horizon lambda k squared and (2 theta minus 1) lambda k",
+        "Web: theta scheme Gramian timestep eigenvalue controllability parabolic",
+        "published-finding corpus: fully distributed theta Crank Nicolson heat equation sharp uniform terminal energy controllability Gramian spectral equivalence lambda max k squared and (2theta-1)lambda max k critical two parameter high mode"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2025 Boyer–Hernández-Santamaría §5.2 equation (160) gives the theta infinite-horizon moment inner product with denominator λ+λʹ+(2θ−1)τλλʹ; its diagonal recovers the infinite-time denominator, not the critical finite-T high-mode profile.",
+        "The candidate compares inverse endpoint Gramian quadratic forms for full actuation; this is mathematically equivalent to weighted uniform modal-energy comparison, unlike decay of homogeneous heat states."
+      ],
+      "reasoning": "Explicitly reduce aliases (theta moment kernel, endpoint controllability Gramian, minimal hard control energy, observability dual) to the same modal criterion. The infinite-horizon denominator is pre-existing and disclaimed; its coverage does not give the finite-T double-scaling limit for the highest mode when λk² remains positive.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson time discretized heat equation controllability Gramian exact finite-step spectral formula high frequency mesh coupling time step spatial grid",
+        "published-finding corpus: sharp time-space mesh step frontier for full-domain controlled Crank Nicolson θ scheme heat terminal controllability Gramian: λmax k² bounded iff uniform spectral energy equivalence",
+        "Web: Crank-Nicolson Gramian controllability heat equation theta",
+        "published-finding corpus: fully distributed theta Crank Nicolson heat equation sharp uniform terminal energy controllability Gramian spectral equivalence lambda max k squared and (2theta-1)lambda max k critical two parameter high mode"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest records concern heat-lattice positivity, endpoint maximal regularity, and reversible Markov chain positivity, not a terminal-control Gramian ratio.",
+        "Kwon–Nunda 2026 §3 tests a low-mode target and reports mesh convergence, rather than tabulating highest-mode energy ratios.",
+        "Final published-finding corpus query returned as closest again the unrelated backward-Euler-filtered CN lattice positivity and spectral endpoint maximal regularity records; neither entails the joint control-energy equivalence."
+      ],
+      "reasoning": "No matching exact finite-T phase profile or complete mesh-coupling classification found among actual published-finding corpus hits, accessible prior claims, and the inspected primary papers; non-appearance alone is not a novelty certificate.",
+      "searches": [
+        "published-finding corpus: discrete heat equation Crank-Nicolson penalty terminal optimal control convergence mesh ratio",
+        "published-finding corpus: terminal minimum energy fully-actuated heat equation Crank Nicolson vs backward Euler mesh ratio k equals dx",
+        "Web: fully distributed Crank-Nicolson control Gramian heat"
+      ]
+    },
+    "rationale": "The 2026 motivating full-distribution CN work tests low modes and does not establish uniform high-frequency terminal energy. The 2025 theta-moment paper does give the infinite-horizon denominator, explicitly not claimed new, but not the finite-T two-parameter mesh boundary. The 2011 full abstract covers relaxed parabolic observability; its inaccessible full text is a priority risk, but no directly implying public statement or available proof was found. Actual published-finding corpus searches and 73 recoverable own claims show no covering claim.",
+    "residual_risks": [
+      "Full text of 2011 theta-scheme controllability paper unavailable, despite attempted public and authorized routes; priority may be affected.",
+      "Unindexed spectral-control literature could contain equivalent finite-time estimates.",
+      "The infinite-horizon denominator is known, not novel; independent human assessment of the new joint finite-T scale remains appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates but does not cover all-mode Gramian equivalence or the joint high-frequency critical law",
+        "evidence": [
+          "§3.1 finite-difference CN state and control cost equations; §3.2 targets sin(pi x) with n=2m and m=10,20,40,80; §3.3 penalty experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.40461v1",
+        "material_read": "Full open arXiv HTML, particularly §§1, 3.1–3.5 and appendices, including equations for fully discrete controlled heat and the low-mode mesh validation",
+        "method": "Read full HTML text and compare target, time-stepping, mode coverage, control quadratic form and claimed convergence",
+        "title": "Numerical Investigation of Soft-to-Hard Convergence: Discretization, Admissibility, and Spectral Regularity",
+        "trigger": "Motivating 2026 Crank–Nicolson terminal control experiment"
+      },
+      {
+        "assessment": "Equation (160) already establishes related infinite-horizon theta denominator, explicitly acknowledged; full-actuation finite-horizon double-scaling classification not stated in inspected text",
+        "evidence": [
+          "§5.2 equation (160): (p^θ[λ],p^θ[λʹ])=1/[λ+λʹ+(2θ−1)τλλʹ]; high eigenmodes restricted by spectral cutoff."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-025-01484-5",
+        "material_read": "Full open-access Springer HTML, §§1, 3, 5.1–5.2 (especially equations 157–160) and references",
+        "method": "Read full paper text and compare diagonal versus off-diagonal moment kernels, horizon, domain of spectral modes and control geometry",
+        "title": "Boundary controllability of time-discrete parabolic systems: a moments method approach",
+        "trigger": "Closest theta-scheme control moment kernel and exact infinite-horizon denominator"
+      },
+      {
+        "assessment": "Plausible unverified historical coverage risk; do not characterize inaccessible full text as NOT_COVERING",
+        "evidence": [
+          "Published abstract covers theta∈[1/2,1], relaxed observability and computation of parabolic controls; Springer labels article subscription-only; attempted authorized access was blocked by disconnected VPN."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-011-0368-1",
+        "material_read": "Springer public abstract and reference list; accompanying author presentation pages relevant to theta schemes; full journal article not obtained",
+        "method": "Looked for lawful arXiv/OA full text, inspected accessible author slides, attempted institutional authorized retrieval; VPN unavailable",
+        "title": "Uniform controllability properties for space/time-discretized parabolic equations",
+        "trigger": "Plausible broader theta-scheme observability theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "63d8dafc-c9e0-4513-bfb9-052eff6fd83f",
+  "value": {
+    "rationale": "The motivating 2026 Crank–Nicolson simulation validates low-mode terminal penalty convergence but leaves high-mode uniformity unknown. The sharp mesh conditions distinguish the linear time–space regime for CN from quadratic regime for every fixed off-center theta and show that stable implicit schemes can be poorly conditioned for arbitrary high-frequency hard-terminal controls. The explicit nontrivial two-parameter critical profile supplies exact energy-bias constants and is useful for choosing space–time refinement and evaluating high-frequency terminal targets, not merely a restatement of a scalar decay estimate.",
+    "status": "PASS"
+  }
+}
