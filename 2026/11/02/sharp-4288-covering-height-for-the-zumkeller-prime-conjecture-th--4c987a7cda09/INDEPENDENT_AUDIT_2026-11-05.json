@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:09:35.860685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-4288-covering-height-for-the-zumkeller-prime-conjecture-th--4c987a7cda09/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-4288-covering-height-for-the-zumkeller-prime-conjecture-th--4c987a7cda09/verify.cpp",
+        "Independent check: FULL independent finite-domain C++ enumeration, not a sample: all 55,555,554 n in 18k+3 from 39 to 10^9, odd primality sieve through 10^9, 972 even Zumkeller offsets <=4288 via divisor subset-sum DP; uncovered=0, max=4288, unique n=679570815 with prime 679566527; partial heights 464,928,2368,2368. Bounded to 10^9 only."
+      ],
+      "rationale": "For the finite hard progression n=18k+3, 2<=k<=55,555,555, the embedded C++ `verify.cpp` enumerates all even Zumkeller z<=4288 with descending exact subset-sum DP on complete proper-divisor lists (972 z), constructs complete odd prime Eratosthenes bit sieve <=10^9, and scans all 55,555,554 n, stopping at smallest successful even offset each time. I independently wrote a different C++ sieve/subset-sum enumeration and executed the ENTIRE finite domain, not a sample: checked=55,555,554, uncovered=0, even_z=972, max minimal even offset=4288, unique n=679570815, n-z=679566527 sieve-prime; partial H(X) 464,928,2368,2368 for 10^5 through 10^8. The witness z=4288=64*67 is Zumkeller by sigma(z)=8636 and balanced subset 4288+2+4+8+16=4318. An odd Zumkeller offset for odd n leaves even prime 2 and equals n-2, which cannot improve h(n*) or tie max elsewhere below 4288. Somu–Kukla–Tran Proposition 4.12 covers other congruence classes, yielding full odd 9..10^9 except21. Scope strictly finite; no unbounded conjecture proven.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Proposition 4.12 covers the OTHER residues, expressly leaving 18k+3",
+          "Density-zero exceptional sets cannot imply zero exceptions in finite initial interval"
+        ],
+        "reasoning": "Neither theorem dominates the full 55,555,554-case finite count or the H(10^9) extremal value.",
+        "searches": [
+          "Somu Kukla Tran Proposition 4.12",
+          "Li arxiv 2610.19574 density zero prime Zumkeller"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2310.14149v2 Somu–Kukla–Tran Proposition 4.12 and Conjecture 4.20",
+        "https://oeis.org/A368082 small prime+Zumkeller sums",
+        "https://arxiv.org/abs/2610.19574 Li 2026 exceptional-set asymptotic bound",
+        "Resultary semantic query: Zumkeller number plus prime 18k+3 least summand sharp covering height computational verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original finite check only through k=1000; current independent full count includes 55,555,554 k values",
+          "Density-zero statement does not exclude sporadic exceptions or determine minimal summands"
+        ],
+        "reasoning": "Current result is a demonstrably greater finite exact verification with an additional natural extremal statistic, not a corollary of qualitative density.",
+        "searches": [
+          "Somu Kukla Tran Conjecture 4.20 k<=1000 verified",
+          "Li density bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hard progression n=18k+3 k>=2 stated in Somu et al.",
+          "Exact H(X)=max minimum admissible z in frozen RESULT.md"
+        ],
+        "reasoning": "Equivalent problem is covering the progression with translated odd primes by 972 offsets z<=4288; prior conjecture asks only existence, not the sharp minimum offset and unique maximum.",
+        "searches": [
+          "prime plus Zumkeller integers 18k+3 least even Zumkeller covering height H(X)",
+          "Somu Kukla Tran Conjecture 4.20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A368082 small representability list, no H(10^9) table",
+          "Resultary hit: 3-prime-support *unitary* Zumkeller classification, different divisor notion"
+        ],
+        "reasoning": "No exact database/profile with unique extremum n*=679570815 located. An unindexed computation could duplicate the result; search alone is not certification.",
+        "searches": [
+          "OEIS A368082 prime plus Zumkeller sums",
+          "Resultary prime Zumkeller 18k+3 covering height 4288"
+        ]
+      },
+      "rationale": "Somu–Kukla–Tran 2023 primary Proposition 4.12 handles remaining odd congruence classes and Conjecture 4.20 poses 18k+3, with initial k<=1000 checked in the source; the submitted finite computation extends this to k=55,555,555 and supplies the distinct sharp H(10^9) and unique extremizer. OEIS A368082 lists representable sums but not this maximum/minimal-addend profile; Li 2026 exceptional-set density is asymptotic and does not imply exact finite height. Resultary semantic search surfaced unitary Zumkeller classifications but no hard-progression coverage. Historical unpublished large computations remain possible.",
+      "residual_risks": [
+        "Entire result stops at 10^9; a finite bound on least summand cannot extend to all odd n (CRT obstructions).",
+        "An earlier independently completed large range/height table outside indexed literature remains a residual priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: leaves 18k+3 as a conjecture beyond initial short checks, supplies other-residue coverage only",
+          "evidence": [
+            "Proposition 4.12 covers n not 3 mod18; Conjecture 4.20 singles out remaining progression and reports k<=1000 test."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+          "material_read": "Full public primary HTML, relevant Proposition 4.12, Conjecture 4.20, finite k<=1000 passage and arithmetic examples",
+          "method": "Read primary full mathematical theorem/conjecture sections and visually inspected PDF pages",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Exact same open Zumkeller-plus-prime 18k+3 question"
+        },
+        {
+          "assessment": "NOT_COVERING: representability sequence, not least-even-addend maxima H(10^9)",
+          "evidence": [
+            "OEIS sequence membership does not encode unique extremal minimal summand through 10^9."
+          ],
+          "identifier_or_url": "https://oeis.org/A368082",
+          "material_read": "Online integer-sequence description and small listed terms",
+          "method": "Inspected sequence scope",
+          "title": "A368082 Positive integers sum of Zumkeller number and prime",
+          "trigger": "Possible exact sequence/table for coverage"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTIFIER: density/upper bound does not supply exact complete 10^9 coverage or least-addend maximum",
+          "evidence": [
+            "Density-zero exceptional-set claim allows finite exceptions, unlike the submitted exhaustive census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19574",
+          "material_read": "Primary abstract and stated exceptional density/quantitative bound",
+          "method": "Compared public theorem descriptions with sharp finite-domain invariant",
+          "title": "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number",
+          "trigger": "More recent broad quantitative result could dominate finite census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-4288-covering-height-for-the-zumkeller-prime-conjecture-th--4c987a7cda09/RESULT.md",
+        "https://arxiv.org/html/2310.14149v2 Somu–Kukla–Tran Proposition 4.12 and Conjecture 4.20",
+        "https://oeis.org/A368082 small prime+Zumkeller sums"
+      ],
+      "rationale": "This is a natural finite cutoff in an explicitly open residue-class arithmetic representation problem. The covering height H(X) is a meaningful exact natural invariant, not an arbitrary isolated evaluation; it records the worst least Zumkeller addend, unique extremizer and reproducible proof by exhaustive integers. One-billion finite milestone is not a theoretical boundary; finite computational result still has independent value for further research.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Entire result stops at 10^9; a finite bound on least summand cannot extend to all odd n (CRT obstructions).",
+    "An earlier independently completed large range/height table outside indexed literature remains a residual priority risk."
+  ],
+  "schema_version": 1
+}
