@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:50:50Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md actual blob 20d13a7911e307a16d37559558f8b07021f433a5, all four structural cases, inclusion-exclusion EGF, extremal formulas.",
+        "Independent direct edge-neighborhood code enumerates every subset of Cr_n, n=2-4; predicted distributions z², 3z²+2z³, 8z³+117z⁴.",
+        "Original verify.py source reviewed: distinct exact IE implementation and proposed n=2-5 exhaustive tests, but log claims alone cannot prove all n."
+      ],
+      "limitations": [
+        "Graph Cr_2 is disconnected, special boundary handled. Large-n exact expression is formal finite coefficient extraction, not polynomial-time complexity claim."
+      ],
+      "rationale": "The uncovered vertices U_A,U_B characterize domination: no cross-edge may join uncovered endpoints, so one side is fully covered or both uncovered sides are the same singleton. Removing an essential edge proves the perfect matching, one-sided restricted surjection, and matched-hole star-forest cases; the one-hole map must give f(j) a unique preimage, otherwise that edge is inessential. The EGF exp(W) labels components of complete-bipartite star forests; inclusion-exclusion over forbidden diagonal edges works because disjoint forced matching edges belong to distinct stars, each contributing z(exp(zx)+exp(zy)-1). Component-count bounds yield n-1 and 2n-4 extrema with stated parameter qualifications. Independent full subset enumeration n=2,3,4 reproduced all size distributions; original verify.py was inspected, not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad output-sensitive minimal domination enumeration and well-edge-domination class theorems do not report crown size-distribution formulas."
+        ],
+        "reasoning": "An algorithm listing all minimal dominating sets does not mathematically imply a closed D,A,B,S polynomial without nontrivial counting or structural decomposition.",
+        "searches": [
+          "Bonamy et al arXiv:1810.00789 Theorem 1.1",
+          "Anderson et al arXiv:2110.07133 Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Anderson–Kuenzel–Rall arXiv:2110.07133 primary PDF",
+        "Bonamy et al arXiv:1810.00789 algorithmic primary statement",
+        "Resultary query: crown graph minimum edge dominating sets enumerator spanning star forests perfect matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K_nn itself is well-edge-dominated; deleting its matching creates nonmatching minimal edge-dominating sets and a variable size distribution."
+        ],
+        "reasoning": "Neither source derives the deleted-matching four cases, one-hole essentiality condition, or coefficient extraction and boundary multiplicities.",
+        "searches": [
+          "arXiv:2110.07133 Theorem 4 for K_nn",
+          "arXiv:1810.00789 enumeration results",
+          "Crown star-forest coefficient relation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge dominating subsets in a graph coincide with vertex dominating subsets in its line graph. The structural uncovered-endpoint criterion yields four types."
+        ],
+        "reasoning": "This equivalence creates a possible prior alias but no located full cardinality enumerator of the resulting line graph; well-edge domination only asks about equal set sizes.",
+        "searches": [
+          "Resultary query: crown graph minimum edge dominating sets enumerator spanning star forests perfect matching",
+          "search: line graph minimal vertex domination crown graph K_nn-M",
+          "Anderson–Kuenzel–Rall arXiv:2110.07133"
+        ]
+      },
+      "evidence": [
+        "Direct mathematical implication comparison of assigned theorem with primary-source statements, not title-only or failed-search inference.",
+        "Published Resultary query recorded: Resultary query: crown graph minimum edge dominating sets enumerator spanning star forests perfect matching"
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Published crown results concern restrained domination and perfect Roman domination, not minimal edge domination."
+        ],
+        "reasoning": "No exact matching distribution table identified; an unindexed OEIS or line-graph table may overlap.",
+        "searches": [
+          "Resultary query: crown graph minimum edge dominating sets enumerator spanning star forests perfect matching",
+          "Resultary restrained dominating set crown graph",
+          "Anderson 2021 complete bipartite cases"
+        ]
+      },
+      "rationale": "Bonamy et al enumerate minimal dominating sets algorithmically in broad classes, and Anderson–Kuenzel–Rall characterize well-edge-dominated graph families including undeleted balanced K_{n,n}; neither inspected theorem gives all coefficients of minimal edge-dominating sets after deletion of the full matching. Crown-graph Resultary records concern restrained, Roman, edge-metric, and other domination variants. A published alternative via line-graph dominating sets or forbidden-matching star forests remains possible.",
+      "residual_risks": [
+        "Line-graph or restricted fixed-point-free endofunction literature could contain an equivalent generating function.",
+        "No broad external certified priority; full Bonamy article not inspected page by page."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Undeleted biclique and other classification, not the all-coefficient crown enumerator in examined theorems",
+          "evidence": [
+            "Anderson–Kuenzel–Rall 2021, Theorem 4 and examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.07133",
+          "material_read": "18-page primary PDF, Theorem 4 and classification of complete bipartite examples; searched crown terminology",
+          "method": "Read primary text and visually inspected PDF page",
+          "title": "On well-edge-dominated graphs",
+          "trigger": "Closest named invariant, well-edge-domination of complete bipartite graphs"
+        },
+        {
+          "assessment": "General enumeration methods do not state the exact crown-family size polynomial",
+          "evidence": [
+            "Bonamy–Defrain–Heinrich–Raymond–Pilipczuk arXiv:1810.00789 Theorem 1.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.00789",
+          "material_read": "Primary paper theorem abstracts and enumerative algorithm scope; full theorem-level comparison, not exhaustive text inspection",
+          "method": "Read primary theorem statement and abstract, compared output-sensitive versus exact coefficient enumeration",
+          "title": "Enumerating minimal dominating sets in K_t-free graphs and variants",
+          "trigger": "Potential general minimal set enumeration dominating this exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural object, specific invariant, and exact new classification independently assessed; not solely code or novelty."
+      ],
+      "limitations": [
+        "Only full matching deletion in balanced complete bipartite graphs, not arbitrary subgraphs or total edge domination."
+      ],
+      "rationale": "Crown graphs are a natural complete-bipartite family missing a perfect matching. Full distribution of inclusion-minimal edge-dominating sets, including unusual one-hole essentiality and paired star forests, determines more than a single minimum bound and quantifies loss of the well-edge-dominated property. Exact extrema and complete enumerator are useful for graph domination benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Anderson–Kuenzel–Rall arXiv:2110.07133 primary PDF",
+    "Bonamy et al arXiv:1810.00789 algorithmic primary statement",
+    "Resultary query: crown graph minimum edge dominating sets enumerator spanning star forests perfect matching"
+  ],
+  "disposition": "passed",
+  "final_claim": "All inclusion-minimal edge-dominating sets of Cr_n=K_{n,n} minus a perfect matching have a complete four-type classification and exact full size enumerator (D_n+2A_n+2B_n)z^n+nS_{n-1}(z); min/max sizes and multiplicities hold with specified n boundaries.",
+  "limitations": [
+    "Graph Cr_2 is disconnected, special boundary handled. Large-n exact expression is formal finite coefficient extraction, not polynomial-time complexity claim.",
+    "Only full matching deletion in balanced complete bipartite graphs, not arbitrary subgraphs or total edge domination."
+  ],
+  "residual_risks": [
+    "Line-graph or restricted fixed-point-free endofunction literature could contain an equivalent generating function.",
+    "No broad external certified priority; full Bonamy article not inspected page by page."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Undeleted biclique and other classification, not the all-coefficient crown enumerator in examined theorems",
+      "evidence": [
+        "Anderson–Kuenzel–Rall 2021, Theorem 4 and examples"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2110.07133",
+      "material_read": "18-page primary PDF, Theorem 4 and classification of complete bipartite examples; searched crown terminology",
+      "method": "Read primary text and visually inspected PDF page",
+      "title": "On well-edge-dominated graphs",
+      "trigger": "Closest named invariant, well-edge-domination of complete bipartite graphs"
+    },
+    {
+      "assessment": "General enumeration methods do not state the exact crown-family size polynomial",
+      "evidence": [
+        "Bonamy–Defrain–Heinrich–Raymond–Pilipczuk arXiv:1810.00789 Theorem 1.1"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1810.00789",
+      "material_read": "Primary paper theorem abstracts and enumerative algorithm scope; full theorem-level comparison, not exhaustive text inspection",
+      "method": "Read primary theorem statement and abstract, compared output-sensitive versus exact coefficient enumeration",
+      "title": "Enumerating minimal dominating sets in K_t-free graphs and variants",
+      "trigger": "Potential general minimal set enumeration dominating this exact count"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard Python 3 library. The checker has no external file dependencies.
+## correctness
 
-The checker forms each crown graph directly from the rule \(a_i b_j\in E\) if and only if \(i\ne j\). It forms each original edge's closed edge neighborhood, tests domination by union of those neighborhoods, and tests inclusion-minimality by deletion of every chosen edge. Across \(n=2,3,4,5\), this exhausts 1,052,740 edge subsets. The exact size distributions are:
+PASS
 
-- \(n=2\): \(z^2\).
-- \(n=3\): \(3z^2+2z^3\).
-- \(n=4\): \(8z^3+117z^4\).
-- \(n=5\): \(45z^4+1824z^5+20z^6\).
+The uncovered vertices U_A,U_B characterize domination: no cross-edge may join uncovered endpoints, so one side is fully covered or both uncovered sides are the same singleton. Removing an essential edge proves the perfect matching, one-sided restricted surjection, and matched-hole star-forest cases; the one-hole map must give f(j) a unique preimage, otherwise that edge is inessential. The EGF exp(W) labels components of complete-bipartite star forests; inclusion-exclusion over forbidden diagonal edges works because disjoint forced matching edges belong to distinct stars, each contributing z(exp(zx)+exp(zy)-1). Component-count bounds yield n-1 and 2n-4 extrema with stated parameter qualifications. Independent full subset enumeration n=2,3,4 reproduced all size distributions; original verify.py was inspected, not used as proof.
 
-A separate exact-arithmetic evaluator implements the formal coefficient expression by truncated bivariate formal power series, and independently enumerates spanning star forests for \(t\le4\). Coefficient endpoints are additionally checked for \(3\le t\le8\). A successful run prints `VERIFY_OK`.
+## originality
 
-The finite tests corroborate the classification, the unusual one-hole boundary, and the coefficient extraction, but they do not prove the infinite-parameter theorem. The mathematical proof is provided in `RESULT.md`. Publication priority and independent mathematical validation remain unperformed.
+PASS
+
+Bonamy et al enumerate minimal dominating sets algorithmically in broad classes, and Anderson–Kuenzel–Rall characterize well-edge-dominated graph families including undeleted balanced K_{n,n}; neither inspected theorem gives all coefficients of minimal edge-dominating sets after deletion of the full matching. Crown-graph Resultary records concern restrained, Roman, edge-metric, and other domination variants. A published alternative via line-graph dominating sets or forbidden-matching star forests remains possible.
+
+## value
+
+PASS
+
+Crown graphs are a natural complete-bipartite family missing a perfect matching. Full distribution of inclusion-minimal edge-dominating sets, including unusual one-hole essentiality and paired star forests, determines more than a single minimum bound and quantifies loss of the well-edge-dominated property. Exact extrema and complete enumerator are useful for graph domination benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
