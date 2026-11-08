@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The block Laplacian decomposes orthogonally into 0,N,p,q eigenvalues and their full eigenspaces. An exact two-coordinate PBH argument shows same-side pairs always fail, opposite-side pairs activate at least three spectral levels for p≠q, and balanced pairs admit exactly the two stated resonance equalities. Strict convexity makes a single scalar value impossible at three distinct levels. One unactuated coordinate activates three levels, so N-1 inputs always work when h>0. Cubic factorizations, monotone derivatives and positive scalar bounds establish the exact RK4 roots and positivity. The standalone verifier passed 100 exact-rational transition matrices, 1884 exact Kalman ranks and 1584 two-uncontrolled-coordinate tests; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burgarth et al. (arXiv:1111.1475v1) studies zero forcing and controllability of network systems.",
+        "Mousavi–Haeri–Mesbahi (arXiv:1802.03599) analyzes cograph Laplacian controllability including complete bipartite cases, but does not treat a noninjective spectral map f(hL) in the inspected results."
+      ],
+      "reasoning": "The more general graph classes in those sources do not dominate the present claim: their control tests use the original Laplacian or a qualitative family of sparse state matrices, while f(hL) may be dense and its eigenspaces coalesce. Such a merger changes the PBH eigenvector supports without changing the graph, so unfiltered or sparse-class results cannot imply the complete positive-step criterion.",
+      "searches": [
+        "Runge Kutta RK4 discretization Laplacian controllability eigenvalue collision aliasing sample time complete bipartite graph PBH",
+        "complete bipartite graph K_m,m minimal coordinate leaders polynomial spectral filter eigenvalue collision controllability",
+        "arxiv:1802.03599",
+        "arxiv:1111.1475v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.01269v1 (2015)",
+      "arXiv:1403.4868v1 (2014)",
+      "arXiv:1111.1475v1 (2011)",
+      "arXiv:1802.03599 accessible v2 (2018/updated later)",
+      "Public research-index results on polynomial sampling, RK resonance and graph control; closest titles concern Fehlberg RK4(5) estimator resonance and normalized-path dynamical sampling, not this exact bipartite control result."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Apers–Sarlette uses spectral clustering to accelerate consensus and discusses complete bipartite graph examples; that is an overlap in eigenvalue geometry, not a result on minimum coordinate input selection.",
+        "Cograph and zero-forcing controllability supply the unfiltered baseline and classic methodology; they are not asserted here as novel."
+      ],
+      "reasoning": "Known Laplacian PBH, strict-convexity level-counting and cograph input criteria alone do not state or prove that every unequal K_{p,q} is immune to all positive-step resonances under arbitrary strictly convex f, nor the balanced pairwise collisions together with positive stochastic fourth-order witnesses. The derivation integrates these ideas into an exact infinite-family result, with unverified remaining priority risk.",
+      "searches": [
+        "arxiv:1503.01269v1 Section 2.1 balanced complete bipartite graphs polynomial filters",
+        "arxiv:1403.4868v1 zero forcing graph systems",
+        "arxiv:1802.03599 cograph Laplacian controllability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Apers–Sarlette (arXiv:1503.01269v1), Secs. 2–4, examines complete-bipartite spectral clustering and polynomial-consensus filters, with no coordinate-input optimization formulation in the inspected material.",
+        "Monshizadeh–Zhang–Camlibel (arXiv:1403.4868v1) develops zero forcing and qualitative graph-pattern controllability, not the exact PBH test after scalar spectral collisions."
+      ],
+      "reasoning": "An equivalent statement would characterize coordinate-input cardinality of (f(hL),B_S) for all strictly convex f and all bipartite sizes, or, after the PBH spectral-map reduction, completely characterize eigenvalue-merger-induced input-budget changes. The inspected work specifies neither this uniform filter class nor the two exact positive RK2/RK4 control resonances.",
+      "searches": [
+        "spectral eigenvalue aliasing polynomial discretization RK4 loses controllability despite continuous-time controllable",
+        "sampled graph heat diffusion polynomial filtering exact leader budget resonant eigenvalues PBH",
+        "arxiv:1503.01269v1",
+        "arxiv:1403.4868v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The consulted 2015 consensus preprint supplies relevant bipartite spectra and polynomial-filter motivation but does not tabulate minimum coordinate actuator counts at the two exceptional steps.",
+        "The verified exact spectra here are 0,q,p,p+q, reducing the arbitrary-size classification to a three- versus four-level question rather than a finite numerical table."
+      ],
+      "reasoning": "No inspected exact published table or equivalent closed-form classification of these actuator cardinalities was found. This is limited negative evidence, not a global database uniqueness guarantee.",
+      "searches": [
+        "balanced versus unbalanced complete bipartite graph fourth order Runge Kutta discrete transition loses controllability",
+        "polynomial sampled-data controllability with graph Laplacian fast finite eigenvalue crossing",
+        "arxiv:1503.01269v1"
+      ]
+    },
+    "rationale": "The principal comparison is not the old fact that a polynomial maps Laplacian eigenspaces, or the known N-2 continuous-time input baseline, but the precise all-strictly-convex-filter minimum coordinate-actuator classification for every K_{p,q}, its complete balance-dependent resonance law, and RK2/RK4 strictly positive stochastic resonance witnesses. The inspected cited works address polynomial consensus speed, qualitative zero forcing, or unfiltered Laplacian control; their results do not imply the resonance budgets. Unindexed specialist overlap remains a priority risk.",
+    "residual_risks": [
+      "Publication priority remains uncertain outside inspected primary texts and the searched research records, particularly specialized sampled-data or dynamical graph-actuation articles.",
+      "Search noncoverage does not prove novelty. The reviewed theorem is not a claim of independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant foundation and same graph spectra; inspected material does not state the filtered minimum-input control classification",
+        "evidence": [
+          "arXiv:1503.01269v1, first public date 2015-03-04",
+          "The stated objective is acceleration of consensus via polynomial filters; the present objective is controllability of (f(hL),B_S)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.01269",
+        "material_read": "Original preprint sections 1–4, complete-bipartite discussion in Section 2.1, and conclusion; text and PDF page images",
+        "method": "Compared source problem, discrete filter family and spectral clustering objective against exact coordinate PBH cardinality and resonance claims",
+        "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+        "trigger": "Closest archive-era source treating polynomial filters of balanced and unbalanced complete bipartite spectra"
+      },
+      {
+        "assessment": "Zero-forcing and robust graph-structure criteria, not eigenvalue collision law for fixed filtered matrices",
+        "evidence": [
+          "arXiv:1403.4868v1, first public date 2014-03-19"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Abstract, problem setup and leading zero-forcing results; text and PDF page images",
+        "method": "Compared qualitative graph-pattern controllability statements to fixed dense spectral-filtered Laplacian pair",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Potential broader graph-based controllability coverage"
+      },
+      {
+        "assessment": "Classical graph controllability tools only on inspected material",
+        "evidence": [
+          "arXiv:1111.1475v1, first public date 2011-11-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.1475",
+        "material_read": "Abstract, core definitions and relevant controllability arguments; text and PDF page images",
+        "method": "Checked whether the source contains the specified polynomial spectral-control resonance classification",
+        "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+        "trigger": "Graph controllability and zero-forcing basis"
+      },
+      {
+        "assessment": "Known continuous-time baseline is acknowledged; sampled spectral resonance analysis not found in inspected material",
+        "evidence": [
+          "arXiv:1802.03599v2, later supporting literature"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.03599",
+        "material_read": "Setup, Laplacian eigenstructure and input-analysis results plus conclusion in accessible v2; text and PDF page images",
+        "method": "Compared eigenvector restrictions for original L against those after f(hL) identifies distinct eigenvalues",
+        "title": "Laplacian Dynamics on Cographs: Controllability Analysis through Joins and Unions",
+        "trigger": "Complete bipartite is a cograph; closest graph family with input counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b66241f-5d68-45cc-9740-e9d6782fd12f",
+  "value": {
+    "rationale": "A natural network control problem is settled on every unweighted K_{p,q} and every strictly convex filter: the exact minimum actuator cardinality and placements and all resonant exceptions are explicit. The balanced-versus-unbalanced dichotomy and loss of minimal controllability through a strictly positive, doubly stochastic RK2/RK4 transition are meaningful structural phenomena not merely isolated numerical examples; the result distinguishes numerical state evolution from guaranteed control reachability.",
+    "status": "PASS"
+  }
+}
