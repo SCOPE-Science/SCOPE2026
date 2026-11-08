@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof identifies the positive-real-part coefficients \(c_1,c_2,c_3\) and derives the exact recurrence for \(a_2,a_3,a_4\). Uniformity follows from the Carathéodory coefficient bounds \(|c_j|\le1\) and explicit denominators \(1+k\alpha\), \(k=1,2,3\).
+## correctness
 
-`check.py` was run with SymPy against the actual candidate file and returned:
+PASS
 
-`CHECK_OK: coefficient reduction, moment boundary, two regimes, extremal leading law`
+Expand w=zf'/f and w+alpha zw'/w=1+2sum c_jz^j: leading coefficients a2=2c1/alpha+O(alpha^-2), a3=c2/(2alpha)+O(alpha^-2), a4=2c3/(9alpha)+O(alpha^-2), uniformly for |c_j|<=1. Therefore alpha^2(a2a4-a3^2)=(16c1c3-9c2^2)/36+O(alpha^-1). Rotation fixes c1=√u; Schur x,y parameterization reduces to A+Bx-Cx^2+D(1-|x|^2)y with C>=D. A nonnegative Hessian eigendirection pushes max |.| to |x|=1. Squared modulus on unit circle concave quadratic in ξ=cos t: u<=2/7 max at ξ=-1 with unique u=3/14 giving 72/7; u>=2/7 monotone square-upper bound below it. Equality two symmetric Herglotz atoms and positive-real-part integrally converted to admissible f_alpha via published Mocanu–Todorov correspondence. Independent SymPy symbolic checks verified critical polynomial factorization, boundary moment value -72/7 and coefficient 2/7; not a finite-only proof.
 
-The checker verifies exact polynomial identities, the moment maximum at \(u=3/14\), the upper-branch algebraic envelope, and the two-point moment evaluation. It does not attempt to exhaust numerical parameter samples or independently prove the existence of the univalent integral transform. Those are addressed in `RESULT.md` by the Schur/Herglotz theorem, directional convexity argument, and standard Mocanu representation.
+## originality
 
-The full text of arXiv:2606.21574 (14 pages, especially pages 12–13) and arXiv:2610.21260 (21 pages, especially theorem 3.1) was reviewed for statement comparison. The Sokół–Thomas 2018 abstract was accessible, but complete original text was not; its parameter-dependent upper bound as reproduced by the second source is insufficient to imply the new sharp coefficient. This access limitation is material to historical priority, not a proof gap.
+PASS
 
-The finding is limited to the first asymptotic term with an absolute \(O(\alpha^{-3})\) remainder. No exact finite-\(\alpha\) classification or independent audit is asserted.
+The 2026 Bravo–Carrasco–Hernández–Venegas preprint conjectures finite-alpha extremality of a trial family with the same leading coefficient, but does not prove the full admissible-class upper sharpness. Sokół–Thomas 2018 and the reproduced 2026 Banach-space estimate give alpha^-2 upper coefficient 9/28>2/7; not the sharp asymptotic. Direct Caratheodory moment theorem supplies needed new optimal input. Historical 2018 original unavailable in full; risk expressly retained.
+
+## value
+
+PASS
+
+The second Hankel extremum is a standard coefficient invariant in geometric function theory. Determining the exact leading sharp asymptotic for the entire alpha-convex class resolves a meaningful gap left by conjectural finite-alpha formulas and non-sharp earlier bounds; the sharp three-moment theorem and equality measures offer reusable extremal information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

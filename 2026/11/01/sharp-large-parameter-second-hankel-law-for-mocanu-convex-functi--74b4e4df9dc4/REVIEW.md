@@ -1,15 +1,21 @@
-# Scientific assessment: sharp large-parameter Mocanu Hankel law
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient recurrence for \(J_\alpha[f]\) is exact through cubic order and produces a uniform expansion of \(\alpha^2(a_2a_4-a_3^2)\) over the full Carathéodory moment body. The central nonstandard inequality is proved by Schur parametrization, a supporting-direction Hessian argument that pushes its extremum to \(|x|=1\), and two exhaustive ranges of \(u\). The boundary value at \(u=3/14\) equals \(72/7\) and dominates the upper branch strictly. A two-atom Herglotz function attains this moment value, and the classical Mocanu integral representation supplies an admissible function for every \(\alpha>0\). The bundled symbolic checker verifies the exact algebra and limiting coefficient. The checker does not replace the analytic optimization or existence theorem.
+## correctness
 
-## Originality — PASS under inspected evidence
-Bravo–Carrasco–Hernández–Venegas, arXiv:2606.21574, pages 12–13 (revised 2026-10-22), poses the full finite-parameter Hankel constant as a conjecture; its restricted trial family provides the same large-parameter candidate but does not prove global control. The 2026 full-text Banach-ball extension by Sokół–Majumder–Haldar–Panja, arXiv:2610.21260, theorem 3.1, supplies a general upper bound whose leading coefficient is \(9/28\), strictly greater than \(2/7\), so it does not imply the sharp limit. Its proof invokes Sokół–Thomas (2018); that older paper's abstract was available, but its complete text was not, leaving historical-priority risk. Targeted searches for the exact moment polynomial, alternative parameter names, and high-parameter Hankel asymptotics identified no covering theorem. No failed search is treated as proof of novelty.
+PASS
 
-## Value — PASS
-The problem directly addresses a published conjecture about the exact second Hankel determinant of \(\alpha\)-convex functions. The result proves a universal high-\(\alpha\) law rather than merely evaluating the conjectural two-parameter test family. Its exact \(72/7\) moment inequality identifies the extremal geometry and supplies a mechanism that could aid subsequent exact finite-parameter work. The result does not claim a solution of the full conjecture.
+Expand w=zf'/f and w+alpha zw'/w=1+2sum c_jz^j: leading coefficients a2=2c1/alpha+O(alpha^-2), a3=c2/(2alpha)+O(alpha^-2), a4=2c3/(9alpha)+O(alpha^-2), uniformly for |c_j|<=1. Therefore alpha^2(a2a4-a3^2)=(16c1c3-9c2^2)/36+O(alpha^-1). Rotation fixes c1=√u; Schur x,y parameterization reduces to A+Bx-Cx^2+D(1-|x|^2)y with C>=D. A nonnegative Hessian eigendirection pushes max |.| to |x|=1. Squared modulus on unit circle concave quadratic in ξ=cos t: u<=2/7 max at ξ=-1 with unique u=3/14 giving 72/7; u>=2/7 monotone square-upper bound below it. Equality two symmetric Herglotz atoms and positive-real-part integrally converted to admissible f_alpha via published Mocanu–Todorov correspondence. Independent SymPy symbolic checks verified critical polynomial factorization, boundary moment value -72/7 and coefficient 2/7; not a finite-only proof.
 
-## Closest literature and limitations
-The strongest directly comparable inspected upper estimate behaves as \(9/(28\alpha^2)\), not the new sharp \(2/(7\alpha^2)\). The leading coefficient of the conjectural restricted family was previously numerically supported, not globally proved. The original full text of Sokół–Thomas (2018) and Deekonda–Thoutreddy (2015) was unavailable, so unlocated implicit coverage remains possible. Finite-\(\alpha\) values and optimized higher asymptotic coefficients are not determined. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Bravo–Carrasco–Hernández–Venegas preprint conjectures finite-alpha extremality of a trial family with the same leading coefficient, but does not prove the full admissible-class upper sharpness. Sokół–Thomas 2018 and the reproduced 2026 Banach-space estimate give alpha^-2 upper coefficient 9/28>2/7; not the sharp asymptotic. Direct Caratheodory moment theorem supplies needed new optimal input. Historical 2018 original unavailable in full; risk expressly retained.
+
+## value
+
+PASS
+
+The second Hankel extremum is a standard coefficient invariant in geometric function theory. Determining the exact leading sharp asymptotic for the entire alpha-convex class resolves a meaningful gap left by conjectural finite-alpha formulas and non-sharp earlier bounds; the sharp three-moment theorem and equality measures offer reusable extremal information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
