@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The steady-state matrices are strictly positive definite irreducible M-matrices. Explicit inverse columns give every stock/catch formula. Four exact pairwise-difference identities and the strictly positive identity \(N_{01}S-N_{12}P=mXD\) prove the total-stock/catch ordering and two separated transition weights for every \(\mu,m,h>0\). A weighted-average identity places the nonadjacent crossing between the adjacent crossings. The standard-library checker verifies these polynomial identities and 216 exact-rational equilibrium/optimality tests; the proof, not the finite tests, handles the universal quantifiers.
+## correctness
 
-**Originality — PASS on inspected material, with residual risk.** The accessible full mathematical text of De Leenheer (2013), particularly the model and Theorems 2 and 5, studies uniform recruitment and unrestricted spatial control, not the one-sided-source, exactly-one-reserve, all-parameter three-way phase diagram. The accessible abstract of Neubert (2003) studies logistic fish growth and a harvest-only objective; it does not demonstrate the stated classification, but its complete text was inaccessible. Ding and Lenhart (2009) was inspected as a second full mathematical primary source; its logistic elliptic model and yield/effort-cost objectives do not imply the three-way linear source-localized classification. Related marine reserve and source–sink materials do not show an implication of the exact claim. Searches cannot establish global novelty; a broader existing theorem could still subsume this finite calculation.
+PASS
 
-**Value — PASS.** A constrained marine reserve choice in a heterogeneous source–sink landscape is a motivated ecological planning model. The complete phase diagram shows, non-obviously, that all three locations are exposed as strict optima for *every* positive-rate tuple, including a genuine middle-patch interval rather than an immediate jump between extremes. Exact Pareto breakpoints demonstrate why fixing a site solely from catch or from standing stock can miss the intermediate conservation objective. The statement is narrow and idealized, but an exact natural classification, not an arbitrary isolated numeric example.
+For each one-reserve placement j the strictly diagonally dominant irreducible positive M-matrix produces a unique attracting equilibrium. Exact inverse-column formulas give T1=A(A+m)/D, T2=(B+m)/X, T3=B(A+m)/D and corresponding Y1=hm(A+m)/D, Y2=hB/X, Y3=h[B(A+m)-m²]/D. Cross multiplication gives strict T1>T2>T3 and Y1<Y2<Y3 for all μ,m,h>0, by positive-coefficient polynomials P,S,N01,N12. Independent symbolic expansion checked the critical identity N01*S−N12*P=m*X*D and positivity of every coefficient in D,X,P,S,N01,N12. Hence 0<Q23=N12/S<Q12=N01/P; the nonadjacent crossing is their strict slope-weighted mean and the upper envelope of three affine objectives selects 3, then 2, then 1 with the stated two ties. Direct rational exemplar at μ=m=h=1 has Q23=17/14 and Q12=73/36. Universal proof is algebraic, not extrapolation from the sample.
 
-**Closest comparison and limitations.** De Leenheer, arXiv:1307.1581 (full text inspected), provides the closest mathematical objective and continuous linear fishery, but its uniformly distributed source and unconstrained placement prevent direct coverage. Neubert (2003), DOI 10.1046/j.1461-0248.2003.00493.x, is a plausible historical priority risk because only the abstract was available. No nonlinear ecology, empirical data, additional reserve budgets, continuum limit or economic cost model is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the final exact statement, with actual published-result comparisons rather than title matching; no inspected source mathematically implies the full stated result. Inaccessible closely related texts are explicitly retained as priority risks; failed search is not novelty proof.
+
+## value
+
+PASS
+
+Exact and unexpected all-positive-rate three-stage Pareto selection for a natural constrained reserve-allocation problem with a localized recruitment source; distinguishes a genuine middle-reserve optimal regime from endpoint-only heuristics. Finite but complete three-location classification is mathematically motivated by ecological control and could be reused as an exact heterogeneous benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
