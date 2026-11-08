@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The frozen sampled-state Itô integral gives iid factors exp(theta*tau)+b*sigma*H_alpha^(1/alpha) S_alpha. Stable subordination S_alpha=V_alpha C for index <=1 and the Cauchy Poisson-log identity yield the exact factor log mean. Stable polynomial tails and bounded density near a cancellation root yield integrability. The interval envelope has an integrable positive logarithm by the p<alpha maximal moment; Borel-Cantelli lifts the sampled strong law to the exact continuous-time limsup. Strictly increasing positive log correction produces the no-stabilization and unique-threshold conclusions. Cauchy threshold algebra and alpha=1/2 independent mixing are included in 253 grouped finite/numerical checks; finite checks do not prove universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Gao–Yuan (2025-03-17) published abstract reports sufficient mean-square and quasi-sure stabilization for G-Lévy equations with discrete feedback, not an exact all-gain ordinary symmetric alpha-stable pathwise exponent; full text unavailable, so possible additional coverage was not ruled out.",
+        "Li et al. (2025) PDF sections on (13), Assumption 3.1 and Theorem 3.1 establish mean-square bounds for delayed drift controls and integrability involving squared jump amplitudes.",
+        "Mao (2016) PDF Theorem 2.1 is for Brownian noise, and gives a sufficient stabilization condition with a sufficiently small observation gap.",
+        "Zhang (arXiv:2611.04340v1, 2026-11-03) abstract assumes index in (1,2); theorem 3.1 proof explicitly selects 0<p<alpha-1.",
+        "Applebaum–Siakalli (2009) PDF sections 1-2 set continuous-state Lévy SDEs and invoke Kunita p>=2 moment estimates rather than sampled frozen-state stable noise."
+      ],
+      "reasoning": "The most plausible covering analyses involve G-Lévy mean-square and quasi-sure sampled feedback, Brownian sampled feedback, mean-square Lévy perturbations, and stable feedback with index greater than one. Their noise classes or feedback architecture do not entail the claimed alpha<=1 exact formula, even when an identical parameter name occurs. No claim of uniqueness based solely on the partition is made.",
+      "searches": [
+        "\"Aperiodically Delay Intermittent Control for Lévy Noise Driven Highly Nonlinear Stochastic Hybrid Systems Based on Discrete-Time Observations\"",
+        "\"Almost sure exponential stabilization of linear stochastic systems driven by a general α-stable process via discrete-time state feedback\"",
+        "symmetric alpha-stable noise 0<alpha<=1 impossible stabilization linear stochastic differential equations logarithm Lyapunov exponent Cauchy mixture",
+        "\"Quasi-sure exponential stabilization of stochastic systems driven by G-Lévy Process with discrete time feedback control\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TAC.2025.3576694; full manuscript relevant sections",
+      "doi:10.1109/TAC.2015.2471696; full manuscript relevant sections",
+      "arxiv:2611.04340v1; full HTML relevant sections, posted 2026-11-03",
+      "doi:10.1239/jap/1261670692; OA manuscript introduction and setup",
+      "doi:10.3934/mcrf.2025020; publisher abstract, date and MSC; full text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang–Gao–Yuan 2025: publisher abstract states quasi-sure and mean-square stabilization under G-Lévy sampled feedback. The exact noise channel and all claims cannot be verified from the inaccessible full article, but its squared-moment conclusion does not automatically cover an infinite-variance symmetric stable driver.",
+        "Mao 2016: same frozen-state control but Brownian sample noise and stabilization of positive drift; replacing Brownian by Cauchy is not a theorem-preserving implication.",
+        "Li et al. 2025: discrete observation and Lévy noise but controller appears in dt, with mean-square moment conditions excluding symmetric stable index <=1.",
+        "Zhang 2026: exact sampled factor agrees with the factor derived here, but theorem 3.1 specifically assumes alpha>1 and cannot choose any 0<p<alpha-1 for alpha<=1.",
+        "Applebaum–Siakalli 2009: general continuous-state jump SDE sufficient bounds, no exact iid frozen-state multiplier identity or alpha<=1 phase diagram in inspected sections."
+      ],
+      "reasoning": "Statement-level implications were checked, not merely titles: the literature covers sampled Gaussian stabilization and later index >1 positive-drift stable stabilization; neither implies the sharp **opposite** heavy-tail obstruction, all-time upper exponent and negative-drift threshold. This is an independent special-case theorem with classical lemma inputs, not a claimed improved version of their general assumptions.",
+      "searches": [
+        "\"Aperiodically Delay Intermittent Control for Lévy Noise Driven Highly Nonlinear Stochastic Hybrid Systems Based on Discrete-Time Observations\"",
+        "\"Almost sure exponential stabilization of linear stochastic systems driven by a general α-stable process via discrete-time state feedback\"",
+        "Almost sure exponential stabilization by discrete-time stochastic feedback control Brownian Mao 2016",
+        "Asymptotic stability of stochastic differential equations driven by Lévy noise Applebaum Siakalli 2009",
+        "G-Levy sampled feedback mean square quasi sure exponential stable Wang Gao Yuan stable Cauchy alpha less than one logarithmic Lyapunov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cauchy Poisson-potential identity yields E log|a+c C|=log sqrt(a^2+c^2), and symmetric stable index <=1 is an independent positive-stable Cauchy scale mixture.",
+        "Mao (2016) and Zhang (2026) use the same sampled scalar model with distinct noise indices and stabilization conclusions; their theorem hypotheses do not imply the Cauchy-mixture endpoint."
+      ],
+      "reasoning": "Equivalent scalar-product Lyapunov, harmonic-extension, Jensen/subordination and stable-law formulations were sought. The classical identities cover intermediate lemmas, but inspected results do not state the full sampled-Lévy pathwise rate for index <=1. The generic classical-log-potential implication remains a priority risk.",
+      "searches": [
+        "sampled additive stable Levy feedback scalar theta positive alpha less than equal to one logarithmic Lyapunov exponent no stabilisation Cauchy harmonic mean",
+        "positive alpha stable subordinator Cauchy scale mixture stochastic stabilization exact formula log moment scalar sampled Levy",
+        "Lyapunov exponent exact Cauchy noise feedback sampled discrete observation instability critical alpha one",
+        "expected logarithmic absolute Cauchy stable alpha less than one no negative Lyapunov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant primary analyses concern Brownian sampled feedback, sampled drift control under Lévy perturbations, and stable index strictly greater than one. Their published statements do not tabulate or give the exact stable-index-at-most-one exponent."
+      ],
+      "reasoning": "The claim is an analytic infinite-horizon exponent and stability phase classification, not a finite tabulation or a known sample-count invariant. Literature and research-record searches revealed no exact covering table or published comparison of this form, but failure to locate one cannot prove uniqueness.",
+      "searches": [
+        "sampled additive stable Levy feedback scalar theta positive alpha less than equal to one logarithmic Lyapunov exponent no stabilisation Cauchy harmonic mean",
+        "positive alpha stable subordinator Cauchy scale mixture stochastic stabilization exact formula log moment scalar sampled Levy",
+        "Lyapunov exponent exact Cauchy noise feedback sampled discrete observation instability critical alpha one"
+      ]
+    },
+    "rationale": "Closest matched papers were inspected in their relevant mathematical sections. Mao (2016) proves Gaussian stabilization for the same sampled architecture, not alpha<=1 stable non-stabilization. Wang–Gao–Yuan (first public 2025-03-17) treat quasi-sure and mean-square stabilization under G-Lévy noise and sampled feedback, but a complete text comparison was inaccessible. Li et al. (2025) use Lévy perturbation with drift sampling control and squared jump/moment hypotheses. Zhang (2026-11-03) proves a sufficient positive-drift stabilization condition for alpha in (1,2), explicitly requiring p in (0,alpha-1); hence it excludes this alpha<=1 endpoint. The Cauchy mixture, logarithmic Poisson integral, and sampled SLLN are classical and not claimed new. The joint exact heavy-tail obstruction and full all-gain phase classification was not found in literature searches. Historical priority remains provisional.",
+    "residual_risks": [
+      "An older general theorem on logarithmic potentials of stable random affine products may already imply the exact rate without using this sampled-feedback phrasing.",
+      "Only accessible published texts and the indexed searchable records were reviewed; exhaustive historical priority cannot be certified.",
+      "The primary recent 2025 article belongs to a broader control setting rather than treating the exact noise-feedback endpoint itself; model comparison must not be mistaken for a logical extension of its hypotheses.",
+      "Complete Wang–Gao–Yuan 2025 G-Lévy article was inaccessible, so a stronger uninspected implication cannot be categorically excluded; available abstract and its mean-square framework do not directly establish this exact alpha-stable result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The abstract concerns sufficient mean-square/quasi-sure G-Lévy stabilization, not an explicit scalar symmetric stable index at most one logarithmic-rate classification. Potential uninspected additional material remains a stated risk.",
+        "evidence": [
+          "Publisher lists 2025-03-17 early online publication, primary 60H05 and 60H10, and a sufficient small-sampling-step stabilization statement."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/mcrf.2025020",
+        "material_read": "Publisher abstract, metadata, mathematical subject classification, reference list and full-text access notice. Full article could not be read.",
+        "method": "Checked publisher full-text link and lawful open-access and preprint searches; full text not obtained.",
+        "title": "Quasi-sure exponential stabilization of stochastic systems driven by G-Lévy Process with discrete time feedback control",
+        "trigger": "Directly relevant recent discrete-time Lévy-feedback stability setting; primary MSC includes 60H10; published online March 17, 2025"
+      },
+      {
+        "assessment": "Shows stabilizing positive drift with Brownian noise; does not cover any alpha<=1 stable-law result",
+        "evidence": [
+          "Equation (2.1) uses sampled-state Brownian dB; Theorem 2.1 requires theta-b^2/2<0 and tau sufficiently small."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/54009/1/Mao_etal_IEEE_TOAC_2016_Almost_sure_exponential_stabilization_by_discrete_time_stochastic.pdf",
+        "material_read": "Full-text manuscript introduction, sampled scalar model and Theorem 2.1 (PDF pages 1-2); page-1 visual screenshot",
+        "method": "Read primary OA PDF mathematical text and inspected page image",
+        "title": "Almost Sure Exponential Stabilization by Discrete-time Stochastic Feedback Control",
+        "trigger": "Exact same frozen-state noise feedback architecture in original Brownian case"
+      },
+      {
+        "assessment": "Feedback enters drift of Lévy-driven nonlinear hybrid; mean-square and squared-jump assumptions fail to entail infinite-first-moment symmetric stable noise feedback exponent",
+        "evidence": [
+          "University institutional record lists early online date 4 June 2025; Theorem 3.1 mean-square result and assumptions involve integrals of squared jump coefficients."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TAC.2025.3576694",
+        "material_read": "Open accepted manuscript abstract, introduction, control design, Assumption 3.1, Theorem 3.1 and relevant jump integrability on PDF; first page visually inspected",
+        "method": "Open institutional OA manuscript PDF and read relevant mathematical sections",
+        "title": "Aperiodically Delay Intermittent Control for Lévy Noise Driven Highly Nonlinear Stochastic Hybrid Systems Based on Discrete-Time Observations",
+        "trigger": "Eligible recent lead on sampled Lévy stabilization, first public 2025-06-04"
+      },
+      {
+        "assessment": "Same sampled stable recursion, but its sufficiency theorem is for alpha in (1,2), while this exact non-stabilization theorem is for symmetric alpha in (0,1]. No inference from alpha>1 to alpha<=1.",
+        "evidence": [
+          "Abstract explicitly alpha in (1,2); theorem proof uses p in (0,alpha-1); equation (3.48) is an iid sampled stable multiplier."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.04340v1",
+        "material_read": "HTML abstract, equations for sampled factor, full theorem 3.1 and moment proof context",
+        "method": "Inspect lawful full arXiv HTML, compare model/alpha index and implication",
+        "title": "Almost sure exponential stabilization of linear stochastic systems driven by a general alpha-stable process via discrete-time state feedback",
+        "trigger": "Highly plausible overlapping scalar sampled stable-feedback model (public Nov 3, 2026; later than current eligible anchor)"
+      },
+      {
+        "assessment": "Generic continuously state-coupled Lévy noise and moment stability estimates, not iid sampled symmetric index<=1 logarithmic multipliers",
+        "evidence": [
+          "Section 2 equation (1) has state at t- inside noise coefficient; Theorem 2.4 moment bound begins p>=2."
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/10372/1/Applebaum_10372.pdf",
+        "material_read": "OA full text first two mathematical sections, precise model and Kunita estimates, visual PDF page 2",
+        "method": "Inspect mathematical model, stated stability notions and prerequisites in primary manuscript",
+        "title": "Asymptotic Stability of Stochastic Differential Equations Driven by Lévy Noise",
+        "trigger": "General potentially stronger stability theory for Lévy-driven SDE"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b30b7d8-132b-4a7c-b303-0add5cddd653",
+  "value": {
+    "rationale": "The tail-index-one stability boundary is a motivated sharp structural phase separation: sampled Gaussian or index>1 Lévy noise can stabilize positive drift under conditions in established literature, whereas every symmetric alpha<=1 sampled gain strictly increases the almost-sure exponent. Exact all-sampling-gap pathwise rate, a unique negative-drift feedback threshold and explicit Cauchy endpoint go beyond a routine scaling or a narrow arbitrary number. The theorem is not claimed for asymmetric noise, drift controls, nonlinear models or finite-moment stability.",
+    "status": "PASS"
+  }
+}
