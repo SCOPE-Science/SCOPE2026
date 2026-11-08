@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The integral normalization and smoothness follow from the interval-nestohedron realization. The local toric blow-up nef calculation identifies the fixed-point constant with the minimum incident primitive edge length. The two-coordinate Loday rotation difference is exactly \(ac(e_i-e_j)\). A maximum-depth cherry bounds the minimum by two. The root-classification of forbidden length-one rotations yields the displayed algebraic generating function without overlap in the two forbidden cases. The coordinate-cut calculation gives lattice width \(n-1\), and Ito's theorem identifies it with the dense-torus constant. Integer-only checks independently corroborate tree vertices, rotations, gcd lengths, fixed-point counts through \(n=8\), and coefficients through \(n=11\). No finite computation is used as an infinite proof.
+## correctness
 
-## Originality
-PASS, with residual historical-priority risk. Ito's theorem concerns dense-torus Seshadri constants and Gromov widths; it does not state fixed-point distributions. Pilaud–Santos–Ziegler state the geometric realization and rotation graph, but not the Seshadri count or its algebraic series. Dotsenko–Shadrin–Vallette identify binary-tree fixed points and toric structures, but not the new two-stratum local-positivity profile. These prior statements provide the input, not the explicit enumeration. Focused searches of published mathematics records and the accessible prior findings found no stronger or equivalent result. A combinatorics paper may already enumerate the same avoidance class under another name; no definitive priority claim is made.
+PASS
 
-## Mathematical value
-PASS. The Seshadri constant is an intrinsic local positivity invariant of the polarized toric variety. Identifying all its fixed-point values and the exact number of vertices realizing the larger one, via a non-obvious Catalan-type avoidance equation, gives more information than an isolated fixed-point computation. Comparison with the dense orbit shows that the local positivity gap grows linearly with dimension, even though all fixed-point values remain bounded by two. The theorem is not asserted for arbitrary weighted associahedra.
+At a smooth torus fixed point the Seshadri constant is the minimum primitive lattice length of incident polytope edges, by the blowup-invariant-curve nef criterion. Under Loday leaf-product vertex coordinates, rotation ((AB)C)↔(A(BC)) changes exactly two inorder coordinates by ac(e_i−e_j), so each length is ac. A deepest cherry has sibling leaf/cherry and yields ac≤2. Length-one rotations are exactly the specified local avoidance; if A counts good internal-root trees with left leaf then A=z(G−A), and G=1+zG²−2zA, giving the claimed algebraic equation. Independent enumeration of all Catalan tree shapes n≤9 matches counts; finite evidence is not the all-n proof. Ito’s generalized permutohedron width theorem plus interval-cut width n−1 establishes the separate dense-torus value under precise unit lattice normalization.
 
-## Close sources and limitations
-Ito (arXiv:2606.06816v1), Pilaud–Santos–Ziegler (arXiv:2305.08471), and Dotsenko–Shadrin–Vallette (arXiv:1510.03261v2) were inspected for relevant statements. Earlier equivalent tree-pattern enumeration is the principal novelty risk. Historical file coverage beyond accessible records is incomplete, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The particular exact sequence (1,1,0,1,2,4,10,23,56,138,344,870,...) AND its identical algebraic generating-function equation were already in OEIS A127389 (2007), with shifted equivalent A152173 (2008). They are NOT original enumerative formulas. The geometric characterization of fixed-point Seshadri strata of this particular integral toric realization, and its contrast with dense-torus value n−1, was not identified in the inspected sources; accepted originality is ONLY this genuinely geometric interpretation, not the known sequence or generating function.
+
+## value
+
+PASS
+
+This is a natural toric local-positivity stratification with an explicit combinatorial bridge between rotation edge lengths and fixed-point invariant values, and reveals a sharp separation from dense-torus positivity. The already-known integer-sequence formula alone adds no new value; the geometric interpretation and proof support independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
