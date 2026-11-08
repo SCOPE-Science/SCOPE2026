@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS — analytical proof reconstructed.** For all sequences of positive integer distances and positive redraw durations whose logarithmic ratio converges to a finite real number, the Mittag-Leffler integral implies the standard logistic weak limit of logarithmic jump rates. The walk is time-changed by cumulative jump intensity; Doob's maximal inequality makes a fixed number of subcritical blocks spatially negligible relative to the initial distance, whereas reflection and heat-kernel bounds force absorption in a negligible fraction of the first supercritical block. A logistic-continuity argument closes the transition band and proves the geometric law. The provided checker passed 40 numeric checks on the source's exact spectral formula. Numerical evidence is not a substitute for the argument.
+## correctness
 
-## Originality
-**PASS under the inspected scope, with priority risk.** Levit and Reuveni's 2026 paper and supplements already provide the rate law, exact first-passage spectral representation, and a fixed-distance mean limit, including a fair-coin heuristic at the extreme rate-parameter endpoint. Those statements are credited. This result treats the joint exponential-distance and refresh-time limit and identifies the full parameter-dependent geometric distribution, requiring a nonuniform probabilistic argument. The older doubly stochastic random-walk work concerns a different rate distribution and interval escape. The Mittag-Leffler representation itself is classical. Literature and mathematical-record searches found no exact full crossover theorem; a generic singular-rate homogenization or geometric escape theorem might still imply the conclusion.
+PASS
 
-## Mathematical value
-**PASS.** The full first-passage law, not merely the mean, changes at the natural spatial diffusion clock \(x^2\) when the rate law has fluctuations exponential in inverse shape. The explicit success parameter unifies fixed-distance behavior with exponentially distant targets and exponentially varying refresh periods. It gives a quantitative crossover profile for extreme random intensities, rather than a routine fixed-parameter moment consequence.
+The source uses the correct rate law E[e^{-s lambda}]=1/(1+s^alpha). Rescaled log rate W_alpha=alpha log lambda has limiting survival 1/(1+exp(z)), derived by dominated convergence from the stated first-type Mittag-Leffler integral. An independent scipy quadrature of that integral at alpha=.20,.10,.05 and z=-.6,0,.6 converged numerically toward the logistic tail, with errors decreasing in alpha. For finitely many slow blocks the integrated jump clock divided by x_alpha^2 is exponentially tiny, and Doob maximal inequality prohibits reaching zero or moving a macroscopic fraction of x_alpha. A fast block has exponentially huge jump clock, and a half-line heat-kernel survival bound forces absorption within eta*tau_alpha. The intermediate log-rate band is negligible by logistic continuity; independent blocks then yield a geometric first-fast-block time. Weak convergence at all noninteger continuity points and bounded-transform convergence follow. No expectation convergence or uniformity in kappa is inferred.
 
-## Scope and outstanding risks
-The theorem proves weak convergence only, not mean or higher-moment convergence, and applies to symmetric nearest-neighbor jumps and independent Mittag-Leffler rate redraws. The continuous-time heat-kernel estimate is uniform in initial distance; the singular rate band is handled before the tolerance vanishes. Independent historical-priority and mathematical review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest paper by Levit and Reuveni establishes the same rate-reset walk, spectral survival and mean transition but the accessible text discusses fixed-distance mean and survival tails, not an exponentially scaled distance/interval joint weak limit. Existing doubly stochastic random-walk work develops fixed distributions and interval exits. Best-of-knowledge PASS with high risk because supplementary full text was not accessible after arXiv/OA attempts and authorized institutional VPN disconnection.
+
+## value
+
+PASS
+
+The exact logistic-to-geometric crossover identifies a natural singular scale x^2/tau ~ exp(kappa/alpha), demonstrating that a first-passage time collapses into the first exceedingly fast refresh interval; this is a genuine distributional scaling law relevant to fluctuating-rate transport rather than a renamed mean asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the claimed logarithmic-distance crossover
+# Independent mathematical audit
 
-Run `python3 CHECK.py` from the directory containing `CHECK.py`. The program uses no third-party packages and evaluates two published integral identities, together with the proposed geometric limit. `CHECK_OUTPUT.txt` is the output of this execution; it records `PASS 40 checks`.
+## correctness
 
-Analytical checks: the log-rate tail convergence follows by dominated convergence from the published Mittag-Leffler integral, with the exact limiting integral \(\int_0^1 e^\kappa/(r+e^\kappa)^2\,dr\). For the spatial process, the finite-variance martingale maximal inequality controls all slow refresh periods; reflection and the heat-kernel supremum estimate give a uniform fast-block absorption bound. Continuity of the logistic law removes the narrow ambiguous band. These steps prove convergence at every noninteger continuity point of the geometric limit, for every deterministic sequence satisfying the stated ratio condition.
+PASS
 
-The numerical sample includes exact spectral survival at integer refresh times for several shrinking positive indices and increasing initial distances, plus an example with a rapidly increasing redraw interval. Finite spectral samples do not establish asymptotic convergence or a rate of convergence. No moment convergence and no independent validation are asserted.
+The source uses the correct rate law E[e^{-s lambda}]=1/(1+s^alpha). Rescaled log rate W_alpha=alpha log lambda has limiting survival 1/(1+exp(z)), derived by dominated convergence from the stated first-type Mittag-Leffler integral. An independent scipy quadrature of that integral at alpha=.20,.10,.05 and z=-.6,0,.6 converged numerically toward the logistic tail, with errors decreasing in alpha. For finitely many slow blocks the integrated jump clock divided by x_alpha^2 is exponentially tiny, and Doob maximal inequality prohibits reaching zero or moving a macroscopic fraction of x_alpha. A fast block has exponentially huge jump clock, and a half-line heat-kernel survival bound forces absorption within eta*tau_alpha. The intermediate log-rate band is negligible by logistic continuity; independent blocks then yield a geometric first-fast-block time. Weak convergence at all noninteger continuity points and bounded-transform convergence follow. No expectation convergence or uniformity in kappa is inferred.
+
+## originality
+
+PASS
+
+Closest paper by Levit and Reuveni establishes the same rate-reset walk, spectral survival and mean transition but the accessible text discusses fixed-distance mean and survival tails, not an exponentially scaled distance/interval joint weak limit. Existing doubly stochastic random-walk work develops fixed distributions and interval exits. Best-of-knowledge PASS with high risk because supplementary full text was not accessible after arXiv/OA attempts and authorized institutional VPN disconnection.
+
+## value
+
+PASS
+
+The exact logistic-to-geometric crossover identifies a natural singular scale x^2/tau ~ exp(kappa/alpha), demonstrating that a first-passage time collapses into the first exceedingly fast refresh interval; this is a genuine distributional scaling law relevant to fluctuating-rate transport rather than a renamed mean asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

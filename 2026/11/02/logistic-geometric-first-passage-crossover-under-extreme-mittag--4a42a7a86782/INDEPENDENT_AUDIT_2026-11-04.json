@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:16:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source uses the correct rate law E[e^{-s lambda}]=1/(1+s^alpha). Rescaled log rate W_alpha=alpha log lambda has limiting survival 1/(1+exp(z)), derived by dominated convergence from the stated first-type Mittag-Leffler integral. An independent scipy quadrature of that integral at alpha=.20,.10,.05 and z=-.6,0,.6 converged numerically toward the logistic tail, with errors decreasing in alpha. For finitely many slow blocks the integrated jump clock divided by x_alpha^2 is exponentially tiny, and Doob maximal inequality prohibits reaching zero or moving a macroscopic fraction of x_alpha. A fast block has exponentially huge jump clock, and a half-line heat-kernel survival bound forces absorption within eta*tau_alpha. The intermediate log-rate band is negligible by logistic continuity; independent blocks then yield a geometric first-fast-block time. Weak convergence at all noninteger continuity points and bounded-transform convergence follow. No expectation convergence or uniformity in kappa is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levit–Reuveni analyze fixed-rate-redraw survival and finite-mean threshold at alpha=1/2; the summary gives large-x MFPT scaling at fixed alpha.",
+          "Arutkin–Reuveni introduce double-stochastic walk framework but not this joint alpha-to-zero distributional regime."
+        ],
+        "reasoning": "The cited asymptotics are for means/fixed parameters, which do not imply the full nonuniform weak crossover without new time-change estimates.",
+        "searches": [
+          "arxiv:2609.26925 Levit Reuveni",
+          "doi:10.1103/PhysRevResearch.6.L012033 Arutkin Reuveni",
+          "first passage rate fluctuations 2026 small alpha"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md/CHECK.py at reviewed Git SHAs",
+        "https://arxiv.org/abs/2609.26925",
+        "https://doi.org/10.1103/PhysRevResearch.6.L012033",
+        "Resultary query: Mittag-Leffler extreme random jump rates logistic geometric first passage crossover redrawn"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S50 integral supplies the logarithmic-rate law; the proof additionally needs uniform slow/fast survival control for x_alpha varying exponentially."
+        ],
+        "reasoning": "A rate tail or MFPT limit does not by itself establish weak convergence to the discrete geometric law; there remains a risk of unpublished implicit specialization.",
+        "searches": [
+          "Levit Reuveni arxiv:2609.26925 supplementary S50 reported in source",
+          "Arutkin Reuveni 2024 CTRW"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The log-rate logistic limit is a marginal of the known Mittag-Leffler family; the claim additionally couples it to a first-passage time with rate redraws."
+        ],
+        "reasoning": "An extreme-value/geometric first-success reformulation is mathematically equivalent to the claimed limit, but marginal rate convergence alone does not establish time-change first passage.",
+        "searches": [
+          "Mittag-Leffler extreme random jump rates logistic geometric first passage crossover redrawn",
+          "alpha log Mittag Leffler random rate logistic limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits involve other geometric exit laws, not a single-walker alpha->0 refresh-time limit."
+        ],
+        "reasoning": "No matching formula or table was identified; bibliographic absence is weak evidence.",
+        "searches": [
+          "Mittag-Leffler extreme random jump rates logistic geometric first passage crossover redrawn",
+          "first passage geometric logistic Mittag-Leffler heavy tail"
+        ]
+      },
+      "rationale": "Closest paper by Levit and Reuveni establishes the same rate-reset walk, spectral survival and mean transition but the accessible text discusses fixed-distance mean and survival tails, not an exponentially scaled distance/interval joint weak limit. Existing doubly stochastic random-walk work develops fixed distributions and interval exits. Best-of-knowledge PASS with high risk because supplementary full text was not accessible after arXiv/OA attempts and authorized institutional VPN disconnection.",
+      "residual_risks": [
+        "Levit–Reuveni supplementary material is same-object and could imply the exact crossover; full reading blocked by disconnected authorized Oxford VPN.",
+        "The first-type Mittag-Leffler distribution normalization must be held fixed; other Mittag-Leffler conventions are inequivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "High-priority same-object comparison remains qualified; cannot claim whole-document noncoverage.",
+          "evidence": [
+            "MFPT finite for alpha<1/2; fixed-interval model and Mittag-Leffler rate law; supplementary S50 cited by package but not independently read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+          "material_read": "Primary abstract and detailed accessible secondary structured synopsis of model, mean-threshold and tail results; supplementary/full text inaccessible",
+          "method": "arXiv/OA lookup failed for full; authorized Oxford source request returned vpn_disconnected",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Exact same rate-redrawn half-line walk and alpha parameter"
+        },
+        {
+          "assessment": "Establishes framework; no statement found of this singular limit in inspected abstract.",
+          "evidence": [
+            "Physical Review Research 6 L012033 (2024); time-dependent jump-rate model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.L012033",
+          "material_read": "Publisher abstract and bibliographic record, not full article",
+          "method": "APS landing page and arXiv metadata",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "General same random-rate walk framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact logistic-to-geometric crossover identifies a natural singular scale x^2/tau ~ exp(kappa/alpha), demonstrating that a first-passage time collapses into the first exceedingly fast refresh interval; this is a genuine distributional scaling law relevant to fluctuating-rate transport rather than a renamed mean asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Weak convergence only, not convergence of moments or uniform geometric approximation in kappa.",
+    "Numerical log-rate integral checks validate only finite alpha and do not certify the theorem."
+  ],
+  "schema_version": 1
+}
