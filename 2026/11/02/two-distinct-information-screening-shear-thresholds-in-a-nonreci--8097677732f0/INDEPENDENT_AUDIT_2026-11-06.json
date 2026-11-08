@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:14:39.526965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dimensionless drift K=[[-1,g,-k],[0,-1,k],[k,-k,-1]] has cubic characteristic z^3+3z²+(3+2k²)z+(1+2k²-gk²). Routh–Hurwitz yields unique positive-definite stationary covariance for 0<=g<2+k^-2 (k>0). Six linear Lyapunov equations K C+C K^T+2I=0 give C13=gk[(2k²+3)g-(k²+2)]/F, F=(1+2k²-gk²)(8+4k²+gk²)>0; hence marginal X-Z independence iff g=m=(k²+2)/(2k²+3) for positive shear. Conditional Gaussian independence iff C13-C12C23/C22=0. Exact substitution gives positive-denominator gk times B(g,k)=k²g²-(5k^4+18k²+16)g+4(k²+2)², with B(4/5)>0,B(1)<0 and B(2+k^-2)<0. Thus exactly one physical positive root h(k) in (4/5,1); the other quadratic root is beyond stable range. Derivatives yield m decreasing and h decreasing via B_v<0 and B_g<0 along the smaller root. This proves 1/2<m<2/3<4/5<h<1. Independently solved the exact rational 6×6 Lyapunov system at k=1,g=3/5, obtaining C13=0,C12=2/7,C23=1/14,C22=15/14 and nonzero conditional covariance -2/105; source checker covers additional rational cases but finite checks do not certify all reals. Shear zero and instability boundary explicitly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 primary treats the same nonreciprocal trap and stationary instability; broader shear-flow moment systems imply solvability of covariance but not an already proved pair of unique screening transitions."
+        ],
+        "reasoning": "The underlying matrix and covariance equations are known and algebraically imply the results; a publication claiming new model/stability would be covered. This theorem credits those antecedents and claims only detailed screening classification.",
+        "searches": [
+          "Fernandez–Hess–Klapp arXiv:2402.10579 entire specialized model",
+          "Hess et al. DOI:10.1478/AAPP.1011A3",
+          "Resultary: nonreciprocal trapped Langevin 3 coordinate Brownian shear conditional independence and marginal covariance zero thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Fernandez–Hess–Klapp arXiv:2402.10579 full accessible source Appendix B",
+        "Hess et al. DOI:10.1478/AAPP.1011A3 bibliographic",
+        "Loos & Klapp arXiv:2008.00894 abstract",
+        "Gaussian covariance and precision conditional-independence identities",
+        "Resultary nonreciprocal Gaussian threshold query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact stationary covariance is algebraically recoverable from prior Appendix B, so threshold equations follow by elimination; but all-coupling physical root uniqueness and universal monotone strict separation are additional analytic classifications not explicitly established in the inspected primary treatment."
+        ],
+        "reasoning": "Correct, naturally motivated nontrivial implication of known equations can still be a new result if not previously extracted; residual implicit-coverage risk remains higher here.",
+        "searches": [
+          "Fernandez–Hess–Klapp 2024 stationary moment system",
+          "Gaussian conditional-covariance formula",
+          "Resultary: nonreciprocal trapped Langevin 3 coordinate Brownian shear conditional independence and marginal covariance zero thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Gaussian triplets X⊥Z iff C13=0; X⊥Z|Y iff (C^-1)13=0 equivalently C13 C22-C12 C23=0. Fernandez et al. derive stationary second-moment equations but do not explicitly identify the two independent positive-shear threshold roots in inspected material."
+        ],
+        "reasoning": "Gaussian conditional independence is an equivalent formulation and classical; the simultaneous parameter classification and strict separation are the potentially original content.",
+        "searches": [
+          "Resultary: nonreciprocal trapped Langevin 3 coordinate Brownian shear conditional independence and marginal covariance zero thresholds",
+          "Fernandez–Hess–Klapp arXiv:2402.10579 Appendix B stationary covariance",
+          "Gaussian graphical model precision-matrix conditional-independence criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither inspected primary-source discussion provides an identified table of marginal threshold m(k), conditional threshold h(k), or 2/3-to-4/5 separation."
+        ],
+        "reasoning": "No database match found; no global originality guarantee, and stationary-covariance tables could implicitly determine roots.",
+        "searches": [
+          "Resultary: nonreciprocal trapped Langevin 3 coordinate Brownian shear conditional independence and marginal covariance zero thresholds",
+          "Fernandez–Hess–Klapp Appendix B",
+          "Loos–Klapp arXiv:2008.00894"
+        ]
+      },
+      "rationale": "Published primary results on the same subject and Resultary related findings were compared at the level of claimed mathematical implication; strongest already-covered components are credited and excluded from the novelty claim. The remaining specific classification appears new in actually inspected material, subject to listed source-access and indexing risks.",
+      "residual_risks": [
+        "The exact thresholds are extractable from published covariance equations; an appendix, supplement, or later Gaussian-network paper may have already performed the extraction.",
+        "No claim for k=0 or g>=stability threshold or unequal temperatures; screening does not imply causal decoupling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, linear equations and stability boundary covered; two screening thresholds and their ordering not explicitly in material actually examined",
+          "evidence": "Appendix B, stationary moment equations; stability subsection",
+          "identifier_or_url": "https://arxiv.org/abs/2402.10579",
+          "material_read": "Full arXiv primary manuscript; drift, stationary instability and Appendix B second-moment equations",
+          "method": "Lawful arXiv PDF text, Appendix B and model discussion; PDF screenshot attempted but failed, text inspected",
+          "title": "Nonequilibrium dynamics and entropy production of a trapped colloidal particle in a complex nonreciprocal medium",
+          "trigger": "Exact same three-coordinate stochastic model and trap"
+        },
+        {
+          "assessment": "A related stationary-versus-instability context, not evidence to rule out the specific threshold pair from entire article",
+          "evidence": "2023 title and abstract-level scope",
+          "identifier_or_url": "https://doi.org/10.1478/AAPP.1011A3",
+          "material_read": "Bibliographic and accessible summary only",
+          "method": "Publisher bibliographic record",
+          "title": "Shear-flow-induced distortion of the density distribution and transition from a stationary to an instationary non-equilibrium state of a colloidal particle in a trap",
+          "trigger": "Related broader physical shear trap dynamics"
+        },
+        {
+          "assessment": "Information/heat-flow theory does not by its abstract alone cover the stationary marginal/conditional shear thresholds; full source not claimed read",
+          "evidence": "2020 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2008.00894",
+          "material_read": "Public abstract and source metadata",
+          "method": "Public arXiv record",
+          "title": "Irreversibility, heat and information flows induced by non-reciprocal interactions",
+          "trigger": "Information-theoretic implications of nonreciprocal coupling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The widely studied nonreciprocal stochastic trap has two structurally different zero-information screening transitions, one marginal and one conditional, with a universal gap for every positive hidden coupling. These thresholds distinguish unconditional independence from Gaussian conditional independence, a useful interpretation beyond the known stability boundary and generic stationary Lyapunov equation. The all-parameter ordering and monotonicity are substantive exact facts of this motivated model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fernandez–Hess–Klapp arXiv:2402.10579 full accessible source Appendix B",
+    "Hess et al. DOI:10.1478/AAPP.1011A3 bibliographic",
+    "Loos & Klapp arXiv:2008.00894 abstract",
+    "Gaussian covariance and precision conditional-independence identities",
+    "Resultary nonreciprocal Gaussian threshold query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exact thresholds are extractable from published covariance equations; an appendix, supplement, or later Gaussian-network paper may have already performed the extraction.",
+    "No claim for k=0 or g>=stability threshold or unequal temperatures; screening does not imply causal decoupling.",
+    "The existing public metadata still contains potentially sensitive operational identifiers and an inherited first_public_date tied to antecedent literature; this package has not been sanitized for publication.",
+    "Finite verifications supplement mathematical proof and do not substitute for a formal or independent external attestation."
+  ],
+  "schema_version": 1
+}
