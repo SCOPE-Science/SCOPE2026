@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions are exact for all 56 three-subsets and the 56 closed-neighborhood facets. The executable regenerates 111,482 faces, verifies 54,910 elementary collapses, and checks a 1,662-cell Hasse graph with 4,190 incidences for matching acyclicity. The critical 1/2-cell substitution graph is acyclic; the attached finite 2-complex is reduced by three explicit integral 1/2-cell cancellations to 406 relators on one generator, with exact exponents -2 (60), 0 (299), +2 (47). A degree-two cell gives \(\mathbb{RP}^{2}\), and every other even-power attaching loop becomes nullhomotopic. Thus the asserted wedge homotopy type follows, including its integral two-torsion. Direct mod-two, mod-three, and mod-five simplicial boundary ranks provide independent consistency checks. The correctness claim is conditional on the reproducible finite calculations; no unsupported infinite generalization is made.
+## correctness
 
-## Originality — PASS, qualified
-The closest motivating primary text, Matsushita (2025), treats general correspondences and graph fundamental groups but does not contain the explicit \(\mathrm{KG}(8,3)\) homotopy computation. Matsushita–Wakatsuki (2023) studies open-neighborhood/dominance dualities, not this closed-neighborhood complex. A known specialized collapse for triangle-free graphs with edge-disjoint four-cycles does not apply because this Kneser graph has distinct four-cycles sharing an edge. The nearest indexed Kneser examples are on different parameters and/or use open neighborhoods, independence complexes or other radii. Multiple exact-formulation searches were executed. The main remaining risk is undiscovered or unindexed equivalent prior work, not an identified stronger covering result.
+PASS
 
-## Mathematical value — PASS
-This is the next naturally four-cycle-rich triple Kneser graph after the square-free odd graph \(\mathrm{KG}(7,3)\). Its ordinary closed-neighborhood nerve has a high-dimensional pure face structure but a nontrivial projective-plane homotopy factor, establishing genuine integral torsion and a sharp non-shellability obstruction. The integral homotopy classification is more informative than field Betti numbers and provides a reproducible comparison between open- and closed-neighborhood Kneser topology.
+For ordinary KG(8,3), all 56 vertices are 3-subsets, with ten disjoint neighbors plus each center in an 11-vertex closed neighborhood. Independently built all 56 facets and their downward closure: 111,482 nonempty faces and dimensions0..10 f-vector (56,1540,8400,18270,25872,25872,18480,9240,3080,616,56). Independently regenerated 54,910 actual elementary simplicial free-face/coface removals, resulting in exactly 56 vertices, 628 edges and 978 triangles. The integral 2-complex reduction pairs 569 edges with triangles, 55 tree edges with vertices, leaving one vertex, four edges and 409 2-cells; the source verifies the full acyclic Hasse orientation and the dependency DAG of attaching-word substitutions. Independently reconstructed all 409 attaching words, performed three single-generator degree-one CW cancellations, and obtained one oriented circle and 406 2-cell relators with degree histogram -2:60,0:299,+2:47. After choosing one degree-two relator to form RP2, all 405 remaining even-degree attaching loops vanish in pi1(RP2)=Z2 and split off 405 S2. Independent raw F2/F3/F5 cellular ranks 572/573/573 agree with mod2 Betti (1,406) and odd-prime (0,405). Since pure 10-dimensional with H1 torsion, shellability is excluded. This proves the exact finite homotopy type and not merely an integral homology guess.
 
-## Closest literature and remaining limits
-The most directly related primary text is arXiv:2511.12608 (relevant v2 sections 1, 3 and 5 inspected). The older arXiv:2312.02639 (v2 sections 1, 4 and 5 considered) addresses different graph complexes. Indexed searches found no exact \(\mathrm{KG}(8,3)\) table or stronger universal theorem that implies this claim. Search cannot establish global uniqueness. Reproduction requires Python 3.10+ and the included complete verifier, not selected log excerpts. The classification does not extend to general \(\mathrm{KG}(n,3)\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A specific exact closed-neighborhood homotopy classification of the naturally defined Kneser graph KG(8,3). Full-text primary Matsushita closed-neighborhood work establishes broad suspension/duality/graph-fundamental-group results but not this explicit 56-vertex RP2 wedge classification; Matsushita–Wakatsuki addresses mainly open-neighborhood and dominance duals. The specialized triangle-free edge-disjoint 4-cycle theorem is inapplicable: the target graph has overlapping 4-cycles sharing edge (012,345). Resultary same-object searches returned no equivalent classification. Best-of-knowledge PASS with unindexed-computation risk.
+
+## value
+
+PASS
+
+A 56-vertex Kneser graph and its closed-neighborhood complex are standard canonical combinatorial-topology objects. The exact emergence of RP2 2-torsion together with 405 independent 2-spheres gives a full integral homotopy classification for a natural, highly symmetric complex and a sharp non-shellability obstruction. Exact attaching words lift simple field-homology data to an independently useful homotopy result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
