@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "All 15,361 binary16 grid points are represented by exact scaled integers. Nearest-even rounding chooses among adjacent grid values with integer distance and encoding parity. For both maps a deterministic exhaustive successor-graph walk proves exactly three cycles, full basin counts and maximal transients. Verification code checks graph invariants on every vertex; an independent NumPy evaluation agrees on 30,722 successors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klöwer et al. (2023), full primary article, logistic bifurcation and random sampling instead of complete exact graph at parameter 4.",
+        "Corless (2024) slide 60: period 40 for binary16 logistic, distinct from these explicitly defined maps.",
+        "Sayed et al. (2017) Section 4.3: fixed-point truncation, not IEEE binary16 nearest-even."
+      ],
+      "reasoning": "Closest broader-scope studies investigate low precision qualitatively or a different arithmetic implementation, without stating or implying the complete cycle/ basin data for the two specified evaluation trees.",
+      "searches": [
+        "Periodic orbits in chaotic systems simulated at low precision float16 logistic map exact cycle basin",
+        "Floats for Philosophers logistic 40 period float16",
+        "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications operation order period graphs",
+        "Exact complete binary16 floating point logistic map 4 cycle basin sizes evaluation order fused multiply add rounded product 2023 Klower Coveney Paxton Palmer"
+      ]
+    },
+    "checked_sources": [
+      "Periodic orbits in chaotic systems simulated at low precision — https://pure.uva.nl/ws/files/187636674/Periodic_orbits_in_chaotic_systems_simulated_at_low_precision.pdf",
+      "Floats for Philosophers: A Talk in Three Parts — https://rcorless.github.io/FloatsForPhilosophers.pdf",
+      "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications — https://onlinelibrary.wiley.com/doi/10.1155/2017/8692046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The strongest same-object precedent (Corless 2024) has nonfixed period 40, while these exact semantics yield periods five and eight.",
+        "Klöwer et al. (2023) analyse floating-point bifurcations; Sayed et al. (2017) show order-dependence for distinct fixed-point truncation.",
+        "Earlier exact binary16 beta map results concern a different transformation and are not conjugacies after rounding."
+      ],
+      "reasoning": "A result about finite precision sensitivity, another rounding tree or another dynamical system does not determine exact outgoing edges and graph components here. No discovered source dominates all exact claims.",
+      "searches": [
+        "Exact complete binary16 floating point logistic map 4 cycle basin sizes evaluation order fused multiply add rounded product 2023 Klower Coveney Paxton Palmer",
+        "binary16 logistic 4 one-round 5-cycle 117-state basin versus completed-square 8-cycle 310-state basin nearest-even",
+        "r=4 floating point logistic 4x(1-x) versus 1-(2x-1)^2, rounded half precision periods 5 and 8, full state transition functional graph",
+        "IEEE half float logistic dynamics exact 15361 states 12513 different successors 2023 Klower Corless 2024",
+        "IEEE half precision logistic map expression evaluation order cycles basins"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two proposed expressions coincide over the reals but produce 12,513 different finite binary16 successor edges; any real polynomial equivalence does not imply numerical functional-graph equivalence.",
+        "Klöwer et al. (2023) discuss logistic and generalized Bernoulli equivalence only in exact/continuous dynamics."
+      ],
+      "reasoning": "Algebraic equality and real logistic/doubling conjugacy are not commuting conjugacies of rounded maps. They cannot imply exact period-5/8 finite-state counts.",
+      "searches": [
+        "binary16 logistic 4 one-round 5-cycle 117-state basin versus completed-square 8-cycle 310-state basin nearest-even",
+        "r=4 floating point logistic 4x(1-x) versus 1-(2x-1)^2, rounded half precision periods 5 and 8, full state transition functional graph",
+        "IEEE half float logistic dynamics exact 15361 states 12513 different successors 2023 Klower Corless 2024",
+        "logistic map 4 completed square 1-(2x-1)^2 IEEE 754 binary16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Corless (2024) provides a 40-cycle and basin data, not a 5/8 cycle table.",
+        "No matching exact binary16 completed-square table was retrieved from the searched scientific record."
+      ],
+      "reasoning": "A numerical literature or database hit with the exact target graph would dominate the proposed census. Checked primary sources and searched aliases did not contain it; absence is not a proof of global novelty.",
+      "searches": [
+        "binary16 logistic r 4 15361 states period 5 period 8 basin counts",
+        "logistic map float16 period 5 period 8 completed square",
+        "IEEE 754 half logistic functional graph exact table",
+        "binary16 logistic 4 one-round 5-cycle 117-state basin versus completed-square 8-cycle 310-state basin nearest-even",
+        "r=4 floating point logistic 4x(1-x) versus 1-(2x-1)^2, rounded half precision periods 5 and 8, full state transition functional graph"
+      ]
+    },
+    "rationale": "The prior 2023 float16 logistic analysis supplies motivation and sampled bifurcations, not these complete rounded-expression graph classifications. Corless 2024 reports a period-40 orbit under a different evaluation; it does not imply the period-five and period-eight spectra. Sayed 2017 addresses fixed-point truncation. Exact state-space and implication comparisons across these sources and published mathematical-record search show no covering result, subject to unindexed code/data risk.",
+    "residual_risks": [
+      "An unindexed code repository or unpublished table may compute one or both exact graphs.",
+      "The 2022 preprint posting date is supported by a reproduced cover statement, not by a currently accessible DOI landing page.",
+      "The 2023 article may contain supplemental data not reviewed in its entirety; primary main text and strong related slide deck were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies bifurcation plots, random-sampled orbits and low-precision behavior; no full binary16 census for either specified evaluation tree or 5/8 period comparison. Its statement that exhaustive search requires all possible states motivates finite exact census.",
+        "evidence": [
+          "Klöwer et al. (2023), sections Periodic orbits and number formats and The logistic map with various number formats; pp. 2–5; DOI 10.1038/s41598-023-37004-4"
+        ],
+        "identifier_or_url": "https://pure.uva.nl/ws/files/187636674/Periodic_orbits_in_chaotic_systems_simulated_at_low_precision.pdf",
+        "material_read": "Published paper pp. 2–5, 9 and methods around periodic-orbit detection; logistic bifurcation description and numerical methodology",
+        "method": "Full PDF text and page images",
+        "title": "Periodic orbits in chaotic systems simulated at low precision",
+        "trigger": "Same logistic polynomial, same 16-bit format and deterministic rounding, plausible global coverage"
+      },
+      {
+        "assessment": "The reported 40-cycle is prior coverage for a different arithmetic execution. It is incompatible with the explicitly defined maps here, whose single nonfixed cycles have periods five and eight; the new claim excludes the prior 40-cycle classification.",
+        "evidence": [
+          "Corless, August 2024, slide 60, reports period 40 and basin 10,267 for a float16 logistic implementation."
+        ],
+        "identifier_or_url": "https://rcorless.github.io/FloatsForPhilosophers.pdf",
+        "material_read": "Slides 60–62 (PDF pages 60–62), including explicit 40-cycle graph counts and distribution",
+        "method": "PDF text and page image of slide 60",
+        "title": "Floats for Philosophers: A Talk in Three Parts",
+        "trigger": "Same logistic map and binary16 functional-graph census, strongest near match"
+      },
+      {
+        "assessment": "Uses fixed-point hardware truncation and empirical parameter/precision sweeps, rather than IEEE binary16 nearest-even finite graph tables. The general dependence on expression order is acknowledged as prior.",
+        "evidence": [
+          "Sayed et al. (2017), Sections 1 and 4.3, DOI 10.1155/2017/8692046"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2017/8692046",
+        "material_read": "Full accessible article, abstract; Sections 1, 2 and 4.3, including fixed-point truncation implementation and plots by precision/expression order",
+        "method": "Full-text HTML sections and on-page search",
+        "title": "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications",
+        "trigger": "Potential stronger prior on expression evaluation order and finite-state logistic graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35a3ca4a-276d-46bf-b55c-1e508341e7ee",
+  "value": {
+    "rationale": "The logistic parameter four is the canonical real-chaotic case and binary16 is a standard low-precision format. Exact complete finite-state invariant cycle/basin spectra for two natural algebraically equivalent evaluation trees resolve a concrete numerical reproducibility gap; their period-5 versus period-8 and 12,513-edge contrast is substantial, not an arbitrary parameter slice or a recomputation of Corless’s known period-40 graph. The precise basin counts quantify implementation sensitivity beyond sampled bifurcation plots.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Review of two binary16 logistic evaluation graphs
+
+**Correctness — PASS.** The nonnegative binary16 grid has exactly 15,361 distinct encodings. The integer rescaling of every normal and subnormal number and integer-distance tie-to-even rounding recover the stated operations with no floating-point approximations. A complete successor-graph traversal with distance and label invariants establishes all periodic cycles and their basin sizes. A second NumPy implementation agreed on 30,722 successors; the checker and `CENSUS.json` are standalone and reproducible.
+
+**Originality — PASS within inspected evidence.** Klöwer et al. (2022 preprint, 2023 publication) study binary16 logistic bifurcations without these two precise graph counts. Corless (August 2024, slide 60) provides a different binary16 logistic evaluation with a period-40 cycle, which does not contain the period-five and period-eight classifications. Sayed et al. (2017) investigate operation ordering in fixed-point truncation rather than exhaustive nearest-even IEEE binary16 functional graphs. Searches for exact evaluation trees, cycle periods, aliases, symbolic conjugacies and covering databases found no stronger implication. Related beta-shift finite-state studies are not the same map. Residual risk: unindexed code or data for these precise implementations.
+
+**Mathematical value — PASS.** The logistic map at parameter four and IEEE binary16 are canonical reference objects. An exhaustive cycle-and-basin classification for two standard algebraic forms resolves a reproducibility gap not addressed by bifurcation plots or sample trajectories: two expressions identical in exact arithmetic differ on 12,513 of 15,361 discrete transitions and possess different nonfixed periods and sharply different basins. These are natural complete finite-state invariants, not arbitrary slices, and directly measure the implementation dependence that motivates the cited literature.
+
+**Scope limits.** Claims concern specified rounded expression trees only; not an infinite-precision theorem, or an assertion of accuracy/security of simulated chaos. The earliest public source date is the 8 November 2022 preprint; independent confirmation of novelty beyond indexed and accessible papers has not been made.
+
+Self-review: passed. Independent audit: not yet performed.
