@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The language is explicitly restricted to Boolean outdegree predicates; these are precisely finite/cofinite sets of natural degrees. The exact binomial law converges in total variation to Poisson weights with a proved \((\lambda+\lambda^2)/n\) bound. Tail domination and Stirling asymptotics rigorously establish Cantor topology, zero dimension, and the two-sided precision-entropy estimate. The small-graph enumeration independently tests normalizations, complements, and finite-size bounds, but is not used as an infinite proof.
+
+**Originality — PASS within inspected evidence.** The 2026 counting-modal paper uses its graph model at uniform independent-edge probability and its asymptotic tree study as branching grows, rather than the fixed-sparse Poisson outdegree spectrum. General achievement-set results explain the classical topological mechanism but do not, within inspected material, identify this logical spectrum with the exact factorial-tail entropy and finite-size convergence. The random-degree-sequence convergence literature concerns a different ensemble and broader first-order sentences. Targeted mathematical and indexed searches found no equivalent statement. Residual risk: an older general achievement-set entropy theorem or a specialized sparse-modal probability result could subsume it; historical uniqueness is not certified.
+
+**Value — PASS.** The minimal nontrivial local counting-modal fragment has a complete limiting-probability spectrum with sharply quantified geometric complexity. Unlike simply showing an individual Poisson limit, the result measures which classifier confidence values can ever be approximated, at what precision complexity, and how rapidly finite random graphs approach that spectrum. The fixed-sparsity contrast answers a natural regime question left distinct from uniform-graph and high-branching model counting.
+
+**Limits.** All theorems hold for fixed positive intensity and proposition-free depth-one outdegree tests. No conclusion is asserted for nested modalities, labels, general first-order sentences or growing intensities. The finite tests and literature inspection are not independent mathematical validation or exhaustive priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
