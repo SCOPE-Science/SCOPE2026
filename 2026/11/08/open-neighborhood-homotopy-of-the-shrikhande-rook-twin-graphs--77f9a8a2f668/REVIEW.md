@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two graph adjacencies and \((16,6,2,2)\) parameters are directly checked. Exhaustion of every nonempty subset of sixteen vertices agrees with independent neighborhood-submask generation. Both face sets have 808 simplices. Both 375-pair discrete-Morse matchings have full 2,736-incidence acyclicity certificates, leaving one zero-cell, one one-cell and 56 two-cells. Exact signed cellular reduction yields 56 integral attaching degrees of gcd 2, rather than deducing integral homotopy from finite-field Betti numbers. The 1/2-dimensional CW classification gives the stated \(\mathbb{RP}^2\)-and-spheres wedge.
+
+**Originality — PASS on inspected evidence.** The closest open-neighborhood rook graph study determines the higher homology, explicitly leaving degrees one and two and full homotopy undetermined. General open-neighborhood and Hom-complex literature supplies techniques without this finite classification. The Shrikhande–rook pair has been compared for ordinary independence complexes and for closed-neighborhood Čech complexes; neither is the same simplicial object. Exact graph-parameter, dual/construction, coefficient and torsion variants were searched. No source inspected implies this common open-neighborhood homotopy type. An equivalent unindexed calculation remains a priority risk.
+
+**Value — PASS.** The Shrikhande and rook graphs form a canonical pair of nonisomorphic strongly regular graphs with the same numerical parameters. Their previously computed independent-set and closed-neighborhood complexes separate them, so the equality of the full **open** neighborhood homotopy types is a meaningful comparison. The integral degree-two attachment and \(\mathbb Z/2\mathbb Z\) fundamental group are substantive structure not accessible from the earlier higher-homology formula. This is a natural complete finite classification rather than an arbitrary parameter slice or mere re-encoding of known Betti numbers.
+
+The result is nonequivariant and limited to the two graphs. Published literature and accessible indexed records were inspected, but unindexed mathematical equivalences cannot be eliminated. Numerical checks are exhaustive for the specified finite objects; external mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
