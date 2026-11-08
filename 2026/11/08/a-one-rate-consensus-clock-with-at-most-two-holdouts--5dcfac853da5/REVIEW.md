@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The general proof treats the exact finite discrete Markov chain, including self-loop events. A single omitted agent leads to a one-state transient quotient; two omissions lead to a rank-one two-state quotient with left eigenvector \((2,1)\). The eigenvalues and initial mixture weights give the exact full survival law, first-passage probabilities, means and fixation probabilities. Independently coded labeled-state and hypergeometric checks agree. The theorem requires \(n\ge4\), and the boundary example makes no universal claim for smaller groups.
+
+**Originality (PASS, with residual priority risk).** The initiating proportional hyperedge propagation model is analyzed under active-triggered events and optional adaptation, not the complete-family all-event clock. Related group-driven voter theory changes only one sampled node per event; a finite-hypergraph expected-discordance identity does not imply this first-passage distribution. Targeted comparisons found no publication or indexed result giving the one-rate two-holdout clock, but do not prove absolute priority. The residual risk is unindexed or differently named simultaneous-copying calculations.
+
+**Value (PASS).** Exact distributions of time to consensus are central performance observables in opinion dynamics. The theorem replaces generic matrix inversion or simulation by a constant-size structural reduction for an infinite class of finite populations, gives sharp exponential tails and expected times for every starting split, and proves by explicit calculation that the special one-rate phenomenon need not survive a third holdout. This is a motivated structural boundary, not a single arbitrary numerical instance.
+
+**Closest literature and scope.** Golovin–Mölter–Kuehn, arXiv:2308.03640, Sections on propagation, numerical investigations and discussion; Kim et al., arXiv:2407.11261, single-node group-driven voter model; Cooper et al., ICALP 2016, active discordant pair interactions. The theorem concerns all-group discrete sampling, not those distinct clocks or updating rules. Independent literature completeness is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
