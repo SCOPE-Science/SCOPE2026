@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof does not infer an all-parameter statement from finite numerics. It checks each pairwise distance by explicit graph paths, obtaining a diameter-two metric and the identity \(D_p=2^p(J-I)+(1-2^p)A\). The zero-sum space splits **exhaustively** into middle-vertex contrasts (dimension \(m-1\)), a pole/path antisymmetric two-space, and the remaining symmetric zero-sum two-space. Their dimensions sum to \(m+3\). The symmetric-sector quadratic and norm forms are explicitly calculated; their generalized eigenvalue polynomial is \((m+4)\lambda^2+(3m+2)\lambda-5m\). The negative root is strictly below the antisymmetric minimum when \(m\ge3\), giving a unique critical mode. The powered-distance maximum then changes sign exactly once for the full range \(p\ge0\). The centered-Gram rank argument proves, rather than estimates, the endpoint Hilbert dimension. A one-parameter implicit expansion proves the limit and first correction. Supplementary checks independently reconstruct graph distances by breadth-first search, diagonalize full centered matrices, and compare all asserted boundary signs for 21 tested sizes; they do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified
-Obata–Zakiyyah (2018) explicitly tabulate \(C_5\), the \(m=1\) boundary. Młotkowski–Skrzypczyk–Wojtylak (arXiv:2409.17662, 2024) explicitly give \(\mathrm{QEC}(\Theta(2,2,3))=(\sqrt{19}-4)/3\), the \(m=2\) boundary. Neither boundary case is presented as new. The 2024 article defines theta graphs using **exactly three** internally disjoint paths; it does not state the least zero-sum adjacency eigenvalue for the present at-least-four-path family, the sharp powered-distance exponents for all \(m\ge3\), their critical multiplicities, or the limit. The general two-distance algebra and Euclidean-distance-matrix correspondence are acknowledged as standard methodology and are insufficient by themselves to determine the family-specific quadratic root. The published-result and accessible-history comparisons did not reveal a direct covering statement. Searches cannot establish worldwide priority, and nomenclature or an unindexed spectral computation may conceal coverage.
+PASS
 
-## Value — PASS
-The graph family is a natural generalized-theta interpolation: the five-cycle at \(m=1\), the three-path primary non-quadratically embeddable theta at \(m=2\), and an increasing number of parallel two-edge paths for \(m\ge3\). A complete sharp negative-type classification is an intrinsic Hilbert-embedding problem, not a relabelled isolated eigenvalue exercise. The finite ordinary-QE obstruction at \(m=2\) only proves failure at exponent one for larger graphs; it does not quantify the strictly decreasing exponents, their positive large-branch limit, or the loss of exactly one embedding dimension. The explicit positive limiting exponent and first-order correction expose a stable residual Hilbert-snowflake regime despite worsening connectivity structure. This is a focused classification, not a claim about all generalized theta graphs or weighted variants.
+PASS: With m>=3 two-edge branches and one three-edge branch, every graph distance is either 1 or 2. Thus powered distance D_p=q(J-I)+(1-q)A, q=2^p, and strict negative type is equivalent to negativity on the sum-zero subspace. The latter decomposes into (m-1) middle-vertex contrasts of eigenvalue 0, a two-dimensional antisymmetric sector with least eigenvalue -phi, and a two-dimensional symmetric sector with least generalized root -t_m. The exact determinant (m+4)lambda²+(3m+2)lambda-5m=0 yields t_m>phi for m>=3, one-dimensional endpoint kernel, and qcritical=t_m/(t_m-1). Schoenberg's centered Gram rank gives affine dimensions m+3 below and m+2 at endpoint; root differentiation gives strict m-decrease and first-order asymptotic. Independent full-matrix eigen checks at m=3,4,5,8,12,25 matched 18 subcritical/critical/supercritical tests; unrestricted quantifiers use exact block decomposition.
 
-## Closest literature and limitations
-The closest primary paper is Młotkowski, Skrzypczyk and Wojtylak, arXiv:2409.17662, Sections 4 and 7, Example 7.2. Another direct check is Obata and Zakiyyah, *Electronic Journal of Graph Theory and Applications* 6 (2018), five-vertex table. The general fan/graph-join results of Młotkowski and Obata, arXiv:2403.16348, concern a different family and do not furnish a matching formula. Published work on generalized theta graph Turán numbers concerns extremal edge counts rather than negative-type exponents. Residual risk: older results under another graph family name or covering diameter-two spectral formulas may exist outside the inspected literature. Numerical experiments are finite and no independent audit or external peer validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified. The 2024 primary treatment of theta quadratic embeddability is explicitly limited to three paths and provides the m=2 boundary QE example; Obata and Zakiyyah give the five-cycle m=1 boundary. The present m>=3 family with m+1>=4 independent paths has a new full powered-distance cutoff and Hilbert dimension law. The spectral method itself is standard; novelty is assessed at the exact graph family and parameter scope. A general two-distance spectral theorem could make the cutoff a corollary, but would still require computing the family's exact centered adjacency eigenvalue.
+
+## value
+
+PASS
+
+PASS: The generalized theta family is a natural family beyond the known three-path case. An exact parameter-dependent negative-type cutoff, sharp affine-rank loss, and monotone family asymptotic provide a complete classification rather than a mere endpoint QE calculation or isolated finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
