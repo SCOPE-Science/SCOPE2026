@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof establishes the exact \(2\)-adic valuation of every \(V_n\), which forces \(2^t\mid p\) whenever an entry point exists modulo an even modulus with \(t\ge2\). The odd part is handled by an invertible shifted relation between \(V\) and \(U\), and Cassini's identity supplies the needed parity of the common odd-part period. The \(2\)-power periods are then explicit, and the Chinese remainder theorem gives the global equality. A standalone checker independently verifies the theorem and the local valuation statements across a finite parameter grid.
+## correctness
 
-## Originality
-PASS. The accepted full text of Fiebig--Mbirika--Spilker explicitly poses this exact \(q=-1\), even-\(p\), even-\(m\) statement as Question 5.3 and says it remains open. Their Corollary 3.13 covers the other parity cases, while its coprimality mechanism fails here because the relevant gcd is \(2\). Earlier period literature on \(U\), the closest OEIS period entry, exact web searches, and published-finding corpus semantic searches do not imply or state the new theorem.
+PASS
 
-## Value
-PASS. This is a complete resolution of a recent named open problem and closes the final parity gap in a natural period-equality theorem. The proof also isolates an exact \(2\)-adic mechanism that constrains entry-point existence and explains the computational evidence reported by the source.
+The pinned RESULT.md proof was reconstructed for every nonzero even integer p (including negative p), even m>2 and entry-point e>0. The doubling identity V_(2j)=V_j²−2(−1)^j gives ν₂(V_even)=1, and C_j=V_(2j+1)/p with C0=1,C1=p²+3,C_(j+1)=(p²+2)C_j−C_(j−1) proves ν₂(V_odd)=ν₂(|p|). If m=2^t r and t≥2, an entry V_e≡0 enforces e odd and 2^t|p. For odd r, gcd(V_f,V_(f+1))=2 makes V_(f+1) invertible, so the shifted sequence V_(f+n)=V_(f+1)U_n has precisely the U period d. For r>1, Cassini at d yields (−1)^d≡1 mod r, forcing d even. For t=1, π_U(2)=2 but π_V(2)=1, absorbed by even d since m>2; for t≥2, both periods mod 2^t are 2 by p≡0, and CRT/lcm yields equality. The r=1, m a 2-power case and p<0 are covered. Independent finite modular recurrence checks and V 2-adic checks corroborate but do not prove the infinite statement. The packaged verify.py was inspected and not treated as a proof; the external Lean/expert statuses remain not_performed.
 
-## Closest literature and limitations
-The closest source is the 2024 Fiebig--Mbirika--Spilker preprint itself, especially Theorem 3.12, Corollary 3.13, and Question 5.3. Renault's 2013 work is relevant background for \(U\)-sequence period/rank/order theory but not the companion-sequence equality. The result retains the hypothesis that \(e_V(m)\) exists, does not classify that existence, and does not treat \(q=1\). A residual risk is an older result under different Lucas notation or a later unindexed note.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original, exact resolution of the even-p/even-modulus q=-1 parity case left as Question 5.3 by Fiebig–Mbirika–Spilker. Directly inspected full arXiv HTML proves neighboring cases but not this one; its strongest unit and discriminant criteria fail at the even 2-primary factor. A full Renault primary PDF covers first-sequence periods/ranks rather than this companion equality. Semantic published-finding searches returned the indexed copy of the assigned claim itself (excluded as independent priority), and nearby unrelated Lucas results. Historical priority is qualified by older-notation and unindexed-literature risks, not asserted as absolute.
+
+## value
+
+PASS
+
+The theorem answers the specific natural parity gap Question 5.3 from a recent Lucas period/entry-point paper. Its exact all-index 2-adic valuation lemma explains the obstruction to the earlier unit argument, provides a reusable necessary divisibility criterion for V entry points, and fully settles the equality conditional for all even p,m>2. This is a mathematically motivated open classification, not a textbook substitution, tiny computational case or prior table reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

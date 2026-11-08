@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:53:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT.md proof was reconstructed for every nonzero even integer p (including negative p), even m>2 and entry-point e>0. The doubling identity V_(2j)=V_j²−2(−1)^j gives ν₂(V_even)=1, and C_j=V_(2j+1)/p with C0=1,C1=p²+3,C_(j+1)=(p²+2)C_j−C_(j−1) proves ν₂(V_odd)=ν₂(|p|). If m=2^t r and t≥2, an entry V_e≡0 enforces e odd and 2^t|p. For odd r, gcd(V_f,V_(f+1))=2 makes V_(f+1) invertible, so the shifted sequence V_(f+n)=V_(f+1)U_n has precisely the U period d. For r>1, Cassini at d yields (−1)^d≡1 mod r, forcing d even. For t=1, π_U(2)=2 but π_V(2)=1, absorbed by even d since m>2; for t≥2, both periods mod 2^t are 2 by p≡0, and CRT/lcm yields equality. The r=1, m a 2-power case and p<0 are covered. Independent finite modular recurrence checks and V 2-adic checks corroborate but do not prove the infinite statement. The packaged verify.py was inspected and not treated as a proof; the external Lean/expert statuses remain not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fiebig–Mbirika–Spilker Theorem 3.11 assumes discriminant p²+4 coprime to m; for p,m both even, gcd(p²+4,m)≥2.",
+          "Their Theorem 3.12 compares periods by a unit V_(e+1) modulo m; when both p,m even its unit hypothesis fails because consecutive V terms have gcd 2.",
+          "Corollary 3.13 explicitly covers p odd or p even/m odd, not p,m both even.",
+          "Renault 2013 full nine-page PDF studies generalized first-sequence periods, rank and order and the CRT behavior, not equality with the companion V period."
+        ],
+        "reasoning": "Relevant general equality theorems exclude the even-even hypothesis; the local valuation argument and Chinese-remainder reconciliation are not merely their special cases. In particular the modulus-2 discrepancy π_U(2)=2 versus π_V(2)=1 is absorbed by an even odd-part period or by sufficient p divisibility.",
+        "searches": [
+          "https://arxiv.org/html/2408.14632v2#section-3",
+          "https://webspace.ship.edu/msrenault/fibonacci/RenaultPeriodRankOrderMathMag.pdf",
+          "Resultary search: Lucas sequences p even m even q=-1 entry point e_V(m) period equality pi_U(m) pi_V(m) Fiebig Mbirika Spilker Question 5.3",
+          "web: Renault period rank order generalized Fibonacci Lucas companion sequence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2408.14632v2",
+        "arXiv:2408.14632v2",
+        "DOI:10.1080/00150517.2024.2442591",
+        "https://webspace.ship.edu/msrenault/fibonacci/RenaultPeriodRankOrderMathMag.pdf",
+        "DOI:10.4169/math.mag.86.5.372",
+        "https://oeis.org/A106291",
+        "Resultary published-finding semantic index: three actual queries; closest index copy of audited record itself excluded as independent priority"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior shifted relation V_(f+n)=V_(f+1) U_n modulo r establishes period equality only where V_(f+1) is a unit; its unit criterion is invalid for an even modulus.",
+          "The new proof first establishes ν₂(V_even)=1, ν₂(V_odd)=ν₂(|p|), hence for t≥2 an entry point modulo 2^t forces 2^t|p.",
+          "The odd factor uses a valid unit shift because gcd(V_f,V_(f+1))=2, then Cassini forces the odd-modulus common period even for r>1, exactly reconciling the mod-2 periods by lcm."
+        ],
+        "reasoning": "Neither the existing shift lemma nor the existing discriminant criterion supplies the missing 2-primary mechanism. The present all-parameter conclusion follows after an additional nontrivial local lemma plus CRT, not from a prior stronger equality statement.",
+        "searches": [
+          "https://arxiv.org/html/2408.14632v2#section-3",
+          "https://arxiv.org/html/2408.14632v2#section-5",
+          "https://webspace.ship.edu/msrenault/fibonacci/RenaultPeriodRankOrderMathMag.pdf",
+          "Resultary search: Fiebig Mbirika Spilker even even Lucas sequences V period entry point q=-1 open problem",
+          "Resultary search: Companion Lucas sequences q=-1 modulo even m periods equal when V contains zero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Fiebig–Mbirika–Spilker Section 5 Question 5.3 asks exactly whether the q=-1 even-p/even-m extension holds when V has an entry point.",
+          "The first three Resultary queries return the deposited indexed version of this same finding as the top match; an indexed duplicate is not an earlier independent proof; the other close Lucas hits address Dold realizability or entry-point races with different hypotheses.",
+          "The new statement is the equivalently quantified conditional: for all nonzero even p and even m>2, existence of a positive V-zero index implies equality of minimal U/V periods."
+        ],
+        "reasoning": "Searching by both question label and mathematical implication gives the same logical comparison rather than relying on matching names. The inspected prior primary paper explicitly leaves this implication open; no distinct equivalent earlier proof was identified. A non-hit alone is not proof of novelty.",
+        "searches": [
+          "Resultary search: Lucas sequences p even m even q=-1 entry point e_V(m) period equality pi_U(m) pi_V(m) Fiebig Mbirika Spilker Question 5.3",
+          "Resultary search: Fiebig Mbirika Spilker even even Lucas sequences V period entry point q=-1 open problem",
+          "Resultary search: Companion Lucas sequences q=-1 modulo even m periods equal when V contains zero",
+          "https://arxiv.org/html/2408.14632v2#Question-5.3",
+          "web exact searches: 'Fiebig' 'Mbirika' 'Spilker' 'Question 5.3' pi_U pi_V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A106291 is the period of the classical Lucas sequence A000032, corresponding to p=1 (odd), not arbitrary even p.",
+          "The focal paper reports Mathematica checks for the even-even question but expressly calls the general question open.",
+          "The packaged exhaustive finite test uses 3,160 (p,m) cases; this finite grid cannot imply the all-parameter theorem."
+        ],
+        "reasoning": "A finite or fixed-p table may corroborate examples but does not dominate the quantified all-even-p/all-even-m theorem; no exact database proves this conditional for all parameters.",
+        "searches": [
+          "https://oeis.org/A106291",
+          "web: OEIS A106291 Lucas A000032 period mod n",
+          "Resultary search: Lucas sequences p even m even q=-1 entry point e_V(m) period equality pi_U(m) pi_V(m) Fiebig Mbirika Spilker Question 5.3"
+        ]
+      },
+      "rationale": "Best-of-knowledge original, exact resolution of the even-p/even-modulus q=-1 parity case left as Question 5.3 by Fiebig–Mbirika–Spilker. Directly inspected full arXiv HTML proves neighboring cases but not this one; its strongest unit and discriminant criteria fail at the even 2-primary factor. A full Renault primary PDF covers first-sequence periods/ranks rather than this companion equality. Semantic published-finding searches returned the indexed copy of the assigned claim itself (excluded as independent priority), and nearby unrelated Lucas results. Historical priority is qualified by older-notation and unindexed-literature risks, not asserted as absolute.",
+      "residual_risks": [
+        "Older work using alternate (P,Q) / Fibonacci parameter conventions may prove the same even-even companion equality unindexed; full coverage of all historical literature is not possible.",
+        "An unindexed later resolution of Fiebig–Mbirika–Spilker Question 5.3 could exist; indexed semantic and primary searches did not find one.",
+        "The theorem is expressly conditional on e_V(m) existing and does not classify that existence or address the distinct q=1 problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper proves nearby parity cases, gives relevant shift and coprimality machinery, and leaves exactly q=-1 p and m even as Question 5.3.",
+          "evidence": "Corollary 3.13 excludes even-even; Question 5.3 identifies it as open despite computational support.",
+          "identifier_or_url": "arXiv:2408.14632v2; https://arxiv.org/html/2408.14632v2",
+          "material_read": "Full accessible arXiv HTML, including definitions, Theorems 3.10–3.12, Corollary 3.13, proofs and surrounding Section 3, Section 5 Question 5.3 and surrounding discussion",
+          "method": "Direct primary open-access full-text HTML inspection",
+          "title": "Period patterns, entry points, and orders in the Lucas sequences: theory and applications",
+          "trigger": "Same recurrence, parameters, theorem and named open question"
+        },
+        {
+          "assessment": "The general first Lucas/Fibonacci sequence period theory does not compare the companion V period in the specified even-even entry-point setting.",
+          "evidence": "Paper analyses the (a,b)-Fibonacci sequence period, rank and order; target companion V comparison absent.",
+          "identifier_or_url": "DOI:10.4169/math.mag.86.5.372; https://webspace.ship.edu/msrenault/fibonacci/RenaultPeriodRankOrderMathMag.pdf",
+          "material_read": "Entire open-access 2013 nine-page primary PDF, including definitions, period/rank/order and CRT results; PDF pages visually inspected",
+          "method": "Read extracted primary PDF and inspect representative PDF page screenshots",
+          "title": "The Period, Rank, and Order of the (a,b)-Fibonacci Sequence Mod m",
+          "trigger": "Earlier standard generalized recurrence period/rank theorem and potentially dominating period result"
+        },
+        {
+          "assessment": "Fixed classical Lucas p=1 period table cannot supply arbitrary even p companion period equality.",
+          "evidence": "Definition explicitly references classical A000032.",
+          "identifier_or_url": "https://oeis.org/A106291",
+          "material_read": "Database title, definitions, formulas and initial values",
+          "method": "Direct database-page inspection",
+          "title": "OEIS A106291: Period of the Lucas sequence A000032 mod n",
+          "trigger": "Closest primary online exact period database/table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem answers the specific natural parity gap Question 5.3 from a recent Lucas period/entry-point paper. Its exact all-index 2-adic valuation lemma explains the obstruction to the earlier unit argument, provides a reusable necessary divisibility criterion for V entry points, and fully settles the equality conditional for all even p,m>2. This is a mathematically motivated open classification, not a textbook substitution, tiny computational case or prior table reproduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proof is conditional on the existence of e_V(m) and confined to q=-1; it does not settle q=1 or classify entry-point existence.",
+    "Direct finite recurrence checks are regression only and are not proof of the universal theorem.",
+    "Originality is best-of-knowledge with an explicit older-notation/unindexed source risk.",
+    "The original public metadata operational identifier must be sanitized by the two staged guarded replacements before publication; no GitHub changes performed."
+  ],
+  "schema_version": 1
+}
