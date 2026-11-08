@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included Python 3 standard-library `verify.py` builds graph adjacency lists from the defining row-or-column rule, simulates closed-neighborhood observation followed by repeated unique-neighbor forcing, and counts induced connected sets using graph search. It compares every coefficient with direct inclusion-exclusion and with an independently implemented connected-component recurrence on labeled complete bipartite edge graphs.
+# Independent mathematical audit
 
-The exhaustive comparisons use \((2,2),(2,3),(2,4),(2,6),(3,3),(3,4),(3,5),(4,4)\), totaling 107336 nonempty vertex subsets. Six of these cases also receive a full coefficient comparison for connected power domination. The source was executed from the file actually included here; its test run terminated with `VERIFY_OK`. In every tested instance all successful sets finished either after the initial domination step or one propagation wave.
+## correctness
 
-A direct proof valid for every \(m,n\ge2\) appears in RESULT.md. The numerical tests do not establish any infinite statement by extrapolation. Independent mathematical auditing has not been performed.
+PASS
+
+PASS. In R_{m,n}=K_m square K_n (m,n>=2), N[S] leaves precisely A×B where A,B are missed rows/columns. For a,b>=2 every observed vertex has zero or at least two unseen neighbors, so forcing is impossible; with a<=1 or b<=1 all cells are observed directly or forced in one parallel round. Thus power domination iff used rows≥m-1 or used columns≥n-1. Occupied-row/column inclusion-exclusion gives ordinary all-cardinality polynomial. The line graph L(K_{m,n}) converts connected sensor sets to connected occupied bipartite edge graphs, counted by the standard bivariate labeled exponential formula/first-row-component recurrence. Minimum cardinality d=min(m,n)-1 and both minimum-multiplicity formulas follow by enumerating near-covering rows or columns; sharp maximum failed set (m-2)(n-2) follows support rectangles. Independent exhaustive enumeration for (2,3),(3,3) checked all placements, outcomes, connectivity and coefficients, matching e.g. 3x3 P: z²..z⁹ coefficients 36,84,126,126,84,36,9,1 and connected 18,42,81,117,84,36,9,1.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality from explicit theorem-level source comparisons. The narrower final novelty is preserved; older established components are credited. Search absence does not prove priority.
+
+## value
+
+PASS
+
+PASS. The all-cardinality ordinary/connected placement distributions of a natural two-parameter rook graph family, including propagation depth and extremal multiplicities, are meaningful graph-polynomial invariants beyond known scalar power domination numbers. They quantify the combinatorial penalty for requiring connected sensors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
