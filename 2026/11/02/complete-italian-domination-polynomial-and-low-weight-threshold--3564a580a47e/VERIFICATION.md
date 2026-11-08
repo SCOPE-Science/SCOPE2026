@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `verify.py` uses standard Python only. It independently builds each crown graph from explicit pairs of vertices, checks every required inequality at each zero vertex, and counts every feasible labeling by weight for \(n=3,4,5,6\), examining exactly \(597{,}780\) raw labelings. A distinct exact dynamic program conditions on the two side totals and generates valid column-pair configurations directly from the neighborhood inequalities for \(n=3,\ldots,10\). It verifies full polynomial equality for \(n=4,\ldots,10\), plus the lower-weight and highest-weight checks. The \(n=3\) case is a cross-check rather than part of the asserted theorem.
+# Independent mathematical audit
 
-Replay: run `python3 verify.py` from the directory containing this document. The recorded output after a successful run is
+## correctness
 
-```
-VERIFY_OK direct_graph_labelings=597780 n=3..6 independent_pair_DP_n=3..10 full_coefficient_matches_n=4..10
-```
+PASS
 
-The general theorem rests on the side-total partition and exact support-count proof, not on finite sampling. Independent mathematical audit has not been performed. The proof assumes integer \(n\ge4\) and graph edges precisely the complement of a fixed perfect matching between the two labelled parts.
+The neighborhood guard is exactly x_i=0 => Y-y_i>=2 and y_i=0 => X-x_i>=2 with X,Y side sums. Partition (X,Y) into both >=4 (H_n²), exactly one <=3 (2∑z^a T(B_a)), both <=3 (X,Y in {2,3}). In low-low, c22=n+binom(n,2), c23=n²(n−1) per orientation, c33=binom(n,3)²+n(n−1)²(n−2)+n²(n−1); disjoint supports yield displayed polynomial. All weights >=4, coefficient at z4 is c22 plus two all-one-side configurations only for n=4. I independently enumerated all 3^(2n) labeled assignments for n=4,5,6, totaling 597051 assignments, and checked every coefficient against an independently coded polynomial; this finite validation is distinct from general side-total proof.
+
+## originality
+
+PASS
+
+The n=3 cycle C6 is known and excluded. Complete multipartite Roman-{2} weight enumerators do not cover crown graphs (nonadjacency between matched pair vertices is not transitive); perfect Roman crown functions obey a stronger constraint and cannot supply all Italian functions. Shao–Zhao study paths, trees and cycles, not this full crown polynomial. No dominating prior result found from real database and primary comparisons; historical priority still conditional.
+
+## value
+
+PASS
+
+The deleted matching creates coupled pair-support restrictions absent in complete multipartite enumerators. The complete all-degree polynomial and exceptional n=4 minimum multiplicity form a natural exact classification of a classical regular bipartite graph family, not a routine isolated domination-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

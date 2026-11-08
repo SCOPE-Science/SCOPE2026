@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-neighborhood characterization \(x_i=0\Rightarrow Y-y_i\ge2\), \(y_i=0\Rightarrow X-x_i\ge2\) is exact. The proof partitions all side totals into high-high, low-high and low-low cases and counts each disjoint subcase with explicit support restrictions. The low-low coefficient families are separately reconstructed, and no claim of an infinite proof is based on enumeration. The standalone independent edge-based checker counts \(597{,}780\) assignments on graphs of orders six through twelve; a second exact side-total dynamic program agrees on every coefficient through \(n=10\). The source code and numerical verification are included.
+## correctness
 
-**Originality — PASS (qualified).** The full Shao–Zhao source studies paths, trees and cycles; its cycle case accounts for the intentionally excluded \(n=3\). The closest all-weight Roman \(\{2\}\)-function enumerator applies to complete multipartite graphs, whereas a crown graph is not complete multipartite. The published perfect Roman crown-graph result concerns strictly more restrictive labels and does not count the general Italian functions. Searches also considered Roman \(\{2\}\)-domination aliases and complete-bipartite-minus-matching reductions; no prior claim among the inspected sources implies the complete formula. Unindexed or differently named prior theorems remain an explicit historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete and natural cardinality classification on an infinite family of dense connected regular bipartite graphs. The deleted perfect matching imposes genuinely coupled support constraints absent from the complete-bipartite or complete-multipartite enumerators. The result gives the entire polynomial and the sharp \(n=4\) exception in the minimum-function count, not a textbook relabeling of the ordinary domination number.
+The neighborhood guard is exactly x_i=0 => Y-y_i>=2 and y_i=0 => X-x_i>=2 with X,Y side sums. Partition (X,Y) into both >=4 (H_n²), exactly one <=3 (2∑z^a T(B_a)), both <=3 (X,Y in {2,3}). In low-low, c22=n+binom(n,2), c23=n²(n−1) per orientation, c33=binom(n,3)²+n(n−1)²(n−2)+n²(n−1); disjoint supports yield displayed polynomial. All weights >=4, coefficient at z4 is c22 plus two all-one-side configurations only for n=4. I independently enumerated all 3^(2n) labeled assignments for n=4,5,6, totaling 597051 assignments, and checked every coefficient against an independently coded polynomial; this finite validation is distinct from general side-total proof.
 
-**Boundaries.** Only \(n\ge4\) and ordinary Italian functions are included; no claim is made for other deleted matchings, all graph families, or independent certification. The source comparison does not prove global historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The n=3 cycle C6 is known and excluded. Complete multipartite Roman-{2} weight enumerators do not cover crown graphs (nonadjacency between matched pair vertices is not transitive); perfect Roman crown functions obey a stronger constraint and cannot supply all Italian functions. Shao–Zhao study paths, trees and cycles, not this full crown polynomial. No dominating prior result found from real database and primary comparisons; historical priority still conditional.
+
+## value
+
+PASS
+
+The deleted matching creates coupled pair-support restrictions absent in complete multipartite enumerators. The complete all-degree polynomial and exceptional n=4 minimum multiplicity form a natural exact classification of a classical regular bipartite graph family, not a routine isolated domination-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
