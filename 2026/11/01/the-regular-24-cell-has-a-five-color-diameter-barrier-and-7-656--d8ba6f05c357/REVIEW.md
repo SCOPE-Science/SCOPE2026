@@ -1,19 +1,21 @@
-# Scientific review: diameter partitions of the regular 24-cell
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim uses the 24 distinct roots of type \(D_4\), hence exactly four positive distance shells. The key non-obtuse classification checks every one of the \(\binom{24}{6}=134596\) six-element subsets in exact integer arithmetic, identifies precisely the 24 coordinate/diagonal classes, and checks each for possible seventh extensions. An analytic sign-vector argument then rules out four disjoint such classes; a five-facet covering provides the matching upper bound. A signed-edge intersection argument rules out four mutually positive roots, while an explicit eight-class star assignment supplies the optimal partition. The 7,656 enumeration is a complete, disjoint, integer exact-cover recurrence over all 96 admissible triangles. The full source of the finite proof is in `verify.py`, which was executed from the actual package source, and its logical coverage is described in RESULT.md. Finite enumeration is used only for finite 24-vertex assertions, never to infer an unrestricted theorem.
+PASS
 
-## Originality
+PASS: 24 signed D4 roots ±e_i±e_j have squared norm 2 and exactly four nonzero squared distance shells 2,4,6,8, so normalized class diameters admit only 0,1/2,1/sqrt2,sqrt3/2,1. For the non-obtuse bound (dot>=0), independently enumerated all C(24,6)=134596 six-root subsets and found exactly 24 maximal allowed six-sets, no extendible 7-set; no four disjoint six-sets (the coordinate/diagonal/Hamming argument independently explains why), while five natural sets cover all 24 roots. For the positive-dot threshold, at most three roots form a class and an explicit eight-triangle partition exists. Independently constructed all 96 admissible positive triangles, 64 stars and 32 signed cycles, then complete canonical least-uncovered-mask exact-cover DP gave 12,367 unique states and polynomial 8+2848z^4+4480z^6+320z^8, total 7,656 unlabeled covers. Every k-plateau follows by monotonicity and these sharp thresholds; all claims are finite exactly exhausted, not sampled.
 
-The closest mathematical comparison is Voronov's 2026 quantitative Borsuk framework and finite examples, whose full accessible text was examined: it does not provide these 24-cell values. The older full text of Cohn–Conway–Elkies–Kumar concerns the same \(D_4\) roots but a different invariant, spherical energy/design optimality. The MathWorld and 24-cell geometry tables give known structural data but not the five-color threshold or the 7,656 enumeration. Searches also checked the explicit diameter ratios, chromatic threshold aliases, eight-face partitions, and existing quantitative diameter spectra for three-dimensional Platonic vertex sets. Those older three-dimensional spectra do not imply the exceptional four-dimensional five-color obstruction. Remaining priority risk: an unindexed or historical specialized 24-cell coloring enumeration could contain some of the finite counts; failure to locate one is not proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-This is the first exceptional self-dual regular four-dimensional polytope, and its exact distance graph exhibits a nontrivial gap between the naive cardinality lower bound (four) and true chromatic threshold (five). The full \(k\)-partition law and the face-exact-cover polynomial give structural, finite and reproducible benchmarks for quantitative Borsuk partition theory. The total count is a natural exact invariant of this canonical configuration rather than an arbitrary sample or isolated numerical experiment. The signed-coordinate refinement distinguishes two natural root-support patterns, while its dependence on coordinates is disclosed.
+PASS best of current primary evidence: Voronov 2026 supplies a quantitative Borsuk threshold-graph framework and distinct 101-point three-dimensional counterexample plus 61-point d4 example, not the 24-point D4 spectrum. Cohn–Conway–Elkies–Kumar 2007 studies the exact same D4 spherical code under energy/design functionals, not its diameter colorings/face-cover enumeration. Standard 24-cell tables may list its 96 triangular faces, but the five-color obstruction and exact-cover coefficient vector do not follow just from face count. Unindexed polychoron decomposition tables remain a genuine priority risk.
 
-## Scope of assessment
+## value
 
-Correctness, originality relative to inspected material, and mathematical value pass the self-review. This is not an independent external certification, and historical priority is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The regular 24-cell is a canonical exceptional D4 root configuration and this determines its entire finite Euclidean diameter-partition spectrum. Its five-chromatic obstruction is not implied by the alpha=6 four-color counting bound; 7,656 exact tilings by 96 triangular faces are a natural combinatorial invariant. This is a motivated test case in quantitative Borsuk theory, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

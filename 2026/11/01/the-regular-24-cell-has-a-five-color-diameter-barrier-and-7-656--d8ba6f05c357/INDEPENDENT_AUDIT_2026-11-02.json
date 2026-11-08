@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:02:30.696376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: 24 signed D4 roots ±e_i±e_j have squared norm 2 and exactly four nonzero squared distance shells 2,4,6,8, so normalized class diameters admit only 0,1/2,1/sqrt2,sqrt3/2,1. For the non-obtuse bound (dot>=0), independently enumerated all C(24,6)=134596 six-root subsets and found exactly 24 maximal allowed six-sets, no extendible 7-set; no four disjoint six-sets (the coordinate/diagonal/Hamming argument independently explains why), while five natural sets cover all 24 roots. For the positive-dot threshold, at most three roots form a class and an explicit eight-triangle partition exists. Independently constructed all 96 admissible positive triangles, 64 stars and 32 signed cycles, then complete canonical least-uncovered-mask exact-cover DP gave 12,367 unique states and polynomial 8+2848z^4+4480z^6+320z^8, total 7,656 unlabeled covers. Every k-plateau follows by monotonicity and these sharp thresholds; all claims are finite exactly exhausted, not sampled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Voronov Table 1 has 61-point example in dimension 4 for beta_5, not the 24-cell vertex set.",
+          "Cohn et al. classify energy/design optimality of D4 and a deformed 24-point code, not its forbidden-pair graph chromatic number."
+        ],
+        "reasoning": "A general threshold coloring framework and a D4 energy result do not entail this exact finite configuration enumeration.",
+        "searches": [
+          "24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions",
+          "arxiv:2610.28828 4D 61 points quantitative Borsuk",
+          "arxiv:math/0607447 D4 root spherical energy"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen tree b5c93faf7d359686618a114b4339a0caf619cc7e RESULT.md and verify.py",
+        "arXiv:2610.28828v1 HTML §2 and §4 Table1",
+        "Cohn et al., arXiv:math/0607447 PDF pp1,4",
+        "MathWorld 24-Cell counts; Resultary query 24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent complete enumeration found alpha=6 but no 4-color partition into four disjoint maximum sets; so alpha alone gives only lower bound 4, not chromatic 5.",
+          "Cohn et al. energy minimization statement does not constrain exact colorings or 8-triangle covers."
+        ],
+        "reasoning": "The key additional combinatorial disjointness obstruction and exact-cover count are mathematically independent of known basic root/face counts and general Borsuk definitions.",
+        "searches": [
+          "24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions",
+          "Voronov 2026 quantitative Borsuk graph",
+          "Cohn Conway Elkies Kumar 2007 24-cell D4 design",
+          "24-cell five color alpha 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive dot threshold is exactly edges of the regular 24-cell, while the critical five-color forbidden graph uses pairs with dot<0, a distinct graph.",
+          "Voronov arxiv:2610.28828 §2 treats beta_k via threshold-graph chromatic numbers, without D4 evaluation."
+        ],
+        "reasoning": "Compared exact metric-shell partition, graph-coloring, root-system and triangular-face-cover formulations rather than matching the term Borsuk.",
+        "searches": [
+          "24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions",
+          "D4 root chromatic number negative inner products 24-cell",
+          "24-cell 24 vertices Borsuk diameter graph 5-color"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard 24-cell geometric data yield 24 vertices, 96 triangular faces and four metric shells.",
+          "The independently completed 96-face exact-cover DP gives precisely the distinct refined partition counts 8,2848,4480,320 at star exponents 0,4,6,8."
+        ],
+        "reasoning": "The face table does not itself count global disjoint covers. Distinguish ordinary edge-length-√2 triangles from longer great-triangle decompositions; no matching table was identified in searched resources.",
+        "searches": [
+          "24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions",
+          "24-cell 7656 partitions into 8 triangles",
+          "D4 24-cell 96 triangular faces exact cover polynomial",
+          "D4 5-color non-obtuse root graph"
+        ]
+      },
+      "rationale": "PASS best of current primary evidence: Voronov 2026 supplies a quantitative Borsuk threshold-graph framework and distinct 101-point three-dimensional counterexample plus 61-point d4 example, not the 24-point D4 spectrum. Cohn–Conway–Elkies–Kumar 2007 studies the exact same D4 spherical code under energy/design functionals, not its diameter colorings/face-cover enumeration. Standard 24-cell tables may list its 96 triangular faces, but the five-color obstruction and exact-cover coefficient vector do not follow just from face count. Unindexed polychoron decomposition tables remain a genuine priority risk.",
+      "residual_risks": [
+        "A historical specialized 24-cell coloring/triangle cover table, possibly not searchable under modern Borsuk terminology, might contain the counts.",
+        "The star/cycle refined polynomial depends on the explicitly chosen signed-coordinate D4 realization, although 7656 is intrinsic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "General color thresholds and examples on different vertex sets.",
+          "identifier_or_url": "https://arxiv.org/html/2610.28828v1",
+          "material_read": "Definition beta_k and §§2,4 results: 101-point R3; Table 1 d=4 has 61 points, no D4 24-cell calculation",
+          "method": "Read arXiv HTML definitions, introduction, results and Table 1",
+          "title": "A counterexample to Gale’s conjecture in R3",
+          "trigger": "Most recent exact quantitative Borsuk diameter threshold result"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Spherical energy/3-design properties, not five-chromatic dot-negative graph or 96-triangle exact covers.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607447",
+          "material_read": "PDF page 1 abstract/definition; page 4 proposition/energy proof",
+          "method": "Inspected original PDF by screenshots and text retrieval of relevant results",
+          "title": "The D4 root system is not universally optimal",
+          "trigger": "Same 24 D4 roots; possible exact partition data"
+        },
+        {
+          "assessment": "FACE_COUNTS_ONLY",
+          "evidence": "A face count is not an enumeration of disjoint eight-face partitions.",
+          "identifier_or_url": "https://mathworld.wolfram.com/24-Cell.html",
+          "material_read": "Public geometric counts and root coordinate descriptions; detailed partition table not established",
+          "method": "Compared known 96 triangular faces and four distances with new global exact-cover count",
+          "title": "24-Cell",
+          "trigger": "Standard face counts may contain exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The regular 24-cell is a canonical exceptional D4 root configuration and this determines its entire finite Euclidean diameter-partition spectrum. Its five-chromatic obstruction is not implied by the alpha=6 four-color counting bound; 7,656 exact tilings by 96 triangular faces are a natural combinatorial invariant. This is a motivated test case in quantitative Borsuk theory, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 frozen tree b5c93faf7d359686618a114b4339a0caf619cc7e RESULT.md and verify.py",
+    "arXiv:2610.28828v1 HTML §2 and §4 Table1",
+    "Cohn et al., arXiv:math/0607447 PDF pp1,4",
+    "MathWorld 24-Cell counts; Resultary query 24-cell D4 root system exact diameter partition chromatic five optimal eight triangle face partitions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the 24 vertex set of the regular 24-cell, not the full solid.",
+    "The 7656 partitions are unlabeled exact eight-part face covers; their star counts depend on the root chart."
+  ],
+  "residual_risks": [
+    "A historical specialized 24-cell coloring/triangle cover table, possibly not searchable under modern Borsuk terminology, might contain the counts.",
+    "The star/cycle refined polynomial depends on the explicitly chosen signed-coordinate D4 realization, although 7656 is intrinsic."
+  ],
+  "schema_version": 1
+}
