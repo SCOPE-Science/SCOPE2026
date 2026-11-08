@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\ge3\) and \(1<p<\infty\), the cyclic edge-difference identity (1) follows by subtracting adjacent vertex equations. Its scalar maximum principle gives single-trajectory contraction. The linear \(p=2\) case follows from the same principle applied to differences, while the complete-triangle case follows from monotone vertex-order comparison and equality between oscillation and graph-Lipschitz seminorm. For \(n\ge4\), two explicitly displayed zero-sum edge vectors exist for all orders, and differentiating the nonlinear flux at their nonzero background coordinates yields the exact quantity \((p-1)(R^{p-2}-3)\); choosing \(R\to\infty\) or \(R\downarrow0\) proves the claimed unbounded initial two-input growth. The standard-library checker confirms the edge identity and selected numerical witnesses. Global well-posedness follows directly from monotone convex-energy flow; no finite test is used as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+Subtract vertex p-heat equations to obtain a_i′=φ_p(a_{i+1})+φ_p(a_{i-1})−2φ_p(a_i) for cyclic edge gradients ∑a_i=0. Monotonicity of φ_p and coordinate maximum principle give single-input L contraction. For p=2 the difference edge flow is linear heat; for n=3 the cycle equals complete graph and oscillation of two-solution vertex differences contracts by comparison. For n≥4 the explicit zero-sum base a=(1,R,−(R+n−2),1,…,1) and direction b=(1,1,−1,0,…,0,−1) have L(b)=1. The first-edge derivative of normalized two-solution symmetric perturbations tends to (p−1)(R^{p−2}−3). Choose R→∞ for p>2 or R↓0 for p<2 to make it arbitrarily positive, then choose ε>0 sufficiently small, proving unbounded liminf initial rate. All base edge values are nonzero when differentiation is used. This says nothing about infinite gain at any fixed positive time.
 
-The closest inspected source is Mugnolo, arXiv:1207.1996: Theorem 3.4 gives nonlinear solution existence and a vertex norm contraction semigroup; Proposition 3.9 and Corollary 3.11 concern vertex order and \(\ell^q\) contractivity, not the two-input graph-Lipschitz seminorm. A second source, Münch–Wojciechowski, arXiv:1712.00875, Theorem 3.8, provides a graph-Lipschitz gradient criterion for *linear* heat. Relevant earlier results for finite trees and for edge-total-variation contraction on cycles have different graphs or seminorms and do not imply a nonlinear two-input cycle classification. Targeted literature and mathematical-record searches revealed no equivalent statement, but unindexed literature or a concealed corollary remains a risk. In particular, no claim is made that the elementary maximum-principle argument is new on its own.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles a complete natural cyclic family, not a single numerical instance. It gives the smallest cyclic obstruction (four vertices), the sharp exponent/topology dichotomy, and an unbounded *infinitesimal* amplification phenomenon despite universal contraction of each single trajectory and vertexwise difference oscillation. That distinction matters when using nonlinear graph heat smoothing for perturbation stability: one-input smoothing alone cannot bound short-time sensitivity of edge gradients between two input signals. The quantity is not merely a reparameterized version of the earlier tree result because the cyclic edge constraint is essential, especially in the exceptional triangle.
+Classical discrete p-heat works cover existence, order and vertex ℓq contraction; a *linear* graph heat gradient theorem covers p=2 only. These statements do not imply nonlinear two-input edge Lipschitz classification. The explicit n=3 exception and every n≥4 p≠2 instantaneous obstruction are the assessed novelty, not the maximum-principle lemma.
 
-## Scope and residual risks
+## value
 
-All conductances, masses and edge lengths are one. No fixed-positive-time sharp Lipschitz norm or weighted-cycle classification is obtained. The theorem does not imply failure of vertex \(\ell^\infty\) contraction; indeed vertex order comparison still holds. Novelty is assessed relative to accessible sources and prior claim records; exhaustive historical coverage and independent mathematical validation are not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp boundary p=2 or triangular graph distinguishes decay along each flow from stability of the semigroup in an intrinsically meaningful edge-Lipschitz metric, with universal large instantaneous sensitivity. It is a complete natural cycle family and a structural counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:07:24.947004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtract vertex p-heat equations to obtain a_i′=φ_p(a_{i+1})+φ_p(a_{i-1})−2φ_p(a_i) for cyclic edge gradients ∑a_i=0. Monotonicity of φ_p and coordinate maximum principle give single-input L contraction. For p=2 the difference edge flow is linear heat; for n=3 the cycle equals complete graph and oscillation of two-solution vertex differences contracts by comparison. For n≥4 the explicit zero-sum base a=(1,R,−(R+n−2),1,…,1) and direction b=(1,1,−1,0,…,0,−1) have L(b)=1. The first-edge derivative of normalized two-solution symmetric perturbations tends to (p−1)(R^{p−2}−3). Choose R→∞ for p>2 or R↓0 for p<2 to make it arbitrarily positive, then choose ε>0 sufficiently small, proving unbounded liminf initial rate. All base edge values are nonzero when differentiation is used. This says nothing about infinite gain at any fixed positive time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mugnolo’s general-graph p-flow theory covers vertex/order contraction but not two-input edge Lipschitz norm.",
+          "Münch–Wojciechowski heat-gradient theorem treats linear Markov semigroups."
+        ],
+        "reasoning": "Broader graph or p parameter scopes do not dominate a different seminorm proposition; the linear-gradient result covers p=2 but cannot settle p≠2.",
+        "searches": [
+          "arxiv:1207.1996 Theorem 3.4 Proposition 3.9 Corollary 3.11",
+          "arxiv:1712.00875 Theorem 3.8",
+          "published Resultary search: discrete nonlinear graph p heat cycle gradient Lipschitz two initial data instability p Laplacian"
+        ]
+      },
+      "checked_sources": [
+        "Mugnolo arXiv:1207.1996 Theorem 3.4 Prop 3.9 Cor 3.11 full PDF",
+        "Münch and Wojciechowski arXiv:1712.00875 Theorem 3.8",
+        "Resultary graph p-heat and cycle gradient topic query",
+        "Frozen RESULT.md and verify_cycle_p_heat.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear p=2 result is known and explicitly excluded from claimed new obstruction.",
+          "Mugnolo order comparison proves oscillation contraction when n=3 but not control of maximum absolute edge increments between any two nonlinear trajectories for n≥4."
+        ],
+        "reasoning": "Neither cited theorem entails unbounded initial normalized derivative or sharp n=3 cycle exception; that needs the explicit zero-sum edge perturbation and extreme-R argument.",
+        "searches": [
+          "Mugnolo 2012 finite graph nonlinear p-heat vertex norm",
+          "Münch Wojciechowski 2017 graph heat gradient",
+          "cycle graph p heat difference Lipschitz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mugnolo 2012 Theorem 3.4/Corollary 3.11 are solution contraction in vertex norms, not edge gradient seminorm for differences of two solutions.",
+          "For C3 the edge seminorm equals vertex oscillation, but for n≥4 it is distinct."
+        ],
+        "reasoning": "Contraction of L(S_tu) for each u is not equivalent to L(S_tu−S_tv) contraction because S_t is nonlinear. The constructed differential witness explicitly separates them.",
+        "searches": [
+          "published Resultary search: discrete nonlinear graph p heat cycle gradient Lipschitz two initial data instability p Laplacian",
+          "Mugnolo arxiv:1207.1996 vertex p-heat contraction",
+          "nonlinear graph p heat gradient two-input Lipschitz distance between solutions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary neighboring cycle p-Laplacian and discrete heat results concern numerical schemes and other invariants.",
+          "The sharp exception n=3 and all longer cycles form an analytic classification, not a known finite lookup table."
+        ],
+        "reasoning": "No covering exact database or classification was identified; absence in search alone does not prove original status.",
+        "searches": [
+          "published Resultary search: discrete nonlinear graph p heat cycle gradient Lipschitz two initial data instability p Laplacian",
+          "cycle p-heat p≠2 n≥4 two trajectories initial Lipschitz gradient growth"
+        ]
+      },
+      "rationale": "Classical discrete p-heat works cover existence, order and vertex ℓq contraction; a *linear* graph heat gradient theorem covers p=2 only. These statements do not imply nonlinear two-input edge Lipschitz classification. The explicit n=3 exception and every n≥4 p≠2 instantaneous obstruction are the assessed novelty, not the maximum-principle lemma.",
+      "residual_risks": [
+        "Older graph gradient contraction/noncontraction theory may formulate equivalent two-solution obstruction without the displayed title.",
+        "Initial-rate unboundedness must not be confused with unbounded gain at fixed positive t."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard foundations but no edge-Lipschitz two-input classification.",
+          "evidence": "All graph vertex semigroup contraction does not imply the derivative-based edge counterexamples.",
+          "identifier_or_url": "arXiv:1207.1996",
+          "material_read": "Full 35-page primary PDF, especially Theorem 3.4, Proposition 3.9, Corollary 3.11.",
+          "method": "Read statements on well-posedness and vertex ℓq/order contraction.",
+          "title": "Parabolic theory of the discrete p-Laplace operator",
+          "trigger": "Same discrete nonlinear p-heat semigroup on graphs."
+        },
+        {
+          "assessment": "Linear heat only, so it covers p=2 direction but not nonlinear obstruction.",
+          "evidence": "The operator is a linear Markov generator, unlike the p≠2 nonlinear flow.",
+          "identifier_or_url": "arXiv:1712.00875",
+          "material_read": "Relevant theorem on gradient/heat Lipschitz comparison (Theorem 3.8).",
+          "method": "Read primary theorem scope.",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Potential graph gradient contraction result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp boundary p=2 or triangular graph distinguishes decay along each flow from stability of the semigroup in an intrinsically meaningful edge-Lipschitz metric, with universal large instantaneous sensitivity. It is a complete natural cycle family and a structural counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to unit-mass, unit-conductance simple cycles and continuous-time real p-heat; no weighted graphs or exact fixed-time Lipschitz modulus."
+  ],
+  "schema_version": 1
+}
