@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is specified by even five-bit vectors and distance four, avoiding the ambiguous Clebsch naming convention. Two independent face generators agree on all 393 faces. The lexicographic matching is explicitly executable; the orientation of all 1,200 Hasse incidences has a topological ordering covering all 392 nonempty faces. One critical vertex and nine three-cells imply precisely a nine-fold three-sphere wedge by discrete Morse theory, with no unverified attaching map. All 1,920 affine transformations preserve adjacency. Exact signed Lefschetz calculations and independent orbitwise evaluations agree with the asserted character, and finite-group character theory supplies the rational module decomposition. None of these checks is an infinite-parameter extrapolation.
+## correctness
 
-**Originality — PASS with residual risk.** Egolf–Furst arXiv:2502.05031v1 (2025-02-07) treats the same five-regular Clebsch graph but establishes a spectral inverse-eigenvalue theorem, not independence-complex homotopy or symmetry homology. The folded-cube quantum-automorphism literature concerns a different invariant. The closest indexed homotopy calculations treat the Clebsch *neighborhood* complex, Clebsch *matching* complex, ordinary independence of the four-cube, and independence of other named graphs. Their statements do not imply either the exact nine-sphere homotopy type or the two-irreducible affine module for this graph. Full published published-finding corpus texts were not all retrievable; accessible scientific titles/abstracts were compared by their actual objects and claims. An unindexed equivalent calculation remains possible; absence from search is not novelty proof.
+PASS
 
-**Mathematical value — PASS.** The Clebsch graph is the unique triangle-free strongly regular graph with parameters \((16,5,0,2)\), a natural folded hypercube and a prominent highly symmetric example. The homotopy type supplies a complete integral topological benchmark, while the explicit full 1,920-element automorphism character distinguishes a four-dimensional inflated constituent from a five-dimensional nontrivial translation constituent. This integral topological calculation and symmetry structure are not consequences of the graph's adjacency spectrum or its neighbor-complex classification; they provide a reusable test case for topological graph invariants and equivariant calculations. The scope is a specific natural graph, not a generic family theorem.
+Using the even-weight 5-bit model fixes the degree-five Clebsch graph: 16 vertices, 40 edges, SRG(16,5,0,2). Rebuilt ordinary independence faces by forbidden distance-4 pairs and checked all 393 including empty, face vector (16,80,160,120,16). A sequential vertex-toggle Hasse matching on all nonempty faces leaves 191 pairs, one critical 0-cell, nine critical 3-cells, and global acyclicity of all 1200 oriented incidences (392 visited vertices); hence Forman implies integral wedge of nine S3, not only field Betti ranks. Verified all 16×120=1920 affine maps are graph symmetries and independently recomputed the reduced signed Lefschetz trace of every map. It equals sgn(pi)(fixed(pi)-1+sum_{fixed i}(-1)^{a_i}), and the source verifier additionally checks orbit-based traces, E_even Fourier multiplicities 4 and five ones, and the averaged S5 standard 4-d module. Thus the degree-3 rational module is the asserted signed 4⊕5; no equivariant wedge or integral module lattice is claimed.
 
-**Residual risks and limits.** Exactness is conditional on the fully specified standard finite graph; code and mathematical argument share the same model and are not independent validation. External searches, full-text primary reading, and semantic comparisons cannot exclude every unindexed result. No integral decomposition into these rational summands or equivariant wedge of spheres is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same graph is treated in several earlier topological calculations but for neighborhood or matching complexes, which are not ordinary independence complexes. A primary graph-theory study confirms the graph labeling but has no comparable topological invariant. The source-based best-of-knowledge finding is not covered.
+
+## value
+
+PASS
+
+The 5-regular Clebsch/folded five-cube is a canonical extremal strongly regular graph with a large natural affine automorphism group. Determining its exact integral independence-complex homotopy and a nontrivial 4+5 rational module decomposition supplies meaningful equivariant topological structure that cannot be read from its usual spectral parameters or a Betti rank alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

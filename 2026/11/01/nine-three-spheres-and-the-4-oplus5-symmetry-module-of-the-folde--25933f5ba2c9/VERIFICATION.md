@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10+ with no third-party packages. The script defines the sixteen even-parity five-bit graph vertices and distance-four adjacency without external graph tables. It checks regularity, all 120 nonadjacent common-neighbor counts, the pairwise zero common-neighbor condition, 393 independent subsets via two distinct generators, f-vector `(16,80,160,120,16)`, and the exact lexicographic discrete Morse pairing.
+## correctness
 
-It directs every nonempty face-incidence upward exactly when matched and downward otherwise and checks a complete topological sort over all 392 vertices and 1200 Hasse arrows; this proves that finite matching acyclic. Its output includes `ordinary_pairs=191 critical=(one_vertex,nine_3_cells)`.
+PASS
 
-It enumerates 120 coordinate permutations and 16 translations, verifies 1920 distinct graph automorphisms, and calculates their rational degree-three homology traces as signed simplicial Lefschetz traces. For every automorphism, it separately enumerates independent unions of vertex orbits and compares the resulting independence polynomial at -1 against both the signed trace and the closed character formula. It also checks Fourier multiplicities on all 16 characters of the translation subgroup and traces of the averaged four-dimensional invariant projection. No numerical approximations or probabilistic tests are used.
+Using the even-weight 5-bit model fixes the degree-five Clebsch graph: 16 vertices, 40 edges, SRG(16,5,0,2). Rebuilt ordinary independence faces by forbidden distance-4 pairs and checked all 393 including empty, face vector (16,80,160,120,16). A sequential vertex-toggle Hasse matching on all nonempty faces leaves 191 pairs, one critical 0-cell, nine critical 3-cells, and global acyclicity of all 1200 oriented incidences (392 visited vertices); hence Forman implies integral wedge of nine S3, not only field Betti ranks. Verified all 16×120=1920 affine maps are graph symmetries and independently recomputed the reduced signed Lefschetz trace of every map. It equals sgn(pi)(fixed(pi)-1+sum_{fixed i}(-1)^{a_i}), and the source verifier additionally checks orbit-based traces, E_even Fourier multiplicities 4 and five ones, and the averaged S5 standard 4-d module. Thus the degree-3 rational module is the asserted signed 4⊕5; no equivariant wedge or integral module lattice is claimed.
 
-Observed replay result: `RESULT_OK wedge_of_9_S3 and rational_H3=sign_tensor_standard4 plus sign_tensor_weight1_module5`. This supports the exact finite proof, including the representation identification. The rational decomposition does not certify an integral direct-sum decomposition, and the homotopy result is not asserted equivariantly. Independent external assessment has not been performed.
+## originality
+
+PASS
+
+Same graph is treated in several earlier topological calculations but for neighborhood or matching complexes, which are not ordinary independence complexes. A primary graph-theory study confirms the graph labeling but has no comparable topological invariant. The source-based best-of-knowledge finding is not covered.
+
+## value
+
+PASS
+
+The 5-regular Clebsch/folded five-cube is a canonical extremal strongly regular graph with a large natural affine automorphism group. Determining its exact integral independence-complex homotopy and a nontrivial 4+5 rational module decomposition supplies meaningful equivariant topological structure that cannot be read from its usual spectral parameters or a Betti rank alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
