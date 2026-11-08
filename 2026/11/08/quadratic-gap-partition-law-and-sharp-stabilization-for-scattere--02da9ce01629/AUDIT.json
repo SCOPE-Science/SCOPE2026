@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Unique zero-gap representation gives c_010 = sum j(t-j)g_j; \\(t\\le k+1\\) for k>0; two independent exterior gaps give (1-z)^-2. The inequality (t-1)sum g_j <= k proves support degree<=k+2; equality analysis yields one top configuration at \\(k=1\\) and three at \\(k\\ge2\\). Consequently linearity starts at \\(n=k+1\\) and fails at \\(n=k\\) by exactly the top coefficient. Standalone checkers verified all binary words through n=14 and independent stream DP n,k<=30; these support but do not substitute for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruda Theorem 1.4: for every fixed positive k and every binary pattern with at least two runs, B_p(n,k) eventually has degree at most length minus number of runs plus one; the degree is exact if a run has length one.",
+        "Tian arXiv:2507.03205 §§4–5 constructs occurrences and primitive patterns by general procedures, without an explicit n=k+1 transition for 010."
+      ],
+      "reasoning": "These general results cover eventual degree one for 010 and existence of algorithms, but do not imply the explicit values of the polynomials Q_k(z), their quadratic-partition coefficients or a sharp universal linear stabilization length. The present claim does not reassert their generality.",
+      "searches": [
+        "Bruda Enumerating binary words restricted by subsequence frequency June 2026 explicit leading coefficient for pattern 010",
+        "web: number of 010 subsequences exactly k binary words formula",
+        "arxiv:2607.02578 Theorem 1.4 and proof §2",
+        "arxiv:2507.03205 §5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.02578 (arXiv HTML full text and PDF extracted text)",
+      "arxiv:2306.07870 (arXiv PDF and selected page screenshot)",
+      "arxiv:2507.03205 (arXiv PDF and selected page screenshot)",
+      "Mathematical research-index searches recorded in the named checks",
+      "OEIS-related web search results for the slope prefix"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bruda eventual linearity means: for each k there exists an unspecified N(k) and polynomial of degree one; it does not state N(k)=k+1.",
+        "Menon–Singh establishes the avoiding-word count and fixed k≤4; these are separated from the all-k novelty claim.",
+        "The result gives B(k,k)-P_k(k)=1 or 3, certifying optimality of the transition for each k."
+      ],
+      "reasoning": "Neither an existential eventual polynomial nor a general enumeration algorithm logically supplies the specific finite formula, universal optimal cutoff, and exact pre-cutoff error without further calculation. The older special-case identities are conceded as covered, not asserted new.",
+      "searches": [
+        "Polynomial threshold exactly n=k+1 for number of occurrences of 010 in binary words",
+        "arxiv:2607.02578 Theorem 1.4 and §4",
+        "arxiv:2306.07870 §3",
+        "arxiv:2507.03205 §§4–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathematical-index semantic matches were about subsequence universality and unrelated weighted-partition problems, not fixed 010 occurrence counts.",
+        "Bruda arXiv:2607.02578 §2 formulates a general finite-skeleton strategy, not the zero-gap quadratic-weight generating polynomial."
+      ],
+      "reasoning": "A position triple spelling 010 is assigned uniquely to its central 1, producing the exact arithmetic weight j(t-j) per interior gap. No matched indexed result stated this identity together with its all-k coefficient polynomial, precise threshold, or top-degree boundary count.",
+      "searches": [
+        "Exact all-k formula B_{010}(n,k) scattered subsequence 010 in binary strings using zero-gap weights i(t-i), sharp stabilization n=k+1, integer partition slope",
+        "Quadratic-weight partition generating function sum over t product (1-u^{i(t-i)})^{-1} for number of binary words containing k copies of 010",
+        "web: scattered 010 subsequences exact frequency number of binary strings coefficient partition zero gap",
+        "web: binary words number of 010 subsequence occurrences generating function run zero gaps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved OEIS page had the matching displayed coefficient sequence and its 010-frequency interpretation; this is only a search result, not exhaustive database coverage.",
+        "Menon–Singh arXiv:2306.07870 §3 explicitly limits its exact-frequency formulas to k=0,1,2,3,4."
+      ],
+      "reasoning": "Low-frequency instances are already in Menon–Singh and are used only as consistency checks. The statement here is for all frequencies and all lengths, with the exact first stable index and arithmetic series of slopes. Searching an integer sequence without a match cannot certify uniqueness.",
+      "searches": [
+        "web: OEIS 1 3 3 7 3 12 5 14 8 21 5 30",
+        "web: exact number binary words k copies scattered 010 OEIS",
+        "Menon Singh binary subsequence frequency exact B_{n,010}(k) for every k, all length generating function"
+      ]
+    },
+    "rationale": "Actual mathematical-index and literature checks found no same or stronger statement. Menon–Singh treats k up to four and zero avoidance; Tian gives general algorithms; Bruda proves eventual polynomial degree, not the explicit quadratic-weight all-k formula or sharp \\(n=k+1\\) stabilization. The specialization is distinguished by the exact coefficient polynomials, locally finite slope partition series, and proven three-configuration top-degree mechanism. Unindexed equivalent work remains a priority risk.",
+    "residual_risks": [
+      "Equivalent unindexed, unpublished or unavailable specialized calculations of 010 frequencies could exist.",
+      "The broad enumeration algorithms can recover finite counts on any fixed input but have not been shown to encode or state this exact closed family.",
+      "No independent publication-priority determination or independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The prior general theorem implies eventual degree one for 010, not the claimed exact polynomial or sharp cutoff",
+        "evidence": [
+          "Theorem 1.4 at arXiv HTML lines 33–48",
+          "Skeleton proof at arXiv HTML lines 96–236",
+          "Future directions at arXiv HTML lines 401–459"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+        "material_read": "Accessible arXiv HTML: Introduction, Theorem 1.4, proof in §2, §3, §4, and references; PDF text extraction reviewed",
+        "method": "Compared the exact assertions and their implications with the finite Q_k and universal n=k+1 cutoff",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Closest recent theorem on all positive subsequence frequencies"
+      },
+      {
+        "assessment": "Earlier low-frequency and avoidance cases are covered; this source does not state an all-positive-frequency quadratic-partition law",
+        "evidence": [
+          "PDF lines 0–30",
+          "PDF lines 103–174",
+          "arXiv:2306.07870 §3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.07870",
+        "material_read": "Abstract, preliminaries, §3 formulas and proofs for k≤4, and section summary of extremal and unimodality questions; PDF page 3 visually inspected",
+        "method": "Checked exact parameter ranges of the prior formulas and separated covered k≤4 and k=0 cases",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Source of earlier low-frequency formulas for the same counting function"
+      },
+      {
+        "assessment": "Constructive method, not an explicit sharp all-k partition-series result for 010",
+        "evidence": [
+          "PDF lines 0–43",
+          "PDF lines 820–910",
+          "arXiv:2507.03205 §§4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.03205",
+        "material_read": "Abstract, introduction, §4 occurrence-count method, §5 primitive-word method and theorem, PDF first page visually inspected",
+        "method": "Compared output of general algorithm and explicit all-frequency one-pattern polynomial distribution",
+        "title": "Counting occurrences of a pattern in a binary word",
+        "trigger": "Potential general enumeration algorithm that could dominate the specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02da9ce0-1629-4d2f-9874-7638203d96f0",
+  "value": {
+    "rationale": "The scattered 010 pattern is the smallest three-run nonmonotone binary pattern, making it a canonical test of quantitative frequency enumeration. The theorem makes the unspecified eventual degree-one fact exact at every length and frequency, yields computable quadratic-partition slopes and identifies the sharp stabilizing index and the exact first boundary defect for every k. These are motivated structural facts, not arbitrary finite sample increments or a mere specialization of an existing explicit identity.",
+    "status": "PASS"
+  }
+}
