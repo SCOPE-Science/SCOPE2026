@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Explicit absorbing-boundary solutions u_i,v_i have the correct characteristic roots and boundary normalization. Coefficient comparison over continuously varying k rigorously characterizes every neutral pi, including zero supports. The paired discounted survival success has a cosh ratio with strictly positive logarithmic derivative for k>theta. A renewal identity gives E_i T=(1-s_i)/(gamma S_pi), guaranteeing strict simultaneous optimality from each starting state; asymptotics follow from cosh expansions. The actual packaged checker independently tests exact rational Markov solves and numerical hyperbolic identities (3666 assertions). Only the analytic argument proves the all-parameter assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans-Majumdar considers Brownian resetting-distribution optimization with one target.",
+        "Julián-Salgado et al. ring study contains a general continuous-time renewal MFPT formula and rate optimization.",
+        "The published geometric renewal formula is not a complete ordering among reset-neutral mirror sites."
+      ],
+      "reasoning": "General renewal theory covers the identity for mean time, and linear optimization on a simplex covers the vertex reduction. Neither determines which mirror pair uniquely maximizes discounted absorption for *all* bias/rate/domain parameters. The hyperbolic strict ordering supplies the model-specific missing implication. Stronger unpublished/unindexed results remain a risk.",
+      "searches": [
+        "Finite absorbing Markov chain resetting to mixture distribution independent hitting committor splitting probability and reset rate spectral annihilation",
+        "Two absorbing targets stochastic restart splitting probability invariant best reset locations fastest absorption hyperbolic cosine",
+        "https://arxiv.org/abs/1107.4225 sections 4-5",
+        "https://arxiv.org/abs/2605.08414 section II"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.00657v1 — full relevant source sections",
+      "arxiv:1107.4225v1 — sections 4-5",
+      "arxiv:2311.11897v1 — sections II-V",
+      "arxiv:2401.01125v1 — sections II-VI",
+      "arxiv:2605.08414v1 — sections II-VI",
+      "Sharp variance envelope at fixed success probability under memoryless catastrophe (published record)",
+      "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties (published record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source proves the relation pi_z/pi_(a-z)=lambda^(a-2z), with arbitrary choice of paired supports.",
+        "The new first-cycle success formula strictly orders all those known supports.",
+        "Other relevant Brownian work changes the geometry or optimization variable."
+      ],
+      "reasoning": "The prior neutral-pair characterization defines the feasible simplex but makes all policies equivalent only for splitting, not for mean time. Existing renewal results imply a linear reduction in S_pi, not the strict hyperbolic ordering of mirror sites; the new proof establishes that missing strict inequality for all parameters and derives the asymptotic performance separation.",
+      "searches": [
+        "Unique fastest reset-neutral probability distribution for biased gambler's ruin with geometric resetting fixed splitting probability optimal pair at sites 1 and a-1 mean absorption time",
+        "Biased random walk reset distribution neutral ruin probability optimal mean first passage absorbing endpoints fixed splitting probability",
+        "arxiv:2605.00657 sections 2,4,5",
+        "arxiv:2311.11897 sections II-V",
+        "published-finding corpus: Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties (published record)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The existing neutrality condition is equivalent to reflected flux weights, but the new optimum is an ordering of discounted total absorption, not of left/right ratios.",
+        "Vega Coso Corollary 4.2 characterizes neutral weights for any *fixed* pair without comparing time among pairs."
+      ],
+      "reasoning": "Equivalent descriptions as maximizing the averaged discounted absorption probability S_pi, or minimizing the resetting MFPT, were checked. The former has a strict vertex-order proof; the latter is not just a reformulation of the published neutral-distribution criterion. It is not implied by invariance of U_pi/S_pi because that ratio remains fixed while S_pi changes, sometimes exponentially.",
+      "searches": [
+        "Reset-neutral multi-site gambler ruin geometric resetting fixed unbiased splitting probability minimize mean absorption time boundary antipodal pair cosh ratio",
+        "Unique fastest reset-neutral probability distribution for biased gambler's ruin with geometric resetting fixed splitting probability optimal pair at sites 1 and a-1 mean absorption time",
+        "arxiv:2605.00657 Theorem 4.1 and Corollary 4.2; arxiv:2605.08414 sections II-VI"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source numerical tables compare first-hit splitting couplings, not the new all-a lifetime optimizer.",
+        "Nearest indexed published-finding corpus entry optimizes a variance envelope under a fixed one-attempt success probability, not a neutral two-boundary reset location."
+      ],
+      "reasoning": "No queried indexed result or inspected source table gives the exact pairwise S_z expression as a complete optimizer table or the edge-midpoint asymptotics. The statement is not a numerical fact inferred from an unexamined database; novelty remains conditional on indexed/source coverage.",
+      "searches": [
+        "Biased random walk reset distribution neutral ruin probability optimal mean first passage absorbing endpoints fixed splitting probability",
+        "Vega Coso 2605.00657 spectral duality reset neutral distributions optimized absorption time discrete interval",
+        "published-finding corpus: Sharp variance envelope at fixed success probability under memoryless catastrophe (published record)",
+        "arxiv:2605.00657 section 5 numerical tables"
+      ]
+    },
+    "rationale": "The 2026 source already proves the reset-neutral probability ratios and exact left/right splitting; those are credited, not asserted as new. The new claim optimizes the mean lifetime over every such neutral law, proves a universal strict edge-pair ordering and an exponentially large midpoint contrast. Full mathematical sections of primary and alternative multi-site reset papers and actual indexed-result searches were compared for logical implication; a broader unindexed optimization theorem remains a risk.",
+    "residual_risks": [
+      "Unindexed literature on constrained reset-distribution optimization could subsume the hyperbolic ordering.",
+      "General renewal formulas recover the mean-time identity, which is not counted as independent originality.",
+      "Only cited primary models/theorems and accessible indexed claims were checked; this does not establish priority globally."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and proves neutrality/paired weights and channel splitting; does not state or prove optimal mean absorption time across neutral pair sites or large-a exponential latency gap.",
+        "evidence": [
+          "Theorem 2.1 gives ruin probability via U/S (source section 2.3).",
+          "Corollary 4.2 gives a two-site neutral probability ratio but not a time optimum (source section 4.2).",
+          "Sections 5-6 focus on Monte Carlo validation of splitting invariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.00657",
+        "material_read": "Complete relevant sections 2-5: definition of reset-first steps, discounted flux and renewal formula, Theorem 4.1, Corollaries 4.1-4.2, examples, discussion and conclusions.",
+        "method": "Accessible full HTML-text article, theorem equations and surrounding mathematical discussion.",
+        "title": "Spectral Duality and Reset-Neutral Distributions in Random Walks with Multi-Site Geometric Resetting",
+        "trigger": "Same finite biased nearest-neighbor model and neutral family; strongest potential coverage."
+      },
+      {
+        "assessment": "Optimizes Brownian one-target MFPT and target distributions, not two absorbing endpoints with all-reset-rate invariant splitting and finite-lattice bias.",
+        "evidence": [
+          "The stated optimization is of random reset positions in one-dimensional Brownian search with a single absorbing target."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.4225",
+        "material_read": "Introduction and model, section 4 random reset position and section 5 optimal distribution, section 6 conclusion.",
+        "method": "Open full-text HTML paper.",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "General optimization over reset distributions might dominate the problem."
+      },
+      {
+        "assessment": "Semi-infinite Brownian domain with one absorbing point; primarily optimized resetting rate at given two sites; no two-boundary neutral splitting constraint.",
+        "evidence": [
+          "Section II defines half-line Brownian walker and target at origin; sections IV-V concern rate optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+        "material_read": "Full text introduction and sections II-V via accessible arXiv HTML with model and compared target-rate optimization.",
+        "method": "Open full-text HTML paper.",
+        "title": "Diffusion with two resetting points",
+        "trigger": "Two-point reset-location optimization and mean first-passage times."
+      },
+      {
+        "assessment": "Continuous Brownian one-target geometry; neither the discrete two-boundary model nor rate-neutral constrained simplex optimization.",
+        "evidence": [
+          "The paper derives reset-distributed MFPT for a single target and an equivalent reset location."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Full text abstract, section II MFPT and sections III-VI plus conclusion.",
+        "method": "Open full-text HTML paper.",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Spatial reset-distribution optimization and equivalent reset-site reductions."
+      },
+      {
+        "assessment": "Brownian diffusion on a circle with one absorbing site and optimization of reset rate; not the constrained two-absorbing-boundary fixed-rate policy optimum.",
+        "evidence": [
+          "Equation (5) is continuous-time renewal MFPT; optimization in equation (6) explicitly selects reset rate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.08414",
+        "material_read": "Full-text introduction, section II renewal MFPT, sections III-VI optimization context, conclusions.",
+        "method": "Open full HTML text, including equation (5) and model geometry.",
+        "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+        "trigger": "Recent bounded multi-site resetting with optimized MFPT."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d2cddf7-a36b-4944-a194-a02eca94dd12",
+  "value": {
+    "rationale": "Equal reset-neutral absorption probabilities can hide dramatic differences in mean time to either boundary. The theorem finds the unique physically meaningful fastest spatial relocation policy over a naturally constrained, completely classified family for every finite lattice length, step bias, and fixed reset frequency. The divergent midpoint versus bounded edge-start clock comparison makes the distinction quantitatively substantive and useful for controlling transport with fixed splitting.",
+    "status": "PASS"
+  }
+}
