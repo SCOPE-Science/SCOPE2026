@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof uses an exact cover translation for paired Kneser vertex sets: domination plus an induced perfect matching is equivalent to vertex-cover number at least three of the selected-edge auxiliary graph. Four edges are classified using the triangle/no-triangle dichotomy and König's theorem; each surviving type is checked for a perfect matching and counted on labeled support. At five labels, a six-edge selected graph has complement with four edges: triangle-freeness leaves exactly a spanning tree or a cycle with an isolated vertex, and the cycle case is explicitly excluded by incompatible forced Kneser partners. All three tree isomorphism classes are supplied with perfect matchings, giving the Cayley count. The graph on four labels is checked directly. The verifier independently exhausts every subset through seven labels and every four-set at eight labels. All quantifiers and exceptional ranges are explicit. Limitation: computational checks are corroboration, not an infinite certificate.
+
+## Originality — PASS, provisional
+The closest primary work on the same graph objects is Cornet and Torres (2023, arXiv:2308.15603), which treats \(k\)-tuple closed-neighborhood domination on Kneser graphs and not induced perfect-matchability of the selected set. Sheng and Lu (2020, arXiv:2011.12496) discuss the Petersen-graph paired-domination number six as previously known, but do not enumerate its 125 minimum paired dominating sets or the infinite three-family count. Haynes and Slater (1998) introduce the invariant but their inspected abstract does not provide these classifications. Direct semantic searches of public research records and comparison of accessible earlier same-family claims did not locate an equivalent theorem. These negative searches are evidence of absence in searched material, not proof of novelty. Residual risks include differently worded older minimum-set classifications and inaccessible full text of the 1998 original.
+
+## Mathematical value — PASS
+The invariant is the natural minimum paired domination cardinality and number of optimizing configurations, not an artificial parameter. The five-label case provides a structural spanning-tree bijection, explaining the nonobvious count \(125\), while the infinite case has a complete list of optimal configurations and an explicit polynomial of degree eight in the ambient order. This refines known domination and Petersen minimum-number facts by distinguishing perfect-matchable selected sets and counting them exactly. No general graph-theoretic downstream theorem is asserted.
+
+## References and limits
+Primary documents: `arxiv:2308.15603` (Kneser domination, first public 2023-08-29), `arxiv:2011.12496` (paired domination of cubic graphs, first public 2020-11-25), and Haynes–Slater, DOI `10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F` (definition, abstract accessible). See `RESULT.md` for the full proof, exact ranges, source distinction and limits.
+
+Self-review: passed. Independent audit: not yet performed.
