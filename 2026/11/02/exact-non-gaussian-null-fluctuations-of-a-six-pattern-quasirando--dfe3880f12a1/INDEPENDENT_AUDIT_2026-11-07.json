@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:17:00.665971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The null is order statistics of n independent uniform points on [0,1]², giving bounded symmetric order-3/4 U-statistics. Conditioned on z=(x,y), m3=1/3+P(x)P(y)/6, m4=1/8-P(x)P(y)/8, P(t)=6t²-6t+1, so 3(m3-1/3)+4(m4-1/8)=0 pointwise. The second canonical projection K=3(b3-m3(z)-m3(w)+θ3)+6(b4-m4(z)-m4(w)+θ4) uses exact ordered-coordinate rank placement; rational polynomial integral on x<u,y<v is 121/14400. Reversal symmetry gives ||K||²=121/3600>0. Hoeffding higher-order remainder has L2 variance O(n^-3); canonical order-two spectral U-statistic theorem gives quadratic-normal limit with variance 2||K||²=121/1800 and positive fourth cumulant 48Σ λ_j^4. Independently enumerated uniform permutations n=4,5,6 and verified exact finite variances. General non-Gaussian limit follows from analysis, not finite counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Even-Zohar arXiv:1811.07883, projection framework; Janson et al. joint pattern count overview."
+        ],
+        "reasoning": "Even-Zohar provides general finite-pattern Hoeffding projections and asymptotics, and Janson–Nakamura–Zeilberger study joint pattern counts; these give methods. They do not explicitly evaluate the 2023 mixed-order six-pattern first cancellation or the exact second-kernel norm and 121/1800 coefficient in the inspected material.",
+        "searches": [
+          "six patterns force quasirandomness weighted statistic 123 321 2143 3412 2413 3142 null variance non Gaussian",
+          "arxiv:2303.04776 six patterns forcing quasirandomness sampling independence",
+          "arxiv:1811.07883 Patterns in Random Permutations higher order fluctuations",
+          "six pattern rho star asymptotic nonGaussian 121/1800"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2303.04776v4",
+        "https://arxiv.org/pdf/1811.07883",
+        "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/smp.html",
+        "Resultary semantic published-finding search: six patterns force quasirandomness weighted statistic 123 321 2143 3412 2413 3142 null variance non Gaussian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crudele–Dukes–Noel arXiv:2303.04776v4; Even-Zohar arXiv:1811.07883."
+        ],
+        "reasoning": "The prior six-pattern quasirandomness theorem implies the independence expectation and inequality but not the sampled variance or non-Gaussian scale; generic nondegenerate pattern CLTs cannot directly handle the exactly zero projection. The degeneracy and canonical K norm must be calculated before applying the standard quadratic-normal limit theorem.",
+        "searches": [
+          "six patterns force quasirandomness weighted statistic 123 321 2143 3412 2413 3142 null variance non Gaussian",
+          "arxiv:2303.04776 six patterns forcing quasirandomness sampling independence",
+          "arxiv:1811.07883 Patterns in Random Permutations higher order fluctuations",
+          "six pattern rho star asymptotic nonGaussian 121/1800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crudele–Dukes–Noel arXiv:2303.04776v4, six-pattern definition and extremal theorem."
+        ],
+        "reasoning": "The statistic is the six-pattern permuton quasirandomness functional rho-star of Crudele–Dukes–Noel evaluated on empirical permutation densities. The prior extremal population minimum 11/24 is not a limit distribution of its sampled value.",
+        "searches": [
+          "six patterns force quasirandomness weighted statistic 123 321 2143 3412 2413 3142 null variance non Gaussian",
+          "arxiv:2303.04776 six patterns forcing quasirandomness sampling independence",
+          "arxiv:1811.07883 Patterns in Random Permutations higher order fluctuations",
+          "six pattern rho star asymptotic nonGaussian 121/1800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results for the six-pattern list, no match; Crudele et al. source null test discussion."
+        ],
+        "reasoning": "Exact coefficient and spectral operator were searched by pattern list and 121/1800 against primary source and Resultary; nearest Resultary entries concerned unrelated six-frequency Fourier moment statistics. No matching precomputed pattern table was identified, without claiming exhaustive world priority.",
+        "searches": [
+          "six patterns force quasirandomness weighted statistic 123 321 2143 3412 2413 3142 null variance non Gaussian",
+          "arxiv:2303.04776 six patterns forcing quasirandomness sampling independence",
+          "arxiv:1811.07883 Patterns in Random Permutations higher order fluctuations",
+          "six pattern rho star asymptotic nonGaussian 121/1800"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. The statistic is the six-pattern permuton quasirandomness functional rho-star of Crudele–Dukes–Noel evaluated on empirical permutation densities. The prior extremal population minimum 11/24 is not a limit distribution of its sampled value.",
+      "residual_risks": [
+        "An older general pattern-moment table or later applied independence calibration could contain the same exact specialization; limited search is not proof of novelty.",
+        "Author-hosted multiple-pattern appendices were not exhaustively inspected.",
+        "Spectral eigenvalues are intrinsic but not tabulated; no finite-n error bounds, null quantiles, local alternative power or ties handled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes expectation-extremal forcing result, not concrete sampling variance and n-scaled non-Gaussian law in inspected theorem and discussion",
+          "evidence": [
+            "Crudele–Dukes–Noel 2023/2024, main six-pattern inequality and test proposal"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.04776v4",
+          "material_read": "Accessible primary full HTML: introduction, weighted pattern inequality definition, theorem/proof portions and closing independence-testing context",
+          "method": "Read source and checked variance/null fluctuation mentions in accessible full HTML",
+          "title": "Six Permutation Patterns Force Quasirandomness",
+          "trigger": "Introduces exact six-pattern weighted statistic and proposed test"
+        },
+        {
+          "assessment": "General asymptotic methodology but no identical later-created statistic and coefficient",
+          "evidence": [
+            "Even-Zohar 2018, projection framework and pattern counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.07883",
+          "material_read": "Original PDF introduction, projection and asymptotic theorem text, relevant nonnormal discussion",
+          "method": "Read primary theory/method and inspected PDF page image",
+          "title": "Patterns in Random Permutations",
+          "trigger": "General pattern-count Hoeffding projection theory"
+        },
+        {
+          "assessment": "No direct matching six-pattern mixed-order calibration in material inspected; appendix overlap remains a risk",
+          "evidence": [
+            "Janson–Nakamura–Zeilberger author overview"
+          ],
+          "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/smp.html",
+          "material_read": "Author-hosted overview and displayed sample results; not entire supporting appendices",
+          "method": "Compared general joint-pattern counting context, no full-document negative claim",
+          "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+          "trigger": "Joint pattern covariance formulas may cover linear combinations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This weighted six-pattern statistic is proposed as a quasirandomness/independence diagnostic; its null scale, exactly vanishing linear influence, variance constant and intrinsically nonnormal calibration are necessary to understand a rigorous test. The Legendre-product cancellation is a motivated structural phenomenon, not an arbitrary small-parameter table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older general pattern-moment table or later applied independence calibration could contain the same exact specialization; limited search is not proof of novelty.",
+    "Author-hosted multiple-pattern appendices were not exhaustively inspected.",
+    "Spectral eigenvalues are intrinsic but not tabulated; no finite-n error bounds, null quantiles, local alternative power or ties handled."
+  ],
+  "schema_version": 1
+}

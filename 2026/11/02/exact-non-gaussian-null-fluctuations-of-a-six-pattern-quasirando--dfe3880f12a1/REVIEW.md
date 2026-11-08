@@ -1,19 +1,21 @@
-# Review of the six-pattern null fluctuation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The object is the precisely defined weighted sum of normalized three- and four-point pattern densities for a uniformly random permutation of length at least four. The first conditional projections are exact multiples of the same centered polynomial product, with opposite coefficients; the weighted combination therefore cancels pointwise. The explicitly defined canonical second kernel has squared \(L^2\) norm \(121/3600\), obtained by rational polynomial integration on the four coordinate-order chambers. Standard fixed-order Hoeffding decomposition and the canonical second-order U-statistic limit then prove the spectral limit and asymptotic variance \(121/1800\). The packaged checker reproduces the rational identities, including exhaustive sizes four through seven. A computation does not, by itself, establish the infinite-sample theorem; that step relies on the stated analytic decomposition and spectral limit.
+PASS
 
-## Originality
+The null is order statistics of n independent uniform points on [0,1]², giving bounded symmetric order-3/4 U-statistics. Conditioned on z=(x,y), m3=1/3+P(x)P(y)/6, m4=1/8-P(x)P(y)/8, P(t)=6t²-6t+1, so 3(m3-1/3)+4(m4-1/8)=0 pointwise. The second canonical projection K=3(b3-m3(z)-m3(w)+θ3)+6(b4-m4(z)-m4(w)+θ4) uses exact ordered-coordinate rank placement; rational polynomial integral on x<u,y<v is 121/14400. Reversal symmetry gives ||K||²=121/3600>0. Hoeffding higher-order remainder has L2 variance O(n^-3); canonical order-two spectral U-statistic theorem gives quadratic-normal limit with variance 2||K||²=121/1800 and positive fourth cumulant 48Σ λ_j^4. Independently enumerated uniform permutations n=4,5,6 and verified exact finite variances. General non-Gaussian limit follows from analysis, not finite counts.
 
-**PASS, subject to historical-priority risk.** The 2023 six-pattern quasirandomness paper establishes a universal extremal inequality and suggests independence testing, but the inspected text does not give the statistic's sampling null limit or its exact variance coefficient. The 2018 general random-permutation-pattern theory supplies the Hoeffding/spectral methodology but predates this combination and does not calculate its cancellation or numerical coefficient. Searches for equivalent formulations, broader implications, and exact tabulations did not identify a directly covering result. An unlocated stronger specialized result is possible and remains a risk; no uniqueness or exhaustive-literature claim is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact fluctuation scale, non-Gaussian character, and leading variance are directly relevant to calibration of the six-pattern independence diagnostic proposed by the source article. The derivation isolates a structural Legendre-product cancellation across pattern orders, which explains why an ordinary normal approximation at \(\sqrt n\) scale fails. The claim does not assert fully tabulated critical values or quantitative rates.
+Best-of-knowledge comparison of mathematical claims, implications, aliases and relevant primary texts; general tools are credited and historical priority is qualified. The statistic is the six-pattern permuton quasirandomness functional rho-star of Crudele–Dukes–Noel evaluated on empirical permutation densities. The prior extremal population minimum 11/24 is not a limit distribution of its sampled value.
 
-## Closest literature and remaining limitations
+## value
 
-The closest sources are Crudele–Dukes–Noel (arXiv:2303.04776, first posted 2023-03-08), Even-Zohar (arXiv:1811.07883), and the joint-pattern asymptotics of Janson–Nakamura–Zeilberger. All identify useful context; the exact coefficient and mixed-order degenerate null law were not found therein. The eigenvalue list is implicit, and there is no independent reproduction of the full proof beyond the packaged exact algebraic checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This weighted six-pattern statistic is proposed as a quasirandomness/independence diagnostic; its null scale, exactly vanishing linear influence, variance constant and intrinsically nonnormal calibration are necessary to understand a rigorous test. The Legendre-product cancellation is a motivated structural phenomenon, not an arbitrary small-parameter table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
