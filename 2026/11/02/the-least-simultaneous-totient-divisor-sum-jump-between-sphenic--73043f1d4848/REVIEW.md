@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Equal changes of the two multiplicative arithmetic functions force equality of the first two elementary symmetric sums of the prime triples. Their monic cubics differ by the positive shift, forbidding a common prime. The evenness of the totient on integers greater than two forces an even shift; the common-prime obstruction eliminates the prime two. Normalization by the smallest of six odd primes yields even offsets \(a<b<c\), with \(abc=h\) and a quadratic discriminant square criterion. Strictly below \(320\), five possible smaller-offset pairs yield exactly \(37\) candidates. All nonnegative-square discriminants are displayed; only two represent distinct offsets, and each has a prime obstruction modulo \(3\). Exact multiplication and function values certify the \(320\) witness. The finite enumeration becomes an infinite exclusion only through the proved normalization.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The full accessible arXiv text of Choudhury–Wei treats the fixed increment \(12\) and explicitly its two-prime squarefree case, whereas this theorem optimizes the increment over the three-prime squarefree class. The MathWorld Prouhet–Tarry–Escott account establishes the old equal-power-sums framework but does not give a minimum prime-realizable increment. OEIS A056777 fixes the increment at \(12\), so it cannot tabulate this variable-shift extremal invariant. Searches of research findings and targeted web formulations recovered no implication of the \(320\) cutoff; this is not proof of absolute priority. Earlier unindexed prime-restricted Prouhet computations are the principal residual risk.
+PASS
 
-**Mathematical value — PASS.** This is the sharp first admissible shift for a natural extension of an active two-function jump problem from two distinct prime factors to three. The proof replaces an unbounded scan over both arguments by \(37\) finite normalized parity-compatible cases and a local prime obstruction, and the minimum is attained with six explicit distinct primes. A sharp natural cutoff is useful independently of an infinitude result. The classification is specific to the three-prime squarefree stratum and is not asserted to hold in other families.
+Directly reconstructed multiplicative expansions: equal increments force equality of first and second elementary symmetric sums of two distinct prime triples. Subtracting their monic cubics gives constant h and disjoint prime supports. Parity forces all six primes odd. Normalizing the globally least prime t to the first triple yields even offsets (0,u,v),(a,b,c), with a<b<c, h=abc, and the required positive square discriminant (a+b+c)^2-4(ab+ac+bc)=(v-u)^2. For h<320 the strict offset-product inequality exhausts exactly 37 triples and leaves just two nondegenerate square shapes, at h=96 and 192; each covers all residues modulo 3 and is impossible for t>3; t=3 gives a composite 15 or 9. The six claimed witness factors are prime, their pair sums agree, and phi/sigma jumps both equal 320. Independent integer program enumerated all 37 constrained shapes and verified the two impossibilities and witness. Finite search proves the universal exclusion only because the algebraic normalization bounds all candidate offset triples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the prime-realizable least variable positive shift within exactly-three-distinct-primes, not for classical equal-power-sum identities. Published fixed-shift 12 semiprime analyses do not establish a lower bound across all shifts in the sphenic class.
+
+## value
+
+PASS
+
+The first simultaneous shift is a natural sharp arithmetic boundary in a classical paired-function problem; deriving a complete finite normalized obstruction plus an attaining six-prime witness is structurally stronger than a small-range scan. The exact 320 cutoff could be reused in studying possible jumps by prime-support size. No infinitude claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

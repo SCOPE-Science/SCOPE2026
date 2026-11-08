@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`. Run `python3 verify.py` to reproduce the bounded integer discriminant census of \(37\) triples arising from the proved normalization \(h=abc<320\), the modulo-\(3\) exclusions of the two positive-square cases, and the values for the explicit \(320\) witness. The script uses standard Python 3 only, exact integer arithmetic and trial division for its six small primality checks.
+## correctness
 
-Expected certificate includes `tested_normalized_even_offset_triples=37`, `subthreshold_shapes=[(96,...),(192,...)]`, and `jump=320`. A finite list over the normalized differences is exhaustive because the algebraic argument bounds \(a\le4\) and the increasing even offsets \(b,c\), not because an integer search over \(n\) terminated. It does not claim to enumerate all pairs at shift \(320\) or to have received independent scientific auditing.
+PASS
+
+Directly reconstructed multiplicative expansions: equal increments force equality of first and second elementary symmetric sums of two distinct prime triples. Subtracting their monic cubics gives constant h and disjoint prime supports. Parity forces all six primes odd. Normalizing the globally least prime t to the first triple yields even offsets (0,u,v),(a,b,c), with a<b<c, h=abc, and the required positive square discriminant (a+b+c)^2-4(ab+ac+bc)=(v-u)^2. For h<320 the strict offset-product inequality exhausts exactly 37 triples and leaves just two nondegenerate square shapes, at h=96 and 192; each covers all residues modulo 3 and is impossible for t>3; t=3 gives a composite 15 or 9. The six claimed witness factors are prime, their pair sums agree, and phi/sigma jumps both equal 320. Independent integer program enumerated all 37 constrained shapes and verified the two impossibilities and witness. Finite search proves the universal exclusion only because the algebraic normalization bounds all candidate offset triples.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the prime-realizable least variable positive shift within exactly-three-distinct-primes, not for classical equal-power-sum identities. Published fixed-shift 12 semiprime analyses do not establish a lower bound across all shifts in the sphenic class.
+
+## value
+
+PASS
+
+The first simultaneous shift is a natural sharp arithmetic boundary in a classical paired-function problem; deriving a complete finite normalized obstruction plus an attaining six-prime witness is structurally stronger than a small-range scan. The exact 320 cutoff could be reused in studying possible jumps by prime-support size. No infinitude claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
