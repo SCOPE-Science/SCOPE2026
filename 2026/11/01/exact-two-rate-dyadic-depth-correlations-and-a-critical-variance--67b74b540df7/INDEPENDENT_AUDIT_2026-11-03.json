@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py, snapshot tree b03654f4b59564ff8692f917a00200e0c16599e1",
+        "Independent numerical Markov transitions for q=2/5; exact proof for all q in RESULT.md"
+      ],
+      "rationale": "Read actual RESULT.md and verify.py. At positive levels the countable Markov depth chain holds with probability 1-q and descends with q; level zero regenerates geometric depth 2^{-j-1}. Direct stationary balance gives pi_0=q/(1+q) and pi_k=2^{-k}/(1+q). The signed-row identities wP=sw+dv* and v*P=rv*, including level-zero boundaries, rigorously give C_n=2(1-q/2)^n+2q(1-q)/(1+q)^2*((1-q)/2)^n. Summing lags yields exact finite variance and Green-Kubo coefficient. A polynomial Poisson solution and martingale CLT establish fixed-q CLT; a uniform-grid/Riemann-sum argument establishes the triangular Nq_N->t crossover. Independently recomputed finite-state transition covariance at q=2/5 for lags 0,1,2,3,5,10 with numerical errors under 1e-9; this is corroboration, not proof of infinite chain or CLT.",
+      "residual_risks": [
+        "Technical martingale CLT requires stationary ergodicity and square-integrability of Poisson h; both supplied by irreducibility, aperiodicity and geometric pi tail.",
+        "At q=0 irreducibility fails; only limit from q>0 asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pelikan gives general random invariant-density theory.",
+          "arXiv:2103.04712 addresses thermodynamic formalism/mixing on random open maps, not this exact all-lag depth covariance."
+        ],
+        "reasoning": "Qualitative CLT/mixing cannot dictate explicit fast/slow coefficients or the singular q_N~1/N finite-window variance law.",
+        "searches": [
+          "Pelikan invariant densities random maps interval 1984",
+          "Atnip Froyland González-Tokman Vaienti arXiv:2103.04712",
+          "random interval map Maldonado Perez Otero dyadic depth autocovariance exact critical variance crossover"
+        ]
+      },
+      "checked_sources": [
+        "Original thesis Chapter 4, DOI 10.1063/5.0051242 abstract",
+        "Pelikan (1984) DOI 10.2307/2000087",
+        "Atnip et al. arXiv:2103.04712 abstract",
+        "Resultary semantic query random interval map Maldonado Perez Otero dyadic depth autocovariance exact critical variance crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original 2021 work gives invariant density; thesis Theorem 4.13 and equation (4.6) reproduce it.",
+          "Depth covariance uses distinct countably many dyadic states and a nontrivial signed-row decomposition."
+        ],
+        "reasoning": "Having the invariant density alone does not determine time covariance of an unbounded dyadic-depth observable; the proof supplies new joint transition information.",
+        "searches": [
+          "doi:10.1063/5.0051242",
+          "IPICYT thesis handle 11627/5859 Chapter 4.4",
+          "Pelikan 1984 random maps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The depth process is an infinite geometric-reset/holding countdown chain, distinct from position autocorrelation and invariant-density eigenmodes.",
+          "Thesis §4.4 writes the two maps and density but no dyadic-depth process."
+        ],
+        "reasoning": "Comparing the same random maps and the equivalent regenerative depth chain, exact two-eigenmode covariance would require an explicit infinite observable calculation absent from inspected prior material.",
+        "searches": [
+          "random interval map Maldonado Perez Otero dyadic depth autocovariance exact critical variance crossover",
+          "Pérez Otero thesis Chapter 4 §§4.4,4.5.6",
+          "random renewal depth reset geometric Markov chain covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest returned records concerned other random expanding circle maps/grid collapse, not this random interval-map depth observable.",
+          "Neither the source thesis model equations nor its displayed numerical correlation section lists the present C_n or F(t)."
+        ],
+        "reasoning": "No matching exact table was found in searched records; absence is not a proof of world priority, and the original publisher article is an explicit residual risk.",
+        "searches": [
+          "Resultary search: random interval map Maldonado Perez Otero dyadic depth autocovariance exact critical variance crossover",
+          "Maldonado Pérez Otero dyadic depth variance correlation table"
+        ]
+      },
+      "rationale": "The known model and stationary density are credited; the exact all-lag unbounded-depth covariance and critical Nq scaling are not given by the inspected model thesis and are not implied by two-cell density or qualitative general mixing/CLT theorems.",
+      "residual_risks": [
+        "2021 Chaos full text inaccessible: institutional access returned vpn_disconnected; uninspected article could contain overlapping correlation formulas.",
+        "Unindexed equivalent regenerative-chain formulas possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background model/density reproduced; later numerical correlations concern a different family",
+          "evidence": "§4.4 Eq. (4.5) maps and Eq. (4.6) density; no dyadic-depth all-lag law in reviewed material.",
+          "identifier_or_url": "https://repositorio.ipicyt.edu.mx/handle/11627/5859",
+          "material_read": "Full relevant Chapter 4 §4.4 maps and Theorem 4.13 stationary density, pages 49–52 printed (PDF around pages 58–62), plus §4.5.6 context",
+          "method": "Read original thesis PDF text and page image",
+          "title": "Invariant densities and phase transition phenomenon in random maps in the interval (doctoral thesis)",
+          "trigger": "Same authors and exactly the two interval maps"
+        },
+        {
+          "assessment": "No whole-document noncoverage claim; explicit incomplete primary reading residual risk",
+          "evidence": "Maldonado and Pérez Otero, Chaos 31 (2021), 093112; abstract summarizes invariant density/phase transition.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0051242",
+          "material_read": "Bibliographic record and article abstract only; full publisher text inaccessible",
+          "method": "Open/preprint searches then authorized institutional retrieval (disconnected)",
+          "title": "Phase transition in piecewise linear random maps in the interval",
+          "trigger": "Original same-map 2021 article is a plausible direct priority source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original 2021 same model, thesis Chap. 4",
+        "Exact limiting arguments in source RESULT.md"
+      ],
+      "rationale": "The exact covariance and CLT variance quantify the memory of an unbounded natural state observable in a known critical random interval map. The Nq_N crossover is a mathematically meaningful degeneration of ergodicity, with explicit interpolation between ballistic N² and diffusive N/q fluctuations; neither follows from merely knowing the stationary two-cell density.",
+      "residual_risks": [
+        "No quenched/fixed-start or q=0 theorem; value is confined to the stationary annealed process."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No quenched or arbitrary initial distribution assertion.",
+    "2021 original paper only abstract accessible; novelty is best-of-knowledge and the full-text priority comparison is limited."
+  ],
+  "schema_version": 1
+}
