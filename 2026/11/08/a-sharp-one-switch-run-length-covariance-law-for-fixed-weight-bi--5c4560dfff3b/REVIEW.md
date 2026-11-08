@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Marking an exact-length run gives a two-forced-zero conditional sample, from which a closed conditional expectation and factorization follow. The unusual \(n=\ell+2\) boundary is proved separately. The strictly decreasing affine sign criterion proves the unique switch for every nondegenerate fixed sample, and standard fixed-\(\ell\) limits prove the density transition. Standalone exact rational enumeration of all circular fixed-composition binary words with \(3\le n\le14\) and further sign sweeps through \(n=149\) passed 22,288 assertions. The infinite statement does not rest on finite enumeration.
+
+**Originality — PASS, with significant historical-priority risk.** Inoue and Aki's (2005) multivariate circular-run p.g.f. and Theorem 4.4 already give general mixed-moment recursions, hence algorithmically cover the covariance itself. The putatively new statement is the all-size *factored sign law* and exact one-switch phase classification, neither found in the inspected original text. Makri et al. (2007), Eryilmaz (2008), and Makri et al. (2013) are closely related distributional treatments; the 2010 Inoue–Aki conditional-run work could be inspected only by abstract. Derivability through nontrivial reduction of earlier general formulas does not by itself establish historical priority, so an independent literature review remains needed.
+
+**Value — PASS.** A general classification of signs for every fixed-weight circle and every run length distinguishes local size frequencies from total clustering, with a sharp arithmetic zero condition and density phase transition. Its object and invariant are canonical in finite run statistics, not an arbitrary finite parameter selection.
+
+Self-review: passed. Independent audit: not yet performed.

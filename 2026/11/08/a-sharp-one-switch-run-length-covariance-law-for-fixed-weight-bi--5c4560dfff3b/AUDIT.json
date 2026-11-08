@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a marked exact-length run leaves a uniformly sampled fixed-composition linear segment. Its expected extra run count is (k-ell)(n-k-1)/(n-ell-2), giving the exact covariance and all boundaries. The affine sign polynomial has strictly negative slope, positive first point and negative last point, with the special last boundary checked directly. Exact independent enumeration n=3..14 and phase scans n=4..149 passed 22,288 rational assertions. Finite checks supplement, not establish, infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inoue--Aki 2005 Theorem 4.4 is a general recurrence for circular joint mixed moments; it potentially computes the exact covariance.",
+        "Eryilmaz 2008 Theorem 1 sums over run-length compositions, providing generic distributional coverage."
+      ],
+      "reasoning": "The new result is not a new existence theorem for an exact mixed moment or a substitute joint law: it identifies a closed form and universal sign boundaries across all lengths and fixed compositions. These classifications require additional deductions not established in inspected primary text; a fully general joint distribution remains a priority risk.",
+      "searches": [
+        "Inoue Aki 2005 Theorem 4.4 circular joint mixed moments",
+        "Eryilmaz 2008 theorem 1 joint distribution run statistics urn",
+        "Inoue Aki 2010 conditional success runs on a circle abstract"
+      ]
+    },
+    "checked_sources": [
+      "10.1007/BF02507029",
+      "10.1239/aap/1198177236",
+      "10.1239/jap/1231340230",
+      "10.5539/ijsp.v2n3p50",
+      "Inoue and Aki (2010), Statistics & Probability Letters 80, 874-885"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inoue--Aki 2005 gives mixed-moment recurrence and numeric correlation plots, so the covariance is covered algorithmically but not its simplified inequality or exact phase line.",
+        "The 2007 and 2008 papers provide exact distributions but their inspected theorems do not directly yield the claimed sign switch without substantive reduction.",
+        "The 2013 paper treats occurrence counts, not this cross-statistic dependence."
+      ],
+      "reasoning": "The meaningful proposed distinction is the theorem proving one unique sign transition with an affine zero criterion and fixed-density threshold. It is a consequence of a new elementary marked-run conditioning and factorization, rather than a relabeled marginal; historical implicit coverage cannot be excluded without a literature-wide independent review.",
+      "searches": [
+        "Inoue Aki 2005 full paper section 4.2 mixed moment formula and section 5",
+        "Makri 2007 sections 2-4 conditional run statistics",
+        "Eryilmaz 2008 section 3 run-length compositions",
+        "Makri Psillakis Arapis 2013 circular overlapping counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inoue--Aki 2005 defines Type II at-least-k and Type IV exact-k run counts, with multivariate generating functions, sections 2--5.",
+        "Makri et al. 2007 explicitly identifies G_(n,1) as total run count and E_(n,k) as exact-length run count."
+      ],
+      "reasoning": "The target is equivalent to covariance of Type II length-one and Type IV length-ell on fixed-composition circles. Earlier multivariate p.g.f. techniques can recover the mixed moment, but no inspected sign-factorization or one-switch theorem is stated.",
+      "searches": [
+        "\"number of runs\" \"run size\" cyclic conditional success frequency covariance",
+        "Inoue Aki 2005 joint distributions specified lengths circular runs full PDF",
+        "Makri Philippou Psillakis 2007 exact-length runs circular urn conditional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inoue--Aki 2005 section 5 graphs Pearson correlations of run counting schemes at a fixed threshold under iid Bernoulli trials, not sign tables indexed by n,k,ell under fixed composition."
+      ],
+      "reasoning": "No inspected exact table gives the all-parameter sign formula or a matching fixed-weight sign classification. The exhaustive small-n checks here independently verify algebra but are not literature novelty evidence.",
+      "searches": [
+        "circular fixed weight run count exact length covariance zero crossing table",
+        "Inoue Aki 2005 correlation figures 1-12 page 364-366"
+      ]
+    },
+    "rationale": "The structural sign theorem and its exact zero set were not found in inspected original primary texts. The broad 2005 multivariate generating-function theorem does give an algorithm to derive the moment, so computational novelty of the covariance alone is NOT claimed; the contribution is the factored closed form and nonobvious complete sign classification. Implicit coverage remains a material priority risk.",
+    "residual_risks": [
+      "Inoue and Aki (2005) already give a general joint p.g.f. whose coefficient extraction determines the mixed moment; a preexisting reduction might also give the sign classification.",
+      "The close Inoue and Aki (2010) conditional-circle article was only accessible by abstract.",
+      "Other older ring run-statistics papers or tables may implicitly contain the factored threshold.",
+      "Original day-level dates for earlier primary papers are unavailable; the dated 2013 source is a conservative day-verified anchor, not a claim that the literature starts in 2013."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit broad mixed-moment machinery; stronger computational coverage, but no inspected strict all-parameter sign-switch theorem under fixed composition",
+        "evidence": [
+          "Definition of Types II and IV; Theorem 4.4 recursive mixed moments; section 5.2 correlation plots for fixed threshold."
+        ],
+        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+        "material_read": "Full article pp. 353-368, particularly definitions, sections 2-5, Theorem 4.4, and correlation plots",
+        "method": "Public full-text PDF inspected in text and page render",
+        "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+        "trigger": "Same objects: joint circular exact-length and at-least-length run counts"
+      },
+      {
+        "assessment": "Defines exact-length and at-least-length counts and single-threshold joint run measures; no inspected universal mixed covariance sign law",
+        "evidence": [
+          "Definitions of E_(n,k), G_(n,k), and M_(n,k); conditional distributions given successes."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C3B5A694CDFF993F8C769CD78754DF61/S0001867800002202a.pdf/success_run_statistics_defined_on_an_urn_model.pdf",
+        "material_read": "Full PDF introduction, definitions, and distributions and moment sections, including pp. 991-1019",
+        "method": "Public full-text PDF text and page renders",
+        "title": "Success run statistics defined on an urn model",
+        "trigger": "Same run models and fixed-composition conditional statistics"
+      },
+      {
+        "assessment": "Theorem 1 gives general distributional coverage, potentially including the mixed moment; does not state the affine covariance-sign boundary",
+        "evidence": [
+          "Theorem 1 and its run-length composition sum; Theorems 2-3 for per-color run counts."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F863F78C31086D3F9C4D80477BBE1291/S0021900200004940a.pdf/run-statistics-defined-on-the-multicolor-urn-model.pdf",
+        "material_read": "Full PDF pp.1007-1023, theorem 1, theorems 2-3, proof and discussion",
+        "method": "Public full-text PDF text and page renders",
+        "title": "Run statistics defined on the multicolor urn model",
+        "trigger": "General mixed run-length compositions and multicolor urn sampling"
+      },
+      {
+        "assessment": "Focuses on marginal overlapping run occurrence counts, not conditional exact-length versus total-run covariance",
+        "evidence": [
+          "The paper states Online Published: July 9, 2013 and treats circular run-count formulae."
+        ],
+        "identifier_or_url": "https://ccsenet.org/journal/index.php/ijsp/article/view/28864",
+        "material_read": "Publisher abstract and available full public paper text, including introductory definitions and conclusion",
+        "method": "Journal landing page and accessible author/publisher full-text mirror",
+        "title": "Counting Runs of Ones with Overlapping Parts in Binary Strings Ordered Linearly and Circularly",
+        "trigger": "Exact circular run statistics and verified original public date"
+      },
+      {
+        "assessment": "Inaccessible plausible source; conditional single-count distributions could imply further moments. No claim of whole-paper noncoverage.",
+        "evidence": [
+          "Abstract says exact conditional and unconditional distributions and moment formulas for cyclic success runs."
+        ],
+        "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v80y2010i9-10p874-885.html",
+        "material_read": "Bibliographic abstract only; full text not accessed",
+        "method": "Publisher-indexed abstract and citation records",
+        "title": "On the conditional and unconditional distributions of the number of success runs on a circle with applications",
+        "trigger": "Highly relevant 2010 conditional run statistics on the circle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c4560df-ff3b-4fea-95f4-a7fff01fc0db",
+  "value": {
+    "rationale": "The exact single transition is a natural classification of how cluster number co-varies with cluster-size frequency under a fixed number of occupied sites on a ring. The arithmetic zero criterion and density threshold clarify clustering effects in finite-size percolation and circular run tests; this goes beyond an algorithm to compute a moment or a single illustrative example.",
+    "status": "PASS"
+  }
+}
