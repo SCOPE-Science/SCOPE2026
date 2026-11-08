@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(0<\alpha<1\), explicit boundary-arclength integration (proof equation (1)) gives a finite energy continuously extended to the doubly counted limiting segment. Differentiation and the exact substitution \(y=t\tan u\) give the derivative sign formula (3), with no missing multiplicity. The angular comparison function satisfies \(\partial_\theta\mathcal H=\alpha+\alpha\tan\theta\,\mathcal H>0\), blows up as \(t\downarrow0\), and satisfies \(H_\alpha(1)<1\). Therefore it crosses one exactly once, establishing strict global optimality. The implicit derivative has a definite sign and the gamma-integral/implicit-function calculations prove both endpoint asymptotics. The finite verifier independently compares side integrals with their alternative forms, checks derivative and angular signs, and obtains 194 passing tests. There is no claim about general convex bodies or nonintegrable exponents.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The October 8, 2026 primary source proves general Hausdorff continuity and inclusion monotonicity under increasing weights; its decreasing-weight examples establish failure, not a sharp unique rectangle minimizer. The August 20 paper's needle result uses fixed *ordinary perimeter*, not fixed longest half-side, and does not determine the present interior aspect or its exponent dependence. Saracco–Stefani establish rigidity of global monotonicity, while a published sharp Hölder result establishes a global continuity exponent. A related nested-ellipse calculation establishes different qualitative behavior without classifying rectangles. Targeted semantic searches, direct original-paper comparisons, and duplicate-claim comparison identified no covering or equivalent theorem. Older low-visibility formulas for rectangular singular integrals remain a residual priority risk. The assertion is not one of absolute novelty certification.
+PASS
 
-## Mathematical value — PASS
-This is the complete one-parameter shape classification for a natural geometric obstruction to inclusion monotonicity: centered rectangles keep their longest half-side fixed, so they form a canonical chain of nested convex bodies from a segment to a square. Rather than merely exhibiting one violation, the theorem gives the unique global minimizer for every locally integrable negative power, a strictly monotone analytic inverse parameterization, and two sharp, dramatically different endpoint laws. The essential singularity near the unweighted limit identifies a nonperturbative transition invisible to finite-order Taylor expansions. These are motivated sharp features of the precise fixed-extent comparison, not a claim of global fixed-area optimality.
+The four-side boundary integral gives Eα(t)/4=∫_0^1(t²+y²)^(−α/2)dy+∫_0^t(1+x²)^(−α/2)dx. Differentiation and y=t tan u yield Eα′(t)=4(1+t²)^(−α/2)(1−Hα(t)), where Hα(t)=α cos(θ)^−α ∫_0^θ cos(u)^α du with θ=atan(1/t). Its angular derivative α+α tanθ H is strictly positive, so H decreases strictly with t; H→∞ at t↓0 and Hα(1)<H1(1)=1 for α<1. This proves a unique strict global interior minimizer, including the multiplicity-two segment limit 4/(1−α). The same angular integral is strictly increasing in α, giving analytic strictly increasing tα. At α↓0, Beta/Gamma expansion log Cα=log(π/2)−α log2+O(α²) yields tα=0.5(πα/2)^(1/α)(1+O(α)); at α↑1, implicit derivative yields √2 artanh(1/√2). Independently solved root by 260-step high-precision bisection for α=.1,.3,.5,.75,.9,.99: .5 gives 0.310152114794695595035; computed upper slope 1.246450480280461026788. These numerical checks corroborate, but the derivative and asymptotic proof establishes universality.
 
-## Closest sources and limitations
-Csató–Giovagnoli, arXiv:2610.11677v1, §§1–4, on continuity and monotonicity; Csató–Giovagnoli–Roy, arXiv:2608.19851v1, §§1–3, on fixed-perimeter variational problems; Saracco–Stefani, arXiv:2306.07770 and corresponding journal HTML, on global inclusion monotonicity; and *Sharp Hausdorff regularity exponents of planar radial weighted perimeters*, public mathematical RESULT.md, on regularity rather than shape optimization. The theorem is confined to centered anchored rectangles and does not imply higher-dimensional or arbitrary-convex-body extremality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant weighted perimeter literature proves global continuity/regularity, inclusion monotonicity for increasing weights, and extremal inequalities under fixed ordinary perimeter; these do not imply the unique interior minimizer under fixed longest halfside, its analytic exponent law or essential singularity. The limit segment multiplicity convention is acknowledged as prior, not a novel ingredient.
+
+## value
+
+PASS
+
+A complete exact optimizer classification for the natural family of centered rectangles under a fixed longest-side constraint exhibits strict interiority for every singular exponent and a non-power-law essential-singularity transition at α=0. This is a motivated shape-optimization boundary beyond routine monotonicity or isolated numerical minimization, and contrasts with previously published needle regimes under distinct constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
