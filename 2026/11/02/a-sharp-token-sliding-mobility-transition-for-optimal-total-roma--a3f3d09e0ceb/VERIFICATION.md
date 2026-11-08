@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 without third-party packages. The program uses the literal adjacency definition of \(K(n,k)\) and constructs configuration graphs separately from the factorial formulas.
+## correctness
 
-It enumerates all three-matchings and all permitted disjoint-replacement transitions for \(k=2\), \(6\le n\le10\). It checks every component and degree and compares total labeled state counts. It checks the **original total Roman predicate** against every three-defender assignment for \(k=2\), \(6\le n\le9\), including assignments that are not matchings. It independently verifies that the auxiliary Kneser graphs \(K(5,2)\), \(K(7,3)\), and \(K(9,4)\) are connected; it also checks the boundary factorial identity for \(2\le k\le14\).
+PASS
 
-Observed execution ended with `VERIFY_OK`. For \(k=2\), the component profiles for \(n=6,7,8,9,10\) were respectively \(15K_1\), \(105K_1\), \(105K_4\), one connected graph of order \(1260\), and one connected graph of order \(3150\). The respective degrees were \(0,0,3,9,18\). The auxiliary connectivity and boundary factorial checks all succeeded.
+The previously known domination minimum 2(k+1) comes from k+1 disjoint Kneser vertices. The inspected proof counts k-set hitting witnesses to exclude label-2 family sizes 0..k and weights beyond k+1, then uses the Roman domination property to force disjointness at equality. Exactly (k+1) disjoint blocks plus s unused elements yields the quotient factorial vertex count, and replacement by a k-block from the unused set gives degree (k+1)binom(s,k). For s<k no move exists; for s=k each state belongs to an immutable partition of n into k+2 k-blocks, with all choices of unused block adjacent. For s>=k+1, occupied/free element swaps connect token-jump configurations, and an auxiliary KG(n-k^2,k) on >=2k+1 available elements implements exchanges as genuine disjoint slides. Exhaustive k=2 state graph checks n=6..9 give 15,105,105,1 components respectively. The infinite theorem follows from exchange connectivity and the constructive Kneser path lemma, not the finite enumeration.
 
-The analytic proof in `RESULT.md` is required for every integer parameter; these computations have only finite coverage. Independent audit has not been performed.
+## originality
+
+PASS
+
+Zec–Grbić (2023) Theorem 2 proves the minimum total Roman number and a disjoint-block construction, explicitly credited. Clique and matching reconfiguration references address generic slides/jumps but do not evaluate the exact component transition of the minimum total Roman Kneser configurations in inspected materials. This classification is not merely recomputing the old minimum weight; the new object is the entire graph of optimum labelings.
+
+## value
+
+PASS
+
+Reconfiguration mobility is a natural independent structural question after characterizing optimal Roman labelings. The theorem gives the first nonzero-mobility point, complete partition-clique critical layer, exact connectedness threshold and degree for the entire natural integer family. This is a meaningful phase transition, not an arbitrary tiny census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

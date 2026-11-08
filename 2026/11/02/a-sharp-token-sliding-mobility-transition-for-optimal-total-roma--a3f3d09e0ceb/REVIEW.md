@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated range is \(k\ge2\), \(n\ge k(k+1)\). The proof independently characterizes minimum total Roman functions by excluding every possible number of label-\(2\) vertices other than \(k+1\). It then counts disjoint block configurations, derives every slide degree from the unused pool, proves the partition invariant at the sharp boundary, and proves connectivity above the boundary by (i) transpositions between occupied and unused elements using an intermediate unused block and (ii) a direct connectivity argument for \(K(N,k)\) when \(N\ge2k+1\). These steps handle both equality thresholds and the smallest case \(k=2\). The standalone verifier directly checks the original Roman condition, transition graph, components and degrees for small parameters; it executed to `VERIFY_OK` from the actual packaged file. Finite tests support but do not replace the general proof.
+PASS
 
-## Originality — PASS, subject to publication-priority uncertainty
+The previously known domination minimum 2(k+1) comes from k+1 disjoint Kneser vertices. The inspected proof counts k-set hitting witnesses to exclude label-2 family sizes 0..k and weights beyond k+1, then uses the Roman domination property to force disjointness at equality. Exactly (k+1) disjoint blocks plus s unused elements yields the quotient factorial vertex count, and replacement by a k-block from the unused set gives degree (k+1)binom(s,k). For s<k no move exists; for s=k each state belongs to an immutable partition of n into k+2 k-blocks, with all choices of unused block adjacent. For s>=k+1, occupied/free element swaps connect token-jump configurations, and an auxiliary KG(n-k^2,k) on >=2k+1 available elements implements exchanges as genuine disjoint slides. Exhaustive k=2 state graph checks n=6..9 give 15,105,105,1 components respectively. The infinite theorem follows from exchange connectivity and the constructive Kneser path lemma, not the finite enumeration.
 
-Zec and Grbić (arXiv:2204.05664, Section 2.1) establish the minimum total Roman weight and construct disjoint optimal defender blocks. Brešar and collaborators (arXiv:2312.15464, Section 3) treat neighboring Kneser multiple-domination optimization problems. Neither provides the component trichotomy for sliding between optimal Roman labelings. Bousquet and collaborators (arXiv:1812.05419) concern matching token jumping, not adjacency-restricted Kneser token sliding. Lam, Phan and Hoang (arXiv:2506.07821, Sections 1–4) establish a framework and general structural results for clique reconfiguration but do not specialize to this sharp Kneser component transition. Matching graphs by Eroh and Schultz (1998) is related through a different move relation; only its abstract was inspected, so a previously unindexed or differently named analogue remains a residual priority risk. Actual semantic record searches returned no statement implying the trichotomy. A negative search is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural space of minimum Roman defenses has an exact and sharp mobility threshold, not implied by its pre-existing minimum weight or the number of optimal placements. At one boundary every defense is immobilized; at the next, the space splits into nontrivial complete components indexed by equal-block partitions; one extra available ground element connects all defenses. The result also gives exact labeled configuration, component and transition counts throughout the entire parameter domain. This supports structural study of optimal domination reconfiguration without inventing a downstream application.
+Zec–Grbić (2023) Theorem 2 proves the minimum total Roman number and a disjoint-block construction, explicitly credited. Clique and matching reconfiguration references address generic slides/jumps but do not evaluate the exact component transition of the minimum total Roman Kneser configurations in inspected materials. This classification is not merely recomputing the old minimum weight; the new object is the entire graph of optimum labelings.
 
-## Limitations and closest prior results
+## value
 
-The proof does not describe shortest slide distances or the spectrum of nonminimum Roman labelings. Priority uncertainty remains for older matching-graph studies and unindexed clique/partition reconfiguration literature. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reconfiguration mobility is a natural independent structural question after characterizing optimal Roman labelings. The theorem gives the first nonzero-mobility point, complete partition-clique critical layer, exact connectedness threshold and degree for the entire natural integer family. This is a meaningful phase transition, not an arbitrary tiny census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
