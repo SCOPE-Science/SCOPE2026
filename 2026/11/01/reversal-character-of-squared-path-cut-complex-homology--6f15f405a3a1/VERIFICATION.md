@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the included standalone program with `python3 verify.py`; it needs only Python's standard library. It reconstructs \(\Delta_k(P_n^2)\) directly from disconnected complement sets. For 66 pairs with \(5\le n\le15\), \(2\le k\le n-3\), it evaluates the signed chain Lefschetz sum without using the closed character formula, independently counts reflection-symmetric connected complements, and checks trace bounds and parity. For eight selected pairs, it explicitly constructs oriented simplicial boundary matrices in the \(\pm1\) eigenspaces of reversal and computes modular ranks over \(\mathbb F_{101}\). All these checks passed when the packaged script was executed.
+## correctness
 
-The finite chain computations confirm the formulas in tested cases but do not establish the infinite-parameter theorem or integral lattice structure. The proof's infinite step instead uses the published shellability and complement classification together with exact orbit and palindromic-gap enumeration. No independent external mathematical audit has been performed.
+PASS
+
+Read pinned RESULT.md and verify.py. Bayer et al give shellability and top homology concentration in r-1. Zhang--Yang nonfaces are connected k-subset complements (gaps ≤2) in level r, and interval (k+1)-complements in level r-1; all smaller sets are faces. On each invariant face with a transposed vertex-pair count a and central vertex indicator b, the oriented reduced Hopf trace is (-1)^r times Σ(-1)^{a+b}. The all-invariant-subset base sum reduces by alternating binomial identity; the unique central omitted interval for odd r and reversal-palindromic gap-word connected sets furnish the correction counts S(h,t). The four parity cases and (B±T)/2 follow. Independently generated cut-complex faces from disconnected-complement definition and computed oriented fixed-face traces for 45 parameter cases 5<=n<=13; all matched the piecewise formula. This corroborates but is not a finite-to-infinite inference.
+
+## originality
+
+PASS
+
+The inspected primary material supplies ambient or more restricted results; the new geometric fixed locus, symmetry representation, quotient homeomorphism, or equivariant deletion claim requires the additional specified proof. Claims are compared by mathematical implication, not matching titles; exact covered subfamilies are credited. Best-of-knowledge originality remains qualified by the named residual risks.
+
+## value
+
+PASS
+
+The exact full C2-representation is a natural equivariant invariant of a canonical graph involution and refines a previously known Betti number; the trace is unbounded along a parameter family and not forced by ordinary topology. The result supplies substantive palindromic-gap combinatorics rather than a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
