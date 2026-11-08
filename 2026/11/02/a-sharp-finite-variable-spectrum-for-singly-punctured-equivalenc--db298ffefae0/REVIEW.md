@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For the two named equivalence relations on full grids and their one-cell deletions, the proof establishes the four extension types at width two, including both directed singleton exceptions, and explicitly identifies the row/column defect with three-variable formulas. At every width at least three, truncated ordinary row and column counts are definable with locally recycled variables. A permanent pebble game matches previously occupied coordinate classes and respects the one missing intersection. This proves the classification for arbitrary quantifier depth. The boundary examples and orbit-count enumeration are reconstructed directly from the stated hypotheses. Two independent standard-library verification programs execute successfully and reproduce the embedded finite diagnostics, without being presented as infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** The inspected introductory and grid-encoding portions of Kieroński, Michaliszyn, Pratt-Hartmann, and Tendera's *Two-Variable First-Order Logic with Equivalence Closure* concern satisfiability and grid encodings, not the precise theory spectrum for full grids and a single induced deletion. The available abstracts of Kieroński–Otto and Grohe–Otto concern two-variable small structures and general pebble games. Actual comparison of published adjacent results did not locate an identical or stronger classification. This is an evidential priority assessment, not a uniqueness certificate: full text of every plausible historic source was not available, and general finite-variable composition theorems could subsume portions of the result.
+PASS
 
-**Mathematical value — PASS.** A one-cell erasure of a Cartesian equivalence grid supplies a natural sharp boundary between two- and three-variable expressiveness. The result is a complete all-width, unrestricted-depth classification with two-variable exceptional phases, exact \(2k^2-2k+1\) theory counts at widths \(k\ge3\), unique smallest representatives, and witnesses that each higher variable width genuinely detects additional rows. The explicit logical effect of a single missing intersection is useful in understanding finite relational data grids and their erasure robustness.
+The signature has only equality and two named equivalence predicates E,F; for k=1, all unary atoms are reflexively true. For k=2, comparing existence of equality/E-only/F-only/neither among fixed-pebble extensions separates precisely the four phases, including asymmetric singleton classes when m=2 or n=2. For k=3, R(x)=exists y not exists z(E(x,z) and F(z,y)) defines the deficient E-row, with dual C(x) the deficient F-column. Locally reusing the other k-1 variables within R/C counts up to k ordinary rows/columns; permanent k-pebble partial coordinate correspondences show no greater distinctions, even at arbitrary depth. Thus the two full/punctured clipped-pair grids have (k-1)^2+k^2 theories for k>=3, with displayed smallest representatives and strict hierarchy. The two included scripts inspect the exact structures and refine finite types; this is only bounded corroboration.
 
-**Closest literature and limits.** The papers cited in RESULT.md provide the established complexity/game framework; the present statement is restricted to two separately named equivalence relations, dimensions at least two, and at most one missing intersection. The finite checkers examine bounded instances, while arbitrary dimensions and quantifier depth rely on the proof. Unlocated historic coverage and lack of independent expert validation remain risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: general FO^k pebble games, equivalence-class grids and two-variable satisfiability theory are old; the exact one-cell erasure equivalence spectrum and 2k²−2k+1 class count was not found in the inspected antecedents.
+
+## value
+
+PASS
+
+An exact, nontrivial unrestricted-depth classification for the canonical intersection of two named equivalence relations under one deleted cell; sharp FO^2/FO^3 defect visibility, all-width count and smallest representatives are natural invariants of a basic finite-model family, not an arbitrary fixed instance or simple renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

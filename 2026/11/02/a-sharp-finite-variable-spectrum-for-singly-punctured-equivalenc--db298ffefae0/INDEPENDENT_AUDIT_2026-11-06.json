@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at blob cdc2ccd7a913775b4ce3f6495d1d8c00e922808a; k=1,2,3 and permanent-game proof",
+        "verification/verify_two_equiv_grid.py blob 42acd7479b39492808ac5d7885b23c950917106c; bounded type refinement",
+        "verification/verify_equiv_two_pebble.py indicated by tree blob db18e2e8a79462beb28c5e5a2bcbb2ff83282c22",
+        "SLOGAN.txt blob 1c81ddacfcbf1d8da449725481dea384a4da9a6f"
+      ],
+      "rationale": "The signature has only equality and two named equivalence predicates E,F; for k=1, all unary atoms are reflexively true. For k=2, comparing existence of equality/E-only/F-only/neither among fixed-pebble extensions separates precisely the four phases, including asymmetric singleton classes when m=2 or n=2. For k=3, R(x)=exists y not exists z(E(x,z) and F(z,y)) defines the deficient E-row, with dual C(x) the deficient F-column. Locally reusing the other k-1 variables within R/C counts up to k ordinary rows/columns; permanent k-pebble partial coordinate correspondences show no greater distinctions, even at arbitrary depth. Thus the two full/punctured clipped-pair grids have (k-1)^2+k^2 theories for k>=3, with displayed smallest representatives and strict hierarchy. The two included scripts inspect the exact structures and refine finite types; this is only bounded corroboration.",
+      "residual_risks": [
+        "The k-variable game proof, not finite checking, bears the unlimited-depth conclusion.",
+        "The k=2 classification assumes the two named relations are not permuted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LICS 2012 uses two-equivalence grid encodings in complexity constructions, without the claimed all-k punctured-grid theorem.",
+          "Kieroński–Otto addresses two-variable small-substructure and decidability machinery."
+        ],
+        "reasoning": "Even if arbitrary finite models of two equivalences include these grids, a satisfiability or general model-size bound does not imply the exact spectrum.",
+        "searches": [
+          "Kieroński Michaliszyn Pratt-Hartmann Tendera Two-Variable First-Order Logic with Equivalence Closure DOI 10.1109/LICS.2012.53",
+          "Kieroński Otto Small Substructures and Decidability Issues DOI 10.2178/jsl/1344862160"
+        ]
+      },
+      "checked_sources": [
+        "LICS 2012 DOI 10.1109/LICS.2012.53",
+        "Kieroński–Otto JSL 77 (2012) DOI 10.2178/jsl/1344862160",
+        "Grohe–Otto arXiv:1204.1990",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known general logical equivalence does not supply R,C defect formulas, k=2 exceptional split, or precise saturation at k."
+        ],
+        "reasoning": "The prior methods can derive the new result when worked out but do not logically assert the exact one-deletion classification in their inspected statements.",
+        "searches": [
+          "Kieroński et al. LICS 2012 equivalence-closure grids",
+          "Grohe Otto arXiv:1204.1990 pebble game equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grohe and Otto develop general pebble correspondences; their object is not a sharp count of FO^k theories of this grid-plus-puncture family.",
+          "Resultary returns related finite relational invariants but no same-family spectrum."
+        ],
+        "reasoning": "The generic game equivalence theorem justifies the method, not the family-specific clipped-coordinate classification or separating formulas.",
+        "searches": [
+          "Resultary semantic: finite variable logic two equivalence relations Cartesian grid one cell deleted FO k pebble game exact spectrum",
+          "Grohe Otto Pebble Games and Linear Equations arXiv:1204.1990"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classified objects have continuously varying dimensions, not a standard fixed graph database or table.",
+          "Search surfaced no exact 2k²−2k+1 count."
+        ],
+        "reasoning": "A table search alone is not decisive; the claim gives all k through a proof, not a recomputation of a known finite census.",
+        "searches": [
+          "Resultary: finite variable equivalence grids punctured classes",
+          "Kieroński et al LICS 2012 grid encoding"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: general FO^k pebble games, equivalence-class grids and two-variable satisfiability theory are old; the exact one-cell erasure equivalence spectrum and 2k²−2k+1 class count was not found in the inspected antecedents.",
+      "residual_risks": [
+        "Generic finite-variable model-theory literature may contain an unindexed example proving the same clipped-count spectrum.",
+        "The LICS source was examined for the grid construction, not every indirect corollary of all finite-model-theory papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECTLY COVERING; grid used for complexity encoding, not exact FO^k family classification",
+          "evidence": "LICS 2012 grid construction; Result 1 proof handles one missing joint equivalence intersection",
+          "identifier_or_url": "doi:10.1109/LICS.2012.53",
+          "material_read": "Accessible full-text transcript, particularly grid constructions and main complexity statement",
+          "method": "read primary full-text HTML and grid section",
+          "title": "Two-Variable First-Order Logic with Equivalence Closure",
+          "trigger": "same two equivalence relations and grids"
+        },
+        {
+          "assessment": "METHOD PRIOR, NOT DIRECT CLASSIFICATION",
+          "evidence": "General pebble methodology and non-counting setting versus exact named E/F punctured-grid spectrum",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "arXiv abstract and stated general game methods",
+          "method": "arXiv source/abstract comparison",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "general k-pebble equivalence potential domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md definitions, permanent k-pebble strategies and sharpness witnesses",
+        "Two-variable equivalence-model literature"
+      ],
+      "rationale": "An exact, nontrivial unrestricted-depth classification for the canonical intersection of two named equivalence relations under one deleted cell; sharp FO^2/FO^3 defect visibility, all-width count and smallest representatives are natural invariants of a basic finite-model family, not an arbitrary fixed instance or simple renaming.",
+      "residual_risks": [
+        "Generalization to multiple missing cells or counting logic requires new arguments; not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Qualified, bounded best-of-knowledge originality; not a formal proof certificate or guarantee of absolute historical priority.",
+    "No public scientific source files changed; publication_plan is staged and not executed."
+  ],
+  "schema_version": 1
+}
