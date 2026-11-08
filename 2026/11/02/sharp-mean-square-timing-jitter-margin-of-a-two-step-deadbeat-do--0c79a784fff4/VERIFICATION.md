@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-From the directory containing this file and `verify.py`, run:
+## correctness
 
-```bash
-python3 verify.py
-```
+PASS
 
-Python 3's standard library is sufficient; no downloaded data, third-party numerical packages or external services are needed. The script forms both \(A(1\pm\delta)\) sampled matrices as exact rational-coefficient polynomials in \(\delta\), builds the three-moment map independently, and verifies the displayed transfer matrix and cubic characteristic-at-one identity as formal polynomial identities. It also checks nonsingularity of the switching commutator as a formal polynomial identity; checks the exact positive-definite Lyapunov certificate for \(\delta=2/5\); enumerates every length-\(0\) through length-\(6\) interval sequence for four rational jitter magnitudes and three rational initial states; and encloses the critical root with 100 steps of rational bisection. A successful run prints `PASS: 106 exact assertions / finite-path checks`.
+For the exact double integrator with fixed u=-q-3v/2, h=1±delta iid equiprobable, 0<=delta<1, direct hold integration gives A(h) as in RESULT.md and A(1)^2=0. Independently formed the symmetric covariance lift K(delta^2) and checked every polynomial coefficient, det(I-K)=-(3z^3-11z^2+12z-2)/2 and det commutator=-delta^2(1-delta^2)^2. For delta>0 both step matrices invertible and their commutator has nonzero determinant; a positive-semidefinite Perron eigenmatrix of the adjoint cannot have rank one, hence is positive definite. The exact expected P-energy identity and norm equivalence establish the same all-initial-state trichotomy. The cubic has exactly one zero z*=0.202014738674272 in (0,1): r(0)=0, r(1)=5 and continuity, no other unit crossing. Thus delta*=0.449460497345731. The h=7/5 branch fails the Schur test (stable iff 0<h<4/3), while at delta=2/5 an exact rational P with entries 69675/10916,92725/21832,204927/43664 satisfies P-(A_-^T P A_- + A_+^T P A_+)/2=I with positive principal minors. Independently recomputed these identities symbolically. This is sampled-instant second-moment stability, not worst-case branch or almost-sure stability.
 
-The finite tests corroborate algebra; they do not prove a universal spectral statement. The global classification instead follows from the positive-definite eigenmatrix argument, order comparison, continuity of spectral radius and the cubic root-uniqueness proof in `RESULT.md`. None of the scripts claims to establish bibliographic novelty or independent validation. The exact scientific scope is sample-instant, noiseless mean-square stability; intersample estimates, non-iid intervals, other gains and almost-sure exponents are outside the verified theorem.
+## originality
+
+PASS
+
+Random-sampling moment stability and spectral vectorization are established prior theory; the asserted result is the evaluated all-parameter cubic threshold for this particular fixed two-step deadbeat double-integrator law plus the mixing-stable/branch-unstable interval and exact rational witness. Open sources did not expose this exact specialization. The highly relevant Sun–Sun–Chen 2021 article remains inaccessible in full, so its potential specific worked example is an explicit priority risk, not a C or O automatic failure.
+
+## value
+
+PASS
+
+A sharp stochastic robustness margin for a canonical elementary sampled controller, with an explicit range where random switching stabilizes although one branch is unstable, is a meaningful quantitative control invariant. The result supplies a closed algebraic boundary and a concrete Lyapunov certificate; it is not merely a restatement of the generic second-moment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

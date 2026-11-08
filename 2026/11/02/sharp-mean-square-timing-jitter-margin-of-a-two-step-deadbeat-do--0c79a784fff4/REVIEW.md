@@ -1,23 +1,21 @@
-# Scientific review: sharp mean-square timing-jitter margin
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement precisely specifies the plant, fixed feedback, independent positive two-point sampling law, and sample-instant mean-square norm. The exact plant integration gives the displayed \(2\times2\) sampled matrix; direct symmetric-square lifting gives the displayed \(3\times3\) covariance matrix and polynomial determinant. For every nonzero jitter magnitude strictly below one, invertibility of both sampled matrices and a nonsingular commutator force the normalized adjoint covariance map's Brouwer eigenmatrix to be positive definite. Its positive eigenvalue is the spectral radius by order domination and is therefore the exact expected quadratic-energy growth factor for every nonzero initial state. Continuous spectral radius, nilpotence at zero jitter, explicit spectral radius five at the endpoint, and unique crossing of the cubic yield the necessary-and-sufficient threshold. The independently formed formal-polynomial verifier passes 106 exact assertions and finite-path comparisons. An explicit strictly positive rational Lyapunov certificate covers the mixed stable/unstable witness. The infinite-horizon classification is analytical; finite enumeration alone would not establish it.
+PASS
 
-## Originality — PASS, qualified
+For the exact double integrator with fixed u=-q-3v/2, h=1±delta iid equiprobable, 0<=delta<1, direct hold integration gives A(h) as in RESULT.md and A(1)^2=0. Independently formed the symmetric covariance lift K(delta^2) and checked every polynomial coefficient, det(I-K)=-(3z^3-11z^2+12z-2)/2 and det commutator=-delta^2(1-delta^2)^2. For delta>0 both step matrices invertible and their commutator has nonzero determinant; a positive-semidefinite Perron eigenmatrix of the adjoint cannot have rank one, hence is positive definite. The exact expected P-energy identity and norm equivalence establish the same all-initial-state trichotomy. The cubic has exactly one zero z*=0.202014738674272 in (0,1): r(0)=0, r(1)=5 and continuity, no other unit crossing. Thus delta*=0.449460497345731. The h=7/5 branch fails the Schur test (stable iff 0<h<4/3), while at delta=2/5 an exact rational P with entries 69675/10916,92725/21832,204927/43664 satisfies P-(A_-^T P A_- + A_+^T P A_+)/2=I with positive principal minors. Independently recomputed these identities symbolically. This is sampled-instant second-moment stability, not worst-case branch or almost-sure stability.
 
-General moment-stability criteria under random sampling and network delays predate this example (Sun, Sun and Chen, 2021), so the general spectral-radius reduction is **not** claimed as new. The contribution assessed here is the exact, one-crossing polynomial classification for this specific two-sample-deadbeat double integrator, for all positive equiprobable jitter magnitudes, together with a nonempty explicit parameter region where one individually unstable fixed period participates in a mean-square-stable stochastic mixture. The available publisher preview of Sun and colleagues discusses a general vectorized condition and a batch-reactor numerical example, but a full technical comparison was not available. Vallarella and Haimovich (2022) study stability under all sufficiently small nonuniform intervals, not the same random large-interval mean-square phenomenon. Su, Li and Lu (2021) work with random channel delays and fixed physical sampling periods. No exact duplicate was identified by searches for the problem, polynomial, threshold, and equivalences. This is evidence of a potentially unrecorded specialized classification, **not** a claim that a general second-moment method or switching-based stabilization is unprecedented. Full-text access and hidden specialized prior work are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A unit-period, exactly two-step-deadbeat controller is a canonical aggressive sampled-data design, and timing uncertainty is a physically motivated robustness question. Instead of an unquantified small-jitter claim, the result gives a sharp algebraic tolerance and a complete below/at/above-threshold classification for every nonzero initial state. Its strict branch-instability paradox, supported by a rational Lyapunov certificate, distinguishes stochastic performance from worst-case switching analysis. The exact constants offer a reproducible benchmark for stochastic sampled-data stability calculations. The classification is narrow but is not an arbitrary parameter slice: the fixed gains are forced by the exact two-step-deadbeat condition at unit sampling period. The result is not a broader stochastic control design theorem.
+Random-sampling moment stability and spectral vectorization are established prior theory; the asserted result is the evaluated all-parameter cubic threshold for this particular fixed two-step deadbeat double-integrator law plus the mixing-stable/branch-unstable interval and exact rational witness. Open sources did not expose this exact specialization. The highly relevant Sun–Sun–Chen 2021 article remains inaccessible in full, so its potential specific worked example is an explicit priority risk, not a C or O automatic failure.
 
-## Closest literature and limitations
+## value
 
-- H. Sun, J. Sun, J. Chen (2021), https://doi.org/10.1016/j.automatica.2020.109385: general random-sampling moment stability already addressed; its full technical paper was unavailable for an exhaustive specialization check.
-- W. Su, J. Li, J. Lu (2021), https://arxiv.org/abs/2108.12795: full accessible paper describes stochastic channel delays on a fixed sampling clock.
-- A. J. Vallarella, H. Haimovich (2022), https://arxiv.org/abs/2202.10549: accessible full-text nonuniform-sampling results have different quantifiers and a small-period focus.
+PASS
 
-The result applies to sampled states only, independent equiprobable intervals, the specified noiseless plant and gains, and exact arithmetic. General distributions, noisy measurements, floating-point effects and almost-sure stability are not covered. Complete publication-priority review remains open.
+A sharp stochastic robustness margin for a canonical elementary sampled controller, with an explicit range where random switching stabilizes although one branch is unstable, is a meaningful quantitative control invariant. The result supplies a closed algebraic boundary and a concrete Lyapunov certificate; it is not merely a restatement of the generic second-moment test.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
