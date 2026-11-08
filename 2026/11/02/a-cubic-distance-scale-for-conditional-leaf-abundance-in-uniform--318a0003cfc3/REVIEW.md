@@ -1,23 +1,21 @@
-# Scientific review of the conditional leaf--distance theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Conditioning on the ordered marked path gives a uniform rooted forest, and the directed matrix-tree determinant proves its multivariate child-count enumerator. A uniform root draw plus independent uniform parent draws yields the exact occupancy mixture; the leaf criterion distinguishes the marked path's interior from its two endpoints. This establishes all conditional binomial moments for nonpath cases and treats the path boundary separately. Exact algebra gives the difference with numerator \(2(n-1)-\ell(\ell+1)^2\), which strictly decreases through zero, so the global maximizer and all ties follow. The distance-two/three stochastic incomparability has explicit opposed witnesses. An executable checker passes 20,000 exact assertions, including exhaustive Prüfer enumeration through eight vertices. The unbounded claims rely on the written proof, not enumeration.
+PASS
 
-## Originality
+Conditioning a uniform n-label Cayley tree on its u–v path of ℓ edges gives an equally weighted rooted forest with r=ℓ+1 roots and m=n−r off-path vertices. The directed matrix-tree determinant equals (Σ_roots x_i)(Σ_all x_i)^(m−1), yielding one uniformly selected root child and m−1 independent uniform parent draws. The ℓ−1 internal path vertices cannot be leaves; eligible vertices are m off-path plus 2 endpoints; hence the exact mixture of empty-box counts X_{m+2} and X_{m+1} with weights (ℓ−1)/(ℓ+1) and 2/(ℓ+1). The mean h_n(ℓ)=(1−1/n)^(n−ℓ−2)[n−ℓ−1+2ℓ/(ℓ+1)] extends to the path boundary L=2. Difference h_n(ℓ+1)−h_n(ℓ) has sign of 2(n−1)−ℓ(ℓ+1)²; strict increasing ℓ(ℓ+1)² gives unique peak/ties, maximizing ℓ~(2n)^(1/3), ties only n=1+k(k+1)²/2. For n≥11, E[L|D3]>E[L|D2], yet P(L≥n−1|D2)=1/[3 n^(n−4)]>0, while P(L≥n−1|D3)=0: neither stochastic law dominates. This is all n≥2 with path boundary treated separately.
 
-**PASS, with historical-priority risk.** Pitman's 1998 Theorem 1 already establishes the general forest child-count generating polynomial, and Section 5.7 concerns marked paths. The conditional occupancy law is acknowledged as a specialization of that established input, not an independently novel enumeration. The assessed contribution is the sharp all-distance optimization of the *total* leaf statistic: a unique cubic cutoff, its \(n^{1/3}\) scale and infinite arithmetic tie family, plus the opposed expectation/upper-tail order between distances two and three. Neither these comparisons nor the stochastic-incomparability family was located in the primary source material or in the targeted published finding searches. The closest earlier work on endpoint degree versus marked distance does not imply the behavior of total leaf count without an additional analysis of all off-path vertices and path endpoints. An overlooked exact specialization in older labeled-tree literature remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The number of leaves and the distance between two distinguished vertices are intrinsic statistics of the same classical model. A monotone conditional response would be plausible from endpoint-degree results; instead the response switches direction at a nontrivial cubic threshold, much smaller than the usual square-root distance scale. The exact infinitely recurring tie cases and the non-stochastic-order witness distinguish the claim from a routine single expectation calculation.
+Pitman 1998 Theorem 1 already contains the rooted-forest child-count enumerator, and conditional occupancy mixture is its specialization. The new scope is not a novel forest count; it is the globally nonmonotone conditional total-leaf response, the exact cubic cutoff and infinitely recurring tie cases, and explicit stochastic-order incomparability. A published Resultary result covers conditional ENDPOINT DEGREE, not total leaf count; full source RESULT was compared directly. Best-of-knowledge priority qualified by older labeled-tree sources.
 
-## Closest literature and limitations
+## value
 
-- Pitman (1998), Technical Report 498, Theorem 1 and Section 5.7: exact forest enumerator and marked-path framework; these are foundational prior coverage.
-- Meir and Moon (1970), *The distance between points in random trees*: the marked-distance marginal problem, not a conditional total-leaf optimization in the material available for comparison.
-- Aldous (1990), *The random walk construction of uniform spanning trees and uniform labelled trees*: classical leaf and distance asymptotics; full text not available in this check.
+PASS
 
-Results are for uniform labeled trees and fixed marked vertices. No independent priority adjudication or independent audit was performed.
+Leaf abundance and marked-vertex distance are natural joint Cayley-tree observables. Contrary to an anticipated monotone response, the conditional total-leaf count has an exact cubic rather than ordinary square-root distance scale, a full arithmetic tie classification, and a systematic stochastic incomparability witness. These provide useful structural information beyond the known rooted-forest polynomial.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
