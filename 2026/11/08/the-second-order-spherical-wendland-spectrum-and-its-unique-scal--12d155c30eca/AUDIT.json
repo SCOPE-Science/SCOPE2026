@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Independent derivation: DLMF 16.11.2/16.11.8 yields the first two 1F2 algebraic residues and an oscillatory remainder o(z^(-2lambda-2)) because mu>lambda+2. Hubbert–Jäger (2.10) plus DLMF 10.22.57 yields a Mellin gamma ratio. Bessel J_nu is exponentially small on z<=nu/2; on z>=nu/2 the transform remainder integrates to o(nu^-2) relative. Exact Mellin ratio and Bernoulli B3 gamma expansion produce Q. Positive factors imply the unique scale epsilon_star and signs. A standalone numerical checker independently confirms transform residues, Bessel integrals, gamma coefficient and generic/tuned circle coefficients. These finite tests do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Narcowich–Sun–Ward 2007 §§3–4 supplies an integral transform and order bounds",
+        "DLMF §16.11.8 is a general asymptotic expansion for 1F2; §10.22.57 a generic Bessel Mellin integral"
+      ],
+      "reasoning": "These broad identities are valid proof ingredients but neither already asserts a two-term asymptotic for all generalized Wendland parameters nor identifies the unique scale where curvature and kernel-shape corrections cancel. The new result is an explicit assembled and classified invariant, not a claim to have discovered the component formulas.",
+      "searches": [
+        "Bessel square averaging transfer Euclidean Fourier regularly varying asymptotics to spherical Schoenberg coefficients",
+        "compact radial positive definite kernels sphere Fourier coefficient exact asymptotic Sobolev rate Bessel Hankel integral",
+        "generalized Wendland spherical Fourier Legendre coefficients two-term asymptotic correction O(m^-2) curvature gamma ratio support scale cancellation",
+        "Narcowich Sun Ward 2007 Fourier-Legendre asymptotic full text"
+      ]
+    },
+    "checked_sources": [
+      "Hubbert–Jäger arXiv:2110.09835 v1 (2021-10-19), full text §2–5",
+      "Hubbert–Jäger DOI:10.1007/s10444-022-10005-z, open-access 2023 version, §2–5",
+      "Narcowich–Sun–Ward DOI:10.1007/s10444-005-7506-1, 2007 author full text §§2–5",
+      "NIST DLMF 16.11.2,16.11.8 and 10.22.57",
+      "published-finding corpus semantic queries on exact second-order spherical Wendland coefficients, gamma/Bessel transfer, and scale cancellation",
+      "Web literature queries for explicit two-term Fourier-Legendre/Schoenberg generalized Wendland asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 v1 explicit first-order all-d theorem; 2023 revised source weakens even-dimensional claim and poses leading even-d problem",
+        "2007 coefficients bounded by Sobolev exponents, not second term",
+        "DLMF 1F2 and Bessel Mellin exact general formulas"
+      ],
+      "reasoning": "The prior first-order claim is fully covered and excluded from originality. Strictly sharper new statement fixes the relative nu^-2 coefficient and proves the epsilon-dependent sign and only scale zero. Applying two separate general special-function formulas and controlling the moving Bessel order yields this composite spectral statement; no inspected source directly contains it or a dominant two-term specialized result.",
+      "searches": [
+        "arxiv:2110.09835 (v1) full Theorem 5.9 and §5",
+        "doi:10.1007/s10444-022-10005-z 2023 full §5",
+        "doi:10.1007/s10444-005-7506-1 §§3–4",
+        "DLMF:16.11.8",
+        "DLMF:10.22.57"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hubbert–Jäger 2021 arXiv Theorem 5.9 first-order statement for all dimensions; 2023 Theorem 5.9 leading-term odd dimensions",
+        "Narcowich–Sun–Ward 2007 section 4 general RBF/SBF transfer"
+      ],
+      "reasoning": "The claim can be rewritten as the exact second Weyl/Sobolev spectral correction to a compactly supported radial kernel; the first-order coefficient and rate were already given in earlier work, whereas the quadratic coefficient and its zero do not appear in the inspected sources.",
+      "searches": [
+        "generalized Wendland Gegenbauer coefficients second order asymptotics (web)",
+        "spherical Fourier eigenvalues Wendland kernel two term (web)",
+        "generalized Wendland spherical Fourier Legendre coefficients two-term asymptotic correction O(m^-2) curvature gamma ratio support scale cancellation",
+        "second-order correction to spherical harmonic eigenvalues compactly supported generalized Wendland kernel on sphere exact constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The focal paper tables and numerical investigations concern leading degree rates, not this Q coefficient",
+        "published-finding corpus closest hits concern unrelated spherical spectral determinants and geometric curvature terms"
+      ],
+      "reasoning": "No checked database or numerical table states the parameter-dependent Q or epsilon_star. Numerical data alone could not establish all-dimension uniqueness; the mathematical proof uses exact positivity.",
+      "searches": [
+        "generalized Wendland spherical Fourier coefficients 1/nu^2 expansion table (web)",
+        "second-order correction to spherical harmonic eigenvalues compactly supported generalized Wendland kernel on sphere exact constant",
+        "asymptotic spectral calibration second-order superconvergence generalized Wendland kernel epsilon critical scale"
+      ]
+    },
+    "rationale": "The focal 2021 arXiv version expressly claimed the all-dimensional first-order asymptotic, and the 2023 journal version proves the precise first order only in odd d; therefore leading coefficient and parity problem are NOT claimed as novel. Neither primary version nor the reviewed 2007 radial/SBF transfer paper states the explicit relative nu^-2 correction or the unique positive scale cancellation. DLMF formulas are used as ingredients but do not give this combined classification. No duplicate with the inspected own ledger or semantically searched published published-finding corpus records was identified; remaining possible unlocated all-order kernel literature is a priority risk.",
+    "residual_risks": [
+      "The first 2021 preprint expressly states the leading asymptotic in even dimensions, contrary to the revised 2023 open-question framing; only the second-order refinement is claimed new.",
+      "A specialized all-orders expansion for smooth radial kernels or a parameterized kernel-preconditioner might contain Q implicitly and was not exhaustively located.",
+      "The o(nu^-2) remainder is pointwise in fixed parameters and requires mu>lambda+2, not uniform or boundary mu=lambda+2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "All-dimensional leading coefficient expressly covered; no relative second spectral coefficient or unique scale zero stated",
+        "evidence": [
+          "Theorem 5.9 on page 16 claims the first-order asymptotic; pages 19–20 attempt even-dimensional hypergeometric asymptotics; equations (3.12),(3.17) supply Euclidean transform"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.09835",
+        "material_read": "abstract; §§2–3 formulas (2.10),(3.12),(3.17); §5 Theorem 5.9 and entire even-dimensional asymptotic argument, pages 15–20",
+        "method": "full-text inspection plus PDF-page images",
+        "title": "Generalised Wendland functions for the sphere, original 2021 arXiv manuscript",
+        "trigger": "Same kernel, transform and all-dimensional first-order spectral law"
+      },
+      {
+        "assessment": "Odd-dimensional precise leading coefficient proved; even-dimensional leading limit posed as open; no two-term expansion or scale-cancellation law",
+        "evidence": [
+          "Abstract explicitly restricts proved precise leading limit to odd ambient d; theorem 5.9 exact leading constant; conclusion identifies even-d question"
+        ],
+        "identifier_or_url": "https://jlupub.ub.uni-giessen.de/bitstreams/244d2cc7-912c-4b95-8c4e-849521692acf/download",
+        "material_read": "abstract; §§2–5 and equations (2.15),(3.23),(5.42); concluding discussion of parity and open question",
+        "method": "open-access full PDF read and selected page images",
+        "title": "Generalised Wendland functions for the sphere, revised journal version",
+        "trigger": "Revised primary source and explicit even-dimensional open question"
+      },
+      {
+        "assessment": "General representation and Sobolev-order coefficient comparisons, no explicit generalized-Wendland quadratic relative correction or scale zero",
+        "evidence": [
+          "§4 derives Fourier-Legendre connections and coefficient bounds for Sobolev-equivalent kernels; Wendland functions mentioned as examples without parameter-specific second term"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/226107232_Approximation_power_of_RBFs_and_their_associated_SBFs_A_connection",
+        "material_read": "author-posted paper, abstract, §§2–4 especially section 4 kernel bounds and Mellin integral and §5 context",
+        "method": "full paper text inspection including theorem and discussion of Wendland functions",
+        "title": "Approximation power of RBFs and their associated SBFs: A connection",
+        "trigger": "General radial-to-spherical coefficient connection might subsume new asymptotics"
+      },
+      {
+        "assessment": "Algebraic residue and oscillatory branches provide a proof ingredient, but no coupled spherical spectral correction or unique epsilon calibration",
+        "evidence": [
+          "DLMF 16.11.2 and 16.11.8 provide general 1F2 asymptotic templates"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/16.11",
+        "material_read": "§16.11(i) and (ii), equations 16.11.2 and 16.11.8 and applicable parameter conditions",
+        "method": "primary online formula inspection",
+        "title": "NIST DLMF §16.11 large-variable generalized hypergeometric asymptotics",
+        "trigger": "Can a standard encompassing special-function expansion already supply the identical finding?"
+      },
+      {
+        "assessment": "Exact integral supplies Mellin factor; does not state the generalized Wendland combination or scale tuning",
+        "evidence": [
+          "DLMF 10.22.57 gives Bessel-product Mellin integral in gamma functions"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/10.22",
+        "material_read": "§10.22(iv), especially equation 10.22.57 and admissibility conditions",
+        "method": "primary online formula inspection",
+        "title": "NIST DLMF §10.22 Bessel integral",
+        "trigger": "Exact Bessel-square Mellin formula may dominate the claimed spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12d155c3-0eca-4ca1-9f12-7557964a0034",
+  "value": {
+    "rationale": "The exact next-to-leading term is a motivated refinement of the known Sobolev-equivalence decay law for compactly supported spherical kernels. Its identically zero 1/nu term and unique positive kernel-support scale where the entire 1/nu^2 correction disappears are meaningful structural phenomena: they characterize an exact leading-order spectral-bias calibration for every fixed dimension and smoothness choice in a nontrivial open parameter region. The result is more than an isolated numerical coefficient and directly informs high-degree kernel spectra without overclaiming finite-dimensional optimality.",
+    "status": "PASS"
+  }
+}
