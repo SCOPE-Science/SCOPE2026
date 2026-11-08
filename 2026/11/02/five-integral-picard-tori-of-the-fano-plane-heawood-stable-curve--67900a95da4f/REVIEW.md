@@ -1,15 +1,21 @@
-# Review of the Heawood graph-curve arithmetic classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The curve construction uses three distinguished distinct rational points on each geometric projective-line component, so all graph automorphisms lift compatibly to automorphisms of the split nodal curve and descend along finite-field Frobenius cocycles. Normalization identifies the connected Picard torus character lattice with integral graph cycles. A standalone standard-library verifier enumerates the entire \(168\)-element group and checks four explicit unimodular basis changes, including the nonpermutation two-dimensional cyclotomic block for order three. It also checks the conjugacy and orbit tables. The zeta formula follows from normalization, and the point-free criterion from the absence of fixed vertices/edges. The first-field point formulas are exact for every prime power, not extrapolated from tests.
+## correctness
 
-## Originality — PASS, qualified
-Burnham–Rosen–Sidman–Vermeire (arXiv:1201.5010, 2012) provide the graph-curve framework; Casalaina-Martin–Kass–Viviani (arXiv:1107.4166, 2011) provide dual-graph compactified-Jacobian foundations. The closest accessible prior record concerning a Petersen-graph del Pezzo boundary computes an analogous Picard torus for a different genus-six graph and does not imply the Heawood module decomposition without a distinct integral incidence calculation. Published mathematical-record findings on Heawood independence/matching complexes concern homology of different simplicial complexes, not the cycle lattice determining the nodal curve's Picard torus. Searches and full-text section inspections disclosed no existing five-type integral Heawood classification. The novelty judgment is limited to that evaluated classification; general normalization and graph methods remain prior art, and historical priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The Heawood graph is the canonical fourteen-vertex point–line incidence graph of the Fano plane and defines a natural stable graph curve of genus eight. The computation identifies integral tori, yielding exact rational abelian groups rather than merely isogeny classes. The order-three norm-one factor and the order-seven point-free twists expose arithmetic differences not visible in the abstract connected graph or its genus, while the complete zeta spectra control all extension-field point counts. This is a natural complete classification, not an arbitrary field-size sample or a renamed normalization identity.
+For the split nodal 14-component, 21-node stable curve p_a=21-14+1=8. Three distinct 0,1,infinity marks permit an honest GL_3(F_2) action in all characteristics and Frobenius twisting. The normalization sequence identifies X*(Pic^0) integrally with H_1(Heawood,Z), not merely rational H_1. Directly examined the integral 8x8 fundamental-cycle construction and four explicit determinant-±1 matrices A satisfying U A=A W in verify_heawood.py for representatives of orders 2,3,4,7; these check permutation/regular plus cyclotomic integral modules, yielding G_m^8, R_2^4, R_3^2 x N_3, R_4^2, G_m x R_7. The 168 group actions split into orders 1,2,3,4,7 with counts 1,21,56,42,48. The normalization product Z=prod_d(1-T^d)^(e_d-v_d)/(1-q^d T^d)^(v_d) follows from each rational component and the 2 preimages of each node, no edge reversal. Fixed vertex/edge data yield #Fq points 14q-7,6q+1,2q+2,2q+1,0 respectively; order-seven and only order-seven twists are Fq-point-free, for every q including q even. A separate F_2^3 group-action program recounted all 168 group elements and their vertex and edge orbit profiles; finite computation supports the integral identities but does not prove general descent.
 
-## Residual limitations
-No assertion is made for smooth curves, the full order-\(336\) automorphism group including dualities, or every historical mathematical source. The external primary references substantiate the graph-curve and nodal Picard frameworks but do not provide the evaluated Heawood classification. The computation is finite and exact; the rest is supplied by the written proof. Historical priority and all scientific conclusions require independent review before external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete integral Frobenius-character module classification and all-extension zeta spectrum for the canonical Heawood stable curve is distinct from standard graph-curve normalization and from homology of Heawood simplicial complexes. No inspected published theorem determines these specific five isomorphism classes; best-of-knowledge, with priority risks disclosed.
+
+## value
+
+PASS
+
+The Heawood graph is canonical incidence geometry of the Fano plane and its genus-eight stable graph curve naturally has a Picard torus. Determining all five integral rather than mere isogeny types, including a nontrivial cubic norm-one factor, together with all extension-field point counts and an exact zero-rational-point stratum, is a useful complete arithmetic classification of a natural geometric object; no arbitrary q-slice is selected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
