@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "All parameters, strict inequalities, and boundary cases are specified. SPD follows from tau^2<ab. The exact leading-block roots and their signs relative to c give unique collision iff v<b-c. On the lambda_-<=c domain the two-by-two condition ratio is minimized uniquely by theta=b; on the lambda_->=c domain lambda_+ is strictly increasing; their threshold intersection gives the unique global theta_* and both formula branches. CG minimal-polynomial degree establishes universal two-step termination iff a two-value spectrum exists; the condition penalty diverges as v approaches b-c from below. The supplied standalone checker passed 44183 tests, including exact rational algebra and numerical spectral/CG assertions; the analytic proof, not the tests, carries the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braatz–Morari 1994 full text, §2: convex optimization of general diagonal matrix scalings",
+        "Giraud–Gratton 2006 full-text §§2-3: perturbative eigenvalue sensitivity and approximate eigenvectors",
+        "Diouane et al. 2026, arXiv:2610.28808 Theorem 3.14: second-order PCG-vs-deflated-CG comparison"
+      ],
+      "reasoning": "A convex procedure for arbitrary scaling supplies a numerical way to compute the optimum but does not assert the new closed-form phase boundaries or the sharp two-step feasibility and divergence. The 2006 and 2026 perturbative theorems give estimates not an all-amplitudes exact optimizer. Their methods do not by themselves imply the stated exact joint classification.",
+      "searches": [
+        "Optimal diagonal congruence scalar preconditioning 3 by 3 symmetric positive definite block diagonal 2 by 2 coupling condition number spectral eigenvalue collision rank one offdiagonal",
+        "web: \"Minimizing the Euclidean Condition Number\" Braatz Morari pdf",
+        "web: \"On the sensitivity of some spectral preconditioners\" 2006"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.28808",
+      "https://arxiv.org/abs/2603.28969",
+      "https://doi.org/10.1137/040617546",
+      "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+      "published mathematical-record searches (scientific comparisons recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.28808 constrains theta away from nondeflated eigenvalues for uniform perturbation theory, whereas the collision is exactly at the nondeflated bulk eigenvalue",
+        "arXiv:2603.28969 optimizes iteration-dependent energy error for reference eigenvectors of the current system, not the SPD-congruence condition-number objective under finite recycling mismatch",
+        "Braatz–Morari uses convex optimization but no coupling-specific eigenvalue formulas"
+      ],
+      "reasoning": "Even granting all cited primary results, the nonperturbative collision criterion v<b-c, its separate condition-minimizer threshold v=(b-c)^2/b, and blowup of forced two-step conditioning require the explicit spectral and sign analysis supplied here. We do not claim those generic tools are novel.",
+      "searches": [
+        "arXiv:2610.28808 Introduction, Definition 3.7, Theorem 3.14, Proposition 3.16",
+        "arXiv:2603.28969 §3.2 and §4",
+        "DOI:10.1137/040617546 §3.3",
+        "DOI:10.1137/S0363012992238680 §2",
+        "Exact two step preconditioned conjugate gradient spectral cluster placement under rank one perturbation unperturbed eigenspace"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.28808 §3.3-3.4; arXiv:2603.28969 §4; DOI:10.1137/040617546 §§2-3",
+        "Reduction to two-by-two Schur block spectrum and untouched c bulk, not mere terms related to deflation"
+      ],
+      "reasoning": "Checked eigenvalue-merging, one-coordinate scaling, congruence preconditioning, and exact minimal-polynomial aliases. Generic eigenvalue coalescence and two-step CG are classical, but none of the compared sources states the unique v-dependent collision scale and its incompatibility with the condition-number optimum above v1, or the second impossibility threshold.",
+      "searches": [
+        "Scaled spectral preconditioner three dimensional arrowhead SPD matrix one selected eigenvalue coupling to one remaining mode untouched eigenvalue, sharp condition number minimizing scale phase transition, two iteration conjugate gradient exact termination",
+        "Optimal diagonal congruence scalar preconditioning 3 by 3 symmetric positive definite block diagonal 2 by 2 coupling condition number spectral eigenvalue collision rank one offdiagonal",
+        "exact spectral clustering under recycled eigenvector perturbation two distinct eigenvalues preconditioned conjugate gradient two steps flat spectrum bulk rank two off diagonal",
+        "web: \"eigenvalue coalescence\" \"spectral preconditioner\" conjugate gradient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Different two-sided Gauss-Seidel inverse factorization and SPD threshold; no recycled reference eigenvector, no two-step cluster collision.",
+        "Step-by-step nonexpansiveness of Richardson, not optimal spectral congruence preconditioning or CG minimal-polynomial phases.",
+        "Fixed steepest-descent dynamics with extra spectral mode; does not imply tuning of a recycled preconditioner or exact PCG termination.",
+        "Kaczmarz overrelaxation transient and Jordan defect, not an SPD spectral-preconditioner coupling threshold."
+      ],
+      "reasoning": "Published-record searches identify no directly matching two-phase theorem; related preconditioner and iterative-method findings involve different objectives or spectra. Comparisons use mathematical implications rather than title similarity, and a negative database search is not proof of priority.",
+      "searches": [
+        "exact spectral clustering under recycled eigenvector perturbation two distinct eigenvalues preconditioned conjugate gradient two steps flat spectrum bulk rank two off diagonal",
+        "phase transition optimized condition number versus finite termination of conjugate gradient after rank-one spectral preconditioning",
+        "critical perturbation for merging eigenspaces of an arrowhead SPD matrix through scaling one diagonal coordinate",
+        "published mathematical-record search for exact preconditioner collision scales"
+      ]
+    },
+    "rationale": "The exact unique global minimax scale, both finite-amplitude transition values, the universal two-step CG iff condition, and diverging cost of enforcing exact termination are not contained in the inspected 2026 perturbation/iteration-budget results, the 2006 first-order sensitivity study, or the general 1994 convex-scaling procedure. Targeted published-mathematical-record and primary-literature implication comparisons found no dominating claim. Unindexed prior specialization is a residual priority risk.",
+    "residual_risks": [
+      "Generic Euclidean scaling theory and older work might contain an unindexed special closed-form example; best-knowledge originality is not a definitive historical priority certificate.",
+      "Special two-mode plus flat-bulk model: no implication that its thresholds extend to general perturbation directions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses perturbative error bounds but not the exact all-positive-scale optimizer or collision thresholds.",
+        "evidence": [
+          "§3.3 requires theta separate from nondeflated eigenvalues",
+          "Theorem 3.14 gives PCG versus deflated CG error bound plus O(t^2) remainder"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28808",
+        "material_read": "Public full-text §§1-3, including split preconditioner definition (12), spectral-separation Definition 3.7, perturbation analysis, Theorem 3.14, Proposition 3.16 and conclusions",
+        "method": "read searchable arXiv full-text sections and corresponding equations",
+        "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+        "trigger": "Closest 2026 work on recycled spectral data in perturbed SPD CG"
+      },
+      {
+        "assessment": "Provides energy-error and cluster-placement strategies for exact current spectral information, not finite mismatch phase transitions.",
+        "evidence": [
+          "§4 gives midpoint and weighted Ritz scale, not the finite-perturbation collision and condition-optimal formulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.28969",
+        "material_read": "Public full-text §§2-4, especially (5)-(9), §3.2, §4.1-4.3 and optimized theta prescriptions",
+        "method": "read searchable arXiv full-text relevant theorem and algorithm passages",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Same scaling family and finite-step PCG design"
+      },
+      {
+        "assessment": "First-order perturbative preconditioner sensitivity; no identified all-amplitude two-threshold scalar minimax/CG theorem in inspected sections.",
+        "evidence": [
+          "Explicit first-order terms and o(t) expansions for eigenvalues of spectral preconditioned systems"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "material_read": "Author-hosted publicly indexed full text; introductory definitions, two-level preconditioner formulas (4)-(11), perturbation derivations and eigenvalue sensitivity statements in §§2-3",
+        "method": "read primary-paper textual full-text sections",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Earlier approximate-eigenvector spectral sensitivity potentially subsuming the result"
+      },
+      {
+        "assessment": "General convex solution to Euclidean diagonal scaling; not an explicit perturbation-phase classification or two-step CG result.",
+        "evidence": [
+          "Lemma 2.3 convex optimization formulation and §3 general conclusion"
+        ],
+        "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+        "material_read": "Author-hosted lawful PDF, abstract and introduction, lemmas 2.1-2.3, scaling convexification and concluding remarks; PDF pages 1 and 4 also visually inspected",
+        "method": "read accessible PDF text and inspect screenshots of representative mathematical pages",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Potential stronger general matrix-scaling coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "823a6744-ad5d-46ef-a97c-2332073f368e",
+  "value": {
+    "rationale": "The flat-bulk model isolates the precise issue in spectral recycling: a reused reference eigenvector ceases to diagonalize the perturbed matrix. The result shows exactly when optimal condition-number tuning is also an exact two-iteration preconditioner, when these two objectives separate, and when the two-iteration goal becomes impossible. The forced-condition penalty can be unbounded while the minimax condition number stays bounded; this provides a nonasymptotic benchmark for finite-budget spectral preconditioner choice, beyond generic eigenvalue tuning or a small numerical constant.",
+    "status": "PASS"
+  }
+}
