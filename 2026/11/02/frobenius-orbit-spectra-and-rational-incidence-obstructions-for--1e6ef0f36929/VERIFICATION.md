@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-The standalone `verify_hexagrammum.py` requires Python 3.9+ and no external packages. Run it with `python3 verify_hexagrammum.py`. Its complete observed output is in `verification_output.txt`, ending with `VERIFY_OK`.
+## correctness
 
-The program enumerates all 720 permutations on six labels, builds the 60 unoriented Hamiltonian cycles and the 180 ordered pairs with disjoint edge sets, and checks that the incidence relation is regular of degree three on both sides. All eleven Frobenius cycle-type spectra are recomputed as actual orbits and compared to the displayed table. Fixed-point counts of powers and all 720 permutations provide separate consistency checks. The two rational-line-without-rational-incidence partitions are determined exactly.
+PASS
 
-An independent projective implementation constructs all Pascal lines and Kirkman points from six points on the conic \(XZ=Y^2\), with parameters \(0,1,3,9,25,64\). It confirms all 180 and only the expected incidence pairs, both over \(\mathbb Q\) and modulo \(10007\), and confirms all sixty lines and sixty points remain pairwise distinct there. All projective arithmetic is exact.
+Reconstructed 60 unoriented Hamiltonian six-cycles as elements of S6 modulo inversion, Kirkman incidence as ordered pairs of edge-disjoint six-cycles (three partners each), hence exactly 180 flags. S6 acts equivariantly; full eleven cycle-type spectra and splitting degrees follow by finite permutation action. Independently enumerated 60 hexagons and 180 flags, compared (6),(3,3),(4,2),(2,2,2) orbit tables and confirmed all eleven types; inspected source verify_hexagrammum.py, which exhausts all 720 permutations and checks exact projective 60+60 realization over Q and F10007. Geometric Kirkman concurrence is an explicitly credited classical premise, no claim of existence for every small finite field. Zeta product is exact finite-etale orbit formula. Independent checks substantiate finite computation without extrapolating examples into universal geometry.
 
-The theorem for all permitted incidence-generic sextuples follows from the functorial geometric construction and exhaustive finite permutation analysis; the two explicit projective examples establish a nonempty incidence-generic locus in characteristic zero and one permitted positive characteristic, not existence over every finite field or every Frobenius type. Characteristic \(p\ge7\) and the absence of additional Pascal–Kirkman incidences are part of the hypotheses. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS after comparing mathematical implications, high-relevance primary material and related Resultary records; no decisive prior domination identified. Residual risks explicit.
+
+## value
+
+PASS
+
+The complete Frobenius arithmetic incidence table for the classical hexagrammum mysticum is a natural finite classification; surprising rational-nonincidence for two splitting types and all extension-field zeta counts can be used for finite-field incidence and Galois-descent questions. Distinct from rediscovering classical concurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
