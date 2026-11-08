@@ -1,15 +1,21 @@
-# Scientific review: symmetric genus-ten sextics in characteristic five
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is an algebraically closed field of characteristic \(5\); the smooth locus is **exactly** \(t\notin\{2,3,4\}\), and the theorem distinguishes \(t=0\) from all other smooth parameters. The gradient equations reduce to a three-by-three matrix with eigenvalues \(2-t\) and \(2+2t\), together with a two-coordinate determinant \(4-t^2\). Euler's formula confirms that every projective critical point lies on the sextic. For smooth fibers, Čech cohomology gives a ten-dimensional Frobenius module; exact expansion of the fourth power of the defining sextic yields only twelve nonzero matrix entries. The coefficients split into six invertible paired entries and a rank-two four-coordinate block, with an explicit two-dimensional killed subspace. At nonzero smooth parameters, all scalar factors are nonzero, so the invertible eight-dimensional summand remains invertible under every Frobenius twist: the \(5\)-rank is genuinely eight, not an inference from one-step Hasse rank. At the Fermat parameter the full matrix vanishes. The genus and \(a\)-number follow from standard smooth plane-curve and Cartier duality results. The self-contained verifier passed symbolic polynomial comparisons and finite-field rank checks; the proof does not rely on finite sampling.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating first public source is Fukasawa–Miura–Takahashi, arXiv:2211.16033v1 (November 29, 2022). Its Section 4 studies quasi-Galois point arrangements and explicitly displays the symmetric sextic with coefficient \(-10\); it does not state the characteristic-five Hasse--Witt matrix or the uniform non-Fermat \(5\)-rank. Borges–Gonçalves, arXiv:2212.03987v1, study p-ranks of the curves \(y^m=x^n+1\) and particular related covers, not the full mixed-monomial parameter family here. Kodama–Washio treat classical Fermat curves, and the Fermat endpoint of this theorem is not claimed new. Badr–Bars (2025, Theorem 2.1 and Remark 9.11) give an automorphism classification involving the same special sextic but explicitly restrict to characteristic zero or greater than twenty-one. These comparisons are by objects, field characteristic and mathematical implications, not titles alone. Search for aliases of the coefficient family, Hasse--Witt, Cartier--Manin, stable Frobenius rank, Fermat specialization, automorphism classification and exact invariants found no covering theorem in accessible primary literature or mathematical research records. The accessible historical ledger contained a result on the 72 flex tangents of the complex \(t=-10\) curve; it has no implication for the characteristic-five Hasse ranks. An unpublished or unindexed equivalent computation remains possible.
+PASS
 
-## Mathematical value — PASS
-The exact p-rank and a-number are natural invariants of a genus-ten Jacobian. Their complete stratification in this symmetry-rich coefficient family exhibits a sharp phenomenon: at the distinguished Fermat reduction both invariants jump, whereas over **every** other smooth parameter the Hasse--Witt rank eight is already Frobenius stable. The result supplies arithmetic information that the geometric automorphism/arrangement classifications do not supply, and the full finite list of excluded singular parameters makes the result a complete statement rather than a selected numerical example. It does not require a downstream theorem to make the precise non-Fermat locus valuable.
+Over algebraically closed char5, F_t=X⁶+Y⁶+Z⁶+t(X³Y³+Y³Z³+Z³X³). Its derivative system has eigenvalues 2−t (twice) and 2+2t on the three-nonzero coordinate stratum, and 4−t² on the two-nonzero stratum, giving smoothness iff t∉{2,3,4}. Smooth plane sextics have genus10. The standard Čech Hasse–Witt entry [X^{5α−β}]F_t⁴ for 10 positive triples α,β summing to6 expands to exactly 12 nonzero polynomial entries: three invertible transposition pairs coefficient A=−t(t−2)²(t+2), and a 4-coordinate block with three B=2t(t+2) entries and three D=2t(t−2)³. At smooth t≠0 the matrix has an invariant 8-dimensional Frobenius-stable invertible summand and 2-dimensional killed summand. All twists of nonzero coefficients remain nonzero, so semilinear Frobenius stable rank equals eight, not just one-step rank; a-number=2. At t=0 all vanish and a=10, p-rank0. Independently reconstructed F_t⁴ multinomial coefficients and all 100 Hasse–Witt matrix entries, checked exactly 12 nonzero and rank 0/8 at F5 parameters. Finite check corroborates symbolic result, not higher field extrapolation.
 
-## Scope and risks
-The result is not a moduli-invariant classification of all smooth genus-ten plane sextics, nor a calculation of the full Newton polygon or Ekedahl--Oort type. It is limited to the stated equation and characteristic five. Arithmetic priority risk remains for inaccessible or unindexed sources; no independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fermat sextic t=0 superspecial case is classical and not claimed novel. Prior characteristic-zero symmetry studies of coefficient −10 and Fermat-type curve p-rank results do not state rank-eight stable Frobenius for every nonzero smooth member of the mixed-monomial characteristic-five family. Best-of-knowledge new uniform stratum.
+
+## value
+
+PASS
+
+The 5-rank and a-number are core arithmetic-geometric invariants of Jacobians. The complete uniform stratification of a natural genus-ten family distinguishes a superspecial Fermat point from a large smooth p-rank-eight locus, and explicitly resolves the stable-Frobenius issue rather than confusing one-step rank with p-rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

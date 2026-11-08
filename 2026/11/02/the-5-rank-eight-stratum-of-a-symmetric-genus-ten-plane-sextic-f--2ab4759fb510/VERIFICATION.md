@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Running `python3 verify_hasse_sextic.py` using the Python standard library yields:
+## correctness
 
-```
-SYMMETRIC_SEXTIC_CHAR5_HASSE_AND_STABLE_RANK_ALL_F25_SMOOTH_PARAMETERS_PASS
-symbolic matrix: six A entries, three B entries, three D entries
-A=-t(t-2)^2(t+2), B=2t(t+2), D=2t(t-2)^3
-22 smooth F_25 parameters: 1 zero Hasse matrix and 21 stable rank-8 matrices
-```
+PASS
 
-The verifier expands the fourth power of the six-term homogeneous sextic via the multinomial theorem in \(\mathbf F_5[t]\), constructs all one hundred Hasse-coefficient entries, and asserts the complete twelve-entry symbolic matrix. It then checks over every smooth member parametrized by \(\mathbf F_{25}\) that the one-step rank and five successive twisted-product ranks are zero at the Fermat parameter and eight elsewhere. The polynomial identities prove the symbolic matrix over an algebraic closure; the explicit invariant-block argument in RESULT.md proves the stable rank over all algebraically closed characteristic-five fields. Finite-field tests do not prove the infinite-field statement by themselves. Smoothness is proven separately by differentiation and homogeneous Euler identity, not by testing only small fields.
+Over algebraically closed char5, F_t=X⁶+Y⁶+Z⁶+t(X³Y³+Y³Z³+Z³X³). Its derivative system has eigenvalues 2−t (twice) and 2+2t on the three-nonzero coordinate stratum, and 4−t² on the two-nonzero stratum, giving smoothness iff t∉{2,3,4}. Smooth plane sextics have genus10. The standard Čech Hasse–Witt entry [X^{5α−β}]F_t⁴ for 10 positive triples α,β summing to6 expands to exactly 12 nonzero polynomial entries: three invertible transposition pairs coefficient A=−t(t−2)²(t+2), and a 4-coordinate block with three B=2t(t+2) entries and three D=2t(t−2)³. At smooth t≠0 the matrix has an invariant 8-dimensional Frobenius-stable invertible summand and 2-dimensional killed summand. All twists of nonzero coefficients remain nonzero, so semilinear Frobenius stable rank equals eight, not just one-step rank; a-number=2. At t=0 all vanish and a=10, p-rank0. Independently reconstructed F_t⁴ multinomial coefficients and all 100 Hasse–Witt matrix entries, checked exactly 12 nonzero and rank 0/8 at F5 parameters. Finite check corroborates symbolic result, not higher field extrapolation.
 
-No independent audit, independent validation, formal-system certification, or external replication is claimed.
+## originality
+
+PASS
+
+The Fermat sextic t=0 superspecial case is classical and not claimed novel. Prior characteristic-zero symmetry studies of coefficient −10 and Fermat-type curve p-rank results do not state rank-eight stable Frobenius for every nonzero smooth member of the mixed-monomial characteristic-five family. Best-of-knowledge new uniform stratum.
+
+## value
+
+PASS
+
+The 5-rank and a-number are core arithmetic-geometric invariants of Jacobians. The complete uniform stratification of a natural genus-ten family distinguishes a superspecial Fermat point from a large smooth p-rank-eight locus, and explicitly resolves the stable-Frobenius issue rather than confusing one-step rank with p-rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
