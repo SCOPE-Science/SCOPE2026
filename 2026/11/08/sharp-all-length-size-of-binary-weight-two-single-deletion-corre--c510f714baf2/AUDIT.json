@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The disjoint-shadow condition forces \\(a+2b\\le n-1\\) using distinct weight-one descendants. Consecutively indexed adjacent-one words share a weight-two descendant, hence \\(a\\le\\lceil(n-1)/2\\rceil\\). This proves the upper bound. The proposed two pair families achieve it, with their weight-one and weight-two descendants explicitly partitioned by parity and pair gap, respectively. Endpoints \\(n=2\\) onward are included. Finite checker independently recomputes shadows up to \\(n=120\\) and exact optima through \\(n=12\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1211.3128 derives general non-asymptotic upper bounds for deletion codes",
+        "arxiv:math/0207197 describes general single-deletion codes and classical VT constructions"
+      ],
+      "reasoning": "General-size bounds and VT constructions do not give this restricted-layer exact optimum. An unrestricted maximum size does not bound a restricted maximum with matching lower bound, nor imply its exact value.",
+      "searches": [
+        "Exact optimal constant-weight two binary single-deletion-correcting codes for all lengths",
+        "web: binary constant weight 2 deletion correcting code maximum size formula weight-two subgraph independence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197",
+      "arxiv:1211.4056",
+      "arxiv:1211.3128",
+      "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1211.4056 identifies constant-weight colorings as a separate optimization problem",
+        "The present proof uses the weight-one descendant packing \\(a+2b\\le n-1\\) and adjacent-pair compatibility \\(a\\le\\lceil(n-1)/2\\rceil\\)"
+      ],
+      "reasoning": "The chromatic-number theorem yields a partition into independent sets and potentially a lower bound for the maximum color class; it does not deliver the matching upper bound or the construction at approximately \\(3n/4\\). The new upper bound exploits the number of weight-one descendants; classical full-code capacity results do not imply it.",
+      "searches": [
+        "arxiv:1211.4056 Section III theorem on χ(L_{1,n,k})",
+        "arxiv:math/0207197 introduction and deletion sphere discussion",
+        "Maximum independent set of single deletion confusability graph restricted to two ones"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1211.4056, single-deletion constant-weight graph colorings versus independent sets",
+        "No equality to \\(\\lfloor(3n-2)/4\\rfloor\\) in retrieved primary passages"
+      ],
+      "reasoning": "The graph-maximum-independent-set formulation is equivalent to the all-length code-capacity claim. The primary 2012 result computes a graph coloring number instead; that invariant does not fix maximum independent sets. No exact same claim was identified in the searched published records.",
+      "searches": [
+        "Constant Hamming weight two binary single deletion code optimal maximum floor (3n-2)/4 using deletion shadows and adjacent ones",
+        "Maximum independent set of single deletion confusability graph restricted to two ones",
+        "web: independence number constant weight two deletion graph n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1211.4056 presents constant-weight colorings rather than an exact table of maximum independent-set values for weight two",
+        "arxiv:math/0207197 presents classical VT codes and general deletion-code examples, not an all-length weight-two table"
+      ],
+      "reasoning": "A complete unrestricted length-six code census and a triangle count are different invariants from the maximum independent-set number for all n at exact Hamming weight two. No covering table or formula was encountered.",
+      "searches": [
+        "Exact optimal constant-weight two binary single-deletion-correcting codes for all lengths",
+        "Weight-two single-deletion correcting codes and constant-weight run bounds",
+        "web: single deletion correcting weight 2 binary codes maximum size constant weight"
+      ]
+    },
+    "rationale": "No covering exact weight-two independence theorem was found in inspected primary works or actual published-record searches. The closest constant-weight study supplies a chromatic-number theorem, which does not imply the independence optimum. Priority remains qualified by plausible unindexed equivalences.",
+    "residual_risks": [
+      "Unindexed historical theorem on constant-weight-two single-deletion codes may use independent-set, matching, or deletion-neighborhood terminology.",
+      "Relevant conference predecessor on weight partitioning was compared but an alternate monograph presentation might include an exact weight-two independent-set lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general deletion-correcting framework but no identified all-length weight-two exact maximum",
+        "evidence": "arxiv:math/0207197, introductory definitions and analysis of single-deletion-correcting codes",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+        "material_read": "Full available PDF sections concerning deletion shadows, descendant counts, and VT codes; first page inspected visually",
+        "method": "Read relevant PDF full text and cross-checked the foundational formulation",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational deletion-code source and possible preexisting exact small-weight statement"
+      },
+      {
+        "assessment": "Coloring optimum is not the fixed-weight-two maximum independent-set optimum; no covering exact size formula identified",
+        "evidence": "arxiv:1211.4056, Section III and chromatic-number theorem",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "Full accessible paper, particularly constant-weight graph, optimal coloring theorem, and its surrounding discussion; first page inspected visually",
+        "method": "Compared exact invariant (chromatic number versus independence number) and theorem quantifiers",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Directly treats the constant-Hamming-weight induced graph and potentially dominates the claim"
+      },
+      {
+        "assessment": "No direct exact fixed-weight-two equality identified",
+        "evidence": "arxiv:1211.3128, general deletion-code upper bounds",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Relevant full-text bound statements, proofs, and constrained-code discussion; first page inspected visually",
+        "method": "Checked bound objects and implications for the exact restricted-weight layer",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Possible stronger universal bound implying fixed-weight optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c510f714-baf2-4d62-961a-a289e2ed8fad",
+  "value": {
+    "rationale": "Exact all-length capacity is a natural invariant for the sparse constant-weight-two subchannel of single-deletion correction. Weight partitioning is a documented coding method; knowing the maximum independent-set number, unlike chromatic bounds alone, settles the sharp weight-two rate and supplies simple explicit optimum designs. The result is not a mere finite table.",
+    "status": "PASS"
+  }
+}
