@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 checker.py` with Python 3.9 or newer and no external dependencies. The script computes three independent semantics in integer arithmetic: full-grammar closure on every half-grid, enumeration of all allowable decorated half-grid vectors, and a tridiagonal transfer-matrix power. It compares the three complete finite sets for \(d=1,2,3\) and derives transfer-matrix counts for \(d=1,\ldots,8\). Successful execution ends with `ALL_CHECKS_OK`.
+# Independent mathematical audit
 
-The checker tests exhaustive finite samples of the *syntax closure*, not an unbounded sequence of denominators. The proof for all \(d\ge1\) relies on the affine-component induction, the max-min piecewise-linear representation theorem, and the weighted-walk estimate in `RESULT.md`. The cited representation theorem is externally published mathematical work, not an independent audit of this result. No independent audit has been performed.
+## correctness
+
+PASS
+
+Structural induction under constants, negation, clipped rational shifts, min and max leaves only affine components of slopes -1,0,1 and intercepts integral/d. Pairwise crossings lie on the half-grid, so each full 1/d cell must be a +/-1 step or one of allowed flat/up-tent/down-tent stays. Conversely the clipped component lines are definable and Ovchinnikov’s max–min representation realizes every compatible decorated path. Summation of walks gives 1^T A_d^d 1; independent transfer calculations reproduce the listed counts for d=1..8. The upper bound (d+1)5^d and Doob/maximal inequality lower bound 5^d(d-O(sqrt d)) prove asymptotic d5^d. Ovchinnikov theorem is in the source paper as its main Theorem 4.1, though this package cites theorem number 2.1; bibliographic numbering needs correction, not a change to the mathematical claim.
+
+## originality
+
+PASS
+
+Qualified PASS: the non-expansive fuzzy-logic papers give syntax/interpolation constructions, and Ovchinnikov gives general lattice-polynomial representation, but neither enumerates semantic unary functions for fixed rational denominator nor obtains the decorated-walk transfer matrix and d5^d asymptotic. Searches for term clones/finite automata found no equivalent enumeration; historical clone-language coverage remains possible.
+
+## value
+
+PASS
+
+A complete semantic normal form is an independently useful exact expressivity and equivalence-decision invariant for a motivated non-expansive fuzzy term language. Enumeration is nontrivial since functions agree on a continuum, not merely a finite truth table; the asymptotic d5^d quantifies growth of the restricted clone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

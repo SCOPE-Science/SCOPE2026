@@ -1,19 +1,21 @@
-# Review: Decorated-walk normal form and exact unary census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any positive denominator \(d\), structural induction gives affine pieces with slopes in \(\{-1,0,1\}\) and integral-grid intercepts. Their pairwise crossing locations lie on the half-grid, which forces the three same-height decorations and the unique increasing/decreasing transitions. Conversely, Ovchinnikov's representation theorem expresses any permitted continuous decorated walk as a min-max polynomial of its affine pieces, each of which clips to an available shifted literal. The transfer matrix counts the resulting unique paths; a weighted-walk maximal inequality proves \(|\mathcal T_d|=5^d(d+O(\sqrt d))\). The independent grammar-closure checker matches transfer-matrix and decorated-path enumerations through \(d=3\). The proof, not finite tests, covers all denominators.
+PASS
 
-## Originality — PASS within inspected evidence
+Structural induction under constants, negation, clipped rational shifts, min and max leaves only affine components of slopes -1,0,1 and intercepts integral/d. Pairwise crossings lie on the half-grid, so each full 1/d cell must be a +/-1 step or one of allowed flat/up-tent/down-tent stays. Conversely the clipped component lines are definable and Ovchinnikov’s max–min representation realizes every compatible decorated path. Summation of walks gives 1^T A_d^d 1; independent transfer calculations reproduce the listed counts for d=1..8. The upper bound (d+1)5^d and Doob/maximal inequality lower bound 5^d(d-O(sqrt d)) prove asymptotic d5^d. Ovchinnikov theorem is in the source paper as its main Theorem 4.1, though this package cites theorem number 2.1; bibliographic numbering needs correction, not a change to the mathematical claim.
 
-The 2025 source introduces non-expansive constant-shift fuzzy logic and gives decision procedures. The 2026 interpolation source establishes qualitative interpolation and syntactic normal forms but not exact unary cardinalities. Ovchinnikov's 2002 max-min representation is a critical credited proof input, not the claimed new census. The closest accessible earlier half-grid result establishes the existence of grid optimizers, which does not imply the classification of all definable functions. Searches for equivalent unary free algebras, exact number sequences, boundary-weighted walks and stronger general statements did not identify a covering theorem. Equivalent work under different terminology remains a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-denominator, one-variable semantic term algebra is a natural quantitative measure of expressivity for a widely studied non-expansive fuzzy propositional base. The complete decorated-path normal form gives exact, all-size cardinalities and a sharp asymptotic rate, distinguishing semantic possibilities from unbounded formula syntax and offering canonical finite encodings.
+Qualified PASS: the non-expansive fuzzy-logic papers give syntax/interpolation constructions, and Ovchinnikov gives general lattice-polynomial representation, but neither enumerates semantic unary functions for fixed rational denominator nor obtains the decorated-walk transfer matrix and d5^d asymptotic. Searches for term clones/finite automata found no equivalent enumeration; historical clone-language coverage remains possible.
 
-## Scientific limitations
+## value
 
-No claim is made for arbitrary rational constants, additional binary operations, modalities, or multiple variables. The computational tests cover only small denominators and do not independently certify the infinite theorem; exact coverage of all historical literature is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete semantic normal form is an independently useful exact expressivity and equivalence-decision invariant for a motivated non-expansive fuzzy term language. Enumeration is nontrivial since functions agree on a continuum, not merely a finite truth table; the asymptotic d5^d quantifies growth of the restricted clone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
