@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10 or newer; no third-party packages are needed. The program constructs the actual ordered Abrams cubical complex on a star with each arm subdivided into three edges. Its vertex and edge atoms are supplied with their closed supports, and its product cubes are precisely the ordered triples of atoms having pairwise disjoint supports.
+## correctness
 
-It independently computes the alternating sum of cellular dimensions, compares the result to \(-m(m+1)(2m-5)\), and checks that every vertex of each tested cubical model lies in the connected one-skeleton. For the dimensions of the fixed cellular traces, it computes the action on closed supports directly and uses the permutation parity induced on the subset of moving (edge) particle coordinates. This checks orientation signs, including transpositions of moving cube factors.
+PASS
 
-The complete finite test set consists of all conjugacy-class representatives of the arm groups on three, four and five arms, paired with all three conjugacy-class representatives of the label group. There are \(9+15+21=45\) traces. The output file `verification_output.txt` is the recorded result of this execution and can be regenerated.
+Ghrist's radial-tree graph homotopy theorem makes F3(S_m) connected with no H>=2 and known beta1=1+m(m+1)(2m−5). Finite group equivariant Euler gives 1−tr H1=χ(F3(S_m)^{(σ,τ)}). For τ=id a fixed configuration consists of three points on the fixed-arm star S_f; its three-edge-per-arm cubical Euler coefficient is 6[z³]((1+z)(1+z+z²+z³)^f−fz(1+z+z²)(1+z+z²+z³)^(f−1))=−f(f+1)(2f−5), including f=0,1,2. For a transposition of labels one point lies in fixed S_f and an exchanged pair occupies each length-two arm cycle at the same positive radius, producing 2c2 contractible components; a 3-cycle similarly produces 3c3 intervals. Hence the three full trace formulas follow. Exact falling-factorial moments E[(f)_j]=1 for j≤m give vanishing full-arm invariants, while signed moments E_sgn[(f)_j]=1 iff m−j∈{0,1} yield exceptional alternating-arm ranks 5,2,0. Independently expanded the cubical Euler polynomial for f=0..8, finding exact agreement. The source checker constructs cell support products and checks 45 conjugacy representatives for m=3..5. This is a symbolic all-m argument, not an extrapolation from these tests.
 
-The checks are finite, and do not themselves prove an infinite-family theorem or independently certify publication priority. The proof for arbitrary arm number is the uniform fixed-set analysis, the coefficient identity, and the existing one-dimensional deformation theorem in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+Ghrist's general star-graph homotopy formula and Farley--Sabalka's graph braid methods provide ranks and topology, not simultaneous arm/particle-label traces. Wawrykow's complete ordered-star presentation and representation stability may encode the answer implicitly, but no same joint closed character was identified in the accessed primary full text. Earlier unlabeled-star symmetry determines only the trivial label-isotypic projection, expressly excluded from novelty.
+
+## value
+
+PASS
+
+Label and arm permutations are intrinsic, commuting symmetries of ordered graph configurations. The exact nontrivial label-sign and standard sectors and the disappearing alternating-arm quotient homology beyond four arms provide reusable representation data not inferred from the previously known wedge count. A complete uniform answer for exactly three particles can be valuable without solving the general particle-count problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
