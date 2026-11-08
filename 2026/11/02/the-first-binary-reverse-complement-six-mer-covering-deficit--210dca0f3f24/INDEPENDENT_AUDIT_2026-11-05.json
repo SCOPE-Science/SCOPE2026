@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:56:46.127980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and package verifiers",
+        "Independent replay as in scientific_evidence"
+      ],
+      "rationale": "For even k, RC orbit counts (2^k+2^(k/2))/2 give 3,10,36 at k=2,4,6. Explicit witnesses cover the first two bounds. The 5 high-potential and 5 RC-low-potential states produce a 0..3 nonnegative six-mer cost constant on RC classes. An independent enumeration of all 64 six-mers verified eight fixed words, sum 18 of fixed-word weights, and total 41 when counting all 36 RC classes once. Telescoping along any linear word yields total cost at most L+2 for L six-mer windows, forcing L>=39. Independently evaluated the explicit 44-bit word and found all 36 classes among its 39 windows, with precisely three classes appearing twice and zero weights on those repeats. This is a universal lower bound plus exact witness, not inference from brute-force search over all strings.",
+      "residual_risks": [
+        "Finite exhaustive verification is restricted to its specified domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 of Orenstein--Shamir states an algorithm producing optimal RC-complete strings for even k; Theorem 6 gives polynomial-time general optimization.",
+          "Their Table 1 reports four-letter DNA results including k=6 optimum 2140, not the binary k=6 optimum 44."
+        ],
+        "reasoning": "A general optimization algorithm can compute the submitted special case but does not by itself provide its closed numerical certificate or exact first binary even-order boundary. Scientific value derives from the short certificate, not algorithmic novelty.",
+        "searches": [
+          "web: Orenstein Shamir shortest double-stranded DNA sequences k-mers 2013 full",
+          "web: reverse-complement binary 6 covering length 44"
+        ]
+      },
+      "checked_sources": [
+        "Orenstein and Shamir 2013 OA full text via PMC, including Table 1",
+        "Orenstein and Shamir 2015 correction",
+        "Resultary reverse-complement semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2013 Theorems 5-6 establish a general solver and non-tightness of even-k orbit bound for the four-letter context; the 2015 erratum corrects the odd-k criterion.",
+          "Binary k=4 attains orbit bound, k=6 does not, a finer alphabet-specific boundary."
+        ],
+        "reasoning": "The prior theorems provide computational access in principle but do not immediately imply the exact binary k=6 length or explicit potential. The current proof states and establishes those independently.",
+        "searches": [
+          "web: shortest reverse complementary sequence algorithm even k",
+          "web: Orenstein Shamir 2015 erratum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orenstein--Shamir (2013) study the same RC-complete linear sequence problem for a four-letter DNA alphabet and general alphabets in its graph formulation.",
+          "Binary involution is a natural restricted alphabet, not a new algorithmic model."
+        ],
+        "reasoning": "Prior RC-complete sequence theory must be credited. The numeric binary (2,4,6) vector and nonnegative five-bit potential are not explicitly stated in the full accessed primary text.",
+        "searches": [
+          "web: binary reverse complement de Bruijn covering 6-mer 44",
+          "Resultary: binary reverse complement de Bruijn covering shortest six-mer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full PMC Table 1 lists optimal lengths for four-letter DNA k=2..14 and omits binary six-mer value 44.",
+          "The submitted 36 class/39 window count was independently confirmed."
+        ],
+        "reasoning": "The exact known four-letter table is not an equivalent binary table. No prior indexed binary six-mer table with the value and certificate was located; this is best of knowledge, not historical proof.",
+        "searches": [
+          "web: Orenstein Shamir 2013 Table 1 even k optimal",
+          "Resultary binary kmer covering"
+        ]
+      },
+      "rationale": "The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.",
+      "residual_risks": [
+        "Existing general exact optimizer may have been run on binary k=6 in unpublished/uncatalogued tables.",
+        "Novelty is only the explicit binary instance and potential certificate, not the RC-complete problem or algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine broader algorithmic coverage; four-letter numerical table, not binary 44 or this dual certificate",
+          "evidence": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+          "material_read": "Full OA HTML; reviewed preliminaries, §3 odd/even algorithms including Theorems 5-6, Table 1 and discussion",
+          "method": "Read publisher OA PMC full text sections and table",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers",
+          "trigger": "Exact same RC-completeness definition and stronger optimal algorithm"
+        },
+        {
+          "assessment": "Corrects odd-order theorem and pseudocode, not the submitted binary k=6 exact value",
+          "evidence": "https://doi.org/10.1093/bioinformatics/btv084",
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btv084",
+          "material_read": "Full short correction text about Theorem 1/Algorithm 1",
+          "method": "Read journal correction",
+          "title": "Design of shortest double-stranded DNA sequences ... erratum",
+          "trigger": "Potential correction of baseline theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Intrinsic object/invariant motivation in RESULT.md",
+        "Primary research comparison recorded under originality"
+      ],
+      "rationale": "A compact nonnegative potential certificate resolves the first binary even-order deficit for a basic de Bruijn/reverse-complement covering problem. The precise value 44 and three-window obstruction are natural length and symmetry invariants, useful independently of the established general polynomial algorithm; the displayed dual proof explains why orbit counting fails.",
+      "residual_risks": [
+        "The value is finite or parameter-specific and should not be promoted as an all-parameter theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For linear binary reverse-complement covering strings, minimum lengths at k=2,4,6 are 4,13,44; the first even-order orbit lower-bound failure occurs at k=6 with three surplus windows.",
+  "limitations": [
+    "Binary alphabet and linear windows at k=2,4,6 only; no result for four-letter DNA or all even orders."
+  ],
+  "schema_version": 1
+}

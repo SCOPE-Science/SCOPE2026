@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the six-mer certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program prints `VERIFY_OK` after checking all finite premises used in the proof; no external packages, online services or solver certificates are required.
+## correctness
 
-The checks are: the five special high-potential states and their reverse-complement low-potential partners; absence of a one-bit shift from any low-potential state to a high-potential state; antisymmetry of the potential; nonnegativity and reverse-complement invariance of all \(64\) six-bit edge costs; exactly eight reverse-complement-fixed six-mers with total cost \(18\); full edge-cost sum \(64\); exactly \(36\) classes with class-cost sum \(41\); coverage by the explicit \(44\)-bit word with \(39\) windows and three zero-cost duplicate classes; and the class-count-tight short witnesses at orders two and four. Two implementations compute the order-six classes, one using bitstrings and another using integers. The smaller equality cases are also enumerated directly.
+PASS
 
-The mathematical lower bound rests on a telescoping identity and the explicit nonnegative potential. It applies to all finite binary words of the specified type; finite tests alone would not prove that statement. The displayed witness independently supplies the upper bound.
+For even k, RC orbit counts (2^k+2^(k/2))/2 give 3,10,36 at k=2,4,6. Explicit witnesses cover the first two bounds. The 5 high-potential and 5 RC-low-potential states produce a 0..3 nonnegative six-mer cost constant on RC classes. An independent enumeration of all 64 six-mers verified eight fixed words, sum 18 of fixed-word weights, and total 41 when counting all 36 RC classes once. Telescoping along any linear word yields total cost at most L+2 for L six-mer windows, forcing L>=39. Independently evaluated the explicit 44-bit word and found all 36 classes among its 39 windows, with precisely three classes appearing twice and zero weights on those repeats. This is a universal lower bound plus exact witness, not inference from brute-force search over all strings.
 
-Limits: only ordinary linear reverse-complement factor coverage is tested; no circular, multi-probe, higher-order, or DNA-alphabet claim follows. The review is not independent validation.
+## originality
+
+PASS
+
+The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.
+
+## value
+
+PASS
+
+A compact nonnegative potential certificate resolves the first binary even-order deficit for a basic de Bruijn/reverse-complement covering problem. The precise value 44 and three-window obstruction are natural length and symmetry invariants, useful independently of the established general polynomial algorithm; the displayed dual proof explains why orbit counting fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
