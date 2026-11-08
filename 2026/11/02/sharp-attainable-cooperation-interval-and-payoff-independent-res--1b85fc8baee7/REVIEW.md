@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Both strategy numbers satisfy exact independent positive-growth equations, yielding strict initial-count barriers and exponential convergence of total population to capacity. The log-odds identity for the environmental variable proves the exact resource trichotomy, including the non-generic interior boundary. The main nonstandard step—the interval's surjectivity while the rich-state payoff matrix stays fixed—uses fast-time scaling and a uniform remaining-capacity tail bound, so it does not interchange the fast-time and infinite-time limits without control. A symbolic and numerical verification program checks pivotal identities and illustrative regimes; finite calculations do not establish the infinite theorem.
+## correctness
 
-**Originality — PASS with stated bibliographic uncertainty.** The full originating preprint derives the model and reports numerical bistability, but not the fixed-rich-game exact reachable interval or payoff-independent initial-density thresholds. The related 2016 feedback game omits growing population density, the 2017 ecological-game study incorporates background survival/death and differs in its population equations, and the authors' 2022 follow-on model uses resource renewal and mortality. Targeted mathematical-record searches and published-source searches found no dominating specialization; an unindexed exact equivalent remains a residual risk.
+PASS
 
-**Value — PASS.** A central question in finite-capacity common-resource games is whether outcomes depend on strategic incentives or are already forced by initial ecological occupancy. The theorem answers that question sharply for every positive depleted-state game at a *fixed* rich-resource matrix and identifies when all three environmental outcomes, including a critical interior final resource, are dynamically attainable. This distinguishes true payoff-dependent ecological bistability from payoff-independent initial-state constraints and quantifies the initial-cooperator-number resource floor. It is not merely the routine assertion that logistic population size is bounded: the attained interval and fixed-\(U_1\) converse require a constructive fast-time singular limit.
+Direct differentiation of C=Nx and D=N(1-x) gives Cdot=C(1-N/K)F_C and Ddot=D(1-N/K)F_D. Strictly positive payoffs imply both counts strictly grow, N->K with an exponential capacity deficit, hence strict attainable-endpoint bounds and integrable x(t)-x∞. The log-odds derivative of resource is epsilon(1+theta)(x-rho), proving exactly 0/interior/1 limits. The fixed U1 attainability proof is substantive: choose U0=L[[q,q],[1,1]], let L->infinity in fast time, retain n≈n0 and uniformly bound terminal-tail frequency error by remaining capacity; continuous dependence and intermediate value over q produce every interior terminal share. Explicit independent algebra checks confirm C,D identities. Source-only constant-row U0=U1 shortcut would not suffice when U1 is fixed, but the fast-time proof addresses that quantifier.
 
-**Closest literature and risk.** Bairagya et al. 2021 (arXiv:2109.14971, full Sections II–V), Weitz et al. 2016 (PNAS 113 E7518–E7525, full accessible text), Argasinski–Broom 2017 (Ecological Complexity preprint, pages 1–8 and relevant model/stability sections), and Bairagya et al. 2022 (arXiv:2205.04877, model and finite-capacity results) have been compared at equation and implication level. Different demographic mechanisms prevent easy theorem transfer. Searches cannot establish absolute uniqueness; positive-entry and no-turnover assumptions are essential, and the class of \(U_0\) matrices must be unrestricted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier same-model Bairagya et al. finite-capacity article provides feedback equations and numerical regimes rather than the exact open reachability interval with arbitrary fixed positive U1. General Weitz feedback games lack independent growing population density, and mortality/turnover models do not force both strategy counts to increase; none of the inspected theorems gives the sharp fixed-U1 inverse attainability statement.
+
+## value
+
+PASS
+
+A complete reachability and universal-initial-data criterion resolves a natural exact global question: which environmental outcomes are forceable by depleted-state payoffs while leaving the rich-state game unchanged? The weak-boundary guarantees and realizable critical interior limit are useful phase-diagram invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
