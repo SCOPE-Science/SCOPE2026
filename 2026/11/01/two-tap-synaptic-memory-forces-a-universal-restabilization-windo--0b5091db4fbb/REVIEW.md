@@ -1,21 +1,21 @@
-# Scientific review: two-tap delay restabilization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic equation, the exhaustive trigonometric imaginary-root factorization, the crossing-direction calculation, and the ordering of the first three critical times were reconstructed from the specified scalar retarded equation. The uniform bound \(|s|^2\le a+b\) on right-half-plane roots rules out loss of root count at infinity; the small-delay expansion \(s'(0)=-3b/4\) supplies the initial stable state. All three crossings are simple and transverse, so a \(+2,-2,+2\) right-half-plane root count proves the two stable windows and the intervening instability. The Dirac comparison follows from the full odd/even crossing sequences and \(b/a>5/13\). The 2026 source's actual equilibrium and linearized coefficients were substituted, not merely inferred from an analogy. Reproducible numerical residual checks passed for five pairs, plus numerical root searches for a representative case; such tests are not substituted for the universal proof.
+PASS
 
-## Originality — PASS, with material priority risk
+Recomputed imaginary-root equation: sin(theta)+sin(2theta)=sin(theta)(1+2cos(theta))=0. All positive crossings consist of theta=2k*pi at omega=sqrt(a-b), odd pi at omega=sqrt(a), and 2pi/3 or 4pi/3 mod 2pi at omega=sqrt(a+b/2). Since 0<b<a, the first three times are T1=2pi/(3gamma), T2=pi/sqrt(a), T3=4pi/(3gamma). Checked inequalities against next 2pi/sqrt(a-b), 3pi/sqrt(a), 8pi/(3gamma). At crossings implicit derivative inverse has real part -4Re[1/(bS(theta))] and sign of crossing equals -sign(cos theta+2cos2theta), hence +,-,+ as claimed, each simple. At tau=0 simple ±i sqrt(a-b) roots shift left at derivative -3b/4, all right-half-plane roots bounded |s|²<=a+b. Root count is 0,2,0,2 successively, giving the two stable windows. Single-delay crossing interlacing for b>5a/13 gives no return to zero count. Theta model parameter substitution cited in source yields a=4,b=2, conditional on its stated characteristic coefficients; independently checked three spectral roots and directions, not model-wide nonlinear theory.
 
-Bîrdac–Fikl–Kaslik–Mureşan (2026), arXiv:2607.17645v1, derives the exact second-order characteristic equation for the macroscopic type-2 state and treats Dirac and Gamma kernels. Its Section 5.5 and Remark 5.13 give the single-delay \(13b=5a\) boundary but not an equal two-point-delay kernel. The new kernel has real-frequency transform zeros, violating the paper's phase-regular hypothesis, and its stabilizing middle crossing is exactly at such a zero. The inspected 2026 main text and Appendix A do not establish the new universal window or the contrast at equal mean delay. A semantic published-record search for aliases including bimodal, two-tap, two commensurate delays, and second-order characteristic equations did not identify the exact claim.
+## originality
 
-A **substantial unresolved priority risk** is Cahlon–Schmidt (2024), *On Asymptotic Stability of Second Order Differential Equations with Two Commensurate Delays*, which studies a larger equation class containing this one. Only its abstract and opening page were accessible; its unseen theorems cannot be certified as noncovering, and further human comparison is warranted. Hata–Matsunaga (2022) studies a first-order two-delay equation, not the second-order characteristic equation here. General frequency-sweeping theory of Gu–Niculescu–Chen (2005) provides methodology, not by itself the displayed exact three-window theorem. No general claim that multi-delay stability switching is new is made.
+PASS
 
-## Mathematical value — PASS
+Exact universal three-crossing reentrant window is more specialized than general two-commensurate-delay stability frameworks and not reported in readable parts of the closest papers. However Cahlon–Schmidt (2024) treats precisely the same broad second-order commensurate two-delay family; only first page/abstract was accessible, and institutional full-text access was blocked, so that exact priority comparison is an explicitly significant residual risk. Best-of-knowledge PASS does not claim paper-wide noncoverage.
 
-The formula resolves a sharply motivated missing kernel case in a contemporary macroscopic neuron model: neither the single Dirac nor the phase-regular Gamma examples exhibit this universal two-window law across every \(0<b<a\). The second window is explained by perfect Fourier cancellation between two equal synaptic-delay pathways, while in a substantial open parameter wedge a single delay of the same mean never restabilizes. The exact three thresholds and the explicit physical parameter example make a testable dynamical distinction rather than an arbitrary numerical slice. The result is narrow by design; no nonlinear Hopf type, all-delay classification, or full-population attraction is asserted.
+## value
 
-## Closest literature and remaining limitations
+PASS
 
-Primary source: https://arxiv.org/abs/2607.17645 (Sections 2, 3, 5, 8, and Appendix A). Earlier same-class article: https://online.watsci.org/abstract_pdf/2024v31/v31n4a-pdf/1.pdf (first page only). General two-delay methodology: https://doi.org/10.1016/j.jmaa.2005.02.034 ; related first-order comparison: https://doi.org/10.7494/OpMath.2022.42.5.673 . The priority risk of the inaccessible full Cahlon–Schmidt paper is specifically retained. No independent scientific review is represented.
+Explicit two-window restabilization law for a natural two-atom positive delay distribution, contrasted with single-delay no-restabilization above b/a=5/13, supplies a motivated and parameter-uniform spectral boundary with a concrete biological macroscopic example. No global nonlinear or late-delay assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

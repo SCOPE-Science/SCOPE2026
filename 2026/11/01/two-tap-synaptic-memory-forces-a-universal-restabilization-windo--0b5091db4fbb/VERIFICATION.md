@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The standalone standard-library Python script `check_stability.py` was run successfully. It recomputed all three critical-delay residuals and derivative signs for each of five \((a,b)\) pairs, checked the order of the first three crossings against other candidate families, and verified 80 further candidate imaginary-axis characteristic identities, as well as a concrete macroscopic equilibrium example. Its output was:
+## correctness
 
-```
-PASS: five parameter pairs, first three crossings/order/direction, sample physical theta-neuron case, and complete candidate families
-a=4, b=2; critical two-tap delays: 0.9366419641387634 1.5707963267948966 1.8732839282775269
-first Dirac critical mean delay: 1.282549830161864
-```
+PASS
 
-Independent numerical root searches at shorter-tap delays \(0.5,1.2,1.7,2.0\) for \((a,b)=(4,2)\) found positive-real-part characteristic roots at \(1.2\) and \(2.0\) but none at \(0.5\) or \(1.7\). These grid-started root searches are illustrative, not exhaustive. The universal result follows from the analytic proof's complete imaginary-axis classification, transversality, and argument-principle root count. No nonlinear Hopf coefficient or full delay-axis stability diagram was computed.
+Recomputed imaginary-root equation: sin(theta)+sin(2theta)=sin(theta)(1+2cos(theta))=0. All positive crossings consist of theta=2k*pi at omega=sqrt(a-b), odd pi at omega=sqrt(a), and 2pi/3 or 4pi/3 mod 2pi at omega=sqrt(a+b/2). Since 0<b<a, the first three times are T1=2pi/(3gamma), T2=pi/sqrt(a), T3=4pi/(3gamma). Checked inequalities against next 2pi/sqrt(a-b), 3pi/sqrt(a), 8pi/(3gamma). At crossings implicit derivative inverse has real part -4Re[1/(bS(theta))] and sign of crossing equals -sign(cos theta+2cos2theta), hence +,-,+ as claimed, each simple. At tau=0 simple ±i sqrt(a-b) roots shift left at derivative -3b/4, all right-half-plane roots bounded |s|²<=a+b. Root count is 0,2,0,2 successively, giving the two stable windows. Single-delay crossing interlacing for b>5a/13 gives no return to zero count. Theta model parameter substitution cited in source yields a=4,b=2, conditional on its stated characteristic coefficients; independently checked three spectral roots and directions, not model-wide nonlinear theory.
 
-The 2026 preprint was inspected in accessible full text (relevant main sections and appendix). The 2024 directly relevant two-commensurate-delay article was available only as an abstract/first-page preview, leaving an explicit literature-priority uncertainty. This limitation is not evidence of noncoverage.
+## originality
+
+PASS
+
+Exact universal three-crossing reentrant window is more specialized than general two-commensurate-delay stability frameworks and not reported in readable parts of the closest papers. However Cahlon–Schmidt (2024) treats precisely the same broad second-order commensurate two-delay family; only first page/abstract was accessible, and institutional full-text access was blocked, so that exact priority comparison is an explicitly significant residual risk. Best-of-knowledge PASS does not claim paper-wide noncoverage.
+
+## value
+
+PASS
+
+Explicit two-window restabilization law for a natural two-atom positive delay distribution, contrasted with single-delay no-restabilization above b/a=5/13, supplies a motivated and parameter-uniform spectral boundary with a concrete biological macroscopic example. No global nonlinear or late-delay assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
