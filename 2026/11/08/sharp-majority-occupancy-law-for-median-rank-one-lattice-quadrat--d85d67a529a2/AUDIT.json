@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The finite root-of-unity identity makes each generator choose one cosine coefficient. Orthogonality fixes the exact \\(L^2\\) norm. Majority-support minimization gives the variational identity in both directions. Multinomial counts give the finite law; disjoint majority classes give the binomial atom. Strong-law counts, finite-union binomial tail sandwich and Stirling provide the sharp limit/exponent. A half-supported Fourier polynomial has exactly fair-Bernoulli lattice outputs and a persistent one-half median failure probability. The package checker performed 19584 independent finite assertions; the infinite statements have analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goda and Krieg, arXiv:2411.19164, Theorem 1: randomized prime selection and weighted Korobov guarantees.",
+        "Pan et al., arXiv:2603.05271, Theorem 1.1 and Sections 3–4: Fourier coefficient reconstruction and componentwise median, a different output object.",
+        "Goda and Suzuki, arXiv:2507.04297, Theorem 2.1: median limitation for fully nested digital-net scrambling, not random prime rank-one slopes."
+      ],
+      "reasoning": "The stronger-looking results constrain smoothness-weighted classes, randomize prime sizes, or reconstruct coefficients rather than evaluate the given integration median on the varying \\(L^2\\) Fourier unit ball. Their estimates do not imply the explicit finite occupancy distribution or its positive half-pool failure probability. This sharp result is a boundary example, not a contradiction to their guarantees.",
+      "searches": [
+        "worst case median rank-1 lattice quadrature Fourier subspace",
+        "median randomized quadrature worst case error finite dimensional Fourier all generating vectors nonvanishing error",
+        "median quasi-Monte Carlo failure Fourier",
+        "worst case median rank one lattice quadrature Fourier subspace occupation numbers order statistics exact error for sampled generating vectors"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2201.09413",
+      "https://arxiv.org/abs/2411.19164",
+      "https://arxiv.org/abs/2507.04297",
+      "https://arxiv.org/abs/2603.05271"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2201.09413: Fourier character identity is an explicit prerequisite, but Theorem 5 bounds weighted Korobov worst-case errors and has no majority-occupancy equality.",
+        "arXiv:2411.19164: random prime number is essential to its stated algorithm, unlike the fixed-prime boundary.",
+        "arXiv:2507.04297: scrambling mechanism is fully nested digital; its asymptotic normal median does not entail a finite-prime slope obstruction.",
+        "arXiv:2603.05271: componentwise Fourier coefficient approximation is not the scalar integration functional."
+      ],
+      "reasoning": "A standard character identity plus new extremal median geometry yields the exact result. Existing upper bounds do not imply the matching lower floor or sharp large-deviation rate, because they work in a different norm or sampling regime. The fixed half-pool example has a one-half bad-generator fraction, outside the strict-good-majority mechanism of the usual high-probability proofs.",
+      "searches": [
+        "Goda L’Ecuyer Construction-free median quasi-Monte Carlo Theorem 5 Lemma 4 Remark 11",
+        "A simple universal algorithm for high-dimensional integration Theorem 1 Fourier aliasing",
+        "The median trick does not help for fully nested scrambling Theorem 2.1",
+        "Worst-case Lp-approximation of periodic functions using median lattice algorithms Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goda and L’Ecuyer, arXiv:2201.09413, Definition 1 and Lemma 4: rank-one generator dual-lattice character evaluation.",
+        "Goda and L’Ecuyer, arXiv:2201.09413, Theorem 5 and Lemma 6: general worst-case upper bound and median inequality; no occupation-number equality."
+      ],
+      "reasoning": "The exact target is a nonlinear \\(\\ell^2\\)-to-median operator norm after identifying each prime generator with a frequency slope. The standard dual-lattice aliasing lemma supplies only the coordinate-selection map; the sharp majority covering/occupancy optimization is an additional assertion. No matching exact coordinate-median norm was found in the queried results.",
+      "searches": [
+        "median of repeated coordinate evaluations L2 unit ball sharp norm majority occupancy frequencies",
+        "nonlinear median operator ℓ2 unit ball exact norm maximum over sampled coordinate projections",
+        "median randomized quadrature worst case error finite dimensional Fourier all generating vectors nonvanishing error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goda and L’Ecuyer, arXiv:2201.09413, Remark 11 gives binomial upper-tail calculations for fixed-function median quantiles, not the occupancy distribution of the realized worst-case error.",
+        "An explicit complete occupancy calculation and rational examples are supplied with the new result and checked from all small slope sequences."
+      ],
+      "reasoning": "The exact data being classified are the multinomial occupancy configurations of all nonzero slope classes. Previously inspected tables/claims do not tabulate the minimum majority-cover statistic or the sharp all-repetition decay rate. No uniqueness is inferred from failed search alone.",
+      "searches": [
+        "prime lattice generating vectors Fourier slope aliases worst-case median finite dimensional harmonic norm",
+        "randomized rank one lattice integration strict half aliasing threshold sparse positive Fourier polynomial majority",
+        "construction-free median counterexample Fourier",
+        "median lattice half bad aliasing functions"
+      ]
+    },
+    "rationale": "The inspected median-lattice sources already provide Fourier aliasing, generalized smoothness-dependent high-probability error bounds, digital-scrambling median limitations, and componentwise-median Fourier reconstruction. They do not state or logically cover the exact nonlinear realized worst-case on the specified \\(L^2\\)-normalized Fourier-slope test class, its occupancy law, its sharp repeat-count exponent, and its fixed-integrand half-pool boundary as a combined result. Closely related generic lemmas are explicitly excluded from novelty.",
+    "residual_risks": [
+      "A specialist prior paper or unpublished finite-frequency median-sampling note might already state an equivalent occupancy variational law.",
+      "The fixed Fourier test class varies with prime size, and it must not be confused with smoothness-uniform Korobov error lower bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers character identity and smoothness-weighted median upper bounds, not the exact finite-dimensional majority occupancy law",
+        "evidence": [
+          "Definition 1: admissible lattice generators; Lemma 4: Fourier character aliasing; Theorem 5: Korobov worst-case probabilistic upper bound; Remark 11: fixed-integrand binomial quantile tail."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.09413v2",
+        "material_read": "Abstract, Section 1, Sections 2.1–2.2 (Definitions 1–3, Lemmas 4 and 6, Theorem 5, proof passages, Remarks 10–11), and references",
+        "method": "Direct reading of full-text arXiv HTML passages",
+        "title": "Construction-free median quasi-Monte Carlo rules for function spaces with unspecified smoothness and general weights",
+        "trigger": "Same unshifted independent-generator median lattice method and frequency aliasing"
+      },
+      {
+        "assessment": "Uses randomized prime sizes and weighted Korobov spaces; does not establish the target finite fixed-prime occupancy equality",
+        "evidence": [
+          "Theorem 1 bounds randomized/deterministic worst-case errors with random prime and generator selection; Lemma 4 provides a set of good generators."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.19164v1",
+        "material_read": "Introduction and algorithm description, Theorem 1, Section 1 preliminaries including Fourier series and error norms, Lemma 4 and accompanying discussion",
+        "method": "Direct reading of full-text arXiv HTML passages",
+        "title": "A simple universal algorithm for high-dimensional integration",
+        "trigger": "Potentially broader median rank-one lattice error guarantee"
+      },
+      {
+        "assessment": "Different mechanism: fully nested scrambled digital nets and asymptotic normality; no prime generator slope occupancy law",
+        "evidence": [
+          "Section 2 compares linear and fully nested scrambling; Theorem 2.1 gives a two-limit central-limit law."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.04297v1",
+        "material_read": "Abstract, introduction, Section 2 scrambling definitions and Theorem 2.1 with explanatory remarks",
+        "method": "Direct reading of full-text arXiv HTML passages",
+        "title": "The median trick does not help for fully nested scrambling",
+        "trigger": "Title directly suggests a median-improvement obstruction"
+      },
+      {
+        "assessment": "Fourier-coefficient reconstruction with componentwise median and weighted smoothness; not exact scalar integration error on the stated slope class",
+        "evidence": [
+          "Theorem 1.1 concerns Lp approximation of reconstructed functions; algorithm aggregates coefficient estimates rather than lattice integral estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.05271",
+        "material_read": "Abstract, introduction, algorithm description, Theorem 1.1 and Sections 4.1–4.3 relevant claims",
+        "method": "Direct reading of accessible arXiv text/HTML conversion",
+        "title": "Worst-case Lp-approximation of periodic functions using median lattice algorithms",
+        "trigger": "Later work using median lattice and Fourier subspaces; possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d85d67a5-29a2-403f-9ffc-cf29f6615506",
+  "value": {
+    "rationale": "This is the complete sharp worst-case law on the naturally induced Fourier alias-slope subspace of the original median rank-one lattice estimator, not a chosen numerical tolerance slice. It resolves an explicit boundary of repeated generator randomization: a fixed smooth integrand has one-half failure probability for every odd number of repetitions, while the adaptive realized worst-case exhibits an explicit nonzero floor and a sharp stabilization exponent. This distinction between individual integrands and sampled worst-case functions is relevant for interpreting and stress-testing median-lattice guarantees.",
+    "status": "PASS"
+  }
+}
