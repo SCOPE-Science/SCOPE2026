@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Geodesic distances on a Cartesian path grid give rectangles as the entire convexity class. The private-coordinate-extremum criterion is proved in both directions. The exact cubic count uses a unique obstructing middle point and explicit weak-quadrant inclusion–exclusion (including tied coordinates). The quartic count is a bijection with four distinct strict-extremum points. The boundary cases with one or two rows/columns and all quantifiers are treated explicitly. A standalone program independently enumerated graph geodesics, rectangle traces, and support coefficients, and passed after extraction from the final package. Finite checks supplement, not replace, the universal proof.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Classical axis-aligned rectangle VC dimension four and the Cartesian-product description of graph convexity are acknowledged as established. The reviewed claim is the complete integer-grid shattering enumerator with all degenerate-boundary effects, not either antecedent. The inspected full 2022 paper of Thiessen and Gärtner gives general convex-set learning bounds and mentions a two-row grid but no exact four-coefficient census; Blum, Hopcroft and Kannan's 2018 textbook discusses the VC-four bound and the support-extrema obstruction, not the integer-grid coefficient formulas. The accessible 2004 Jiang–Pelayo–Pritikin abstract establishes product convexity; its entire text was not assessed. Searches of equivalent box/rectangle formulations and accessible indexed research uncovered no exact counting theorem, but absence from a finite search is not proof of global priority. Classical unindexed enumerations remain a concrete risk.
+PASS
 
-**Mathematical value — PASS.** A VC-dimension bound alone loses how many samples at each size are actually shattered. The resulting exact polynomial resolves that natural finer invariant for every finite two-dimensional grid, simultaneously classifying all supports, ties and thin-grid transitions. Its quartic coefficient factors into two exact gap-square sums, while the cubic coefficient requires a separate inclusion–exclusion. The nontrivial limiting probabilities \(2/3\) and \(1/6\) provide a precise quantitative baseline for uniformly sampled graph-vertex supports. No stronger unproved online-learning theorem is claimed.
+Geodesic intervals in P_m x P_n are Cartesian coordinate intervals, so every nonempty geodesically convex vertex set is a grid rectangle, with empty set allowed. For each support S (size>=2), every subset is a rectangle trace iff each point p lies outside the bounding rectangle of S\{p}, equivalent to being a unique strict minimum or maximum along some coordinate. Therefore |S|<=4. A nonshattered triple has a unique point between the other two in both coordinates; summing weak-quadrant inclusion–exclusion over all lattice points gives cubic coefficient mn(m-1)(n-1)(2mn-m-n-4)/18. Shattered quadruples biject with four distinct extreme labels and have quartic coefficient m(m-1)^2(m-2)n(n-1)^2(n-2)/144. Constant, linear, quadratic coefficients are 1,mn,binom(mn,2); no higher coefficients. Boundary VC dimensions are 1 (1x1), 2 (path or 2x2), 3 (2xn,n>2), 4 (both>=3). As both dimensions grow random triple/quad shattering probabilities tend 2/3 and 1/6. Source grid_shattering_check.py all-rectangle trace enumeration was inspected; independent combinatorial spot checks agree, but infinite formulas follow algebraic counting.
 
-Independent mathematical verification and comprehensive historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Planar axis-parallel rectangle VC dimension four, four-extrema obstruction and Cartesian-product convexity are classical and not offered as new. The distinct result is the exact all-m,n shattering enumerator including lattice ties and narrow-grid coefficients; general graph-convex-set learning theorem does not provide its support-count formulas in inspected passages.
+
+## value
+
+PASS
+
+Complete finite-grid distribution of VC-shattered supports for a canonical geodesically convex graph class, with discrete tie corrections, exact 2xN transition and asymptotic random-support frequencies; provides useful precise data beyond the textbook bound of four.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

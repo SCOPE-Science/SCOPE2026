@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:47:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Geodesic intervals in P_m x P_n are Cartesian coordinate intervals, so every nonempty geodesically convex vertex set is a grid rectangle, with empty set allowed. For each support S (size>=2), every subset is a rectangle trace iff each point p lies outside the bounding rectangle of S\\{p}, equivalent to being a unique strict minimum or maximum along some coordinate. Therefore |S|<=4. A nonshattered triple has a unique point between the other two in both coordinates; summing weak-quadrant inclusion–exclusion over all lattice points gives cubic coefficient mn(m-1)(n-1)(2mn-m-n-4)/18. Shattered quadruples biject with four distinct extreme labels and have quartic coefficient m(m-1)^2(m-2)n(n-1)^2(n-2)/144. Constant, linear, quadratic coefficients are 1,mn,binom(mn,2); no higher coefficients. Boundary VC dimensions are 1 (1x1), 2 (path or 2x2), 3 (2xn,n>2), 4 (both>=3). As both dimensions grow random triple/quad shattering probabilities tend 2/3 and 1/6. Source grid_shattering_check.py all-rectangle trace enumeration was inspected; independent combinatorial spot checks agree, but infinite formulas follow algebraic counting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thiessen–Gärtner (ECML PKDD 2022) full conference preprint studies general online convex learning and a two-row grid; Blum–Hopcroft–Kannan 2018 gives standard VC dimension four of planar rectangles."
+        ],
+        "reasoning": "The prior work supplies the general VC bound/geometry but not the exact grid-specific support enumerator nor the cubic/quartic all-size tie corrections.",
+        "searches": [
+          "number of shattered subsets of geodesically convex subsets rectangular lattice grid axis aligned rectangles shattering polynomial",
+          "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "https://www.cs.cornell.edu/jeh/book",
+          "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Online Learning of Convex Sets on Graphs — https://doi.org/10.1007/978-3-031-26412-2_22",
+        "Foundations of Data Science — https://www.cs.cornell.edu/jeh/book",
+        "Geodesic Convexity and Cartesian Products in Graphs — https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs",
+        "Resultary semantic query: number of shattered subsets of geodesically convex subsets rectangular lattice grid axis aligned rectangles shattering polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang–Pelayo–Pritikin (2004) product convexity implies rectangles on path grids; this plus classical VC=4 does not give the all-grid support frequencies."
+        ],
+        "reasoning": "The novel step is discrete double-counting of obstructed triples and four unique-extremum positions. A bound on maximal shattered size cannot imply the exact support counts.",
+        "searches": [
+          "number of shattered subsets of geodesically convex subsets rectangular lattice grid axis aligned rectangles shattering polynomial",
+          "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "https://www.cs.cornell.edu/jeh/book",
+          "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph geodesic convexity equals axis-aligned grid-rectangle traces; strict coordinate-extremum criterion represents the exact same shattered supports."
+        ],
+        "reasoning": "The box-system formulation is exactly equivalent and was checked. Classical extremum necessity for size<=4 does not mechanically count all lattice supports with coordinate ties.",
+        "searches": [
+          "number of shattered subsets of geodesically convex subsets rectangular lattice grid axis aligned rectangles shattering polynomial",
+          "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "https://www.cs.cornell.edu/jeh/book",
+          "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grid coefficients computed in source RESULT.md and tested using all supports through k=4 on small grids; Resultary semantic results surfaced lattice-box Ehrhart and unrelated graph-grid papers."
+        ],
+        "reasoning": "This is a closed two-parameter formula for all positive m,n, not a transcription of a finite enumeration table. A differently named box-system counting paper remains possible.",
+        "searches": [
+          "number of shattered subsets of geodesically convex subsets rectangular lattice grid axis aligned rectangles shattering polynomial",
+          "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "https://www.cs.cornell.edu/jeh/book",
+          "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs"
+        ]
+      },
+      "rationale": "Planar axis-parallel rectangle VC dimension four, four-extrema obstruction and Cartesian-product convexity are classical and not offered as new. The distinct result is the exact all-m,n shattering enumerator including lattice ties and narrow-grid coefficients; general graph-convex-set learning theorem does not provide its support-count formulas in inspected passages.",
+      "residual_risks": [
+        "A combinatorial geometry paper with another name for box-system shattered-support counts may already give the closed coefficients.",
+        "The 2004 Cartesian-product convexity paper was not inspected in full; its primary relevance is the known rectangle-reduction ingredient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_PROFILE",
+          "evidence": "General learning/VC discussion and two-row grid do not provide the polynomial with all four coefficients.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Full open-access ECML PKDD 2022 conference preprint, main results and grid discussion; PDF screenshot inspected",
+          "method": "Read mathematical definitions and stated bounds",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Same convex-set learning task and grid example"
+        },
+        {
+          "assessment": "CLASSICAL_BOUND_ONLY",
+          "evidence": "Knowing VCdim 4 does not count exact k-supports in finite discrete grids.",
+          "identifier_or_url": "https://www.cs.cornell.edu/jeh/book",
+          "material_read": "Section 5.11.1 as cited by source, conventional VC=4 and extrema argument; not full book",
+          "method": "Compared standard four-extrema upper bound against coefficient identity",
+          "title": "Foundations of Data Science",
+          "trigger": "Textbook axis-parallel rectangle shattering theorem"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL_ACCESS",
+          "evidence": "Cartesian-product generalities apply to graph-convex-set description, but no full-text noncoverage assertion is made.",
+          "identifier_or_url": "https://www.researchgate.net/publication/249760576_Geodesic_Convexity_and_Cartesian_Products_in_Graphs",
+          "material_read": "Abstract-level description of product-geodesic convexity; complete article not accessed",
+          "method": "Abstract/scope comparison",
+          "title": "Geodesic Convexity and Cartesian Products in Graphs",
+          "trigger": "Cartesian product convexity potentially covers rectangle reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete finite-grid distribution of VC-shattered supports for a canonical geodesically convex graph class, with discrete tie corrections, exact 2xN transition and asymptotic random-support frequencies; provides useful precise data beyond the textbook bound of four.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A combinatorial geometry paper with another name for box-system shattered-support counts may already give the closed coefficients.",
+    "The 2004 Cartesian-product convexity paper was not inspected in full; its primary relevance is the known rectangle-reduction ingredient."
+  ],
+  "schema_version": 1
+}
