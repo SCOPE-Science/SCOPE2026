@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-Run `python3 verify_12node_lines.py` with the standard Python interpreter; no external packages are needed. The program implements \(\mathbb F_4=\mathbb F_2[\omega]/(\omega^2+\omega+1)\) and independently enumerates all \(85\) projective points and \(357\) projective lines in \(\mathbb P^3(\mathbb F_4)\). Each contained line is confirmed by evaluation of the quartic at all five of its rational points. The program also constructs the twenty explicitly predicted lines, compares both lists, enumerates the twelve singular points, checks all 190 line pairs and every smooth intersection's multiplicity and Frobenius action.
+## correctness
 
-Expected successful terminal marker: `SYMMETRIC_12_NODE_QUARTIC_20_LINES_ALL_CHECKS_PASS`. Recorded independent enumeration statistics within this package: `contained_lines=20`, `singular_nodes=12`, `coordinate_lines=8`, `paired_lines=12`, `nodal_pairs=72`, `smooth_crossings=22`, `smooth_F2_crossings=4`, `line_closed_points_of_degree_2=10`, and `node_closed_points_of_degree_2=6`.
+PASS
 
-The finite-field enumeration alone does **not** prove completeness of geometric lines over the algebraic closure. That conclusion is proved separately by the product-is-square divisor argument and coefficient comparison in `RESULT.md`; it implies that all such lines descend to \(\mathbb F_4\). The computation does not establish the scheme structure of the unreduced Hilbert scheme, the Picard lattice, or geometric automorphisms. No independent mathematical audit or validation has been performed.
+In characteristic 2, gradient of F equals products of three other coordinates, forcing >=2 zero coordinates; on a coordinate edge Q=0 has ratio roots ω,ω², giving precisely 12 nodes and locally uv+w²=0. For any line outside coordinate planes, restrictions of four coordinates are nonzero linear forms and the divisor of their product is even since it equals Q²; they must form two proportional pairs. Coefficient comparison then forces both ratios to solve a²+a+1=0. There are 3 pairings×4 choices=12 such lines, plus 2 conic-factor lines in each of 4 coordinate planes. This proves algebraic-closure completeness, not inferred from GF4 sampling. Independent GF4 enumeration exhausts 85 projective points, 357 lines, finds exactly 20 contained; every 190 line pair checked giving 72 nodal and 22 smooth intersections, every node belongs to 4 lines, all 20 lines swapped by Frobenius. Because geometric line set is finite, its reduced Hilbert scheme over perfect F2 is finite étale with ten degree-two closed points. These results apply to reduced scheme only; no claim about nonreduced tangent structure.
+
+## originality
+
+PASS
+
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
+
+## value
+
+PASS
+
+Complete line configuration, incidence and Frobenius arithmetic of an explicit twelve-nodal quartic is a natural exact surface-geometry invariant, distinct from merely counting singularities. Full geometric classification and Galois orbit census can serve as a reproducible finite-field benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
