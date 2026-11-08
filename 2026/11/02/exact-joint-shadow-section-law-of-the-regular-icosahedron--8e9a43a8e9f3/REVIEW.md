@@ -1,19 +1,21 @@
-# Review of the cooriented icosahedral shadow–section law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coordinate model has 12 vertices, 20 triangular facets, 30 original edges and 30 dual edges. The section count is the cut size on original-vertex signs, and the shadow count is the cut size on adjacent-facet-normal signs. Each arrangement is in general position (6 or 10 distinct great circles, respectively), so its chambers and all extreme rays can be exhaustively enumerated from pairwise crosses. The exact `verify.py` checker establishes the 32/92 chamber counts, the 20/12 section and 20/60/12 shadow type splits, and, most decisively, all twenty extreme-ray cone-inclusion statements and four exact rational interior witnesses. Girard's spherical area formula and exact angle signatures yield the joint law after subtraction. Independently, the crossing-angle mean identities check normalizations. No random experiment or finite sampling is used to infer a universal statement.
+PASS
 
-## Originality — PASS, provisional historical priority
+Vertex and dual-facet sign arrangements act on six and ten antipodal axes respectively. Section polygon vertices count primal edge sign cuts; shadow silhouette vertices count dual edge cuts. Inspected exact-Q(sqrt5) certificate constructs 20 facet normals, 30 primal/dual edges, 32 vertex-sign chambers and 92 facet-sign chambers, verifies no triple concurrence and the 20 T=12 triangle cone extreme rays all lie in S=6 shadow hexagon cones. Spherical excess and angles a=acos(1/3), b=acos(sqrt5/3), c=acos(1/sqrt5) yield four strictly positive cells summing to one. Fresh independent generic integer-grid normal scan corroborated four outcomes and T=12=>S=6, but only exact cone certificate supports ALL directions; nongeneric normals excluded.
 
-The icosahedron section *marginal* is already given in *Exact Haar polygon-type law for central icosahedron sections*, and the shadow marginal is the polar of an earlier exact regular-dodecahedron central-section marginal. Neither is claimed as a contribution. Black–Criado's 2024 paper concerns general random-shadow estimates; Böröczky–Henk and Kabluchko–Seidel treat other regular-polytope families; De Loera–Lopez-Campos–Torres study sections individually. Searches for cooriented shadow–section laws, dual formulations and direct containment implications produced no equivalent. The novel *candidate* is the twenty-cone nesting and complete joint law, which is not a probabilistic consequence of two marginals. Possible older stereological statements not found remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Shadow complexity and section complexity are two canonical but different observables from a common viewing plane. Their joint distribution detects geometric dependence invisible to either marginal. A sharp deterministic exclusion (no 12-sided central section can coincide with an 8- or 10-sided shadow) comes from a structural nesting certificate for two nonidentical great-circle arrangements. The complete four-point distribution and exact negative covariance serve as a precise geometric benchmark rather than an arbitrary numerical subcase.
+Existing separate icosahedron central-section Haar law and polar regular-dodecahedron shadow marginal do not determine their coupling. The surviving original contribution is exact cooriented cone containment yielding two impossible joint outcomes, conditional determinism and covariance; not individual marginal laws. No identified primary statement implies the containment; older stereology cone refinements remain a risk.
 
-## Limitations
+## value
 
-The solid must be regular and the two measurements must use the same centered plane. Nongeneric directions are excluded. The exact marginal area laws and their spherical tessellations are prior information; the historical priority of the new coupling remains provisional. No claim of independent external verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same-plane joint distribution is a natural integral-geometric dependence statistic. A pointwise forbidden-coupling theorem is stronger than combining known marginal area calculations, and its exact cone decomposition can be used to model correlated silhouette and section measurements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
