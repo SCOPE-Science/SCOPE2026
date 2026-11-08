@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Formal BDF Taylor expansion proves the index-two sharp obstructions, including BDF6 impossibility. Exact rational recurrence proves endpoint signs through index 999; exact Schur radius checks give analytic powers in enlarged disks; Cauchy plus binomial-coefficient estimates prove remaining infinite tail signs. Positive fractional power composition strictly fills the ranges below endpoints. The accompanying standalone verifier rederives and replays all critical rational computations from the public polynomial definitions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lubich 1986 provides convolution discretization symbols and convergence conditions, not a coefficientwise all-index sign theorem for BDF4/BDF5.",
+        "Jin–Li–Zhou 2017 studies corrected high-order BDF CQ and its error, without covering the uncorrected fractional coefficient sign classification."
+      ],
+      "reasoning": "Convergence/order assertions and sectorial stability do not imply every off-diagonal history coefficient is nonpositive. Broader multi-order discretization frameworks do not by themselves subsume the exact two boundary orders or BDF6 obstruction.",
+      "searches": [
+        "all-order nonpositivity M-matrix fractional BDF4 Lubich CQ weights alpha≤0.21875 off diagonal discrete renewal probability generating function",
+        "Web: Lubich 1986 Discretized Fractional Calculus BDF4 symbols theorem",
+        "Web: correction of high order BDF convolution quadrature Jin Li Zhou 2017"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0517050",
+      "arXiv:math/0504461v1",
+      "arXiv:2311.00081v1",
+      "doi:10.1137/17M1118816"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2005 fast-CQ paper gives high-order convolution algorithms but no coefficientwise sign range.",
+        "2023 article derives BDF2 sign behavior and uses a negativity assumption; it does not solve it for BDF4 and BDF5.",
+        "Accessible lower-order results establish BDF2 and BDF3 conditions only."
+      ],
+      "reasoning": "The implication “BDF higher order converges -> every offdiagonal coefficient is nonpositive” is false without a further sign argument; notably the theorem proves universal failure at BDF6. Lower-order coefficients cannot establish the higher-order claims by substitutions, since the symbols and their analytic roots differ.",
+      "searches": [
+        "arXiv:math/0504461v1 high order BDF convolution quadrature",
+        "arXiv:2311.00081v1 assumption nonpositive convolution quadrature weights BDF2",
+        "Fractional BDF2 BDF3 convolution quadrature weights signs sharp alpha threshold higher order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "López-Fernández–Płociniczak 2023 analyzes BDF2 negative CQ weights and discusses numerical behavior; the implication “all n>=1 negative” is its assumption for broader arguments, not a BDF4/BDF5 established conclusion.",
+        "The inspected BDF2/BDF3 lower-order claims have different generating polynomials and do not imply the stated BDF4/BDF5 ranges."
+      ],
+      "reasoning": "Equivalent language includes fractional BDF convolution-quadrature coefficient sign, completely monotone discrete-memory kernel, nonpositive off-diagonal Toeplitz convolution weights, and M-matrix history signs. These searches and actual mathematical comparisons found no equivalent all-index BDF4/BDF5 statement.",
+      "searches": [
+        "fractional BDF4 BDF5 Lubich convolution quadrature weights off-diagonal coefficient signs sharp alpha threshold",
+        "Web: BDF4 BDF5 convolution quadrature weights all negative alpha 7/32 13/150",
+        "arXiv:2311.00081v1, Section 2 negative-weight assumption"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Database nearest reported item 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 is about time-iterate signs in BDF2 scalar decay, not BDF4/BDF5 coefficient tables.",
+        "No exact sign threshold or tabulated all-order result was observed in the inspected primary PDFs or searched records."
+      ],
+      "reasoning": "The constants are rational roots of the second power-series coefficient, but their exact all-index sharpness requires the additional root separation and analytic tail argument. No exact database/table coverage surfaced; an unknown table remains possible.",
+      "searches": [
+        "Sharp exact sign threshold alpha=7/32 for fourth order BDF4 fractional convolution quadrature derivative coefficients",
+        "Convolution quadrature BDF4 fractional derivative weights positivity sign structure power series fourth-order",
+        "Web: \"7/32\" \"BDF4\" convolution weights; \"13/150\" \"BDF5\" convolution weights"
+      ]
+    },
+    "rationale": "Exact all-index sharp BDF4/BDF5 sign classifications and the universal BDF6 positive second coefficient were not implied by the inspected foundational CQ works, higher-order corrections, the published BDF2-focused sign assumption, or the accessible lower-order claims. Distinct complex Schur and Cauchy estimates prove the two higher-order sufficiencies. The search is evidence-based, not a guarantee against unindexed coverage.",
+    "residual_risks": [
+      "An unindexed specialist paper may already derive either all-index threshold.",
+      "The first-public calendar day of the earlier 1986 original is not established by contemporaneous online evidence; the earliest independently verified day used for the focal bibliographic source is 2005-04-22.",
+      "The exact rational Schur/Cauchy derivation has not undergone external independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found the generating construction, not the sharp coefficientwise sign theorem",
+        "evidence": [
+          "Defines the BDF-generated convolution weights; the visible BDF4 polynomial agrees with the normalization used here."
+        ],
+        "identifier_or_url": "https://people.math.ethz.ch/~hiptmair/Seminars/CONVQUAD/Articles/LUB86.pdf",
+        "material_read": "Full lawful paper text and displayed BDF polynomial, including visual inspection of the coefficient formula",
+        "method": "Read PDF text and inspect original page image for BDF4 symbol",
+        "title": "Discretized Fractional Calculus",
+        "trigger": "Original BDF convolution-quadrature construction"
+      },
+      {
+        "assessment": "Fast evaluation and convergence, not the two exact sign frontiers",
+        "evidence": [
+          "First arXiv submission date 2005-04-22; discusses high-order BDF convolution quadrature computations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0504461",
+        "material_read": "Full open-access preprint text and high-order-method discussion",
+        "method": "Read arXiv full text, compare BDF coefficient signs to computational claims",
+        "title": "Fast and oblivious convolution quadrature",
+        "trigger": "High-order BDF CQ might cover the result"
+      },
+      {
+        "assessment": "The paper motivates the sign condition and examines BDF2, not the BDF4/BDF5 all-index classification",
+        "evidence": [
+          "Assumption (A) explicitly uses negative noninitial convolution weights; discussion and examples concern BDF2 and numerical signs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.00081",
+        "material_read": "Full preprint text, especially Section 2 and conditions on weights",
+        "method": "Read arXiv HTML full text, compare negative-history-weight assumption and BDF2 analysis",
+        "title": "Convolution Quadrature for the quasilinear subdiffusion equation",
+        "trigger": "Direct treatment of negative CQ weights in a nonlinear problem"
+      },
+      {
+        "assessment": "Starting corrections and convergence estimates do not imply present coefficient signs",
+        "evidence": [
+          "Focuses on correction weights and error orders for high-order BDF fractional evolution."
+        ],
+        "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10023361/7/Jin_17m1118816.pdf",
+        "material_read": "Full open-access PDF text and displayed methods",
+        "method": "Read publisher manuscript/PDF text and examine page image",
+        "title": "Correction of High-Order BDF Convolution Quadrature for Fractional Evolution Equations",
+        "trigger": "High-order BDF correction could imply stronger all-order signs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a832aaa-6972-4394-883d-d5f7626f7e21",
+  "value": {
+    "rationale": "All-index negativity of CQ history weights is a concrete structural condition in discrete comparison and energy arguments for fractional dynamics, explicitly appearing as an assumption in the inspected nonlinear subdiffusion literature. Sharp higher BDF admissibility intervals, the BDF6 impossibility, and analytic certificates over every coefficient are substantive facts beyond finite sign exploration; no general positivity or stability of an assembled solver is asserted.",
+    "status": "PASS"
+  }
+}
