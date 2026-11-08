@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python's standard library. It constructs all vertex pairs and shortest paths from the graph definition, enumerates all flag faces at integer radii 1, 2 and 3 for small instances, checks the graph-metric taxonomy (original/original, midpoint/midpoint and cross pairs), and computes mod-two boundary ranks when the face count is under 6,500.
+## correctness
 
-The actual recorded execution is in `verification_output.txt`. It confirms for part sizes `(2,2,2)` the radius-two reduced second Betti number 9 and radius-three fifth Betti number 1; for `(2,2,3)` the respective ranks are 14 and 4. For `(2,2,2,2)` the radius-three flag complex has 41,552 nonempty faces and an exact face census and distance check; the code deliberately **does not claim** to compute its full homology. The two-part cases `(2,2)`, `(2,3)` and `(3,3)` are checked only as boundary cases; they are not part of the novelty claim.
+PASS
 
-The infinite-dimensional and all-integer conclusions are not computer extrapolations. Their proof is the exact scale-three simplicial join, the published equivalence between line-graph clique complex and original graph's two-skeleton, a standard simply connected two-complex argument, and the join/suspension identity. No independent audit, integral-matrix exhaustive rank calculation for arbitrary parameter values, or equivariant certification has been performed.
+PASS: The cross-distance argument is exact and covers all k>=3 with a_i>=2; topological join and line-graph-to-skeleton reductions are supported by their cited prior full texts. The two-skeleton homotopy type follows from simple connectivity and free H2. Radius2 is explicitly inherited. Boundary cases k=3 merge degree-two scale2 bars, and integer thresholds ensure no missing stages.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: The exact radius-three join criterion and induced high-dimensional Rips filtration are not stated by the inspected full Adamaszek 2011 radius-two theorem or Goyal–Shukla–Singh 2020 line-graph theorem. Related published S(K_n) case has contractible radius3, because its all-singleton graph does not satisfy a_i>=2.
+
+## value
+
+PASS
+
+PASS: A naturally parameterized infinite family exhibits a sharp high-dimensional topological jump at the first scale beyond the known subdivision-square classification, with bc copies of S^(k+2) and a complete integral barcode. Exact join equality and its if-and-only-if graph obstruction explain the phenomenon, not merely a selected finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

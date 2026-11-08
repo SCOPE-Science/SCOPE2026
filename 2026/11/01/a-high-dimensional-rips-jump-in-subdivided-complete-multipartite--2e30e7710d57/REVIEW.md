@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph-distance classification proves an exact radius-three simplicial join. The two factors are the multipartite clique complex, a known join of discrete sets, and the line-graph clique complex, homotopy equivalent to the two-skeleton of the former by Adamaszek's Theorem 5.2. The simply connected two-skeleton has free second homology rank \(c=v-e+t-1\), giving a wedge of two-spheres, and the join gives \(bc\) spheres of dimension \(k+2\). The other stages follow from graph counts and Adamaszek's already known radius-two formula; the persistence maps vanish because the positive-degree stages have disjoint degrees. The packaged verifier reconstructs graph distances and checks representative finite homology ranks. The infinite theorem rests on the complete symbolic proof, not the finite checks.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic uncertainty.** The most directly relevant full texts were read: Adamaszek, *Clique complexes and graph powers* (2011), Section 5, establishes the scale-two and line-graph components but not the radius-three exact join or this filtration; Goyal--Shukla--Singh, *Topology of Clique Complexes of Line Graphs* (2020), Section 3.1, studies only the line-graph factor. A previously published complete-graph subdivision result gives a contractible radius-three complex, unlike the present nontrivial family. A previously studied bipartite graph class of girth at least eight includes certain two-part subdivided instances, which are excluded here. Searches for equivalent multipartite-subdivision scale-three results, graph-power aliases and dimension/rank formulas did not locate coverage. This does not prove uniqueness: an unindexed equivalent derivation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The first Rips scale beyond the known square-of-subdivision theorem has an exact join decomposition for a natural infinite graph family. The formula produces arbitrarily high-dimensional sphere wedges in degree \(k+2\) and a complete torsion-free integral and all-field barcode, while the preceding radius contains spheres in degrees \(2\) and \(k-1\). The sharp domination criterion identifies exactly when the join holds among edge subdivisions, making the result more structural than a finite table or a parameter substitution.
+PASS: The cross-distance argument is exact and covers all k>=3 with a_i>=2; topological join and line-graph-to-skeleton reductions are supported by their cited prior full texts. The two-skeleton homotopy type follows from simple connectivity and free H2. Radius2 is explicitly inherited. Boundary cases k=3 merge degree-two scale2 bars, and integer thresholds ensure no missing stages.
 
-## Limits
-The radius-two identity is prior work, and this argument does not yield equivariant or continuously realized metric-graph results. Related work on line graphs and highly symmetric incidence graphs means an equivalent statement under another vocabulary cannot be excluded. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: The exact radius-three join criterion and induced high-dimensional Rips filtration are not stated by the inspected full Adamaszek 2011 radius-two theorem or Goyal–Shukla–Singh 2020 line-graph theorem. Related published S(K_n) case has contractible radius3, because its all-singleton graph does not satisfy a_i>=2.
+
+## value
+
+PASS
+
+PASS: A naturally parameterized infinite family exhibits a sharp high-dimensional topological jump at the first scale beyond the known subdivision-square classification, with bc copies of S^(k+2) and a complete integral barcode. Exact join equality and its if-and-only-if graph obstruction explain the phenomenon, not merely a selected finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
