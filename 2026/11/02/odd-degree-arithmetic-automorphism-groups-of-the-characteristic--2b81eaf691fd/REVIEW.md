@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies every biregular automorphism with a projective linear transformation by the hyperplane-class argument for a smooth cubic threefold. The coefficient-matrix equation is exact because all cubic monomials of the form \(x_i^2x_j\) are independent. Odd-degree scalar normalization is unique. The descent identity \(B^{[4]}=P^2BP^{-2}\) bounds the normalized field of definition by \(\mathbb F_{2^{10}}\). The binary asymmetry-centralizer calculation gives exactly five matrices. The exhibited degree-five field basis produces an exact Fermat transformation; the field-of-definition descent identifies the full group over \(\mathbb F_{32}\) with \(O_5(\mathbb F_2)\cong\operatorname{Sp}_4(\mathbb F_2)\), of order 720. The standalone exact verifier reconstructs and checks the substantive finite identities. This proves the two cases for all odd extension degrees, not only the two example fields.
+## correctness
 
-## Originality — PASS, qualified
-Roulleau's *Fano surface of the Klein cubic threefold* establishes the classical model and complex geometry. Debarre–Laface–Roulleau's *Lines on cubic hypersurfaces over finite fields*, §4.5.2, determines the characteristic-two zeta information and the five rational lines, but does not state the odd-degree automorphism-group descent. Furukawa's geometric rank-zero Gauss-map classification identifies the characteristic-two Fermat cubic over an algebraic closure, not the two rational automorphism groups of this particular twisted model. An abstract geometric isomorphism does not determine finite-field descent. The 2026 Liendo–Vásquez *Twisted forms of classical hypersurfaces* explicitly treats finite-field form counting for odd field characteristic and assumes \(p\nmid d-1\) for relevant automorphism-group results; its statements do not apply to the characteristic-two cubic studied here. The explicit normal-basis matrix and complete odd-extension group dichotomy are the assessed contribution, not the cubic itself or classical unitary-group facts. Targeted mathematical-record searches and accessible prior-claim comparisons found no equivalent statement. Priority remains provisional: more general results on finite-field forms or unitary twists might imply the explicit dichotomy without mentioning this cubic.
+PASS
 
-## Mathematical value — PASS
-The automorphism group is a basic invariant of a distinguished cubic threefold. Its complete classification throughout the odd-degree extension tower reveals a sharp arithmetic change from five to 720 transformations at extension degree five and gives a geometric explanation of the regular action on the five known binary rational lines. The result is not an arbitrary finite slice: odd extensions form exactly the range where cubic scalar normalization is canonical, and the fifth-degree jump is forced by the cyclic descent operator. It supplies a concrete arithmetic symmetry comparison not contained in the existing line and zeta census.
+The derivatives ∂F/∂x_i=x_{i−1}² never vanish together, so smooth. Picard rank-one hyperplane generator gives all biregular automorphisms projective. For odd m, cube map on F_{2^m}^× is bijective, so unique scalar normalization B^{[2]T}PB=P. Transposition/squaring forces B^{[4]}=P²BP^{-2}, thus B^{[2^10]}=B; entries belong to F2 when 5∤m and F32 when 5|m. F2 centralizer F2[P]≅F2×F16, orthogonality a^5=1 yields precisely five cyclic matrices. Over F32 with alpha^5+alpha²+1 and beta=1+alpha, direct finite-field multiplication checks normal basis [3,5,17,12,26], U^{[2]}=PU and U^TU=I; conjugation to Fermat cubic restricts normalized isometries to O5(F2)=Sp4(F2), order720. Independent field arithmetic verified these matrix relations and binary cyclic centralizer solutions. This does not address even m or birational maps.
 
-## Limits and closest literature
-Only odd extension degrees are classified. The geometric group over the algebraic closure and the full even-extension tower are not classified here. The known complex automorphisms, geometric Fermat equivalence, and the five rational lines remain prior work. Historical priority is qualified by possible unindexed twist classifications. The script supplies exact finite checks, not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Roulleau studies geometric complex Klein symmetries; Debarre–Laface–Roulleau computes rational lines and arithmetic data over F2; characteristic-two Fermat geometric equivalence and finite classical group order are known, not claimed new. The exact odd-extension full group descent for this particular cyclic cubic, including explicit F32 isometry conjugation, was not located in accessed primary statements. Liendo–Vásquez 2026 newer finite-field form work may be broader, but accessible abstract and cited assumptions concern odd characteristic and exclude p|d−1. Full article inaccessible; no whole-document exclusion asserted. Best-of-knowledge PASS with substantial older twist/descent literature risk.
+
+## value
+
+PASS
+
+Field-dependent jumps in full automorphism groups of a classical smooth cubic threefold are intrinsic arithmetic-geometric invariants. The exact minimal extension F32 and full C5/S6 dichotomy, with an explicit descent matrix, are useful precise data beyond the known five rational lines and geometric isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
