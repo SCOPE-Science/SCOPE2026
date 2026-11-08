@@ -1,0 +1,15 @@
+# Scientific review: exact two-site rectification inversion
+
+## Correctness — PASS
+The four-state generator is explicit and irreducible for positive kinetic rates and interior reservoir densities. Its four rooted-tree cofactors are calculated symbolically and yield a positive normalization and an exact rational stationary current. The full even-current numerator factors as the site-rate contrast times a *single affine function of squared drive*. The two threshold values are obtained from the zero and endpoint value of this affine factor, so the claimed one-reversal classification covers every prescribed kinetic parameter. A separate exact-Fraction solution of stationary balance agrees with the polynomial formula in 288 rational tests. The witness at rates \(u=1/2\), \(v=3/2\), \(d=63/4\) has its cancellation at exactly \(\delta=1/2\). The polynomial proof, not finite enumeration, establishes the universal result.
+
+## Originality — PASS, with stated access risk
+The nearest source is Sakai and Akimoto (2026, arXiv:2609.03560), which motivates sample-dependent rectification in site-disordered boundary-driven exclusion and describes approximate stationary closures. The exact all-bias two-site kinetic-phase boundary and the quartic crossover are not implications of those publicly accessible descriptions. A prior exact two-site theorem applies to **matched contact-removal and internal hop prefactors** and proves a fixed sign; it is recovered only in the noninverting normalization \(d=1\), not for independently controlled internal hopping. Earlier exact four-site open exclusion and periodic-ring examples concern different generators or boundary protocols. Targeted semantic-index searches returned no directly covering theorem, but negative retrieval is not proof of novelty. The motivating primary full text remained inaccessible, leaving a concrete publication-priority risk.
+
+## Value — PASS
+The site-dependent equilibrium profile already makes rectification plausible, but it does not predict the **direction** of the effect. The theorem distinguishes a fixed-orientation regime, a unique finite-driving inversion regime, and an opposite-orientation regime, with sharp kinetic boundaries and an explicit rational witness. This identifies contact–bulk kinetic mismatch as a control of direction rather than just magnitude in the smallest nontrivial open interacting channel. It gives an exact, reproducible benchmark for approximate nonlinear current closures. No assertion is made that a two-site crossover survives in macroscopic systems.
+
+## Residual risks and limits
+The identical-model motivating preprint was accessible by abstract and secondary mathematical exposition, not by full primary text or appendices. Unindexed exact two-site transport literature could contain a stronger equivalent statement. The result applies only to the specified four-state exclusion generator and stationary current, not to arbitrary contact laws, fluctuation statistics or thermodynamic-limit systems. No independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
