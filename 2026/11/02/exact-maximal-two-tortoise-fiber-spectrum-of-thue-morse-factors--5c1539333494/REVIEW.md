@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Every finite source set is exhaustive by the length-two block decomposition of the binary Thue–Morse substitution. Independent long-prefix enumeration agrees for all ten tabulated lengths, and the full exact data pass the embedded verifier. All ten-symbol factors have at least four ones; the identity \(T^2(0^a1\,0^b1\,0^c1v)=0^{a+b+c}1v11\) gives an injective truncation of each longer fiber into a length-ten fiber. Campbell–Rampersad Theorem 6 supplies a valid all-length lower bound of two. The external theorem is stated as a premise, not re-proved.
+## correctness
 
-**Originality (O): PASS, with residual priority risk.** The most directly relevant primary source, Campbell–Rampersad [1], is inspected through the definitions, Section 6 Theorems 4–6 and Section 7. It computes one-step complexity and invites higher-step work, but it does not assert this exact all-length two-step maximum-fiber spectrum. The published first-step class-size bound does not imply the two-step bound because different first-step classes may merge. Targeted searches, accessible prior-claim comparisons, and inspection of associated literature found no equivalent coverage. Defant–Kravitz [2] treats general word preimages and was inspected only at abstract level, so a hidden indirect derivation or unindexed prior statement remains a real risk.
+PASS
 
-**Value (V): PASS.** The natural collision-multiplicity problem for two iterations of a newly studied word-sorting equivalence on the classical automatic Thue–Morse sequence has a complete sharp all-length solution. A maximum of six at lengths four through six collapses to two exactly at length ten, and a structural prefix reduction explains why it cannot increase again. This is not an arbitrary finite slice: the finite certificate controls infinitely many lengths, and the exact invariant is distinct from the earlier one-step count of quotient classes.
+Inspected RESULT.md blob 3511cdbeb403912fb2231efbd2164b2e2c9d3dd7 and verifier blob d1342a248e109a1c172ed6217101e877eec9e7a5. For n≤10 all factors occur in one of the four μ^m(ab), 2^m≥n, which gives a genuinely complete finite class. Direct independent factor generation and grouping matched all ten maximum fibers and higher lengths through n=17. At n=10 each factor contains ≥4 ones. For n≥10 the exact two-tortoise formula determined by the first three ones and the unchanged later suffix injects a fiber into its first-ten-symbol fiber, giving ≤2. Campbell–Rampersad Theorem 6 yields noninjectivity of the single-tortoise image at every n≥10, hence T² is noninjective and ≥2. No finite-length extrapolation substitutes for the injection/lower argument.
 
-No general formula for the full two-step class-count sequence or other automatic words is claimed. Literature priority and independent mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority based on comparison of actual statements and implication directions: Equivalent object/map names checked. Equality of T²-images is coarser than one-step classes; one-step noninjectivity supplies only lower bound, not the universal upper bound 2. The earlier classification does not dominate this two-iterate maximum-fiber claim. General preimage counts for arbitrary words lack the Thue–Morse factor restrictions. Residual overlap risk retained; search absence alone is not evidence of novelty.
+
+## value
+
+PASS
+
+Sharp stabilization at exactly n=10 and exact exceptional small-length profile quantify a natural two-iteration fiber invariant left open beyond one-step complexity; a complete finite/infinite classification of this precise statistic is independently useful even without class counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

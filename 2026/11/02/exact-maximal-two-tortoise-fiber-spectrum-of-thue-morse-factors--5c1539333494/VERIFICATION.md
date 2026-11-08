@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3; no external dependency. The recorded run terminates with `VERIFY_OK`. The script enumerates all length-\(n\) Thue–Morse factors for \(1\le n\le10\) using four iterated two-letter substitution blocks, then compares their exact image-fiber maxima. It cross-checks factor sets against a separate length-16384 fixed-point prefix construction, verifies that each length-ten factor contains at least four ones, and verifies the formula for all length-ten sources. Further exploratory length checks support, but do not prove, the infinite statement.
+## correctness
 
-The mathematical proof of the infinite upper bound is the third-one fiber-injection lemma in RESULT.md. The matching lower bound depends on Campbell–Rampersad, arXiv:2604.25811v2, Theorem 6. This is a self-review only; no independent audit, external certificate or priority guarantee is claimed.
+PASS
+
+Inspected RESULT.md blob 3511cdbeb403912fb2231efbd2164b2e2c9d3dd7 and verifier blob d1342a248e109a1c172ed6217101e877eec9e7a5. For n≤10 all factors occur in one of the four μ^m(ab), 2^m≥n, which gives a genuinely complete finite class. Direct independent factor generation and grouping matched all ten maximum fibers and higher lengths through n=17. At n=10 each factor contains ≥4 ones. For n≥10 the exact two-tortoise formula determined by the first three ones and the unchanged later suffix injects a fiber into its first-ten-symbol fiber, giving ≤2. Campbell–Rampersad Theorem 6 yields noninjectivity of the single-tortoise image at every n≥10, hence T² is noninjective and ≥2. No finite-length extrapolation substitutes for the injection/lower argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority based on comparison of actual statements and implication directions: Equivalent object/map names checked. Equality of T²-images is coarser than one-step classes; one-step noninjectivity supplies only lower bound, not the universal upper bound 2. The earlier classification does not dominate this two-iterate maximum-fiber claim. General preimage counts for arbitrary words lack the Thue–Morse factor restrictions. Residual overlap risk retained; search absence alone is not evidence of novelty.
+
+## value
+
+PASS
+
+Sharp stabilization at exactly n=10 and exact exceptional small-length profile quantify a natural two-iteration fiber invariant left open beyond one-step complexity; a complete finite/infinite classification of this precise statistic is independently useful even without class counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
