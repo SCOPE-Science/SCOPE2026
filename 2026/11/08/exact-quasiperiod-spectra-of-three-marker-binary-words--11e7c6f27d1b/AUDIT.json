@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The prefix/suffix positioning argument proves that every cover uses exactly one or two markers and each marker count admits only one candidate. The exact iff gap inequalities follow from available occurrences and interval coverage. Disjoint integer-parameter bijections give A,B and C, with inclusion-exclusion and rational-function pole orders yielding the full all-length spectrum and density. Standalone direct coverage tests verify 14950 words through length 25, independent coefficient constructions through degree 65. Risks: endpoint or pole errors, checked by two-direction proofs and independent diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smyth survey Section 3 recounts general algorithms for enumerating covers of individual words and their complexity; it does not give this fixed-content generating function.",
+        "The 2013 morphism results involve maps between sets of words rather than a Hamming-slice count."
+      ],
+      "reasoning": "Known general procedures can test a supplied word, but neither their running-time bounds nor existence criteria automatically supply the exact rational counting functions for the Hamming-weight-three layer.",
+      "searches": [
+        "Computing regularities in strings survey covers quasiperiods",
+        "exact number of quasiperiodic words with three 1s",
+        "doi:10.1016/j.ejc.2012.07.010"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1304.6280v1",
+      "doi:10.4230/LIPIcs.MFCS.2016.40",
+      "doi:10.1016/j.ejc.2012.07.010",
+      "OEIS:A320434"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 theorem family is about weakly/strongly quasiperiodic morphisms; the 2016 theorem family is about right-infinite words and Sturmian return words; A320434 gives unconditional counts."
+      ],
+      "reasoning": "None of these results has hypotheses specifying three marked symbols with endpoints and adjacent gap distances. No stated implication or tabulated coefficient supplies the inequalities or F0,F1,F2; deriving them requires a new marker-incidence and inclusion-exclusion argument.",
+      "searches": [
+        "three-marker finite word quasiperiod distributions quasiperiods with 1 and 2 markers",
+        "On quasiperiodic morphisms 2013 finite words",
+        "Determining Sets of Quasiperiods of Infinite Words 2016",
+        "A320434"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Levé–Richomme 2013 Section 2 defines proper quasiperiodic covers and later sections consider morphism properties, not fixed-content counts.",
+        "Gamard–Richomme 2016 Sections 2–4 characterize quasiperiod sets of infinite words, not a finite three-marker distribution."
+      ],
+      "reasoning": "A general algorithm or definition for quasiperiods does not imply the explicit classification, intersection count, or rational weighted enumerator. No equivalent finite fixed-content classification was located in the inspected relevant texts.",
+      "searches": [
+        "quasiperiods finite words exactly three occurrences of one letter",
+        "quasiperiodic binary words fixed Hamming weight three",
+        "arxiv:1304.6280v1",
+        "doi:10.4230/LIPIcs.MFCS.2016.40"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A320434 explicitly counts all binary strings having at least one proper cover and gives a total-length sequence, without a three-ones filter or number-of-covers breakdown."
+      ],
+      "reasoning": "Summing the new three-one count into the unrestricted totals is consistent with the older entry; the unrestricted aggregate does not determine the new weight-three subcounts or exact one/two quasiperiod spectrum.",
+      "searches": [
+        "OEIS A320434 length n quasiperiodic binary strings",
+        "number of binary weight three quasiperiodic strings generating function",
+        "OEIS:A320434"
+      ]
+    },
+    "rationale": "Accessible own scientific claims and targeted published-result searches showed no equivalent full three-one quasiperiod spectrum. Direct primary-text comparisons distinguish finite morphism characterizations and right-infinite quasiperiod-set results from the new exact sparse-word enumeration. OEIS A320434 gives only unrestricted totals. Priority remains qualified by possible unindexed equivalent work.",
+    "residual_risks": [
+      "Unindexed finite-word enumeration or a specialization not explicitly presented in searched works may cover the result.",
+      "Published algorithms can in principle enumerate the finite Hamming slice but do not state the closed generating functions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines covers and studies morphism-related quasiperiodicity; no fixed-weight-three enumeration or count-of-covers law",
+        "evidence": "Section 2 defines finite q-quasiperiodicity; Proposition 4.8 and Corollary 4.9 deal with deciding strong quasiperiodicity of morphisms.",
+        "identifier_or_url": "https://arxiv.org/pdf/1304.6280",
+        "material_read": "Introduction and definitions (pp. 1–2), finite-morphism criteria and examples (pp. 3–6), later infinite-morphism propositions (pp. 7–10), references",
+        "method": "Examined arXiv PDF text and the definition page image",
+        "title": "On Quasiperiodic Morphisms",
+        "trigger": "General primary treatment of finite quasiperiods with verified 2013 first version"
+      },
+      {
+        "assessment": "Studies sets of covers of right-infinite words; does not yield the finite binary three-one enumerator",
+        "evidence": "Theorem 2.2 describes quasiperiod-length intervals for aperiodic infinite words; Proposition 3.3 addresses derivated infinite words.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol058-mfcs2016/LIPIcs.MFCS.2016.40/LIPIcs.MFCS.2016.40.pdf",
+        "material_read": "Introduction and statements of the infinite-word method, sections on derivative words, return words and Sturmian families, plus page-image inspection",
+        "method": "Read lawful open-access PDF text and page image",
+        "title": "Determining Sets of Quasiperiods of Infinite Words",
+        "trigger": "Plausible covering quasiperiod-set characterization"
+      },
+      {
+        "assessment": "Known methods produce covers of one supplied string but do not count exact three-marker spectra",
+        "evidence": "Section 3 discusses minimum-cover and cover-array algorithms and their time bounds.",
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2012.07.010",
+        "material_read": "Public full-text introduction and Section 3 descriptions of covers, k-covers, and algorithms",
+        "method": "Inspected full-text HTML research sections",
+        "title": "Computing regularities in strings: A survey",
+        "trigger": "Potential algorithmic broader coverage of all finite quasiperiods"
+      },
+      {
+        "assessment": "Counts unrestricted binary quasiperiodic words only; no marker-weight and multiplicity decomposition",
+        "evidence": "Entry states number of length-n quasiperiodic binary strings, with no Hamming-weight restriction.",
+        "identifier_or_url": "https://oeis.org/A320434",
+        "material_read": "Sequence definition, initial table, formula, listed code and references",
+        "method": "Inspected online OEIS entry",
+        "title": "OEIS A320434",
+        "trigger": "Plausible exact table covering quasiperiodic binary enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11e7c6f2-7d1b-472c-81ec-a44569e71aa3",
+  "value": {
+    "rationale": "Proper covers quantify nontrivial repetition. Three is the first positive Hamming weight that can admit two proper quasiperiods; the result solves its exact all-length structural classification and number-of-cover distribution. The rational functions reveal positive limiting quasiperiodicity probability 1/90 and a 1/(12n) rarity law for double covers, information not contained in unrestricted or algorithmic studies.",
+    "status": "PASS"
+  }
+}
