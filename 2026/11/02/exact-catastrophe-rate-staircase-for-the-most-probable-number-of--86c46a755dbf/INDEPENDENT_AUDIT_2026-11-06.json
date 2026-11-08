@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:16:04.132111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=2 and a,b,c>0 the age since the last complete Poisson reset is Exp(c). Conditioning on it gives the exact scaled-Beta(1,alpha) binomial-mixture integral for P_k, alpha=c/(a+b), rho=a/(a+b). The adjacent ratio is a positive constant times E_{k,alpha}[U/(1-rho U)]; likelihood-ratio ordering under (1-u)^(alpha-1) makes it strictly decreasing in alpha with boundary limits (N-k)rho/((k+1)(1-rho)) and 0. Hence k<h=ceil((N+1)rho)-1 gives precisely one unit crossing and k>=h gives none. The stationary balance recurrence b(k+1)Delta_k=a(N-k+1)Delta_(k-1)+(c-a-b)P_k implies one-peaked mass sequence, and successive unit crossings are strictly ordered by applying it to Delta_(k+1) at Delta_k=0. At alpha>=1, all adjacent differences are strictly negative. Independently recomputed exact rational stationary mass vectors at N=4,rho=1/2 and several adjacent ratios; the finite checks corroborate but do not prove all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 preprint treats linear unbounded birth/immigration-death generator with partially surviving catastrophes; its stochastic ordering is weaker than full finite-N unimodal mode analysis.",
+          "2007 AIMS journal site accessible abstract describes growth and extinction measures; technical modal implications not assessed from full article."
+        ],
+        "reasoning": "Neither inspected source supplies a theorem logically implying the finite-patch ordered sequence of adjacent-probability roots; generic stochastic domination does not force unimodality or strict crossing order. Inaccessible 2007 body remains a risk.",
+        "searches": [
+          "Kapodistria Phung-Duc Resing 2015 equilibrium factorial moments and stochastic ordering",
+          "Artalejo Economou Lopez-Herrero 2007 immigration process with binomial/geometric catastrophes"
+        ]
+      },
+      "checked_sources": [
+        "Kapodistria–Phung-Duc–Resing 2015 EURANDOM-2015-006 (partial technical text)",
+        "Artalejo–Economou–López-Herrero 2007 doi:10.3934/mbe.2007.4.573 (abstract only)",
+        "Resultary nearest published finite-population and catastrophe findings; distinct models"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 equilibrium moments/order concern unbounded population and binomial thinning catastrophes, unlike saturating N-patch complete resets.",
+          "Known stationary-distribution formulas do not assert P_(k+1)/P_k is strictly alpha-decreasing and its roots ordered."
+        ],
+        "reasoning": "The exact increasing mode-index staircase is a stronger claim than existence of stationary law and stochastic order, and is not a corollary of cited results without additional nonstandard arguments.",
+        "searches": [
+          "2015 EURANDOM Preprint 2015-006 sections 1–5 stochastic order",
+          "2007 Artalejo et al. abstract on catastrophes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Regeneration gives P_k as binomial mixed by rho·Beta(1,alpha); none of the retrieved published records gave its strict modal staircase.",
+          "Kapodistria–Phung-Duc–Resing 2015 uses unbounded count and binomial catastrophe transitions, not fixed vacant sites."
+        ],
+        "reasoning": "Searched terms beta-binomial mixture, Poisson complete reset, finite occupancy, catastrophe-dependent modes. Standard Beta mixing does not itself imply that every unit crossing is unique and strictly ordered; not an established equivalent formula in inspected sources.",
+        "searches": [
+          "Resultary: finite exchangeable patch occupancy colonization extinction global complete resets catastrophe stationary count mode thresholds unimodality",
+          "web: finite patches immigration extinction total catastrophe stationary binomial mixture modal thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent N=4 rational probabilities and isolating polynomials computed from the integral; no matching exact mode table found in inspected records."
+        ],
+        "reasoning": "No exhaustive mode-table database was identified; a finite table would not by itself subsume an all-N theorem. Search absence is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search of finite occupancy mode staircase",
+          "web: reset colonization extinction stationary distribution mode finite patches"
+        ]
+      },
+      "rationale": "The all-N consecutive mode-switch staircase is not stated in the inspected unbounded immigration/death with partial catastrophe model or in the accessible 2007 finite-case abstract. Regeneration and stochastic ordering are standard ingredients, not original. The saturating finite-N binomial mixture, its strict adjacent-ratio crossings and globally ordered mode classification together are the assessed claim.",
+      "residual_risks": [
+        "2007 article full technical text not obtained: an uninspected result might discuss modal thresholds.",
+        "Best-of-knowledge priority only: database and web searches do not prove worldwide absence of equivalent or stronger earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different generator; no direct finite occupancy modal classification in read sections",
+          "evidence": "Kapodistria, Phung-Duc and Resing (2015), model/rates and equilibrium discussion",
+          "identifier_or_url": "https://studyres.com/doc/16917218/linear-birth-immigration-death-process-with-binomial",
+          "material_read": "Technical preprint accessible text: model, equilibrium and stochastic-order sections; compared its unbounded generator to fixed-N patch rates",
+          "method": "lawful web HTML text",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "Closest published catastrophe Markov-process distribution and stochastic ordering"
+        },
+        {
+          "assessment": "Abstract discusses extinction and growth, not enough to exclude a hidden equivalent finite-patch theorem",
+          "evidence": "Artalejo, Economou, López-Herrero (2007), AIMS abstract only",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2007.4.573",
+          "material_read": "Journal bibliographic information and abstract; not complete technical body",
+          "method": "journal publisher web HTML",
+          "title": "Evaluating growth measures in an immigration process subject to binomial and geometric catastrophes",
+          "trigger": "Potential earlier catastrophe model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete parameter-sharp classification of the most probable occupied-patch count for a natural finite exchangeable habitat model: it supplies the number, existence and order of all actual mode transitions, not just a mean or a generic stochastic ordering. Boundary rho and alpha dependence matter for interpreting typical occupancy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kapodistria–Phung-Duc–Resing 2015 EURANDOM-2015-006 (partial technical text)",
+    "Artalejo–Economou–López-Herrero 2007 doi:10.3934/mbe.2007.4.573 (abstract only)",
+    "Resultary nearest published finite-population and catastrophe findings; distinct models"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N finite >=2, homogeneous exchangeable patches, Poisson complete resets, independent patch turnover between resets; no claim on partial catastrophe, heterogeneity or non-Poisson timing.",
+    "Bounded rational mass/ratio checks do not certify all infinite parameters.",
+    "2007 article full technical text not obtained: an uninspected result might discuss modal thresholds.",
+    "Best-of-knowledge priority only: database and web searches do not prove worldwide absence of equivalent or stronger earlier work."
+  ],
+  "schema_version": 1
+}
