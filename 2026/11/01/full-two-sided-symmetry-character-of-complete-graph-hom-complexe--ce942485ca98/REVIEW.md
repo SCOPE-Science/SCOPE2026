@@ -1,21 +1,21 @@
-# Scientific review: complete-graph Hom-complex symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim concerns the rational top homology of \(\operatorname{Hom}(K_m,K_n)\) for every \(2\le m<n\) and every simultaneous source/target permutation. Its proof uses the published complete-graph wedge theorem to concentrate homology in degree \(n-m\), then derives an exact signed fixed-cell formula for *arbitrary* group elements. The essential orientation determinant is obtained by subtracting the blockwise constant summand of the permutation module on used colors. Inclusion–exclusion enforces nonempty blocks, with an explicit divisibility rule for cycles of the source and target permutations. The Hopf trace formula removes exactly one connected-component trace. Ordinary and signed cycle-index evaluations give the two quotient homology statements, with no reliance on extrapolating numerical experiments. The hypotheses, the strict \(n>m\) boundary, the rational coefficients, and the ordinary-orbit-space interpretation are all explicit.
+PASS
 
-The supplied standalone program enumerates exact signed cellular boundaries and verifies their compositions over the integers for four nontrivial cases. Its independent signed fixed-cell traces match the closed formula on all 3,792 actions of the joint groups. Six full color-symmetry averages, including two additional larger cases, match the invariant dimensions. These checks corroborate the algebra but are not substituted for the universal proof.
+Universal proof for all integers 2≤m<n: Babson–Kozlov wedge concentration in degree n−m is explicitly an input. Each polyhedral cell is a product of m nonempty disjoint color subsets. For a fixed (σ,π) action, the product-cell orientation determinant equals sign(π restricted to occupied colors)×sign(σ) by quotienting the color-permutation space by blockwise constants. On a target π cycle of length ℓ, a σ-block cycle of length a can be used equivariantly iff a divides ℓ, with exactly a phases; summing occupied cycles with sign and inclusion–exclusion over all σ cycles gives L(σ,π). The Hopf trace removes H0 trace one, producing χ_top=(−1)^(n−m)(L−1). Independent exact enumeration of all cells and signed fixed-cell traces for all 12 joint actions for (2,3) and all 144 for (3,4) matches the closed formula; these finite tests are not the all-m,n proof. The ordinary and sign-weighted symmetric cycle-index evaluations give S_n-invariant rank0 and A_n-invariant rank binom(n−2,m−2). The connectedness and rational-coefficient and ordinary orbit-space boundaries are explicit; no integral-lattice or homotopy-orbit result.
 
-## Originality — PASS, subject to bibliographic residual risk
+## originality
 
-The closest **equivalent underlying object** is the ordered nonempty disjoint-subset poset \(\widehat{\mathcal B}_{n,m}^{o}\) in Babson–Kozlov (1997). Its face-poset identification and its ordinary homotopy theorem are acknowledged without claiming them as new. Its unordered-block quotient concerns the **source** \(S_m\)-action rather than the separately calculated quotient by even versus all **target-color** permutations. Babson–Kozlov (2003) also proves the wedge-of-spheres theorem and enumerates the Betti number. Neither inspected text states a character formula for every \((\sigma,\pi)\in S_m\times S_n\), nor the \(A_n\) quotient multiplicities. Pfeifle's geometric description and Dochtermann's graph-homotopy functoriality likewise do not imply the explicit joint character in their inspected material. Thus the claimed novelty is carefully confined to the simultaneous character and its target-color quotient consequences; known nonequivariant statements are excluded. Equivalent unindexed work, especially in older deleted-product literature, remains a real residual priority risk.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS confined to the exact joint S_m×S_n Hom(Km,Kn) character and distinction between S_n and A_n target-color orbit homology. The Babson–Kozlov older ordered disjoint-block poset is explicitly equivalent and supplies known nonequivariant homotopy; its source block-quotient concerns S_m rather than target-color S_n/A_n. The accessible abstract and precise source citations do not establish a dominating universal joint character. Highly relevant 1997 and 2003 full primary texts were inaccessible due to disconnected Oxford VPN; this substantial priority risk is recorded without making a whole-document NOT_COVERING claim.
 
-The complete-graph Hom complexes are basic and historically important in topological combinatorics and graph-coloring obstructions. Their ordinary sphere counts do not specify the source/target symmetry representation. The new formula determines every joint group element's character for two independent symmetric-group actions and proves a sharp qualitative distinction between full and alternating color-quotients: one is rationally acyclic whereas the other has \(\binom{n-2}{m-2}\) independent top-dimensional classes. The result therefore has natural meaning independent of its verification code, does not depend on arbitrary isolated numerical parameters, and applies to a full two-parameter family.
+## value
 
-## Limitations and literature
+PASS
 
-Only rational homology representations and ordinary geometric quotients are classified. Integral representation lattices, quotient homotopy types, Borel-equivariant groups and arbitrary graph pairs are not determined. The prior underlying poset, ordinary wedge theorem and nonequivariant Betti numbers were already established. The key primary references are Babson–Kozlov (1997, arXiv:math/9704227, Definition 6.1 and Theorem 6.2) and Babson–Kozlov (2003, arXiv:math/0310056, Definition 1.2 and Propositions 4.5–4.6). Pfeifle (arXiv:math/0512529) and Dochtermann (DOI:10.1016/j.ejc.2008.04.009) were also compared. This self-review is not independent peer review and does not establish publication priority definitively.
+Hom(Km,Kn) is a basic topological graph-coloring object. A uniform all-parameter, all-element character for two commuting natural symmetric groups and the full-vs-even color quotient dichotomy are meaningful equivariant topological classification, beyond a renamed sphere-count theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
