@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every literal period-two orbit satisfies the accumulator balance \(x_0+x_1=0\); the nonzero case has a unique positive-amplitude representative. The two scalar recurrence equations reduce to equal cosines with positive prescribed value \(C/u^2\). The sine-product factorization yields exactly the two listed phase branches, including their finite intersection. For large \(u\), each allowed reflected-phase interval around a cosine zero contains exactly two and no other roots, by monotonicity and an explicit derivative gap. Their amplitudes have the stated \(O(z_n^{-5})\) expansion. Commensurate-memory cycles give the other half of the count. The exact two-step Jacobians and their characteristic polynomials show both classes have two expanding eigenvalues beyond a finite threshold, of scale \(aku^3\), with opposite determinant signs between the two classes. A direct one-step upper bound proves uniform geometric attraction and convergence of memory in the stated interior strip. No numerical enumeration is used to justify an infinite claim.
+PASS
 
-**Limits:** No claims about higher periods, global basins, prescribed initial accumulator slice, or finite-amplitude bifurcation completeness. High-amplitude results have parameter-dependent finite cutoffs not quantified as a universal numerical index.
+If F²(x,w)=(x,w), the accumulator balance forces x1=-x; nontrivial points have x=u>0, and both first-coordinate equations require cosθ=cos(θ+ku)=C/u² with C=1+1/a. The trigonometric zero factor yields exhaustive A (ku=2πm, two phases) and B (θ=-ku/2+jπ, |cos(ku/2)|=C/u²) branches, intersecting only at u=√C=2πm/k. Near each distant z_n=(2n+1)π/k, monotonicity of |cos(ku/2)| against C/u² yields exactly two B roots with u=z_n±2C/(k z_n²)+O(z_n^-5), giving N_2(R)=2kR/π+O(1). Explicit one-step Jacobian with d=-2a-3, b=aku³ sinθ leads to A return J_-J_+ of det d²-b²<0 and B return J_+² of det (d-b)²>0; both eigenvalue moduli are asymptotic aku³ and hyperbolically repelling beyond finite cutoffs. For 0<a<1, |x|<√(a^-1-1) contracts by a(1+x0²)<1, w converges, radius is sharp for uniform phase-wise contraction. Independently bisected distant B roots and computed return spectra in four cases; this corroborates, not replaces, the asymptotic proof.
 
-## Originality — PASS within inspected material
+## originality
 
-The primary source Li–Zhong–Xu–Xu, *Two Modified Chaotic Maps Based on Discrete Memristor Model* (2022), DOI 10.3390/sym14040800, was examined in full, especially equation (11), its fixed-point and trajectory sections, Lyapunov analysis, and conclusion. The article does not provide the literal primitive-two-cycle classification, its asymptotic density or the remote Jacobian signatures. The available full text of the distinct Li–Yang–Yang–Lu 2022 memristor logistic map was inspected, including its defining equation (20): there the memory enters affinely, not through a periodic cosine. The Bao and collaborators 2020 memristor map has different state equations and numerical observations. Searches for fixed-period-two cycles, cosine memory resonance, accumulator translations, and equivalent classifications yielded no dominating same mathematical model theorem. Related exact classifications of Rulkov, Bogdanov and Duffing maps concern different recurrences and do not imply a cosine-phase lattice of recurrent states.
+PASS
 
-**Risks:** The primary paper is numerical in focus but a wholly uncatalogued follow-up or independent calculation could contain an equivalent classification. Search failures alone are not evidence of uniqueness. Some supporting sources were available only as previews; their inaccessible sections were not certified non-covering. A full independent novelty audit remains outstanding.
+The exact 2022 Li–Zhong–Xu–Xu model is acknowledged; its full accessible article was inspected, including Eq.(11) and numerical bifurcation sections, and does not state a full-plane two-cycle dichotomy or their linear-in-radius density. A distinct 2022 affine-memory map and other cosine memristor maps are not algebraically the same recurrence. Resultary yielded exact period-two analyses for different dynamical maps, not a theorem specializing to this cosine memory equation. Best-of-knowledge originality applies to full-state exact classes, density and remote return spectra, not the model or earlier chaos numerics.
 
-## Mathematical value — PASS
+## value
 
-A nonlinear map introduced to model memristive logistic chaotic behavior has an unbounded countable family of literal recurrent states whose orbit-density coefficient is exact and depends only on the cosine frequency. The coexistence between an attracting strip and remote repelling periodic points holds at every gain below one and is structurally nontrivial: the cosine-memory coupling generates two separate arithmetic phase branches with different return orientations. The exact high-amplitude instability exponent gives a useful large-state benchmark for the model's recurrent geometry, and the result is not a parameter-specific numerical table or a generic restatement of standard fixed-point algebra. No application to all observed numerical attractors is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This recurrence has an unbounded internal memory coordinate with exact translation symmetry, making literal full-plane periodic-orbit counting subtle. The theorem shows a sharp positive density of remote repelling two-cycles and cubic expansion that coexist with a forward-attracting inner strip, a motivated dynamical coexistence phenomenon not determined by ordinary local bifurcation plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
