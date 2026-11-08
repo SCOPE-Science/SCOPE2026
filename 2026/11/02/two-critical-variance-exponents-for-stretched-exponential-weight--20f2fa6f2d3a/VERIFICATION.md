@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python 3 standard library. The accompanying `verification_output.txt` is the program's recorded output. The program enumerates all \(\prod_{j=2}^n(j-1)=(n-1)!\) labeled parent-choice trees for each order \(n=2,\ldots,7\), using exact rational attachment probabilities, and checks the exact mean and total path-length variance against the orthogonal-increment formulas. This performs 12 exact-rational equalities.
+## correctness
 
-It additionally evaluates the deterministic variance recurrence through 100,000 and 500,000 arrivals at five specified parameter choices, checking finite diagnostic inequalities and positivity: 20 assertions. Together there are 32 actual asserted conditions. In particular the slow convergence at the logarithmic critical exponent is visible; the numerical checks do not justify extrapolation to infinity.
+PASS
 
-The infinite-size statements require independent analytical reconstruction of the kernel estimates, the critical power-product estimate, Riemann-sum and harmonic asymptotics, and martingale convergence. They are argued in `RESULT.md`; the code is not an infinite proof and does not certify originality or mathematical value. Independent validation has not been performed.
+For fixed 0<c,gamma<1, positive weights satisfying p_j=c j^{-gamma} exist uniquely. Conditional weighted-depth martingale increments yield T_n-ET_n=sum[1+(n-j)p_j]xi_j; independent rational parent-tree enumeration to n=6 confirmed the exact variance. The innovation recurrence v_(j+1)=(1-p_j^2)v_j+p_j(1-p_j) is derived by two-population variance. Its positive-kernel asymptotics split at gamma=1/2; power-sum convolution and summability split again at 2/3, recovering five exact constants and n-scale a.s./L2 martingale convergence only for gamma>2/3. No distributional limit below threshold is claimed.
+
+## originality
+
+PASS
+
+Existing arbitrary-weight identities are expressly credited. This five-regime asymptotic evaluation on a natural stretched-exponential weight family is a substantive new statement on current searches.
+
+## value
+
+PASS
+
+The full variance phase diagram has two mathematically motivated critical exponents and exact constants plus an L2 threshold; this gives genuinely useful asymptotic information for an otherwise standard growing random-tree statistic, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
