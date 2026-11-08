@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of two-point discriminant fibres
+# Independent mathematical audit
 
-The standalone standard-library script `verify.py` enumerates polynomials over \(\mathbb F_3,\mathbb F_5,\mathbb F_7\), and \(\mathbb F_9\), using a separately implemented finite-field multiplication for the extension field. It evaluates the discriminant by the resultant of each polynomial and its derivative using exact finite-field Gaussian elimination, compares the resulting squareclass counts with the complete two-point Jacobi-series formulas, and checks the \(q=3\) exact bias and the bounds for \(q\ge5\).
+## correctness
 
-Reproduce with `python3 verify.py`. The checked maximum degrees are \(7\) for \(q=3\), \(5\) for \(q=5\), and \(4\) for both \(q=7\) and \(q=9\). A successful replay prints:
+PASS
 
-`VERIFY_OK fields=4 degree_value_fibres=388 direct_polynomials=11828 exceptional_q3_and_bounds=PASS`
+The frozen RESULT.md proves all n>=2 over odd prime powers and nonzero evaluations a=f(0), b=f(1) by computing degree-d two-point character sums (trivial L=(1-T)^2/(1-qT), nontrivial L=1+JT), applying polynomial Mobius squarefree and inverse Euler products, and Pellet–Stickelberger–Swan chi(Disc)=(-1)^n mu(f). Double character orthogonality gives all square/nonsquare nonzero-discriminant fibres. For q=3 the explicit four-character calculation gives maximum bias ceil(n/2). For q>=5 the Fourier coefficient at (rho,rho) has magnitude q^(n/2) by nondegenerate Gauss/Jacobi sums, with the stated upper triangle bound. The nonstandard determinant- and character-normalization issues were checked, including zero character extension and degree two. Independent direct enumeration of monic quadratics over q=3,5,7,11,13 confirmed the squareclass-bias maximum 1; finite tests do not prove the all-degree formula.
 
-All output counts are finite checks and cannot alone establish the theorem for unbounded degree or other fields. The universal conclusion rests on the complete formal Euler-product and finite Fourier arguments in `RESULT.md`. No independently performed mathematical audit is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: exact two prescribed nonzero values, complete squareclass fibres, and sharp q=3 versus q>=5 maximum-bias growth are not derived by the inspected unconditional discriminant paper or prescribed-leading-coefficient work. Classical Mobius, Jacobi sums, Pellet identity and orthogonality are expressly prior tools; a general modulus-X(X-1) L-function treatment may implicitly contain the answer.
+
+## value
+
+PASS
+
+The joint constraints at two distinct evaluation points form a canonical first nontrivial local-character conditioning problem. Explicit squarefree discriminant fibres and the exceptional q=3 to q>=5 growth transition determine natural arithmetic statistics not obtainable from the unconditional count alone; neither a mere parameter rename nor a gratuitous isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks that evaluation at \(0\) and \(1\) is independently surjective for all monic degrees \(n\ge2\). It computes the exact degree-one Jacobi sum and every higher character-series coefficient, then derives squarefree and signed counts by formal Euler factors. Polynomial Möbius/discriminant parity in odd characteristic fixes the \((-1)^n\) sign, including repeated factors. Character orthogonality supplies every fibre. The trivial character's coefficient gives \(1-(q-1)n\), while all nontrivial coefficients are exact powers of Jacobi sums. The explicit \(q=3\) enumeration and primitive-character Fourier coefficient for \(q\ge5\) justify both growth claims. Exact finite enumeration over four fields corroborates, but does not establish, the unrestricted theorem.
+PASS
 
-## Originality — PASS (qualified by residual literature risks)
+The frozen RESULT.md proves all n>=2 over odd prime powers and nonzero evaluations a=f(0), b=f(1) by computing degree-d two-point character sums (trivial L=(1-T)^2/(1-qT), nontrivial L=1+JT), applying polynomial Mobius squarefree and inverse Euler products, and Pellet–Stickelberger–Swan chi(Disc)=(-1)^n mu(f). Double character orthogonality gives all square/nonsquare nonzero-discriminant fibres. For q=3 the explicit four-character calculation gives maximum bias ceil(n/2). For q>=5 the Fourier coefficient at (rho,rho) has magnitude q^(n/2) by nondegenerate Gauss/Jacobi sums, with the stated upper triangle bound. The nonstandard determinant- and character-normalization issues were checked, including zero character extension and degree two. Independent direct enumeration of monic quadratics over q=3,5,7,11,13 confirmed the squareclass-bias maximum 1; finite tests do not prove the all-degree formula.
 
-Almousa–Wood counts root-multiplicity patterns in unrestricted polynomial ensembles. Chan–Kwon–Seaman studies unconditional discriminant distributions. Lalín–Larocque counts irreducibles with two fixed leading coefficients. Those claims do not imply a conditional discriminant-squareclass fibre at two prescribed evaluations. Searches for conditional polynomial Möbius sums, discriminant characters, two-point evaluation fibres, and Jacobi-sum formulations did not locate explicit equivalent or more general coverage. Nevertheless, the formulas use elementary character-series machinery, and broader classical Dirichlet-L-function treatments might imply them without equivalent phrasing; this is a genuine residual risk, not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two evaluation constraints break naive unconditional discriminant equidistribution, and the result classifies both squareclasses for every degree and every odd finite field. The exact transition from a linear maximum over the smallest odd field to exponential-order maxima over all larger odd fields is a structural invariant, not an isolated numeric experiment. The two-point conditional fibres and their field-size transition give motivated information beyond a generic formal substitution.
+Best-of-knowledge PASS: exact two prescribed nonzero values, complete squareclass fibres, and sharp q=3 versus q>=5 maximum-bias growth are not derived by the inspected unconditional discriminant paper or prescribed-leading-coefficient work. Classical Mobius, Jacobi sums, Pellet identity and orthogonality are expressly prior tools; a general modulus-X(X-1) L-function treatment may implicitly contain the answer.
 
-## Independent validation and limits
+## value
 
-No independent audit is represented. The statement excludes degree one, fields of even characteristic, zero prescribed evaluations, individual determinant values, and irreducible-only statistics. Stronger inaccessible or unidentified classical treatments remain an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint constraints at two distinct evaluation points form a canonical first nontrivial local-character conditioning problem. Explicit squarefree discriminant fibres and the exceptional q=3 to q>=5 growth transition determine natural arithmetic statistics not obtainable from the unconditional count alone; neither a mere parameter rename nor a gratuitous isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
