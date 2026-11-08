@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 near3_verify.py` with the Python standard library. It constructs all candidate prime pairs from the inequalities proved in `RESULT.md`, checks exact primality by trial division, constructs each full divisor list from its factorization, independently computes the surplus by both a closed formula and divisor summation, and compares all unordered triples of distinct proper divisors. The code checks the full set of 25 integers and the 17/6/2 shape counts.
+## correctness
 
-Expected header:
+PASS
 
-```
-VERIFY_OK cases=48 by_shape=32,12,4 solutions=25 by_shape=17,6,2 witnesses=32
-```
+Exponent pattern (2,1,1) forces odd exclusion using σ(n)/n≤(13/9)(6/5)(8/7)<2, and even shapes 4pq, 2p²q, 2pq² with p<q odd. Upper σ(n)/n<3 ensures omissions proper. For 4pq, Δ=56−(p−7)(q−7) and three-divisor coefficient comparison gives 32 possible prime pairs. For 2p²q, Δ=(3+3p−p²)q+3(p²+p+1), leaving 12; for 2pq², Δ=(3−p)q²+3(p+1)(q+1), leaving 4. These global inequalities reduce the infinite theorem to exactly 48 candidates. Independent newly written exact integer enumeration over each candidate’s complete 12-divisor set and all 165 proper triples reproduces 25 integers, 32 unordered witnesses, and 17/6/2 solutions by shape. This is finite exhaustiveness after analytical bounds, not a search horizon.
 
-The verifier then prints all 25 integers and all 32 unordered triples. The proof's infinite component is the preceding analytic reduction to the 48 candidate cases. There is no independent audit or external certificate.
+## originality
+
+PASS
+
+Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.
+
+## value
+
+PASS
+
+Classifying an entire natural minimal prime-complexity slice of k-near-perfect integers, including nonunique omitted-divisor witnesses, resolves a motivated number-theoretic counting problem beyond isolated examples. The global prime bounds give the finite census genuine mathematical completeness for ω=3,Ω=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

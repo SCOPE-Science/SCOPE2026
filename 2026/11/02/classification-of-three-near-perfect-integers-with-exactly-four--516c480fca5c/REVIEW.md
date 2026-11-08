@@ -1,19 +1,21 @@
-# Scientific review: Classification of three-near-perfect integers with exactly four prime factors
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof excludes the odd case by the sharp ratio \(624/315<2\), then gives explicit global reductions to \(32\), \(12\), and \(4\) admissible prime pairs for the forms \(4pq\), \(2p^2q\), and \(2pq^2\). The lemma excluding the whole integer as an omitted divisor is checked using the maximum ratio \(\sigma(n)/n<3\). A standalone exact-integer verifier regenerates all \(48\) cases and all \(165\) unordered proper-divisor triples per case, yielding \(25\) integers and \(32\) triples. The external infinite quantifier is discharged by inequalities, not enumeration.
+PASS
 
-## Originality (PASS within inspected evidence)
+Exponent pattern (2,1,1) forces odd exclusion using σ(n)/n≤(13/9)(6/5)(8/7)<2, and even shapes 4pq, 2p²q, 2pq² with p<q odd. Upper σ(n)/n<3 ensures omissions proper. For 4pq, Δ=56−(p−7)(q−7) and three-divisor coefficient comparison gives 32 possible prime pairs. For 2p²q, Δ=(3+3p−p²)q+3(p²+p+1), leaving 12; for 2pq², Δ=(3−p)q²+3(p+1)(q+1), leaving 4. These global inequalities reduce the infinite theorem to exactly 48 candidates. Independent newly written exact integer enumeration over each candidate’s complete 12-divisor set and all 165 proper triples reproduces 25 integers, 32 unordered witnesses, and 17/6/2 solutions by shape. This is finite exhaustiveness after analytical bounds, not a search horizon.
 
-The most relevant primary texts are Aryan–Madhavani–Parikh–Slattery–Zelinsky, *On 2-Near Perfect Numbers* (2023), and Fearon–Foushee–Porosoff–Skula–Zelinsky–Zhang (2025). The latter's Section 6.3 lists eight small three-near-perfect integers and notes the complexity of multiple omissions. Neither supplies the present exact all-prime classification. Prior exact-two-omission and exact-three-deficient-perfect classifications do not logically imply the present exact-three-positive-omission statement. Searches included explicit factor shapes, equivalent divisor-surplus equations, relevant mathematical records and integer tables. An unindexed equivalent result remains a possible priority limitation.
+## originality
 
-## Value (PASS)
+PASS
 
-This is the first nonsquarefree prime-multiplicity layer for three-prime-support three-near-perfect numbers. Its classification is unconditional for unbounded primes, gives all \(32\) omitted-divisor triples rather than a sample, and identifies genuine nonuniqueness within a natural research family.
+Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.
 
-## Limitations
+## value
 
-No claim is made for larger multiplicity, further prime supports or all three-near-perfect integers. The finite checker assumes the prime-pair bounds proved in the mathematical argument; it does not by itself certify universal exhaustiveness. Independent scientific audit is not included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying an entire natural minimal prime-complexity slice of k-near-perfect integers, including nonunique omitted-divisor witnesses, resolves a motivated number-theoretic counting problem beyond isolated examples. The global prime bounds give the finite census genuine mathematical completeness for ω=3,Ω=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
