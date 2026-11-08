@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all n>=40320, the digit contribution bound n-S5(n)>=36224-7162>0; for 1<=n<=40319 the image lies in [1,29008]. Hence finite enumeration of the 40319-state closed graph exhausts all periodic points. The reproducible exact-integer cycle tests agree under two distinct factorial-digit extraction algorithms and give seven fixed points plus the cycle 2114<->3401. Every one of 18 translated input orbits is checked term by term. The elementary digit-disjointness lemma and surjectivity construct a shifted interval of arbitrary length whose r-th images land inside one of the two verified translates of the complete periodic set. No inference from a finite sample to infinitely many inputs is made; the lifting proof establishes the quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carlson--Goedhart--Harris 2019 Theorem 1: general lifting assuming a (e,p)-nice periodic set, not a blanket unconditional assertion.",
+        "Sánchez Garza--Treviño 2021 Theorem 1: a global eventual-decrease estimate for each exponent; it does not establish synchronized translations.",
+        "Goedhart--Gurtas--Harris 2025, Sections 1--4: results concern fixed positional bases b, not factorial-base fifth-power translates."
+      ],
+      "reasoning": "A general conditional theorem supplies the logical architecture, not the target-specific witness. General decrease or fixed-positional-base methods cannot certify the translated fifth-power factorial-base periodic set.",
+      "searches": [
+        "arxiv 2020 2026 \"factoradic happy\" sequences consecutive exponent five",
+        "\"factoradic\" \"fifth\" \"runs\" happy numbers",
+        "\"Sequences of consecutive factoradic happy numbers\" exponent 5 fixed 34 1058 theorem",
+        "\"On a sequence related to the factoradic representation of an integer\" authors 2025"
+      ]
+    },
+    "checked_sources": [
+      "Carlson, Goedhart, Harris, arXiv:1912.02044v1 (2019), Definitions, Theorems 1--3, Tables 1--2, Section 5.",
+      "Sánchez Garza and Treviño, Journal of Integer Sequences 24 (2021), Article 21.8.5, definition and Theorem 1.",
+      "Goedhart, Gurtas, Harris, arXiv:2410.13990 / La Matematica (2025), positional-base construction.",
+      "Grundman, Hall-Seelig, La Matematica 1 (2022), abstract/reference list only; full text not accessed."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1912.02044v1, Theorem 1 states the implication U absolute and (e,p)-nice => arbitrarily long p-happy runs.",
+        "arXiv:1912.02044v1, Theorem 2 proves the needed hypotheses only for e in {1,2,3,4}.",
+        "The new exact certificates show both target-specific hypotheses in the first e=5 regime containing a nontrivial cycle."
+      ],
+      "reasoning": "The present theorem is an original unconditional instantiation of a known conditional implication, not a new general lifting theorem. The known implication does not entail the unconditional statement without the 18 nontrivial orbit tests and completeness of U.",
+      "searches": [
+        "\"factoradic\" \"(5,34)\" \"nice\"",
+        "\"consecutive\" \"5-power factoradic\" happy number",
+        "\"factorial base\" \"5-happy\" \"34\" consecutive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1912.02044v1, Theorem 1, uses the equivalent condition that the complete periodic set U be (5,p)-nice.",
+        "The original manuscript explicitly treats e=5 in its periodic-state Table 1 but gives no e=5 case of its unconditional Theorem 2.",
+        "The 18 paths in witnesses.txt verify (5,34)-niceness and (5,1058)-niceness, respectively."
+      ],
+      "reasoning": "The earlier conditional criterion is equivalent only after supplying a translation. The existence of both translations is precisely the new ingredient; known finite blocks and fixed-point lists do not imply it.",
+      "searches": [
+        "factoradic 5-happy numbers arbitrarily long consecutive runs with nontrivial two-cycle 3401 2114 fifth powers digit sums",
+        "\"factoradic\" \"5\" \"arbitrarily long\" \"happy\"",
+        "\"factoradic\" \"3401\" \"2114\" \"nice\"",
+        "\"factoradic\" \"1058\" \"consecutive\" \"happy\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carlson--Goedhart--Harris 2019 Table 1 lists the nine periodic states, including the 2-cycle, not either synchronization shift.",
+        "The same paper Table 2 gives finite examples of standard fifth-power happy runs, not unbounded runs into 34 and 1058.",
+        "The computed witness shifts are 1373 and 75004 with direct full path certificates."
+      ],
+      "reasoning": "Existing tables of cycles or finite happy blocks do not themselves provide the common-shift property for all nine periodic points. The new paths are independently checkable arithmetic data tied to a theorem of infinite scope.",
+      "searches": [
+        "\"factoradic\" \"1373\" \"3401\" 34",
+        "\"factoradic\" \"1058\" \"consecutive\" \"happy\"",
+        "\"factoradic\" \"34\" \"arbitrarily long\" \"5\""
+      ]
+    },
+    "rationale": "The principal 2019 paper proved a conditional synchronizing-translate criterion and tabulated the fifth-power periodic points, but its unconditional consecutive-run theorem stopped at exponents at most four. New explicit translations for the entire nine-point fifth-power periodic set discharge the previously unverified hypothesis for targets 34 and 1058. Searches of exact statement and equivalent forms found no covering result. Relative priority remains subject to risks below.",
+    "residual_risks": [
+      "The 2022 survey full text was not inspected; accessible text does not identify a competing theorem, but snippet-level evidence cannot rule one out.",
+      "An equivalent fifth-power synchronization result might exist in unindexed literature or under different terminology.",
+      "The proof inherits no claim of being the first discovery; scientific originality is assessed against the accessible evidence only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONDITIONAL_PRECEDENT_NOT_COVERING_NEW_TRANSLATIONS",
+        "evidence": "Theorem 2 covers only e<=4; remark after Table 1 says the e>=5 nontrivial cycles obstruct the niceness verification.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.02044",
+        "material_read": "Accessible complete HTML rendering, focusing on Definitions 1--5, Theorems 1--3, full proof of Theorem 1, Table 1, Table 2 and future-work section.",
+        "method": "Mathematical statement and implication comparison in primary text.",
+        "title": "Sequences of consecutive factoradic happy numbers",
+        "trigger": "Same factorial-base dynamics and exact exponent-five periodic states."
+      },
+      {
+        "assessment": "DOES_NOT_COVER_SYNCHRONIZED_CONSECUTIVE_RUNS",
+        "evidence": "Theorem 1 bounds S_{r,!}(n) below n for sufficiently large n; no target p or common translation.",
+        "identifier_or_url": "https://campus.lakeforest.edu/trevino/SequenceFactoradic.pdf",
+        "material_read": "First two pages including definition and theorem; relevant proof of the eventual-decrease theorem near pages 10--11.",
+        "method": "Text and page-image inspection of primary PDF sections.",
+        "title": "On a Sequence Related to the Factoradic Representation of an Integer",
+        "trigger": "Stronger general eventual-descent theorem for the same factorial-base power map."
+      },
+      {
+        "assessment": "DIFFERENT_NUMBER_SYSTEM",
+        "evidence": "The main function is S_{e,b} on digits of powers of a fixed b; factoradic appears only as a cited different direction.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-025-00157-x",
+        "material_read": "Accessible full HTML Sections 1--4, including defining map and preimage-tree construction.",
+        "method": "Object/domain comparison: fixed positional b versus mixed-radix factorial.",
+        "title": "A Tree Approach to the Happy Function",
+        "trigger": "Later paper by overlapping authors concerning happy-number preimages and cycles."
+      },
+      {
+        "assessment": "LIMITED_ACCESS_RESIDUAL_RISK",
+        "evidence": "Accessible material cites the original factoradic paper but does not provide a separate e=5 unbounded-run statement.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-021-00010-x",
+        "material_read": "Abstract, article description, and reference list only; complete paper behind access controls.",
+        "method": "Limited accessible overview; not a whole-document noncoverage assessment.",
+        "title": "Happy Numbers, Happy Functions, and Their Variations: A Survey",
+        "trigger": "Broad literature survey could mention later generalizations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2aec2b4-a734-46a8-aef3-1b598462c342",
+  "value": {
+    "rationale": "The earlier principal paper explicitly highlighted the difficulty of its consecutive-run criterion for e>=5 because a genuine 2-cycle appears. These complete nine-state synchronization certificates cross that qualitative barrier for two distinct nontrivial fixed-point basins and yield infinite sequences of arbitrary lengths, not merely finite numerical instances. Both target basins are natural previously tabulated fixed-point classes. The result does not claim the unsolved standard 1-happy case, best possible translations, or density estimates.",
+    "status": "PASS"
+  }
+}
