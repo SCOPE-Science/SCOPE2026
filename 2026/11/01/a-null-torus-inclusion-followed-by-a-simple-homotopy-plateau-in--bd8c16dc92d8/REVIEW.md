@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an exact finite statement with a fully specified graph, filtration and orientation convention. The standalone checker recomputes all faces by two independent component algorithms, confirms the torus link and orientability conditions, verifies the explicit signed 26-tetrahedron filling of the torus cycle, checks 897 face-poset incidences for an acyclic Morse matching, and derives a zero integer Morse boundary from oriented gradient paths. Its independent free-face verification supplies all 182 elementary-collapse steps from the third complex to the second. The conclusion that the middle complex is a sphere wedge follows from the degree-zero attaching maps and \(\pi_2(S^2)\cong\mathbb Z\); nullhomotopy of the torus inclusion follows from two-dimensional obstruction theory and the exhibited integer filling. Finite calculations here are exhaustive for the fixed 13-vertex graph, not extrapolations to an infinite class.
+## correctness
 
-## Originality — PASS against inspected evidence
-The January 2020 higher-independence family classification, the 2020 connectivity/chordal result and the 2021 chordal higher-independence paper were compared at the theorem level with the exact Paley-13, cutoff-two/three and inclusion-map claims. The relevant papers concern other families or impose chordality, and the Paley-13 torus discussed in 2023 provides only the initial topological stage. Searches under Paley-13, conference-graph, higher-independence, simple collapse and homotopy/persistence aliases located no equivalent classification. Available neighboring finite graph computations treat different graphs or simplicial constructions. The residual risk is an unindexed result or an implicit specialization of a general algorithm not identified in the inspected material.
+PASS
 
-## Value — PASS
-This natural, exceptionally symmetric conference graph has a classical torus triangulation at the ordinary independence stage. The previously unclassified higher-independence stages show a nontrivial homotopy change and a genuine simple-homotopy plateau. Crucially, the first inclusion kills the fundamental torus class despite equality of the integral second-Betti numbers, so Betti numbers alone cannot recover its persistence behavior. The explicit integral filling and free-face collapse offer reusable structural certificates for this canonical finite case. The scope is one graph; general Paley-family behavior and an independent assessment remain open.
+For the Paley graph on F13 with quadratic-residue difference set {1,3,4,9,10,12}, independent induced-component counting over all 8192 masks reproduces face totals Ind1=79, Ind2=313 and Ind3=677 including empty. Ind1 has (13 vertices,39 edges,26 triangles), each edge in two triangles and every vertex link is a hexagon; the pinned signed 26-triangle fundamental cycle has integral zero boundary, so the oriented connected chi=0 surface is T2. Independently read CERTIFICATE.json and recomputed that its 26 signed tetrahedra are Ind2 faces and have oriented boundary exactly the torus cycle, proving the inclusion kills H2. The audited source verifies an acyclic Morse matching with one 0-, one 2- and two 3-cells and signed d3=(0,0), yielding Ind2 homotopy S2 wedge two S3. From simply-connected target and the 2-dimensional torus obstruction class, zero induced H2 implies the full torus inclusion is nullhomotopic. Independently implemented and checked every one of the 182 actual free-face/coface collapses from Ind3 to exactly Ind2, not a homology-only comparison. The 78 pure tetrahedral facets of Ind2 plus nonzero H2 imply nonshellability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+This is a new finite filtration-and-inclusion calculation of higher-independence complexes for the specific 13-vertex Paley graph. The published Deshpande–Singh higher-independence theory covers complete multipartite, whiskered, cycle and rooted-tree families and does not include this nonchordal Paley graph; the literature describing a torus embedding of Paley13 does not determine subsequent Ind2/Ind3 topology or inclusion map. No Resultary same-object match surfaced. Retain unindexed-computation risk.
+
+## value
+
+PASS
+
+A Paley strongly regular graph is a canonical symmetric finite object, and its induced-component-cutoff filtration is a natural topological sequence. Establishing a nullhomotopic inclusion between stages with nonzero H2 and a literal simple-homotopy plateau is a structural result about maps rather than isolated Betti-number recomputation. Its explicit finite chain witnesses support future persistence and equivariant explorations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

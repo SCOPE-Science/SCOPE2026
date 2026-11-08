@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T01:17:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the Paley graph on F13 with quadratic-residue difference set {1,3,4,9,10,12}, independent induced-component counting over all 8192 masks reproduces face totals Ind1=79, Ind2=313 and Ind3=677 including empty. Ind1 has (13 vertices,39 edges,26 triangles), each edge in two triangles and every vertex link is a hexagon; the pinned signed 26-triangle fundamental cycle has integral zero boundary, so the oriented connected chi=0 surface is T2. Independently read CERTIFICATE.json and recomputed that its 26 signed tetrahedra are Ind2 faces and have oriented boundary exactly the torus cycle, proving the inclusion kills H2. The audited source verifies an acyclic Morse matching with one 0-, one 2- and two 3-cells and signed d3=(0,0), yielding Ind2 homotopy S2 wedge two S3. From simply-connected target and the 2-dimensional torus obstruction class, zero induced H2 implies the full torus inclusion is nullhomotopic. Independently implemented and checked every one of the 182 actual free-face/coface collapses from Ind3 to exactly Ind2, not a homology-only comparison. The 78 pure tetrahedral facets of Ind2 plus nonzero H2 imply nonshellability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh main family theorem treats complete multipartite graphs, fully whiskered graphs, cycles, perfect m-ary trees.",
+          "Other cited results invoke chordality/shellability conditions absent for Paley13."
+        ],
+        "reasoning": "No general theorem in the inspected sources covers all strongly regular graphs or all Paley graphs with exact maps between these three higher-independence stages.",
+        "searches": [
+          "arxiv:2001.05448 higher independence family homotopy classification",
+          "arxiv:2001.06775 r-independence chordality",
+          "arxiv:2106.10863 chordal graphs higher independence"
+        ]
+      },
+      "checked_sources": [
+        "pinned Paley13 RESULT.md, check_paley13.py and CERTIFICATE.json",
+        "Deshpande–Singh arXiv:2001.05448 full text",
+        "Deshpande–Shukla–Singh arXiv:2001.06775",
+        "Abdelmalek et al arXiv:2106.10863",
+        "Jones–Mačaj arXiv:2303.11808 summary",
+        "Resultary Paley graph searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ind1 torus alone gives no forced homotopy type for Ind2 or map on pi2.",
+          "The result for Paley29 concerns different vertex count and only ordinary independence."
+        ],
+        "reasoning": "Neither knowing the first-stage torus nor a homotopy result for other Paley graphs implies the null inclusion, subsequent sphere wedge, or exact relative simplicial collapse.",
+        "searches": [
+          "Deshpande Singh 2020 higher independence full text",
+          "Jones Mačaj regular dessins Paley13 torus embedding",
+          "published Paley29 independence homotopy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deshpande–Singh define r-independent sets by induced components of size <=r.",
+          "The Paley13 usual independence complex equals the r=1 stage, while higher cutoffs r=2,3 are new and not merely distinct graph complexes."
+        ],
+        "reasoning": "Compared alternative induced-component-size and generalized independence conventions; only the component-cutoff convention matches all three stages. Standard Paley torus embedding supplies at most the r=1 identification.",
+        "searches": [
+          "Paley graph order 13 higher independence complexes Ind_r inclusion",
+          "Paley 13 torus independence complex filtration homotopy",
+          "Deshpande Singh higher independence definitions arxiv:2001.05448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concerned Paley29 ordinary independence and Petersen 2-independence, not Paley13 component-cutoff stages.",
+          "The existing torus description for Paley13 does not list the 26-simplex chain filling in Ind2 or 182 relative collapses."
+        ],
+        "reasoning": "No exact same-object stage table or topological-filtration map result was found; absence from a queried database is not a global novelty certificate.",
+        "searches": [
+          "Resultary: Paley graph P13 higher independence cutoff Ind2 Ind3 torus inclusion",
+          "Paley P13 Ind_2 simplicial topology 313 677 182",
+          "Paley13 independence-complex database torsion"
+        ]
+      },
+      "rationale": "This is a new finite filtration-and-inclusion calculation of higher-independence complexes for the specific 13-vertex Paley graph. The published Deshpande–Singh higher-independence theory covers complete multipartite, whiskered, cycle and rooted-tree families and does not include this nonchordal Paley graph; the literature describing a torus embedding of Paley13 does not determine subsequent Ind2/Ind3 topology or inclusion map. No Resultary same-object match surfaced. Retain unindexed-computation risk.",
+      "residual_risks": [
+        "An unindexed Paley-13 topological persistence computation could include equivalent finite data.",
+        "The Jones–Mačaj paper is material context for the initial torus, but its full text was not used to exclude every later-stage possible remark; no whole-paper negative assertion made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING Paley13",
+          "evidence": "The explicit covered families are complete multipartite, whiskered, cycles and perfect m-ary trees, not Paley13.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Full accessible primary mathematical text; graph-family classifications and proofs",
+          "method": "arXiv open-access HTML",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "primary general theorem sharing the precise r-independence definition"
+        },
+        {
+          "assessment": "SAME INITIAL TORUS CONTEXT; further full-text priority risk",
+          "evidence": "An embedding of the Paley graph on a torus does not state induced-component cutoff 2/3 complexes or their inclusion maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.11808",
+          "material_read": "Accessible bibliographic/summary material on the torus embedding",
+          "method": "arXiv abstract/summary",
+          "title": "Regular dessins with primitive automorphism groups",
+          "trigger": "plausible original torus geometry for Paley13"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A Paley strongly regular graph is a canonical symmetric finite object, and its induced-component-cutoff filtration is a natural topological sequence. Establishing a nullhomotopic inclusion between stages with nonzero H2 and a literal simple-homotopy plateau is a structural result about maps rather than isolated Betti-number recomputation. Its explicit finite chain witnesses support future persistence and equivariant explorations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only P13 stages r=1,2,3 and the two natural inclusions; no all-Paley recurrence or higher-r statements.",
+  "schema_version": 1
+}
