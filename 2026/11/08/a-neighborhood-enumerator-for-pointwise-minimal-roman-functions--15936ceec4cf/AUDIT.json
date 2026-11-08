@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The case analysis of each private-leaf pair yields exactly (2,0) on core 2-vertices, (0,1) on their external neighbors, and independent (0,2)/(1,1) choices outside their closed neighborhood; it is both necessary and sufficient under single-label reduction. The sum, independent-set bijection, minimum-weight and leading-coefficient identities are derived algebraically. Direct brute force on 86 base graphs (1,075,446 labelings) and 16 biclique parameter cases found full agreement. Finite checks do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.05261 gives minimal-Roman enumeration algorithms for chordal, split, interval, cobipartite graphs and forests and an exact count for paths; no specific one-leaf-corona all-weight formula.",
+        "The 2013 cycle–clique corona result constructs a single minimal function; it does not classify every minimal function.",
+        "Siva Parvathi–Maheswari (2014), Theorem 3.1, exhibits one minimal Roman function on path–star coronas, but offers no full distribution for arbitrary H corona K_1."
+      ],
+      "reasoning": "A polynomial-delay general algorithm and exact path count do not imply a stated closed formula, particularly the whole weight distribution and the leading-coefficient component product, without additional special-graph structure. The corona special-family source is not a broader classification.",
+      "searches": [
+        "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes arXiv:2208.05261 Sections 4 and 7",
+        "Minimal Roman Dominating Functions: Extensions and Enumeration arXiv:2204.04765",
+        "Roman dominating and total dominating functions of corona product graph of a path with a star"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.04765",
+      "arXiv:2208.05261",
+      "Algorithmica DOI 10.1007/s00453-024-01211-w",
+      "International Journal of Computer Applications 81(1) (2013), pages 16–21",
+      "IJCET 5(1) (2014), 21–27, https://iaeme.com/MasterAdmin/Journal_uploads/IJCET/VOLUME_5_ISSUE_1/IJCET_05_01_003.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 general results establish a necessary-and-sufficient private-neighbor condition and uniqueness for a given complete 2-label support.",
+        "The 2013 paper Theorem 5.1 produces a particular minimal function on cycle–clique coronas but not all such functions.",
+        "The 2014 path–star corona Theorem 3.1 gives a single exhibited pointwise-minimal Roman labeling, which cannot determine the proposed unrestricted count."
+      ],
+      "reasoning": "The asserted formula requires a new exhaustive pairing of base and leaf labels indexed by arbitrary X, with exact independent choices outside N[X]. Neither a general recognition/extension theorem nor one exhibited function entails the coefficient identity as a stated result; the known scalar minimum is an acknowledged consequence, not the originality claim.",
+      "searches": [
+        "arXiv:2204.04765 Lemma 2",
+        "arXiv:2208.05261 Theorem 2.1; Sections 4 and 7",
+        "Some Variations of Y-Dominating Functions of Corona Product Graph of a Cycle with a Complete Graph Theorem 5.1",
+        "IJCET_05_01_003.pdf Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2204.04765, minimal functions are characterized by private zero neighbors and their set of 2-labeled vertices. This is a general test, but no closed one-leaf-corona weight polynomial appears in inspected full text.",
+        "A two-copy bipartite independent-set interpretation was searched as an alias; no inspected source provides this transformation for the specified minimal-function count."
+      ],
+      "reasoning": "The bijection with independent sets is equivalent to the proposed exact count and would cover it if present. The general private-neighbor test does not itself enumerate weights over all corona base subsets or give the independent-set reduction.",
+      "searches": [
+        "\"minimal Roman dominating functions\" \"corona\" enumeration polynomial",
+        "pointwise minimal Roman dominating functions arbitrary leaf corona H circle K1 bijection anticomplete pairs independent sets bipartite double",
+        "\"Roman Census\" corona product Roman minimal functions",
+        "arXiv:2204.04765v1 Lemma 2 and Theorem 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paths table in arXiv:2208.05261 Section 4 counts functions on paths P_n, not on P_n corona K_1 or arbitrary base H.",
+        "Search results for 2013–2014 corona papers describe one or several exhibited minimal functions, not an exact all-weight table."
+      ],
+      "reasoning": "Small graph examples, scalar Roman domination minima, and explicit functions are not a database of all minimal functions for arbitrary leaf coronas. No matching exact table was found in searched accessible sources; failed search alone is not proof of novelty.",
+      "searches": [
+        "\"minimal Roman dominating functions\" \"corona\" enumeration polynomial",
+        "pointwise minimal Roman dominating functions arbitrary leaf corona H circle K1 bijection anticomplete pairs independent sets bipartite double",
+        "\"Roman Census\" corona product Roman minimal functions"
+      ]
+    },
+    "rationale": "The new claim is the exact all-weight corona-specific classification and bipartite independent-set identity, not the known general minimality theorem or the ordinary minimum Roman domination number. Primary accessible texts concern general extension/enumeration, paths, or an exhibited corona function, none states the claimed unrestricted sum. Earlier thesis access limits are recorded.",
+    "residual_risks": [
+      "The 2013 dissertation Some Studies on Dominating Functions of Corona Product Graphs was identified by title and bibliography but not fully inspected; overlapping unindexed special-case enumeration remains possible.",
+      "Complete-bipartite and path-corona corollaries may appear in obscure literature even though the unrestricted formula was not identified.",
+      "Priority has not been independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general criterion and algorithms but no explicit one-leaf-corona weight polynomial or auxiliary bipartite identity",
+        "evidence": [
+          "First posted 2022-04-10 UTC",
+          "Lemma 2: one minimal function per feasible set of 2-labeled vertices",
+          "No corona occurrence in accessible full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.04765",
+        "material_read": "Full accessible article text, definitions, Section 3 minimality characterization, Lemma 2 on unique function for each admissible 2-support, enumeration section and conclusion",
+        "method": "HTML source inspection and keyword search for corona",
+        "title": "Minimal Roman Dominating Functions: Extensions and Enumeration",
+        "trigger": "Direct predecessor defining pointwise minimality and exact private-neighbor criterion"
+      },
+      {
+        "assessment": "Exact path recurrences and classwise algorithmic bounds do not include the proposed corona polynomial",
+        "evidence": [
+          "First posted 2022-08-10 UTC",
+          "Section 4 counts paths and Table 1 presents short-path counts",
+          "Conclusions explicitly leave further simple graph-class counts open"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05261",
+        "material_read": "Accessible full manuscript sections 2, 4–7 and conclusions, and searches for corona and path",
+        "method": "Web full-text HTML inspection",
+        "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+        "trigger": "Counting work most directly addressing enumeration of minimal Roman functions on special graph families"
+      },
+      {
+        "assessment": "Proves that a particular function is minimal on C_n corona K_m; not an all-functions classification or weight polynomial",
+        "evidence": [
+          "2013, vol. 81(1), pages 16–21",
+          "Theorem 5.1 assigns 2 on a vertex in every K_m copy and 0 elsewhere"
+        ],
+        "identifier_or_url": "https://research.ijcaonline.org/volume81/number1/pxc3891966.pdf",
+        "material_read": "Section 5 on Roman domination, especially Theorem 5.1 and its proof, and conclusions and bibliography",
+        "method": "PDF page-image inspection of article page 20 plus parsed text through page 21",
+        "title": "Some Variations of Y-Dominating Functions of Corona Product Graph of a Cycle with a Complete Graph",
+        "trigger": "Earlier paper explicitly addressing minimal Roman functions on coronas, including K_1 attachments"
+      },
+      {
+        "assessment": "Published version retains general enumeration theory, no exact corona enumeration in inspected text",
+        "evidence": [
+          "Published 2024-02-14",
+          "No corona search match"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-024-01211-w",
+        "material_read": "Open-access article full text including introduction, definitions, minimality discussion and conclusions",
+        "method": "Publisher HTML inspection and search for corona",
+        "title": "Minimal Roman Dominating Functions: Extensions and Enumeration (journal version)",
+        "trigger": "Check published full-text version of the main 2022 preprint for added corona results"
+      },
+      {
+        "assessment": "Exhibits a special minimal Roman function on P_n corona K_{1,m}; no unrestricted one-leaf-corona all-weight enumeration or reversible bipartite independent-set classification",
+        "evidence": [
+          "Published 2014-01-23, pp.21–27",
+          "Theorem 3.1 assigns 2 to degree-(m+1) vertices in attached stars and 0 elsewhere; no all-function polynomial"
+        ],
+        "identifier_or_url": "https://iaeme.com/MasterAdmin/Journal_uploads/IJCET/VOLUME_5_ISSUE_1/IJCET_05_01_003.pdf",
+        "material_read": "Pages 21–23 containing definitions, Theorem 3.1, and proof of the exhibited minimal function; remaining sections scanned via parsed full-text",
+        "method": "Full seven-page PDF parsed-text inspection and direct rendered PDF page-image reading of pages 22–23",
+        "title": "Roman Dominating and Total Dominating Functions of Corona Product Graph of a Path with a Star",
+        "trigger": "Earlier explicitly corona-focused work on minimal Roman functions, with path bases and star attachments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15936cee-c4cf-4e0a-bafc-d8052dcb8548",
+  "value": {
+    "rationale": "The result exactly enumerates all pointwise-minimal Roman functions by weight for every leaf corona, a naturally large class parameterized by arbitrary base graphs. It identifies a reversible independent-set correspondence, recovers gamma(H) from the least weight, gives a component-size product for the top coefficient, and yields an explicit unequal biclique formula. This genuinely refines known general enumeration methods and scalar domination information without inventing an efficient algorithm.",
+    "status": "PASS"
+  }
+}
