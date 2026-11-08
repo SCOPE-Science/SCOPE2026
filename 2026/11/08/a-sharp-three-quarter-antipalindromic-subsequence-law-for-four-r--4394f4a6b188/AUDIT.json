@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A four-run circular input has at most five runs after any cut. Any nonempty binary antipalindromic subsequence must have an even count of runs, hence exactly two or four. Exhaustive structural classification yields four sharp two-run and two sharp four-run candidates, all with explicit constructions. Balanced algebra reduces the six terms to three; an inequality contradiction plus witnesses and equality solving prove the exact 3/4 minimax law. Separately implemented DP verifies 625 quadruples plus 328350 balanced formula cases, while the proof holds for unbounded integers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Müllner and Ryzhikov, arxiv:1901.07502, Section 1, Conjecture 1 asks for a 2/3 lower bound for general balanced binary circular words; Proposition 3 states an earlier 1/2 guarantee under a stronger partition constraint.",
+        "Chowdhury et al., arxiv:0911.5031, abstract states an O(n^2) cyclic LCS algorithm for pairs of sequences, not a four-run extremal identity.",
+        "Wang, arxiv:2301.03827, Sections 1-2 discuss gene-sequence LCS, uniqueness and circular scenarios, with no antipalindromic self-subsequence objective."
+      ],
+      "reasoning": "The unrestricted 2/3 problem is reported as a conjecture, not a stronger theorem. General LCS algorithms compute instances but do not by themselves establish the six-term formula or exact 3/4 minimax theorem; no published stronger formula was located. A plausible unindexed specialization remains a nonzero risk.",
+      "searches": [
+        "\"four block binary circular words\" \"longest antipalindromic subsequence\"",
+        "\"Lyngso Pedersen\" \"four runs\" \"3/4\" antipalindromic",
+        "\"circular word\" \"reverse-complement\" \"longest common subsequence\"",
+        "arxiv:0911.5031 longest common cyclic subsequence algorithm",
+        "arxiv:2301.03827 circular longest common subsequence uniqueness",
+        "Lyngso Pedersen antipalindromic subsequence conjecture 2025 2026 circular words proven",
+        "balanced binary circular word antipalindromic subsequence improvement 2024 2025 theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1901.07502",
+      "https://arxiv.org/abs/2301.03827",
+      "https://arxiv.org/abs/0911.5031",
+      "https://oeis.org/A318916",
+      "https://www.researchgate.net/publication/331078146_Palindromic_Subsequences_in_Finite_Words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Müllner–Ryzhikov Section 1 general lower-bound status does not entail the sharper restricted four-run exact value; Section 3 supplies many-run extremal constructions, and Section 4 treats words with short constant runs.",
+        "The distinct-run palindrome results in an indexed mathematical result concern reversal equality rather than binary reversal-complement equality and require different source alphabets.",
+        "No claim in the checked mathematical records matches the explicit six-term two-/four-run optimization or its balanced four-profile minimax law."
+      ],
+      "reasoning": "The present result has strictly more information than an instance-wise general algorithm and does not follow by specializing any inspected proved lower bound. Conversely, it covers only four positive runs and therefore does not imply the full Lyngsø–Pedersen conjecture. Distinct palindrome claims do not dominate antipalindrome claims under a nontrivial symbol involution.",
+      "searches": [
+        "arxiv:1901.07502, text: antipalindrome, circular word, Conjecture 1, Proposition 3, Theorem 13, Proposition 14",
+        "arxiv:2301.03827, text: circular sequence, longest common subsequence, antipalind",
+        "Lyngso Pedersen antipalindromic circular word conjecture proved for four runs with threshold 3/4",
+        "comparison with indexed mathematical claim IDs 36e6413e-c4b9-4ea7-a6aa-c65473284e15 and cb121c2d-893d-48af-9fb7-185aeaca2514"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Müllner and Ryzhikov, arxiv:1901.07502, Section 1, defines binary antipalindromes and circular subsequences; the paper has no four-run formula among its stated propositions and theorems.",
+        "The equivalent reverse-complement condition is x=complement(reverse(x)); the current proof applies directly to that equivalent definition."
+      ],
+      "reasoning": "Complement-reversal symmetry and cyclic rotations are expressly absorbed into the stated definition, so they are not separate findings. No direct equivalent theorem was located in the inspected sources or accessible own claims. Matching the words antipalindromic or circular is not itself an implication.",
+      "searches": [
+        "\"antipalindromic subsequence\" \"four\" \"runs\" circular",
+        "\"four runs\" \"reverse-complement\" palindrome subsequence",
+        "\"antipalindromic subsequence\" \"3/4\" binary circle",
+        "arxiv:1901.07502 full text, sections 1-5",
+        "exact longest antipalindromic subsequence in balanced circular binary word 0^a1^b0^c1^d with four nonempty runs, formula using a+b, a-b, maximum 3/4 length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching four-run antipalindromic value table was found in the inspected published sources.",
+        "Indexed prior claim 36e6413e-c4b9-4ea7-a6aa-c65473284e15 concerns palindromic subsequences of distinct-run powers, a different symmetry and family.",
+        "Indexed prior claim 04f933f8-b9f9-46d2-9b2a-7aacfcef2f4a concerns maximal counts of indexed five-letter pattern occurrences, not circular antipalindrome length."
+      ],
+      "reasoning": "The claim is not an isolated table increment: it gives an infinite-parameter formula, a minimax bound and equality classification. Neither accessible own result directly covers its objective, and absence of a table match is not treated as a novelty proof.",
+      "searches": [
+        "\"four runs\" \"antipalindromic subsequence\"",
+        "\"circular binary\" \"antipalindromic\" \"three quarters\"",
+        "four-run circular binary words satisfy sharp three quarters lower bound for reverse-complement palindromic scattered subsequences",
+        "retrieval terms: antipalindrom, reverse-complement, four-run, palindromic subsequence, circular word"
+      ]
+    },
+    "rationale": "The first-public 2019 guiding work states the general balanced circular antipalindrome problem but does not prove this sharp four-run formula; source-level comparison examined its full text. The 2009 and 2023 circular-LCS sources address algorithms and other objectives. Searches for mathematical aliases and statements of nearby indexed results were compared by implication, with no direct match; undiscovered equivalents remain a risk.",
+    "residual_risks": [
+      "Equivalent four-run exact formula might occur in unindexed or unpublished sources.",
+      "The 2009 algorithm paper was inspected through abstract only, so no whole-text claim of noncoverage is made.",
+      "The results for a different cyclic subsequence model may implicitly recover the formula with additional derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant conjecture and weaker general results; no explicit six-term four-run theorem or sharp 3/4 extremizer census is stated in the inspected text.",
+        "evidence": [
+          "Section 1 lines 14–33; Section 3 lines 69–130; Section 4 lines 133–163, arxiv:1901.07502"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "Full accessible HTML text of Sections 1–5, including definitions, Conjectures 1–2, Proposition 3, Theorem 13, Proposition 14 and references",
+        "method": "Direct section-level reading and term searches for four-run, antipalindrome and circular subsequence",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Primary source stating Lyngsø–Pedersen balanced circular antipalindrome conjecture"
+      },
+      {
+        "assessment": "LCS comparison of gene sequences with uniqueness classification, not a formula for antipalindromic subsequences of a single circular four-run binary word.",
+        "evidence": [
+          "Introduction and setup, arxiv:2301.03827; no antipalindromic term match"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.03827",
+        "material_read": "Full accessible abstract and Sections 1–2 with scenario definitions, objectives and algorithm summaries",
+        "method": "Read full accessible introductory material and searched antipalindromic terminology",
+        "title": "Longest common subsequence algorithms and applications in determining transposable genes",
+        "trigger": "Potential stronger coverage via circular LCS with repeated symbols"
+      },
+      {
+        "assessment": "Establishes a cyclic LCS algorithm for two supplied strings. Abstract-level access does not justify a full-document negative claim, and an implicit specialization remains possible.",
+        "evidence": [
+          "arxiv:0911.5031 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0911.5031",
+        "material_read": "Accessible abstract only",
+        "method": "Read arXiv abstract; full primary text not inspected",
+        "title": "An O(n^2) Algorithm for Computing Longest Common Cyclic Subsequence",
+        "trigger": "Potential generic algorithm dominating cyclic subsequence calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4394f4a6-b188-4e4a-90a1-71ac4ad7b2ea",
+  "value": {
+    "rationale": "The circular balanced antipalindromic subsequence lower bound is a published open problem (Müllner–Ryzhikov arxiv:1901.07502, Section 1). Four alternating positive runs define a structural first nontrivial case. The theorem gives a complete exact optimization on all positive four-run inputs, a sharp 3/4 subclass guarantee stronger than the 2/3 proposed universal target, and precise minimax equality profiles. It is motivated by this gap and is not merely a numerical table or parameter renaming.",
+    "status": "PASS"
+  }
+}
