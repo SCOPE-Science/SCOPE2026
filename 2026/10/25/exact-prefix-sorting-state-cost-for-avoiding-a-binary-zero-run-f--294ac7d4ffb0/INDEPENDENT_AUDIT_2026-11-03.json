@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T10:04:15.131256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the precise universally quantified claim for all integers r>=1, forbidden contiguous 0^r1 over 0<1, trim partial deterministic automata with all states final and missing transitions rejecting. The ordinary minimal DFA counts trailing zeros j=0..r with 0-transition j->min(r,j+1), 1-transition j->0 for j<r, and undefined 1 from r; each state j is reached by 0^j and i<j are distinguished by suffix 0^{r-j}1 (accepted from i, not from j). For each 0<=i<j<=r the strict colex triple 0^i<0^j<10^i has first/last reaching class i and middle reaching j; the standard DFA maximum colex separation property forces all pairs incomparable, giving width r+1. For the explicit 2r+1-state WDFA A_0..A_r,B_0..B_{r-1}, order A_0<...<A_r<B_{r-1}<...<B_0, verified state-fibres, all 0-target monotonicities, common 1-target B_0, incoming-label consistency, and r=1 and terminal boundary. In any deterministic Wheeler order each reached-word fibre is colex convex and lies inside one Myhill–Nerode class; each j<r has interleaving 0^j<0^{j+1}<10^j, so needs >=2 fibre components; terminal class r needs >=1, proving lower bound 2r+1. Independently implemented (not the provided CHECKER.py) state machine and all ordered-pair Wheeler axioms for r=1..6; exhaustively enumerated all binary words through length 2r+7 per parameter (respectively 1023,4095,16383,65535,262143,1048575 words), checked acceptance versus substring condition, exact reached classes, and observed 2r+1 colex input-fibre intervals. Finite checks corroborate only small parameters; the symbolic argument establishes all r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universally Wheeler Languages arXiv:2504.19537, Lemma 4, covers Wheeler EXISTENCE for strictly locally testable languages such as finite-factor avoidance, independent of a minimal state formula.",
+          "arXiv:2203.12534 Theorem 5 on intersection complexity and §3.2 fingerprint algorithm gives general methods and the separate a^{n+1} exact example; neither statement directly specializes to a 2r+1 closed formula for 0^r1 without its own Myhill–Nerode and convex-class calculation.",
+          "arXiv:2208.04931 supplies maximum colex width theory applicable to the ordinary minimum DFA, not this numeric classification directly."
+        ],
+        "reasoning": "The broad Wheeler-existence assertion is prior and explicitly excluded from novelty. Generic characterization/algorithms make the calculation feasible but require nontrivial matching construction and lower witnesses; they do not assert the exact 0^r1 result as an immediate corollary. The very close a^{r+1} worked example sharply limits conceptual novelty.",
+        "searches": [
+          "https://arxiv.org/abs/2504.19537",
+          "https://arxiv.org/abs/1902.01088",
+          "https://arxiv.org/abs/2208.04931",
+          "https://arxiv.org/abs/2203.12534",
+          "prefix sorting Wheeler determinization lower bound forbidden run pattern right congruence convex partition [Resultary semantic search 2026-11-03]"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.12534",
+        "https://arxiv.org/abs/1902.01088",
+        "https://arxiv.org/abs/2208.04931",
+        "https://arxiv.org/abs/2504.19537",
+        "https://arxiv.org/abs/2111.02480",
+        "https://arxiv.org/abs/2410.04771",
+        "Resultary semantic search, 3 queries on 2026-11-03",
+        "2026/10/4/SCOPE-exact-k-avoiding-thresholds-of-the-wielandt-automata--f6a0aa82d4ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D’Agostino–Martincigh–Policriti (2022), arXiv:2203.12534 pp.19–20, has A_n avoiding a^{n+1}, its 2n+1 exact WDFA count, and matching splitting pattern a^i<a^n<ba^i; this covers the phenomenon and much of the method, not the 0^r1 language claim.",
+          "For L_r the r ordinary states with j<r each split by 0^j < 0^{j+1} < 10^j and the new terminal zero-absorbing class j=r has no 1 transition. That last boundary case differs from old A_r, which rejects a^{r+1} and allows a^r b.",
+          "arXiv:1902.01088 and 2203.12534 prove general input-consistent convex-refinement methods; arXiv:2504.19537 implies Wheeler existence but not the sharp size."
+        ],
+        "reasoning": "The exact target result is neither a direct substitution of n into the 2022 A_n theorem nor contained by the 2025 existence theorem. It follows from applying well-known machinery and adapting a very closely related example, with genuine but limited new family-specific content. No qualitatively new colex mechanism is claimed, and the 2022 close predecessor must be cited prominently in any future scientific presentation.",
+        "searches": [
+          "https://arxiv.org/abs/2203.12534",
+          "https://arxiv.org/abs/1902.01088",
+          "https://arxiv.org/abs/2208.04931",
+          "https://arxiv.org/abs/2504.19537",
+          "https://arxiv.org/abs/2111.02480",
+          "https://arxiv.org/abs/2410.04771",
+          "minimal Wheeler DFA number of states for avoiding one binary factor 0^r 1 exactly 2r+1 colex width r+1 [Resultary semantic search 2026-11-03]",
+          "prefix sorting Wheeler determinization lower bound forbidden run pattern right congruence convex partition [Resultary semantic search 2026-11-03]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed L_r is exactly the prefix-closed language with no factor 0^r1, recognized by a partial suffix-zero counter j=0..r with 0-loop at r and undefined 1 from r; the minimum WDFA is the colex-convex, input-consistent refinement of its Myhill–Nerode relation (arXiv:1902.01088 and 2203.12534 Definitions 3–4).",
+          "arXiv:2203.12534 pp.19–20 defines A_n as avoiding a^{n+1}; it has 2n+1 minimum WDFA states with representatives epsilon,a,...,a^n,ba^{n-1},...,b, and uses a^i<a^n<ba^i. This is a very close but mathematically different forbidden factor."
+        ],
+        "reasoning": "Reversal of L_r avoids 10^r and alphabet swapping gives the analogous 1^r0, but neither equals pure-run avoidance a^{r+1}. A_n and L_r disagree on both 0^{r+1} (in L_r not A_r) and 0^r1 (in A_r not L_r); their accepting quotients differ at state r. The same convex-fibre technique is prior but the needed boundary-sensitive transition verification is not a literal renaming. No exact 0^r1 worked example located.",
+        "searches": [
+          "minimal Wheeler DFA number of states for avoiding one binary factor 0^r 1 exactly 2r+1 colex width r+1 [Resultary semantic search 2026-11-03]",
+          "prefix sorting Wheeler determinization lower bound forbidden run pattern right congruence convex partition [Resultary semantic search 2026-11-03]",
+          "\"Wheeler\" \"0^r1\" automaton; \"Wheeler\" \"a^n b\" forbidden factor minimal automaton [web search 2026-11-03]",
+          "https://arxiv.org/abs/2203.12534",
+          "https://arxiv.org/abs/1902.01088",
+          "https://arxiv.org/abs/2208.04931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary returned synchronizing/avoiding threshold records for Černý and Wielandt automata, e.g. 2026/10/4/SCOPE-exact-k-avoiding-thresholds-of-the-wielandt-automata--f6a0aa82d4ba, which concern reset/avoidance of states, not minimal Wheeler automata for factor-avoiding word languages.",
+          "arXiv:2203.12534 explicitly tabulates through representative classes the closely analogous 2n+1 WDFA for a^{n+1}-avoiding language, not the specific 0^r1 language.",
+          "No exact 0^r1 row or (r+1,r+1,2r+1) table appeared in bounded Resultary and public scholarly searches; this is only negative search evidence."
+        ],
+        "reasoning": "No exact database or worked table for the target language was identified; the old A_n count is numerically identical but on a different accepted language. An unindexed equivalent worked example remains possible and search failure is not proof of originality.",
+        "searches": [
+          "minimal Wheeler DFA number of states for avoiding one binary factor 0^r 1 exactly 2r+1 colex width r+1 [Resultary semantic search 2026-11-03]",
+          "automata of strings avoiding 0^k1 forbidden substring Wheeler state complexity linear overhead [Resultary semantic search 2026-11-03]",
+          "\"Wheeler\" \"0^r1\" automaton; \"Wheeler\" \"a^n b\" forbidden factor minimal automaton [web search 2026-11-03]",
+          "Resultary semantic search top-15 2026-11-03 three exact queries",
+          "2026/10/4/SCOPE-exact-k-avoiding-thresholds-of-the-wielandt-automata--f6a0aa82d4ba",
+          "https://arxiv.org/abs/2203.12534",
+          "https://arxiv.org/abs/2410.04771"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precisely stated language avoiding 0^r1, not a claim of new Wheeler existence, a new interval theorem, or a new state-overhead mechanism. A newly inspected and previously uncited particularly close predecessor, D’Agostino–Martincigh–Policriti, arXiv:2203.12534 §3.1, explicitly proves the SAME numerical WDFA size 2n+1 and essentially the same colex splitting witnesses for a DISTINCT language avoiding a^{n+1}; its ordinary minimum likewise has n+1 states and exhibits maximal colex incomparability by the same triples. The present L_r instead forbids 0^r1 while allowing arbitrarily long terminal zero runs; at trailing-zero state r, it has a 0 self-loop and no 1-transition, whereas the prior pure-run avoidance has no 0-transition and resets on 1. Thus the prior worked example is a close template but is not literally this language, a simple letter renaming, or a theorem asserting all one-factor forbidden languages have this exact state count. The independently audited family-specific construction, word-fibre partition and lower bound supply the necessary boundary-sensitive argument; all qualitative ideas and the 2r+1 phenomenon are credited to prior work. Searches cannot establish absolute priority; especially close-analogue and unindexed-example risks remain substantial.",
+      "residual_risks": [
+        "Close 2022 arXiv:2203.12534 pure-run forbiddance example already has exactly the same triple numerically and nearly identical lower-bound witnesses; although not the same accepted language, it greatly limits conceptual novelty and could make a later publication need a sharply distinguished statement.",
+        "Earlier or later unindexed research may have worked out the 0^r1 variant explicitly or as an exercise; not excluded by negative search.",
+        "Only selected full-text pages of some algorithmic papers were inspected; uninspected appendices may contain additional equivalent examples.",
+        "The target value is a modest family-specific boundary variation, not a new general minimization theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively prior for pure-zero-run A_n and 2n+1 example and general mechanism; NOT literally covering the distinct 0^r1-avoiding language; reduces novelty/value to boundary-sensitive family-specific exact profile",
+          "evidence": [
+            "PDF p.19: A_n={alpha:a^{n+1} is not a factor}; p.20: minimum WDFA A_n has 2n+1 states, splitting a^i and ba^i via a^i<a^n<ba^i; Figure 6",
+            "arXiv:2203.12534 §3.2 generic fingerprint algorithm"
+          ],
+          "identifier_or_url": "arXiv:2203.12534; https://arxiv.org/abs/2203.12534",
+          "material_read": "Open-access PDF §1.1 definitions, §§3.1–3.2 context, printed pages 19–21 (PDF pages 18–20) including A_n/B_m forbidden-factor definitions, full text of §3.1 A_n minimization and Figure 6",
+          "method": "Read arXiv HTML and PDF text and inspected full page screenshots of PDF pages 18–19",
+          "title": "Ordering Regular Languages and Automata: Complexity",
+          "trigger": "Extremely close state-cost example not cited by the submitted package, with exact 2n+1 states and colex witness pattern"
+        },
+        {
+          "assessment": "General WDFA interval-refinement theory and minimization is fully prior; no 0^r1 numerical triple evidenced in inspected material",
+          "evidence": [
+            "arXiv:1902.01088 convex-interval equivalence and WDFA minimization statements"
+          ],
+          "identifier_or_url": "arXiv:1902.01088; https://arxiv.org/abs/1902.01088",
+          "material_read": "Introductory characterization, selected PDF pp.6,8 and theorem/algorithm context for convex right-congruence classes",
+          "method": "Read lawful arXiv full-text selected theorem pages and page screenshot",
+          "title": "Regular Languages meet Prefix Sorting",
+          "trigger": "Original convex-input-consistent Myhill–Nerode characterization and Wheeler minimization"
+        },
+        {
+          "assessment": "Provides the formal implication from colex interleaving to pairwise incomparability for ordinary DFA; no exact target forbidden-factor state table evidenced",
+          "evidence": [
+            "Lemma 2.8 and Corollary 2.9: words reaching comparable deterministic states must be colex-separated"
+          ],
+          "identifier_or_url": "arXiv:2208.04931; https://arxiv.org/abs/2208.04931",
+          "material_read": "PDF definitions, Lemma 2.8/Corollary 2.9, pp.10–14 and related discussion near p.32",
+          "method": "Read arXiv PDF text and page screenshot at relevant lemma",
+          "title": "Co-lexicographically Ordering Automata and Regular Languages — Part I",
+          "trigger": "Co-lex width axioms and maximal colex state-order comparability"
+        },
+        {
+          "assessment": "Covers Wheeler existence; not exact WDFA minimal state count or minimum ordinary width for L_r",
+          "evidence": [
+            "arXiv:2504.19537 Lemma 4, strictly locally testable languages universally Wheeler"
+          ],
+          "identifier_or_url": "arXiv:2504.19537; https://arxiv.org/abs/2504.19537",
+          "material_read": "Abstract, introduction, and early theorem/Lemma 4 on strictly locally testable classes",
+          "method": "Read open-access arXiv PDF text and theorem-page screenshot",
+          "title": "Universally Wheeler Languages",
+          "trigger": "Stronger language-class Wheeler existence result for locally testable/factor-avoiding languages"
+        },
+        {
+          "assessment": "Minimization method, not an explicit theorem for 0^r1; uninspected body retains priority uncertainty",
+          "evidence": [
+            "arXiv:2111.02480 intro and algorithmic minimization statement"
+          ],
+          "identifier_or_url": "arXiv:2111.02480; https://arxiv.org/abs/2111.02480",
+          "material_read": "Abstract, introduction, selected algorithm/minimization statement pages (not a complete read of all appendices)",
+          "method": "Read public arXiv PDF text and introductory screenshot",
+          "title": "Linear-time Minimization of Wheeler DFAs",
+          "trigger": "General WDFA minimization may determine the count algorithmically"
+        },
+        {
+          "assessment": "Algorithmic complexity and width rather than this exact forbidden-factor profile; residual uninspected-example risk",
+          "evidence": [
+            "arXiv:2410.04771 public abstract and introduction"
+          ],
+          "identifier_or_url": "arXiv:2410.04771; https://arxiv.org/abs/2410.04771",
+          "material_read": "Abstract and introductory results page, not complete body",
+          "method": "Read arXiv open PDF intro and screenshot",
+          "title": "On the Complexity of Computing the Co-lexicographic Width of a Regular Language",
+          "trigger": "Prior width complexity algorithms and examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single forbidden factor 0^r1 is a natural, uniformly parametrized constraint on text/path languages; exact minimal Wheeler state counts determine the storage cost of imposing a colex index versus ordinary DFA minimization, so an exact infinite-family formula has a plausible independent use. The distinctive unrestricted terminal zero tail changes transition semantics relative to the prior a^{r+1} factor-avoidance example, and it was not mechanically implied by a stated theorem for the target language: the absorbing-class boundary and exact convex class partition must be checked. The resulting width r+1 and exact Wheeler count 2r+1 are mathematical facts about this precise natural language and are not an arbitrary cutoff or numerical slice. Mathematical significance is modest: 2022 literature already exhibited the same state-cost phenomenon and exact 2r+1 for a very close pure-run avoidance family. This audit does not claim a new method or new qualitative state tradeoff; the independent family-specific exact determination, despite its simplicity, meets the bounded exact-invariant value standard.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen source tree 2b7d3f8e67765398a045c3ad21acf5df90509f0e at b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595",
+    "RESULT.md 0ec4315920ab0e374dfb7c7c0a0fa3ac88e865f7",
+    "CHECKER.py 197ecfeeb835472e48b226787e876ec6fa3c3d87",
+    "AUDIT.json 125f5925ad3a4217c046539bcc48f21542de4f41",
+    "METADATA.json fadce6d6842960181b6779a4d5f9435cd8edc13d",
+    "SLOGAN.txt dbdfb4941a5608d58835816d3bf634903b6d9b8e",
+    "VERIFICATION.md 2d1f3603426d4dd289098cbe9dad041e2bc89960",
+    "REVIEW.md 9094bb563dbe2071f60a55fb7c2fd4c619eb55d1",
+    "https://arxiv.org/abs/2203.12534",
+    "https://arxiv.org/abs/1902.01088",
+    "https://arxiv.org/abs/2208.04931",
+    "https://arxiv.org/abs/2504.19537",
+    "https://arxiv.org/abs/2111.02480",
+    "https://arxiv.org/abs/2410.04771",
+    "Resultary semantic search, 3 queries on 2026-11-03",
+    "2026/10/4/SCOPE-exact-k-avoiding-thresholds-of-the-wielandt-automata--f6a0aa82d4ba"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only trim partial DFAs with a missing transition rejecting; adding a complete-DFA sink changes state accounting. Alphabet order fixed 0<1 and target pattern precisely 0^r1.",
+    "Independent finite tests through r=6 are corroboration, not a proof for r>6; universal proof reconstructed symbolically.",
+    "Prior pure-run example in arXiv:2203.12534 already has the same numerical profile and mechanism; novelty and value are only modest family-specific boundary adaptation and may not justify a stand-alone publication without substantive comparison.",
+    "Search does not rule out unindexed equivalent exact 0^r1 formula; primary full texts outside selected material remain incompletely inspected.",
+    "Public operational scope_run_id identifiers remain in frozen METADATA.json and AUDIT.json; publication not_ready pending fully staged/verified sanitization."
+  ],
+  "schema_version": 1
+}
