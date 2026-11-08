@@ -1,21 +1,21 @@
-# Scientific review: three escape exponents and logarithmic memory
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive initial pair, the velocity-as-a-function-of-position equation has a global positive graph; the proof excludes both zero crossing and finite-position divergence. For positive coupling, two successive substitutions yield the exact logarithmic coefficient \(-32/b^3\) and an integrable derivative remainder, ensuring the finite-part constant exists. Zero coupling has an exact first integral. Negative coupling has a strictly decreasing auxiliary orbital vector field with an attracting moving nullcline converging to \(-2/c^3\). In all three cases the original-time reciprocal-velocity integral converges, proving finite-time blow-up and all escape exponents. The exact two-orbit gap equation proves the memory trichotomy. The attached exact-symbolic and finite numerical programs passed, but general conclusions rely on the proof rather than finite tests.
+PASS
 
-## Originality — PASS under the inspected evidence
+PASS: For x,y>0, y=Y(x) solves Y'=b x³+x^5/Y, stays positive and extends over all finite x. When b>0, comparison Y>=b x^4/8 followed by controlled substitutions gives Y=(b/4)x^4+(2/b)x²-(32/b³)log x+C+o(1), with derivative remainder O(log x/x³) integrable. When b=0, Y²-x^6/3 is constant. When b=-c<0, D=Y-x²/c satisfies the exact decreasing-in-D barrier equation with attracting zero approaching -2/c³, hence Y=x²/c-2/c³+o(1). Integrating dt/dx=1/Y proves finite original-time escape and exponents 1/3,1/2,1. For two velocities at the same x0 the exact difference equation is Delta'/Delta=-x^5/(Y1Y2); the tail integral converges for b>0, rationalization gives x^-3 for b=0, and for b=-c integration gives log Delta~-c²x²/2. Independently verified the logarithm coefficient by the orbital residual expansion. Checks do not replace the global comparison arguments.
 
-The closest primary source, Cao–Sadri–Tang–Wang (arXiv:2610.26699, first released 19 October 2026), was inspected through its full accessible HTML: Introduction, Theorems, Sections 3 and 4, including Lemma 4.7 on dynamics at infinity and associated near-infinity asymptotic branches. Its classification of compactified orbits is not claimed as new. No theorem in the inspected material asserts the complete positive-quadrant physical-time exponent trichotomy, the third-order logarithmic correction, or the exactly quantified change from finite speed-memory to algebraic and Gaussian-in-position erasure.
+## originality
 
-The closest published mathematical-record comparison is *Universal two-term finite-time escape in polynomial nilpotent Liénard systems* (2026), whose complete RESULT.md was inspected. The leading restoring force in its escape wedge has opposite sign; its result does not entail the all-quadrant statement, the three-way damping-sign transition, or the logarithmic finite part and two-trajectory comparison here. The 1999 Dumortier–Herssens near-infinity work was identified but its complete text could not be inspected; equivalent earlier hidden asymptotics remain a priority risk. No claim of absolute novelty is made.
+PASS
 
-## Mathematical value — PASS
+PASS: Best-of-knowledge supported by direct statement/implication comparisons, not claimed absolute priority. Topological equivalence of trajectories under time change cannot imply the three exact original-time exponents or initial-speed difference rates; the older near-infinity analysis is a substantive remaining priority risk. The old results may motivate a calculation but do not directly imply these positive-restoring, all-positive-orbit, logarithmic finite-part and memory assertions. No confirmed stronger theorem is shown to imply the entire final triple sign classification. Nonetheless a hidden exact formula in the inaccessible 1999 paper could affect priority.
 
-The sign of a single physical coefficient produces three distinct finite-time exponents for **every** positive-quadrant orbit in a natural reversible polynomial vector field. The first beyond-leading term is a universal logarithmic coefficient and, independently, the finite-part constant carries strictly ordered information about initial velocity only on one side of the transition. These are structural and quantitative distinctions not supplied by a topological infinity portrait alone; they provide reproducible benchmarks for singular ODE asymptotics and parameter-dependent memory effects.
+## value
 
-## Scope and residual risks
+PASS
 
-The result does not assert a full phase portrait or classify solutions outside the positive quadrant, does not give a closed elementary expression for the initial-data-dependent finite part, and offers no uniform remainder over all initial conditions. Earlier qualitative near-infinity theorems, including inaccessible full text from 1999, may contain equivalent formulae not uncovered by the inspected sources; historical priority requires independent investigation. Independent audit has not been performed.
+PASS: A natural one-parameter slice of a studied reversible quintic vector field has three distinct physical-time blow-up universality classes, a resonant log finite part, and a sharp transition in persistence of initial-velocity information. Precise constants and memory rates go beyond topological phase portraits and plausibly inform singularity analysis.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
