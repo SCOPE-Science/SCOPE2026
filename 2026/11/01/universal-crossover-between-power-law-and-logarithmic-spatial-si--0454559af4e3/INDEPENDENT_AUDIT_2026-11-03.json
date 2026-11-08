@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:41:34.671547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For dX=Vdt, dV=-gamma Vdt+sqrt(2Dv)dB, independent Poisson full position reset with velocity redrawn N(0,epsilon²), renewal gives stationary p_epsilon(x)=r∫exp(-rt) N(0,W_epsilon(t))(x)dt, W=epsilon²h(t)²+2Dv∫h² and h=(1-exp(-gamma t))/gamma. W=epsilon² t²+c t³+O(epsilon²t³+t4), c=2Dv/3; t=epsilon²u/c and x=epsilon³y/c yield the universal profile (2pi)^(-1/2)∫exp[-y²/(2u²(1+u))]/[u sqrt(1+u)]du. On compact y away from 0, short-time variance comparison provides an integrable small-u exponential and u^(-3/2) tail, with older ages contributing O(epsilon); dominated convergence proves locally uniform limit. As y->0, exponential-integral asymptotics plus ∫delta^infty (u sqrt(1+u))^(-1)du=log(4/delta)+o(1) give log4+(log2-gamma_E)/2. Substitution u=|y|^(2/3)v yields |y|^(-1/3) gamma constant 2^(1/6) Gamma(1/6)/(3sqrt(2pi)); fixed epsilon>0 gives r/(epsilon sqrt(2pi)) logarithmic origin singularity and epsilon=0 gives r c^(-1/3) times the same power-law constant. All bounds require r,gamma,Dv>0 and fixed physical parameters; no claim at y=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Closest full text studies two protocols and the separate stationary singularity exponents, not the small-variance crossover in their same model.",
+          "Olsen–Löwen 2024 velocity resetting leaves the particle position unchanged, so it does not supply the reset-to-zero spatial age-mixture formula."
+        ],
+        "reasoning": "General renewal-mixture formula encompasses the model, but no inspected full primary result implies its explicit epsilon³ scaling function and constants; a more general singular-asymptotic theorem could encompass them without naming the physical model.",
+        "searches": [
+          "Stochastic resetting underdamped Brownian position and velocity resampling variance zero crossover power law logarithmic singularity universal scaling profile",
+          "inertial Langevin reset velocity Gaussian variance crossover y epsilon cubed stationary spatial density logarithm inverse cube root",
+          "doi:10.1103/qyl8-6q9h",
+          "arxiv:2401.12685"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1103/qyl8-6q9h",
+        "arxiv:2007.05576",
+        "arxiv:1812.07227",
+        "arxiv:2401.12685"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Franke–Sokolov: distinct fixed-velocity reset laws yield origin divergences -log|x| and |x|^(-1/3), both expressly acknowledged as prior.",
+          "This claim sends velocity-redraw variance epsilon² to zero while scaling x=epsilon³ y/c and proves noncommuting limits with explicit profile and constants.",
+          "Singh 2020 random acceleration and Gupta 2018/2019 position-displacement resetting do not directly imply a small Gaussian velocity variance crossover with simultaneous full position reset."
+        ],
+        "reasoning": "A fixed Maxwell/thermal reset law does not automatically quantify a sequence of redrawn near-zero velocity laws; their difference cannot be bridged simply by substituting parameters into stated asymptotics. Compared physical mechanisms and limit quantifiers, not only matching exponents.",
+        "searches": [
+          "doi:10.1103/qyl8-6q9h",
+          "arxiv:2007.05576",
+          "arxiv:1812.07227",
+          "arxiv:2401.12685",
+          "Stochastic resetting underdamped Brownian position and velocity resampling variance zero crossover power law logarithmic singularity universal scaling profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Franke–Sokolov 2026 considers x,v ->0 and x->0, v-> equilibrium Maxwell and computes endpoint divergences; no verified epsilon-dependent resampling scale/limit.",
+          "New Gaussian age-mixture is a parametric perturbation connecting these endpoints, not a reparameterization of fixed equilibrium variance."
+        ],
+        "reasoning": "Tested renewal-theory Gaussian-mixture, small-noise singular perturbation and first-passage/velocity-only reset aliases. The preexisting renewal formula is standard, but extracting the parameter-free interpolation with both exact edge constants is an additional limit requiring joint x,epsilon scaling.",
+        "searches": [
+          "Stochastic resetting underdamped Brownian position and velocity resampling variance zero crossover power law logarithmic singularity universal scaling profile",
+          "inertial Langevin reset velocity Gaussian variance crossover y epsilon cubed stationary spatial density logarithm inverse cube root",
+          "doi:10.1103/qyl8-6q9h",
+          "arxiv:2007.05576",
+          "arxiv:1812.07227"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches returned other Langevin and stochastic oscillator invariants rather than an exact crossover table on this particular reset-variance parameter.",
+          "The relevant constants involve an integral crossover profile, not a finite indexed combinatorial dataset."
+        ],
+        "reasoning": "No matching formula or dominating integral table was identified in this bounded search. This is not used as positive proof of novelty; explicit source-object and limiting-regime comparisons carry the judgment.",
+        "searches": [
+          "Stochastic resetting underdamped Brownian position and velocity resampling variance zero crossover power law logarithmic singularity universal scaling profile",
+          "inertial Langevin reset velocity Gaussian variance crossover y epsilon cubed stationary spatial density logarithm inverse cube root",
+          "Franke Sokolov underdamped resetting crossover epsilon3 velocity variance stationary density integral"
+        ]
+      },
+      "rationale": "The established 2026 Franke–Sokolov article proves endpoint logarithmic and inverse-cubic stationary singularities for two resetting rules in essentially the same inertial process. The inspected new claim is the small independently redrawable Gaussian velocity variance crossover, its universal integral, precise epsilon³/c spatial scale and matching constants. The full closest article compares the two endpoint protocols and time-dependent kurtosis; it does not present the inspected singular perturbation regime. Singh and Gupta examine related but different reset mechanisms. Historical priority for general Gaussian-mixture crossover theorems remains provisional.",
+      "residual_risks": [
+        "A broad previously published theorem for singular perturbations of Gaussian resetting-mixture integrals could imply the same profile without the paper naming underdamped Brownian motion.",
+        "Full Singh, Gupta and Olsen articles were not independently read end-to-end; no blanket noncoverage was inferred.",
+        "The limit excludes y=0 (the profile diverges), and the two endpoint limits do not commute; no uniformity for y approaching 0 or infinity is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly establishes both endpoint singularity types; its stated thermal Maxwell redraw is fixed by equilibrium temperature, without the independently vanishing variance crossover integral, parameter-free profile or exact two-edge matching constants.",
+          "evidence": [
+            "Franke–Sokolov, Phys Rev E 113 (2026) 064125, Secs. II–III, definitions of two protocols and origin asymptotics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/qyl8-6q9h",
+          "material_read": "Materially read the accessible CC-BY scholarly article full-text reproduction: Abstract, Sections I–III on model, two reset prescriptions and stationary displacement asymptotics, and later kurtosis/conclusion discussion.",
+          "method": "Rendered article-text reading and targeted formula/model/limit comparisons to the claimed epsilon³ scaling.",
+          "title": "Resetting of underdamped Brownian motion",
+          "trigger": "Same full-state Poisson reset Langevin model and both limiting singularities"
+        },
+        {
+          "assessment": "Provides the zero-velocity acceleration baseline, not shown to prove the small independent Gaussian-variance crossover.",
+          "evidence": [
+            "Singh 2020 arxiv:2007.05576, random acceleration under stochastic reset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.05576",
+          "material_read": "Read retrievable abstract and comparison in the full Franke–Sokolov paper; the complete Singh text was not separately inspected.",
+          "method": "Published abstract and cited same-object summary, no whole-document exclusion inferred.",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Closest zero-initial-velocity resetting with cubic short-time diffusion"
+        },
+        {
+          "assessment": "The velocity is not independently rethermalized to an epsilon² Gaussian distribution at every full position reset; not a direct same-parameter theorem.",
+          "evidence": [
+            "Gupta 2018/2019, arxiv:1812.07227; Franke–Sokolov Introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07227",
+          "material_read": "Read available abstract and Franke–Sokolov detailed review distinguishing a position-origin shift and velocity not redrawn.",
+          "method": "Abstract plus detailed comparative discussion in 2026 primary full text.",
+          "title": "Stochastic resetting in underdamped Brownian motion",
+          "trigger": "Closely related position-reset inertial diffusion"
+        },
+        {
+          "assessment": "Velocity-only reset leaves spatial position unchanged; does not imply this simultaneous position reset stationary density crossover.",
+          "evidence": [
+            "Olsen–Löwen 2024 arxiv:2401.12685, velocity-only resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Compared accessible bibliographic abstract and reset-state description only, not the complete manuscript.",
+          "method": "Abstract-level scientific mechanism comparison.",
+          "title": "Velocity resetting and stochastic motion",
+          "trigger": "Potential overlap through Gaussian velocity redraw"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two qualitatively different singular stationary densities are established for physically important velocity resetting protocols; the small-variance limit is a natural stability/singular-perturbation question. A nontrivial parameter-free crossover on the epsilon³ spatial scale with both exact asymptotic constants quantifies the noncommuting limits and is a meaningful sharp classification, not merely recomputation of known endpoint exponents.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 1D free inertial Gaussian Langevin with both X=0 and independent centered Gaussian velocity redraw at each Poisson reset; not position-only/velocity-only variants.",
+    "Convergence locally uniform on nonzero scaled spatial y, not uniform through y=0 or for parameter-dependent |y| tending to infinity.",
+    "Finite quadrature checks do not prove the limiting integral or endpoint asymptotics, which rely on the analytical domination and substitutions."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary spatial density is an exact Gaussian mixture over an exponentially distributed reset age. The proof establishes uniform short-age variance equivalence, an integrable majorant for rescaled densities on compact nonzero arguments, and the two explicit crossover constants by exponential-integral and gamma-integral asymptotics. The fixed-variance logarithmic and zero-variance power singularities follow from the same mixture using distinct short-time cutoffs. The finite verifier independently evaluates the exact and limiting integrals; its 47 numerical checks are not substituted for infinite-limit proofs.
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The closest article, Franke–Sokolov (2026), gives the zero-reset-velocity and equilibrium-thermal-velocity endpoint singularities. Its accessible main analysis of those propagators and asymptotes was checked; the small Gaussian reset-variance crossover, universal profile, and exact matching constants were not identified there. Singh's random-acceleration setting and Gupta's position-only reset mechanism were also compared. Searches of published mathematical research records did not identify an equivalent crossover. A more general Gaussian-mixture singular-perturbation theorem may subsume the asymptotics, and published-work coverage is not exhaustive.
+PASS
 
-**Value — PASS.** The two contrasting endpoint singularities of a physically motivated inertial resetting model raise the natural stability question under a small amount of residual velocity thermalization. The theorem supplies the precise crossover spatial scale and shape, and quantifies how singular limits fail to commute, beyond merely re-stating the known endpoints.
+For dX=Vdt, dV=-gamma Vdt+sqrt(2Dv)dB, independent Poisson full position reset with velocity redrawn N(0,epsilon²), renewal gives stationary p_epsilon(x)=r∫exp(-rt) N(0,W_epsilon(t))(x)dt, W=epsilon²h(t)²+2Dv∫h² and h=(1-exp(-gamma t))/gamma. W=epsilon² t²+c t³+O(epsilon²t³+t4), c=2Dv/3; t=epsilon²u/c and x=epsilon³y/c yield the universal profile (2pi)^(-1/2)∫exp[-y²/(2u²(1+u))]/[u sqrt(1+u)]du. On compact y away from 0, short-time variance comparison provides an integrable small-u exponential and u^(-3/2) tail, with older ages contributing O(epsilon); dominated convergence proves locally uniform limit. As y->0, exponential-integral asymptotics plus ∫delta^infty (u sqrt(1+u))^(-1)du=log(4/delta)+o(1) give log4+(log2-gamma_E)/2. Substitution u=|y|^(2/3)v yields |y|^(-1/3) gamma constant 2^(1/6) Gamma(1/6)/(3sqrt(2pi)); fixed epsilon>0 gives r/(epsilon sqrt(2pi)) logarithmic origin singularity and epsilon=0 gives r c^(-1/3) times the same power-law constant. All bounds require r,gamma,Dv>0 and fixed physical parameters; no claim at y=0.
 
-The result concerns stationary spatial densities in the stated one-dimensional model; it does not address first passage, active driving, general velocity-resampling laws, or finite-variance global error estimates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established 2026 Franke–Sokolov article proves endpoint logarithmic and inverse-cubic stationary singularities for two resetting rules in essentially the same inertial process. The inspected new claim is the small independently redrawable Gaussian velocity variance crossover, its universal integral, precise epsilon³/c spatial scale and matching constants. The full closest article compares the two endpoint protocols and time-dependent kurtosis; it does not present the inspected singular perturbation regime. Singh and Gupta examine related but different reset mechanisms. Historical priority for general Gaussian-mixture crossover theorems remains provisional.
+
+## value
+
+PASS
+
+The two qualitatively different singular stationary densities are established for physically important velocity resetting protocols; the small-variance limit is a natural stability/singular-perturbation question. A nontrivial parameter-free crossover on the epsilon³ spatial scale with both exact asymptotic constants quantifies the noncommuting limits and is a meaningful sharp classification, not merely recomputation of known endpoint exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
