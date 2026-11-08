@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:53:14.282166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic-rotation orbits of two-marker supports are indexed by shorter separation d. Their periods are n for d<n/2 and n/2 for antipodal d=n/2. In a single orbit, rotations by one or two correspond to forbidden overlap lengths n−1,n−2, so any chosen phases must have cyclic distance≥3, giving floor(P_d/3). The construction selects phases r=3j in each orbit; its proof splits shifted-prefix/suffix tests by whether zero, one, or two support markers are dropped and rules out cross-orbit violations, including even antipodal ties and self-pairs. Independent direct pairwise checking confirmed constructed code sizes and both overlap constraints for every n=4..50. This supports the all-n orbit argument but cannot prove it by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn et al, arXiv:2211.10309 Theorem 1 gives an unrestricted q-ary upper bound; Yazdi et al 1709.05214 bounds balanced WMU codes."
+        ],
+        "reasoning": "An unrestricted upper bound, or constructions for n/2 ones, do not imply matching upper/lower constant-weight-two bounds. Fully uncorrelated codes have stronger forbidden overlaps and different optima.",
+        "searches": [
+          "binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit",
+          "Constructions and bounds for codes with restricted overlaps arxiv 2211.10309 Theorem 1 weight"
+        ]
+      },
+      "checked_sources": [
+        "Blackburn et al arXiv:2211.10309 Theorem 1",
+        "Yazdi et al arXiv:1709.05214",
+        "Resultary semantic query binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blackburn et al Theorem 1, arXiv:2211.10309; Yazdi et al 2017 WMU model."
+        ],
+        "reasoning": "A general bound without weight-two restriction is too weak to attain the orbit sum; the explicit cross-orbit compatibility proof is an additional constructive theorem.",
+        "searches": [
+          "binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit",
+          "Blackburn Nasr Esfahani Kreher Stinson Theorem 1 restricted overlaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn et al arXiv:2211.10309 defines (k,n−1)-overlap-free codes, with k=n−2 matching forbidden lengths. Yazdi et al arXiv:1709.05214 defines weakly mutually uncorrelated codes."
+        ],
+        "reasoning": "The constraints coincide with (n−2)-WMU for constant Hamming weight two and include self-pairs; the literature uses broader alphabets or balanced weights and does not directly give the sparse optimum.",
+        "searches": [
+          "binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit",
+          "weight two (n-2)-WMU restricted overlap codes exact maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned weight-two cyclic error-correcting codes or other overlap models; no same formula table.",
+          "Blackburn and Yazdi published bounds concern different cardinality regimes."
+        ],
+        "reasoning": "The finite capacity values 1,2,5,6,7,... are separately verified but an exact table or OEIS alias may exist; absence of match does not establish novelty.",
+        "searches": [
+          "binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit",
+          "binary two marker cyclic rotation code no overlaps lengths n-1 n-2 floor n/3"
+        ]
+      },
+      "rationale": "Blackburn et al (2022/2023) prove unrestricted-alphabet overlap code bounds and constructions; Yazdi et al (2017) WMU primer codes and balanced composition. Neither broad theorem exactly determines this sparse weight-two optimum; the natural rotation-orbit argument supplies matching upper and lower bounds.",
+      "residual_risks": [
+        "Unindexed fixed-weight two-marker cyclic packing literature may contain an equivalent formula.",
+        "The constructive proof relies on careful handling of antipodal representatives at even n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General restricted-overlap results, not an exact binary weight-two all-n optimum",
+          "evidence": "Theorem 1 and specialized-weight remarks",
+          "identifier_or_url": "https://arxiv.org/abs/2211.10309",
+          "material_read": "Open primary PDF, including definitions, Theorem 1 and weight-related constructions",
+          "method": "read PDF relevant sections and inspect page 2",
+          "title": "Constructions and bounds for codes with restricted overlaps",
+          "trigger": "same n−2,n−1 forbidden overlap pattern"
+        },
+        {
+          "assessment": "Provides WMU definition, bounds, balanced layer not sparse weight two",
+          "evidence": "Half-weight and general constrained-code construction",
+          "identifier_or_url": "https://arxiv.org/abs/1709.05214",
+          "material_read": "Abstract and described WMU/balanced construction theorems, not asserted full source",
+          "method": "public author and arXiv material",
+          "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+          "trigger": "equivalent WMU coding terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp infinite-family fixed-composition synchronization-code capacity with an attaining construction and a genuine antipodal parity correction, not obtainable from generic unrestricted overlap bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Blackburn et al arXiv:2211.10309 Theorem 1",
+    "Yazdi et al arXiv:1709.05214",
+    "Resultary semantic query binary weight two codes forbidden overlaps n-1 n-2 exact capacity cyclic orbit"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every binary length n>=4 weight-two code forbidding all ordered (including self) prefix/suffix overlaps of lengths n-2 and n-1, the exact maximum is floor((n-1)/2)floor(n/3)+1_{even n}floor(n/6).",
+  "limitations": [
+    "Exactly two ones, n>=4, and only the two longest proper overlaps; code uses all directed pair constraints including identical words.",
+    "This is a best-of-knowledge scientific assessment; not independent expert, formal Lean, or external certification."
+  ],
+  "residual_risks": [
+    "Unindexed fixed-weight two-marker cyclic packing literature may contain an equivalent formula.",
+    "The constructive proof relies on careful handling of antipodal representatives at even n."
+  ],
+  "schema_version": 1
+}

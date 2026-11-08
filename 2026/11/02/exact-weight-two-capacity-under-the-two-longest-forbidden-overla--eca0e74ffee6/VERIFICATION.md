@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python interpreter. The program constructs the proposed codes and compares their sizes to the formula for lengths \(4\) through \(120\). It directly compares every ordered codeword pair for lengths \(4\) through \(20\), checks all weight-preserving successors corresponding to the two forbidden overlaps up to length \(120\), and computes exact conflict-graph independence numbers for lengths \(4\) through \(8\). Successful execution ends with `VERIFY_OK`.
+## correctness
 
-Observed output:
+PASS
 
-```
-EXACT_OPTIMA [(4, 1), (5, 2), (6, 5), (7, 6), (8, 7)]
-DIRECT_FACTOR_CHECKS_4_TO_20_OK
-NEIGHBOR_CHECKS_4_TO_120_OK
-VERIFY_OK
-```
+The cyclic-rotation orbits of two-marker supports are indexed by shorter separation d. Their periods are n for d<n/2 and n/2 for antipodal d=n/2. In a single orbit, rotations by one or two correspond to forbidden overlap lengths n−1,n−2, so any chosen phases must have cyclic distance≥3, giving floor(P_d/3). The construction selects phases r=3j in each orbit; its proof splits shifted-prefix/suffix tests by whether zero, one, or two support markers are dropped and rules out cross-orbit violations, including even antipodal ties and self-pairs. Independent direct pairwise checking confirmed constructed code sizes and both overlap constraints for every n=4..50. This supports the all-n orbit argument but cannot prove it by enumeration.
 
-A separate exact mixed-integer search of the full conflict graphs for lengths \(4\) through \(22\) matched the theorem. Those searches are not needed for reproduction and are not used as an infinite mathematical certificate. The all-length proof in `RESULT.md` is based on exhaustive structural case analysis of arbitrary shifts, not extrapolation from these checks.
+## originality
+
+PASS
+
+Blackburn et al (2022/2023) prove unrestricted-alphabet overlap code bounds and constructions; Yazdi et al (2017) WMU primer codes and balanced composition. Neither broad theorem exactly determines this sparse weight-two optimum; the natural rotation-orbit argument supplies matching upper and lower bounds.
+
+## value
+
+PASS
+
+A sharp infinite-family fixed-composition synchronization-code capacity with an attaining construction and a genuine antipodal parity correction, not obtainable from generic unrestricted overlap bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

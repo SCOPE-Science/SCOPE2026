@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the alphabet, weight, endpoint overlap lengths, and self-pair quantifier. Shorter-gap rotation orbits partition all weight-two words; forbidding rotations by one and two gives \(\lfloor P/3\rfloor\) per orbit. The explicit three-spaced selection achieves the sum, and the proof checks every possible kind of weight-preserving length-one or length-two shift, including the two-marker deletion and antipodal tie. The standalone program independently checks all pairs at small lengths and successor constraints at larger lengths. Main residual correctness risk is an overlooked boundary case in the case distinction; direct checks through length 120 mitigate but cannot prove away that risk.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+The cyclic-rotation orbits of two-marker supports are indexed by shorter separation d. Their periods are n for d<n/2 and n/2 for antipodal d=n/2. In a single orbit, rotations by one or two correspond to forbidden overlap lengths n−1,n−2, so any chosen phases must have cyclic distance≥3, giving floor(P_d/3). The construction selects phases r=3j in each orbit; its proof splits shifted-prefix/suffix tests by whether zero, one, or two support markers are dropped and rules out cross-orbit violations, including even antipodal ties and self-pairs. Independent direct pairwise checking confirmed constructed code sizes and both overlap constraints for every n=4..50. This supports the all-n orbit argument but cannot prove it by enumeration.
 
-The most closely matching primary paper, Blackburn–Nasr Esfahani–Kreher–Stinson (arXiv:2211.10309), gives bounds for unrestricted overlap-free codes and constructions for other parameter regimes; its full accessible text does not present the weight-two exact capacity. The WMU primer paper by Yazdi–Kiah–Gabrys–Milenkovic (arXiv:1709.05214) treats general and balanced code constructions and does not establish the present sparse two-marker maximum. Related published finite non-overlap code classifications concern a strictly stronger set of forbidden overlap lengths and different compositions. Actual semantic-result searches and prior-claim comparisons did not produce a dominating theorem, but an unindexed equivalent specialization remains possible. This assessment is not a claim of independently certified publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed weight-two condition is a natural sparse-composition model for synchronized identifiers and cannot be answered from the unrestricted exponential-alphabet bounds. The result computes an infinite family of exact constrained capacities, proves the asymptotic one-third packing fraction, and identifies the half-length antipodal correction. The constructive attainment of separate necklace bounds requires controlling cross-necklace overlap edges and is the substantive part. No downstream general-weight theorem is asserted.
+Blackburn et al (2022/2023) prove unrestricted-alphabet overlap code bounds and constructions; Yazdi et al (2017) WMU primer codes and balanced composition. Neither broad theorem exactly determines this sparse weight-two optimum; the natural rotation-orbit argument supplies matching upper and lower bounds.
 
-## Closest literature and limitations
+## value
 
-Blackburn et al., 2022 (arXiv:2211.10309), Theorem 1 and constructions; Yazdi et al., 2017 (arXiv:1709.05214), weakly mutually uncorrelated and balanced codes. Remaining risk: an equivalent special case in unindexed or obscure coding literature. Only two markers and the two longest forbidden proper overlaps are covered; no third-party verification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp infinite-family fixed-composition synchronization-code capacity with an attaining construction and a genuine antipodal parity correction, not obtainable from generic unrestricted overlap bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
