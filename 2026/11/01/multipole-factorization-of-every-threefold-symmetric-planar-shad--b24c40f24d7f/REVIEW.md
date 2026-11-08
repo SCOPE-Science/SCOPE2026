@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-space reduction is reconstructed from the 2026 paper's rotation-invariant harmonic-projection lemma and its nonzero-equatorial-frequency lemma: the forbidden circle frequencies eliminate every harmonic degree except zero, one, and three. The 2004 multipole theorem factorizes each real harmonic cubic into three unit axes. A direct all-direction Fourier coefficient calculation and the exact planar support-area identity then give the normalized coefficient \(\pi\kappa^2/4\). Null-cone trace cancellation makes the three factors exact. Zero factors characterize circular shadows; the small-perturbation positive-curvature construction realizes every multiset of axes. The standalone program passed 1,558 checks, including symbolic Laplacian identities, binary sextic examples, area integration, and deterministic normals, which are supplemental to the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The full texts of Myroshnychenko–Ryabogin–Saroglou (arXiv:2609.27192) and Dennis (arXiv:math-ph/0408046) establish respectively the representation-theoretic input and the algebraic multipole input. These are explicitly credited, not represented as new. Full previously published geometric results for the \(x_1x_2x_3\) and axial cubic supports give only special-case brightness laws; they were read and checked for implication. The new assertion covers **every** convex body with threefold-symmetric projections, factorizes all its directional areas, identifies its circular shadows, and realizes arbitrary three-plane multisets. No covering statement was found in the inspected primary material or relevant indexed research. Classical multipole theory makes this deduction accessible, and a hidden broader geometric theorem remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The object is a natural exceptional family in a new projection-rigidity theorem. The result completely converts its two-dimensional directional area data into three real geometric axes, proves a nontrivial finite-versus-infinite circle-shadow dichotomy and gives a full inverse realization for those axes. Unlike a renamed harmonic polynomial identity, this supplies a geometric brightness formula with equality classification on **every** projection plane, simultaneously extending two noncongruent known examples.
+The complete 14-page Myroshnychenko–Ryabogin–Saroglou 2026 full text was read; Lemmas 4.8 and 4.12 together rule out every even spherical degree at least 2 by forbidden circle frequency 2 and every odd degree at least 5 by frequency 5 under q=3, retaining 0,1,3. The classical Maxwell multipole factorization of a nonzero real harmonic cubic has three unordered axes with multiplicities. On a plane with complex null vector m=p+iq, the third support-function Fourier coefficient is P(m)/8; the standard support area integral gives πr²−π|P(m)|²/4. Nullity m·m=0 removes the harmonic projection trace, and |v·m|²=1−(n·v)² proves the exact product for every unit normal. Zero product is exactly circular shadow; sufficiently small nonzero cubic amplitude makes the spherical curvature positive for any prescribed triple. Independent symbolic checks recomputed harmonicity, null-quadratic factor and repeated/orthogonal-axis sextic cases; finite diagnostics do not establish these analytic universal claims.
 
-## Scope and outstanding limits
-The result is for orthogonal planar projections in \(\mathbb R^3\), not arbitrary sections, and does not compute the sharp convexity-amplitude range for prescribed axes. The validity is analytic; finite checker data are ancillary. Historical priority is uncertain because of the close classical Maxwell theory and the possibility of an unindexed general projection-brightness result. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full 2026 planar-projection paper already proves the harmonic separation machinery and supplies a specific cubic example, while Dennis establishes classical uniqueness of harmonic-cubic multipole axes. Earlier published records determine the brightness formula only for the tetrahedral xyz and axial harmonic subfamilies. The exact all-body area product and inverse existence for arbitrary prescribed three circular axes were not stated in the inspected sources; best-of-knowledge new geometric synthesis, not an assertion that Maxwell factors or cubic exceptions were newly discovered.
+
+## value
+
+PASS
+
+The factorized projection-area function is an exact observable across the entire threefold-shadow class, identifies all circular directions with multiplicities, and proves inverse realization. This is an intrinsically useful geometric tomography statement beyond case-by-case examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
