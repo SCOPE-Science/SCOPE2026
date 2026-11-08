@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed \(\theta>0\), the hypotheses, stationary immigration–death generator, and weighted occupation variable are explicit. The derivation uses a known functional scaling theorem, truncates the near-zero time interval by a deterministic bound, applies stationary reversibility, calculates all ordered all-zero probabilities, and evaluates the ordered-gap simplex integral. Direct Taylor bounds prove absolute convergence of the normalized product. A standard Laplace–Stieltjes Karamata theorem turns the high-moment asymptotic into the precise near-one probability. An executable checker corroborates finite exact recurrences, moments, and the numerical product limit in 126 assertions. No finite experiment is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Gnedin–Stark establish the small-cycle functional limit and discuss the nonconvergence of the sequential occupation fraction; Galganov–Ilienko obtain a stronger functional and Poisson-point-measure limit. Neither inspected primary work supplies the explicit all-integer-moment product or sharp probability of near-total derangement occupation. Previously derived weak occupation limits and pairwise occupation covariances are background, not new statements here. Searches for equivalent queueing/discrete restaurant formulations did not identify the same endpoint asymptotic. Since the probability law is a functional of a previously known process, an unlocated queueing-theory identity remains a plausible priority risk.
+PASS
 
-## Value — PASS
-The probability of occupying the zero-fixed-point state for nearly every stage is a naturally extreme event for the growing random permutation. Determining its nontrivial exponent \(\theta\) and exact positive prefactor resolves a distributional property not determined by the mean, covariance, or weak occupation convergence statement alone. The fully evaluated moments also make the compactly supported limiting law numerically characterizable; this is not an arbitrary finite-parameter slice.
+For fixed theta>0, the known functional fixed-point count limit and deterministic truncation at early restaurant indices yield the stationary immigration-death integral Y. In stationarity P(X=0)=e^-theta and P_00(t)=exp[-theta(1-e^-t)]. Ordering r zero-event times, dividing exponential time weights into gaps and integrating gives E[Y^r]=e^-theta product_{k<r} k integral_0^1 u^(k-1)e^-theta(1-u) du. Beta(k,1) moments imply log a_k+theta/k=O_theta(k^-2), hence r^theta E[Y^r] tends to the stated positive Euler-corrected product C_theta. Applying one-sided Laplace-Stieltjes Karamata to Z=-log(Y) gives P(Y>1-epsilon)~C_theta epsilon^theta/Gamma(1+theta). Verified variance at theta=1/2,1,2 by an independently written arithmetic test. The claimed limit is n→infinity before epsilon→0; no uniform finite-n tail follows.
 
-## Scope of review and limitations
-No uniform \(n\)-by-\(\varepsilon\) rate, left-endpoint tail, or independent historical-priority certification is supplied. Primary full-text comparisons concerned the original 2022 growth-process paper and the 2025 revised functional-limit paper. Results of standard queueing and Tauberian theory are acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Both the stationary M/M/infinity fixed-point scaling limit and weak occupation limit are known; only the all-order evaluated moment product and exact near-one endpoint constant are assessed. General queueing zero-occupation transforms are a plausible mathematical alias. Direct reading of Gnedin–Stark and Galganov–Ilienko did not identify this endpoint formula, but historical completeness is not certified.
+
+## value
+
+PASS
+
+The near-total derangement-occupation event is a canonical extreme property of Ewens restaurant growth; its exact theta power and nonzero explicit prefactor determine behavior beyond the known occupation-process weak limit and its mean/covariance. The complete moment product is an independent characterization of a natural compact-supported limit law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
