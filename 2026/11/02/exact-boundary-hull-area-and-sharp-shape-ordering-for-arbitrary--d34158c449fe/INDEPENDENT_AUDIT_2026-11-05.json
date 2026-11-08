@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:12:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 arclength-uniform iid boundary samples from a nondegenerate triangle with side proportions p_i>0, p_i<1/2, sum=1, condition on multinomial side occupancies m. Independent uniform-order statistics give expected corner missing area from each occupied side as 1/((m_j+1)(m_k+1)). Summing gives an exact trinomial expectation; integrate reciprocal counts using x^m to derive Q_n=1−[1−Σ(1−p_i)^(n+2)+Σp_i^(n+2)]/[(n+1)(n+2)∏p_i]. Triple finite difference yields 1−Q_n=n E[(Σp_i U_i)^(n−1)]. For n≥3, strict convexity under nontrivial coordinate averaging gives Schur-convex missing area, maximizing Q uniquely at p=(1/3,1/3,1/3) and minimizing Q in the limit p→(1/2,1/2,0). The fixed-p quadratic missing-area limit and triangular-degeneration nq_n→τ limit follow by exponential decay and dominated convergence. Independently checked exact multinomial expectation against formula for 21 (p,n) cases across n=3..9, including near-degenerate proportions. This is an all-n proof not an extrapolation of numerical tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner–Schütt–Werner show dimension-dependent large-n missing-volume asymptotics for boundary sampling in simple polytopes. Efron concerns general random hull methods with a different sampling law."
+        ],
+        "reasoning": "General asymptotic order does not imply exact all-n side-proportion dependence, shape extrema, or thin-triangle regime where p depends on n. No claimed stronger theorem dominates the conjunction.",
+        "searches": [
+          "arxiv:1911.05917 boundary simple polytope asymptotic volume",
+          "Efron 1965 convex hull random set points"
+        ]
+      },
+      "checked_sources": [
+        "Reitzner–Schütt–Werner, arxiv:1911.05917 primary full text",
+        "Efron 1965 Biometrika doi:10.1093/biomet/52.3-4.331 citation context",
+        "Resultary semantic query: expected convex hull area uniformly sampled boundary triangle random polygon side lengths Schur convex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boundary-simple-polytope asymptotics govern fixed shapes; theorem here also fixes every finite n and lets triangle shape degenerate at q~τ/n."
+        ],
+        "reasoning": "The fixed-polytope results cannot be applied uniformly to p_n→0 without additional work, and their asymptotic rate does not yield finite-sample Schur convexity or exact prefactors. Therefore those sources do not cover the full theorem.",
+        "searches": [
+          "arxiv:1911.05917 The convex hull of random points on the boundary of a simple polytope",
+          "expected convex hull area uniformly sampled boundary triangle random polygon side lengths Schur convex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same missing-area functional can be written as a cubical moment of weighted independent U[0,1] variables, useful for majorization. Reitzner et al study normalized missing volume for random boundary polytopes."
+        ],
+        "reasoning": "Moment/finite difference representations match the random-hull functional, but no previously identified source gives the exact triangle all-n polynomial/rational shape formula or strict majorization order. This is not interior hull sampling.",
+        "searches": [
+          "expected convex hull area uniformly sampled boundary triangle random polygon side lengths Schur convex",
+          "Reitzner Schuett Werner random points boundary simple polytope expected missing volume"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include a Gumbel Hausdorff-error transition for regular polygons and other polygon shape characteristics, not a table of normalized expected boundary hull area for arbitrary triangles."
+        ],
+        "reasoning": "No exact matching formula found in queried mathematical corpus; possible older polygon boundary tables remain an explicit priority risk.",
+        "searches": [
+          "expected convex hull area uniformly sampled boundary triangle random polygon side lengths Schur convex",
+          "Resultary: Gumbel transition randomly inscribed regular polygons"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS. The closest Reitzner–Schütt–Werner work gives general simple-polytope boundary-sampling asymptotics, not the closed finite-n three-side expression, strict all-shape Schur order, sharp equality/infimum or nq_n crossover. Interior-sampling Efron-type random hull results have a different sampling measure. Other historical polygon boundary sampling calculations might contain the specialized triangle formula; retain risk.",
+      "residual_risks": [
+        "Possible classical polygon-boundary finite-n formula outside consulted full texts.",
+        "The thin-triangle asymptotic requires nq_n→τ; not a result for arbitrary joint (n,p) limits or general polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General fixed-polytope asymptotics, no explicit finite-n arbitrary-triangle Schur-convex classification identified.",
+          "evidence": [
+            "General polytope theorems operate in asymptotic n and do not furnish n-dependent shape degeneration limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Full original arXiv HTML main theorems, introduction, mathematical scope and derivation of missing-volume asymptotics.",
+          "method": "Read original arXiv full-text relevant sections",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Exactly the boundary arclength sampling model in a more general convex-polytope setting."
+        },
+        {
+          "assessment": "Used as methodological background. The relevant statements in the submitted result are specific to arclength sampling on a triangle rather than interior-uniform points.",
+          "evidence": [
+            "No full-text assessment of every possible Efron-era boundary sampling variant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/52.3-4.331",
+          "material_read": "Bibliographic details and abstract-level description only, not all primary pages.",
+          "method": "Citation/abstract comparison; no negative whole-document claim",
+          "title": "The convex hull of a random set of points",
+          "trigger": "Classical random-hull expectation and Efron-type identities."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The theorem classifies the entire natural family of triangles and every n≥3, with a strict optimal shape, unattained degenerate extremal and quantified transition from n^-2 to n^-1 missing-area scales. Sharp shape ordering and singular asymptotics are meaningful beyond an isolated numerical coefficient or known fixed-shape rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reitzner–Schütt–Werner, arxiv:1911.05917 primary full text",
+    "Efron 1965 Biometrika doi:10.1093/biomet/52.3-4.331 citation context",
+    "Resultary semantic query: expected convex hull area uniformly sampled boundary triangle random polygon side lengths Schur convex"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The scientific conclusion applies only to the precise RESULT.md claim and hypotheses, with the priority and boundary risks specified in the axes.",
+    "Finite calculations corroborate the mathematical proofs, not a general unbounded experimental assertion.",
+    "Public-file provenance was not sanitized; no publication approved."
+  ],
+  "residual_risks": [
+    "Possible classical polygon-boundary finite-n formula outside consulted full texts.",
+    "The thin-triangle asymptotic requires nq_n→τ; not a result for arbitrary joint (n,p) limits or general polygons."
+  ],
+  "schema_version": 1
+}

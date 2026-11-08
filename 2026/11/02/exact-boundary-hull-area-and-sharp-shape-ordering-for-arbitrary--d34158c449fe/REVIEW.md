@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional hull decomposition is verified for one, two, and three occupied sides; conditional independence of uniform side order statistics gives the corner-area factors. Multinomial averaging and an exact threefold finite-difference identity prove the finite-sample and cubical-moment formulas. Strict convexity under coordinate averaging establishes all shape extremizers. A dominated-convergence argument gives the nontrivial thin-triangle transition, including its zero-parameter endpoint. The reproducible checker independently tests rational enumeration and Euclidean hull simulations; numerical checks are not substituted for universal proof.
+## correctness
 
-**Originality — PASS, provisional.** The 2019 preprint of Reitzner, Schütt and Werner proves asymptotic expected missing volume for general simple polytopes, but not the exact finite-\(n\) triangle shape profile or its strict majorization and boundary-layer law. Efron's random-hull work is broader in setup but the inspected accessible description does not establish this specialized arclength-boundary theorem. Comparisons of the specific statements and mathematics found no dominating published result in the inspected material. A historical formula for polygonal boundary sampling outside the consulted indexed sources remains possible.
+PASS
 
-**Mathematical value — PASS.** The full natural family of triangles is classified for every finite sample size, with a sharp equality case, strict global shape order, unattained thin limit, and a singular scaling transition. These are not a small numerical refinement of a fixed-shape asymptotic: the exact missing-area law changes from quadratic to linear order along a natural degeneration.
+For n≥3 arclength-uniform iid boundary samples from a nondegenerate triangle with side proportions p_i>0, p_i<1/2, sum=1, condition on multinomial side occupancies m. Independent uniform-order statistics give expected corner missing area from each occupied side as 1/((m_j+1)(m_k+1)). Summing gives an exact trinomial expectation; integrate reciprocal counts using x^m to derive Q_n=1−[1−Σ(1−p_i)^(n+2)+Σp_i^(n+2)]/[(n+1)(n+2)∏p_i]. Triple finite difference yields 1−Q_n=n E[(Σp_i U_i)^(n−1)]. For n≥3, strict convexity under nontrivial coordinate averaging gives Schur-convex missing area, maximizing Q uniquely at p=(1/3,1/3,1/3) and minimizing Q in the limit p→(1/2,1/2,0). The fixed-p quadratic missing-area limit and triangular-degeneration nq_n→τ limit follow by exponential decay and dominated convergence. Independently checked exact multinomial expectation against formula for 21 (p,n) cases across n=3..9, including near-degenerate proportions. This is an all-n proof not an extrapolation of numerical tests.
 
-**Scope and risks.** The exact law assumes nondegenerate triangles and independent arclength-uniform samples; the lower endpoint is approached rather than attained. Historical priority is not independently certified. The cubical moment identity generalizes only as a method, not as an asserted theorem for arbitrary polygons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS. The closest Reitzner–Schütt–Werner work gives general simple-polytope boundary-sampling asymptotics, not the closed finite-n three-side expression, strict all-shape Schur order, sharp equality/infimum or nq_n crossover. Interior-sampling Efron-type random hull results have a different sampling measure. Other historical polygon boundary sampling calculations might contain the specialized triangle formula; retain risk.
+
+## value
+
+PASS
+
+PASS. The theorem classifies the entire natural family of triangles and every n≥3, with a strict optimal shape, unattained degenerate extremal and quantified transition from n^-2 to n^-1 missing-area scales. Sharp shape ordering and singular asymptotics are meaningful beyond an isolated numerical coefficient or known fixed-shape rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
