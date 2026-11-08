@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A two-sided period-mk word gives an m-by-k array with cyclic column difference equal to the prior column nonzero mask (rotated only at wrap). Telescoping forces every column support weight to be divisible by 3. For m=6 and m=7, all binary masks of allowed weight are exhaustively grouped under rotations and all three additive lifts of each difference mask are enumerated. Each explicit complete quotient graph has only the zero-mask directed cycle, hence no nonzero word fixed by T^(mk) for any k. Two independent graph enumerations and direct state iteration for k=2..9 agree; the proof is uniformly infinite in k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch 2026 Theorem 8 concerns 4k and its 4-row 0/3 weight constraint; the new proof needs the qualitatively different 6-/7-row masks.",
+        "Cassaigne–Finch 1995 displays a different recurrence involving different lag indices and quadratic factors.",
+        "Previously documented multiplier-five exclusion covers only 5k, not 6k or 7k."
+      ],
+      "reasoning": "The fourth-multiple fixed-point enumeration neither implies nor excludes cycles whose lengths divide 6k or 7k but not 4k. An analogous fifth-multiple fact is not being relabeled or resubmitted. Different quadratic recurrences do not imply this uniform exclusion.",
+      "searches": [
+        "For ternary quadratic lag recurrence T_k(w0..w{k-1})=(w1..,w0+w{k-1}^2) the only state fixed by T_k^{6k} or T_k^{7k} is zero for all k>=2; period gap 5k to 7k",
+        "Period multipliers 6 and 7 have no nonzero cycles in quadratic recurrence over F3, unlike 4 and 8",
+        "quadratic recurrence modulo 3 periodic solutions periods 6k 7k Steven Finch",
+        "arxiv:2610.34300v1 Theorem 8; section 3",
+        "Cassaigne and Finch 1995 section 3 ternary quadratic recurrence"
+      ]
+    },
+    "checked_sources": [
+      "Finch 2026 arXiv:2610.34300v1 (full HTML)",
+      "Cassaigne and Finch 1995 (abstract and inspected Section 3 displayed recurrence; incomplete machine-readable PDF)",
+      "OEIS A112684 (definition and table)",
+      "Semantic mathematical-record searches on the exact equation and iterate exclusions",
+      "Accessible historical mathematical claims for overlap comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same map from Finch Proposition 7; prior Theorem 8 fixes T^(4k) only.",
+        "5k result applies to a different integer multiple and does not rule out 6k or 7k periodic points.",
+        "A 4k-cycle may divide some 6k or 7k for special k, but excluding known cycles never excludes all possible other period classes."
+      ],
+      "reasoning": "If a state is fixed by T^(6k) or T^(7k), it need not be fixed by T^(4k) or T^(5k); therefore earlier claims do not logically dominate. Conversely the new exclusion does not reprove the fourth-multiple positive count.",
+      "searches": [
+        "For ternary quadratic lag recurrence T_k(w0..w{k-1})=(w1..,w0+w{k-1}^2) the only state fixed by T_k^{6k} or T_k^{7k} is zero for all k>=2; period gap 5k to 7k",
+        "Finch modulo three recurrence B no periodic points of period dividing 6k and 7k binary Hamming weight necklace masks",
+        "Finch modulo 3 recurrence B 6k 7k fixed points 2026",
+        "quadratic recurrence modulo 3 periodic solutions periods 6k 7k Steven Finch",
+        "arxiv:2610.34300v1 Sections 1,3",
+        "https://projecteuclid.org/journals/experimental-mathematics/volume-4/issue-1/A-class-of-1-additive-sequences-and-quadratic-recurrences/em/1062621142.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch Section 3 identifies the same nonlinear shift and proves only its fourth-multiple count.",
+        "The OEIS special-seed period data do not quantify all initial words.",
+        "The nearest semantic research-record match concerns a different real-valued recurrence and does not dominate the claim."
+      ],
+      "reasoning": "A periodic word with period dividing mk corresponds exactly to a state fixed by T_k^(mk); source B is the correct same recurrence. A special initial condition has less coverage. The closest semantic research-record matches concern unrelated models.",
+      "searches": [
+        "For ternary quadratic lag recurrence T_k(w0..w{k-1})=(w1..,w0+w{k-1}^2) the only state fixed by T_k^{6k} or T_k^{7k} is zero for all k>=2; period gap 5k to 7k",
+        "Finch modulo three recurrence B no periodic points of period dividing 6k and 7k binary Hamming weight necklace masks",
+        "Finch modulo 3 recurrence B 6k 7k fixed points 2026",
+        "OEIS A112684",
+        "arxiv:2610.34300v1 Section 3 recurrence B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112684 tabulates a single prescribed orbit for k up to 23.",
+        "An earlier established statement excludes nonzero points fixed by the fifth multiple, which is not the sixth or seventh.",
+        "An earlier fourth-multiple primitive-cycle classification does not determine either of the two new fixed-point sets."
+      ],
+      "reasoning": "None of the inspected records or tables establishes all-state, all-lag sixth/seventh fixed-point exclusions. We compared logical implications, not titles only.",
+      "searches": [
+        "https://oeis.org/A112684",
+        "Finch modulo three recurrence B no periodic points of period dividing 6k and 7k binary Hamming weight necklace masks",
+        "Period multipliers 6 and 7 have no nonzero cycles in quadratic recurrence over F3, unlike 4 and 8",
+        "For ternary quadratic lag recurrence T_k(w0..w{k-1})=(w1..,w0+w{k-1}^2) the only state fixed by T_k^{6k} or T_k^{7k} is zero for all k>=2; period gap 5k to 7k",
+        "Period multipliers 6 and 7 have no nonzero cycles in quadratic recurrence over F3, unlike 4 and 8"
+      ]
+    },
+    "rationale": "The full accessible 2026 primary source covers the same permutation but enumerates 4k-period fixed points; it does not cover the sixth- and seventh-multiple exclusion. Earlier fifth-multiple and fourth-divisor classifications are explicitly excluded. OEIS gives only prescribed initial-word periods. 1995 quadratic recurrence has a different rule. Targeted mathematical-record, literature, and accessible historical-claim comparisons do not identify a stronger covering theorem; historical priority risk remains.",
+    "residual_risks": [
+      "An earlier unindexed argument about support-mask walks or the same permutation may be equivalent; semantic search does not establish absolute priority.",
+      "1995 historical PDF text extraction was partially unreadable; comparison based on its visible recurrence and abstract rather than all uncorrupted pages.",
+      "Accessible earlier mathematical notes may be incomplete; their claims are overlap evidence only, not absolute proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 8 counts fixed points of the fourth multiple, not the sixth or seventh. The explicit 4-by-k mask analysis does not by itself give the required six-/seven-row graph exclusion.",
+        "evidence": [
+          "Finch Proposition 7 bijection and unique fixed point; Theorem 8 exact fourth-multiple fixed-point count; Corollary 9 concerns special initial block."
+        ],
+        "identifier_or_url": "arxiv:2610.34300v1; https://arxiv.org/abs/2610.34300",
+        "material_read": "Accessible HTML text: full relevant Section 3, Proposition 7, Theorem 8, Corollary 9 and surrounding context",
+        "method": "Read published HTML theorem statements and proof and compared iterate exponents and quantifiers",
+        "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+        "trigger": "Exact same permutation and likely stronger prior theorem"
+      },
+      {
+        "assessment": "Different polynomial recurrence with quadratic factors and distinct lags, motivated by 1-additive sequences. No visible statement about all-state sixth/seventh multiples of the present permutation. Full unobscured source comparison limited by degraded text.",
+        "evidence": [
+          "Section 3 equation around displayed (3.1) involves terms depending on indices n-2 and n-4k-3, unlike the present one-step/lag-k permutation."
+        ],
+        "identifier_or_url": "DOI:10.1080/10586458.1995.10504307; https://projecteuclid.org/journals/experimental-mathematics/volume-4/issue-1/A-class-of-1-additive-sequences-and-quadratic-recurrences/em/1062621142.pdf",
+        "material_read": "Abstract and portion of Section 3 around displayed recurrence (3.1), via PDF text; the source extraction was partly garbled",
+        "method": "Compared visible original recurrence and problem objects with the present permutation",
+        "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+        "trigger": "Historical ternary quadratic recurrence with author overlap"
+      },
+      {
+        "assessment": "NOT_COVERING: Special-seed eventual-period data do not imply the all-state claims.",
+        "evidence": [
+          "OEIS definition x(i)=x(i-1)^2+x(i-n) mod 3 with fixed initial word; integer list for n=1..23."
+        ],
+        "identifier_or_url": "https://oeis.org/A112684",
+        "material_read": "Definition, initial entries, references, links and cross-references",
+        "method": "Compared its prescribed initial block orbit period with all-state iterate fixed sets",
+        "title": "OEIS A112684",
+        "trigger": "Exact named recurrence and historical period table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01cf398f-7e75-4bf8-872a-21fe9d4b7bef",
+  "value": {
+    "rationale": "The object is a recently studied invertible finite-field recurrence with a large family of short cycles at 4k and complicated remaining cycle structure. Excluding both 6k and 7k uniformly (beyond the separate fifth-multiple exclusion) completes a natural three-multiplier gap and shows the 4k structured phenomenon cannot extend to the two neighboring composite/prime multipliers. The short exact mask graph gives a reusable obstruction mechanism and distinguishes period-divisibility from a sample-seed numerical census.",
+    "status": "PASS"
+  }
+}

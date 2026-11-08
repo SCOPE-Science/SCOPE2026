@@ -1,0 +1,11 @@
+# Correctness, originality, and value
+
+**Correctness: PASS.** For each of the two multipliers, every period-\(mk\) solution induces a closed walk in the complete support-mask transition graph, because the recurrence's column differences equal zero-one masks. All masks have weight divisible by three. The graph is reconstructed by the three possible solutions of \(Dy=B\), with independently exhaustive binary and ternary enumeration; it has only the zero directed cycle for both \(m=6\) and \(m=7\). The wrap transition is a row rotation and therefore closes in the quotient graph. Direct independent recurrence iteration for all states at lags two through nine corroborates the two unrestricted conclusions. The proof, not the bounded experiment, establishes the uniform result.
+
+**Originality: PASS, qualified.** Finch (2026) Section 3 computes the fourth-multiple fixed-point set, which does not determine sixth- and seventh-multiple fixed sets. An earlier separate fifth-multiple exclusion is not being claimed. OEIS A112684 records the distinguished initial-word orbit and cannot classify all starting states. Cassaigne–Finch (1995) studies a different nonlinear ternary rule. Targeted literature and semantic mathematical-results searches did not expose an equivalent sixth/seventh-multiple theorem. The full argument in the 1995 PDF is imperfectly machine-readable and unpublished or unindexed equivalent results remain possible.
+
+**Mathematical value: PASS.** For a recently studied bijective finite-field recurrence with an unexpectedly large structured \(4k\)-period corner, the theorem identifies two adjacent universal gaps in iterate fixed sets, using a small structural automaton rather than checking growing state spaces. Together with the separately established fifth-multiple exclusion, the statement brackets a complete three-multiplier exclusion phenomenon, with concrete nonzero cycles at \(4k\) and \(8k\) when \(k=2\). It is a natural period-spectrum obstruction, not a parameter renaming, an arbitrary finite slice of lags, or an extrapolation from sample orbits.
+
+**Limitations.** No full classification of all periods, basins, or the special-seed orbit is established. An earlier equivalent proof remains a residual priority risk. Independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
