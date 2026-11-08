@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:10:50.488351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Contracting prescribed directed successor bonds in a random k-permutation gives exact factorial moments E(R_k)_r=(k-r)/k, including E R_k=1-1/k and E R_k^2=2-3/k. Brown–Peköz–Ross unit-Poisson stochastic domination yields a monotone quantile coupling Y_i>=R_{k,i}; expected gap 1/k, conditional squared gap <=3/k, and chance R_k>0>=4/9. Geometric occupancy of each k and stopped-martingale isometry give cumulative gap O(log n) in L^2; the remaining rounds and idle-indicator differences inherit that bound. For iid Y~Pois(1), Z=1_{Y=0}, q=e^-1, Poisson passage/reward renewal CLT gives covariance [[1,2q],[2q,q+2q^2]], which transfers to ((T_n-n)/sqrt n,(Q_n-qn)/sqrt n) together with moment limits and Q lower coupling. Independent exhaustive k=2..7 successor-permutation counts and factorial moments check: TWO_SHUFFLE_EXACT_PASS. Bounded tests do not establish the infinite Gaussian limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chern–Jiu–Simonelli Theorem 1.1 gives total-round Gaussian limit",
+          "Brown–Peköz–Ross Corollary 2 gives one-round Poisson domination",
+          "2016 card-shuffling paper is an earlier related completion-time study, full text not examined"
+        ],
+        "reasoning": "The new joint theorem extends known total-time results and uses previously proved Poisson stochastic domination. Access-limited earlier article creates a residual priority risk, not automatic scientific failure.",
+        "searches": [
+          "card shuffling random blocks merging increasing successors number of idle rounds joint central limit covariance",
+          "arxiv:2309.08841",
+          "doi:10.1239/jap/1231340233",
+          "A discrete probability problem in card shuffling 2016"
+        ]
+      },
+      "checked_sources": [
+        "Git tree d3ca69d5ef45e01a6e0ffc77d94e37d53a6b46cc; RESULT.md 6699c45cc5cf4e9fa45ab8fcc54c8734c9acf2d3; verify_card_shuffle.py f9576d6e2cfc3c15654eacba8812eb9a3c35213c",
+        "arXiv:2309.08841",
+        "DOI:10.1239/jap/1231340233",
+        "DOI:10.1080/03610926.2013.834451",
+        "Resultary shuffle/covariance query: no covering finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published CLT describes the first coordinate of the claimed bivariate vector",
+          "Poisson domination alone gives upper stochastic bounds, not an O(log n) bivariate L2 coupling"
+        ],
+        "reasoning": "A one-dimensional Gaussian limit does not uniquely determine correlations, and only a joint error/coupling argument yields 2e^-1 covariance. Thus the known marginal theorem does not imply this result.",
+        "searches": [
+          "card shuffling random blocks merging increasing successors number of idle rounds joint central limit covariance",
+          "arxiv:2309.08841 Theorem 1.1",
+          "Brown Pekoz Ross Corollary 2 Poisson shuffle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brown–Peköz–Ross model couples fusion bonds to a Poisson(1) count",
+          "Chern–Jiu–Simonelli arXiv:2309.08841 studies completion time T_n"
+        ],
+        "reasoning": "Idle rounds are equivalent to zero-bond shuffles; productive rounds T-Q are a linear reparametrization of the same bivariate limit. Neither a marginal limit for T nor a one-round Poisson approximation implies the second coordinate or covariance.",
+        "searches": [
+          "card shuffling random blocks merging increasing successors number of idle rounds joint central limit covariance",
+          "random permutation successor adjacency bond zero progress rounds Poisson renewal joint Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite bond-count probabilities are available by inclusion–exclusion",
+          "The assessed contribution is a joint n->infinity Gaussian law and cross-covariance, not an isolated finite transition table"
+        ],
+        "reasoning": "Finite one-round distributions and total-round moment tables do not specify the joint asymptotic idle/total covariance. No matching exact table found; absence is not novelty proof.",
+        "searches": [
+          "card shuffling random blocks merging increasing successors number of idle rounds joint central limit covariance",
+          "idle rounds mixed moments card merging successor permutations covariance table"
+        ]
+      },
+      "rationale": "The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. Idle rounds are equivalent to zero-bond shuffles; productive rounds T-Q are a linear reparametrization of the same bivariate limit. Neither a marginal limit for T nor a one-round Poisson approximation implies the second coordinate or covariance. The new joint theorem extends known total-time results and uses previously proved Poisson stochastic domination. Access-limited earlier article creates a residual priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "The related 2016 shuffle paper was not read in full and could contain a version of the idle statistic.",
+        "The Poisson domination claim is an attributed external theorem; its exact hypotheses are essential.",
+        "Asymptotic result is for independent uniform reshuffles, not biased permutations or total variation rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes total-time asymptotic normality and moments, not the inspected bivariate idle-count limit",
+          "evidence": [
+            "Theorem 1.1 states one-coordinate Gaussian limit of total number of rounds."
+          ],
+          "identifier_or_url": "arXiv:2309.08841",
+          "material_read": "Full public preprint including Theorem 1.1, proof outline and moments of total completion time; targeted search for idle rounds",
+          "method": "Direct arXiv primary full text and theorem comparison",
+          "title": "A central limit theorem for a card shuffling problem",
+          "trigger": "Precisely the same reshuffling/fusion process"
+        },
+        {
+          "assessment": "Poisson domination is prior work and credited, but the inspected theorem does not give joint idle Gaussian covariance",
+          "evidence": [
+            "The increment stochastic domination by Pois(1) supports quantile coupling."
+          ],
+          "identifier_or_url": "DOI:10.1239/jap/1231340233",
+          "material_read": "Author-accessible paper text, model and Corollary 2 Poisson stochastic domination; not a universal statement about all later results",
+          "method": "Direct author-hosted primary text and citation check",
+          "title": "A Random Permutation Model Arising in Chemistry",
+          "trigger": "Original probabilistic fusion model and crucial Poisson coupling"
+        },
+        {
+          "assessment": "Not enough text to rule out idle-count coverage; explicitly retained as risk",
+          "evidence": [
+            "Accessible abstract describes related shuffling/completion-time probability study."
+          ],
+          "identifier_or_url": "DOI:10.1080/03610926.2013.834451",
+          "material_read": "Accessible abstract/citation only; full article not read",
+          "method": "Bibliographic/abstract comparison",
+          "title": "A discrete probability problem in card shuffling",
+          "trigger": "Earlier same-dynamics paper could contain bivariate statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of zero-fusion rounds is a natural efficiency diagnostic of an established random-coalescence shuffle. Its joint Gaussian law, nonzero cross-covariance and logarithmically accurate two-coordinate coupling supply information not recoverable from the known total-time marginal limit alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree d3ca69d5ef45e01a6e0ffc77d94e37d53a6b46cc; RESULT.md 6699c45cc5cf4e9fa45ab8fcc54c8734c9acf2d3; verify_card_shuffle.py f9576d6e2cfc3c15654eacba8812eb9a3c35213c",
+    "arXiv:2309.08841",
+    "DOI:10.1239/jap/1231340233",
+    "DOI:10.1080/03610926.2013.834451",
+    "Resultary shuffle/covariance query: no covering finding"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The related 2016 shuffle paper was not read in full and could contain a version of the idle statistic.",
+    "The Poisson domination claim is an attributed external theorem; its exact hypotheses are essential.",
+    "Asymptotic result is for independent uniform reshuffles, not biased permutations or total variation rates."
+  ],
+  "schema_version": 1
+}
