@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The bundled `checker.py` is a standalone Python 3 program using only the standard library. Run it from the extracted package directory with `python3 checker.py`. The verified output is:
+## correctness
 
-```
-CORE_FORESTS 153 SUBSETS 129444
-SYNTAX_CASE (11, 5, 2048)
-ALL_CHECKS_OK
-```
+PASS
 
-For each ordered rooted core-forest through five nodes, it enumerates **all** truth/falsity bit assignments, retains precisely those satisfying positive-classicality implications, and then exhaustively checks **every** subset of signed positive premises for semantic satisfiability versus the forbidden-triple condition. The 153 forests include every parent choice for each new vertex. A separate actual unary-formula-string experiment checks two negation parities, circle nesting, and syntactically distinct circled double-negations for 2,048 premise subsets. These experiments are finite checks; the full theorem is established by the explicit constructive model in RESULT.md, independently of any search bound.
+The decomposition into outer-negation parity and syntactic core is unique. For each core B, independent truth/falsity bits are permitted; the sole restriction is t_circle=1 implies (t_parent,f_parent)=(1,0) or (0,1). A simultaneous positive and negative requirement on the parent contradicts a positive circle requirement. Conversely absent that triple, choosing (1,1) only when both parent signs are demanded, (1,0) when positive alone, and (0,1) otherwise satisfies every circle requirement. The induction extending signed unary bits to all binary connectives enforces De Morgan, involution and the one-way circle implication, including nested circles and all infinite premises. Every proper subset of a prohibited triple is satisfiable, so the exact 3-Helly statement follows. An independent enumeration of 6,564 core-forest premise subsets for sizes <=4 matched the criterion; this is only a finite sanity check. Linear scanning assumes unshared input tree or linear-time syntax interning.
 
-The displayed formula criterion and constructive extension are specific to the minimal evidence-logic valuation clauses and to the unary premise fragment. Earlier work supplies the implication from a single classicality triple to unsatisfiability; the reverse implication and tight global obstruction classification are the assessed contribution. The computational tests do not independently establish originality or historical priority.
+## originality
+
+PASS
+
+Grandinetti–Rodrigues 2026 Definition 3.2 gives the exact six clauses and Sections 3–4 provide full-signature sequent decision procedures and known explosive circle triples. Neither inspected part gives converse classification of arbitrary nested unary inconsistent sets. Older LET_F tableau work gives a general decision method, not this exact obstruction family. Search of Resultary returned no obvious equivalent statement; this absence alone is not a novelty proof. Best-of-knowledge originality is qualified by potentially older LFI terminology.
+
+## value
+
+PASS
+
+A finite forbidden-obstruction basis for a nonclassical syntactic fragment is a meaningful structural/algorithmic invariant; sharp Helly number 3 plus arbitrary nesting and infinite compactness is stronger than noting the familiar explosive triple or restating a tableau.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
