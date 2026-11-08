@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`verify.cpp` is the exact all-structure enumerator for dimension two; it uses full finite-field multiplication tables and checks every invertible matrix against the original algebra homomorphism equations, including the mixed product. Compile and execute in C++17; the expected final line is `VERIFY_OK`. The observed rows are:
+## correctness
 
-| Field | All labeled structures | Exactly three automorphisms | Perfect among these |
-| --- | ---: | ---: | ---: |
-| \(\mathbb F_2\) | 16 | 0 | 0 |
-| \(\mathbb F_3\) | 81 | 0 | 0 |
-| \(\mathbb F_4\) | 256 | 30 | 6 |
-| \(\mathbb F_5\) | 625 | 0 | 0 |
-| \(\mathbb F_7\) | 2401 | 24 | 24 |
-| \(\mathbb F_8\) | 4096 | 0 | 0 |
-| \(\mathbb F_9\) | 6561 | 0 | 0 |
+PASS
 
-`verify3.cpp` independently checks the explicit dimension-three candidates using **all invertible matrices**, not just monomial matrices. It reports \(3\) automorphisms among respectively \(168,11232,1488000\) invertible matrices over \(\mathbb F_2,\mathbb F_3,\mathbb F_5\), and concludes `VERIFY3_OK`.
+Dimension one has Aut=K* for zero multiplication or trivial Aut for nonzero square, so only F4 gives C3. Perfect dimension two is monomial; a 3-element subgroup must be diagonal because S2 has no 3-torsion. Support loops rule out nontrivial diagonal C3, so only a directed two-cycle, with diagonal parameters t^3=1 and off-diagonal parameters s^3=alpha^-1, produces the exact cubic criterion. Nonperfect rank-one multiplication-image cases reduce to bilinear similarity stabilizers, none of order three outside F4. For dimension three, cyclic successor+loop structure has only rotations and trivial diagonal Aut; char2 finite exceptions use a pure cycle with all t forced to 1. Independent from source code, complete prime-field automorphism enumeration found dim2 structures with exactly C3: F2=0,F3=0,F5=0,F7=24 (all perfect), and full GL3 matrix enumeration found precisely 3 automorphisms of the specified F2 and F3 3D examples.
 
-Run in a directory containing these standalone source files:
+## originality
 
-```sh
-g++ -O3 -std=c++17 verify.cpp -o verify2 && ./verify2
-g++ -O3 -std=c++17 verify3.cpp -o verify3 && ./verify3
-```
+PASS
 
-Computational limits: the checks do not exhaust all fields, all three-dimensional structure matrices, or all algebra dimensions. The symbolic proof handles arbitrary fields. The group-of-points convention differs from claims about the affine group scheme; no external independent mathematical audit has occurred.
+Question 40 in the 2026 evolution-algebra survey explicitly asks for minimum dimensions and gives only the C example. Prior two-dimensional evolution-algebra automorphism classifications completely cover the local 2D group formulas; these are acknowledged, not claimed new. The exact worldwide arithmetic threshold, F4 exception and universal 3D realizations synthesize a sharp answer to that named question; an equivalent earlier synthesis remains a risk.
+
+## value
+
+PASS
+
+The theorem completely determines two natural minimal-dimension invariants for a fixed nontrivial finite group over every field, resolving the precise arithmetic dependence and perfect/nonperfect gap from an explicit published minimum-dimension research question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

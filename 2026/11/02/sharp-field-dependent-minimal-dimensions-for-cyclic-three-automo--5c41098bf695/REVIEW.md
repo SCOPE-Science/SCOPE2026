@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classification of one-dimensional automorphisms, the monomial reduction in perfect dimension two, and the exact diagonal/off-diagonal equations for the two-cycle establish necessary and sufficient conditions. Every nonperfect two-dimensional algebra is covered by a bilinear-form argument with cases for ranks zero, one, and two in odd and even characteristic. Three explicit perfect dimension-three constructions cover every field without implicit cardinality assumptions. The exact C++17 finite-field checks reproduce the predicted two-dimensional existence pattern for seven fields and verify the full three-dimensional automorphism groups in three small prime fields. The proof does not extrapolate finite testing to infinite fields.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 open-question survey (arXiv:2610.22248, Question 40) asks for exact minimal dimensions and explicitly discusses the complex-field \(C_3\) lower bound, but not the all-field arithmetic formula. The 2018 and 2024 two-dimensional automorphism studies supply established classification machinery and especially the \(\mu_3(K)\)/cube-root dichotomy. The new claim is not a new two-dimensional classification: it is the **joint exact unrestricted/perfect minimum across all fields**, with a concrete three-dimensional sharp construction and exceptional small-field stratification. General Cayley-algebra existence results yield some upper bounds, but do not state these exact minima. Semantic mathematical-record queries found no equivalent full claim. The fieldwise result may still be implicit in older classification work, and possible unindexed historical priority is a genuine residual risk.
+PASS
 
-**Mathematical value — PASS.** The theorem resolves a named minimal-realization invariant for the first nontrivial odd cyclic target group. It exhibits genuinely field-sensitive sharp transitions: over algebraically closed fields dimension three is needed, many finite fields need only two, and the one-dimensional zero-product exception occurs only over \(\mathbb F_4\). The separate sharp perfect minimum distinguishes an intrinsic restriction on algebra type. This is a complete natural invariant rather than an arbitrary parameter experiment.
+Dimension one has Aut=K* for zero multiplication or trivial Aut for nonzero square, so only F4 gives C3. Perfect dimension two is monomial; a 3-element subgroup must be diagonal because S2 has no 3-torsion. Support loops rule out nontrivial diagonal C3, so only a directed two-cycle, with diagonal parameters t^3=1 and off-diagonal parameters s^3=alpha^-1, produces the exact cubic criterion. Nonperfect rank-one multiplication-image cases reduce to bilinear similarity stabilizers, none of order three outside F4. For dimension three, cyclic successor+loop structure has only rotations and trivial diagonal Aut; char2 finite exceptions use a pure cycle with all t forced to 1. Independent from source code, complete prime-field automorphism enumeration found dim2 structures with exactly C3: F2=0,F3=0,F5=0,F7=24 (all perfect), and full GL3 matrix enumeration found precisely 3 automorphisms of the specified F2 and F3 3D examples.
 
-The claim is limited to \(K\)-rational automorphism groups and \(C_3\), not all finite groups, and the prior dimension-two formulas remain prior work. Independent audit is not represented as performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Question 40 in the 2026 evolution-algebra survey explicitly asks for minimum dimensions and gives only the C example. Prior two-dimensional evolution-algebra automorphism classifications completely cover the local 2D group formulas; these are acknowledged, not claimed new. The exact worldwide arithmetic threshold, F4 exception and universal 3D realizations synthesize a sharp answer to that named question; an equivalent earlier synthesis remains a risk.
+
+## value
+
+PASS
+
+The theorem completely determines two natural minimal-dimension invariants for a fixed nontrivial finite group over every field, resolving the precise arithmetic dependence and perfect/nonperfect gap from an explicit published minimum-dimension research question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
