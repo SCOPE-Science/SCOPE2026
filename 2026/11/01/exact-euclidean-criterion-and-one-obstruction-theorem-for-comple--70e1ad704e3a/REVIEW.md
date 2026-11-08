@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex Laplacian diagonalizes on within-part contrasts and weighted-zero part constants, yielding the stated two resistance values. Direct expansion of its entrywise-square distance matrix gives the complete zero-sum quadratic form. For zero-sum class variables, a positive lower bound on the diagonal form follows from Cauchy–Schwarz and the separation of positive and negative masses. With nonidentical part sizes, the two linear constraints are independent, the constrained quadratic minimizer is unique, and its rational Lagrange formula has a nonzero denominator. Completing the square leaves exactly one potentially positive direction in the squared-distance quadratic form. This proves the exact embeddability criterion, boundary rank and non-Euclidean inertia. Standard strict negative-type and finite-metric continuity arguments justify the three comparisons of the maximal exponent with two. A standalone checker reconstructed exact resistances and checked the decomposition, selected exact Gram ranks and numerical eigenvalue profiles; these are corroborating finite tests, not an all-orders proof.
+## correctness
 
-## Originality — PASS, with residual access risk
-The statement distinguishes effective resistance itself from its square-root Hilbert embedding, and a centered entrywise-**squared** resistance Gram matrix from the ordinary, unsquared resistance matrix. The open-access article of Das and Yang, *Eigenvalues of the resistance-distance matrix of complete multipartite graphs* (2017), has an inspected full text that supplies resistance formulas and an unsquared matrix spectrum, not the evaluated Euclidean phase test as stated. Li–Weston supplies the strictness-of-negative-type theorem, Jorgensen–Pearse the universal square-root-resistance embedding, and Sánchez the general finite-metric framework. The closest accessible related claims treat two-part resistance metrics or multipartite shortest-path metrics, heat flow and graph polytopes; none directly gives the three-or-more-part resistance-square criterion. The 2012/2016 Gervacio work is plausibly relevant but its full text was unavailable despite attempts through open routes and authorized institutional access; its accessible abstract is not taken as proof of noncoverage. An equivalent unpublished, unindexed or inaccessible result remains a real originality risk.
+PASS
 
-## Mathematical value — PASS
-Deciding when electrical resistance *itself* is a Euclidean metric is stronger than the always-valid Euclidean embedding of its square root. The new result gives an exact rational all-profile decision procedure for a natural graph family, identifies the entire possible departure from Euclidean geometry as one negative eigenvalue, and classifies equality and affine dimension exactly. The concrete ten-vertex examples show that the outcome is not controlled by graph order and largest part alone. This is structural information beyond isolated small-graph computations and beyond the known pairwise resistance formula.
+On unit-conductance K_{n_1,...,n_k}, the Laplacian acts by N-n_i on within-part contrasts and by N on weighted-zero class-constants, yielding pairwise R=2/(N-n_i) within parts and c(1/d_i+1/d_j) across parts. Decomposing zero-sum coefficients into within-class contrasts z and weighted class sums y gives the exact squared-resistance form -4 sum z_i^2/d_i^2 -4 sum tau_i y_i^2 +2c^2(sum y_i)^2, with sum d_i y_i=0. Positivity of the tau form on the two-constraint kernel, bordered minimization and nonzero Delta leave exactly one possible obstruction. For unequal profiles, Euclidean iff S2/Delta>=c^2/2; equality has one extra null vector, otherwise exactly one negative centered-Gram eigenvalue. Independent exact symbolic Laplacian pseudoinverse and centered R^2 Gram verified examples (1,1,3,5) margin 4941/118600 and inertia (9,0,1), (1,2,2,5) margin -297/16300 and inertia (8,1,1), and four further profiles; p-negative-type comparisons use the finite strictness-below-supremal-exponent theorem. The Gram uses entrywise square R^2, not the conventional unsquared resistance matrix.
 
-## Evidence, scope and limits
-The proof and equality vectors appear in `RESULT.md`; the independent-rational reconstruction and finite spectral checks appear in `verify_multipartite.py`. The argument is restricted to nonempty parts, three or more classes and unit conductances. It does not determine the exponent above or below two when the criterion is strict. General matrix-theoretic tools could potentially yield another equivalent presentation; no priority or novelty certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published pairwise-resistance and unsquared resistance-matrix spectrum results do not imply an all-k exact Euclidean criterion for the resistance metric itself; the universal fact that sqrt(R) embeds in Hilbert space also does not establish embeddability of R. Obata treats shortest-path metric, a different function on the same graphs. A prior complete-bipartite result only covers k=2. The single-obstruction inertia and part-profile rational boundary remain plausibly new, with inaccessible Gervacio source flagged.
+
+## value
+
+PASS
+
+The question whether a natural resistance metric itself (not its square root) is Euclidean is a structural graph-metric classification. A simple exact rational condition, equality rank drop and at-most-one-negative-mode theorem for every k>=3 supply a useful sharp boundary; contrasting ten-vertex examples show dependence on full part profile rather than only largest class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
