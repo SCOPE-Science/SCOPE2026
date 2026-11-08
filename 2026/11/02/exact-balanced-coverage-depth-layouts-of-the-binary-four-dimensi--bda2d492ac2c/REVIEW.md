@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The probability model, binary rank-four generator matrix, equal container sizes, and stopping-time convention are explicit. Möbius inversion gives an exact formula over subspaces; dimensions zero and one vanish for nonzero products, two-dimensional subspaces contribute precisely rainbow lines, and the fifteen hyperplanes contribute their intersection products. The enumeration chooses one canonical representative of every one of the \(126126\) unlabeled balanced partitions, with exact integer coefficients. All \(336\) minimizers are also exactly the \(336\) three-cap partitions, and a full enumeration of \(20160\) invertible matrices proves they form one orbit. A separate direct rational Markov computation reproduces the witness expectation without the Möbius formula. The proof applies only to the fixed finite problem; no unexamined search frontier is called exhaustive.
+## correctness
 
-**Originality: PASS, with a residual priority risk.** The October 2, 2026 distributed coverage-depth preprint establishes the model, general formulas and balanced-layout bounds, but its accessible abstract and section summaries do not identify an exact rank-four/three-container optimum or all-minimizer characterization. The single-container simplex results of Bertuzzo, Ravagnani and Yaakobi do not select distributed layouts; the published exact rank-two placement result has strictly smaller code dimension. A direct comparison with the full 33-page primary preprint could not be performed, and an unindexed equivalent computation remains possible. No priority certification is claimed.
+PASS
 
-**Value: PASS.** Balanced placement is a natural optimization in a recently proposed DNA recovery model, and this is the first nontrivial binary simplex rank-four, three-container equal-size instance. The exact rational optimum and the rigidity of all \(336\) placements give a concrete benchmark and a structural link to partitions into projective caps, not merely a recomputed single-layout expectation. This does not resolve general optimal layout selection.
+The stopping time is the first full spanning round, and exact subspace-lattice Möbius inversion gives E tau = 1 + sum over fifteen hyperplanes q_H/(125-q_H) - r/62 for q_H=product of three hyperplane intersection sizes and r rainbow F2-projective lines. Every balanced unlabeled partition has a canonical block containing vector 1 then the least remaining vector, exactly C(14,4)C(9,4)=126126 layouts; scoring is rational with integer common denominator. Independently rebuilt all fifteen hyperplanes and 35 lines, exhaustively enumerated 126126 partitions, found thirteen distinct scores and exact optimum 7491/3596 attained 336 times, second best 99660239/47542716; independently observed every minimizing block is a 5-cap. The inspected checker enumerates all 1008 5-caps and all 20160 GL(4,2) matrices to establish the 336-element orbit and no others, and the second source checker uses 67-subspace Markov recursion on the witness. This is an exhaustive proof for that 15-column instance, not extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kong et al. 2026 develop distributed DNA coverage depth and general expected-time formulas, but their actual full PDF Section V treats optimizing balanced layouts as a larger open combinatorial task and their results do not state the 15-point, three-five-part exact minimum or cap orbit. Bertuzzo–Ravagnani–Yaakobi address single-container coverage; prior dimension-two optimal layout is not equivalent to this rank-four optimization. Full primary PDF was obtained and relevant pages, propositions and appendix searched, substantially reducing an earlier access risk.
+
+## value
+
+PASS
+
+The exact global optimizer and complete projective-cap characterization solve a natural nontrivial placement problem in distributed sampling of a canonical simplex code. The distinction between recovery rounds and physical reads is explicit; the invariant is valuable without an all-rank theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
