@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Verification record
+# Independent mathematical audit
 
-The embedded `verify.py` uses direct neighbor-list summation, not the analytic proof's characteristic polynomial or block construction, for its exhaustive trajectory checks. It also performs independent binary Gaussian elimination on matrix powers and compares the resulting kernel dimensions with those implied by the claimed Jordan forms.
+## correctness
 
-The verified recorded execution of this script returned:
+PASS
 
-```
-HETEROGENEOUS_COMPLETE_XOR_VERIFY_OK matrix_pairs= 169 binary_pairs= 24 binary_states= 11280 GF4_pairs= 8 GF4_states= 47360 assertions= 2235
-```
+With all off-diagonal arcs present and diagonal feedback 0 on U, 1 on L, the update F=D+J and char2 determinant lemma give chi_F=X^(b-1)(X+1)^(a-1)[X^2+(1+a_bar+b_bar)X+b_bar]. Direct kernel counts dim ker(F)=b-1 and dim ker(F)^2=b-1 if b odd, b if even, with corresponding F+I counts a-1 and a-1/a. Combined multiplicities force precisely the four Jordan decompositions: (odd,odd) order-3 C(X²+X+1), (odd,even) nilpotent J3(0), (even,odd) unipotent J3(1), (even,even) J2 at both 0 and 1. Fitting decomposition gives periods {1,3},{1},{1,2,4},{1,2}, sharp transient maxima 1,3,1,2, primitive orbit counts and exact H_t table for every q=2^k. Independently traversed 3600 labeled binary states for all 16 pairs 2<=a,b<=5; all cycle and entry-time counts matched. The analytic block proof, not finite enumeration or stored execution log, supplies all-parameter q,n results.
 
-Checks cover ordered class sizes from two through fourteen for binary matrix powers, plus the indicated finite binary and four-element-field exhaustive cases. The all-size proof, not the finite ranges, supplies the universal statement. This record is not independent audit evidence.
+## originality
+
+PASS
+
+PASS best-of-knowledge after source/implication comparisons. The dynamic period-3 mixed-feedback phase and complete Jordan/cycle/transient counts are not supplied by inspected uniform-rule or general-complexity claims. An inaccessible highly relevant 2020 directed-XOR article is explicitly a significant priority risk but does not alone imply mathematical coverage from its abstract.
+
+## value
+
+PASS
+
+The natural perturbation is to allow some vertices in a complete interaction network to count their own state. This creates a genuine new order-three component absent from both homogeneous endpoints, and a complete four-regime structure including every primitive orbit and transient layer over all characteristic-two alphabets. It is a meaningful structural classification, not just table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
