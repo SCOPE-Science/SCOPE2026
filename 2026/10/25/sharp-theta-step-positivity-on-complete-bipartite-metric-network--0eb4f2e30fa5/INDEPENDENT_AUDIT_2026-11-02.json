@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:13:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md SHA 6d32c2e1f3a3ab394727b4b97c686ba6063099c0",
+        "Frozen verify_theta_biclique.py SHA 5eba45216a0b28abe0be095b1f7b790cde307bbe",
+        "Frozen VERIFICATION.md SHA 8d5542cc65d69fd08203f9b1ccff44282c91b8b5",
+        "Independent /mnt/data/scope_worker10_math_checks.py: 495 exact rational dense-inversion checks and symbolic F_m comparisons",
+        "Frozen Git tree 7f3d5052f7d09aa6839b1faf8a311062f9feba34 reconstructed and matched from seven actual blob SHAs"
+      ],
+      "rationale": "Reconstructed exact P1 edge matrices M_e=ℓ[[2,1],[1,2]]/6 and K_e=[[1,−1],[−1,1]]/ℓ; hence M=ℓ(2D+A)/6 is SPD, K=(D−A)/ℓ positive semidefinite with constant null vector. The complete M-orthogonal generalized eigenbasis has eigenvalues 0,3/ℓ²,12/ℓ², including p=1 or q=1. Its exact projector formula yields positive opposite-part offdiagonals, same-part offdiag π_j 6x(6θx−1)/[(1+3θx)(1+12θx)], and diagonals governed by F_m=m+[m(15θ−3)−3]x+18θ[1−2m(1−θ)]x². This proves x≥1/(6θ) is necessary for positive x and that F_m≥0 suffices when m≥2. At the boundary F_m=3m(3θ−1)/(2θ), derivative 3[m(9θ−5)+1]; the θ<1/3 concavity, exact θ=1/3 factorization, θ∈(1/3,1−1/(2m)) unique positive root and θ≥1−1/(2m) positive coefficients establish every open/closed endpoint and isolated step; t=0 is identity and θ=0 forbids positive t. For θ=1/2, m=2 upper=(1+√3)/3 and large-m upper→2/3. Independently verified the same-part polynomial and diagonal polynomial with SymPy, boundary value/derivative/factorization symbolically, and 495 additional exact rational direct matrix inversions/projector comparisons/row sum and sign tests for p,q≤4, six θ values and several rational steps. The 2,952 source self-check cases are not counted as independent tests. The proof, not finite enumeration, establishes the infinite domain.",
+      "residual_risks": [
+        "No external formal proof assistant or expert attestation; exact analytic argument is manually reconstructed and finite checks are strictly corroborative.",
+        "Only equilateral one-linear-element-per-edge with unit diffusivity, complete bipartite topology, θ∈[0,1] and t≥0; no Dirichlet elimination or mass lumping.",
+        "K_{1,1} excluded: no same-part distinct vertices, so lower-bound argument would change."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CHV 2015 Theorems 4.11–4.12 analyze θ-step matrix positivity when H^{-1}>0 for (in applications) Dirichlet FE heat operators; the constant Kirchhoff mode gives H1=0, so the technical premise fails. Its bounded-interval analysis cannot directly yield the Kpq upper-halfline θ≥1−1/(2m).",
+          "Li–Huang arXiv:1209.5657 Theorem 3.1 has sufficient two-sided DMP restrictions for anisotropic Dirichlet simplicial FE, not an if-and-only-if network theorem.",
+          "Jin et al arXiv:1510.02825 Theorems 4.1–4.3 provide subdiffusion BE-convolution-quadrature positivity results; Arioli–Benzi DOI drx029 develops FEM on graphs but does not classify θ-step nonnegativity."
+        ],
+        "reasoning": "These broader application/abstract-theory classes do not contain the exact hypotheses of a closed Kirchhoff metric network with singular diffusion generator and the explicit four-branch sharp positivity set; no prior-coverage implication follows.",
+        "searches": [
+          "Web: \"On Preservation of Positivity in Some Finite Element Methods for the Heat Equation\" pdf Chatzipantelidis Horvath Thomee",
+          "Web: Li Huang maximum principle finite element solution time dependent anisotropic diffusion theta time step 2012 theorem 3.1",
+          "Web: Jin Lazarov Thomee Zhou On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations full text",
+          "Web: finite elements on metric graphs positivity preserving consistent mass Kirchhoff Crank Nicolson time step",
+          "Web: Mario Arioli Michele Benzi A finite element method for quantum graphs drx029 pdf arxiv",
+          "Resultary: Exact positivity thresholds for Crank Nicolson and theta methods on metric graphs and periodic networks using consistent finite element mass"
+        ]
+      },
+      "checked_sources": [
+        "CHV author-posted full PDF https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf §§4,6.2",
+        "Li–Huang arXiv:1209.5657 full PDF Theorem 3.1",
+        "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825 full PDF Theorems 4.1–4.3",
+        "Arioli–Benzi open PDF DOI:10.1093/imanum/drx029 §§3,7.2",
+        "Resultary published Markov CN full RESULT.md Oct 4 2026",
+        "Resultary published BE-filtered CN indexed abstract Sep 20 2026",
+        "Resultary semantic searches: four full-claim and alias queries; web targeted primary-source queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CHV general θ-step identity is a structural tool and overlaps phase-window vocabulary, but its H^{-1}>0 technical requirement fails at the Kirchhoff zero mode, while its generic discussion gives no m-dependent explicit exact root or unbounded θ≥θc behavior.",
+          "Markov CN theorem requires nonnegative offdiagonals Q_ij for i≠j; the consistent mass inverse creates negative same-part entries in Q=−M^{-1}K, hence no implication even for θ=1/2.",
+          "Li–Huang coefficientwise sufficient upper bound is conservative; at θ=1/2,m=2 elementary numerator positivity ensures x≤2/3 but actual sharp positive endpoint is (1+√3)/3>2/3."
+        ],
+        "reasoning": "Prior sufficient conditions, underlying matrix identities, and a covered K2,2 case are strictly weaker/different; their conjunction does not logically imply a complete all-θ classification for every complete-bipartite size. The accepted scientific content is the exact specialized phase diagram, not a general theta method law.",
+        "searches": [
+          "Resultary: Sharp entrywise nonnegativity of theta-method time-step matrices for consistent-mass linear finite elements on equilateral complete bipartite graphs with Kirchhoff vertices",
+          "Resultary: Exact positivity thresholds for Crank Nicolson and theta methods on metric graphs and periodic networks using consistent finite element mass",
+          "Resultary: The exact nonnegativity window for backward Euler and Crank Nicolson P1 finite elements on metric graph stars, complete bipartite graphs and cycles",
+          "Web: Li Huang maximum principle finite element solution time dependent anisotropic diffusion theta time step 2012 theorem 3.1",
+          "CHV 2015 Theorems 4.11,4.12",
+          "Li-Huang arXiv:1209.5657 Theorem 3.1",
+          "Arioli–Benzi DOI:10.1093/imanum/drx029 §3,7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CHV Theorem 4.11 already writes θ E_{θ,k}=E_{1,θk}−(1−θ)I, so reducing a θ-step to resolvent entries is prior; exact biclique eigenmodes and sharp boundary still require new work.",
+          "Resultary published CN Markov theorem gives positivity iff resolvent diagonal≥1/2 but assumes a Metzler Markov generator Q; here Q=−M^{-1}K has negative offdiagonals for vertices in the same partition, as directly seen in derivative at x=0 of claimed exact formula.",
+          "Current claim additionally includes all θ∈[0,1], p,q with m≥2 and all positive step sizes, including a non-Markov small-step sign obstruction."
+        ],
+        "reasoning": "Cayley/resolvent and θ-step alias checks uncover genuinely known algebra, but their hypotheses or conclusions fail to supply the exact zero-mode network time-step phase. The known algebra is credited rather than mislabeled as new.",
+        "searches": [
+          "Resultary: Sharp entrywise nonnegativity of theta-method time-step matrices for consistent-mass linear finite elements on equilateral complete bipartite graphs with Kirchhoff vertices",
+          "Resultary: Exact positivity thresholds for Crank Nicolson and theta methods on metric graphs and periodic networks using consistent finite element mass",
+          "Resultary: For equilateral metric complete bipartite graph K_{p,q}, consistent finite element P1 theta step positivity: exact threshold x=1/(6 theta), isolated theta=1/3, and upper transition theta=1-1/(2 max(p,q))",
+          "Web: \"On Preservation of Positivity in Some Finite Element Methods for the Heat Equation\" pdf Chatzipantelidis Horvath Thomee",
+          "Primary CHV DOI:10.1515/cmam-2015-0018 §4.11",
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The K_{2,2}, θ=1/2 finite upper endpoint (1+√3)/3 is an acknowledged previously studied four-cycle CN special case and is not independently novel.",
+          "Resultary closest indexed findings concern filtered CN on periodic 1D lattices or general Markov CN; no all-Kpq uniform-edge theta-step exact table was returned.",
+          "CHV 2015 §6.2 handles domain/mesh examples, not an m=max(p,q) biclique table."
+        ],
+        "reasoning": "No covering all-parameter table was located. A known four-cycle entry is a special case already subsumed and cannot by itself imply the all-m, all-θ phase including θ=1/3 singleton and θc threshold. Search absence is a stated limitation, not proof.",
+        "searches": [
+          "Resultary: For equilateral metric complete bipartite graph K_{p,q}, consistent finite element P1 theta step positivity: exact threshold x=1/(6 theta), isolated theta=1/3, and upper transition theta=1-1/(2 max(p,q))",
+          "Resultary: The exact nonnegativity window for backward Euler and Crank Nicolson P1 finite elements on metric graph stars, complete bipartite graphs and cycles",
+          "Web: \"complete bipartite\" \"finite element\" \"theta\" positivity consistent mass metric graph",
+          "Web: theta method consistent mass positivity preserving graph heat equation finite element graph Laplacian",
+          "Resultary: Crank Nicolson time-step matrix for uniform periodic four-vertex cycle consistent linear finite element mass has positivity interval from 1/3 to (1+sqrt(3))/3"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority assessment for complete if-and-only-if θ phase diagram on single-element-per-edge consistent-mass equilateral Kirchhoff K_{p,q}, m≥2, NOT for the known general theta-method resolvent identity or previously studied K_{2,2} CN subcase. Fresh Resultary searches plus materially read full primary texts show CHV 2015 proves important general conditional theta-positivity structure under H^{-1}>0 Dirichlet invertibility and Li–Huang sufficient FEM bounds; these do not imply the zero-mode biclique halfline θ≥1−1/(2m), explicit m-controlled finite root and isolated θ=1/3 step. Arioli–Benzi establishes graph FEM but not the sharp time-step sign diagram. Published Markov CN resolvent return theorem has a generator hypothesis violated by −M^{-1}K. No observed covering stronger theorem or exhaustive table, with explicit residual risk of unindexed prior specializations.",
+      "residual_risks": [
+        "CHV 2015 already contains the general θ-step identity and conditional bounded-window/singleton classification; novelty must be confined to this exact biclique zero-mode specialization with explicit sharp endpoints, not that general mechanism.",
+        "Possibility of a published but unindexed biclique/graph discretization that evaluates precisely these eigenmodes and obtains the same thresholds; the absence of a search match is not proof of priority.",
+        "Known K_{2,2} Crank–Nicolson special case and general θ-step inversion algebra are prior covered; no claim of their independent priority.",
+        "No external expert literature certification; assessment is best-of-knowledge after relevant full-text examination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important prior structural theta-step lemma and positivity-window framework, not all-parameter sharp K_{p,q} network classification: theorem assumes positive-definite Dirichlet generator H with H^{-1}>0, whereas Kirchhoff closed-network discretization has zero eigenvalue, constant steady state, and for sufficiently small step its generator is non-Metzler. Does not provide the explicit m-dependent upper root or unbounded θ≥1−1/(2m) phase.",
+          "evidence": [
+            "Theorem 4.11: θ E_{θ,k}=E_{1,θk}−(1−θ)I; positivity intervals/singletons conditional on H^{-1}>0.",
+            "Theorem 4.12: coefficient/Stieltjes sufficient restrictions; §6.2 treats Dirichlet finite elements, not zero-mode complete-bipartite Kirchhoff networks."
+          ],
+          "identifier_or_url": "https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf ; DOI:10.1515/cmam-2015-0018",
+          "material_read": "Author-hosted full lawful PDF: title, abstract, introduction, relevant §4 around Theorems 4.9–4.12, and §6.2 applications; reconstructed θ E_{θ,k}=E_{1,θk}−(1−θ)I and examined the hypotheses of the interval/singleton result.",
+          "method": "Read primary author-posted full text, including hypothesis preceding Theorem 4.11, theorem statements and proof discussion, compared directly with frozen metric-network theorem.",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Closest specialized prior positivity theory for theta-steps of consistent-mass heat finite elements; original self-review reported full text inaccessible."
+        },
+        {
+          "assessment": "Gives useful sufficient lower and upper mesh/time restrictions, not necessary-and-sufficient biclique Kirchhoff network phase diagram.",
+          "evidence": [
+            "Theorem 3.1 applies to anisotropic diffusion on polygonal/polyhedral simplicial domains with Dirichlet data and imposes sufficient DMP restrictions, not explicit three-eigenmode K_{p,q} spectral classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+          "material_read": "Public preprint text: introduction and Dirichlet PDE setup, matrix coefficients, Theorem 3.1 and its proof including two-sided sufficient time step restrictions; inspected page image of theorem.",
+          "method": "Read arXiv full text and relevant theorem-page image.",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Same θ-method with consistent finite element mass and discrete maximum principle."
+        },
+        {
+          "assessment": "Provides small-step nonnegativity obstruction and sufficient BE convolution-quadrature criteria on domain meshes, not all-θ Kirchhoff K_{p,q} classification.",
+          "evidence": [
+            "Theorems 4.1–4.3 are for fractional diffusion and backward-Euler-based convolution quadrature on polygonal Dirichlet finite-element models."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+          "material_read": "Public preprint: introduction, ordinary/fractional subdiffusion definition, Theorems 4.1–4.3 and proofs, page image of Theorems.",
+          "method": "Read arXiv primary full text and relevant result-page image.",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Consistent finite-element mass, small-time positivity obstruction and resolvent/Stieltjes criteria."
+        },
+        {
+          "assessment": "Supplies general graph FEM framework, not an explicit elementwise theta-step positivity theorem or complete bipartite sharp thresholds.",
+          "evidence": [
+            "Section 3 constructs graph FE discretizations; §7.2 discusses time evolution and numerical integrators without the stated entrywise positivity classification."
+          ],
+          "identifier_or_url": "https://cerfacs.fr/wp-content/uploads/2017/03/revised4-1-ARIOLI.pdf ; DOI:10.1093/imanum/drx029",
+          "material_read": "Lawfully open primary full text: metric-graph Kirchhoff definition, Section 3 finite-element discretization, and §7.2 evolution/temporal integration discussion including method references.",
+          "method": "Read accessible full paper text and mathematical setup, compared FE graph construction with one-element-per-edge update.",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Same Kirchhoff metric graph geometry and finite-element assembly could potentially dominate the proposed biclique statement."
+        },
+        {
+          "assessment": "Strong general theorem for Markov generators Q with nonnegative off-diagonal entries; not applicable to the present consistent-mass Q=−M^{-1}K, which has negative off-diagonal coefficients between same-part vertices and is not Markov/Metzler. Restricted to θ=1/2 and cannot imply θ=1/3 isolated-step phenomenon.",
+          "evidence": [
+            "Finding: C_h=2(I−hQ/2)^{-1}−I and CN positivity iff every BE resolvent diagonal ≥1/2 for finite Markov Q.",
+            "Current exact spectral decomposition shows negative same-part offdiagonal T entries for sufficiently small t>0, so its derivative Q has negative same-part offdiagonal when m≥2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Read full primary RESULT.md including Finding, Assumptions and scope, complete proof, prior-work comparison and limitations; examined generator sign hypotheses.",
+          "method": "Read published source document from actual GitHub and compared matrix hypotheses and logical implication.",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Closest published sharp fixed-generator CN positivity criterion, potentially stronger by abstraction."
+        },
+        {
+          "assessment": "Claims positivity for filtered composition of BE and CN steps, not for the unfiltered θ-step on an arbitrary complete-bipartite Kirchhoff metric network. No whole-document exclusion inferred from abstract.",
+          "evidence": [
+            "Indexed abstract concerns C^k R^m filtered compositions on infinite/periodic 1D lattices and a Dirichlet endpoint counterexample."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Resultary semantic index title and abstract; no full source-text comparison is claimed.",
+          "method": "Published abstract/semantic-index comparison only.",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Relevant published work on positivity of CN-related steps on periodic one-dimensional spatial lattices."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions, complete three-mode proof",
+        "CHV 2015 §4 prior general positivity mechanism and distinct Dirichlet hypotheses",
+        "Li–Huang arXiv:1209.5657 Theorem 3.1 conventional sufficient DMP thresholds",
+        "Independent exact rational comparisons including edge cases p=1, q>1 and θ=1/3 singleton"
+      ],
+      "rationale": "On a natural branched wire network with Kirchhoff junctions and consistent P1 mass, exact entrywise step positivity guarantees the nodal maximum principle for arbitrary nonnegative initial nodal values. The phase diagram is a useful complete sharp design rule across all p,q (including stars with one singleton part) and every θ∈[0,1], not just a textbook sufficient M-matrix criterion: there is an isolated positive step θ=1/3,x=1/2, a bounded safe window for 1/3<θ<1−1/(2m), and an unbounded safe halfline at/above the sharp topology-dependent θc(m). The upper end R_m(θ) is explicit and shows dependence only on larger part size, with meaningful m=2 versus m→∞ contrast. It exhibits non-monotonicity in step size and why generic coefficientwise restrictions miss admissible steps; a researcher using meshed network diffusion could need these exact bounds. Though specialized, this is a motivated full natural-family classification, not an arbitrary finite table or renaming of a general abstract theorem.",
+      "residual_risks": [
+        "Equilateral one-element-per-edge restriction limits direct extension to heterogeneous wire meshes and mass-lumped schemes.",
+        "The algebra is short owing to three exact spectral modes, but the distinct sharp phase diagram is a substantive numerical-analysis invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literature priority is best-of-knowledge, with explicit coverage overlap and unindexed graph-related-paper risk.",
+    "Universal proof is analytic and not formally machine-checked; independent finite computations corroborate only tested instances.",
+    "The 2015 CHV full text was newly located and read; general theta-step positivity identity was already known and is credited.",
+    "Only equilateral Kirchhoff Kpq single-element-per-edge P1 consistent mass, fixed theta step t≥0, no K_{1,1}.",
+    "Existing public AUDIT.json and METADATA.json contain an operational run identifier and unsupported first-public-date provenance; complete privacy-sanitized guarded replacements have not been supplied, so even a scientific PASS does not make this source package importable or safe to publish."
+  ],
+  "schema_version": 1
+}
