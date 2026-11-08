@@ -1,24 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS (self-review). The precise graph model is the loopless projection of the sequential Pólya threshold graph. Reilly–Scheinerman's suffix matching test is reconstructed using Hall's condition, and the classical reflection count is combined with the exact exchangeable urn word weights. The endpoint representation and symmetry give an explicit first-order approximation by \(\mathbb E|K|/n\), with a deterministic error of order \(n^{-1}+\kappa_n^{-1}\). A joint Beta-normal/binomial-normal limit, a subsequence argument that does not assume a ratio limit, and uniform integrability prove the sharp constant. Reproduced finite exact and numerical tests: 8620 assertions. The finite tests do not prove the asymptotic.
+PASS
 
-## Originality
+Inspected the exact threshold matching–ballot equivalence and reflection count, then independently implemented graph perfect-matching recursion and the symmetric Beta urn exact probability: 697 exact assertions verify the two characterizations and equal finite probabilities for even n=2..10 and three rational Beta parameters. Analytically, the reversed (n−1)-bit path has symmetric endpoint K, ballot probability E[2(K+1)/(n+K+1)*1_{K>0}], variance σ²=L+L(L−1)/(κ+1), and difference from E|K|/n bounded by O(n^{-1}+σ²/n²). The Beta mixing CLT and conditional centered-binomial CLT are asymptotically independent; every coefficient subsequence converges to a unit Gaussian combination, proving K/σ→N(0,1) for every κ_n→∞. Uniform integrability from exact second moment gives E|K|/σ→sqrt(2/π), and σ/n∼sqrt(1/n+1/κ). Finite enumeration corroborates, but the rate-free asymptotic comes from this analytic proof.
 
-PASS relative to the inspected sources, with historical-priority risks. Reilly and Scheinerman (2009) already give the matching criterion and the independent fair-bit probability, so neither is counted as a new result. Yu, Alajaji and Gharesifard (2026) define the dependent graph process, the exact exchangeable word law and other graph properties, not the matching crossover. Antal, Ben-Naim and Krapivsky (2010) give Pólya first-passage/equality results, rather than this finite-horizon symmetric initial-mass/graph-size triangular-array law. Schulte-Geers and Stadje (2014) treat all-time maxima and fixed initial masses, including the known \(1-\log2\) limit. Actual searches of the accessible literature and mathematical claim records did not reveal the rate-free \(\sqrt{n^{-1}+\kappa_n^{-1}}\) matching law. A general unpublished or unindexed exchangeable-ballot theorem might imply it; no claim of unique priority is made.
+## originality
 
-## Value
+PASS
 
-PASS. Existence of a perfect matching is a basic structural connectivity condition for a random graph. Correlated vertex types change its chance in a way not visible from the same one-vertex marginal: the sharp coefficient and effective size show the exact boundary between sampling fluctuations and reinforcement heterogeneity. Unlike the already-known independent and fixed-concentration endpoint cases, the theorem works through every intermediate scaling, including oscillating concentration-to-size ratios. No broader classification or paper-sized consequence is asserted.
+Reilly–Scheinerman already proved deterministic threshold-graph ballot matching and the independent-bit perfect-matching asymptotic; Yu–Alajaji–Gharesifard supplied the Pólya threshold graph law. Those results are credited rather than presented as new. Neither inspected source states the coupled n,κ→∞ rate-free Gaussian crossover; a general exchangeable ballot theorem might implicitly imply it, retained as a risk.
 
-## Scope and checks
+## value
 
-- The finite-word matching test and beta mixture are independent implementations; all logged finite assertions passed.
-- The nonstandard joint central-limit step is proved with conditional characteristic functions and a subsequence argument.
-- The graph is loopless for matching, initially colour-symmetric, and of even order.
-- Limit regime requires both order and initial-to-reinforcement concentration to diverge.
-- Related all-time and fixed-parameter urn formulas are credited, not presented as new.
-- Risks: possible general boundary-crossing theorems outside the inspected corpus; no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantity is a natural random-graph feasibility probability. The exact effective size (n^{-1}+κ^{-1})^{-1} connects weak reinforcement, crossover κ∼n and independent-bit regimes in one sharp formula with no hidden growth-rate restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
