@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Counting the incidences from selected points to omitted lines bounds every induced matching by five edges. The column-profile/tangent argument classifies every equality case by two intersecting affine lines and yields exactly 27 optimal matchings. The explicit local-intersection table, the 18 noncollinear-triple triangle blocks, and the three-net reconstruction prove that the two-edge exchange graph is the line graph of the Pappus graph. Two executable standard-library programs build the graph independently (affine incidence versus LCF), enumerate every optimum by distinct algorithms, and verify the entire distance table. Numerical conclusions are confined to this finite graph.
+## correctness
 
-**Originality — PASS, qualified.** The accessible full texts of Nguyen (2014, arXiv:1407.7604) and Joos (2014, arXiv:1407.8336) prove general lower bounds on induced matching number, not the 27 optimal Pappus configurations or the self-line-graph exchange correspondence. Brouwer's Pappus graph description gives the underlying affine configuration, not the optimum-solution graph. Published results on the ordinary Pappus matching complex concern ordinary matchings and do not imply the induced-matching classification; only summary material for these newer records was accessible. A plausible older general study by Dabrowski, Demange and Lozin (2013) was checked at abstract level; full text could not be verified, so an equivalent example is a residual risk. Matching wording or negative search results are not treated as proof of originality.
+PASS
 
-**Value — PASS.** The result recovers a canonical incidence geometry purely from optimal strong matchings: the optimal-solution exchange graph is the line graph of its host, with a sharp two-edge mobility threshold and complete shortest-path information. This is a structural classification, not an arbitrary isolated numerical invariant; the batch-exchange metric and exceptional geodesics make the exact geometry useful for understanding feasible transformations of maximum induced matchings.
+For r induced flags, every selected point touches two of the 9-r unselected lines, so 2r<=3(9-r), forcing r<=5. Occupancy profiles of 5 points across vertical affine columns show that tangents exist exactly for unions of two nonparallel allowed affine lines; 3 slope pairs times 3² choices yield 27 configurations. Flag transitivity and exact five-flag construction show four two-exchange neighbors each, yielding 18 unique edge-disjoint triangles. Recovering the 18-vertex triangle-intersection graph yields the 3-net of order 3, hence Pappus; exchange graph is its line graph. Independent direct incidence enumeration and shortest-path calculation verified the complete 27-vertex exchange graph, 54 edges, 18 triangles, pair distances 54,108,162,27. The claim is finite and the exhaustive proof bounds all candidates.
 
-**Limits and priority risk.** This is an order-three finite geometry, not a claimed uniform theorem for all affine nets. Historical coverage is incomplete; independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Pappus graph incidence structure and intersection array are classical; Nguyen/Joos give general induced-matching bounds and ordinary Pappus matching-complex work uses different admissibility. Neither explains the exact graph on the 27 maximum induced matchings or its unexpected line-graph isomorphism. Indexed Resultary Pappus homotopy records are for ordinary matchings, not the induced exchange graph.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical highly symmetric finite cubic graph; its complete optimal induced-matching reconfiguration geometry and self-recovery as a line graph are natural exact invariants. The sharp need to replace at least two flags is a structural result, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

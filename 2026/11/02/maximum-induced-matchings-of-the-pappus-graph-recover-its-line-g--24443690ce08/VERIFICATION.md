@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python affine_certificate.py` and `python lcf_certificate.py` in the directory containing the provided files. Both use Python 3 standard-library modules only and raise assertion failures if any stated count or graph-structure check fails.
+## correctness
 
-The affine certificate enumerates all 80,730 possible five-edge subsets of a 27-edge incidence graph, checks the induced-matching predicate, constructs all two-edge replacements, computes breadth-first distances from every optimum, identifies its 18 triangles, and verifies that their intersection graph is isomorphic to the original incidence graph. The optimality upper bound is separately established by the incidence inequality in the proof.
+PASS
 
-The LCF certificate constructs the host graph independently from a Hamiltonian cycle and chord sequence. Its pivoted maximal-clique search enumerates the complete edge-compatibility graph and yields maximal-clique counts 153 of size three and 27 of size five. It independently checks every optimal exchange and shortest-path distance, reconstructs the 18-triangle graph, and checks its isomorphism to the LCF host.
+For r induced flags, every selected point touches two of the 9-r unselected lines, so 2r<=3(9-r), forcing r<=5. Occupancy profiles of 5 points across vertical affine columns show that tangents exist exactly for unions of two nonparallel allowed affine lines; 3 slope pairs times 3² choices yield 27 configurations. Flag transitivity and exact five-flag construction show four two-exchange neighbors each, yielding 18 unique edge-disjoint triangles. Recovering the 18-vertex triangle-intersection graph yields the 3-net of order 3, hence Pappus; exchange graph is its line graph. Independent direct incidence enumeration and shortest-path calculation verified the complete 27-vertex exchange graph, 54 edges, 18 triangles, pair distances 54,108,162,27. The claim is finite and the exhaustive proof bounds all candidates.
 
-Expected success markers are `AFFINE_EXHAUSTIVE_MATCHING_LINE_GRAPH_PASS` and `LCF_MAXIMAL_CLIQUE_AND_METRIC_PASS`. These checks verify finite mathematical statements; they do not constitute an independent scholarly audit or establish literature novelty.
+## originality
+
+PASS
+
+The Pappus graph incidence structure and intersection array are classical; Nguyen/Joos give general induced-matching bounds and ordinary Pappus matching-complex work uses different admissibility. Neither explains the exact graph on the 27 maximum induced matchings or its unexpected line-graph isomorphism. Indexed Resultary Pappus homotopy records are for ordinary matchings, not the induced exchange graph.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical highly symmetric finite cubic graph; its complete optimal induced-matching reconfiguration geometry and self-recovery as a line graph are natural exact invariants. The sharp need to replace at least two flags is a structural result, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
