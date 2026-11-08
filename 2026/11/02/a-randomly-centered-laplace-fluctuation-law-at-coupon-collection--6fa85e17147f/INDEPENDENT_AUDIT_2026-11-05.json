@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:03:55.638214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson superposition gives independent Exp(1) first arrivals X_i and maximum M_n, with stopped arrival count distributed jointly as coupon completion time T_n and singleton count S_n. Given M_n=y, the last arriving process is singleton and the other n-1 are independent positive-truncated Poisson(y), so S_n=1+Bin(n-1,y exp(-y)/(1-exp(-y))). At y=log n+x, uniformly on compact x, its mean minus log(n)e^{-x} is O(1) and variance/log n tends to e^{-x}; conditional characteristic functions give the stable mixed normal (G,sqrt(e^{-G})Z). Zero-truncated Poisson moment bounds make T_n/n-M_n=O_P(sqrt(log n/n)); the random centers differ by o_P(sqrt(log n)), so Slutsky transfers to the discrete coupon process. Integrating exp(-t^2 E/2) with E~Exp(1) yields centered Laplace scale 1/sqrt2, and the Gamma joint characteristic function. Checked source finite DP and conditional formulas; independent small-n positive-truncated Poisson moment checks corroborated, not a proof of CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The known all-n finite joint distribution is an exact umbrella for computing probabilities; Mahmoud–Smythe study generalized coupon counts over stages; Long 2026 accessible abstract addresses siblings and limiting behavior, with full text not accessible.",
+        "reasoning": "A published bivariate local CLT or de-Poissonization result in the broader literature might imply the present limit. None of the actually read full primary sections establishes this conditional random-center Laplace limit; Long is explicit priority risk.",
+        "searches": [
+          "Myers Wilf 2003 arxiv:math/0304229",
+          "Mahmoud Smythe 2012 On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+          "Long 2026 arxiv:2606.29635 Extremality and Limit Laws for Siblings of Coupon Collector"
+        ]
+      },
+      "checked_sources": [
+        "Some New Aspects of the Coupon-Collector’s Problem (https://arxiv.org/abs/math/0304229)",
+        "Limit theorems in the extended coupon collector’s problem (https://www.vmsta.org/journal/VMSTA/article/358/text)",
+        "Extremality and Limit Laws for the Siblings of the Coupon Collector (https://arxiv.org/abs/2606.29635)",
+        "Resultary semantic search matched to this theorem; no direct dominating result retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "First-order S_n/log n=>E does not determine conditional central-limit fluctuations about log n e^{-T_n/n}; even Gaussian conditional noise yields non-Gaussian Laplace after exponential mixing.",
+        "reasoning": "The known exact law and Poisson embedding are powerful starting points, but the conditional triangular-array CLT, random centering, and mixed joint characteristic function require additional demonstrated arguments. Priority remains best-of-knowledge.",
+        "searches": [
+          "Myers Wilf 2003 Eq. (46), Eq. (49)",
+          "Ilienko 2026 Theorem on singleton counts",
+          "Long 2026 accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Myers–Wilf Eq. (46) is a finite exact joint law and Eq. (49) a singleton marginal; Ilienko establishes first-order exponential scaling in extended coupon systems.",
+        "reasoning": "An exact finite law is a stronger *distributional data source*, but it is not equivalent to a proved second-order random-centered weak limit. The claim does not rename the known first-order Exp(1) result.",
+        "searches": [
+          "Myers Wilf 2003 arxiv:math/0304229 section 4",
+          "Ilienko 2026 Limit theorems in the extended coupon collector problem",
+          "Resultary coupon collector singleton random completion time mixed Gaussian fluctuations centered Laplace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "Exact finite Stirling enumerators can reproduce finite probabilities for fixed n; their presence is acknowledged, not re-presented as novel.",
+        "reasoning": "The proposed theorem is a weak-convergence statement with new scaling and a joint Gamma characteristic function, not a missing finite numerical cell. No database entry alone certifies such a limit.",
+        "searches": [
+          "Myers Wilf 2003 finite associated-Stirling joint distribution tables",
+          "Resultary coupon singleton second-order Laplace law"
+        ]
+      },
+      "rationale": "Myers–Wilf (2003) already gives exact finite joint (T_n,S_n) distribution; exponential first-order singleton limit is also prior. The evaluated random-time-centered joint second-order mixed Gaussian/Gumbel and Laplace marginal are not stated in the primary materials read; extracting an asymptotic from known finite formulas requires nontrivial analysis but could have been done earlier.",
+      "residual_risks": [
+        "Full text not obtained; abstract alone cannot certify noncoverage.",
+        "Priority is best-of-knowledge, not an exhaustive all-literature assertion; equivalences in historical specialized results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite joint and marginal distributions prior; does not state the second-order mixed Gaussian/Laplace law in inspected section",
+          "evidence": "The associated Stirling law counts (T_n,S_n), not the limit of (T_n/n-log n, (S_n-n log n exp(-T_n/n))/sqrt(log n)).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+          "material_read": "Full primary PDF, particularly Section 4, Eq. (46) and (49)",
+          "method": "Read full section and visually inspected PDF",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Exact same stopping time and number of singleton coupons"
+        },
+        {
+          "assessment": "Establishes first-order exponential random-limit behavior; no exact random-centered Laplace second-order theorem located",
+          "evidence": "The scale log n is prior; new fluctuation scale sqrt(log n) and conditional random centering distinguish claims.",
+          "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/358/text",
+          "material_read": "Accessible full journal HTML theorem statements and proof context",
+          "method": "Read primary full text",
+          "title": "Limit theorems in the extended coupon collector’s problem",
+          "trigger": "Recent first-order singleton and sibling limits"
+        },
+        {
+          "assessment": "Potential stronger overlap cannot be ruled out",
+          "evidence": "Full text not obtained; abstract alone cannot certify noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+          "material_read": "Abstract/public bibliographic record; attempted full-text retrieval failed",
+          "method": "Read abstract only",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Recent similar coupon singleton limit work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The self-centering by realized completion time reveals a distinct second-order fluctuation that is not Gaussian despite a conditional Gaussian law. The exact joint Gumbel–Gaussian mixture with exponential mixing and Laplace marginal supplies a precise natural asymptotic statistic at the classical coupon-collection stopping time, extending known first-order singleton laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform independent coupons, n→infinity; random stopped-time centering is essential.",
+    "No quantitative convergence rate or nonuniform coupon extension; no claim to the known finite joint distribution.",
+    "Full Long (2026) related sibling-paper text was not accessible; priority remains provisional."
+  ],
+  "schema_version": 1
+}

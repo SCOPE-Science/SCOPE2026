@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A Poisson embedding gives the exact conditional binomial law for singleton counts at the maximum first-arrival time, a locally uniform conditional central limit theorem, a quantitative conditional moment bound to replace Poisson stopping time by the discrete coupon draw count, and an explicit exponential normal-mixture integral. Each hypothesis, variable and scale is stated; the numerical verifier checks separate finite identities and never substitutes for the proof.
+## correctness
 
-**Originality — PASS, qualified.** Myers–Wilf (2003), §4, already gives the entire finite joint enumeration; that formula is explicitly acknowledged and is not repackaged as new. The nontrivial random-center second-order joint limit and unconditional Laplace law are not stated in the inspected full §4. Mahmoud–Smythe (2012) handles fixed or predetermined stages in a generalized sampling model; Doumas–Papanicolaou (2014) and Ilienko (2026) establish other sibling laws, with Ilienko's leading exponential behavior explicitly prior. The accessible Long (2026) abstract establishes leading exponential behavior but its inaccessible full text leaves a priority risk. The reviewed new asymptotic theorem may ultimately be obtainable from older general exact enumeration, which prevents any claim of certified historical novelty. Semantic-result searches and prior local claims identified no equivalent theorem.
+PASS
 
-**Value — PASS.** The distinction between a conditional Gaussian fluctuation and a marginal Laplace law, together with the joint Gumbel coupling and observable time-dependent centering, resolves a natural second-order uncertainty question at a random stopping boundary. It is a nontrivial mathematical limit, not a different notation for the first-order exponential count or a finite tabulation.
+Poisson superposition gives independent Exp(1) first arrivals X_i and maximum M_n, with stopped arrival count distributed jointly as coupon completion time T_n and singleton count S_n. Given M_n=y, the last arriving process is singleton and the other n-1 are independent positive-truncated Poisson(y), so S_n=1+Bin(n-1,y exp(-y)/(1-exp(-y))). At y=log n+x, uniformly on compact x, its mean minus log(n)e^{-x} is O(1) and variance/log n tends to e^{-x}; conditional characteristic functions give the stable mixed normal (G,sqrt(e^{-G})Z). Zero-truncated Poisson moment bounds make T_n/n-M_n=O_P(sqrt(log n/n)); the random centers differ by o_P(sqrt(log n)), so Slutsky transfers to the discrete coupon process. Integrating exp(-t^2 E/2) with E~Exp(1) yields centered Laplace scale 1/sqrt2, and the Gamma joint characteristic function. Checked source finite DP and conditional formulas; independent small-n positive-truncated Poisson moment checks corroborated, not a proof of CLT.
 
-**Limitations and residual risk.** Equal probability and single-draw collection only; no convergence rate or heterogeneous model. Finite calculations cannot prove the limit. Earlier closed-form enumerations potentially encode it, and some recent full text was inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Myers–Wilf (2003) already gives exact finite joint (T_n,S_n) distribution; exponential first-order singleton limit is also prior. The evaluated random-time-centered joint second-order mixed Gaussian/Gumbel and Laplace marginal are not stated in the primary materials read; extracting an asymptotic from known finite formulas requires nontrivial analysis but could have been done earlier.
+
+## value
+
+PASS
+
+The self-centering by realized completion time reveals a distinct second-order fluctuation that is not Gaussian despite a conditional Gaussian law. The exact joint Gumbel–Gaussian mixture with exponential mixing and Laplace marginal supplies a precise natural asymptotic statistic at the classical coupon-collection stopping time, extending known first-order singleton laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
