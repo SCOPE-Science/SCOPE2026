@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Angular orthogonality gives exact diagonal eigenvalues, an inequality from the polynomial \(3t^2-8t+2\) excludes degree one, and \(t\le3\) excludes every higher degree. The crossing follows from strict monotonicity of \(H(u)\) and fully checked endpoint estimates \(H(s_-)>95/512>5/32>H(a)-H(b)\); there is no numerical or finite-cutoff inference about the infinite family. The connected-interval assertion uses a boundary-term identity whose sign changes at most once.
+PASS
 
-## Originality — PASS, with residual risk
+Radial angular orthogonality makes the Fock monomials e_n=z^n/sqrt(n!) exact complete eigenvectors with lambda_n=(∫_0^u+∫_a^b)e^{−t}t^n/n!dt. For all t in the observation set, t<=3 implies strict lambda_{n+1}<lambda_n for n>=2 because annulus has positive measure. The exact pointwise polynomial 3t²−8t+2>=0 on [0,s−] union [s+,3] implies lambda1 < (lambda0)/4+3lambda2/4, ruling out degree1, including at crossing. The difference lambda0−lambda2=H(u)−H(a)+H(b); H is strictly increasing on [0,s−] and decreasing on [s+,3]. The rational endpoint bounds in RESULT Step4 give H(s−)>95/512>5/32>H(a)−H(b), yielding unique interior u* for every parameter pair. At tie exactly span{1,z²} maximizes. For one radial interval [A,B], integration by parts gives sign(lambda_n−lambda_{n+1}) of e^{−B}B^{n+1}−e^{−A}A^{n+1}, allowing at most one adjacent tie. Independent high-precision quadrature/root solves for a=5/2,b=13/5 and a=s+,b=3 agree with complete ordering; analytic inequalities, not finite numerics, ensure all n.
 
-The cited 2025 full preprint explicitly treats finite unions of annuli, but its Proposition 2.3 analyzes the decreasing rearrangement as radial dilation grows, not the exact finite-scale top-eigenvalue switching. Its unordered-eigenvalue representation does permit calculation of each eigenvalue, but does not itself order them or establish the stated parameter-uniform nonadjacent crossing and minimal-component distinction. Zelent's October 2026 §1.2 surveys Gaussian disk concentration and sharp stability rather than disconnected masks. Related published mathematical records were compared by statements and implications; none retrieved the same phase surface or pair of strict exclusion certificates. Broader old work may contain equivalent examples, so this is a self-review, not independent, novelty assessment.
+## originality
 
-## Value — PASS
+PASS
 
-The spectral structure identifies a natural obstruction to continuity of the leading Gaussian mode under radial mask redistribution: in connected sets the best Hermite index evolves by adjacent degrees, but one removed radial band permits a jump of two. This exact robust family supplies a benchmark for nonconvex time-frequency concentration and for sharpness and stability questions involving masks outside the disk class. The explicit two-dimensional maximizing space at the critical mask is the key geometric feature; the proof does not merely recompute a known table entry.
+Best-of-knowledge novelty lies in a complete finite-scale maximizer phase diagram on an explicit open two-parameter mask family with a nonadjacent tie and a one-component impossibility theorem, beyond known general diagonalization.
 
-## Scope and residual risks
+## value
 
-The certificate box is not claimed optimal. Halvdansson's general unordered eigenvalue formula and older radial operator literature might make particular crossings implicit. No general disconnected-set classification or new large-radius spectral law is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonconvex radial Gaussian concentration has a natural sharp spectral optimizer; this concrete family rigorously demonstrates a jump over an intermediate Hermite degree and exact two-dimensional eigenspace at crossing. The connected/disconnected topology contrast is motivated and structurally reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

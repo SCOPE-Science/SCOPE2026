@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:55:21Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "Parameters s+<=a<b<=3 and 0<=u<=s−, s±=(4±sqrt10)/3; u=0 is a null inner disk.",
+        "Maximizing space at crossing is exactly 2D; no arbitrary disconnected mask classification or maximal parameter box claimed.",
+        "Connected radial interval no-skip proof uses positive-measure interval, includes inner disk A=0."
+      ],
+      "proof_sources": [
+        "Pinned RESULT.md 3e5fe56f7db0ae56299be516fa457b58b4aeff1d Steps1–5",
+        "Pinned check.py a506c33e8e3aba3b9baa16e81c0eb1f8c7b0341d",
+        "Independent numerical root and eigenvalue order checks for two parameter examples"
+      ],
+      "rationale": "Radial angular orthogonality makes the Fock monomials e_n=z^n/sqrt(n!) exact complete eigenvectors with lambda_n=(∫_0^u+∫_a^b)e^{−t}t^n/n!dt. For all t in the observation set, t<=3 implies strict lambda_{n+1}<lambda_n for n>=2 because annulus has positive measure. The exact pointwise polynomial 3t²−8t+2>=0 on [0,s−] union [s+,3] implies lambda1 < (lambda0)/4+3lambda2/4, ruling out degree1, including at crossing. The difference lambda0−lambda2=H(u)−H(a)+H(b); H is strictly increasing on [0,s−] and decreasing on [s+,3]. The rational endpoint bounds in RESULT Step4 give H(s−)>95/512>5/32>H(a)−H(b), yielding unique interior u* for every parameter pair. At tie exactly span{1,z²} maximizes. For one radial interval [A,B], integration by parts gives sign(lambda_n−lambda_{n+1}) of e^{−B}B^{n+1}−e^{−A}A^{n+1}, allowing at most one adjacent tie. Independent high-precision quadrature/root solves for a=5/2,b=13/5 and a=s+,b=3 agree with complete ordering; analytic inequalities, not finite numerics, ensure all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halvdansson derives eigenvalues for unions of annuli and analyzes large-radius plunge spectrum; the present family is a finite-scale best-eigenfunction comparison.",
+          "Abreu–Doerfler converse classification has simply connected domain hypotheses.",
+          "Resultary radial Toeplitz trace theorem studies smooth decaying log spectral symbols, not indicator mask concentration."
+        ],
+        "reasoning": "Broad diagonalization is acknowledged prior theorem, but large-dilation and simply-connected-domain statements do not imply finite u-dependent switching of two separated leading eigenmodes.",
+        "searches": [
+          "arxiv:2502.11805 Prop2.3 finite unions annuli decreasing rearrangement",
+          "arxiv:1202.5841 inverse localization simply connected domains",
+          "Resultary radial Fock smooth Toeplitz 0bc5b54dc8b5"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2502.11805 Section2, Proposition2.3 and screenshots",
+        "arxiv:1202.5841 simply connected theorem and PDF screenshot",
+        "arxiv:2610.01299 Fock Gaussian concentration survey referenced in pinned source",
+        "Resultary 0bc5b54dc8b5 full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Halvdansson gives lambda_n sums of incomplete gamma integrals for annular unions but not the ordering λ1<(λ0+3λ2)/4 or an exact crossing surface H(u)=H(a)-H(b) with two-dimensional top eigenspace."
+        ],
+        "reasoning": "General eigenvalues algebraically allow derivation, but do not logically assert the uniform top-eigenspace classification without the additional polynomial positivity, factorial monotonicity and endpoint estimates.",
+        "searches": [
+          "Halvdansson arxiv:2502.11805 section2 Proposition2.3",
+          "Abreu–Doerfler arxiv:1202.5841 main theorem",
+          "Resultary 0bc5b54dc8b5 smooth Toeplitz full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bargmann transform relates Gaussian time–frequency localization Hermite modes to Fock Toeplitz monomials.",
+          "Halvdansson arxiv:2502.11805 gives unordered radial eigenvalues for finite unions, not this specific ordered top-mode phase."
+        ],
+        "reasoning": "Aliases checked across Fock/Bargmann, Hermite/Daubechies Gaussian localization, radial Toeplitz, multi-annulus masks. The general eigenvalue formula gives calculability but not the two strict competitor inequalities and parameter-uniform crossing classification.",
+        "searches": [
+          "Fock Bargmann radial localization two annuli disk highest eigenvalue modes 0 and 2 nonadjacent eigenvalue crossing phase transition",
+          "Gaussian STFT radial Daubechies localization Hermite top nonadjacent mode degeneracy",
+          "arxiv:2502.11805 localization finite unions annuli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched smooth radial Fock Toeplitz trace results and Bergman angular Hessians, not disk+annulus mask exact eigenmode degeneracy.",
+          "The known integral representation makes numerical tabulation straightforward but no matching uniform phase surface was identified."
+        ],
+        "reasoning": "Not a table recomputation: new strict inequality excludes infinitely many modes in one step and proves unique parametric nonadjacent top crossing. Negative search alone is not proof of novelty.",
+        "searches": [
+          "Resultary Fock Bargmann radial localization two annuli disk highest eigenvalue modes 0 and 2 nonadjacent eigenvalue crossing phase transition",
+          "Gaussian localization top Hermite eigenvalue two-component mask n=0 n=2",
+          "Resultary spectral filter smooth radial Fock Toeplitz 0bc5b54dc8b5"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty lies in a complete finite-scale maximizer phase diagram on an explicit open two-parameter mask family with a nonadjacent tie and a one-component impossibility theorem, beyond known general diagonalization.",
+      "residual_risks": [
+        "Classical Daubechies/compact localization examples may contain equivalent 0↔2 crossing implicitly.",
+        "General unordered eigenvalue sums for annuli are known; only sharp uniform top-degree classification and connected-mask obstruction claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General unordered eigenvalue formula and large-radius rearrangement; no explicit small-radius 0↔2 max-mode surface in materially read theorem statements",
+          "evidence": [
+            "General annuli formula and large-R decreasing rearranged plunge profile, as distinct from strict top ordering for finite radius."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.11805",
+          "material_read": "Full public arXiv PDF available; inspected Section 2 union-of-annuli eigenvalues and Proposition 2.3/related asymptotic results, page screenshots around pp.7–10",
+          "method": "Read extracted public PDF text and inspected visual screenshots",
+          "title": "Empirical plunge profiles of time-frequency localization operators",
+          "trigger": "Same radial Gaussian localization on unions of annuli"
+        },
+        {
+          "assessment": "Converse spectral geometry for simply connected sets, not two-component top-eigenvalue phase",
+          "evidence": [
+            "Simply connected assumptions exclude the present disconnected mask."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.5841",
+          "material_read": "Public PDF main theorem and its simply connected hypothesis, plus page screenshot; not every section",
+          "method": "Opened public arXiv primary PDF and compared domain hypotheses",
+          "title": "An inverse problem for localization operators",
+          "trigger": "Gaussian localization eigenfunctions and geometry of observation domain"
+        },
+        {
+          "assessment": "Different smooth decay and logarithmic trace limits, not top eigenvalues of radial indicator masks",
+          "evidence": [
+            "Toeplitz weak-trace asymptotics, not finite-scale Fock concentration maxima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-logarithmic-spectral-filter-for-smooth-radial-fock-toeplitz--0bc5b54dc8b5",
+          "material_read": "Full RESULT.md theorem/proof read from Git blob df74306d9e2752b71b65529c576f596f78f40ad7",
+          "method": "Direct GitHub connector blob reading",
+          "title": "The logarithmic spectral filter for smooth radial Fock Toeplitz operators",
+          "trigger": "Nearby published radial Fock spectral analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md 3e5fe56f7db0ae56299be516fa457b58b4aeff1d Steps1–5",
+        "Pinned check.py a506c33e8e3aba3b9baa16e81c0eb1f8c7b0341d",
+        "Independent numerical root and eigenvalue order checks for two parameter examples"
+      ],
+      "rationale": "Nonconvex radial Gaussian concentration has a natural sharp spectral optimizer; this concrete family rigorously demonstrates a jump over an intermediate Hermite degree and exact two-dimensional eigenspace at crossing. The connected/disconnected topology contrast is motivated and structurally reusable.",
+      "residual_risks": [
+        "The sufficient parameter box is not maximal, and prior unordered spectrum already makes raw eigenvalues computable; value is the uniform max-mode classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a specific sufficient two-component mask family, not all disconnected sets.",
+    "Numerical roots illustrate a general analytic crossing; no infinite-dimensional inference from finite eigenvalue samples."
+  ],
+  "schema_version": 1
+}
