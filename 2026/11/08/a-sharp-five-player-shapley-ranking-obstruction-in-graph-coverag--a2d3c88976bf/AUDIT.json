@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The Shapley degree/2 identity follows from edge OR unanimity-sharing, the inclusion-area/first-cover equation counts each edge exactly n-c+1 times, and the disjoint-clique iff follows from a feasible sorted merge of a fixed marginal-gain multiset. For kK3 disjoint union qK2 the original-degree restriction introduces precisely kq zero-before-one inversions, producing the exact optimum and limiting ratio. The finite universal threshold is exhaustively verified for every one of 1099 labeled graphs of order <=5, by independent full-permutation and subset-DP implementations in verify_coverage.py. The infinite family is proved analytically, not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li, Liu, Yu and Low, arXiv:2607.09869, Theorem 4.1 and Section 4.2, show Shapley rankings may fail in unrestricted utility games using nullspace perturbations and an explicit four-player example.",
+        "The same source contains no graph-coverage specialization in the inspected full-text sections and no occurrence of graph/coverage in the available full HTML text search.",
+        "Biniaz et al., arXiv:2609.27117, prove broad MSVC algorithmic facts and bounds; their main results are not a degree-ordered attribution census or a clique-union optimality criterion."
+      ],
+      "reasoning": "General ranking unreliability from arbitrary cooperative games does not imply the earliest failure within the much narrower normalized monotone submodular unit-edge coverage class: the unrestricted source has a four-player pathological example, while the graph-coverage class is protected through four players. General MSVC algorithms do not assert which Shapley degree-priority restrictions lose objective value.",
+      "searches": [
+        "Nonlinear Axiomatic Attribution for Cooperative Games arXiv 2607.09869",
+        "Shapley ranking inclusion AUC graph coverage game degree heuristic disjoint triangle edge",
+        "Minimum Sum Vertex Cover via Minimum Vertex Cover arXiv 2609.27117",
+        "site:arxiv.org/abs/2610 cooperative games Shapley"
+      ]
+    },
+    "checked_sources": [
+      "Li et al., arXiv:2607.09869, 2026-07-10, full HTML relevant sections",
+      "Biniaz et al., arXiv:2609.27117, 2026-09-22, full HTML relevant sections and appendices",
+      "Published exact result: Minimum-sum vertex cover on complete multipartite graphs, full RESULT.md",
+      "Stanković, Some Results on Approximability of Minimum Sum Vertex Cover, ACM 2025, accessible abstract",
+      "Published research-record abstract comparisons for coverage and minimum-sum vertex cover aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted nullspace-perturbation ranking theorem of Li et al. does not preserve the unit-positive edge-feature representation and cannot yield a 5-vertex minimality statement about it.",
+        "The generic subset recurrence of Biniaz et al. computes optimal cover time for arbitrary graphs but has no Shapley-restriction theorem, whereas this claim compares two objective optima with a sharp count and exact all-parameter gap.",
+        "The known complete multipartite minimum formula does not imply the minimum formula for the complementary union of cliques; the sum of cover-time costs of complementary graphs is constant at each ordering, exchanging min with max."
+      ],
+      "reasoning": "The same-object comparison identifies both the graph-coverage representation and the inclusion-area objective. The new result is neither the general MSVC equivalence nor a restatement of unrestricted Shapley ranking failure; it supplies an exact structural criterion and earliest restricted obstruction with an asymptotically nonzero loss. Related directed-network trust-game and voting-game Shapley formulas address other characteristic functions and do not imply this restricted AUC result.",
+      "searches": [
+        "arXiv:2607.09869 Section 4.1 and 4.2",
+        "arXiv:2609.27117 Introduction and Appendix A.1-A.2",
+        "published-finding corpus:2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18 RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For an edge-OR coverage game the Shapley score of a player is half its incident-edge degree, while inclusion area is (n+1)|E| minus the total first-cover time of the edges.",
+        "Biniaz et al., arXiv:2609.27117, Appendix A.1, prove a general exact subset recurrence for minimum-sum vertex cover, but do not impose the original-degree Shapley ranking constraint.",
+        "The published complete-multipartite exact-value result minimizes first-cover time for a complete multipartite graph; a disjoint clique union is its complement, and the constant-sum relation switches minimization on the original to maximization on the complement."
+      ],
+      "reasoning": "The cover-time equivalence is made explicit, and is not claimed as new. General exact algorithms permit computational evaluation of an instance, but do not state the restricted attribution theorem: the only five-player unweighted graph-coverage obstruction, an iff for clique unions, and the exact tie-resistant loss. Complementing a graph changes minimizing cover time into maximizing it on the complement; the closest complete-multipartite minimum result therefore does not dominate the new claim.",
+      "searches": [
+        "Shapley ranking vertex coverage game degree order versus maximum cumulative inclusion AUC minimum sum vertex cover graph",
+        "Shapley degree rankings minimum sum vertex cover disjoint triangles and isolated matching optimality gap kq",
+        "minimum sum vertex cover graph disjoint cliques greedy degree approximation AUC Shapley",
+        "arXiv:2609.27117, Introduction and Appendix A.1",
+        "published-finding corpus:2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus close record 2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18 contains a complete multipartite formula, not the disjoint clique Shapley tie-breaking test.",
+        "Other returned research records concern voting-power indices or unrelated five-element social choice censuses rather than the graph-coverage inclusion-area game.",
+        "No source in the checked primary texts supplies a 5-vertex table of AUC failures for Shapley degree rankings; the 1024 cases were exhaustively computed in the new standalone checker."
+      ],
+      "reasoning": "No exact previously published table or database entry with this restricted failure classification was found in the actual targeted queries. An unsuccessful search is not proof of global uniqueness, so inaccessible and unindexed material remains a residual risk.",
+      "searches": [
+        "five player graph coverage game Shapley ranking inclusion AUC triangle plus single edge sharp obstruction",
+        "Graph coverage Shapley AUC minimal counterexample five vertices only K3 plus K2",
+        "minimum sum vertex cover degree order disjoint triangle and edge graph counterexample",
+        "published-finding corpus semantic search: Shapley degree rankings minimum sum vertex cover disjoint triangles and isolated matching optimality gap kq"
+      ]
+    },
+    "rationale": "The closest sources show unrestricted Shapley AUC failures (Li et al.) or general minimum-sum vertex-cover algorithms (Biniaz et al.); neither states the unit-edge graph-coverage five-player uniqueness, clique-union iff, or exact tie-resistant kq loss. The related published complete-multipartite minimum result is for a different complement objective. Residual risks from unindexed graph-ordering folklore and partly inaccessible older literature remain.",
+    "residual_risks": [
+      "An unindexed or older MSVC graph-degree heuristic result could establish the five-player obstruction or the disjoint-clique formula under different terminology.",
+      "Some older approximation papers were available only through abstracts or excerpts, so appendix-level overlap cannot be globally excluded.",
+      "Negative searches demonstrate no located direct equivalent, not absolute publication uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unrestricted nullspace-based ranking unreliability, but does not impose or characterize unit-positive two-player edge features; no theorem on smallest graph coverage counterexample.",
+        "evidence": [
+          "arXiv:2607.09869, lines 117-120 define the inclusion AUC; lines 153-174 contain Theorem 4.1 and its unrestricted four-player example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.09869",
+        "material_read": "Accessible full HTML, Introduction, Section 3.2 objective definition, Theorem 4.1 and Section 4.2 explicit example, plus searches across accessible text for graph and coverage.",
+        "method": "Read arXiv full HTML text and inspect theorem statements, hypotheses and example representation.",
+        "title": "Nonlinear Axiomatic Attribution for Cooperative Games",
+        "trigger": "Direct source for Shapley-induced player rankings and inclusion-AUC failure; potentially stronger four-player theorem."
+      },
+      {
+        "assessment": "Provides generic MSVC optimization algorithms and matching-gadget hardness, but not a comparison with Shapley original-degree rankings or the exact restricted threshold/loss.",
+        "evidence": [
+          "arXiv:2609.27117, Introduction lines 21-35; Appendix A.1 lines 448-457; Appendix A.2 lines 468-475."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.27117",
+        "material_read": "Accessible full HTML Introduction, results overview, Section 2 definitions, Appendix A.1 dynamic program and Appendix A.2 matching-gadget argument.",
+        "method": "Read full-text relevant sections and search within the document for clique, disjoint union, triangle and degree order.",
+        "title": "Minimum Sum Vertex Cover via Minimum Vertex Cover",
+        "trigger": "Exactly equivalent unrestricted first-cover objective, potential generic domination."
+      },
+      {
+        "assessment": "The paper minimizes first-cover time on complete multipartite graphs. The target is minimum first-cover time on disjoint cliques, whose complement is complete multipartite, but complementing exchanges minimum with maximum; the theorem does not imply this result.",
+        "evidence": [
+          "Published RESULT.md states its connected complete-multipartite formula and explicitly limits the scope to complete multipartite graphs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-minimum-sum-vertex-cover-on-complete-multipartite-graphs--0406c3406a18/RESULT.md",
+        "material_read": "Entire accessible RESULT.md including theorem, proof, verification, prior-work comparison and limitations.",
+        "method": "Fetched published scientific RESULT.md and compared the objective under graph complementation.",
+        "title": "Minimum-sum vertex cover on complete multipartite graphs",
+        "trigger": "Closest published research-record exact result in a graph class related by complements."
+      },
+      {
+        "assessment": "Abstract concerns approximation hardness and regular graphs, not the precise ranking/first-obstruction claim; full-text overlap cannot be ruled out.",
+        "evidence": [
+          "2025 ACM article abstract reports MSVC approximability and regular-graph results."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/3716551",
+        "material_read": "Publisher abstract and introductory public excerpt only; complete text unavailable through the retrieved source.",
+        "method": "Read accessible journal landing-page abstract and introduction excerpt.",
+        "title": "Some Results on Approximability of Minimum Sum Vertex Cover",
+        "trigger": "Older graph-ordering approximability work may discuss degree heuristics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2d3c889-76bf-4ce4-a745-2ad255043fd7",
+  "value": {
+    "rationale": "The limitation of Shapley-based player ranking is central to inclusion-AUC attribution. This theorem demonstrates a sharp restriction effect: arbitrary cooperative games already admit failures at four players, but unweighted monotone submodular graph coverage games are protected through four and have one unique five-player obstruction. The complete clique-union iff and the exact kq penalty show that tie-breaking cannot repair the mismatch and the relative loss can persist asymptotically (up to 1/(7+sqrt(39)) within the explicit family). These facts respond to the meaningful question whether bad rankings require pathological unrestricted utility functions, not merely an arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
