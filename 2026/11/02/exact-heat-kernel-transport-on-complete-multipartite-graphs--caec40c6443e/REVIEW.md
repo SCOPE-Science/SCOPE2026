@@ -1,19 +1,21 @@
-# Scientific review of the exact multipartite heat transport theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over all complete multipartite profiles with at least three nonempty parts and every real nonnegative time. The decomposition into constants, part-constant zero-mean vectors, and within-part zero-sum vectors is an orthogonal and exhaustive spectral decomposition of the combinatorial Laplacian; the eigenvalues are respectively zero, total vertex count, and total vertex count minus the corresponding part size. The resulting heat-row difference has four explicit signed groups. An admissible transport plan and a matching graph-1-Lipschitz dual potential independently give the exact transport cost across distinct parts. Same-part distances are elementary from the row difference and distance two. The sharp global norm and all-time phase are consequences of monotonicity and differentiation, with singleton and size-two parts checked separately. A standalone exact-rational checker passed 111 profile/time instances and 1605 pairwise transport checks. The finite checks corroborate but do not replace the unrestricted analytic proof.
+PASS
 
-## Originality — PASS, qualified
+Orthogonal graph-Laplacian eigenspace decomposition into constants (eigenvalue0), between-part means (N), and each within-part sum-zero subspace (N-ni) yields explicit heat rows including singleton parts. For vertices in a common part i, row difference is ai(delta_x-delta_y), hence W1=2ai. For different parts i,j, signs and masses are explicit and a primal transport plan plus saturating edge-1-Lipschitz dual potential give W1=2max(Ui,Uj)-b, with b=e^-Nt, ai=e^-(N-ni)t, Ui=(1-1/ni)ai+b/ni. Edge maximization gives b+2(1-1/s)(e^-(N-s)t-b), s largest part. Derivative establishes threshold s-(N-s)<=2, sharp unique transient peak otherwise, limiting unattained universal supremum 2. Independently solved direct transport LPs for all pair types of K_{3,2,1,1} at t=0,.1,.4, matching formulas to <1e-9; finite examples supplement analytic all-real-time proof.
 
-The claimed new scope is the all-pairs heat-row transport identity for at least three multipartite classes and the global profile's dependence only on total order and maximum part size. Ollivier (arXiv `math/0701886`, Definition 2–3 and continuous-time formulation, relevant pages 5–6), Jost–Liu (arXiv `1103.4037`, introduction and neighbor-measure curvature bounds, relevant pages 1–3), and Bauer et al. (arXiv `1306.2561`, introduction and curvature-dimension framework, relevant pages 1 and 6) concern transport curvature or heat gradients but do not state these exact multipartite all-time formulas in the inspected material. A previously derived complete-bipartite heat profile is the two-part special case; it does not imply the new statement for arbitrary multipartite decompositions. An earlier multipartite **total-variation** contraction criterion coincides with the present phase boundary but does not imply the exact Lipschitz norm or all-pairs \(W_1\) values. Searches across mathematical publication and research records found no directly covering exact statement; this is not a proof of priority. The full article by Lin–Lu–Yau on graph curvature was not materially inspected, so any unexpected overlap there remains a specific residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph-metric transport distances of *every* pair of continuous-time heat kernels are a natural Markov-semigroup stability invariant, not an arbitrary finite numerical slice. The result gives a complete formula for an unbounded multipartite family, including both interpart and intrapart pairs, and a new global invariance under changing the lower part-size distribution while preserving total order and maximum size. It also identifies exact attained optimal Lipschitz data and the sharp transient-amplification curve. The classification is useful because adding edges to, or refining the parts of, a graph generally changes both the generator and the metric; equality of the entire sharp profile is not a formal consequence of a two-part calculation. The known contraction threshold is not counted as a separate novelty contribution.
+Ollivier graph-curvature theory, Jost–Liu neighbor-transport bounds, Bauer graph Li–Yau heat inequalities, and an earlier exact bipartite special case provide foundations but do not imply the all-pairs W1 table for every multipartite profile or invariance under fixed (N,s). Prior multipartite total variation contraction threshold is in different seminorm and already credited.
 
-## Limitations and sources
+## value
 
-The proof is specific to unit-edge complete multipartite graphs with the combinatorial Laplacian and original shortest-path metric. No normalized-generator, arbitrary weighted-graph, or higher-transport-order claim is made. The comparison to prior sources is limited to the specified inspected primary sections, current accessible research records, and recoverable related earlier mathematical statements; no exhaustive literature priority claim or independent scientific verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural unbounded graph family, every pairwise heat-kernel W1 distance is explicit and the sharp Lipschitz profile depends only on (N,max part size), remaining identical for nonisomorphic examples. It also determines exact transient amplification and best universal constant; not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

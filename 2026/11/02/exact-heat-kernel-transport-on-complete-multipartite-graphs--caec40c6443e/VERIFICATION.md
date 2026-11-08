@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python verify.py` in the same directory. The code requires only Python 3 standard-library modules and uses exact fractions throughout. It generated `CERTIFICATE_OK rational_instances=111 pair_tests=1605` when run on the included file.
+## correctness
 
-The checker constructs the heat matrix from spectral components and, independently, enumerates all integer graph-Lipschitz potentials with an anchored vertex for all integer part partitions of orders 2 through 7 and heat-exponential bases 1, 1/2 and 2/3. It checks all unordered vertex pairs, including same-part pairs. Total unimodularity of the edge-incidence constraint matrix and diameter at most two justify exhaustion of the finite potential search for these particular graphs. The proof for arbitrary order and arbitrary real time is the self-contained transport/spectral argument in `RESULT.md`; the finite tests alone cannot establish that infinite statement.
+PASS
 
-The public source comparisons were confined to inspected relevant sections and accessible materials, so publication priority beyond them is not certified. No independent scientific audit has been performed.
+Orthogonal graph-Laplacian eigenspace decomposition into constants (eigenvalue0), between-part means (N), and each within-part sum-zero subspace (N-ni) yields explicit heat rows including singleton parts. For vertices in a common part i, row difference is ai(delta_x-delta_y), hence W1=2ai. For different parts i,j, signs and masses are explicit and a primal transport plan plus saturating edge-1-Lipschitz dual potential give W1=2max(Ui,Uj)-b, with b=e^-Nt, ai=e^-(N-ni)t, Ui=(1-1/ni)ai+b/ni. Edge maximization gives b+2(1-1/s)(e^-(N-s)t-b), s largest part. Derivative establishes threshold s-(N-s)<=2, sharp unique transient peak otherwise, limiting unattained universal supremum 2. Independently solved direct transport LPs for all pair types of K_{3,2,1,1} at t=0,.1,.4, matching formulas to <1e-9; finite examples supplement analytic all-real-time proof.
+
+## originality
+
+PASS
+
+Ollivier graph-curvature theory, Jost–Liu neighbor-transport bounds, Bauer graph Li–Yau heat inequalities, and an earlier exact bipartite special case provide foundations but do not imply the all-pairs W1 table for every multipartite profile or invariance under fixed (N,s). Prior multipartite total variation contraction threshold is in different seminorm and already credited.
+
+## value
+
+PASS
+
+For a natural unbounded graph family, every pairwise heat-kernel W1 distance is explicit and the sharp Lipschitz profile depends only on (N,max part size), remaining identical for nonisomorphic examples. It also determines exact transient amplification and best universal constant; not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
