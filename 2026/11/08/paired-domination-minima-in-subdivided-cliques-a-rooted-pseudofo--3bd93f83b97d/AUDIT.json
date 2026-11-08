@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The vertex-cover obstruction forces at least n−1 original vertices and as many subdivision vertices; star constructions attain this bound. Equality reduces to a perfect matching between selected originals and selected original-edge incidences. Componentwise edge counts force a nontrivial rooted tree and only unicyclic nonroot components, with 1 and 2 incidence matchings respectively. Cayley rooted trees and unoriented cycles of rooted labelled trees give the exact bivariate EGF. The executable exhaustive n=2..7 comparison checks both the structural bijection and the matching multiplicities; unrestricted conclusions are proved by the component argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Muthukamatchi–Arumugam 2016, Theorems 2.1 and 2.9: general subdivision upper bound and exact number for S(K_n), with no set enumeration.",
+        "Lu–Wu 2026, Theorem 1.1: cubic bipartite upper bound; S(K_n) has degree-2 subdivision vertices, so is not cubic for n≥2.",
+        "Published paired-domination-polynomial results on chain graphs and complete multipartite graphs do not extend to the subdivision-incidence graph of K_n for n≥3."
+      ],
+      "reasoning": "The 2016 covering statement implies only the minimum cardinality, not uniqueness, matching multiplicities or the EGF. The 2026 cubic-family bound does not apply to S(K_n), which always contains degree-2 vertices. Chain and complete multipartite conditions do not contain this family once n≥3.",
+      "searches": [
+        "\"paired domination\" \"subdivision\" \"complete graph\" n-1",
+        "\"paired domination\" \"K_n\" \"subdivision\" \"number of\" minimum",
+        "Paired Domination in Cubic Bipartite Graphs arxiv:2609.30152 Sections 1–2",
+        "paired dominating set count subdivision graph S(K_n), matching endpoints exact number optimal sets"
+      ]
+    },
+    "checked_sources": [
+      "Muthukamatchi–Arumugam 2016 PDF, main results and Theorem 2.9",
+      "Lu–Wu 2026 arXiv:2609.30152, introduction and matching section",
+      "Published result: Paired-domination polynomial of chain graphs",
+      "Published result: Paired-domination polynomial of complete multipartite graphs",
+      "Classical Cayley labelled-tree enumeration and cycle-of-rooted-trees decomposition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Theorem 2.9 establishes gamma_pr(S(K_n))=2(n−1) but contains no characterization by spanning pseudoforests or perfect matching counts.",
+        "2026 Proposition 2.2 is the pre-existing dominating-matching equivalence; the bounds elsewhere in the paper concern cubic bipartite graphs.",
+        "The new theorem implies gamma_pr=2(n−1), explicitly recovered as prior information, while the converse implication from the known scalar minimum to an all-set multiplicity EGF does not hold."
+      ],
+      "reasoning": "The only direct overlapping conclusion is the optimum cardinality, identified as known. A scalar extremal value alone cannot determine the set count or distribution of how many matchings each set contains. The new theorem makes those additional statements precise and proves them by incidence-component arguments.",
+      "searches": [
+        "\"Paired Domination in Subdivision Graphs\" Muthukamatchi Arumugam 2016 PDF Theorem 2.9",
+        "\"Paired Domination in Cubic Bipartite Graphs\" Lu Wu 2026",
+        "paired domination subdivision complete graph optimum sets matching count unicyclic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lu–Wu 2026, Proposition 2.2: paired dominating sets are endpoints of dominating matchings, a general equivalence, not an enumeration of distinct optimum endpoint sets.",
+        "Muthukamatchi–Arumugam 2016, Theorem 2.9: minimum cardinality on S(K_n)."
+      ],
+      "reasoning": "The matching-endpoint formulation does not count distinct optimum selected vertex sets; different perfect matchings may lead to one set. The new theorem counts these sets once and determines their internal matching multiplicities, so the corresponding known equivalence does not imply the bivariate enumeration.",
+      "searches": [
+        "\"minimum paired dominating sets\" \"subdivision of complete graph\" number",
+        "\"paired domination\" \"subdivision graph\" \"incidence graph\" complete",
+        "paired domination of subdivisions of complete graphs count minimum paired sets classified by perfect matching multiplicity rooted unicyclic components",
+        "arxiv:2609.30152 Proposition 2.2 dominating matching equivalent formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table of the entire paired-domination multiplicity polynomial was located by those exact sequence and description searches.",
+        "The classical labelled-tree count n^{n−2} is known and exactly recovers the unique-matching coefficient; the unicyclic-component EGF is standard."
+      ],
+      "reasoning": "An indexed table for labelled pseudoforest counts would be a standard combinatorial consequence once the new matching/incidence bijection is established; the scientifically nontrivial claim links precisely the paired-domination minima to those objects. Absence from a search index is not asserted to prove novelty.",
+      "searches": [
+        "\"2, 9, 64, 645, 8406, 133938\" graphs",
+        "\"9 64 645 8406 133938\" pseudoforest",
+        "\"133938\" \"8406\" \"645\" combinatorics",
+        "rooted tree component other components unicyclic graph enumeration labelled",
+        "minimum paired dominating sets subdivision of clique K_n bivariate generating function matchings per set"
+      ]
+    },
+    "rationale": "Known 2016 Theorem 2.9 gives the same paired-domination minimum but not a classification or exact multiplicity polynomial. The 2026 motivating work concerns sharp bounds on cubic bipartite graphs, a different parameter domain. Public searches and relevant published mathematical records found no statement implying the optimum-set incidence pseudoforest bijection or bivariate EGF. Classical enumerative components are credited; remaining unindexed literature is an explicit priority risk.",
+    "residual_risks": [
+      "Historical literature that explicitly counts optimal paired dominating vertex sets in subdivision/incidence graphs may not be indexed under these names.",
+      "An exact pseudoforest sequence may be separately tabulated; the proved connection to minimum paired domination sets is the new contribution.",
+      "No independent mathematical audit or exhaustive computation for unbounded n."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.9 directly establishes the scalar minimum; it gives no enumeration of the minimum vertex sets or induced matching multiplicities.",
+        "evidence": [
+          "Theorem 2.9: gamma_pr(S(K_n))=2(n−1) (2016, p. 18153).",
+          "Theorems 2.1–2.8 concern bounds and minimum values for other graph families; no matching multiplicity enumeration in the article."
+        ],
+        "identifier_or_url": "https://www.ijirset.com/upload/2016/october/126_Paired.pdf",
+        "material_read": "Four-page article text including all main theorems, especially Theorem 2.9 and conclusion; pages containing proofs and references inspected, including a rendered PDF page.",
+        "method": "Opened full PDF, inspected supplied text ranges and visually inspected page content.",
+        "title": "Paired Domination in Subdivision Graphs",
+        "trigger": "Exact same subdivision S(K_n), with a minimum paired-domination result"
+      },
+      {
+        "assessment": "General dominating-matching equivalence is used as prior framing. The main sharp theorem is confined to cubic bipartite graphs and does not enumerate minimum sets of S(K_n).",
+        "evidence": [
+          "arXiv:2609.30152, first submitted 2026-09-24, Introduction and Theorem 1.1.",
+          "Proposition 2.2 records paired domination as the endpoint problem for dominating matchings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.30152",
+        "material_read": "Full rendered introduction and Section 2.2 matching definitions and Proposition 2.2; searched the complete text for subdivision, incidence, enumeration, and complete graph.",
+        "method": "Read rendered arXiv text with section-and-phrase searches.",
+        "title": "Paired Domination in Cubic Bipartite Graphs",
+        "trigger": "Recent motivating study of paired domination via dominating matchings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bd93f83-b97d-4293-8a47-998036aece61",
+  "value": {
+    "rationale": "The known scalar minimum leaves open a natural all-optimum-configuration census. The result classifies every optimum vertex set, counts it exactly for each power-of-two internal matching redundancy, recovers n^{n−1} uniquely matched minima, and identifies the first nonunique boundary at n=5. The rooted tree/unicyclic decomposition is a structural explanation with a reusable exact labelled enumerator, not merely a restatement of the 2016 bound.",
+    "status": "PASS"
+  }
+}
