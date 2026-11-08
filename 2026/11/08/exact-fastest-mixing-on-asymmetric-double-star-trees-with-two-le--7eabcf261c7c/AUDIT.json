@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact orbit averaging applies globally. The explicit zero-sum Rayleigh vector has squared norm n(3n^3+5n^2-8n+4). An exact convex combination of its quotient and the right-leaf eigenvalue equals a positive combination of the two hub capacity constraints. This proves lambda_2<=b*. At the candidate, the 4-orbit polynomial factors as x(x-b*)q_n(x); the four exact sign/derivative inequalities enclose both real q roots between b* and 2-b*. The remaining leaf eigenvalues are in that interval. Thus the infinite theorem follows without extrapolation from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "FMMC SDP is a computational general framework, not a closed formula",
+        "General geometric results concern mixing time bounds, often lazy chains"
+      ],
+      "reasoning": "An existing SDP algorithm can optimize each finite graph numerically, but does not imply the asserted rational formula for all n or the explicit dual certificate. An earlier global conductance-budget spectral-gap result for D_{a,b} does not directly solve separate hub row capacities and two-sided eigenvalue minimization.",
+      "searches": [
+        "fastest mixing Markov chain weighted star graph with single constrained edge or hub transition budget exact spectral radius",
+        "two joined stars unequal degrees fastest mixing symmetric stochastic transition semidefinite closed form",
+        "arxiv:0709.0955 general FMMC SDP",
+        "doi:10.1007/s00440-023-01257-x general fastest mixing graph geometry"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Parrilo, Xiao, arXiv:0709.0955v1, full article, Sections 1-4 and examples of two cliques; first public 2007-09-06",
+      "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs, arXiv:2501.02421v1, full Section 6.7 pp.22-24 incl. hypotheses (59)-(60)",
+      "Olesker-Taylor and Zanetti (2024), doi:10.1007/s00440-023-01257-x, abstract and graph-bound statements",
+      "Related available mathematical claims on double-star Laplacian budget and on graph-specific stochastic-mixing optima, compared for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Our two hub stochastic capacities 2a+c<=1 and nb+c<=1 bind; unlike a single global conductance budget",
+        "The conditional bistar 2020 formulas require two leaf-mass inequalities contradicted here",
+        "2007 generic SDP and symmetry averaging do not yield closed-form theorem as statement"
+      ],
+      "reasoning": "Inspecting hypotheses/implications, the conditional FMRMC result cannot be specialized to D_{2,n} under uniform mass because it fails (60). The weighted spectral-gap budget result is a different feasible set/objective; using one result as an implicit proof would require an additional theorem deriving separate capacity saturation and control of the negative spectrum, supplied here.",
+      "searches": [
+        "arxiv:0709.0955v1 Section 1 and graph examples",
+        "arxiv:2501.02421v1 Section 6.7 and (60)",
+        "own ledger claim 3d25b1eb-4894-4e2b-9013-ca41d60c7a86"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Double-star=bistar=D_{2,n}; uniform reversible FMRMC equals symmetric stochastic FMMC",
+        "Condition (60) of primary bistar source requires leaf-class mass <= hub mass"
+      ],
+      "reasoning": "Checked identical graph under bistar, two stars, hub-spoke and reversible-chain terminology. The closest full-text bistar analytic result is conditional and inapplicable to both leaf classes.",
+      "searches": [
+        "fastest mixing Markov chain unbalanced double star bistar with m leaves on one hub n leaves on other hub exact optimal weights spectrum",
+        "fastest mixing Markov chain bistar double star D_{2,n} exact optimum n^2/(n^2+n-2) uniform stationary distribution saturating both hub capacities n>=6",
+        "arxiv:2501.02421 Section 6.7 equations 56-60"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved result on fractional zero forcing of double stars treats an unrelated invariant",
+        "Accessible claim 3d25b1eb-4894-4e2b-9013-ca41d60c7a86 (weighted spectral gap under one global price budget), distinct optimization",
+        "Other accessible own fastest-mixing claims address sunlet, wheel, circular ladder, coronas and balanced complete bipartite graphs"
+      ],
+      "reasoning": "Compared actual claims rather than graph names. No found table or record gives the same specific SLEM and weights, but search absence alone is not a uniqueness proof.",
+      "searches": [
+        "fastest mixing double star same as clique bridge graph eigenvalue convergence constant 3 minus 2 square root 2",
+        "fastest mixing Markov chain bistar double star D_{2,n} exact optimum n^2/(n^2+n-2) uniform stationary distribution saturating both hub capacities n>=6",
+        "semantic mathematics index search on bistar Markov SLEM n^2/(n^2+n-2)"
+      ]
+    },
+    "rationale": "The exact rational all-n law and dual hub-capacity certificate are not implied by the inspected foundational SDP, the conditional 2020 bistar theorem or the distinct price-budget Laplacian optimization. Condition (60) explicitly fails for this uniform leaf-count regime. Known residual publication-priority risk is recorded.",
+    "residual_risks": [
+      "The generic SDP literature covers numerical optimization of any finite instance, so novelty is specifically the rational formula and exact dual certificate, not algorithmic solvability.",
+      "Unindexed specialized FMMC papers or implicit variants of the 2020 bistar argument may establish the same boundary regime; independent publication-priority checking remains warranted.",
+      "Only claims actually available for scientific comparison were used; an incomplete bibliographic record cannot certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex SDP covers this instance computationally, but no stated exact D_{2,n} optimized rational law; its two-clique example is a distinct edge set",
+        "evidence": [
+          "2007 v1 cover gives public date September 6, 2007",
+          "Definition of SLEM in Section 1, spectral norm of P-J",
+          "Worked two-clique family is not the double-star tree"
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://arxiv.org/pdf/0709.0955",
+        "material_read": "Definitions and SDP in Section 1, symmetry methodology and worked two-clique example; article examined at exact relevant sections",
+        "method": "Accessible full-text PDF with page-image checks",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Parent FMMC spectral norm and graph symmetry technique"
+      },
+      {
+        "assessment": "Its bistar optimal formula assumes (60): pi_+ * Pi_- <= pi_-^2 and pi_- * Pi_+ <= pi_+^2. Under uniform weights pi_hub=1 and leaf sums 2,n, it would require 2<=1 and n<=1; hypotheses fail. Thus no theorem in this section covers the new regime",
+        "evidence": [
+          "PDF p.23 displays (56)–(60) and the words \"if the equilibrium distribution satisfies\"",
+          "Equation (60) requires both leaf-class totals no greater than their respective unit hub masses",
+          "The displayed optimal bridge under these hypotheses differs from our saturated solution"
+        ],
+        "identifier_or_url": "arxiv:2501.02421v1; https://arxiv.org/pdf/2501.02421",
+        "material_read": "Entire Section 6.7, equations (56)-(60), Remark 7, and the introduction describing conditional scope",
+        "method": "Full-text PDF and visual page 23 verification of inequalities",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Section 6.7 is explicitly titled Bistar Topology and gives optimal weights"
+      },
+      {
+        "assessment": "Provides inequalities on mixing time from vertex conductance, not the exact sharp SLEM on this finite-tree family",
+        "evidence": [
+          "General geometry bounds on t_mix and lazy-chain setup, whereas current objective is optimal non-lazy spectral radius"
+        ],
+        "identifier_or_url": "doi:10.1007/s00440-023-01257-x; https://wrap.warwick.ac.uk/id/eprint/181763/",
+        "material_read": "Abstract and opening framework statement on Cheeger-type mixing bounds and lazy kernels",
+        "method": "Public abstract and introductory summary; not asserted to be a full-text negative novelty check",
+        "title": "Geometric bounds on the fastest mixing Markov chain",
+        "trigger": "Broader bounds possibly dominating an exact mixing estimate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7eabcf26-1c7c-48a3-be36-6b3c2dc4cb02",
+  "value": {
+    "rationale": "An asymmetric tree with multiple leaf orbits is a natural stress test of mixing design: separate stochastic hub capacities and repeated leaf eigenvalues compete. The theorem gives an exact infinite-family rational optimum, explicit optimal positive edge weights, and a short sharp dual certificate for why the bottleneck is active. It solves a meaningful optimization rather than a renamed numerical case.",
+    "status": "PASS"
+  }
+}
