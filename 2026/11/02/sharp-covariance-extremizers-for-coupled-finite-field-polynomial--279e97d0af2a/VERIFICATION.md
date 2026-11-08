@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact-arithmetic script `verify.py` treats a random degree-below-\(q\) polynomial as a uniform random function, enumerates its value set and the value set after each fixed additive shift, and computes the covariance by independent direct averaging. It separately computes the claimed covariance from the perturbation fiber profile and checks exact equality, strict extremizers, and first nonextremal gaps.
+# Independent mathematical audit
 
-Verified output from `python3 verify.py`:
+## correctness
 
-```
-FIELD_OK q=2 functions=4 perturbations=4 unique_profiles=2 min=-1/4 max=1/4
-FIELD_OK q=3 functions=27 perturbations=27 unique_profiles=3 min=-10/81 max=26/81
-FIELD_OK q=4 functions=256 perturbations=256 unique_profiles=5 min=-417/4096 max=1695/4096
-FIELD_OK q=5 functions=3125 perturbations=5 unique_profiles=5 min=-36076/390625 max=198924/390625
-VERIFY_OK exact_joint_covariance_and_extremal_profiles=True
-```
+PASS
 
-For \(q\in\{2,3,4\}\), both the random-function inputs and deterministic perturbations were exhaustively enumerated. For \(q=5\), five representative fiber profiles were tested. The field of order four uses its characteristic-two additive structure (exclusive-or). No floating-point arithmetic or external packages are used.
+Lagrange evaluation makes uniform degree<q f identical to independent uniform values f(x). Missing value indicators I_u and J_v have independent-across-x joint exclusion at x equal a=(q-1)/q when h(x)=v-u, otherwise b=(q-2)/q. With r_c counts, E[I_u J_v]=a^{r_c}b^{q-r_c}, q pairs u,v per c, giving Cov=q sum_c a^{r_c} b^{q-r_c}-q²a^{2q}. Discrete second differences for Phi(t)=a^t b^{q-t} equal (a-b)^2 a^t b^{q-t-2}>0 for q>=3; at q=2 Phi=(0,0,1/4) also strictly convex. Elementary majorization gives min profile (1,...,1) exactly h permutation and max (q,0,...,0) exactly h constant. Schur adjacent transfers yield first nontrivial gaps b^{q-2}/q at (2,1...,1,0) and a^{q-1}-b^{q-1} at (q-1,1,0...) for q>=3. Negative min uses log estimate; max equals strictly positive variance under constant translate. Independent exact enumeration of all f,h q=2,3,4 validates covariance and profiles; proof covers all prime powers and arbitrary h polynomial function.
 
-**Proof dependence.** All prime powers are covered by the independent joint-exclusion and discrete-convexity arguments in RESULT.md. Enumeration of four finite fields alone would not justify the general claim. The historical-priority search was incomplete in older specialized correlated-occupancy literature; the numerical checks provide no evidence of novelty. Independent audit and independent validation have not been performed.
+## originality
+
+PASS
+
+Gao–Wang primary theorem gives marginal distribution/normality of V(f); Mullen–Wan–Wang classify deterministic value sets; neither determines shared-sample covariance under fixed h, whose output collisions depend on entire fiber-size profile. Standard occupancy exclusion and convexity are acknowledged ingredients. A more general correlated random mapping theorem might cover the result implicitly, leaving a clear but not decisive priority risk.
+
+## value
+
+PASS
+
+A natural exact two-sample dependence invariant of random polynomial images distinguished from marginal value-set laws. Complete extremizing fiber-profile classes and next sharp gaps provide information a probabilist could directly reuse for correlated occupancy or finite-field image questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

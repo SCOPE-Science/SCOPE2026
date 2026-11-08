@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:06:57.474081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 4695b3b98a4b4c217730698d6072f986b8915dd7",
+        "Frozen verify.py 552f9d40e23f9aa0e1147be2d4602cdfb9a26bf3 inspected",
+        "Independent exact full enumerations over F2 F3 F4 in independent_checks.log"
+      ],
+      "rationale": "Lagrange evaluation makes uniform degree<q f identical to independent uniform values f(x). Missing value indicators I_u and J_v have independent-across-x joint exclusion at x equal a=(q-1)/q when h(x)=v-u, otherwise b=(q-2)/q. With r_c counts, E[I_u J_v]=a^{r_c}b^{q-r_c}, q pairs u,v per c, giving Cov=q sum_c a^{r_c} b^{q-r_c}-q²a^{2q}. Discrete second differences for Phi(t)=a^t b^{q-t} equal (a-b)^2 a^t b^{q-t-2}>0 for q>=3; at q=2 Phi=(0,0,1/4) also strictly convex. Elementary majorization gives min profile (1,...,1) exactly h permutation and max (q,0,...,0) exactly h constant. Schur adjacent transfers yield first nontrivial gaps b^{q-2}/q at (2,1...,1,0) and a^{q-1}-b^{q-1} at (q-1,1,0...) for q>=3. Negative min uses log estimate; max equals strictly positive variance under constant translate. Independent exact enumeration of all f,h q=2,3,4 validates covariance and profiles; proof covers all prime powers and arbitrary h polynomial function.",
+      "residual_risks": [
+        "Finite diagnostic checks corroborate but do not replace analytical all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deterministic polynomial value-set cardinality bounds and uniform-function marginal laws do not fix the joint missing-value event with equality collisions at h(x)=v-u."
+        ],
+        "reasoning": "A broad correlated occupancy theorem could potentially cover by specializing q bins and deterministic shifts; none was identified as a covering statement, but risk explicitly retained.",
+        "searches": [
+          "Mullen Wan Wang arxiv 1210.8119 polynomial value sets",
+          "Gao Wang probabilistic approach value sets finite fields",
+          "Resultary random finite-field polynomial functions value set covariance f and f+h"
+        ]
+      },
+      "checked_sources": [
+        "Gao and Wang A Probabilistic Approach to Value Sets of Polynomials over Finite Fields, arXiv:1407.5884, primary 17-page PDF Theorem 3 and sample inclusion-exclusion",
+        "Mullen Wan Wang Value Sets of Polynomial Maps over Finite Fields, arXiv:1210.8119 / DOI 10.1093/qmath/has026, available abstract and bibliographic text",
+        "Resultary query: random finite-field polynomial functions value set covariance f and f+h fiber profile permutation constant extremizers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal distribution determines E[V(f)] and Var(V(f)) (h constant), but not Cov(V(f),V(f+h)) for nonconstant h."
+        ],
+        "reasoning": "New profile sensitivity, strict opposite-sign extremes and first nonextremal gaps cannot be inferred from the marginal theorem without additional correlated occupancy derivation.",
+        "searches": [
+          "Gao Wang Theorem 3 arxiv 1407.5884",
+          "Mullen Wan Wang Value Sets of Polynomial Maps DOI 10.1093/qmath/has026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Wang studies distribution of V(f) for one polynomial (and variants), not the joint covariance with *the same* f translated pointwise by h(x)."
+        ],
+        "reasoning": "A formula using only marginal V(f) cannot determine covariance across all h fiber profiles; no exact equivalent found in inspected theorem.",
+        "searches": [
+          "Gao Wang arXiv 1407.5884 marginal random-polynomial value-set law",
+          "correlated occupancy range sizes random functions f and f+h"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim gives a symbolic formula and sharp extremizers for every prime-power q and arbitrary profile; independent small q tables are sanity checks, not the theorem."
+        ],
+        "reasoning": "No known database/table encodes all q and arbitrary fiber profiles; no finite census is presented as a substitute for proof.",
+        "searches": [
+          "random mapping joint image covariance q=2,3,4 finite-field table",
+          "finite field value sets covariance permutation constant perturbation table"
+        ]
+      },
+      "rationale": "Gao–Wang primary theorem gives marginal distribution/normality of V(f); Mullen–Wan–Wang classify deterministic value sets; neither determines shared-sample covariance under fixed h, whose output collisions depend on entire fiber-size profile. Standard occupancy exclusion and convexity are acknowledged ingredients. A more general correlated random mapping theorem might cover the result implicitly, leaving a clear but not decisive priority risk.",
+      "residual_risks": [
+        "An unindexed correlation-of-images/random-mapping occupancy theorem might imply the exact covariance and profile extremizers without matching polynomial keywords.",
+        "Marginal finite-field value-set studies are well established and the novelty claim is limited to joint fixed-perturbation dependence and extremizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides marginal distribution of V(f), not joint dependence for fixed h in the inspected theorem.",
+          "evidence": [
+            "arXiv:1407.5884 Theorem 3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.5884",
+          "material_read": "Primary 17-page PDF Theorem 3 and proof portions; PDF technical screenshot relevant later page",
+          "method": "Primary PDF rendered text and screenshot",
+          "title": "A Probabilistic Approach to Value Sets of Polynomials over Finite Fields",
+          "trigger": "Same random uniform polynomial functions and potentially covering marginal law"
+        },
+        {
+          "assessment": "No whole-document noncoverage assertion; joint-perturbation equivalence remains residual risk.",
+          "evidence": [
+            "arXiv:1210.8119; DOI 10.1093/qmath/has026"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.8119",
+          "material_read": "Original primary abstract/bibliographic metadata and associated citations, not complete primary PDF",
+          "method": "arXiv landing/publication abstracts",
+          "title": "Value Sets of Polynomial Maps over Finite Fields",
+          "trigger": "Related older deterministic value-set classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 4695b3b98a4b4c217730698d6072f986b8915dd7",
+        "Frozen verify.py 552f9d40e23f9aa0e1147be2d4602cdfb9a26bf3 inspected",
+        "Independent exact full enumerations over F2 F3 F4 in independent_checks.log",
+        "Gao and Wang A Probabilistic Approach to Value Sets of Polynomials over Finite Fields, arXiv:1407.5884, primary 17-page PDF Theorem 3 and sample inclusion-exclusion",
+        "Mullen Wan Wang Value Sets of Polynomial Maps over Finite Fields, arXiv:1210.8119 / DOI 10.1093/qmath/has026, available abstract and bibliographic text",
+        "Resultary query: random finite-field polynomial functions value set covariance f and f+h fiber profile permutation constant extremizers"
+      ],
+      "rationale": "A natural exact two-sample dependence invariant of random polynomial images distinguished from marginal value-set laws. Complete extremizing fiber-profile classes and next sharp gaps provide information a probabilist could directly reuse for correlated occupancy or finite-field image questions.",
+      "residual_risks": [
+        "Mathematical significance is confined to the precisely stated natural invariant/parameter regime; no unproved downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed correlation-of-images/random-mapping occupancy theorem might imply the exact covariance and profile extremizers without matching polynomial keywords.",
+    "Marginal finite-field value-set studies are well established and the novelty claim is limited to joint fixed-perturbation dependence and extremizers."
+  ],
+  "schema_version": 1
+}
