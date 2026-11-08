@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy, and SciPy. The executed output was:
+## correctness
 
-```
-CHECK_OK planes=3 incidence_edges=777 lp_instances=282
-```
+PASS
 
-The checker constructs the incidence graphs of the prime-field projective planes of orders \(2\), \(3\), and \(5\). It checks integer incidence identities and all graph shortest-path distances, verifies the constructed Kantorovich dual potential, evaluates the heat matrices directly by matrix exponential at three positive times, and solves exact finite-dimensional **linear programming formulations** of Wasserstein-one transport (numerical solver tolerance checked). All vertex pairs are tested for the Fano plane. The large-order closed-form limit is also tested numerically.
+For any projective plane q>=2, NN^T=qI+J and row sums q+1 give all heat matrix blocks by singular values d=q+1 and sqrt(q). The signed difference of incident point/line rows has masses +a,-b,+c and -a,+b,-c; positivity follows from convolution K(t)=integral_0^t sinh(sqrt q(t-u))/sqrt q exp(-du)du. The explicit edge-1-Lipschitz dual potential has value a+3qb+q²c; a matching primal coupling exists since outside-neighborhood incidence subgraph is q-regular bipartite. Edge-path triangle inequality gives full Lipschitz operator norm, regardless of Desarguesian or edge-transitivity assumptions. Derivative exponential polynomial yields unique positive-time peak and later 1 crossing, compact-uniform t=s/q limit e^-2s+4s e^-s with maximum 1.64046408905... . Independently built prime-field incidence matrices for q=2,3 and solved transport LPs at t=.08,.4,.9; all direct W1 values match formula to <1e-8. The general result relies on incidence axioms, not finite field tests.
 
-The mathematical proof in `RESULT.md` is self-contained except for elementary finite projective plane axioms, Hall's matching theorem, and Kantorovich duality. The infinitely many possible orders and non-Desarguesian planes are handled by analytic incidence-count and matching arguments, **not** by finite computation. The checker cannot establish historical priority or mathematical independence. No independent external audit has been performed.
+## originality
+
+PASS
+
+General Ricci-Ollivier curvature and heat-semigroup Lipschitz/W1 estimates characterize monotone exponential bounds or initial slopes; they do not provide this explicit all-time nonmonotone optimal W1 profile or sharp peak on arbitrary projective-plane incidence graphs. Potential implicit distance-regular association-scheme formula remains a priority risk.
+
+## value
+
+PASS
+
+The class includes arbitrary finite (even non-Desarguesian) planes and reveals sharp transient Wasserstein amplification despite ultimate decay. The exact all-time norm and asymptotic universal peak describe a natural transport stability invariant, not just a local curvature bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
