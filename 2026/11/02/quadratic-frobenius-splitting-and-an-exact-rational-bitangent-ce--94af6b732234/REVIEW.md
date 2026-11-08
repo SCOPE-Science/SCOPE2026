@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The smoothness analysis excludes exactly the three parameter values; the explicit full set of \(28\) geometric bitangents is certified by line-restriction square identities and the genus-three theta-characteristic count in odd characteristic. Frobenius fixes \(4\), \(16\), or \(28\) lines according to the two quadratic characters, and the conic character sum yields the exact all-parameter frequencies, including characteristic \(3\). The independent line enumerator passed \(204\) smooth cases across \(13\) finite fields, including nonprime fields.
+## correctness
 
-**Originality (O): PASS with historical-priority risk.** The main motivating article studies complex bitangent incidence on this exact pencil. The Bethea--Brazelton geometric \(S_4\)-orbit partition \(12+12+4\) is prior art; it does not determine Frobenius descent or the exact parameter frequencies. The finite-field moduli paper and Ciani-conductor paper treat other invariants. Previously accessible coefficient-marked \(\mathbb F_5\) Ciani rational-bitangent counts do not imply the arbitrary-odd-prime-power result. Classical explicit formulas could conceivably cover the character criterion under a different presentation; independent historical priority verification remains open.
+PASS
 
-**Mathematical value (V): PASS.** The complete arithmetic stratification determines the splitting of the natural \(28\)-point bitangent set throughout a classical one-parameter family, with exact coefficient frequencies and a quadratic-extension theorem. Rational bitangents are arithmetic theta-characteristic data, not merely line-arrangement decoration. This is a natural invariant of genus-three curves over finite fields.
+Differentiating the quartic shows the forbidden λ precisely prevent singularity (with characteristic-three coincidence handled). Explicitly restrict the quartic to the 4 sign, 12 mixed-radical, and 12 zero-coordinate radical lines: each becomes a binary quadratic square. Distinctness follows from ρ²=-1-λ not equal 0 or 1, s²=λ+2 not zero; the classical 28 odd theta characteristic count closes the geometric list in odd characteristic. Frobenius fixes mixed lines iff ρ is rational and zero-coordinate lines iff both radicals are rational; all lines split over Fq². Counting square pairs d,1-d by the conic u²+v²=1 yields frequency formulas with distinct characteristic-three exclusions. Independent exhaustive F3,F5,F7,F11 rational-line checks verified full character counts (1/2/4/8 smooth parameters, respectively); the universal conclusion uses algebra, not those samples.
 
-**Scope:** Literal coefficient parameters, not geometric isomorphism classes; a hyperflex counts as one bitangent; rational contact points are not classified. Finite computations support but do not replace the algebraic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known complex S4 12+12+4 orbit structure and Ciani pencil incidence describe the geometry, not finite-field quadratic Frobenius fixed-line strata and literal-parameter frequencies. Classical explicit line radicals might make this a straightforward arithmetic consequence elsewhere; this is a real best-knowledge historical risk, not certified global novelty.
+
+## value
+
+PASS
+
+A complete finite-field arithmetic census for a canonical one-parameter smooth genus-3 quartic pencil, including a finite étale zeta function and all characteristic-three cases, is a natural field-of-definition invariant and not a cherry-picked finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
