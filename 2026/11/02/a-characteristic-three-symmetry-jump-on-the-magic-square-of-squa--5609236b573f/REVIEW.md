@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nine squared-entry forms are the full three-by-three integer grid of affine linear forms on a plane. Six row/column/diagonal sum differences have an integral unit minor, so the linear magic-sum plane has rank six in all characteristics. The coordinatewise square map gives a finite flat \(256\)-fold cover; valuations at the nine distinct branch lines show that the cover is generically a field and hence integral. The complete intersection has degree \(64\).
+PASS
 
-Exhaustive enumeration of all \(84\) grid triples gives determinant magnitudes at most four and precisely eight collinear triples over characteristic zero. In characteristic three the nine labels fill \(\mathbb F_3^2\), whose twelve affine lines are exactly the twelve collinear triples. For each ordinary triple branch crossing, a completed-local equation \(r^2-\alpha s^2-\beta t^2=0\) with \(\alpha\beta\neq0\) is a genuine \(A_1\) point in odd characteristic. There are exactly \(32\) geometric preimages per triple, yielding \(256\) or \(384\) singularities. Every other local branch configuration is smooth. The \(432\) affine permutations preserve the nine-form span and act transitively on twelve affine lines; combined with the \(256\) coordinate signs, they form a faithful node-transitive subgroup of order \(110592\). The embedded exact checker passes these finite premises. No finite experiment is substituted for the general algebraic argument.
+For algebraically closed k with characteristic not 2, the eight magic-sum equalities give rank six: the claimed integer six-by-six minor is a unit and the nine Lucas forms w+a*u+b*v span the 3-dimensional kernel. Pullback by the finite-flat coordinatewise squaring map is a complete intersection of six quadrics of degree 64, generically integral since valuations at eight distinct branch lines make their Kummer classes independent. An independent exact determinant enumeration of all 84 triples of the 3x3 coefficient grid recovered exactly eight collinear triples in characteristic 0 or p>=5 and twelve in p=3; max absolute determinant four. Double branch crossings are smooth; triple crossings have nondegenerate local equation r^2=alpha*s^2+beta*t^2 and each has 32 geometric preimages, producing 256 versus 384 A1 nodes. Normality follows from S2 and R1. AGL2(F3) has 432 elements, permutes nine affine labels and is transitive on twelve triples; combined with 256 sign changes gives faithful order-110592 node-transitive subgroup. This is not a full char-3 automorphism classification; char2 excluded. Finite incidence checks support but do not prove generic integrality/local algebraic geometry.
 
-## Originality — PASS, qualified
+## originality
 
-Auel–Singer, arXiv:2609.09351, prove the full geometric automorphism group of the **characteristic-zero** surface has order \(2048\) and identify \(256\) nodes; their available full text treats characteristic zero in this argument, not the exceptional reduction at three. Bruin–Thomas–Várilly-Alvarado, arXiv:1912.08908, also establish the known \(256\)-node complex geometry and quasi-hyperbolicity. The new finding distinguishes all odd prime reductions and supplies a characteristic-three affine incidence configuration, its \(384\) geometric nodes, and a substantially enlarged transitive group. Related existing mathematical-record findings concern conics and their symmetry on the characteristic-zero model, not this characteristic-three surface. An older finite-field thesis explicitly discusses characteristic three, but its complete text was inaccessible and remains an originality risk. Searches are negative evidence only, not a proof of priority.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge PASS for exceptional-reduction node count and explicit node-transitive subgroup, not for classical magic plane, characteristic-zero 256 nodes, or order-2048 characteristic-zero automorphism group. Full mathematical comparison with Auel–Singer char-zero theorem and relevant conic-orbit records identified no theorem covering char3. The 2018 finite-field thesis addresses characteristic three but its full text was inaccessible, so exact priority is qualified.
 
-The result identifies the unique odd bad characteristic for the singularity count, quantifies the jump by \(128\) additional ordinary double points, and exhibits a symmetry enlargement by a factor of at least \(54\) relative to the full characteristic-zero group. This is a geometric specialization phenomenon of a classical Diophantine surface, not a routine numerical evaluation or a rephrasing of the published characteristic-zero theorem. The node-transitive large subgroup supplies genuinely new structural information for future modular surface and arithmetic investigations.
+## value
 
-## Sources and limits
+PASS
 
-Primary motivating source: A. Auel and B. Singer, arXiv:2609.09351, first publicly submitted 2026-09-08; Sections 1.1–1.3 and Theorem 1 were inspected. N. Bruin, J. Thomas, and A. Várilly-Alvarado, arXiv:1912.08908, Section 1.4.2 and Theorem 1.5, were inspected. G. Labruna, 2018 thesis, title and abstract checked; its full-text download returned access denial. The result does not cover characteristic two, determine the entire characteristic-three automorphism group, or calculate rational point counts. Historical priority beyond the inspected materials is not guaranteed.
+The characteristic-three affine-plane line-incidence jump changes the geometric singularity count by 128 and yields a natural explicitly very large symmetry group, at least 54 times the full characteristic-zero group. This is a structural change of an integral model of a classical Diophantine surface, not merely a small computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

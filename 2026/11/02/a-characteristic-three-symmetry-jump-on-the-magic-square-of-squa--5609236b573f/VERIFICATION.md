@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The standalone `verify.py` enumerates the complete 84-triple determinant set for the nine branch-line coefficients. It checks a rank-six unit minor of the integral magic-sum relation matrix, the exact triple-intersection profiles (eight generically, twelve in characteristic three), pair-incidence totals, the 32-to-one lift over each triple point, and the order and transitivity of the 432 affine permutations.
+# Independent mathematical audit
 
-It does not establish irreducibility merely by enumeration. The proof of irreducibility uses independent valuations of eight rational functions modulo squares and finite flatness. The analytic-local ordinary-double-point type follows from the nondegenerate quadratic equation for each triple branch crossing, valid because the characteristic is odd. No characteristic-two claim is made.
+## correctness
 
-Expected command and output:
+PASS
 
-`python3 verify.py`
+For algebraically closed k with characteristic not 2, the eight magic-sum equalities give rank six: the claimed integer six-by-six minor is a unit and the nine Lucas forms w+a*u+b*v span the 3-dimensional kernel. Pullback by the finite-flat coordinatewise squaring map is a complete intersection of six quadrics of degree 64, generically integral since valuations at eight distinct branch lines make their Kummer classes independent. An independent exact determinant enumeration of all 84 triples of the 3x3 coefficient grid recovered exactly eight collinear triples in characteristic 0 or p>=5 and twelve in p=3; max absolute determinant four. Double branch crossings are smooth; triple crossings have nondegenerate local equation r^2=alpha*s^2+beta*t^2 and each has 32 geometric preimages, producing 256 versus 384 A1 nodes. Normality follows from S2 and R1. AGL2(F3) has 432 elements, permutes nine affine labels and is transitive on twelve triples; combined with 256 sign changes gives faithful order-110592 node-transitive subgroup. This is not a full char-3 automorphism classification; char2 excluded. Finite incidence checks support but do not prove generic integrality/local algebraic geometry.
 
-`VERIFY_OK: 84 integer triples; 8/12 branch triples; 256/384 nodes; affine group 432; monomial subgroup 110592`
+## originality
 
-Only self-review of the presented work has taken place. Independent audit and external validation have not been performed.
+PASS
+
+Best-of-knowledge PASS for exceptional-reduction node count and explicit node-transitive subgroup, not for classical magic plane, characteristic-zero 256 nodes, or order-2048 characteristic-zero automorphism group. Full mathematical comparison with Auel–Singer char-zero theorem and relevant conic-orbit records identified no theorem covering char3. The 2018 finite-field thesis addresses characteristic three but its full text was inaccessible, so exact priority is qualified.
+
+## value
+
+PASS
+
+The characteristic-three affine-plane line-incidence jump changes the geometric singularity count by 128 and yields a natural explicitly very large symmetry group, at least 54 times the full characteristic-zero group. This is a structural change of an integral model of a classical Diophantine surface, not merely a small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
