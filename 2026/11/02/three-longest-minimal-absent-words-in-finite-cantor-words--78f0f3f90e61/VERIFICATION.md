@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with a standard Python 3 installation. The program generates the finite words directly from the defining binary morphism, enumerates the positions of every substring of the tested lengths, and independently derives length-\((G+2)\) minimal absent candidates from the length-\((G+1)\) factor set. For each level \(2\le k\le7\) it checks both repeated length-\(G\) substrings and their exact start positions, uniqueness of all length-\((G+1)\) factors, and equality of the computed maximal MAWs with the formula in the result. For \(k=2,3,4\), it also enumerates all MAWs through the full possible word-length range, thereby checking maximality without using the proof's upper bound.
+## correctness
 
-Observed successful sample host lengths: \(9,27,81,243,729,2187\); all assertions passed. These are finite consistency checks, not an exhaustive verification over all substitution levels. The unrestricted claim is justified by the full recursive border and extension argument in `RESULT.md`. Historical originality remains subject to priority uncertainty. No independent or machine-formal mathematical audit is claimed.
+PASS
+
+C_k=C_(k-1) 0^G C_(k-1), G=3^(k-1), with W=C_(k-1) and V=C_(k-2). W has longest proper border H=3^(k-2) and maximal zero run H. For length G the only repeated strings are W at starts 0,2G and F=0^H V 0^H at H,2G-H: cross-copy equality forces two exterior zero runs a,b<=H and a border of W of length G-a-b>=H, hence a=b=H. All length G+1 factors are unique by the corresponding strict border bound. A minimal absent word of length>=3 has a repeated interior, hence maximal length G+2, and context pairs of W and F yield exactly 0W0, 0F0, 1F1. Independently enumerated literal factors/minimal absent words for k=2..5 and inspected checker.py k=2..7. Infinite result follows from the border proof, not finite enumeration.
+
+## originality
+
+PASS
+
+Minimal absent word definitions and linear-time algorithms are established; factor and permutation complexities for Cantor-like fixed points are also studied. The exact maximal-length three-factor stratum of each finite linear Cantor iterate is not supplied by those inspected statements; residual risk remains because the 2016 primary Cantor paper was not accessible in full.
+
+## value
+
+PASS
+
+The finite 1->101,0->000 Cantor substitution is a canonical self-similar word; its longest minimal forbidden extensions and repeated-factor threshold are natural structural invariants useful for substitution factor dictionaries and boundary behavior. This provides a complete extremal classification over all levels k>=2, not an arbitrary length slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

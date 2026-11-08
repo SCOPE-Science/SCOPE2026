@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof derives the exact recursive geometry, proves the length and location of the only two repeated length-\(G\) factors, and excludes any repetition at length \(G+1\). Every longest minimal absent word needs a repeated length-\(G\) interior; inspecting all existing two-sided contexts of the only two possibilities produces precisely three missing supported extensions. This is an unrestricted proof for all integers \(k\ge2\). The standalone finite checker passed through level seven (length \(2187\)); complete minimal-absence length sweeps were additionally checked at levels two through four.
+## correctness
 
-**Originality (PASS, historical-priority qualification).** The 2015 Crochemore–Fici–Mercaş–Pissis preprint establishes general minimal-absent-word algorithms and their language framework, not the three extremal finite Cantor patterns. Indexed text of the 2016 Cantor-like factor/permutation complexity paper deals with infinite factors and special factors, not the stated finite-host extremal MAWs. Published research-record and primary-literature searches for equivalent anti-dictionary, longest-repeat, and finite-prefix formulations did not reveal a covering claim. The 2016 article could not be read in full and an earlier equivalent result remains possible; search failure alone is not novelty proof.
+PASS
 
-**Value (PASS).** Maximal missing factors are natural extreme elements of a string's anti-dictionary, controlling its longest forbidden-context obstruction. This theorem gives an all-level exact classification for a self-similar, widely studied automatic word, with a nontrivial explanation by two deepest repeated factors and their boundary contexts. It is substantially more structural than an isolated small-length enumeration.
+C_k=C_(k-1) 0^G C_(k-1), G=3^(k-1), with W=C_(k-1) and V=C_(k-2). W has longest proper border H=3^(k-2) and maximal zero run H. For length G the only repeated strings are W at starts 0,2G and F=0^H V 0^H at H,2G-H: cross-copy equality forces two exterior zero runs a,b<=H and a border of W of length G-a-b>=H, hence a=b=H. All length G+1 factors are unique by the corresponding strict border bound. A minimal absent word of length>=3 has a repeated interior, hence maximal length G+2, and context pairs of W and F yield exactly 0W0, 0F0, 1F1. Independently enumerated literal factors/minimal absent words for k=2..5 and inspected checker.py k=2..7. Infinite result follows from the border proof, not finite enumeration.
 
-**Limits.** Binary alphabet and the specific \(1\mapsto101,0\mapsto000\) substitution; finite linear iterates \(k\ge2\). No all-length MAW census, no claim for circular words or the infinite limit. The independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Minimal absent word definitions and linear-time algorithms are established; factor and permutation complexities for Cantor-like fixed points are also studied. The exact maximal-length three-factor stratum of each finite linear Cantor iterate is not supplied by those inspected statements; residual risk remains because the 2016 primary Cantor paper was not accessible in full.
+
+## value
+
+PASS
+
+The finite 1->101,0->000 Cantor substitution is a canonical self-similar word; its longest minimal forbidden extensions and repeated-factor threshold are natural structural invariants useful for substitution factor dictionaries and boundary behavior. This provides a complete extremal classification over all levels k>=2, not an arbitrary length slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
