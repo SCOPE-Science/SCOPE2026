@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact missed-set falling-factorial moments; negative pairwise covariance; Stirling computation of N(c/m)^(c+1); fixed-r uniform moment errors O_r((c+1)/M); Poisson factorial-moment criterion; rigorous upper and lower tail bounds and geometric-star representation prove both distribution and expectation claims, including one-sided extremes. Standalone finite checker passed 131 independent small numerical/exact test conditions, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.06953 Theorem 2.3 assumes a fixed critical integer; arXiv:2606.28216 Theorems 2.4 and 2.5 assume fixed defect or fixed-proportion block size",
+        "arXiv:2509.17201 concentrates on extremal expected times for group drawings"
+      ],
+      "reasoning": "Generic group-draw and Poisson approximation theory is relevant, but the inspected broad results do not state a uniform growing-round theorem and do not imply the full combined logarithmic star-versus-full expectation limit without a separate argument.",
+      "searches": [
+        "Coupon collector group draws sampling fixed fraction near one, rare missing coupons, Poisson number uncovered, sharp near-complete cover time threshold",
+        "Uniform group drawing from N coupons choosing N-M each round: binomial missing uncovered, Poisson limit when number of rounds t grows and N(M/N)^t constant; near-complete regime",
+        "https://arxiv.org/html/2605.06953v1",
+        "https://arxiv.org/html/2509.17201v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2606.28216",
+      "https://arxiv.org/html/2605.06953v1",
+      "https://arxiv.org/html/2509.17201v2",
+      "https://doi.org/10.1017/apr.2020.5",
+      "https://arxiv.org/abs/1601.04455"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fixed-c star expectation difference in arXiv:2606.28216 tends to a positive value e^{-beta_c}, while the new logarithmic regime has limiting full-minus-star difference 1-exp(-e^x/sqrt(2pi))>0",
+        "arXiv:2605.06953 gives a fixed-integer t two-point full cover time; here t=c+1 diverges"
+      ],
+      "reasoning": "The motivating paper neither states nor implies a result for diverging c from fixed-c asymptotics; the 2026 uniform-draw paper assumes fixed t and does not account for the star model. The combination and order-one reversal require the new growing-time bounds.",
+      "searches": [
+        "https://arxiv.org/html/2606.28216",
+        "https://arxiv.org/html/2605.06953v1",
+        "https://arxiv.org/html/2509.17201v2",
+        "\"group drawing\" \"t\" \"grows\" \"coupon collector\" \"Poisson\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full mechanism is equivalently the intersection of c+1 independent uniformly sampled M-subsets of an N-label universe, N=binom(m,c), M=Nc/m",
+        "arXiv:2605.06953, Proposition 3.1 gives finite-t Poisson missing-coupon counts; arXiv:2606.28216 gives a fixed-c star expectation"
+      ],
+      "reasoning": "Equivalent missing-set and intersection formulations were compared, including the full-group-draw Poisson theorem. The fixed-t Poisson theorem cannot directly be applied to t=c+1 growing like log(m); the provided proof controls this uniformity, then compares it to the star process.",
+      "searches": [
+        "Fair star coupon mechanism versus fully random group coupon collection near-complete k=m-c with c growing logarithmically; sharp transition log m and Poisson uncovered at c+1 draws",
+        "Fair coupon collection star mechanism with m centers and k-subset coupons when m-k tends to infinity; logarithmic defect critical sharp expectation difference",
+        "\"star mechanism\" \"c\" \"log m\" \"coupon\" \"full\" threshold",
+        "\"star mechanism\" \"logarithmic\" \"full model\" coupons"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible local research claims include affine-plane line coupon collection, clumsy coupons and quorum clocks, but not the star/full logarithmic deficit regime",
+        "Relevant ranked public mathematical-record hits include a nonuniform reset-coupon rate result and an occupancy convex-hull result, neither with star/full group drawing"
+      ],
+      "reasoning": "The searched results and own accessible claims do not contain an exact table, distributional entry, or statement of the displayed parameter crossover. This search is not proof of uniqueness.",
+      "searches": [
+        "Fair star coupon mechanism versus fully random group coupon collection near-complete k=m-c with c growing logarithmically; sharp transition log m and Poisson uncovered at c+1 draws",
+        "Fair coupon collection star mechanism with m centers and k-subset coupons when m-k tends to infinity; logarithmic defect critical sharp expectation difference",
+        "\"coupon\" \"m-c\" \"log m\" \"star mechanism\""
+      ]
+    },
+    "rationale": "The compared primary literature treats fixed center deficit or fixed proportion for the star mechanism and fixed critical draw count for uniform group sampling, unlike the growing logarithmic deficit and exact expectation crossover claimed here. Search is provisional, and general Poisson approximation literature may give implicit subclaims.",
+    "residual_risks": [
+      "A general published uniform-group-drawing Poisson estimate not identified in these searches could imply the isolated full-model limit under a growing-round substitution, although it would not by itself specify the star/full crossover.",
+      "The inspected literature and searchable local claims are not an exhaustive historical record; independent priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact star mean and comparisons for fixed defect and fixed proportion; no logarithmic defect c~log(m) or growing-round two-point law located",
+        "evidence": [
+          "Theorem 2.4 treats fixed c with k=m-c; Theorem 2.5 treats k proportional to m",
+          "Section 4 gives T_star=m(H_m-H_(k-1)); Section 5 identifies structural comparison as future work"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.28216",
+        "material_read": "Introduction, Fano proof and star comparison proofs in Sections 3–4, and Section 5 concluding remarks; source theorem hypotheses cross-checked in Section 4 proofs",
+        "method": "Read publicly available arXiv HTML mathematical statements and displayed proofs",
+        "title": "Fano Geometry and Slow Coupon Collecting",
+        "trigger": "Exact star-mechanism expectation and fixed-defect comparison most relevant to the proposed crossover"
+      },
+      {
+        "assessment": "Provides a fixed-integer t near-complete Poisson/two-point limit; does not state estimates uniform in a growing critical t or compare a star mechanism",
+        "evidence": [
+          "Theorem 2.3 explicitly begins with fixed integer t>=2",
+          "Proposition 3.1 uses a fixed t to obtain Poisson(lambda^t)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.06953v1",
+        "material_read": "Sections 1–2 and Section 3 arguments for Theorem 2.3 and Proposition 3.1",
+        "method": "Read arXiv HTML theorem statements, factorial-moment calculation and proof of two-point cover law",
+        "title": "Asymptotic Results for Uniform Group Drawing in the Coupon Collector’s Problem",
+        "trigger": "Could dominate the full-mechanism rare-missing-coupon Poisson limit"
+      },
+      {
+        "assessment": "Concerns optimal group-drawing distributions and mean comparisons, with no stated logarithmic star/full asymptotic",
+        "evidence": [
+          "Proposition 2.3 gives generic uniform-package mean bounds",
+          "Theorem 2.1 constructs improved nonuniform package distributions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.17201v2",
+        "material_read": "Introduction and Section 2 model definitions, propositions and expectation bounds",
+        "method": "Read publicly accessible arXiv HTML primary statements",
+        "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+        "trigger": "General group-drawing expectation extremality could encompass the new comparison"
+      },
+      {
+        "assessment": "General concentration and relative-order cover-time bounds; the inspected statements do not give an order-one two-round law for near-complete uniform group draws or the star/full expectation crossover",
+        "evidence": [
+          "Theorems 3.1–3.7 concern cover-time concentration or relative (1+o(1)) estimates, not the logarithmic defect crossover",
+          "Theorem 3.7 requires small sample size k=o(n), while each full round here covers N-M=(1-c/m)N"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/apr.2020.5",
+        "material_read": "Primary arXiv full-text rendition: Introduction, Sections 1.4 and 3.1 including Theorems 3.1–3.7 and the exchangeable-coupon discussion; publisher abstract and bibliographic metadata",
+        "method": "Read public full-text transcription at https://arxiv.org/abs/1601.04455 and publisher abstract; compared specific concentration hypotheses and precision",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "General structured coupon-collector results could supply a stronger implicit Poisson theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "661ec55d-73a8-45c5-867a-27ea82f64df1",
+  "value": {
+    "rationale": "The exact position and width of the logarithmic defect transition give a motivated missing regime of a published fair-mechanism comparison: a quantitative order-one reversal between two fair mechanisms and an explicit two-point last-round law, with natural boundary limits. It is not a renaming or a fixed-c corollary.",
+    "status": "PASS"
+  }
+}
