@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The count process is a finite killed continuous-time Markov chain. Each walker jumps at total rate 1, with killing rate c_1/2. Each independent reset clock contributes a separate single-coordinate jump. Invertible A=-Q_0 yields exact u=A^{-1}1 and v=A^{-1}Bu; analyticity in r gives v(start)=M_N'(0+). Exact rational arithmetic checks Au=1 and Av=Bu at every count state for N=1..5, reproduces all fractions/signs, and independently builds the full labeled Markov chain for N=1..3. No extrapolation beyond five walkers or global-optimum claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonomo--Pal (2021) analyzes discrete-time reset of confined lattice walks and a generic one-completion renewal calculation, not an N=5 continuous-time independently reset population process.",
+        "Michelitsch et al. (2024) give a broad discrete-time network propagator framework, but the examined model and illustrative analysis are for single walkers rather than two reset protocols and team-size threshold.",
+        "Biroli et al. (2023) study the analogous two multi-searcher mechanisms, but their explicit formulas derive Brownian, not P5, thresholds."
+      ],
+      "reasoning": "The generic renewal and resolvent identities are prior art and are not claimed as new. Those theories do not themselves state or numerically determine this graph-specific first index of positive independent-clock derivative. The computation requires evaluating a 56-state killed count generator with separate Poisson reset terms. No located stronger published theorem subsumes that exact finite cutoff; this remains a best-knowledge rather than certified priority assertion.",
+      "searches": [
+        "Semantic record query: arXiv:2303.18012 Biroli Majumdar Schehr critical number walkers with stochastic resetting independent and simultaneous Brownian motion",
+        "Web: random walks with stochastic resetting multiple searchers finite graph path critical number walkers independent simultaneous",
+        "arxiv:2102.00895 single-searcher confined lattice methodology",
+        "arxiv:2409.08394 network first passage resetting methodology"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.18012",
+      "arxiv:2102.00895",
+      "arxiv:2409.08394",
+      "AMS MSC2020 60J27",
+      "semantic scientific-record searches of reset protocols, finite paths and source identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous shared-clock result concerns one Poisson clock that resets every walker simultaneously; for N=4 it already gives a positive derivative. This new result concerns N independent Poisson clocks, gives a strictly negative derivative for N=4 and a positive one at N=5.",
+        "The 2023 paper computes continuous Brownian half-line thresholds, so substituting the P5 eigenstructure and computing the discrete finite-state sign is not a stated corollary of its final theorem."
+      ],
+      "reasoning": "The shared-clock theorem neither implies the N=4 negative independent-clock sign nor the N=5 positive independent-clock sign: its reset event acts on the entire population, so using it to infer a single-coordinate generator is invalid. A generic formula for restart would permit a new computation but does not fix these specific rational signs without it. No novelty is claimed for general restart sensitivity formulas or the previous common-clock signs.",
+      "searches": [
+        "arxiv:2303.18012 protocol A/B generator and threshold formulas",
+        "arxiv:2102.00895 discrete-space/time restart mechanism",
+        "prior common-clock five-vertex-path first-detection sensitivity calculation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli--Majumdar--Schehr (2023) treat N independent Brownian searchers on an infinite line, with individually or jointly reset positions; their independent-clock threshold is 7.3264773..., not a P5 calculation.",
+        "A prior finite-path calculation with a common Poisson reset clock has a different generator and a smaller first local sign change; its common-clock sign does not imply independent-clock derivatives.",
+        "The current count generator resets individual occupied coordinates, not the entire occupancy vector."
+      ],
+      "reasoning": "The same words “multiple walkers”, “resetting”, and “critical number” are not enough for equivalence. A Brownian half-line cannot be identified with this reflected finite path. A shared reset clock acts by one jump from every noncentral vector to the all-central vector, whereas the independent protocol has a sum of single-coordinate jumps. They generate distinct rational derivatives, so the existing common-clock cutoff is not an equivalent result.",
+      "searches": [
+        "Semantic record query: Independent stochastic resetting on path P5 continuous time rate-one simple random walks target endpoint start midpoint, derivative of expected minimum hitting time for five walkers, 4 negative 5 positive",
+        "Web: \"path graph\" \"resetting\" \"multiple walkers\" first passage",
+        "Web: stochastic resetting finite chain multiple walkers exact critical number optimal rate",
+        "arxiv:2303.18012 sections II-IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously recorded finite-path results include a shared-clock resetting calculation on this same path through four walkers, and other random-walk hitting-time calculations; none of the readable claims gives the independent-clock derivative at five.",
+        "Targeted research-record results returned unrelated quantum renewal, finite-state automata reset and path stability results, without this first-detection independent-clock rational table."
+      ],
+      "reasoning": "No matching exact numerical database or table was located in the searches. This is not a proof that no unindexed or unpublished calculation exists. The closest existing local calculation is protocol-specific and does not supply the individual Poisson reset values.",
+      "searches": [
+        "Semantic record query: Finite-state population count generator A^-1 B A^-1 one reset per walker first passage path of five vertices four versus five searcher crossover",
+        "Semantic record query: Multiple Markov chain independent walkers on short path stochastic reset first hitting mean derivative at zero reset, number-of-searchers population transition P5, four vs five searchers",
+        "Web: \"P5\" stochastic resetting \"four\" \"five\" searchers"
+      ]
+    },
+    "rationale": "Exact first locally harmful team size five for independent-reset P5 is not implied by the accessible prior common-clock P5 result (which has a distinct reset generator and first adverse sign at four), nor by the Brownian half-line critical-population theorem or single-walker discrete-time network resetting results. Detailed overlap searches and primary-text reading support a best-knowledge original protocol-specific finite threshold; priority remains subject to external review.",
+    "residual_risks": [
+      "A general restart formula exists and may permit an expert to rederive the finite threshold; the exact P5 values are not a claimed new formula for generic resetting.",
+      "An unindexed or unseen finite-graph calculation might contain these exact numbers; no absolute priority is asserted.",
+      "The present theorem concerns only signs at rate zero for N<=5; no conclusion for larger populations or global minima."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its N_c values are for Brownian search on the infinite line, not for finite continuous-time path P5 with one endpoint target; the mechanisms are analogous but no exact P5 table found in inspected material.",
+        "evidence": [
+          "arxiv:2303.18012 pp.1-2,7-9: Brownian setup and N_c(A)=7.326..., N_c(B)=6.355..."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.18012",
+        "material_read": "Accessible 15-page primary full text: abstract, introduction, protocol A/B definitions, small-reset derivative/threshold discussion in Sections II-IV, conclusion, and Appendix A formulas including sections on small reset",
+        "method": "Read searchable full PDF text and inspected the PDF first-page rendering; compared precise model and explicit numerical conclusions",
+        "title": "Critical number of walkers for diffusive search processes with resetting",
+        "trigger": "Exact target of comparison: independent and simultaneous resetting of multiple searchers and crossover in first detection"
+      },
+      {
+        "assessment": "Discrete-time jumps and resets, with single walker restart criterion, not the continuous-time multiwalker independent-clock cutoff asserted here.",
+        "evidence": [
+          "arxiv:2102.00895 abstract and Section IV, Appendix D"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.00895",
+        "material_read": "Accessible 13-page primary text: abstract, introduction, model and renewal setup, Sections IIIA/IIIB on symmetric and biased lattice walks, conclusion and Appendix D relevant resetting criteria",
+        "method": "Read searchable full PDF text for model distinctions and inspected the PDF first-page rendering",
+        "title": "First passage under restart for discrete space and time: application to one dimensional confined lattice random walks",
+        "trigger": "Potential general first-passage formula on finite paths or confined lattices"
+      },
+      {
+        "assessment": "Discrete-time, one-walker network resetting and first-passage statistics; no independently reset parallel team cutoff in inspected relevant material.",
+        "evidence": [
+          "arxiv:2409.08394 abstract and introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.08394",
+        "material_read": "Accessible primary full text abstract, lead paragraph, introduction and stated network propagator/first-passage scope; 42-page PDF with relevant text checked, not all pages individually",
+        "method": "Read PDF searchable text for hypotheses, single-walker/collective scope and inspected first-page rendering",
+        "title": "Random walks with stochastic resetting in complex networks: a discrete time approach",
+        "trigger": "Broad finite-network restarting first-passage framework could dominate an exact small-graph calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ebe3d391-77ba-40c5-80eb-88f3af244d0c",
+  "value": {
+    "rationale": "Independent reset clocks are a natural design mechanism in parallel search. On the canonical five-vertex path, the first loss of local reset benefit occurs at the exact finite cutoff of five searchers, whereas common-clock resetting has a different cutoff on the same path. The distinction is not cosmetic: the count generator has separate reset transitions, and the N=4 sign changes across mechanisms. This is a meaningful finite benchmark of mechanism-dependent first-detection sensitivity, without needing a broad asymptotic theorem.",
+    "status": "PASS"
+  }
+}
