@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For the shortest run of length m, first-position matching forces \\(u\\le m-1\\); last-position matching forces \\(v\\ge p-m+1\\). Writing \\(d=p-v\\), the position m−u inside that run forces \\(u+d\\le m\\), since the u-shift exits the run and the v-shift is a backward d-step. Conversely, at any offset t in any run of length ℓ≥m, either \\(t+u<\\ell\\) or \\(t-d\\ge\\ell-u-d\\ge\\ell-m\\ge0\\), so one shift stays in the same run. Exactly \\(\\sum_{u=1}^{m-1}(m-u)=\\binom{m}{2}\\) pairs result. This proof handles all q≥2 and all positive lengths; the independent exhaustive verifier compared literal and formula sets for 19,525 vectors of lengths 1..5 and q=2..6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meleshko et al., Propositions 2–3 characterize existence and give coarse shift-set bounds using run lengths; Theorem 5 bounds alphabet size; §6 studies repetition thresholds and §7 proves a decision problem NP-complete.",
+        "Meleshko et al., Corollary 6 gives decidability for automatic sequences."
+      ],
+      "reasoning": "An algorithm for testing finite given pairs and the existence of a large pseudoperiod set do not determine exactly which two proper residues work or count them. The precise shortest-run invariant is neither a restatement of those results nor automatically entailed by their bounds.",
+      "searches": [
+        "pseudoperiodic words exact critical exponent two block periodic sequence",
+        "pseudoperiodicity periodic run lengths complete pairs",
+        "Meleshko Ochem Shallit Shan 2022 pseudoperiodicity 2 shift periodic words explicit",
+        "pseudoperiodic words shift-cover finite periodic binary sequences"
+      ]
+    },
+    "checked_sources": [
+      "J. Meleshko, P. Ochem, J. Shallit and S. L. Shan, Pseudoperiodic Words and a Question of Shevelev, arXiv:2207.10171v3 (2022 first posted, 2023 journal) https://arxiv.org/html/2207.10171v3",
+      "S. Desmeules, A. Blondin Massé, S. Hallé and S. Gaboury, Multipseudoperiodic Words (2013) https://archipel.uqam.ca/8434/1/Blondin-Mass%C3%A9-2013c-preprint.pdf",
+      "https://dmtcs.episciences.org/en/articles/9919"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meleshko et al. establish that the existence of any finite pseudoperiod is equivalent to bounded same-letter recurrence, which every periodic word trivially has.",
+        "Desmeules et al. derive generalized Fine–Wilf results for letter-permutation periods, not shift-cover OR pseudoperiods."
+      ],
+      "reasoning": "Neither source implies that the nontrivial proper two-shift pairs for every distinct-letter run cycle are exactly the positive (u,d) with u+d bounded by the minimum run length; the necessary and sufficient edge-of-run argument is supplied here. General existence and algorithmic decidability leave this precise classification open as a separate result.",
+      "searches": [
+        "pseudoperiod of automatic sequences Thue Morse Sturmian exact tuples",
+        "distinct-letter run cycles shortest run length two pseudoperiods enumeration",
+        "pseudoperiodic words two-run periodic words all pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meleshko et al., Definition 1 uses the OR condition for matching future shifts; arXiv:2207.10171v3 §§1–2.",
+        "Desmeules et al., repository preprint, Definition 3 uses an involutory letter permutation rather than existential matching over a set of shifts."
+      ],
+      "reasoning": "The claim was reformulated as a cyclic two-shift covering/hitting condition, a short-forward plus short-backward return condition, and a classification of all proper residues of 2-pseudoperiods. These are the same mathematical claim, and no identified published statement supplied their exact full classification for pairwise distinct run letters.",
+      "searches": [
+        "pseudoperiods of binary run periodic words exact classification",
+        "pseudoperiod 2 shifts binary circle intervals counting pairs",
+        "pair pseudoperiods of distinct symbol run-cycle periodic words exact all shifts modulo primitive period",
+        "minimal shift covers for constant runs periodic sequences shortest run length triangular count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Meleshko et al., Table 1 records critical exponents for specified pseudoperiod pairs, not a table of all pseudoperiod pairs for fixed periodic run cycles.",
+        "The accessible collection of 103 prior claim statements contains research on pseudoperiods of automatic and mechanical words and on several run-cycle invariants, but not this matching condition or its triangular enumeration."
+      ],
+      "reasoning": "No exact array, sequence, explicit parameter formula or indexed record matching the claimed all-length pair spectrum was identified in the searches. This is best-knowledge exclusion rather than exhaustive proof of absence.",
+      "searches": [
+        "0^a1^b pseudoperiod pairs",
+        "pseudoperiodic words two shift pseudoperiod cyclic run exact characterization 2024 2025",
+        "two pseudoperiods cyclic word c0^a0 c1^a1 all distinct letters",
+        "pseudoperiod shift pair complete characterization shortest block length c_i^a_i"
+      ]
+    },
+    "rationale": "The nearest primary study introduces exactly this shift-cover definition and gives broad existence, run-bound, automatic-sequence and computational-complexity results, not the complete set of proper two-shift residues of a distinct-run cycle. The earlier similarly named theory uses permutation-twisted periods and is mathematically different. No searched indexed finding or accessible prior claim implied the shortest-run triangular classification. Priority remains qualified by possible unindexed equivalents.",
+    "residual_risks": [
+      "An unindexed or inaccessible source may contain the same shortest-run characterization or a more general periodic shift-cover theorem.",
+      "The 2013 preprint was read in parsed text rather than fully visually inspected; the differing formal definition is explicit.",
+      "Automata-based decidability would recover particular instances algorithmically but does not by itself establish an original closed-form priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant framework; no statement or dominating result about all proper two-shift residues of distinct-run cycles found",
+        "evidence": [
+          "Definition 1 establishes ∀i OR matching shifts.",
+          "Propositions 2–3 provide bounded recurrence/run lengths, not pair spectrum.",
+          "Table 1 concerns critical exponents, not enumeration of valid pairs.",
+          "§6 studies repetition thresholds for k letters and §7 hardness on general finite words."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.10171v3",
+        "material_read": "Primary HTML full text: introduction and Definition 1; Propositions 2–4, Theorem 5, Corollary 6; critical-exponent section and Table 1; larger-alphabet §6 and computational-complexity §7; references",
+        "method": "Read original lawful arXiv HTML, including exact statements and discussion of related approaches",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Exact pseudoperiod definition and possible stronger general theorems"
+      },
+      {
+        "assessment": "Uses periods twisted by a fixed letter permutation, not the existential choice of one matching numerical shift at each position; not an equivalent formalization",
+        "evidence": [
+          "Definition 3 requires w[i+p]=σ(w[i]); §2.5 explicitly distinguishes this notion from another.",
+          "Meleshko et al. introduction also notes their shift-set notion is different from Blondin Massé et al."
+        ],
+        "identifier_or_url": "https://archipel.uqam.ca/8434/1/Blondin-Mass%C3%A9-2013c-preprint.pdf",
+        "material_read": "Accessible original preprint text, abstract, §1 and Definitions 2.1–2.5, notably Definition 3",
+        "method": "Read preprint text for the underlying definition; visual page retrieval timed out and complete visual verification was unavailable",
+        "title": "Multipseudoperiodic Words",
+        "trigger": "Potential alias of the pseudoperiod definition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6eee0f0e-44aa-4679-9cc7-42a41987b9cb",
+  "value": {
+    "rationale": "Periodic words possess a trivial full-period pseudoperiod, so classifying the proper shift-pair spectrum is a natural first nontrivial test in the theory introduced by Meleshko et al. The theorem completely classifies an unbounded class, proves that the normalized short-forward/short-backward spectrum is independent of alphabet cardinality and every run except its shortest (while absolute long-shift values still depend on the period), and pinpoints a sharp singleton obstruction. The exact triangular family of admissible pairs is a natural infinite invariant, not an arbitrary sample or a small improvement in constants.",
+    "status": "PASS"
+  }
+}
