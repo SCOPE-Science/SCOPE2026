@@ -1,19 +1,21 @@
-# Review of the sharp \((t+1)\)-variable classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fixed \(t\ge2\) and every existing \(S(t,t+1,v)\) with \(v\ge2t+2\), the proof derives a unique missing \(t\)-set above each surviving \((t-1)\)-set after a point deletion. Its two exact extension cases are: for missing \(t\)-anchors, all \(v-t-1\) outside choices agree; for covered anchors, there are exactly one block completion, \(t\) different missing-tuple completions, and \(v-2t-2\) free choices. These facts yield permanent back-and-forth \((t+1)\)-pebble strategies inside each stated phase. Two sentences using at most \(t+1\) variable symbols separate full from punctured and the exceptional puncture size from larger ones; a bound-variable shadowing argument is spelled out rather than using an illicit extra symbol. With only \(t\) variables the block relation is always false, leaving pure equality. Finite checkers reproduce all predicted patterns on 50 deletions and independently verify exact logical refinement on selected examples. No finite extrapolation is used in the unrestricted theorem.
+PASS
 
-## Originality — PASS, qualified
+Deleting a point turns missing surviving t-subsets into S(t−1,t,v−1), so any fixed t-anchor has one old-block completion plus t distinct missing-replacement points and exactly v−2t−2 free points if covered, while an uncovered anchor forces one missing tuple with all outside choices. These local types are exactly what a reusable (t+1)-pebble strategy must maintain and are independent of rounds; repeated pebbles handled by equality. The full-vs-puncture sentence detects uncovered t-tuples; P0-vs-P+ uses a covered t-anchor and one free outside witness with variable reuse within separate Cov subformulas. FO^t atoms are always false due to arity. Independent SQS(8,10) extension-pattern checks covered 1,120 anchor cases; finite checks are only corroboration.
 
-The closest earlier results concern: general noncounting pebble games; existence and embedding of Steiner designs; unique one-point extendability of residual designs; a special case for Steiner triple-system deletions; and bounded-quantifier-rank observations for complete Steiner quadruple systems. The prior triple-system result is the \(t=2\) instance; it does not prove any higher-strength puncture classification. The bounded-rank quadruple result concerns full structures and does not establish unrestricted \(\mathrm{FO}^{4}\) equivalence of all punctures or the exact exceptional phase. The present result gives a uniform all-\(t\) theorem with a sharp, nontrivial free-witness cutoff. Four different implication/equivalence checks are recorded in `AUDIT.json`. The principal unresolved priority risk is an inaccessible full 1993 residual-design article and possible stronger results under other terminology; absence from searches is not claimed as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The class is a natural cornerstone of design theory, not an arbitrary family selected for its behavior. The new classification describes a sharp collapse of fixed-width logical power across all strengths, all source designs, and arbitrarily large orders despite differing numbers of points and distinct internal geometries. The single arithmetic threshold \(v=2t+2\) has a structural explanation: exactly \(t+1\) distinct forced completions exhaust the outside points. This simultaneously subsumes the familiar triple-system phenomenon and gives new unrestricted conclusions for punctured quadruple systems and higher designs. It is relevant to expressiveness limits for hypergraph databases and to the contrast between unique extendability of designs and bounded-variable distinguishability. No use of a downstream theorem is required for this classification to have independent mathematical content.
+Best-of-knowledge independent statement/implication comparison supports a specific quantitative or structural contribution beyond inspected prior results; this is not an exhaustive novelty certificate. The permanent pebble characterization is classical and the residual missing-set system is a standard derived-design phenomenon, but the precise arbitrary-strength three-phase FO^(t+1) result was not found in inspected sources. Grohe–Otto supplies the method translating a maintained pebble invariant into FO^k equivalence; it does not establish the nontrivial uniform Steiner extension-pattern support. Existence/embedding of designs also does not logically entail the phase theorem.
 
-## Sources and remaining limits
+## value
 
-Primary sources compared: Grohe–Otto, arXiv:1204.1990 (2012); Keevash, arXiv:1401.3665 (2014); Baartmans–Blake–Tonchev, DOI 10.1002/jcd.3180010305 (1993, abstract only); Dukes–Feng–Ling, DOI 10.1016/j.ffa.2014.09.011 (2015, accessible article sections). The source-date field identifies the earliest verified exact initial arXiv posting among these cited sources; it does not convert a year-only historical citation into a fabricated day. The theorem is conditional on design existence; it excludes enriched signatures, counting quantifiers and widths above \(t+1\). Independent mathematical validation and comprehensive historical-priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result upgrades bounded-rank or t=2/3 observations to a uniform unrestricted-quantifier-depth classification, with a sharp variable budget and puncture-order boundary in fundamental finite design structures; the exact three-phase invariant can guide finite-model-theoretic indistinguishability and definability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
