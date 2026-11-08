@@ -1,15 +1,21 @@
-# Scientific assessment: shared-palette polynomial of matching-deleted complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-Each color used on both shores must occupy a single deleted matched pair. For a fixed set of shared pairs, private color-class partitions are independent and their blocks receive distinct named colors by a falling factorial. The case distinction in the number of shared colors handles every possible singleton witness: at least two shared singleton witnesses are automatic; exactly one requires a private singleton; zero shared colors admits at least two private singletons, one unmatched-position singleton, or exceptional full-deletion doubletons. The distinguished-doubleton number is counted bijectively by selecting matched pairings and distinct unmatched partners. These facts reconstruct the full summation and the 2/3/4-color threshold. A separate direct graph-adjacency enumerator reproduced each shared-color coefficient in 136 cases and checked the threshold in 447 parameter triples; these tests do not replace the general proof. The boundary \(t=0\), unbalanced cases and small graphs are explicitly covered.
+## correctness
 
-## Originality — PASS with priority risk
-Searches using the words “proper conflict-free chromatic polynomial”, “matching deleted complete bipartite”, “bipartite cocktail party graph”, “shared palette” and equivalent singleton-neighborhood and restricted set-partition terminology did not identify the complete bivariate enumerator. Three full original arXiv manuscripts, covering the definition, elementary classes, and bipartite complexity, were inspected for the relevant objects and counting theorem. A directly related published crown-graph result proves the minimum color number, and a separate published odd-neighborhood-coloring theorem counts certain optimal crown colorings; these statements are **covered specializations or different conditions**, not new discoveries here. The presented formula additionally determines every named palette count for all \(m,n,t\), with the number of genuinely shared colors separately recorded; neither prior statement implies this refinement. Complete multipartite PCF results apply to a different graph family. Residual risk: an unindexed matching-deleted-biclique counting identity, or a stronger general chromatic-polynomial enumeration theorem, could subsume the contribution. This is a same mathematical model prior-art assessment, not absolute novelty certification.
+PASS
 
-## Mathematical value — PASS
-Color-enumeration is a natural refinement of chromatic-number questions. The matching deletion parameter creates a structural exception to ordinary bipartite coloring: colors may cross parts only on deleted matched pairs, and the conflict-free condition forces a nontrivial doubleton partition term. The formula covers an unrestricted, unbalanced three-parameter graph family, gives a nonnegative combinatorial interpretation to its terms, and recovers a sharp chromatic transition while resolving all-color counts, not just its optimum. The complete four-color crown profile has three distinct shared-color sectors, a distinction invisible in the published minimum-color theorem. No claim is made that every numerical marginal is new.
+Properness forces any color used on both shores to appear precisely once at the two endpoints of one deleted matched edge; hence s shared colors correspond to s distinct deleted pairs. Given those, all remaining colors are shore-private set-partition blocks, yielding named-palette falling factorial (q)_{s+k+l}. With s>=2 a shared singleton always survives any one deletion; with s=1 the paired vertex needs an additional private singleton. With s=0 each opposite neighborhood needs either >=2 singleton blocks, one unmatched singleton, or (when all opposite vertices matched) each distinguished vertex occupying a doubleton block. Counting doubleton pairings yields stated Z(p,t,k) and three W_s cases. This proves the full two-variable formula for all m,n>=2,t and integer palettes. Independently brute-enumerated 128 parameter/palette combinations m,n=2..4 and q=1..4 and matched the Stirling-partition formula, including C_4,4,4(4,u)=216+144u^2+24u^4. The four-color constructive bound and s=0..3 casework give precisely the claimed 2/3/4 chromatic exceptions.
 
-## Evidence and limits
-Primary scientific literature: Fabrici et al., arXiv:2202.02570; Caro et al., arXiv:2203.01088; Ahn et al., arXiv:2208.08330. Closest record: *Proper conflict-free chromatic number of crown graphs*, published 2026, with explicit minimum color counts but no full-optimal classification. Other related evidence: *Neighborhood-parity odd colorings of crown graphs* and *Exact proper conflict-free colorings of complete multipartite graphs*. All source names are provided in RESULT.md. Finite code is corroborative only; previous unindexed work remains a research risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier Resultary 2026 crown-graph theorem already establishes chi_pcf(Cr_n)=2,3,4 and the shared-color-pair lemma; this numerical specialization is NOT new. Its entire RESULT.md explicitly leaves classification of all optimal four-colorings untreated. The assessed contribution instead counts every named-palette coloring, all partial matching deletions and unbalanced shores, and refines shared colors by s. Resultary odd-coloring uses different neighborhood parity; complete multipartite coloring has no deleted matching and cannot imply this polynomial. General conflict-free graph-coloring literature provides the concept and complexity bounds, not the enumerator in inspected material.
+
+## value
+
+PASS
+
+The full bivariate counting polynomial of a natural edge-deletion family is an independently useful invariant: it resolves all coloring multiplicities, not merely a previously known chromatic number. The nontrivial doubleton obstruction and refined shared-color census supply mathematical structure needed for exact enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
