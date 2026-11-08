@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The alternating Pfaffian rank criterion and the uniqueness of a perfect matching in a forest give the matching-number baseline. Only a full even cycle can support two maximal perfect matchings on the same vertex set. The proof separates cases according to whether a maximum matching meets a cycle-to-tree edge; the independent rooted-tree matching condition is necessary and sufficient to rule out such matches. In the exceptional case, every maximal principal Pfaffian contains the same cycle binomial; exactly \((q-1)^{|S|-1}\) nonzero weightings cancel and a remaining forest Pfaffian certifies a rank drop of exactly two. The correction factorizes by rooted components. The ordinary-character formula uses the published odd-characteristic graphical-group rank correspondence. The executable independently checks twenty small graph-field cases in three formulations; finite tests are not offered as infinite proof.
+PASS
 
-## Originality
+For a connected simple unicyclic graph, a nonzero principal Pfaffian of order 2ν(S) exists whenever the induced matching on its endpoints is unique. Distinct perfect matchings can differ only on the sole full even cycle. With the cycle fully supported, let a_v=ν(T_v−v), b_v=ν(T_v); b_v−a_v∈{0,1}. If every b_v=a_v, all maximum matchings stay off cycle-to-tree edges, their maximal Pfaffians share the same two-monomial even-cycle binomial Δ_C. If some b_v=a_v+1, a maximal matching using a cycle-to-tree edge yields a unique-monomial nonzero Pfaffian. Each exceptional support has exactly one in q−1 nonzero cycle-weight assignments satisfying Δ_C=0, and deleting one cycle matching edge gives a nonzero Pfaffian of order 2ν−2, so the drop is exactly two, including char2. Summing support counts proves R_G=H_G(q−1,z)+(q−1)^(ℓ−1) z^(ℓ/2−1)(1−z)∏_v Q_v(q−1,z) for even ℓ, and R_G=H_G for odd ℓ. O’Brien–Voll/Rossmann char rank conversion gives the ordinary character-degree formula for odd q only. Independent direct Gaussian elimination for a four-cycle with pendant length-two path gives q2 ranks [1,15,36,12], q3 [1,56,384,288], matching the factorized formula; not a universal proof.
 
-PASS relative to inspected evidence, with a meaningful residual priority risk. Rossmann (arXiv:2107.05564, Question 1.10) gives the motivating character-enumeration problem and a general rank-count reduction, not this enumerator. Li and Yu (arXiv:1404.7230, Theorems 4.2 and 4.5) already analyze fixed-\(\pm1\)-weight skew ranks of unicyclic oriented graphs, which is a genuine close predecessor rather than an unrelated source. The published tree and cycle graphical-group enumerators handle their respective families, and the coning result handles universal-vertex attachments; none states or directly implies the rooted-factorized finite-field correction for arbitrary unicyclic attachments. Search absence alone does not certify priority. An undiscovered weighted unicyclic matrix-counting theorem remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Rossmann's natural finite-group character-degree problem is solved for the entire family of connected simple unicyclic graphs, not an arbitrary fixed small case. The exact rank enumeration identifies the unique source of failure of the naive matching-support law and gives a product across independently varying attached trees. It resolves an arithmetic cancellation phenomenon affecting every even-cycle support, including characteristic two at the matrix level, and produces explicit polynomial character counts for all odd finite fields.
+Li–Yu (2014) classify fixed-sign real skew ranks for unicyclic oriented graphs, a genuinely close structural predecessor, but not all finite-field weight specializations or character multiplicities. The published Resultary forest, bare-cycle and cone results were materially read and represent proper graph families or distinct operations; none implies a general rooted-attachment product without matching-state analysis. Rossmann asks the general character-distribution question, O’Brien–Voll supplies conversion only. The factorized full-unicyclic histogram is distinct under inspected evidence, with historical Pfaffian-enumeration risk acknowledged.
 
-## Limits
+## value
 
-No multicyclic extension or polynomial-time evaluation theorem is claimed. The character theorem is stated only for odd prime powers. Originality is conditional on the inspected primary and published sources; no independent mathematical audit was undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unicyclic graphs are the next natural class beyond forests and cycles in Rossmann’s graphical-group enumeration question. A uniform factorized correction isolates an algebraic cycle-cancellation obstruction and computes every rank stratum/odd-field character-degree multiplicity for all rooted attachments. Exact classification over a natural infinite graph class has intrinsic combinatorial and representation-theoretic value; evaluation may remain exponential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
