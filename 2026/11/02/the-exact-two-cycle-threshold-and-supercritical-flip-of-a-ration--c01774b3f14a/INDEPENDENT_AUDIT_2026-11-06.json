@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On [0,1] f_r(x)=sin(pi x)/(1+rx) has fixed 0 (derivative pi) and exactly one positive fixed point by monotonic sin(pi x)/x and 1/(1+rx). Its multiplier crosses -1 at c=acos(-1/pi)/pi, r*=(sin(pi c)-c)/c². For any distinct two-cycle x<y, equality H(x)=H(y) for H(t)=t+sin(pi t), strict concavity and midpoint m(d)=acos[-d/sin(pi d)]/pi reduce full problem to scalar F(d,r). Its proved strict negative derivative for 0<=r<=r* and strictly negative endpoint at the boundary produce exactly one root below r*, none at/above. Even Taylor expansion yields d~sqrt((r*-r)/C), C>0, and critical flip normal form gives return multiplier 1-4k(r*-r)+O((r*-r)^1.5), k>0. Independent high precision values at representative parameters and near r* checked r*~0.94810546376 and asymptotic multipliers. Sampling was not used for exhaustive root count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu et al derive bounds and a sufficient fixed-point instability diagnostic near x~0.604, and exhibit numerical phases; no universal count over all r in inspected sections."
+        ],
+        "reasoning": "The ordinary sine map differs by denominator, so a general theorem would need explicit hypotheses guaranteeing the exact same family/parameter range; none verified.",
+        "searches": [
+          "https://doi.org/10.3390/math11010231",
+          "rational sine map chaos fixed point two cycle bifurcation",
+          "Sine interval map period doubling unique orbit"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/math11010231",
+        "Resultary query: rational sine map sin(pi x)/(1+r x) period two bifurcation threshold supercritical flip"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sufficient local fixed point test cannot entail uniqueness/existence of a nonfixed primitive two-cycle or a sharp supercritical normal-form law.",
+          "This claim proves additional F(d,r) monotonicity and expansion; those are not in earlier fixed-point inequalities."
+        ],
+        "reasoning": "The old fixed-point calculation is credited, not claimed as advance; the complete orbit census does not follow from it.",
+        "searches": [
+          "https://doi.org/10.3390/math11010231",
+          "Zhu Deng Zhang Zhu 2023 fixed-point instability threshold 0.604"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Zhu map mu*sin(pi x)/(e x+mu) becomes exactly f_r(x) on r=e/mu, matching all parameters.",
+          "H(x)=x+sin pi x and midpoint/difference scalar F(d,r) parametrize unordered two-orbits, an alias searched via cycles and flips."
+        ],
+        "reasoning": "Comparison intentionally used source parameter normalization and period-two aliases; earlier stability estimate is not equivalent to a complete cycle census.",
+        "searches": [
+          "rational sine map sin(pi x)/(1+r x) period two bifurcation threshold supercritical flip",
+          "https://doi.org/10.3390/math11010231",
+          "mu sin(pi x)/(e x+mu) primitive 2 cycles threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related prime-two orbit results are for rational Rulkov, SIR, Duffing and other parameter-dependent maps."
+        ],
+        "reasoning": "The exact r* value is not proof of originality; none of the searched catalog entries supplies the same normalized family or a dominating theorem.",
+        "searches": [
+          "rational sine map sin(pi x)/(1+r x) period two bifurcation threshold supercritical flip",
+          "rational sine map primitive period 2 orbit threshold 0.9481054637"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: Zhu et al (2023) introduce exactly the normalized family, derive the positive fixed point and sufficient instability criterion and provide numerical dynamics. The claim here is the distinct all-positive-parameter count of unordered primitive 2-cycles and supercritical normal-form coefficients. Indexed original primary mathematical sections inspected show no implication of this global exhaustive count. A direct complete publisher document was rate limited, so historical coverage outside available sections remains a genuine risk.",
+      "residual_risks": [
+        "Publisher full PDF not accessible; accessible mathematical sections do not guarantee whole-document noncoverage.",
+        "No claim of global two-cycle attraction for all 0<r<r* or absence of higher periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No covering exact all-r primitive-two census in material read; full-document NOT_COVERING cannot be asserted",
+          "evidence": [
+            "Zhu, Deng, Zhang, Zhu, Mathematics 11 (2023), article 231, DOI:10.3390/math11010231"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11010231",
+          "material_read": "Accessible indexed original Section 2.1 bounds, 2.2 fixed-point equation and local derivative, 2.3 numeric dynamics; complete direct full-document access rate limited",
+          "method": "Publisher indexed scientific content / sections, not entire PDF",
+          "title": "Image Encryption Scheme Based on Newly Designed Chaotic Map and Parallel DNA Coding",
+          "trigger": "Original mathematical paper defines same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-parameter exact census of primitive period-two orbits, including zero-at-threshold boundary and a nondegenerate square-root flip and local stability, is the natural first periodic-orbit classification for a previously introduced nonlinear interval map. It sharpens earlier numerical/threshold diagnostics without claiming higher-period/global behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed points and primitive period two on [0,1]; no global basin, chaos, higher cycles or cryptographic guarantees.",
+    "Near-threshold attraction is local."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-`python verify.py` (Python 3 with the widely available `mpmath` package) evaluates the exact critical constants at 70-digit precision, solves the midpoint/difference scalar equation by bisection, checks the two-cycle identities at nine parameter values, samples the proved no-root regions, and checks the square-root and return-multiplier expansions. The program passed 540 high-precision assertions when executed from the actual embedded source.
+# Independent mathematical audit
 
-The key exhaustive analytical certificate is the signed derivative
-\[
-F_d=-(1+\pi b\cos(\pi d)+2rm)m'-\pi\sin(\pi m)\sin(\pi d)+2rd
-<-(\pi\sqrt3-2)d<0
-\]
-for \(0<d<d_0\) and \(0\le r\le r_*<1\), together with the exact endpoint signs and strict negativity for \(r>r_*\). The code illustrates these results but does not formally verify a continuum. The local Taylor and Floquet asymptotics are proved in `RESULT.md`; reported decimal values are approximations, not theorem premises.
+## correctness
 
-Direct complete-publisher-document access was unavailable, despite indexed inspection of the relevant mathematical sections. Independent audit has not been performed.
+PASS
+
+On [0,1] f_r(x)=sin(pi x)/(1+rx) has fixed 0 (derivative pi) and exactly one positive fixed point by monotonic sin(pi x)/x and 1/(1+rx). Its multiplier crosses -1 at c=acos(-1/pi)/pi, r*=(sin(pi c)-c)/c². For any distinct two-cycle x<y, equality H(x)=H(y) for H(t)=t+sin(pi t), strict concavity and midpoint m(d)=acos[-d/sin(pi d)]/pi reduce full problem to scalar F(d,r). Its proved strict negative derivative for 0<=r<=r* and strictly negative endpoint at the boundary produce exactly one root below r*, none at/above. Even Taylor expansion yields d~sqrt((r*-r)/C), C>0, and critical flip normal form gives return multiplier 1-4k(r*-r)+O((r*-r)^1.5), k>0. Independent high precision values at representative parameters and near r* checked r*~0.94810546376 and asymptotic multipliers. Sampling was not used for exhaustive root count.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified: Zhu et al (2023) introduce exactly the normalized family, derive the positive fixed point and sufficient instability criterion and provide numerical dynamics. The claim here is the distinct all-positive-parameter count of unordered primitive 2-cycles and supercritical normal-form coefficients. Indexed original primary mathematical sections inspected show no implication of this global exhaustive count. A direct complete publisher document was rate limited, so historical coverage outside available sections remains a genuine risk.
+
+## value
+
+PASS
+
+An all-parameter exact census of primitive period-two orbits, including zero-at-threshold boundary and a nondegenerate square-root flip and local stability, is the natural first periodic-orbit classification for a previously introduced nonlinear interval map. It sharpens earlier numerical/threshold diagnostics without claiming higher-period/global behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

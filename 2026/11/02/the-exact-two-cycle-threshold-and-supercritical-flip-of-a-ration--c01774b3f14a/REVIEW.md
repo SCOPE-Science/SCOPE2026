@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed period-two equations are equivalent to a midpoint/difference system, with \(H(x)=H(y)\) and strict concavity forcing a unique midpoint for each admissible difference. The one-variable function \(F(d,r)\) has explicitly negative derivative for all \(0\le r\le r_*\) and has opposite endpoint signs exactly below the threshold; for larger parameters it decreases pointwise. Thus the orbit count is exhaustive. The positive fixed-point multiplier follows directly from the fixed-point equation. The nondegenerate even Taylor jet produces the square-root branch; the one-dimensional second-iterate normal form yields the stated attracting Floquet multiplier. The bundled high-precision script passed 540 assertions, but the analytic inequalities—not sampling—support completeness and limiting claims.
+PASS
 
-## Originality — PASS within inspected evidence
+On [0,1] f_r(x)=sin(pi x)/(1+rx) has fixed 0 (derivative pi) and exactly one positive fixed point by monotonic sin(pi x)/x and 1/(1+rx). Its multiplier crosses -1 at c=acos(-1/pi)/pi, r*=(sin(pi c)-c)/c². For any distinct two-cycle x<y, equality H(x)=H(y) for H(t)=t+sin(pi t), strict concavity and midpoint m(d)=acos[-d/sin(pi d)]/pi reduce full problem to scalar F(d,r). Its proved strict negative derivative for 0<=r<=r* and strictly negative endpoint at the boundary produce exactly one root below r*, none at/above. Even Taylor expansion yields d~sqrt((r*-r)/C), C>0, and critical flip normal form gives return multiplier 1-4k(r*-r)+O((r*-r)^1.5), k>0. Independent high precision values at representative parameters and near r* checked r*~0.94810546376 and asymptotic multipliers. Sampling was not used for exhaustive root count.
 
-Zhu et al. (2023), DOI `10.3390/math11010231`, define exactly the same map. Their visible mathematical sections derive a fixed-point derivative and a sufficient numerical instability condition, not an exhaustive primitive-period-two existence/uniqueness theorem. The exact fixed-point multiplier threshold alone is an elementary refinement, and is not treated as the standalone novelty. The global strict-monotonicity reduction and the full positive-parameter two-cycle census are the substantive distinction. Published finding-index similarity searches using the map, normalized parameter ratio, period-two aliases, and related dynamical families returned other maps without logical implication. The common sine map and a later rational-sine variant have different parameter dependence.
+## originality
 
-**Risk:** Direct full-document publisher access was rate limited and institutional access required an unavailable VPN. Relevant indexed source sections were materially read, not the whole primary PDF; publication priority or a general covering theorem outside the accessible text remains uncertain. Negative database searches are not uniqueness proofs.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge qualified: Zhu et al (2023) introduce exactly the normalized family, derive the positive fixed point and sufficient instability criterion and provide numerical dynamics. The claim here is the distinct all-positive-parameter count of unordered primitive 2-cycles and supercritical normal-form coefficients. Indexed original primary mathematical sections inspected show no implication of this global exhaustive count. A direct complete publisher document was rate limited, so historical coverage outside available sections remains a genuine risk.
 
-A complete exact orbit-count transition and square-root creation law answer the natural first periodic-orbit question for the published map. Their global content goes beyond the source's approximate fixed-point instability and numerical bifurcation figures. The value rests on a structurally motivated full-range classification, not the numerical improvement of a single decimal threshold.
+## value
 
-## Scope and limits
+PASS
 
-Only the real closed interval, fixed points, and primitive two-cycles are treated. Attraction is local near the critical threshold, not a global basin claim. No conclusions are drawn about higher-period orbits, entropy, image encryption, or other implementations. Numerical checks cannot replace proof; no independent review is represented.
+An all-parameter exact census of primitive period-two orbits, including zero-at-threshold boundary and a nondegenerate square-root flip and local stability, is the natural first periodic-orbit classification for a previously introduced nonlinear interval map. It sharpens earlier numerical/threshold diagnostics without claiming higher-period/global behavior.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
