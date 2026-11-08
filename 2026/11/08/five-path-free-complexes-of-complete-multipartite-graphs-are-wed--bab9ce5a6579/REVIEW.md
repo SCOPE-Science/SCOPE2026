@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof identifies the exact simplicial cover by a complete three-skeleton and contractible cones, including all cardinality boundaries. The three-skeleton of each cone is two-connected and has a free integral top-homology lattice computed from its explicit face count. Its three-faces use at least three vertices in one part, so different parts have disjoint coordinate supports. As kernels of integral boundary maps these lattices are saturated, proving that their inclusion in the full three-skeleton is injective and primitive. The relative long exact sequence therefore gives only free degree-three homology, of the displayed nonnegative rank. Attaching cells of dimension at least four preserves two-connectivity, and Hurewicz plus homological Whitehead gives the claimed integral wedge homotopy type. Independently enumerated characteristic-two and -three homology supports 199 small parameter cases, with no finite-to-infinite inference.
+
+## Originality — PASS, subject to stated residual risks
+Deshpande–Goyal–Sawant, arXiv:2607.05358v1 (2026-07-06), Lemma 3.5 already supplies the contractible-cover description; Theorem 4.3 treats complete bipartite graphs; Theorem 4.5 handles the three-vertex path case on complete multipartite graphs. Conjecture 4.7 and Question 4.8 explicitly ask for multipartite sphere-wedge topology and counts at general path length. The novelty claimed here is the integral homotopy wedge and **explicit exact sphere count for five-path avoidance across all multipartite part profiles**, not the cover, a bipartite special case, or the prior three-path theorem. Deshpande–Singh's higher-independence paper does not dominate this theorem because a connected five-vertex star is a concrete counterexample to equivalence of the forbidden conditions. Previous related classifications of four-path-free and complete split graphs do not cover the stated general five-path problem. Searches of available mathematical result records by title, alias, parameters, and equivalent formulations yielded no matching stronger claim. Remaining risk: an equivalent recently posted or unindexed theorem may exist, and no search establishes absolute uniqueness.
+
+## Mathematical value — PASS
+The result gives an all-parameter answer to the first odd path length beyond the already classified three-path case, including a nontrivial binomial sphere-count formula, integral homotopy and absence of torsion. It provides a natural infinite family of sphere-wedge complexes that can nevertheless fail sequential Cohen–Macaulayness; the family is not a chosen small experimental slice. The primitive chain-embedding argument is a reusable structural tool for similarly covered simplicial complexes, although no generalization is asserted here.
+
+## Limitations
+No equivariant representation, full higher-path classification, or proof of historical absolute uniqueness is asserted. Computations address only finite test cases, and independent audit is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
