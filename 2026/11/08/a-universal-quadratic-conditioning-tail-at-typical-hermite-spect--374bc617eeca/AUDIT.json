@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "At a Hermite spectrogram zero, the Wirtinger derivatives are independent Gaussians of variances n+1 and n and independent of the field value. Real Jacobian singular values equal U+V and |U−V|; Kac–Rice Palm weighting is |U²−V²|. The resulting t=V/U density is 4a²b² t|1−t²|/[E(b+a t²)^3] on t>0, with E=(a²+b²)/(a+b). Integration with q=(k−1)/(k+1) produces the stated antiderivative, the sharp 32a²b²/[(a²+b²)(a+b)²] tail coefficient, the moment threshold r=2 and the universal high-order survival 4k²/(k²+1)². The embedded checker tests normalizations, closed integrals, tails and limits, but the proof handles all orders and thresholds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.13531v1 first and second zero intensities and charged zeros",
+        "arxiv:2605.17296v1 cross-level correlations",
+        "2026/10/11/SCOPE-quadratic-chirp-phase-hessians-over-odd-finite-vector-spaces--aface8382344"
+      ],
+      "reasoning": "Existing general zero-point formulas or Kac–Rice frameworks cover the intensity weighting, but they do not themselves give the explicit distribution of condition numbers under that weighting and the universal limiting law. Finite cyclic phase Hessians do not dominate this stochastic marked result.",
+      "searches": [
+        "At a typical zero of white noise Hermite spectrogram, exact distribution of local real Jacobian matrix condition number, inverse sensitivity, heavy tail exponent two, Palm Kac Rice",
+        "arxiv:2605.17296 Gaussian polyanalytic zero correlations",
+        "arxiv:2610.13531 two-point zero intensity charges Hermite"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13531v1, full arXiv-rendered text",
+      "arxiv:2605.17296v1, full arXiv-rendered text",
+      "doi:10.1007/s10955-022-02917-3, full publisher HTML",
+      "doi:10.1007/s00440-026-01512-x, full publisher HTML",
+      "published-finding corpus 2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa",
+      "published-finding corpus 2026/10/11/SCOPE-quadratic-chirp-phase-hessians-over-odd-finite-vector-spaces--aface8382344",
+      "published-finding corpus 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.13531v1 derives charged first intensity from |det J| and independent Gaussian derivatives",
+        "doi:10.1007/s10955-022-02917-3 treats charge and Kac–Rice",
+        "arxiv:2605.17296v1 treats cross-order zero pairs"
+      ],
+      "reasoning": "The local Gaussian derivative independence and Kac–Rice Jacobian size bias are prior premises. From them one must newly perform the singular-value change of variables, exact integration and high-order limit to obtain the claimed full law. No inspected stronger theorem asserts those formulas as a corollary. A general marked Rice theorem might yield the integral representation; that possible mathematical proximity is a residual priority risk.",
+      "searches": [
+        "At a typical zero of white noise Hermite spectrogram, exact distribution of local real Jacobian matrix condition number, inverse sensitivity, heavy tail exponent two, Palm Kac Rice",
+        "spectrogram zeros local slope critical point conditioning Hermite window random white noise",
+        "arxiv:2610.13531 single Hermite zero distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.13531v1 §3–6; original Hermite derivative and charge/intensity framework",
+        "arxiv:2605.17296v1 main theorems; cross-order correlations",
+        "2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa"
+      ],
+      "reasoning": "Equivalent terms include a marked Kac–Rice distribution, a zero-conditional Jacobian singular-value ratio, a Palm Jacobian spectral condition number, or almost-singular zero probability. The exact tail/moment/high-order laws were not stated in the inspected passages; foundational Kac–Rice is a calculation tool, not a ready-made closed-form classification.",
+      "searches": [
+        "At a typical zero of white noise Hermite spectrogram, exact distribution of local real Jacobian matrix condition number, inverse sensitivity, heavy tail exponent two, Palm Kac Rice",
+        "polyanalytic Gaussian zeros near singular Jacobian probability and weighted gamma distribution at Palm point",
+        "arxiv:2610.13531 condition number Palm local singular values",
+        "doi:10.1007/s10955-022-02917-3 marked Kac Rice Jacobian conditioning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search hits: 2026/10/11/SCOPE-exact-local-conditioning-and-optimal-weighting-for-two-tap-cycli--52be44b25eaa",
+        "published-finding corpus search hits: 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88"
+      ],
+      "reasoning": "No matching full-tail distribution or tabulated exact invariant appeared in the queried published-finding corpus results. This is negative search evidence, not a proof that all historical records lack an equivalent formulation.",
+      "searches": [
+        "polyanalytic Gaussian zeros near singular Jacobian probability and weighted gamma distribution at Palm point",
+        "spectrogram zeros local slope critical point conditioning Hermite window random white noise",
+        "Hermite Palm condition number distribution 2026"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the original Hermite spectrogram zero paper (arxiv:2610.13531), Abreu–Shirai (arxiv:2605.17296), and foundational Gaussian Weyl–Heisenberg zero Kac–Rice work distinguishes existing one-/two-point and charge formulas from the new exact *marked* distribution of local singular-value ratios, its quadratic tail, moment threshold and large-Hermite-order limit. Three actual semantic published-finding corpus queries found no dominating formula; closest indexed conditioning result concerns a deterministic finite two-tap cyclic spectrogram, not a random zero. Kac–Rice is acknowledged as prior, and independent priority is not claimed.",
+    "residual_risks": [
+      "An older marked Kac–Rice/jacobian-condition-number computation might be indexed under different terminology or hidden inside a more general Gaussian random mapping result.",
+      "The present explicit formulas follow from comparatively elementary changes of variables once the published local Gaussian derivative data are known; independent publication-priority review remains necessary.",
+      "No finite-sample estimation or stochastic numerical conditioning bound is deduced."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The known one-point and charged intensities use Gaussian derivatives and Jacobian determinants; no law for the ratio of the real Jacobian singular values at intensity-Palm zeros or its sharp moments is stated in inspected material. The present Gaussian derivative premise is credited.",
+        "evidence": [
+          "arxiv:2610.13531v1; October 9 2026",
+          "https://arxiv.org/abs/2610.13531"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13531",
+        "material_read": "Full arXiv-rendered HTML: introduction, field definitions, one/two-point intensity and charge statements, local derivative covariance and winding-number algorithm sections",
+        "method": "Inspect scientific claims, formulas, theorem statements, and keyword matches for conditioning/Palm/mark/ratio",
+        "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+        "trigger": "Direct motivating 2026 Hermite spectrogram zero-statistics paper, with local Jacobian and charged zero formulas"
+      },
+      {
+        "assessment": "Cross-order point correlations and averaged-field convergence do not state or imply the exact Palm singular-value ratio distribution without the additional marked Jacobian integration.",
+        "evidence": [
+          "arxiv:2605.17296v1",
+          "https://arxiv.org/abs/2605.17296"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.17296",
+        "material_read": "Full arXiv-rendered HTML, including model definitions, main correlation and averaged-field results and related discussion",
+        "method": "Compare marked single-zero derivative distribution against joint-zero correlations, normalized fields and their consequences",
+        "title": "Zero correlations and averaged fields of orthonormal Gaussian functions",
+        "trigger": "Same Hermite-polyanalytic fields and possible stronger point-process classification"
+      },
+      {
+        "assessment": "Provides the Gaussian Weyl–Heisenberg and absolute-Jacobian count framework, but does not explicitly classify the Palm condition number, its order-dependent quadratic coefficient or large-order law. General Kac–Rice is acknowledged as existing machinery.",
+        "evidence": [
+          "doi:10.1007/s10955-022-02917-3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10955-022-02917-3",
+        "material_read": "Publisher open full HTML, including Kac–Rice/charge and first-intensity statements and proofs",
+        "method": "Inspect intensity theorem, Gaussian derivative weighting, and possible explicit marks of Jacobian singular-value ratios",
+        "title": "Zeros of Gaussian Weyl–Heisenberg Functions and Hyperuniformity of Charge",
+        "trigger": "Foundational general marked Kac–Rice theory for charged spectrogram zero processes"
+      },
+      {
+        "assessment": "Fluctuations of counts and hyperuniformity do not furnish the exact one-zero intensity-Palm Jacobian conditioning law.",
+        "evidence": [
+          "doi:10.1007/s00440-026-01512-x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00440-026-01512-x",
+        "material_read": "Publisher full HTML: abstract, main zero-count variance statements and relevant discussion",
+        "method": "Compare spatial count statistics against local marked real-derivative conditioning",
+        "title": "Hyperuniformity and non-hyperuniformity of zeros of Gaussian Weyl-Heisenberg Functions",
+        "trigger": "Potential stronger coverage by recent stationary-zero fluctuation and hyperuniformity theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "374bc617-eeca-4be3-847a-d922feb4f650",
+  "value": {
+    "rationale": "A randomly selected spectrogram zero is intensity-size-biased and may have extremely poor local invertibility despite almost-sure simplicity. Exact heavy-tail coefficient and second-moment divergence quantify the prevalence of near-degenerate zeros and distinguish the Hermite-order dependence. A complete local marked distribution and its universal high-order limit are natural quantitative invariants relevant to winding-number zero localization; these are not simply restatements of the known one-point intensity. No downstream detection guarantee is claimed.",
+    "status": "PASS"
+  }
+}
