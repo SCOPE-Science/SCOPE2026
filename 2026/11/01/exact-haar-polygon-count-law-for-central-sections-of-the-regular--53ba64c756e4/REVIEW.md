@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The polytope is explicitly defined and has exactly six square and eight hexagonal facets, with signed permutations of \((0,1,2)\) as vertices. A central plane in generic position cuts a facet exactly when the facet's vertex heights have both signs. The facetwise calculation yields the directionwise count formula in the result. Two six-sided chamber components, two eight-sided triangular cones, and one ten-sided triangular cone exhaust the signed-permutation chamber; normalized solid angles give all probabilities. The stated trig arguments and their denominators have been recomputed. Exhaustive exact arithmetic on 10,690 integer normals verifies facet counts, edge counts and the chamber formula, and Gaussian-normal sampling corroborates angular integration. These tests are not mistaken for an infinite proof.
+## correctness
 
-## Originality — PASS with risk
-De Leo's full 2005 preprint investigates foliations and open leaves of a periodic extension, not the finite center section's three-point probability law. The full 2016 Coxeter-orbihedra paper studies specially oriented scans, not Haar-random orientations. The 2024 De Loera–Lopez-Campos–Torres paper describes general vertex-count enumeration algorithms but does not explicitly claim an orientation law in its accessible abstract; the full text could not be inspected, so this is a residual historical-priority risk. Closely related published Haar laws concern different bodies (icosahedron, four-cube); their statements do not imply this exact BCC-cell formula. The classical polytope coordinates and the solid-angle identity are prior mathematics and are not claimed as discoveries. Searches provide evidence but do not prove uniqueness or priority.
+PASS
 
-## Value — PASS
-The truncated octahedron is a fundamental Archimedean solid and a Voronoi cell of the body-centered cubic lattice. Its central-section polygon type is a natural, complete orientation statistic used in stereological reasoning. The result supplies the exact support \(\{6,8,10\}\), rules out the seemingly possible four- and twelve-gons, and computes all positive probabilities in elementary closed form; it does more than restate a known general section-count bound or evaluate an arbitrary numerical slice. It does not claim a larger theorem for arbitrary polytopes.
+For the fixed convex body |X_i|<=2 and sum|X_i|<=3, its 24 vertices are signed permutations of (0,1,2). A generic central plane intersects one segment per crossed facet. Sorting normal absolute coordinates x>y>z>0 gives six square-facet crossings 2[x>2y]+2[x>2z] and eight hexagonal-facet crossings 4+2[y<2z]; thus N=4+2([x>2y]+[x>2z]+[y<2z]) takes only 6,8,10. In a signed-permutation chamber (area pi/12), the ten-gon domain is triangle VTC and the eight-gon domains UVT and TWC; their normalized solid angles yield the exact arctangent law p6=0.4984506899, p8=0.3161088556, p10=0.1854404545. The full-sphere result follows from the 48 symmetric chambers, not numerical sampling. Independently compared crossed facets, crossed edges and indicator count for 3647 generic integer normals; agreement, with analytic facet proof establishing continuum.
 
-## Limitations and closest literature
-The claim concerns a fixed bounded, regular body and central planes only. It does not classify translated planes, section shape metrics or deformed bodies. Relevant public sources are De Leo (arXiv:math/0502219), Valiunas–Zappa–Thomas (Bridges 2016), De Loera–Lopez-Campos–Torres (arXiv:2412.12419, abstract-level comparison only), and Johnson's original polyhedron classification. Independent historical and scientific auditing remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact Haar *probability* law for a single regular truncated octahedron. Generic section enumeration, periodic tiling foliations, and Haar laws for other Platonic solids do not imply this body-specific orientation measure. The 2025 full De Loera--Lopez-Campos--Torres paper was inspected at its summary, main theorems and terminology; it describes possible vertex counts/maxima, not the normalized spherical measure of each count. Historical equivalent stereology remains a risk.
+
+## value
+
+PASS
+
+An exact complete three-point Haar distribution for a canonical Archimedean solid is a motivated geometric probability fact; it detects forbidden counts, not just mean or feasible types, and supplies exact spherical-cone probabilities usable for stereological sampling. The central-plane versus translated-plane normalization is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

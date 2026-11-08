@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:16:50Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 4ce2816517bf4a69bc7bd56f8dd79d0c23eac101, Git tree a7b7525f7a8145ad7b6de0d0463564a915668493; inspected check_section_law.py blob 1ddf6fbaaa8bd38df5764c04f777a39f8ef1c4f4.",
+        "Independent code enumerated 24 vertices, 14 facets and 36 edges, and cross-checked 3647 generic sorted integer-normal directions.",
+        "Solid-angle formula via 2atan2(|det|,sum of norm/dot products) integrates the three spherical triangles; analytic chamber partition supplies generality."
+      ],
+      "rationale": "For the fixed convex body |X_i|<=2 and sum|X_i|<=3, its 24 vertices are signed permutations of (0,1,2). A generic central plane intersects one segment per crossed facet. Sorting normal absolute coordinates x>y>z>0 gives six square-facet crossings 2[x>2y]+2[x>2z] and eight hexagonal-facet crossings 4+2[y<2z]; thus N=4+2([x>2y]+[x>2z]+[y<2z]) takes only 6,8,10. In a signed-permutation chamber (area pi/12), the ten-gon domain is triangle VTC and the eight-gon domains UVT and TWC; their normalized solid angles yield the exact arctangent law p6=0.4984506899, p8=0.3161088556, p10=0.1854404545. The full-sphere result follows from the 48 symmetric chambers, not numerical sampling. Independently compared crossed facets, crossed edges and indicator count for 3647 generic integer normals; agreement, with analytic facet proof establishing continuum.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Loera, Lopez-Campos, Torres, On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes, arXiv:2412.12419v3, Theorem 1.1 bounds maximum vertex count; Theorem 1.2 poset enumeration; Theorem 1.3 gaps."
+        ],
+        "reasoning": "Those theorems count possible section combinatorics and maxima for arbitrary affine hyperplanes; a Haar orientation probability for one fixed central-section family is not a corollary of those bounds alone.",
+        "searches": [
+          "arxiv:2412.12419v3 sections, Theorems 1.1-1.3, abstract, hyperplane section combinatorics",
+          "Resultary semantic: uniform random central section regular truncated octahedron hexagon octagon decagon polygon side probabilities solid angles"
+        ]
+      },
+      "checked_sources": [
+        "De Loera, Lopez-Campos, Torres arXiv:2412.12419v3",
+        "De Leo arXiv:math/0502219",
+        "Resultary central icosahedron section law SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior works permit combinatorial testing of planes and study periodic sections, respectively; neither presents solid-angle integrals yielding the three exact Haar probabilities."
+        ],
+        "reasoning": "An algorithm to enumerate types in principle can produce this calculation when specialized and integrated; without that integration the exact values are not asserted or directly implied as proved numerical values.",
+        "searches": [
+          "arxiv:2412.12419v3 Theorems 1.1-1.3",
+          "arxiv:math/0502219 periodic sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Leo, Topology of plane sections of periodic polyhedra with an application to the Truncated Octahedron, arXiv:math/0502219: periodic open leaves rather than one bounded solid with a central plane."
+        ],
+        "reasoning": "Periodic sections change the object by extending the polytope periodically and are not equivalent to uniform central sections of a bounded solid.",
+        "searches": [
+          "Resultary semantic: uniform random central section regular truncated octahedron hexagon octagon decagon polygon side probabilities solid angles",
+          "De Leo periodic truncated-octahedron plane foliation arxiv:math/0502219"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f has icosahedral central sections with 10/12 sides, a different solid and distribution."
+        ],
+        "reasoning": "Relevant geometric tables do not tabulate the truncated octahedron 6/8/10 orientation probabilities; this is bounded search, not absolute novelty proof.",
+        "searches": [
+          "Resultary semantic: uniform random central section regular truncated octahedron hexagon octagon decagon polygon side probabilities solid angles",
+          "Resultary: exact Haar polygon-type law for central icosahedron sections (2026/10/11)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact Haar *probability* law for a single regular truncated octahedron. Generic section enumeration, periodic tiling foliations, and Haar laws for other Platonic solids do not imply this body-specific orientation measure. The 2025 full De Loera--Lopez-Campos--Torres paper was inspected at its summary, main theorems and terminology; it describes possible vertex counts/maxima, not the normalized spherical measure of each count. Historical equivalent stereology remains a risk.",
+      "residual_risks": [
+        "Older stereology of random sections of Archimedean solids could contain identical angular probabilities without the same name.",
+        "De Leo full PDF was inaccessible; only its abstract/object distinction was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering the claimed probability in inspected theorem statements; no claim of line-by-line full-document noncoverage",
+          "evidence": "arXiv:2412.12419v3 pp.1-2, Thms 1.1, 1.2, 1.3",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.12419",
+          "material_read": "2025 arXiv v3 PDF introduction, main theorem statements 1.1-1.3, subject overview and searched full text for truncated octahedron/probability",
+          "method": "PDF text and page-2 screenshot",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "Same property: plane sections and vertex count"
+        },
+        {
+          "assessment": "different periodic extended polyhedron and topology of open leaves, but full equivalence search limited",
+          "evidence": "arxiv:math/0502219 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/math/0502219",
+          "material_read": "Abstract/title and supplied reference; arXiv PDF fetch disabled",
+          "method": "OA abstract only; full text unavailable",
+          "title": "Topology of plane sections of periodic polyhedra with an application to the Truncated Octahedron",
+          "trigger": "Same polyhedral species, possible name alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Specific natural mathematical object/invariant and non-implied exact classification, including complete natural family or sharp boundary."
+      ],
+      "rationale": "An exact complete three-point Haar distribution for a canonical Archimedean solid is a motivated geometric probability fact; it detects forbidden counts, not just mean or feasible types, and supplies exact spherical-cone probabilities usable for stereological sampling. The central-plane versus translated-plane normalization is explicit.",
+      "residual_risks": [
+        "Older stereology of random sections of Archimedean solids could contain identical angular probabilities without the same name.",
+        "De Leo full PDF was inaccessible; only its abstract/object distinction was read."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "De Loera, Lopez-Campos, Torres arXiv:2412.12419v3",
+    "De Leo arXiv:math/0502219",
+    "Resultary central icosahedron section law SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Generic central planes only; directions through a vertex excluded (measure zero).",
+    "Only regular truncated octahedron, not infinite periodic tiling or noncentral sections.",
+    "Numerical and finite normal tests do not prove the continuum; analytic facet/chamber proof is needed."
+  ],
+  "residual_risks": [
+    "Older stereology of random sections of Archimedean solids could contain identical angular probabilities without the same name.",
+    "De Leo full PDF was inaccessible; only its abstract/object distinction was read."
+  ],
+  "schema_version": 1
+}
