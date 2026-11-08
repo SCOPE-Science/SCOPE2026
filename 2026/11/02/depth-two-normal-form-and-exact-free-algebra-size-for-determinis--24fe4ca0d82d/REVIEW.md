@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Weak transitivity collapses every two-step successor walk to a terminal, fixed, or returning pattern. Together with partial functionality this gives five mutually exclusive pointed colour families, after identifying monochromatic looping streams by a colour-preserving bisimulation. The constructed characteristic formulas isolate these families at depth at most two; Boolean combinations realize every subset, yielding \(2^{3\cdot4^k}\) formula-equivalence classes. The explicit two-model example proves depth-one insufficiency, and exclusive characteristic formulas prove the minimal universal-model size. These symbolic arguments cover all finite and infinite frames and include the zero-variable case. Standalone finite checking across 5,596,204 rooted coloured cases supplied corroboration, not a substitute for proof.
+PASS
 
-## Originality — PASS within inspected evidence
+If xRy and yRz then z=x or z=y by weak transitivity plus unique successor, so the generated stream is terminal, 1-cycle, length-two ending terminal/loop or 2-cycle. Monochrome two-cycles are bisimilar to loops. Five disjoint types T(a), F(a), L(a,b), R(a,b) (a!=b), P(a,b) (a!=b) count q+q+q^2+2q(q-1)=3q^2. Characteristic formulas of depth at most two distinguish them. Their canonical disjoint union is itself functional weakly transitive; characteristic disjunctions define every powerset subset. Monochrome loop and two-edge path to a sink are depth-one equivalent but depth-two distinct. Type exclusivity gives optimal universe size. Independently enumerated 308140 rooted coloured functional weakly-transitive cases on <=5 labelled worlds and canonical q=1,2,3 type totals 3,12,27. Finite enumeration corroborates but is not the proof for arbitrary infinite frames.
 
-The June 30, 2026 wK4 paper of Santschi and Vooijs proves general finite-model and width results; its readable primary text does not present the free-algebra cardinality for the partial-functional intersection. Earlier wK4 canonical-formula and local-tabularity literature supplies broader qualitative framework, but no inspected theorem entails the quantitative five-family classification. The closest recorded partial-function result concerns marked measurable quotients, not the weak-transitivity free algebra. There remains a historical-priority risk from uninspected earlier complete texts and alternative terminology, particularly monounary-algebra presentations. Novelty is not asserted to be globally certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural intersection of two first-order frame properties has a complete all-rank free-algebra calculation, a precise syntax-depth collapse, and a sharp minimal finite semantic test structure. The exact answer distinguishes this class from general weakly transitive frames and from merely functional frames with arbitrarily long tails; it directly measures the independent propositional-modal distinctions available to a proof system. The result is not an arbitrary finite numerical slice.
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
 
-## Closest sources and limitations
+## value
 
-References include Santschi–Vooijs (2026), Bezhanishvili–Bezhanishvili (2012), and Shehtman–Shapirovsky on local tabularity. Other results on free algebras and one-successor algebras were compared at the levels accessible, and no covering implication was established. The theorem requires ordinary Boolean modal syntax and both frame constraints; it makes no claim for richer languages or unrestricted relations. Independent validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete, sharp normal form and free-algebra cardinality for the natural intersection of two modal frame conditions, not merely a parameter substitution. Depth bound, minimal universal model and exact rank-dependent formula are useful in local tabularity and finite semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

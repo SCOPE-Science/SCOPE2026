@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification of the exact free-algebra theorem
+# Independent mathematical audit
 
-The stand-alone `checker.py` checks the finite consequences of the algebraic/semantic classification without relying on precomputed counts. Its independent depth-two signature function compares the root's colour and the first two successor observations against a separate structural type classifier. It enumerates all partial maps with at most one successor on each labelled carrier of sizes one through six and selects those satisfying \(f(f(x))\in\{x,f(x)\}\) wherever defined. Every binary valuation and rooted world is checked, giving 5,596,204 pointed coloured cases.
+## correctness
 
-The same program tests all predicted canonical types and every corresponding characteristic formula for colour counts \(q=1,2,3\). It verifies the depth-one indistinguishability and depth-two separation witness. Expected terminal output:
+PASS
 
-```
-q= 1 types= 3 pairwise distinct depth2; characteristic formulas=OK
-q= 2 types= 12 pairwise distinct depth2; characteristic formulas=OK
-q= 3 types= 27 pairwise distinct depth2; characteristic formulas=OK
-n= 1 valid partial maps= 2
-n= 2 valid partial maps= 9
-n= 3 valid partial maps= 44
-n= 4 valid partial maps= 267
-n= 5 valid partial maps= 1812
-n= 6 valid partial maps= 13771
-ALL_CHECKS_OK; examined rooted coloured cases= 5596204
-```
+If xRy and yRz then z=x or z=y by weak transitivity plus unique successor, so the generated stream is terminal, 1-cycle, length-two ending terminal/loop or 2-cycle. Monochrome two-cycles are bisimilar to loops. Five disjoint types T(a), F(a), L(a,b), R(a,b) (a!=b), P(a,b) (a!=b) count q+q+q^2+2q(q-1)=3q^2. Characteristic formulas of depth at most two distinguish them. Their canonical disjoint union is itself functional weakly transitive; characteristic disjunctions define every powerset subset. Monochrome loop and two-edge path to a sink are depth-one equivalent but depth-two distinct. Type exclusivity gives optimal universe size. Independently enumerated 308140 rooted coloured functional weakly-transitive cases on <=5 labelled worlds and canonical q=1,2,3 type totals 3,12,27. Finite enumeration corroborates but is not the proof for arbitrary infinite frames.
 
-Run `python3 checker.py` with Python 3 (standard library only). The exhaustive finite checks validate the tested finite instances, not an infinite case; the universal proof is Steps 1–5 of `RESULT.md`. The classification and all-rank count were reviewed for scope, quantifiers, and edge cases, including \(k=0\), absent successors, loops, two-cycles and monochromatic bisimulations. No independent external audit or formal proof assistant certification was performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+This is a complete, sharp normal form and free-algebra cardinality for the natural intersection of two modal frame conditions, not merely a parameter substitution. Depth bound, minimal universal model and exact rank-dependent formula are useful in local tabularity and finite semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
