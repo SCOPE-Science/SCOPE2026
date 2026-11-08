@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Independent reconstruction of chi-square_2 sign integral and one-variable rational derivative with golden-ratio critical point.",
+        "20 independently simulated/checked Gaussian pivot regimes and threshold orientation comparisons; finite Monte Carlo diagnostic only."
+      ],
+      "rationale": "For exactly two real columns with Gram eigenvalues L>1,1 and exactly two independent standard-Gaussian sketch rows, the sketch norm difference is the indefinite quadratic form alpha X-beta Y with X,Y independent chi-squared_2, alpha beta=L and alpha-beta=delta=|G11-G22|. Exponential integration gives wrong-pivot probability beta/(alpha+beta)=(1-delta/sqrt(delta²+4L))/2. Because loss on a wrong pivot is exactly delta, the expected regret formula follows for delta in the full interval [0,L-1] attained by Gram rotations. Substituting u=delta/sqrt(delta²+4L) gives squared objective proportional to u²(1-u)/(1+u), whose derivative has the single interior positive root s=(sqrt5-1)/2. The feasible upper bound u=(L-1)/(L+1) crosses s at Lc=2+sqrt5, giving the claimed piecewise maximum and all equality orientations, including boundary and delta=0. Independent seeded Gaussian simulation and exact boundary computations agree across 20 regimes; sampling does not prove the optimization.",
+      "residual_risks": [
+        "Two input columns, two real Gaussian sketch rows, exact first squared QR diagonal only; no guarantee for full rank-revealing QR performance, roundoff, complex inputs or other sketch sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General subspace-embedding/rank-revealing guarantees for randomized QRCP bound algorithm performance but do not give a sharp two-column two-row expected regret extremum at fixed Gram spectrum."
+        ],
+        "reasoning": "Those general QRCP results use different, usually norm/error-based, guarantees; the exact two-row Gaussian law and orientation equality classification are not implied by statements inspected.",
+        "searches": [
+          "Gaussian sketch QR column pivot expected regret golden ratio orientation two columns",
+          "Melnichenko et al arXiv:2311.08316 CQRRPT §§2–4",
+          "Martinsson et al arXiv:1512.02671 Gaussian sketch QR"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Melnichenko et al arXiv:2311.08316 full arXiv HTML §§2–4",
+        "Martinsson et al arXiv:1512.02671, Duersch–Gu arXiv:1509.06820, Gaunt arXiv:2408.04101 contextual comparisons",
+        "Resultary query: Gaussian sketch QR column pivot expected regret golden ratio orientation two columns"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CQRRPT establishes the sketch pivot mechanism and probabilistic embedding bounds. Gaunt develops a broader quadratic-form distribution, which implies the probability sublemma but not the max over Gram orientations."
+        ],
+        "reasoning": "The only potentially new step is the fixed-spectrum orientation optimization and its golden-ratio phase boundary; all other algorithmic/probability ingredients are credited as existing.",
+        "searches": [
+          "Gaussian sketch QR column pivot expected regret golden ratio orientation two columns",
+          "CQRRPT arXiv:2311.08316 §§2,4",
+          "Gaunt arXiv:2408.04101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The incorrect-pivot probability is a sign probability for the difference of two chi-squared variables, a known distributional result."
+        ],
+        "reasoning": "The probability law is explicitly prior art; composing it with the fixed-spectrum feasible Gram-diagonal gap and optimizing expected squared pivot loss yields a distinct statement not contained in a sign-probability theorem.",
+        "searches": [
+          "Gaussian sketch QR column pivot expected regret golden ratio orientation two columns",
+          "Gaunt arXiv:2408.04101, Gaussian chi-square differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed findings included multistage adaptive randomized pivoting with final projection error, not the two-row squared first-pivot regret."
+        ],
+        "reasoning": "This is a continuous L-by-orientation extremum, not a finite database table; exact synonym searches showed no covering recorded claim, but cannot prove absence in specialist numerical-linear-algebra literature.",
+        "searches": [
+          "Gaussian sketch QR column pivot expected regret golden ratio orientation two columns",
+          "Resultary semantic QR pivot regret query; SCOPE GitHub code search pivot regret"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The randomized QRCP pivot rule and embedding analyses occur in Martinsson et al, Duersch–Gu and Melnichenko et al; the chi-square quadratic-form sign law is classical and is NOT credited as novel. The final claim is the sharp optimization of an explicitly specified expected first-pivot regret across all fixed-spectrum column orientations, with golden-ratio transition and equality cases. The inspected QR algorithms and classical distribution references do not supply this extremal orientation law.",
+      "residual_risks": [
+        "An equivalent two-dimensional Gaussian quadratic-form risk optimization may exist under statistical decision terminology.",
+        "Duersch–Gu complete preprint/appendices were not independently read cover to cover; this alone does not decide originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING EXTREMUM",
+          "evidence": "Describes randomized QRCP pivoting and sketch embedding quality rather than expected regret optimized over two-column orientation with exact (2+sqrt5) threshold.",
+          "identifier_or_url": "arXiv:2311.08316",
+          "material_read": "Full arXiv HTML; pivot-selection mechanism, §2 sketch QR and §4 rank/accuracy results",
+          "method": "full-text inspection",
+          "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+          "trigger": "Same Gaussian sketch QRCP first-pivot algorithm"
+        },
+        {
+          "assessment": "PRIOR ALGORITHM",
+          "evidence": "The random sketch first pivot is prior; no inspected bound yields the exact two-variable orientation extremum.",
+          "identifier_or_url": "arXiv:1512.02671",
+          "material_read": "Relevant algorithm statement and described experimental comparison; not relied on for global exclusion of uninspected portions",
+          "method": "primary-source and cited-source comparison",
+          "title": "Householder QR Factorization with Randomization for Column Pivoting",
+          "trigger": "Original randomized QRCP/row-sketch pivot selection"
+        },
+        {
+          "assessment": "FULL TEXT NOT FULLY VERIFIED",
+          "evidence": "Randomized QR pivot strategy is known; possible specialized two-column appendix or equivalent orientation analysis remains a risk.",
+          "identifier_or_url": "arXiv:1509.06820",
+          "material_read": "Bibliographic abstract and source characterization; full-document comparison not established",
+          "method": "accessible summary and package citation",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Closely related sketch pivot algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, verify.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Melnichenko et al arXiv:2311.08316 full arXiv HTML §§2–4",
+        "Martinsson et al arXiv:1512.02671, Duersch–Gu arXiv:1509.06820, Gaunt arXiv:2408.04101 contextual comparisons",
+        "Resultary query: Gaussian sketch QR column pivot expected regret golden ratio orientation two columns"
+      ],
+      "rationale": "The squared first QR diagonal is precisely the pivoted column norm, so regret is a natural local objective. The unexpectedly oblique worst orientation for L>2+sqrt5 makes singular-value anisotropy insufficient to forecast minimal-sketch pivot fidelity. Exact global bound, transition, optimizer orientation and sqrt(L) scaling provide a useful adversarial benchmark, without unsupported downstream stability claims.",
+      "residual_risks": [
+        "Motivated natural scoped theorem only; not a general result outside the exact stated hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Two input columns, two real Gaussian sketch rows, exact first squared QR diagonal only; no guarantee for full rank-revealing QR performance, roundoff, complex inputs or other sketch sizes.",
+    "An equivalent two-dimensional Gaussian quadratic-form risk optimization may exist under statistical decision terminology.",
+    "Duersch–Gu complete preprint/appendices were not independently read cover to cover; this alone does not decide originality."
+  ]
+}
