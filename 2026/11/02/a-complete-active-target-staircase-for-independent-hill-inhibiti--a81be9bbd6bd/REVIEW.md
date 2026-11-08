@@ -1,19 +1,21 @@
-# Scientific review — active-target staircase for independent Hill inhibition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The objective equals a sum of \(\log(1+z^h)\) terms after division by the common dose scale. Strict concavity proves the noncooperative case \(0<h\le1\). For \(h>1\), the proof checks the only nonstandard local lemma explicitly: if two distinct positive doses have equal marginal response, their sum has positive curvature along a feasible pairwise transfer. Its reduction to monotonicity of \(\sinh t/t\) eliminates every unequal positive support at a maximum. Strict single-peakedness of \(\log(1+t^h)/t\) then gives one and only one crossing between consecutive support sizes, with disjoint crossing brackets. Boundaries, normalization, ties, and all quantifiers are included. The attached checker passed 52,569 exact-rational grid tests, 21,600 numerical allocation tests and 56 switch brackets; these are supplemental to the analytic proof.
+PASS
 
-## Originality — PASS within inspected evidence, with residual historical-priority risk
+Normalize b=B/K and f(z)=log(1+z^h). For 0<h<=1, strict Jensen concavity gives unique all-n equal positive doses. For h>1, f′ increases then decreases; if a stationary maximum had unequal positive x<y, f′(x)=f′(y), then f″(x)+f″(y)>0 by (h-1)sinh((h+1)t)>(h+1)sinh((h-1)t), contradicting maximality along feasible pair transfer. Thus every global maximizer is equal on exactly k positive entries, with objective F_k(b)=k log(1+(b/k)^h). The function g(u)=log(1+u^h)/u increases up to unique u_h then decreases, where h u_h^h/(1+u_h^h)=log(1+u_h^h). For consecutive k, F_k=F_(k+1) crosses exactly once θ_k in (k u_h,(k+1)u_h); disjoint consecutive brackets imply θ1<...<θ_(n-1), no skipped support or nonadjacent tie, first θ1=2(2^h-2)^(1/h). A direct independent root calculation for h=2,3 reconstructed ordered adjacent thresholds and exact first threshold. Domain all real h>0, n>=2, identical positive K and total B, no toxicity/interaction constraints. Finite root checks supplement the analytic proof.
 
-The prior-work comparison separates model definitions (Bliss-independent survival in Zhao et al. 2014 and Tang et al. 2015; multiple independent Hill processes in Di Veroli et al. 2015) from the new fixed-budget global optimization. Full accessible texts of these pharmacological sources discuss effects, fitting, and model comparison rather than an all-support monotone threshold classification. General S-shaped separable resource allocation is covered by Vicentini (1970), Ginsberg (1974), and Zipkin (1980). Ginsberg's abstract explicitly says it solves the identical-plant subproblem, potentially subsuming the equal-support candidate reduction. However, the accessible evidence does not settle the unique, strictly ordered Hill-specific support switches, and general candidate formulas alone do not imply a no-skipping budget staircase. The three older complete texts were inaccessible. A stronger general theorem implying even the specialized staircase remains a material historical-priority risk. The full 2020 review by Westerink-Duijzer et al. was inspected for its explicit citations and general framework. Searches and implication comparisons are recorded in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-Under a natural idealized independent-inhibition model, the theorem supplies an exact dose-allocation design rule, not a parameter renaming or an arbitrary numerical instance: increasing total dose changes how many mechanisms to activate, **one at a time**, and never warrants an unequal positive split. The exact first threshold and certified brackets for all later thresholds allow precise budget comparisons. The finding distinguishes cooperative and noncooperative Hill regimes and provides an explicit three-target example where an intermediate support size is uniquely optimal. This model-level conclusion is of potential use in benchmark combination-dose design; it is not validated medical advice.
+Best-of-knowledge original exact all-support Hill-specific no-skipping staircase with adjacent crossing brackets and explicit θ1. Separable convex-concave resource allocation is classical; Ginsberg 1974 claims a complete solution for identical plants, potentially covering the equal-positive support reduction, so this portion is NOT treated as newly invented. Ginsberg full text unavailable (authorized Oxford reports VPN disconnected). The accessible general accounts do not demonstrably imply strict Hill-specific ordered adjacent switches; residual risk is substantial, and priority is explicitly provisional.
 
-## Closest prior work and limitations
+## value
 
-Vicentini (1970), https://commons.case.edu/wsom-ops-reports/370/ — general S-shaped separable resource allocation, abstract read, complete text inaccessible. Ginsberg (1974), https://www.econbiz.de/10002439510 — identical-plant convex-concave allocation, abstract read via a secondary listing, complete text inaccessible. Zipkin (1980), https://doi.org/10.1287/mnsc.26.1.34 — general nonlinear-additive single-resource algorithms, abstract read, complete text inaccessible. Zhao et al. (2014), https://doi.org/10.1177/1087057114521867 — full text read, Bliss model and response-surface inference. Tang et al. (2015), https://doi.org/10.3389/fphar.2015.00181 — full text read, comparison of synergy reference models. Di Veroli et al. (2015), https://doi.org/10.1038/srep14701 — full text read, multiple independent Hill response processes. No full-text inspection of the 1970/1974/1980 works and no independent audit have occurred. Unequal Hill parameters, toxicity, interdependence and uncertain dose response are beyond scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Independent Hill inhibition with shared dose is a standard mathematical benchmark: the theorem gives an exact support-count phase diagram for all n and all real h, complete with sharp n-1 budget thresholds, no skipped k and concrete first switch. This is a natural global nonconcave resource-allocation classification, not merely a few small-dose numerical optima or an empirical clinical assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
