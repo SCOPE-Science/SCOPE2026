@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof establishes a uniform rank-two bounded-variation contraction, interior uniform and global integral convergence, and two separate compact-rescaled boundary limits. Exact transfer identities give the endpoint derivatives. The source's Proposition 4.2 supplies existence and \(W^{2,1}\) regularity; the new asymptotics are proved rather than extrapolated from numerical grids. The accompanying program passed 845 numerical/algebraic checks and reproduced both profiles to stated finite-grid tolerances.
+
+**Originality — PASS within inspected evidence.** Oltiboev–Vafoyev, *Critical cusp cancellation and analytic response for a Bernoulli random interval map* (arXiv:2610.23180v1, §§3–7), is the exact source family, and proves fixed-parameter regularity and Bernoulli-mixture analytic response. It does not establish the singular deterministic limit \(\theta\uparrow2\) or either limiting layer. Oltiboev–Rakhimov–Ruziboev (arXiv:2608.26969v1) works at the strict exponent range \(-1<\beta<-1/2\), and Bahsoun–Galatolo (arXiv:2301.02301v3) assumes \(-1<\beta<-3/4\). The inspected texts therefore do not dominate this result. Indexed literature database and literature comparisons found no exact alias or broader theorem. Specialized historical literature remains a priority risk.
+
+**Mathematical value — PASS.** The family is designed to retain strong Sobolev regularity despite the critical singularity. Its loss of regularity as the singularity disappears is therefore intrinsic. The explicit right-end profile, left-end dyadic feedback profile, and sharp slope constants distinguish strong local regularity at every parameter from failure of strong convergence in the singular limit. They resolve a mathematically motivated boundary problem for a canonical model without asserting a general cusp-family theory.
+
+**Scope and limits.** One-sided limit for the explicit symmetric family only, compact boundary-layer coordinates only; no independent scientific audit, no exhaustive historical priority guarantee. Finite numerical checks do not certify a continuum theorem by themselves.
+
+Self-review: passed. Independent audit: not yet performed.
