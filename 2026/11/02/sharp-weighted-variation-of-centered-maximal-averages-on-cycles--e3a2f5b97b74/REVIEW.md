@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim uses ordinary cycle distance for balls, positive *vertex averaging masses*, unweighted edge variation, and the absolute-value maximal function. The complete proof is a coarea comparison: above the weighted mean any newly maximal-high vertex on a short cycle must neighbor an already input-high vertex, so its superlevel boundary cannot increase. Below the mean, the maximal superlevel set is the whole graph and the original boundary is at least two. The finite-cycle coarea identity yields the additive deficit, the degree-two bound gives the multiplicative estimate, and an atom of minimum mass gives equality in both. For constants, and for all 3, 4, and 5 vertices, the boundary cases have been explicitly addressed. `verify_exact.py` passed 65,286 nonconstant rational profile checks and 1,620 single-site sharpness equalities. No inference from finite checks to general proof is made.
+## correctness
 
-## Originality (PASS, with residual risk)
-The closest directly comparable work is González-Riquelme--Kovač--Madrid, arXiv:2603.12462, especially Theorem 2, §3.1, and §4: its unweighted 4-cycle sharp constant is already known, and its five-vertex computations include the 5-cycle under counting measure. In contrast, the new assertion classifies **all positive mass vectors** on the 3-, 4-, and 5-cycles, establishes an additive mean-to-minimum coarea deficit, and proves the sharp optimal mass design. The 2020 complete/star-graph treatment (arXiv:2005.03146), the 2015 integer lattice work (arXiv:1512.04112), and the 2010 integer lattice work (arXiv:1005.3030) do not imply these weighted finite-cycle statements as formulated. Searches against the available related research records found no equivalent or dominating mass-dependent cycle result. This is a bounded originality assessment, not a claim that all historical or unindexed literature has been searched. Priority from differently named weighted finite-graph regularity results remains possible.
+PASS
 
-## Value (PASS)
-Sharp variation control of the centered maximal operator is a longstanding nontrivial regularity problem. Here the complete positive-mass parameter space is solved simultaneously for the entire family of short cycles, rather than a selected numerical instance. The coarea deficit is a stronger structural statement than a bare norm computation and gives a short analytic proof replacing the unweighted 4-cycle's casewise optimization. The exact distributional optimum and explicit atomic extremizers describe precisely how uneven observation masses change stability. The restriction to diameter-two cycles is motivated by the unique proper-ball geometry and not claimed to imply all-cycle estimates.
+Read pinned RESULT.md and exact-rational verify_exact.py. For n=3,4,5 every proper centered ball is radius zero or (n>=4) radius one. For each t above weighted global mean q, a vertex new to the maximal high-level set must be adjacent to an input-high vertex, so on a cycle connected components and edge boundary do not increase. For t below q, maximal high-level is the whole cycle, while for min(h)<t<q the input-high set is proper nonempty with boundary≥2. Finite graph coarea integration proves Var(M_w f)≤Var(|f|)-2(q-min|f|). The degree-two inequality W(q-min|f|)≥(w_min/2)Var(|f|) gives sharp norm 1-w_min/W, and a minimum-mass vertex spike realizes equality; uniform weights uniquely minimize this over the mass simplex. Independent exact rational tests covered 9,120 weighted inputs, not an infinite-weight proof. Inputs real signed allowed through absolute value; all n=3,4,5 boundaries covered.
 
-## Limitations and priority
-The proof depends on every proper nontrivial centered ball being a singleton or a nearest-neighbor triple. For longer cycles this fails. No classification of all equality cases is claimed, only explicit extremizers. Earlier papers treat counting measure or the integer lattice, and older equivalent weighted formulations could still exist. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for *arbitrary positive vertex masses* on cycles 3–5 with exact norm and sharp additive mean-deficit, not for already known uniform-mass constants. González-Riquelme–Kovač–Madrid arXiv:2603.12462 treats counting-measure four-/five-vertex graphs including C4 constant 3/4; González-Riquelme–Madrid arXiv:2005.03146 treats counting-measure complete/star graphs. Uniform-mass specialization is prior and acknowledged. Earlier integer-lattice variation work is not weighted finite cycles. All-mass, additive coarea constant has a different quantification. Hidden generalized weighted graph theorem remains a priority risk.
+
+## value
+
+PASS
+
+The graph maximal-operator BV norm for a natural entire family of positive measures, and optimal mass design, are concrete analytic invariants; the coarea estimate is stronger than a table lookup and gives a sharp stability deficiency for all real inputs. The n<=5 radius-one geometric cutoff is substantive and does not purport to settle longer cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
