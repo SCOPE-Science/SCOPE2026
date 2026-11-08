@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:44:15.356229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_primary.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_alt.cpp"
+      ],
+      "rationale": "Partition configurations AA, AB, BB of sizes binom(m,2),mn,binom(n,2), degrees 2n,t-2,2m. Unsigned complete-graph incidence T_r has T_rT_r^T=(r-2)I+J and rank r for r>=3, giving two kernel eigenspaces; tensor zero-sum AB gives eigenvalue t-2, symmetric standard-direction 2x2 blocks give factors (z-n)(z-m-2n+2) and their transposes, constants give eigenvalues 0,t,2t-2. Multiplicities sum to binom(m+n,2). Matrix-tree product / binom(t,2) yields factor 4 and stated count. Inspected two independent program constructions; fresh independent Laplacian eigenvalue and exact cofactor tests (3,3),(3,4),(4,4). Infinite parameter theorem follows from invariant-space proof, not finite tests.",
+      "residual_risks": [
+        "Exactly two indistinguishable tokens on unweighted complete bipartite graph m,n>=3.",
+        "No critical-group Smith normal form or k-token k>2 classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dalfó et al section 7.2 and Theorem 7.2(iv) include algebraic connectivity of Kmn token graphs; Verma establishes integrality for token graphs of cographs."
+        ],
+        "reasoning": "These imply part of the advertised background (integrality, connectivity), but do not specify all ten eigenvalues with multiplicities or the number of spanning trees; methods may be usable to derive them.",
+        "searches": [
+          "arXiv:2012.00808 full parsed text",
+          "arXiv:2403.18800 On two algebras of token graphs",
+          "Verma 2026 Laplacian spectral radius and integrality of token graphs"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_primary.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_alt.cpp",
+        "https://arxiv.org/abs/2012.00808",
+        "https://arxiv.org/abs/2403.18800",
+        "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cograph result entails integer eigenvalues, but not their specific multiplicities. Matrix-tree product needs all nonzero eigenvalues, not only gap."
+        ],
+        "reasoning": "Prior integrality is explicitly excluded from the original contribution. General commuting structure does not automatically assert this evaluated two-token Kmn product; an uninspected specialization is residual risk.",
+        "searches": [
+          "arXiv:2012.00808 Theorem 7.2(iv)",
+          "arXiv:2403.18800 commuting algebra",
+          "Verma EJLA 42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_2(Kmn) uses unordered two-subsets with single legal token moves; not one-skeleton of symmetric edge polytope of Kmn."
+        ],
+        "reasoning": "Token graph is a configuration graph, not graph of edges of the bipartite host nor symmetric-edge-polytope skeleton; compare precise vertex and adjacency definitions.",
+        "searches": [
+          "arXiv:2012.00808 Dalfó On Laplacian spectra of token graphs F_k(Kmn)",
+          "Resultary token complete bipartite Laplacian spanning tree query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary table is about symmetric-edge-polytope 1-skeleton, a signed antipodal two-cover of K_{mn}, different order and adjacency than F_2(Kmn)."
+        ],
+        "reasoning": "No exact F2(Kmn) multiplicity-resolved table or Kirchhoff product verified in inspected primary theorem statements. Search absence alone is not novelty proof.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02",
+          "Dalfó arXiv:2012.00808 tables/equations",
+          "Verma EJLA 42 (2026)"
+        ]
+      },
+      "rationale": "Token-graph general spectral inclusion and algebraic-connectivity results already exist, and Verma proves general cograph token Laplacian integrality (covers integrality assertion). The reviewed specific complete multiplicity-resolved F_2(Kmn) factorization and resulting exact spanning-tree product are not supplied by inspected full Dalfó text. Potential derivation by specialization of general token commuting-algebra framework remains a documented risk.",
+      "residual_risks": [
+        "The general token-graph commuting-algebra literature may contain an implicit specialization of the complete characteristic factorization.",
+        "m,n>=3 required for incidence-map surjectivity, does not cover part sizes 1 or 2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior covers algebraic connectivity and general methods; not the explicit all-spectrum/Kirchhoff formula in inspected full text",
+          "evidence": "Theorem 7.2(iv) determines the algebraic connectivity of F_k(Kmn), not the complete F_2 spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.00808",
+          "material_read": "Full ar5iv HTML text parsed and searched, including Theorem 7.2(iv), relation to Kmn, spectrum inclusion and graph complement discussion",
+          "method": "Read full accessible primary text; searched for spanning trees and Kmn",
+          "title": "On the Laplacian spectra of token graphs",
+          "trigger": "Same token graph Laplacian and complete bipartite hosts"
+        },
+        {
+          "assessment": "Potential general mechanism but no confirmed identity for this exact tree product",
+          "evidence": "Commuting algebra may induce specialization; exact factorization not located in accessible reviewed statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.18800",
+          "material_read": "Public primary abstract and synopsis accessible, entire text not verified read",
+          "method": "Compared commuting-algebra claim and spectral decomposition with concrete m,n factorization",
+          "title": "On two algebras of token graphs",
+          "trigger": "Potentially stronger general spectrum factorization"
+        },
+        {
+          "assessment": "COVERS integrality in the present example; not full eigenvalue multiplicity data",
+          "evidence": "All token graphs of cographs have integral Laplacian spectra.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463",
+          "material_read": "Published record and theorem description of cograph token-graph integrality; not a verified complete document read",
+          "method": "Compare graph-class hypotheses: complete bipartite graph is a cograph",
+          "title": "Laplacian spectral radius and integrality of token graphs",
+          "trigger": "Strong general theorem implying integral spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_primary.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_alt.cpp",
+        "https://arxiv.org/abs/2012.00808",
+        "https://arxiv.org/abs/2403.18800",
+        "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463"
+      ],
+      "rationale": "The explicit spectral decomposition determines all eigenspace multiplicities and spanning-tree complexity of a natural family beyond integrality or just algebraic connectivity, enabling exact spectral and electrical calculations at arbitrary bipartition sizes.",
+      "residual_risks": [
+        "The general token-graph commuting-algebra literature may contain an implicit specialization of the complete characteristic factorization.",
+        "m,n>=3 required for incidence-map surjectivity, does not cover part sizes 1 or 2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_primary.py",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/verify_alt.cpp",
+    "https://arxiv.org/abs/2012.00808",
+    "https://arxiv.org/abs/2403.18800",
+    "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all m,n>=3, the two-token graph F_2(K_{m,n}) has the stated full ten-factor integral Laplacian characteristic polynomial and explicit closed Kirchhoff spanning-tree product.",
+  "limitations": [
+    "Exactly two indistinguishable tokens on unweighted complete bipartite graph m,n>=3.",
+    "No critical-group Smith normal form or k-token k>2 classification."
+  ],
+  "residual_risks": [
+    "The general token-graph commuting-algebra literature may contain an implicit specialization of the complete characteristic factorization.",
+    "m,n>=3 required for incidence-map surjectivity, does not cover part sizes 1 or 2."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Prior covers algebraic connectivity and general methods; not the explicit all-spectrum/Kirchhoff formula in inspected full text",
+      "evidence": "Theorem 7.2(iv) determines the algebraic connectivity of F_k(Kmn), not the complete F_2 spectrum.",
+      "identifier_or_url": "https://arxiv.org/abs/2012.00808",
+      "material_read": "Full ar5iv HTML text parsed and searched, including Theorem 7.2(iv), relation to Kmn, spectrum inclusion and graph complement discussion",
+      "method": "Read full accessible primary text; searched for spanning trees and Kmn",
+      "title": "On the Laplacian spectra of token graphs",
+      "trigger": "Same token graph Laplacian and complete bipartite hosts"
+    },
+    {
+      "assessment": "Potential general mechanism but no confirmed identity for this exact tree product",
+      "evidence": "Commuting algebra may induce specialization; exact factorization not located in accessible reviewed statements.",
+      "identifier_or_url": "https://arxiv.org/abs/2403.18800",
+      "material_read": "Public primary abstract and synopsis accessible, entire text not verified read",
+      "method": "Compared commuting-algebra claim and spectral decomposition with concrete m,n factorization",
+      "title": "On two algebras of token graphs",
+      "trigger": "Potentially stronger general spectrum factorization"
+    },
+    {
+      "assessment": "COVERS integrality in the present example; not full eigenvalue multiplicity data",
+      "evidence": "All token graphs of cographs have integral Laplacian spectra.",
+      "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463",
+      "material_read": "Published record and theorem description of cograph token-graph integrality; not a verified complete document read",
+      "method": "Compare graph-class hypotheses: complete bipartite graph is a cograph",
+      "title": "Laplacian spectral radius and integrality of token graphs",
+      "trigger": "Strong general theorem implying integral spectrum"
+    }
+  ]
+}

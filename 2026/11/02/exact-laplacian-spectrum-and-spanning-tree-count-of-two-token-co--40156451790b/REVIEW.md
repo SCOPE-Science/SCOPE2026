@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed spectrum follows from a full invariant-space decomposition using the unsigned incidence maps of two complete graphs. The constant, standard, mixed, and kernel blocks account for every one of the \(\binom{m+n}{2}\) dimensions. The exact spanning-tree product follows by Kirchhoff's theorem. Direct exact characteristic polynomials and cofactor determinants on five parameter pairs, and an independently constructed modular Laplacian on eight pairs, corroborate the algebra; neither finite check is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2009 token-graph introduction does not classify Laplacian spectra; the 2020/2021 general spectrum theory establishes spectral inclusion, complement relationships, and algebraic connectivity for complete bipartite hosts, but does not give the full multiplicity-resolved factorization or displayed spanning-tree product. The 2024 commuting-algebra theory supplies general machinery, and the 2026 cograph-integrality theorem already implies mere integrality of this family. None is presented as a new conclusion here. The full spectra and tree product are natural explicit evaluations not located in the inspected primary texts or relevant mathematical finding searches. However, alternative deductions using the published spectral algebras, or an overlooked exact table, remain possible.
+PASS
 
-**Value — PASS.** Two indistinguishable exclusion tokens on a complete bipartite graph form a canonical and highly symmetric graph family; its Laplacian controls random-walk relaxation and its nonzero spectrum determines the exact spanning-tree complexity. The formula applies to unbounded, unbalanced bipartitions and reveals uniformly at most ten distinct eigenvalues even as the configuration-space order grows quadratically. It answers a natural exact invariant question rather than computing one isolated graph.
+Partition configurations AA, AB, BB of sizes binom(m,2),mn,binom(n,2), degrees 2n,t-2,2m. Unsigned complete-graph incidence T_r has T_rT_r^T=(r-2)I+J and rank r for r>=3, giving two kernel eigenspaces; tensor zero-sum AB gives eigenvalue t-2, symmetric standard-direction 2x2 blocks give factors (z-n)(z-m-2n+2) and their transposes, constants give eigenvalues 0,t,2t-2. Multiplicities sum to binom(m+n,2). Matrix-tree product / binom(t,2) yields factor 4 and stated count. Inspected two independent program constructions; fresh independent Laplacian eigenvalue and exact cofactor tests (3,3),(3,4),(4,4). Infinite parameter theorem follows from invariant-space proof, not finite tests.
 
-**Closest literature and scope.** See the four fully referenced primary sources in `RESULT.md`; the nearest prior tools are Dalfó et al. (2020/2021), Reyes et al. (2024), and Verma (2026). Only two tokens and part sizes at least three are claimed. A general derivation of integrality or the known spectral gap is not the contribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Token-graph general spectral inclusion and algebraic-connectivity results already exist, and Verma proves general cograph token Laplacian integrality (covers integrality assertion). The reviewed specific complete multiplicity-resolved F_2(Kmn) factorization and resulting exact spanning-tree product are not supplied by inspected full Dalfó text. Potential derivation by specialization of general token commuting-algebra framework remains a documented risk.
+
+## value
+
+PASS
+
+The explicit spectral decomposition determines all eigenspace multiplicities and spanning-tree complexity of a natural family beyond integrality or just algebraic connectivity, enabling exact spectral and electrical calculations at arbitrary bipartition sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
