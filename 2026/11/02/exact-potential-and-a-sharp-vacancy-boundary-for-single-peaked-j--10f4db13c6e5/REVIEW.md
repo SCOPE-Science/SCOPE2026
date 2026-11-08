@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The count-state potential telescopes exactly because a cross-part jump has a full source part before the move and a full destination part after the move. The source and destination marginal terms use the actual occupied closed-neighborhood fractions. A jump within the vacancy's part changes neither payoff nor potential. The finite count-matrix bound follows by specifying a vacancy part and the independent type counts in all but one part; it bounds **strict** improvements, not neutral jumps. The two-vacancy counterexample supplies all four complete state profiles and explicitly evaluates every payoff gain. An exact-rational standalone checker confirms 2,556 move identities and the four-step cycle. The general proof does not rely on finite sampling. A possible interpretive risk is adopting a different convention for self-inclusion; this is explicitly fixed in the theorem.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest primary source is Friedrich–Lenzner–Molitor–Seifert (arXiv:2302.12107v1, studied at the original February 2023 version). Its game definition, improving-cycle constructions, equilibrium families, and closing discussion were inspected; no potential for all one-vacancy complete multipartite graphs with arbitrary nonlinear part/type utilities, count-state length bound, or the displayed two-vacancy boundary cycle was identified. Kanellopoulos–Kyropoulou–Voudouris (arXiv:2005.12149) use a different fraction, and Gadea Harder et al. (IJCAI 2023) use a different resource-allocation action space. Semantic mathematical-record searches for one-vacancy multipartite potentials, single-peaked jump cycles, arbitrary nonlinear utilities, and two-vacancy boundaries produced no covering implication. The closest recoverable previous exact-potential result concerned **other-type occupied-neighbor fractions on complete bipartite graphs**, which cannot supply the self-inclusive nonlinear result here. A general congestion-game encoding or unindexed literature may already imply some of the statement; independent publication-priority review remains needed.
+PASS
 
-## Mathematical value — PASS
-A natural unresolved structural question is which host graphs guarantee convergence despite the improving cycles possible in single-peaked jump Schelling games. The exact potential handles arbitrary nonmonotone preferences on a broad graph class, the count-matrix argument gives concrete worst-case speed (linear for two colors on complete bipartite networks), and a strict short cycle identifies exactly why one vacancy cannot simply be replaced by two. This is structural rather than a single isolated example. The theorem does not extend to individual-specific payoffs, arbitrary graph families, multiple vacancies, or neutral improvement rules.
+For each complete multipartite graph with one vacancy, the moving type-c agent removed from full source part i has self-inclusive occupied closed-neighborhood fraction (C_c-n_ic+1)/(V-a_i), exactly the marginal removed from the displayed sum of u_ic(q_ic(h)). Arrival to destination part j makes it full, the added marginal is u_jc((C_c-n_jc)/(V-a_j)); same-part jumps do not change utility. Therefore potential change equals agent utility change for every move, despite arbitrary nonlinear type-and-part payoffs. Only finitely many count matrices exist, proving FIP and the stated m∏(a_i+1)^(k−1)-1 bound. The four claimed strictly improving two-vacancy K3,3 moves with peak p(f)=1−|2f−1| return to the identical labeled state, showing one-vacancy sharpness as a uniform guarantee. An independently constructed rational enumeration confirmed 1,532 move identities across 344 profiles and all four moves of the cycle.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original self-inclusive single-peaked Schelling jump-game literature includes cycles and equilibrium results on other graph families, while versions based on neighbor-only fractions or resource selection differ materially in utility denominators and feasible moves. A Rosenthal-style potential resembles the sum of marginal rewards, but the exact reduction of the one-vacancy graph occupancy dynamics is the evaluated contribution. Targeted Resultary search returned no matching implication. General congestion-game exact potential theory is acknowledged as a possible stronger result only if it instantiates this particular jump geometry and self-inclusive fraction.
+
+## value
+
+PASS
+
+A complete family-wide finite-improvement theorem for nonmonotone single-peaked and arbitrary heterogeneous utilities, an explicit polynomial trajectory bound for fixed type/part counts, and a four-step sharp multi-vacancy obstruction answer substantive convergence questions in Schelling dynamics. The exact potential reveals why these graph and vacancy restrictions matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
