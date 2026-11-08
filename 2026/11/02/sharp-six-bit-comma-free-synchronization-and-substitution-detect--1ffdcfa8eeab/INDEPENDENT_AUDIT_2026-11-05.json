@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:06:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A six-bit comma-free code can contain only primitive cyclic words and at most one representative from each primitive length-six necklace; Möbius inclusion-exclusion gives exactly nine classes. A complete canonical DFS branches through the six representatives (and a skip branch under distance >=2), rejecting words whose ordered cross-boundary 1..5 shifted windows enter the codebook. This is exhaustive, with no probabilistic solver. Independently written compact-bitmask C++ enumerator reconstructed 1,972 nine-word unrestricted codebooks and 272 seven-word Hamming-distance-two codebooks, counted all detector sizes (1,54,1090,8410,23892,22374,5712,272), checked all nine-word solutions have minimum Hamming distance 1, and verified four-element reversal/complement orbits: 493 and 68. Source Python and C++ verifiers, including full listed inventory references, were inspected. Strictly length 6 finite census; no stream-error correction inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Golomb–Graham 1987 bounds for even n; classical primitive-necklace maximum 9."
+        ],
+        "reasoning": "Even-block bounds alone do not force the seven-word detector optimum or 272 attaining codebooks, nor prove 1972 unrestricted equality cases.",
+        "searches": [
+          "binary comma-free codes length six maximal size nine substitution detection Hamming distance two seven codebooks",
+          "Tang Golomb Graham 1987 even word-length comma-free upper bound"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.37236/114",
+        "https://doi.org/10.4153/CJM-1987-023-7",
+        "https://doi.org/10.1093/comjnl/26.4.303",
+        "https://doi.org/10.4153/CJM-1958-023-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound 9 from primitive necklaces is classical; Churchill concerns special symmetry properties; Tang et al address even-length obstruction."
+        ],
+        "reasoning": "None of these inspected main results implies an exact Hamming-two size-seven maximum without finite compatibility constraints; older uninspected text is an explicit caveat.",
+        "searches": [
+          "binary comma-free codes length six maximal size nine substitution detection Hamming distance two seven codebooks",
+          "Churchill 2009 full text",
+          "Tang Golomb Graham 1987 full text",
+          "Golomb Gordon Welch 1958 comma free"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Churchill 2009 §1 comma-free definition, §2-4 reflection/swap constraints."
+        ],
+        "reasoning": "Pairwise Hamming distance >=2 is not equivalent to symmetry closure or ordinary comma-free; the joint intersection is separately enumerated.",
+        "searches": [
+          "binary comma-free codes length six maximal size nine substitution detection Hamming distance two seven codebooks",
+          "Churchill 2009 comma-free self-reflective codes",
+          "binary comma-free codes one substitution detection Hamming 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include length-six single deletion, single-grain and non-overlapping codes, all different forbidden channels.",
+          "Llewellyn 1983 abstract describes finite-state comma-free constructions; possible detailed length-six table remains unread."
+        ],
+        "reasoning": "No same exact table recovered. The 1983 complete text could include an implicit finite census; do not infer absence from abstract.",
+        "searches": [
+          "binary comma-free codes length six maximal size nine substitution detection Hamming distance two seven codebooks",
+          "Resultary six-bit comma-free 1972 272 Hamming two search",
+          "Llewellyn 1983 finite state models comma-free codes length six"
+        ]
+      },
+      "rationale": "The classical primitive-necklace upper bound and comma-free definitions are due to Golomb–Gordon–Welch; even-length restrictions to Tang–Golomb–Graham and reversal-related closure analyses to Churchill. The intersection with Hamming distance >=2 and full exact numerical optimal/equality census were not found in the material actually inspected. Qualified due to inaccessible early papers and possible historical finite-state tabulations.",
+      "residual_risks": [
+        "A 1958 foundational article or 1983 finite-state full text could contain the same finite Hamming-two optimal census; accessible metadata alone is not evidence of noncoverage.",
+        "Error detection holds after correct framing and detects at most one substitution, not stream correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-reflective and self-swappable constraints differ from minimum Hamming distance two; no exact seven/272 classification identified in read sections.",
+          "evidence": "Churchill 2009 Sections 1–4",
+          "identifier_or_url": "https://doi.org/10.37236/114",
+          "material_read": "Publisher open PDF full-text definitions, Sections 1–4 and relevant bounds, plus visual screenshot of pages.",
+          "method": "Open publisher full PDF, text and page-image inspection",
+          "title": "Restrictions and Generalizations on Comma-Free Codes",
+          "trigger": "Direct primary definitions, necklace bounds, reversal variants"
+        },
+        {
+          "assessment": "Even-length general obstructions, not identified exact detector census.",
+          "evidence": "Tang–Golomb–Graham 1987 theorem and bound discussion",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1987-023-7",
+          "material_read": "Publisher open PDF, selected main theorem/upper bound and later discussion and page image.",
+          "method": "Publisher OA PDF",
+          "title": "A New Result on Comma-Free Codes of Even Word-Length",
+          "trigger": "Stronger historical even-block bounds could cover n=6"
+        },
+        {
+          "assessment": "Cannot exclude an equivalent codebook table without complete paper.",
+          "evidence": "Llewellyn 1983 abstract and bibliographic metadata",
+          "identifier_or_url": "https://doi.org/10.1093/comjnl/26.4.303",
+          "material_read": "Publisher indexed abstract only, full text not available in this run.",
+          "method": "Abstract-level triage, not whole-document exclusion",
+          "title": "Finite State Models in the Study of Comma-Free Codes",
+          "trigger": "Highly plausible older finite-state length-six enumeration"
+        },
+        {
+          "assessment": "Classical comma-free bounds credited; complete paper not ruled out.",
+          "evidence": "Golomb–Gordon–Welch 1958 original research reference",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "Publisher abstract/extract and bibliographic metadata only.",
+          "method": "Publisher bibliographic source",
+          "title": "Comma-Free Codes",
+          "trigger": "Original paper and possible historical tabulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural framing-plus-substitution detection design problem has a sharp finite capacity loss 9 to 7 and complete extrema and symmetry classes; a definite unknown finite invariant can be valuable without a general asymptotic capacity theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.37236/114",
+    "https://doi.org/10.4153/CJM-1987-023-7",
+    "https://doi.org/10.1093/comjnl/26.4.303",
+    "https://doi.org/10.4153/CJM-1958-023-9"
+  ],
+  "disposition": "passed",
+  "limitations": "Binary codewords exactly length six; no claims for other alphabets/lengths or arbitrary errors before synchronization.",
+  "residual_risks": [
+    "A 1958 foundational article or 1983 finite-state full text could contain the same finite Hamming-two optimal census; accessible metadata alone is not evidence of noncoverage.",
+    "Error detection holds after correct framing and detects at most one substitution, not stream correction."
+  ],
+  "schema_version": 1
+}

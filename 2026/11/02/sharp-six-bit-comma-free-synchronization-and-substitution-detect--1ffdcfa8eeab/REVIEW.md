@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise comma-free overlap condition includes identical words and all five nontrivial shifts. The nine-necklace upper bound is proved by primitive-period exclusion. A branch over one representative or no representative per necklace is exhaustive, with an explicit forbidden-window invariant and a distance-two filter. Direct checks of all 1972 unrestricted and 272 detector maxima, the complete seven-code distribution, and the symmetry action reproduce the claimed values. Both string-based Python and independent integer-based C++ enumeration agree. The exact full inventories and executable verifier accompany the proof.
+## correctness
 
-**Originality — PASS, qualified.** Churchill (2009, doi:10.37236/114) defines this comma-free property and investigates self-reflective/self-swappable codes, not the additional Hamming-distance-two constraint. Tang–Golomb–Graham (1987, doi:10.4153/CJM-1987-023-7) investigate general even-length obstructions, not this binary six-word census. Exact Indexed research-record and literature searches for the size-seven/272 detector and size-nine/1972 ordinary census did not find equivalent coverage; these negative searches are not proof of novelty. The 1958 foundational full text and Llewellyn's 1983 full text were not accessible and remain stated historical risks.
+PASS
 
-**Value — PASS.** An optimal comma-free six-bit code carries nine codewords but none of its 1972 possible maximum assignments can detect one bit substitution; the sharp extra error-detection constraint lowers capacity to seven and admits exactly 272 assignments. This naturally answers a joint framing-and-noise design question and classifies its precise finite boundary.
+A six-bit comma-free code can contain only primitive cyclic words and at most one representative from each primitive length-six necklace; Möbius inclusion-exclusion gives exactly nine classes. A complete canonical DFS branches through the six representatives (and a skip branch under distance >=2), rejecting words whose ordered cross-boundary 1..5 shifted windows enter the codebook. This is exhaustive, with no probabilistic solver. Independently written compact-bitmask C++ enumerator reconstructed 1,972 nine-word unrestricted codebooks and 272 seven-word Hamming-distance-two codebooks, counted all detector sizes (1,54,1090,8410,23892,22374,5712,272), checked all nine-word solutions have minimum Hamming distance 1, and verified four-element reversal/complement orbits: 493 and 68. Source Python and C++ verifiers, including full listed inventory references, were inspected. Strictly length 6 finite census; no stream-error correction inference.
 
-Limitations: blocklength six and binary alphabet only, and single-substitution detection presumes pre-established framing. No general-length or error-correction result is claimed; historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical primitive-necklace upper bound and comma-free definitions are due to Golomb–Gordon–Welch; even-length restrictions to Tang–Golomb–Graham and reversal-related closure analyses to Churchill. The intersection with Hamming distance >=2 and full exact numerical optimal/equality census were not found in the material actually inspected. Qualified due to inaccessible early papers and possible historical finite-state tabulations.
+
+## value
+
+PASS
+
+A natural framing-plus-substitution detection design problem has a sharp finite capacity loss 9 to 7 and complete extrema and symmetry classes; a definite unknown finite invariant can be valuable without a general asymptotic capacity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

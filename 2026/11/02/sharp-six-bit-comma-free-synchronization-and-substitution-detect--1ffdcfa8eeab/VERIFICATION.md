@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained `verify_comma_free.py` reconstructs the nine primitive six-bit necklace classes, enumerates all comma-free assignments, optionally permits missing necklace representatives and imposes Hamming distance at least two. It checks all 1972 unrestricted and 272 distance-two optimal codebooks directly, verifies orbit sizes and equality-case inventories stored in `full_codebooks.tsv` and `detecting_codebooks.tsv`, and tests every cross-boundary forbidden window. A separate integer-encoded `verify_alt_comma_free.cpp` enumerates the same extrema with a full-triple compatibility test rather than the incremental forbidden-set invariant; a C++17 compiler is needed only for this optional second check.
+## correctness
 
-To replay from this directory: `python3 verify_comma_free.py`. Expected terminal status: `VERIFY_OK`. Optionally compile with `g++ -O2 -std=c++17 verify_alt_comma_free.cpp -o check_alt` and run `./check_alt`; it reports unrestricted 1972 and detector size profile (1,54,1090,8410,23892,22374,5712,272,0,0). The Python verifier is authoritative and requires no compiler.
+PASS
 
-No infinite parameter range is verified or claimed. The computational proof is exhaustive over a finite, mathematically justified search space rather than a time-limited solver log. A separate external audit has not been performed.
+A six-bit comma-free code can contain only primitive cyclic words and at most one representative from each primitive length-six necklace; Möbius inclusion-exclusion gives exactly nine classes. A complete canonical DFS branches through the six representatives (and a skip branch under distance >=2), rejecting words whose ordered cross-boundary 1..5 shifted windows enter the codebook. This is exhaustive, with no probabilistic solver. Independently written compact-bitmask C++ enumerator reconstructed 1,972 nine-word unrestricted codebooks and 272 seven-word Hamming-distance-two codebooks, counted all detector sizes (1,54,1090,8410,23892,22374,5712,272), checked all nine-word solutions have minimum Hamming distance 1, and verified four-element reversal/complement orbits: 493 and 68. Source Python and C++ verifiers, including full listed inventory references, were inspected. Strictly length 6 finite census; no stream-error correction inference.
+
+## originality
+
+PASS
+
+The classical primitive-necklace upper bound and comma-free definitions are due to Golomb–Gordon–Welch; even-length restrictions to Tang–Golomb–Graham and reversal-related closure analyses to Churchill. The intersection with Hamming distance >=2 and full exact numerical optimal/equality census were not found in the material actually inspected. Qualified due to inaccessible early papers and possible historical finite-state tabulations.
+
+## value
+
+PASS
+
+A natural framing-plus-substitution detection design problem has a sharp finite capacity loss 9 to 7 and complete extrema and symmetry classes; a definite unknown finite invariant can be valuable without a general asymptotic capacity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
