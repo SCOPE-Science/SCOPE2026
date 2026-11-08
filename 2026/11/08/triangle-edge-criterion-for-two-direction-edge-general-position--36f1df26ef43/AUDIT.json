@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies the independence-set flip metric with Hamming distance and provides three exhaustive cases of explicit shortest geodesics through an arbitrary third-class edge for each eligible pair. When a pair belongs to a triangle, the empty/singleton edge of its common neighbor is provably addable. No use of finite enumeration for the infinite assertion. The attached independent direct-BFS checker passed all graphs on 2–5 vertices and 160 seeded order-6 profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manuel--Prabha--Klavžar 2021, arXiv:2105.04292v1, Lemma 3.1 only guarantees feasibility of any two partial-cube Theta classes.",
+        "Klavžar--Tan 2023, Theorems 4.3/4.6 and the paragraph after Theorem 4.3 give Fibonacci and some Lucas special cases.",
+        "Tian--Klavžar--Tan 2024, DOI:10.1007/s00373-024-02770-z, treats extremal cardinalities and block graphs."
+      ],
+      "reasoning": "Feasibility does not imply inclusion-maximality; the triangle example H=K3 yields a three-edge star flip graph where every two classes can be enlarged. Fibonacci and Lucas host graphs are special cases of the arbitrary-host theorem, not a source of a converse for triangle-containing hosts. The 2024 extremal results are not a stronger statement about this family.",
+      "searches": [
+        "\"edge general position\" \"resonance graph\" \"maximal\" Θ classes",
+        "\"median graph\" \"edge general position\" \"triangle\"",
+        "\"edge general position\" \"Fibonacci cube\" \"arbitrary\" \"classes\" maximal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.10114v1 (full HTML Sections 2–4; all-Fibonacci-pairs note)",
+      "arXiv:2105.04292v1 (full HTML Sections 2–4)",
+      "arXiv:2302.01587v1 / DOI:10.1007/s00373-024-02770-z (open-access HTML)",
+      "published-finding corpus semantic record searches for triangle/Theta/flip-graph aliases",
+      "Earlier work on edge general position of trees and cycles, compared for mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 result gives EGP but not maximality; this theorem identifies exactly which 2-class unions are maximal.",
+        "The 2023 paper explicitly already covers all Fibonacci pairs and selected Lucas pairs, which the claim treats as prior specializations.",
+        "For the triangle H=K3, the independence flip graph is K1,3 and every two coordinate classes are nonmaximal; the new theorem systematically detects every triangle-containing edge for arbitrary H."
+      ],
+      "reasoning": "The target iff and global exact count do not follow from the cited partial-cube lower bound or the single-family Fibonacci all-pairs maximality statement without new arguments. Those cited special cases do not handle graph hosts with both triangle-containing and triangle-free edges. A hidden general median/hyperplane result remains the main risk.",
+      "searches": [
+        "\"edge general position\" \"two theta classes\" \"maximal\" \"graph\"",
+        "\"independent-set reconfiguration graph\" \"edge general position\"",
+        "\"edge general position\" \"Fibonacci cubes\" \"any two\" theta classes maximal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klavžar--Tan 2023, arXiv:2304.10114v1, Section 2 identifies Fibonacci cubes as independent subsets of paths; Section 4 paragraph after Theorem 4.3 explicitly states every pair is maximal for Fibonacci cubes.",
+        "The newly proved coordinate classes are precisely hypercube Djoković–Winkler classes by isometric embedding."
+      ],
+      "reasoning": "The statement was compared as a maximality criterion for two coordinate directions in independence flip graphs, Fibonacci/Lucas cube notation, and graph-of-independent-sets terminology. The known Fibonacci all-pairs case is explicitly NOT new. The target theorem adds arbitrary host graphs with triangles and an iff condition for each pair.",
+      "searches": [
+        "for every triangle-free graph independent-set graph Fibonacci cube two Theta classes inclusion-maximal edge general position",
+        "two coordinate directions maximal edge general position in graph of independent sets triangles",
+        "\"edge general position\" \"independent set graph\" \"Theta\" classes",
+        "\"edge general position\" \"independence graph\" \"triangle free\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed results on edge-general-position in spider trees and on oriented-tree vertex general-position do not concern maximal coordinate-class unions of independence flip graphs.",
+        "Published calculations of edge general position for trees and cycles concern other graph objects and do not imply a flip-graph criterion."
+      ],
+      "reasoning": "Queries were for exact coordinate-class maximality and triangle obstructions, not just matching graph sizes or titles. No same claim or dominating parameter appeared in accessible records. Absence from a finite database is not uniqueness certification.",
+      "searches": [
+        "published-finding corpus: independence flip graph median graph Djoković Winkler maximal edge general position family",
+        "published-finding corpus: edge general position union of two Djoković Winkler Theta classes independent-set reconfiguration graph triangle-free",
+        "published-finding corpus: maximal edge-general-position sets Fibonacci cubes arbitrary two coordinate classes",
+        "published-finding corpus: independence graph of a graph partial cube theta classes edge general position maximal triangle free",
+        "\"Fibonacci cube\" \"maximal\" \"edge general position\" \"theta_i\""
+      ]
+    },
+    "rationale": "The original 2021 paper proves two-class feasibility but not maximality; the 2023 paper expressly records the known ALL-pairs Fibonacci case, acknowledged as prior and not claimed new. The new if-and-only-if characterization and exact triangle-edge count for independence flip graphs of arbitrary finite graph hosts—including triangles—were not found in inspected primary literature, published-finding corpus, or accessible own prior claims. Priority remains provisional; latent equivalence to a broader median-graph result is a stated residual risk.",
+    "residual_risks": [
+      "An unpublished or unindexed theorem in median-graph hyperplane/maximality literature could imply the characterization.",
+      "Previously known all-Fibonacci-pairs maximality is a strict special case and has been excluded from the claimed originality.",
+      "No independent expert priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the Fibonacci all-pairs specialization (expressly stated without proof); does not state arbitrary independent-set flip graph iff triangle-edge criterion.",
+        "evidence": [
+          "Section 4: paragraph immediately after Theorem 4.3 says all Fibonacci Theta_i union Theta_j sets are maximal.",
+          "Theorem 4.6 addresses the first and last Lucas directions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.10114v1",
+        "material_read": "Full accessible HTML sections 2 through 4, including Lemma 3.1, Theorem 4.3, following all-pairs Fibonacci remark, and Theorem 4.6.",
+        "method": "Read original arXiv full-text HTML and matched precise theorem wording and implications.",
+        "title": "Edge general position sets in Fibonacci and Lucas cubes",
+        "trigger": "Exact family: Fibonacci/Lucas cubes and maximal unions of Theta classes."
+      },
+      {
+        "assessment": "PROVES every two-class union is edge-general-position, but does not imply the new iff for inclusion-maximality.",
+        "evidence": [
+          "Lemma 3.1 assumes arbitrary partial cube and proves only EGP feasibility.",
+          "Theorem 3.2 computes hypercube maximum cardinality; no host graph triangle-edge characterization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2105.04292v1",
+        "material_read": "Sections 2, 3 and 4, with full Lemma 3.1 and hypercube/grid statements.",
+        "method": "Read arXiv open full-text HTML, comparing property of edge general position to inclusion maximality.",
+        "title": "Edge general position problem",
+        "trigger": "Foundational general partial-cube two-class theorem may dominate candidate."
+      },
+      {
+        "assessment": "NOT COVERING this exact independent-set flip graph class or triangle iff; deals with general graph extremal gp_e numbers and block graphs.",
+        "evidence": [
+          "Abstract and sections 2–3 classify gp_e(G)=|E|-1 or 3, and derive block-graph bounds."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-024-02770-z",
+        "material_read": "Open-access HTML abstract, introduction, main extremal classifications and block-graph results.",
+        "method": "Inspected publisher open full-text HTML, including stated theorem topics and hypotheses.",
+        "title": "Extremal Edge General Position Sets in Some Graphs",
+        "trigger": "Plausibly stronger recent edge-general-position result by same authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36f1df26-ef43-4eab-b546-b64a93f5e3a2",
+  "value": {
+    "rationale": "For arbitrary graph hosts, a global edge-geodesic maximality property in an exponentially large independent-set reconfiguration graph is reduced to the local condition that an original edge lies in no triangle. This provides an exact classification and natural count for every pair of coordinate directions, with sharp failure witnesses whenever triangles exist; it does not pretend to classify all maximal edge sets or solve the maximum cardinality problem.",
+    "status": "PASS"
+  }
+}
