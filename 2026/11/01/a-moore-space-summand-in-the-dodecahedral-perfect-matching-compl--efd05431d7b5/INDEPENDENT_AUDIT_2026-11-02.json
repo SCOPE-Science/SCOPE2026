@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T01:17:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite, specifically defined GP(10,2) perfect-matching subcomplex was independently reconstructed from the 30 sorted graph edges and all 36 perfect matchings. Downward closure has 30,504 faces including empty, with cardinality f-vector (1,30,375,2180,5790,8352,7440,4320,1620,360,36). The coordinate-order acyclic matching has 15,231 pairs and exactly one 0-, ten 2-, and thirty 3-cells; the audited verifier checks all 163,650 Hasse incidences by topological sorting. Signed gradient-path recurrence on the original boundary gives a 10x30 integral matrix with 34 negative, 231 zero and 35 positive entries. Independent rank calculations find rank_F2=9 and rank_F3=10; independent Bareiss determinant of the specified maximal minor (columns 0,2,4,5,6,7,8,10,11,26) equals +2. Thus Smith factors are nine units and one factor 2. With one 0-cell, no 1-cells and only 2/3-cells, Hurewicz pi_2=H_2 identifies all 3-cell attachment classes and Smith moves yield M(Z/2,2) wedge twenty S^3, not merely matching mod-2 Betti numbers. No assertion about all cubic graphs is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perfect Matching Complexes of Honeycomb Graphs, arXiv:2209.02803, main classification treats H_{1 x m x n} and H_{2 x 2 x 2}.",
+          "Chandrakar–Singh arXiv:2407.05809 studies polygonal-line tilings and narrow grid families."
+        ],
+        "reasoning": "Neither family theorem applies to dodecahedral GP(10,2), and their sphere-wedge outputs do not imply the present torsion claim; did not find a dominating all-cubic-graph result.",
+        "searches": [
+          "arxiv:2209.02803 family theorems",
+          "arxiv:2407.05809 polygonal-line tiling theorems",
+          "general theorem torsion free perfect matching complex bridgeless cubic graph"
+        ]
+      },
+      "checked_sources": [
+        "pinned dodecahedral RESULT.md and verify_dodeca_pmc.py; signed boundary_certificate.json",
+        "arXiv:2209.02803 (full text)",
+        "arXiv:2407.05809 (full theorem text)",
+        "published Resultary 2026/10/11/...07d4993d8316 (full RESULT.md)",
+        "MathOverflow 192159 (perfect-matching count only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published SCOPE ordinary dodecahedral matching RESULT.md explicitly uses all matching faces and proves wedge of five S5 plus 117 S6.",
+          "Perfect-matching honeycomb results yield contractible or sphere-wedge cases only under particular honeycomb hypotheses."
+        ],
+        "reasoning": "Topological subcomplex homology is not determined by the homotopy type of an ambient matching complex, and an ambient sphere wedge can contain a subcomplex with torsion. None of the inspected stronger-looking prior results mathematically forces the claimed integral Moore summand.",
+        "searches": [
+          "Resultary: The dodecahedral matching complex is a wedge of five 5-spheres and 117 6-spheres",
+          "arxiv:2209.02803",
+          "arxiv:2407.05809"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer–Jelić Milutinović–Vega arXiv:2209.02803 defines perfect-matching complexes by facets equal perfect matchings.",
+          "A graph ordinary matching complex has all 111,376 matchings, whereas this perfect-matching complex has 30,504 extendible faces."
+        ],
+        "reasoning": "Checked matching-vs-perfect-matching aliases: only the latter has exactly the 36 maximal ten-edge matchings; known ordinary graph complex is not equivalent. No inspected source states the Moore wedge for this specific perfect-matching complex.",
+        "searches": [
+          "Resultary: perfect matching complex dodecahedron GP10 2 Moore two torsion",
+          "perfect matching complex GP(10,2) 2-torsion homotopy Moore",
+          "arxiv:2209.02803"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previously known exact dodecahedral perfect matching count is 36, without integral homotopy or attachment data.",
+          "Published ordinary matching complex exact homotopy type is wedge of five S5 and 117 S6, on the larger face set."
+        ],
+        "reasoning": "Exact enumeration or ordinary-graph table does not determine the subcomplex attaching matrix. No exact preexisting table recording this finite Moore summand was located.",
+        "searches": [
+          "Resultary exact Dodecahedral matching complex",
+          "MathOverflow question 192159 perfect matchings dodecahedron",
+          "Resultary index for GP(10,2) perfect matching complex torsion"
+        ]
+      },
+      "rationale": "A best-of-knowledge new finite integral homotopy classification for the perfect-matching subcomplex of the canonical dodecahedral graph, compared at the level of complex definitions and implications. The previously published ordinary dodecahedral matching complex concerns all disjoint edge sets, not merely those extendible to a perfect matching, and has a different homotopy type; honeycomb and polygonal-line theorems have different graph hypotheses. No known general theorem located that forces this Moore summand, with an unindexed-source risk preserved.",
+      "residual_risks": [
+        "The precise result could occur in an unindexed thesis or computational topology database; no bibliographic search proves universal novelty.",
+        "The fully computational integral discrete-Morse certificate is reproducible but not a formalized Lean proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this graph under published hypotheses",
+          "evidence": "Classifies H_{1×m×n} and H_{2×2×2}; no GP(10,2) homotopy computation.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "Full accessible primary text, definitions and main family classification theorems",
+          "method": "arXiv open-access full text",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "exact perfect-matching-complex definition and plausible graph-family coverage"
+        },
+        {
+          "assessment": "NOT_COVERING the dodecahedral graph",
+          "evidence": "The families are polygonal-line and narrow tiling/grid graphs, unlike GP(10,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "Accessible full-text theorem statements and graph-family definitions",
+          "method": "arXiv open-access HTML",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "related family homotopy results"
+        },
+        {
+          "assessment": "NOT_COVERING the perfect-matching subcomplex",
+          "evidence": "Its face count 111,376 includes every matching; the target subcomplex face count 30,504 is different.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-dodecahedral-matching-complex-is-a-wedge-of-five-5-spheres-a--07d4993d8316",
+          "material_read": "Complete RESULT.md including definitions, enumeration, proof and limitations",
+          "method": "Published complete GitHub RESULT.md, read by connected repository access",
+          "title": "The dodecahedral matching complex is a wedge of five 5-spheres and 117 6-spheres",
+          "trigger": "same named graph and potentially dominating integral homotopy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perfect-matching complex of a standard polyhedral cubic graph is a natural object already studied in the literature. Detecting and completely locating integral 2-torsion in its homotopy type supplies an exact, reusable non-sphere-wedge example not implied by counting its perfect matchings or by ordinary matching-complex homology. A full finite model and integer attaching matrix make the precise fact independently useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only GP(10,2) and the perfect-matching subcomplex, no equivariant homotopy or extension to all cubic graphs.",
+  "schema_version": 1
+}

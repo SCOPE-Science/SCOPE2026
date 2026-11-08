@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Finite proof and checks
-Run `python3 verify_dodeca_pmc.py` in a Python 3 environment. No third-party libraries are required. The verifier reconstructs the exact graph and its 36 perfect matchings; separately enumerates 111,376 ordinary matchings; verifies the 30,504 extendible matchings, including the empty matching; reproduces the 15,231 coordinate-toggle Morse pairs; and checks acyclicity on all 163,650 Hasse incidences. The exact signed Morse differential has 10 rows and 30 columns, with mod-two rank nine and a displayed maximal minor of determinant two. The integral Smith invariant factors are therefore nine copies of one and one copy of two, giving the claimed Moore summand.
+# Independent mathematical audit
 
-The independent original-complex simplicial mod-two boundary ranks (degrees one to nine) are `(29,346,1833,3936,4416,3024,1296,324,36)`. The resulting mod-two Betti numbers are `1` in degree two and `21` in degree three, zero in every other positive degree. The original 30-vertex complex is high-dimensional, but this finite computation and the explicit acyclic matching produce a valid 3-dimensional CW model: the finite-level mod-two calculations are merely corroboration, not an infinite extrapolation. `boundary_certificate.json` contains the actual integer Morse differential in its exact row and column order. `verification_output.txt` contains the recorded stdout of the standalone checker.
+## correctness
 
-The homotopy classification invokes the standard classification of three-cell attaching maps into a wedge of two-spheres by their degree vectors; the matrix's Smith form is used at the level of the simply-connected three-dimensional CW model. Limits: no general all-graph theorem, independent audit, or external certification is claimed.
+PASS
+
+The finite, specifically defined GP(10,2) perfect-matching subcomplex was independently reconstructed from the 30 sorted graph edges and all 36 perfect matchings. Downward closure has 30,504 faces including empty, with cardinality f-vector (1,30,375,2180,5790,8352,7440,4320,1620,360,36). The coordinate-order acyclic matching has 15,231 pairs and exactly one 0-, ten 2-, and thirty 3-cells; the audited verifier checks all 163,650 Hasse incidences by topological sorting. Signed gradient-path recurrence on the original boundary gives a 10x30 integral matrix with 34 negative, 231 zero and 35 positive entries. Independent rank calculations find rank_F2=9 and rank_F3=10; independent Bareiss determinant of the specified maximal minor (columns 0,2,4,5,6,7,8,10,11,26) equals +2. Thus Smith factors are nine units and one factor 2. With one 0-cell, no 1-cells and only 2/3-cells, Hurewicz pi_2=H_2 identifies all 3-cell attachment classes and Smith moves yield M(Z/2,2) wedge twenty S^3, not merely matching mod-2 Betti numbers. No assertion about all cubic graphs is used.
+
+## originality
+
+PASS
+
+A best-of-knowledge new finite integral homotopy classification for the perfect-matching subcomplex of the canonical dodecahedral graph, compared at the level of complex definitions and implications. The previously published ordinary dodecahedral matching complex concerns all disjoint edge sets, not merely those extendible to a perfect matching, and has a different homotopy type; honeycomb and polygonal-line theorems have different graph hypotheses. No known general theorem located that forces this Moore summand, with an unindexed-source risk preserved.
+
+## value
+
+PASS
+
+The perfect-matching complex of a standard polyhedral cubic graph is a natural object already studied in the literature. Detecting and completely locating integral 2-torsion in its homotopy type supplies an exact, reusable non-sphere-wedge example not implied by counting its perfect matchings or by ordinary matching-complex homology. A full finite model and integer attaching matrix make the precise fact independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
