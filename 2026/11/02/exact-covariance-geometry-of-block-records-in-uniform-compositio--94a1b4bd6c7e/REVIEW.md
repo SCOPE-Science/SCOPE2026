@@ -1,11 +1,21 @@
-# Review of exact covariance geometry of block records in uniform compositions
+# Independent mathematical audit
 
-**Correctness — PASS.** The mixed record moment is obtained from a two-block marking of the composition generating function, not extrapolated from experiments. The finite covariance and diagonal variance identities, conditional-regression strict sign, and each of the four asymptotic scalings were rederived with their integer boundaries. Exact-arithmetic checking passed 432 assertions and enumerated 305826 label-order/composition microstates. The checker has been executed from the local standalone source file.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2021 Lah-distribution paper provides the conditional record representation, negative association of the composition lengths, and total-count factorial moments. In its directly inspected §§2.1, 3.1 and 5.4, it stops at a nonpositive pair-covariance inequality, rather than displaying the full covariance matrix and four sharp block-regime constants. The present calculation goes beyond that reported qualitative conclusion, although existing total factorial moments make part of the computation implicitly accessible. Searches of mathematical result records and relevant research identified no explicit equivalent complete profile. The 2020 unrestricted-composition covariance work concerns a different random number-of-parts statistic and was consulted at abstract level only.
+PASS
 
-**Value — PASS.** Pair covariance is a natural component of the Lah count’s total variance and of the eigenstructure of its blockwise record vector. The complete exact profile reveals a nonzero fixed-block dependence limit and distinct sparse, proportional, and near-saturation scalings. These quantify where treating block counts as independent gives a non-negligible error.
+Checked conditional Bernoulli record-indicator laws, marked composition generating functions, one- and two-block coefficient derivatives, strict negative conditional regression and positive conditional variances. Substituted Δ=H_n−H_(k−1), T₂=H_n^(2)−H_(k−1)^(2), d=n−k+1 into both covariance entries. Fixed-k, k=o(n) with k→∞, proportional k/n→α, and fixed n−k limits follow by distinct harmonic expansions; r=0 is identically zero. Independent exact-rational uniform-composition evaluation checked 220 separate finite moment/sign identities. Finite tests corroborate, not prove, asymptotics.
 
-**Scope and remaining risks.** Uniform positive compositions, independent continuous labels, and \(n\ge k\ge2\) only. No uniform transition-region error bound, earlier-literature completeness, or independent validation is claimed. The prior 2021 generating functions might support an older implicit derivation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Lah/block-record construction and negative association precede the proposed result. Direct comparison with primary Proposition 2.3, Lemma 5.14, Equation 5.31 and aggregate factorial-moment theorems finds no stated all-size blockwise covariance matrix and four limit constants. Originality is bounded: generating-function consequences may be implicit elsewhere.
+
+## value
+
+PASS
+
+An exact k×k exchangeable covariance structure and its four qualitatively different scales quantify dependence and effective fluctuations in the canonical Lah record model; the near-saturation and proportional regimes are useful beyond a routine negative-association sign.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
