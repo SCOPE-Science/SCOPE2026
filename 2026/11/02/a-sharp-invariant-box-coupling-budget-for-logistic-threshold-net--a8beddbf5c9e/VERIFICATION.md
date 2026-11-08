@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent audit channel is not performed. The scientific claim has a same mathematical model proof review only.
+## correctness
 
-Run `python3 verification.py` from the extracted research package; no third-party Python dependencies are required. Actual replay produced `PASS: row sums, 4 non-equitable cross weights, 9 beta ranges, contraction, four numerical fixed points, sharpness and cusp checks`. In the four-node example at beta=8, leakage 0.15 is below epsilon*=0.15606521549378 and the contraction-rate bound is 0.029066962173548.
+PASS
 
-The source of the infinite-dimensional quantified conclusion is the inward-face and contraction argument written in RESULT.md, not numerical iteration. The program checks a representative non-equitable example and scalar identities but does not independently establish source priority, exhaustive equilibrium counts, or convergence of every trajectory outside the specified boxes.
+The scalar b=(1−sqrt(1−4/beta))/2 solves beta b(1−b)=1; E_beta is the exact solution of F(beta[b+(1−b)E_beta−1/2])=b. For epsilon<E_beta, each low node input ≤b+(1−b)epsilon and each high node symmetric; strict vector-field inwardness on all box faces. Since logistic derivative increases on negative inputs, full T=F(beta(Wx−1/2)) contracts each box with rate beta F'(z)<1, proving unique interior fixed point, full-dimensional invariant attracting basin and local exponential ODE contraction. For eps>E_beta, explicit two-node W=[[1−eps,eps],[0,1]] drives x_1=b outward from low/high face, proving only canonical-box threshold sharpness. Near beta=4 Taylor yields coefficient 1/12 and beta→∞ gives 1/2. Independently verified 56 scalar inequalities for beta and leakage choices; finite tests are corroborative.
+
+## originality
+
+PASS
+
+Closest relevant Boudourides (2026) paper proves persistence under weak interblock coupling for structured equitable / small perturbation regimes, but not a universal row-mass formula E_beta with arbitrary intrablock weights, full product boxes and matching two-node non-invariance witness. Generic inward-rectangle Banach fixed-point arguments are standard; exact universal quantitative model threshold is the claimed additional finding.
+
+## value
+
+PASS
+
+Natural heterogeneous sigmoid threshold networks have a genuine question of how much arbitrary interblock leakage preserves every combinatorial binary pattern without imposing equitable or regular blocks. Explicit dimension-independent robust basin certificates and sharp failure of their particular boxes are useful quantitative stability facts. No claim of maximal actual multistability threshold or global classification beyond these boxes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
