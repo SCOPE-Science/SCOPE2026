@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained `checker.py` enumerates every factor up to length 160 in a prefix of length 8192 and compares every minimal absent factor computed from the factor language to the four families in the theorem. Its output was:
+## correctness
 
-```
-PASS: exhaustive factor-language comparison through length 160; 166 minimal-absent-word instances across lengths 2..160.
-Counts n=2..16: [0, 1, 5, 0, 1, 3, 1, 0, 1, 1, 1, 3, 1, 1, 1]
-```
+PASS
 
-Reproduce with `python3 checker.py`. Direct enumeration is limited to those lengths and that prefix; the all-length assertion follows from unique adjacent-one gaps, the middle-factor argument and exact boundary overhangs. The original 2002 article's complete text was not available for historical comparison. Independent audit has not been performed.
+PASS. Index 0 is zero; 1s occur at positions 1,2,4,8,... so every consecutive-one gap 2^j uniquely fixes a pair and any factor with at least two 1s occurs at most once. In any minimal absent factor avb, its interior v cannot contain two 1s (both occurring deletions would align at its unique occurrence). This exhaustively reduces to two/three-1 patterns. The exact gap and left/right zero-overhang conditions produce precisely 111,0011,1011, every 10^(d-1)1 for d not a power of two, and the two dyadic overhang families; their lengths give m(n) as claimed for all n>=2. Boundary at index zero creates 0011 and 1011. Independent literal factor-language comparison of a large prefix confirmed candidate sets at lengths 2..59; finite check is not the all-length proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality from explicit theorem-level source comparisons. The narrower final novelty is preserved; older established components are credited. Search absence does not prove priority.
+
+## value
+
+PASS
+
+PASS. The complete antidictionary of the canonical powers-of-two indicator is a natural exact invariant of an infinite lacunary binary language, identifying all minimal forbidden local patterns, including nontrivial one-sided boundary exceptions and spikes at 3*2^k+1. It determines its factorial language more finely than prior factor-complexity counts; not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

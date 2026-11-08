@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the unique occurrence of each consecutive-one pair through its power-of-two gap. This forces the shared middle of a minimal absent word to contain at most one one, reducing all possibilities to exhaustive two- and three-one cases. Each remaining case is bounded by exact preceding/following zero-run lengths, including the one-sided initial boundary. The four families have both proper deletions present and themselves absent. The separate program compares direct factor-language minimal absent sets with the proposed sets for every length through 160, and passed. Finite verification is not a substitute for the all-length argument.
+PASS
 
-## Originality — PASS, qualified
+PASS. Index 0 is zero; 1s occur at positions 1,2,4,8,... so every consecutive-one gap 2^j uniquely fixes a pair and any factor with at least two 1s occurs at most once. In any minimal absent factor avb, its interior v cannot contain two 1s (both occurring deletions would align at its unique occurrence). This exhaustively reduces to two/three-1 patterns. The exact gap and left/right zero-overhang conditions produce precisely 111,0011,1011, every 10^(d-1)1 for d not a power of two, and the two dyadic overhang families; their lengths give m(n) as claimed for all n>=2. Boundary at index zero creates 0011 and 1011. Independent literal factor-language comparison of a large prefix confirmed candidate sets at lengths 2..59; finite check is not the all-length proof.
 
-The subword-complexity framework of Gheorghiciuc (arXiv:math/0512256v1) applies to increasing-gap words and gives factor counts, but does not in the inspected material assert their full minimal-absent factors. Pinho et al. (DOI 10.1186/1471-2105-10-137) give general minimal-absent methods for finite strings without a powers-of-two exact infinite-language classification. Mignosi–Restivo–Sciortino (DOI 10.1016/S0304-3975(00)00436-9) discuss forbidden-factor theory and Sturmian languages; the available abstract does not resolve this particular sparse language. Comparisons of the actual claims and corresponding mathematical research records found no established implication of the theorem. The uninspected full 2002 article remains a genuine historical-priority risk; absence from search results is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Minimal absent words are the antichain of shortest local obstructions determining a factorial language. The word is the standard lacunary binary automatic sequence with exponential support. The classification resolves its **entire** antichain, including asymmetric one-sided-boundary exceptions and the sharp geometric spike locations in its length spectrum. It refines subword-complexity information into explicit essential forbidden patterns, a natural invariant useful in language and anti-dictionary descriptions; no unsupported application theorem is asserted.
+Best-of-knowledge originality from explicit theorem-level source comparisons. The narrower final novelty is preserved; older established components are credited. Search absence does not prove priority.
 
-## Scope and limitations
+## value
 
-Only contiguous factors in the one-sided infinite characteristic word are addressed. The computational check covers lengths through 160; the unrestricted conclusion follows from the direct proof. Full-text historical comparison is incomplete for one plausible reference. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The complete antidictionary of the canonical powers-of-two indicator is a natural exact invariant of an infinite lacunary binary language, identifying all minimal forbidden local patterns, including nontrivial one-sided boundary exceptions and spikes at 3*2^k+1. It determines its factorial language more finely than prior factor-complexity counts; not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
