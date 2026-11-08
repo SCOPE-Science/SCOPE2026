@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:49:06.566041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q=[-1,1]^3 and U Haar uniform on S², the orthogonal shadow onto U-perp has circumradius R=max_{v in ±1³}||P_E v||=sqrt(3-min_v(v·U)^2). Sorting absolute coordinates a<=b<=c gives exactly min|±a±b±c|=|c-a-b|, valid also at chamber boundaries. Forty-eight symmetry chambers contribute 12/pi times the Haar density sin(theta)dtheta dphi for 0<=phi<=pi/4, theta<=atan(sec phi). The threshold |cos theta-(cos phi+sin phi)sin theta|>=t yields the disjoint positive and negative spherical regions B(t),J(t), with J activating only t<1/sqrt3. Expansion of h(phi)=sin phi/sqrt(1+cos²phi) near pi/4 and the threshold integrand gives J~9sqrt3/(4pi)(t*-t)^2, whose r-map derivative gives jump 36sqrt3/pi in F_R second derivative. Six coordinate-axis diamonds give lower F(sqrt2+eps)~6 eps²/pi; four transversal great-circle bands give the upper tail 4sqrt(3-r²)/sqrt3. Independent orthogonal-projection calculations, numerical 1D quadrature and uniform-sphere Monte Carlo agree; such numerical checks do not prove exact continuum geometry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Prochno–Thäle study high-dimensional random cube shadows and limiting shapes, not a fixed 3D circumradius random variable.",
+          "Kabluchko–Seidel treat expected face counts and conic projection geometry, not max projected-vertex distance CDF."
+        ],
+        "reasoning": "Neither broad high-dimensional or combinatorial theorem implies the elementary quadrature and curvature jump for the fixed cube without further nontrivial metric calculations.",
+        "searches": [
+          "Kabluchko Prochno Thäle 2019 A new look at random projections of the cube arxiv 1910.02676",
+          "Kabluchko Seidel 2020 regular polytope projection face numbers arxiv 2006.09492"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 74279ae3cab2818a9c35529af59acc8b74802487",
+        "SCOPE verify.py blob 6e360cd25465b3a69e89c74ae8ba8bf702afeba2",
+        "arxiv:1910.02676",
+        "arxiv:2006.09492",
+        "arxiv:1110.0671",
+        "Resultary octahedron inradius 5fbcddcea5e5",
+        "Resultary cube directional-width c1e6aa54ecb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A unit-vector normal U determines both Σ|U_i| and min_{v in ±1³}|v·U|, but one univariate distribution does not determine the other random variable’s distribution.",
+          "Exact section radius under polarity describes a dual convex operation; it cannot be substituted for projection radius."
+        ],
+        "reasoning": "No inspected prior theorem implies the signed-min CDF or its second derivative jump; the symmetry and spherical chamber proof provide the new calculation.",
+        "searches": [
+          "arxiv 1910.02676 cube random projection asymptotics",
+          "arxiv 1110.0671 cube width distribution",
+          "Resultary octahedron polar section inradius diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cube projection circumradius is half shadow diameter for this centrally symmetric shadow, and is NOT the polar-dual formula for cube projection inradius.",
+          "Finch computes one-dimensional width Σ|U_i|; the new quantity is sqrt(3-(min_v|v·U|)^2)."
+        ],
+        "reasoning": "Polarity exchanges projection and section, and inradius/circumradius separately; the exact laws on octahedron sections and 1D widths do not determine this CDF.",
+        "searches": [
+          "Resultary exact Haar diameter of central octahedron section 4948185eba2f",
+          "Resultary octahedron projection inradius 5fbcddcea5e5",
+          "Finch Width Distributions for Convex Regular Polyhedra arxiv 1110.0671"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact cube directional width, random orthotope perimeter and projected area moments tabulate other invariants.",
+          "Resultary exact octahedron laws concern different section-projection/radius duals."
+        ],
+        "reasoning": "A published CDF for width or area is not a table for the circumradius; no complete matching CDF found in checked records, but non-indexed special-case geometry remains possible.",
+        "searches": [
+          "Resultary exact directional width law cube first spherical cap transition c1e6aa54ecb2",
+          "Resultary exact planar shadow area moments orthotopes 0d2368f94d4d",
+          "random cube projection circumradius exact law query"
+        ]
+      },
+      "rationale": "Best-of-knowledge, after implication-aware prior/source comparisons: No inspected prior theorem implies the signed-min CDF or its second derivative jump; the symmetry and spherical chamber proof provide the new calculation.",
+      "residual_risks": [
+        "Non-indexed classical fixed-dimensional random projection metrics could predate the present exact law.",
+        "Claim is solely Haar orthogonal planar shadows of a 3D side-two Euclidean cube, not all orthotopes or sections.",
+        "Numerical Monte Carlo and quadrature are supportive checks, not proofs of the exact curvature transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic n-dimensional framework does not assert exact 3D radius law",
+          "evidence": "arXiv:1910.02676, main theorems on high-dimensional random projections.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.02676",
+          "material_read": "OA full paper: abstract, main theorem statements and projected-cube large-dimensional context",
+          "method": "read relevant primary PDF sections",
+          "title": "A new look at random projections of the cube and general product measures",
+          "trigger": "Prior random projection of the same cube body"
+        },
+        {
+          "assessment": "1D directional width rather than planar shadow enclosing radius",
+          "evidence": "Finch 2011 width variable and distribution, not min signed cube diagonal projection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671",
+          "material_read": "OA full PDF, width definition and cube distribution portions",
+          "method": "read relevant primary sections",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Potential same 3D cube metric projection law"
+        },
+        {
+          "assessment": "Projection inradius of octahedron relates to cube section circumradius, not cube projection circumradius",
+          "evidence": "The octahedron/cube polarity swaps section and projection; do not swap radius types.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+          "material_read": "Published finding statement/summary and duality comparison",
+          "method": "Resultary record source statement inspection",
+          "title": "Exact inradius law for random planar projections of the regular octahedron",
+          "trigger": "Exact nearby dual-polytope radius distribution"
+        },
+        {
+          "assessment": "Combinatorial conic-angle data do not imply metric CDF",
+          "evidence": "Kabluchko–Seidel 2020 geometric projection setting, face counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.09492",
+          "material_read": "Accessible full preprint abstract and relevant projection/face statements",
+          "method": "read relevant preprint text",
+          "title": "Convex cones spanned by regular polytopes",
+          "trigger": "Face-number formulas for cube shadows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The random planar shadow of a cube is a canonical fixed-dimensional integral-geometric model, and its full metric circumradius CDF has a genuine interior differentiability transition and sharp endpoint laws. Those features are finer than expected face counts, area/perimeter, directional width or dual section inradius, so the precise fact is a reusable natural probability law rather than a contrived finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Non-indexed classical fixed-dimensional random projection metrics could predate the present exact law.",
+    "Claim is solely Haar orthogonal planar shadows of a 3D side-two Euclidean cube, not all orthotopes or sections.",
+    "Numerical Monte Carlo and quadrature are supportive checks, not proofs of the exact curvature transition."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. It needs only Python 3's standard library and prints `ALL_CUBE_SHADOW_CIRCUMRADIUS_CHECKS_PASSED` when all checks succeed. Tests reconstruct 800 cube shadows from projected vertex coordinates, compare them with the ordered-normal formula, check 200 monotonicity grid points, compare the quadrature with independent spherical integration, check the two endpoint and the interior transition asymptotics, and draw 120,000 independently seeded Haar orientations to compare empirical events with the exact integrals.
+## correctness
 
-The derivation in `RESULT.md` is the proof for the continuum of orientations. Quadrature truncation and finite Monte Carlo trials are diagnostic, not exhaustive validation, not proofs of the asymptotic formulas, and not historical-priority certification. The exact probability measure is normalized spherical area on \(S^2\); the sign-and-order sector contributes a factor \(48/(4\pi)=12/\pi\). The CDF is derived for the cube shadow circumradius, and no analogous cube section or octahedron projection distribution is asserted. Independent mathematical audit has not been performed.
+PASS
+
+For Q=[-1,1]^3 and U Haar uniform on S², the orthogonal shadow onto U-perp has circumradius R=max_{v in ±1³}||P_E v||=sqrt(3-min_v(v·U)^2). Sorting absolute coordinates a<=b<=c gives exactly min|±a±b±c|=|c-a-b|, valid also at chamber boundaries. Forty-eight symmetry chambers contribute 12/pi times the Haar density sin(theta)dtheta dphi for 0<=phi<=pi/4, theta<=atan(sec phi). The threshold |cos theta-(cos phi+sin phi)sin theta|>=t yields the disjoint positive and negative spherical regions B(t),J(t), with J activating only t<1/sqrt3. Expansion of h(phi)=sin phi/sqrt(1+cos²phi) near pi/4 and the threshold integrand gives J~9sqrt3/(4pi)(t*-t)^2, whose r-map derivative gives jump 36sqrt3/pi in F_R second derivative. Six coordinate-axis diamonds give lower F(sqrt2+eps)~6 eps²/pi; four transversal great-circle bands give the upper tail 4sqrt(3-r²)/sqrt3. Independent orthogonal-projection calculations, numerical 1D quadrature and uniform-sphere Monte Carlo agree; such numerical checks do not prove exact continuum geometry.
+
+## originality
+
+PASS
+
+Best-of-knowledge, after implication-aware prior/source comparisons: No inspected prior theorem implies the signed-min CDF or its second derivative jump; the symmetry and spherical chamber proof provide the new calculation.
+
+## value
+
+PASS
+
+The random planar shadow of a cube is a canonical fixed-dimensional integral-geometric model, and its full metric circumradius CDF has a genuine interior differentiability transition and sharp endpoint laws. Those features are finer than expected face counts, area/perimeter, directional width or dual section inradius, so the precise fact is a reusable natural probability law rather than a contrived finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

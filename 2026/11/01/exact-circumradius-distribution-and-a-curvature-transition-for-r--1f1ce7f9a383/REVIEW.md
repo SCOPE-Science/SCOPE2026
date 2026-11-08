@@ -1,15 +1,21 @@
-# Scientific assessment: random cube-shadow circumradius
+# Independent mathematical audit
 
-## Correctness — PASS
-The origin-centered circumradius is the largest projected-vertex norm because the shadow is centrally symmetric, and its square is exactly \(3-(c-a-b)^2\) for sorted absolute unit normal coordinates. The solid-angle normalization uses 48 congruent sign-order spherical chambers, each with probability density factor \(12/\pi\). The two monotone angular crossing branches exhaust the event and yield the stated one-dimensional integrals. The second branch exists precisely below \(t=1/\sqrt3\); local derivatives give its quadratic onset and the stated jump in the second derivative. Independent great-circle strip and polar-cap calculations establish the upper and lower endpoint coefficients. The standard-library verifier reconstructs random shadows, evaluates independent spherical quadrature, and checks all asymptotic coefficients. Finite checks corroborate rather than prove the analytic statements.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest exact previous metric results determine the diameter of an octahedron **section**, equivalent to the inradius of a cube **projection**, and the inradius of an octahedron **projection**, equivalent to the radius of a cube **section**. Neither determines the circumradius of a cube **projection**. Exact cube directional-width laws concern one-dimensional shadows; cube planar-shadow area moments concern another invariant. The accessible 2019 general-product-measure cube-projection manuscript treats high-dimensional limits rather than this finite three-dimensional law, and the 2020 regular-polytope projection paper addresses combinatorial properties. The inspected sections and searches did not reveal the complete CDF or the identified smoothness transition. Earlier or differently indexed special-case calculations remain a risk, not a proven exclusion.
+PASS
 
-## Mathematical value — PASS
-The invariant is the actual smallest enclosing-circle radius of the random planar cube shadow, a natural intrinsic metric of an entire family of planar zonogons. Determining its complete law distinguishes concentration at two sharp geometric endpoints and identifies a nontrivial face-interaction transition of the probability distribution, which is not supplied by previously known widths, face counts, or area moments. This is substantially more than recomputation of a single small moment or a normalization check.
+For Q=[-1,1]^3 and U Haar uniform on S², the orthogonal shadow onto U-perp has circumradius R=max_{v in ±1³}||P_E v||=sqrt(3-min_v(v·U)^2). Sorting absolute coordinates a<=b<=c gives exactly min|±a±b±c|=|c-a-b|, valid also at chamber boundaries. Forty-eight symmetry chambers contribute 12/pi times the Haar density sin(theta)dtheta dphi for 0<=phi<=pi/4, theta<=atan(sec phi). The threshold |cos theta-(cos phi+sin phi)sin theta|>=t yields the disjoint positive and negative spherical regions B(t),J(t), with J activating only t<1/sqrt3. Expansion of h(phi)=sin phi/sqrt(1+cos²phi) near pi/4 and the threshold integrand gives J~9sqrt3/(4pi)(t*-t)^2, whose r-map derivative gives jump 36sqrt3/pi in F_R second derivative. Six coordinate-axis diamonds give lower F(sqrt2+eps)~6 eps²/pi; four transversal great-circle bands give the upper tail 4sqrt(3-r²)/sqrt3. Independent orthogonal-projection calculations, numerical 1D quadrature and uniform-sphere Monte Carlo agree; such numerical checks do not prove exact continuum geometry.
 
-## Limitations and closest literature
-The theorem is for Haar-uniform orthogonal planar projections of \([-1,1]^3\), not arbitrary boxes, offset planes, sections, or higher dimensions. Exact distribution is given by convergent one-dimensional elementary quadratures. Relevant comparisons: Kabluchko–Prochno–Thäle (2019, arXiv:1910.02676), Kabluchko–Seidel (2020, arXiv:2006.09492), Finch (2011, arXiv:1110.0671), and the four accessible exact section/inradius/width/area research notes cited in `RESULT.md`. Hidden equivalences in unindexed literature are the remaining priority risk. The test program is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after implication-aware prior/source comparisons: No inspected prior theorem implies the signed-min CDF or its second derivative jump; the symmetry and spherical chamber proof provide the new calculation.
+
+## value
+
+PASS
+
+The random planar shadow of a cube is a canonical fixed-dimensional integral-geometric model, and its full metric circumradius CDF has a genuine interior differentiability transition and sharp endpoint laws. Those features are finer than expected face counts, area/perimeter, directional width or dual section inradius, so the precise fact is a reusable natural probability law rather than a contrived finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
