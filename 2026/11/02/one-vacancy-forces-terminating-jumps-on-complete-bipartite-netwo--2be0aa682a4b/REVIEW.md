@@ -1,15 +1,21 @@
-# Scientific review: One vacancy forces terminating jumps on complete bipartite networks; two vacancies can restore cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof distinguishes the vacancy part and the red count in one part, so each legal strict improvement moves along an edge of a two-sided ladder with only the edges \(A_iB_i\) and \(A_iB_{i+1}\), which is in fact a path. A within-part jump has identical own payoff and cannot strictly improve. Fractions across every red or blue edge reverse for its opposite transfer; each edge therefore has at most one strict improving orientation, for arbitrary fixed color-dependent functions. There are at most \(2(b+1)\) such macrostates; consequently every maximal sequence terminates within \(2b+1\) moves in a Nash equilibrium. The separate four-move \(K_{3,3}\) two-vacancy example specifies agents, exact payoffs and the full return, not an approximate numerical orbit. Exact-rational code checks 2,250 one-vacancy instances and the complete labeled return. No finite sweep is used as the proof of an infinite statement.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-Friedrich et al., *Single-Peaked Jump Schelling Games*, arXiv:2302.12107v1, Theorems 2.1–2.4 and Corollary 3.3, is the most relevant full-text comparator. Theorem 2.4 addresses only cycles, one vacancy and peak \(1/2\); Corollary 3.3 proves existence for bipartite graphs under a majority-count condition, not arbitrary improving-path termination. Their two-vacancy cycles are on paths or rings rather than complete bipartite graphs. Narayanan, Sabbagh and Voudouris, *Diversity-Seeking Jump Games in Networks*, arXiv:2305.17757v1, prove convergence on one-vacancy regular graphs for a particular monotone different-type payoff, not arbitrary nonmonotone color functions or irregular bicliques. Bilò et al., arXiv:2204.12599, study swaps, not jump-to-vacancy dynamics. Echzell et al., arXiv:1907.07513, analyze threshold-monotone strategic Schelling improvement dynamics but not this complete-bipartite arbitrary-payoff theorem. Elkind et al., arXiv:1902.07937, study conventional Schelling objectives and different neighborhood definitions. Searches for equivalent improvement paths, exact bounds and two-vacancy biclique examples did not reveal coverage, but failed searches are not uniqueness proofs. A specialized equivalence in older potential-game or population-state literature is the residual risk.
+PASS
 
-## Value — PASS
-The result settles the entire strict-improvement dynamics, not merely equilibrium existence, on a natural dense two-community network for every single-peaked preference peak and even arbitrary fixed color-dependent functions. It supplies a short preference-independent update bound and identifies an exact modeling boundary: allowing just one additional vacancy permits a strict improving cycle on the same class of regular, highly connected graphs. This distinguishes convergence from mere existence, and points to the topology of the compressed state graph as the reason that dynamics simplify. The bound is not asserted to be optimal for the restricted payoff subclass.
+For K_{s,t} and one vacant vertex the macrostate is (vacancy part A/B, i=#red in A). Moving within same part preserves an agent's occupied cross-part neighbor multiset, hence own closed-neighborhood same-color ratio and payoff. Every improving move flips vacancy side along one of edges A_i-B_i (blue) or A_i-B_(i+1) (red), an undirected path. The moving color has identical pre/post payoff arguments in reverse on the same edge, so edge orientation cannot reverse; no repeated macrostate or directed cycle. At most b+1 possible counts of blue in A on either vacancy side implies at most 2b+2 macrostate vertices and 2b+1 jumps. Two-vacancy K3,3 witness has four strictly improving jumps returning the same labelled placement with tent peak 9/20 and exact improvements 0→20/33, 20/27→10/11 twice. Fresh own exact-rational simulation checked all four positions, ratios and the final labeled state; no global computational census asserted.
 
-## Limitations and evidence
-The argument assumes complete cross-part adjacency, only two homogeneous color classes, and a unique empty vertex. It does not assert a theorem for incomplete bipartite graphs, individualized utilities or three types. The two-vacancy counterexample does not exclude Nash equilibria. The embedded exact-rational verifier checks its labeled cycle and tests 2,250 small parameter instances; it cannot establish literature priority or replace the symbolic proof. The motivating and closest comparator sources were examined at full-text or material section level, with a surviving risk of undiscovered general results. No independent scientific audit or external validation has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full Friedrich–Lenzner–Molitor–Seifert manuscript proves existence and convergence only on other graph classes/peak regimes, including ring with one vacancy and cycles on regular graphs. No complete-bipartite one-vacancy orientation-path invariant or preference-independent 2b+1 bound appears in the inspected results. Two-vacancy explicit K3,3 cycle sharpens that precise structural boundary.
+
+## value
+
+PASS
+
+The orientation-path invariant is a natural full improvement-dynamics classification for a nontrivial graph family, with arbitrary two-color homogeneous utilities and a uniform move bound; the explicit two-vacancy cycle shows a sharp structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

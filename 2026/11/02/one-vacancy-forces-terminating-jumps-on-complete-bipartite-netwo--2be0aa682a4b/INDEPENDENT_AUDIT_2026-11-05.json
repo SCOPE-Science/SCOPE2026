@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:53:41.371552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_{s,t} and one vacant vertex the macrostate is (vacancy part A/B, i=#red in A). Moving within same part preserves an agent's occupied cross-part neighbor multiset, hence own closed-neighborhood same-color ratio and payoff. Every improving move flips vacancy side along one of edges A_i-B_i (blue) or A_i-B_(i+1) (red), an undirected path. The moving color has identical pre/post payoff arguments in reverse on the same edge, so edge orientation cannot reverse; no repeated macrostate or directed cycle. At most b+1 possible counts of blue in A on either vacancy side implies at most 2b+2 macrostate vertices and 2b+1 jumps. Two-vacancy K3,3 witness has four strictly improving jumps returning the same labelled placement with tent peak 9/20 and exact improvements 0→20/33, 20/27→10/11 twice. Fresh own exact-rational simulation checked all four positions, ratios and the final labeled state; no global computational census asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier work covers existence of equilibria for some bipartite graphs/large red population and one-vacancy convergence on regular graphs for monotone diversity objectives.",
+          "Those hypotheses do not imply every-update convergence for arbitrary payoffs on irregular complete bipartite graphs."
+        ],
+        "reasoning": "Stronger results by graph inclusion would require the same payoff model and improving relation, which inspected sources lack.",
+        "searches": [
+          "https://arxiv.org/html/2302.12107v1",
+          "https://arxiv.org/abs/2305.17757",
+          "complete bipartite Schelling one vacancy improving response dynamics arbitrary utility graph path two vacancies cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2302.12107v1",
+        "https://arxiv.org/abs/2305.17757",
+        "https://arxiv.org/abs/2204.12599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Friedrich Thm 3.2 establishes NE existence for large independence number, not absence of all improvement cycles.",
+          "Their Thm 2.3 shows a regular-graph one-vacancy IRC; no contradiction because those graphs need not be complete bipartite."
+        ],
+        "reasoning": "Neither earlier NE existence nor the ring convergence theorem yields the path orientation and uniform 2b+1 bound; the two-vacancy cycle is an exact graph-specific obstruction.",
+        "searches": [
+          "https://arxiv.org/html/2302.12107v1",
+          "complete bipartite Schelling one vacancy improving response dynamics arbitrary utility graph path two vacancies cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friedrich Theorem 2.4 gives one-vacancy convergence on cycles only at peak 1/2; Theorems 2.1–2.3 show failures on rings, paths and other regular graphs.",
+          "Complete bipartite nonlocal neighborhood symmetry compresses to a path for all homogeneous color functions, not the same argument as cycle degree of integration."
+        ],
+        "reasoning": "Potential games, improvement graph acyclicity and population-state compression aliases were explicitly compared; a graph-class shift is mathematically essential here.",
+        "searches": [
+          "complete bipartite Schelling one vacancy improving response dynamics arbitrary utility graph path two vacancies cycle",
+          "https://arxiv.org/html/2302.12107v1",
+          "one vacancy complete bipartite jump game potential arbitrary payoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact one-vacancy jump-bound 2b+1 table or labelled four-move K3,3 cyclic witness was found in the inspected literature.",
+          "Source witness is explicitly verified from closed-neighborhood fractions, not an empirical failure on a different graph."
+        ],
+        "reasoning": "Negative lookup alone not proof of novelty; explicit certified same-state cycle distinguishes vacancy boundary.",
+        "searches": [
+          "complete bipartite Schelling one vacancy improving response dynamics arbitrary utility graph path two vacancies cycle",
+          "two vacancies K3,3 Schelling single peaked improving response cycle",
+          "Resultary complete bipartite one vacancy Schelling"
+        ]
+      },
+      "rationale": "The full Friedrich–Lenzner–Molitor–Seifert manuscript proves existence and convergence only on other graph classes/peak regimes, including ring with one vacancy and cycles on regular graphs. No complete-bipartite one-vacancy orientation-path invariant or preference-independent 2b+1 bound appears in the inspected results. Two-vacancy explicit K3,3 cycle sharpens that precise structural boundary.",
+      "residual_risks": [
+        "An old biclique-specific potential game argument could give an equivalent all-payoff result.",
+        "The two-vacancy cycle proves failure of FIP, not absence of Nash equilibria; bound not optimal for every special payoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ring e=1 convergence at Lambda=1/2 and other graphs improving cycles; no all-utility complete-bipartite theorem or K3,3 two-vacancy witness in inspected material",
+          "evidence": "§2 Theorem 2.4 ring potential bound n; §3 Theorem 3.2 NE by large independence set",
+          "identifier_or_url": "https://arxiv.org/html/2302.12107v1",
+          "material_read": "Full lawfully accessible arXiv HTML read, particularly §2 game dynamics Theorems 2.1–2.4 and §3 NE existence/corollaries",
+          "method": "Lawful arXiv full-text HTML",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "Same jump model, vacancy and single-peaked utility definition"
+        },
+        {
+          "assessment": "Different monotone preference class; not direct coverage of arbitrary nonmonotone u_R,u_B",
+          "evidence": "Monotone diversity-seeking jump model",
+          "identifier_or_url": "https://arxiv.org/abs/2305.17757",
+          "material_read": "Abstract and title identified, no full-document negative inference",
+          "method": "arXiv bibliographic/abstract",
+          "title": "Diversity-Seeking Jump Games in Networks",
+          "trigger": "Related single-vacancy convergence under another payoff assumption"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orientation-path invariant is a natural full improvement-dynamics classification for a nontrivial graph family, with arbitrary two-color homogeneous utilities and a uniform move bound; the explicit two-vacancy cycle shows a sharp structural boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two homogeneous colors, one vacancy, complete bipartite graph, own closed-neighborhood fraction.",
+    "Two vacancies allow a cycle but may still admit some equilibria.",
+    "Older biclique-specific improvement game theorem could cover the path argument."
+  ],
+  "schema_version": 1
+}
