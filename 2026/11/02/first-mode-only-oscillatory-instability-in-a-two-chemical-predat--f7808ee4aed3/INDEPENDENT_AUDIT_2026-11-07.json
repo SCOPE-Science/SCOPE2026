@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:08:38.464069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. At equilibrium (1,1,g,g), for q=m^2+n^2>=0 on (0,pi)^2 Neumann, the modal 4x4 determinant independently recomputed symbolically equals [((z+A)(z+E))^2+(z+E-gq)^2], A=2+3q/10, E=1+3q. Positive real z cannot solve it. Factorization into conjugate-coefficient quadratics yields exactly one positive gain imaginary-axis crossing g_c(q) with positive transverse real-part derivative. Exact symbolic computation independently verified g1=(85+189sqrt105)/100 and g2=(55+72sqrt205)/50 and the full quartic Routh-Hurwitz Delta2,Delta3 identities. For ALL q>=2, concavity of H(q,g) in g and explicitly coefficientwise positive shift H(2+h,g2) for h>0 ensure Delta3>0 on 0<=g<g2, with the remaining RH inequalities positive. The q=0 polynomial factors stably; q=1 is exactly two spatial modes cos x, cos y, each has one unstable conjugate pair for g1<g<g2. No finite mode sampling is substituted for the infinite-mode proof, and nothing nonlinear is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating model gives sufficient stationary-mode A4<0 tests; this family has A4>0 for all q. Other wave-instability literature has different number of motile species and different chemical coupling."
+        ],
+        "reasoning": "General oscillatory patterns elsewhere do not imply a maximal parameter window with exactly double q=1 unstable and every q>=2 stable.",
+        "searches": [
+          "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129",
+          "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay",
+          "Liu, Shi, Wang, Pattern formation of the attraction-repulsion Keller-Segel system, DCDS B 18 (2013)"
+        ]
+      },
+      "checked_sources": [
+        "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129",
+        "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay",
+        "Source RESULT.md and verify.py; independent SymPy exact 4x4 determinant, Hurwitz minors and q>=2 shifted certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original sufficient negative p_q(0) condition is never met in this example, while exact RH Delta3 becomes negative in first mode; source criterion cannot prove the new instability."
+        ],
+        "reasoning": "A sufficient criterion with a false premise does not exclude an oscillatory instability or determine precise mode-selection intervals.",
+        "searches": [
+          "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129",
+          "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary Turing instability means a real eigenvalue crosses zero; here p_q(0)=(AE)^2+(E-gq)^2>0, whereas oscillatory loss occurs through a nonreal conjugate pair."
+        ],
+        "reasoning": "Compared wave/Hopf oscillatory Turing, cross-diffusion and chemotaxis terminology using the same four-field matrix, Neumann q-spectrum and source diffusion convention.",
+        "searches": [
+          "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay",
+          "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact thresholds g1 and g2 arise from algebraic imaginary roots and all-mode positivity; source numerical dispersion plots do not tabulate the same two radicals and global stable higher modes."
+        ],
+        "reasoning": "The result is a continuum-parametric analytical spectrum classification, not a known database/table entry; checked source numerical dispersion and independent exact symbolic identities.",
+        "searches": [
+          "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129",
+          "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The original 2026 four-field model paper, materially inspected in arXiv v2, gives reaction-cross-diffusion structure and sufficient stationary Turing sign diagnostics such as negative constant term, not the exact oscillatory gain interval in which every constant term is positive and higher Neumann modes stable. General attraction/repulsion chemotaxis oscillations establish that waves can exist in other models; none of the inspected sources implies these two radicals or exact infinite-spectrum mode selection.",
+      "residual_risks": [
+        "Possibly broader cross-diffusion Hopf/mode-selection theorem may imply this specialization under a different parameterization.",
+        "Linear Neumann spectrum only; multiplicity two at first mode prevents treating onset as an ordinary simple Hopf bifurcation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING algebraic first Neumann pair-only oscillatory window",
+          "evidence": "The source emphasizes stationary instability via constant-term condition; exact assessed determinant has strictly positive constant term for every mode.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.18129",
+          "material_read": "Primary arXiv v2 full PDF model equations, homogeneous linearization and Section 6 diffusion analysis and examples, 28-page document; visual inspection of PDF pages including Section 6",
+          "method": "Read relevant full-text primary source sections and inspected PDF page images",
+          "title": "Asymptotic stability and diffusion-driven pattern formation in a predator-prey system with two chemicals (revised manuscript)",
+          "trigger": "Exact same four-field reaction-cross diffusion model and closest potential dominating modal criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The two sharp algebraic thresholds identify a maximal gain regime exhibiting exclusively oscillatory first-spatial-eigenspace instability while infinitely many higher modes remain stable. It addresses a genuine blind spot of stationary Turing tests with a rigorous all-mode certificate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Shanmugasundaram, Saha, Makinde, Chattopadhyay, predator-prey model with two chemicals, arXiv:2604.18129v2, https://arxiv.org/pdf/2604.18129",
+    "Resultary query: two chemicals predator prey cross diffusion Hopf wave instability first spatial mode Shanmugasundaram Saha Makinde Chattopadhyay",
+    "Source RESULT.md and verify.py; independent SymPy exact 4x4 determinant, Hurwitz minors and q>=2 shifted certificate"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Linearized four-field system on (0,pi)^2 with Neumann boundary; no nonlinear time-periodic wave, global wellposedness or arbitrary-domain assertion.",
+    "Publication transport remains not_ready because public operational fields require complete sanitization; a scientific PASS is not a published certificate."
+  ],
+  "residual_risks": [
+    "Possibly broader cross-diffusion Hopf/mode-selection theorem may imply this specialization under a different parameterization.",
+    "Linear Neumann spectrum only; multiplicity two at first mode prevents treating onset as an ordinary simple Hopf bifurcation."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the four-field Neumann modal matrix from the specified equations, factors its characteristic determinant exactly, and derives the only positive gain crossing per nonconstant mode. The two exact gain thresholds are independently checked by symbolic substitutions. A quartic Routh–Hurwitz argument uses positivity of the shifted second-threshold polynomial to treat every high mode, not a finite numerical list. The rectangular Neumann basis supplies the discrete mode multiplicities. The embedded verification program has been run successfully with SymPy 1.14.0. This is a mathematical self-review, not external certification.
+## correctness
 
-## Originality — PASS under examined evidence
-The closest source is Shanmugasundaram et al., arXiv:2604.18129, which gives the four-field model and stationary Turing-sign condition along with numerical dispersion plots. Its sufficient test requires a negative constant term, whereas the new factorization makes that term strictly positive for all wave numbers, so it does not imply the result. Liu–Shi–Wang (2013), Wang–Wang–Yu (2015), and Biktashev–Tsyganov (2009) establish qualitative time-dependent spatial patterns in different chemotaxis/taxis equations. Their wave phenomena are acknowledged as established. Residual risk includes inaccessible full texts and unlocated general coverage; absence of search matches alone is not used as a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The exact pair of algebraic thresholds defines a maximal interval in which precisely the first spatial Neumann eigenspace is wave-unstable and all higher modes are stable. That supplies an analytically certified mode-selection regime and exposes a real limitation of stationary Turing tests. The result is motivated by the original model's chemically mediated dispersion problem and is applicable without truncating the spatial spectrum.
+PASS. At equilibrium (1,1,g,g), for q=m^2+n^2>=0 on (0,pi)^2 Neumann, the modal 4x4 determinant independently recomputed symbolically equals [((z+A)(z+E))^2+(z+E-gq)^2], A=2+3q/10, E=1+3q. Positive real z cannot solve it. Factorization into conjugate-coefficient quadratics yields exactly one positive gain imaginary-axis crossing g_c(q) with positive transverse real-part derivative. Exact symbolic computation independently verified g1=(85+189sqrt105)/100 and g2=(55+72sqrt205)/50 and the full quartic Routh-Hurwitz Delta2,Delta3 identities. For ALL q>=2, concavity of H(q,g) in g and explicitly coefficientwise positive shift H(2+h,g2) for h>0 ensure Delta3>0 on 0<=g<g2, with the remaining RH inequalities positive. The q=0 polynomial factors stably; q=1 is exactly two spatial modes cos x, cos y, each has one unstable conjugate pair for g1<g<g2. No finite mode sampling is substituted for the infinite-mode proof, and nothing nonlinear is claimed.
 
-## Limitations
-There is no theorem here about nonlinear periodic or traveling-wave existence, stability, global positivity, or higher-mode patterns above the second threshold. The first spatial Laplacian eigenspace has dimension two, so a simple Hopf theorem cannot directly infer a periodic branch at the lower threshold. The result is for Neumann conditions on a square; smooth-domain or arbitrary-habitat extensions are not claimed. Independent priority and proof review remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The original 2026 four-field model paper, materially inspected in arXiv v2, gives reaction-cross-diffusion structure and sufficient stationary Turing sign diagnostics such as negative constant term, not the exact oscillatory gain interval in which every constant term is positive and higher Neumann modes stable. General attraction/repulsion chemotaxis oscillations establish that waves can exist in other models; none of the inspected sources implies these two radicals or exact infinite-spectrum mode selection.
+
+## value
+
+PASS
+
+PASS. The two sharp algebraic thresholds identify a maximal gain regime exhibiting exclusively oscillatory first-spatial-eigenspace instability while infinitely many higher modes remain stable. It addresses a genuine blind spot of stationary Turing tests with a rigorous all-mode certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
