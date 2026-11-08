@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For 2<=k<m, the m-eigenspace has 2m-k-2 dimensions and is the kernel of a rank-two matrix whose columns are (1,1),(1,0),(0,1) for M,U,V classes. Minimal coordinate observation is injective exactly when two omitted classes have independent type columns. All other eigenspaces are explicitly detected. For k=m>=3, m and m+2 each have multiplicity m-1 and are detected exactly by one endpoint in m-1 distinct pairs. Counting disjoint allowed configurations yields 2^k*m*(m-k) and m*2^(m-1). Extractable verify.py checks 1094 minimum-size subsets by exact eigenspaces, one full Kalman-rank witness, and a zero-forcing distinction. Finite checks do not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai (2022), https://doi.org/10.1049/cth2.12385, uses critical sets and explicitly solves scale-free and Cayley-tree networks.",
+        "Hsu (2019), https://doi.org/10.1049/iet-cta.2018.5875, characterizes threshold-graph Laplacian input selection.",
+        "Every graph in the theorem has an induced P4, so it is not a threshold graph."
+      ],
+      "reasoning": "The general PBH test supports the new argument but does not provide the enumerated pair-class formula by itself. Hsu's graph hypothesis fails; Dai's explicitly treated graph families differ. No inspected stronger theorem specializes directly to the exact enumeration.",
+      "searches": [
+        "dedicated leader selection Laplacian controllability barbell two cliques matching edges controllability eigenvalue multiplicity graph",
+        "two complete graphs connected by a matching controllability minimum leaders Laplacian",
+        "doi:10.1049/cth2.12385",
+        "doi:10.1049/iet-cta.2018.5875"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1403.4868",
+      "https://doi.org/10.1049/iet-cta.2018.5875",
+      "https://doi.org/10.1049/cth2.12385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 arXiv full text distinguishes all-matrix structural controllability from the specified-Laplacian problem and illustrates paths/cycles/complete graphs.",
+        "2019 full text restricts theorem to threshold graphs; matched cliques have induced P4.",
+        "2022 full text specializes to deterministic scale-free and Cayley-tree networks.",
+        "Exact B_(3,2) zero-forcing comparison shows the full fixed-Laplacian optimal-set class strictly exceeds the sufficient zero-forcing class."
+      ],
+      "reasoning": "The generic PBH principle is used rather than claimed as new. The claim-to-prior implication comparison identifies neither equivalence nor dominating coverage of its full matching-dependent optimum configurations and count. The excluded k=1 boundary deliberately avoids substantial existing bridge-barbell forcing coverage.",
+      "searches": [
+        "arxiv:1403.4868",
+        "doi:10.1049/iet-cta.2018.5875",
+        "doi:10.1049/cth2.12385"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Monshizadeh–Zhang–Camlibel (2014), Sections I–IV, https://arxiv.org/abs/1403.4868, defines qualitative-class all-matrix controllability and proves an equivalence to zero forcing.",
+        "Exact B_(3,2) check: 12 of 15 two-input sets control the unit Laplacian, but only 4 of those 12 are zero forcing."
+      ],
+      "reasoning": "The natural zero-forcing formulation is a stronger uniform-in-weights property, not the equivalent of control for this fixed Laplacian. The strict B_(3,2) separation prevents the former from implying the complete placement classification.",
+      "searches": [
+        "\"cliques\" \"matching\" \"controllability\" \"Laplacian\" leaders",
+        "\"barbell\" \"Laplacian controllability\" \"leaders\"",
+        "arxiv:1403.4868"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2014 paper's special graphs are paths, cycles and complete graphs; it does not tabulate the 2<=k<=m matched-clique family.",
+        "The inspected 2022 article tabulates deterministic scale-free and Cayley-tree cases, not this two-parameter family.",
+        "The full finite verifier reconstructs new counts from graph matrices rather than copying published tables."
+      ],
+      "reasoning": "Searches of the natural matched-clique, bridged-barbell, zero-forcing and controllability aliases disclosed no exact previously tabulated N(m,k) for 2<=k<=m. This is negative search evidence only, not a novelty proof.",
+      "searches": [
+        "\"zero forcing\" \"two cliques\" \"matching\" graph",
+        "\"zero forcing number\" \"two cliques\" \"matching\" connected",
+        "\"cliques joined by a matching\" \"controllability\"",
+        "\"two cliques\" \"matching\" \"controllability\" Laplacian"
+      ]
+    },
+    "rationale": "The inspected 2014 full-text zero-forcing result concerns universal controllability across a graph-structured matrix family and does not imply all minimum-coordinate sets for a fixed unit-weight Laplacian: on B_(3,2), 12 sets are Kalman controlling and only four zero-forcing. The 2019 threshold-graph theorem excludes this graph family, which has induced P4s. The 2022 minimum-leader full text evaluates deterministic scale-free networks and Cayley trees, not matching-connected cliques. The specific all-budget partial-matching classification, exact counts and final-edge plateau are not covered in inspected source text; priority risk remains for unpublished or unindexed equivalents.",
+    "residual_risks": [
+      "Prior authors may have studied identical matched-clique graphs under an alternative name and not indexed the full classification.",
+      "The k=1 single-bridge barbell regime has substantial related prior forcing results and was intentionally excluded.",
+      "The theorem is for a fixed unit-weight Laplacian, and conclusions must not be generalized to arbitrary weights."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General zero-forcing equivalence does not establish the fixed-Laplacian optimal-set classification; strict B_(3,2) separation verified",
+        "evidence": [
+          "Sections I, II and IV explicitly treat all matrices in a qualitative graph class and examples of paths, cycles, complete graphs.",
+          "Version dated 2014-03-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Original arXiv full-text HTML, abstract, introduction, problem formulation, proof sections and special-graph results",
+        "method": "Read accessible primary full text and compared quantifiers (one fixed Laplacian versus qualitative family) and graph-family scope",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Strong-structural and zero-forcing treatment of dedicated control, plausible broader coverage"
+      },
+      {
+        "assessment": "Inapplicable to graph family due to induced P4; does not dominate the classification",
+        "evidence": [
+          "Theorem treats connected threshold graphs only; title, sections 3.1 and 3.2, original first-public metadata 2019-05-22."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/iet-cta.2018.5875",
+        "material_read": "Accessible full-text HTML, abstract, hypotheses, results, controller cases and examples",
+        "method": "Compared threshold-graph hypothesis with induced P4 in B_(m,k)",
+        "title": "Minimal Laplacian controllability problems of threshold graphs",
+        "trigger": "Direct minimal-coordinate leader choice by eigenspaces"
+      },
+      {
+        "assessment": "No matching-clique exact enumeration or last-edge plateau found in relevant full-text sections",
+        "evidence": [
+          "Article studies minimum leader sets via minimal perfect critical sets; explicitly evaluates DSFN and Cayley trees; first published 2022-10-29."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Accessible full-text HTML, introduction, main critical-set material, scale-free and Cayley-tree sections and conclusion",
+        "method": "Compared graph family and explicit parameter/invariant claims",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "Broad general leader-location optimization with exact special families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7537ea98-c09f-4c9b-ba3c-b534276781a9",
+  "value": {
+    "rationale": "An all-parameter, exact vertex-level optimum description and count for dedicated control of two communities coupled by k matched bridges is a natural network-design problem. A nontrivial two-constraint column-geometry determines every optimum; the full-matching transition preserves both the minimum budget and exact number of optima while changing their structure. For B_(3,2), the 12 optimum sets include eight that are not zero-forcing, demonstrating why a general strong-structural criterion alone cannot solve the fixed-Laplacian placement question. Not an arbitrary slice or a mere renamed PBH criterion.",
+    "status": "PASS"
+  }
+}
