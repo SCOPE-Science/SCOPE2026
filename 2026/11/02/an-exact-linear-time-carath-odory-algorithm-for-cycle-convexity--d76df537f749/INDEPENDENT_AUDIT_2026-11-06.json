@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:07:27.710168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a cactus, every simple cycle is exactly one cycle block and the block-vertex incidence graph F is a forest after bridges are omitted. Cycle-convex activation of v requires every other vertex on one incident cycle C to be active. An essential certificate for v must pass through one selected incident cycle, yielding a_{v->C}=max(1,max_{D≠C}b_{D->v}); an essential C-side certificate uses disjoint branches for all other vertices, yielding b_{C->v}=sum_{u∈C\\{v}}a_{u->C}. Acyclicity ensures removing any one chosen seed cannot be compensated by another branch; hence c_cc(G)=max_v max(1,max_{C∋v}b_{C->v}). Bottom-up/top-down edge-message passes with top-two maxima and cycle sums run O(V+E) and reconstruct an optimum witness. Independent brute force over every subset and cycle closure confirmed all 103 connected cactus graphs of the NetworkX atlas through 7 vertices; the general proof uses the acyclic incidence decomposition, not this finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nair et al. give NP-completeness on bipartite graphs and exact values on forests, cycles and selected graph classes; the published statements inspected do not give the cactus incidence recurrence."
+        ],
+        "reasoning": "General NP-hardness does not preclude the proposed special-class linear algorithm; prior cycle/forest cases follow as proper specializations and are acknowledged as known, not new.",
+        "searches": [
+          "Nair et al. arXiv:2604.20097 definitions, structural results and graph families",
+          "Resultary semantic: cycle convexity cactus graphs Caratheodory number linear time algorithm cycle-incidence forest"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.20097 (Full accessible public preprint rendering at ResearchGate; definitions, general lemmas, graph-class theorems, extremal bounds, products inspected)",
+        "https://doi.org/10.61091/jcmcc126-02 (Journal bibliographic/abstract information and mathematical model checked)",
+        "https://doi.org/10.1016/j.dam.2015.10.032 (Abstract/bibliographic description only)",
+        "Resultary semantic: cycle convexity cactus graphs Caratheodory number linear time algorithm cycle-incidence forest"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forest and cycle values follow from the recurrence; generic cactus decompositions do not automatically give Carathéodory independent essential-witness dynamic programming."
+        ],
+        "reasoning": "This is a genuine nontrivial extension to arbitrary cut-vertex patterns: per-cycle sum and per-vertex max recurrences, plus certificate extraction. The friendship graph case is a covered prior special case.",
+        "searches": [
+          "Nair et al. arXiv:2604.20097 graph-class theorems",
+          "Memory efficient algorithms for cactus graphs DOI:10.1016/j.dam.2015.10.032"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle convexity adds the sole missing vertex of a simple cycle; triangle-only Δ-convexity differs even on chordless C4, where cycle-convex c=3 but no triangle activation exists."
+        ],
+        "reasoning": "Cycle-convexity is not equivalent to Δ- or P3-convexity. The incidence forest is special to cactus graphs and is a natural reduction, not a disguised triangle rule.",
+        "searches": [
+          "Resultary semantic: cycle convexity cactus graphs Caratheodory number linear time algorithm cycle-incidence forest",
+          "Nair et al. arXiv:2604.20097",
+          "Delta-convexity DOI:10.61091/jcmcc126-02"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cactus-specific classification and all-cactus witness algorithm were not located in the inspected public preprint class list; tests over 103 small cactus types are new verification, not a published exhaustive table."
+        ],
+        "reasoning": "A published finite graph table could verify examples but would not itself supply the linear-time graph-class algorithm. Absence from search is not proof of priority.",
+        "searches": [
+          "Resultary semantic: cycle convexity cactus graphs Caratheodory number linear time algorithm cycle-incidence forest",
+          "Nair et al. preprint graph-family list"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.",
+      "residual_risks": [
+        "A later preprint extending Nair et al. to cactus graphs might be unindexed; no guarantee of historical uniqueness.",
+        "Only cycle closure on cactus graphs, not graphs with overlapping cycles or Δ/P3 convexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known cycle and forest components; no incidence-forest cactus theorem in inspected text. Publication-priority claim qualified.",
+          "evidence": "Graph-class theorems and NP-completeness in bipartite graphs",
+          "identifier_or_url": "https://arxiv.org/abs/2604.20097",
+          "material_read": "Full accessible public preprint rendering at ResearchGate; definitions, general lemmas, graph-class theorems, extremal bounds, products inspected",
+          "method": "Compared exact definitions, forest/cycle/friendship cases, algorithm and cactus terminology",
+          "title": "Carathéodory Number in Cycle Convexity",
+          "trigger": "Identical closure concept and benchmark invariant"
+        },
+        {
+          "assessment": "Not an equivalent theorem: chordless 4-cycle distinguishes operators",
+          "evidence": "Δ operator based on triangle closure",
+          "identifier_or_url": "https://doi.org/10.61091/jcmcc126-02",
+          "material_read": "Journal bibliographic/abstract information and mathematical model checked",
+          "method": "Separated triangle-driven closure from full cycle convexity",
+          "title": "Carathéodory number and exchange number in Δ-convexity",
+          "trigger": "Plausible same-named parameter with different convexity operator"
+        },
+        {
+          "assessment": "Different problem; no whole-document noncoverage claim",
+          "evidence": "2017 discrete applied mathematics cactus algorithms",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.10.032",
+          "material_read": "Abstract/bibliographic description only",
+          "method": "Compared graph-class algorithms versus precise cycle-convexity Carathéodory invariant",
+          "title": "Memory efficient algorithms for cactus graphs and block graphs",
+          "trigger": "Generic cactus decomposition may dominate claimed time bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed structural recurrence and full maximum-witness linear-time algorithm on the natural broad cactus graph class, explaining why long chains of cycles increase the invariant but friendship graphs do not. Distinguishes cycle convexity from the unrelated P3/triangle variants and advances a newly studied Carathéodory problem beyond forest and single-cycle cases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2604.20097 (Full accessible public preprint rendering at ResearchGate; definitions, general lemmas, graph-class theorems, extremal bounds, products inspected)",
+    "https://doi.org/10.61091/jcmcc126-02 (Journal bibliographic/abstract information and mathematical model checked)",
+    "https://doi.org/10.1016/j.dam.2015.10.032 (Abstract/bibliographic description only)",
+    "Resultary semantic: cycle convexity cactus graphs Caratheodory number linear time algorithm cycle-incidence forest"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later preprint extending Nair et al. to cactus graphs might be unindexed; no guarantee of historical uniqueness.",
+    "Only cycle closure on cactus graphs, not graphs with overlapping cycles or Δ/P3 convexity.",
+    "All source-tree and RESULT/verifier Git identities checked; finite checks do not substitute for all-size mathematical proof.",
+    "Publication withheld: original public-bound METADATA.json and AUDIT.json contain private scope_run_id; no sanitized replacement bytes staged."
+  ],
+  "schema_version": 1
+}
