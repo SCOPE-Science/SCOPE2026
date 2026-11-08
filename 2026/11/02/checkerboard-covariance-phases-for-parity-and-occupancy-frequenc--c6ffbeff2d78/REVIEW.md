@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability space is completely specified and the exact identity follows by conditioning on the number of balls in one marked box. The binomial odd-parity identity gives the conditional mean. For even frequencies, the decreasing function \(Ba^N-(B-1)b^N\) supplies strict negativity; for singleton frequency, the one-peak argument gives strict positivity. For each higher odd frequency, the difference of the sign bracket changes sign at most once from positive to negative, while the bracket begins negative and tends to \(1\), proving a unique negative-to-positive transition. Its monotonicity in odd frequency gives the complementary sign ordering. The fixed-frequency expansion is uniform on compact positive-density intervals; its simple limiting zero justifies the bounded \(O_r(1)\) integer crossover error. Direct enumeration, exact-rational arithmetic and asymptotic checks agree with the proof, but do not replace it.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+The marked-box conditional expectation gives the covariance formula exactly: E[O | X1=r]=1_{r odd}+(B-1)(1-b^(N-r))/2 and EO=B(1-a^N)/2; p_Nr>0. For even r the monotone sequence Ba^N-(B-1)b^N falls below 1; for r=1 the relevant h_N starts at -1 then increases before decreasing to 0; odd r>=3 has s_r<0 and s_N→1, with first differences 2(b^(N-r)-a^N) switching sign at most once from + to -, so a unique negative-to-positive transition (possibly one zero) follows. The odd-frequency bracket strictly decreases with odd r at fixed B,N. Fixed-r compact density expansion is uniform O_r(B^-1); the limiting simple root yields lambda_r B+O_r(1). Independently enumerated allocations B=4,5, N=2..6 (40 direct exact covariance comparisons) and rational sign checks. This finite check is not the all-B,N proof.
 
-Targeted comparison against related published research records and primary sources found broad occupancy-moment and hypercube-mixing theory, but no matching finite parity-versus-frequency sign classification across all dimensions, sample sizes and frequency indices. Gnedin–Hansen–Pitman (arXiv:math/0701718) and Barbour–Gnedin (arXiv:0809.4387) provide occupancy moments and limiting multi-frequency covariances. Their general machinery might algebraically recover the large-box formula, so novelty is **not** claimed for generic binomial parity moments or broad joint-count methods. Nestoridi (arXiv:1507.05690) analyzes hypercube mixing rather than the historical flip-frequency covariance. Equivalent treatments could exist in classical occupancy literature not located in the inspected corpus; independent priority confirmation is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The odd-load count is the Hamming weight of the simplest hypercube random walk, and the frequency counts describe the walk's historical flip distribution. Their dependence is not characterized by the signs of the standard occupied-box statistics. The complete checkerboard law reveals a strict odd/even structural dichotomy, a unique finite time transition at each nontrivial odd frequency, and an explicit sharp critical intensity with bounded integer error. These are natural, all-parameter structural facts, not merely isolated numerical covariances.
+Best-knowledge novelty is the complete parity-dependent finite-size sign classification, discrete single switch, and O_r(1) threshold localization, not the elementary multinomial moment identity. Published occupancy-count covariance mechanisms overlap the method, but the located original texts do not imply the sign theorem without new monotonicity analysis. The Resultary one-switch theorem has richness K rather than odd-load count O; this changes the sign geometry. Priority remains bounded, not universal.
 
-## Verification and limits
+## value
 
-The attached exact arithmetic verifier reports `VERIFY_OK 144293`. The proof applies at all stated integer parameters; the large-box threshold applies at each fixed higher odd frequency. No assertion of novelty for general multinomial conditional moments, unequal box probabilities, or growing-frequency thresholds is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural Hamming-weight observable of the nonlazy hypercube walk is compared with the historical coordinate-r frequency count. The exact checkerboard sign phase diagram, unique density threshold and finite error localization are useful structural dependence information, not merely a moment tabulation; the unexpected contrast with richness-frequency dependence motivates the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
