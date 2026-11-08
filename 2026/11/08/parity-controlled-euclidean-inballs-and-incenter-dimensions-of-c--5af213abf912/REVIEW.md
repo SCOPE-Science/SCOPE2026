@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact inequalities and metric live in the intrinsic zero-sum space. The known facet-label classification is also independently derived from the connected tight-edge criterion. Projection of sign potentials subtracts their means, giving squared norms \(q-S^2/(p+q)\) or \(p-S^2/(p+q)\). A maximum ball centered at zero is feasible, and opposite facet pairs forbid any larger ball at any center. For optimal centers, the maximum-norm sign vectors span a contrast space if their length is even and the entire corresponding coordinate space if odd. Equality constraints and strict slack elsewhere give the stated affine dimensions. Substituting the two-color constant line gives the exact balanced-even segment. A separately implemented finite checker verified 17 pairs, free-center LP optima, projected facet planes and tangent-normal ranks. The proof, not enumeration, covers all \(2\le p\le q\).
+
+## Originality — PASS, with residual priority risk
+Higashitani--Jochemko--Michałek (2018, arXiv:1807.07678v1) already prove the facet labeling in Proposition 3.4; that earlier statement is expressly acknowledged and not counted as a new discovery. Their main theorems and the relevant full-text facet sections do not give inradii or characterize optimal-center families. D'Alì--Delucchi--Michałek (arXiv:1910.05193v1) connect the polytopes to Lipschitz and transport geometry, without establishing these explicit Euclidean optimal-ball classifications in the inspected material. The known \(K_{1,q}\) parity theorem concerns a star; a genuine \(K_{p,q}\) with \(p,q\ge2\) has cycles, exponentially many facets in both color classes, and the new dimension formula can give \(p\) degrees of optimal-center freedom. Its conclusions are not logical special cases or coordinate renamings of the star statement. The exact metric deductions are elementary once the facets are classified, so an older unindexed equivalent computation remains plausible.
+
+## Mathematical value — PASS
+The natural unweighted biclique family has a complete, sharply parity-dependent Euclidean inball classification. Unlike the star, unequal genuinely bipartite parts can produce high-dimensional spaces of maximal-ball centers, whereas balanced odd parts force uniqueness. The closed radius, tangent-facet count, complete center inequalities, and balanced-even segment collectively determine a natural geometric invariant and its degeneracies for every size. This contrasts with face-number and Ehrhart descriptions. It is a coherent full-family classification, not an arbitrary small-parameter computation.
+
+## Limits and closest work
+The contribution depends on the Euclidean metric of a specific realization and on known 2018 facet structure. It does not claim general graph or weighted-metric extensions, nor independent confirmation of historical priority. The most relevant potential equivalence would use the polar Lipschitz polytope of a complete bipartite graph.
+
+Self-review: passed. Independent audit: not yet performed.
