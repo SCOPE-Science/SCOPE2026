@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:44:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For the explicitly defined cubic bipartite GP(12,5), every perfect matching is generated uniquely by recursion pairing the least unmatched vertex; independently reproduced the 120 matchings. Their symmetric difference is a union of alternating even cycles and a one-cycle difference of exact length l is necessary and sufficient for an l-flip. Independently enumerated all 7140 unordered matching pairs and classified one-cycle differences: 4-flip graph has zero edges, 6-flip has 192 edges and component sizes 9×1,3×18,1×57, 8-flip has 414 edges and one 120-state component. BFS from all 120 matching states gives eccentricities 72×4,42×5,6×6, hence radius4 diameter6. Enumeration is exhaustive at the stipulated finite graph rather than sampled, and the pair-first implementation is logically different from the source's cycle-first verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ito et al. permit flips along alternating cycles of any length; their outerplanar algorithms do not specialize directly to the Nauru 8-only graph.",
+          "Bonamy et al. study quadrilateral flips; Nauru has girth six, so that graph is edgeless."
+        ],
+        "reasoning": "Broader unrestricted move sets can be connected while a restricted fixed-length graph remains disconnected; the 8-only metric cannot be inferred from an unrestricted shortest-path theorem.",
+        "searches": [
+          "Ito Kakimura Kamiyama Kobayashi Okamoto arXiv:1907.01700",
+          "Bonamy et al The Perfect Matching Reconfiguration Problem arXiv:1904.06184",
+          "Nauru graph anti-forcing two-factor census"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen Git RESULT.md, verify.py and verify_alt.cpp source tree b1109e45690fa934de1eb25c3cdf10a15f3987eb",
+        "Ito et al. arXiv:1907.01700",
+        "Bonamy et al. arXiv:1904.06184",
+        "MathWorld Nauru Graph",
+        "Resultary search: Nauru graph GP(12,5) perfect matching reconfiguration hexagon octagon flip graph diameter 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every 8-flip is an unrestricted alternating-cycle flip, but an unrestricted path might use longer/shorter cycles, so unrestricted reachability does not imply 8-only reachability or bound six.",
+          "No quadrilateral flips exist on Nauru, so quadrilateral-only results are inapplicable to nonzero 6/8 graphs."
+        ],
+        "reasoning": "Neither connectedness for a superset of moves nor a cubic graph's known 120 perfect matchings implies this constrained exchange-graph classification; a specialized published exchange graph could supersede it.",
+        "searches": [
+          "Ito et al arXiv:1907.01700 Sections 1–3",
+          "Bonamy et al arXiv:1904.06184 introduction",
+          "MathWorld Nauru Graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is GP(12,5), alias Nauru graph; legal edges require symmetric difference exactly one alternating simple 8-cycle.",
+          "General perfect-matching reconfiguration permits any alternating cycle and therefore produces a different graph metric."
+        ],
+        "reasoning": "Under one-cycle symmetric difference the two descriptions are exactly equivalent, but generic unconstrained or at-most-eight reconfiguration is not the same notion; exact length is mathematically essential.",
+        "searches": [
+          "Nauru graph GP(12,5) perfect matching reconfiguration hexagon octagon flip graph diameter 6",
+          "GP(12,5) Nauru perfect matching alternating cycle flip graph diameter",
+          "Nauru graph octagon alternating matching exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 120 matching count is a baseline known prior to the audited calculation.",
+          "Independent exhaustive pair-first census yields edge counts 0,192,414 and 8-flip eccentricity histogram 72/42/6; no identical table in returned Resultary hits."
+        ],
+        "reasoning": "The previous matching count database does not include this fixed-length transition and metric in inspected evidence; missing hits cannot exclude obscure graph tables.",
+        "searches": [
+          "Nauru graph 120 perfect matchings anti-forcing matchings table",
+          "Resultary semantic search: Nauru graph GP(12,5) perfect matching reconfiguration hexagon octagon flip graph diameter 6",
+          "GP(12,5) perfect matching 6-cycle 8-cycle reconfiguration components"
+        ]
+      },
+      "rationale": "PASS, qualified: the Nauru 120-matching total is known and explicitly excluded from new contribution. Ito et al. allow any alternating cycle, Bonamy et al. use only 4-cycles. Neither model alone implies octagon-only connectivity, the 13-component hexagon contrast or the exact length-8 flip radius/diameter. A dedicated Nauru exchange-graph database under another name is a residual historical risk.",
+      "residual_risks": [
+        "Exact-integer eight-flip census is an intrinsic finite result; no claim of extension to arbitrary generalized Petersen graphs.",
+        "An obscure reconfiguration census may use graph isomorphism aliases or different fixed-length flip conventions.",
+        "Enumeration completeness is supported by matching recursion and exhaustive 7140-pair search, not by log output alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED_MOVE_MODEL",
+          "evidence": [
+            "Moves allow one arbitrary alternating cycle rather than one fixed length eight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+          "material_read": "Accessible primary PDF introduction and move definition/algorithm scope, pages 1–3",
+          "method": "PDF full-text and page-image inspection",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "same matching flip relation with potentially stronger algorithms"
+        },
+        {
+          "assessment": "QUADRILATERAL_MODEL",
+          "evidence": [
+            "Allowed move is a 4-cycle; Nauru graph has no 4-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+          "material_read": "Introduction and model description as retrieved",
+          "method": "primary text/abstract comparison",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "alternative 4-cycle-only reconfiguration"
+        },
+        {
+          "assessment": "GRAPH_DEFINITION",
+          "evidence": [
+            "Identifies the Nauru graph but does not establish the 8-flip exchange metric."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/NauruGraph.html",
+          "material_read": "Graph definition/parameter entry only",
+          "method": "reference lookup",
+          "title": "Nauru Graph",
+          "trigger": "graph alias and exact GP(12,5) identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact fixed-cycle reconfiguration connectivity, sharp shortest permitted cycle length and metric diameter are structurally meaningful questions for a canonical symmetric cubic bipartite graph. This is a complete intrinsic finite classification with distinct nontrivial behaviors at lengths 4,6,8; modest scope acknowledged, no arbitrary slice extrapolated to all generalized Petersen graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact-integer eight-flip census is an intrinsic finite result; no claim of extension to arbitrary generalized Petersen graphs.",
+    "An obscure reconfiguration census may use graph isomorphism aliases or different fixed-length flip conventions.",
+    "Enumeration completeness is supported by matching recursion and exhaustive 7140-pair search, not by log output alone."
+  ],
+  "schema_version": 1
+}
