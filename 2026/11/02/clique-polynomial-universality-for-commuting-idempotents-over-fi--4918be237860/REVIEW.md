@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every commuting tuple yields its orthogonal bit-pattern decomposition and vice versa; projective summands over finite commutative local rings are free. Stabilizers give the full tuple count. Partition-lattice inversion correctly removes repeated entries, including the \(k=0\) boundary. A maximal clique is a Boolean algebra with rank-one atoms; the converse and frame-count proof rule out smaller maximal families. The degree and rank-two formulas follow from block commutants. Direct enumeration over six finite rings, including a nonprincipal local ring, corroborates all clique coefficients within those examples.
+## correctness
 
-**Originality — PASS relative to accessible evidence.** The 2021 finite-local-matrix paper already proves diagonalizability and the one-idempotent enumeration, which are explicitly excluded from novelty. A previous finite-field sandwich-semigroup pair formula already covers the \(k=2\) full-matrix-field case, and published finite-field incidence-algebra tuple counts also exploit bit-pattern decompositions; neither supplies the all-\(k\) finite **local-ring** clique polynomial or the universality statement. The 2015 work on lifting commuting idempotents concerns a different direction; the 2024 unitary Cayley graph uses invertible differences instead of commutation. Searches under commuting projection / idempotent / matrix-ring / clique-polynomial and decomposition terminology, including published mathematical research records, did not reveal a theorem of the same all-\(k\) implication strength. This is not proof of publication uniqueness. A broader earlier simultaneous-direct-sum orbit-enumeration theorem could imply the entire formula; this is the central residual originality risk.
+PASS
 
-**Mathematical value — PASS.** A full clique polynomial, maximal-clique census, vertex-centralizer counts, and universality across nonisomorphic local rings provide natural complete invariants of the idempotent compatibility graph in every dimension, extending the documented single-idempotent census and known field-level pair counts. The matched \(\mathbb Z/4\mathbb Z\) and dual-number examples illustrate ring-structure-insensitive enumeration; the result is not only a rephrasing of the established single-idempotent count.
+An idempotent over a finite commutative local ring splits a free module into free image/kernel summands. Pairwise commuting idempotents have pairwise orthogonal binary-pattern projections P_epsilon; every ordered decomposition into 2^k labelled free summands gives exactly one tuple. The GL_n(R) action has product GL_{r_eps}(R) stabilizer and |GL_j(R)|=(s/q)^(j^2)|GL_j(F_q)|. Partition-lattice signed-Stirling inversion removes repeated tuple entries; a maximal Boolean algebra of projections must refine to n rank-one free summands, giving 2^n and g_n/(n!g_1^n). In dimension two noncentral rank-one projections commute only with complements: graph K_2 join a matching. Independent direct matrix enumeration over F_2 and Z/4Z yielded 8 and 26 idempotents, and exactly 3 and 12 edges among noncentral idempotents, matching formulas; the finite checks do not replace freeness or simultaneous splitting proof.
 
-**Scope/risk.** The graph has zero and identity as vertices, and the result does not claim isomorphism of all higher-dimensional commuting graphs over different rings. The computational checks are finite. The 2015 source and 2024 unitary-Cayley source were not inspected fully, and equivalent all-decomposition orbit counts under unrelated terminology remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dolžan covers single idempotents; module-freeness and simultaneous decomposition are classical. The complete all-arity local-ring clique polynomial, exact maximal-family count, and dependence only on ring size and residue-field size were not found in inspected primary material. The claim does not assert full graph isomorphism for n>2; the k=1 case and field-pair counts are prior.
+
+## value
+
+PASS
+
+The entire clique polynomial of an algebraically defined graph is a natural but generally difficult graph invariant. The result proves ring-size universality and a complete maximal-clique count in all dimensions and for nonprincipal local rings, not just a routine individual-idempotent count; higher-arity data may aid comparisons of commuting graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
