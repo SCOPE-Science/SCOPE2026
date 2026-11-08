@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:51:20.027368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the generic complex rank-two Hankel recurrence with a0=1,a1=b,a4=c, the intermediate curve is P²-(S²+2bS)P+bS³-c=0 and Y²=S⁴+4b²S²+4c, a smooth genus-one double cover when b,c,c-b⁴ are nonzero. The affine recurrence parameters are birational on the generic rank-two locus. At the two points above infinity, a_{4+k} has pole orders k+4 (or k+3 if 3 divides k) and k; the drop comes from a simple zero in the Lucas recurrence h_k(1). There are no other poles as all moments are polynomials in the recurrence parameters on the affine curve. Degree of the finite rational function is total polar order. Thus for every n>=6 degree is 2n-7 when n=2 mod 3, 2n-6 otherwise. Independent SymPy eliminants at generic specializations n=6..9 recovered the formula; these finite checks only corroborate the valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reed–Tsakiris Theorem 5 bound for {1,2,5,n} is 3 max(3,n-5), not the exact 2n-7/2n-6 formula.",
+          "Their nearby table covers third indices 4 and 6 (plus exact consecutive-type results), not the present i=5 all-n row."
+        ],
+        "reasoning": "An upper bound permits the submitted lower exact degree but does not imply it; Batenkov studies decimation and stability rather than this field extension for nonprogression observations.",
+        "searches": [
+          "https://arxiv.org/pdf/2610.27554",
+          "https://arxiv.org/abs/1308.0753",
+          "Resultary semantic: rank two Hankel determinantal matroid coordinate projection {1,2,5,n} algebraic degree elliptic recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, verify.py and review/source blobs",
+        "Reed & Tsakiris arXiv:2610.27554 full PDF Theorem 5 and Remark 7",
+        "Batenkov arXiv:1308.0753 accessible passages",
+        "Resultary semantic: rank two Hankel determinantal matroid coordinate projection {1,2,5,n} algebraic degree elliptic recurrence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matroid uniformity gives generic finiteness, not the exact degree.",
+          "Theorem 5 supplies upper bounds; the claimed period-three reduction depends on cancellation of Lucas recurrence leading coefficients at a pole."
+        ],
+        "reasoning": "Submitted polar divisor proof contains nontrivial extra degree information not derivable from those cited bounds alone.",
+        "searches": [
+          "Reed & Tsakiris arXiv:2610.27554 Theorems 1,5, Remark 7",
+          "Batenkov arXiv:1308.0753 decimated generalized Prony"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The degree is a function-field extension degree of a rank-two Hankel determinantal variety, equivalently generic number of recurrence-based moment completions over C.",
+          "The intermediate two-parameter curve has genus one and a degree controlled by polar divisors."
+        ],
+        "reasoning": "Searched algebraic matroid basis degree, sparse Prony reconstruction, secant of rational normal curve and elliptic pencil formulations; no identical exact residue-three formula located.",
+        "searches": [
+          "Resultary semantic: rank two Hankel determinantal matroid coordinate projection {1,2,5,n} algebraic degree elliptic recurrence",
+          "Reed & Tsakiris arXiv:2610.27554 Theorem 5 and Remark 7",
+          "Batenkov arXiv:1308.0753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected primary projection degree table does not list the {1,2,5,n} all-n exact formula; the published table includes other i."
+        ],
+        "reasoning": "The request is an explicit exact enumerative degree that could be in an unindexed Prony table; failure to locate is not a priority certificate.",
+        "searches": [
+          "Resultary semantic: rank two Hankel determinantal matroid coordinate projection {1,2,5,n} algebraic degree elliptic recurrence",
+          "Reed & Tsakiris arXiv:2610.27554 Remark 7 table coordinate projection degree",
+          "web: Hankel {1,2,5,n} 2n-7 genus elliptic projection"
+        ]
+      },
+      "rationale": "Reed and Tsakiris establish uniformity and an upper bound on Hankel coordinate projection degree and tabulate nearby third-index patterns, but their inspected Theorem 5 and Remark 7 do not determine an all-n exact degree for the sampling pattern {1,2,5,n}. General Prony/decimation stability results use primarily arithmetic progressions and do not directly imply the genus-one pole loss. Novelty assessed for this specific nonarithmetic pattern, not generic recurrence geometry.",
+      "residual_risks": [
+        "Older sparse Prony, rational-normal-curve secant, or determinantal matroid literature may have an unlocated exact formula under a different normalization.",
+        "Special non-generic rank-two/singular base fibers and real solution counts are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL BOUND, no exact specified pattern in located result",
+          "evidence": "Theorem 5 bounds projection degrees; Remark 7 tabulates selected third observed indices but not all n for index 5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.27554",
+          "material_read": "Primary full PDF (21 pages): Theorems 1 and 5, Remark 7/table, sampled-coordinate discussion, plus PDF-page screenshot",
+          "method": "ArXiv PDF full-text inspection and screenshot",
+          "title": "On Hankel Determinantal Matroids",
+          "trigger": "Identical variety, generic coordinate projection degree and authors primary nearby data"
+        },
+        {
+          "assessment": "DIFFERENT sampling and stability focus; not full-document exclusion",
+          "evidence": "Decimation stability for arithmetic-progression samples does not identify these two polar orders.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.0753",
+          "material_read": "Accessible abstract and targeted main stability/introduction passages",
+          "method": "ArXiv indexed accessible article passages",
+          "title": "Decimated generalized Prony systems",
+          "trigger": "Potential stronger general Prony sampling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact generic completions for a natural four-moment sample pattern refine a general bound with an unexpected residue-three phenomenon explained geometrically by missing leading pole terms on a genus-one fiber. This resolves a meaningful enumerative algebraic-matroid question for every n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md, verify.py and review/source blobs",
+    "Reed & Tsakiris arXiv:2610.27554 full PDF Theorem 5 and Remark 7",
+    "Batenkov arXiv:1308.0753 accessible passages",
+    "Resultary semantic: rank two Hankel determinantal matroid coordinate projection {1,2,5,n} algebraic degree elliptic recurrence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Over complex numbers, on generic nonempty base c != 0,b != 0,c != b^4; not a claim for special fibers or scheme multiplicity there.",
+    "Finite n checks do not replace all-n argument."
+  ],
+  "residual_risks": [
+    "Older sparse Prony, rational-normal-curve secant, or determinantal matroid literature may have an unlocated exact formula under a different normalization.",
+    "Special non-generic rank-two/singular base fibers and real solution counts are not classified."
+  ],
+  "schema_version": 1
+}
