@@ -1,15 +1,21 @@
-# Scientific review of the binary rank-three Lie generation spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns one finite, explicitly defined 256-element Lie algebra. Rational canonical forms and unit centralizers give exactly seven similarity classes (sizes 1, 21, 84, 42, 28, 56, 24). For each representative, an exhaustive search over all 256 second generators computes the smallest bracket-closed vector subspace; this is mathematically the generated Lie subalgebra. Orbit-invariance transfers these counts to all 256 first generators. A second implementation in an eight-dimensional basis and a third in a nine-bit matrix encoding independently enumerate every one of the 65,536 ordered pairs, reproducing the counts and full dimension distribution. The finite closure process terminates by rank at most eight. Risks: the certificate depends on accurate execution of the supplied source, not on an external theorem prover or independent human review.
+PASS
 
-## Originality — PASS, qualified
+The result concerns precisely 256 traceless 3x3 matrices over F2. Rational canonical forms give seven complete similarity classes with orbit sizes 1,21,84,42,28,56,24. Bracket closure via exact row reduction gives generated Lie subalgebra because each iteration adds all brackets and terminates by dimension eight. The pinned source has two distinct all-65536-pair enumerators plus an orbit-reduced all-partner enumerator. Independently constructed a nine-bit matrix-product/bracket and exhaustive subalgebra-closure implementation: full dimension multiplicities (0:1,1:765,2:3618,3:7392,4:20160,5:20160,6:0,7:0,8:13440) and partner spectrum (0:50,56:24,64:126,72:56) exactly reproduced. Hence probability 13440/65536=105/512; nonzero 49 without partners comprise 21 rank-one square-zero plus 28 rank-two idempotents. Unlike sampling, enumeration is exhaustive finite proof once independently checked.
 
-The closest 2026 random-generation paper proves an asymptotic result rather than a fixed \(\mathbb F_2\) exact conditional census. The 2024 paper on two-generation establishes existence; this cannot imply the distribution of generating partners. Chistopolskaya's 2018 Example 3 proves only non-generation with a **nilpotent** second generator when the first is \(E_{12}\), while the new result tests all traceless partners and also identifies a distinct nonextendable idempotent class. Searches for the complete seven-class profile, numeric count 13,440, generating-graph aliases, and matrix conjugacy reductions did not reveal an equivalent statement. The inaccessible full 2024 text and possible older tables are residual priority risks; absence from search results is not a proof of historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact conditional generating invariant is a natural quantitative refinement of the recent random-generation problem, in the smallest rank-three binary case. It exhibits the precise failure of the one-and-a-half generation property: 49 nonzero elements have no partner, despite the existence of 13,440 generating ordered pairs. The seven-class profile and full dimension distribution are reproducible, and the rank-two idempotent obstruction is different from the previously documented nilpotent-restricted obstruction. The result is deliberately a finite exact classification, not a claim about all finite fields.
+The complete fixed binary small-case partner and generated-dimension census is not logically implied by the inspected asymptotic and 2-generator-existence results, or by a nilpotent-restricted obstruction. The expanded journal full text and historical small-algebra tables remain priority risks, but no decisive covering formula was identified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Conditional generation probabilities and obstructions are natural quantitative refinements of Lie-algebra two-generation. The seven-class enumeration isolates the exact binary smallest rank-three spectrum and a substantive failure of one-and-a-half generation, not an arbitrary single example or a recomputation of mere generator existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

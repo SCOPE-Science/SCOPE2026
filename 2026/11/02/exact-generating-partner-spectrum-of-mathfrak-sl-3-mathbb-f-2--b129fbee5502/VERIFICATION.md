@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification for the exact binary Lie generating-partner census
+# Independent mathematical audit
 
-The mathematical universe has 256 trace-zero matrices over \(\mathbb F_2\), hence exactly 65,536 ordered pairs. `checks/full_census.cpp` explicitly generates the matrices as nine-bit words, constructs the bracket from binary matrix products, determines every bracket closure, and reports the complete subalgebra-dimension histogram and conjugacy classes. `checks/full_census.py` separately uses an eight-element traceless basis and bilinear structure constants to test all 65,536 ordered pairs. `checks/orbit_census.py` independently enumerates all 168 invertible matrices, checks seven disjoint similarity orbits covering all 256 elements, and checks all 256 partners for each class representative.
+## correctness
 
-The actual replay output files are embedded in `checks/`. All three programs printed `VERIFY_OK`. The class sizes add to 256. The seven products of orbit sizes by conditional partner counts add to 13,440. The dimension histogram sums to 65,536 and has nonzero entries only at dimensions zero through five and eight. No probabilistic sampling or floating-point calculation occurs.
+PASS
 
-To reproduce, run `python3 checks/full_census.py`, `python3 checks/orbit_census.py`, and compile/run `checks/full_census.cpp` with GNU C++17. Compare stdout bytewise with `checks/full_census_py.out`, `checks/orbit_census.out`, and `checks/full_census_cpp.out`. The C++ checker also writes an informational group-size line to stderr. These tests apply only to the finite binary rank-three algebra; no assertion about arbitrary ranks or coefficient fields is verified.
+The result concerns precisely 256 traceless 3x3 matrices over F2. Rational canonical forms give seven complete similarity classes with orbit sizes 1,21,84,42,28,56,24. Bracket closure via exact row reduction gives generated Lie subalgebra because each iteration adds all brackets and terminates by dimension eight. The pinned source has two distinct all-65536-pair enumerators plus an orbit-reduced all-partner enumerator. Independently constructed a nine-bit matrix-product/bracket and exhaustive subalgebra-closure implementation: full dimension multiplicities (0:1,1:765,2:3618,3:7392,4:20160,5:20160,6:0,7:0,8:13440) and partner spectrum (0:50,56:24,64:126,72:56) exactly reproduced. Hence probability 13440/65536=105/512; nonzero 49 without partners comprise 21 rank-one square-zero plus 28 rank-two idempotents. Unlike sampling, enumeration is exhaustive finite proof once independently checked.
+
+## originality
+
+PASS
+
+The complete fixed binary small-case partner and generated-dimension census is not logically implied by the inspected asymptotic and 2-generator-existence results, or by a nilpotent-restricted obstruction. The expanded journal full text and historical small-algebra tables remain priority risks, but no decisive covering formula was identified.
+
+## value
+
+PASS
+
+Conditional generation probabilities and obstructions are natural quantitative refinements of Lie-algebra two-generation. The seven-class enumeration isolates the exact binary smallest rank-three spectrum and a substantive failure of one-and-a-half generation, not an arbitrary single example or a recomputation of mere generator existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
