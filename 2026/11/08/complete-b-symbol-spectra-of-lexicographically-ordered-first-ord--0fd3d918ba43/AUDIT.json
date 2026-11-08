@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The cyclic carry-transition identity \\(T=\\sum_{j=1}^{m-1}2^{m-j}p_j+2p_m\\) follows from all integer increments and the cyclic wrap; the prefix-parity map is bijective; nonconstant affine truth tables are balanced. Successive opposite dyadic blocks force each zero-run length to be \\(2^t\\) or \\(2^{t+1}\\), and balance plus run count fixes their multiplicities. A longest-dyadic-run splitting argument proves strict window-weight increase until saturation. The separate \\(b=1\\) formula, constants and \\(b=n\\) cases are checked. The standalone checker independently passed 2,280 word configurations and 1,020 complete enumerators.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pan–Ling–Liu (https://arxiv.org/abs/2309.08920), Theorem 4.6 computes d_b(RM_q(r,m)) only.",
+        "Vega (https://link.springer.com/article/10.1007/s10623-023-01193-w), Theorems 3–4 compute complete b-distributions of semiprimitive irreducible cyclic codes of length coprime to field size; the current binary length is a power of two."
+      ],
+      "reasoning": "A minimum determines just the first nonzero exponent, not the remaining coefficients; semiprimitive cyclic hypotheses exclude the present power-of-two length. These broader-looking titles do not dominate the theorem.",
+      "searches": [
+        "\"Reed-Muller\" \"b-symbol\" weight distribution",
+        "\"Reed Muller\" \"symbol-pair weight distribution\"",
+        "arxiv:2309.08920v1 Theorem 4.6",
+        "doi:10.1007/s10623-023-01193-w Theorems 3 and 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2309.08920",
+      "https://arxiv.org/abs/1911.02184",
+      "https://link.springer.com/article/10.1007/s10623-023-01193-w",
+      "https://arxiv.org/abs/2112.04019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pan–Ling–Liu (https://arxiv.org/abs/2309.08920) yields min(n/2+b−1,n), equal to omega(1) in this proof.",
+        "Ma–Luo (https://arxiv.org/abs/1911.02184) obtains constant cyclic simplex b-weight in a different coordinate order; their result cannot imply a spectrum with many distinct nonfull weights.",
+        "Vega (https://link.springer.com/article/10.1007/s10623-023-01193-w) is about semiprimitive irreducible cyclic codes; Zhu–Shi (https://arxiv.org/abs/2112.04019) about Kasami codes."
+      ],
+      "reasoning": "The found results share definitions and some extremal consequences, but neither determine the transition-to-run-multiset bijection nor all nonsaturated multiplicities. In particular the minimum-distance theorem has no information about the 4(K−1) intermediate words.",
+      "searches": [
+        "arxiv:1911.02184 Section 4",
+        "arxiv:2309.08920 Theorem 4.6",
+        "doi:10.1007/s10623-023-01193-w Section 4",
+        "arxiv:2112.04019 Section 3.1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Luo 2019 Section 4 (https://arxiv.org/abs/1911.02184) treats cyclic and modified simplex codes of length 2^m−1 or analogues, not the full-length affine evaluation order.",
+        "Binary affine truth-table / Hadamard and run-length searches returned no explicit statement equating the b-weight to a dyadic zero-run partition indexed by transition count."
+      ],
+      "reasoning": "Extended simplex and Walsh/Hadamard coding language is the closest alias. The addition of the constant affine row and increasing binary coordinate ordering change the cyclic adjacency graph; Ma–Luo’s cyclic multiplicative order does not furnish this formula. An unindexed Walsh-function run-spectrum statement remains possible.",
+      "searches": [
+        "Reed Muller first order RM(1,m) exact entire symbol pair weight enumerator 1+4 sum z^j+3 z^n",
+        "binary affine function truth table cyclic zero run length spectrum transition pairs exact b symbol weight",
+        "Hadamard code b symbol weight spectrum lexicographic Boolean points generating polynomial",
+        "full sliding window weight distribution first order Reed Muller binary code",
+        "\"first-order Reed-Muller\" \"symbol-pair\" weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pan–Ling–Liu (https://arxiv.org/abs/2309.08920) reports extremal minimum-distance data.",
+        "Zhu–Shi (https://arxiv.org/abs/2112.04019) lists Kasami code pair-weight examples and an exact Kasami pair distribution, not this affine code.",
+        "A checked published mathematical-record result concerned PIR multiplicity of RM(1,m), not window weights."
+      ],
+      "reasoning": "No complete enumerator table or sequence implying the all-m, all-b affine formula was encountered. The ordinary Hamming spectrum is well known and explicitly separated.",
+      "searches": [
+        "first order Reed Muller code full b-symbol weight distribution affine truth table",
+        "Hadamard code pair metric weight distribution symbol pair",
+        "Reed Muller first order RM(1,m) exact entire symbol pair weight enumerator 1+4 sum z^j+3 z^n"
+      ]
+    },
+    "rationale": "The complete ordered-affine family of cyclic window-weight enumerators, exact dyadic zero-run profiles, and uniform fourfold subfull multiplicities are not implied by the inspected minimum-distance theorem or by complete spectra for different simplex, Kasami or semiprimitive irreducible cyclic families. Published-record searches do not prove global uniqueness.",
+    "residual_risks": [
+      "An equivalent statement may be indexed only as a Walsh-function truth-table run theorem or an alternative simplex coordinate ordering.",
+      "Search does not establish worldwide priority; especially note that code coordinate order is mathematical data and must match before claiming implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the minimum only, not an enumerator or zero-run multiplicity classification.",
+        "evidence": "arXiv:2309.08920v1 pp.11–15, Section 4 and Theorem 4.6.",
+        "identifier_or_url": "https://arxiv.org/abs/2309.08920",
+        "material_read": "PDF introduction, definitions, the Reed–Muller evaluation ordering, Section 4 including the statement and proof of Theorem 4.6, and conclusion of that section.",
+        "method": "Open-access arXiv PDF text extraction and rendered page inspection.",
+        "title": "New bounds for b-Symbol Distances of Matrix Product Codes",
+        "trigger": "Directly names Reed–Muller codes and all b-symbol minima."
+      },
+      {
+        "assessment": "Works with simplex code of length q−1 and related rearrangements, not this full affine truth-table length q in binary integer order.",
+        "evidence": "arXiv:1911.02184, Section 4, Theorems 2–3 and Remark 1.",
+        "identifier_or_url": "https://arxiv.org/abs/1911.02184",
+        "material_read": "Full open-access HTML introduction, preliminaries and Section 4: cyclic simplex, modified simplex, examples and discussion of coordinate rearrangement.",
+        "method": "Full-text arXiv HTML read.",
+        "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+        "trigger": "Complete symbol-pair distributions and simplex/coordinate-order alias."
+      },
+      {
+        "assessment": "Semiprimitive irreducible cyclic length relatively prime to characteristic; not the power-of-two length affine Reed–Muller code.",
+        "evidence": "DOI:10.1007/s10623-023-01193-w, Sections 1, 2 and 4.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01193-w",
+        "material_read": "Open-access HTML introduction, standing code-length and irreducibility hypotheses, and Section 4 Theorems 3–4.",
+        "method": "Publisher open-access HTML read.",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Complete all-b enumerator and potentially dominating code family."
+      },
+      {
+        "assessment": "Counts Kasami codeword pair weights; objects and parameters do not cover lexicographically ordered RM_2(1,m).",
+        "evidence": "arXiv:2112.04019v1, introductory discussion and Section 3.1.1.",
+        "identifier_or_url": "https://arxiv.org/abs/2112.04019",
+        "material_read": "PDF abstract/introduction and section on b=2 distribution, examples and conclusion.",
+        "method": "Open-access arXiv PDF text extraction and rendered first-page inspection.",
+        "title": "The b-symbol weight hierarchy of the Kasami codes",
+        "trigger": "Related complete symbol-pair distribution and run-window metric."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0fd3d918-ba43-40bc-a35b-52475288d8e0",
+  "value": {
+    "rationale": "Cyclic \\(b\\)-symbol read channels motivate complete codeword weight distributions beyond minima. The result solves all window widths in the naturally ordered infinite family \\(\\mathrm{RM}_2(1,m)\\), with exact uniform multiplicities and a structural transition-to-run classification. It is not a repackaging of the standard Hamming weight enumerator or an increment of a finite numerical table.",
+    "status": "PASS"
+  }
+}
