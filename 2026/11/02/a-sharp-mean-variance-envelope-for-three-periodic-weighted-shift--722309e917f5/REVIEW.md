@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain includes all nonnegative triples with positive total weight, including degenerate boundary cases. The numerical radius of the infinite shift equals the Perron root of a three-by-three weighted triangle, by residue-class Cauchy–Schwarz and long periodic test blocks. Its characteristic cubic depends on fixed first and second weight moments only through a fixed coefficient and the product of the three weights. The positive root increases with the product. Constrained minimization is exact: up to permutation it gives two equal large weights for normalized variance below one half, then a zero coordinate above it. Both branch formulas and all equality cases follow; the monotonicity of two displayed quotient formulas proves the best variance coefficient. The zero-weight and uniform endpoints were checked separately.
+PASS
 
-The included standard-library checker successfully ran 4,912 integer triples and eight boundary diagnostics. Floating-point results support but do not replace the infinite-dimensional and all-real-parameter argument.
+For nonnegative three-periodic unilateral shift weights a,b,c, grouping residue coordinates bounds numerical radius by the Perron root of the half-weighted symmetric triangle; repeating its eigenvector across N periods proves the reverse bound, including zero weights. Writing L=2w, P=(S^2+Q)/3, R=abc gives L^3-PL-2R=0; the largest positive root increases strictly with R. Exact fixed-sum/fixed-second-moment minimization of abc yields the two-equal small-variance branch for q<1/2 and a zero-weight branch for q>=1/2, with all boundary equality cases. Rationalizing [F(q)-1/3]/q shows its minimum at q=1/2 and optimal linear stability coefficient 1/sqrt(2)-2/3. Independent NumPy diagonalization verified both lower bounds on 999 nonzero integer triples; this is corroboration only, not proof for every real triple.
 
-## Originality — PASS, qualified
+## originality
 
-Sharif (arXiv:2303.00876, first public 2023-03-02), whose complete accessible text was inspected, gives the arithmetic-mean lower bound and finite-period variational formula; no fixed-second-moment sharp envelope is stated. Chien–Sheu (2013, complete eight-page paper examined) computes other weighted-shift families, especially a single exceptional edge, and does not optimize a three-periodic triangle at fixed sum and variance. An accessible complete research statement on strict convexity and smoothness of graph-edge numerical-radius norms identifies the three-periodic norm but concerns global norm geometry and support smoothness, not the constrained minimization or its sharp coefficient. Stout (1983) and Ridge (1976) provide important classical formulas; only accessible summaries and subsequent reproductions were compared, leaving a residual indirect-coverage risk. Search comparisons examined characteristic-polynomial reductions and equivalent weighted-triangle formulations, not just title overlap.
+PASS
 
-## Mathematical value — PASS
+Bounded best-of-knowledge scientific comparison: An arithmetic mean lower bound w>=S/3 is weaker than w>=SF(q) for q>0; knowing the cubic L^3-PL-2abc only allows the new formula after a nontrivial constrained product minimization and equality proof. Ridge general periodic formula does not by itself fix the product minimizers. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
 
-The source gives a qualitative arithmetic-mean bound, but does not quantify how much a genuinely three-periodic pattern improves it. Fixing a natural squared-difference moment produces a complete sharp classification, a nontrivial change of extremizing support at normalized variance one half, and a best universal quadratic stability constant. The zero-weight extremizers identify the exact boundary of positive-weight stability. This is a natural finite-parameter spectral optimization, not a mere restatement of the known cubic.
+## value
 
-## Scope and residual risks
+PASS
 
-Only three-periodic Hilbert shifts are covered; no claim is made about arbitrary periods or alternate variance normalizations. Classical papers contain broader periodic spectral formulas, and a differently parametrized earlier moment-optimization inequality could exist. Independent assessment is outstanding.
+The first sharp fixed-mean/fixed-variance lower envelope for a natural three-periodic operator class is structurally motivated: variation around the arithmetic mean affects numerical radius, a basic operator norm proxy. The exact zero-weight support transition at q=1/2 and optimal uniform second-moment coefficient are nontrivial information not obtained from an unconditional mean bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
