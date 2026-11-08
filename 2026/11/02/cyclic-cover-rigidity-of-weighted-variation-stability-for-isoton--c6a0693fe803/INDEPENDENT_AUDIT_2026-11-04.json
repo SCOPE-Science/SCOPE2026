@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:07:24.947009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The projection is piecewise affine; each full-dimensional active-set derivative pools vertices in connected equal-level components, hence cyclic intervals on C_n. For uniform edge weights sample an independent representative in each block according to the observation masses: its blockwise constant vector has expectation equal to the block-averaging derivative. The clockwise paths connecting representatives partition the cycle, giving the sample variation at most original variation; Jensen and derivative integration prove global two-input contraction. Every Hasse cover edge can be uniquely pooled on a full-dimensional neighborhood by identifying its endpoints and assigning a strict quotient-poset rank; otherwise it would be transitively redundant. Applying the pooling derivative to h_{i−1}=h_i=1,h_{i+1}=h_{i+2}=0 yields V_w(E_ih)−V_w(h)=[a_{i+1}w_{i−1}+a_iw_{i+1}]/(a_i+a_{i+1})−w_i. At a minimum edge weight, global contraction forces both neighbors equal, propagating uniformity. Nonuniform weights force one positive gain, realized by arbitrarily close actual input pairs. n≥4 and positivity hypotheses ensure valid distinct test coordinates/strict convex combination.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Németh and Németh treat order-monotonic projections for general cones, not this BV metric.",
+          "Yang–Barber 2017 Theorem 1 treats chain isotonic least squares with interval pooling; no cycle cover case."
+        ],
+        "reasoning": "General-poset coverage of a different property does not subsume the claim. The broad chain seminorm theorem neither implies the necessary uniform cycle-edge weights nor the all-positive-mass sufficiency.",
+        "searches": [
+          "arxiv:1201.4677 isotonicity of projection onto monotone cone",
+          "arxiv:1503.08458 isotonic regression isotonic projection",
+          "arxiv:1706.01852 Theorem 1",
+          "published Resultary search: isotonic projection on posets cycle Hasse variation seminorm nonexpansive equal weights"
+        ]
+      },
+      "checked_sources": [
+        "Yang–Barber arXiv:1706.01852 Section 2 Theorem 1 full PDF",
+        "Németh–Németh arXiv:1201.4677,1503.08458",
+        "Guyader et al arXiv:1211.3930",
+        "Resultary poset isotonic ℓp result 2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62 (different seminorm)",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path blocks and cyclic blocks are both intervals but the former lack the closing cut and do not enforce all weights equal.",
+          "The proof’s necessary local derivative inequalities close around the entire cycle, forcing equality via a minimum principle."
+        ],
+        "reasoning": "The phase boundary is not a direct corollary of a path-based seminorm criterion: its necessity hinges on every Hasse edge pooling and cycle minimum propagation, not known univariate total-variation contraction.",
+        "searches": [
+          "arxiv:1706.01852 univariate chain",
+          "arxiv:1211.3930 univariate bounded variation iterative isotone regression",
+          "published Resultary search: isotonic projection on posets cycle Hasse variation seminorm nonexpansive equal weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Barber provides a seminorm-contractivity criterion on a totally ordered chain, where the cover graph is a path and edge boundaries differ.",
+          "Németh order-cone isotonicity means coordinate order preservation, not graph-edge total variation of differences."
+        ],
+        "reasoning": "The graph-BV two-input norm on a cyclic Hasse poset is not Hilbert projection nonexpansivity or chain NUNA criterion; extending a path to the cover cycle adds the closing edge and a rigidity implication.",
+        "searches": [
+          "published Resultary search: isotonic projection on posets cycle Hasse variation seminorm nonexpansive equal weights",
+          "arxiv:1706.01852 Theorem 1 seminorm contraction isotonic regression",
+          "isotonic projection Hasse cycle BV nonexpansive edge weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 4-vertex diamond ratio 5/4 arises by exact two-vertex pooling, not a known general graph metric table.",
+          "Resultary adjacent hit on sharp ℓp isotonic regression on all finite posets addresses vertex ℓp, a different metric."
+        ],
+        "reasoning": "No matching table or dataset dominates the all-cycle theorem; a finite diamond numerical coincidence would not imply the all-n iff statement.",
+        "searches": [
+          "published Resultary search: isotonic projection on posets cycle Hasse variation seminorm nonexpansive equal weights",
+          "diamond poset isotonic total variation contraction weights (1,1,1,2)"
+        ]
+      },
+      "rationale": "General order-cone projection isotonicity is different from edge-BV contraction; Yang–Barber’s chain theorem handles path covers and cannot directly imply the closed-cycle rigidity for all masses. No published full-cycle equivalent classification was identified in targeted sources. An unindexed active-set sensitivity theorem could provide an implicit derivation.",
+      "residual_risks": [
+        "A less easily indexed active-set operator-norm calculation could encode the same cyclic minimum principle.",
+        "The theorem assumes positive observation masses and Hasse graph exactly a simple cycle; it does not claim an exact gain factor in nonuniform case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but cannot directly cover nonchain cycle-Hasse orientation.",
+          "evidence": "The theorem considers a totally ordered sequence, whereas C_n as undirected Hasse graph n≥4 is not a chain.",
+          "identifier_or_url": "arXiv:1706.01852",
+          "material_read": "Full 26-page PDF, Section 2 and Theorem 1 with chain-specific seminorm criterion.",
+          "method": "Inspected the rendered theorem and its chain/order indexing.",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Potentially dominating total-variation contraction theorem."
+        },
+        {
+          "assessment": "Different operator property; not an all-mass BV cycle classification.",
+          "evidence": "Order monotonicity does not bound the variation of two-output differences.",
+          "identifier_or_url": "arXiv:1503.08458",
+          "material_read": "Relevant primary statements distinguishing order isotonicity from metric contraction.",
+          "method": "Read primary passages on isotonic projection.",
+          "title": "Isotonic projection and isotonic regression",
+          "trigger": "General order-cone projection class."
+        },
+        {
+          "assessment": "Not a cyclic-Hasse weighted-edge rigidity theorem.",
+          "evidence": "Analysis is for univariate iterative fits, not exact iff cyclic edge rigidity.",
+          "identifier_or_url": "arXiv:1211.3930",
+          "material_read": "Relevant passages on univariate path-ordered isotonic regression.",
+          "method": "Read relevant primary context.",
+          "title": "A Geometrical Approach to Iterative Isotone Regression",
+          "trigger": "Bounded-variation uses of isotonic regression."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete rigidity boundary for a natural non-chain poset family and two independent weighting systems, with a sharp small diamond counterexample. This determines when isotonic fitting preserves a practically meaningful graph total-variation distance, not merely re-labeling a chain result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification for arbitrary Hasse graphs, general convex loss or nonuniform norm magnitude; only strict amplification is proven for nonuniform weights."
+  ],
+  "schema_version": 1
+}
