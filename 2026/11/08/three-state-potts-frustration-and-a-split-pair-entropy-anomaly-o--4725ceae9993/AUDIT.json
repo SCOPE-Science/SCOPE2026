@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The exact equality H/J=sum_c binom(N_c,2)-m+b is valid for every configuration. Integer convexity minimizes the color-population term, parity forces at least one bicolored deleted pair in the two nonzero residue classes, and all equality cases are explicitly constructed and exhausted. Factorial counts, defect probabilities and Stirling asymptotics follow. Independent full-graph brute force at m=2..6 and pair-transfer checks at m=2..18 reproduced the formulas; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sokal 2005, §2.2: partition function equals multivariate Tutte specialization on arbitrary graphs, without an evaluated three-state minimum-energy coefficient for matching-deleted complete graphs.",
+        "Shrock–Tsai 1998, §§II–IV: homeomorphically expanded joins and chromatic zero sets; the graph family is different.",
+        "Salas–Shrock 2001 introduction: lattice tubes with complete-bipartite cross sections, not a growing number of two-vertex parts."
+      ],
+      "reasoning": "A generic graph partition function is a definition/formal encoding from which the finite combinatorial optimization can in principle be computed, but does not imply the explicit minimum energy, equality-structure classification, exact degeneracies and modular entropy constants without the new reduction. Published zero-frustration chromatic formulas vanish at three colors for m>3 and do not by themselves count minimum-positive-energy configurations.",
+      "searches": [
+        "\"complete multipartite\" \"ground state\" \"Potts\" frustration",
+        "Potts model complete graph minus perfect matching zero temperature energy",
+        "complete multipartite Potts antiferromagnet frustrated finite temperature partition function",
+        "arxiv:math/0503607v1 §2.2 general Potts/Tutte formulation, text search \"multipartite\"",
+        "arxiv:cond-mat/9810057 sections II, IV and conclusions",
+        "arxiv:cond-mat/0102190 introduction and graph-family specification"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/9810057",
+      "https://arxiv.org/abs/cond-mat/0102190",
+      "https://arxiv.org/abs/cond-mat/0108540",
+      "https://arxiv.org/pdf/math/0503607",
+      "https://mathworld.wolfram.com/CocktailPartyGraph.html",
+      "https://oeis.org/A351589"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The focus of Shrock–Tsai and Salas–Shrock is the zero-monochromatic-edge chromatic polynomial of graph families different from K_{2,...,2}; the new result concerns positive ground energy when m>3.",
+        "Yamaguchi–Okabe uses numerical simulation of the cubic lattice, not complete multipartite density.",
+        "Sokal supplies the full general Potts representation, which is an acknowledged prior formalism."
+      ],
+      "reasoning": "None of the materially examined theorems explicitly specializes to or directly implies the claimed competing defect-free/one-defect exact minimizer classification. This assessment relies on examined sections and search evidence; it does not claim exhaustive full-text exclusion of every possible related paper.",
+      "searches": [
+        "arxiv:cond-mat/9810057 (Shrock–Tsai) families HEC and chromatic entropy",
+        "arxiv:cond-mat/0102190 (Salas–Shrock) lattice tube and complete-bipartite cross section",
+        "arxiv:cond-mat/0108540 (Yamaguchi–Okabe) cubic-lattice 3-state antiferromagnet",
+        "arxiv:math/0503607v1 (Sokal) §2.2",
+        "site-color pair monochromatic split defects on complete multipartite antiferromagnet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cocktail-party graph is complete multipartite with pair-sized parts; its three-state Potts minimization is the minimum-monochromatic-edge three-partition problem. MathWorld (Cocktail Party Graph) confirms the graph alias. Related indexed records concerned graph colorings, matching complexes or other models; none stated an exact three-Potts zero-temperature count on this graph."
+      ],
+      "reasoning": "Rephrasing as maximum three-cut, exact three-partition, or minimum monochromatic edges does not produce a found covering theorem. Semantic similarity of graph-coloring results is not treated as covering without an implication between the actual invariants.",
+      "searches": [
+        "\"Potts antiferromagnet\" \"complete multipartite\" \"ground state\"",
+        "\"hyperoctahedral\" \"Potts\" \"antiferromagnet\"",
+        "\"cocktail party\" \"Potts\" \"ground state\"",
+        "\"number of minimum monochromatic edges three coloring cocktail party graph\"",
+        "three-state Potts antiferromagnet on complete multipartite K2,2,...,2 color-class balancing ground-state entropy defects",
+        "q=3 maximum 3 cut of complement of a perfect matching graph ground state count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web queries did not locate a table matching the derived counts for m=2,...,9. OEIS A351589 concerned minimum edge covers of cocktail-party graphs, a distinct statistic. Indexed literature searches returned no corresponding exact three-color energy table."
+      ],
+      "reasoning": "The available small graph-coloring counts for m=2,3 do not imply the full classification for m>=4. A failed database search is not a proof that an equivalent sequence or table is absent.",
+      "searches": [
+        "\"18, 6, 180, 450, 90\" Potts",
+        "OEIS 18 6 180 450 90 4410 coloring",
+        "\"180\" \"450\" \"4410\" \"Potts\" octahedral",
+        "number of minimum monochromatic edges three coloring cocktail party graph",
+        "zero temperature antiferromagnetic Potts model complete graph minus perfect matching ground state energy"
+      ]
+    },
+    "rationale": "The examined primary texts establish the general antiferromagnetic Potts framework, chromatic-polynomial zero-frustration results on different graphs, and ground-state entropy in lattice models. They do not derive the exact positive-frustration minimum and full split-pair ground-state count of the complete graph minus a perfect matching. The generic Potts partition function encodes finite energies abstractly but does not itself evaluate this family. Targeted graph, alias, exact count and implication searches found no stronger coverage, subject to unindexed-priority risk.",
+    "residual_risks": [
+      "An earlier equivalent result may be indexed under maximum three-cut or minimum monochromatic edge count rather than the Potts name.",
+      "General graph-polynomial representations encode all spin energies in principle, and an unexamined special evaluation could cover these formulas.",
+      "The scanned primary sections do not amount to exhaustive inspection of all historical literature; originality is provisional pending independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different homeomorphically expanded joins; no directly covering minimum-positive-frustration three-color formula in read material",
+        "evidence": [
+          "1998 preprint §II defines HEC families; §IV treats HEC of complement graph joins; conclusions emphasize chromatic-zero boundaries"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9810057",
+        "material_read": "Introduction, graph-family definitions in section II, selected section IV formulas and concluding discussion",
+        "method": "Open-access arXiv full-text rendering; inspected specified text and formulas",
+        "title": "Ground State Entropy of Potts Antiferromagnets: Cases with Noncompact W Boundaries Having Multiple Points at 1/q = 0",
+        "trigger": "Closest foundational work on exact Potts ground-state entropy and chromatic graph families"
+      },
+      {
+        "assessment": "Lattice tube and finite complete-bipartite cross sections; not the claimed graph family or positive-energy ground-state multiplicities",
+        "evidence": [
+          "2001 preprint introduction describes simple cubic lattice tubes and K_{m,m} cross sections for m=2,3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0102190",
+        "material_read": "Abstract and introduction with explicit list of treated graph families and objective",
+        "method": "Open-access arXiv full-text rendering; compared scope and graph definitions",
+        "title": "Exact T=0 Partition Functions for Potts Antiferromagnets on Sections of the Simple Cubic Lattice",
+        "trigger": "Exact Potts count on graphs with complete bipartite structures"
+      },
+      {
+        "assessment": "Physical background and numerical results on cubic lattice, not an exact classification for matching-deleted complete graphs",
+        "evidence": [
+          "2001 preprint §II gives positive-J delta-equal Hamiltonian on nearest-neighbor cubic lattice"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0108540",
+        "material_read": "Abstract, introduction, model Hamiltonian and discussion of computation",
+        "method": "Open-access arXiv full-text rendering",
+        "title": "Three-dimensional antiferromagnetic q-state Potts models: application of the Wang-Landau algorithm",
+        "trigger": "The same three-state antiferromagnetic Hamiltonian and ground-state entropy motivation"
+      },
+      {
+        "assessment": "Generic representation is acknowledged, no evaluated matching-deleted q=3 minimum in inspected material",
+        "evidence": [
+          "2005 preprint §2.2, equations (2.7)–(2.10), define Potts partition functions on arbitrary graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503607",
+        "material_read": "Introduction and section 2.2; specific text searches for multipartite/complete graph",
+        "method": "Open-access arXiv PDF text and visual inspection of page 4",
+        "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+        "trigger": "Possible broad representation covering all finite Potts energy levels"
+      },
+      {
+        "assessment": "Confirms complete m-partite with part size two; not a physical Potts-energy classification",
+        "evidence": [
+          "MathWorld states cocktail-party graph is K_(2,...,2), complete graph minus a perfect matching"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CocktailPartyGraph.html",
+        "material_read": "Graph definition and list of alternative names",
+        "method": "Reference webpage text inspection",
+        "title": "Cocktail Party Graph",
+        "trigger": "Check graph aliases and exact equivalence to complete multipartite model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4725ceae-9993-4e5e-8a68-72803fc5410b",
+  "value": {
+    "rationale": "A natural three-state uniform antiferromagnet on the highly symmetric cross-polytope/cocktail-party graph has an exact nonzero-frustration ground-state classification for every m. The zero-vs-one split-pair coexistence in two residue classes, asymptotically almost-certain defect selection, and a different subexponential ground-state entropy prefactor in the third class are structural effects not supplied by simple zero-energy chromatic counts. They can inform finite-size statistical mechanics of dense multipartite frustration.",
+    "status": "PASS"
+  }
+}
