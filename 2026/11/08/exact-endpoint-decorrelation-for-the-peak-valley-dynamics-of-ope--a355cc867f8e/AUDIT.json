@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional spin expectation produces the finite tridiagonal killed-Neumann Laplacian. Half-integer cosine eigenfunctions give an orthogonal mode expansion with positive normalized weights. The explicit inverse-Laplacian Green vector yields the integrated polynomial. A uniform summable mode-weight majorant and fixed-mode eigenvalue asymptotics rigorously establish the cubic profile and threshold exponent. Direct full-state rational checks and eigen/Green checks in packaged code passed 21378 assertions; diagnostics are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Santos–Schütz (2001), full author-available paper: focus on semi-infinite relaxation and equal-time two-point correlations; finite stationary systems used for comparison, not the same two-time total count observable.",
+        "Franco–Franco–Gonçalves (2026), arXiv:2604.02579, hydrodynamic model with finite reservoirs and other boundary dynamics."
+      ],
+      "reasoning": "General finite-chain SSEP generator theory can be specialized to derive the result, but the inspected cited statements do not already imply the exact claimed finite series and scaling constants without new reduction and spectral/Green calculations. The strongest residual risk is an unrecognized general formula in broader literature.",
+      "searches": [
+        "symmetric exclusion process one reflecting one reservoir boundary exact endpoint autocovariance half integer discrete cos eigenvectors integrated autocorrelation",
+        "Santos Schutz exact time-dependent correlation functions symmetric exclusion open boundary semi-infinite",
+        "finite reservoirs Wentzell boundary exclusion process 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.03730",
+      "https://doi.org/10.1103/PhysRevE.64.036107",
+      "https://arxiv.org/abs/2604.02579"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wei, Conjecture 4 explicitly leaves the endpoint exponent unspecified.",
+        "Santos–Schütz Sections I–V address a semi-infinite nonstationary system and density correlations, not the finite stationary two-time total spin at discrete-time update rate."
+      ],
+      "reasoning": "The new theorem settles the endpoint part of Conjecture 4 while saying nothing about the percolation crossing exponent. Its exact finite spectral coefficients and integrated polynomial are not simple restatements of the published semi-infinite equal-time formulas.",
+      "searches": [
+        "Uniform meandric systems as percolation on planar maps conjecture 4 endpoint mixing exponent",
+        "Exact time-dependent correlation functions symmetric exclusion open boundary total number covariance",
+        "symmetric exclusion process one reservoir autocorrelation total occupation finite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santos–Schütz 2001 discusses equilibrium and relaxation of SSEP with a reservoir and Fourier modes (doi:10.1103/PhysRevE.64.036107).",
+        "The author implementation is swaps of adjacent increments plus a last-site sign reversal (https://github.com/davidw289/Meandric-System-Numerical-Analysis)."
+      ],
+      "reasoning": "The original model is equivalent to stationary finite symmetric exclusion with a one-sided infinite reservoir at fair density. Existing general exclusion descriptions do not state the exact discrete-time endpoint autocorrelation, integrated polynomial and threshold law in this fixed update clock; all are established by a specific spectral calculation.",
+      "searches": [
+        "meandric system flip dynamics exact endpoint autocorrelation exponent 3 square root random walks Fourier cosine modes",
+        "symmetric exclusion process one reflecting one reservoir boundary exact endpoint autocovariance half integer discrete cos eigenvectors integrated autocorrelation",
+        "random walks peak valley flips step adjacent swaps terminal flip exact n cubed decorrelation time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wei 2026, Tables 5–6: numerical threshold times and fitted exponents rather than exact finite-mode tabulation.",
+        "No identical exact quantity was identified in targeted public research-index search results."
+      ],
+      "reasoning": "Wei’s empirical regression is not an exact database of correlation values or limiting functions. No known table giving all finite lengths and all lags was located; lack of hits is not by itself a uniqueness proof.",
+      "searches": [
+        "meandric system flip dynamics exact endpoint autocorrelation exponent 3 square root random walks Fourier cosine modes",
+        "random walks peak valley flips step adjacent swaps terminal flip exact n cubed decorrelation time"
+      ]
+    },
+    "rationale": "Wei explicitly proposes an unknown walk-endpoint decorrelation exponent with numerics, whereas the present theorem determines it exactly and supplies the finite law and complete crossover. Older one-reservoir exclusion literature supplies spectral methods but does not cover the precise finite stationary discrete-time observable and limits in a stated result. Best-knowledge originality, not proof of uniqueness.",
+    "residual_risks": [
+      "Unrecognized classical finite SSEP Green-function or spectral correlation formula might imply the statement under alternate terminology.",
+      "Complete full text of the finite-reservoir hydrodynamic comparison was not examined, though its boundary rules and observables differ.",
+      "The statement is a result about the specifically defined walk dynamics; it does not settle the event-correlation half of the motivating conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the observable and conjectures an unknown endpoint exponent; does not state the exact mode law, integrated correlation or cubic profile. Its code samples an inert index 0 in addition to the active range.",
+        "evidence": [
+          "https://www.researchgate.net/publication/415266775_Uniform_meandric_systems_as_percolation_on_planar_maps_conjectures_and_a_numerical_study",
+          "https://github.com/davidw289/Meandric-System-Numerical-Analysis/blob/main/mixing_times_corrected.py"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03730",
+        "material_read": "Selected full-text passages from Sections 4–6 and Appendix A: exact flip rules, Conjecture 4, numerical threshold tables and algorithm pseudocode; public corrected Python implementation lines 1–40 and 300–370.",
+        "method": "Read the publicly accessible full-text version and inspected the accompanying author repository code.",
+        "title": "Uniform meandric systems as percolation on planar maps: conjectures and a numerical study",
+        "trigger": "Same dynamics and endpoint-correlation conjecture"
+      },
+      {
+        "assessment": "Provides related first-moment spectral technology but does not state the finite discrete-time stationary endpoint autocorrelation or Wei-specific cubic threshold law; reduction is independent.",
+        "evidence": [
+          "https://juser.fz-juelich.de/record/46852/files/96.pdf"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.64.036107",
+        "material_read": "Abstract/introduction, Section II finite-chain setup and Fourier modes, selected Sections III–IV formula/scaling passages, discussion of Section V particle-number fluctuation objective, and first-page PDF image.",
+        "method": "Opened and inspected author-hosted full PDF and the initial-page image; checked its discussion of finite systems and semi-infinite focus.",
+        "title": "Exact time-dependent correlation functions for the symmetric exclusion process with open boundary",
+        "trigger": "Possible broad older exclusion-process correlation theorem covering the same mode sum"
+      },
+      {
+        "assessment": "Finite-capacity reservoir and hydrodynamic boundary conditions are different from fixed product-measure terminal flip and finite-time autocorrelation; indirect relation only.",
+        "evidence": [
+          "https://arxiv.org/abs/2604.02579"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.02579",
+        "material_read": "Abstract/model and boundary-regime definitions from public indexed record; no complete full-text inspection.",
+        "method": "Read indexed arXiv record and compared state-space/boundary dynamics and observables.",
+        "title": "Finite reservoirs lead to Wentzell boundary conditions for independent random walks and exclusion process",
+        "trigger": "One-reservoir SSEP hydrodynamic equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a355cc86-7f8e-41b7-bc40-bbd711f67d3b",
+  "value": {
+    "rationale": "Wei specifically asks for endpoint and crossing decorrelation exponents; this exact theorem proves the endpoint exponent 3, a nontrivial full crossover curve, exact finite-time spectral law, integrated cubic autocorrelation and benchmark threshold constants. It isolates boundary-controlled diffusive transport from the open planar-map crossing question and replaces approximate numerical exponents with precise asymptotics.",
+    "status": "PASS"
+  }
+}
