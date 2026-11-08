@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Taking scaling ratios gives two globally defined reflections in projective log coordinates; each has determinant \(-1\). The displayed rational integral is invariant under each reflection by directly exchanging two terms. Its log-cosh expression is strictly convex and proper, which establishes unique minimum and compact regular levels. A strict Lipschitz bound rules out other fixed points. Symplectic invariance and conservation of a regular Hamiltonian on each oval imply a time translation and hence a rotation. Exact rational computations reproduce identities but are not substituted for the proof.
+## correctness
 
-**Originality (PASS, qualified).** The motivating overrelaxation publications provide local convergence on an open parameter range and do not state the endpoint conserved energy or the global positive-plane oval dynamics. Classical QRT literature broadly covers rational maps with first integrals; the general algebraic mechanism is credited. The new mathematical statement assessed here is the concrete endpoint classification for this Sinkhorn map, especially compactness and bounded nonconvergence from all nonfixed positive scalings. This remains a best-knowledge comparison rather than independent priority certification.
+PASS
 
-**Value (PASS).** The fixed step at the natural boundary \(\omega=2\) behaves differently from contraction in the interior: every nontrivial orbit is trapped on a smooth invariant oval rather than merely becoming locally marginal. This identifies an exact structural obstruction to taking the overrelaxation limit, including a complete qualitative description of all trajectories in the minimal nontrivial positive transport problem.
+From ω=2 Sinkhorn ratio updates U+=g_c(V)^2/U and V+=g_c(U+)^2/V, where g_c(t)=(ct+1)/(t+c). Both maps are global involutions, determinant -1 in log-odds; composition determinant +1. The rational first integral J=(UV+c(U+V)+1)/sqrt(UV) is invariant because the first reflection exchanges the numerator summands after writing J linear in sqrt(U), and likewise for V. In log coordinates J=2cosh((X+Y)/2)+2c cosh((X-Y)/2) has positive-definite Hessian (det=c cosh((X+Y)/2)cosh((X-Y)/2)>0), proper compact strictly convex level ovals and unique minimum at origin. |φ_c'(y)|≤|1-c|/(1+c)<1 excludes other fixed points. Exact preservation of area and H forces commutation with the nonzero Hamiltonian field; on every oval this is a rigid time shift, so periodic or dense, recurrent and never convergent to origin. Independent symbolic checks verified both involution invariants and Hessian determinant for arbitrary positive symbols; c=1 degeneracy remains a valid half-turn map.
 
-**Closest literature and risk.** [1] introduces overrelaxed Sinkhorn; [2] proves stability only below the endpoint; [3] analyzes operator scaling; [4] establishes the broad QRT paradigm. Because [4] covers integrability of classes of rational maps, originality attaches to the specific positive Sinkhorn endpoint and its global orbit geometry, not to the generic QRT mechanism. Other special-purpose two-by-two Sinkhorn analyses might predate this claim. Only the symmetric kernel and equal marginal case has been proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for identifying the exact ω=2 2x2 symmetric Sinkhorn endpoint with a globally proper strictly convex first integral and all-oval rotation/nonconvergence classification. A general QRT symplectic-first-integral principle is prior, and ω<2 convergence theory is prior, but neither inspected primary source identifies this specific Sinkhorn map plus its entire real positive energy-level geometry. Possible prior QRT embedding is explicit residual risk.
+
+## value
+
+PASS
+
+The relaxation boundary excluded from standard convergence theorems has a qualitatively different global dynamical regime: every nonfixed scaling remains on a compact invariant oval rather than converging. The explicit global Hamiltonian and rotation dichotomy are structurally useful for understanding numerical parameter choice, not merely a local stability computation or renaming of an abstract QRT map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

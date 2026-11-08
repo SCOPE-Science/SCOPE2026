@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:57:37.815748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/conserved-convex-energy-and-invariant-ovals-at-the-reflection-en--76301798266c/RESULT.md at exact Git blob 6bd297b28246095fe5177393a9d990063fa00d63",
+        "2026/11/02/conserved-convex-energy-and-invariant-ovals-at-the-reflection-en--76301798266c/verify.py at exact Git blob 12181800fc3aee823bb0c20a846ee1d8a1bc1173",
+        "independent_math_checks.py (fresh stdlib/sympy calculations independent of package verifier); original verification code inspected at frozen blob SHA; finite cases do not replace proof."
+      ],
+      "rationale": "From ω=2 Sinkhorn ratio updates U+=g_c(V)^2/U and V+=g_c(U+)^2/V, where g_c(t)=(ct+1)/(t+c). Both maps are global involutions, determinant -1 in log-odds; composition determinant +1. The rational first integral J=(UV+c(U+V)+1)/sqrt(UV) is invariant because the first reflection exchanges the numerator summands after writing J linear in sqrt(U), and likewise for V. In log coordinates J=2cosh((X+Y)/2)+2c cosh((X-Y)/2) has positive-definite Hessian (det=c cosh((X+Y)/2)cosh((X-Y)/2)>0), proper compact strictly convex level ovals and unique minimum at origin. |φ_c'(y)|≤|1-c|/(1+c)<1 excludes other fixed points. Exact preservation of area and H forces commutation with the nonzero Hamiltonian field; on every oval this is a rigid time shift, so periodic or dense, recurrent and never convergent to origin. Independent symbolic checks verified both involution invariants and Hessian determinant for arbitrary positive symbols; c=1 degeneracy remains a valid half-turn map.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lehmann et al. 2022 Optimization Letters full Springer HTML Theorem 1 asserts local convergence for 0<ω<2; global regime in Theorem 3 likewise excludes ω=2.",
+          "Thibault et al. 2021 adaptive/safeguarded algorithms target decreasing Lyapunov behavior, which differs from unsafeguarded fixed ω=2."
+        ],
+        "reasoning": "The cited convergence ranges explicitly exclude the endpoint and cannot imply bounded recurrent nonconvergence there; broad QRT integrability does not automatically identify the kernel or ensure each positive level is one oval.",
+        "searches": [
+          "Sinkhorn overrelaxation parameter omega equals 2 2x2 positive kernel integrable invariant QRT convex energy nonconvergence rotation",
+          "Lehmann von Renesse Sambale Uschmajew Sinkhorn overrelaxation theorem 2022",
+          "Thibault Chizat Dossal Papadakis overrelaxed Sinkhorn 2021"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py (6bd297b2...,12181800...)",
+        "Lehmann et al. 2022 full Springer DOI 10.1007/s11590-021-01830-0",
+        "Hamad et al. arXiv:1702.07047 author full text relevant sections",
+        "Thibault et al. 2021 Algorithms 14(5)143, accessible abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General QRT first-integral theory makes rotation-on-regular-oval a known corollary once one separately proves a compact smooth oval and area preservation.",
+          "Lehmann et al. exclude ω=2, and neither their contraction statements nor generic symplectic results imply the specific formula H=2cosh...+2c cosh... ."
+        ],
+        "reasoning": "Mechanistic integrability and rotation are not claimed as inventions. New verified content is the explicit reduction and a global, strictly convex integral for the precise numerical iteration; it yields a substantive endpoint failure classification absent from the compared Sinkhorn results.",
+        "searches": [
+          "Sinkhorn overrelaxation parameter omega equals 2 2x2 positive kernel integrable invariant QRT convex energy nonconvergence rotation",
+          "QRT maps related Laurent systems arXiv 1702.07047 dynamics invariant curves",
+          "A note on overrelaxation Sinkhorn Springer 2022 theorem 1 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamad et al. arXiv:1702.07047 introduces general QRT maps as symplectic birational maps with first integrals and elliptic invariant curves.",
+          "The 2x2 Sinkhorn odds recurrence is a composition of QRT-type reciprocal reflections with a simple rational integral, but naming that concrete correspondence and deriving strict positive-plane geometry require the displayed exact reduction."
+        ],
+        "reasoning": "Generic QRT maps cover the formal mechanism of rational first integrals and rotations on regular real compact levels; this claim narrows to an exact algorithmic identification and global convex/no-convergence theorem. No prior source inspected explicitly maps overrelaxed Sinkhorn at ω=2 to this integrable family.",
+        "searches": [
+          "Sinkhorn overrelaxation parameter omega equals 2 2x2 positive kernel integrable invariant QRT convex energy nonconvergence rotation",
+          "QRT maps symmetric birational involutions first integral Sinkhorn omega 2",
+          "Hamad Hone van der Kamp Quispel arXiv:1702.07047"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The invariant depends continuously on c>0 and the energy; the conclusion classifies all trajectories, not a finite discretized parameter table.",
+          "Symbolic identity H∘T=H and a positive Hessian are valid for all parameters; finite exact-rational sample checks in package cannot replace them."
+        ],
+        "reasoning": "This is not a claim whose exact object is a finite database/table. No all-parameter documented prior mapping was identified by the scientific searches; no novelty inference from search failure alone.",
+        "searches": [
+          "Sinkhorn overrelaxation parameter omega equals 2 2x2 positive kernel integrable invariant QRT convex energy nonconvergence rotation",
+          "two-by-two Sinkhorn omega=2 nonlinear map periodic invariant ovals numerical example",
+          "Resultary query Sinkhorn 2x2 QRT rotation"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for identifying the exact ω=2 2x2 symmetric Sinkhorn endpoint with a globally proper strictly convex first integral and all-oval rotation/nonconvergence classification. A general QRT symplectic-first-integral principle is prior, and ω<2 convergence theory is prior, but neither inspected primary source identifies this specific Sinkhorn map plus its entire real positive energy-level geometry. Possible prior QRT embedding is explicit residual risk.",
+      "residual_risks": [
+        "The invariant-map mechanism is a special case of QRT theory; earlier computational notes might already identify the precise Sinkhorn endpoint.",
+        "No claim for non-symmetric 2x2 kernels, unequal marginals, ω not equal to 2 or higher-dimensional scaling.",
+        "Rotation number of each oval not explicitly evaluated, so no claim any particular nonfixed orbit periodic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not include ω=2 integrable analysis; its convergence bounds genuinely exclude this endpoint.",
+          "evidence": [
+            "Lehmann, von Renesse, Sambale & Uschmajew, Optimization Letters 16 (2022), 2209–2220, DOI 10.1007/s11590-021-01830-0, Theorems 1, 3."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-021-01830-0",
+          "material_read": "Accessible full Springer article HTML, update equations and Theorems 1–4, including strict 0<ω<2 hypotheses, read.",
+          "method": "primary journal full HTML",
+          "title": "A note on overrelaxation in the Sinkhorn algorithm",
+          "trigger": "same algorithm and endpoint-parameter boundary"
+        },
+        {
+          "assessment": "Generic QRT integrability and elliptic curves are prior, not specific Sinkhorn ω=2 positivity or global strict convexity.",
+          "evidence": [
+            "Hamad, Hone, van der Kamp, Quispel, arXiv:1702.07047v2, introduction and §3/§6 general map discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.07047",
+          "material_read": "Author-uploaded complete arXiv HTML text; Introduction and general 18-parameter/QRT multiplicative recurrence sections and overview read, not an exhaustive page-by-page inspection.",
+          "method": "author-posted full text via ResearchGate HTML",
+          "title": "QRT maps and related Laurent systems",
+          "trigger": "same reflection/invariant algebra in broader rational dynamics"
+        },
+        {
+          "assessment": "Adaptive Lyapunov safeguard and fixed unsafeguarded endpoint distinguish claimed setting.",
+          "evidence": [
+            "Thibault, Chizat, Dossal, Papadakis, Algorithms 14 (2021) 143, arXiv:1711.01851."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/1999-4893/14/5/143",
+          "material_read": "Accessible abstract/algorithm overview; full page request later encountered HTTP429, so no complete-body NOT_COVERING judgment.",
+          "method": "journal accessible abstract and website excerpt",
+          "title": "Overrelaxed Sinkhorn–Knopp Algorithm for Regularized Optimal Transport",
+          "trigger": "original multiplicative overrelaxation/adaptive scheme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/conserved-convex-energy-and-invariant-ovals-at-the-reflection-en--76301798266c/RESULT.md",
+        "Lehmann et al. 2022 full Springer DOI 10.1007/s11590-021-01830-0",
+        "Hamad et al. arXiv:1702.07047 author full text relevant sections",
+        "Thibault et al. 2021 Algorithms 14(5)143, accessible abstract"
+      ],
+      "rationale": "The relaxation boundary excluded from standard convergence theorems has a qualitatively different global dynamical regime: every nonfixed scaling remains on a compact invariant oval rather than converging. The explicit global Hamiltonian and rotation dichotomy are structurally useful for understanding numerical parameter choice, not merely a local stability computation or renaming of an abstract QRT map.",
+      "residual_risks": [
+        "Mathematical significance is specific to the stated objects and parameter domains; broader model relevance is not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The invariant-map mechanism is a special case of QRT theory; earlier computational notes might already identify the precise Sinkhorn endpoint.",
+    "No claim for non-symmetric 2x2 kernels, unequal marginals, ω not equal to 2 or higher-dimensional scaling.",
+    "Rotation number of each oval not explicitly evaluated, so no claim any particular nonfixed orbit periodic."
+  ],
+  "schema_version": 1
+}
