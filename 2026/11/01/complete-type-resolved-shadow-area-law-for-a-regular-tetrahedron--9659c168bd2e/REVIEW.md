@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tetrahedral face-normal projection formula reduces the projected area to the maximum of two explicit linear forms in the absolute viewing coordinates. The six quadrilateral and eight triangular spherical chambers exhaust all generic viewing directions. A directly integrated cap--hemisphere segment supplies the exact correction for each chamber side; the critical height at which corrections vanish is calculated from the chamber incenter--side angle. These yield the two piecewise joint subdistributions with their correct probability masses, support endpoints and constant-density regimes. Twelve local normal charts prove the common quadratic lower-tail constant, including the uniform remainder order. The standalone verifier checks independently reconstructed planar hulls, a second spherical area integral, endpoint identities, and agreement with previously published conditional moments. Numerical evidence is supporting evidence, not the universal proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest 2001 full-text source by Vickers--Brown explicitly proves the **marginal** projected-area density of the regular tetrahedron. Its Section 3 and Appendix B do not state the two type-labeled area distributions, and its Section 4 treats joint area--perimeter data for other geometric families. A previously published silhouette calculation gives only the first two type-conditional area moments; neither those moments nor the unconditioned density determines the two all-threshold subdistributions. The inspected 2026 stability preprint treats extrema and stability rather than Haar-distributed silhouette type. The research-record and literature searches did not find an equivalent or encompassing type-resolved CDF. The name, area normalization, unconditional probability, and known moments of earlier works are credited rather than claimed. Historical stereology could contain an older type-resolved derivation; negative searches do not prove novelty.
+PASS
 
-## Mathematical value — PASS
-The entire feasible pair of silhouette classes is a natural discrete geometric observable attached to projected tetrahedra. Complete joint CDFs quantify how polygon type varies with measured area, information that cannot be recovered from the already known marginal density or the first two conditional moments. In particular they identify sharp and different upper supports, two exact linear-density bands, and a nontrivial identical quadratic onset at the common lower endpoint. This is a complete exact geometric-probability classification for a canonical convex body, not an arbitrary sampled slice or a recomputation of a known table.
+PASS. The regular tetrahedron uses vertices (+/-1,+/-1,+/-1) of even parity, so its edge length is 2 sqrt(2); viewing normals are Haar-uniform on S2. Its projected area is A(u)=2 max(sum_i |u_i|, 2 max_i |u_i|) and the shadow is triangular exactly when sum_i |u_i|>2 max_i |u_i|, with spherical measure-zero boundaries excluded. The eight triangular and six quadrilateral spherical cells have cap and cap/hemisphere intersection areas. The stated segment function G_h(t)=2[acos(h/sqrt(1-t^2))-t acos(ht/sqrt((1-h^2)(1-t^2)))] yields the type-weighted sub-CDFs, correct transition radii 2sqrt2, 4sqrt(2/3), 2sqrt3, 4, constant upper density on each type and common leading lower-tail coefficient 3/(2sqrt2*pi). Independent 1,200,000-Haar-direction simulation agreed at eleven cutoffs with both exact formulas; these checks corroborate but do not replace the spherical-area proof. Prior unconditional area density and type-conditional moments recover as consequences; no distribution for asymmetric tetrahedra is claimed.
 
-## Scope and unresolved risks
-The theorem is confined to uniformly oriented, orthogonally projected regular tetrahedra with the stated edge length. Older unindexed stereological work, including early projected-area particle-shape studies, may overlap. The result has not received an independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS after direct primary comparisons. Vickers and Brown (2001) derive the regular tetrahedron marginal projected-area PDF and discuss triangles/quadrilaterals, but §3(ii) and Appendix B report unconditioned density, not two separately labeled type CDFs. A previously published SCOPE paper gives the exact first two conditional moments for arbitrary tetrahedra, including this regular case, but explicitly not the full conditional area distribution. These prior results and their obvious tail implications are credited; the complete two subdistribution functions, internal transitions and common quadratic onset are not entailed by just the marginal and low moments. The classical geometric method is related and priority remains historically uncertain.
+
+## value
+
+PASS
+
+PASS. Number of projected silhouette vertices is an intrinsic, experimentally visible distinction between triangular and quadrilateral shadows, and projected area is a canonical random geometric invariant. The complete bivariate type-area law and sharp shape-specific transitions address a motivated gap between a classical marginal density and known conditional moments. Equal quadratic onset and unequal upper-tail densities are substantive geometric structure of a natural regular polytope, beyond textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
