@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The forty-eight classical lines form a completely specified finite intersection system. Exact rational elimination certifies rank \(20\) and the four invariant ranks \((20,11,8,11)\). The invariant subspace contains an ample class, so its Gram rank equals dimension. Ordinary-prime Hasse coefficients bound geometric Picard rank by twenty. The Hermitian power-cover and Weil-equality argument forces all eigenvalues of quadratic Frobenius to equal \(+p^2\) for supersingular primes; the split-quadric point count establishes the \((12,10)\) sign split, while the Katsura–Shioda supersingularity criterion establishes that all twenty-two eigendirections are algebraic; the odd-characteristic Tate theorem identifies the arithmetic fixed space. The finite checker reproduces the arithmetic; it does not substitute for the all-primes proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The leading source [1] treats geometric, rather than arithmetic, Néron–Severi groups; [2] treats complex divisor generation; [3] proves general Tate, not the line-subspace comparison; [4] gives geometric characteristic-three line counts. The checked mathematical-record candidates concern other quartic surfaces or the geometric excess-line configuration, not the displayed mod-eight arithmetic ranks and quotient representation. In particular, the already-known complex rank and supersingular geometric rank do not themselves determine the Frobenius-fixed subspace of the forty-eight classical lines. Bouyer’s 2016 thesis computes related geometric lattices and Frobenius actions for other quartics but not this prime-uniform Fermat line-defect diagram. Classical Jacobi-sum eigenspace formulas could implicitly cover parts of the result and remain a priority risk; no assertion of uniqueness or independently certified novelty is made.
+PASS
 
-**Mathematical value — PASS.** The arithmetic field of definition of divisor classes is a natural invariant of a K3 surface, and the 48 classical lines provide its most canonical explicit divisor system. The one-dimensional rational descent defect in each supersingular congruence class is a structural distinction invisible in the known geometric Picard ranks. The result separates four infinite prime classes with a complete line-span and ambient Frobenius comparison, not an isolated numerical example.
+PASS: The claim applies to the coefficientwise Fermat quartic over every odd prime field, rational NS ranks only, and only the specified 48 classical lines (not 112 in p=3). Rebuilt its line-incidence matrix from three displayed congruences; independent rational elimination gives rank 20 and degree 14 on 48 labels, and Frobenius orbit-sum matrix ranks 20,11,8,11 for residues 1,3,5,7. The hyperplane class in the span and the Hodge-index nondegeneracy identify Gram rank with line-span dimension. For p≡1 mod4 the nonzero Hasse invariant forces geometric NS rank at most 20; lines give equality. For p≡3 mod4 the separable Hermitian power cover gives Frob²=p² on H², and #X(Fp)=(p+1)² yields trace 2p and 12/10 (+p/-p) dimensions; the supersingularity criterion and Tate theorem make all 22 classes algebraic. Subtracting line Frobenius multiplicities yields one fixed and one negated missing divisor direction. Finite exact line ranks certify only fixed combinatorics; the all-prime claims require the independent geometric/cohomological steps.
 
-**Scope and limitations.** All lattice claims are rational, not integral. The quotient is described as a Frobenius representation rather than by a new explicit curve. The equality of all quadratic-Frobenius eigenvalues is proved via the Hermitian covering, not by classifying individual extra divisors. Historical priority and independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: known geometric Picard ranks, 48-line configuration and general Fermat zeta-function and Tate results are credited. The assessed increment is the uniform arithmetic mod-eight Frobenius diagram comparing the 48-class line span against full NS, including quotient with one + and one - direction. A general character-sum formula could imply this after nontrivial specialization, and full historical priority is not guaranteed.
+
+## value
+
+PASS
+
+PASS: the difference between arithmetic and geometric Picard rank and exact rational line-generation defect for a canonical K3 surface are intrinsic useful geometric invariants, including a characteristic-three boundary at which additional lines exist. The complete four-residue classification clarifies descent over Fp versus Fp² and is not a cosmetic numeric calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
