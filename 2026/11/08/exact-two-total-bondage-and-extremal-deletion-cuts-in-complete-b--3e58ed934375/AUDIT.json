@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For a deletion graph without isolates, size-three total dominating sets have one full vertex and a pair covering the opposite part. If a full larger-side vertex remains and gamma_t>=4, all smaller-side missing-neighbor sets are pairwise intersecting and have size at least two; this yields the sharp \\(2a\\) lower bound, with the \\(a=2\\) obstruction. A surjective single-deletion-per-column construction uses b edges, and a three-column triangle construction uses 2a edges, both preserving positive degrees and excluding every size-two/three total dominating set. Equality forces surjections or pairwise-intersecting two-sets on three columns, counted exactly by \\(a!S(b,a)\\) and \\(\\binom b3\\,3!S(a,3)\\). Boundary \\(b=2a\\) is the disjoint union of the two families. The extracted Python checker independently enumerated all deletion masks and all vertex subsets of size 2/3 on 14 small cases and verified predicted counts; the proof itself treats all a,b.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 14: \\(b_t^2(K_{a,b})\\)=b when \\(2\\le a\\le b\\le2a\\) (already known, excluded as novel scalar).",
+        "Theorem 12: \\(b_t^2(K_{a,b})\\)<=\\(2a\\) when \\(a\\ge3\\); no general matching lower bound is stated.",
+        "Theorem 13: another construction upper bound. No extremal edge-deletion count or classification appears in these primary results."
+      ],
+      "reasoning": "The new \\(b>2a\\) equality requires a missing-neighbor pair-cover lower bound. The exact cut census for every a,b requires a separate equality classification, and cannot be inferred from the known upper bound or scalar low-imbalance equality. The journal full text was inaccessible and is explicitly a residual historical comparison risk.",
+      "searches": [
+        "arXiv:2506.07000v1, Theorems 11-14 and adjacent full Section 3.4",
+        "2026 journal DOI 10.20429/tag.2026.130103 landing record",
+        "web: \"k-total bondage\" complete bipartite exact two case beyond 2025",
+        "web: \"total bondage\" \"K_{m,n}\" increase by two"
+      ]
+    },
+    "checked_sources": [
+      "Appel et al., arXiv:2506.07000v1 (complete HTML primary manuscript), Sections 1,2,3.4",
+      "Appel et al., 2026 Theory & Applications of Graphs, DOI:10.20429/tag.2026.130103 (landing page only)",
+      "Xu, On Bondage Numbers of Graphs (2013), Section 8.1",
+      "Kulli and Patwari (1991) bibliographic citation as quoted in Appel et al.; full paper not inspected",
+      "Targeted published-finding corpus research-index searches on two-total bondage, aliases and high-imbalance complete bipartite cuts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Appel et al. already prove \\(b_t^2(K_{a,b})\\)=b for \\(2\\le a\\le b\\le2a\\) and \\(b_t^2(K_{a,b})\\)<=\\(2a\\) for \\(a\\ge3\\).",
+        "Kulli-Patwari 1991 as cited by Appel et al. concerns b_t^1 and does not itself imply a 2-increase cut census.",
+        "Xu 2013 survey surveys ordinary total bondage rather than the newly defined k-step invariant."
+      ],
+      "reasoning": "Implication check: the known bound alone does not prove optimality when \\(b>2a\\); Theorem 14 does not apply there. In the low range the scalar equation is subsumed, but all labelled minimizer classifications and counts are additional statements. At \\(a=2\\),\\(b>4\\), neither the \\(a\\ge3\\) upper construction nor the \\(b\\le2a\\) exact theorem applies. The new pair-cover lemma, equality triangle classification, and surjection census supply the missing logical steps.",
+      "searches": [
+        "arXiv:2506.07000v1, Definition 6, Theorems 11-14",
+        "Xu, On Bondage Numbers of Graphs (2013), Section 8.1",
+        "published-finding corpus: two total bondage of complete bipartite graph all a b where b > 2a edge fault"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Appel et al., arXiv:2506.07000v1, Definition 6 and Section 3.4 use precisely the increase-by-two total bondage invariant.",
+        "Their Theorem 12 gives an upper bound for \\(a\\ge3\\); Theorem 14 gives the low-imbalance exact scalar value. Neither gives the all-cut Stirling census."
+      ],
+      "reasoning": "Aliases checked include two-total bondage, second total bondage, edge failures increasing total domination from two to four, bipartite cuts, and missing-neighbor pair covers. Ordinary (one-step) total bondage and different domination variants do not imply the full asserted theorem.",
+      "searches": [
+        "published-finding corpus: 2-total bondage of complete bipartite graphs all sizes full exact values and enumeration of minimum edge removals",
+        "published-finding corpus: minimal deleted edge sets raising total domination from two to four in bicliques K_(a,b) threshold b=2a",
+        "web: \"2-total bondage number\" complete bipartite graphs \"a\" \"b\"",
+        "arXiv:2506.07000v1, Section 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed results surfaced other domination and bipartite optimization parameters, not an indexed cut-count table for two-total bondage.",
+        "Relevant web results consistently pointed to Appel et al. and its documented limited exact range."
+      ],
+      "reasoning": "The exact formula, equality-family cut spectrum, and labelled counts were compared against both database-style indexed summaries and primary source claims. No known exact table was identified, but search non-detection is not a priority proof. The published-finding corpus results were treated as candidate leads, not as full-text exclusions.",
+      "searches": [
+        "published-finding corpus: exact 2-total bondage number K_{a,b} complete bipartite min(b,2a) threshold 2025 2026",
+        "published-finding corpus: pair-covered nonedge hypergraph characterization of exact k-two-total-bondage number of complete bipartite graph",
+        "web: \"b_t^2\" \"K_{a,b}\" \"2a\" \"b\"",
+        "web: \"2-total bondage\" \"complete bipartite\" \"b>2a\""
+      ]
+    },
+    "rationale": "Appel et al. already establish the exact scalar answer for \\(b\\le2a\\) and an upper bound \\(2a\\) for \\(a\\ge3\\); those facts are prior, not claimed as new. Their Section 3.4 does not establish the \\(b>2a\\) lower bound or describe/count all optimum edge cuts. The present theorem closes the outstanding biclique two-bondage parameter range, the \\(a=2\\) long-side boundary, and the complete labelled optimizer spectrum. Targeted research-index and web comparisons found no dominating claim; the 2026 journal text remained inaccessible, so priority is provisional.",
+    "residual_risks": [
+      "The 2026 journal edition of the main paper could not be read; a relevant uninspected revision might cover part of the claim.",
+      "Historical coverage beyond the searched sources may exist under another terminology; search absence alone is not proof of novelty.",
+      "The 1991 ordinary total-bondage paper was compared indirectly through the later primary paper and survey."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_PRIOR_COVERAGE: already establishes the low-imbalance scalar result and high-imbalance construction bounds, but not the unrestricted high-imbalance matching lower bound or extremal cut counts.",
+        "evidence": "arXiv:2506.07000v1, Section 3.4, Theorems 11-14 and their hypotheses.",
+        "identifier_or_url": "https://arxiv.org/html/2506.07000v1",
+        "material_read": "Full HTML manuscript inspected with focus on Definitions 1-6, Sections 2 and 3.4, Theorems 11-14, final section, and references.",
+        "method": "Read accessible arXiv primary full text and compare statements and proofs, not only abstract or search snippet.",
+        "title": "The k-Total Bondage Number of a Graph",
+        "trigger": "Same invariant and complete bipartite parameters; highest-priority direct comparison."
+      },
+      {
+        "assessment": "ACCESS_LIMIT: the inaccessible journal edition could contain changes; no claim of whole-document exclusion is made.",
+        "evidence": "Journal DOI:10.20429/tag.2026.130103; same title and authors; accessible record does not resolve section changes.",
+        "identifier_or_url": "https://digitalcommons.georgiasouthern.edu/tag/vol13/iss1/3/",
+        "material_read": "Journal bibliographic landing page and abstract only; direct article download returned HTTP 403. Full content not inspected.",
+        "method": "Publisher landing-page inspection with a bounded full-text access attempt; used the complete accessible arXiv preprint for actual theorem comparison.",
+        "title": "The k-Total Bondage Number of a Graph (2026 journal edition)",
+        "trigger": "Potential later edition of the same decisive primary paper."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: ordinary total bondage is a one-unit invariant, not a statement covering all minimum two-unit deletion sets.",
+        "evidence": "Xu (2013), Section 8.1; the 1991 Kulli-Patwari result described there concerns one-unit total bondage.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/595210",
+        "material_read": "Accessible HTML section 8.1 on total bondage and surrounding definitions/references.",
+        "method": "Direct reading of survey text in relevant section.",
+        "title": "On Bondage Numbers of Graphs: A Survey with Some Comments",
+        "trigger": "Potential older aliases or stronger generic theorem for total bondage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e58ed93-4375-480f-884a-c03191e5fe1d",
+  "value": {
+    "rationale": "The new exact high-imbalance equality completes the natural complete-bipartite two-total bondage problem studied in a 2025/2026 paper, with an explicitly sharp transition at \\(b=2a\\). The complete labelled extremizer classification reveals genuinely different failure mechanisms: full-degree elimination via a surjection, versus a three-column pair-cover design. Their exact Stirling counts and coexistence at the threshold are structural information not determined by prior scalar bounds. The object and invariant are motivated by robustness of total domination under edge failure, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
