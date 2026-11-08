@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The definition uses noncollinear triples of the binary Fano plane, not any graph independence complex. The integral homology proof converts each omitted line-triangle boundary to three present noncollinear triangle boundaries and recovers the full integer cycle lattice of the complete seven-vertex graph. The signed Hopf trace identity then determines the full action because all other reduced homology vanishes. The group-character table gives the complex-irreducible decomposition. The exhaustive checker reproduces \(28\) integral cone identities, \(8232\) boundary equivariance tests and all \(168\) character values.
+
+**Originality: PASS relative to inspected sources, with residual priority risk.** Earlier material defines the Fano matroid and the general framework for equivariant matroid homology. In particular, the work of Moci and Pezzoli applies to automorphism representations of matroid independence complexes generally, but its explicit complete-graph-matroid results do not supply the stated Fano character or cyclic quotient dimensions. Related homology representations for the incidence graph's ordinary matching and independent-set complexes involve different simplicial objects. No precisely covering statement was recovered from the literature and mathematical research-record comparisons; this is not a proof of priority or independence from all possible literature.
+
+**Value: PASS.** The Fano matroid is the smallest projective binary plane matroid, with an exceptional \(168\)-element automorphism group. Its rank \(13\) alone hides a nontrivial \(7+3+3\) character splitting. The integer torsion-free homology calculation, complete class character, and proper-subgroup quotient ranks distinguish the equivariant topology of this canonical geometric object. This is a motivated complete natural invariant, not a purely numerical re-enumeration.
+
+**Sources and limits.** Cameron (11 March 2015) fixes the independently described object; Moci–Pezzoli (2020) is the closest general representation-theoretic framework; the standard \(PSL_2(7)\) character table identifies constituents. The finding does not classify the integral group lattice, and a more obscure equivalent character computation remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
