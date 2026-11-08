@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every 0<a<1 and N>=2, the positive Poisson angular density yields E U=(a,0) with bounded unit observations and finite variance 1-a². The initial residual support forces the first averaged row, giving x1=v_N/||v_N||². For N=1 the unit row gives exact finite MSE a^{-2}-1. Antipodal cancellation for N=2 provides probability at least c r of a radius-r near-zero mean; at all N>=3, two independent tangent columns at a regular polygon give a local C¹ diffeomorphism and probability at least c_N r². Tail integration proves infinite negative second moment and error MSE; the strong law proves a.s. consistency. Differential bound on stabilized T, Hoeffding and deterministic ridge bias yield explicit O_a(1/N) mean-square upper bound. `checks.py` passed finite algebra and numerical tests; these do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borwein et al. (2011) already give planar uniform random-walk radial densities and negative-moment behavior, mathematical ingredients of the lower-tail argument.",
+        "Goldshlager, Hu and Lin (2025) give a regularized *sampled-block* Kaczmarz method to control near-singular sampled systems; this makes adding a ridge classical rather than new.",
+        "Moorman et al. (2020) average separate normalized Kaczmarz updates from fixed coefficients; Gan and Wu (2026) study expected-error bounds for different doubly noisy variants."
+      ],
+      "reasoning": "The known random-walk and ridge results strongly overlap with the component techniques. However, the inspected work does not state the combined source-algorithm failure under normalized unbiased observations, all finite N, and arbitrary small coefficient noise on a well-conditioned SPD system. A future broad inverse-moment theorem may imply the probabilistic step; this historical risk is explicit rather than ruled out.",
+      "searches": [
+        "arXiv:1103.2995 §§1,3-4,7",
+        "negative moments planar random walk Pearson unit steps Kaczmarz ratio inverse norm",
+        "arXiv:2502.00882 §§1-2,5",
+        "arXiv:2002.04126 §§1-2",
+        "arXiv:2608.22259 §§1,4-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.29372v1",
+      "arXiv:1103.2995",
+      "arXiv:2002.04126",
+      "arXiv:2502.00882",
+      "arXiv:2608.22259",
+      "published finding: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz",
+      "published finding: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+      "published finding: Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source gives a finite-second-moment, normalized-observation mean-square convergence claim for the averaging-before-normalization update. The counterexample supplies nonintegrability of the exact one-step update under those assumptions.",
+        "The 2011 result treats the uniform-angular underlying random walk, but its zero-mean law cannot produce the specified true SPD system without a change of measure and the Kaczmarz application.",
+        "The 2025 paper establishes regularization for different block data; the particular one-step bound follows here by a fresh derivative/large-deviation argument."
+      ],
+      "reasoning": "The source theorem is not a stronger covering statement of the candidate; it addresses a claimed positive bound and lacks an inverse-moment hypothesis needed for its full expectation. General random-walk density bounds plus bounded change of angular measure can imply the probabilistic divergence, but not the algorithm-specific setup and matched ridge estimate without further steps. The earlier regularization theorem does not directly yield this fixed-true-system sample-averaging error bound.",
+      "searches": [
+        "arXiv:2603.29372 §4 Theorem 4.1/Assumption 4.1",
+        "randomized Kaczmarz noisy normalized rows inverse moments expected error signal averaging",
+        "arXiv:1103.2995 §§1,7",
+        "arXiv:2502.00882 §5",
+        "arXiv:2002.04126 §1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Algorithm 2 computes average observed coefficient row and then divides the residual by its squared norm; with x0=0 and b=(1,0), the first row is chosen deterministically and x1=v_N/||v_N||^2.",
+        "Classical random-walk moment theory studies negative powers of the length of a sum of planar unit vectors; this is the exact denominator moment after reducing the first update."
+      ],
+      "reasoning": "Equivalent forms include nonintegrability of ||N^{-1} sum_j U_j||^{-2}, divergence of the squared self-normalized Kaczmarz first update, and failure of uniform full-expectation accuracy under finite variance. The uniform-angle walk is not by itself a counterexample with nonsingular true expected A: its mean row vanishes. The strictly positive biased density and the addition of a deterministic second row yield a full-rank true problem.",
+      "searches": [
+        "signal averaged relaxed greedy randomized Kaczmarz 2603.29372 zero averaged row singular inverse moment infinite expectation bounded unit norm",
+        "normalized noisy row signal averaging Kaczmarz infinite inverse squared row norm mean square despite vanishing noise",
+        "arXiv 2603.29372 signal averaging noisy coefficient rows random unit vectors near cancellation inverse moments",
+        "arXiv:2603.29372 §4 Algorithm 2/Theorem 4.1",
+        "arXiv:1103.2995 §§1,6-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned related published-result titles include Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz, Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz, and Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation.",
+        "The same queries returned general moment and inverse-stability findings, but no entry specifying the averaged-row Poisson-kernel construction or N-uniform first-step infinite MSE."
+      ],
+      "reasoning": "This is not an unknown finite table or enumerated constant. The record checks concern identical/included statements rather than table lookup. A failed semantic match alone is not proof of priority, so primary paper implications were compared separately.",
+      "searches": [
+        "signal averaged relaxed greedy randomized Kaczmarz 2603.29372 zero averaged row singular inverse moment infinite expectation bounded unit norm",
+        "normalized noisy row signal averaging Kaczmarz infinite inverse squared row norm mean square despite vanishing noise",
+        "arXiv 2603.29372 signal averaging noisy coefficient rows random unit vectors near cancellation inverse moments",
+        "negative moments planar random walk Pearson unit steps Kaczmarz ratio inverse norm",
+        "finite variance individual noisy coefficients inverse moments average row norm squared deterministic ridge Kaczmarz",
+        "published result semantic search: signal averaged relaxed greedy randomized Kaczmarz 2603.29372 zero averaged row singular inverse moment infinite expectation bounded unit norm"
+      ]
+    },
+    "rationale": "Direct comparison with Algorithm 2, Assumption 4.1 and Theorem 4.1 of arXiv:2603.29372 isolates the currently unaccounted-for squared inverse averaged row norm in a full-rank, positive-mean observation family. The classical uniform planar random-walk negative-moment literature contains the singularity as a general phenomenon, and regularized block Kaczmarz is prior art, but none of the inspected primary statements or published-result summaries directly give this sharp batch-one versus every-N>=2, arbitrarily-low-noise, forced-greedy, full-rank application with one-step ridge rate. Priority remains qualified by broader inverse-moment/ratio literature.",
+    "residual_risks": [
+      "The negative-moment divergence is conceptually classical in planar random-walk and ratio-estimator literature; a historical generic theorem could imply parts with a short reduction.",
+      "Semantic search is not an exhaustive historical originality guarantee.",
+      "The motivating manuscript has other revised public versions; only available relevant primary material read was compared, not every potential future revision."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers algorithm and claimed rate, not the present explicit inverse-moment counterexample",
+        "evidence": "Assumption 4.1 row normalization/finite second moments; Algorithm 2 (4.1), threshold and update; Theorem 4.1 and Remark 4.3.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.29372",
+        "material_read": "Full HTML §§1,3,4; source PDF pages covering Assumption 4.1, Algorithm 2, Theorem 4.1 and proof",
+        "method": "Read primary manuscript text, displayed update and assumptions and relevant theorem/proof; inspected corresponding PDF pages",
+        "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Same averaging-before-row-normalization formula and finite mean-square claims"
+      },
+      {
+        "assessment": "Classical origin singularity; not a full-rank biased-observation Kaczmarz result",
+        "evidence": "Radial densities p2,p3,p4 and moment continuation near critical negative exponent.",
+        "identifier_or_url": "https://arxiv.org/abs/1103.2995",
+        "material_read": "Full arXiv HTML §§1,4,6-7 concerning radial density and moment functions",
+        "method": "Primary full-text mathematical comparison of uniform-direction radial law",
+        "title": "Densities of short uniform random walks",
+        "trigger": "Potential stronger prior for singular negative moments of planar sums"
+      },
+      {
+        "assessment": "Not directly covering; its denominators belong to fixed rows before averaging, not a near-zero stochastic averaged row",
+        "evidence": "§1.2 equation (3).",
+        "identifier_or_url": "https://arxiv.org/abs/2002.04126",
+        "material_read": "Full HTML §§1-2, including equation (3) and algorithm",
+        "method": "Primary formula comparison of average of updates vs update from average row",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "Same averaging/Kaczmarz terminology"
+      },
+      {
+        "assessment": "Regularization mechanism is prior; different block-sampling model and not direct all-finite-N counterexample",
+        "evidence": "Eq. (8), ReBlocK M(AS)=(AS AS^T+λ kI)^{-1}, §5 near singular sampled blocks.",
+        "identifier_or_url": "https://arxiv.org/abs/2502.00882",
+        "material_read": "Full HTML introduction, Sections 2 and 5 including ReBlocK formulas/robustness statements",
+        "method": "Primary result and assumption comparison",
+        "title": "Worth Their Weight: Randomized and Regularized Block Kaczmarz Algorithms without Preprocessing",
+        "trigger": "Regularization of random near-singular Kaczmarz systems might dominate ridge remedy"
+      },
+      {
+        "assessment": "Distinct RK/REK/RBK/RDBK noisy-data framework, not averaging noisy coefficient rows before denominator",
+        "evidence": "Abstract; §§1 and 4 main-results synopsis.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.22259",
+        "material_read": "Full HTML abstract/introduction and main-results synopsis in §§4-5",
+        "method": "Compared algorithmic objects and types of expected-error claims",
+        "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+        "trigger": "Possible later related doubly-noisy mean-square theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f833da7a-ff2c-4ac5-a6b9-eec32c4b4b64",
+  "value": {
+    "rationale": "The source RGRK-SA method promises noise reduction from repeated normalized coefficient observations. This exact full-rank SPD, arbitrarily-small-noise model isolates why averaging unit rows does not control inverse squared averaged-row norms, and proves a sharp risk discontinuity between one normalized observation (exact finite MSE a^{-2}-1) and every larger finite batch (infinite MSE), despite a.s. success as N tends to infinity. A matched stabilized first-step estimate supplies an actionable calibration condition. The distinction is mathematical and algorithm-specific, not a mere assertion of nonzero noise or numerical rarity. Scope is deliberately one step.",
+    "status": "PASS"
+  }
+}
