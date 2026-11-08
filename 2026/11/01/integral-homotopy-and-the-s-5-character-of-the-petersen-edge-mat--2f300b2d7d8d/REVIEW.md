@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Complete independent enumeration of \(\mathcal M(P)\) gives the 332-face complex. A 158-pair Morse matching is explicitly checked acyclic over every nonempty Hasse incidence, and signed integral unit-pivot cancellation yields a seven-by-seven boundary matrix of rank two with a unit two-by-two minor. Because the Morse complex has only one zero-cell and cells in degrees two and three, primitive attaching degrees establish the claimed integral wedge. Full rational \(S_5\) characters are checked over all 120 automorphisms by signed chain traces and boundary-image traces. The standalone code reproduces all steps without external certificates.
+## correctness
 
-**Originality — PASS against inspected sources.** Mondal–Mukherjee–Saha study \(\mathcal M(K_n)\); their statement that \(\mathcal M(K_5)\) **is the Petersen graph** does not compute \(\mathcal M(P)\). Larrión–Pizaña–Villarroel-Flores study a clique-operator problem for the graph \(G_5=P\). The nearest publicly indexed two-matching and Morse-complex claims concern different face conditions. Other known symmetry calculations involve different graph configuration spaces. The precise definitions, characters, aliases, and possible stronger statements were compared, rather than just their titles. An equivalent result could still exist in unindexed work.
+PASS
 
-**Value — PASS.** The Petersen graph is the standard small symmetric cubic graph. Its edge-matching complex has a genuine mixed-dimensional integral homotopy wedge, while its equal-rank homology groups carry inequivalent nontrivial irreducible-content symmetry types. These are natural graph-topological and representation-theoretic invariants beyond a raw Betti-number computation.
+PASS: Independently generated Petersen Kneser graph and its 332 matching faces, f=(15,75,145,90,6), distinct from the 1-dimensional graph realization M(K5). Full finite acyclic greedy discrete Morse checking found 158 matched pairs on 331 nonempty faces and topologically visited all 975 Hasse incidences, leaving cells {0:1,2:7,3:7}. Independent exact signed Morse boundary on seven 3-cells and seven 2-cells reproduced the printed 7×7 matrix and has exactly two primitive unit factors and rank two; with simply connected 2-skeleton, π2=H2 gives all 3-cell attaching maps, so integral CW reductions yield 5 S2 and 5 S3, not merely Betti ranks. Independently computed modular chain and boundary-image traces for all 120 S5 permutations, checking χ2=sgn(g)*f1(g), χ3=f2(g)-f1(g); finite modulus 1000003 exceeds twice any possible chain trace so integer lifts are unambiguous. Splitting into sign-twisted permutation five module and irreducible Specht(3,2) follows standard permutation-character decomposition.
 
-**Limitations.** The result is for one canonical nonpure graph complex, with rational homology representations and a nonequivariant homotopy decomposition; no generality or integral equivariance is claimed. Relevant inspected sources include arXiv:2303.07054, arXiv:2305.02973, the Larrión–Pizaña–Villarroel-Flores clique-operator paper, and nearby public graph-matching calculations. Searches cannot rule out unindexed coverage. Independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Published Mondal–Mukherjee–Saha compute M(K_n), in which M(K5) is the Petersen GRAPH, rather than the matching complex M(P) on the 15 Petersen edges; these cannot be conflated. Published Petersen 2-matching, Morse, cut, and configuration-space computations concern different complexes. The exact mixed-dimensional integral wedge and full S5 character were not found as covered statements; unindexed finite census remains risk.
+
+## value
+
+PASS
+
+PASS: The Petersen graph is a canonical highly symmetric graph; both the full nonequivariant homotopy and S5 representation are genuinely informative for its matching complex, distinguishing two nonisomorphic five-dimensional homology modules that ranks alone do not identify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

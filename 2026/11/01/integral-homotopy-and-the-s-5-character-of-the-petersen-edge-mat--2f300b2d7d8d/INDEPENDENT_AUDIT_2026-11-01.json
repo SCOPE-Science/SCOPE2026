@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:45:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently generated Petersen Kneser graph and its 332 matching faces, f=(15,75,145,90,6), distinct from the 1-dimensional graph realization M(K5). Full finite acyclic greedy discrete Morse checking found 158 matched pairs on 331 nonempty faces and topologically visited all 975 Hasse incidences, leaving cells {0:1,2:7,3:7}. Independent exact signed Morse boundary on seven 3-cells and seven 2-cells reproduced the printed 7×7 matrix and has exactly two primitive unit factors and rank two; with simply connected 2-skeleton, π2=H2 gives all 3-cell attaching maps, so integral CW reductions yield 5 S2 and 5 S3, not merely Betti ranks. Independently computed modular chain and boundary-image traces for all 120 S5 permutations, checking χ2=sgn(g)*f1(g), χ3=f2(g)-f1(g); finite modulus 1000003 exceeds twice any possible chain trace so integer lifts are unambiguous. Splitting into sign-twisted permutation five module and irreducible Specht(3,2) follows standard permutation-character decomposition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mondal et al Theorems 1.2–1.4 concern complete graphs K_n, particularly K7; Petersen two-matching is a different upper-degree constraint and Morse complex uses oriented graph incidences."
+        ],
+        "reasoning": "No stronger graph-family theorem read whose Petersen-edge matching homotopy and full S5 representation follow as a corollary.",
+        "searches": [
+          "https://dmtcs.episciences.org/en/articles/12887/download",
+          "Resultary Petersen 2-matching complex c0442780c8c1",
+          "Resultary Petersen graph Morse complex 402d43c0c821"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify_petersen_matching.py Git blobs",
+        "Independent matching enumeration, all 331-face Hasse acyclicity, exact 7×7 integral cancellation",
+        "All 120 S5 homology traces via independent finite-field chain images",
+        "DMTCS Mondal–Mukherjee–Saha 2024 primary PDF sections and theorem statements",
+        "Resultary comparative Petersen 2-matching/Morse/cut findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M(K_n) graph family differs from M(P). Existing Petersen Morse complex has spheres in degrees 7/8, whereas claimed M(P) has degrees 2/3."
+        ],
+        "reasoning": "No prior statement implies this homotopy decomposition or representation; this result neither supersedes M(K_n) nor concerns the ordinary Morse matching of P.",
+        "searches": [
+          "Mondal–Mukherjee–Saha 2024 DMTCS Theorem1.3",
+          "Resultary/2026 Petersen two-matching and Morse results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M(P)=Ind(L(P)) has 15 vertices, 332 augmented faces and dimension4; M(K5) has 10 vertices and is itself the Petersen graph dimension1."
+        ],
+        "reasoning": "The notational trap is the main alias: M(K5) ≅ P as a graph, but M(P) ≠ M(K5). The reported new result concerns M(P), with its natural S5 automorphisms.",
+        "searches": [
+          "Petersen graph ordinary edge matching complex homotopy wedge spheres S5 representation",
+          "Mondal Mukherjee Saha 2024 M_n complete graph",
+          "Resultary: Petersen ordinary edge matching complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published tables describe P two-matching, P Morse, P total cut, P homology configuration, not f-vector 15,75,145,90,6 and the two H2/H3 S5 characters."
+        ],
+        "reasoning": "Matching dimension and exact simplicial definition distinguish the tables; a similarly named graph result does not cover these invariants.",
+        "searches": [
+          "Resultary: Petersen graph ordinary edge matching complex homotopy wedge spheres S5 representation",
+          "SCOPE Petersen 2-matching complex and Petersen Morse complex",
+          "web: Petersen graph matching complex integral homotopy 5 spheres 2 5 spheres 3"
+        ]
+      },
+      "rationale": "PASS: Published Mondal–Mukherjee–Saha compute M(K_n), in which M(K5) is the Petersen GRAPH, rather than the matching complex M(P) on the 15 Petersen edges; these cannot be conflated. Published Petersen 2-matching, Morse, cut, and configuration-space computations concern different complexes. The exact mixed-dimensional integral wedge and full S5 character were not found as covered statements; unindexed finite census remains risk.",
+      "residual_risks": [
+        "Full integral S5-lattice structure or an equivariant wedge splitting is not established.",
+        "Specialized previous finite matching-complex enumeration for the Petersen graph might be unindexed.",
+        "Finite homology representation computed modulo a large prime with justified trace bounds; this gives rational characters, not integral module classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only M(K_n) for complete graph n, so no theorem about M(Petersen) as matching complex",
+          "evidence": "Section 1 defines M_n=M(K_n); Theorem1.3 computes M_7 homology, not M(P).",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/12887/download",
+          "material_read": "Full paper PDF opened; introduction §1, definitions §2, Theorems 1.2–1.4, specific graph family and n=7 main result",
+          "method": "Open access 40-page primary PDF, relevant sections read",
+          "title": "Topology of matching complexes of complete graphs via discrete Morse theory",
+          "trigger": "Potential notation confusion: M(K5) is Petersen graph"
+        },
+        {
+          "assessment": "Different 2-matching construction, no implication of ordinary M(P) homology",
+          "evidence": "Its rank4 degree7 wedge concerns degree-at-most-two edge families, not pairwise edge-disjoint matching simplices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1",
+          "material_read": "Published semantic finding title and summary; complete primary record not retrieved",
+          "method": "Resultary semantic search returned full summary",
+          "title": "The Petersen 2-matching complex is a wedge of four 7-spheres",
+          "trigger": "Same graph, potential stronger matching parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The Petersen graph is a canonical highly symmetric graph; both the full nonequivariant homotopy and S5 representation are genuinely informative for its matching complex, distinguishing two nonisomorphic five-dimensional homology modules that ranks alone do not identify.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify_petersen_matching.py Git blobs",
+    "Independent matching enumeration, all 331-face Hasse acyclicity, exact 7×7 integral cancellation",
+    "All 120 S5 homology traces via independent finite-field chain images",
+    "DMTCS Mondal–Mukherjee–Saha 2024 primary PDF sections and theorem statements",
+    "Resultary comparative Petersen 2-matching/Morse/cut findings"
+  ],
+  "disposition": "passed",
+  "final_claim": "The ordinary edge-matching complex of Petersen graph KG(5,2), with fifteen vertices corresponding to graph edges, has integral homotopy type five 2-spheres wedged with five 3-spheres; its S5 rational homology has H2 = sgn tensor Q^5 and H3 = Specht(3,2).",
+  "limitations": [
+    "Full integral S5-lattice structure or an equivariant wedge splitting is not established.",
+    "Specialized previous finite matching-complex enumeration for the Petersen graph might be unindexed.",
+    "Finite homology representation computed modulo a large prime with justified trace bounds; this gives rational characters, not integral module classification."
+  ],
+  "residual_risks": [
+    "Full integral S5-lattice structure or an equivariant wedge splitting is not established.",
+    "Specialized previous finite matching-complex enumeration for the Petersen graph might be unindexed.",
+    "Finite homology representation computed modulo a large prime with justified trace bounds; this gives rational characters, not integral module classification."
+  ],
+  "schema_version": 1
+}
