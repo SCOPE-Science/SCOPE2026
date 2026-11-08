@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:47:05.022514Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published MSD interval construction partitions irrational-circle endpoints from negative indices -(c+1),-(c+2). At c=F_k-2, their right-shift chains share all indices -F_(k-1),...,-F_2, yielding k distinct endpoints and <=k states. The lower bound uses the rotation identity F_t phi-F_(t+1)=(-1)^(t+1)phi^-t and the Fibonacci-word coding interval (gamma,2gamma). The k valid prefixes 0,F_2,...,F_(k-1), plus q=4 when k odd or q=6 when k even, have pairwise inequivalent residual functions under suffices of zeroes: F_i prefixes have different last disagreements with baseline at depths k-1-i; q matches F_2 after positive depths but disagrees at zero depth. This proves >=k by Myhill–Nerode on allowed inputs, hence exact k. A newly written Zeckendorf/rotation integer checker verified 31 individual shifts k=5..35 and all k residual distinctions; they corroborate the all-k inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General O(log c) upper bound and related linear-subsequence complexity"
+        ],
+        "reasoning": "Upper bounds cannot establish an exact family-wide minimum, and LSD-first automata differ in digit-reading direction; no broader theorem from these sources dominates the exact MSD result.",
+        "searches": [
+          "Fibonacci word shifted Fibonacci minus two c=F_k-2 minimum MSD-first DFAO Zeckendorf state complexity",
+          "arxiv:2603.18858v1",
+          "arxiv:2512.10017"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.18858v1",
+        "https://arxiv.org/abs/2512.10017",
+        "Git RESULT.md and its verification/check_integer.py and check_rotation.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Partition with at most k intervals for c=F_k-2 is accessible by substituting negative endpoint chains"
+        ],
+        "reasoning": "Proving an automaton with <=k states does not imply k is minimal. The new k pairwise inequivalent future output functions provide the missing Myhill–Nerode implication.",
+        "searches": [
+          "Fibonacci word shifted Fibonacci minus two c=F_k-2 minimum MSD-first DFAO Zeckendorf state complexity",
+          "arxiv:2603.18858v1 Definition 3, Lemma 5 and proof of Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary full-text MSD interval construction, separately exact LSD theorem and upper bound"
+        ],
+        "reasoning": "Same Fibonacci word and Zeckendorf reading direction were compared; known MSD upper bound lacks these lower-bound distinguishing prefixes.",
+        "searches": [
+          "Fibonacci word shifted Fibonacci minus two c=F_k-2 minimum MSD-first DFAO Zeckendorf state complexity",
+          "arxiv:2603.18858v1 Theorems 2 and 3",
+          "arxiv:2512.10017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-k Fibonacci-minus-two MSD table identified; related Fibonacci antipower/entropy results are different invariants"
+        ],
+        "reasoning": "This is an infinite symbolic family rather than an unmotivated finite lookup. Existing output transition examples do not by themselves constitute a minimal-state table.",
+        "searches": [
+          "Fibonacci word shifted Fibonacci minus two c=F_k-2 minimum MSD-first DFAO Zeckendorf state complexity",
+          "Resultary Zeckendorf shifted Fibonacci automaton minimal state searches"
+        ]
+      },
+      "rationale": "Moradi–Popoli–Shallit–Vukusic prove only logarithmic-size MSD upper construction (their Theorem 4.1/3) and separately an exact LSD-first minimum; their MSD result does not state or imply the matching k lower bound for c=F_k-2. The other linear-subsequence paper studies different operations. The new result is an infinite family of exact MSD MINIMA, not a generic bound or relabeling of an LSD formula.",
+      "residual_risks": [
+        "Equivalent older Zeckendorf residual-minimization theorem may exist in automata literature.",
+        "Upper-bound proof depends on the primary paper’s nontrivial interval-consistency lemma; only valid Zeckendorf inputs are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the MSD upper construction and distinct exact LSD question, not the asserted MSD minimality on c=F_k-2",
+          "evidence": "Theorem 3 logarithmic MSD upper bound; Theorem 2 exact LSD states",
+          "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+          "material_read": "Primary full arXiv HTML: definitions, interval automaton construction, Lemmas 4–5, Theorems 2 and 3 and referenced appendix",
+          "method": "arXiv full-text HTML read",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "Exactly same sequence and shifted MSD DFAO model"
+        },
+        {
+          "assessment": "Different subsequence/index operation; possible broader unpublished application retained as risk",
+          "evidence": "Not a direct k-state lower-bound theorem for Zeckendorf shifts",
+          "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+          "material_read": "Abstract and identified scope of linear-index subsequences, not full source",
+          "method": "arXiv abstract",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Possible general automatic-sequence complexity domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical sequence of Fibonacci-numeration shifts, it converts the recently published O(log c) construction into a sharp minimal DFAO state count, giving explicit infinitely many distinguishing residuals. An exact natural automata complexity invariant without solving every possible shift is useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2603.18858v1",
+    "https://arxiv.org/abs/2512.10017",
+    "Git RESULT.md and its verification/check_integer.py and check_rotation.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer k>=5, the minimal accessible MSD-first output DFAO computing the shifted Fibonacci word f(n+F_k-2) on valid Zeckendorf representations has exactly k states; leading zeros may be admitted.",
+  "limitations": [
+    "k>=5 only and shifts c=F_k-2; no minimal-state classification for arbitrary shift.",
+    "Only correctness on valid Zeckendorf expansions; behavior on invalid digit strings is unconstrained."
+  ],
+  "residual_risks": [
+    "Equivalent older Zeckendorf residual-minimization theorem may exist in automata literature.",
+    "Upper-bound proof depends on the primary paper’s nontrivial interval-consistency lemma; only valid Zeckendorf inputs are covered."
+  ],
+  "schema_version": 1
+}
