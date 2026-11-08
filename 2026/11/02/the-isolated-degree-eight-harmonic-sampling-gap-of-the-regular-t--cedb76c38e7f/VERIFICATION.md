@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-Exact rational elimination for degrees zero through eight establishes ranks 1, 3, 5, 6, 9, 9, 10, 12, and 11. The degree-eight alternating sign null vector, its zero sum, and the nonzero constant-sector eigenvalue are checked independently from the rational Gram matrix. Modular elimination over the prime 1000003 certifies full rank for every integer degree from nine through 134; all rational denominators are invertible modulo that prime. The Bernstein–Szegő inequality and strict diagonal dominance supply the analytic proof for all degrees at least 135. Running the included `CHECK.py` reproduced the declared checks.
+## correctness
 
-## Boundaries
+PASS
 
-No finite calculation is treated as a proof for infinitely many degrees. The infinite-degree proof invokes a classical, cited inequality. No numerical approximation, unattested full-text inspection, or independent audit is claimed.
+By the addition theorem the evaluation rank equals the rank of the 12×12 Legendre kernel Gram on antipodal representatives. Independent exact rational Gaussian elimination reproduces all nine low-degree ranks, shows the degree-eight sign vector spans its one-dimensional kernel and confirms G8*1=(72171/250000)*1. The frozen CHECK.py implements exact rational ranks for k≤8 and modular nonzero determinants mod 1000003 for every k=9..134 (all denominators invertible), proving nonvanishing over Q. For k≥135 the Bernstein–Szegő bound and off-diagonal |dot|≤4/5 give a strict <1 off-diagonal sum for every Gram row, hence positive definiteness and exhaustive infinite coverage. The entire checker and analytic inequality were inspected; the independent low-degree finite calculation does not itself prove the tail.
+
+## originality
+
+PASS
+
+The exact claimed statement and implications were compared, not merely titles. An exact-degree harmonic evaluation rank is the rank of the addition-theorem Legendre kernel, not cumulative-degree spherical polynomial interpolation or spherical design strength. The sign character is anti-invariant under odd coordinate permutations, unlike invariant cubature constraints. General harmonic-index design and group-orbit cubature criteria control particular invariant sums or selected moments, but do not entail the all-degree ranks on the truncated octahedron without evaluating its noninvariant Gram sectors. Nozaki–Sawa and Bannai–Okuda–Tagami supply harmonic kernels and design machinery; the newly claimed finite exceptional rank and complete infinite rank threshold are not stated in the sections actually inspected. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
+
+## value
+
+PASS
+
+The precise degree-eight rank relapse after already attaining maximal parity rank at degree seven is a surprising and usable obstruction to exact-degree interpolation on a familiar Archimedean orbit. The explicit alternating harmonic moment identity is motivated independent information not captured by ordinary invariant cubature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

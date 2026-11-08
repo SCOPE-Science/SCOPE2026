@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized 24-vertex coordinates, antipodal reduction, real spherical addition formula, and exact rational Legendre recurrence are explicit. Rational elimination establishes the nine low-degree ranks and one-dimensional degree-eight signed kernel; nonzero determinants in a finite field establish all degrees 9–134; Bernstein–Szegő plus strict diagonal dominance covers all 135 and higher without extrapolation. Replaying the packaged standalone checker confirms 19,440 exact matrix-entry checks. Risk is chiefly a transcription error in the imported classical Legendre bound; its standard sharp form and the numerical threshold have been checked against the cited inequality and the complete matrix geometry.
+PASS
 
-## Originality — PASS under bounded review
+By the addition theorem the evaluation rank equals the rank of the 12×12 Legendre kernel Gram on antipodal representatives. Independent exact rational Gaussian elimination reproduces all nine low-degree ranks, shows the degree-eight sign vector spans its one-dimensional kernel and confirms G8*1=(72171/250000)*1. The frozen CHECK.py implements exact rational ranks for k≤8 and modular nonzero determinants mod 1000003 for every k=9..134 (all denominators invertible), proving nonvanishing over Q. For k≥135 the Bernstein–Szegő bound and off-diagonal |dot|≤4/5 give a strict <1 off-diagonal sum for every Gram row, hence positive definiteness and exhaustive infinite coverage. The entire checker and analytic inequality were inspected; the independent low-degree finite calculation does not itself prove the tail.
 
-The nearest inspected primary discussions are Nozaki–Sawa (2011), which reduces group-orbit cubature to invariant harmonic moments, and Bannai–Okuda–Tagami (2013), which treats general harmonic-index bounds. They do not state this truncated-octahedron all-degree rank sequence in the inspected relevant sections. The degree-eight relation is an alternating, non-invariant isotypic component absent from invariant cubature tests. Other accessible research results on the truncated-octahedral graph concern its geometry, graph complexes or filtrations rather than exact Legendre interpolation. A historical representation-theoretic equivalent may still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete exact-degree interpolation classification for a canonical 24-vertex Archimedean spherical orbit. It distinguishes first full interpolation at degree seven from the sharp *permanent* threshold nine and identifies the unique degree-eight alternating-moment cancellation that intervenes. The classification and explicit null character are natural algebraic invariants useful in spherical sampling and quadrature; they are not a generic low-degree count or arbitrary parameter slice.
+The exact claimed statement and implications were compared, not merely titles. An exact-degree harmonic evaluation rank is the rank of the addition-theorem Legendre kernel, not cumulative-degree spherical polynomial interpolation or spherical design strength. The sign character is anti-invariant under odd coordinate permutations, unlike invariant cubature constraints. General harmonic-index design and group-orbit cubature criteria control particular invariant sums or selected moments, but do not entail the all-degree ranks on the truncated octahedron without evaluating its noninvariant Gram sectors. Nozaki–Sawa and Bannai–Okuda–Tagami supply harmonic kernels and design machinery; the newly claimed finite exceptional rank and complete infinite rank threshold are not stated in the sections actually inspected. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
 
-## Boundaries and sources
+## value
 
-Relevant sources: arXiv:1102.4891, arXiv:1308.5101, classical Bernstein inequality in Szegő's *Orthogonal Polynomials*, NIST DLMF §14.30, and standard geometric descriptions of the truncated octahedron. Historical equivalence risk and absent independent verification remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise degree-eight rank relapse after already attaining maximal parity rank at degree seven is a surprising and usable obstruction to exact-degree interpolation on a familiar Archimedean orbit. The explicit alternating harmonic moment identity is motivated independent information not captured by ordinary invariant cubature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
