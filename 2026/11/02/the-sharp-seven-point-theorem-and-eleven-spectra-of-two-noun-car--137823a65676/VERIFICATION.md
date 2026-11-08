@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-`python3 checker.py` first evaluates all 64 raw sentence forms on every four-cell vector of positive total size at most \(10\), confirming exact equivalence to the normal-form invariant. It then checks the truth-profile reduction for every four-cell vector of positive total size at most \(30\), covering 46,375 vectors. It verifies support and comparison-sign conservation, the seven-element witness bound, and exactly 67 distinct semantic profiles; it checks explicit spectra through size \(28\). Execution returned `ALL_CHECKS_OK`.
+## correctness
 
-The general theorem is proven using four-cell semantics, a complete sign-chamber reduction, direct profile counting, Jiang's general finite-spectrum classification, and explicit all-size witnesses. The script does not establish all infinite cases or historical priority. No independent audit has been performed.
+PASS
+
+Every sentence is determined by support of four Boolean cells and signs of u=a-d,v=b-c,u+v,u-v. Integer representative reduction to |U|+|V|<=3 with at most four positivity offsets gives <=7 points. Direct independent enumeration at total sizes 1..16 yields 67 profiles with sharp minimum-witness maximum 7. The eleven spectra use Jiang general tail/even-tail theorem plus direct all-size witnesses for T1..T7,E2,E4,E6; no Boolean sentence combinations are introduced.
+
+## originality
+
+PASS
+
+Exact two-noun support-and-sign classification and sharp cutoff appear non-implied by the inspected full one-variable and abstract unrestricted statements.
+
+## value
+
+PASS
+
+Natural complete bounded-vocabulary classification, with exact finite spectra, sharp uniform small-model size, and count of full semantic types; reveals how a second noun extends the previously established one-noun hierarchy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
