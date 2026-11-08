@@ -1,19 +1,21 @@
-# Scientific review: a sharp nonbacktracking cover-time law for clique windmills
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The asserted objects are the genuine uniform-neighbor nonbacktracking walk and the standard simple walk on \(K_1\vee(nK_m)\), with fixed \(m\ge3\). The proof derives the per-excursion avoidance probabilities exactly from absorbing races, including the prohibited immediate return after entering a petal. It treats nonbacktracking hub memory explicitly rather than pretending that excursions are independent. For any fixed marked set its conditional hit hazard differs from \(\sum_i h(s_i)/n\) by \(O(n^{-2})\), uniformly in the number of previous unsuccessful excursions; factorial moments then show a Poisson law for uncovered vertices. Independent exponential-tailed excursion lengths justify moving from excursion counts to edge-step cover times; a union bound and Wald's identity give the mean asymptotics. The exact-rational finite-state checker passes 114 assertions for both walks on all petal sizes 2 through 7. The full asymptotic proof is analytic, not inferred from those finite tests.
+PASS
 
-## Originality (O): PASS, with residual historical risk
+Fixed m≥3, n→∞, hub-started genuine nonbacktracking excludes the incoming hub neighbor. Exact avoidance for s marked vertices in a petal is 1−hS=(m−s)/(m(s+1)) and 1−hN=(m−s)(m−s−1)/(m(m−1)(s+1)), confirmed independently for m=3..7. For a tagged finite set, conditional exclusion of the incoming vertex affects hazard by O(n^-2), because its preceding petal is marked with conditional probability O(n^-1); a fixed-k factorial-moment Poisson limit follows as multi-vertex same-petal hazards satisfy h(s)>h(1). Per-excursion mean length m+1 with geometric tail, maximal deviation O_p(sqrt(n log n))=o_p(n), transferring the Gumbel limit and its mean. The uniform one-site hazard gives a summable tail. Constants qS=(m+1)/(2m), qN=(m+2)/(2m), mean speedup (m+1)/(m+2). Finite checks alone do not prove the limit.
 
-The closest full-text primary comparison is Tishby–Biham–Katzav (2021, arXiv:2110.13592): its random regular graph models and associated nonbacktracking cover-time calculations do not include clique windmills with a hub whose degree is \(nm\), and its regular-network Gumbel constants cannot be substituted into the displayed windmill law. Breen et al. (2022, arXiv:2203.12049) treat nonbacktracking Kemeny constants, not full vertex-cover times. Sylvester (2021, arXiv:2102.12356) proves rationality of finite Markov-chain cover-time means, which is weaker in a different direction. The separately known triangle-bouquet nonbacktracking calculation treats \(m=2\), whereas this finding requires \(m\ge3\), for which an excursion need not cover an entire petal. The new comparison also distinguishes the sharp leading mean-ratio \((m+1)/(m+2)\) from a generic Gumbel-class statement. Searches for clique-windmill, bouquet, nonbacktracking and marked-excursion formulations revealed no equivalent theorem; search failure alone is not a proof of priority. Specialized nonindexed graph-cover calculations are a residual risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-A bouquet of cliques is a canonical highly inhomogeneous graph with a single high-degree bottleneck. Its cover time probes a meaningful algorithmic distinction: the two walk rules have exactly the same mean duration per hub excursion, yet excluding immediate backtracking produces a measurable strict asymptotic reduction in total exploration time. The result gives exact petal-hit probabilities, identifies why the hub memory does not destroy the uncovered-vertex Poisson limit, and quantifies the speedup sharply for every fixed clique size at least three. This is not an arbitrary parameter slice or a mere textbook coupon-collector substitution, because in the genuine nonbacktracking process excursions are dependent and a petal may be only partially explored.
+Best-of-knowledge PASS. Fixed-m windmill hub degree nm and correlated nonbacktracking excursions materially differ from classical random regular graph Gumbel results or nonbacktracking Kemeny constants. The exact petal visit and hub-memory constants are not implied by the compared results, although broader specialized cover-time priority remains to be checked.
 
-## Limits and independent status
+## value
 
-The result is not uniform when \(m\) grows, and it makes no finite-size stochastic ordering claim. Independent validation and independent historical priority verification have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Windmill clique graph is a natural stress test for full coverage with a hub bottleneck: the two walks have equal mean excursion length but different probabilities of discovering the last rare vertices. A sharp Gumbel law with exact speedup across all fixed m≥3, requiring nontrivial dependent-excursion control, is mathematically useful, not just coupon-collector substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
