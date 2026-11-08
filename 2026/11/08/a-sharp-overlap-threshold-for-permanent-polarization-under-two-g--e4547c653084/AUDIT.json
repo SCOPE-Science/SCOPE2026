@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Derivation is exact for all odd a,b≥3 and 1≤s<min(a,b): after first effective update the other edge alone may remain active; after its firing private colors are fixed, and each private block dominates all shared flips iff 2s is strictly smaller than its full edge size. This gives a deterministic two-state recurrent class or consensus in at most four effective updates. Uniform earliest active clocks yield conditional formula; accounting for initially inactive other group yields unbiased law (T_a+T_b)/2. The standalone checker independently confirms 18,544 statewise rational comparisons and 46 fair-average comparisons. Finite tests do not establish universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golovin–Mölter–Kuehn study topology adaptation and mean-field approximations; no all-size two-edge overlap absorption law appears in relevant full-text sections.",
+        "Noonan–Lambiotte 2021 restrict to 3-body groups and analyze large mean-field/modular architectures.",
+        "Lanchier–Neufer 2013 address overlapping blocks on an infinite lattice."
+      ],
+      "reasoning": "A stronger finite-hypergraph theorem guaranteeing consensus under all connected overlaps would be incompatible with the provided explicit recurrent counterexamples, whereas generic finite Markov chain theory without a bespoke two-edge transition classification does not directly supply the threshold and coefficients. No explicit dominating special case was found in the accessible works.",
+      "searches": [
+        "arXiv:2308.03640 full-text majority propagation and numerical conclusions",
+        "arXiv:2101.03632 full-text §§II–IV",
+        "arXiv:1301.0151 spatial majority model",
+        "\"overlap threshold\" \"majority rule\" \"hyperedges\" \"consensus\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.03640",
+      "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevE.104.024316/fulltext",
+      "https://arxiv.org/abs/2201.06421",
+      "https://arxiv.org/abs/1301.0151"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior loose-hyperstar theorem for k≥2 with disjoint leaf pairs entails the case (a,b,s)=(3,3,1) and more than two size-three petals, but excludes shared intersection s≥2 and sizes five or more.",
+        "The literature provides update rules and broad numerical/diffusion analyses rather than the claimed exact two-hyperedge finite-chain implication."
+      ],
+      "reasoning": "Previous three-uniform hyperstar and this arbitrary-odd two-edge family intersect at exactly the two-triplet loose case. An all-size exact phase boundary does not follow from a single 3-uniform cardinality; the proof requires separate private-block majority inequalities for arbitrary a,b,s and correct first-event weighting for arbitrary size. Thus the claimed general classification is not a corollary of the explicitly recovered closest prior claim.",
+      "searches": [
+        "arXiv:2308.03640",
+        "arXiv:2101.03632",
+        "arXiv:2201.06421",
+        "arXiv:1301.0151",
+        "\"majority voting\" \"two overlapping\" \"hyperedges\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.03640 majority propagation is a hyperedge simultaneous-majority update; the present fixed two-edge problem is a zero-rewiring submodel.",
+        "arXiv:2101.03632 discusses consensus/absorption for full triplet, tripartite, and modular random hypergraph ensembles."
+      ],
+      "reasoning": "Also phrased as a two-committee overlapping quorum system with recurrent shared-block flips and as nonabsorbing closed communicating classes of a binary majority-update Markov chain. Similar dynamical vocabulary did not reveal an equivalent all-size two-edge formula in inspected material.",
+      "searches": [
+        "\"hypergraph majority rule group update two overlapping triangles periodic oscillation no consensus shared vertex\"",
+        "\"majority rule model hyperedges overlapping cliques perpetual disagreement nonconvergent cyclic update\"",
+        "\"two overlapping hyperedges\" \"majority\" \"consensus\"",
+        "\"overlapping hyperedges majority consensus oscillation binomial tail\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 3-uniform two-edge one-vertex-overlap probability 1/4 has an established prior analysis; the values (5,5,1)=5/16 and (5,5,2)=1/8 are not inferred from that result.",
+        "Exact-rational enumeration reproduces the formula on 46 finite size/intersection structures, but is not treated as a literature novelty certificate."
+      ],
+      "reasoning": "No accessed exact table contains the arbitrary odd-size/overlap conditional formula or its threshold. Prior triplet special cases are treated as known and credited, not counted as new.",
+      "searches": [
+        "\"two overlapping hyperedges\" \"majority\" \"consensus\"",
+        "\"hypergraph majority rule \"binomial\" \"overlap\" probability absorbing\"",
+        "\"two interacting committees shared members majority opinion oscillations exact probability\""
+      ]
+    },
+    "rationale": "The pre-existing 3-uniform loose-hyperstar analysis fixes two triplets to one shared vertex; that yields the (3,3,1) probability 1/4 and is not claimed as new. The new result gives all pairs of odd group sizes, every allowable shared intersection, exact arbitrary-initial-state absorption probabilities, an if-and-only-if overlap threshold, and the explicit unbiased binomial-tail law. Relevant accessible full-text source results on more general hypergraph dynamics were compared for coverage, not only by title. No directly dominating theorem was found, though unindexed equivalent results remain possible.",
+    "residual_risks": [
+      "An equivalent two-overlap law might appear in an unindexed preprint, thesis, appendix or general interacting-particle treatment.",
+      "The older 2013 spatial-paper full text was not fully inspected, although the stated setting differs.",
+      "The statement does not cover three or more overlapping groups, even group ties, heterogeneous clocks or topology adaptation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Initiating update mechanism but not a complete two-overlap size/intersection classification",
+        "evidence": "2023-08-07 v1; model combines group propagation and topological adaptation, unlike fixed two-edge no-rewiring restriction.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.03640",
+        "material_read": "Full-text available model-definition and majority-propagation sections, plus main conclusions; bibliographic first-version date",
+        "method": "Accessible paper text and arXiv metadata",
+        "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+        "trigger": "Identical majority-of-group update rule with optional adaptation"
+      },
+      {
+        "assessment": "Triplet-only full/random/modular ensembles; no exact two-group all-size intersection formula identified in relevant material",
+        "evidence": "Physical Review E 104, 024316 (2021), §§I–IV, Fig.2.",
+        "identifier_or_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevE.104.024316/fulltext",
+        "material_read": "Full-text Introduction, mean-field, tripartite, and modular hypergraph sections with defining equations and model diagrams",
+        "method": "Accessible publisher PDF parsed text",
+        "title": "Dynamics of Majority Rule on Hypergraphs",
+        "trigger": "Same simultaneous hyperedge-majority rule"
+      },
+      {
+        "assessment": "Different adaptive mechanism, not direct full coverage",
+        "evidence": "Physical Review E 105, 054307 (2022).",
+        "identifier_or_url": "https://arxiv.org/abs/2201.06421",
+        "material_read": "Accessible full-text description and model update comparison",
+        "method": "Open arXiv article text",
+        "title": "Consensus from Group Interactions: An Adaptive Voter Model on Hypergraphs",
+        "trigger": "Nearby adaptive group-opinion model"
+      },
+      {
+        "assessment": "Spatial lattice family does not directly state a finite two-edge classification; uninspected details leave residual priority risk",
+        "evidence": "2013 Journal of Statistical Physics article; hyperedges are overlapping n-dimensional lattice blocks.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.0151",
+        "material_read": "Accessible abstract and overview of spatial lattice-block model, not a complete full-paper inspection",
+        "method": "Article abstract and publication summary",
+        "title": "Stochastic Dynamics on Hypergraphs and the Spatial Majority Rule Model",
+        "trigger": "Potential general majority-rule coverage on overlapping hyperedges"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e4547c65-3084-4a92-bd3a-5af14716a05e",
+  "value": {
+    "rationale": "The two overlapping social groups form the smallest structurally nontrivial finite majority interaction system. The all-size conditional and exact ex-ante law, and if-and-only-if overlap threshold, quantify when shared members do and do not enforce global agreement. The result is a natural complete classification and supplies clear boundary cases for sparse higher-order contagion and opinion models, beyond the known triplet single-overlap special case.",
+    "status": "PASS"
+  }
+}
