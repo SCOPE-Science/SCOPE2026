@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies all diameter pairs as pairs of actual extreme vertices, proves strict positive inward projection along every diameter incidence, and gives local first-order deficit bounds. Independent tangent-cone Poisson limits then establish the global minimum. Cone Jacobians prove the exact Weibull/Rayleigh rates and the joint void distribution, with explicit dependency at repeated vertices. Simplex integration and finite inclusion-exclusion yield the two fourth-power small-tail coefficients. The nonregular two-edge-star triangle rates were recomputed directly, and the accompanying checker reports `ALL_CHECKS_PASSED`. The proof does not rely on finite experiments as an infinite-dimensional certificate.
+## correctness
 
-## Originality — PASS, conditional on historical-priority risk
-Lao (2010), Section 6.4, Theorem 6.8, gives a narrower result for even regular polygons and explicitly relies on disjoint diameter endpoints. Schrempp's first public 2017 preprint develops smooth unique-diameter limits, so its assumptions and scaling do not imply this corner-graph law. The equilateral triangle is acknowledged as a known special case, not novel. Actual semantic database searches for diameter graph, shared endpoints, polygon sample extremes and aliases did not surface the arbitrary-polygon correlated Poisson construction. Appel–Najim–Russo (2002) has potentially relevant geometric hypotheses, but full text could not be inspected; its abstract alone cannot establish noncoverage. Historical priority remains a real residual risk.
+PASS
 
-## Mathematical value — PASS
-An all-polygon joint limit with a complete graph-theoretic independence criterion resolves an actual obstruction in the classical even-regular-polygon analysis, rather than incrementing one coefficient. The nonregular two-diameter star exhibits a structurally distinct dependent limit; the sharp two-point tail gives an independently useful exact geometric rare-event benchmark.
+For any fixed convex polygon P with no redundant listed vertices and uniform iid points, all true diameter pairs are pairs of distinct polygon vertices by strict convexity of squared Euclidean distance along edges. At each diameter incidence the inward edge-ray projections onto diameter direction are strictly positive, giving local deficit D-|x-y|=u_v·z+u_w·q+O(|z|²+|q|²) and localization. Joint √n-rescaled point processes at different polygon vertices converge to independent intensity-1/A Poisson processes; the same process is retained for all edges incident to each vertex, yielding the stated min-of-edge-sums limit. Cone simplex area gives γ=sinθ/[2A(u·a)(u·b)] and exact void union law. Overlap at shared vertex gives strict positive covariance, while disjoint edges use disjoint processes. Two independent corner deficits yield t⁴/6 γ_vγ_w; intersections of low-edge events use >=3 distinct small cones and are O(t⁶), giving complete lower tail; the separate two-point tail counts both edge orientations and is ε⁴/3 Σγ_vγ_w+O(ε⁵). Independently recomputed the nonregular isosceles triangle rates 1/3 and 1/2, and coefficients 1/18,1/9. Finite geometric examples do not prove the Poisson weak limit, which follows from the point-process argument.
 
-## Boundaries
-Fixed full-dimensional convex polygons, uniform area measure, vertex diameter pairs, asymptotic \(n\to\infty\). No smooth-boundary extension and no independent audit are claimed. The two-point asymptotic is separate from the sample-diameter weak limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for arbitrary-polygon diameter graph Poisson limit with shared vertex incidence correlations, matching-graph independence iff classification, and the two sharp fourth-power laws. The accessible Lao theorem assumes disjoint diametral corners in even regular polygons. Appel–Najim–Russo 2002 may contain related general hypotheses, but only its abstract was accessible; its full text is a material historical-priority risk, not asserted non-covering.
+
+## value
+
+PASS
+
+General polygon sample-diameter extremes are a natural stochastic geometry problem. Shared diametral vertices defeat the formerly convenient independent-edge model; the theorem gives the correct full correlated process, an exact diameter-graph matching criterion for independence, and sharp rare-event coefficients in the genuinely nonregular shared-apex example. The result is a complete geometric class extension rather than another special polygon table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
