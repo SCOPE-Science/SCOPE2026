@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem gives complete integral homotopy types of two explicitly presented complexes, not just computed Betti numbers. The standalone verifier checks both graph models and each of \(65536\) vertex subsets twice, enumerates all faces and all Hasse incidences, and proves the greedy matchings acyclic by complete directed topological sorts. Only one critical two-cell survives for each graph; signed gradient-path contraction computes the integral boundary from all critical three-cells and exhibits a degree-one attaching map (bitmask \(360\) for rook and \(340\) for Shrikhande). Attaching this three-cell contracts the two-sphere skeleton; the remaining three-cells form wedges. All integral torsion and higher attaching-map uncertainties are excluded by the CW model. Direct mod-two ranks independently agree. The exact finite domain, normalization and reconstruction are specified in the proof and executable file.
+## correctness
 
-## Originality — PASS with residual bibliographic uncertainty
-The nearest available primary literature [Deshpande–Singh arXiv:2001.05448; Abdelmalek et al. arXiv:2106.10863] establishes definitions and families unlike the present nonchordal strongly regular pair. The prior public calculation on these exact two graphs concerns the *ordinary* independence complexes, whose sphere dimensions and multiplicities do not imply the new cutoff-two result. The published two-matching computation on \(K_{4,4}\) is not this cutoff-two rook complex; their face counts and predicates differ. The Alexander-dual reformulation involves a three-cut complex on complementary graphs, not existing same-graph three-cut results. Several actual title, alias, formula and dominating-family queries, including primary full RESULT.md comparisons, found no covering theorem. This is a best-knowledge originality assessment, not a proof of global bibliographic uniqueness.
+PASS
 
-## Value — PASS
-The Shrikhande and \(4\times4\) rook graphs form the canonical nonisomorphic cospectral strongly regular pair with identical parameters \((16,6,2,2)\). Their higher-independence complexes at cutoff two also share the first three face counts and the count \(176\) of minimal connected forbidden triples, yet have different *complete integral homotopy types*: \(105\) versus \(57\) three-spheres. This motivated exact finite classification reveals nontrivial topological information missed by standard graph parameters and low-dimensional face counts, with complete reproducibility and no inference from Euler characteristic alone.
+Independently reconstructed Cayley adjacency of Shrikhande and coordinate-sharing rook graph, verified both SRG(16,6,2,2) with different local neighborhoods C6 and 2K3. Enumerated 2^16 vertex masks for each by forbidden connected triples; 176 forbidden triples each and face vectors R (16,120,384,528,144), S (16,120,384,544,240,32), 1192 and 1336 nonempty faces. Independently constructed prescribed greedy acyclic Hasse matchings (542 and 638 pairs), with critical cells dimensions 0:1,2:1,3:106 for rook and 0:1,2:1,3:58 for Shrikhande. Calculated signed integral 3-to-2 Morse coefficients exactly: R {-1:8,0:82,1:16}, S {-1:10,0:43,1:5}; each has unit coefficient, so a 2-cell and one 3-cell cancel homotopically, leaving wedge^105 and wedge^57 3-spheres, respectively. No torsion follows from actual homotopy cancellations, not mod-two Betti inference.
 
-## Closest literature and limits
-Principal contextual sources are arXiv:2001.05448 (2020), arXiv:2106.10863 (2021), arXiv:2510.25710 (2025) and the public ordinary-independence and two-matching computations cited in RESULT.md. Further unindexed work or stronger equivalent deductions could exist. The claim is finite for two named graphs; no larger-family, shellability or full-filtration classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: earlier exact same-pair distinction at ordinary cutoff one is acknowledged, but the present cutoff-two integral homotopy computation is not a corollary of it. Checked general higher-independence and chordal theorems and distinct cut-complex duals.
+
+## value
+
+PASS
+
+Natural comparison of uniquely two nonisomorphic strongly regular (16,6,2,2) graphs: even though they share all faces through dimension2, their Ind2 integral homotopy types distinguish them by 48 three-spheres. Exact finite natural invariant with structural significance in graph-topology discrimination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

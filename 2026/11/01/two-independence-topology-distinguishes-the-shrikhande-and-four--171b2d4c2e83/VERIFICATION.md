@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and finite verification
+# Independent mathematical audit
 
-Run `python3 verify_two_independence.py` with standard Python 3 and no external packages. The embedded file `verification_output.json` was produced by the program as run on the complete finite domain.
+## correctness
 
-The program enumerates all \(65536\) vertex subsets for each of the two distinct sixteen-vertex graph presentations. It compares two independent membership criteria for every subset: all induced connected components have at most two vertices, and no connected induced triple is present. It independently verifies strongly regular parameters, local-neighborhood connected components, all facets through the face enumeration, the exact deterministic matching, every one of \(4224\) rook and \(4960\) Shrikhande covering incidences, and directed Hasse acyclicity by complete topological sort.
+PASS
 
-Rook: \(1192\) nonempty faces; \(542\) matching pairs; critical cells \((1,1,106)\) in degrees \((0,2,3)\); exact boundary coefficient distribution \((-1:8,0:82,+1:16)\). Shrikhande: \(1336\) nonempty faces; \(638\) matching pairs; critical cells \((1,1,58)\); exact boundary coefficients \((-1:10,0:43,+1:5)\). The degree-one witnesses for critical three-face bitmasks are \(360\) and \(340\). Mod-two simplicial boundary ranks are separately computed from face matrices rather than the Morse chain complex.
+Independently reconstructed Cayley adjacency of Shrikhande and coordinate-sharing rook graph, verified both SRG(16,6,2,2) with different local neighborhoods C6 and 2K3. Enumerated 2^16 vertex masks for each by forbidden connected triples; 176 forbidden triples each and face vectors R (16,120,384,528,144), S (16,120,384,544,240,32), 1192 and 1336 nonempty faces. Independently constructed prescribed greedy acyclic Hasse matchings (542 and 638 pairs), with critical cells dimensions 0:1,2:1,3:106 for rook and 0:1,2:1,3:58 for Shrikhande. Calculated signed integral 3-to-2 Morse coefficients exactly: R {-1:8,0:82,1:16}, S {-1:10,0:43,1:5}; each has unit coefficient, so a 2-cell and one 3-cell cancel homotopically, leaving wedge^105 and wedge^57 3-spheres, respectively. No torsion follows from actual homotopy cancellations, not mod-two Betti inference.
 
-The verified marker is `SHRIKHANDE_ROOK_TWO_INDEPENDENCE_OK`. The enumerations exhaust both stated finite graph complexes, but cannot themselves certify any larger family or absolute novelty. The sphere-wedge deduction also invokes Forman's acyclic-matching theorem and the CW mapping-cone argument; no independent external validation was performed.
+## originality
+
+PASS
+
+Qualified PASS: earlier exact same-pair distinction at ordinary cutoff one is acknowledged, but the present cutoff-two integral homotopy computation is not a corollary of it. Checked general higher-independence and chordal theorems and distinct cut-complex duals.
+
+## value
+
+PASS
+
+Natural comparison of uniquely two nonisomorphic strongly regular (16,6,2,2) graphs: even though they share all faces through dimension2, their Ind2 integral homotopy types distinguish them by 48 three-spheres. Exact finite natural invariant with structural significance in graph-topology discrimination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
