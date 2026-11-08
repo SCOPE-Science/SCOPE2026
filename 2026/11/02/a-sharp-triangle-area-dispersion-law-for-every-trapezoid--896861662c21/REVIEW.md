@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain includes every nondegenerate convex trapezoid with positive bases; affine normalization reduces all of them to a one-parameter strip with linear half-width. The proof computes the unsigned first area moment by conditional integration of three independent uniform horizontal coordinates and ordered heights, computes the squared moment via an independently derived determinant/covariance identity, and exactly factors the derivative of the normalized variance. All coefficients, boundary values and asymptotic constants are checked symbolically by `verify.py`; sampling checks do not replace the infinite-parameter proof. The inverse Hölder bound follows from a positive continuous derivative multiplier and an explicit integral inequality.
+PASS
 
-## Originality — PASS, provisional
+The ratio Var(T)/(E T)^2 is invariant under affine maps of the trapezoid, permitting the standard K_t shear-normalized slice domain. Independently performed both polynomial height integrations of E T, confirming P(t)/(36(1+t)^3), and used the centered iid determinant identity E[T^2]=3 det Sigma/2. Symbolic reduction and derivative verification gave exactly C=N/P^2 and C′=144t(t−1)(1+t)^3(t^4+4t^3+10t^2+4t+1)/P^3, negative for 0<t<1, with endpoint values 1 and 95/121. Since -C′/(t(1-t)) extends to a positive continuous function, integrating gives global inverse square-root Holder; the quadratic endpoint expansions force sharp exponent 1/2.
 
-The older general formulas for expected random convex-hull area (Buchta, 1984) and the general determinant second-moment identity already supply the individual moment ingredients. Those ingredients are **not** claimed as original. The finding instead establishes strict global shape ordering of their dimensionless dispersion ratio on all trapezoids, exact endpoint rigidity, the full inverse classification and optimal quadratic endpoint conditioning. These assertions are neither the classical extrema for four-point convex-position probability nor the published Gaussian-position or regular-polygon moment results. The compared indexed research records on random circumradius laws and vertex-sampled polygon triangles concern different sampling objects/invariants. The original 1984 German article could not be accessed in full and remains an explicit priority risk; an unindexed equivalent theorem could exist.
+## originality
 
-## Value — PASS
+PASS
 
-For affine shape reconstruction, individual triangle areas change under overall scaling; normalized dispersion is directly measurable without a Euclidean calibration and is invariant under shear. A complete, sharp and strictly ordered one-parameter law between the limiting triangle and parallelogram class supplies a natural inverse geometric statistic, while quadratic endpoint behavior precisely identifies the unavoidable ill-conditioning. This is a whole-family classification, not a single evaluation or a numerical table.
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
 
-## Scope and remaining risks
+## value
 
-The theorem does not reconstruct an arbitrary quadrilateral, provide sampling confidence bounds, or establish a stronger-than-Hölder endpoint inverse. General first-moment formulas and prior square/triangle constants are correctly treated as earlier work. The accessible literature review supports provisional priority only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For random three-point triangles, the squared coefficient of variation of their area is an affine-invariant natural statistic. A strict one-to-one shape law for the entire trapezoid family, its exact range and sharp inverse ill-conditioning are complete geometric information usable for idealized shape identification; stronger than reporting classical expected area in a few polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-With Python 3.10+ and the dependency from `requirements.txt`, run `python verify.py`.
+## correctness
 
-This independently performs an exact ordered-height polynomial integral for the triangle-area first moment, computes the covariance matrix by direct slice integration, verifies the squared-area determinant identity's resulting rational formula, factors the full derivative exactly and checks endpoint expansions. It also directly samples 120,000 triangles for each of five test cases, using independent point-in-trapezoid draws and determinant-based triangle areas, including a sheared trapezoid.
+PASS
 
-Expected success markers:
+The ratio Var(T)/(E T)^2 is invariant under affine maps of the trapezoid, permitting the standard K_t shear-normalized slice domain. Independently performed both polynomial height integrations of E T, confirming P(t)/(36(1+t)^3), and used the centered iid determinant identity E[T^2]=3 det Sigma/2. Symbolic reduction and derivative verification gave exactly C=N/P^2 and C′=144t(t−1)(1+t)^3(t^4+4t^3+10t^2+4t+1)/P^3, negative for 0<t<1, with endpoint values 1 and 95/121. Since -C′/(t(1-t)) extends to a positive continuous function, integrating gives global inverse square-root Holder; the quadratic endpoint expansions force sharp exponent 1/2.
 
-```
-EXACT_AREA_MOMENTS_AND_MONOTONE_VARIANCE_PROFILE_PASSED
-DIRECT_UNIFORM_TRIANGLE_SIMULATION_PASSED
-ALL_CHECKS_PASSED
-```
+## originality
 
-The exact symbolic identities are finite computations of algebraic integrals. The universal claims additionally require the analytic arguments in RESULT.md: positive derivative factors, affine normalization, and strict integral inequalities. Monte Carlo examples are not a proof of all shape parameters. No independent mathematical audit or independent validation is asserted.
+PASS
+
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
+
+## value
+
+PASS
+
+For random three-point triangles, the squared coefficient of variation of their area is an affine-invariant natural statistic. A strict one-to-one shape law for the entire trapezoid family, its exact range and sharp inverse ill-conditioning are complete geometric information usable for idealized shape identification; stronger than reporting classical expected area in a few polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
