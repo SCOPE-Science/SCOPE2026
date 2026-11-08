@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The consecutive-unit prime-power formula is reconstructed by CRT counting. The odd-input lemma \(L_2(n)\ge3\) for odd \(n\ge5\), with equality exactly at \(5,9,15\), gives an exact sharp first-prime surplus. For exponents at least two, the first three positive iterates supply a uniform strict lower bound. The explicit geometric-series formulas at \(3\) and \(5\) and the zero formula at \(2\) cover all prime powers. The standalone exact-integer verifier tests direct definitions and many finite cases; it is not used as an infinite certificate.
+
+**Originality — PASS, qualified.** Defant's 2015 paper defines \(D_m\), proves deficiency for multiples of \(3\) and (at \(m=2\)) multiples of \(5\), and proves existence of infinitely many abundant prime-power rays for each even \(m\). The first two deficiency statements already cover those *sign* cases, and are not presented as new. The existential abundant-ray result does not give the universal \(p\ge7\) classification or sharp prime-power surplus. Harrington–Jones (2010) analyze the underlying exceptional-unit function and iteration counts, not the iterated sums. The checked research index and literature searches yielded no equivalent or dominating prime-power classification. Historical novelty remains subject to unindexed or overlooked work, particularly because the argument is short.
+
+**Mathematical value — PASS.** Defant explicitly asks about the existence of further perfect iterate sums. A complete classification on the natural one-prime-support domain eliminates all prime powers as potential perfect examples, and identifies the exact sign transition and three sharp minimizers. It is an infinite structural classification, rather than a finite table or a single negative example; the result does not claim to settle perfectness for composite numbers with multiple prime factors.
+
+**Closest sources and residual limits.** Colin Defant, JIS 18 (2015), Article 15.2.1, Theorems 3.3–3.5 and concluding questions; Harrington and Jones, Integers 10 (2010), A42, on the exceptional-unit iteration length. The 2010 PDF was consulted through accessible extracted sections; full visual rendering was not available. No independent review has taken place.
+
+Self-review: passed. Independent audit: not yet performed.

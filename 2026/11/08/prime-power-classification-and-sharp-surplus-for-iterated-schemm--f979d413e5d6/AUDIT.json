@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "From the product formula, odd n>=5 has L_2(n)>=3 and L_2(n)=3 exactly at n=5,9,15. Hence D_2(n)>=4, equality at exactly those three n. Geometric iteration sums give all p=2,3,5 formulas. For p>=7, a=1 gives D_2(p)-p=D_2(p-2)-2>=2 with equality at p=7,11,17; for a>=2 the first two iterates exceed p^a by at least (p-6)p^(a-2), and the third adds at least 3. Independent exact-iterates test across 1776 prime powers supports but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant Theorem 3.5 asserts infinitely many primes p_0 with a two-iterate abundance estimate for every exponent, but only for selected p_0, not all primes p>=7.",
+        "Defant Theorems 3.3 and 3.4 cover deficiency at multiples of 3 and 5, respectively."
+      ],
+      "reasoning": "The 3- and 5-deficiency signs are previously covered; universal abundance at all prime powers with p>=7 and sharp gap/minimizers is not implied by a result applying only to infinitely many selected primes. The complete classification is the assessed new component.",
+      "searches": [
+        "published-finding corpus: For all primes p >=7 and every exponent a >=1 the sum of iterates of exceptional unit totient L_2(p^a) exceeds p^a, equality impossible, sharp excess 2 at p=7,11,17",
+        "web: \"Schemmel\" \"prime powers\" \"abundant\" \"perfect\" iterates",
+        "Defant JIS 2015 Theorem 3.5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1506.05426v1",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL18/Defant/defant5.html",
+      "https://math.colgate.edu/~integers/k42/k42.pdf",
+      "https://arxiv.org/abs/1412.3080"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known exact local factors L_2(p^a)=p^(a-1)(p-2), from Harrington–Jones Theorem 3 and Defant equation (2), are used as premises.",
+        "The new lemma D_2(n)>=4 for odd n>=5, equality only at n=5,9,15, plus the first-three-iterate bound yields an all-prime, all-exponent dichotomy."
+      ],
+      "reasoning": "Local formula does not alone state the iterate-sum classification; the new proof adds a sharp fiber analysis and uniform lower bounds. No inspected prior theorem gives the complete p>=7 conclusion or the three exact gap minimizers.",
+      "searches": [
+        "Defant arXiv:1506.05426v1 sections 2–4",
+        "Harrington and Jones Integers 10 (2010) A42 Sections 2–3 and final remarks",
+        "published-finding corpus: perfect Schemmel totient sums D_m(p^a) classification prime powers 3 5 deficient all other primes abundant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harrington–Jones, Integers 10 (2010) A42, Theorem 3 gives phi_e(n)=L_2(n); their class function records iteration count, not iterate sum.",
+        "Defant, JIS 18 (2015) 15.2.1, Definition 3.1 gives D_m as sum of positive-index iterates."
+      ],
+      "reasoning": "The invariant is equivalent to summing exceptional-unit totient iterates. Equality of base functions and formulas for iteration counts do not directly yield a prime-power sign classification or minimum of the summed trajectory. No equivalent statement was returned by the index searches.",
+      "searches": [
+        "published-finding corpus: Schemmel totient L_2 iterated sums prime powers D_2(p^a) p 3 5 7",
+        "published-finding corpus: iterated exceptional-unit counting function phi_e sum iterates prime powers 7 11 17 excess",
+        "web: \"D_2\" \"prime power\" \"Schemmel\" perfect",
+        "web: \"D_2-perfect\" \"prime power\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Defant reports a computation for m in {2,4,6} below 100000, with sole D_m-perfect example 37147; this is a finite census, not all prime powers.",
+        "The complete source identifies 37147 as D_2-perfect; its factorization is 11^2 times 307, hence it is not a prime power."
+      ],
+      "reasoning": "Neither the finite threshold nor the isolated known perfect example implies any unrestricted sign pattern or the sharp minimum of the abundant surplus. No indexed table matching the full formula was found.",
+      "searches": [
+        "Defant JIS 2015 concluding remarks D_m perfect 37147",
+        "web: \"D_2\" \"prime powers\" \"37,147\" Schemmel",
+        "published-finding corpus: Defant Schemmel totient perfect D_2 prime powers 37147 abundant"
+      ]
+    },
+    "rationale": "Theorem 3.5 of the 2015 defining paper establishes infinite selected abundant prime-power rays, not universal p>=7 abundance and sharp gap. Its deficiency results at p=3,5 are explicitly attributed to prior work. The 2010 exceptional-unit paper treats iteration lengths rather than sums. published-finding corpus and web searches located no statement or table that implies the all-prime classification. Shortness of proof leaves a residual risk of historical rediscovery.",
+    "residual_risks": [
+      "Potential older unpublished or poorly indexed classification, especially as proof uses elementary local factors.",
+      "Graphical screenshot of related 2010 PDF unavailable; relevant extracted sections consulted, not a basis for asserting absolute noncoverage of every page.",
+      "No external independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides definitions, 3- and 5-deficiency and infinitely-many-prime abundance, but no all-prime prime-power classification or sharp minimum.",
+        "evidence": [
+          "Theorem 3.3 (multiples of 3) and Theorem 3.4 (multiples of 5 for m=2)",
+          "Theorem 3.5 (infinitely many prime-power rays, selected primes)",
+          "Closing question on additional D_m-perfect examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.05426v1",
+        "material_read": "Full accessible HTML, Sections 1–4 including Theorems 3.3–3.5 and concluding questions; journal publication page checked separately for earliest date.",
+        "method": "Direct full-text HTML reading and comparison of stated theorems and quantifiers.",
+        "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+        "trigger": "Origin of D_m and direct potential coverage"
+      },
+      {
+        "assessment": "Studies the iterate-count class C on restricted odd integers; no covering sum-of-iterates claim identified in inspected material. Residual risk kept because visual full-text inspection was unavailable.",
+        "evidence": [
+          "Theorem 3 gives local product for phi_e = L_2",
+          "Definition 6 C is an iteration-count class",
+          "Final Section 8 concerns C and its nonadditivity"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/k42/k42.pdf",
+        "material_read": "Available extracted text for definitions, Theorem 3, class function results, and final remarks; graphical screenshot unavailable.",
+        "method": "Web-indexed PDF text, targeted full-text search and relevant sections; screenshot request failed.",
+        "title": "On the Iteration of a Function Related to Euler’s phi-Function",
+        "trigger": "Same underlying exceptional-unit totient and possible stronger iteration theorem"
+      },
+      {
+        "assessment": "Journal publication explicitly dated January 13, 2015, earlier than June 2015 arXiv upload.",
+        "evidence": [
+          "Publication line: Published in Journal of Integer Sequences, January 13 2015."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Defant/defant5.html",
+        "material_read": "Journal publication metadata and abstract",
+        "method": "Opened journal HTML source",
+        "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions (journal entry)",
+        "trigger": "Verification of earliest public source date"
+      },
+      {
+        "assessment": "Focus is sparsely totient values of the non-iterated function, not iterate-sum perfectness. No whole-document noncoverage assertion is made.",
+        "evidence": [
+          "The abstract defines sparsely Schemmel totient numbers using the value of S_r alone."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.3080",
+        "material_read": "Title and abstract only",
+        "method": "Indexed abstract and source description",
+        "title": "On Sparsely Schemmel Totient Numbers",
+        "trigger": "Related use of same local Schemmel totient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f979d413-e5d6-4613-b883-d5f2daeddd6d",
+  "value": {
+    "rationale": "The 2015 source explicitly raises the question of further D_m-perfect integers. This theorem gives a complete infinite classification for the natural prime-power domain of m=2, proves no prime-power solution, identifies a sharp phase transition at p=7 that holds uniformly in exponent, and determines the exact smallest abundant surplus and all three minimizers. It does not purport to settle multi-prime-support perfectness.",
+    "status": "PASS"
+  }
+}
