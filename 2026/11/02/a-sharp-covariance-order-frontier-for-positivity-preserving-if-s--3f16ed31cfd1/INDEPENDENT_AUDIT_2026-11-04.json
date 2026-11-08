@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:16:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact 2x2 stable symmetric diagonal A and fixed PSD Q, the source-described constant-forcing IF-SSPRK2 stages algebraically collapse to Phi(X)=DXD+(h/2)(DQD+Q), D=exp(hA); each entry contracts by exp(-h(ai+aj)). Solving stationary equations gives (Xh)ij=(h/2)coth(h(ai+aj)/2) qij, versus continuous qij/(ai+aj), producing Langevin error kernel d_a,d_b,d_m. The Langevin function L(t)=coth t-1/t is positive and strictly concave: sinh^3(t)>t^3 cosh(t), established by differentiating a positive auxiliary log ratio; thus log L is strictly concave. For q11*q22>0, det(E)=q11*q22*d_m^2*(theta^2-r^2) makes strict PSD/singular/indefinite cases exact; rank-one r=1 and a!=b gives indefiniteness for every h>0 while both Xs are PSD. Taylor and large-h expansions yield the claimed negative eigenvalue limits. Independently checked 12 numerical instances of exact stationary error and determinant sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2606.15703",
+          "doi:10.1007/s10915-023-02275-6",
+          "arxiv:2606.15703"
+        ],
+        "reasoning": "Zhang–Lan–Jing prove positivity preservation for differential Lyapunov equations under more general data, and Chen–Borzì cover exponential Riccati integrators. Neither positivity alone nor general finite-time convergence inequalities imply stationary matrix-order overestimation, since PSD iterates do not entail PSD error.",
+        "searches": [
+          "integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin",
+          "arxiv:2606.15703",
+          "doi:10.1007/s10915-023-02275-6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.15703",
+        "doi:10.1007/s10915-023-02275-6",
+        "doi:10.1109/CDC.2013.6761121",
+        "doi:10.1007/s10444-025-10228-w",
+        "Resultary semantic query: integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin; closest: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b (different integrator)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2606.15703",
+          "doi:10.1007/s10915-023-02275-6",
+          "doi:10.1109/CDC.2013.6761121",
+          "arxiv:2606.15703"
+        ],
+        "reasoning": "The originating IF-SSPRK2 three-stage map is a prior premise and simple algebra recovers an entrywise stationary bias. The new determinant correlation criterion requires strict log-concavity of L and is not given by inspected abstract-level claims of stage positivity; a full-text check of equation (5) remains necessary to rule out source-stage transcription mismatch.",
+        "searches": [
+          "integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin",
+          "arxiv:2606.15703",
+          "doi:10.1007/s10915-023-02275-6",
+          "doi:10.1109/CDC.2013.6761121"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2606.15703",
+          "arxiv:2606.15703"
+        ],
+        "reasoning": "Diagonal Lyapunov modes reduce the scheme to independent scalar trapezoidal fixed points; the componentwise bias is Langevin function. This scalar equivalence does not itself establish Loewner matrix-order sign as off-diagonal correlations vary, which is controlled by midpoint log concavity.",
+        "searches": [
+          "integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin",
+          "arxiv:2606.15703"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query: integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin; closest: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b (different integrator)",
+          "arxiv:2606.15703"
+        ],
+        "reasoning": "No source-specific exact two-mode matrix-order correlation threshold theta was found in published mathematical records or checked literature. Classical scalar trapezoidal bias and Langevin properties are pre-existing mathematical tools, not original numerical tables.",
+        "searches": [
+          "integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin",
+          "Resultary semantic query: integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin; closest: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b (different integrator)"
+        ]
+      },
+      "rationale": "Zhang–Lan–Jing 2026 construct positivity-preserving IF-SSPRK2 and finite-time convergence estimates; the exact stationary error Loewner classification by forcing correlation does not appear in accessible descriptions, although full stage source could not be inspected. Scalar trapezoidal stationary bias and continuous Gramian formulas are not claimed new. Related Riccati/exponential integrators are different maps. Qualified priority only.",
+      "residual_risks": [
+        "Original Zhang–Lan–Jing arxiv:2606.15703 v1 not independently read full (VPN disconnected); exact equation (5) stage transcription must be compared before public claim of direct attribution.",
+        "Other Riccati and collocation integrator full texts not accessed; their mathematical implications may be stronger than preview suggested.",
+        "Only exact two-dimensional symmetric drift with constant Q and full-matrix stage update; numerical truncation, higher dimensions and nonnormal drift are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Novel correlation-dependent stationary error not in available abstract; cannot assert whole source lacks it. Premise-stage transcription is a residual C risk.",
+          "evidence": [
+            "https://arxiv.org/abs/2606.15703",
+            "arxiv:2606.15703"
+          ],
+          "identifier_or_url": "arxiv:2606.15703",
+          "material_read": "Accessible abstract and bibliographic evidence of two-stage positivity-preserving IF-RK; eq. (5) stages read only as transcribed and derived in assigned RESULT.md, not independently inspected in full primary",
+          "method": "arXiv abstract and actual assigned proof",
+          "title": "Zhang, Lan and Jing, Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Exact source IF-SSPRK2 scheme and 2026 positivity theorem"
+        },
+        {
+          "assessment": "Different integrator stage map does not immediately imply this IF-SSPRK2 stationary threshold. Full text not read.",
+          "evidence": [
+            "https://doi.org/10.1007/s10915-023-02275-6",
+            "doi:10.1007/s10915-023-02275-6"
+          ],
+          "identifier_or_url": "doi:10.1007/s10915-023-02275-6",
+          "material_read": "Publisher abstract/preview only for different Riccati exponential Euler and midpoint schemes",
+          "method": "publisher abstract",
+          "title": "Chen and Borzì, Positivity Preserving Exponential Integrators for Differential Riccati Equations",
+          "trigger": "Nearby positivity-preserving integrator possibly dominating error criterion"
+        },
+        {
+          "assessment": "Collocation-based discretization differs from described IF-SSPRK2; priority risk persists.",
+          "evidence": [
+            "https://doi.org/10.1109/CDC.2013.6761121",
+            "doi:10.1109/CDC.2013.6761121"
+          ],
+          "identifier_or_url": "doi:10.1109/CDC.2013.6761121",
+          "material_read": "Conference description/abstract; full primary unavailable",
+          "method": "publisher abstract",
+          "title": "Gillis and Diehl, A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations",
+          "trigger": "Alternate positivity-preserving Lyapunov discretization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary covariance is a natural uncertainty and model-prediction quantity. Showing that a PSD-preserving integrator can overestimate variance in some directions and underestimate in others at any h gives an actionable and exact two-mode matrix-order frontier, including a strong rank-one no-comparison obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2606.15703",
+    "doi:10.1007/s10915-023-02275-6",
+    "doi:10.1109/CDC.2013.6761121",
+    "doi:10.1007/s10444-025-10228-w",
+    "Resultary semantic query: integrating factor SSPRK2 Lyapunov covariance stationary error Loewner forcing correlation Langevin; closest: 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b (different integrator)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original Zhang–Lan–Jing arxiv:2606.15703 v1 not independently read full (VPN disconnected); exact equation (5) stage transcription must be compared before public claim of direct attribution.",
+    "Other Riccati and collocation integrator full texts not accessed; their mathematical implications may be stronger than preview suggested.",
+    "Only exact two-dimensional symmetric drift with constant Q and full-matrix stage update; numerical truncation, higher dimensions and nonnormal drift are excluded."
+  ],
+  "residual_risks": [
+    "Original Zhang–Lan–Jing arxiv:2606.15703 v1 not independently read full (VPN disconnected); exact equation (5) stage transcription must be compared before public claim of direct attribution.",
+    "Other Riccati and collocation integrator full texts not accessed; their mathematical implications may be stronger than preview suggested.",
+    "Only exact two-dimensional symmetric drift with constant Q and full-matrix stage update; numerical truncation, higher dimensions and nonnormal drift are excluded."
+  ],
+  "schema_version": 1
+}

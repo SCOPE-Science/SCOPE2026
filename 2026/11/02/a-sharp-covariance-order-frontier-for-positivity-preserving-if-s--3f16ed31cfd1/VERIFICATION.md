@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-The independent-audit channel has not been performed. The mathematical statement has a complete proof in `RESULT.md`; the executable checks below provide reproducible finite confirmation of its formulae, boundaries and asymptotic coefficients.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9+; no third-party packages or input files are required. The script reconstructs the original three IF-SSPRK2 matrix stages directly from the formulas, compares them with the simplified recurrence, verifies exact and discrete stationary equations, enumerates forcing correlations on both sides of the analytic frontier, and checks sign and asymptotic consequences. Its random tests are seeded and reproducible. The script emits a `PASS` line only after every check succeeds.
+## correctness
 
-The strict log-concavity of the Langevin function and universal \(h>0\) and \(Q\succeq0\) quantifiers are established by the mathematical derivation, **not** by sampling. Arithmetic and transcendental evaluations are performed using ordinary floating-point functions in the checker; the theorem assumes exact arithmetic. No external expert validation is claimed.
+PASS
+
+For exact 2x2 stable symmetric diagonal A and fixed PSD Q, the source-described constant-forcing IF-SSPRK2 stages algebraically collapse to Phi(X)=DXD+(h/2)(DQD+Q), D=exp(hA); each entry contracts by exp(-h(ai+aj)). Solving stationary equations gives (Xh)ij=(h/2)coth(h(ai+aj)/2) qij, versus continuous qij/(ai+aj), producing Langevin error kernel d_a,d_b,d_m. The Langevin function L(t)=coth t-1/t is positive and strictly concave: sinh^3(t)>t^3 cosh(t), established by differentiating a positive auxiliary log ratio; thus log L is strictly concave. For q11*q22>0, det(E)=q11*q22*d_m^2*(theta^2-r^2) makes strict PSD/singular/indefinite cases exact; rank-one r=1 and a!=b gives indefiniteness for every h>0 while both Xs are PSD. Taylor and large-h expansions yield the claimed negative eigenvalue limits. Independently checked 12 numerical instances of exact stationary error and determinant sign.
+
+## originality
+
+PASS
+
+Zhang–Lan–Jing 2026 construct positivity-preserving IF-SSPRK2 and finite-time convergence estimates; the exact stationary error Loewner classification by forcing correlation does not appear in accessible descriptions, although full stage source could not be inspected. Scalar trapezoidal stationary bias and continuous Gramian formulas are not claimed new. Related Riccati/exponential integrators are different maps. Qualified priority only.
+
+## value
+
+PASS
+
+Stationary covariance is a natural uncertainty and model-prediction quantity. Showing that a PSD-preserving integrator can overestimate variance in some directions and underestimate in others at any h gives an actionable and exact two-mode matrix-order frontier, including a strong rank-one no-comparison obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
