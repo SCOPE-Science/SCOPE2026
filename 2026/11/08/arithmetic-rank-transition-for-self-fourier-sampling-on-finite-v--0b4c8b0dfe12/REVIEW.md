@@ -1,0 +1,17 @@
+# Self-review
+
+## Correctness
+**PASS.** The singular-value decomposition follows from the unique square-scalar/projective representation of nonzero symmetric rank-one squares, the determinant-polar identity, orthogonal scalar-character blocks, and the projective cross-ratio bijection giving \(M_\chi M_\chi^*=qI\). The trivial block is explicitly diagonalized and the two eigenvalues cannot vanish because the quadratic Gauss-sum magnitude is \(\sqrt q\). Prime-field noncancellation follows from the irreducibility of \(\Phi_p\) over the coprime cyclotomic coefficient field. The quadratic-field lower bound uses the trace-zero line being disjoint from squares **only when \(p\equiv1\pmod4\)** and for the **canonical trace additive character**, not arbitrary additive-character scalings. The \(q=25\) exact nullity also uses the published complete Gauss-sum table, rather than extrapolating a numerical computation.
+
+The checker in the package constructs matrices directly for \(q\in\{3,5,7,9,11,25\}\), computes complete numerical spectra, and compares all levels and multiplicities. For \(q=169\) it tests the finite-field trace-line and Gauss-period cancellation separately; it does not build the full matrix. These finite tests support but do not replace the proof.
+
+## Originality
+**PASS under bounded comparison, with a residual historical-priority risk.** Iosevich--Koh (2008) and Koh--Yeom (2016) handle Fourier restriction/averaging on quadratic surfaces and cones, not the complete square Fourier principal submatrix on the square-scalar Veronese image. Garcia--Karaali--Katz (2018) establish the scalar index-two compressed Gauss condition, prime noncancellation, and the order-\(25\) table; these *are known and explicitly acknowledged*. Their criterion alone does not provide the projective Veronese sampling operator's \((q+1)\)-fold character-block multiplicity or the infinite rank-loss statement. A closely related finite-field Veronese frame study treats off-diagonal coordinate characters, not the complete self-restricted Fourier operator. Existing results for the entire nonzero conic or its nonsingular complement do not automatically give the singular spectrum on one square-scalar component. No compared statement was identified that implies the full newly claimed operator spectrum without the projective-character calculation.
+
+## Mathematical value
+**PASS.** The object is a canonical affine rank-one Veronese image, and the question is critical Fourier recovery using samples on exactly that image. The exact spectrum replaces a growing dense Fourier matrix with \((q-1)/2\) Gaussian period scalars and identifies every kernel character sector. The prime-to-quadratic-extension rank transition exposes a structural obstruction to generalizing prime-field injectivity. In particular the \(q=25\) exact nullity is \(52\), while an infinite family exhibits nullity at least \((p^2+1)(p-1)/2\). This is a natural reconstruction and stability classification, not a numerical curiosity or merely a rephrased scalar Gauss sum.
+
+## Limits and closest literature
+No classification of all zero periods over arbitrary extension fields is claimed. The lower bound for quadratic extensions requires a trace character chosen as stated. The rank for \(q=25\) depends on an independently published exact Gauss-sum table. Possible unlocated projective association-scheme results remain a historical-priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
