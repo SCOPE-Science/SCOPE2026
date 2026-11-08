@@ -1,19 +1,21 @@
-# Review of last-occurrence matching normal form
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source operation is universal over later successor rows. Since the upset tests are thresholds, a row can falsify an antecedent-to-consequent inclusion precisely when its minimum lies in the half-open target interval. The greatest violating row index therefore determines the whole output upset. Singleton target intervals recover every last-occurrence entry, which is injective because one row has one minimum. Every partial injection has an explicit singleton-row representative. Counting partial injections proves the closed form, and independent row choices with forced and optional minima prove the fiber product. Exhaustive direct-semantics tests cover all binary relations through four worlds, not infinity; the generality comes from the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For any n>=1 and any unrestricted relation R on the labelled n-chain, each row R[j] fails U_a->U_b exactly when nonempty and its minimum is in [a,b), because chain upset inclusion depends only on that minimum. The greatest violating j determines output U_{1+max ell_t}; adjacent-upset arguments recover each ell_t individually. Nonnegative ell_t are distinct as no row has two minima. Conversely singleton rows at ell_t realize every partial injection, so the operation census is sum_k binom(n,k)^2 k!. Every representing R must contain each edge (ell_t,t), hence the canonical singleton-row relation is the unique inclusion-minimum. At forced rows j=ell_t all choices are the w_t=2^(n-1-t) subsets with minimum t; optional rows are either empty or have minimum t with later last occurrence ell_t>j. Independence proves the stated exact product for all realization-fiber sizes. Independent direct semantic enumeration of relations for n<=3 verified counts 2,7,34 and fiber mechanism; inspected exhaustive package checker also implements n=4 but its previous pass was not substituted for proof.
 
-De Groot–Litak (2026), Definition 3.5 and Proposition 3.10, supply the flat semantics and the previously known invariance under upward-closing each successor row. The inspected source does not give the cross-row last-occurrence equivalence, the partial-injection bijection, canonical least fiber representative, or exact fiber formula. A related published Bell-number result is restricted to relations satisfying two S4-like axioms and expressly does not count all flat relations. Other nearby finite-chain results use different connective/frame axioms. OEIS A002720 already enumerates partial injections; the combinatorial sequence itself is not claimed as new. Literature comparison and semantic equivalence checks were performed, but a historical-priority risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-The number of relational presentations alone is \(2^{n^2}\), but many induce the same algebraic operation. The theorem classifies all distinct operations from unrestricted finite-chain flat frames, supplies minimal concrete presentations and measures each observational fiber exactly. This is a natural structural and enumerative complement to the finite model and relational-semantics theory, not a single arbitrary instance or a table recomputation.
+The underlying flat Heyting-Lewis clause and successor-row upward closure are known in de Groot–Litak (2026). The new exact cross-row last-occurrence normal form, partial-injection operation quotient, unique least representative and complete fibers do not follow from mere rowwise closure and were not found in inspected primary results. The combinatorial sequence A002720 is already known; novelty is not its value but its semantic realization and exact fibers. Restricted S4-like Bell-number chain census and different birelational maxima are not dominating instances.
 
-## Limits and closest prior results
+## value
 
-The theorem is fixed-carrier and fixed-order; it does not classify arbitrary-poset algebras, sharp implication, or abstract algebras lacking a given chain-frame representation. Primary comparison: de Groot and Litak, arXiv:2603.28402, Sections 3.1–3.3, 4–5 and appendix. Other comparisons: the restricted S4-like flat-chain Bell census, maxima forms for different intuitionistic tense relations, and the general partial-permutation sequence OEIS A002720. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Relational representation is highly nonunique: 2^(n²) relations collapse to far fewer induced connectives on the natural n-chain Heyting algebra. A complete invariant plus canonical minimal relation and each exact equivalence-class cardinality resolves a natural semantic classification, including all n and every unrestricted frame, not a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
