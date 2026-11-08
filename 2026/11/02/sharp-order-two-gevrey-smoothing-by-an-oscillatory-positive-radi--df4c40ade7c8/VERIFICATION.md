@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and scope
+# Independent mathematical audit
 
-The coefficient identities follow from the exact monomial norms and the integral representation of Tricomi's function. Their asymptotic error uses DLMF Eq. 13.8.11 with its leading Bessel term and the large-argument Bessel expansion. The Gevrey lower exclusion requires an infinite cosine phase subsequence and is established analytically.
+## correctness
 
-The accompanying `checker.py` is self-contained apart from the `mpmath` package. Running `python checker.py` performs 45 finite assertions on exact special-function values, asymptotic envelopes, and representative phase subsequences over three fixed parameter families. It does not constitute a uniform or infinite-degree proof, and it is not independent mathematical validation.
+PASS
 
-The weight is positive only because the assumed perturbation magnitude is strictly less than one. A global order-two threshold is claimed only for nonzero perturbations, not for the unperturbed reference kernel. An independent audit has not been performed.
+For alpha>-1, eta>0, 0<|epsilon|<1, beta-normalized radial monomial norms give the inverse-moment coefficients of K_epsilon-K_0. Substitution u=1/(1+v) gives exactly an e^{i eta} Tricomi U(n+1,-alpha,-i eta) ratio, and the large-first-parameter U/Bessel expansion yields d_n=-epsilon sqrt(pi) eta^((2 alpha+1)/4)/(Gamma(alpha+1)Gamma(alpha+2)) n^((6 alpha+5)/4) exp(-sqrt(2 eta n)) times [cos(sqrt(2 eta n)+eta/2-pi(2 alpha+1)/8)+O(n^-1/2)]. The reciprocal correction is exponentially smaller. Fourier coefficients imply globally G^2 boundary trace, and a near-maximal-phase integer subsequence precludes any G^sigma, sigma<2. The original singular term is excluded; no pointwise non-Gevrey or parameter-uniform claim is made.
+
+## originality
+
+PASS
+
+Best-of-knowledge original fixed-positive-measure inverse-moment leading coefficient and sharp global boundary Gevrey order; the Tricomi/Bessel asymptotics and Fourier Gevrey criterion are established tools, and the focus is not a new special-function identity.
+
+## value
+
+PASS
+
+Sharp exact Gevrey order for an explicit positive radial Bergman measure with a rapidly oscillating relative boundary multiplier is a natural regularity classification. It distinguishes the smooth kernel perturbation from the singular unperturbed kernel; the oscillatory phase and universal exponent sharpen a qualitative smoothness observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

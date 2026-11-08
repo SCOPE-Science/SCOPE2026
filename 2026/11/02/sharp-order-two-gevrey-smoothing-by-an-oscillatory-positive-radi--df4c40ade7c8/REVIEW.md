@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact asymptotic for the coefficients of one fixed positive-weighted disk reproducing-kernel difference, plus a sharp global boundary regularity classification. The proof checks measure normalization, radial orthogonality, moment positivity, the Tricomi integral representation and its imaginary-axis limiting justification, the exact gamma factors, the K-Bessel large-parameter sector, and the phase of \((-i\eta)^{(2\alpha+1)/4}\). The inverse-moment denominator contributes only a strictly smaller exponential term, and Fourier coefficients prove both smoothness and exclusion of all smaller Gevrey orders. The critical nonstandard asymptotic is documented in DLMF 13.8.11, with the relevant fixed complex argument \(-i\eta\). Numerical checks are supplementary and do not certify infinite-degree behavior.
+PASS
 
-Residual scientific limit: no parameter-uniform statement is proved. The non-Gevrey claim concerns the entire circle, not every local point. The oscillatory cosine can vanish on individual indices, so the sharp asymptotic is an absolute-envelope formula, not a per-index lower bound.
+For alpha>-1, eta>0, 0<|epsilon|<1, beta-normalized radial monomial norms give the inverse-moment coefficients of K_epsilon-K_0. Substitution u=1/(1+v) gives exactly an e^{i eta} Tricomi U(n+1,-alpha,-i eta) ratio, and the large-first-parameter U/Bessel expansion yields d_n=-epsilon sqrt(pi) eta^((2 alpha+1)/4)/(Gamma(alpha+1)Gamma(alpha+2)) n^((6 alpha+5)/4) exp(-sqrt(2 eta n)) times [cos(sqrt(2 eta n)+eta/2-pi(2 alpha+1)/8)+O(n^-1/2)]. The reciprocal correction is exponentially smaller. Fourier coefficients imply globally G^2 boundary trace, and a near-maximal-phase integer subsequence precludes any G^sigma, sigma<2. The original singular term is excluded; no pointwise non-Gevrey or parameter-uniform claim is made.
 
-## Originality — PASS, historical priority provisional
+## originality
 
-The closest focal paper is H. Xiong and H. Xu, *Semiclassical asymptotics for Bergman projections with Gevrey weights* (arXiv:2403.14157; initial March 21, 2024). Its main theorem gives interior local semiclassical Gevrey symbols under strict plurisubharmonicity; it neither assumes a single disk with a boundary-oscillatory positive measure nor states a sharp Gevrey index for an exact fixed-space kernel correction. Hitrik and Stone (arXiv:2105.14402) likewise treat smooth semiclassical exponential weights. Hagger, Liu, Taskinen and Virtanen (arXiv:2011.04699) consider radial oscillatory symbols for Toeplitz operators on a *fixed* space, rather than changing its measure and inverting monomial moments. The DLMF transforms and the Fourier-Gevrey theorem are explicitly used as known mathematical ingredients; novelty is not claimed for those tools.
+PASS
 
-Targeted searches for exact oscillatory radial Bergman kernel coefficients, their \(e^{-c\sqrt n}\) envelope, and Gevrey regularity found no decisive equivalent statement. This is qualified evidence, not a proof that all literature has been exhausted. An implicit consequence of broader uninspected Fourier-Laplace transform or reproducing-kernel perturbation theorems remains a live historical-priority risk.
+Best-of-knowledge original fixed-positive-measure inverse-moment leading coefficient and sharp global boundary Gevrey order; the Tricomi/Bessel asymptotics and Fourier Gevrey criterion are established tools, and the focus is not a new special-function identity.
 
-## Mathematical value — PASS
+## value
 
-Boundary asymptotics of Bergman kernels ordinarily reflect boundary regularity of their weights. Here the weight remains strictly positive but oscillates without limit at the boundary, while the entire *difference* from the classical power-weighted kernel is unexpectedly smooth, and its regularity has a sharp, universal Gevrey threshold. The result makes the cancellation quantitative by giving a fully normalized oscillatory leading constant, including its parameter-dependent phase and an intrinsic proof that smaller Gevrey exponents fail. It is therefore a natural classification of a concrete boundary-regularity mechanism, not merely an arbitrary numerical value.
+PASS
 
-## Limitations and follow-up
+Sharp exact Gevrey order for an explicit positive radial Bergman measure with a rapidly oscillating relative boundary multiplier is a natural regularity classification. It distinguishes the smooth kernel perturbation from the singular unperturbed kernel; the oscillatory phase and universal exponent sharpen a qualitative smoothness observation.
 
-The result does not give full-kernel boundary regularity, parameter-uniform asymptotics, statements for multidimensional domains, or local non-Gevrey failure at each boundary point. Its historical-priority assessment requires independent expert checking, particularly of general saddle-point asymptotics and kernel perturbation literature.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
