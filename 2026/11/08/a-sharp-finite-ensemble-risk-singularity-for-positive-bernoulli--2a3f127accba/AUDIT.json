@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each fixed n>=2 the eight Bernoulli row patterns partition into six distinct integer base levels; only the two duplicated levels produce nonconstant fitted coefficients when all base levels agree. Their exact multinomial event probabilities are A_n and B_n. On these events the fitted slope is 1+1/sqrt(epsilon), exact centered errors are -1/(3sqrt(epsilon)) and -4/(3sqrt(epsilon)), and the corrected Gram is eventually negative. Every complementary ensemble yields bounded error and eventually nonnegative output by the finite-state trichotomy. This proves the 1/epsilon MSE leading coefficient and limiting negativity probability with all quantifiers and boundaries. A deterministic coefficient 1 gives exact risk 2epsilon/(9n) and a positive corrected Gram. Exact-rational finite checks for n=2,3,4 supplement, not substitute for, the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source already cautions that a control-variate-corrected Gram estimate can lose definiteness.",
+        "The general literature studies fitted control variates and weakly identified regression; exact fixed-n Bernoulli near-tie limits were not established in inspected statements."
+      ],
+      "reasoning": "The generic loss-of-definiteness statement and regression-instability mechanism are covered and explicitly excluded from novelty. The accepted narrower result is an exact one-parameter family with 1/epsilon MSE blowup coefficient for all fixed n>=2 and exact limiting sign probability. No inspected broader theorem directly supplies the coefficients; inaccessible parts of older general theory remain a priority risk.",
+      "searches": [
+        "arXiv:2606.08817v1 sections 4–6",
+        "arXiv:1801.01797 sections 2–3",
+        "Glynn–Szechtman (2002) abstract",
+        "\"estimated control variate coefficients may yield larger variance than original Monte Carlo finite sample regression\""
+      ]
+    },
+    "checked_sources": [
+      "Polydorides et al., arXiv:2606.08817v1, Sections 4–6",
+      "Portier and Segers, arXiv:1801.01797, Sections 2–3",
+      "Glynn and Szechtman (2002), abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source specifies an empirical weight and notes possible indefiniteness, without an asymptotic lower bound for squared risk.",
+        "Portier–Segers theorem regime grows sample size instead of holding n fixed and letting a discrete design nearly collide.",
+        "Glynn–Szechtman full-text comparison is unavailable, so absence of coverage is not claimed from its abstract."
+      ],
+      "reasoning": "The new statement is not a corollary of the source warning or of asymptotic OLS consistency because it asks for exact fixed-n lower- and upper-order constants and a sign-event probability under uniformly positive physical parameters. Generic regression instability does motivate but does not directly imply the family-specific coefficient.",
+      "searches": [
+        "arXiv:2606.08817v1 equations (23)–(25),(51)–(54)",
+        "arXiv:1801.01797 same-sample OLS results",
+        "Glynn–Szechtman (2002) abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact claim is a fixed-ensemble triangular array of three Bernoulli Gram rows, with an OLS denominator of order epsilon squared on a positive-probability event.",
+        "Portier–Segers address OLS coefficients under a growing sample and standard nondegenerate design conditions."
+      ],
+      "reasoning": "The construction is a finite-sample weak-design regression/control-variate phenomenon expressed as a Gram sketch; classic consistency or variance-reduction identities for fixed population coefficients do not imply the stated exact asymptotic constant or negative-Gram probability. Generic OLS near-singularity remains recognized prior methodology.",
+      "searches": [
+        "\"control variate estimated coefficient from same samples can increase variance arbitrarily sample variance denominator small\"",
+        "\"control variates plug-in least squares coefficients same sample variance unbounded near singular matrix\"",
+        "Portier and Segers, arXiv:1801.01797, Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The calculation has a closed finite-state partition of eight Bernoulli patterns with two exceptional duplicate base levels.",
+        "None of the inspected primary paper or OLS-control-variates results supplies an exact table for these eight pattern classes and their fixed-n moments."
+      ],
+      "reasoning": "This is not a conventional precomputed spectral or numerical database invariant. It is an analytic singular-limit theorem; exhaustive finite-state computations in the package corroborate but do not replace the proof. No relevant tabulated exact values were located.",
+      "searches": [
+        "\"Polydorides Wu Noori Vandierendonck Woods 2026 low variance sketches control variates estimating coefficients sample\"",
+        "\"same-ensemble least squares covariance over variance Bernoulli sketch control variate two near equal subsets finite sample positivity inverse mean squared error\""
+      ]
+    },
+    "rationale": "A direct comparison of claims (not merely titles) separates the underlying Bernoulli Gram sketch, same-ensemble fitted control coefficient and generic possible indefiniteness, all known, from this explicit near-tied eight-pattern family and its exact fixed-ensemble 1/epsilon mean-square divergence and positive limiting negative-output probability. Source material was inspected where accessible; broader historical-priority uncertainty is stated rather than suppressed.",
+    "residual_risks": [
+      "General weak-design regression or Monte Carlo control-variate literature may derive an equivalent finite-n small-denominator result; historical priority cannot be exhaustively established by searches.",
+      "The Glynn–Szechtman primary full text was not materially read; its abstract is insufficient to rule out stronger coverage.",
+      "The observation that fitted Gram corrections may be indefinite is explicitly known; novelty is only the exact singular rate, constants, and special probabilistic construction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the underlying sampling and fitted control mechanism and already flags possible loss of positivity; the inspected results do not give the explicit fixed-ensemble near-tied coefficient singularity, its 1/epsilon risk constant, or limiting negativity probability.",
+        "evidence": [
+          "Leverage-score Bernoulli per-row inclusion probabilities and inverse-probability Gram weights in equations (23)–(25).",
+          "Same-ensemble control weights and the geometric limitation in equations (51)–(54) and section 6.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.08817",
+        "material_read": "Sections 4, 5, and 6.1–6.2; in particular equations (23)–(25) and (51)–(54), and the discussion of corrected positive definiteness.",
+        "method": "Read publicly accessible primary HTML mathematical definitions and neighboring derivations.",
+        "title": "Low-Variance Randomised Numerical Linear Algebra for Finite Element Simulation",
+        "trigger": "Same row leverage-score Bernoulli sketches and empirical same-ensemble Gram control-variate proposal."
+      },
+      {
+        "assessment": "Studies regression control variates and joint sampling asymptotics under nondegeneracy; its statements do not imply the fixed-n, degenerating discrete-design limit and exact sign probability.",
+        "evidence": [
+          "Same-sample least-squares control variate formalism and large-sample convergence hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.01797",
+        "material_read": "Sections 2.1–2.3 and the main convergence-rate arguments in Section 3.",
+        "method": "Read lawful public primary full HTML mathematical development.",
+        "title": "Monte Carlo integration with a growing number of control variates",
+        "trigger": "Potential equivalence to same-ensemble OLS control coefficient estimation and risk analysis."
+      },
+      {
+        "assessment": "An important potential broader historical source; its abstract alone cannot settle full-text implication and is kept as residual priority risk.",
+        "evidence": [
+          "Discusses estimation of control-variate coefficients and limiting results in Monte Carlo methodology."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~glynn/papers/2002/GSzechtman02.html",
+        "material_read": "Abstract and bibliographic description only, not full text.",
+        "method": "Read public abstract-level evidence.",
+        "title": "Some New Perspectives on the Method of Control Variates",
+        "trigger": "Broad earlier work on estimated regression control coefficients and limiting efficiency."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a3f127a-ccba-4f3a-a458-12eeed621215",
+  "value": {
+    "rationale": "The main 2026 finite-element projected Gram sketch proposes empirical control-variate weights and motivates variance reduction and preserving positive-definite matrix geometry. An exact positive-probability deterioration and an unbounded risk ratio, despite bounded SPD coefficients and vanishing control mismatch, identify a genuine parameter-conditioning and coefficient-estimation risk in a natural implementation. The theorem separates dangerous adaptive weights from safe known weights, motivates clipping/pilot estimation without claiming those remedies, and supplies sharp reproducible finite-ensemble benchmarks rather than an arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
