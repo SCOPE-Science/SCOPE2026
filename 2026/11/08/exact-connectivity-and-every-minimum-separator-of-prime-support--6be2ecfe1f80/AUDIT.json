@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Direct subgroup support conversion by lcm is bijective; the degree formula and its unique minimum-degree layer follow by a strict neighbor inclusion. An undeleted singleton clique survives any deletion of at most 2^t-1 vertices because r>=2^t. Every vertex outside its component contains all surviving singleton indices, so such vertices are mutually nonadjacent and must be isolated. Isolation needs its full neighborhood deleted, proving the complete cut characterization. Whitney inequalities yield edge connectivity. All assumptions and boundaries checked, direct finite verification covers 32,519 deletion cases; finite tests are not used to prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2605.01565v1 proves kappa=delta for all nonempty proper support sets with element multiplicities depending on primes; Problem 8.1 leaves minimum cuts unclassified",
+        "Ekinci-Gauci (2019) on KG(n,k) assumes a single subset-size layer"
+      ],
+      "reasoning": "Existing graph families may be broad in ring or uniform Kneser parameters, but do not dominate the specific filtered graph with all subset sizes <=r-t and the exact classification of its min separators.",
+      "searches": [
+        "squarefree cyclic group factorization graph reduced pendant vertices 3 vertex connected minimum separators vertex cuts neighborhood of maximal support",
+        "factorization graph finite groups cyclic squarefree connectivity cuts 2026 Gutiérrez",
+        "comaximal graph integers squarefree truncated subset graph super connected minimum vertex cut classification",
+        "disjointness graph truncated boolean lattice super connectivity minimum vertex cuts 2^t-1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.40860v1 Theorem 4.17 and Section 4",
+      "arxiv:2605.01565v1 Sections 3-5 and Problem 8.1",
+      "arxiv:1911.12594v1 abstract/introduction",
+      "Ekinci and Gauci, DMGT 39 (2019) abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.40860v1 Theorem 4.17: 2-connectivity is implied by current t=2 result, not vice versa",
+        "arxiv:2605.01565v1 Theorem 5.5: weighted full ring-element graph kappa=delta, not the filtered subgroup graph",
+        "arxiv:1911.12594v1: qualitative connectedness/forbidden configurations",
+        "G. B. Ekinci and J. B. Gauci (2019): minimum cut behavior for uniform Kneser graphs only"
+      ],
+      "reasoning": "No cited source gives all three ingredients (unweighted truncation, exact connectivity, classification of every minimum cut) as a theorem or immediate special case. The subset-disjointness reduction alone does not state or prove the cut classification. The possibility of a stronger uncited general truncated-subset theorem remains a residual risk.",
+      "searches": [
+        "factorization graph of finite groups gutierrez zuleta 2026 minimum vertex connectivity cut sets r prime factor",
+        "comaximal graph integers squarefree truncated subset graph super connected minimum vertex cut classification",
+        "generalized Kneser graph subset sizes at most n-k vertex connectivity super connected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.40860v1, section 4 and Theorem 4.17: only 2-connected pendant-free graph",
+        "arxiv:2605.01565v1, sections 3-5: weighted blow-up disjointness graph of ring elements"
+      ],
+      "reasoning": "Translated the subgroup claim to the unweighted truncated Boolean disjointness graph (sizes 1 to r-t). Source models are equivalent at adjacency level but their vertices/weights or permitted layers differ; source connectivity bounds do not give the exact all-minimum-cuts classification.",
+      "searches": [
+        "disjointness graph nonempty proper subsets excluding size n-1 vertex connectivity minimum vertex cuts C(n,2) Boolean lattice",
+        "factorization graph finite groups cyclic squarefree connectivity cuts 2026 Gutiérrez",
+        "minimum vertex cuts exact 2^t-1 connectivity factorization graph cyclic group squarefree order prime support t truncation Boolean disjointness",
+        "super-connected induced subgraph of factorization graph cyclic squarefree after deleting prime-order subgroups vertex-connectivity 3 exactly binomial(r,2) minimum cuts",
+        "vertex connectivity disjointness graph of all nonempty subsets of size at most n-t, truncated Boolean lattice, all min cuts neighborhoods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned unrelated Boolean-lattice, group-graph and graph-cut findings; nearest relevant published-finding corpus ID 2026/10/4/SCOPE-diameter-2-exactly-characterizes-nonprime-square-free-cyclic-ord--cfa57e8c7697 addresses the psi-divisibility graph instead",
+        "arxiv:2610.40860v1 Table near Remark 4.19 concerns circumferences, not connectivity enumeration"
+      ],
+      "reasoning": "No exact table of 2^t-1 connectivity and C(r,t) cuts for this filtered factorization family was found; a negative query result does not certify priority.",
+      "searches": [
+        "squarefree cyclic group factorization graph reduced pendant vertices 3 vertex connected minimum separators vertex cuts neighborhood of maximal support",
+        "minimum vertex cuts exact 2^t-1 connectivity factorization graph cyclic group squarefree order prime support t truncation Boolean disjointness",
+        "super-connected induced subgraph of factorization graph cyclic squarefree after deleting prime-order subgroups vertex-connectivity 3 exactly binomial(r,2) minimum cuts",
+        "vertex connectivity disjointness graph of all nonempty subsets of size at most n-t, truncated Boolean lattice, all min cuts neighborhoods"
+      ]
+    },
+    "rationale": "The 2026 motivating primary paper proves only 2-connectivity for the t=2 graph, not exact 3-connectivity or minimum-cut enumeration, and does not treat the t-filtration. Rather 2026 treats a weighted graph on ring elements with all support levels, while this theorem treats one vertex per subgroup and truncates support. Prior uniform-layer Kneser super-connectivity does not imply these nonuniform filtered graphs without further argument. No equivalent statement was found in the actual queries; residual risk of other terminology remains.",
+    "residual_risks": [
+      "No exhaustive historical literature search can establish priority; potentially an earlier general theorem on nonuniform Boolean-lattice disjointness graphs implies the classification.",
+      "Kneser super-connectivity source proof was not inspected in full; cited theorem is for a different uniform graph.",
+      "The numeric threshold r>=2^t is sufficient, not claimed optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivated t=2 case; gives 2-connectivity but not exact 3-connectivity, minimum vertex-cut count, or t-filtered theorem",
+        "evidence": [
+          "Theorem 4.17 and proof (PDF pages 8-9), Remark 4.19"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40860",
+        "material_read": "Full 17-page open PDF retrieved; inspected definitions, relevant graph structure and Section 4, including Theorem 4.17 and following tables",
+        "method": "Open-access PDF text plus page images",
+        "title": "On the factorization graph of finite groups",
+        "trigger": "Same squarefree cyclic factorization graphs and pendant-free 2-connectivity"
+      },
+      {
+        "assessment": "Related weighted full ring-element graph, not same filtered subgroup graph; all minimum cuts explicitly remain unclassified there",
+        "evidence": [
+          "Proposition 4.1; Theorem 4.4; Theorem 5.5; Problem 8.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.01565",
+        "material_read": "Public full article HTML/text; sections on support-model, degree formula, exact connectivity, and limitations/Problem 8.1",
+        "method": "Read primary open full text with in-document searches",
+        "title": "Vertex connectivity of the nonzero nonunit core of the comaximal graph of Z_n",
+        "trigger": "Disjointness support graph, possible stronger connectivity coverage"
+      },
+      {
+        "assessment": "General connectedness and forbidden graph structure; no filtered all-mincut theorem identified",
+        "evidence": [
+          "Abstract, introduction, listed results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.12594",
+        "material_read": "Accessible primary open abstract, introduction and scope, including group factorization graph definition",
+        "method": "Open arXiv primary HTML; checked sections available in readable text",
+        "title": "Factorization graphs of finite groups",
+        "trigger": "Foundational graph and potential general connectivity coverage"
+      },
+      {
+        "assessment": "Uniform k-subsets, whereas present graph contains several subset-size layers; not sufficient evidence of coverage, but generic theorems remain a risk",
+        "evidence": [
+          "Abstract specifying KG(n,k) and n>=5"
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2019_39_1_a0/",
+        "material_read": "Full article bibliographic abstract and stated result; full proof not consulted",
+        "method": "Publisher bibliographic full abstract",
+        "title": "The Super-Connectivity of Kneser Graphs",
+        "trigger": "Potential generic super-connectivity theorem implying cut classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6be2ecfe-1f80-4ed3-a324-b96aeaa7d4e8",
+  "value": {
+    "rationale": "The recent paper establishes 2-connectivity for the pendant-free graph but gives no exact vertex resilience. This result provides an exact exponential robustness law through the natural prime-support filtration, identifies every optimal destructive subgroup set, counts the cuts binomial(r,t), and proves exactly which subgroup becomes isolated. This is a structural and complete infinite-family classification, not a small isolated numerical improvement.",
+    "status": "PASS"
+  }
+}
