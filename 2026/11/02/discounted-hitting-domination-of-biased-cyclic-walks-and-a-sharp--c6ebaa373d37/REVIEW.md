@@ -1,19 +1,21 @@
-# Scientific review of discounted hitting domination on biased cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The discounted Dirichlet equations on each source-to-source arc have two characteristic roots straddling one and a unique solution. Comparison of consecutive arcs proves strict decrease of the worst local support; the middle-point first-hitting time bound proves decay to zero. Since nearest-neighbour trajectories cannot leave a source-free arc without first reaching one of its pinned endpoints, the global threshold reduces to a bound on every positive cyclic source gap. Cyclic compositions yield the complete feasible cardinality polynomial and minimum. For the drift optimization, explicit rational formulas for the three interior values on a four-edge arc, their derivative signs, and their crossing establish the exact algebraic maximum and the source-density improvement. The independent exact-rational verifier covers every nonempty subset on small cycles over multiple parameters; its finite scope is not substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+For 0<p<1 and 0<lambda<1 the local first-hit potential on a pinned gap [0,L] solves u_j=lambda[(1-p)u_{j-1}+p u_{j+1}], u_0=u_L=1; characteristic roots satisfy 0<r_-<1<r_+ and the displayed linear combination meets both boundary conditions. Maximum-principle comparison strictly decreases the worst-interior H(L), while the center first-hit lower bound forces H(L)->0. The threshold R exists, all feasible labelled nonempty source sets have cyclic gaps <=R, and k positive gaps summing n imply delta=ceil(n/R) and (n/k)[x^n](x+...+x^R)^k enumeration. For lambda=1/2, direct four-gap rational functions meet at p=(sqrt(17)-1)/4 and H4=(7-sqrt(17))/16; explicit H5 interior bound gives R=4 at tau=1/6 whereas p=1/2 has R=3. Independently solved exact rational full pinned n=7 cycle support and symbolic critical-bias identities; these finite instances corroborate, not replace, the all-parameter argument.
 
-The closest primary manuscript is Allagan–Pereyra–Massey, arXiv:2609.31535v1 (September 25, 2026). Its inspected Sections 2, 5–7 establish general hitting potentials, an *unbiased* interval-gap criterion, and tree/complete-graph results. They do not cover the nonreversible biased-cycle phase law or four-gap bias optimum. The closest indexed mathematical record concerns discounted hitting domination of complete bipartite graphs, whose one-dimensional part-symmetry reduction does not imply the directed cyclic result. The classical biased gambler's-ruin recurrence is a premise rather than asserted novel mathematics. Searches for equivalences via penalized hitting probabilities, absorbing traps, nonreversible cycles, and uniform source coverage found no broader theorem explicitly implying the quantitative optimized drift conclusion. Historical priority remains qualified; indexed search is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves the full size-distribution problem for minimum-uniform-discount source placements on every homogeneous nonreversible cycle, the first natural non-tree model omitted by the motivating framework. More importantly, the exact threshold \((7-\sqrt{17})/16\) reveals a genuine counterintuitive coverage improvement from moderate directional bias, although one might expect symmetry to optimize uniform coverage. Four is the first source-free gap length that can benefit from bias; at a simple rational support threshold, the sharp density changes from \(1/3\) to \(1/4\) on an infinite family. The explicit optimal bias and phase transition provide nonroutine structural information not obtainable by renaming the unbiased case.
+Best-of-knowledge original contribution is exact gap classification and sharp drift-induced four-gap gain on nonreversible cycles, not invention of discounted hitting support or standard two-point Dirichlet solutions. The publicly indexed baseline handles unbiased settings and general algorithmic structure; a published independent Resultary calculation concerns complete bipartite graphs, not cyclic directed walks. Explicit searches found no encompassing biased-cycle sharp-threshold theorem, but lack of search hits is not proof of priority.
 
-## Closest coverage and limits
+## value
 
-The most relevant paper directly proves only the unbiased interval criterion, leaving directional bias and its optimizer unresolved. General group hitting-probability algorithms and older random-walk target-selection results concern different optimization objectives. The proof is restricted to nearest-neighbour, translation-invariant bias and one constant discount; all other kernels and classes remain open here. Priority checks cannot rule out obscure equivalent formulations. All evidence is internal mathematical reconstruction and computational corroboration, not external expert validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural minimum-source uniform discounted-hitting objective, the theorem classifies every feasible size and sharp required source density on a full nonreversible cycle family; it proves a concrete optimization discontinuity: bias changes density from 1/3 to 1/4 at one fixed threshold. This is not merely a textbook Dirichlet recurrence or numerical gain: the global gap-to-source optimization and exact algebraic optimizer make the invariant reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
