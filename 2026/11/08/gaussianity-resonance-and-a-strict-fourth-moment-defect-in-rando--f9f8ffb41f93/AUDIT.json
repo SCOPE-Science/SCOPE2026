@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The batch force equals c times an orthogonal block-contrast projector. Its permutation-averaged square yields the exact two-mode mean-square factor rho and the sharp h_max. Synchronous coupling proves existence/uniqueness with finite second moment; the stationary covariance solves two scalar Lyapunov identities. At h_* every update is a scalar orthogonal reflection, so the Gaussian mixture collapses. Outside h_* the conditional variance of an e1-e2 contrast depends on whether particles 1 and 2 share a batch, yielding the displayed strict fourth-moment lower bound by conditional Jensen. The finite exact-rational checker enumerates partitions to verify critical projector and pair-probability identities; it is not treated as a proof of all N.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2202.04952v4, sections 2-3 continuous-time batch ergodicity and Wasserstein discrepancy",
+        "arxiv:2206.02166v3, introduction equation (1.4), section 3 time-discrete error estimates and appendix",
+        "arxiv:2411.01762, section II force-covariance compensation and section IV limitations"
+      ],
+      "reasoning": "General ergodicity and Wasserstein error bounds do not imply a Gaussian invariant-law classification, nor a strict fourth cumulant. Force covariance correction approaches change the noise law and do not establish the theorem for the unmodified Euler scheme.",
+      "searches": [
+        "web: random batch method harmonic interaction linear force exact covariance mean square stability batch size Euler numerical invariant distribution",
+        "web: random batch method quadratic stationary covariance Euler",
+        "random batch interacting harmonic particles invariant covariance discrete-time random matching variance exact stability Markov chain",
+        "non-Gaussian invariant measure random-batch harmonic interacting particles fourth cumulant kurtosis stationary"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1812.10575v1, section 2 random partitions and section 3 convergence bounds",
+      "arxiv:2202.04952v4, sections 2-3 continuous-time batch ergodicity and Wasserstein discrepancy",
+      "arxiv:2206.02166v3, introduction equation (1.4), section 3 time-discrete error estimates and appendix",
+      "arxiv:2411.01762, section II force-covariance compensation and section IV limitations",
+      "published result 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b: underdamped integrators, no random equipartitions",
+      "own ledger item 525a6be4-45a9-43d3-b5fc-55f83f65343f: Gaussianity criterion for noisy Kaczmarz, a different random operator"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1812.10575v1, section 2 random partitions and section 3 convergence bounds",
+        "arxiv:2202.04952v4, sections 2-3 continuous-time batch ergodicity and Wasserstein discrepancy",
+        "arxiv:2206.02166v3, introduction equation (1.4), section 3 time-discrete error estimates and appendix",
+        "arxiv:2411.01762, section II force-covariance compensation and section IV limitations"
+      ],
+      "reasoning": "The cited works state the RBM update and convergence/error guarantees, while the new claim fixes a harmonic specialization and establishes a sharp finite-second-moment threshold, exact stationary covariance, an if-and-only-if Gaussian reflection step and a positive fourth-moment defect. The conclusions do not follow from their stated bounds without further projector and conditional-mixture arguments.",
+      "searches": [
+        "arxiv:1812.10575 section 2 and 3",
+        "arxiv:2202.04952 sections 2 and 3",
+        "arxiv:2206.02166 section 3",
+        "arxiv:2411.01762 sections II-IV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1812.10575v1, section 2 random partitions and section 3 convergence bounds",
+        "arxiv:2202.04952v4, sections 2-3 continuous-time batch ergodicity and Wasserstein discrepancy",
+        "arxiv:2206.02166v3, introduction equation (1.4), section 3 time-discrete error estimates and appendix"
+      ],
+      "reasoning": "The resonant Gaussianity statement could be expressed as a randomized orthogonal-reflection (or Gaussian scale-mixture) criterion. General Gaussian-mixture identities alone do not supply the exact random-batch projector eigenstructure, the unique h_* for every N and p, or the batch-dependent strict fourth-moment lower bound. The cited random-batch analyses establish force unbiasedness, long-time error or ergodicity rather than this equivalence.",
+      "searches": [
+        "random batch interacting particle harmonic Langevin Gaussian invariant distribution exact time step reflection resonance non-Gaussian stationary law",
+        "randomized perfect matching Euler Ornstein Uhlenbeck invariant distribution Gaussian resonance orthogonal reflections stochastic batching",
+        "invariant Gaussian random batch algorithm harmonic interacting particles Ornstein Uhlenbeck Euler unique step size reflection matrix",
+        "web: \"random batch\" \"Gaussian invariant\" harmonic linear model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published result 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b: underdamped integrators, no random equipartitions",
+        "own ledger item 525a6be4-45a9-43d3-b5fc-55f83f65343f: Gaussianity criterion for noisy Kaczmarz, a different random operator"
+      ],
+      "reasoning": "The closest returned published result concerns harmonic low-cost UBU/ULMC covariance; a local finding concerns Gaussianity in noisy Kaczmarz. Neither has uniform size-p random partition projectors or the claimed unique resonance. Search absence is not used as proof of novelty.",
+      "searches": [
+        "random batch interacting harmonic particles invariant covariance discrete-time random matching variance exact stability Markov chain",
+        "random batch interacting particle harmonic Langevin Gaussian invariant distribution exact time step reflection resonance non-Gaussian stationary law",
+        "randomized perfect matching Euler Ornstein Uhlenbeck invariant distribution Gaussian resonance orthogonal reflections stochastic batching",
+        "invariant Gaussian random batch algorithm harmonic interacting particles Ornstein Uhlenbeck Euler unique step size reflection matrix",
+        "non-Gaussian invariant measure random-batch harmonic interacting particles fourth cumulant kurtosis stationary"
+      ]
+    },
+    "rationale": "Actual index and literature queries compared the exact random-batch Gaussian invariant criterion against the original RBM paper, continuous and discrete long-time analyses, noise-covariance compensation and related random linear samplers. The closest sources address force unbiasedness, convergence and invariant covariance bias, not the claimed all-N,p unique reflection resonance with strict fourth-defect coefficient. Generic Gaussian-mixture lemmas do not imply the batch-specific threshold absent new projector analysis. Residual risk: specialist random-recursion literature may contain equivalent parameterizations.",
+    "residual_risks": [
+      "An equivalent harmonic random-batch example in older stochastic affine recursion or batching literature may exist despite the targeted searches.",
+      "The general Gaussian-mixture criterion is classical; originality is in its sharp parameter classification and batch-contrast bound.",
+      "No independent specialist review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines batching and error bounds; no invariant-law Gaussian reflection resonance or fourth-moment contrast classification in inspected portions",
+        "evidence": [
+          "arxiv:1812.10575v1, section 2 random partitions and section 3 convergence bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.10575",
+        "material_read": "HTML manuscript introduction, algorithm sections 2, convergence arguments in section 3 and applications in section 5",
+        "method": "Inspected primary openly available full-text HTML equations and proof/theorem sections",
+        "title": "Random Batch Methods (RBM) for Interacting Particle Systems",
+        "trigger": "Original definition of independent random equipartition and unbiased interaction force"
+      },
+      {
+        "assessment": "Continuous-time batch flows and Wasserstein-distance bounds, not exact Euler random-affine Gaussianity",
+        "evidence": [
+          "arxiv:2202.04952v4, sections 2-3 continuous-time batch ergodicity and Wasserstein discrepancy"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.04952v4",
+        "material_read": "HTML manuscript introduction; section 2 contracting RB dynamics; section 3 invariant-law and error framework",
+        "method": "Inspected primary openly available full-text HTML",
+        "title": "Ergodicity and Long-time Behavior of the Random Batch Method for Interacting Particle Systems",
+        "trigger": "Closest equilibrium/invariant-law setting"
+      },
+      {
+        "assessment": "Analyzes strong and distributional errors; the explicit Gaussianity resonance and fourth-moment defect are not stated",
+        "evidence": [
+          "arxiv:2206.02166v3, introduction equation (1.4), section 3 time-discrete error estimates and appendix"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.02166v3",
+        "material_read": "HTML manuscript introduction equations (1.3)-(1.4), section 3, appendix proof regions",
+        "method": "Inspected primary openly available full-text HTML",
+        "title": "Error Analysis of Time-Discrete Random Batch Method for Interacting Particle Systems and Associated Mean-Field Limits",
+        "trigger": "Exactly the discrete random-batch Euler algorithm studied here"
+      },
+      {
+        "assessment": "Introduces modified noise compensator, not unmodified harmonic Euler stationary Gaussianity classification",
+        "evidence": [
+          "arxiv:2411.01762, section II force-covariance compensation and section IV limitations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.01762",
+        "material_read": "Full available HTML text sections I, II (variance correction), III numerical illustrations, IV conclusion",
+        "method": "Inspected available arXiv source text",
+        "title": "Variance-reduced Random Batch Langevin Dynamics",
+        "trigger": "Closest force-covariance and artificial-heating analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9f8ffb4-1f93-4e60-be81-d98844a105cb",
+  "value": {
+    "rationale": "A harmonic all-to-all particle system has an exactly Gaussian continuous-time target, making distributional Gaussianity a natural and important benchmark for randomized Gibbs sampling. The theorem shows that unmodified random batching generically destroys Gaussian shape even with Gaussian external noise, pinpoints one unexpected reflection-step exception, and quantitatively certifies non-Gaussianity for every N and proper batch size via an explicit fourth-moment defect. It distinguishes Gaussianity from target correctness and supplies a sharp stability ceiling, not just a small finite example.",
+    "status": "PASS"
+  }
+}
