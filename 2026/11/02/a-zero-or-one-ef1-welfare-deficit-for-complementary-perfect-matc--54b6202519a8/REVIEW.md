@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Distinct counted completions form a perfect covering only at welfare \(K\), forcing per-component monochromaticity. The exact EF1 condition at welfare \(K\) is component subset-sum balance. In the contrary case a split at the first prefix crossing \(\lfloor K/2\rfloor\) constructs an EF1 complete allocation losing exactly one completed pair; the split directly counts each matching's within-bundle and other-bundle completions. The proof handles shared-edge two-vertex components, arbitrary component sizes, and parity. A standalone exhaustive enumerator tests all matchings/all allocations up to ten goods; finite experiments do not replace the proof.
+## correctness
 
-**Originality: PASS, subject to residual risk.** Pyne, Viswanathan, Yang and Zick (2026), arXiv:2610.15801v1, provide the precise four-good crossing-matchings counterexample and wider approximate fair-allocation results; that example is recognized as prior work. The present result is an exact for-all-inputs welfare frontier and constructive polynomial procedure on two perfect matchings, not the earlier impossibility alone. published research-index semantic queries for alternating-cycle partition, matching coverage, EF1 and pair-complement welfare, plus checks against accessible earlier findings, identified no equivalent implication. Closest published research-index records address matching/induced-matching graph gaps and stable marriage rather than this exact objective. Equivalent results in unindexed or differently worded work remain possible.
+PASS
 
-**Value: PASS.** The exact all-size zero-or-one deficit and balanced-subset-sum characterization explain a structural boundary of a natural complement-valuations fair-division model, sharply beyond the previous four-item obstruction and general multiplicative guarantees. It yields an optimal complete allocation algorithm with an explicit input-sized runtime bound.
+With two explicit unit-valued perfect-matching pair-complement valuations on 2K goods, an allocation counts at most K disjoint completed pairs. Equality forces per alternating even cycle (including double edge) a monochromatic whole-component allocation. The exact EF1 constraints at equality reduce to |2s-K|<=1 for subset sum of component half-sizes. If no such subset exists, choose the first crossing component over floor(K/2), assign 2a+1 consecutive vertices to A and the rest to B; the within- and cross-valuations are exactly floor(K/2) and K-1-floor(K/2), so EF1 holds and U=K-1. This proves the complete alternative and O(K^2) dynamic-programming construction. Independent exhaustive matching/allocation evaluation for sizes 2,4,6,8 goods found the exact predicted optima. The finite cases corroborate but do not prove all K.
 
-**Scope and limits:** Only two agents and unit-valued perfect-matching pair complements. No theorem about general overlapping pair valuations, additional agents, Pareto optimality at loss one, or stronger envy notions. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality: exact specialized formula and classification not shown to follow from inspected prior theorems; known general mechanisms and finite examples are credited, with residual priority risk.
+
+## value
+
+PASS
+
+A complete exact fair-welfare frontier for a natural explicitly specified complementary-matching domain, including constructive EF1 optimum and necessary/sufficient graph-component balance criterion, is a motivated combinatorial allocation theorem. It sharpens prior approximate or obstruction-only results for all sizes rather than merely presenting a known four-good witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

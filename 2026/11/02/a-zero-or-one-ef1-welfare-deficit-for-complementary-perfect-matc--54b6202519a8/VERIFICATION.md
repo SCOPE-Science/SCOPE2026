@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Direct checks
+# Independent mathematical audit
 
-Running `python verify.py` exhaustively enumerates every perfect matching for the second agent (against a canonical first-agent perfect matching) and all complete allocations for the good counts 2, 4, 6, 8 and 10. It independently obtains the optimal EF1 welfare from bundle valuations, checks all EF1 inequalities and compares it with the cycle-subset-sum formula. Expected successful output ends `VERIFY_OK`.
+## correctness
 
-Matching instances: 1, 3, 15, 105, and 945 respectively. Total allocations checked: 995572. No floating-point numerical assertions are needed.
+PASS
 
-## Boundaries and limits
+With two explicit unit-valued perfect-matching pair-complement valuations on 2K goods, an allocation counts at most K disjoint completed pairs. Equality forces per alternating even cycle (including double edge) a monochromatic whole-component allocation. The exact EF1 constraints at equality reduce to |2s-K|<=1 for subset sum of component half-sizes. If no such subset exists, choose the first crossing component over floor(K/2), assign 2a+1 consecutive vertices to A and the rest to B; the within- and cross-valuations are exactly floor(K/2) and K-1-floor(K/2), so EF1 holds and U=K-1. This proves the complete alternative and O(K^2) dynamic-programming construction. Independent exhaustive matching/allocation evaluation for sizes 2,4,6,8 goods found the exact predicted optima. The finite cases corroborate but do not prove all K.
 
-The finite enumeration is independent corroboration only; it cannot establish the all-size claim, which follows from the explicit combinatorial proof. No external or independent audit has been performed. The program requires Python 3 standard library only.
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality: exact specialized formula and classification not shown to follow from inspected prior theorems; known general mechanisms and finite examples are credited, with residual priority risk.
+
+## value
+
+PASS
+
+A complete exact fair-welfare frontier for a natural explicitly specified complementary-matching domain, including constructive EF1 optimum and necessary/sufficient graph-component balance criterion, is a motivated combinatorial allocation theorem. It sharpens prior approximate or obstruction-only results for all sizes rather than merely presenting a known four-good witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
