@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction from inclusion-exclusion: odd bases satisfy q-1 divisible by 2^{n+2}; all higher divided-difference terms have valuation >=2n+3; coefficients reduce by at most h. Even-base normalized contribution has valuation >=2^n-h-w, at least n+2 by hypothesis. The exact 2014 theorem gives valuation n+1 of the doubling reference; equality follows. The standalone checker independently confirmed 25 exact recurrence cases and 48 high-exponent modular cases; the proof, not the tests, covers all allowed quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1209.6284 Theorem 1.3 explicitly excludes columns of the form 2^m-1",
+        "arxiv:1912.01090 treats valuations of S(n,k) and asymptotic valuations of individual Stirling entries, not normalized pairwise differences."
+      ],
+      "reasoning": "An earlier all-pairs formula for every k except Mersenne does not imply this complementary Mersenne case. A valuation of individual terms does not determine valuations of their difference.",
+      "searches": [
+        "arxiv:1209.6284v1 Thm.1.3",
+        "arxiv:1912.01090v1 Introduction, Sections 2 and 5",
+        "web: Zhao Zhao Hong 2015 difference Stirling powers two minus one general a b conjecture subsequent"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1407.8443",
+      "https://arxiv.org/pdf/1209.6284",
+      "https://arxiv.org/pdf/1912.01090",
+      "https://dmtcs.episciences.org/2694",
+      "published-finding corpus mathematical-record semantic searches for Stirling second-kind Mersenne-column two-parameter differences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new arithmetic lemma controls every normalized difference (F(a)-F(b))/(a-b) modulo 2^{n+2}, which is not stated in the prior multiplier-doubling theorem.",
+        "The published doubling theorem supplies the base exact valuation n+1 but not the all-pair transfer; the 2014 authors explicitly mark that transfer as unsolved."
+      ],
+      "reasoning": "A nontrivial new 2-adic divided-difference estimate is required to pass from a single known multiplier pair to arbitrary multiplier gaps; the older statement alone is not logically stronger. The finding does not re-claim that published doubling theorem. However, the method is elementary enough that an unnoticed independent derivation remains possible.",
+      "searches": [
+        "arxiv:1407.8443v1 Theorems 1.2,1.3 and proof pp. 14-18",
+        "arxiv:1209.6284v1 Theorem 1.3, p. 3",
+        "arxiv:1912.01090v1 Sections 1-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1407.8443v1 p. 3, text following Thm. 1.3 explicitly leaves formula (1.2) open when k=2^m-1>=15",
+        "The new formula exactly settles the eventual version of that explicitly stated question, and strengthens it by a normalized congruence and quantitative threshold."
+      ],
+      "reasoning": "Exact comparison of all four parameters: earlier Thm. 1.3 considers S(c2^{n+1},k)-S(c2^n,k), i.e. multipliers 2c,c with c odd; it does not determine arbitrary a>b. Later direct equivalence search found no same general statement.",
+      "searches": [
+        "published-finding corpus: Stirling numbers of second kind remaining Lengyel conjecture S(a2^n,2^m-1)-S(b2^n,2^m-1) exact valuations all m 15 31",
+        "web: Stirling numbers difference general a b 2-adic 2^m-1 proof conjecture",
+        "arxiv:1407.8443v1 pp. 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus hit stated the Mersenne-column all-pair difference law; nearby hits instead concerned Thue--Morse valuation recurrences or unrelated dyadic problems.",
+        "Searches identified the 2014 primary theorem and its reported remaining case, not an exact database table solving all m>=4."
+      ],
+      "reasoning": "No matching exact lookup or table was located. The evidence is limited to queried indexes and not taken as a proof of absolute originality.",
+      "searches": [
+        "published-finding corpus: 2-adic analytic interpolation Stirling second kind Lipschitz 2^m - 1 differences general a b",
+        "published-finding corpus: prime powers 2 Stirling difference exact eventual n+1+v2(a-b) all odd special index",
+        "web: Lengyel 2009 conjecture 1.1 equation 1.2 Stirling 2^m-1 resolved"
+      ]
+    },
+    "rationale": "The 2014 full-text paper explicitly states the two-parameter valuation claim is open for k=2^m-1>=15, proving only multiplier doubling; the new uniform quotient congruence supplies a genuine implication to all multiplier pairs at effective n. The 2012 full-text paper excludes precisely Mersenne columns, and the inspected 2019 Adelberg article studies individual valuations instead of these differences. Residual possibility of unlocated later priority is disclosed.",
+    "residual_risks": [
+      "An equivalent result may exist in later work not indexed by these searches.",
+      "The 2009 publisher full paper was not independently inspected; its conjecture statement was checked via the 2014 primary paper.",
+      "The exact threshold here is conservative; proving smaller thresholds is beyond this claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY: exact doubling case is prior; all-pair case explicitly declared open",
+        "evidence": [
+          "p. 3: last sentence following Theorem 1.3 says (1.2) still open for k=2^m-1>=15",
+          "Theorem 1.3 gives exact n+1 for c odd doubling pair"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.8443",
+        "material_read": "Full-text Introduction and main statements pp. 1-3, proof of Theorem 1.3 pp. 14-18, relevant preliminary lemmas pp. 4-7",
+        "method": "Rendered PDF page 3 plus parsed full-text comparison of Theorems 1.2, 1.3 and proof",
+        "title": "The 2-adic valuations of differences of Stirling numbers of the second kind",
+        "trigger": "Directly matching title and missing Mersenne-column two-parameter case"
+      },
+      {
+        "assessment": "NOT_COVERING_MERSENNE: main exact-difference theorem excludes k=2^m-1",
+        "evidence": [
+          "Theorem 1.3 hypothesis k not a power of 2 minus one"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.6284",
+        "material_read": "Full-text Introduction/main theorems pp. 1-4 and relevant statement of Theorem 1.3",
+        "method": "Parsed primary PDF and direct hypothesis comparison",
+        "title": "Divisibility by 2 of Stirling numbers of the second kind and their differences",
+        "trigger": "Potentially dominating all-pair Stirling difference theorem"
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE_FOUND: focus on individual valuations, not all-pair normalized differences",
+        "evidence": [
+          "Introduction describes MZC/AMZC valuations of individual S(n,k), with no all-pair difference formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.01090",
+        "material_read": "Abstract and detailed introduction pp. 1-3, main theorem statements pp. 4-6, reference to Zhao--Hong--Zhao, search for difference theorems",
+        "method": "Parsed primary PDF sections and matching-theorem searches plus rendered PDF p.3",
+        "title": "The 2-Adic Analysis of Stirling Numbers of the Second Kind via Higher Order Bernoulli Numbers and Polynomials",
+        "trigger": "Later broad p-adic Stirling-number results might dominate the proposed statement"
+      },
+      {
+        "assessment": "MOTIVATING_PRIOR: original valuation-difference conjecture, not evidence of coverage",
+        "evidence": [
+          "2009 article says it makes a conjecture on exact order of differences; later Zhao--Zhao--Hong paper supplies exact formulation"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/2694",
+        "material_read": "Publisher abstract and bibliographic record",
+        "method": "Publisher webpage inspected; full text not inspected for this source",
+        "title": "On the 2-adic order of Stirling numbers of the second kind and their differences",
+        "trigger": "Original conjecture and framing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5173a83d-3613-4389-a90c-f14ca71aeed6",
+  "value": {
+    "rationale": "The 2014 source explicitly named the general two-multiplier Mersenne-column valuation as its remaining open case for k>=15. The result settles the eventual case for every column and multiplier pair, provides an explicit effective exponent bound and a stronger normalized congruence. It is structurally useful for 2-adic interpolation and local difference behavior, not a small arbitrary slice or a known table recomputation.",
+    "status": "PASS"
+  }
+}
