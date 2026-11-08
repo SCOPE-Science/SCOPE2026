@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a complete finite classification relative to McKay's published fifteen-class catalogue. Each row's simplices are reconstructed from the explicit 36-bit upper-triangular encoding. The verifier checks degree-four regularity, pairwise nonisomorphism, a complete partition into matched and critical faces, and directed Hasse acyclicity for all fifteen complexes. The resulting Morse CW models have one zero-cell, no cells above dimension two, and exactly the critical cells claimed. In fourteen cases, only one positive critical degree occurs; the CW models are immediately sphere wedges. In the mixed case, exact rational simplicial homology has rank one in degree two, forcing the unique two-cell's attaching degree to be zero. The proof gives homotopy equivalences over the integers. An independent exact rational and mod-two boundary-rank reconstruction agrees in every case.
+## correctness
 
-**Originality — PASS against the examined sources.** The closest foundational paper (Dochtermann–Singh, arXiv:2108.10948) defines this complex and studies five-vertex tournament examples, rather than this fifteen-case classification. Govc (arXiv:2006.05333) classifies tournament *directed flag complexes*, which have different simplices and do not determine out-neighborhood topology. McKay supplies graph representatives, not their homotopy types. Published smaller tournament-neighborhood work and the record of torsion-freeness through seven vertices do not imply order-nine homotopy types. Multiple exact-parameter, alias and broader-coverage searches revealed no dominating classification. The residual possibility of an unindexed earlier calculation remains.
+PASS
 
-**Value — PASS.** Regular tournaments are a natural isomorphism-closed family; order nine has fifteen classes, permitting a complete, non-arbitrary census. The eight types exhibit large variation in circle rank, pure second-sphere bouquets, and one mixed-dimensional bouquet. The latter illustrates topology not captured by regularity or a single-degree homology hypothesis. This resolves a motivated explicit classification gap raised by the study of tournament neighborhood complexes, without claiming a theorem for all tournament orders.
+Independently decoded all fifteen 36-bit upper-triangle regular nine-vertex tournament strings, constructed the 9 four-element out-neighborhood facets and all 1278 nonempty faces, checked complete partition of every face across 616 stored matched pairs and 46 critical faces, and topologically sorted every directed Hasse graph with no cycles. Critical counts are one 0-cell and the claimed 1- and 2-cells per each of 15 representatives, giving eight homotopy types. For the unique mixed case (index 9) independent rational boundary elimination gives ranks rank(d2)=25, rank(d3)=9 on 35 triangles, hence beta2=1, so its sole 2-cell has attaching degree zero to the 1-cell. The complete set of 15 order-nine regular isomorphism classes depends on McKay catalogue, not solely on checking these 15 examples for regularity and pairwise nonisomorphism.
 
-The exact dependency is the published completeness of McKay's fifteen-class list; the included verifier independently checks its representatives and all new topology, but not the original global enumeration. Independent external review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary-theorem/parameter/complex comparison and semantic Resultary query ('nine vertex regular tournament out-neighborhood complex homotopy classification 15 tournaments') found no examined theorem that implies the precise claim. Matching graph names, smaller parameters, different simplicial constructions and broad hypotheses were compared by mathematical implication; failed retrieval is not absolute novelty proof. See four structured comparisons and residual risks.
+
+## value
+
+PASS
+
+This is a natural, complete finite census of an isomorphism-closed family with exactly 15 regular-nine representatives. Its eight distinct integral homotopy types include pure S2 bouquets and a genuinely mixed S1∨S2, an informative distinction that raw tournament regularity does not predict.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
