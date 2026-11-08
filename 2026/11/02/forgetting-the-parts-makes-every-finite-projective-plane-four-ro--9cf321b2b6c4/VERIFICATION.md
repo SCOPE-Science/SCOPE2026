@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational reproducibility and scope
+# Independent mathematical audit
 
-The proof is mathematical and applies to arbitrary finite projective planes. Two different finite checks serve as corroboration only.
+## correctness
 
-`verify_local.py` constructs the incidence graphs of \(\mathrm{PG}(2,2)\) and \(\mathrm{PG}(2,3)\), enumerates all \(2744\) and \(17576\) ordered triples, and verifies that geometric three-tuple types determine fourth-vertex atomic adjacency/equality spectra. It also checks attainable geometric triple types after any ordered pair and the corresponding one-vertex profiles. Both planes produce \(48\) matching coloured geometric triple types, \(8\) pair types and \(2\) one-point types. The full console output is `local_output.txt`.
+PASS
 
-`verify_ef.cpp` independently evaluates bottom-up exact graph-language quantifier-rank-four types over all vertices of \(\mathrm{PG}(2,2)\), \(\mathrm{PG}(2,3)\), and \(\mathrm{PG}(2,5)\), allowing repetitions and all equality/adjacency diagrams. After forming fourth-vertex spectra, the number of three-vertex one-step types is \(24\) in every tested plane, and the complete empty-tuple rank-four types coincide. The full output is `ef_output.txt`.
+Finite projective-plane axioms q>=2 imply for same-part distinct a,b common/left/right/neither opposite-part incidence counts (1,q,q,q(q-1)), all positive. In 4-round EF game Duplicator matches repetitions, an arbitrarily chosen hidden bipartition alignment, incidence, and for three same-part distinct vertices the common-neighbour predicate. Every 3rd move can preserve that strengthened type: collinear/noncollinear choices both exist. For the 4th move, given three same-side vertices, prescribed nonzero incidence patterns (111 for collinear, 11 pair patterns for noncollinear, singleton patterns both) are available; 000 always supplied by a fresh same-side vertex. For 2+1 split, choices 00/10/01 exist with at most one excluded used vertex; 11 exists precisely if the opposite-side third is not the unique pair join, and either incident/nonincident fresh same-side choices exist. Equalities are preserved. Hence any two planes have the same rank-4 FO theory in pure undirected adjacency, even non-Desarguesian; no named sort or counting. Rank-5 vertex-with-four-distinct-neighbours sentence separates degree-3 Fano Heawood graph from every q>=3. Independent exact EF type recurrence agreed PG(2,2) and PG(2,3) at rank four, corroborating not replacing axiomatic strategy.
 
-Run `sh reproduce.sh` with Python 3 and a C++17 compiler. The script compares new console output against the two included output files. No network access or external datasets are required. These finite tests do not prove the infinite order-uniform assertion, which is established by the explicit geometric case argument in `RESULT.md`. No external mathematical audit or formal proof certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.
+
+## value
+
+PASS
+
+A sharp uniform first-order low-rank classification across all finite projective planes and all orders in the uncoloured graph language, with rank-five exact separation from the smallest plane, identifies a real expressivity boundary between named-sort and graph-only incidence structures. The all-q result is natural and nontrivial beyond small sample checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

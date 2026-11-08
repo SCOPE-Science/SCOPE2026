@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete incidence-axiom proof gives a maintained three-vertex geometric type for the four-round Ehrenfeucht–Fraïssé game and analyzes all fourth-vertex equality/adjacency extensions. The only required counting conditions are \(q+1\ge3\), \(q\ge2\), \(q(q-1)\ge2\), and \(q^2\ge4\), valid for every \(q\ge2\). The next-rank witness asserts four distinct neighbours with exactly five nested quantifiers. An exact finite recursion for orders two, three, and five, and a separate local-extension enumeration for orders two and three, reproduce the necessary patterns. The finite computations do not serve as proof for unbounded orders or non-Desarguesian planes.
+## correctness
 
-## Originality — PASS with priority limitation
-The closest prior mathematical statement on point/line-sorted finite projective planes distinguishes order two from order three at rank four; it has the opposite implication direction to the present pure-graph rank-four equivalence and cannot establish it merely by forgetting symbols. A prior result for biaffine nets also concerns a different incidence family and has a genuine order-two exception after forgetting sorts. Pikhurko–Veith–Verbitsky supply the general game framework but no projective-plane-specific equivalence in the inspected sections. Venema's two-sorted modal projective-plane paper is a plausible source for background; its abstract was checked, but full text was not accessible, leaving residual priority risk. Searches of published mathematical results and the accessible scientific claim ledger found no stronger covering statement, but negative search results do not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete rank-four classification, uniform across all finite projective planes (including non-Desarguesian examples), with the sharp fourteen-vertex representative. Its main content is a genuine change of first-order distinguishing depth under erasure of point/line sort names: even the smallest plane collapses into the common class for four rounds, although rank five detects its degree. This is a natural boundary of logical visibility rather than a small numerical computation or an arbitrary parameter slice.
+Finite projective-plane axioms q>=2 imply for same-part distinct a,b common/left/right/neither opposite-part incidence counts (1,q,q,q(q-1)), all positive. In 4-round EF game Duplicator matches repetitions, an arbitrarily chosen hidden bipartition alignment, incidence, and for three same-part distinct vertices the common-neighbour predicate. Every 3rd move can preserve that strengthened type: collinear/noncollinear choices both exist. For the 4th move, given three same-side vertices, prescribed nonzero incidence patterns (111 for collinear, 11 pair patterns for noncollinear, singleton patterns both) are available; 000 always supplied by a fresh same-side vertex. For 2+1 split, choices 00/10/01 exist with at most one excluded used vertex; 11 exists precisely if the opposite-side third is not the unique pair join, and either incident/nonincident fresh same-side choices exist. Equalities are preserved. Hence any two planes have the same rank-4 FO theory in pure undirected adjacency, even non-Desarguesian; no named sort or counting. Rank-5 vertex-with-four-distinct-neighbours sentence separates degree-3 Fano Heawood graph from every q>=3. Independent exact EF type recurrence agreed PG(2,2) and PG(2,3) at rank four, corroborating not replacing axiomatic strategy.
 
-## Scope and external audit
-The assertion is restricted to pure adjacency and equality, finite planes of order at least two, and rank at most four. The exact Fano-versus-higher-order separating rank is five, but no complete rank-five spectrum is claimed. The review is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.
+
+## value
+
+PASS
+
+A sharp uniform first-order low-rank classification across all finite projective planes and all orders in the uncoloured graph language, with rank-five exact separation from the smallest plane, identifies a real expressivity boundary between named-sort and graph-only incidence structures. The all-q result is natural and nontrivial beyond small sample checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
