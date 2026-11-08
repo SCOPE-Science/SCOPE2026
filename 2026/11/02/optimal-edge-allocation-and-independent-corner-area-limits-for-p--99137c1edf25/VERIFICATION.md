@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`; `verify.py` is an optional finite reproducibility test. It uses only the standard Python library. Execute `python verify.py` in the directory containing the extracted files. A successful execution reports `GEOMETRIC_IDENTITY_PASSED`, `EXACT_MIXED_MOMENTS_PASSED`, `OPTIMIZATION_AND_PARITY_TESTS_PASSED`, `LIMITING_MEAN_VARIANCE_PASSED`, then `ALL_CHECKS_PASSED`.
+## correctness
 
-The main geometric identity is checked against directly computed convex hulls of points sampled on each polygon edge, including an irregular quadrilateral. The finite joint endpoint moment is cross-checked against a separately expanded binomial polynomial. A nonparallelogram admits an explicitly constructed improving edge-weight perturbation, and sample exponential products have empirical mean and variance consistent with the theorem's exact parameters.
+PASS
 
-These numerical tests verify representative instances and identities; they are not proofs of statements for every polygon or every sample size. The analytic proof establishes the unrestricted fixed-polygon claims. The approximation formula's exceptional-edge error is bounded rather than asserted to vanish for each finite sample. Independent mathematical audit has not been performed.
+For each fixed strictly convex m-gon m>=3 and fixed w_i>0, on the event every edge is hit, the exact hull deficit is the sum of corner wedge areas d_i R_{i-1} L_i. Disjoint adjacent boundary subintervals give joint tail (1-w_{i-1}s-w_i t)^n, whose integral yields F_n; the missing-edge event is bounded by sum(1-w_j)^n. All 2m rescaled edge endpoint gaps tend jointly to independent exponentials and have uniform all-order moments, establishing n^2 deficit convergence, mean C=sum_i d_i/(w_{i-1}w_i), and variance 3 sum_i [d_i/(w_{i-1}w_i)]^2. Positive Hessian of 1/(xy) gives strict convexity of C on positive simplex and unique optimum; KKT says equal weights iff adjacent d sums constant, with parity and parallelogram consequences. Independent rational integration and convex-hull/rectangle checks corroborated the normalization, including 357/800 for n=3 and neighboring interval probabilities 1/5,3/10.
+
+## originality
+
+PASS
+
+Reitzner–Schütt–Werner (2019 preprint/2023 paper) studies uniformly distributed polytope-boundary points and volume-deficit rates; its inspected main theorems do not give the arbitrary per-edge weighted joint exponential-product corner limit and strict optimizer. Smooth-curve Hausdorff/area density problems concern different sampling or loss. An old weighted planar polygon theorem could still dominate.
+
+## value
+
+PASS
+
+Optimal allocation of sampling effort among edges is a natural geometric design problem; the joint law and full moment limits give quantifiable corner variability, and the iff parity/quadrilateral criterion separates geometry from mere area-perimeter scaling. It includes a genuinely nontrivial optimum even though corner order statistics themselves are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The determinant coefficient \(d_i=\tfrac12\det(e_{i-1},e_i)>0\) is exactly the area of the full corner wedge triangle. Conditional on every edge being occupied, the missing polygon area is the sum of corner triangles \(d_iR_{i-1}L_i\), without double counting. The joint endpoint survival probability on adjacent distinct edges is exactly \((1-w_{i-1}s-w_it)^n\); two integrations give the finite-sample auxiliary expectation and the exponentially small missed-edge error. Joint scaled endpoint spacings converge to independent exponentials, with uniform-integrability estimates proving all fixed integer moment limits. Direct differentiation yields strictly positive-definite Hessians for each \(1/(w_{i-1}w_i)\), existence and uniqueness of an interior minimizer, and the parity rigidity of equal weights. In a quadrilateral, the alternating wedge-area condition and the edge-closing relation force opposite edges to cancel, hence a parallelogram. The accompanying standalone program passed convex-hull, binomial-moment, numerical-optimization and exponential-product tests. The finite tests corroborate, but do not replace, the analytic proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Reitzner, Schütt and Werner, arXiv:1911.05917 (first public version 2019-11-14), provide the most directly relevant predecessor: volume approximation by surface-uniform points on polytopes and vertex-local geometry. The inspected full HTML includes introduction, principal theorem and relevant planar-volume argument; it does not supply a full weighted independent corner-product law, convex edge-allocation optimizer or the parity/parallelogram characterization. Prochno, Schütt, Sonnleitner and Werner, arXiv:2404.02870 (first public version 2024-04-03), analyze a distinct Hausdorff objective; inspected complete HTML includes their geometry, theorem and comparison to boundary-volume work. Indexed published research on smooth-curve sampling compromises and regular-polygon Hausdorff extremes was compared by actual statements, not just title keywords: its objects or objectives differ. There may be an older or unindexed result already implying part of the weighted-area law; database noncoverage alone does not prove global priority.
+PASS
 
-## Mathematical value — PASS
-The exact leading missed-area constant for polygonal boundary hulls depends on adjacent edge-selection probabilities through a strictly convex cyclic graph energy. That gives a unique, affine-invariant optimal edge allocation, an unusual odd/even equality characterization and an exact geometric rigidity criterion for quadrilaterals. A long rectangle demonstrates an unbounded asymptotic efficiency improvement over ordinary perimeter-uniform sampling, giving a concrete reason to seek the precise invariant. The product-of-independent-exponentials limit also determines fluctuations beyond the expectation.
+For each fixed strictly convex m-gon m>=3 and fixed w_i>0, on the event every edge is hit, the exact hull deficit is the sum of corner wedge areas d_i R_{i-1} L_i. Disjoint adjacent boundary subintervals give joint tail (1-w_{i-1}s-w_i t)^n, whose integral yields F_n; the missing-edge event is bounded by sum(1-w_j)^n. All 2m rescaled edge endpoint gaps tend jointly to independent exponentials and have uniform all-order moments, establishing n^2 deficit convergence, mean C=sum_i d_i/(w_{i-1}w_i), and variance 3 sum_i [d_i/(w_{i-1}w_i)]^2. Positive Hessian of 1/(xy) gives strict convexity of C on positive simplex and unique optimum; KKT says equal weights iff adjacent d sums constant, with parity and parallelogram consequences. Independent rational integration and convex-hull/rectangle checks corroborated the normalization, including 357/800 for n=3 and neighboring interval probabilities 1/5,3/10.
 
-## Scientific limitations
-Claims are for fixed strictly convex polygons, fixed strictly positive per-edge weights, independent samples and conditional uniformity within the chosen edge; finite-sample exact allocation minimizers, arbitrary density optimization and curved boundaries remain open in this analysis. Historical-priority verification is extensive but not exhaustive. Numerical checks are finite and are not substitutes for analytic quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reitzner–Schütt–Werner (2019 preprint/2023 paper) studies uniformly distributed polytope-boundary points and volume-deficit rates; its inspected main theorems do not give the arbitrary per-edge weighted joint exponential-product corner limit and strict optimizer. Smooth-curve Hausdorff/area density problems concern different sampling or loss. An old weighted planar polygon theorem could still dominate.
+
+## value
+
+PASS
+
+Optimal allocation of sampling effort among edges is a natural geometric design problem; the joint law and full moment limits give quantifiable corner variability, and the iff parity/quadrilateral criterion separates geometry from mere area-perimeter scaling. It includes a genuinely nontrivial optimum even though corner order statistics themselves are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
