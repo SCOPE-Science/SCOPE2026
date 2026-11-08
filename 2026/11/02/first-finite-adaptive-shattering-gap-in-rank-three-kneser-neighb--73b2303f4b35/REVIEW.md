@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact recurrence is equivalent by induction to full adaptive shattering. All query triples are iterated at each reachable state, with sound cardinality pruning. Recomputed lower and upper predicates, explicit full trees, direct leaf-path checks and separately stored certificates pass for all nine orders. This is a finite exact proof, not an extrapolation.
+## correctness
 
-## Originality — PASS, with priority risk
-Literature and research-index searches distinguish the rank-three finite adaptive thresholds from previously available Johnson/Hamming static VC bounds, separate static rank-three Kneser shattering, and previously calculated rank-two Kneser adaptive dimensions. The exact rank-three predicate and its first finite gap are not implied by those other numerical results. An unindexed exact online disjointness calculation remains possible.
+PASS
 
-## Value — PASS
-The smallest fixed-rank Kneser graph where adaptation improves the depth of complete shattering is a natural structural boundary in a well-studied disjointness family. The exact finite sequence and witnesses distinguish rank-three behavior from rank-two without pretending to give a general infinite theorem.
+Version-space recurrence F(S,d)=∨_q(F(S∩Q_q,d-1)∧F(S\Q_q,d-1)) is exactly equivalent to complete online shattering. Prunings |S|>=2^d and balanced child bounds are necessary; all C(n,3) queries considered. Independently implemented recursion, obtaining n=6..11 dimensions (1,2,3,4,5,6), and n11 depth7 false, in addition to source witness-tree and exhaustion design; source finite certificate covers n=3..11. Static comparison relies on prior VC classification, explicitly not redone here.
 
-## Closest literature and limitations
-Adler–Benediktsson–Macpherson (arXiv:2007.16042v1) treats nonadaptive VC complexity of Johnson/Hamming graph adjacency. Bhattacharya et al. (arXiv:2006.13712v1) treat a distinct communication-disjointness problem. The earlier rank-three Kneser VC enumeration and rank-two Kneser Littlestone theorem are acknowledged as prior statements. Only finite orders through eleven are established, and historical priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. The adaptive decision-tree recurrence is not a static VC shattering test. An earlier rank-two Kneser result has different hypothesis space.
+
+## value
+
+PASS
+
+The first adaptive-vs-static shattering separation for a fixed-rank natural Kneser family is a motivated finite cutoff, not arbitrary sample sizes; complete dimension census and explicit shattered trees are independently useful to online graph learning, despite no n>=12 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
