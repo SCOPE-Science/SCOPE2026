@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:04:35.851414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For k>=2 clique blocks, hub-to-leaf and within-block snowflake distances are 1, cross-block squared distances r=2^(2alpha). A positive weighted variance identity using p_i proportional to 1/b_i, b_i=(r-1+1/m_i)/2, proves c2^2>=R^2=r/2-1/sum_i 1/b_i, in addition to >=1. Orthogonal block simplices and a hub at (or perpendicular to) their common weighted circumcenter realize exactly max(1,R^2). Equality in the strictly positive weights determines all pair distances and congruence of optimum. The leaf affine rank is N-1, the hub adds one dimension iff R²<1. Strict monotonicity of the weighted-max expression and r=1/4 endpoint establish the unique alpha threshold, including the k=2 singleton endpoint. Independent Gram/PSD/distance checks covered 416 leaf pairs; finite tests are supplemental.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robertson gives formulas for complete bipartite graphs and Hamming cubes, not bouquets of k cliques meeting at a hub; the submitted variance certificate uses nonuniform block weights p_i."
+        ],
+        "reasoning": "The graph family is not a complete bipartite graph unless restricted to a small special case; the exact nonuniform harmonic sum is not a direct specialization of the inspected stronger named theorems.",
+        "searches": [
+          "Robertson 2023 distorted negative type arXiv:2309.16070 full HTML",
+          "Johnson embedding and general regular-simplex Euclidean distance matrix results"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 9bc84946ddf891bba1bc8df7c5d3f9110ae89418",
+        "Git check.py b7d9a2888c1622c4b7fd761b8ed3d41a2b7b0c4b",
+        "arXiv:2309.16070 full text",
+        "arXiv:2001.06752 abstract",
+        "Resultary Hilbert least Euclidean distortion snowflake bouquet of cliques friendship graph graph metric negative type"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same friendship graph is considered as a QE constant in Lou et al.; c2² at alpha=1 here is 2-7/(4k) and the full variable-alpha family has a distinct equality/rank theory."
+        ],
+        "reasoning": "A statement about whether the unsquared graph distance has negative type does not imply the sharp quantitative c2 of the graph metric; the nonisometric regime requires a globally optimal weighted variance bound.",
+        "searches": [
+          "Robertson arXiv:2309.16070 §4 complete bipartite result",
+          "Lou Obata Huang arXiv:2001.06752 quadratic embedding constants of graph joins"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is equivalent to minimizing the scale range of a squared Euclidean distance matrix on a hub-plus-clusters metric; Robertson treats distorted negative type; Lou et al determine the conditional negative type of friendship-graph distance matrices."
+        ],
+        "reasoning": "The unsquared quadratic-embedding constant is not the c2 of d_G^alpha, since Hilbert realizability of d_G^alpha depends on conditional negativity of d_G^(2alpha). Matching friendship-graph parameters alone do not imply the formula.",
+        "searches": [
+          "Hilbert least Euclidean distortion snowflake bouquet of cliques friendship graph graph metric negative type",
+          "Robertson arXiv:2309.16070 §4",
+          "Lou-Obata-Huang arXiv:2001.06752"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related database records concern Lipschitz-free Banach spaces and quadratic-embedding constants, not the specified c2 and rank transition."
+        ],
+        "reasoning": "This is an all-block-size continuous-alpha result, rather than a known finite table. Checked the relevant known family and its close alternate invariant.",
+        "searches": [
+          "Resultary Hilbert least Euclidean distortion snowflake bouquet of cliques friendship graph graph metric negative type",
+          "Resultary friendship graph Euclidean distortion clique bouquet snowflake",
+          "Lou-Obata-Huang 2020 arXiv"
+        ]
+      },
+      "rationale": "Best-knowledge PASS, qualified. General distorted negative type and complete-bipartite graph distortion are known, as are friendship-graph quadratic embedding constants, but the invariant there differs (unsquared distance conditional negativity versus squared-distance least Lipschitz distortion). No inspected theorem implies the variable-size bouquet harmonic law or the full snowflake-dependent affine dimension drop. Prior Euclidean distance matrix / minimum-enclosing-ball work might contain an equivalent characterization.",
+      "residual_risks": [
+        "A previously published Euclidean minimum-enclosing-sphere / weighted negative-type theorem could cover the all-variable-size bouquet as a corollary.",
+        "No weighted edges, multiple hubs, or alpha outside [0,1] evaluated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "distinct families and no k-clique-bouquet all-parameter theorem identified",
+          "evidence": "formulas concern complete bipartite graph distances and Hamming cubes, not one-hub clique bouquet with independent m_i",
+          "identifier_or_url": "https://arxiv.org/abs/2309.16070",
+          "material_read": "available full HTML, in particular exact distortion results for complete bipartite and Hamming cube metrics",
+          "method": "primary full-text HTML inspection",
+          "title": "Distorted negative type and embeddability of graph metrics",
+          "trigger": "known exact c2 of graph families"
+        },
+        {
+          "assessment": "different invariant: QE of distance rather than least c2 distortion of powered distance",
+          "evidence": "paper describes the join-based quadratic embedding constant with friendship graphs as examples",
+          "identifier_or_url": "https://arxiv.org/abs/2001.06752",
+          "material_read": "abstract and source metadata; full text not verified",
+          "method": "primary arXiv abstract and cross-invariant mathematical comparison",
+          "title": "Quadratic Embedding Constants of Graph Joins",
+          "trigger": "same friendship graph family / potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The explicit harmonic block-size formula, rigidity and exact affine-dimension drop give a natural full classification of snowflake embedding behavior for a graph metric with one hub. The phase threshold is not a trivial consequence of an isometry test or a small fixed example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A previously published Euclidean minimum-enclosing-sphere / weighted negative-type theorem could cover the all-variable-size bouquet as a corollary.",
+    "No weighted edges, multiple hubs, or alpha outside [0,1] evaluated."
+  ],
+  "schema_version": 1
+}
