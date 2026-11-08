@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial coboundary \(L\circ F-L=(a-a_*)-(x_{m-1}-c)^2\) is a direct algebraic identity in arbitrary dimension. It gives linear norm escape below the fold and monotone convergence of every bounded critical trajectory. A bounded strictly increasing test of \(L\) proves the invariant-probability assertions without hidden moment assumptions. The critical Jacobian is a primitive row-stochastic matrix: the two positive-weight cycles have coprime lengths \(m-1\) and \(m\), so the noncentral multipliers are strictly contracting. The unique normalized quadratic center-graph coefficient is solved explicitly, and the reciprocal iteration produces the stated logarithmic correction. The separately executed checker corroborates exact rational identities and finite orbit diagnostics; the infinite-time argument is analytical. The strong-stable exception is stated explicitly.
+## correctness
 
-## Originality — PASS within inspected material
-The defining 2018 paper already proves the dimension-three local fold and fixed-point threshold; those are not claimed as new. Its complete accessible text was checked, especially §3.1. Its leading quadratic center reduction does not give the global invariant-probability threshold, the recurrence rigidity at equality, or the all-dimension logarithmic coefficient. A 2026 planar Hénon moment-parabola result has also been read and credited; the moment identity here is not counted as a novel stand-alone theorem. The 2002 Richter precursor's accessible abstract/preview did not display the new global and logarithmic conclusions, but its unavailable full text is a material residual novelty risk. Searches for equivalent formulations, broader coverage, exact tabulations and published-result implications found no decisive covering theorem. Therefore originality is provisional, pending more complete literature access.
+PASS
 
-## Mathematical value — PASS
-The source emphasizes a local fold separating fixed-point existence; determining whether the same fold suppresses **all** recurrent statistical dynamics is a motivated global question. The exact decreasing functional gives a sharp parameter-wide answer, including all Borel invariant probabilities without integrability assumptions. More substantially, the first logarithmic correction to critical convergence is a concrete, dimension-dependent nonlinear invariant of the fold that goes beyond the standard leading saddle-node scaling. This combination is not merely a reparameterization of the local fold, a numerical increment, or an arbitrary finite slice.
+PASS. Directly reconstruct L(x)=sum_{j<m}x_j+b x_m and its exact drift delta-(x_{m-1}-c)^2. Below delta<0 forces L(F^n x)<=L(x)-n(a*-a), hence linear norm escape; for arbitrary invariant probability bounded increasing arctan(L) gives strict integral contradiction without moments. At delta=0 telescoping on bounded trajectories makes x_{n,m-1}->c, and shifts make all coordinates converge; invariant probability invariance with arctan(L) gives the sole atom. Above delta>0 solves two real fixed points. Critical centered Jacobian P is a primitive stochastic m-cycle/(m-1)-cycle companion with stationary vector (1,...,1,b)/S, yielding simple center eigenvalue 1 and all transverse eigenvalues <1. Normalized center Q solves (P-I)Q=e1-e/S with Q_{m-1}=((m-1)(m-2)/2-b)/S^2; cubic parabolic iterate z'=z-z²/S-2Hz³/S³+O(z^4) yields the log coefficient S+2H=(m-1)^2-b. Local strong-stable tracking extends to every bounded orbit except exponentially converging ones. Independent SymPy exact drift and Q residual for all 3<=m<=12 tested with multiple rational b, without pretending this finite test proves the asymptotic.
 
-## Closest literature and limitations
-Zheng–Wang–Li–Wang (2018) supplies the model, discriminant and local fold; Richter (2002) supplies the higher-dimensional precursor but could not be read in full. The planar published Hénon stationary-moment result establishes a related but logically weaker/different identity, and distinct quadratic Sprott flows have analogous continuous-time log correction mechanisms. The theorem excludes \(b=0,1\), all critical unbounded orbits, and global dynamics above the fold. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with qualified priority. The fixed-point fold and cubic-dimensional local dynamics are known (Zheng et al., 2018) and planar stationary moment identity is previously published; neither is claimed independently new. Richter (2002) treats the very same higher-dimensional generalized Hénon family, but available abstract/preview does not establish an identical all-Borel-probability threshold and universal m-dimensional log relaxation; institutional full-text access was blocked. Closest published Resultary entries concern other flows or a planar stationary variance identity. The assessed novelty is the joint global no-moment recurrence threshold and dimension-uniform orbitwise subleading log law; direct older implicit coverage remains an explicit nontrivial risk.
+
+## value
+
+PASS
+
+PASS. The extension from local fold discriminants to all invariant probabilities without moment assumptions and an exact, dimension-parametric logarithmic relaxation coefficient addresses a natural dynamical threshold and critical slowing-down question, with consequences not mechanically implied by numerical orbit sampling. The strong-stable exception is mathematically necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
