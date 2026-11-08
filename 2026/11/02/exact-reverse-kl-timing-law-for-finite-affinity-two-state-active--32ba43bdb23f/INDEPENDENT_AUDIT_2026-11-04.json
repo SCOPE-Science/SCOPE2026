@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:43:20.222983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With P=q+(r-q)(1-e^-s), F=Dkl(P||q), G=Dkl(q||P), H=B(1-e^-s)+chi s: exact derivatives yield log(F_prime/H_prime) derivative T(s)-chi e^s/(B+chi e^s), where T decreases from infinity to 0 and the second term strictly increases. Hence unique crossing and strict global maxima, separately for F/s. The exact identity (P-q)(logit P-logit q)=F+G produces the reverse-KL stationary inverse. Taylor expansions at P=r and s=s_P prove the small-cost logarithmic time/chi log chi efficiency and large-cost 1/chi expansions. Independently verified reverse-KL derivative and three bisection optimizers, not proof by sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin et al. derive the minimal two-state model and show an efficiency peak; Appendix B and main linear-response expansion discuss leading housekeeping regimes. Their finite-affinity curves alone do not imply all-gap uniqueness and strictly monotone optimum or the explicit inverse/divergence and higher-order constants. The cited 2025 RC battery uses a different cost function."
+        ],
+        "reasoning": "Lin et al. derive the minimal two-state model and show an efficiency peak; Appendix B and main linear-response expansion discuss leading housekeeping regimes. Their finite-affinity curves alone do not imply all-gap uniqueness and strictly monotone optimum or the explicit inverse/divergence and higher-order constants. The cited 2025 RC battery uses a different cost function.",
+        "searches": [
+          "Resultary: active matter battery two state finite affinity efficiency optimal charging time housekeeping cost reverse KL divergence",
+          "web: Active-Matter Battery Lin 2026 Appendix B optimizing efficiency housekeeping finite affinity",
+          "web: two-state exponential charging reverse Kullback-Leibler efficiency optimal stopping time"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.00428v1",
+        "https://doi.org/10.15302/frontphys.2025.042202",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-reverse-kl-timing-law-for-finite-affinity-two-state-active--32ba43bdb23f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-reverse-kl-timing-law-for-finite-affinity-two-state-active--32ba43bdb23f/verify_optimum.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An observed finite-time optimum and known leading linear-response behavior do not imply uniqueness over all interior q,r or the strict comparative statics; both require one-crossing T(s) inequality, and the reverse-KL identity is needed for exact inverse. No stronger direct implication was found in inspected primary model."
+        ],
+        "reasoning": "An observed finite-time optimum and known leading linear-response behavior do not imply uniqueness over all interior q,r or the strict comparative statics; both require one-crossing T(s) inequality, and the reverse-KL identity is needed for exact inverse. No stronger direct implication was found in inspected primary model.",
+        "searches": [
+          "Resultary: active matter battery two state finite affinity efficiency optimal charging time housekeeping cost reverse KL divergence",
+          "web: Active-Matter Battery Lin 2026 Appendix B optimizing efficiency housekeeping finite affinity",
+          "web: two-state exponential charging reverse Kullback-Leibler efficiency optimal stopping time",
+          "https://arxiv.org/html/2610.00428v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(s) in this claim is the active-bath occupation in Lin et al. eq.(4); F is stored nonequilibrium free energy as a Bernoulli forward divergence, and denominator is the active charging work plus constant housekeeping cost. The reverse divergence Dkl(q||P) appears in exact derivative of that ratio, not as a replacement physical energy."
+        ],
+        "reasoning": "P(s) in this claim is the active-bath occupation in Lin et al. eq.(4); F is stored nonequilibrium free energy as a Bernoulli forward divergence, and denominator is the active charging work plus constant housekeeping cost. The reverse divergence Dkl(q||P) appears in exact derivative of that ratio, not as a replacement physical energy.",
+        "searches": [
+          "Resultary: active matter battery two state finite affinity efficiency optimal charging time housekeeping cost reverse KL divergence",
+          "web: Active-Matter Battery Lin 2026 Appendix B optimizing efficiency housekeeping finite affinity",
+          "web: two-state exponential charging reverse Kullback-Leibler efficiency optimal stopping time",
+          "read: https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-reverse-kl-timing-law-for-finite-affinity-two-state-active--32ba43bdb23f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search and battery primary sources found no table of chi->s exact reverse-KL inverse or two-term finite-affinity asymptotics. These are analytical functions, not intrinsically a database/table problem."
+        ],
+        "reasoning": "Resultary semantic search and battery primary sources found no table of chi->s exact reverse-KL inverse or two-term finite-affinity asymptotics. These are analytical functions, not intrinsically a database/table problem.",
+        "searches": [
+          "Resultary: active matter battery two state finite affinity efficiency optimal charging time housekeeping cost reverse KL divergence",
+          "research comparison: https://arxiv.org/html/2610.00428v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.",
+      "residual_risks": [
+        "Broader convexity or Bregman-divergence optimization theorem could imply parts of the reverse-KL identity or one-crossing argument.",
+        "Actual model preprint already establishes efficiency maxima in linear response; only finite-affinity exact uniqueness, inverse and corrections are newly assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source has the model, an efficiency maximum and linear-response optimization; not the displayed all-gap reverse-KL exact inverse and two-term small/large housekeeping expansions in inspected text",
+          "evidence": "Eq.(1) Bernoulli KL free energy; Eq.(4) exponential relaxation; Eq.(7) charging work; Appendix B linear response",
+          "identifier_or_url": "https://arxiv.org/html/2610.00428v1",
+          "material_read": "Read original arXiv HTML throughout main text and Appendix B, especially equations (1),(4),(7)-(10) and finite-cost expansion",
+          "method": "Full primary HTML mathematical comparison against finite-affinity final claim",
+          "title": "Active-Matter Battery",
+          "trigger": "Same precise two-state bath, charging law, work and housekeeping objective"
+        },
+        {
+          "assessment": "Different RC work/efficiency model; no whole-document absence assertion",
+          "evidence": "Frontiers of Physics 2025 RC-battery description",
+          "identifier_or_url": "https://doi.org/10.15302/frontphys.2025.042202",
+          "material_read": "Available title and abstract/description of an RC charging model; full journal article not read",
+          "method": "Abstract and model comparison",
+          "title": "Universal power-efficiency trade-off in battery charging",
+          "trigger": "Potentially broader battery tradeoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-active-affinity physics is materially different from the source linear-response approximation; exact global unique duration, monotone timing calibration from housekeeping and second-order efficiency penalties are natural finite-state operating quantities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.00428v1",
+    "https://doi.org/10.15302/frontphys.2025.042202",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-reverse-kl-timing-law-for-finite-affinity-two-state-active--32ba43bdb23f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-reverse-kl-timing-law-for-finite-affinity-two-state-active--32ba43bdb23f/verify_optimum.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed interior Bernoulli populations 0<q<r<1 and housekeeping chi>0, finite-affinity charging efficiency has exactly one optimum s_chi>s_P, strictly decreasing with chi and exactly inverted by chi=B e^(-s)Dkl(q||P(s))/(Dkl(P(s)||q)-sF_prime(s)), with sharp small/large housekeeping asymptotics.",
+  "limitations": [
+    "Fixed q,r in (0,1), q<r and chi>0, exponential relaxation and constant housekeeping; no uniformity at population boundaries.",
+    "No many-state or time-controlled battery theorem; thermodynamic interpretation is conditional on specified model."
+  ],
+  "residual_risks": [
+    "Broader convexity or Bregman-divergence optimization theorem could imply parts of the reverse-KL identity or one-crossing argument.",
+    "Actual model preprint already establishes efficiency maxima in linear response; only finite-affinity exact uniqueness, inverse and corrections are newly assessed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Source has the model, an efficiency maximum and linear-response optimization; not the displayed all-gap reverse-KL exact inverse and two-term small/large housekeeping expansions in inspected text",
+      "evidence": "Eq.(1) Bernoulli KL free energy; Eq.(4) exponential relaxation; Eq.(7) charging work; Appendix B linear response",
+      "identifier_or_url": "https://arxiv.org/html/2610.00428v1",
+      "material_read": "Read original arXiv HTML throughout main text and Appendix B, especially equations (1),(4),(7)-(10) and finite-cost expansion",
+      "method": "Full primary HTML mathematical comparison against finite-affinity final claim",
+      "title": "Active-Matter Battery",
+      "trigger": "Same precise two-state bath, charging law, work and housekeeping objective"
+    },
+    {
+      "assessment": "Different RC work/efficiency model; no whole-document absence assertion",
+      "evidence": "Frontiers of Physics 2025 RC-battery description",
+      "identifier_or_url": "https://doi.org/10.15302/frontphys.2025.042202",
+      "material_read": "Available title and abstract/description of an RC charging model; full journal article not read",
+      "method": "Abstract and model comparison",
+      "title": "Universal power-efficiency trade-off in battery charging",
+      "trigger": "Potentially broader battery tradeoff"
+    }
+  ]
+}

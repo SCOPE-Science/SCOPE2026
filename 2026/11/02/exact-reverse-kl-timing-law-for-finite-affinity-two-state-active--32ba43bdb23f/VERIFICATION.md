@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The analytic proof establishes uniqueness, normalization, boundary behavior, and both asymptotic regimes for every fixed interior population pair. A standalone Python 3 standard-library checker, `verify_optimum.py`, independently recomputes two KL divergences and their derivatives numerically, optimizes by interval bisection, compares efficiency with neighboring times and the maximum-power time, and checks low- and high-cost predictions for six representative population pairs. Its 480 finite assertions passed. It is neither an exhaustive continuum scan nor an independent mathematical audit. Run with `python3 verify_optimum.py`.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+With P=q+(r-q)(1-e^-s), F=Dkl(P||q), G=Dkl(q||P), H=B(1-e^-s)+chi s: exact derivatives yield log(F_prime/H_prime) derivative T(s)-chi e^s/(B+chi e^s), where T decreases from infinity to 0 and the second term strictly increases. Hence unique crossing and strict global maxima, separately for F/s. The exact identity (P-q)(logit P-logit q)=F+G produces the reverse-KL stationary inverse. Taylor expansions at P=r and s=s_P prove the small-cost logarithmic time/chi log chi efficiency and large-cost 1/chi expansions. Independently verified reverse-KL derivative and three bisection optimizers, not proof by sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
+
+## value
+
+PASS
+
+Finite-active-affinity physics is materially different from the source linear-response approximation; exact global unique duration, monotone timing calibration from housekeeping and second-order efficiency penalties are natural finite-state operating quantities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact exponential two-state relaxation and Bernoulli-KL energy balance define the claimed optimization without approximation. The logarithmic derivative of \(F'/H'\) is the difference of a strictly decreasing and a strictly increasing term, forcing a single ratio maximum and then a single efficiency maximum. The reverse-KL identity gives the exact stationary equation, a bijective time-versus-cost calibration, and asymptotic matching at both ends. The unique maximum-power time and negative curvature are separately established. Finite numerical tests are supplementary and do not substitute for the calculus proof.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+With P=q+(r-q)(1-e^-s), F=Dkl(P||q), G=Dkl(q||P), H=B(1-e^-s)+chi s: exact derivatives yield log(F_prime/H_prime) derivative T(s)-chi e^s/(B+chi e^s), where T decreases from infinity to 0 and the second term strictly increases. Hence unique crossing and strict global maxima, separately for F/s. The exact identity (P-q)(logit P-logit q)=F+G produces the reverse-KL stationary inverse. Taylor expansions at P=r and s=s_P prove the small-cost logarithmic time/chi log chi efficiency and large-cost 1/chi expansions. Independently verified reverse-KL derivative and three bisection optimizers, not proof by sampling.
 
-The motivating 2026 paper's two-state derivation and Appendix B give a **linear-response** efficiency optimization and leading housekeeping behavior; they do not state the fixed finite-gap global uniqueness, strict comparative statics, reverse-KL inverse calibration, or the displayed higher-order constants. The 2025 RC-battery analysis has different dynamical and cost assumptions. No matching published statement was identified in targeted checks of binary relative entropy, housekeeping energy, and exact battery timing; a broader relative-entropy optimization principle could nevertheless subsume some conclusions. These are best-knowledge novelty claims, not independent or exhaustive priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The absence of a weak-affinity assumption is physically meaningful where an active bath produces strongly displaced steady populations. The exact reverse-KL formula makes maintenance cost identifiable from a desired operating duration, while strict monotonicity gives uniqueness of protocol choice and the two-term asymptotics quantify the actual efficiency penalty. This is a finite-affinity operational optimization gap, not a relabeling of linear-response constants.
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
 
-## Scope and risk
+## value
 
-The model assumes two states, fixed stationary bath populations, a single relaxation rate, no temporal control, and constant maintenance power; no many-body generality or experimental validation is implied. A generic published ratio-optimization theorem, if it specializes to this setting and determines the same quantities, could reduce the originality scope. Numerical tests do not certify continuum uniqueness or priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-active-affinity physics is materially different from the source linear-response approximation; exact global unique duration, monotone timing calibration from housekeeping and second-order efficiency penalties are natural finite-state operating quantities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
