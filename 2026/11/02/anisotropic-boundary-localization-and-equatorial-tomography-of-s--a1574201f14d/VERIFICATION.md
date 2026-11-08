@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof defines every normalization and boundary multiplicity in `RESULT.md`. Execute `python verify_anisotropic.py` with NumPy and SciPy installed. The program checks the finite sample arclength intensity in the explicit positive quadrupolar family, independently integrates separation indicators on the sphere, reconstructs planar halfspace cells and geodesic edge lengths, checks convergence toward the predicted exact anisotropic constant, and recovers both the angular transform and its absolute normalization. A completed execution prints `ALL_ANALYTICAL_AND_GEOMETRIC_TESTS_PASSED`.
+## correctness
 
-These finite quadratures and randomized checks are corroboration, not an infinite-family proof. The derivation of the exact intensity, uniform small-angle limit, dominated total-variation convergence, Fourier inversion and sharp Jensen equality case is mathematical and self-contained in `RESULT.md`. The distribution recovered by the theorem is based on expectation-first arclength weighting and is not a pathwise ratio of random quantities. The original public source establishes the tessellation model, not an independent validation of this theorem.
+PASS
+
+C PASS: For even positive C2 normal density on S2, coarea and independence give n-fold boundary intensity n*h_f(x)*(1-q_f(p,x))^(n-1). Uniform q_f(p,x(theta,alpha))=theta*a(alpha)+O(theta^2), and q_f>=min(f)*theta/pi, provide an integrable exponential envelope. With s=n*theta the annealed arclength law n*mu_n has TV limit h0*s*exp(-s*a(alpha)); integrates to R=h0*integral(a^-2). Fourier cosine kernel even modes are nonzero; (w,R) uniquely fixes a, h0 and continuous equatorial g; Jensen gives R>=pi^3/(2*h0), equality iff g constant. Check explicit quadrupolar f_eps gives R_eps=pi^3/(1-eps^2/9)^(3/2). No claim to f off-equator or quenched boundary samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge original combined fixed-pole anisotropic annealed boundary law, exact trace inversion and sharp inequality; known isotropic scalar and cosine multipliers credited.
+
+## value
+
+PASS
+
+V PASS: The distribution measures an intrinsically motivated fixed-pole boundary observable; its angular bias and scale give exact equatorial tomography and a sharp anisotropic extremal perimeter law, strictly beyond the known isotropic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

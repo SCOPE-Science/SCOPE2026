@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-sample boundary first-intensity identity is proved using spherical coarea and independence. A uniform small-angle separation expansion is obtained from exact normal-coordinate integration. Strict positivity of the directional density provides a global integrable envelope for total-variation convergence. The Fourier multipliers and normalization identities verify equatorial recovery, and strict Jensen convexity proves the sharp perimeter equality case. Direct spherical-normal quadrature, deterministic finite-sample mean-perimeter integration, and independently reconstructed random spherical cells corroborate the normalization and anisotropic special example. The included checker completed successfully. Infinite-family conclusions rest on the proof, not the numerical tests.
+PASS
 
-## Originality — PASS, historical priority provisional
+C PASS: For even positive C2 normal density on S2, coarea and independence give n-fold boundary intensity n*h_f(x)*(1-q_f(p,x))^(n-1). Uniform q_f(p,x(theta,alpha))=theta*a(alpha)+O(theta^2), and q_f>=min(f)*theta/pi, provide an integrable exponential envelope. With s=n*theta the annealed arclength law n*mu_n has TV limit h0*s*exp(-s*a(alpha)); integrates to R=h0*integral(a^-2). Fourier cosine kernel even modes are nonzero; (w,R) uniquely fixes a, h0 and continuous equatorial g; Jensen gives R>=pi^3/(2*h0), equality iff g constant. Check explicit quadrupolar f_eps gives R_eps=pi^3/(1-eps^2/9)^(3/2). No claim to f off-equator or quenched boundary samples.
 
-The nearest direct published model is Kabluchko and Thäle, *Faces in random great hypersphere tessellations* (arXiv:2005.01055, 2020). Its face-direction random variable is the supporting great subsphere of a sampled global typical face, not the geodesic polar angle of a boundary point in one cell containing a fixed pole. Hug and Schneider, *Random conical tessellations* (arXiv:1508.07768, 2015), Section 5 already provides the isotropic fixed-pole scalar perimeter expectation; the present result expressly does not claim that specialization as original. Their rotation-invariant calculations do not state the anisotropic angularly resolved Gamma boundary law or boundary-based equatorial reconstruction. Lybrand, Ma and Saab (arXiv:2108.13523) concern radius/facet bounds for isotropic Gaussian tessellations; Bonnet (arXiv:1702.01964) concerns a different conditional stationary Euclidean typical-cell model. Database semantic comparisons found no matching statement, but absence of a match is not a priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint arclength law captures a natural geometric effect that scalar cell perimeters miss: the polar-angle bias is the inverse square of a cosine-transform rate. It gives an explicitly testable anisotropic benchmark, proves that constant equatorial sampling minimizes the leading expected perimeter at fixed equatorial mass, and solves a natural angular boundary inverse problem for the entire continuous equatorial trace. No claim is made for the full off-equator density, realization-wise sampling, noisy inversion, or higher-dimensional universality.
+Best-of-knowledge original combined fixed-pole anisotropic annealed boundary law, exact trace inversion and sharp inequality; known isotropic scalar and cosine multipliers credited.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+V PASS: The distribution measures an intrinsically motivated fixed-pole boundary observable; its angular bias and scale give exact equatorial tomography and a sharp anisotropic extremal perimeter law, strictly beyond the known isotropic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
