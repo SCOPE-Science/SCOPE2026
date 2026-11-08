@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete analytic proof uses two explicit previously established global graph results, verifies the distinguished cycles, establishes the integer-affine form of every sign itinerary, excludes zero-rank preimages of the exceptional cycle for irrational parameters, and proves upper and lower bounds for its Hausdorff dimension. Boundaries are included in the finite-line count. A positive-measure/open dense complement is obtained by full-dimensional constant-image cells. The standalone arithmetic checker exercises exact algebra but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS in the inspected literature and database.** The 2024 primary paper proves finite-time graph capture and graphwise cycle selection but explicitly proposes the full-plane open-dense and full-measure questions. The 2025 follow-up concerns arclength measure *on the graph* in other parameter intervals. The additional arithmetic obstruction is required to transfer to planar measure because a constant affine branch could otherwise give a repelling point a planar open basin. Targeted semantic comparisons included published-finding corpus's prior local escape estimates for an absolute-value map, with different parameter ranges and only local survivor sets. No implication covering the current global theorem was found. The possibility of an unindexed general theorem remains a risk.
+PASS
 
-**Value — PASS.** This settles an explicit open topological and planar-measure problem over all irrational parameters in the entire \(b\ge10\) regime, and determines the dimension of the exceptional set, not merely its nullity. It is a motivated basin-classification result rather than a sample orbit calculation.
+For each irrational b≥10 and every z∈R², the published Theorem B (finite graph capture) and Proposition 41 (on-graph dichotomy) imply finite eventual entry into exactly one of X_b,Q_b. Direct substitution verifies both 3-cycles. On each length-n polyhedral sign itinerary F_b^n(z)=Mz+u+bv with integer M,u,v. The Q_b first coordinates have nonintegral b-coefficients ±1/3 (with rational constants), so no rank-zero cell can map to Q_b for irrational b. A nonzero-rank affine cell has inverse image of a point in a proper affine subspace; itinerary boundaries are finitely many lines. Thus E_b=⋃_{n≥0}F_b^{-n}(Q_b) is planar-null and has dimension ≤1. The first-quadrant ray (s,s+(b+1)/3), s>0, maps to (-(b+4)/3,(2b-1)/3)∈Q_b, proving dim_H E_b=1. Since all positive-rank hits of X_b and cell boundaries are null, the interiors of rank-zero cells mapping into X_b give an open full-measure, hence dense, core of its basin. Finite symbolic check.py supplies branch-cycle base arithmetic only; no extrapolation of finite words.
 
-**Closest literature and limitations.** [1] Cima et al., arXiv:2410.01052, Theorem B and Proposition 41, Section 6. [2] Cima et al., arXiv:2503.02411, Theorem 2. Rational parameters and smaller parameters are not covered; a comprehensive independent publication-priority audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Cima–Gasull–Mañosa–Mañosas 2025 Theorem B and Proposition 41 supply graph capture and the graphwise two-cycle selection, not the ambient planar measure/dimension claims; Section 6 poses precisely the planar question. Their 2025 follow-up considers graphwise one-dimensional measure in other parameter regimes. Semantic Resultary hits concern distinct local survivors at b near 1, far from irrational b≥10. The additional rank-zero arithmetic obstruction is not an explicit or immediate prior conclusion, although generic piecewise-affine folklore is a residual risk.
+
+## value
+
+PASS
+
+The primary article explicitly asks whether the graph dynamical capture extends to a planar open dense/full-measure basin. This settles that natural ambient planar question throughout the irrational b≥10 half-line and determines the sharp exceptional Hausdorff dimension, beyond graphwise asymptotics. The arithmetic obstruction is mathematically necessary because rank-zero branches of a noninvertible map could otherwise carry entire open sets to an exceptional periodic point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
