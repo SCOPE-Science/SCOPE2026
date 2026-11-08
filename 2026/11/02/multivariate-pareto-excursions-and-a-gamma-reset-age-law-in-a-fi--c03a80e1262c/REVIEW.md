@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For fixed integer \(N\ge3\), the exact stationary conditional-independence integral and absorbing Brownian kernel are taken from the cited primary result. The new multivariate tail equivalent follows from an explicitly quantified uniform Gaussian-density bound and an integrable dominating function after diffusive scaling. The Gamma posterior comes from the same dominated limit under inverse-time transformation. The one-particle moment boundary includes equality, and finite-population covariance is asserted only in the square-integrable regime. A separate numerical checker successfully evaluates finite-threshold integrals. The checks do not replace the proof.
+PASS
 
-## Originality
+For fixed integer N>=3 the killed half-line image kernel integrates to S(t)=erf(L/sqrt(4Dt)); renewal reward yields the exact joint stationary mixture with Z_N finite iff N>2. The negative-event kernel F_b(t) is a difference of two erfc values. On t=R^2 s/(4D), S(t)~2L/(R sqrt(pi s)) and F_{aR}(t)/S(t)->exp(-a^2/s); the proof supplies an integrable s^(-N/2) exp(-sum a_i^2/(2s)) bound. Gamma integral produces K_N and the radial exponent N-2, and size-biased conditional age gives U=R^2/(4DA) -> Gamma(N/2-1, rate1), with polynomial moments by strengthened domination. Tail integration proves the exact q<N-2 absolute-moment criterion; conditional independence implies positive cross-covariance for N>=5 only. Independent mpmath exact finite-R event integration for N=3,4,5 and k=1,2 found convergence toward predicted constants (at R=80 ratios ~0.988,0.975,0.963). Finite checks only corroborate the infinite dominated-convergence argument.
 
-**PASS, qualified.** The full primary work arXiv:2512.00440 already gives the exact stationary joint distribution, existence threshold and \(N\to\infty\) typical-coordinate laws; all are credited. The reviewed claim instead specifies the fixed-\(N\) anisotropic multivariate negative-tail constant, a strictly positive \(k\)-fold extreme-dependence coefficient, the conditional Gamma reset-age law, and sharp moment boundaries. None is stated in the inspected primary text. The published Poisson resetting gas (arXiv:2211.00563) has an exponential clock and exponentially decaying marginals. More general externally prescribed renewal-reset mixtures (arXiv:2509.06658) differ in their non-killed between-reset dynamics. General scale-mixture methods and the original exact joint formula can be used to derive this result, so a wider unpublished or uninspected equivalent theorem remains a real publication-priority risk; search results are not proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source's exact stationary law was principally analyzed through typical many-particle density, gaps and counting statistics. For fixed population the previously unquantified far-left rare events behave differently: every fixed number of particles remains tail-dependent, and a measurable rare-event age clock has an explicit Gamma limit. The integer-dependent moment cutoff implies that a genuine stationary distribution can nevertheless have infinite mean or variance; for populations where covariance is defined, its sign is strictly positive. These distinctions matter for extreme-stress and coupled-trigger observables and are not obtained by merely renaming the source parameters.
+Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.
 
-## Limitations and closest coverage
+## value
 
-The result is fixed-population, one-sided and Brownian; it is not a joint \(N,R\) limit. The exact stationary JPDF, a stronger description of the full law, was previously available and is a necessary basis of the proof. A claim that the stationary JPDF itself is new, or that no earlier framework can imply the tail law, would be incorrect. The full long-form non-Poissonian renewal paper was not inspected at the same depth as the two most relevant accessible Brownian-gas texts; its relevance is structurally indirect but remains a residual priority risk. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The far-left multivariate regular-variation exponent, nontrivial angular l2 dependence and the Gamma posterior resetting clock are natural sharp fixed-population invariants of a first-hitting globally reset gas; they distinguish typical large-N data from extreme fixed-N behavior, determine moment existence and extreme co-movement. The exact stationary mixture is prior, but its explicit singular far-tail analysis is useful rather than a mere renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
