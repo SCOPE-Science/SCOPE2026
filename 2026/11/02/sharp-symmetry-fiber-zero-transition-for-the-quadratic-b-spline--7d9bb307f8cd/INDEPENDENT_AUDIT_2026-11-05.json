@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:43:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md (Git blob 5543d83f8c4fb6a0f19c7df4c24199d35ec224ef), proof across all three support chambers",
+        "CHECK.py (Git blob 6c127b3b9c3629bdf5f1df71b99779edeaf29b56) inspected; independent_checks.py sympy polynomial/discriminant/Bernstein replay"
+      ],
+      "rationale": "Pair indices -j,j+1 in the centered Zak sum at x=1/2 give 2 sqrt(lambda) exp(pi i nu) sum_{j=0}^3 B3(lambda(j+1/2)) cos((2j+1)pi nu), with nonzero pairs exhaustively split at 3/7 and 3/5. Dividing by cos(pi nu), y=cos²(pi nu), gives the specified cubic on (1/3,3/7), quadratic on [3/7,3/5), affine on [3/5,1). Verified the cubic expansion, discriminant 81(3lambda-1)^4D and strictly negative rational Bernstein coefficients of D on the entire interval, whence one real cubic root; its sign at y=0 changes only at lambda*=(99-2 sqrt(42))/247 and y=1 stays positive. Verified Q discriminant 4E with strictly negative Bernstein coefficients on [3/7,23/50] and positive remaining coefficients for larger scales; affine part has positive constant. Critical root at y=0 gives central zero of order 3 at lambda*, as also at lambda=1/2. Root y->1/4 at lambda down to 1/3. This establishes exactly 3 versus 1 distinct real frequencies for ALL real lambda in (1/3,1), not a numerical extrapolation.",
+      "residual_risks": [
+        "Zero classification only on x=1/2 fiber and lambda>1/3, no Gabor frame set. At internal support knots use spline continuity; central multiplicity boundary treated separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasannasab–Lemvig abstracts/paper passages: complete hat-spline classification and B3 discussion outside this full interval.",
+          "Lemvig: frame obstruction slits, not this count.",
+          "Stangl–Frederick: Q2 hat spline, not centered quadratic B3."
+        ],
+        "reasoning": "None of the inspected theorem statements is a broader zero-count classification that mathematically implies this polynomial phase boundary.",
+        "searches": [
+          "arXiv:2609.13116",
+          "arXiv:2601.07642",
+          "arXiv:2609.00481"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13116 (partial Section 6)",
+        "arXiv:2601.07642 (Gabor slit theorem)",
+        "arXiv:2609.00481 (hat spline)",
+        "Resultary semantic search quadratic B spline Zak transform symmetry x=1/2 triple zero critical scale zero frequency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A restricted illustrative B3 case at special reciprocal scale does not logically yield the full interval or exact lambda*.",
+          "A Gabor frame nonframe implication and full fiber zero-count are different statements."
+        ],
+        "reasoning": "A direct implication from closest source remains unverified because mathematical display expressions of Section 6 were not fully accessible; residual risk stated, not asserted noncoverage of the entire source.",
+        "searches": [
+          "arXiv:2609.13116 Section 6",
+          "arXiv:2601.07642",
+          "arXiv:2609.00481"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use x=1/2 Zak palindromic symmetry; source discusses a restricted example, while the assessed formula classifies all lambda∈(1/3,1).",
+          "The x=0 reciprocal-scale fiber is a different Zak section."
+        ],
+        "reasoning": "The same Zak symmetry is prior art but no verified full-span equivalent theorem was located; an unread displayed equation is explicitly a priority risk.",
+        "searches": [
+          "quadratic B spline Zak transform symmetry x=1/2 triple zero critical scale zero frequency",
+          "Hasannasab Lemvig arXiv:2609.13116 Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results describe tent-spline optimal frame bounds or unrelated zero sets; no matching exact quadratic B3 critical parameter found."
+        ],
+        "reasoning": "No specific published table or classification with this B3 fiber and lambda interval identified. A failed database search is not novelty evidence.",
+        "searches": [
+          "quadratic B spline Zak transform symmetry x=1/2 triple zero critical scale zero frequency",
+          "Resultary semantic search for quadratic B spline symmetry-fiber zeros"
+        ]
+      },
+      "rationale": "The exact all-real-scale order-three symmetry-fiber zero transition, including its algebraic collision, is not stated by the inspected accessible primary passages. Existing results address the hat spline, scales outside this region or an illustrative restricted order-three fiber. PASS is best-of-knowledge and expressly conditional on the unresolved display-math comparison to the highly relevant same-fiber paper.",
+      "residual_risks": [
+        "Highly relevant arXiv:2609.13116 Section 6 displayed formulas were incompletely accessible; independent comparison of exact equations remains desirable.",
+        "Unindexed Zak symmetry-fiber calculations may predate the claimed threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Highly relevant predecessor; no conclusive full-document noncoverage decision",
+          "evidence": "Partial Section 6 supports related order-three illustration; unread displays may encode the asserted root classification.",
+          "identifier_or_url": "arXiv:2609.13116",
+          "material_read": "Accessible abstract and rendered Section 6 description; some displayed identities were not exposed",
+          "method": "arXiv/open-access browsing; authorized institutional PDF access unavailable due to disconnected VPN",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Same symmetry fiber x=1/2, spline order 3"
+        },
+        {
+          "assessment": "Different spline order and objective",
+          "evidence": "Work concerns order-two hat spline, not B3 exact symmetry-fiber root counts.",
+          "identifier_or_url": "arXiv:2609.00481",
+          "material_read": "Primary theorem statements on hat/tent spline and rational lattice frame criterion",
+          "method": "Primary arXiv text",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "Closest spline Zak-zero framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding/Proof/Limitations",
+        "Hasannasab–Lemvig 2609.13116 symmetry-fiber motivation"
+      ],
+      "rationale": "The symmetry fiber is forced by palindromic spline samples and is a canonical section for investigating Zak zeros. The result gives a complete natural transition on the full all-real-scale range with at most four contributing pairs, including the exact collision point, degeneracies, and a constructive cubic root description. Such a precise localized zero geometry can be used in Gabor frame-rank and zero-set investigations without falsely claiming a full frame classification.",
+      "residual_risks": [
+        "Value is a well-motivated structural zero-count classification of one fiber, not general Gabor frame-set determination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero classification only on x=1/2 fiber and lambda>1/3, no Gabor frame set. At internal support knots use spline continuity; central multiplicity boundary treated separately.",
+    "Highly relevant arXiv:2609.13116 Section 6 displayed formulas were incompletely accessible; independent comparison of exact equations remains desirable.",
+    "Unindexed Zak symmetry-fiber calculations may predate the claimed threshold.",
+    "Value is a well-motivated structural zero-count classification of one fiber, not general Gabor frame-set determination."
+  ],
+  "schema_version": 1
+}
