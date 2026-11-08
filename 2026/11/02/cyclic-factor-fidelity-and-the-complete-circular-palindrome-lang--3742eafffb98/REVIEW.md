@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two-block decomposition \(\rho^k(0)=\rho^{k-1}(01)\) gives an exact cover of each admissible full-circle window by one of the two substituted three-block factors `010` and `101`, both present in the fixed point. This establishes factor containment at *all* lengths and ranks. Digrams of the four-letter fixed point form the exact eight-element substitution-closed set; the 8-by-16-by-16 finite supertile calculation is exhaustive at every length at most 16. The absence of length-15 and length-16 palindromes forces the absence of every longer palindrome by a centered-subword argument. Finally, complete finite-rank enumeration establishes the sharp first full language at rank 8, which persists through nested prefixes. The bundled checker independently verifies the finite ingredients and overlapping-`11` encoding. The infinite claim is proved, not inferred from examples.
+PASS
 
-## Originality
+For k≥1, write rho^k(0)=AB with A=rho^(k−1)(0), B=rho^(k−1)(1). A cyclic window of length at most 2|A| is contained in ABA or BAB according to its starting block; these equal rho^(k−1)(010) or rho^(k−1)(101). Both base trigrams occur in the substitution fixed point, so every cyclic factor occurs linearly in the infinite word. The 8 admissible preimage digrams form a substitution-closed set, and all occur by rho^4(0). Four exact length-16 coded supertiles span all windows up to length 16, giving 36 palindromes and none at lengths 15/16. Centered factors preclude any palindrome ≥15. Exhaustive circular enumeration of k=0..8 and explicit occurrence of all 36 linear palindromes inside R_8 prove sharp stabilization at k=8; nested dyadic prefixes preserve inclusion. Independent checker corroborates the finite exact ingredients; the general containment comes from the three-block embedding.
 
-**PASS, with priority qualification.** Baake (arXiv:math-ph/9907011, inspected text) reports which lengths of ordinary Rudin–Shapiro palindromes may occur. Schaeffer–Shallit (arXiv:1508.02074, inspected relevant sections) studies ordinary palindromes and maximal palindromes of automatic sequences. Neither inspected statement asserts full-circle factor containment for complete dyadic Rudin–Shapiro prefixes or gives the exact sharp rank at which their circular palindrome languages become the 36-word infinite language. Checks against available prior mathematical findings found no implication of these results from an earlier record. A primary 1997 Allouche article was identified but was not accessible in full; historical priority cannot be guaranteed by search alone.
+## originality
 
-## Value
+PASS
 
-**PASS.** The central all-length cyclic-to-linear factor embedding resolves a nontrivial boundary issue for every complete dyadic Rudin–Shapiro word, with relevance to cyclic pattern matching and factor invariants. The consequent complete circular palindrome language has a sharp stabilization threshold and an explicit 36-string finite classification. It is stronger than a list of allowable infinite-word palindrome lengths and avoids arbitrary parameter slicing.
+Very important implication: Schaeffer–Shallit 2015 already lists the eight maximal *ordinary* Rudin–Shapiro palindromes. Their centered subpalindromes determine the 36-word infinite palindrome language, so that language enumeration *alone is covered* and must not be presented as original. The remaining substantive claim is the all-length cyclic-to-linear factor containment for each full dyadic prefix, plus exact rank-eight circular stabilization, not implied by maximal ordinary palindromes or earlier prefix attractor results. Allouche 1997 full text inaccessible (Oxford VPN disconnected), creating residual priority risk; based on inspected material the surviving cyclic claim is original.
 
-## Scope, evidence and limits
+## value
 
-The checker uses only finite exact enumerations at the eight allowed 16-block digrams and at ranks 0–8. The proof handles the unbounded cases. This does not determine palindrome multiplicities or arbitrary-prefix circular languages. The two cited arXiv sources were examined in their relevant accessible text, and one historically relevant original publication remained inaccessible. Self-review is not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cyclic closing can create new factors absent from the infinite sequence; proving it never happens at any scale for this distinguished automatic word is a structural boundary-fidelity theorem, with a sharp exact stabilization of all cyclic palindromes. The ordinary 36-word count is prior-derived support only; the independently useful cyclic theorem and rank are mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
