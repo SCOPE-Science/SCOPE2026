@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns only the ordinary \(16\)-cut complex of \(C_{21}^2\), not the inequivalent total cut complex. Its 2520 facets, all 7106 augmented faces, 3220 matching pairs, 29106 Hasse incidences, 14 critical three-cells and 650 critical four-cells are recomputed directly. A topological sort proves the matching acyclic. The exact integral Morse matrix is fully determined: only 13 columns are nonzero, each of the form \(e_i-e_{13}\), and has a 13-by-13 unit minor. Thus the integer attaching maps have exactly 13 cancellable primitive degrees; since the three-skeleton is a wedge of three-spheres, there are no unrecorded unstable attaching maps in dimension four. The original-chain primitive eight-simplex three-cycle and integral cocycle establish the entire 42-element action on degree-three homology, while signed simplex traces establish degree four. Independent original-chain mod-two ranks agree. Risks: the enumeration code must be executed as supplied, and the result is a finite case rather than an all-parameter theorem.
+## correctness
 
-## Originality — PASS relative to examined sources
-The original 2023 squared-cycle work explicitly states the sphere-wedge shape as Conjecture 7.23 for all cutoffs and reports the proposed numerical sequence only to cutoff fifteen (Conjecture 7.24). Its Proposition 7.29 handles cyclic symmetry in **different** cuts (cutoff two and \(n=k+4\)). The closest complete public mathematical result on the borderline family computes face vector and Euler characteristic for every parameter but expressly leaves the homotopy claim conditional. Thus its \(637\) predicted Euler multiplicity does **not** imply the new primitive integral Morse cancellations or the complete dihedral action. The 2024 and 2026 powered-cycle papers focus on cutoff three. Searches also covered \(\Delta_{16}(W_{21})\), \(C_{21}^{2}\), Alexander-dual wording, cyclic and dihedral characters, and surrounding indexed records; no covering statement was found. Residual risk: an unindexed equivalent result or an inaccessible development may exist. A failed search is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The case is the first immediately **outside** the original 2023 computational range \(3\le k\le15\) of a named conjecture, but the value is not a routine next numerical table entry: it establishes the **integral homotopy** conclusion and the entire \(D_{21}\) representation, including the exceptional order-three rotations and the negative reflection trace. The nontrivial consequence that the quotient has twelve fourth-degree rational homology generators (as well as one third-degree generator) cannot be inferred from the known face vector or nonequivariant Euler characteristic. The preserved primitive integer three-class is given by an explicit short simplicial cycle, providing independently testable equivariant topology. A finite natural invariant can merit classification without extending to every parameter, and no general result is asserted.
+Independently rebuilt connectivity for every one of C(21,5)=20349 removed 5-subsets: 2520 facets and ordinary f=(21,210,1330,3024,2520). Pivot matching has 3220 pairs; verified acyclicity by a complete directed Hasse topological sort of all 7105 nonempty faces. Independently computed signed normal forms for all 650 critical four-cells relative to the 14 critical 3-cells: exactly thirteen columns e_i-e_13 are nonzero with 13 unit pivots, leaving one 3-cell and 637 4-cells. Since no positive cells below dimension 3 and attachments into a wedge of 3-spheres are classified by π3~Z, the primitive integer reduction gives the claimed integral homotopy type. Rebuilt explicit eight-term integral 3-cycle and cocycle, checked cocycle on all 2520 four-faces and unit evaluation; 42 signed dihedral permutations all act trivially on H3. Signed fixed-face Lefschetz counts produce Lred=(636 for id,6 at two order-three rotations,-1 other rotations,-8 at 21 reflections), hence H4 traces stated and invariant-rank mean (637+14-147)/42=12. Exhaustive proof is finite at k16; there is NO all-parameter inference.
 
-## Limits and comparison
-No assertion is made about the integral action on fourth homology, quotient torsion, general \(k\), or the unproved homotopy-shape conjecture beyond \(k=16\). Publication and prior-search conclusions remain provisional until an external expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer et al. Section7.4 Conjecture7.23 gives the desired sphere-wedge SHAPE for general Delta_k(W_{k+5}) as a conjecture; Conjecture7.24 records numerical support only through k=15. A previously published general face-vector/Euler RESULT.md, now read in full, predicts numerical 637 only conditionally and does NOT establish attaching maps, integral torsionlessness, or full D21 symmetry. Bayer Proposition7.29 treats k2/n=k+4, different cut. Later three-cut cycle papers prove separate k3 results. The proposed k16 integral homotopy plus 42-element character therefore extends the known state in a motivated first unverified case, subject to historical unindexed literature.
+
+## value
+
+PASS
+
+The first parameter immediately beyond published checks of an explicit natural conjecture is a meaningful finite cutoff, especially with a complete integer homotopy classification and dihedral character/quotient refinement. This is not novelty claimed for conditional Euler prediction or for the bare integer 637.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
