@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A proper common prefix/suffix cannot contain both ones; a zero-only border has maximum min(a,c), while a one-one border must have length a+c+1 and exists exactly when b>=max(a,c). Disjoint integer-lattice counts yield A_n(t)+D_n(t) and the rational bivariate series. Their uniform piecewise n f(t/n)/2+O(1) count gives the local limit. Exact rational integration yields E[Z]=7/27, E[Z^2]=5/54, variance=37/1458. KMP checked 121485 words of lengths 2..90, bivariate coefficient extraction to zero-degree 35, normalizations and maxima to n=2000. Computations are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holub-Shallit arXiv:1509.05240v1, Theorems 3 and 5 and Section 5: average for unrestricted binary words tends to approximately 1.6411649.",
+        "Halava-Harju-Ilie (2000), Theorems 1–2: binary image existence with the same period set and linear-time construction."
+      ],
+      "reasoning": "An unrestricted count of words with a given least period does not determine its fixed-content refinement; the period-set realization theorem is existential, not enumerative. Neither contains the two-marker gap split, the exact coefficient formula, or the linear-scale conditional distribution. General counting techniques might be adapted but require additional work.",
+      "searches": [
+        "Random sparse binary strings, fixed two ones, border length least-period distribution exact",
+        "random binary words fixed density longest border length Hamming weight distribution combinatorics",
+        "arXiv:1509.05240v1",
+        "Halava-Harju-Ilie-JCTA-2000-89-298-303"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1509.05240v1 (full HTML)",
+      "Halava-Harju-Ilie JCTA 89 (2000), open manuscript",
+      "TUCS TR 546 (2003), accessible extracted primary text",
+      "Christodoulakis et al. DAM 171 (2014), abstract only",
+      "OEIS A331393 (unrestricted border-sum sequence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holub-Shallit arXiv:1509.05240v1, Section 5: unconditioned expectation tends to a finite positive constant; the new fixed-two-marker expectation is asymptotically (7/27)n.",
+        "Harju-Nowotka TR 546, abstract and Section 5: which cyclic shifts are bordered, not the size of their longest borders."
+      ],
+      "reasoning": "The prior unrestricted limit neither entails nor contradicts a conditional rare-ensemble scaling law; the conditional event has probability choose(n,2)/2^n and its expectation can grow linearly. The exact distribution is a strengthened weighted refinement, not just a new label for an existing recurrence.",
+      "searches": [
+        "Conditional longest border length among words with two occurrences of a symbol, limit density 2 to one-third and 4-6t to two-thirds, mean 7/27",
+        "Sparse binary word period and border statistics uniform fixed-content two marker gap lengths",
+        "arXiv:1509.05240v1",
+        "Harju-Nowotka-TUCS-TR546"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1509.05240v1, Section 1: least period p=n-L duality; Sections 2–6: unconstrained period-count recurrences and finite-border probabilities.",
+        "TUCS TR 546 (2003), Section 5: proposed extension tracks shortest border of cyclic conjugates, a distinct observation."
+      ],
+      "reasoning": "Under p=n-L, the proposed result is an exact least-period spectrum at fixed Hamming weight two. No source inspected states the corresponding weighted enumerator, conditional distribution, or piecewise limiting law. Border correlation (boolean cyclic) and Abelian borders are not equivalent to exact proper longest borders of linear words.",
+      "searches": [
+        "Two-marker binary string longest proper prefix suffix overlap, least period, bivariate rational border enumerator",
+        "Fixed-Hamming-weight two longest border length spectrum: 0^a 1 0^b 1 0^c, sharp maximum floor((2n-1)/3), period distribution and random scaling law",
+        "arXiv:1509.05240v1",
+        "TUCS-TR-546-2003"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A331393: sum of the longest border length over all 2^n binary words, with no weight-two slice or distribution.",
+        "No exact weight-two border-spectrum database match surfaced in the recorded searches."
+      ],
+      "reasoning": "The known unrestricted summed sequence is not a table of the conditional distribution N_n(t) nor the rational bivariate generating function; a negative database search alone is not proof of novelty.",
+      "searches": [
+        "\"longest border\" \"fixed weight\" binary strings",
+        "\"border length\" \"two ones\" \"binary\" word",
+        "OEIS:A331393"
+      ]
+    },
+    "rationale": "The full-text Holub-Shallit theorem treats unconditioned uniform words with fixed alphabet and bounded average border; it does not supply a fixed-weight-two coefficient spectrum or macroscopic piecewise law. Halava-Harju-Ilie realize arbitrary period sets over a binary alphabet rather than count this composition class. Harju-Nowotka study boolean border status of cyclic conjugates. OEIS A331393 counts total unrestricted border lengths. No checked source implies the exact conditional law as an immediate stated corollary. Priority qualified by incomplete global indexing.",
+    "residual_risks": [
+      "An unindexed fixed-weight enumeration or implicit specialization of a broader weighted-period enumerator may predate this claim.",
+      "The Abelian-border primary full text was not read, although its target equivalence is materially different.",
+      "A related general weighted-period enumeration could imply the formulas with work not represented in the indexed search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 3 and Section 5 concern uniform words on the full alphabet power, giving E L approximately 1.641 for binary words; Sections 2–4 count unconstrained word-period events, not weight-two coefficients.",
+        "identifier_or_url": "https://arxiv.org/html/1509.05240v1",
+        "material_read": "Entire accessible HTML text, Sections 1–6, explicit theorems, tables and references",
+        "method": "Full original arXiv HTML reading, comparing probability models and quantifiers",
+        "title": "Periods and borders of random words",
+        "trigger": "Closest probability law and exact maximum border statistic"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1 establishes a binary representative for each period set and Theorem 2 an algorithm to construct it, with no length-by-weight enumeration.",
+        "identifier_or_url": "https://www.csd.uwo.ca/~ilie/JCTA00.pdf",
+        "material_read": "Entire accessible extracted paper text, Sections 1–4, statements and proofs of Theorems 1–2",
+        "method": "Open-access original PDF textual reading and equation comparison",
+        "title": "Periods and binary words",
+        "trigger": "Plausible general period theory with same least-period terminology"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Defines beta as the bordered/unbordered indicator among cyclic shifts; Section 5 proposes extension by shortest-border lengths, distinct from the new exact longest-border distribution.",
+        "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=912065a268d68bfb1e44494181f636a0c491d9c2&repid=rep1&type=pdf",
+        "material_read": "Accessible extracted text including abstract, main results Sections 1–4, discussion Section 5 and references; no exact longest-border spectrum found",
+        "method": "Original technical-report PDF text search for weight and longest, plus examination of proof themes and concluding discussion",
+        "title": "Border Correlation of Binary Words",
+        "trigger": "Binary border correlation might include two-marker specialized results"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_NOT_DECISIVELY_INSPECTED",
+        "evidence": "Abstract explicitly counts Abelian borders using equal Parikh vectors rather than exact prefix-suffix strings; cannot use snippets to exclude all possible secondary observations.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.02.012",
+        "material_read": "Publisher/institutional abstract and metadata only; full primary text not inspected",
+        "method": "Exact title, abstract, definitions, and output comparison",
+        "title": "Abelian borders in binary words",
+        "trigger": "Potential collision of terms under Abelian versus exact border"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "823f5262-4582-4cad-ae5a-9783152912e6",
+  "value": {
+    "rationale": "The longest border is a natural overlap/least-period statistic relevant to synchronization and string algorithms. Exact border-length counts and the rational bivariate series cover the entire infinite fixed-weight-two family, and the uniform local law shows a macroscopic phase transition at border fraction 1/3 with endpoint 2/3. Competing zero-only and one-marker overlap mechanisms first coexist at Hamming weight two; the explicit conditional law distinguishes this sparse regime from the established O(1) unrestricted law. This is more than isolated numerical checks or a reparameterization; it solves a complete natural stochastic enumeration problem.",
+    "status": "PASS"
+  }
+}
