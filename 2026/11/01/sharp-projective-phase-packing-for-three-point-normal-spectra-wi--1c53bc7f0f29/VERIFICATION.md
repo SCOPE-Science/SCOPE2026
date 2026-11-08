@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-The analytic argument in `RESULT.md` is the basis of the finding. It verifies the spectral norm reduction, the centered-arc rearrangement inequality and its equality case, strict scalar concavity with the unique cell-length optimizer, explicit attainment by two symmetrically placed phases, full equality rigidity, and the weak-modulus Taylor expansion for every real \(0<r\le1\).
+# Independent mathematical audit
 
-Execute `python3 check.py` with the standard Python library. The deterministic program independently compares finite-grid angular integrals for the sharp phase configuration and sampled arbitrary phases, verifies the scalar envelope at many cell lengths, and tests the cubic asymptotic. It passed 1,156 assertions on the packaged script before packaging. The numerical quadrature comparison includes a conservative deterministic Lipschitz error bound; these tests are not exhaustive and do not replace the infinite continuum proof.
+## correctness
 
-The prior full text first appeared on 2026-10-04, was revised on 2026-10-23, and was inspected as arXiv:2610.04844v2. The theorem addresses only the explicitly stated three-modulus normal class. No independent audit was performed.
+PASS
+
+For a normal diagonal operator the squared norm is the maximum of cos²(t) and r²cos²(t-φ),r²cos²(t-ψ) integrated over the projective circle. Strict decreasing rearrangement bounds each winner cell integral by (ell+sin ell)/2. At fixed strong length L, strict sine concavity sets weak lengths equal and leaves strictly concave scalar G_r(L) with unique maximizer L=pi-4asin(r/2). The proposed phases +/- (pi/2-asin(r/2)) realize all centered winner arcs, and equality in rearrangement plus strict concavity fixes phase classes up to weak exchange. Taylor substitution gives cubic and quintic coefficients. Independent direct angular quadrature at r=.1,.3,.7,1 agrees with the formula, and symbolic expansion matches. At r=1 the equal-modulus unitary endpoint is consistent; r=0 excluded because phase equality would cease to be unique. No independent-modulus or nonnormal claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge: The sharp placement of three spectral phases for unequal fixed magnitudes is a natural extremal geometric problem in integrated operator norm. The exact moduli-dependent optimizer and cubic onset go beyond a two-mode bound and the all-unitary equal-modulus endpoint; phase uniqueness gives a complete small-class classification. A higher-dimensional/general-modulus theorem is not required for this precise result. Prior-art comparison is based on distinct theorem implications. See four structured checks and material source inspections; not exhaustive historical priority.
+
+## value
+
+PASS
+
+The sharp placement of three spectral phases for unequal fixed magnitudes is a natural extremal geometric problem in integrated operator norm. The exact moduli-dependent optimizer and cubic onset go beyond a two-mode bound and the all-unitary equal-modulus endpoint; phase uniqueness gives a complete small-class classification. A higher-dimensional/general-modulus theorem is not required for this precise result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
