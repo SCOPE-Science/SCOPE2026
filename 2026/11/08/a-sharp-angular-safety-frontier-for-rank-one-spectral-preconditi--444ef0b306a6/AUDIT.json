@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The matrix has an exact 2x2 active block with trace κ+p+(p−1)(κ−1)w and determinant κp; the characteristic polynomial at one is (κ−1)(p−1)(1−w)≤0 so the condition number is precisely the active eigenvalue ratio. Its normalized trace is (a/√p+b√p)/√κ, minimized over p∈(0,1] exactly at min(1,a/b), yielding the 45-degree barrier, sharp minimum and nominal threshold. Gaussian decomposition produces independent χ²_1 and χ²_(n−1) variables, the F-tail and χ² limit. A runnable checker verified 2234 finite exact/numeric configurations, plus nominal-scale identities; finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diouane et al. Corollary 4 optimizes along genuine eigenvectors; their Theorem 13 is conditional on exact spectral directions.",
+        "Gratton et al. Theorem 2.9 scales the whole LMP via a different family rather than the coefficient of a fixed approximate rank-one direction."
+      ],
+      "reasoning": "General theory of SPD congruences does not imply the explicit 45-degree necessary-and-sufficient cutoff without sharp angle-dependent reduction. The exact-eigenvector results are specializations at w=1 rather than the all-angle theorem. Standard chi-square ratio theory gives the distribution given the event but does not supply the spectral event.",
+      "searches": [
+        "preconditioned SPD two eigenvalues inaccurate spectral correction angle optimal preconditioner worsening",
+        "spiked covariance random power method sketch rank one spectral preconditioner condition number optimal coefficient Gaussian F distribution probability",
+        "https://arxiv.org/html/2603.28969v1",
+        "https://optimization-online.org/wp-content/uploads/2008/12/2166.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.23571",
+      "https://arxiv.org/html/2603.28969v1",
+      "https://optimization-online.org/wp-content/uploads/2008/12/2166.pdf",
+      "https://doi.org/10.1137/040617546",
+      "https://arxiv.org/abs/2610.28808"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Daužickaitė et al. eq. (7) supplies the family template but not the angular finite-correction guarantee.",
+        "Diouane et al. exact-eigenvector condition-number and PCG energy claims cannot control a misaligned direction.",
+        "Giraud–Gratton 2006 first-order expansions are not valid at the large angular error w=1/2."
+      ],
+      "reasoning": "The named prior statements neither determine the optimum for all w nor imply the F-tail under a direct H^q Gaussian sketch. The exact 2x2 calculation is essential. No claim of universal historical novelty or independence is made.",
+      "searches": [
+        "2026 sharp convergence randomized coordinate descent error bound quadratic diagonal preconditioning",
+        "rank-one spectral preconditioner approximate spike eigenvector optimal damping direction cosine 45 degree angle threshold condition number",
+        "preconditioned SPD two eigenvalues inaccurate spectral correction angle optimal preconditioner worsening",
+        "arxiv:2605.23571v1",
+        "arxiv:2603.28969v1",
+        "doi:10.1137/040617546",
+        "optimization-online:2166"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact (uᵀv)²>1/2 is equivalently |angle(u,v)|<π/4 for some deflation p<1.",
+        "The Giraud–Gratton 2006 paper analyzes small perturbations, not an equivalent global angular criterion."
+      ],
+      "reasoning": "An equivalent statement could have optimized a reciprocal eigenvalue ratio or normalized trace for a rank-one inverse update; compare the full trace/determinant map, not keywords. None of the inspected equations or searchable published record states this map’s exact constrained minimizer plus Gaussian event.",
+      "searches": [
+        "rank-one spectral preconditioner approximate spike eigenvector optimal damping direction cosine 45 degree angle threshold condition number",
+        "approximate spectral limited memory preconditioner spiked matrix rank one correction cosine squared greater than one half improves condition number",
+        "rank-one deflating preconditioner exact optimal damping misaligned Ritz vector forty five degrees",
+        "arxiv:2605.23571v1",
+        "doi:10.1137/040617546"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record matches on stale SOAP eigenbases, Jacobi damping and Richardson steps have different matrices and optimizing parameters.",
+        "Accessible local finding titles and claims concern different preconditioners/randomized eigenproblems; no matching one-spike deflating safety event was found."
+      ],
+      "reasoning": "No exact table or catalogued formula for this pair of thresholds and F probabilities was identified. A failed semantic search alone is not taken as proof of novelty; the primary-source implication checks provide the substantive basis.",
+      "searches": [
+        "rank-one spectral preconditioner approximate spike eigenvector optimal damping direction cosine 45 degree angle threshold condition number",
+        "Gaussian power sketch rank one deflation condition number spiked SPD exact probability improvement F-distribution power iteration",
+        "approximate spectral limited memory preconditioner spiked matrix rank one correction cosine squared greater than one half improves condition number",
+        "spiked covariance random power method sketch rank one spectral preconditioner condition number optimal coefficient Gaussian F distribution probability",
+        "rank-one deflating preconditioner exact optimal damping misaligned Ritz vector forty five degrees"
+      ]
+    },
+    "rationale": "The assessed nontrivial combined statement is an exact all-angle conditioning minimization and its random power-sketch success law. The inspected 2026 source supplies the scaled LMP and Gaussian sketch but not this condition-number event. Diouane et al. study true eigenvectors, Gratton et al. optimize another LMP scaling and compare Ritz forms, and Giraud–Gratton provide only first-order sensitivity; none directly entails the finite-angle oracle criterion or exact F-tail. Published mathematical records and accessible historical claims were compared with no covering identity found; priority remains provisional.",
+    "residual_risks": [
+      "A classical unindexed exact two-by-two preconditioned condition-number identity could imply the angular portion; the assessed contribution also contains a probabilistic sketch reliability formula.",
+      "Full text of arXiv:2610.28808 was not retrievable; the available abstract addresses a distinct perturbed-system energy-error comparison, but this is not a proof of exclusion.",
+      "A larger spectral-preconditioning corpus remains unchecked; semantic search can miss equivalent reductions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the one-spike exact misalignment threshold, minimax deflation coefficient or the Gaussian condition-number improvement event.",
+        "evidence": [
+          "Equation (7) gives the scaled spectral LMP for leading eigenpairs and (9) gives the Gaussian power sketch; analysis concerns algorithmic construction and experiments rather than the stated exact one-spike criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.23571",
+        "material_read": "Abstract and full text sections 3.1–3.2, equations (7)–(9), parameter/scaling discussion, and preconditioning setup.",
+        "method": "Lawful author-supplied full text in ResearchGate (https://www.researchgate.net/publication/405222221_Accelerating_an_ensemble_of_variational_data_assimilations_with_randomized_preconditioning)",
+        "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+        "trigger": "Primary 2026 source defines scaled spectral LMP and randomized eigenpair estimation."
+      },
+      {
+        "assessment": "Its preconditioner uses true eigenvectors, optimizing a cluster and PCG energy error. Its results do not imply a universal improvement decision for an inaccurate direction.",
+        "evidence": [
+          "Corollary 4 defines corrections along known eigenvectors and states that other eigenvalues are unchanged; Theorem 13 compares PCG energy errors under exact spectral information."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+        "material_read": "Full HTML sections 3 and 4, the exact-eigenvector spectral formula and Theorem 13, together with introduction and limitations.",
+        "method": "Open-access arXiv HTML full text",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Closest recent study of optimal spectral preconditioner scaling and condition number."
+      },
+      {
+        "assessment": "Proposition 3.1 derives the exact-eigenvector formula, Theorem 2.9 optimizes a different whole-LMP scaling, and Theorem 3.5 compares Ritz- and spectral-LMP matrices in norm. None yields the present sharp finite-angle minimizer and Gaussian sketch probability.",
+        "evidence": [
+          "Prop. 3.1: H=I+S(Λ^{-1}-I)S^T for true eigenvectors; Theorem 2.9 optimizes γ for H_γ (a distinct preconditioner). Theorem 3.5 bounds a matrix difference, not the condition number frontier."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2008/12/2166.pdf",
+        "material_read": "Authoritative PDF page 1 image and text sections 2.3 and 3.2–3.3, especially Theorem 2.9 and Proposition 3.1/Theorem 3.5.",
+        "method": "Lawful open-access PDF text and rendered page inspection",
+        "title": "On A Class of Limited Memory Preconditioners for Large Scale Linear Systems with Multiple Right-Hand Sides",
+        "trigger": "Classical spectral and Ritz-LMP formulas and optimal scaling might cover the claim."
+      },
+      {
+        "assessment": "First-order expansion in perturbation size does not contain a globally exact nonlocal 45-degree threshold or finite-dimensional Gaussian sketch-tail law.",
+        "evidence": [
+          "Article states its method is first-order eigenvalue/eigenvector perturbation analysis; Section 3.3 defines condition numbers for first-order eigenvalue sensitivity, not the matrix condition number minimized over a correction coefficient."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/040617546",
+        "material_read": "Author-supplied full text introduction, spectral-preconditioner variants in section 2, theorems/perturbation discussion in section 3, and section 3.3 on sensitivity.",
+        "method": "Lawful author-supplied full text at https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Historically plausible exact inexact-eigenvector preconditioner theory."
+      },
+      {
+        "assessment": "The exposed claim concerns first-order perturbation of PCG/deflated-CG energy errors for A(t)=A+tE, not a direct exact condition-number criterion for rank-one deflation of the unperturbed one-spike matrix. Full-text priority uncertainty remains.",
+        "evidence": [
+          "Abstract explicitly emphasizes t-order energy-error comparisons for perturbed systems and exact reference eigeninformation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28808",
+        "material_read": "Abstract and publicly available bibliographic/statement summary; full arXiv HTML/PDF retrieval was attempted but inaccessible.",
+        "method": "ArXiv abstract and OA landing page; full HTML and PDF retrieval blocked",
+        "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+        "trigger": "2026 spectral preconditioning using reused but perturbed eigendirections; plausible competing theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "444ef0b3-06a6-4b25-bfb1-ff922263102c",
+  "value": {
+    "rationale": "The model is the simplest nontrivial case of a spectral LMP built from an approximate eigenvector, widely used in numerical linear solves and data assimilation. Its conditioning can deteriorate even though the preconditioner remains SPD. The universal 45-degree boundary separates unrecoverable by shrinking from useful approximate directions, and the nominal inverse-scale boundary quantifies how scaling errors matter. Exact F survival probabilities yield power-budget versus dimension reliability guidance; these are natural quantities, not arbitrary parameter slicing. Limits on full PCG convergence are explicit.",
+    "status": "PASS"
+  }
+}
