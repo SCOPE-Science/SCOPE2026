@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem defines exactly which matrices are evaluated, restricts condition numbers to their nonsingular degrees, and obtains the sharp degree-twelve eigenvalues by two exact matrix identities in \(\mathbb Q(\sqrt5)\). Its uniqueness proof separates all other relevant degrees into five low-degree exact checks, 485 exhaustively certified rational positivity tests, and a rigorously bounded infinite analytic tail. The standalone checker builds coordinates from scratch and verifies all crucial algebra and finite certificate conditions; the tail invokes a stated Legendre integral with a derived Gaussian bound. The step from finite to infinite degrees does not rely on extrapolation. An independent proof audit is outstanding.
+PASS
 
-## Originality — PASS, bounded historical comparison
+For 30 unit vertices choose 15 antipodal representatives; K_k=P_k(dot) is real PSD and condition numbers are restricted to positive-definite degrees. The exact dot-product classes 0, (sqrt5−1)/4, 1/2, (sqrt5+1)/4 and rank-five zero-dot-product projection split K12 into multiplicities 1+4+5+5; the quadratic on the rank-ten complement gives min≈0.00284858 and max≈2.57695484, ratio≈904.6444977. The inspected h3_cert.py uses exact Q(sqrt5) recurrence, checks K12 projection identities, and performs 490 degree-by-degree integer Bareiss positive-definiteness certificates for 7,9,10,11,13 and 15..499. The source proof bounds k≥500 by a Legendre Laplace integral and Gershgorin, showing kappa<199; finite checks alone are not an all-k proof. Independent construction of 30 Cartesian vertices and SciPy P12 Gram for 15 representatives gives the claimed spectrum and kappa=904.64449771351. Boundaries k=0..14 rank are distinguished; k=14 remains singular.
 
-Earlier sources establish the icosidodecahedral point geometry, harmonic-index-design kernels, and other spherical-sampling or optimized-Gram conditioning settings. Exact-degree rank information for these same thirty vertices is already available and is excluded from the novelty claim; rank determination by itself neither implies the minimum positive eigenvalue at degree twelve nor proves the sharp uniform condition-number maximum across infinitely many degrees. The full accessible 2005 configuration paper, 2013 harmonic-index paper, and 2014 spherical sampling paper were compared at the level of objects and theorems; no result equivalent to this sharp fixed-configuration spectral conditioning was identified. Abstract-only access to older icosahedral representation theory and one Gram-optimization paper leaves explicit historical-overlap risk. A negative search is not evidence of absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Conditioning, unlike rank, quantifies interpolation amplification in the precise natural exact-degree harmonic problem for a canonical thirty-point icosahedrally symmetric configuration. The unique exceptionally ill-conditioned degree and its exact algebraic spectrum distinguish a large effect that ordinary rank data miss. The statement supplies the complete sharp maximum over all nonsingular degrees, not an arbitrary isolated computed example. This can guide degree selection and comparison of exact-degree harmonic sampling on highly symmetric node sets.
+Best-of-knowledge PASS for sharp degree-uniform icosidodecahedral Legendre condition-number extremum, as distinct from harmonic-index designs, irrep ranks and icosahedral coordinates; qualified by inaccessible historical harmonic tables.
 
-## Limits
+## value
 
-Results concern one representative of each antipodal pair and the normalized exact-degree Legendre Gram, not cumulative harmonics. A full independent mathematical assessment is not available; older icosahedral group harmonic literature may provide equivalent ingredients. No authorship or third-party independent verification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed highly symmetric spherical sampling design has a natural conditioning invariant beyond mere rank. A unique nontrivial worst degree over an infinite sequence, rigorous positive spectral gap comparisons and exact sharp extremal spectrum provide a reusable benchmark for harmonic interpolation; this is not just a renamed rank table or one tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
