@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The support-function decomposition is exhaustive under ordinary constant width and Fourier cutoff five. Curvature nonnegativity bounds a two-frequency sup norm. Sampling at six extrema of the third harmonic yields a phase-independent bound, supplemented by a reverse-triangle bound; the two algebraic regimes imply the exact spectral quadratic inequality. The independent Fourier-area integral then yields the claimed sharp base minimum plus a positive sixth-amplitude gap. The equality support has nonnegative curvature everywhere and is convex. The included deterministic checker passed 1,682 finite diagnostics, which supplement but do not replace the continuous proof.
+## correctness
 
-## Originality: PASS, with historical-priority risk
-The strongest prior, Bayen and Henrion (2010 manuscript; 2012 journal), Sec. 3.1.4, **numerically observes** the same minimizing shape for a fifth-degree real-cosine subfamily. The shape and numerical observation are expressly prior, not independently claimed here. The new proof treats every independent third/fifth sine-cosine phase, gives a globally exact inequality and a quantitative fifth-amplitude gap, and completely classifies equality. The 2026 symmetry-minimizer theorem and the published dihedrally invariant harmonics at frequencies \(n\) and \(3n\) do not imply this claim. The full 2010 manuscript remained inaccessible; equivalent earlier analytic inequalities are an unresolved historical-priority risk.
+PASS
 
-## Mathematical value: PASS
-A sharp complete finite-Fourier classification solves a canonical constrained version of constant-width area minimization and answers whether adding the first higher odd harmonic after degree three improves the optimum. The quantitative fifth-amplitude term is meaningful control of shape perturbations and is not a routine substitution of known constants. Its coefficient is not asserted optimal. The differing behavior of resonant higher harmonics gives substantive mathematical motivation.
+For h=w/2+first+third+fifth modes, h+h''=r+g with r=w/2, amplitudes R=8||third||, S=24||fifth||. Evaluating at six θ=kπ/3 after alternating signs forces ||g||∞≥R+S/2; reverse triangle gives ≥S−R. For S≤4R and S≥4R respectively these give ||g||∞²≥R²+S²/2. Curvature nonnegativity then yields R²+S²/2≤r². Orthogonal Fourier area is πr²−π(R²+S²/3)/16, implying stated area bound. Equality in baseline forces S=0 and R=r; any third phase rotates to cos3θ and first harmonic translates, giving complete equality classification.
 
-## Evidence and limitations
-Detailed comparison searches, accessible source material, and bounded historical-priority uncertainty are recorded in AUDIT.json. The package includes a complete all-phase elementary proof and a standalone standard-library verifier; finite computations do not prove the continuum statement. No result beyond Fourier degree five or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rigorous phase-independent four-real-coefficient degree-five bound and fifth-amplitude stability gap are not established by the older numerical real-cosine optimization. The sharp pure-third-mode optimizer was anticipated numerically, and is not claimed as independently new. Neither the fixed-dihedral frequencies (n,3n) result nor unrestricted constant-width symmetry minimization implies the independent (3,5) two-phase inequality.
+
+## value
+
+PASS
+
+A sharp degree-five constant-width extremal problem with arbitrary relative Fourier phases has natural convex-geometric significance; the rigorous uniqueness and uniform fifth-harmonic gap strengthen a known numerical observation and quantify rigidity. It is not an arbitrary coefficient slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
