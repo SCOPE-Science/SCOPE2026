@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every SPD 2 by 2 A with exactly two iid standard Gaussian probes, polar decomposition gives a rank-one Nyström residual with scalar tau. Conditional centered Gaussian quadratic forms give variance 2 E[tau^2]; Fourier expansion of tau and radial integration give cross-covariance (ab/2)(1+r^4). Therefore true trace-estimator variance and expected posterior error square are X+Y and X-Y. Explicit positive polynomial factorizations prove sharp 5/8 and 5/3 bounds including unique equality at equal eigenvalues; finite code checks verify the nonstandard algebra and moments without being substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S5.SS3",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S5.SS6",
+        "https://ar5iv.labs.arxiv.org/html/2109.10659"
+      ],
+      "reasoning": "The source general bound is an inequality based on expected residual norms, not a sharp equality for m=2. Its explicit spectral error bound requires m>=6; the new result treats the missing two-query endpoint. Nyström++ allocates independent fixed probe blocks and cannot directly dominate the two correlated leave-one-out corrections.",
+      "searches": [
+        "Sharp stability or invariant variance randomized numerical ODE splitting and stochastic integration",
+        "Nyström++ trace estimator variance exact two Gaussian test vectors",
+        "arxiv:2301.07825 Theorem 1 and Proposition 5",
+        "arxiv:2109.10659 Sections 1 and 3"
+      ]
+    },
+    "checked_sources": [
+      "https://ar5iv.labs.arxiv.org/html/2301.07825",
+      "https://ar5iv.labs.arxiv.org/html/2109.10659",
+      "https://arxiv.org/abs/2301.07825",
+      "https://arxiv.org/abs/2109.10659",
+      "https://epubs.siam.org/doi/abs/10.1137/23M1548323",
+      "https://arxiv.org/abs/2512.15929 (metadata and abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S3.SS1",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S5.SS3",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S5.SS6",
+        "https://ar5iv.labs.arxiv.org/html/2109.10659#S3"
+      ],
+      "reasoning": "Proposition 2 yields a generic ratio depending on the correlation of leave-one-out estimates, which is not known from that result. Deriving the new constant requires the exact angular-frequency covariance. Proposition 5 only bounds variance. The source formula logically supplies the starting definition, which is credited; the exact evaluated and optimized covariance boundary is the claim, not the framework.",
+      "searches": [
+        "arxiv:2301.07825 equations (8), (9), (16), Proposition 2, Proposition 5",
+        "arxiv:2109.10659 Nyström++ algorithm and variance statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S1.SS2.SSS2",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S3.SS1",
+        "arxiv:2301.07825 (full text equations 8-9, Proposition 2, Section 5.6)"
+      ],
+      "reasoning": "Direct estimator definition and generic exchangeable correlation identity are prior art. They leave the two-probe planar covariance and spectral dependence unevaluated. The new proof evaluates the angular fourth-frequency mode and supplies exact sharp finite-sample constants, not a relabeling of a stated theorem.",
+      "searches": [
+        "XNysTrace exact variance two by two positive definite Gaussian two probes eigenvalues closed form square root condition number leave-one-out Nyström",
+        "XNysTrace two Gaussian probe planar positive definite matrix exact variance and posterior squared error estimate ratio 5/3",
+        "arxiv:2301.07825 equations (7)-(9) and Proposition 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching formula among queried ranked mathematical research-record titles and summaries; this is an access-bounded negative search, not a novelty proof.",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825#S5.SS3"
+      ],
+      "reasoning": "Checked exact named estimators, two-sample aliases, finite-dimensional variance and posterior error statistics rather than title alone. A matching formula in an unindexed publication or a specialist table remains possible.",
+      "searches": [
+        "XNysTrace two sample error underestimation correlation exact spectrum",
+        "rank-one leave-one-out Nyström trace Gaussian covariance two-dimensional finite sample error estimator",
+        "XNysTrace exact variance 2x2 two samples covariance trace estimator Gaussian poster error variance ratio"
+      ]
+    },
+    "rationale": "The source 2023 XNysTrace paper specifies the estimator and general covariance/error-estimator identities, but its spectral variance theorem does not give a two-probe finite-dimensional formula. Its Proposition 2 expresses calibration through an unevaluated correlation. Independent Fourier evaluation of cross-probe covariance gives the all-positive-spectra closed formula and the sharp posterior factor 5/3, not stated in inspected full text. The predecessor Nyström++ uses a fixed split. Database claim searches did not surface equivalent exact formulas. Unsearched specialist literature is residual risk; absence of a hit is not proof of uniqueness.",
+    "residual_risks": [
+      "An unlocated specialist paper, thesis or later manuscript may independently derive the same finite-dimensional identity or stronger result.",
+      "The starting definition, general correlation-to-error-estimate relation, and Gaussian benchmark formula are explicitly prior art; the claim of novelty is only the evaluated spectral covariance and sharp small-budget constants.",
+      "Full-rank matvec information and a different normalized variant can eliminate error here, restricting practical scope of the unnormalized benchmark.",
+      "Epperly 2025 related 460-page dissertation full text could not be inspected; no exclusion of exact planar formula is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines estimator and generic covariance relation; no explicit planar two-probe exact covariance, calibrated posterior factor or sharp 5/8 Gaussian comparator statement found. Optional normalized variant explicitly different.",
+        "evidence": [
+          "arxiv:2301.07825 Eqs (7)-(9)",
+          "arxiv:2301.07825 Prop 2 and Sec 5.6",
+          "arxiv:2301.07825 Prop 5 and Sec 5.3",
+          "arxiv:2301.07825 Sec 2.3"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Full open-access HTML, introduction Sections 1.1-1.4; equations (7)-(9); Section 2.3 normalization; Proposition 2; Sections 5.3 and 5.6 including proofs and variance decompositions; source searches for two-dimensional special case.",
+        "method": "Read full relevant primary sections and compared exact formulas, quantifiers and dependence structure to the proposed two-probe claim.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "Original XNysTrace estimator, its variance analysis, normalization distinction, and posterior error estimator"
+      },
+      {
+        "assessment": "Nyström++ fixed-block, independent correction is structurally different from the exchangeable two-probe XNysTrace covariance and does not state the exact planar posterior bias.",
+        "evidence": [
+          "arxiv:2109.10659 Eq (2), Section 3 Nyström++",
+          "arxiv:2109.10659 Algorithm 5 and Lemma 3.2"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2109.10659",
+        "material_read": "Open-access full text introduction and Gaussian Hutchinson baseline Eq (2); Nyström++ construction in Section 3, associated norm and trace concentration estimates, and comparison to fixed-split Hutch++.",
+        "method": "Read original accessible HTML mathematical definition and its general variance/error bounds; compared which random probes serve as sketched versus held-out trace samples.",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Potential broader Nyström-based stochastic trace variance and exact finite-sample comparison"
+      },
+      {
+        "assessment": "Unresolved potential specialist source; not classified as non-covering. Other directly inspected primary full-text sources support the provisional comparison.",
+        "evidence": [
+          "arxiv:2512.15929 dissertation, title and abstract",
+          "https://inspirehep.net/literature/2936923"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.15929",
+        "material_read": "Metadata, title, dissertation description and abstract only; ar5iv HTML and arxiv HTML access attempts failed. No claim about unseen full text.",
+        "method": "Inspected bibliographic title and abstract; public HTML full-text endpoints were inaccessible, so no conclusion was drawn about unseen chapters.",
+        "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+        "trigger": "Potentially relevant subsequent author thesis on resource-efficient randomized matrix computations including XTrace methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2d120cf-55e7-4d4a-919e-cd19b39ae3fe",
+  "value": {
+    "rationale": "Posterior squared error is a native numerical estimator output used for accuracy decisions and adaptive stopping; it is systematically optimistic due to the correlated leave-one-out corrections. The exact all-spectra planar formula, largest possible 5/3 underreporting factor and sharp fixed-budget Gaussian comparator quantify a natural small-query regime not covered by the source explicit large-sample spectral theorem. This is a complete, motivated endpoint classification, not an arbitrary slice. It is limited to baseline unnormalized methods, and is not a practical superiority claim because full-rank reconstruction and the normalized variant can be exact at this dimension.",
+    "status": "PASS"
+  }
+}
