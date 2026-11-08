@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:13:22.702781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md @ 219969b13fcc57dfed707755933df23347366ba1",
+        "Frozen verification script @ 5647a6bc40b0a1c000f3404318176106f47792d9",
+        "Independent finite/symbolic test script sha256 calculated on disk at closeout"
+      ],
+      "rationale": "Symbolic independent differentiation confirms F''>0 and F''<0 for all alpha,t>0: F'' = alpha L^(alpha-2)(alpha-1-L)/(t(1+e^alpha t)^2)<0 because L>=alpha. Scaling F(st)/F(t)<=s(1+log(1/s)/alpha)^alpha gives a uniform two-sum quasi-triangle bound, and coordinatewise limits with Fatou give completeness. Disjoint basis vectors have ||e_i||=1/a_alpha and ||sum_{i=1}^n e_i||=1/F^{-1}(1/n); asymptotic inversion yields lower coefficient a_alpha. For arbitrary normalized summands the weighted modal bound is (a_alpha/C) sum_i w_i(r_alpha+log C+log(1/w_i))^alpha, and self-information W=-log w_i obeys P(W>log n+u)<=e^-u for every positive weight vector; stochastic domination by log n+Exp(1) gives the uniform matching upper bound with C=(1+eps)a_alpha(log n)^alpha. This proves limit for all fixed alpha; n-independent norm equivalence is contradicted. Independent symbolic derivative and 16 disjoint-asymptotic numeric checks corroborate.",
+      "residual_risks": [
+        "Only fixed positive alpha and n tending to infinity; no formula for finite n or joint alpha,n limit; does not assert exact optimizing configurations beyond lower witness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamińska–Żyluk characterizes Δ*_p, p-upper estimates and p-normability qualitatively; the n-dependent optimal coefficient is absent from Theorem 4.2."
+        ],
+        "reasoning": "Known global qualitative equivalences do not supply the sharp normalized asymptotic of a fixed explicit nonconvex modular.",
+        "searches": [
+          "Kamińska Żyluk 2019 Theorem 4.2 page 19",
+          "Mayoral 2025 Theorem 5.3",
+          "Kameník arxiv:2609.17143 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1911.10256",
+        "https://arxiv.org/abs/2609.17143",
+        "https://doi.org/10.1007/s43036-025-00450-0",
+        "Resultary semantic query: quasi Orlicz sequence Luxemburg concave t log(1/t)^alpha n summand triangle inequality amplification",
+        "Frozen source audited at tree d9902f8ca0d271a766683a3e2fa6d5115cde9f8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical normability criteria imply divergence of any uniform C_alpha(n), and disjoint vectors show a lower bound, but do not imply a universal all-input entropy upper bound at sharp leading coefficient."
+        ],
+        "reasoning": "The nonnormability consequence is known in type; the new assessed final claim is quantified exact sharp growth for each alpha, subject to full-text priority risk for Kameník.",
+        "searches": [
+          "Kamińska Żyluk arxiv:1911.10256 Theorem 4.2",
+          "Kameník arxiv:2609.17143",
+          "Mayoral DOI:10.1007/s43036-025-00450-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed C_alpha(n) is the best uniform factor in the triangle inequality for n inputs; the universal in-n inequality is equivalent to normability but its precise logarithmic growth is stronger."
+        ],
+        "reasoning": "Explicitly checked mathematical function F_alpha and n-sum ratio, not merely occurrence of words Orlicz and nonnormable.",
+        "searches": [
+          "quasi Orlicz sequence Luxemburg concave t log(1/t)^alpha n summand triangle inequality amplification",
+          "finite-summand normability constant quasi-Orlicz Luxemburg gauge normalized entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found other logarithmic quasi-Banach/Marcinkiewicz settings, not the same function F_alpha or an n-dependent exact C_alpha coefficient."
+        ],
+        "reasoning": "No tabulated result is being recomputed; exact continuum-family asymptotic with a matching entropy upper bound is the asserted contribution.",
+        "searches": [
+          "quasi Orlicz sequence Luxemburg concave t log(1/t)^alpha n summand triangle inequality amplification",
+          "t log(e^alpha+1/t)^alpha sharp n summand logarithmic amplification constant"
+        ]
+      },
+      "rationale": "Theorem 4.2 of Kamińska–Żyluk (2019), full arXiv PDF page 19 visually inspected, characterizes quasi-Orlicz normability and p-upper estimates in terms of growth conditions; it does not give the n-dependent sharp amplification coefficient for this specific concave logarithmic modular. Mayoral (2025) treats r-convexification nonnormability, a qualitative weaker conclusion. The Kameník (September 2026) sequence-space preprint abstract concerns fundamental functions and coincidence of Orlicz/Lorentz–Zygmund spaces, not an explicit n-summand leading coefficient; full text inaccessible via arXiv/Oxford, so its coverage remains a specific risk. Distinguish known nonnormability from new sharp rate and normalization.",
+      "residual_risks": [
+        "Kameník arxiv:2609.17143 full paper was inaccessible and authorized institutional request returned vpn_disconnected, so no whole-document noncoverage conclusion is asserted.",
+        "A general quasi-Banach Orlicz finite-sum entropy inequality might recover the sharp coefficient implicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_ONLY: equivalence of growth, p-convexity, p-normability, type; no sharp C_alpha(n)/log(n)^alpha coefficient",
+          "evidence": [
+            "Theorem 4.2 (i)-(v) equivalent for p<=1, with upper p-estimates and p-normability, no n-dependent leading constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10256",
+          "material_read": "Full 21-page PDF, introduction, preliminaries, Corollary 3.8 and Theorem 4.2 on page 19",
+          "method": "PDF text and visual screenshot page 19",
+          "title": "Local geometric properties in quasi-normed Orlicz spaces",
+          "trigger": "Same quasi-Orlicz spaces and normability/upper estimates"
+        },
+        {
+          "assessment": "UNKNOWN_FULL_TEXT_OVERLAP: cannot claim full document excludes summand amplification",
+          "evidence": [
+            "Preprint studies Banach criteria, fundamental functions, associate spaces and Orlicz/Lorentz–Zygmund coincidences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.17143",
+          "material_read": "Abstract and paper scope only; arXiv PDF unavailable and institutional access vpn_disconnected",
+          "method": "arXiv metadata/abstract with bounded authorized full-text attempt",
+          "title": "On Certian Fine Properties of Sequence Spaces",
+          "trigger": "Recent potentially closest Orlicz/Lorentz-Zygmund full theory"
+        },
+        {
+          "assessment": "QUALITATIVE_NONNORMABILITY: different convexified Banach lattice and no n-sum amplification coefficient",
+          "evidence": [
+            "Deals with r-convexifications and qualitative normability thresholds."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43036-025-00450-0",
+          "material_read": "Theorem 5.3 and Section 5 discussed in available paper findings; complete text not independently read in this run",
+          "method": "Primary theorem description and bibliography",
+          "title": "On L_exp and L log L Zygmund spaces and their r-convexifications",
+          "trigger": "Adjacent nonnormability of logarithmic Orlicz constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "For each fixed alpha>0, the concave logarithmic Luxemburg gauge F_alpha(t)=t[log(e^alpha+1/t)]^alpha on countable scalar sequences is a complete quasi-norm and its optimal n-summand amplification satisfies C_alpha(n)/(log n)^alpha -> a_alpha=F_alpha^{-1}(1), so it is nonnormable.",
+        "Originality comparisons and mathematical proof from frozen RESULT.md"
+      ],
+      "rationale": "The n-summand amplification constant is a natural quantitative finite-dimensional obstruction to normability. Exact leading growth (log n)^alpha and the explicit normalization a_alpha distinguish logarithmic near-l1 gauges beyond the familiar binary quasi-triangle or qualitative p-normability classification.",
+      "residual_risks": [
+        "The primary contribution is a sharp asymptotic invariant of this explicit family, not a general classification of all quasi-Orlicz gauges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Originality is a qualified best-knowledge judgment after actual Resultary, primary-literature and mathematical implication comparisons, not a formal priority or expert certificate. Public-file metadata privacy prevents publication; source evidence retained unchanged.",
+  "schema_version": 1
+}

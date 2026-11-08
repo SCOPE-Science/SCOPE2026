@@ -1,15 +1,21 @@
-# Scientific assessment: logarithmic concave Orlicz summand amplification
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and gauge are explicit for all fixed real parameters \(\alpha>0\). Differentiation proves strict monotonicity and concavity, with a uniform scaling ratio ensuring a quasi-triangle inequality. The Luxemburg modular is well-defined and complete by a doubling estimate and Fatou's lemma. Disjoint unit-coordinate vectors give the sharp lower asymptotic, and the entropy-tail inequality for arbitrary probability weights gives a uniform upper asymptotic. No infinite statement is inferred solely from the 1,686 supplementary finite checks. The normalization coefficient \(a_\alpha=F_\alpha^{-1}(1)\) is carried consistently through both bounds.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The closest general results include Kamińska–Żyluk's characterization of quasi-Orlicz normability and upper estimates, notably Theorem 4.2; Mayoral's qualitative nonnormability theorem for \(r\)-convexifications of \(L\log L\), notably Theorem 5.3; and Kameník's study of Orlicz and Lorentz–Zygmund sequence-space fundamental functions. None of the inspected theorem statements yields the leading coefficient of the finite \(n\)-summand amplification function for this concave logarithmic family. Separate database searches for the exact gauge, entropy upper bound, and logarithmic amplification found no equivalent or stronger published claim. The latest sequence-space preprint was accessible only through its abstract, so full-text overlap remains a residual risk. The qualitative nonnormability conclusion alone is not presented as original.
+PASS
 
-## Mathematical value — PASS
-The optimal amplification function is a natural geometric invariant of any quasi-norm: it records the smallest uniform triangle constant for exactly \(n\) summands and detects nonnormability. For the logarithmic near-\(\ell_1\) Orlicz family, the result computes the *leading coefficient* rather than mere order of growth and locates a critical logarithmic hierarchy distinct from the power-law behavior of quasi-\(\ell_p\) spaces. Disjoint vectors saturate a nontrivial uniform entropy bound. This identifies a meaningful quantitative nonlocal-convexity phenomenon without postulating an unrelated downstream application.
+Symbolic independent differentiation confirms F''>0 and F''<0 for all alpha,t>0: F'' = alpha L^(alpha-2)(alpha-1-L)/(t(1+e^alpha t)^2)<0 because L>=alpha. Scaling F(st)/F(t)<=s(1+log(1/s)/alpha)^alpha gives a uniform two-sum quasi-triangle bound, and coordinatewise limits with Fatou give completeness. Disjoint basis vectors have ||e_i||=1/a_alpha and ||sum_{i=1}^n e_i||=1/F^{-1}(1/n); asymptotic inversion yields lower coefficient a_alpha. For arbitrary normalized summands the weighted modal bound is (a_alpha/C) sum_i w_i(r_alpha+log C+log(1/w_i))^alpha, and self-information W=-log w_i obeys P(W>log n+u)<=e^-u for every positive weight vector; stochastic domination by log n+Exp(1) gives the uniform matching upper bound with C=(1+eps)a_alpha(log n)^alpha. This proves limit for all fixed alpha; n-independent norm equivalence is contradicted. Independent symbolic derivative and 16 disjoint-asymptotic numeric checks corroborate.
 
-## Literature and limits
-The 2019 result is a qualitative general characterization and the 2025 result concerns a different \(r\)-convexification construction. Their full relevant theorem statements and arguments were inspected. The 2026 sequence-space paper's abstract was inspected but full text could not be retrieved; the exact-claim comparison therefore remains best knowledge, not proof of publication priority. The result fixes \(\alpha\) and takes \(n\to\infty\); exact finite-rank maximizing sets and joint parameter asymptotics are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem 4.2 of Kamińska–Żyluk (2019), full arXiv PDF page 19 visually inspected, characterizes quasi-Orlicz normability and p-upper estimates in terms of growth conditions; it does not give the n-dependent sharp amplification coefficient for this specific concave logarithmic modular. Mayoral (2025) treats r-convexification nonnormability, a qualitative weaker conclusion. The Kameník (September 2026) sequence-space preprint abstract concerns fundamental functions and coincidence of Orlicz/Lorentz–Zygmund spaces, not an explicit n-summand leading coefficient; full text inaccessible via arXiv/Oxford, so its coverage remains a specific risk. Distinguish known nonnormability from new sharp rate and normalization.
+
+## value
+
+PASS
+
+The n-summand amplification constant is a natural quantitative finite-dimensional obstruction to normability. Exact leading growth (log n)^alpha and the explicit normalization a_alpha distinguish logarithmic near-l1 gauges beyond the familiar binary quasi-triangle or qualitative p-normability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
