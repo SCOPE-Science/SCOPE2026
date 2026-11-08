@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The uniform post-vaccine seed normalization is exact: (n-1)Q_v equals E[sum |C|^2]. For n<=4, residual graphs have <=3 vertices, are totally ordered by edge count up to isomorphism, and have monotone percolation component-size scores; maximum original degree minimizes residual edges. For the 5-node connected diamond-plus-leaf witness, exact triangle-plus-isolate and four-path computations give Q_b-Q_d=p^2(1-4p)/2 and Q_d=Q_e. Vaccinations at a and c leave proper spanning supergraphs of P4 and are strictly worse for 0<p<1. Exact source verifier enumerates all 75 labelled lower-order graphs and all bond states of the witness; its resulting integer polynomials match each proof formula. No assertion rests on finite point sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altarelli et al., arXiv:1309.2805v1, Introduction, Sections II–III, Section VII and Figures 11–14: algorithmic message-passing/degree-centrality comparison and optimized immunization sets on much larger graphs.",
+        "Kenah and Miller, DOI 10.1155/2011/543520, Section 4: perfect vaccination and degree versus epidemic-percolation-network targeting."
+      ],
+      "reasoning": "General optimization frameworks can evaluate some instances, but the inspected results do not supply the exact universal n<=4 maximum-degree guarantee, the minimal five-vertex obstruction, or the threshold p=1/4. Thus those broader models are not evidence of a theorem logically implying the specific cutoff. Residual risk is separately recorded.",
+      "searches": [
+        "SIR epidemics optimal single-node vaccination percolation expected outbreak size transmissibility varies network targeted immunization 2010 2014",
+        "Containing epidemic outbreaks by message-passing techniques Altarelli Braunstein Dall Asta 2013 2014",
+        "optimal vaccination node depends on transmissibility low high expected outbreak size network percolation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0205009",
+      "https://doi.org/10.1155/2011/543520",
+      "https://arxiv.org/abs/1309.2805",
+      "https://arxiv.org/abs/q-bio/0610057"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newman (2002) supplies percolation analysis of disease spread, without an inspected optimal single-vertex target cutoff.",
+        "Kenah and Miller (2011) supplies a framework and empirical comparisons, not an inspected all-graph sharp finite cutoff.",
+        "Altarelli et al. (2013/14) optimizes targets numerically/approximately; its general optimization algorithms do not assert the exact five-vertex threshold.",
+        "Related tree-only minimum-order vaccination comparisons address acyclic networks and do not logically cover this five-vertex graph, which contains a triangle."
+      ],
+      "reasoning": "The new universal statement concerns all simple graphs with at most four vertices, plus a connected five-vertex witness with all optimal targets and an exact switch. A tree-only theorem cannot imply a cyclic witness; a general algorithm for computing scores also does not state this sharp classification. However, any published exact stronger theorem over all small networks would cover this as a corollary, so full historical priority remains provisional.",
+      "searches": [
+        "single vertex vaccination tree minimum order eight expected component size transmissibility",
+        "network-based vaccination degree centrality fixed single seed bond percolation",
+        "epidemic immunization optimal vaccination vertex small cyclic graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Newman, arXiv:cond-mat/0205009v1, Section II (bond-percolation characterization of final infected clusters).",
+        "Kenah and Miller, DOI 10.1155/2011/543520, Sections 2 and 4 (epidemic-percolation networks and vaccination).",
+        "Kenah and Robins, arXiv:q-bio/0610057 abstract (limits of undirected bond-percolation equivalence to general SIR)."
+      ],
+      "reasoning": "For the *specified* independent undirected-bond model, infection is exactly source-component reachability, and the objective is a rescaled pair-connectivity sum. Search of synonymous epidemic, percolation, immunization, vertex removal and susceptibility formulations did not identify a prior minimum-order/max-degree theorem. The comparison does not generalize undirected percolation to other SIR laws.",
+      "searches": [
+        "small graph epidemic immunization expected outbreak size optimal targeted vertex transmissibility thresholds",
+        "single-vertex perfect immunization undirected five-vertex contact network degree-three competing vertices bond percolation threshold 1/4 outbreak expected component size",
+        "Reed Frost immunization vertex deletion minimizing susceptibility network five nodes cyclic percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Altarelli et al. paper tabulates/plots large-graph heuristic comparisons, not an exact five-vertex census.",
+        "Independent labelled-graph verification here covers all 75 labelled simple graphs with 1–4 vertices and derives the five-vertex witness coefficients exactly."
+      ],
+      "reasoning": "No matching small-order exact vaccination table or five-vertex switching entry was located in the searches and inspected papers. This negative search is only a limited novelty screen, not proof of absence from all databases.",
+      "searches": [
+        "smallest graph number vertices optimal vaccination target depends on transmission probability percolation",
+        "epidemic percolation immunization optimal node crossover transmissibility five vertices",
+        "sharp minimum 5 vertex graph where optimal vaccination vertex changes with bond transmissibility all graphs up to four maximum-degree vaccination"
+      ]
+    },
+    "rationale": "Best-knowledge originality after comparison of statements, model equivalences and implications with relevant published primary sources and targeted research records: no exact all-graphs minimum-five threshold or p=1/4 witness classification identified. Earlier tree-only results are non-dominating because the witness has cycles. Broad exact/percolation and immunization algorithms provide methods, not the sharp stated cutoff. Priority remains provisional and awaits independent review.",
+    "residual_risks": [
+      "A stronger exact small-graph immunization theorem outside inspected sources could subsume the result.",
+      "The 2006 Kenah–Robins source was consulted at abstract level for a model-boundary warning, not compared exhaustively at full-text level.",
+      "Claims of empirical epidemic-control efficacy or equivalence with arbitrary directed/correlated SIR transmission are deliberately excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides model motivation and transmissibility interpretation; no vaccination-target optimality result in the inspected material.",
+        "evidence": [
+          "arXiv version 1 dated 2002-04-30 on page 1; source-component correspondence on page 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0205009",
+        "material_read": "arXiv version 1 PDF, pages 1–3: model definitions, Section II percolation construction, Section III setup.",
+        "method": "PDF page text and page-image inspection.",
+        "title": "The spread of epidemic disease on networks",
+        "trigger": "Foundational exact source-component/percolation formulation and earliest publicly dated source."
+      },
+      {
+        "assessment": "Uses different EPN-targeting strategies and comparisons; no exact five-node minimum or threshold identified in inspected material.",
+        "evidence": [
+          "Published 2011-02-21; Section 4 describes removal of incident edges under perfect vaccination; Sec 4.2 compares degree with EPN ranking."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2011/543520",
+        "material_read": "HTML full text: introduction, EPN construction, Sections 4.1–4.2 vaccination strategies, discussion and reference context.",
+        "method": "Open-access full article HTML; substantive subsections read and searched.",
+        "title": "Epidemic Percolation Networks, Epidemic Outcomes, and Interventions",
+        "trigger": "Directly addresses perfect vaccination and network infection risk."
+      },
+      {
+        "assessment": "Studies optimization algorithms and their performance, not an identified exact minimal small-graph target-switch theorem.",
+        "evidence": [
+          "arXiv version 1 dated 2013-09-11; Section III exact-vs-approximate immunization objectives; discussion contrasts heuristics/optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1309.2805",
+        "material_read": "arXiv version 1 full PDF searched; introduction, Sections II–III and objective equations, Sec VII discussion, Figures 11–14 and appendix context examined.",
+        "method": "PDF parsed text searches and page-image inspections of pages 1 and 7.",
+        "title": "Containing epidemic outbreaks by message-passing techniques",
+        "trigger": "Potential broad coverage through targeted-node optimization."
+      },
+      {
+        "assessment": "Specifies caveat for broader SIR models; not sufficient evidence for a claim of noncoverage by this entire paper.",
+        "evidence": [
+          "The 2006 abstract distinguishes epidemic percolation networks from simple undirected bond percolation under general infectious-period variability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/q-bio/0610057",
+        "material_read": "Abstract and source metadata; full text not inspected.",
+        "method": "arXiv abstract and published bibliographic information.",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Check that the mathematical transmission model is not overstated as a generic SIR equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4de5683f-e254-4e5f-80de-dd8bb291b10c",
+  "value": {
+    "rationale": "This is a motivated exact minimal-network obstruction to a parameter-independent single-vaccine choice under the common bond-percolation outbreak objective. It identifies when degree-only choices cease to resolve ties, and gives an exact transmission boundary at the smallest possible connected order. The structural cutoff is meaningful despite its small size, and has transparent limitations; it does not claim empirical effect size or a large-network generalization.",
+    "status": "PASS"
+  }
+}
