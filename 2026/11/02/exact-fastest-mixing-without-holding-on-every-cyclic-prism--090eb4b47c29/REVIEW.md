@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Graph automorphism averaging validly reduces the globally unconstrained symmetric stochastic zero-diagonal problem to a single scalar rim-edge probability. Exact cycle-layer spectral decomposition identifies two antisymmetric modes whose minimax balance forces a unique optimal scalar. Every remaining Fourier eigenvalue is shown explicitly to lie in the same symmetric interval. Even prisms are bipartite and therefore have a universal eigenvalue \(-1\). A standalone numerical verifier corroborates the exact inequalities. The proof, not the finite checks, supports all dimensions.
+PASS
 
-## Originality — PASS, qualified
+PASS. Dihedral and layer-swap averaging of arbitrary symmetric nonnegative zero-diagonal stochastic P on C_n□K2 reduces the optimum value to rim q and rung p=1-2q with q∈[0,1/2]. The exact Fourier branches θ_k+=1-qλ_k and θ_k-=-1+q(4-λ_k), λ_k=2-2cos(2πk/n), include all 2n modes. Every even prism is bipartite, so s with Ps=-s gives SLEM=1 for every admissible P. For odd n, ε=2-2cos(π/n), the necessary lower bound max(|4q-1|,1-q ε) is uniquely minimized at q=2/(4+ε), p=ε/(4+ε), μ=(4-ε)/(4+ε); inequalities ε≤δ,Λ≤4 bound all remaining symmetric/antisymmetric Fourier modes and prove attainment. The odd gap is π²/(2n²)+O(n^-4), one-quarter of the holding-permitted leading gap. Boundary n=3 is a triangular prism with distinct rim and rung edges; n even includes degenerate/disconnected walks.
 
-The sections of the 2007 Boyd–Diaconis–Parrilo–Xiao preprint inspected present global FMMC symmetry reduction and Cartesian graph products while allowing self-loops; the accessible formulation of the 2004 Boyd–Diaconis–Xiao problem also allows holding. A related exact fastest-mixing prism result with holding permitted provides a different optimum and does not solve the additional zero-diagonal constraint. The new claim is the complete constrained optimum and its odd/even dichotomy, not the underlying symmetry principle. The accessible search did not identify a published all-size loopless-prism formula; however, absence of a match does not prove novelty and specialized historical coverage remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Forbidding waiting steps is a natural protocol constraint and can completely prevent mixing even on a connected graph. For the complementary nonbipartite sizes, the theorem supplies an explicit globally optimal transition rule and quantifies the exact spectral penalty: a fourfold reduction in the asymptotic gap compared with protocols permitting holding. These finite-dimensional exact design prescriptions are useful independently of a more general downstream theorem. They are not obtained by merely plugging the unrestricted optimal weights into a constraint, because those weights have positive holding probabilities.
+PASS, qualified. Standard spectral FMMC symmetrization and Cartesian-product eigenvalues are established by Boyd and collaborators, and a related cyclic-prism problem allowing holding admits a different optimizer. Imposing zero diagonal is not a substitution in that solution: it forces period two for even n and a distinct two-mode balancing condition for odd n. The inspected primary work did not give the complete loopless all-n optimum; specialization under another name remains possible.
 
-## Sources and limits
+## value
 
-Boyd et al., *Fastest Mixing Markov Chain on a Graph* (2004), https://doi.org/10.1137/S0036144503423264; Boyd et al., *Fastest Mixing Markov Chain on Graphs with Symmetries*, arXiv:0709.0955v1 (2007), https://arxiv.org/abs/0709.0955. The exact claim concerns symmetric walks only. Finite tests supplement the proof; historical completeness and independent review are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A zero-diagonal transition constraint is a genuine protocol constraint in distributed averaging and changes feasibility qualitatively. The exact all-n formula, bipartite obstruction and factor-four asymptotic penalty provide a complete, directly usable design law on natural prisms—not simply a restriction of the unconstrained solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:44:17.757020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Dihedral and layer-swap averaging of arbitrary symmetric nonnegative zero-diagonal stochastic P on C_n□K2 reduces the optimum value to rim q and rung p=1-2q with q∈[0,1/2]. The exact Fourier branches θ_k+=1-qλ_k and θ_k-=-1+q(4-λ_k), λ_k=2-2cos(2πk/n), include all 2n modes. Every even prism is bipartite, so s with Ps=-s gives SLEM=1 for every admissible P. For odd n, ε=2-2cos(π/n), the necessary lower bound max(|4q-1|,1-q ε) is uniquely minimized at q=2/(4+ε), p=ε/(4+ε), μ=(4-ε)/(4+ε); inequalities ε≤δ,Λ≤4 bound all remaining symmetric/antisymmetric Fourier modes and prove attainment. The odd gap is π²/(2n²)+O(n^-4), one-quarter of the holding-permitted leading gap. Boundary n=3 is a triangular prism with distinct rim and rung edges; n even includes degenerate/disconnected walks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General FMMC papers allow positive diagonal entries and use convex semidefinite constraints; the loopless feasible set excludes their optimal chain in general.",
+          "Even n bipartiteness universally forces eigenvalue -1 irrespective of weights."
+        ],
+        "reasoning": "The standard product formula does not dominate this two-edge-orbit no-holding constraint; merely including prisms among allowable graphs does not evaluate the restricted optimum.",
+        "searches": [
+          "Boyd–Diaconis–Xiao 2004 general FMMC",
+          "Boyd–Diaconis–Parrilo–Xiao 2009 Cartesian graph products",
+          "Resultary cyclic prism holding allowed fastest mixing"
+        ]
+      },
+      "checked_sources": [
+        "Boyd Diaconis Xiao 2004 general symmetric FMMC",
+        "Boyd Diaconis Parrilo Xiao 2009 symmetry and product formula, PDF Sections 2.2/3.2",
+        "Resultary semantic query for loopless cyclic prisms",
+        "Related all-prism holding-permitted formula compared mathematically"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The holding-permitted all-prism gap is asymptotically 2π²/n² whereas the loopless odd gap is π²/(2n²); even prisms cannot have SLEM below one without holding.",
+          "The general graph-product eigensystem is used as a method but does not itself select q subject to p+2q=1."
+        ],
+        "reasoning": "The constraint changes both active modes and the qualitative even/odd answer, so the restricted theorem is not a corollary of an unconstrained optimizer.",
+        "searches": [
+          "Boyd 2009 Sections 2.2,3.2",
+          "Boyd 2004 SDP problem",
+          "holding-permitted cyclic prism optimum compared in source RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prism is a Cartesian product of cycle and K2 with two edge orbits, and has a two-branch Fourier decomposition.",
+          "Standard Cartesian-product formulas with uniform edge weights/holding solve a different feasible set than the zero-diagonal two-orbit problem."
+        ],
+        "reasoning": "All edge weights may vary; dihedral and layer-swap averaging proves optimal value. No inspected source already evaluates the loopless constrained scalar minmax.",
+        "searches": [
+          "fastest mixing Markov chain loopless zero holding cyclic prism C_n x K2 even odd exact",
+          "Boyd 2009 Cartesian product C_n □ K2",
+          "odd triangular prism fastest mixing no self loops"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary and the inspected FMMC examples do not enumerate a loopless all-n prism SLEM table.",
+          "Small odd n explicit Fourier values agree with the proposed formula, rather than relying on a published small graph catalogue."
+        ],
+        "reasoning": "An exact table under unindexed random-walk literature could exist but was not identified.",
+        "searches": [
+          "Resultary semantic cyclic prism no holding FMMC",
+          "fastest mixing no self loops prism graph n even odd",
+          "Boyd 2009 Cartesian product table"
+        ]
+      },
+      "rationale": "PASS, qualified. Standard spectral FMMC symmetrization and Cartesian-product eigenvalues are established by Boyd and collaborators, and a related cyclic-prism problem allowing holding admits a different optimizer. Imposing zero diagonal is not a substitution in that solution: it forces period two for even n and a distinct two-mode balancing condition for odd n. The inspected primary work did not give the complete loopless all-n optimum; specialization under another name remains possible.",
+      "residual_risks": [
+        "Could be a classical loopless random walk extremum under periodic graph/SLEM nomenclature outside retrieved literature.",
+        "Does not address nonuniform stationary measures, holding anywhere, finite-time TV distance or all-optimizer uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR METHOD/SUPERFAMILY; no inspected loopless two-orbit prism extremizer",
+          "evidence": [
+            "Boyd et al (2009), eqs (3.5)-(3.6) product spectra and group averaging; holds need not vanish."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Primary PDF Sections 2.2 and 3.2, page 8 product Laplacian formula and Section 3.1.1 cycle example",
+          "method": "Open-access full PDF text and screenshots of relevant pages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Primary symmetry and Cartesian-product method; product includes same graph class"
+        },
+        {
+          "assessment": "THE GENERAL PROBLEM ALLOWS HOLDING; exact zero-holding prism not verified covered",
+          "evidence": [
+            "Boyd, Diaconis, Xiao (2004), SIAM Review 46."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Primary paper bibliographic description and FMMC semidefinite formulation; not full text",
+          "method": "Open bibliographic/reference search and general theorem cross-comparison",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General optimization model compared with the stricter no-hold constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A zero-diagonal transition constraint is a genuine protocol constraint in distributed averaging and changes feasibility qualitatively. The exact all-n formula, bipartite obstruction and factor-four asymptotic penalty provide a complete, directly usable design law on natural prisms—not simply a restriction of the unconstrained solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric nonnegative stochastic zero-diagonal Markov kernels with uniform stationary measure on C_n□K2.",
+    "Even-n value includes reducible cases; no uniqueness claimed among spatially varying global optimizers.",
+    "Priority historical unindexed constrained Markov chain formula not excluded."
+  ],
+  "schema_version": 1
+}
