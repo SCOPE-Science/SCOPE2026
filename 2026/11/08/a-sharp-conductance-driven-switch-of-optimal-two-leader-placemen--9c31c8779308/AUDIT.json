@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly computes the K_{p,q} grounded inverse by Schur complementation, derives exact reductions for three edge/leader incidences, strictly dominates four of six placement classes, and reduces the remaining comparison to a quadratic P_{p,q}(t) over a positive denominator. The coefficient sign analysis proves precisely the three imbalance regimes and unique positive threshold, with all quantifiers and tie cases. In the actual standalone verify.py, 2,696 direct exact grounded inverse pair comparisons, 2,610 exact formula/optimizer grid checks and integer boundary tests passed. Finite tests are only supplementary to the universal algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1302.0450, Section II (LS2) states global inverse-trace minimization and supplies algorithms rather than this solved graph family.",
+        "arXiv:1407.1569, Corollary 1 provides a general exact score; sections of solved examples treat paths/cycles.",
+        "arXiv:1708.06873 lists its exact solved classes as cycles, paths and trees."
+      ],
+      "reasoning": "The broad frameworks determine how to evaluate a given pair or optimize by search; none supplies the exact symbolic threshold and complete optimizer list for the one-chord weighted biclique. A general computable criterion is not assumed to prove these analytic inequalities.",
+      "searches": [
+        "grounded Laplacian trace inverse optimal leader placement complete bipartite graph adding internal edge weighted",
+        "noise-free leader set trace inverse near-complete bipartite graphs intra-class chord weighted",
+        "arxiv:1302.0450",
+        "arxiv:1407.1569",
+        "arxiv:1708.06873"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.0450 — exact inverse trace leader formulation, first public 2013-02-03",
+      "arxiv:1407.1569 — two-leader joint-centrality theorem, first public 2014-07-07",
+      "arxiv:1412.6595 — weighted path/cycle optimization, first public 2014-12-20",
+      "arxiv:1708.06873 — resistance-distance methods and solved families, first public 2017-08-23",
+      "arxiv:2309.17019 — eigenvalue edge addition, first public 2023-09-29",
+      "Prior mathematical classifications of unmodified bicliques and one-deleted-cross-edge bicliques, inspected for claim implication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unmodified K_{p,q} is the boundary t=0, at which all same-part pairs tie and the positive-weight critical curve is not decided.",
+        "Deleting an interpart edge changes different Laplacian entries and cannot be transformed into adding a positive intrapart edge on the same graph by relabeling.",
+        "arXiv:2309.17019 optimizes the smallest eigenvalue by edge addition for a fixed leader set, rather than leader locations for a fixed edge under inverse trace."
+      ],
+      "reasoning": "The current theorem is not a corollary of the unmodified or deleted-edge special cases. General joint-centrality and resistance identities would require the presently supplied new rational analysis; the edge-addition eigenvalue criterion has a distinct objective and optimization variable.",
+      "searches": [
+        "exact two leader selection complete bipartite adding intra-part edge optimal grounded Laplacian trace",
+        "arxiv:1302.0450",
+        "arxiv:1407.1569",
+        "arxiv:1708.06873",
+        "arxiv:2309.17019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1407.1569, Section V and Corollary 1: joint centrality gives a general two-leader score but not the evaluated chorded-biclique optimizers.",
+        "arXiv:1708.06873, Sections III-IV: resistance-distance reformulation and solved cycle/path/tree classes, without the present intrapart chord family."
+      ],
+      "reasoning": "A resistance-based or joint-centrality expression for the objective is an equivalent characterization, but is not an equivalent evaluated theorem for which pair minimizes it. Computing the exact two-parameter and conductance inequalities remains an additional mathematical step.",
+      "searches": [
+        "exact two leader selection complete bipartite adding intra-part edge optimal grounded Laplacian trace",
+        "leader selection Kpq with edge addition two leaders graph fixed trace inverse",
+        "Exact leader pairs trace inverse complete bipartite plus one chord, two leader phase transition conductance t and imbalance p q",
+        "arxiv:1407.1569",
+        "arxiv:1708.06873"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed searches returned related complete-bipartite graph spectra and unrelated graph invariants rather than a table for the specified objective.",
+        "arXiv:1412.6595 discusses weighted path and ring algorithms, not a chorded biclique parameter table."
+      ],
+      "reasoning": "No identical full-parameter entry, table, or precomputed threshold was located; failure to find one is only best-knowledge evidence and is not a mathematical proof of uniqueness.",
+      "searches": [
+        "Exact noise-free two-leader inverse-grounded-Laplacian trace for complete bipartite K_{p,q} with one positive weighted edge added within smaller part, two optimizer regimes and threshold",
+        "complete bipartite graph with a single non-bipartite internal edge; grounded Laplacian inverse-trace optimal sensors",
+        "arxiv:1302.0450",
+        "arxiv:1412.6595"
+      ]
+    },
+    "rationale": "No evaluated all-positive-weight leader-placement threshold for a single intrapart chord in K_{p,q} was found in the actual semantic index queries or inspected primary texts. The known general inverse-grounded-Laplacian and two-leader joint-centrality formulas parameterize the optimization but do not give the six-class reduction, positive differences, quadratic switching law or exact triple of imbalance boundaries. Available prior mathematical claims on unmodified K_{p,q} and K_{p,q} with a deleted cross edge have non-covering graph scopes. Residual unindexed-publication risk remains.",
+    "residual_risks": [
+      "Semantic indexing and public-web searches are not a proof that an equivalent theorem has never appeared in specialized or unindexed literature.",
+      "The general two-leader joint-centrality framework could permit a different derivation; direct coverage would require a previously evaluated optimizer result, not merely an evaluable identity.",
+      "The claimed result has not received an independent mathematical or publication-priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimization formulation and numerical algorithms, no evaluated one-intrapart-edge biclique family",
+        "evidence": [
+          "arXiv:1302.0450, noise-free LS2 formulation (PDF p.6), conclusion (PDF pp.25-26)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+        "material_read": "Abstract and formulation of LS2 on PDF page 6, surrounding model/results, algorithmic examples and concluding discussion on pages 25-26",
+        "method": "Accessible arXiv PDF text with rendered-page check",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "First-public archive-era formulation of noise-free inverse-grounded-Laplacian trace optimization"
+      },
+      {
+        "assessment": "Gives general performance formula; explicit placements in path and cycle examples, not a closed biclique-plus-chord conductance phase diagram",
+        "evidence": [
+          "arXiv:1407.1569, Corollary 1 and equation (40); Sections V.C-V.D"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "Abstract, general joint-centrality corollary and formulas (PDF p.12), solved graph examples (PDF pp.13-14), discussion (PDF p.15)",
+        "method": "Accessible arXiv PDF text with rendered-page check and targeted section reading",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "General two-noise-free-leader formula could imply an exact optimizer characterization"
+      },
+      {
+        "assessment": "Algorithms restricted to weighted paths and cycles, neither structurally equivalent to chorded complete bipartite graphs",
+        "evidence": [
+          "arXiv:1412.6595, abstract and Section III.A"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Abstract and graph restrictions (PDF p.1), path decomposition and algorithm (PDF p.3)",
+        "method": "Accessible arXiv PDF text with rendered-page check",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Exact weighted-graph leader algorithm might subsume claimed graph family"
+      },
+      {
+        "assessment": "General resistance-distance identities and solved path/cycle/tree cases, not the added-intrapart-edge biclique family",
+        "evidence": [
+          "arXiv:1708.06873, introductory list of solved classes, Section IV, conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+        "material_read": "Abstract, introduction and Section II (PDF pp.1-2); Section IV descriptions of cycles, paths, perfect trees (PDF pp.5-7); conclusion (PDF p.8)",
+        "method": "Accessible arXiv PDF text with rendered-page check",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "Resistive reformulation and exact special graph classes could already evaluate the present family"
+      },
+      {
+        "assessment": "Changes graph edges to maximize smallest eigenvalue at fixed leaders; distinct objective and variables, not a direct covering result",
+        "evidence": [
+          "arXiv:2309.17019, introduction and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.17019",
+        "material_read": "Abstract and research objective (PDF pp.1-4), preliminary definitions (PDF p.5)",
+        "method": "Accessible arXiv PDF text with rendered-page check",
+        "title": "Optimization on the smallest eigenvalue of grounded Laplacian matrix via edge addition",
+        "trigger": "Edge-addition study shares grounded Laplacian and might dominate claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9c31c877-9308-4c91-bed0-c5e1dfed4309",
+  "value": {
+    "rationale": "A minimally nonbipartite perturbation of a dense two-community network produces a non-obvious optimum relocation only in three sharply constrained part-size families. The exact threshold, objective, all optimizer placements and multiplicities give a complete reusable benchmark for noise-free leader design. It is not a cosmetic rephrasing of an unweighted biclique theorem: t=0 does not determine the sign transition and growing the chord weight leads to a different optimal community in the exceptional regimes.",
+    "status": "PASS"
+  }
+}
