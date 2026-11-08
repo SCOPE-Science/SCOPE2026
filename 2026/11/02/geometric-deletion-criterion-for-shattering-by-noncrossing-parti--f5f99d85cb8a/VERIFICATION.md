@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Use Python 3.10+ (standard library only). In the directory containing the accompanying scripts, run `python3 verify_geometric.py`, `python3 verify_traces.py`, and `python3 verify_closure.py`. These invoke three independently represented exhaustive algorithms: chord-intersection reachability after deletion, explicit enumeration of Catalan concept traces, and recursive merging of crossing blocks. The geometric run covers vertex counts 4 through 8; direct-trace run covers 4 through 7; closure run covers 4 through 6.
+## correctness
 
-The deterministic expected outputs are compared against every f-vector in the article. The largest geometric census has 28 candidate pair queries and enumerates supports only through seven queries because all larger supports fail by the proven forest bound. The direct-trace algorithm enumerates all noncrossing partitions and exhaustively checks both truth values at every selected query. Each script raises an assertion on any discrepancy.
+PASS
 
-The finite scripts check the explicit tables and selected structural implications, but do not certify novelty, the general all-size geometric lemma or an external independent audit. The all-size theorem depends on the self-contained planar separation argument in `RESULT.md`.
+Noncrossing closure of a set T of positive queries is exactly the partition by components of the geometric union of closed chords: crossing equalities must merge, distinct component hulls cannot alternate by planar separation. The finest forced partition makes an arbitrary labeling realizable iff each negative chord is disconnected in G_T; by monotonicity it suffices to test S minus that chord. The graph cycle obstruction yields upper VC n-1; a noncrossing path attains it; equivalence-relation quotient induction bounds online Littlestone dimension. Triangle and crossing-fork three-query obstructions give exact layer count. Independent direct trace versus geometric closure enumerations agree n=3..6; n=7,8 tables are as provided finite enumerations only.
+
+## originality
+
+PASS
+
+Fresh direct trace-vs-geometric reachability comparison supports the proof; nearest noncrossing bond poset, k-noncrossing enumeration and planar partition lattice papers address different combinatorial invariants. Noncrossing spanning-tree upper layer is explicitly prior art. No matching iff shattering criterion or three-query layer located; remain alert to a general closure-lattice equivalence.
+
+## value
+
+PASS
+
+Shattering supports are the natural independence system for pair queries against Catalan concept classes. The geometric bridge criterion replaces exponential concept enumeration with polynomial reachability, identifies sharp VC/Littlestone dimensions and a nontrivial intermediate-layer census. The top-tree count is known and is not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
