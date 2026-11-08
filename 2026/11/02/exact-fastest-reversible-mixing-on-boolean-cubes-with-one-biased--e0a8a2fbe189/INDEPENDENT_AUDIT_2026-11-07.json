@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md spectral block proof and determinant obstruction",
+        "pinned verify.py full symbolic and numerical checker source",
+        "Boyd et al. 2009 Section 3.2.2 known uniform cube endpoint"
+      ],
+      "rationale": "For reversible full-support product target on Q_{d+1}, conjugating by fair-bit flips and permutations and averaging preserves feasibility and does not increase the centered spectral operator norm. This reduces all feasible kernels to vertical flow c and per-layer fair-bit rates p,q. Walsh characters yield exact symmetric 2x2 H_k with I−H_k=z uu^T+2kD; Loewner order reduces the nontrivial spectral constraints to H_1<=mu I and H_d>=−mu I plus k=0 contrast. The two PSD determinant conditions and Cauchy–Schwarz give F_mu(z)>=0. Its concavity and strict negative derivative beyond z=1−mu at the positive f(mu)=0 root exclude any smaller mu; the explicit reversible kernel saturates both boundary PSD constraints and the k=0 eigenvalue. Algebra establishes strict increase with s=ab and known uniform endpoint. Independently built 12 full transition kernels for d=1..4 and three biases; checked nonnegativity, detailed balance and exact SLEM. This is finite corroboration; not the all-kernel proof.",
+      "residual_risks": [
+        "Only reversible single-coordinate flips on one-exceptional-bit product law; nonreversible and multisite bias excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 FMMC framework is a general convex semidefinite program, not a formula evaluated for all d,a on a weighted cube.",
+          "2009 Section 3.2.2 explicitly optimizes uniform cube; proof invokes edge transitivity, broken by biased measure.",
+          "Other sources address order comparison/path chains or different update kernels and cutoff rather than the stated optimization."
+        ],
+        "reasoning": "General SDP feasibility includes the new case in principle but does not imply its symbolic optimal value, three-parameter state-dependent kernel or strict improvement law as a published theorem.",
+        "searches": [
+          "Boyd–Diaconis–Xiao 2004, SIAM Rev. 46, DOI 10.1137/S0036144503423264",
+          "Boyd–Diaconis–Parrilo–Xiao 2009, SIAM J. Opt. 20, §3.2.2",
+          "Fill–Kahn arXiv:1109.6075 and Collevecchio–Griffiths arXiv:2002.09059"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Parrilo–Xiao 2009 complete primary PDF, especially §3.2.2",
+        "Boyd–Diaconis–Xiao 2004 primary source scope/abstract",
+        "Fill–Kahn arXiv:1109.6075 description",
+        "Collevecchio–Griffiths arXiv:2002.09059 description",
+        "Resultary published one-biased-coordinate cube mixing semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new one-bit formula at s=1/4 simplifies to d/(d+2) for Q_{d+1}, exactly prior uniform result.",
+          "When a<1/2, group invariance is smaller; the layer-dependent p,q and vertical transition b(1−mu),a(1−mu) are not obtainable as a uniform edge weight."
+        ],
+        "reasoning": "A general convex minimization algorithm does not by itself express the sharp parameterized radical. The proof resolves an exact minimax under a strictly larger feasible kernel family than simple iid-bit scan.",
+        "searches": [
+          "Boyd et al. 2009 §3.2.2 and Eq. hypercube mu=(D−1)/(D+1)",
+          "Boyd et al. 2004 generic nonuniform reversible SDP",
+          "Collevecchio–Griffiths 2020 arXiv:2002.09059 objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Target is a product measure with one exceptional Bernoulli bit and all other bits fair; spectral objective is second-largest eigenvalue modulus, not total-variation cutoff.",
+          "2009 result uses P=P^T and uniform pi; nonuniform detailed balance makes P asymmetric and transitions depend on first bit."
+        ],
+        "reasoning": "Equivalent names include heterogeneous coordinate-product chain, one-layer biased cube and random-scan flipping with state-dependent fair-coordinate rates. Uniform symmetric-edge formula cannot be transferred without a nonuniform stationary weighting.",
+        "searches": [
+          "Published Resultary semantic query (current run): fastest mixing reversible Markov chain hypercube one biased coordinate stationary product distribution SLEM",
+          "nearest neighbor random walk K2 square Q_d nonuniform product stationary fastest mixing SLEM",
+          "Boyd et al. fastest mixing on graphs with symmetries §3.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known exact table includes the uniform Q_D value (D−1)/(D+1), recovered when a=1/2.",
+          "No exact all-parameter biased cube spectral minimax values found among Resultary nearest mixing reports; those examine other graphs/objectives."
+        ],
+        "reasoning": "Uniform endpoint is prior and acknowledged. A table indexed only by dimension at a=b=1/2 does not determine the continuous a∈(0,1/2) dependence.",
+        "searches": [
+          "Published Resultary semantic query (current run): fastest mixing reversible Markov chain hypercube one biased coordinate stationary product distribution SLEM",
+          "Boyd et al. uniform Q_d section 3.2.2 formula",
+          "fastest mixing chain hypercube nonuniform pi one exceptional coordinate explicit spectral optimum"
+        ]
+      },
+      "rationale": "Qualified original one-biased-coordinate solution. Boyd–Diaconis–Parrilo–Xiao 2009 treats the uniform-target hypercube and obtains mu=(D−1)/(D+1), exactly the a=1/2 endpoint for D=d+1; that known result is credited. Boyd–Diaconis–Xiao 2004 states the generic semidefinite formulation including reversible chains and arbitrary stationarity, but provides no examined closed exact biased-cube answer. The new feature is state-dependent fair-bit rates and exact all-bias radical formula, not the convex-averaging/SDP method itself. Potential independent coordinate Gibbs-sampler literature could contain an algebraically equivalent minimax result, a bounded priority risk.",
+      "residual_risks": [
+        "Could be an unindexed direct symbolic specialization of a general nonuniform product-chain FMMC theorem.",
+        "Uniform cube endpoint is published prior; claims of novelty explicitly exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_UNIFORM_ENDPOINT_ONLY",
+          "evidence": [
+            "For Q_D with P=P^T and uniform pi, α*=1/(D+1), μ*=(D−1)/(D+1). This is the a=1/2 special case, not the biased family."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Full original PDF Introduction, symmetry method, §3.2.2 page 800 (visual screenshot), uniform cube optimum and adjoining spectral statements",
+          "method": "Read PDF text and inspected page image",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Direct prior exact solution for Boolean hypercubes"
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY_CAVEAT",
+          "evidence": [
+            "General FMMC optimization is prior; no assertion that its entire text was compared exhaustively."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Title, overview and reported convex formulation/source scope; did not inspect entire full text during this run",
+          "method": "Source description and related primary summary",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Broad nonuniform reversible SDP antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md exact minimax and explicit Markov kernel",
+        "Boyd et al. 2009 §3.2.2 establishes significance of exact hypercube FMMC benchmarks"
+      ],
+      "rationale": "Fastest reversible spectral mixing on a fixed graph and target law is a natural Markov-chain design problem. Solving the complete one-biased-Bernoulli-bit cube parameter family with sharp transition probabilities, a radical SLEM and strict bias interpolation goes beyond the known uniform cube case and supplies a concrete optimal sampler/benchmark; the new state-dependent fair-bit adjustment is structurally meaningful.",
+      "residual_risks": [
+        "No claim for general nonuniform product bias, nonreversible chains, long-range update schemes or total-variation finite-time optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One biased coordinate only, 0<a<=1/2, all d remaining coordinates fair, reversible nearest-neighbor discrete-time SLEM.",
+    "2009 uniform endpoint is known; nonuniform broader specialized priority is not certified."
+  ],
+  "schema_version": 1
+}

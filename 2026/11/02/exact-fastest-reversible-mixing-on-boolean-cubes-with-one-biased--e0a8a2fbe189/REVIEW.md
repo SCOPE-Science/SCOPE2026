@@ -1,24 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed for every integer \(d\ge1\) and every \(0<a\le1/2\), with a full-support Bernoulli-product stationary distribution. Convex orbit averaging reduces any reversible feasible kernel to three transition parameters, without asserting asymmetric uniqueness. Walsh characters give the exact \(2\)-by-\(2\) eigenblocks. A pair of positive-semidefinite sandwich constraints yields the quadratic necessary bound, and a derivative argument excludes every larger vertical flow at a smaller proposed spectral radius. The explicit kernel meets the bound with valid positive holdings and exact detailed balance. The symbolic verifier reproduces the quadratic and determinant identities, and sampled full matrices confirm the formulas. No finite test is used as a proof for all dimensions.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+For reversible full-support product target on Q_{d+1}, conjugating by fair-bit flips and permutations and averaging preserves feasibility and does not increase the centered spectral operator norm. This reduces all feasible kernels to vertical flow c and per-layer fair-bit rates p,q. Walsh characters yield exact symmetric 2x2 H_k with I−H_k=z uu^T+2kD; Loewner order reduces the nontrivial spectral constraints to H_1<=mu I and H_d>=−mu I plus k=0 contrast. The two PSD determinant conditions and Cauchy–Schwarz give F_mu(z)>=0. Its concavity and strict negative derivative beyond z=1−mu at the positive f(mu)=0 root exclude any smaller mu; the explicit reversible kernel saturates both boundary PSD constraints and the k=0 eigenvalue. Algebra establishes strict increase with s=ab and known uniform endpoint. Independently built 12 full transition kernels for d=1..4 and three biases; checked nonnegativity, detailed balance and exact SLEM. This is finite corroboration; not the all-kernel proof.
 
-The general reversible-chain semidefinite program of Boyd–Diaconis–Xiao (2004) is prior, not new. Boyd–Diaconis–Parrilo–Xiao (2009), §3.2.2, already give the uniform-stationary Boolean-cube optimum, which the current formula recovers at \(a=1/2\); that endpoint is not a novel claim. The added claim is an all-parameter biased-coordinate formula, an explicit state-dependent fair-coordinate transition rule and strict spectral interpolation with a fixed-dimensional rare-layer limit. The consulted Fill–Kahn work addresses order-based/path mixing comparisons; the Collevecchio–Griffiths paper addresses iid Bernoulli-product cube walks and different cutoff objectives, not an unrestricted one-exceptional-coordinate spectral minimax. Indexed record matches on general mixing, hypercubes or Bernoulli products have different objectives or parameter sets. Unindexed specialist overlap remains a genuine possibility, not ruled out solely by search absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural parameter-family solution of a semidefinite network design problem, not a single test case. The formula quantifies the full transition between the previously known uniform-cube optimum \(d/(d+2)\) and the effective \(d\)-coordinate cube limit \((d-1)/(d+1)\), and proves every nonzero stationary bias changes the optimal rate strictly. The optimal kernel must adapt its fair-coordinate move probabilities to the biased bit; fixed coordinate-independent flip rates do not exhibit that mechanism. The formula gives directly usable transition probabilities and a sharp spectral benchmark for product-target local samplers.
+Qualified original one-biased-coordinate solution. Boyd–Diaconis–Parrilo–Xiao 2009 treats the uniform-target hypercube and obtains mu=(D−1)/(D+1), exactly the a=1/2 endpoint for D=d+1; that known result is credited. Boyd–Diaconis–Xiao 2004 states the generic semidefinite formulation including reversible chains and arbitrary stationarity, but provides no examined closed exact biased-cube answer. The new feature is state-dependent fair-bit rates and exact all-bias radical formula, not the convex-averaging/SDP method itself. Potential independent coordinate Gibbs-sampler literature could contain an algebraically equivalent minimax result, a bounded priority risk.
 
-## Closest evidence and residual scope
+## value
 
-- S. Boyd, P. Diaconis and L. Xiao, *Fastest Mixing Markov Chain on a Graph* (2004), https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf: general reversible optimization, especially §§6–7, but not the all-bias hypercube closed form.
-- S. Boyd, P. Diaconis, P. Parrilo and L. Xiao, *Fastest Mixing Markov Chain on Graphs with Symmetries* (2009), https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf: §3.2.2 gives the uniform hypercube as a known boundary case, not the nonuniform target.
-- J. Fill and J. Kahn, arXiv:1109.6075: comparison order and path-chain results, not this SLEM optimum.
-- A. Collevecchio and R. Griffiths, arXiv:2002.09059: iid target and longer-range/time-dependent walks, not the single biased coordinate nearest-neighbor minimax.
+PASS
 
-The new statement does not classify all nonsymmetric optimal kernels or address nonreversible chains, further biased coordinates or time-specific total-variation distance. An independently performed mathematical audit is absent.
+Fastest reversible spectral mixing on a fixed graph and target law is a natural Markov-chain design problem. Solving the complete one-biased-Bernoulli-bit cube parameter family with sharp transition probabilities, a radical SLEM and strict bias interpolation goes beyond the known uniform cube case and supplies a concrete optimal sampler/benchmark; the new state-dependent fair-bit adjustment is structurally meaningful.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
