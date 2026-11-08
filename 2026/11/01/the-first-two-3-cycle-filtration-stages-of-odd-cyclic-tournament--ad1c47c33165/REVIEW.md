@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The count of all cyclic triangles is \(n(n^2-1)/24\), proved by source counting in the tournament. The transitive-subtournament complex is the nerve of a good circular-arc cover and is a circle. Every four-vertex subset containing a cyclic triple contains exactly two such triples, because in/out neighborhoods are transitive. Hence the first new cells are exactly the cyclic two-simplices. The integral short-edge winding functional evaluates to \(+1\) on every attaching loop, proving the integral two-sphere wedge and its signed augmentation symmetry representation. At threshold two the full simplex three-skeleton is present, yielding exact death of first- and second-degree persistent classes. These statements hold for all odd orders, including the boundary \(n=3\). Exact finite computations provide corroboration, not the unbounded proof.
+## correctness
 
-**Originality — PASS against the inspected record.** The 2020 Govc–Levi–Smith preprint introduces precisely this filtration and computes separate examples, not the cyclic-family first-stage homotopy and two-degree integral barcode. The 2020 Govc directed-flag homotopy paper concerns the unfiltered directed flag complex and different filtrations. Earlier circle Čech results imply the base circle only. A related indexed single-edge reversal result treats an altered tournament rather than the addition of all cyclic-triple cells. Searches and comparisons are itemized in `AUDIT.json`. Non-indexed equivalent work and unavailable full text of that indexed reversal record remain residual novelty risks; the result is not independently certified.
+PASS
 
-**Value — PASS.** An explicit infinite-family calculation for the actual three-cycle directionality filtration connects directed feedback triangles with a topological dimension shift from one circle to a large free two-sphere wedge and an exact two-step death. The full integral dihedral module distinguishes this from a Betti-number-only calculation. The first two degrees of the persistent invariant are completely determined for arbitrary odd order. No broader theorem for noncyclic regular tournaments or higher homology is claimed.
+In R_{2k+1}, each vertex out-neighborhood is a transitive consecutive k-block. Every transitive vertex subset therefore lies inside an (k+1)-block, yielding the F0 circular-arc nerve S1; with k/(2n)<r<1/4 intersections are arcs, giving a good cover. A cyclic triple has three clockwise gaps <=k and short-edge winding +1; wind on the F0 1-cycles is integral and evaluates 1 on the successive-vertex loop. Any 4-vertex subtournament containing a cyclic triangle has another unless fourth vertex beats or loses to all three, impossible because in/out neighborhoods are transitive. So F1 differs from F0 exactly by C_n=n(n^2-1)/24 cyclic 2-cells, all attached with primitive winding +1, making a wedge of C_n-1 S2, including n3 contractible. The pair LES gives H2=reflection-sign tensor augmentation lattice. F2 contains complete 3-skeleton since all 4-subsets have <=2 cyclic triangles, killing degrees1,2 for later stages; no higher 2-/3-cells can resurrect them. Independent bounded n=3,5,7,9,11 enumeration of all cyclic triples and 4-subsets corroborates all-order proof; infinite statement comes from the combinatorial argument, not experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Govc–Levi–Smith 2020/2021 defines exactly the weighted tournaplex by number of directed three-cycles and computes examples; its inspected theorem statements and sections do not supply all-odd-order cyclic tournament F1 homotopy, integral barcode or signed D_n module. Directed flag / circle Cech theorems cover F0 only. One-edge reversal, directed path homology and Hom-complex results concern different constructions, not simultaneous addition of C_n cyclic triangles. Priority risk remains for equivalently named unindexed filtration results.
+
+## value
+
+PASS
+
+This treats an authentic existing persistent-topology filtration for every odd cyclic tournament, yielding a uniform explicit 2-dimensional birth/death barcode, exact wedge type and a natural integral equivariant module. The structural transition from one H1 circle to C_n-1 H2 spheres is a mathematical invariant beyond sample counts or trivial parameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
