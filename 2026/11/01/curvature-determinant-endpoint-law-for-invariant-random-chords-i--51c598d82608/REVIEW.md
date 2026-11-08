@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem states all regularity, finite-maximizer, normalizer, and matrix-definiteness assumptions. The local endpoint graphs yield the quadratic deficit with full directional and offset variables. The Schur-complement/matrix-determinant-lemma calculation proves positive definiteness and computes the Gaussian ellipsoid volume in \(2(d-1)\) variables. Compactness localizes all nearly maximal chords; the invariant-line density and Cauchy's projection normalizer give the exact prefactor. Rational, noncommuting matrix determinant checks and independent ellipsoid angular quadrature reproduce the coefficient; those finite calculations do not establish the theorem on their own. No higher-order remainder is asserted.
+PASS
 
-## Originality — PASS, with identified risk
+For any d>=3, q=d-1, a C^3 strictly convex full-dimensional body with finitely many diameter pairs, positive curvature radii and G_j=D I-R_{j,-}-R_{j,+} positive definite: boundary graphs at each pair yield a chord deficit Q(v,y)+O(||(v,y)||^3). The 2q-dimensional quadratic form is positive definite exactly under G_j; computing its determinant gives 4^{-q}D^q det(B_-)det(B_+)det(G). An independent exact noncommuting rational q=2 test (D=7, B_-=[[5,1],[1,4]], B_+=[[4,2],[2,6]]) gave det M=789439/16 equal to the closed expression, and G leading minors 1233/190 and 16111/380 positive. Localization to the finite diametral lines, ellipsoid sublevel volume, and Cauchy line normalizer κ_q S(K)/2 produce the epsilon^{d-1} exponent and coefficient. Finite ellipsoid quadrature in source verify.py corroborates, not proves, universal tails. Degenerate/continuous diameter sets and d=2 are not asserted.
 
-The claimed new content is the all-dimensional \(d\ge3\) curvature-radius tensor coefficient for arbitrary smooth convex bodies with finitely many nondegenerate diameter pairs. Gates (1987) concerns planar terminal chord densities, which are excluded from novelty here; Vlasov (2010) supplies the known invariant chord framework; Ren (2014) concerns generic convex-body chord CDFs, but its full text could not be inspected. Prior ellipsoid laws cover the ellipsoid special cases and are expressly acknowledged. Published-section density work concerns hyperplanes rather than lines in dimensions at least three. There was no inspected directly dominating tensor-endpoint theorem. Ren's inaccessible full text creates a material residual historical-priority risk requiring independent investigation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves a natural local-to-global stereological question: the sharp near-diameter tail for random lines in a general smooth high-dimensional body, with an explicit curvature-only leading coefficient and universal dimension-dependent exponent. The determinant makes noncommuting shape-operator coupling explicit, separates local radius information from the global conditioning surface area, and handles finite multiple extremizers. It is not simply a special-shape table or a renamed Cauchy formula.
+Best-of-knowledge originality PASS for the all-d>=3 tensor-radius endpoint coefficient with finite nondegenerate diameter pairs; both the normalizer and the general existence of chord CDFs are classical, not the claimed new content. The complete Ren (2014) paper could not be accessed, so its possible curvature-endpoint analysis is a material priority risk rather than evidence of noncoverage.
 
-## Limitations
+## value
 
-No theorem for degenerate or continuous diameter sets, boundary regularity below the stated level, or other line-sampling models. The two inaccessible historical papers prevent certainty about full bibliographic priority. The numerical checker is corroboration rather than infinite-domain certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp near-diameter tails under natural invariant-line sampling are a substantive local-to-global stereological invariant: a universal exponent, explicit noncoaxial endpoint curvature matrix coupling, finite multiple-maximizer superposition, and proper surface-area conditioning. These facts can be used without a global chord CDF calculation; the radius determinant is not a known-table reproduction for arbitrary smooth bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
