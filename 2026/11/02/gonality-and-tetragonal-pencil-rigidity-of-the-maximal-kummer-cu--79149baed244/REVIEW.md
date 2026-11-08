@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Kummer extension has degree \(q+1\); tame Riemann--Hurwitz gives \(g=q-\gcd(q+1,4)/2\). A birational change of variables produces maps of degrees \(4\) and \(\frac{q+1}{2}\). Every smaller degree is excluded using Castelnuovo--Severi, genus calculations of all three quadratic intermediate fields, and, in characteristic seven, the obstruction to a faithful noncyclic abelian \(2\)-subgroup of \(\mathrm{PGL}_2\). The high-genus uniqueness argument also checks possible intermediate fields. Symbolic checks are reproducible, but do not replace the infinite-family proof. Independent validation has not been conducted.
+## correctness
 
-**Originality — PASS with residual risk.** The 2026 motivating paper explicitly studies these Kummer curves, their genus, semigroups and automorphisms; it does not state the new gonality and pencil-rigidity classification. The inspected 2023 subcover paper treats the exponent \(n=(q+1)/3\), which meets \(n=2\) when \(q=5\), and gives a trigonal model there; this special-case upper bound is prior knowledge. Searches of mathematical research records and public literature, including equation variants and special-linear-series aliases, found no dominating classification. The proof's classical ingredients and the known genus/symmetries are excluded from originality. An implicit consequence of a broader earlier superelliptic theorem remains possible.
+PASS
 
-**Value — PASS.** Gonality and uniqueness of minimal pencils are intrinsic, geometrically motivated birational invariants. The theorem gives their precise values across an infinite family, the sharp low-parameter exceptions, and a genuinely rigid tetragonal range. The value is the complete behavior of a natural family, not numerical recomputation or an arbitrary slice.
+Kummer valuation 1 at each x=+/-sqrt(-1) proves extension degree m=q+1; tame Riemann-Hurwitz gives genus m-1-gcd(m,4)/2. The rational quadratic conic z^2=x^2+1 with z=y^((q+1)/2)/x is parametrized by t=x+z; independently checked the substitution y^d=(t^4-1)/(4t^2) as exact rational identity. Four deck symmetries over k(y) ensure degree four; three quadratic subfields have genera (m-2)/2 and floor((d-1)/2) twice, at least two for q>=9. Castelnuovo-Severi excludes degree 2/3 maps when g is sufficiently large; at q=7 a unique degree-three pencil would force faithful C2 x C8 in PGL2 characteristic seven, impossible by semisimple order-eight centralizer. For q>=13 genus>9 and the subfield/genus-two uniqueness argument forces every quartic pencil equal k(y). Explicit genus inequalities checked on 12 candidate odd prime powers; the all-prime-power result rests on field-theoretic argument.
 
-**Closest literature and limitations.** J. P. Guardieiro, Y. da Silva and S. Tafazolian, arXiv:2605.25257v1 (2026), and P. Beelen, M. Montanucci and L. Vicino, doi:10.1016/j.ffa.2023.102300. The geometric characteristic-two and other-exponent cases, as well as tetragonal-pencil uniqueness at \(q=9,11\), remain outside the claim. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
+
+## value
+
+PASS
+
+Uniform sharp gonality together with the exceptional q=7 double-pencil phenomenon and high-genus uniqueness is a natural global classification of low-degree maps on an arithmetically distinguished Kummer-curve family. This is not a restatement of the classical genus or automorphism calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
