@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The precise scattered-subsequence definitions and binary alphabet are explicit. A shortest-absence dynamic recurrence follows by greedy matching of the first letter, and a deterministic three-difference-state transfer across each of four concrete sixteen-symbol blocks gives twelve finite checkable table entries. The table proves the arbitrary-block exponent identity. The Rudin–Shapiro bit recurrence proves the canonical block coding, and a paired parity sum proves the all-rank index formula. The included checker directly verifies table entries, all block concatenations of up to four blocks, and ten power-of-two prefixes, but these finite tests are not substituted for induction.
+## correctness
 
-**Originality (O): PASS under documented priority uncertainty.** The closest checked specific-sequence paper is Currie et al. (arXiv:1301.4972, Section 8), which studies lexicographic extremal infinite Rudin–Shapiro words; Schaeffer–Shallit (arXiv:1508.02074) studies contiguous factor properties. The closest general subsequence papers are Kosche et al. (arXiv:2108.13968), on shortest absent subsequences and algorithms, and Adamson et al. (arXiv:2407.18599), on extremal counts under fixed universality. Neither inspected source provides this exact binary four-block transfer or these dyadic Rudin–Shapiro counts. General algorithms imply finite computability, not the claimed all-rank closed form. Search coverage is not exhaustive; unlocated prior equivalents remain possible.
+PASS
 
-**Value (V): PASS.** The precise index and doubly-exponential-in-rank shortest-absence cardinality, with a parity correction, give nontrivial closed invariants for a classical automatic sequence. The stronger arbitrary-concatenation identity isolates a natural morphism-aligned sixteen-letter block class and explains the power-of-two count rather than merely tabulating values. This identifies structure that generic finite algorithms do not display.
+For binary standard Rudin–Shapiro parity r(t)=popcount(t & (t>>1)) mod 2, k>=4, the proof derives the shortest-absent two-choice greedy suffix recurrence; all 12 sixteen-bit block transitions preserve equal option counts with factor 2^(Delta m-4); composition proves |SAS(W)|=2^(iota(W)-4q) for every nonempty word in exactly the four literal blocks. The four-letter morphism and dyadic edge recursion E(2q)=-E(q)-1 yield iota(R_k)=5*2^(k-4)-e_k and |SAS(R_k)|=2^(2^(k-4)-e_k). I independently recomputed all 12 transitions, all 340 block concatenations for q<=4 and full prefixes k=4..12 with a separately written dynamic program; these corroborate the fully described inductive argument.
 
-**Limits:** Rank \(k\ge4\) and literal four-block concatenations only; shortest absent scattered words only. No independent mathematical audit or exhaustive historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. The direct proof uses a block-state invariance plus dyadic parity recurrence not supplied by generic SAS or automatic-word factor results; unrelated factor, lexicographic and extremal theorems do not imply these exact values. Priority qualified: A specialized older automatic-sequence scattered-subword result under another terminology could contain this exact formula.
+
+## value
+
+PASS
+
+A natural automatic sequence has an exact infinite-rank scattered-universality profile and an unexpectedly multiplicative shortest-absence count for an entire four-block concatenation language. The theorem is neither a renaming of a generic absent-subsequence algorithm nor a tiny isolated table; it yields concrete exact dyadic parameters and structural transfer invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
