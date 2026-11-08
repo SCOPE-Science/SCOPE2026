@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The Fourier spectrum shows that exactly one simple conjugate pair first crosses the unit circle, with a transverse unit modulus derivative and all remaining modes contracting. The second-derivative tensors and the nonresonant Neimark–Sacker coefficient reduce symbolically to an explicit rational formula. A strictly positive denominator, four exact sign inequalities, and Descartes' rule show exactly two simple positive roots and determine the sign without numerical extrapolation. The standalone checker independently reproduces the algebra. The clipping is locally inactive, and resonant and zero-cubic points are excluded.
+
+**Originality — PASS relative to inspected evidence, provisional priority.** The motivating preprint treats disordered logistic interactions and oscillatory instability, not this exact five-site coupling-dependent cubic coefficient in material accessible during inspection. The closest internal predecessor for the same cyclic rule treats three sites and finds only supercritical onset, without covering or implying a five-site subcritical window. Other retrieved studies concern symmetric two-site coupling, different networks, or general Fourier linear stability; their statements do not dominate this nonlinear five-site theorem. The original paper's later appendix could not be exhaustively re-opened and this remains a concrete residual historical-priority risk.
+
+**Mathematical value — PASS.** A first spectral crossing does not determine whether oscillatory states emerge on the stable or unstable side. The same natural five-site network exhibits both possibilities under a change in a single coupling parameter, separated by two exact thresholds. The exact coefficient, complete positive-root count, and explicit subcritical example provide a robust benchmark for finite nonreciprocal network dynamics, sharply contrasting with the previously studied three-site behavior.
+
+**Limitations.** The statement is local, for a fixed five-site oriented ring. The 1:3 and 1:4 strong resonances and two zero-cubic couplings are excluded; these do not receive a higher-order classification. The original paper's full appendix should be revisited independently before claiming definitive priority.
+
+Self-review: passed. Independent audit: not yet performed.
