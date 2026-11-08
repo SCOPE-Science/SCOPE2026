@@ -1,19 +1,21 @@
-# Scientific review: nonlinear resonance response in an EOS interval map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every bounded rescaled detuning interval, the logistic function has uniform, differentiated expansions at the negative half-grid sites and the positive site. These give the rescaled three-step return function \(H_a(z,\sigma)=3\sigma-2\sinh z+O(ae^{-a/6})\) with strictly negative \(z\)-derivative. The intermediate value theorem and a uniform derivative bound prove existence and branch uniqueness, and the distinct half-grid sites establish primitive period three. The exact derivative identity \(\mu-1=ae^{-a/6}\partial_z H_a\) yields the attracting multiplier; implicit differentiation gives the parameter slope. The final invariant product identity follows algebraically. The 15 high-precision finite diagnostics passed. No experimental sampling is substituted for an infinite proof.
+PASS
 
-## Originality — PASS under inspected evidence
+For F(x)=x+b-(1+exp(-ax))^(-1), q=exp(-a/6), b=1/3+sigma q, x=-1/2+z/a, the exactly defined scaled 3-step displacement H=q^(-1)(F^3(x)-x) admits uniform C^1 expansion H=3sigma-2sinh(z)+O_S(aq), H_z=-2cosh(z)+O_S(aq), H_sigma=3+O_S(aq) for bounded sigma,z. Its negative derivative, end signs, and implicit differentiation prove the unique local primitive attracting 3-cycle at z=arsinh(3sigma/2)+O_S(aq); multiplier 1-2aq sqrt(1+9sigma^2/4)+O_S(a^2q^2); slope 3/[2aq sqrt(1+9sigma^2/4)](1+O_S(aq)). Verified the derivative identity (mu-1)/(aq)=H_z directly and independently solved exact logistic iterations in high precision for several sigma and a. Tests diagnose, not prove, the all-large-a compact-uniform theorem.
 
-The source *Strange bifurcation diagrams*, arXiv:2605.19756v1, Section 3, describes a steep attracting point near the one-third parameter but not its asymptotic transition width or nonlinear response. *Interval maps mimicking circle rotations*, arXiv:2411.01495v1, Theorem 3.3, fixes rational \(b\). The closest published half-grid finding provides the fixed-rational orbit displacement and multiplier, which is the \(\sigma=0\) special limit, but does not imply a jointly uniform detuning law or the nonlinear derivative profile. The older game-theory study is qualitative on this parameter issue. The log-odds-conjugate map is an equivalent formulation and was included in searches. Residual risk: unidentified specialized results on singularly smoothed rotations or resonant parameter response might establish an equivalent formula; independent priority validation remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary source identifies an unusually large parameter derivative at its attracting period-three orbit. The theorem identifies the exponentially narrow natural detuning scale and a nontrivial, uniform inverse-hyperbolic-sine crossover rather than another isolated numeric value or routine restatement of a known cycle. It also quantitatively links sensitivity to the neutral Floquet gap, explaining why small changes in a parameter can produce disproportionately large positional responses. The restriction to the microscopic resonance core is explicit; the larger hopping diagram remains outside scope.
+Bielawski et al. analyze a hopping period-three attracting orbit at b about 1/3 (same logistic map), and earlier fixed-rational half-grid asymptotics include the central multiplier but hold b fixed. The new genuinely joint detuning scale b-1/3=O(exp(-a/6)), nonlinear arsinh response and inverse spectral-gap slope relation are not mathematical consequences of the inspected fixed-b assertions. O PASS best of knowledge, not historical certification.
 
-## Closest literature and limits
+## value
 
-The most relevant antecedents are arXiv:2605.19756v1, arXiv:2411.01495v1, the published fixed-rational half-grid result identified in RESULT.md, and arXiv:1807.06831v1. Only local attraction of the specified primitive three-cycle for compactly bounded rescaled detuning is established. Other attractors and global basins are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nonlinear crossover and amplified sensitivity quantify a physically and dynamically motivated hopping transition in a canonical smoothed circle-map family; it is a natural structural response law, not an arbitrary numeric parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

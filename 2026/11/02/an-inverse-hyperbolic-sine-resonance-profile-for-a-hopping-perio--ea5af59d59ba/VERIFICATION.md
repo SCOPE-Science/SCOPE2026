@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and scope
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the parameter-uniform asymptotics; the finite diagnostics are checks rather than substitutes for its quantifiers. The companion `verify_eos.py` was run with `python verify_eos.py`, returning `PASS: 15 period-three residual, tangent, slope, and gap diagnostics`. The cases span \(a\in\{72,96,120\}\) and \(\sigma\in\{-2,-1/2,0,1/2,2\}\), using 95 decimal digits. Every three-step residual was smaller than \(10^{-70}\). The orbit ordering and the physical invariant interval were checked for each case.
+## correctness
 
-At \(a=72\), the worst relative slope discrepancy was approximately \(0.001781\); at \(a=120\) all displayed relative slope discrepancies were below \(1.1\times10^{-6}\). The exact chain-rule relation between the derivative of the rescaled return function and the Floquet multiplier was also checked numerically. These results test consistency only; no numerical experiment validates all sufficiently large parameters.
+PASS
 
-No independent audit has been conducted. Historical priority and global basin classification are outside the verification performed here.
+For F(x)=x+b-(1+exp(-ax))^(-1), q=exp(-a/6), b=1/3+sigma q, x=-1/2+z/a, the exactly defined scaled 3-step displacement H=q^(-1)(F^3(x)-x) admits uniform C^1 expansion H=3sigma-2sinh(z)+O_S(aq), H_z=-2cosh(z)+O_S(aq), H_sigma=3+O_S(aq) for bounded sigma,z. Its negative derivative, end signs, and implicit differentiation prove the unique local primitive attracting 3-cycle at z=arsinh(3sigma/2)+O_S(aq); multiplier 1-2aq sqrt(1+9sigma^2/4)+O_S(a^2q^2); slope 3/[2aq sqrt(1+9sigma^2/4)](1+O_S(aq)). Verified the derivative identity (mu-1)/(aq)=H_z directly and independently solved exact logistic iterations in high precision for several sigma and a. Tests diagnose, not prove, the all-large-a compact-uniform theorem.
+
+## originality
+
+PASS
+
+Bielawski et al. analyze a hopping period-three attracting orbit at b about 1/3 (same logistic map), and earlier fixed-rational half-grid asymptotics include the central multiplier but hold b fixed. The new genuinely joint detuning scale b-1/3=O(exp(-a/6)), nonlinear arsinh response and inverse spectral-gap slope relation are not mathematical consequences of the inspected fixed-b assertions. O PASS best of knowledge, not historical certification.
+
+## value
+
+PASS
+
+The exact nonlinear crossover and amplified sensitivity quantify a physically and dynamically motivated hopping transition in a canonical smoothed circle-map family; it is a natural structural response law, not an arbitrary numeric parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
