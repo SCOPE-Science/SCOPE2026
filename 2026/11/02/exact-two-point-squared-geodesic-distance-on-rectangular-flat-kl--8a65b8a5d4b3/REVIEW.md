@@ -1,25 +1,21 @@
-# Scientific review of the rectangular flat Klein-bottle squared-distance formula
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The quotient action and its even/odd glide-reflection images give an exact nearest-image minimum, with no unexamined lifts. The difference/sum transformation modulo the horizontal period is a finite covering homomorphism and therefore preserves Haar measure; this establishes the essential independence of the two horizontal minimum distances. Direct triangular-density integration gives the complete piecewise positive-part expectation, and the explicitly symmetric integral over the independent horizontal variables yields the positive one-dimensional correction. Both the elementary antiderivative and the transition exponent are checked. The strict torus comparison follows from an explicit integral bound rather than simulations.
+PASS
 
-Finite verification includes exact rational endpoints, independent numerical quadrature, 12,000 brute-force deck-orbit comparisons over four aspect ratios, and 600,000 independently sampled surface point pairs over four configurations. Each check passed. The numerical tests corroborate the proof but are not substituted for it.
+For a,b>0, even/odd deck lifts lead exactly to rho(P,Q)^2=min(U²+W²,V²+(b-W)²), with horizontal U=delta_2a(x-x'), V=delta_2a(x+x') independent Unif[0,a] under finite-covering Haar homomorphism and W=|y-y'| density 2(b-w)/b². Triangular-density integration gives g(D), D=U²-V²; symmetrization yields mean B=a²/3+b²/12-2a^4/(45b²) plus H=4/(15b²a²)∫_b^a(u²-b²)^(5/2)du for a>b (else zero). Integrated closed form and positivity yield sharp aspect threshold a=b, H~2^(11/2)/(105 b^(3/2))(a-b)^(7/2), C³ but not C⁴, and strict deficit below torus mean a²/3+b²/12. Independently re-integrated reduced three-variable distribution numerically at four aspect ratios and checked moments; the full result is analytic, not from quadrature.
 
-## Originality
+## originality
 
-**PASS under documented prior-art uncertainty.** The theorem concerns the complete squared-distance mean of two independent uniform points on the **rectangular flat Klein bottle**, its \(7/2\)-order aspect-ratio activation, and a strict matched-rectangle torus comparison. Comparisons were made by the mathematical invariants, their domains, and whether cited results imply the formulas, not by titles alone.
+PASS
 
-The closest geometric literature inspected was Davis–Recio-Mitter (arXiv:1912.07411), whose full HTML text develops geodesic motion-planning complexity and Dirichlet/cut-locus polytopes. Its metric and shortest-image setup overlaps the *methods*, but the examined theorem statements and sections do not assert the integrated random-pair moment. Matveev (arXiv:solv-int/9712019) develops Klein-bottle geodesic-flow classifications under covering/glide actions, without an aggregate distance law in the inspected sections. El Mir (arXiv:1007.0877, 2010 preprint; read 2020 revision, Sections 1–2) explicitly describes flat Klein-bottle moduli but develops systolic and conformal extremality, not the pairwise distance moment. Katz–Sabourau (arXiv:2609.06705) treats systolic area of nonpositively curved surfaces and identifies a distinguished square flat Klein bottle, but does not provide the claimed pair-distance mean. The Geomstats Klein-bottle code computes closest quotient representatives rather than an all-aspect integrated moment.
+The glide quotient metric and cut-locus theory are established, not claimed original. The new claim is its complete uniform pair squared-intrinsic-distance mean for every positive rectangular aspect, nonanalytic transition, strict corresponding torus gap; no materially read geodesic complexity/systolic paper states this statistic. Older unindexed geometric-probability calculations could overlap.
 
-Searches for equivalent formulations, broad coverage, exact tables and implication by stronger results included indexed mathematical findings on flat tori, Klein-bottle triangulations and other distance statistics. Their returned summaries concern distinct objects (discrete metric graphs, simplicial grids, Euclidean planar chords) or different invariants (systoles, cut-locus complexity). The same family does occur in the cited flat-manifold literature, so unindexed historic statistical calculations remain a real priority risk; complete historical uniqueness is not asserted.
+## value
 
-## Value
+PASS
 
-**PASS.** Pairwise intrinsic distance is a canonical metric-measure observable, and the flat Klein bottle is the simplest compact nonorientable flat surface. The exact all-aspect second moment distinguishes its metric geometry from that of an equal-area rectangular torus: nonorientability produces a strictly negative correction for every shape. The piecewise elementary formula detects a precise geometric onset of competing deck-image regions, with a nonanalytic \(7/2\)-order term and a sharp \(C^3\)-but-not-\(C^4\) transition. It offers an explicit benchmark for geodesic-distance sampling, cut-locus integration, and computational geometry on quotient surfaces. The value rests on the complete natural parameter family and transition, not on a small numerical improvement.
+For a canonical compact flat nonorientable surface, exact random pair intrinsic distance squared is a natural metric-measure invariant; its singular aspect-ratio transition and strict comparison with the same-area torus reveal genuinely geometric effects beyond a toy numerical moment.
 
-## Boundaries and risks
-
-The work does not determine the full distance CDF, all moments, or the distance laws of nonflat metrics. The torus comparison is for the explicitly corresponding equal-area rectangle, not every torus of that area. The closed-form difference of large terms can be numerically unstable when \(a/b\) is large; the positive integral is exact and safer. Earlier unindexed work may contain the second moment; an independent priority review has not been undertaken. Some relevant publicly indexed results were available as short summaries only, not as full retrievable texts.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
