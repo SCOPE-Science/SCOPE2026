@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:14:42.269355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two-sided marked Poisson construction proves unique stationary ages A_i=G+1_{J=i}H, G Exp(r), H|J=i Exp(r(1-w_i)). Conditional Gaussianity makes distinct-index squared-position moments equal age moments. The exact joint MGF r/(r−sum t_i)[1+sum_i w_i t_i/(r(1-w_i)−t_i)] gives the mixed cumulant [(k−1)!/r^k]*(1+(-1)^{k−1} product_i w_i/(1−w_i)); the log expansion uses only distinct linear factors. Product AM–GM bounds odds product by (k−1)^−k; equality k=2 allows any two weights summing to one, k>=3 requires equal within I and N=k. Independently checked all 15 mixed cumulants of one rational 4-weight example from the generator moment recursion and partition formula; odd/even sign distinguished. Strict positivity claims exclude zero-rate/zero-weight boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Fourier/JPDF formula has uniform batch sampling; full-reset renewal paper has no exempt mark"
+        ],
+        "reasoning": "Marked-clock MGF theory is general enough to rederive the calculation but no inspected primary theorem supplies the explicit heterogeneous all-order parity envelope. Risk remains that an abstract marked-jump formula could entail it.",
+        "searches": [
+          "arxiv:2601.20077 full stationary joint distribution all but one batch resetting",
+          "arxiv:2509.06658 non-Poissonian simultaneous resetting"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2601.20077 main and supplement",
+        "arxiv:2211.00563",
+        "arxiv:2509.06658",
+        "Resultary cumulant/brownian reset queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform-selected spared label known; all-reset common-age stationary law known",
+          "Present k=2,k=3 sign corrections arise from categorical unequal exemption odds"
+        ],
+        "reasoning": "Specializing source's uniform model cannot produce arbitrary independent w_i parameters; an extension requires a new marked Poisson age decomposition and weight-simplex optimization, albeit with elementary probabilistic tools.",
+        "searches": [
+          "de Mauro Majumdar Schehr arxiv 2601.20077 supplement S40 S43",
+          "Biroli Larralde Majumdar Schehr 2023 common resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Mauro et al. arXiv:2601.20077 supplement S40–S43 gives full uniform-exemption stationary JPDF, implying equal-weight cumulants"
+        ],
+        "reasoning": "Uniform-exemption formulas are already covered and expressly excluded as standalone novelty; the result's variables w_i unequal and sharp optimization over their simplex do not follow by literal relabelling of a uniform JPDF.",
+        "searches": [
+          "Resultary: Brownian gas Poisson all but one simultaneous resetting heterogeneous exemption weights connected cumulants squared positions parity hierarchy",
+          "web: all but one resetting heterogeneous cumulants de Mauro"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Poisson-binomial cumulant results are for sums of Bernoulli variables, not Brownian reset ages"
+        ],
+        "reasoning": "There is no natural fixed numerical table that decides the continuous-weight hierarchy; no identified database exact formula covers all w_i and k.",
+        "searches": [
+          "Resultary: heterogeneous all but one resetting cumulants",
+          "web: stationary squared displacement cumulants batch reset"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the precisely bounded final claim; prior premises and covered specializations explicitly credited. Four searched implication tests and actual primary-source inspections below identify the distinctions and residual priority risks.",
+      "residual_risks": [
+        "General marked Poisson-process joint transform may implicitly cover the unequal-weight formula.",
+        "Uniform-exemption special case is already implied by earlier joint distribution and not original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNIFORM_EXEMPTION_ONLY",
+          "evidence": [
+            "Full uniform-case JPDF determines uniform cumulants; heterogeneous fixed exemption probabilities not included"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.20077",
+          "material_read": "Full paper main stationary marginal closure plus supplement Eq. S40–S43 stationary JPDF for uniform exemption",
+          "method": "Inspected full PDF, supplement and page screenshot",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Closest exact all-but-one reset model and uniform-case coverage"
+        },
+        {
+          "assessment": "FULL_RESET_PRIOR",
+          "evidence": [
+            "Full reset benchmark has k-th cumulant (k−1)!/r^k and no mark J"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Stationary conditional common-clock construction",
+          "method": "Inspected available arXiv text sections",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Common age and synchronous reset prior"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_RESET",
+          "evidence": [
+            "Joint reset of all coordinates versus a heterogeneous one-spared mark"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Abstract/method description on simultaneous non-Poisson reset",
+          "method": "Inspected available abstract and explanatory material; not represented as complete full-text noncoverage",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Related renewal resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The special simultaneous reset mechanism preserves one particle at each event; all-order connected correlations are natural observables, and their sign-alternating correction and sharp simplex envelope distinguish a genuine higher-order effect that pair-correlation measurements miss. The mean-normalized formula prevents overstating experimental enhancement. Heterogeneous w_i extends an existing uniform model in a mathematically interpretable way.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Poisson event stream, independent Brownian positions, distinct particle labels only.",
+    "Absolute connected cumulants at same global reset rate; mean-normalized values are not enhanced."
+  ]
+}
