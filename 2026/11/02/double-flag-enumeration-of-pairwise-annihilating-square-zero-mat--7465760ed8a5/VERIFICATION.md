@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run the two Python 3 standard-library scripts in one directory: `python3 check.py` and `python3 check_f4.py`. Their original stdout, without postprocessing, appears in `check_output.txt`. The first enumerates all original zero-product matrix tuples in six small prime-field configurations and compares every possible prescribed rank/image/kernel combination; the second uses the extension field \(\mathbb F_4\), including field multiplication and inverses, for a seventh configuration. Both use separate brute-force matrix-product calculations from the Möbius formula.
+# Independent mathematical audit
 
-The code uses finite enumeration; no extrapolation from it is asserted. The general result follows from the explicit bijections and finite subspace Möbius functions proved in RESULT.md. No independent audit or third-party certification has been performed.
+## correctness
+
+PASS
+
+For all prime powers q and n,m>=1, all ordered products TiTj=0 imply U=sum images is contained in K=intersection kernels. For each chosen flag U<=K, factoring V/K -> U is a bijection, including zero ranks; independent Möbius inversion on subspaces of U and V/K forces exact image span and trivial common kernel. The rank-r map count and Gaussian flag count produce the stated double sum without stabilizer factors. The one-operator boundary matches the classical square-zero census. Independent original-equation enumeration matched 10,33,148 tuples respectively in (n,q,m)=(2,2,2),(2,3,2),(3,2,2), including every observed joint stratum. Source checks cover more prime-field and genuine F4 cases, but finite tests are not the proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+This is a complete, arbitrary-arity labeled rank/image/kernel spectrum for modules of a natural radical-square-zero algebra with m loops, simultaneously fixing individual operator ranks and independent joint subspaces. The joint invariant is not determined by pair similarity classification or one-operator counts and directly informs exact representation-stratum enumeration; it is not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

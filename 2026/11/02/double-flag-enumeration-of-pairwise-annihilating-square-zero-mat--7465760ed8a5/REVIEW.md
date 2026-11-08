@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The product identities force the joint image space into the joint kernel, and every tuple with specified joint spaces corresponds bijectively to a tuple of linear maps between the quotient and image. The rank-\(r\) map formula counts each map exactly once. Independent image-span and common-kernel Möbius inversions over all subspaces yield the proposed coefficient with no missing automorphism factors. The one-operator specialization recovers the known square-zero rank count. Direct exhaustive original-equation enumerations and a genuine extension-field test agree in every tested refined stratum. The verification is finite and not used as the infinite proof.
+## correctness
 
-## Originality — PASS (self-review; publication priority provisional)
-The geometric component theorem for mutually annihilating nilpotent pairs [1], simultaneous-similarity canonical forms for pairs [2], the finite-field commuting-class results [3], and Huang's pair-level generating series [4] were compared at the level of statements. None of their inspected relevant main results states the all-arity labeled enumeration with independent common-image and common-kernel constraints. A previous all-arity formula for selfadjoint annihilating tuples has a symmetry requirement and an isotropic-image constraint and does not imply the unrestricted nonsymmetric distribution. A separate earlier dimension-four pair census concerns product fibers, not independent common image/kernel dimensions for arbitrary tuple length. The underlying rank and subspace Möbius lemmas are classical, not novel. General multi-loop representation-count results remain an explicit possible priority risk; the comparison does not establish mathematical independence from every published theorem.
+PASS
 
-## Value — PASS
-The data are naturally defined joint invariants of finite-dimensional modules over an algebra with radical square zero and arbitrarily many loops. The formula provides complete exact finite-field strata across every dimension, field size, number of loops, and vector of generator ranks. Joint kernel and image dimensions vary separately without selfadjointness, refining total counts, individual rank counts and pairwise similarity feasibility. This is a complete natural classification by numerical invariants, not an arbitrary selected example.
+For all prime powers q and n,m>=1, all ordered products TiTj=0 imply U=sum images is contained in K=intersection kernels. For each chosen flag U<=K, factoring V/K -> U is a bijection, including zero ranks; independent Möbius inversion on subspaces of U and V/K forces exact image span and trivial common kernel. The rank-r map count and Gaussian flag count produce the stated double sum without stabilizer factors. The one-operator boundary matches the classical square-zero census. Independent original-equation enumeration matched 10,33,148 tuples respectively in (n,q,m)=(2,2,2),(2,3,2),(3,2,2), including every observed joint stratum. Source checks cover more prime-field and genuine F4 cases, but finite tests are not the proof.
 
-## Limitations and sources
-The result does not determine conjugacy orbits or components of the representation scheme. The primary literature and the recent pair-count series cited in RESULT.md were compared using their openly available parsed article texts and main results. The unresolved risk is a broad preexisting enumeration framework that may already imply the formula after standard specializations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+This is a complete, arbitrary-arity labeled rank/image/kernel spectrum for modules of a natural radical-square-zero algebra with m loops, simultaneously fixing individual operator ranks and independent joint subspaces. The joint invariant is not determined by pair similarity classification or one-operator counts and directly informs exact representation-stratum enumeration; it is not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
