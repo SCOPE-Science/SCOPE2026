@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite count generator follows from explicit individual sampling. A common count state is accessible from every state, establishing uniqueness of invariant law without erroneously assuming every state is recurrent. First and pair moment balance equations yield exact rational expressions. The three pair covariance limits imply that the two empirical shares synchronize in stationary mean square. The degree-weighted fraction has an exact drift, quadratic variation and jumps of order \(N^{-1}\); scaling its generator gives the Jacobi diffusion operator, whose stationarity equations uniquely fix every moment of \(\operatorname{Beta}(2(1-\rho),2\rho)\). This is an infinite mathematical proof. Independent in-package exact enumeration has passed 196 vertex-event rate checks, 16 complete rational invariant-law calculations, and 361 stationary moment-equation checks. Risk: the beta limit assumes both vertex parts grow proportionally and is not a transient-time theorem.
+## correctness
 
-**Originality — PASS (best-knowledge; residual priority risk).** Closest primary work includes Njougouo et al. (2023 public preprint), which gives a heterogeneous mean-field/social decision model; Ben-Ari et al. (2020), a bipartite *quasi*-stationary voter model without zealots; Braha–de Aguiar (2026), exact *well-mixed* zealot/Moran laws; and general opinion-fluctuation and spectral voter work. Their mathematically different assumptions and results do not imply the present exact heterogeneous pair covariance or degree-dependent bipartite beta limit. Actual mathematical-record and primary-literature searches did not locate an identical statement, but that negative result does not establish publication priority. The closest full-text sources and remaining search risk are recorded in AUDIT.json.
+PASS
 
-**Value — PASS.** One committed agent in each side of a natural two-community social network is a minimal model of competing stubborn influences. The theorem supplies both exact finite correlations and a nontrivial, all-size stationary scaling limit. It quantifies how changing the part-size ratio changes the shape parameters \(2(1-\rho)\) and \(2\rho\); for balanced parts it proves a uniform, nonconcentrating population fraction rather than deterministic averaging. These are substantive natural observables in network-mediated collective decisions, not a synthetic parameter slice. The narrow scope and absence of mixing-time estimates remain explicit.
+Frozen RESULT.md gives four state-changing rates for flexible (I,J) and handles the case of same-part pairs existing only when a≥3 or b≥3. Stationarity of one- and two-vertex indicators gives the stated exact rational means, pAB/pAA/pBB and covariance formulas. Exact generator drifts for Z_N=(bI+aJ)/(b(a-1)+a(b-1)) and its quadratic variation converge after speed factor H/N to (1-rho-z)f′+(1/2)z(1-z)f″; third-order remainder is O(1/N), while the exact covariance equations force U−V→0 in L². The polynomial moment recurrence uniquely identifies Beta(2(1-rho),2rho), proving the joint weak limit. Independently solved all 16 exact finite count-chain invariant laws 2≤a,b≤5 and checked all available pair formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge originality applies to the precise claimed combination, not generic background results: A generic beta appearance or complete-graph specialization is not the same stationary finite two-zealot K_{a,b} process with opposite zealots in different shores and proportional both-shore scaling. Neither inspected model has the same complete count generator. The claimed result is not a complete-graph corollary: exact covariance and beta parameters require solving the bipartite generator and proving synchronization. An unindexed exact K_ab zealot result remains possible.
+
+## value
+
+PASS
+
+Persistent stochastic disagreement under opposing fixed zealots is a natural property of heterogeneous network dynamics. Exact within- and cross-part correlations for each finite graph, synchronization of shares but non-concentration to a deterministic vote fraction, and degree-ratio-dependent beta parameters are complete nontrivial information not supplied by generic mean-field or zealot-free QSD statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
