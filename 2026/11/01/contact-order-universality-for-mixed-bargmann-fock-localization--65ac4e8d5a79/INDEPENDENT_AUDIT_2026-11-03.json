@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "Compact strictly convex K,L each unique opposing support, near contact C1 and contact order p>1 with coefficients a,b>0",
+        "Gap g>=0 fixed or converging to finite limit, no large-gap uniformity",
+        "Complex-dimensional-one Fock space with Gaussian e^-|z-w|²",
+        "Regions have disjoint interiors including tangent gap zero"
+      ],
+      "proof_sources": [
+        "RESULT.md exact trace identity, scaled change-of-variables and global Gaussian majorant (blob d53cd6c2181dad2e4397305eba8cdf540f9e2305)",
+        "contact_checker.py finite superellipse quadrature implementation inspected, blob 8788432f31804f2962c00e0613260db5a3934fdf",
+        "Independent integral-vs-gamma numerical check p=2,4,6"
+      ],
+      "rationale": "The trace identity Tr(T_E T_F)=pi^-2∫_E∫_F exp(-|z-w|²) dxdy follows from Fock reproducing kernel. In tangential/normal variables y1=R^(1-1/p)u, y2=y1+h, inward s,t>=0, the measure carries R^(1-1/p) and horizontal separation tends to g+(a+b)|u|^p+s+t. Unique contact and compact convexity furnish lower bound c|u|^p on normal support deficits, and exp(-h²-(c|u|^p+s+t)²) is integrable. Dominated convergence is locally uniform in g; integrating h gives sqrt(pi), normal s,t a v weight, and tangential u integral yields 2p/((p+1)(a+b)^(1/p))q^(1+1/p). At g=0 Gamma integral matches. Independently evaluated p=2,4,6 normalized gap-zero constants by numerical integration, agreeing with Gamma identity to 2.5e-16. Finite quadrature is not proof of the all-body asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu–Pereira–Romero–Torquato derive perimeter-order hyperuniformity and variance for large observation sets; Matsui–Katori–Shirai treat single-ball number variance.",
+          "Gaussian proximity principle could heuristically cover touch asymptotics, but no inspected prior theorem with both independently dilated bodies, all real p>1, exact g-profile found."
+        ],
+        "reasoning": "More general Gaussian interaction approaches do not automatically settle this exact coefficient without a contact-order boundary-layer theorem; residual risk retained.",
+        "searches": [
+          "Gaussian nonlocal heat content touching convex domains proximity asymptotic curvature Ginibre contact order",
+          "arxiv:1612.00359",
+          "arxiv:2012.10585",
+          "doi:10.3390/axioms12121080"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-cartesian-product-law-for-the-two-body-b-zout-mixed-volume--0d44775e55e7",
+        "arxiv:1612.00359",
+        "arxiv:2012.10585",
+        "doi:10.3390/axioms12121080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Ginibre variance bounds are for self-interactions and scale with perimeter R; the present cross trace has sub-perimeter exponent 1-1/p from isolated tangent support.",
+          "Fock invariant-symbol operator decompositions do not apply directly to arbitrary noninvariant indicator domains."
+        ],
+        "reasoning": "Neither cited perimeter/single-ball variance nor operator-algebra results state or give a direct simple corollary matching the full tangency law.",
+        "searches": [
+          "Ginibre two adjacent tangent convex domains mixed Toeplitz trace covariance contact order Gaussian",
+          "arxiv:1612.00359",
+          "arxiv:2012.10585",
+          "doi:10.3390/axioms12121080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent Ginibre statement: covariance between counts in two disjoint tangent inflated windows scales as a nonintegral boundary-contact power, with explicit Gaussian crossover profile.",
+          "Existing Fock-trace/Ginibre kernel pair-correlation identity is classical."
+        ],
+        "reasoning": "The new content is the sharp contact exponent and coefficient, not the covariance-trace identity.",
+        "searches": [
+          "Ginibre two adjacent tangent convex domains mixed Toeplitz trace covariance contact order Gaussian",
+          "arxiv:1612.00359",
+          "arxiv:2012.10585"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search yielded no matched Gaussian mixed-contact trace record; nearest hit concerned mixed-volume product coefficients, a different invariant."
+        ],
+        "reasoning": "No finite database/table is applicable: the theorem is a continuum-contact asymptotic; checked semantic records did not supply its coefficient.",
+        "searches": [
+          "Ginibre two adjacent tangent convex domains mixed Toeplitz trace covariance contact order Gaussian",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-cartesian-product-law-for-the-two-body-b-zout-mixed-volume--0d44775e55e7"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison, not conclusive historical priority. Neither cited perimeter/single-ball variance nor operator-algebra results state or give a direct simple corollary matching the full tangency law.",
+      "residual_risks": [
+        "A generic proximity/Derjaguin or nonlocal heat-content theorem may imply the contact coefficient under additional verification not accomplished here.",
+        "Only selected relevant material from some primary articles was inspected; a complete literature priority claim is not made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No asserted sharp isolated-contact mixed-window coefficient",
+          "evidence": [
+            "Perimeter order and single-window quantities, not two tangentially disjoint windows"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.00359",
+          "material_read": "Available public full-text variance and hyperuniformity theorem sections, including finite-window bounds",
+          "method": "public arXiv text inspection",
+          "title": "The Weyl–Heisenberg ensemble: hyperuniformity and higher Landau levels",
+          "trigger": "Ginibre covariance and Gaussian kernel perimeter variance"
+        },
+        {
+          "assessment": "Single-ball number variance, not cross covariance of independently tangent bodies",
+          "evidence": [
+            "Main variance is for radial one-window quantities"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.10585",
+          "material_read": "Relevant abstract/results on balls and variance formulas; not all appendix material read",
+          "method": "arXiv paper results material",
+          "title": "Local number variances and hyperuniformity of the Heisenberg family of determinantal point processes",
+          "trigger": "Ginibre single-window asymptotic could dominate"
+        },
+        {
+          "assessment": "Theory for invariant symbols and algebraic decompositions, not mixed sharp indicator tangency",
+          "evidence": [
+            "No two-window near-contact Gaussian trace limit in inspected material"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms12121080",
+          "material_read": "Accessible journal introduction and descriptions of circle-invariant symbol algebra",
+          "method": "publisher web article excerpts",
+          "title": "Toeplitz Operators on Fock Space over C^n with Invariant Symbols under the Action of the Unit Circle",
+          "trigger": "Exact same Fock Toeplitz setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact trace identity, scaled change-of-variables and global Gaussian majorant (blob d53cd6c2181dad2e4397305eba8cdf540f9e2305)",
+        "Known Ginibre variance bounds are for self-interactions and scale with perimeter R; the present cross trace has sub-perimeter exponent 1-1/p from isolated tangent support."
+      ],
+      "rationale": "A nontrivial universal contact-boundary asymptotic linking convex geometry, Gaussian localization operators and determinantal covariance, including a continuous contact order p>1 and explicit gap profile. Precise coefficient and exponent cannot be read from generic Gaussian integral without the scaling and domination argument.",
+      "residual_risks": [
+        "Does not extend to multiple tangencies, intersections, nonconvex shapes or interchanging large-gap/large-R limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Compact strictly convex K,L each unique opposing support, near contact C1 and contact order p>1 with coefficients a,b>0",
+    "Gap g>=0 fixed or converging to finite limit, no large-gap uniformity",
+    "Complex-dimensional-one Fock space with Gaussian e^-|z-w|²",
+    "Regions have disjoint interiors including tangent gap zero",
+    "A generic proximity/Derjaguin or nonlocal heat-content theorem may imply the contact coefficient under additional verification not accomplished here.",
+    "Only selected relevant material from some primary articles was inspected; a complete literature priority claim is not made.",
+    "Does not extend to multiple tangencies, intersections, nonconvex shapes or interchanging large-gap/large-R limits."
+  ],
+  "schema_version": 1
+}

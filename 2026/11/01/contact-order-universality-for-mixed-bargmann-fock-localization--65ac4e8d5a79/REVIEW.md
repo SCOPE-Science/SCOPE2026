@@ -1,15 +1,21 @@
-# Scientific review of the Gaussian contact-order law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim fixes a normalized analytic Bargmann–Fock kernel and two compact strictly convex bodies with unique opposing support points. The Gaussian integral formula for the product trace follows directly from the reproducing kernel and a trace-class kernel computation. The normal-distance/tangential-coordinate change has Jacobian \(R^{1-1/p}\); the two boundary expansions converge to the sum of contact coefficients. Unique support together with the positive local coefficient supplies a global lower bound for the normal separation, producing an integrable dominating function. Tonelli's theorem and an elementary slice integral yield the displayed positive constant, including its gamma simplification at zero gap. Locally uniform convergence in the gap follows by applying domination to the supremum over compact gap intervals. No extrapolation from a finite experiment is used in the proof. The 55 numerical assertions check finite superellipses independently of the limiting argument.
+## correctness
 
-## Originality
-**PASS under the inspected literature and available records; historical priority remains provisional.** The nearest prior analyses use the same Fock/Ginibre kernel but address the algebra of invariant Toeplitz symbols (González-Flores et al., 2023), perimeter-order one-window Weyl–Heisenberg fluctuations (Abreu et al., 2016/2017), and one-window ball-variance expansions (Matsui–Katori–Shirai, 2020/2021). None of the inspected statements provides the mixed-trace limit of two disjoint windows whose contact order is \(p>1\), or its universal \(R^{1-1/p}\) scaling and fixed-gap profile. Checks also considered the equivalent negative Ginibre counting covariance, Gaussian cross heat content and the physical proximity/Derjaguin viewpoint. The principal residual risk is indirect implication by a more general Gaussian interaction asymptotic for tangent bodies, which was not exhaustively excluded. Inspection of the 2023 paper was confined to accessible indexed text including its introduction and operator-algebra section.
+PASS
 
-## Mathematical value
-**PASS.** Mixed localization traces are a natural noncommutative measure of the interaction of phase-space regions, and the identical quantity controls Ginibre count anticorrelation. An isolated boundary contact is invisible to the usual perimeter-order variance laws. Here the contact exponent itself controls an entire continuum of fractional spectral growth exponents, while all details beyond the sum of two local contact coefficients disappear from the leading constant. The explicit Gaussian gap profile links ordinary quadratic curvature contact to flat, higher-order tangency and gives a quantitative universality statement rather than an arbitrary finite calculation.
+The trace identity Tr(T_E T_F)=pi^-2∫_E∫_F exp(-|z-w|²) dxdy follows from Fock reproducing kernel. In tangential/normal variables y1=R^(1-1/p)u, y2=y1+h, inward s,t>=0, the measure carries R^(1-1/p) and horizontal separation tends to g+(a+b)|u|^p+s+t. Unique contact and compact convexity furnish lower bound c|u|^p on normal support deficits, and exp(-h²-(c|u|^p+s+t)²) is integrable. Dominated convergence is locally uniform in g; integrating h gives sqrt(pi), normal s,t a v weight, and tangential u integral yields 2p/((p+1)(a+b)^(1/p))q^(1+1/p). At g=0 Gamma integral matches. Independently evaluated p=2,4,6 normalized gap-zero constants by numerical integration, agreeing with Gamma identity to 2.5e-16. Finite quadrature is not proof of the all-body asymptotic.
 
-## Closest literature and limitations
-The scope is one complex Fock dimension, strict convexity, common opposing support line, matched positive contact order, and fixed or converging nonnegative normal gaps. The theorem does not address tangentially varying gaps, several contacts, higher complex dimensions or growing-gap uniformity. Proof and code are self-reviewed; neither exhaustive historical priority checking nor independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison, not conclusive historical priority. Neither cited perimeter/single-ball variance nor operator-algebra results state or give a direct simple corollary matching the full tangency law.
+
+## value
+
+PASS
+
+A nontrivial universal contact-boundary asymptotic linking convex geometry, Gaussian localization operators and determinantal covariance, including a continuous contact order p>1 and explicit gap profile. Precise coefficient and exponent cannot be read from generic Gaussian integral without the scaling and domination argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
