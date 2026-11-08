@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:55:36.635929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "actual packaged verification program",
+        "independent_checks.py"
+      ],
+      "rationale": "For fixed unisolvent stencils, indicator sites and support weights, perturbing bounded data f by delta changes each residual indicator at rate at most Hx delta. The log of the positive unnormalized weight differentiates almost everywhere with rate at most tHx delta/epsilon. The normalized-weight covariance identity, weighted Cauchy-Schwarz and |Pj|<=Lx B give |K[f]-K[g]|<=Lx(1+tBHx/epsilon)delta, with no smoothness assumption on the data. In the actual six nodes (0,1/4,1,2,11/4,3), at x=3/2 exactly two equal geometric weights are active; first active branch 0, second 1, and the first residual changes to delta. Independently checked geometric support and exact formula K(delta)=(epsilon+delta)^t/[epsilon^t+(epsilon+delta)^t], giving derivative t/(4epsilon) and an O(1) output gap for delta=c epsilon. The bound is sharp in exponent, not in its prefactor; fixed stencils need not be selected by a particular implementation.",
+      "residual_risks": [
+        "Fixed stencil family, geometric weights and indicator sets, not data-dependent stencil selection or moving mesh.",
+        "Six-node example is an admissible operator configuration, not guaranteed from a specific Leja selection heuristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact RESULT.md and verify.py, independent support weight and data perturbation calculations.",
+          "Full 24-page arXiv:2610.31026v1 PDF, especially Sections 4-7.",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ],
+        "reasoning": "The exact source arXiv:2610.31026 is broader for scattered interpolation order and discontinuities; inspected the full text and identified no quantified epsilon-dependent data-to-output condition-number theorem. General WENO stability literature may have nearby amplification bounds but does not directly supply this six-node witness.",
+        "searches": [
+          "published mathematical findings semantic query: compact multinode Shepard residual indicator data sensitivity inverse epsilon Lipschitz sharp six nodes",
+          "published repository code query: compact multinode Shepard epsilon sensitivity",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.31026v1",
+        "arxiv:2412.02286v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact RESULT.md and verify.py, independent support weight and data perturbation calculations.",
+          "Full 24-page arXiv:2610.31026v1 PDF, especially Sections 4-7.",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ],
+        "reasoning": "The authors define beta_j=W_j/(epsilon+I_j)^t (prior), then analyze approximation in h and indicator-separated jumps. Our cited source does not explicitly imply their epsilon->0 perturbation Lipschitz upper bound or an admissible data point lying only in an active stencil indicator, which is essential for the lower witness.",
+        "searches": [
+          "published mathematical findings semantic query: compact multinode Shepard residual indicator data sensitivity inverse epsilon Lipschitz sharp six nodes",
+          "published repository code query: compact multinode Shepard epsilon sensitivity",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact RESULT.md and verify.py, independent support weight and data perturbation calculations.",
+          "Full 24-page arXiv:2610.31026v1 PDF, especially Sections 4-7.",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ],
+        "reasoning": "The amplification statement is a fixed-geometry Lipschitz modulus of a softmax of negative t log(epsilon+absolute residual). Generic normalized-weight differentiation yields an O(1/epsilon) sufficient bound, but the exact claimed operator and equality-order perturbation geometry are additional conditions.",
+        "searches": [
+          "published mathematical findings semantic query: compact multinode Shepard residual indicator data sensitivity inverse epsilon Lipschitz sharp six nodes",
+          "published repository code query: compact multinode Shepard epsilon sensitivity",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact RESULT.md and verify.py, independent support weight and data perturbation calculations.",
+          "Full 24-page arXiv:2610.31026v1 PDF, especially Sections 4-7.",
+          "arxiv:2610.31026v1",
+          "arxiv:2412.02286v1"
+        ],
+        "reasoning": "No natural finite database establishes the all-data and all-epsilon uniform bound; the six-node geometry is a structural extremal witness and not a precomputed benchmark row.",
+        "searches": [
+          "published mathematical findings semantic query: compact multinode Shepard residual indicator data sensitivity inverse epsilon Lipschitz sharp six nodes",
+          "arxiv:2610.31026v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.",
+      "residual_risks": [
+        "Potential generic nonlinear WENO condition-number literature remains a priority risk.",
+        "Unindexed equivalent prior theorem remains possible; search failure is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces the identical nonlinear operator and proves approximation orders and indicator-separation results; the paper discusses sensitivity to exponent t through error experiments, not a data-to-data epsilon^{-1} Lipschitz norm or six-node sharp perturbation certificate. This materially supports new scope while preserving generic weighting priority.",
+          "evidence": [
+            "arXiv:2610.31026v1 Section 4 equations (10)-(11) pp6-7; Sections 5 and 6; Section 7",
+            "https://borowiecki.dev/pdf/2610.31026"
+          ],
+          "identifier_or_url": "https://borowiecki.dev/pdf/2610.31026",
+          "material_read": "Entire 24-page primary PDF available; inspected Sections 3-5 definitions/lemmas, Section 6 sensitivity-to-exponent experiments, Section 7 conclusions and references; one page visually checked",
+          "method": "Opened PDF, read source definitions (10)-(11) and indicator construction plus mathematical theorems and conclusions, searched text for data perturbation/Lipschitz",
+          "title": "Data-dependent Compact Multinode Shepard Method",
+          "trigger": "Same exact nonlinear operator, residual indicator, epsilon and t; decisive potential prior coverage"
+        },
+        {
+          "assessment": "Shares normalization principle but uses a different smoothness indicator and no located sharp present-stencil six-node data sensitivity.",
+          "evidence": [
+            "Levin, Ramón, Ruiz-Álvarez and Yáñez, arXiv:2412.02286"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.02286",
+          "material_read": "Bibliographic abstract and comparison in source result, no full primary article independently read",
+          "method": "Compared available description of degree-zero least-squares indicator to current degree-one external-residual indicator",
+          "title": "Weighted Essentially Non-Oscillatory Shepard method",
+          "trigger": "Earlier nonlinear Shepard inverse-weight method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2610.31026v1",
+        "arxiv:2412.02286v1",
+        "RESULT.md"
+      ],
+      "rationale": "For a newly specified data-dependent scattered-data interpolation operator, the sharp sensitivity to small regularization epsilon is a mathematically and numerically motivated stability obstruction. The explicit admissible geometry and fixed-noise-scale output jump diagnose how local adaptation trades off data perturbation robustness. The calculation is more than the generic derivative of inverse weights because geometry/indicator-only point and sharp uniform data bound must coexist.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed stencil family, geometric weights and indicator sets, not data-dependent stencil selection or moving mesh.",
+    "Six-node example is an admissible operator configuration, not guaranteed from a specific Leja selection heuristic.",
+    "Potential generic nonlinear WENO condition-number literature remains a priority risk."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof reconstructs the operator from the exact source definitions, bounds indicator derivatives using interpolation Lebesgue sums, differentiates normalized inverse-indicator weights, and bounds the resulting covariance. Its integral estimate covers arbitrary finite admissible stencil families and data within the stated uniform ball. The six-node construction directly calculates active supports, equal geometric factors, the two active polynomial values, and all indicator residuals. The exact formula proves the \(\epsilon^{-1}\) lower order and nonvanishing perturbation effect. The packaged standard-library rational verifier confirms geometry and 2,220 finite test cases. Universal claims rely on the proof, not sampling.
+## correctness
 
-## Originality: PASS under documented source-access limits
-The October 2026 original full HTML (arXiv:2610.31026v1, Sections 3--7) was compared at the level of weights, indicator definition, polynomial degree, geometry, and data perturbation, rather than by title. Its results address interpolation accuracy, nonoscillatory behavior, local interpolation stability and sensitivity to the exponent, but not its data-conditioning modulus as regularization vanishes. The prior WENO--Shepard paper (arXiv:2412.02286v1, Sections 2--4) has different degree-zero least-squares indicators and likewise does not present this residual-indicator six-node sensitivity law. Published research-record searches using noise, stability, Shepard, smoothness residual and epsilon aliases returned nearby interpolation and stability results, but no implication covering the complete claim. A generic normalized-weight differentiation identity is not independently novel; the contribution is a quantitative, attained method-specific data sensitivity estimate and finite admissible diagnostic. Historical priority beyond inspected sources remains at risk.
+PASS
 
-## Mathematical value: PASS
-The method weights actively use smoothness residuals measured from the same data and fixes a very small regularizer in its numerical experiments. The demonstrated amplification requires neither geometric ill-conditioning nor interpolation changes on the two active stencils. It instead comes solely from a single indicator-only observation, and persists over an open interval of evaluation points. The exact perturbation law identifies a meaningful measurement-precision scale for choosing regularization near discontinuous branches, not merely an arbitrary numerical test.
+For fixed unisolvent stencils, indicator sites and support weights, perturbing bounded data f by delta changes each residual indicator at rate at most Hx delta. The log of the positive unnormalized weight differentiates almost everywhere with rate at most tHx delta/epsilon. The normalized-weight covariance identity, weighted Cauchy-Schwarz and |Pj|<=Lx B give |K[f]-K[g]|<=Lx(1+tBHx/epsilon)delta, with no smoothness assumption on the data. In the actual six nodes (0,1/4,1,2,11/4,3), at x=3/2 exactly two equal geometric weights are active; first active branch 0, second 1, and the first residual changes to delta. Independently checked geometric support and exact formula K(delta)=(epsilon+delta)^t/[epsilon^t+(epsilon+delta)^t], giving derivative t/(4epsilon) and an O(1) output gap for delta=c epsilon. The bound is sharp in exponent, not in its prefactor; fixed stencils need not be selected by a particular implementation.
 
-## Closest literature and limitations
-The two referenced arXiv full texts are the closest directly relevant available sources. The results apply at fixed stencil geometry, including a valid but not necessarily automatically selected stencil covering. They do not establish practical failure on the paper's full numerical benchmark data. Broader nonlinear WENO sensitivity principles may offer an alternative proof and prevent any blanket claim of invention of inverse-indicator conditioning.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.
+
+## value
+
+PASS
+
+For a newly specified data-dependent scattered-data interpolation operator, the sharp sensitivity to small regularization epsilon is a mathematically and numerically motivated stability obstruction. The explicit admissible geometry and fixed-noise-scale output jump diagnose how local adaptation trades off data perturbation robustness. The calculation is more than the generic derivative of inverse weights because geometry/indicator-only point and sharp uniform data bound must coexist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
