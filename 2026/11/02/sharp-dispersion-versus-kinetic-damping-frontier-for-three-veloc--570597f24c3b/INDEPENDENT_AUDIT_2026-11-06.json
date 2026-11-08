@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:16:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-dispersion-versus-kinetic-damping-frontier-for-three-veloc--570597f24c3b/RESULT.md (Git blob ab9ee275e4b7b12c469f955ba52312ef3da45048)",
+        "2026/11/02/sharp-dispersion-versus-kinetic-damping-frontier-for-three-veloc--570597f24c3b/verify_frontier.py (Git blob checked)",
+        "Independent standalone exact-arithmetic calculations"
+      ],
+      "rationale": "For 0<|c|<1, 0<s_v,s_w<2, and a=1/s_v-1/2,b=1/s_w-1/2, the adopted published stability boundary F(v,w)<=0 transforms by direct rational algebra into Phi=8a²b+4ab²-a-b>=0. With p=ab, Phi=a(8p-1)+b(4p-1), implying p>1/8. A collision damping cap q0<=q<1 imposes a,b∈[ell,1/(4ell)], ell=(1-q)/(2(1+q)). The lower chain when p<1/4 yields 8p²+(4ell²-1)p-ell²>=0, hence p>=P(ell); also p>=ell². Both branches attain and uniquely minimize via (a,b)=(ell,ell) if ell>=1/sqrt6, else (P(ell)/ell,ell), transition q*=5-2sqrt6. Third-order physical log-eigenvalue phase expansion then yields coefficient |c|(1-c²)(p-1/12) and strict infimum |c|(1-c²)/24 as q↑1. Independently checked symbolic F/Phi identity and twenty damping-cap designs.",
+      "residual_risks": [
+        "The all-frequency stability premise is adopted from Bellotti et al Theorem 16 and eq(14), whose primary full text was not obtained independently; the checked algebra proves the conditional optimization but does not independently reproduce the underlying Fourier-power-bounded theorem. The cap constrains collision/zero-frequency kinetic multipliers only; no global ghost-spectrum error guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellotti provides (per audited statement) a necessary/sufficient stability threshold and phase expansion but no verified independent full text showing the two-branch parameter-cap optimum.",
+          "Servan-Camas–Tsai study a distinct advection–diffusion family, and Lallemand–Luo general LBM stability/dispersion, not this explicit cap."
+        ],
+        "reasoning": "A feasible stability inequality is not identical to its constrained exact minimization; a stronger historical parametrized optimization could cover the present corollary, unresolved by inaccessible sources.",
+        "searches": [
+          "arXiv:2610.32810 cited Theorem 16/equations (14),(23)",
+          "Servan-Camas–Tsai Adv Water Resources 31 (2008)",
+          "Lallemand–Luo Phys Rev E 61 (2000)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.32810",
+        "DOI:10.1016/j.advwatres.2008.05.001",
+        "Ginzburg–d Humières Comput Math Appl 58 (2009)",
+        "Lallemand–Luo PRE 61 (2000)",
+        "Resultary semantic query: kinetic damping cap D1Q3 dispersion optimized magic parameter 1/8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published inability to attain zero cubic phase error under stability implies positivity, but not sharp coefficient 1/24 or parameter-dependent transition.",
+          "The algebraic optimization is derived by eliminating a at fixed p and imposing b>=ell, not merely substituting q into a published final formula verified in full text."
+        ],
+        "reasoning": "The underlying theorem bounds feasibility and the current work optimizes a different objective under a new explicit cap. This implication judgment is qualified because the same-model full text was inaccessible.",
+        "searches": [
+          "Bellotti et al arXiv:2610.32810 Theorem 16 eq14/23 as cited",
+          "Lallemand–Luo PRE 61 (2000)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Magic parameter is the product of two relaxation transforms already used in LBM; Bellotti already establishes stability and dispersion inputs.",
+          "The audited statement is an infimum under a **separate** zero-frequency kinetic cap, not the published generic condition of stable third-order impossibility."
+        ],
+        "reasoning": "Identical product p or failure of third-order accuracy alone does not equate to a globally sharp p_min(q) and unique optimizer across admissible collision constraints.",
+        "searches": [
+          "Resultary semantic query: kinetic damping cap D1Q3 dispersion optimized magic parameter 1/8",
+          "Bellotti–Caetano–Dubois–Graille arXiv:2610.32810 abstract and cited Theorem 16",
+          "Ginzburg–d Humières 2009 collision numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact parameter-bound table for p_min(q), unique pair and transition at 5-2sqrt6.",
+          "Published radical stability boundary can be sampled, but a table of admissible stable points is not an exact analytic envelope."
+        ],
+        "reasoning": "The result is a continuum constrained calculation, not isolated finite numerical data. Search failure does not prove novelty.",
+        "searches": [
+          "Resultary semantic query: kinetic damping cap D1Q3 dispersion optimized magic parameter 1/8",
+          "arXiv:2610.32810 abstract",
+          "Servan-Camas–Tsai 2008 DOI 10.1016/j.advwatres.2008.05.001"
+        ]
+      },
+      "rationale": "Known exact LBM stability region and physical eigen-expansion are credited, not claimed as new. The additional mathematical claim is the closed two-branch damping-constrained sharp optimization, transition and unique minimizers; no covering formula was evidenced in available primary abstracts or related papers. The uninspected full same-model paper makes the originality judgment qualified.",
+      "residual_risks": [
+        "High-relevance same-model full paper could not be read; strongest priority/underlying-stability premise limitation. Authorized institutional download returned vpn_disconnected; no bypass.",
+        "The exact stability threshold, not the optimising quadratic, originates in prior published work; full text needed to verify theorem wording independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known stability and phase results are credited; full-text coverage of the optimization remains unverified, so novelty has qualified residual risk",
+          "evidence": [
+            "Primary bibliographic record identifies same D1Q3 Lax–Wendroff advection paper; audited proof explicitly cites theorem/eq labels as inputs."
+          ],
+          "identifier_or_url": "arXiv:2610.32810v1",
+          "material_read": "Bibliographic record/abstract describing stability and long-wave dispersion; Theorem 16 and equations (14),(23) are referenced in audited RESULT.md but full primary paper was NOT accessed",
+          "method": "abstract access and source-referenced algebraic reconstruction; full-text arXiv/OA attempts failed; authorized institutional retrieval blocked by VPN",
+          "title": "Numerical analysis of a Lax–Wendroff type lattice Boltzmann scheme for the advection equation",
+          "trigger": "Exactly same scheme, stability and phase expansion"
+        },
+        {
+          "assessment": "Related but distinct advection-diffusion model; exact optimized same inequality remains a research-priority risk",
+          "evidence": [
+            "Title, publication data, topic of two-relaxation stability and dispersion."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.advwatres.2008.05.001",
+          "material_read": "Publication metadata and abstract/related OA records; full text inaccessible",
+          "method": "bibliographic/abstract inspection; institutional full text unavailable",
+          "title": "Lattice Boltzmann method with two relaxation times for advection-diffusion equation: Third order analysis and stability analysis",
+          "trigger": "Potential older two-rate dispersion/stability optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-dispersion-versus-kinetic-damping-frontier-for-three-veloc--570597f24c3b/RESULT.md",
+        "Primary literature and model references identified in originality"
+      ],
+      "rationale": "A sharp two-regime tradeoff between low-wavenumber phase dispersion and the magnitude of zero-frequency kinetic eigenvalues is a motivated numerical-stability design question. The transition identifies exact optimal relaxation choices and a nonattainable universal dispersion floor, materially beyond the known qualitative no-third-order-stable observation.",
+      "residual_risks": [
+        "The cubic coefficient is local in Fourier frequency only. Strong damping constraints on all nonzero frequencies, nonlinear LBM, and numerical round-off are not addressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-frequency stability premise is adopted from Bellotti et al Theorem 16 and eq(14), whose primary full text was not obtained independently; the checked algebra proves the conditional optimization but does not independently reproduce the underlying Fourier-power-bounded theorem. The cap constrains collision/zero-frequency kinetic multipliers only; no global ghost-spectrum error guarantee.",
+    "The cubic coefficient is local in Fourier frequency only. Strong damping constraints on all nonzero frequencies, nonlinear LBM, and numerical round-off are not addressed.",
+    "High-relevance same-model full paper could not be read; strongest priority/underlying-stability premise limitation. Authorized institutional download returned vpn_disconnected; no bypass.",
+    "The exact stability threshold, not the optimising quadratic, originates in prior published work; full text needed to verify theorem wording independently."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical result
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` proves the parameter-space statement for all interior positive relaxation pairs. The supplementary checker `verify_frontier.py` requires Python 3 and only the standard library; run `python verify_frontier.py` in the extracted file directory.
+## correctness
 
-Its actual completed checks include 720 exact-Fraction identities for the transformed stability polynomial, 9,801 high-precision comparisons with the published radical stability boundary, 19,220 exact-Fraction relaxation-box grid cases (17,826 satisfying the stability inequality), and 103 extremal designs checked with 75-digit Decimal arithmetic. The crossover identity and the limiting dispersion constant are checked. An additional independently constructed three-population Fourier amplification matrix was evaluated at small wavenumbers for three relaxation settings; the observed cubic logarithmic coefficients approached the analytic coefficient derived from the published physical branch. These finite computations do not prove the infinite-domain or continuum asymptotic assertions; the proof and the cited stability theorem do.
+PASS
 
-The sharp limit \(p\downarrow1/8\) requires a relaxation parameter approaching a singular endpoint. Uniform convergence in this limit, behavior at nonzero wavenumber under the kinetic cap, nonlinear stability, and end-to-end error are not claimed. The prior-work comparison has a specific unresolved older-paper access limitation. Independent mathematical validation has not been performed.
+For 0<|c|<1, 0<s_v,s_w<2, and a=1/s_v-1/2,b=1/s_w-1/2, the adopted published stability boundary F(v,w)<=0 transforms by direct rational algebra into Phi=8a²b+4ab²-a-b>=0. With p=ab, Phi=a(8p-1)+b(4p-1), implying p>1/8. A collision damping cap q0<=q<1 imposes a,b∈[ell,1/(4ell)], ell=(1-q)/(2(1+q)). The lower chain when p<1/4 yields 8p²+(4ell²-1)p-ell²>=0, hence p>=P(ell); also p>=ell². Both branches attain and uniquely minimize via (a,b)=(ell,ell) if ell>=1/sqrt6, else (P(ell)/ell,ell), transition q*=5-2sqrt6. Third-order physical log-eigenvalue phase expansion then yields coefficient |c|(1-c²)(p-1/12) and strict infimum |c|(1-c²)/24 as q↑1. Independently checked symbolic F/Phi identity and twenty damping-cap designs.
+
+## originality
+
+PASS
+
+Known exact LBM stability region and physical eigen-expansion are credited, not claimed as new. The additional mathematical claim is the closed two-branch damping-constrained sharp optimization, transition and unique minimizers; no covering formula was evidenced in available primary abstracts or related papers. The uninspected full same-model paper makes the originality judgment qualified.
+
+## value
+
+PASS
+
+A sharp two-regime tradeoff between low-wavenumber phase dispersion and the magnitude of zero-frequency kinetic eigenvalues is a motivated numerical-stability design question. The transition identifies exact optimal relaxation choices and a nonattainable universal dispersion floor, materially beyond the known qualitative no-third-order-stable observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
