@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limitations
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` derives the polar integral, the strict monotonicity identity, the variance coefficient, the planar closed form, the higher-dimensional asymptotic integrals, and the half-normal limit. The reproducible checker `verification/check_capsules.py` was executed in a Python environment with SymPy and SciPy, returning the final line `ALL_CHECKS_PASSED`. It checks the exact three-dimensional identity, 13 low dimensions by independent numerical quadrature, a planar elementary closed form and its logarithmic expansion, five dimensions of the long-capsule second-order expansion, the dimension-400 Gaussian crossover and the dimension-1000 fixed-aspect convergence. Those numerical grids are limited and are not infinite proofs or independent review. The analytic derivations, rather than the checker alone, support the universal claims.
+## correctness
 
-The user should not interpret the historical search as an exhaustive priority certification. The result does not claim noisy-estimator guarantees, dimension-uniform remainder estimates, or general cylindrical-family extremality.
+PASS
+
+For K=B_2^d+[-s,s]e1, h_K(theta)=1+s|theta1| and volume is κ_d+2sκ_(d-1), so the polar is an explicit positive spherical-coordinate integral. Integration by parts and an increasing-function covariance prove strict monotonicity; Taylor expansion proves a positive quadratic ball-end deficit. Beta-integral asymptotics give d>=3 powers, while an elementary d=2 angular integral gives logarithmic second-order tail. Half-normal convergence at s=tau/sqrt(d) and dominated convergence at fixed s>0 give the noncommuting high-dimensional limits. Independently integrated d=2,3,4,6,10 at multiple s; checked planar closed form at s=3,10,30.
+
+## originality
+
+PASS
+
+Polar integration, Santaló volume product and shadow-system monotonicity are prior. The candidate residual is the explicit entire capsule profile with the sharp planar logarithmic asymptotic, all-dimensional second-order tail, inverse square-root conditioning, and high-dimensional half-normal crossover.
+
+## value
+
+PASS
+
+A canonical cylinder-with-spherical-caps family reveals dimension-sensitive analytic behavior, a planar logarithmic anomaly and a sharp geometric inverse conditioning exponent; these are natural quantifiable reference results for convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
