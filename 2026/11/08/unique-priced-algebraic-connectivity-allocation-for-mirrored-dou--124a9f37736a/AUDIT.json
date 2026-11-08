@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2 and all strictly positive c_i,d,B, the centered Rayleigh vector gives lambda_2 <= B/K for every asymmetric feasible allocation. The proposed strictly positive weights spend exactly B and solve Lx=(B/K)x. The even sector has nonzero spectral values at least min_i w_i>B/K, while the odd sector ground-state squares show its smallest eigenvalue equals B/K with simple eigenvector. Equality in the Rayleigh bound forces both individual weights of every pair and then the central weight, establishing unique global optimality. `verify.py` independently confirms 108 exact rational certificates, 120 spectra and 1440 asymmetric competitors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fiedler 1990 states general tree variance for uniform total weight; Sun et al. gives SDP/dual generality; Richter-Rocha 2014 states exact unit-priced double-broom values"
+      ],
+      "reasoning": "General optimization frameworks apply but do not themselves supply the asserted exact solution. Unpriced double broom and two-uniform-price double-star results cover a lower-dimensional restriction only.",
+      "searches": [
+        "weighted tree absolute algebraic connectivity double broom heterogeneous edge prices unique maximizing edge weights",
+        "Optimal weight allocation algebraic connectivity for double star under budget with arbitrary symmetrical leaf costs",
+        "Unique maximizer of algebraic connectivity on balanced bistar double-star tree with reflection-paired heterogeneous spoke prices, and bridge price; exact square-root price law and spectral value",
+        "double star tree optimal algebraic connectivity edge weights budget optimal bridge pendant weights",
+        "optimal algebraic connectivity tree weighted edge cost double star closed form",
+        "tree algebraic connectivity maximization edge weights resource total budget analytic optimal edge weight Fiedler"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al., SIAM Review 48 (2006), DOI:10.1137/S0036144504443821, inspected primary",
+      "Richter and Rocha, 2014 Chemnitz preprint PREPRINT_10.pdf, inspected primary",
+      "Fiedler, Linear and Multilinear Algebra 26 (1990), DOI:10.1080/03081089008817967, abstract only",
+      "Constant-price-by-side double-star classification (uniform spoke prices)",
+      "Single-star heterogeneous-price and alternative objective classes, considered only for implication comparison",
+      "Semantic claim queries for related mathematical results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior two-uniform-price double-star statement treats constant spoke prices on each side, not arbitrary within-side c_i",
+        "A prior heterogeneous-price single-star statement has one hub and does not imply a two-hub bridge price law",
+        "Richter-Rocha 2014 Theorems 1 and 3 cover unit prices; Sun et al. 2006 gives general SDP with examples"
+      ],
+      "reasoning": "The known equal-cost balanced double broom and an earlier symmetric double-star with one uniform left-spoke price and one uniform right-spoke price yield special cases when all mirror-pair costs coincide. They cannot determine the optimal allocation for independent unequal pair prices, and no cited general SDP theorem explicitly evaluates the claimed price-vector-dependent optimizer. A single-star arbitrary-price result concerns a different topology and does not imply the bridge-coupled allocation.",
+      "searches": [
+        "Balanced double star graph algebraic connectivity exact optimal priced edge conductances mirrored heterogeneous pendant edge prices bridge cost square root budget formula",
+        "Optimal weight allocation algebraic connectivity for double star under budget with arbitrary symmetrical leaf costs",
+        "Unique maximizer of algebraic connectivity on balanced bistar double-star tree with reflection-paired heterogeneous spoke prices, and bridge price; exact square-root price law and spectral value",
+        "Richter Rocha 2014 double broom theorem prices",
+        "Sun Boyd Xiao Diaconis 2006 FMMP example paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. continuous-time FMMP dual is equivalent to budgeted lambda2; Fiedler absolute connectivity unit edge cost; Richter-Rocha double brooms unit cost"
+      ],
+      "reasoning": "Our all-c_i result is an evaluated cost-sensitive strict extension of unit-cost statements, not simply a rephrasing of a known closed form. Replacing the graph with a single star changes topology and does not imply the central bridge law.",
+      "searches": [
+        "Fastest mixing Markov chain on friendship graph windmill graph clique bouquet optimal transition weights spectral SLEM",
+        "Exact optimal edge conductances maximizing algebraic connectivity for asymmetric graph families under costs",
+        "Balanced double star graph algebraic connectivity exact optimal priced edge conductances mirrored heterogeneous pendant edge prices bridge cost square root budget formula",
+        "Fiedler 1990 absolute algebraic connectivity of trees variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical-research nearest relevant records concern other graph and optimization invariants; no located exact table for reflection-paired heterogeneous star costs",
+        "2014 primary preprint Theorems 1,3 are uniform-cost closed forms"
+      ],
+      "reasoning": "No matching exact heterogeneous value or all-conductance allocation found in searches. This is best-knowledge comparison rather than proof of global uniqueness in literature.",
+      "searches": [
+        "Balanced double star graph algebraic connectivity exact optimal priced edge conductances mirrored heterogeneous pendant edge prices bridge cost square root budget formula",
+        "weighted tree absolute algebraic connectivity double broom heterogeneous edge prices unique maximizing edge weights",
+        "Optimal weight allocation algebraic connectivity for double star under budget with arbitrary symmetrical leaf costs",
+        "Unique maximizer of algebraic connectivity on balanced bistar double-star tree with reflection-paired heterogeneous spoke prices, and bridge price; exact square-root price law and spectral value",
+        "Absolute algebraic connectivity of double brooms and trees Richter Rocha pdf",
+        "\"Absolute algebraic connectivity\" \"cost\" \"tree\" edge weights",
+        "Miroslav Fiedler Absolute algebraic connectivity of trees pdf full text"
+      ]
+    },
+    "rationale": "Inspected Sun et al. 2006, §§1,4,5 (general FMMP and weighted MVU dual, no derived mirror-priced double-star formula); Richter and Rocha 2014, Theorems 1 and 3 and embedding discussion (unpriced double broom only); Fiedler 1990 available abstract (unweighted total-cost absolute connectivity, full text unavailable). Exact heterogeneous mirror-paired c_i vector, independent bridge price, global uniqueness and all weights are not entailed by those displayed formulas. The known constant-spoke-price double-star subcase is explicitly excluded from novelty claims. Search limitations remain.",
+    "residual_risks": [
+      "Older 1990 Fiedler full text inaccessible; available abstract states uniform price only.",
+      "Equivalent unindexed tree-optimization work or an unpublished derivation might contain the heterogeneous formula.",
+      "Known equal-cost and two-uniform-price double-star subfamilies are prior and not claimed novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP/weighted-constraint framework; no evaluated heterogeneous mirrored double-star optimizer in examined material",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821; Section 4.3 weak/strong duality, 4.4 optimum conditions; Section 5 examples"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Abstract and sections 1, 4.1-4.4, 5.1-5.2 in extracted text, plus page 10 screenshot (zero-based page 9).",
+        "method": "Primary PDF text and PDF screenshot",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same spectral-rate edge cost optimization and general dual formulation"
+      },
+      {
+        "assessment": "Exact absolute connectivity and eigenvectors for uniform unit edge-price constraint; no independently varying mirrored pair prices",
+        "evidence": [
+          "2014 preprint, page 2 model definition, page 3 Theorems 1 and 3, Sections 2-3"
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "material_read": "Pages 1-6 in primary text, including Theorems 1 and 3 and embedding proof; page 2-3 screenshots.",
+        "method": "Primary PDF text and PDF screenshots",
+        "title": "Absolute algebraic connectivity of double brooms",
+        "trigger": "Exact same unweighted double-broom topology and potential stronger coverage"
+      },
+      {
+        "assessment": "Uniform sum of edge weights and tree variance theorem documented by abstract; arbitrary positive pair-specific cost objective is not asserted there, but full-text risk remains",
+        "evidence": [
+          "Linear and Multilinear Algebra 26 (1990), 85-106; published abstract explicitly defines average edge weight constraint"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Published abstract and bibliographic metadata only; full primary text inaccessible after OA search and institutional-access attempt.",
+        "method": "Published abstract; arXiv/OA search; public open-access attempts did not yield the full paper",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Older general tree formula may dominate a double-star variant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "124a9f37-736a-4a99-bbc9-826b3d8932db",
+  "value": {
+    "rationale": "A mirror-priced double-star is a natural pair of modular star networks coupled by an expensive/cheap inter-hub link. Unlike the previously evaluated uniform-cost case, arbitrary m-dimensional positive pendant price vectors require a nontrivial resource allocation for each edge. The exact unique price-to-weight map and inverse-square-root marginal law allow immediate design and rigorous sensitivity interpretation; no paper-sized extension is needed.",
+    "status": "PASS"
+  }
+}
