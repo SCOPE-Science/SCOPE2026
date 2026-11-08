@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof verifies exact two-step graph intervals, proves closure to the whole grid from any nonedge outside the \(3\)-by-\(3\) case, and classifies all maximal proper convex sets in the exception. Counting partial permutation matrices and six exceptional complementary matchings yields the two polynomial formulas. Independent breadth-first-search graph enumeration verifies all \(107008\) subsets in five finite examples, while the unbounded conclusion depends on the structural argument.
+## correctness
 
-**Originality: PASS, qualified.** The 2019 induced-path hull reference and its 2022 journal development address chordal complexity and unit interval algorithms, not the full categorical-product enumeration. The inspected 2016 graph-products thesis deals with ordinary \(P_3\) hulls of Cartesian/strong/lexicographic products and geodetic hulls of complementary prisms. Published mathematical research records and accessible prior claim statements were compared for aliases, dualities, special cases, and stronger coverage; no dominating statement was found. The 2019 conference chapter full text remains inaccessible, and published-priority uncertainty is not resolved by a negative search alone.
+PASS
 
-**Mathematical value: PASS.** This is a complete size-by-size hull-set enumeration for a natural infinite two-parameter family, rather than a scalar minimum or an unmotivated finite instance. The categorical adjacency geometry yields a decisive two-vertex generating condition, while the smallest case exhibits a nontrivial permutation-matrix obstruction. The exceptional polynomial and exact extremal multiplicities quantify the structural transition.
+For categorical/direct K_m times K_n (m,n>=3) two vertices adjacent iff row and column both differ, so nonadjacent iff same row/column; diameter 2 and their common neighbors can be written explicitly. If max(m,n)>=4, iterating intervals from any same-row or same-column pair fills all grid cells via two unused opposite columns or two available opposite rows; hence every proper convex subset is a clique, exactly a partial permutation matrix. Count partial matchings as binom(m,k)binom(n,k)k! and subtract from (1+z)^(mn). In K_3 times K_3, same-row pair forces a four-cell cross; any maximal proper closure adds one of two corner diagonals to give one of six complements of full permutation matrices. Inclusion-exclusion on these six six-sets gives 6z^3+45z^4+90z^5+78z^6+36z^7+9z^8+z^9; hull number 3, six minima. Generic hull number 2, with m binom(n,2)+n binom(m,2) minima. Independently implemented diameter-two interval closure from adjacency and enumerated all subsets for (3,3),(3,4),(4,3), matching every coefficient. Remaining large instances rely on structural proof, not enumeration.
 
-**Scientific limits.** Dimensions below three, one-step geodetic coverings, ordinary \(P_3\)-convexity, and arbitrary factor graphs are outside scope. Publication-priority assessment remains qualified by the inaccessible conference full text; the proof has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Induced P3-star hull complexity results and the 2016 thesis on different graph products do not establish the full iterative geodesic hull polynomial on categorical K_m times K_n; one-step geodetic polynomial for multipartite graphs is also not equivalent. Best-of-knowledge new classification with risk from incomplete full conference-chapter access.
+
+## value
+
+PASS
+
+Complete all-cardinality hull-set enumeration for an infinite, natural two-parameter categorical graph-product family, with a genuine 3x3 exceptional convex geometry. The classification is stronger than the scalar hull number and useful for geodesic-convexity extremal and generating-set questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

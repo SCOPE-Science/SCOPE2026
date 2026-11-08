@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:46:58.469178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For categorical/direct K_m times K_n (m,n>=3) two vertices adjacent iff row and column both differ, so nonadjacent iff same row/column; diameter 2 and their common neighbors can be written explicitly. If max(m,n)>=4, iterating intervals from any same-row or same-column pair fills all grid cells via two unused opposite columns or two available opposite rows; hence every proper convex subset is a clique, exactly a partial permutation matrix. Count partial matchings as binom(m,k)binom(n,k)k! and subtract from (1+z)^(mn). In K_3 times K_3, same-row pair forces a four-cell cross; any maximal proper closure adds one of two corner diagonals to give one of six complements of full permutation matrices. Inclusion-exclusion on these six six-sets gives 6z^3+45z^4+90z^5+78z^6+36z^7+9z^8+z^9; hull number 3, six minima. Generic hull number 2, with m binom(n,2)+n binom(m,2) minima. Independently implemented diameter-two interval closure from adjacency and enumerated all subsets for (3,3),(3,4),(4,3), matching every coefficient. Remaining large instances rely on structural proof, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. results address complexity for chordal graphs and algorithms on unit interval graphs. Nascimento thesis describes P3-convex Cartesian/strong/lexicographic products and geodesic complementary prisms, not categorical K_m times K_n."
+        ],
+        "reasoning": "Broad algorithmic complexity does not imply the exact size-by-size polynomial; other graph products or convexity operators have incompatible intervals. The uninspected conference chapter full text retains explicit residual risk.",
+        "searches": [
+          "Dourado Penso Rautenbach DOI:10.1007/978-3-030-25005-8_18",
+          "Dourado Penso Rautenbach DOI:10.1016/j.tcs.2022.01.004",
+          "Nascimento 2016 graph product P3 and geodesic hull thesis"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/978-3-030-25005-8_18",
+        "https://doi.org/10.1016/j.tcs.2022.01.004",
+        "https://repositorio.bc.ufg.br/tede/bitstreams/1f92770c-2e74-4bcb-ae26-af5dacc73643/download",
+        "Resultary 2026/10/4/SCOPE-geodetic-polynomial-of-complete-multipartite-graphs--98565a07b2d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The thesis primary abstract explicitly lists Cartesian, strong, lexicographic P3 hull and complementary-prism geodesic results; it does not state a categorical-product geodesic enumerator. Induced-P3-star chordal complexity has a different conclusion, and one-step geodetic multipartite polynomial cannot count iterative hull sets in complement-of-rook graphs."
+        ],
+        "reasoning": "No compared theorem entails the present two-parameter enumeration or the six exceptional K3xK3 maximal proper convex sets. The possible uninspected conference-text specialization is retained as a priority risk.",
+        "searches": [
+          "Nascimento thesis 2016 https://repositorio.bc.ufg.br/tede/bitstreams/1f92770c-2e74-4bcb-ae26-af5dacc73643/download",
+          "Dourado et al. 2022 DOI:10.1016/j.tcs.2022.01.004",
+          "Resultary: geodetic polynomial complete multipartite graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_m times K_n categorical product is complement of rook graph / edges of K_{m,n} with disjoint endpoint adjacency. Because diameter=2, geodesic hull equals induced-P3* hull here; ordinary P3-bootstrap and one-step geodetic are different rules."
+        ],
+        "reasoning": "Searched tensor/direct product, complementary rook graph and induced-P3-star aliases, comparing their closure operators. No same-family all-subset polynomial found. Do not equate ordinary P3 or one-step geodetic with iterative geodesic hull.",
+        "searches": [
+          "Resultary: geodesic convexity hull set polynomial direct categorical product complete graphs",
+          "web: \"categorical product\" \"complete graphs\" \"hull number\" geodesic convexity",
+          "P3-star induced path convexity complement rook graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cited finding counts one-step geodetic sets for complete multipartite graphs, neither the graph family nor the iterative convex-hull invariant. Small K3xK3 hull number 3 alone does not imply seven polynomial coefficients."
+        ],
+        "reasoning": "No exact database/table giving this full all-parameter polynomial was identified. An exhaustive small finite table would not imply the structural infinite classification, and a failed lookup is not novelty proof.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-geodetic-polynomial-of-complete-multipartite-graphs--98565a07b2d3",
+          "web: hull polynomial complement rook graph line K_m times K_n matching exceptional 3x3"
+        ]
+      },
+      "rationale": "Induced P3-star hull complexity results and the 2016 thesis on different graph products do not establish the full iterative geodesic hull polynomial on categorical K_m times K_n; one-step geodetic polynomial for multipartite graphs is also not equivalent. Best-of-knowledge new classification with risk from incomplete full conference-chapter access.",
+      "residual_risks": [
+        "Full 2019 proceedings chapter of Dourado-Penso-Rautenbach not obtained, although journal-level abstract and relevant claims were checked; a hidden specialized product result is possible.",
+        "Older graph-convexity work might use complement-of-rook-graph terminology and evade index search; no novelty guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in examined thesis scope, with uninspected material caveat",
+          "evidence": "English abstract specifies Cartesian/strong/lexicographic P3 hull and geodesic complementary-prism hull; no categorical-product K_m times K_n claim in examined material.",
+          "identifier_or_url": "https://repositorio.bc.ufg.br/tede/bitstreams/1f92770c-2e74-4bcb-ae26-af5dacc73643/download",
+          "material_read": "Lawful full thesis PDF accessible; inspected actual English abstract (page 11 screenshot), chapter-topic descriptions and graph-product scope; did not read all 87 pages.",
+          "method": "primary full-document available with PDF visual page check",
+          "title": "The P3-Hull Number and the Geodetic Hull Number in Graph Products",
+          "trigger": "closest graph-product geodesic hull thesis"
+        },
+        {
+          "assessment": "NOT_COVERING among inspected results, residual full-text uncertainty",
+          "evidence": "The available statements are algorithmic/general complexity, not a full categorical-product polynomial.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.01.004",
+          "material_read": "Publisher-indexed primary introduction/abstract/results about chordal complexity and unit-interval algorithms; whole article not exhaustively read.",
+          "method": "primary article indexed sections",
+          "title": "The hull number in the convexity of induced paths of order 3",
+          "trigger": "same P3-star induced path convexity"
+        },
+        {
+          "assessment": "UNCERTAIN: original full chapter unavailable",
+          "evidence": "Could contain specialized examples not visible in abstract; retained as priority risk.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-25005-8_18",
+          "material_read": "Only abstract/bibliographic content and later journal results accessible; direct complete proceedings chapter inaccessible.",
+          "method": "primary published abstract and follow-up",
+          "title": "The Hull Number in the Convexity of Induced Paths of Order 3",
+          "trigger": "original 2019 conference version"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete all-cardinality hull-set enumeration for an infinite, natural two-parameter categorical graph-product family, with a genuine 3x3 exceptional convex geometry. The classification is stronger than the scalar hull number and useful for geodesic-convexity extremal and generating-set questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 2019 proceedings chapter of Dourado-Penso-Rautenbach not obtained, although journal-level abstract and relevant claims were checked; a hidden specialized product result is possible.",
+    "Older graph-convexity work might use complement-of-rook-graph terminology and evade index search; no novelty guarantee."
+  ],
+  "schema_version": 1
+}
