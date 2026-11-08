@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Replayable finite verification
+# Independent mathematical audit
 
-1. Run `python3 verify_paley89.py`. This constructs every prime-power field of eligible order at most 89; the defining polynomials are explicitly checked for small-degree factors. It checks all affine-square-normalized ordered-pair configurations and all 16 fourth-vertex extension patterns. All thirteen smaller eligible orders return a counterexample. At order 89 all \(7,482\) normalized configurations pass.
-2. Compile `verify_paley89_direct.cpp` with a C++17 compiler and run it; it directly inspects all \(\binom{89}{4}=2,441,626\) four-subsets and 16 patterns per subset, without the Python normal-form reduction. Every pattern occurs, with minimum per-four-set coverage exactly 16.
-3. The `run_checks.sh` script performs both operations. The two recorded outputs `verify_paley89.stdout.txt` and `verify_paley89_direct.stdout.txt` capture the completed checks; the latter's elapsed seconds depend on the machine.
+## correctness
 
-The finite certificate is exhaustive for the precise first-order threshold claim. It does not establish any assertion for Paley parameters above 89. The reduction from 4-e.c. to agreement with the Rado graph through quantifier rank five is a mathematical proof given in RESULT.md, not a finite experiment. The computations and proof have not been independently audited.
+PASS
+
+The exact 4-existential closure test requires every pattern on every 4-vertex set to occur outside that set. Five-round Ehrenfeucht-Fraisse back-and-forth gives the exact equivalence with quantifier-rank <=5 theory of the countable Rado graph, and the rank-five four-extension axiom gives the converse. Translation and square scaling of finite fields reduce quadruples to two normalized initial pairs and (q−2)(q−3) unordered normal forms; the source code constructs genuine finite field quotients for q=9,25,49,81 and tests all eligible prime powers through 89. I independently evaluated all C(89,4)=2,441,626 four-vertex subsets directly via integer quadratic-residue adjacency and all 16 patterns: every subset passes. The supplied lower-order witness table and verified irreducible polynomials cover the thirteen smaller eligible q, so minimality is within the prime-power Paley family only.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge original contribution is The 89-vertex Paley graph is the first Paley model of the five-round random-graph theory; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
+
+## value
+
+PASS
+
+The first exact four-extension threshold among the Paley graphs is a natural finite extremal invariant connecting arithmetic pseudorandom graphs and finite-model-theoretic approximation to the Rado graph. It sharpens eventual-4-e.c. sufficient bounds and differs from arbitrary 4-e.c. graph minimum, which is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

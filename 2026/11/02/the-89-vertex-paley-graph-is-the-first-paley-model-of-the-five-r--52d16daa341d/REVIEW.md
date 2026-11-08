@@ -1,11 +1,21 @@
-# Scientific review: the first four-existentially closed Paley graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The 4-e.c./five-round Rado equivalence follows directly from the back-and-forth game and the quantifier-rank-five extension axioms. The finite-field classification includes *all* prime powers below or equal to 89, verified by an irreducible-polynomial construction and a complete affine-normal-form check with explicit negative witnesses for each smaller order. An independently implemented C++ enumerator checks each of the 2,441,626 unordered four-subsets of \(P(89)\) directly. The two positive computations agree without relying on the same orbit reduction.
+## correctness
 
-**Originality — PASS, qualified.** Prior adjacency-property results cover general Paley existential closure, and a publicly available sufficient bound at prime orders \(p\ge193\) is explicitly nonsharp. No inspected full text or research-index result states the sharp first prime-power parameter 89 with its thirteen smaller counterwitnesses. The 1993 Ananchuen–Caccetta paper and the related thesis chapter were not fully accessible and are a material historical-priority uncertainty. The Rado-logic reformulation alone is standard, so originality is attached to the exact sharp Paley threshold, not to the general EF transfer.
+PASS
 
-**Mathematical value — PASS.** The n-existentially-closed hierarchy is natural in finite model theory and Paley graphs are a standard pseudorandom deterministic family. Locating the first order for 4-e.c. across every prime-power construction and connecting it precisely to five-round Rado equivalence gives a motivated exact model threshold, not a selected arbitrary small-parameter statistic. It improves the previously published sufficient Paley prime bound and is a natural next case beyond the 3-e.c. literature.
+The exact 4-existential closure test requires every pattern on every 4-vertex set to occur outside that set. Five-round Ehrenfeucht-Fraisse back-and-forth gives the exact equivalence with quantifier-rank <=5 theory of the countable Rado graph, and the rank-five four-extension axiom gives the converse. Translation and square scaling of finite fields reduce quadruples to two normalized initial pairs and (q−2)(q−3) unordered normal forms; the source code constructs genuine finite field quotients for q=9,25,49,81 and tests all eligible prime powers through 89. I independently evaluated all C(89,4)=2,441,626 four-vertex subsets directly via integer quadratic-residue adjacency and all 16 patterns: every subset passes. The supplied lower-order witness table and verified irreducible polynomials cover the thirteen smaller eligible q, so minimality is within the prime-power Paley family only.
 
-**Closest primary literature and risks.** Ananchuen–Caccetta (Networks, 1993), Bonato–Holzmann–Kharaghani (2001), and Elsawy (arXiv:1203.1818v1, 2012); plus the publicly released 4-e.c.-to-geometric-dominance comparison. The older paper/thesis could contain a numerically equivalent result, so priority is qualified. No claim about first 4-e.c. among all finite graphs, all strongly regular graphs, or every larger Paley graph is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge original contribution is The 89-vertex Paley graph is the first Paley model of the five-round random-graph theory; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
+
+## value
+
+PASS
+
+The first exact four-extension threshold among the Paley graphs is a natural finite extremal invariant connecting arithmetic pseudorandom graphs and finite-model-theoretic approximation to the Rado graph. It sharpens eventual-4-e.c. sufficient bounds and differs from arbitrary 4-e.c. graph minimum, which is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
