@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:52:57.934355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981/verify.py",
+        "/mnt/data/scope_worker03_20261105T1238Z/independent_checks.py"
+      ],
+      "rationale": "For the infinite 1D rate-half Glauber chain reset globally to all plus, γ∈(0,1), fixed separation n, the no-reset two-point hierarchy C_n_prime=−2C_n+γ(C_{n−1}+C_{n+1}) with C_0=1 and C_n(0)=1 gives W_n=−C_n_prime solving the killed discrete heat equation with W_n(0)=a=2(1−γ). The reflected Bessel heat kernel sums exactly to S_n(t)=e^(−2t)[I_0(2γt)+2Σ_(j=1)^(n−1)I_j(2γt)+I_n(2γt)]>0. Thus C_n(t)=q^n+a∫_t∞S_n. For t→∞ at fixed n, S_n~(n/√(πγ))t^(−1/2)e^(−at), and same leading factor for C_n−q^n after multiplying by a and integrating. At stationary exponential reset age A~Exp(r), the strictly monotone pushforward yields the exact density and CDF tail: for y↓0, F(q^n+y)~c_n^(−θ)a^(−θ/2)y^θ(log1/y)^(θ/2), density~θ times that over y with θ=r/a. It diverges including √log at r=a and vanishes r>a. Zero-coupling γ=0 is separately exact without log. The stationary spatial mean solves an inhomogeneous second-order difference equation and yields b+(1−b)ξ^n and the positive connected infinite-separation residual. Independent Bessel-kernel evaluations, late-time asymptotics and quadrature of mean agree within bounded numerical error. The variable U_n is a thermodynamic spatial average conditioned on a shared reset age, NOT an instantaneous ±1 bond product; no uniform n→∞ and y↓0 claim.",
+      "residual_risks": [
+        "A prior unindexed age-mixture or two-point-function distribution derivation might be equivalent.",
+        "Continuum law is spatially averaged correlation conditional on common age, not the single-bond spin product; fixing n before edge asymptotics is necessary.",
+        "No extension to zero temperature, 2D, heterogenous resets or joint n→∞/y→0 limit is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magoni–Majumdar–Schehr 2020 establishes renewal and single-spin magnetization distribution, but their final discussion raises two-point distributions as further study. Glauber 1963 gives the no-reset Bessel propagator, but not global-reset pushforward law. Chen–Zhong 2024 concerns different 2D Metropolis critical dynamics."
+        ],
+        "reasoning": "Combining known ingredients requires proving strict correlation monotonicity, Bessel tail and logarithmic inversion; no cited theorem directly covers the completed phase diagram.",
+        "searches": [
+          "Resultary semantic query: Glauber Ising stochastic resetting spatial average two point correlation distribution logarithmic edge singularity",
+          "https://arxiv.org/abs/2002.04867",
+          "https://arxiv.org/abs/2407.11708",
+          "https://doi.org/10.1063/1.1703954"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2002.04867",
+        "https://arxiv.org/abs/2407.11708",
+        "https://doi.org/10.1063/1.1703954",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-correlation-flow-markovianity-threshold-for-the-depolarizi--2f2033eea3e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known magnetization density has threshold r=1−γ with an ordinary finite critical edge; it cannot imply the double-rate r=2(1−γ) and critical sqrt(log) correlation edge. The classical two-point hierarchy plus reset age furnishes the separate proof."
+        ],
+        "reasoning": "Independent numerical Bessel and renewal mean checks corroborate but the analytic heat kernel and asymptotics establish the infinite result.",
+        "searches": [
+          "Resultary semantic query: Glauber Ising stochastic resetting spatial average two point correlation distribution logarithmic edge singularity",
+          "https://arxiv.org/abs/2002.04867",
+          "https://arxiv.org/abs/2407.11708",
+          "https://doi.org/10.1063/1.1703954"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The law is a monotone transformation of an exponential backward-recurrence age; equivalently it is the stationary renewal distribution of a deterministic no-reset correlation trajectory. This differs from the fixed-bond instantaneous two-spin law, which is discrete and not a continuously distributed U_n."
+        ],
+        "reasoning": "The distinction between thermodynamic spatial averaging and per-bond sampling is essential.",
+        "searches": [
+          "Resultary semantic query: Glauber Ising stochastic resetting spatial average two point correlation distribution logarithmic edge singularity",
+          "https://arxiv.org/abs/2002.04867",
+          "https://arxiv.org/abs/2407.11708",
+          "https://doi.org/10.1063/1.1703954"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The density is a continuum distribution for each integer n and real reset rate, not a finite tabulated invariant. The Resultary query found unrelated correlation-threshold records, not this 1D Glauber fixed-separation edge law."
+        ],
+        "reasoning": "Absence of indexed data does not certify originality.",
+        "searches": [
+          "Resultary semantic query: Glauber Ising stochastic resetting spatial average two point correlation distribution logarithmic edge singularity",
+          "https://arxiv.org/abs/2002.04867",
+          "https://arxiv.org/abs/2407.11708",
+          "https://doi.org/10.1063/1.1703954"
+        ]
+      },
+      "rationale": "Magoni–Majumdar–Schehr 2020 provides the same global reset Glauber model, exact magnetization distribution and threshold r*=1−γ. Its complete inspected paper explicitly identifies distribution of pair correlations as a future question. The two-point hierarchy has a different relaxation exponent 2(1−γ), yielding doubled critical reset rate and a Bessel t^(−1/2) logarithmic correction absent from the magnetization distribution. The 2024 Chen–Zhong resetting paper treats 2D Metropolis critical dynamics; neither paper directly proves the target 1D spatial-average pushforward law. Novelty remains best-of-knowledge with possible implicit older renewal/Bessel treatments.",
+      "residual_risks": [
+        "A prior unindexed age-mixture or two-point-function distribution derivation might be equivalent.",
+        "Continuum law is spatially averaged correlation conditional on common age, not the single-bond spin product; fixing n before edge asymptotics is necessary.",
+        "No extension to zero temperature, 2D, heterogenous resets or joint n→∞/y→0 limit is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior same-model magnetization, explicit open spatial two-point distribution",
+          "evidence": "Magnetization threshold is 1−γ; concluding discussion identifies two-point correlation distributions as further problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+          "material_read": "Complete accessible 2020 primary preprint including magnetization distribution and concluding open direction on two-point correlations",
+          "method": "primary PDF full reading including conclusion",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "exact same reset dynamics, main novelty risk"
+        },
+        {
+          "assessment": "Different 2D Metropolis model; partial inspection only",
+          "evidence": "No justified whole-document noncoverage claim based solely on abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11708",
+          "material_read": "Primary abstract and relevant model synopsis; full text not verified in this audit",
+          "method": "preprint abstract/overview reading",
+          "title": "Crossover from Anomalous to Normal Diffusion: Ising Model with Stochastic Resetting",
+          "trigger": "other resetting Ising correlation study"
+        },
+        {
+          "assessment": "Kinetic Ising equations prior, resetting pushforward not from 1963",
+          "evidence": "The candidate uses classical Bessel killed propagator rather than claiming the propagator new.",
+          "identifier_or_url": "https://doi.org/10.1063/1.1703954",
+          "material_read": "Classical bibliographic details and established Bessel/closed-hierarchy equations, not whole article",
+          "method": "historical primary formula cross-check",
+          "title": "Time-Dependent Statistics of the Ising Model",
+          "trigger": "origin of closed Glauber 1D two-spin hierarchy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2002.04867",
+        "https://arxiv.org/abs/2407.11708",
+        "https://doi.org/10.1063/1.1703954",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-correlation-flow-markovianity-threshold-for-the-depolarizi--2f2033eea3e4"
+      ],
+      "rationale": "This exact stochastic-process law resolves a natural observable proposed by the model's own initiating paper. It quantitatively distinguishes magnetization and spatial correlation reset thresholds, identifies a critical sqrt(log) singularity, and gives a spatial profile/long-range connected limit caused by shared reset age. The effect is mathematically motivated, not merely an isolated special-function substitution.",
+      "residual_risks": [
+        "A prior unindexed age-mixture or two-point-function distribution derivation might be equivalent.",
+        "Continuum law is spatially averaged correlation conditional on common age, not the single-bond spin product; fixing n before edge asymptotics is necessary.",
+        "No extension to zero temperature, 2D, heterogenous resets or joint n→∞/y→0 limit is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2002.04867",
+    "https://arxiv.org/abs/2407.11708",
+    "https://doi.org/10.1063/1.1703954",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-correlation-flow-markovianity-threshold-for-the-depolarizi--2f2033eea3e4",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981/verify.py",
+    "/mnt/data/scope_worker03_20261105T1238Z/independent_checks.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A prior unindexed age-mixture or two-point-function distribution derivation might be equivalent.",
+    "Continuum law is spatially averaged correlation conditional on common age, not the single-bond spin product; fixing n before edge asymptotics is necessary.",
+    "No extension to zero temperature, 2D, heterogenous resets or joint n→∞/y→0 limit is claimed."
+  ],
+  "schema_version": 1
+}

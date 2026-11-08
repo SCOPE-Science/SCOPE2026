@@ -1,13 +1,21 @@
-# Scientific review: spatial Glauber–Ising correlation law under resetting
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Glauber spin-flip generator gives a closed hierarchy for equal-time spatial spin-pair expectations. Its derivative evolves under a positive half-line discrete heat semigroup, whose image Bessel kernel telescopes to an exact finite sum. Integrating and using the standard one-dimensional Gibbs limit proves strict monotonicity and the full deterministic relaxation formula. Fixed-order Bessel asymptotics yield the \(t^{-1/2}\) spectral prefactor, and transforming an independent exponential resetting age proves the cumulative and density edge asymptotics. Direct algebra provides the exact stationary spatial profile. A standalone implementation passed 231 finite numerical checks, including brute-force finite-ring generators; those computations do not substitute for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Magoni–Majumdar–Schehr (arXiv:2002.04867) determines the one-dimensional magnetization distribution and expressly suggests two-point-correlation distributions as further work. Chen–Zhong (arXiv:2407.11708) analyzes a two-dimensional critical Ising magnetization and its temporal correlations, not the equal-time spatial pair observable or its Bessel edge. Related keyword, parameter and implication searches did not identify a covering published theorem. The classical two-spin hierarchy, renewal identity, and Bessel kernel are not claimed as new. A broader previously published spectral renewal result or a currently uninspected supplement could subsume the specialized conclusion; publication priority is not established definitively.
+PASS
 
-**Mathematical value — PASS.** A distinct local-energy/spatial-pair observable shows a sharp transition at \(r=2(1-\gamma)\), exactly twice the existing magnetization threshold. Its critical lower-edge density diverges as \(\sqrt{\log(1/y)}\), in contrast to the uniform magnetization law at its own crossover. The result holds at every fixed positive separation, has an exact law throughout parameter space, and quantifies long-range stationary correlations created by the common resetting clock. It resolves a motivated distributional question rather than a selected numerical case.
+For the infinite 1D rate-half Glauber chain reset globally to all plus, γ∈(0,1), fixed separation n, the no-reset two-point hierarchy C_n_prime=−2C_n+γ(C_{n−1}+C_{n+1}) with C_0=1 and C_n(0)=1 gives W_n=−C_n_prime solving the killed discrete heat equation with W_n(0)=a=2(1−γ). The reflected Bessel heat kernel sums exactly to S_n(t)=e^(−2t)[I_0(2γt)+2Σ_(j=1)^(n−1)I_j(2γt)+I_n(2γt)]>0. Thus C_n(t)=q^n+a∫_t∞S_n. For t→∞ at fixed n, S_n~(n/√(πγ))t^(−1/2)e^(−at), and same leading factor for C_n−q^n after multiplying by a and integrating. At stationary exponential reset age A~Exp(r), the strictly monotone pushforward yields the exact density and CDF tail: for y↓0, F(q^n+y)~c_n^(−θ)a^(−θ/2)y^θ(log1/y)^(θ/2), density~θ times that over y with θ=r/a. It diverges including √log at r=a and vanishes r>a. Zero-coupling γ=0 is separately exact without log. The stationary spatial mean solves an inhomogeneous second-order difference equation and yields b+(1−b)ξ^n and the positive connected infinite-separation residual. Independent Bessel-kernel evaluations, late-time asymptotics and quadrature of mean agree within bounded numerical error. The variable U_n is a thermodynamic spatial average conditioned on a shared reset age, NOT an instantaneous ±1 bond product; no uniform n→∞ and y↓0 claim.
 
-**Scope and limitations.** Infinite one-dimensional chain, positive finite temperature, positive coupling, global deterministic all-plus Poisson resets, and thermodynamic spatial averages. A single instantaneous spin product remains binary. Finite-volume edge limits and extensions to other dynamics or reset protocols are not asserted. The zero-coupling boundary is distinct. Independent expert assessment and exhaustive priority verification are outstanding.
+## originality
 
-**Closest literature.** Magoni, Majumdar and Schehr, *Ising model with stochastic resetting* (2020), arXiv:2002.04867; Chen and Zhong, *Crossover from Anomalous to Normal Diffusion: Ising Model with Stochastic Resetting* (2024), arXiv:2407.11708; Glauber, *Time-Dependent Statistics of the Ising Model* (1963).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Magoni–Majumdar–Schehr 2020 provides the same global reset Glauber model, exact magnetization distribution and threshold r*=1−γ. Its complete inspected paper explicitly identifies distribution of pair correlations as a future question. The two-point hierarchy has a different relaxation exponent 2(1−γ), yielding doubled critical reset rate and a Bessel t^(−1/2) logarithmic correction absent from the magnetization distribution. The 2024 Chen–Zhong resetting paper treats 2D Metropolis critical dynamics; neither paper directly proves the target 1D spatial-average pushforward law. Novelty remains best-of-knowledge with possible implicit older renewal/Bessel treatments.
+
+## value
+
+PASS
+
+This exact stochastic-process law resolves a natural observable proposed by the model's own initiating paper. It quantitatively distinguishes magnetization and spatial correlation reset thresholds, identifies a critical sqrt(log) singularity, and gives a spatial profile/long-range connected limit caused by shared reset age. The effect is mathematically motivated, not merely an isolated special-function substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
