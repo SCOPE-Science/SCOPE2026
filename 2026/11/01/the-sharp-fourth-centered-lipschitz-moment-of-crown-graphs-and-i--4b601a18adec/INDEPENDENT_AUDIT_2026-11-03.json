@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:11:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C_n=K_n,n minus a perfect matching with unit graph distances and N=2n, objective N^-1 sum|f-mean f|^4 over Lip(f)<=1 is strictly convex after fixing a constant, so any maximizing point is a vertex of edge-Lipschitz polytope. At a vertex tight edges span a connected graph: all values integral, and A-side values can be translated to {0,1,2}. Each B_i lies in [max_{j!=i} A_j-1,min_{j!=i} A_j+1], and strictly convex one-coordinate optimization forces an endpoint. The source enumerates all cases by A-level counts and outlier endpoints, reducing to three-level signed pattern bound F_N(k,d)=k/N+(d/N)^2(-4+6k/N)-3d^4/N^4 for k<=n and exceptional four-level pattern. Exact maximizers are T_n=1/16+5/n for n3..11 (multiset {0,1^(n-1),2^(n-1),3}) and U_n=1/2-1_{odd}(1/(4n^2)+3/(16n^4)) for n>=12 (balanced 0/2 on one shore, constant1 on other). Equality patterns and threshold n12 follow strict inequalities. Independently recomputed exact rational orbit-reduced endpoint maxima for n3..18 and all branch values, including n11 vs12; finite checks corroborate the all-n case distinction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Addario-Berry/Janson/McDiarmid discuss graph spread (variance), Yancey structural centered variance; published crown symmetric edge inradius solves full quadratic version"
+        ],
+        "reasoning": "These broad graph results concern second moments, not an all-n sharp fourth-centered moment inequality, and no general implication supplies the exact quartic classification.",
+        "searches": [
+          "arxiv:0902.1156",
+          "arxiv:1705.09725",
+          "Resultary: crown graph symmetric edge polytope Euclidean inradius tangent facet second centered Lipschitz moment 8 matched pairs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary crown symmetric edge polytope published RESULT.md",
+        "arxiv:0902.1156",
+        "arxiv:1705.09725",
+        "Resultary: crown graph K_n,n minus perfect matching fourth centered Lipschitz moment spread",
+        "Resultary: crown graph symmetric edge polytope Euclidean inradius tangent facet second centered Lipschitz moment 8 matched pairs",
+        "Resultary: crown graph metric Lipschitz spread fourth moment phase transition 12",
+        "arxiv:0902.1156",
+        "arxiv:1705.09725",
+        "graph spread fourth centered moment Lipschitz crown graph",
+        "Frozen source 2026/11/01/the-sharp-fourth-centered-lipschitz-moment-of-crown-graphs-and-i--4b601a18adec/RESULT.md SHA 77aa44496caba04cf5d5e1a5bd81213df9805446",
+        "Frozen verifier 2026/11/01/the-sharp-fourth-centered-lipschitz-moment-of-crown-graphs-and-i--4b601a18adec/verify_crown_fourth.py SHA e7cc2b7a35adbd86a13df31f20d29a28a1372740"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior quadratic formula r(P_n)^-2=max((n+8)/2,n-(n mod 2)/(2n)) has a tie at n8. Present quartic T_n vs U_n crosses n12."
+        ],
+        "reasoning": "Quadratic variance controls fourth moment through inequalities but cannot force these exact fourth-power values or equality patterns. The quartic objective weights rare outlier vertices differently.",
+        "searches": [
+          "arxiv:0902.1156",
+          "Resultary: crown graph symmetric edge polytope Euclidean inradius tangent facet second centered Lipschitz moment 8 matched pairs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published exact crown symmetric-edge polytope Euclidean inradius corresponds by polarity to maximal centered squared l2-norm, not fourth moment. Inradius branch transition at n8."
+        ],
+        "reasoning": "Both optimize on same Lipschitz polytope but objective powers differ, so former contact sets and value are not equivalent to new quartic optimum, whose threshold is n12.",
+        "searches": [
+          "Resultary: crown graph symmetric edge polytope Euclidean inradius tangent facet second centered Lipschitz moment 8 matched pairs",
+          "arxiv:0902.1156"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original package gives complete n>=3 formula, independent exact fraction check n3..18 and competing attaining witnesses"
+        ],
+        "reasoning": "A known quadratic table or finite n sample does not cover the all-integer-n quartic formula. Semantic searches found no exact fourth-moment table; not novelty proof.",
+        "searches": [
+          "Resultary: crown graph K_n,n minus perfect matching fourth centered Lipschitz moment spread",
+          "Resultary: crown graph metric Lipschitz spread fourth moment phase transition 12"
+        ]
+      },
+      "rationale": "Best-knowledge PASS: graph spread/variance is second centered moment, and earlier published crown symmetric-edge inradius is equivalent to second-Lipschitz L2 extremum at a different n8 transition; neither determines convex quartic maximum or n12 outlier-to-balanced change.",
+      "residual_risks": [
+        "Unindexed hypercontractive graph Lipschitz moments or crown graph fourth-moment tables may give an equivalent formula.",
+        "Statement is for uniform vertex measure, real functions and fourth absolute moment, not general p or weighted graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes second centered moment via polar Euclidean radius, not fourth moment or n12 transition",
+          "evidence": "published RESULT.md r(P_n)^-2 and tangent facet census",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-euclidean-inradius-and-tangent-facet-transition-for-crow--2cd222e2d952",
+          "material_read": "entire public RESULT.md read, including all potential classes and proof of quadratic objective n8 transition",
+          "method": "GitHub published primary full text",
+          "title": "A sharp Euclidean inradius and tangent-facet transition for crown-graph symmetric edge polytopes",
+          "trigger": "same crown metric Lipschitz polytope; strongest published comparison"
+        },
+        {
+          "assessment": "L2 variance spread, not known sharp fourth moment",
+          "evidence": "Addario-Berry/Janson/McDiarmid arxiv:0902.1156",
+          "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+          "material_read": "accessible abstract/background and source reference; complete paper not read",
+          "method": "arxiv abstract and frozen source reference",
+          "title": "On the spread of random graphs",
+          "trigger": "graph-spread origin of objective"
+        },
+        {
+          "assessment": "Potential broad structural lemmas but no checked quartic crown theorem",
+          "evidence": "Yancey arxiv:1705.09725",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09725",
+          "material_read": "source cited structural variance results, bibliography/full thesis not read",
+          "method": "source reference",
+          "title": "Probabilistic and Geometrical Applications to Graph Theory",
+          "trigger": "Lipschitz extremal graph spread structural results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph crown family has natural deleted matched edges and a well-defined centered Lipschitz moment; its fourth power identifies rare outliers versus balanced shores, a nontrivial optimizer-type transition at 12 pairs not predicted by existing second-moment results. This is a motivated exact entire graph-family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform real unit-edge C_n only; no general lp, weights or other graph families."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of sharp crown-graph fourth centered Lipschitz moment
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex and endpoint reduction is complete for every integer \(n\ge3\): strict convexity eliminates nonvertices; the tight-edge graph proves integral labels; the three possible labels on one vertex class and the independent endpoint intervals on the other exhaust all possibilities. The three-level fourth-moment identity, binary outlier bound, explicit exceptional and balanced constructions, and integer threshold comparison establish both exactness and optimizer rigidity. Standalone exact-rational checks enumerate 99,739 orbit-compressed candidates over 34 graph sizes and 6,828 directly labelled candidates over the first four sizes. These finite checks support, but do not replace, the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest published result is *A sharp Euclidean inradius and tangent-facet transition for crown-graph symmetric edge polytopes*, whose RESULT.md was read in full. It already classifies the relevant extreme Lipschitz potentials and calculates the exact second-moment norm. Those structural results are prior art, not claimed as new. The separate fourth centered moment optimization and exact switch at 12 pairs are not stated by its L2 radius/contact theorem (which switches at 8). Searches of mathematical research records and accessible primary literature did not identify equivalent L4 coverage. The prior complete vertex description makes this calculation relatively short, so whether it constitutes an independent contribution requires expert priority review; an unindexed higher-moment theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The fourth centered moment is a natural sharp concentration statistic and an L4 Lipschitz–Poincaré invariant. Its full infinite-family formula, all maximizers and phase threshold illustrate a genuine moment-order dependence: the same graph geometry causes different extremizer transitions at L2 and L4. It is useful for sharp higher-order concentration comparisons and is not presented as a new vertex classification.
+For C_n=K_n,n minus a perfect matching with unit graph distances and N=2n, objective N^-1 sum|f-mean f|^4 over Lip(f)<=1 is strictly convex after fixing a constant, so any maximizing point is a vertex of edge-Lipschitz polytope. At a vertex tight edges span a connected graph: all values integral, and A-side values can be translated to {0,1,2}. Each B_i lies in [max_{j!=i} A_j-1,min_{j!=i} A_j+1], and strictly convex one-coordinate optimization forces an endpoint. The source enumerates all cases by A-level counts and outlier endpoints, reducing to three-level signed pattern bound F_N(k,d)=k/N+(d/N)^2(-4+6k/N)-3d^4/N^4 for k<=n and exceptional four-level pattern. Exact maximizers are T_n=1/16+5/n for n3..11 (multiset {0,1^(n-1),2^(n-1),3}) and U_n=1/2-1_{odd}(1/(4n^2)+3/(16n^4)) for n>=12 (balanced 0/2 on one shore, constant1 on other). Equality patterns and threshold n12 follow strict inequalities. Independently recomputed exact rational orbit-reduced endpoint maxima for n3..18 and all branch values, including n11 vs12; finite checks corroborate the all-n case distinction.
 
-## Scope and limitations
-Only uniform finite crown graphs, real functions and the fourth centered absolute moment are proved. The known polar vertex classification is acknowledged. No claims are made for general \(L^p\) exponents, arbitrary vertex weights, or independent scientific verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: graph spread/variance is second centered moment, and earlier published crown symmetric-edge inradius is equivalent to second-Lipschitz L2 extremum at a different n8 transition; neither determines convex quartic maximum or n12 outlier-to-balanced change.
+
+## value
+
+PASS
+
+The graph crown family has natural deleted matched edges and a well-defined centered Lipschitz moment; its fourth power identifies rare outliers versus balanced shores, a nontrivial optimizer-type transition at 12 pairs not predicted by existing second-moment results. This is a motivated exact entire graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
