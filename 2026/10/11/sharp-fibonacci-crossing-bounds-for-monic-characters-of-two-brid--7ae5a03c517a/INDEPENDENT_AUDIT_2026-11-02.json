@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:44:51.961101Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/10/11/sharp-fibonacci-crossing-bounds-for-monic-characters-of-two-brid--7ae5a03c517a/RESULT.md (Git blob b7ff2020ad6e183a61d0cfcf7ca750f1d62a18d5)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/10/11/sharp-fibonacci-crossing-bounds-for-monic-characters-of-two-brid--7ae5a03c517a/verify_bound.py (Git blob 8bf2048e6010d266b532be7e357ce4d43339e9f8)",
+        "Kauffman--Lopes, Determinants of Rational Knots (arXiv:0710.3765v2), Proposition 7.1 and Remark 7.1",
+        "Kim--Morifuji, Quantitative finiteness of monic characters of knots (arXiv:2609.36772v1), source citation; primary abstract accessible, full paper unavailable"
+      ],
+      "rationale": "The final RESULT proves an exact extremum of the odd Schubert numerator p among two-bridge knots of crossing c>=3: M_c=F_{c+1} unless c≡2 (mod 3), and M_c=F_{c+1}-F_{c-4} in that residue class (F_0=0,F_1=1). Every positive continuant of total twist weight c is generated from (P,Q)=(1,1) by c-1 operations (P,Q)->(P+Q,Q) (increase last digit) or (P,Q)->(P+Q,P) (append 1); conversely reduction from any positive word reaches (1). Since P>=Q>0, preserving the larger second coordinate dominates all future first coordinates, giving the universal F_{c+1} bound. F_{c+1} is even exactly when c≡2 (mod 3). The first effective non-greedy choice at weight j (2<=j<=c-2) loses exactly F_{j-1}F_{c-j-1} compared with the all-greedy path under subsequent greedy choices. The identity F_r F_s - F_{r+s-2}=F_{r-2}F_{s-2} for r,s>=2 (and easy r=1 or s=1 boundary checks) proves a loss >=F_{c-4}. Reduced positive alternating rational diagrams (3) at c=3, (2,1^{c-4},2) when c>=4 and c≢2, (3,2) at c=5, and (2,2,1^{c-6},2) for c>=8 and c≡2 have exactly c crossings and attain the specified odd continuants. The cited Kim--Morifuji estimate N<=16p^2 on the stated irreducible curve component then yields N<=16M_c^2 conditionally on that published input; the constant 16 is not rederived from character-variety theory in this package. Independent reimplementation enumerated all positive compositions for c=3..18 and checked witnesses and Fibonacci identities, but this finite test is not the infinite proof. The source statement properly distinguishes sharpness of p from any unattested sharpness of N.",
+      "residual_risks": [
+        "Kim--Morifuji primary Example 4.5 could not be inspected independently in full this run; the 16p^2 input and exact hypotheses are adopted from the frozen source citation and corroborated only at the topic/abstract level by the accessible primary record.",
+        "The continued-fraction crossing-number assertion uses the standard reduced alternating rational-diagram normal form; nonreduced positive words were used only for the upper bound, and explicit extremizers are reduced."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stoimenow, Maximal Determinant Knots, Tokyo J. Math. 30 (2007), 73-97; global maxima table linked as OEIS A345130 gives 45 at eight crossings, while the specific two-bridge extremum gives 31.",
+          "Kim--Morifuji arXiv:2609.36772 abstract identifies presentation- and crossing-number upper bounds on monic characters; source RESULT explicitly invokes their 16p^2 two-bridge estimate and compares their general crossing estimate.",
+          "Stoimenow arXiv:math/0210174, rational-knot enumeration by crossing number, genus, signature and determinant/lens-space count, material inspected is about different optimization targets."
+        ],
+        "reasoning": "A global maximum over all knots does not determine the sharp maximum over the two-bridge subclass; equality of raw crossing counts is insufficient. The general character upper bound is a different, weaker quantity and does not imply this exact parity-corrected determinant extremum. The closest potentially dominating articles are named, but inaccessible portions remain a literature risk rather than being declared disproved.",
+        "searches": [
+          "Stoimenow Maximal determinant knots rational two bridge fibonacci",
+          "Alexander Stoimenow Maximal determinant knots 2007 pdf full",
+          "Kim Morifuji Quantitative finiteness of monic characters of knots arxiv 2609.36772 2026 Example 4.5 two bridge",
+          "maximum determinant two bridge knots crossing number Fibonacci odd numerator modulo 3 exact bound",
+          "upper bounds for monic twisted Alexander characters SL2 character variety two bridge knot in terms of crossing number"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches: two-bridge monic character/Fibonacci bound; maximal Schubert numerator and odd continuant; matching hit is the audited record itself, not independent earlier coverage.",
+        "Kauffman--Lopes, arXiv:0710.3765v2, Sections 5-7, DOI 10.46298/dmtcs.454 (relevant OA PDF full-text).",
+        "Stoimenow, arXiv:math/0210174v1, introduction and Section 7.3 with PDF visual inspection.",
+        "Kim--Morifuji arXiv:2609.36772v1, abstract only; lawful full-text attempt blocked and Oxford vpn_disconnected.",
+        "Stoimenow, Maximal determinant knots, DOI 10.3836/tjm/1184963648, accessible metadata plus OEIS A345130."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kauffman--Lopes, arXiv:0710.3765v2, Proposition 7.1 and Remark 7.1 give the universal continuant recurrence and a Fibonacci special case.",
+          "Kim--Morifuji, arXiv:2609.36772, accessible abstract states upper bounds on monic-character counts from presentations and crossing number; the frozen RESULT attributes N<=16p^2 to Example 4.5, not to a new computation.",
+          "The audited proof shows a first non-greedy choice costs F_{j-1}F_{c-j-1}>=F_{c-4}, establishing the exact odd correction for c≡2 mod 3."
+        ],
+        "reasoning": "Substituting only the known Fibonacci upper bound p<=F_{c+1} into the quoted 16p^2 result yields a uniform but nonsharp specialized bound. The exact correction and knot extremizers are not logically implied by the displayed premises without a further extremal argument. If an earlier result already supplied that extremal lemma, the originality status would need re-evaluation; such a source was not established in this review.",
+        "searches": [
+          "Kim Morifuji Quantitative finiteness of monic characters of knots arxiv 2609.36772 2026 Example 4.5 two bridge",
+          "Kauffman Lopes Determinants of Rational Knots 2009 pdf continuant fibonacci Proposition 7.1",
+          "upper bounds for monic twisted Alexander characters SL2 character variety two bridge knot in terms of crossing number",
+          "arXiv:2609.36772 Kim Morifuji Example 4.5 16p squared",
+          "Determinants of Rational Knots Proposition 7.1 fixed total twist weight"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kauffman--Lopes arXiv:0710.3765v2, Section 7 Proposition 7.1: T(N+1)=n_{N+1}T(N)+T(N-1), Remark 7.1 says all unit twist lengths yield Fibonacci determinants.",
+          "Stoimenow arXiv:math/0210174v1, Sections 1 and 7.3 investigate rational-knot enumeration and determinant/lens-space counts rather than this exposed sharp fixed-crossing odd maximum.",
+          "Resultary exact-title hit is the same SCOPE finding (2026/10/11/SCOPE-sharp-fibonacci-crossing-bounds-for-monic-characters-of-two-brid--7ae5a03c517a), not an independently prior source."
+        ],
+        "reasoning": "Searched as greatest determinant of a rational/two-bridge knot with c crossings, greatest odd positive continuant with sum c, and largest Schubert numerator of a knot rather than a two-component rational link. The classical recurrence computes a determinant from a word, whereas the audited theorem optimizes all words with the knot parity constraint. Relevant portions read do not expose that optimization, without claiming exhaustive absence in all inaccessible/uninspected documents.",
+        "searches": [
+          "Resultary: two bridge knots monic character polynomial Fibonacci crossing number bound Riley polynomial trace field character variety",
+          "Resultary: maximal determinant Schubert numerator among two bridge knots fixed crossing number parity Fibonacci continuant",
+          "maximum determinant two bridge knots crossing number Fibonacci odd numerator modulo 3 exact bound",
+          "maximum odd continuant fixed sum parts Fibonacci",
+          "maximal odd numerator positive continued fraction fixed sum Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A345130 is the greatest determinant for any prime knot at a given crossing number; its values for c=3..8 are 3,5,7,13,21,45 and hence differ at c=8 from the two-bridge maximum 31.",
+          "Independently computed c=3..18 two-bridge odd-continuant maxima: 3,5,7,13,21,31,55,89,131,233,377,555,987,1597,2351,4181.",
+          "No separate matching published table was found in actual targeted Resultary/OEIS/web searches; absence is not proof of originality."
+        ],
+        "reasoning": "Known global knot determinant tables and broad rational-knot enumeration data do not by themselves specify the exact constrained two-bridge maximum. The present formula has a particular knot/link parity correction and supplies an infinite proof beyond any finite table.",
+        "searches": [
+          "site:oeis.org 3 5 7 13 21 31 55 89 131 knot",
+          "maximum odd continuant fixed sum parts Fibonacci",
+          "OEIS A345130 greatest determinant prime knot n crossings",
+          "Stoimenow rational knot determinant Fibonacci table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an exact fixed-crossing odd-continuant/Schubert-numerator maximum, and consequently a parity-refined uniform two-bridge specialization of the monic-character estimate. The classical determinant recurrence and all-one Fibonacci observation do not themselves give the optimal odd value in the obstructed congruence class; published global determinant maxima differ (OEIS A345130: global eight-crossing maximum 45 versus the claimed two-bridge 31). The recent character-count paper supplies a parameter-dependent estimate and discusses crossing bounds; its full text could not be independently retrieved here, so no whole-paper NOT_COVERING assertion is made about that source. Targeted Resultary searches returned this identical finding and unrelated knot facts, not a distinct antecedent; targeted external searches did not expose an implication-equivalent preexisting two-bridge theorem. Searches do not prove novelty; possible inaccessible exact coverage is a stated risk.",
+      "residual_risks": [
+        "Recent Kim--Morifuji full paper, including Example 4.5, was not independently readable; its abstract explicitly discusses crossing-number bounds, which may conceal a stronger two-bridge specialization. Best-of-knowledge status is contingent on resolving this when authorized access is restored.",
+        "Stoimenow Maximal determinant knots has a strongly relevant title; only global table/abstract-level content was accessible, so a section about rational extremizers cannot be ruled out.",
+        "Older rational-knot continued-fraction or number-theory work might already contain the exact parity-corrected maximum without using monic-character language. No direct equivalent found; no negative proof is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected theorem computes determinants recursively and notes Fibonacci when all twist lengths are one; it does not state the extremal odd numerator at fixed total twist weight in the inspected material.",
+          "evidence": "Proposition 7.1: T(0)=1, T(1)=n1, T(N+1)=n_(N+1)T(N)+T(N-1); Remark 7.1 identifies determinant and Fibonacci for all ones (PDF pp. 13-14).",
+          "identifier_or_url": "arXiv:0710.3765v2; https://arxiv.org/pdf/0710.3765; DOI 10.46298/dmtcs.454",
+          "material_read": "Introduction and theorem outline; Sections 5-7 relevant definitions, recurrence, Proposition 7.1, Remark 7.1; PDF page image 12 (zero-index 11) visually checked.",
+          "method": "Full-text searchable OA PDF with web PDF-page screenshot.",
+          "title": "Determinants of Rational Knots",
+          "trigger": "Closest primary published formula for determinants and continuants of rational knots."
+        },
+        {
+          "assessment": "Inspected material addresses enumeration by crossing, genus/signature and determinants/lens spaces, not the exact fixed-crossing maximum of odd continuants. No claim is made that uninspected portions have been excluded conclusively.",
+          "evidence": "Introduction describes generating-function counts; Section 7.3 counts lens spaces with fixed odd p, not maximum p at fixed crossing c.",
+          "identifier_or_url": "arXiv:math/0210174v1; https://arxiv.org/pdf/math/0210174",
+          "material_read": "Abstract, table of contents, Introduction and preliminaries, and the lens-space/determinant discussion in Section 7.3 (especially PDF pp. 24-26); page 25 visually inspected.",
+          "method": "OA PDF searchable text and page image.",
+          "title": "Generating functions, Fibonacci numbers and rational knots",
+          "trigger": "Potentially equivalent older rational-knot/Fibonacci enumeration paper with relevant 2-bridge notation."
+        },
+        {
+          "assessment": "Abstract confirms presentation-dependent/crossing-number upper bounds; full-text scope remains unverified, so no whole-document NOT_COVERING verdict is asserted. The exact 16p^2 input is identified in the frozen package and retained as a qualified cited premise.",
+          "evidence": "arXiv abstract dated 2026-09-29: explicit upper bounds on numbers of monic characters in terms of a knot presentation and crossing number; package RESULT attributes 16p^2 to Example 4.5.",
+          "identifier_or_url": "arXiv:2609.36772v1; https://arxiv.org/abs/2609.36772",
+          "material_read": "Primary abstract and bibliographic record; the full proof/Example 4.5 could not be accessed independently in this run.",
+          "method": "arXiv abstract and alternative lawful OA URLs attempted; arXiv PDF/HTML blocked by retriever, Oxford authorized request returned vpn_disconnected (no bypass).",
+          "title": "Quantitative finiteness of monic characters of knots",
+          "trigger": "Direct source of the 16p^2 two-bridge character-count estimate and closest possible prior crossing bound."
+        },
+        {
+          "assessment": "The accessible global maxima do not coincide with the two-bridge extremum (c=8:45 versus 31), so this table does not imply the claimed exact subclass maximum. Full-text comparison remains a residual risk.",
+          "evidence": "OEIS A345130 attributed to Stoimenow Table 1 gives global prime-knot maximal determinant c=8 equal to 45.",
+          "identifier_or_url": "DOI:10.3836/tjm/1184963648; https://oeis.org/A345130",
+          "material_read": "Bibliographic title/abstract-level summaries and the attributed finite global maximum-determinant table; full article not recovered from accessible Project Euclid view.",
+          "method": "DOI/Project Euclid bibliographic inspection and OEIS table; attempted lawful full-text access.",
+          "title": "Maximal determinant knots",
+          "trigger": "Title plausibly dominates any fixed-crossing determinant extremum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kauffman--Lopes, determinant recurrence/continued fractions, arXiv:0710.3765v2",
+        "Kim--Morifuji arXiv:2609.36772v1 bibliographic record and source-reported specialized estimate"
+      ],
+      "rationale": "The problem optimizes a natural classical knot invariant (odd Schubert numerator/determinant) over the entire natural two-bridge class at fixed minimal crossing number. The parity obstruction identifies a meaningful knot/link boundary, and the exact Fibonacci correction requires a global continuant optimization rather than a table lookup. Combining this reusable sharp extremum with the new Kim--Morifuji character-variety estimate provides a uniform bound of exponential scale φ^(2c), strictly better than the generic 8^c-scale crossing estimate. The paper does not pretend that 16M_c^2 is attained by any character variety. This is a motivated, self-contained structural extremal lemma of plausible use for rational-knot determinant and monic-character questions, not an arbitrary tiny numeric change.",
+      "residual_risks": [
+        "No sharpness or extremizer is established for the number of monic characters; usefulness of the numerical corollary depends on existence of a character component satisfying the quoted hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite enumeration through c=18 is a sanity check; proof of all c is the symbolic coordinate-sum/greedy-loss argument.",
+    "The 16p^2 character-count estimate and character-component hypotheses are inherited from Kim--Morifuji, not proved here; their full text was unavailable independently in this run after lawful attempts. No attainment of the monic-count bound is claimed.",
+    "Best-of-knowledge originality has unresolved older-literature priority risk (not a mathematical counterexample); specific inaccessible sources recorded without fabricated readings.",
+    "No GitHub writes, dispatcher closeout, expert attestation, Lean proof or external scientific certificate were performed."
+  ],
+  "schema_version": 1
+}
