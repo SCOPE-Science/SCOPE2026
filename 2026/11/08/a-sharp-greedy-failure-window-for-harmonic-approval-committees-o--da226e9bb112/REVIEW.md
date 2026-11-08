@@ -1,0 +1,21 @@
+# Scientific review: sharp PAV versus seq-PAV separation on the triangle domain
+
+## Correctness — PASS
+
+The exact PAV formula follows by summing three harmonic ballot-type satisfactions, and all four distinct symmetry classes of four-seat count vectors are enumerated. Their pairwise differences yield the global-optimum switch at weight ratio \(4/3\). The greedy comparison at the state with one candidate in each of the two higher-approval classes yields the seq-PAV switch at \(3/2\). All boundary tie cases, including ratio \(1\), are addressed explicitly; hence the open failure interval and exact gap follow algebraically. The integer cutoff uses a complete, finite exact-rational enumeration after the explicitly justified triangle relabeling symmetry, not a statistical sample. The two implementations in `verify_triangle.py` agree on all \(147\) sorted triples through \(17\) voters and all \(2684\) chosen ratio tests. The analytic proof establishes the continuous parameter claim independently of the finite checks.
+
+## Originality — PASS, with residual priority uncertainty
+
+The specific result is **not** the general fact that greedy seq-PAV can fail to maximize PAV: Lackner and Skowron's published Example 2.5 already shows such a failure for committee size \(2\), with five ballot types. Dong and Lederer's paper derives characterizations of sequential valuation rules and seq-PAV. Its inspected definitions, main statements, and relevant proof material do not supply an exact all-tie-break triangular two-clone phase diagram or a minimum \(17\)-voter domain certificate. Janson’s 2016 survey contains earlier Thiele method comparison examples (especially 13.3–13.4), which likewise establish a general discrepancy but neither this three-type phase diagram nor its restricted minimum. The inspected party-approval paper by Delemazure and coauthors compares proportionality and strategyproofness on a larger domain and contains a sequential-Thiele incentive counterexample; that logically does not imply the present optimizer-comparison thresholds or minimality. Disjoint party-list divisor/apportionment results likewise do not cover overlapping ballots. Searches on the exact ratios, voter multiplicities, approval aliases, and candidate-class parameters did not reveal a stronger covering theorem, but searches alone cannot certify universal priority.
+
+Closest material inspected: Janson, *Phragmén’s and Thiele’s Election Methods*, Sections 4 and 13 (arXiv:1611.08826v1); Dong–Lederer, *Characterizations of Sequential Valuation Rules* (arXiv:2302.11890v1); Lackner–Skowron, *Dramatis Personae: ABC Rules*, Rules 4–5 and Example 2.5 (DOI 10.1007/978-3-031-09016-5_2); Delemazure et al., *Strategyproofness and Proportionality in Party-Approval Multiwinner Elections* (arXiv:2211.13567), especially the party-approval and sequential-Thiele definitions and Theorem 4. Publication-priority risks include possible unindexed equivalent analyses of clone-restricted three-party profiles.
+
+## Value — PASS
+
+Three pairwise-overlapping constituencies are the smallest cyclic overlap structure beyond disjoint lists. In such a domain greedy and optimizing harmonic allocation switch at distinct rational weight ratios, producing a nonempty region where **no** choice of ties repairs the greedy outcome. The exact loss and the sharp minimum electorate within the entire integer triangle class offer a structural benchmark for designing or comparing approval-committee rules. This is more than a single small counterexample: it identifies the complete two-parameter phase slice with its equality boundaries and distinguishes tie-dependent from tie-independent failure. No claims are made about global minimality across unrestricted approval profiles or about an approximation ratio for general elections.
+
+## Scientific limits and further checks
+
+The phase diagram requires two equal ballot multiplicities, while the sharp integer cutoff ranges over arbitrary positive multiplicities but fixes the number of candidates and seats. No independent specialist verification or complete publication-priority guarantee is asserted. The provided verifier is complete only for its stated finite domain; continuous-parameter completeness comes from the written argument.
+
+Self-review: passed. Independent audit: not yet performed.

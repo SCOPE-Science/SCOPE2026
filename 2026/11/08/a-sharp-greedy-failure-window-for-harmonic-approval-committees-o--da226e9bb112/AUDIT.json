@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The six possible four-seat compositions split into four classes; the dominated class is eliminated algebraically, and exact differences show the PAV transition at 4/3. Full greedy marginal comparisons, including equality cases, place its transition at 3/2. Thus all greedy paths fail exactly for \\(4/3<y/x<3/2\\) with gap \\((3y-4x)/12\\). A pair of independent exact implementations (aggregated and six labeled candidates) enumerate all 147 sorted positive integer triples through 17 voters, including 123 with fewer than 17, proving restricted-domain minimality. The actual packaged verifier is replayed; finite tests do not substitute for the real-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dong and Lederer, arXiv:2302.11890v1, §§1–4 and definitions in §2.2, https://arxiv.org/html/2302.11890v1",
+        "Lackner and Skowron, Dramatis Personae: ABC Rules, Rules 4–5 and Example 2.5, https://doi.org/10.1007/978-3-031-09016-5_2",
+        "Delemazure et al., arXiv:2211.13567, §§1–2 and Theorems 3–4, https://pruvisto.org/pdfs/papp.pdf",
+        "Janson, Phragmén’s and Thiele’s Election Methods, arXiv:1611.08826v1, §§4 and 13 (Examples 13.3–13.4), https://arxiv.org/pdf/1611.08826"
+      ],
+      "reasoning": "A general approximation result for greedy submodular maximization does not give exact optimizer compositions, all tie paths, rational boundaries or a sharp constrained-domain minimum. The known two-seat general counterexample establishes separation, not the stated restricted-domain thresholds. The party-approval paper establishes incentive/representation failures, not an optimizer-gap census; disjoint-party apportionment does not cover pairwise overlapping approvals.",
+      "searches": [
+        "Characterizations of Sequential Valuation Rules Dong Lederer 2023 sequential proportional approval voting optimizing PAV",
+        "sequential PAV PAV optimal committee discrepancy first failure 3 voter types",
+        "Strategyproofness and Proportionality in Party-Approval Multiwinner Elections seqPAV theorem"
+      ]
+    },
+    "checked_sources": [
+      "Dong and Lederer, arXiv:2302.11890v1, §§1–4 and definitions in §2.2, https://arxiv.org/html/2302.11890v1",
+      "Lackner and Skowron, Dramatis Personae: ABC Rules, Rules 4–5 and Example 2.5, https://doi.org/10.1007/978-3-031-09016-5_2",
+      "Delemazure et al., arXiv:2211.13567, §§1–2 and Theorems 3–4, https://pruvisto.org/pdfs/papp.pdf",
+      "MSC2020 91B12 Voting theory, https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=91B05",
+      "Janson, Phragmén’s and Thiele’s Election Methods, arXiv:1611.08826v1, §§4 and 13 (Examples 13.3–13.4), https://arxiv.org/pdf/1611.08826"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dong and Lederer, arXiv:2302.11890v1, §§1–4 and definitions in §2.2, https://arxiv.org/html/2302.11890v1",
+        "Lackner and Skowron, Dramatis Personae: ABC Rules, Rules 4–5 and Example 2.5, https://doi.org/10.1007/978-3-031-09016-5_2",
+        "Delemazure et al., arXiv:2211.13567, §§1–2 and Theorems 3–4, https://pruvisto.org/pdfs/papp.pdf",
+        "Janson, Phragmén’s and Thiele’s Election Methods, arXiv:1611.08826v1, §§4 and 13 (Examples 13.3–13.4), https://arxiv.org/pdf/1611.08826"
+      ],
+      "reasoning": "The paper characterizing seq-PAV axioms and the textbook definition of a greedy harmonic rule do not logically force an exact optimality gap on this profile without calculating the competing compositions. The textbook counterexample implies that seq-PAV may fail to optimize globally, but neither its particular witness nor its two-seat setting implies the failure interval or 17-voter minimum on this restricted domain. Party-approval incentive theorems are conceptually different statements. No apparently dominating exact-domain theorem was found in the inspected primary results.",
+      "searches": [
+        "Characterizations of Sequential Valuation Rules Dong Lederer 2023 sequential proportional approval voting optimizing PAV",
+        "party approval restricted PAV seq-PAV tie-breaking independence all tie-breaking outcomes nonoptimal",
+        "exact rational threshold 4/3 3/2 proportional approval voting greedy party-approval triangle",
+        "sequential proportional approval voting 4-member committee six candidates two clones per party three types approval graph triangle phase diagram threshold 4/3 3/2 greedy failure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dong and Lederer, arXiv:2302.11890v1, §§1–4 and definitions in §2.2, https://arxiv.org/html/2302.11890v1",
+        "Lackner and Skowron, Dramatis Personae: ABC Rules, Rules 4–5 and Example 2.5, https://doi.org/10.1007/978-3-031-09016-5_2",
+        "Delemazure et al., arXiv:2211.13567, §§1–2 and Theorems 3–4, https://pruvisto.org/pdfs/papp.pdf",
+        "Janson, Phragmén’s and Thiele’s Election Methods, arXiv:1611.08826v1, §§4 and 13 (Examples 13.3–13.4), https://arxiv.org/pdf/1611.08826"
+      ],
+      "reasoning": "The clone-pair formulation is equivalent to a capacity-two allocation of four seats to three party labels under three voters who each approve a pair of parties. The global optimizing Thiele score is harmonic, while the greedy sequential rule is maximum marginal gain with all ties retained. The published general PAV-vs-seq-PAV difference is weaker as to the exact ratio window and is on a different ballot-type/committee domain. Search terms explicitly included both the candidate and party-approval formulations.",
+      "searches": [
+        "sequential proportional approval voting vs PAV triangle 3 parties 4 seats 17 voters 5 5 7",
+        "PAV sequential PAV three party approval types pairwise overlapping seats greedy not optimal threshold",
+        "harmonic Thiele greedy allocation versus exact optimum three parties two candidates each three pairwise ballots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lackner and Skowron, Dramatis Personae: ABC Rules, Rules 4–5 and Example 2.5, https://doi.org/10.1007/978-3-031-09016-5_2",
+        "The published textbook Example 2.5 has 23 voters and five ballot types with a two-seat discrepancy; it is not a table of the six-candidate three-type domain.",
+        "Janson, Phragmén’s and Thiele’s Election Methods, arXiv:1611.08826v1, §§4 and 13 (Examples 13.3–13.4), https://arxiv.org/pdf/1611.08826"
+      ],
+      "reasoning": "No exact table for the specified triangle domain, 123 sub-17 symmetric-multiplicity profiles, or the unique 17-voter robust witness was identified. The reproducible enumeration supplies precisely this finite restricted-domain dataset. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "exact rational threshold 4/3 3/2 proportional approval voting greedy party-approval triangle",
+        "17 voters 5 5 7 three voter groups approve pairs of three party candidate clones PAV sequential PAV four seats",
+        "PAV seqPAV triangle ballot 17 voter enumeration 4 seats 6 candidates"
+      ]
+    },
+    "rationale": "The result is the complete tie-break-independent PAV/seq-PAV phase boundary, exact loss, and sharp minimum electorate on a fixed three-bloc, six-candidate, four-seat triangle domain. The general phenomenon seq-PAV != PAV is prior work: Example 2.5 in Lackner–Skowron gives a two-seat discrepancy with five ballot types. Dong–Lederer studies axiomatic characterizations; the inspected party-approval manuscript studies incentive and representation axioms. Their statements do not imply these exact composition-phase thresholds or the 17-voter restricted-domain cutoff. Actual semantic and scientific-source searches found no stronger covering theorem; remaining publication-priority uncertainty is recorded. Janson (2016) documents earlier optimization–addition discrepancies with two seats, explicitly credited; its inspected results do not give the restricted triangle characterization.",
+    "residual_risks": [
+      "A mathematically equivalent exact triangle/capacity-two comparison could appear in specialist reports or unindexed sources beyond those inspected.",
+      "General candidate-clone and party-apportionment results may contain an unrecognized specialized corollary; explicit relevant theorems located to date do not.",
+      "The finite enumeration certifies only the specified domain, not a global minimum across unrestricted approval profiles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant sequential PAV definitions and axiomatic results; no exact threshold analysis or finite electorate census for the specified triangle is stated.",
+        "evidence": "§1 describes axiomatic contribution, §2.2 defines seq-PAV by harmonic counting function and greedy extension, main results characterize rules.",
+        "identifier_or_url": "https://arxiv.org/html/2302.11890v1",
+        "material_read": "Full accessible HTML text: abstract, introduction and related work, §2.2 sequential valuation definitions, stated main characterization results, related sections and supporting appendix organization.",
+        "method": "Direct reading of full-text arXiv HTML with paper and main theorem/definition inspection.",
+        "title": "Characterizations of Sequential Valuation Rules",
+        "trigger": "Primary 2023 study giving the definition and characterizations of sequential PAV."
+      },
+      {
+        "assessment": "Directly covers a generic PAV/seq-PAV discrepancy with two seats and 23 voters; therefore the general existence of such discrepancies is not novel. It does not give the claimed three-type four-seat phase and minimality.",
+        "evidence": "Rule 4 PAV; Rule 5 seq-PAV; Example 2.5: {a,c} PAV score 19 versus seq-PAV {c,d} score 18.5.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-09016-5_2",
+        "material_read": "Online full-text chapter §2.2 Thiele methods, §2.3 Rule 5 and Example 2.5, plus comparison to reverse sequential PAV.",
+        "method": "Direct reading of relevant openly available textbook chapter sections and counterexample computations.",
+        "title": "Dramatis Personae: ABC Rules",
+        "trigger": "Strongest direct apparent prior comparison between optimizing PAV and greedy seq-PAV."
+      },
+      {
+        "assessment": "Defines overlapping party approvals and proves strategyproofness/representation statements including an unfavorable sequential-Thiele strategyproofness theorem, but those do not state or imply exact PAV-optimality-vs-greedy phase boundaries for six candidates.",
+        "evidence": "§2 describes Thiele and sequential Thiele; §4 Theorem 4 is a strategyproofness failure, not a claim about greedy maximizing PAV.",
+        "identifier_or_url": "https://pruvisto.org/pdfs/papp.pdf",
+        "material_read": "Eight-page accessible PDF: abstract and introduction, party-approval setting and Thiele/seq-Thiele definitions, cited Theorems 3–4 and conclusion; some intermediate supplementary material was not inspected.",
+        "method": "Direct text inspection of lawful author-hosted primary PDF and rendered first page.",
+        "title": "Strategyproofness and Proportionality in Party-Approval Multiwinner Elections",
+        "trigger": "Party-approval equivalence could contain stronger unrestricted or clone-allocation results."
+      },
+      {
+        "assessment": "Examples 13.3 and 13.4 exhibit existing optimization-versus-greedy disparities, but with 2 seats and different ballot structures; no all-ratio six-candidate triangle or exact 17-voter minimum was identified in inspected relevant sections.",
+        "evidence": "Section 4 defines maximizing versus addition; Example 13.3: 2-seat optimization AB vs addition CA; Example 13.4: 2-seat optimization BC vs addition AB/AC. Section 11 covers disjoint party lists rather than overlapping pairs.",
+        "identifier_or_url": "https://arxiv.org/pdf/1611.08826",
+        "material_read": "Full publicly accessible PDF inspected in relevant Sections 4.1–4.4 and 13 (Examples 13.3–13.6 and nearest examples), plus Section 11 party-list generalization and the paper introduction.",
+        "method": "Direct inspection of primary 95-page arXiv PDF text and rendered page covering the optimization/addition definitions.",
+        "title": "Phragmén’s and Thiele’s Election Methods",
+        "trigger": "Older primary source of Thiele optimization-versus-addition discrepancies, cited by the relevant modern textbook."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "da226e9b-b112-4d35-b902-173cf0340258",
+  "value": {
+    "rationale": "The three pairwise-overlapping approval blocs form a minimal cyclic coalition structure of real social-choice interest; the theorem identifies two distinct rational transition ratios, a robust interval immune to tie-breaking, an exact welfare loss and a sharp first electorate for the unrestricted three-weight version of the same finite triangle domain. These are actionable structural benchmarks for comparing harmonic greedy allocation with global committee optimization rather than a textbook deduction or an arbitrary unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
