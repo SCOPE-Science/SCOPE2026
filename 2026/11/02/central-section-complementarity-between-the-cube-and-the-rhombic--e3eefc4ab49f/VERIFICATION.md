@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python rd_cube_checker.py` with Python 3 and NumPy. The checker exhaustively enumerates all fourteen rhombic-dodecahedral vertices from intersections of twelve integer halfspace facets in exact rational arithmetic; it recovers exactly twenty-four edges, confirming the axial-to-cubic incidence description and independently constructs twelve cube edges. Signed permutations of both chamber representatives are checked exhaustively against direct endpoint-sign counts, establishing the pointwise complementarity in each open chamber. The exact spherical excess is verified algebraically up to floating-point evaluation, and 150000 independent seeded Gaussian directions provide a supplementary sampling diagnostic. The proof in RESULT.md supplies the universal geometric derivation; no finite test is used to certify all directions by itself.
+## correctness
 
-No independent mathematical audit has been performed. The literature comparison confirms the cube marginal is classical; historical priority of the new pairing remains provisional.
+PASS
+
+Rhombic dodecahedron has 8 cubic and 6 axial vertices with 24 axial-cubic edges. A generic central section polygon vertex is a sign-changing edge crossing. Signed-coordinate permutations reduce generic normals to a>=b>=c>0 and only the chambers a<b+c (cube 6, rhombic 6) and a>b+c (cube 4, rhombic 8). Haar area of the spherical triangle with side pi/3 yields P(6,6)=1-6 asin(1/3)/pi and complement P(4,8). Independent exact sign edge-crossing tests for integer generic normals in [-4,4]^3 reproduced both classes; degeneracies explicitly excluded.
+
+## originality
+
+PASS
+
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+Joint central-section topology for two canonical cooriented space-filling solids is a motivated stereological question. Pointwise complementarity is stronger than recycling the known cube marginal; complete two-outcome law and rhombic octagon prevalence are useful exact geometry facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

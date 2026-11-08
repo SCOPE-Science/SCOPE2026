@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The axial/cubic vertex description is checked against all twelve integer facet inequalities. Generic section vertices correspond bijectively to sign-changing polytope edges. The cube and rhombic dodecahedron have respectively twelve and twenty-four exact edges. Under signed-permutation normalization the signs of the eight cubic vertices change only on the triangle-equality chamber boundary; counting both sets of edges gives the complete pair law. A spherical triangle with arc lengths \(\pi/3\) gives the exact orientation probabilities by Girard's theorem. The standalone checker independently reconstructs the facet-edge graph and evaluates the signed chambers.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Zhang's 2020 work and OEIS A349605 already give the exact probability of a hexagonal **cube** section. A broader published rectangular-box theorem also covers that cube marginal. Those facts are fully credited. The new claim is that a same-normal section of the distinct rhombic dodecahedron has the complementary vertex count *pointwise*, producing a previously unlocated exact joint law. Direct semantic searches of exact aliases and numeric probabilities, searches for broad covers, and examination of the accessible cube proof found no statement implying the 24-edge rhombic-dodecahedral classification without an additional argument. Full access to one broader published research record and older crystal-section literature was limited; originality is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The structural equivalence between two canonical space-filling solids is stronger than computing an isolated probability. It completely determines both central polygon-type outcomes for every generic common plane and establishes the somewhat unexpected octagon majority for rhombic-dodecahedral sections. This is a natural stereological classification even though the cube marginal itself is known.
+Rhombic dodecahedron has 8 cubic and 6 axial vertices with 24 axial-cubic edges. A generic central section polygon vertex is a sign-changing edge crossing. Signed-coordinate permutations reduce generic normals to a>=b>=c>0 and only the chambers a<b+c (cube 6, rhombic 6) and a>b+c (cube 4, rhombic 8). Haar area of the spherical triangle with side pi/3 yields P(6,6)=1-6 asin(1/3)/pi and complement P(4,8). Independent exact sign edge-crossing tests for integer generic normals in [-4,4]^3 reproduced both classes; degeneracies explicitly excluded.
 
-## Limitations
-The result requires exact canonical alignment and a central cut. The boundary equality normals are excluded; all have zero Haar probability. Nothing is claimed for translated planes, unrelated normals or general polyhedra. Some historical comparison material remained unreadable; independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+Joint central-section topology for two canonical cooriented space-filling solids is a motivated stereological question. Pointwise complementarity is stronger than recycling the known cube marginal; complete two-outcome law and rhombic octagon prevalence are useful exact geometry facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
