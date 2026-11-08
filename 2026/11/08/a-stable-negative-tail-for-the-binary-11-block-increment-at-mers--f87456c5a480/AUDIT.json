@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Finite exact eight-state carry and predecessor-bit operator establishes all rational generating-function identities: T0 g=g; (T1^4-z T1^3/2)(T1-I)g=0; base G4; exact difference. Geometric survival of carry proves natural densities; induction gives all k>=4; Laurent coefficients give every negative mass. verify.py runs with rational arithmetic, checking eight state-coordinate identities and sharp initial cases. Integer enumeration is a secondary finite consistency check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 abstract states an approximately Gaussian distribution when the shift contains many blocks of ones.",
+        "The 2023 Theorem 2.1 requires large number |t|_01 of one-blocks; Mersenne t has one such block for all k."
+      ],
+      "reasoning": "Neither many-block asymptotic criterion implies the exact singleton-block negative-side law. The later full text was not available for complete inspection; an unseen stronger theorem is a residual risk.",
+      "searches": [
+        "On the behavior of binary block-counting functions under addition arXiv:2412.15851",
+        "Sobolewski Spiegelhofer block occurrences sparse summand contiguous 1^k, exact sign probability 83/128, Cusick conjecture",
+        "Block occurrences in the binary expansion Theorem 2.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.00142 §§2–3 (full rendered preprint)",
+      "arXiv:2204.05287 Theorems 1.5–1.7 and §5 (full rendered preprint)",
+      "arXiv:2412.15851 (abstract only)",
+      "Research index semantic searches: For t=2^k-1, distribution of change of overlapping 11-block counts in binary expansion; sign density 83/128 and negative tail 45/(128*2^j); Sobolewski Spiegelhofer block occurrences sparse summand contiguous 1^k, exact sign probability 83/128, Cusick conjecture; Rudin Shapiro 11 pattern nonnegative increment for adding a Mersenne number 2^k minus 1, exact 83/128 frequency; distribution of r(n+2^k-1)-r(n) for Rudin-Shapiro binary 11 word, geometric negative tail",
+      "Previously established distinct two-active-bit-shift result; scientific statement comparison only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 fixed-shift recurrences permit calculation but the finite-state factorization proving negative-tail stationarity is additional.",
+        "Earlier exact result concerns shifts 2^a+1 (two separated set bits), whereas 2^k-1 has k adjacent set bits."
+      ],
+      "reasoning": "Directly sharing the same generating-function framework is not the same as a prior theorem logically covering its infinite-parameter factorization. A result for 2^a+1 does not imply a result for 2^k-1 by digit reversal, complement, or trivial scaling; their shifts and distributions differ (e.g., at k=4).",
+      "searches": [
+        "arXiv:2309.00142 Proposition 3.2",
+        "distribution of r(n+2^k-1)-r(n) for Rudin-Shapiro binary 11 word, geometric negative tail",
+        "Exact distribution for binary 11-count at shifts 2^a+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 source defines c_t(j) for r(n+t)-r(n) and gives generic recurrences, but Theorem 2.1 is a Gaussian approximation with many separated one-blocks.",
+        "2022 source Theorem 1.7 concerns maximal monochromatic progressions of r(nd) mod 2 at d=2^k-1, a different statistic."
+      ],
+      "reasoning": "Matching the Mersenne parameter does not suffice: parity of r(nd) along multiples does not determine the signed increment distribution. The present exact equality for every negative index and all k>=4 is not stated in the inspected work.",
+      "searches": [
+        "For t=2^k-1, distribution of change of overlapping 11-block counts in binary expansion; sign density 83/128 and negative tail 45/(128*2^j)",
+        "distribution of r(n+2^k-1)-r(n) for Rudin-Shapiro binary 11 word, geometric negative tail",
+        "arXiv:2309.00142 §2 and Proposition 3.2",
+        "arXiv:2204.05287 Theorem 1.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014081 tabulates values of r(n), not the negative-tail law of additive differences.",
+        "The 2023 paper reports a finite strict-majority check for shifts t<2^20; no all-k Mersenne-tail formula is reported."
+      ],
+      "reasoning": "Finite tables of individual shift values cannot certify the infinite sharp threshold or full geometric tail. No exact matching table was identified in inspected sources.",
+      "searches": [
+        "For t=2^k-1, distribution of change of overlapping 11-block counts in binary expansion; sign density 83/128 and negative tail 45/(128*2^j)",
+        "Rudin Shapiro 11 pattern nonnegative increment for adding a Mersenne number 2^k minus 1, exact 83/128 frequency",
+        "OEIS A014081 r(n) sequence",
+        "2023 paper numerical verification t<2^20"
+      ]
+    },
+    "rationale": "The 2023 Sobolewski–Spiegelhofer full paper poses the 11-block nonnegative-difference strict-majority problem; its Gaussian regime requires many separated one-blocks and does not yield the exact Mersenne one-block negative-tail law. The 2022 same-step paper studies r(nd) parity runs, not r(n+d)-r(n) frequencies. 2024 generalized block result concerns many-block Gaussian asymptotics and was only checked at abstract level. An earlier exact finding concerns different two-active-bit shifts 2^a+1 and does not imply the Mersenne family. Exact semantic searches in the research index produced no covering finding; unindexed work remains possible.",
+    "residual_risks": [
+      "A different unindexed exact Mersenne-shift calculation could already exist.",
+      "Later arXiv:2412.15851 full text was not inspected; its abstract is not sufficient evidence of whole-paper noncoverage.",
+      "Bibliographic priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: many-one-block Gaussian theorem and general fixed-t recurrences, no all-k Mersenne negative-tail identity",
+        "evidence": "§2 states the strict-majority question open and only numerical check t<2^20; Theorem 2.1 applies when |t|_01 large, unlike t=2^k-1.",
+        "identifier_or_url": "arXiv:2309.00142; https://www.researchgate.net/publication/373642097_Block_occurrences_in_the_binary_expansion",
+        "material_read": "Relevant portions of publicly available full preprint, specifically §2 theorem and explicit open question, §3 Lemma 3.1 and Proposition 3.2, and related recurrence material.",
+        "method": "Readable HTML full text of the 2023 preprint",
+        "title": "Block occurrences in the binary expansion",
+        "trigger": "Identical r(n+t)-r(n) objects, explicit open sign question"
+      },
+      {
+        "assessment": "NOT_COVERING: progression length of r(nd) modulo two is not an increment distribution",
+        "evidence": "Theorem 1.7 gives A_r(2^k-1) maximum monochromatic progression length, not densities of r(n+2^k-1)-r(n).",
+        "identifier_or_url": "arXiv:2204.05287; https://www.researchgate.net/publication/359892918_On_monochromatic_arithmetic_progressions_in_binary_words_associated_with_block-counting_functions",
+        "material_read": "Relevant portions of publicly available full preprint, including Theorems 1.5–1.7 and the Mersenne-step comparison in §5.",
+        "method": "Readable HTML full text of preprint",
+        "title": "On monochromatic arithmetic progressions in binary words associated with block-counting functions",
+        "trigger": "Same special Mersenne shift 2^k-1 and r=11 statistic"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: many-block Gaussian central limit theorem appears different, but unresolved potential stronger results in uninspected text",
+        "evidence": "Abstract explicitly requires shifts containing many blocks of ones and states Gaussian closeness, not the present exact singleton-block law.",
+        "identifier_or_url": "arXiv:2412.15851; https://arxiv.org/abs/2412.15851",
+        "material_read": "Author abstract; full text not successfully inspected in this comparison.",
+        "method": "arXiv abstract and indexed metadata",
+        "title": "On the behavior of binary block-counting functions under addition",
+        "trigger": "Later possible strengthening of same binary-block setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f87456c5-a480-4315-99b8-b7a003a1ce16",
+  "value": {
+    "rationale": "The natural strict-majority question is explicitly motivated in a primary paper; this theorem establishes a positive answer on an infinite one-block family, not covered by the many-block Gaussian regime. A non-obvious full negative-tail invariance with sharp k=4 boundary and explicit polynomial shift recurrence supplies structural content beyond isolated numerical evaluations.",
+    "status": "PASS"
+  }
+}
