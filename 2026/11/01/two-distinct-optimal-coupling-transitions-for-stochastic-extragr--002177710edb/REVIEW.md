@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-point fixed-marginal coupling polytope is an interval, with the diagonal mass \(q\) uniquely determining the four joint probabilities. The exact matrix update and identity \(M_{uv}^{\top}M_{uv}=g_{uv}I\) show pathwise scalar norm multiplication, so independence across iterations yields the all-horizon expectation without approximation. Both optimizers follow by comparing affine functions of \(q\). The two polynomial factorizations, positive gains, and strict root inequalities cover all boundaries; the strong law is applicable because the logarithmic gains have finite two-point support. A standalone verifier passed 84 exact assertions and finite-horizon enumerations, which are corroboration rather than proof.
+PASS
 
-## Originality — PASS, qualified
+All couplings are uniquely q=Pr(U=V), with masses q/2 and (1-q)/2. Since J^2=-I the update is M_uv=(1-xuv)I-eta v J and satisfies M_uv^T M_uv=g_uv(x)I, g=(1-xuv)^2+xv^2>0. Hence squared norms multiply independently and E||z_n||^2=R(q,x)^n||z0||^2 at every horizon. Independent symbolic gain calculations give R_shared-R_complement=x(9x-2)/2, R_shared-1=x(17x-5)/2, R_complement-1=x(8x-3)/2. For the almost-sure limit SLLN applies to bounded finite-support log gains and the product difference is -x(8x^2-13x+2), establishing the distinct transition and tie cases throughout 0<x<3/8. The proof handles every nonzero initial state, n>=1, all positive x in mean square; zero-stability boundaries are noncontractive. Exact symbolic checks corroborate each identity.
 
-Comparison with Li et al. (arXiv:2107.00464), including its original stochastic bilinear setup, principal results and supplement locations; Gorbunov et al. (arXiv:2111.08611), including its same-sample arbitrary-sampling section and theoretical appendix map; and available abstract of Yoon–Loizou (arXiv:2608.06182), found no direct all-coupling, fixed-marginal arithmetic-versus-logarithmic optimization classification. Existing same/independent SEG bounds are not themselves the pointwise optimizing statements. Related results on generic random products and elementary coupling inequalities are not denied; they remain priority risks. The 2026 source full text was not accessible, so this is a best-knowledge rather than exhaustive publication-priority judgment.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing whether to reuse or complement a sample is a real design decision at fixed two-call cost. The strict separation between mean-square and typical-path optimal policies at a nondegenerate stable step gives a genuine caution about optimizing only one stochastic convergence metric. The exact maximal stable step \(3/8\) provides an interpretable policy benchmark and a concrete region where complementary coupling converges in mean square but ordinary shared coupling does not. This is an intentionally minimal, self-contained benchmark; no general algorithmic dominance is asserted.
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The exact two thresholds follow from original gain calculations specific to this finite-sum game and are not stated or established as an implication of available prior theoretical bounds.
 
-## Closest literature and limitations
+## value
 
-Li et al. (2021/2022) analyze same-sample bilinear SEG with averaging/restarting; Gorbunov et al. (2021/2022) cover same-sample arbitrary sampling and independent-sample variants separately. Yoon–Loizou (2026) is directly about the distinction between same- and independent-sample SEG; full text was not available for a complete implication comparison. Specialized correlation-coupling literature may contain equivalent formulations. Exact correctness is limited to the specified two-slope bilinear game and iid pair sequence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sampling correlation between prediction and correction calls is a natural fixed-oracle-budget algorithm-design variable; this minimal benchmark exhibits different optimal couplings under arithmetic mean square and geometric typical-path risk. It also gives a sharp stability interval and a concrete regime where common sampling wins finite-horizon expectation but complementary wins almost-sure exponent. The claim deliberately does not generalize to arbitrary games or adaptive sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

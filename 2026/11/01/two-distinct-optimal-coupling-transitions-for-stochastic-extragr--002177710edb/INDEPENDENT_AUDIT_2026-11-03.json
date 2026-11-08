@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:05:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All couplings are uniquely q=Pr(U=V), with masses q/2 and (1-q)/2. Since J^2=-I the update is M_uv=(1-xuv)I-eta v J and satisfies M_uv^T M_uv=g_uv(x)I, g=(1-xuv)^2+xv^2>0. Hence squared norms multiply independently and E||z_n||^2=R(q,x)^n||z0||^2 at every horizon. Independent symbolic gain calculations give R_shared-R_complement=x(9x-2)/2, R_shared-1=x(17x-5)/2, R_complement-1=x(8x-3)/2. For the almost-sure limit SLLN applies to bounded finite-support log gains and the product difference is -x(8x^2-13x+2), establishing the distinct transition and tie cases throughout 0<x<3/8. The proof handles every nonzero initial state, n>=1, all positive x in mean square; zero-stability boundaries are noncontractive. Exact symbolic checks corroborate each identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. investigate restarted averaged same-sample stochastic bilinear extragradient; Gorbunov et al. discuss same-sample and independent-sample convergence/mini-batch but arbitrary sampling is within a draw, not arbitrary fixed-marginal two-oracle coupling."
+        ],
+        "reasoning": "Neither inspected 2022 theorem supplies two exact optimizing transitions for mean-square and sample-path Lyapunov exponent; 2026 same-vs-independent work is directly relevant but unread full text remains a priority risk.",
+        "searches": [
+          "Li et al. PMLR 151 (2022) PDF full text",
+          "Gorbunov et al. PMLR 151 (2022) PDF full text",
+          "Yoon-Loizou arXiv:2608.06182 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "https://arxiv.org/abs/2608.06182"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard gain multiplication and SLLN are known, while published rate bounds for two sampling schemes do not identify the optimizer over q in [0,1] nor the log-product comparison."
+        ],
+        "reasoning": "The exact two thresholds follow from original gain calculations specific to this finite-sum game and are not stated or established as an implication of available prior theoretical bounds.",
+        "searches": [
+          "arXiv:2107.00464 mean-square theory",
+          "arXiv:2111.08611 arbitrary sampling sections",
+          "arXiv:2608.06182 same-vs-independent abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "q=1 shared sample; q=1/2 independent; q=0 complementary antithetic; full fixed-marginal copula interval is more than comparing shared versus independent variants."
+        ],
+        "reasoning": "Known SEG methods cover endpoint policies but the full predictor/corrector coupling and logarithmic objective are additional simultaneous optimization questions.",
+        "searches": [
+          "Resultary: stochastic extragradient bilinear same sample independent oracle coupling mean-square Lyapunov almost sure",
+          "arXiv:2107.00464",
+          "arXiv:2111.08611",
+          "arXiv:2608.06182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary minimax extragradient and stochastic variance records concern normal operators or other algorithms; no exact (2/9,(13-sqrt(105))/16) dual-policy classification found."
+        ],
+        "reasoning": "No table found for exact joint two-call coupling optimisation; search absence does not settle novelty.",
+        "searches": [
+          "Resultary: stochastic extragradient bilinear same sample independent oracle coupling mean-square Lyapunov almost sure",
+          "web: stochastic extragradient bilinear same sample independent oracle coupling mean-square Lyapunov almost sure"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The exact two thresholds follow from original gain calculations specific to this finite-sum game and are not stated or established as an implication of available prior theoretical bounds.",
+      "residual_risks": [
+        "Yoon-Loizou 2026 full paper not available; same/independent-special-case comparison may overlap.",
+        "Other antithetic stochastic extragradient sampling literature may contain the same exact polynomial gain benchmark.",
+        "Almost-sure optimality asserted only on the mean-square-stabilizable region x<3/8, not globally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ESTIMAND: averaging/restarting same sample; no all-coupling typical exponent optimum identified",
+          "evidence": "Algorithm and main theorems in PMLR 151 (2022).",
+          "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+          "material_read": "Published PMLR full PDF, method description and main convergence bounds with sample coupling, PDF page views.",
+          "method": "primary full-text PDF and screenshot",
+          "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+          "trigger": "same sampled bilinear SEG"
+        },
+        {
+          "assessment": "PARTIAL_TOPIC_OVERLAP, not exact fixed-marginal q optimization",
+          "evidence": "Arbitrary sampling refers to finite sum sampling distributions/minibatches, not all couplings between two prescribed-marginal oracle calls.",
+          "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+          "material_read": "Published PMLR full PDF, algorithm variants and arbitrary-sampling sections/appendix map, PDF page views.",
+          "method": "primary full-text PDF and screenshot",
+          "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+          "trigger": "same vs independent, arbitrary sampling"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; specific priority risk, not scientific FAIL by itself",
+          "evidence": "Available abstract compares shared and independent SEG, but cannot rule out a full-text specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.06182",
+          "material_read": "Title, abstract only; attempts to fetch arxiv HTML/full-text unsuccessful; authorized PDF retrieval blocked by disconnected VPN.",
+          "method": "primary abstract and attempted lawful access",
+          "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+          "trigger": "directly relevant 2026 follow-up"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sampling correlation between prediction and correction calls is a natural fixed-oracle-budget algorithm-design variable; this minimal benchmark exhibits different optimal couplings under arithmetic mean square and geometric typical-path risk. It also gives a sharp stability interval and a concrete regime where common sampling wins finite-horizon expectation but complementary wins almost-sure exponent. The claim deliberately does not generalize to arbitrary games or adaptive sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Yoon-Loizou 2026 full paper not available; same/independent-special-case comparison may overlap.",
+    "Other antithetic stochastic extragradient sampling literature may contain the same exact polynomial gain benchmark.",
+    "Almost-sure optimality asserted only on the mean-square-stabilizable region x<3/8, not globally."
+  ],
+  "schema_version": 1
+}
