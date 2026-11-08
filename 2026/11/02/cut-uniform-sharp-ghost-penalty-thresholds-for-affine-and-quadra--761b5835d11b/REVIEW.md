@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact derivative-energy matrices for degrees one and two follow directly from the motivating paper's Eq. (60). Minimization in the trace value reduces semidefiniteness to a finite-dimensional dual norm. The degree-one formula is elementary. For degree two, the independently reconstructed matrix inversion yields an explicit strictly positive polynomial certificate for every real positive cut fraction and ghost weight. The limit at a vanishing cut proves necessity. Exact rational replay passes; the proof, not numerical sampling, certifies continuous cut fractions.
+## correctness
 
-**Originality: PASS (best knowledge; historical-priority risk acknowledged).** The full relevant appendix of Wichrowski (arXiv:2609.04067v1, 2026) explicitly states that the *cut-uniform upper bound is open*, having proved only the vanishing-cut limit and numerically sampled positive cuts. This theorem proves the missing implication at polynomial degrees one and two, and adds the full cut-specific threshold functions. Full readable coverage in Burman et al. (2014/2015) and pertinent §§4.1–4.4 in de Prenter et al. (2022) gives general cut-independent stabilization inequalities rather than the same sharp two-cell classification. Existing generic matrix-Schur-complement theory implies a computational method, but does not by itself state the source-specific all-cut comparison. The unrestricted degree problem remains unresolved. Exhaustive historical searches are not possible.
+PASS
 
-**Value: PASS.** The paper singles out the exact cut-uniform threshold as a genuine unresolved parameter-selection question. P1 and P2 are standard low-order CutFEM approximation degrees, and the result turns empirical cut-fraction sampling into an exact continuous-range safety criterion in those degrees. The nontrivial quadratic polynomial-positivity certificate identifies the worst cut as an unattained vanishing-cut limit. This is a model benchmark, not a claim for fully assembled discretizations.
+For the one-dimensional aligned two-cell symmetric Nitsche form with 0<kappa<1, gamma>0, p=1 or 2, varying the common trace reduces nonnegativity to delta>=z^T H^{-1}z in the derivative variables. The p=1 energy matrix gives T1=(1+gamma)/(kappa(1+gamma)+gamma). Independently rebuilt the p=2 4x4 Gram matrix from the integral and face jump and calculated T2=N/Q, matching the supplied positive polynomials. The difference p^2+gamma^{-1}-T_p is strictly positive at each kappa>0, while the kappa->0 limit is p^2+gamma^{-1}; hence uniform nonnegativity iff delta>=p^2+1/gamma, with individual-cut positive definiteness at the uniform boundary. These are exact algebraic arguments for the isolated model; no uniform coercivity constant/full assembled mesh is claimed.
 
-**Risks and limitations.** Classical ghost penalty theory could contain an equivalent specialized two-element calculation under different normalization. No independent audit or assembled-mesh test is provided. Scientific relevance is the exact threshold for the paper's model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: the relevant Wichrowski aligned two-cell derivation supplies the vanishing-cut necessary threshold and explicitly identifies the positive-cut matching upper bound as open, whereas the present exact inverse-matrix result proves it for p=1,2 and gives fixed-kappa thresholds. Foundational ghost-penalty and immersed-FEM work supplies general coercivity, not these formulas. Primary full-text access to the very relevant Wichrowski paper failed, so priority remains qualified and the exact open-question wording was available only in third-party excerpt / original package citation, not independently confirmed from the entire primary text.
+
+## value
+
+PASS
+
+Sharp stabilization parameters for lowest polynomial degrees are a mathematically and numerically motivated missing CutFEM two-element coercivity boundary; the exact dependence on cut fraction and face penalty answers a specific published matching-bound question, not a mere numerical table. The theorem appropriately does not claim assembled-mesh guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
