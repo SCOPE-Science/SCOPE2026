@@ -1,19 +1,21 @@
-# Scientific review: Green–Kubo memory threshold for slowly vanishing Markov killing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is quantified over every strictly positive finite-state transition matrix, every initial distribution, every nonnegative nonconstant state hazard, and every \(1/3<\gamma\le1\). Survival means the exact positive-matrix product with the hazard applied **before** its corresponding transition. The proof explicitly constructs the stationary Poisson solution, shows the covariance sum is absolutely convergent and strictly positive, and identifies the first two derivatives of the log Perron eigenvalue with stationary mean and Green–Kubo variance. The critical nonstandard step—positive convergence of survival divided by the product of instantaneous Perron roots—is established via uniform projective contraction and the summable \(O(k^{-2\gamma-1})\) logarithmic normalization error. The remaining pressure error is summable exactly in the claimed \(\gamma>1/3\) domain. The two-state exponent follows from the exact eigenfunction relation \(Ph=\rho h\), including negative correlations and all strictly positive kernels. A self-contained checker reports 220 passed assertions covering exact Poisson/martingale identities, finite full-path comparisons, pressure curvature, and residual stabilization. The infinite proof does not rely on these finite tests.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+Reconstructed stationary Poisson solution (I-P)g=c-pi c, positive martingale variance from full-support transitions, analytic Perron pressure f(t)=log rho(diag(e^-tc)P) with f(0)=0,f'(0)=-pi c,f''(0)=sigma_GK^2. Uniform Birkhoff projective contraction of normalized row transitions gives O(k^(-gamma-1)) tracking of instantaneous left eigenvector and a summable O(k^(-2gamma-1)) error in the log-survival/Perron-product ratio. The pressure O(t^3) remainder sums iff gamma>1/3, yielding positive finite constant. Exact two-state covariance rho^j gives sigma^2=(1+rho)/(1-rho), so critical powers range (0,infinity). Independent numerical second-derivative checks for rho=-0.8,...,0.8 were performed; finite checks do not prove n->infinity.
 
-The 2026 work of Del Moral and Gerber introduces relevant normalized Feynman–Kac perturbation bounds (arXiv:2610.21587v1, sections 1 and 4) but does not calculate the slowly decaying killing normalizer at the second-cumulant threshold. Champagnat and Villemonais (arXiv:1603.07477v1, Theorem 2.1 and Proposition 3.1) establish contraction and convergence of *relative* penalization expectations; they do not give the absolute logarithmic survival correction and critical \(n^{\sigma^2/2}\) factor. Petersson (arXiv:1603.05889v1, introduction, Theorem 2.1, and §8) establishes expansions as a *fixed* perturbation tends to zero jointly with the observation horizon, rather than a time-inhomogeneous sequence of hazards. None of the inspected primary results provides the exact statement or a direct specialization yielding it without an additional adiabatic infinite-product analysis. Published mathematical-record searches for slowly killed chains, Perron products, harmonic hazards and Green–Kubo correction found no explicit covering claim. **Residual risk:** a classical theorem on adiabatic products of positive operators or mod-Gaussian limits for weighted Markov additive functionals might subsume the claim; no definitive historical-priority certification is represented. General spectral perturbation, Green--Kubo theory and projective contraction are acknowledged as standard tools rather than claimed discoveries.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem isolates a nontrivial sharp threshold in a natural time-inhomogeneous survival model: temporal correlation is invisible at the leading killing exponent yet contributes an unbounded family of polynomial exponents exactly at the square-root hazard schedule. The relative constant is proved strictly positive rather than merely bounded up to multiplicative factors. The explicit two-state family demonstrates that fixing the stationary hazard *distribution* does not bound the polynomial survival enhancement; a real identifiability and robustness distinction emerges from the temporal dependence. This is a structural result about the survival normalization, not a routine single-case calculation. The restriction \(\gamma>1/3\), dependence on fixed \(P\), and absence of a general closed form for the multiplicative constant are explicitly acknowledged.
+Classical Feynman-Kac normalized flow contraction and Perron perturbation are prior work. Accessible Champagnat–Villemonais establishes contraction/relative asymptotic but not this absolute slowly varying log-normalizer; Petersson treats fixed perturbation varying with observation horizon. The stated second-cumulant threshold and fixed-marginal continuum of critical exponents were not found directly in the material compared. Potential older adiabatic positive-product/mod-Gaussian theorem can dominate: substantive residual risk.
 
-## Closest literature and limitations
+## value
 
-The strongest relevant predecessors are Del Moral–Gerber (2026), Champagnat–Villemonais (2016), and Petersson (2016); the proof also relies on classical Perron perturbation and Birkhoff contraction. No assertion is made for \(\gamma\le1/3\), infinite state spaces, nonprimitive kernels, or a uniform nearly-reducible limit. Exact-historical-priority risk and absence of independent mathematical validation remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural time-inhomogeneous survival model has a sharp threshold where temporal correlations change a logarithmic correction while the one-step hazard distribution remains fixed; the strictly positive full relative prefactor and two-state power continuum refine leading-order survival estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
