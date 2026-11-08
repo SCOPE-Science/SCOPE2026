@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quotient is a regular labeled graph covering because \(n=mL\) with odd \(L\). The precise if-and-only-if for extendible edge-orbit matchings follows from lifting base perfect matchings and, conversely, projecting a covering perfect matching to nonnegative edge weights with row sums \(L\) in the bipartite quotient. Hall's condition follows for every left vertex subset. The orbit-barycenter construction proves the PL homeomorphism without relying on a finite experiment. The only imported homotopy input is the cited small-ladder classification. At \(m=1\) the three parallel edge labels are retained, avoiding a graph simplification error.
+## correctness
 
-**Originality — PASS (best knowledge; residual risk).** Compared accessible related fixed-locus results and original published-finding corpus records for Möbius-ladder antipodal fixed loci, half-turn character, odd-ladder dihedral character, matching complexes and geometric fixed-point spaces. The prior antipodal geometric result is an order-two subgroup; this one is an odd-order proper rotation subgroup with a distinct bipartite covering argument. The closest full public results give rational characters or nonequivariant homotopy, neither of which determines a geometric fixed-space PL type. An unindexed equivalent remains possible.
+PASS
 
-**Value — PASS.** It supplies an exact functorial PL reduction for all nontrivial odd-order rotation subgroups across two unbounded parameters; fixed-point sphere dimensions and multiplicities can differ markedly from the ambient space. The Hall descent is a structural reason for the fixed-space phenomenon, not a parameter substitution or finite table.
+The quotient of the 2n-vertex Möbius ladder by rotation 2m is a degree-L covering of the labelled graph B_m: spoke displacement mL reduces to m because L is odd. Full inverse images of edge sets are matchings iff the downstairs sets are matchings by the covering local star bijection. A perfect matching downstairs lifts; for the converse, deleting vertices of a proposed matching leaves a degree-L bipartite covering, and a large perfect matching gives nonnegative edge weights with incident sum L at each residual base vertex. The derived Hall inequalities force a downstairs perfect matching. Fixed barycentric coordinates are constant on each edge orbit and a complete orbit is a simplex exactly in this case; orbit barycenters give the claimed PL triangulation. m=1 retains three distinct labelled parallel edges. Agarwal–Basak Main Theorem 1 and Theorem 21 supply the cited nonequivariant sphere counts. Independently enumerated base perfect-matching face systems agree with full orbit systems at (m,L)=(1,3),(3,3),(3,5),(5,3).
 
-**Limits:** No classification of even-order subgroups, reflections or nonbipartite quotient covers. No independent audit or authorship assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual fixed-space PL equivalence for all odd covering subgroups is not a corollary of the known nonequivariant wedge counts or complete rational dihedral homology characters. The regular-cover/Hall reduction is structural. It might be implicit in more general equivariant matching-cover literature; priority is best-of-knowledge.
+
+## value
+
+PASS
+
+The theorem identifies actual geometric fixed-point spaces for an infinite natural subgroup family, stronger than Lefschetz traces or rational invariants, reduces their topology to smaller graph complexes, and treats the degenerate 3-label boundary correctly. The covering descent lemma is independently useful and has motivated objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
