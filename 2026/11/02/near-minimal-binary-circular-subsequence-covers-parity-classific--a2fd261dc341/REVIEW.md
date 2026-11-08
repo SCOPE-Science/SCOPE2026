@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact linear-greedy-arch equivalence, its cyclic matching translation, and the parity of the path components are proved for every integer \(k\geq1\). The counting proof handles all boundary cases, distinguishes labeled words from primitive necklaces, and uses a direct reflection-axis fixed-point count for the bracelet formula. `verify.py` independently tests the criterion against direct scattered-subsequence enumeration and greedy arch recognition, and confirms all orbit totals through \(k=8\). Finite checks do not prove the infinite claim.
+## correctness
 
-**Originality — PASS, qualified.** The closest primary texts concern the definition and algorithms for circular universality (Barker et al. 2020; Fleischmann et al. 2021; Schnoebelen–Veron 2023), and fixed-balance noncircular spectra (Day et al. 2019). They do not state the specific unique-even-component criterion or the combined labeled, necklace and bracelet formulas in the inspected material. The numerical sequence \((2k+1)2^k\) already occurs in OEIS A014480 and is not itself claimed new. A differently phrased preexisting result remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural classification at the first length beyond the minimum, with sharp formulas for words modulo two symmetries and a linear-time test. The cycle-matching and parity derivation accounts for the enumeration rather than merely reproducing a known number sequence.
+For a binary linear word, k universal subsequence coverage iff there are k disjoint adjacent unequal pairs (greedy minimal alphabet-covering arches). For n=2k+1 a cyclic rotation has such pairs exactly when the unequal-edge subgraph of the odd cycle has matching number k. Equal-adjacency edges break the cycle into paths; matching size=(n-E)/2, where E is number of even-length unequal paths. Hence exact condition E=1. Counting odd r=2s+1 equal edges and weak compositions gives L=(2k+1)2^k. Each admitted word has multiplicities k and k+1, so is primitive, giving 2^k necklaces. A prescribed dihedral reflection fixes 2^(floor(k/2)+1) admissible words and Burnside yields 2^(k-1)+2^floor(k/2) bracelets. Independent exhaustive checker verified edge parity, arch universality, and orbit counts for every k=1..7, with direct subsequence coverage for k<=5; infinity follows from matching and Burnside, not finite enumeration.
 
-**Closest literature and limitations.** The 2020/2021 circular-universality works and 2023 arch-index algorithm give essential context but no directly identified sharp enumeration. Applicability is restricted to labeled binary words of length \(2k+1\); higher surplus length and larger alphabets are not covered. The search cannot exclude unlocated formulations. The proof has not undergone independent scientific evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.
+
+## value
+
+PASS
+
+The first nonminimal length 2k+1 of circular binary subsequence universality is a natural fiber of a previously studied combinatorics-on-words notion. An exact parity classification, linear-time criterion and all three orbit counts give a complete structural and enumerative result, beyond merely computing an index for individual words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

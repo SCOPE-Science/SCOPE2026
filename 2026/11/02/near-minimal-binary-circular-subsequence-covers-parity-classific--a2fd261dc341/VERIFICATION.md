@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` checks the cyclic equal-edge parity condition against an independently programmed greedy-arch circular-universality test for every binary word of lengths \(3,5,7,9,11,13,15,17\). It checks the direct set of scattered subsequences of every rotation for lengths through \(9\), and independently enumerates rotation and reversal orbits. It also checks the fixed-reflection count and that every admitted word has no nontrivial period. Run with `python verify.py` using Python's standard library; the success marker is `VERIFY_OK`.
+# Independent mathematical audit
 
-The finite test covers \(174{,}760\) binary words for greedy comparison and \(680\) for direct scattered-subsequence comparison. It verifies the first eight \(k\)-instances, not the general infinite theorem; the latter is supported by the explicit combinatorial matching and parity proof in RESULT.md. No independent audit is claimed.
+## correctness
+
+PASS
+
+For a binary linear word, k universal subsequence coverage iff there are k disjoint adjacent unequal pairs (greedy minimal alphabet-covering arches). For n=2k+1 a cyclic rotation has such pairs exactly when the unequal-edge subgraph of the odd cycle has matching number k. Equal-adjacency edges break the cycle into paths; matching size=(n-E)/2, where E is number of even-length unequal paths. Hence exact condition E=1. Counting odd r=2s+1 equal edges and weak compositions gives L=(2k+1)2^k. Each admitted word has multiplicities k and k+1, so is primitive, giving 2^k necklaces. A prescribed dihedral reflection fixes 2^(floor(k/2)+1) admissible words and Burnside yields 2^(k-1)+2^floor(k/2) bracelets. Independent exhaustive checker verified edge parity, arch universality, and orbit counts for every k=1..7, with direct subsequence coverage for k<=5; infinity follows from matching and Burnside, not finite enumeration.
+
+## originality
+
+PASS
+
+Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.
+
+## value
+
+PASS
+
+The first nonminimal length 2k+1 of circular binary subsequence universality is a natural fiber of a previously studied combinatorics-on-words notion. An exact parity classification, linear-time criterion and all three orbit counts give a complete structural and enumerative result, beyond merely computing an index for individual words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
