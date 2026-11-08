@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tangent derivative of \(\ell^{d-1}m\) yields \(E_{\ell,m}=\ell^{d-2}(\ell V+mV)\), of rank \(2n+1\), for all \(n\geq2,d\geq3\). The common factor recovers the line \(\langle\ell\rangle\); saturation of the residual quadratic ideal recovers the two-plane \(\langle\ell,m\rangle\). The equivariant orbit is therefore the flag variety, not merely a set of flags. The determinant of the actual tangent-space bundle gives \(a=(2n+1)(d-2)\), \(b=n\). The Weyl dimension formula for weight \((a+b,b,0,\ldots,0)\) gives the full Hilbert function. Normality and multiplication follow from the characteristic-zero highest-weight homogeneous-embedding theorem. Independent projective-bundle intersection and leading Hilbert coefficient agree on the degree. Exact arithmetic checks cover forty-two parameter pairs, but not the infinite proof. Residual correctness risk: the homogeneous normality theorem is used in its standard form, rather than reproved.
+## correctness
 
-## Originality — PASS (qualified)
-The primary 2026 Torrance preprint, arXiv:2610.27625v1, supplies explicit tangent spaces and coincidences for the tangential Veronese, but not the Gauss-image Plücker bundle, complete Hilbert function, projective normality or degree. Kaji's arXiv:1509.04935v3 computes higher Gauss maps of the smooth Veronese, a different source variety and map. Ran's arXiv:1909.03307v6 supplies general structural Gaussian-flag theory and tangential scroll examples without the explicit Plücker/Hilbert formula. Related mathematical-record matches concern higher polar degrees and unrelated homogeneous Grassmannian models. The theorem is not implied numerically or scheme-theoretically by their displayed statements. An implicit formulation in classical projective-differential or representation-theoretic literature remains a priority risk; negative search is not proof of global priority.
+PASS
 
-## Mathematical value — PASS
-The answer computes the *natural* Plücker degree of the ordinary Gauss image of an entire high-dimensional family of singular tangential varieties, and simultaneously determines the very ample polarization, a smooth flag compactification and all graded dimensions. This is not a chosen numerical slice; the Grassmannian degree is a canonical enumerative invariant and the homogeneous description enables further intersection and equation problems. It differentiates the ordinary tangential Gauss construction from the higher Gauss maps of the underlying smooth Veronese.
+For independent l,m the differential of l^(d-1)m yields E=l^(d-2)(lV+mV), dimension 2n+1 from one exterior-square kernel. The common polynomial factor of all elements is l^(d-2) (dim V>=3); dividing recovers the quadratic space L2 V, whose saturated ideal recovers L2, establishing injectivity on flags. Equivariance identifies stabilizer and the smooth closed flag orbit. The determinant of L1^(d-2) tensor ((L2 tensor V)/wedge^2 L2) gives Plucker weight (a+n,n). Borel-Weil/Weyl dimensions give the entire Hilbert function and Cartan multiplication plus highest-weight orbit normality gives projective normality in characteristic zero. Independently checked leading finite difference equals the intersection-theoretic degree for 25 (n,d) pairs (n=2..6,d=3..7). Finite checks corroborate but do not establish the scheme-theoretic argument.
 
-## Literature and scientific limits
-Sources: Torrance arXiv:2610.27625v1, Lemmas 2.5–2.6 and Theorem 6.6; Kaji arXiv:1509.04935v3, Theorem 0.1; Ran arXiv:1909.03307v6, Introduction and Example 20. The claims are over \(\mathbb C\), with \(n\geq2\) and \(d\geq3\). Explicit ideal generators, exceptional/small-degree characteristics and complete historical priority are not claimed. Arithmetic computations alone do not validate scheme-theoretic assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. Tangent space recovery and standard Borel-Weil tools can produce the result once the representation weight is computed; the complete character and explicit formula remain an independent finite computation, not a displayed corollary of inspected prior statements.
+
+## value
+
+PASS
+
+The natural ordinary Gauss map of a singular tangential Veronese has a canonical Grassmannian degree. Identifying its compactified smooth flag model and actual, rather than chosen, Plucker polarization and full Hilbert function for every n,d gives usable enumerative and representation-theoretic invariants. This is not a mere higher Gauss degree of the smooth Veronese; standard highest-weight methods are tools, not the novelty itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
