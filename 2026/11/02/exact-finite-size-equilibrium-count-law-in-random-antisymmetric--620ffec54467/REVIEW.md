@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact expansion by subsets of pure equilibria maps onto labelled partial permutations with no loops or directed two-cycles; every admissible component is a directed path or a directed cycle of length at least three. The source-column extreme positions are independent across columns and each joint maximum/minimum location is uniform among distinct ordered pairs. The exponential formula gives the full finite-dimensional generating function, from which the mean, variance and cycle-partition maximal tail follow. Exact rational program reproduces the full law for n=2,3,4 by independent enumeration and verifies moments through n=10.
+## correctness
 
-## Originality — PASS (qualified)
-The most directly comparable full primary text, Karelas–Lugosi–Zhang (2026), provides the antitranspose expectation and a limiting Poisson law. These statements do not imply the present full finite-population generating function, variance, or maximal tail. Stanford (1996) studies transpose symmetry, not negative transpose, while Stanford (1995) was not accessible as full text and remains an explicit publication-priority risk. The inspected published-finding corpus matches concern different random combinatorial objects; search failure is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The first complete finite-size distribution in this particular dependence model (subject to publication-priority qualification) enables exact probabilities of no equilibrium and extreme multiple-equilibrium events, where a limiting Poisson approximation discards the within-column incompatibility structure. The labelled path/cycle decomposition is a reusable structural method and shows why the correction differs from standard independent-payoff games. This is a full infinite-family finite-size law rather than an arbitrary numerical slice.
+Every column has an independent uniformly random ordered distinct maximum/minimum pair (H_j,L_j). An equilibrium (i,j) is the simultaneous event H_j=i,L_i=j, so loops/two-cycles impossible. Each consistent prescribed arc set is a vertex-disjoint assembly of directed paths and cycles length >=3, of weight n^(-2k)(n/(n-1))^h. Labeled exponential path and cycle components give exactly n![x^n]exp(x+(x^2 t/n^2)/(1-xt/(n(n-1)))+sum_{m>=3}(xt/(n(n-1)))^m/m). The second factorial moment from disjoint arcs and 2-paths yields the variance; N=n requires all vertices in cycles of lengths >=3, including multiple cycles n>=6. Proof covers n=2 boundary with empty top tail. Independent exact-rational enumeration of all ordered column extrema at n=2,3,4 agrees; these finite computations corroborate but are not infinite proof.
 
-## Limitations and verification
-The theorem applies only to iid atomless A and B=-A-transpose, not B=-A, B=A, or independent payoff matrices. Exact results are proved analytically; small n checks do not replace the proof. A publication-priority risk remains from unavailable full texts. No independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
+
+## value
+
+PASS
+
+An exact all-n counting distribution, variance and maximum-equilibrium tail in an established random strategic-game ensemble quantifies finite-population deviations missed by its known Poisson limit. Cycle partitions reveal rare events with multiple cyclic best-response components, a natural mathematical feature rather than an arbitrary finite numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
