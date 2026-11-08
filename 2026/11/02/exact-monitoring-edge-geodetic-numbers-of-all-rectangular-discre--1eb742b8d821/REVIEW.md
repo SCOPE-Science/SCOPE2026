@@ -1,15 +1,21 @@
-# Scientific review: exact rectangular torus monitoring
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(m,n\ge3\), the claimed monitoring number is proved by an established, directly inspected Cartesian-fiber characterization, the cycle three-point lower bound, and an explicit construction that saturates it for every \(5\le m\le n\). The floor-stretched columns have three selected vertices; row gaps are bounded by \(\lceil\lfloor(m-1)/3\rfloor n/m\rceil+1\), which is strictly less than half the row length except for two checked small cases with explicit replacement arrays. Exact integer arithmetic verifies the 36-case finite reduction, and independent edge-deletion BFS checks 1,318 edges. Finite verification is not substituted for the proof.
+PASS
 
-## Originality — PASS, subject to publication-priority uncertainty
+A forced edge must occur on every shortest path between a selected pair. Cartesian coordinate-interleaving shows only same-fiber pairs can force edges, so every C_m fiber needs 3 monitors (all vertices if m=3,4). For m<=n, selecting R+floor(mj/n) in column j gives exactly 3n points. The row maximum circular gap is <=ceil(floor((m-1)/3)*n/m)+1<n/2 for n>=13; the 36 smaller dimension pairs leave exactly (5,6),(7,8), for which RESULT.md supplies explicit 3-per-column arrays with row and column gaps strictly below half-cycle. Thus every edge is forced and 3n meets the fiber lower bound. Independent newly written checker examined 1,235 5<=m<=30, m<=n<=64 pairs and all 36 arithmetic cases. These checks corroborate the all-dimensional inequality, not replace it.
 
-The closest paper is Haslegrave's *Monitoring edge-geodetic sets: hardness and graph products* (arXiv:2210.08955, Theorem 4), which proves the square case, not the arbitrary rectangle. His general product lower bound is sharp for the new unequal-factor range but its matching upper bound is not established there. Dev and coauthors (arXiv:2210.03774) already determined the one-factor cycle values; those are used and credited. The 2024 product-networks paper (DOI:10.1080/17445760.2024.2301929) has an accessible abstract naming other products, but not an accessible full article for definitive exclusion. Searches did not identify a stronger exact rectangular classification; absence of a search hit is not novelty proof. An inaccessible plausible source and unindexed literature remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result completes the exact monitoring number of every rectangular discrete torus and supplies an optimal pattern for arbitrarily unequal circumferences, extending a published square example to all aspect ratios. The constructive arithmetic bound shows why the Cartesian-product lower bound remains sharp even when simple square-circulant symmetry is unavailable. This has mathematical significance as an exact extremal graph-product family and as explicit fault-monitor placement. It makes no claims about strong products, twisted tori, or a classification of all optimum sets.
+Haslegrave proved the product fiber theorem, the general 3 max(m,n) lower bound and the square-torus case, but no arbitrary rectangular matching construction. Dev et al. established the individual cycle values; these are explicitly inherited. The 2024 product-networks article accessible abstract covers several non-Cartesian products and cannot alone establish complete full-text noncoverage. Searches of other toroidal invariants/Resultary gave no covering claim, not priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This exactly resolves the natural extremal monitoring number of every unweighted rectangular torus, with a stretched explicit optimal placement for arbitrary aspect ratios; the sharp value and constructions are useful beyond the previously settled square network and trivial factors, not an artificial parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

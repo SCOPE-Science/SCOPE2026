@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:47:05.022422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A forced edge must occur on every shortest path between a selected pair. Cartesian coordinate-interleaving shows only same-fiber pairs can force edges, so every C_m fiber needs 3 monitors (all vertices if m=3,4). For m<=n, selecting R+floor(mj/n) in column j gives exactly 3n points. The row maximum circular gap is <=ceil(floor((m-1)/3)*n/m)+1<n/2 for n>=13; the 36 smaller dimension pairs leave exactly (5,6),(7,8), for which RESULT.md supplies explicit 3-per-column arrays with row and column gaps strictly below half-cycle. Thus every edge is forced and 3n meets the fiber lower bound. Independent newly written checker examined 1,235 5<=m<=30, m<=n<=64 pairs and all 36 arithmetic cases. These checks corroborate the all-dimensional inequality, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haslegrave universal bound |S|>=3 max(m,n); 2024 accessible abstract describes join/corona/cluster/lexicographic/direct products"
+        ],
+        "reasoning": "The lower bound and equal-factor construction do not imply an all-rectangular upper bound; direct/lexicographic products are not the same Cartesian product. The 2024 full paper was not inspected, so residual overlap is retained.",
+        "searches": [
+          "monitoring edge geodetic number Cartesian product rectangular torus C_m square C_n arbitrary dimensions Haslegrave",
+          "arxiv:2210.08955v3",
+          "doi:10.1080/17445760.2024.2301929"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2210.08955v3",
+        "https://arxiv.org/abs/2210.03774",
+        "https://doi.org/10.1080/17445760.2024.2301929",
+        "Git RESULT.md and verify.py at the frozen assigned source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published square case 3m and universal lower bound 3max(m,n) for m,n>=5"
+        ],
+        "reasoning": "A rectangular upper bound does not follow by logical implication from the square case or product lower bound; row and column compatibility must be constructed and is the new argument.",
+        "searches": [
+          "monitoring edge geodetic number Cartesian product rectangular torus C_m square C_n arbitrary dimensions Haslegrave",
+          "arxiv:2210.08955v3 Theorems 1 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haslegrave Theorem 1 Cartesian fibers, Theorem 4 square torus; Dev et al. cycle values"
+        ],
+        "reasoning": "A product-fiber theorem and single-cycle monitoring numbers are equivalent prerequisites, not equivalent to finding an optimal compatible set in every pair of cycle fibers; unequal rectangular factor upper bound is genuinely additional.",
+        "searches": [
+          "monitoring edge geodetic number Cartesian product rectangular torus C_m square C_n arbitrary dimensions Haslegrave",
+          "arxiv:2210.08955v3",
+          "arxiv:2210.03774"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact meg(C_m square C_n) rectangular table identified in the returned published findings"
+        ],
+        "reasoning": "The claimed all-parameter formula has no finite database premise. The only obvious exact tables are already covered by the explicit new proof; failed search is not a novelty proof.",
+        "searches": [
+          "monitoring edge geodetic number Cartesian product rectangular torus C_m square C_n arbitrary dimensions Haslegrave",
+          "Resultary: toroidal grid homology, multiset dimension, graph-product results"
+        ]
+      },
+      "rationale": "Haslegrave proved the product fiber theorem, the general 3 max(m,n) lower bound and the square-torus case, but no arbitrary rectangular matching construction. Dev et al. established the individual cycle values; these are explicitly inherited. The 2024 product-networks article accessible abstract covers several non-Cartesian products and cannot alone establish complete full-text noncoverage. Searches of other toroidal invariants/Resultary gave no covering claim, not priority certification.",
+      "residual_risks": [
+        "The 2024 product-networks article was inspected at abstract level only and may contain additional Cartesian arguments or references.",
+        "Historical or unindexed monitoring-set classifications might imply the same rectangle upper bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the fiber lemma, lower bound and square case; NOT a stated arbitrary rectangle upper bound",
+          "evidence": "Theorem 1 Cartesian criterion and Theorem 4 square C_m square C_m formula",
+          "identifier_or_url": "https://arxiv.org/html/2210.08955v3",
+          "material_read": "Theorems 1 and 4 and product-fiber proof passages",
+          "method": "arXiv full-text HTML / ar5iv",
+          "title": "Monitoring edge-geodetic sets: hardness and graph products",
+          "trigger": "Exact same monitoring invariant and Cartesian factors"
+        },
+        {
+          "assessment": "Inconclusive for full-document novelty; treated as residual risk rather than definitive NOT_COVERING",
+          "evidence": "Abstract lists join, corona, cluster, lexicographic, direct products",
+          "identifier_or_url": "https://doi.org/10.1080/17445760.2024.2301929",
+          "material_read": "Public abstract and description of product operations, NOT full article",
+          "method": "Publisher abstract",
+          "title": "Monitoring-edge-geodetic sets in product networks",
+          "trigger": "Possible broader graph-product coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exactly resolves the natural extremal monitoring number of every unweighted rectangular torus, with a stretched explicit optimal placement for arbitrary aspect ratios; the sharp value and constructions are useful beyond the previously settled square network and trivial factors, not an artificial parameter choice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2210.08955v3",
+    "https://arxiv.org/abs/2210.03774",
+    "https://doi.org/10.1080/17445760.2024.2301929",
+    "Git RESULT.md and verify.py at the frozen assigned source tree"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all simple-cycle dimensions m,n>=3, meg(C_m square C_n)=mn when min(m,n)<=4 and 3 max(m,n) when m,n>=5; an explicit 3-per-column monitoring set attains it for every rectangular aspect ratio.",
+  "limitations": [
+    "Only simple unweighted Cartesian products C_m square C_n for m,n>=3; not all optimal sets, twisted tori, direct or strong products.",
+    "Finite slice and graph tests do not establish the infinitely many cases; the constructive gap proof is essential."
+  ],
+  "residual_risks": [
+    "The 2024 product-networks article was inspected at abstract level only and may contain additional Cartesian arguments or references.",
+    "Historical or unindexed monitoring-set classifications might imply the same rectangle upper bound."
+  ],
+  "schema_version": 1
+}
