@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit shared-coefficient differential system and its generic domain are stated. The proof differentiates every barycentric weight, cancels polynomial forcing by the degree bound, derives the exact multiplicative evolution law, and checks the cancellation in both invariant families. Its converse constructs the Möbius map, positive scalar and interpolating polynomial, proving full real orbit separation; the rational inverse-coordinate construction proves independence and the exact count. The standalone rational-arithmetic diagnostic verifies 100 exact finite transformations and 240 exact derivative identities. No finite test substitutes for the analytical proof. The assumptions and pole-free boundary are explicit.
+PASS
 
-## Originality — PASS on inspected evidence
+Given the shared Riccati x-flow and polynomial-affine y-flow (L>=1,N>=L+2), x_i-x_j satisfies (B+C(x_i+x_j))(x_i-x_j); barycentric weights over |S|=L+2 obey dlogw_i/dt=-(L+1)B-C(Lx_i+sum_S x). Because the (L+1)-st divided difference of every polynomial of degree <=L vanishes, dΔ_S/dt=(D-(L+1)B-C sum_S x)Δ_S. The difference law cancels in all K_i, and the Δ ratio multiplier cancels in the normalized J_i. Conversely matching 3 x coordinates determines a pole-free positive-denominator Möbius transform, matching x order and all K forces all x; sign(Δ0) fixes positive lambda, and interpolating Q at L+1 nodes with Δ constraints reconstructs all y. The rational coordinate inverse proves independence of N-3 plus N-L-2 integrals = 2N-L-5. I independently checked exact rational Möbius/divided-difference covariance and differential-identity examples without relying on saved verifier logs. This covers finite regular flow portions only, not singular strata.
 
-The closest full-text papers establish general reduction and group actions, not the displayed complete quotient coordinates for the \(I_{20}^{(L)}\) family. Tokunaga (arXiv:2610.28715v1) explicitly lists its group form in Table 1 but does not spell out normalized divided-difference constants, an exact relative-invariant law, or reconstruction. Martens–Dharmavaram (arXiv:2607.12210v1) derives Riccati cross-ratios and general existence, which does not give these higher-order fiber invariants. Campoamor-Stursberg et al. (arXiv:2511.01063v1) supplies general imprimitive-system mixed superposition without this explicit specialization. Searches of the additional literature and mathematical finding database did not disclose an equivalent theorem. This remains a best-knowledge assessment, not proof of publication priority. Older invariant theory and the not-fully-inspected 1992 classification are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete constructive classification, not a routine parameter substitution: the polynomial forcing affects all ordinates, so the familiar Riccati cross-ratios cannot distinguish configurations. The new normalized order-\(L+1\) divided differences provide exactly the missing \(N-L-2\) invariants, while the complete coordinates and interpolation formulas permit exact dimension reduction and state reconstruction for any network size and any degree. The scope is natural (an entire canonical Lie-system family). Singularity strata and the reduced group dynamics are not solved.
+Tokunaga 2026 already supplies the I20^(L) normal form and finite group action; general Lie–Scheffers existence of invariants is also prior. This theorem supplies explicit barycentric normalized invariants and actual real orbit separation on the stated generic region; novelty does not include discovery of the Lie family.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit complete set of first integrals and real orbit reconstruction for an entire natural imprimitive Lie-system network family is mathematically useful. Higher divided differences supply precisely the N-L-2 missing fiber invariants that classical Riccati cross-ratios cannot detect, permitting full generic dimension reduction without solving the residual L+5 group equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
