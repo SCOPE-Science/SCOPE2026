@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the weighted-wheel classification
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this document. The script needs Python 3 and NumPy; no downloaded data and no external network access are required. The replay for this result returned:
+## correctness
 
-```
-PASS standalone metric, quadratic form, spectral threshold, multiplicity and asymptotic checks: 10362
-n=4: critical spoke length and optimal exponent: (0.7071067811865476, 2.0)
-n=5: critical spoke length and optimal exponent: (0.8399793136490875, 1.8552059610742986)
-```
+PASS
 
-The checker constructs every wheel from edge weights, runs Floyd–Warshall to compute all distances, forms independently the powered-distance matrices, diagonalizes their restrictions to the zero-sum hyperplane, and verifies agreement with the critical exponent and equality-space dimension. It covers integers \(4\le n\le16\), six spoke lengths per integer (including endpoints and the transition), and four random zero-mass quadratic-form comparisons per case. It also tests predicted large-rim expansions at four larger values using the analytic scalar formulas.
+For n>=4 and 1/2<=r<=1, shortest-path distance between nonadjacent rim points is 2r, adjacent 1, hub-rim r. The zero-sum powered-distance form decomposes exactly into the hub-vs-mean scalar g=(n−3)(2r)^p+2−2nr^p and the orthogonal nonconstant cycle modes -a||u||²+(1−a)<u,Au>, a=(2r)^p. Since min cycle eigenvalue is -2c_n, nonpositivity is precisely a<=a_n=2c_n/(2c_n−1) and g<=0. Both constraints are monotone in p, yielding min{p_g,p_s}, strictness, nullities and embedding dimensions by Schoenberg. Substituting the contrast threshold into g yields unique crossover r*=b_n^{1/p*}, p*=log2(a_n/b_n), b_n=((n−3)a_n+2)/(2n). Implicit g_r at its root =-2p/r<0, hence p_g strictly rises while p_s falls; yields unique maximum. Independent shortest-path and projected-matrix eigenspectra for n4..13, multiple r and p on both sides, agree including n4 center-of-square p=2. Taylor formulas correctly separate fixed r<1 from r=1 and odd/even parity.
 
-The finite replay is neither a computer-assisted all-dimensional proof nor an independent mathematical audit. The proof of the universal result is the complete mean/contrast decomposition, exact mode eigenvalues, strict scalar monotonicity, and explicit transition calculation in `RESULT.md`. No external verification or publication has been performed.
+## originality
+
+PASS
+
+Obata 2017 Theorem 1.1 and Lou–Obata–Huang 2020 Example 3.6 provide unweighted p=1 wheel QEC and parity baseline. These do not imply an exact variable-spoke, variable-exponent threshold, unique optimal radial weight, competing global/oscillatory critical modes or boundary-layer asymptotics. Robertson supplies Hilbert/negative-type criteria rather than computed weighted wheel invariants. Resultary wheel polytope ellipsoid deals with a different invariant. Residual risk: an older radial two-distance metric negative-type theorem might specialize to this family.
+
+## value
+
+PASS
+
+The weighted wheel is a canonical center-plus-cycle shortest-path family; its Hilbert snowflake threshold and optimum spoke length are natural metrics in embedding geometry. The full two-parameter classification, parity-dependent equality dimension, and sharp n^{-1} transition window provide a useful precise invariant beyond the previously known unit-spoke parity case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
