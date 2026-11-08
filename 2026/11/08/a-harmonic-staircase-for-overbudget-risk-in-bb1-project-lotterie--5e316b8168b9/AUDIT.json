@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "With H the exceptional-project indicator and Z omitted unit projects, E Z=cq. Strict nonoverbudget outcomes with H=1 require Z>=ceil(c), and the cap requires Z>=ell=max(0,ceil(c-delta)). The resulting lower bound r>=q(ceil(c)-c)/(ceil(c)-ell) is valid for every lottery. When delta<frac(c), E Z>=q ceil(c)>cq makes the constraints infeasible. An explicit mixture of H=0,Z=0 and H=1,Z in {ell,ceil(c)} achieves equality. Uniform cyclic omission subsets make each cheap marginal exactly 1-cq/k; all support outcomes obey BB1 and the cap. The integer-cost case admits exact-budget outcomes. Exact-rational checks on 2940 instances and independent complete-distribution LP comparisons on 420 instances passed; only the proof supports the infinite parameter range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aziz et al. 2024, https://arxiv.org/abs/2404.05198, Theorem 3.2: all feasible fractional PB vectors have some BB1 implementation, but its theorem is existential rather than an exact sharp tail-risk minimization for fixed weighted project marginals.",
+        "Gandhi et al. 2006, https://doi.org/10.1145/1147954.1147956, supplies dependent randomized rounding, a general construction technique. Accessible summary does not supply the asserted risk-cap frontier.",
+        "Wang and Wang 2016, https://doi.org/10.1287/moor.2015.0755, studies joint mixability and fixed marginal sum laws; its accessible abstract concerns different distribution classes and a general coupling framework."
+      ],
+      "reasoning": "The new proof establishes the optimum among all distributions with the prescribed marginals, and then constructs a BB1 optimizer. Earlier BB1 existence and general coupling techniques do not logically give the exact optimum or its discontinuous dependence on a hard cap. Stronger or differently formulated uncatalogued coupling results remain a risk, especially where full source text was not accessible.",
+      "searches": [
+        "prescribed marginals minimize probability of exceeding knapsack capacity weighted Bernoulli coupling",
+        "budget balanced up to one project lotteries optimal overspending probability weighted dependent rounding",
+        "optimal coupling Bernoulli one heavy item k unit project overspending probability marginal uniform"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2404.05198 — primary manuscript, Sections 1-3 and related sections inspected",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/28801 — official publication metadata and original scope",
+      "https://doi.org/10.1145/1147954.1147956 — accessible bibliographic descriptions, limited full text",
+      "https://arxiv.org/abs/1910.06321 — abstract/metadata for Bernoulli tail optimization, limited full text",
+      "https://doi.org/10.1287/moor.2015.0755 — abstract for general joint mixability, limited full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aziz et al. 2024 Section 3 (Definition 3.1, Theorem 3.2, Proposition 3.4), https://arxiv.org/abs/2404.05198: BB1 existence and a BFx impossibility example.",
+        "Padmanabhan and Natarajan, https://doi.org/10.1287/ijoo.2019.0038: accessible abstract discusses unweighted Bernoulli sum tails when pairwise distributions are prescribed, a different object and information structure."
+      ],
+      "reasoning": "Neither BB1 existence nor failure of BFx yields the minimum possible frequency of strict overruns under each hard cap. A generic linear optimization procedure could calculate particular rational instances, but cannot be equated with the stated all-real closed form and cyclic realization without additional analysis. The new moment inequality and equality coupling supply that analysis. Abstract-level comparisons with other optimal-coupling works leave an explicit residual priority risk.",
+      "searches": [
+        "Fair Lotteries for Participatory Budgeting Aziz Lu Suzuki Vollen Walsh 2024 BB1 exact Pareto frontier overspend probability",
+        "randomized rounding multiple budgets project selection minimum overspend probability fair lotteries budget constraints 2024",
+        "minimum probability of budget violation in weighted fractional project lottery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A finite marginal-preserving lottery is a coupling of Bernoulli project-selection indicators; weighted-sum tail risk is its strict budget exceedance probability. Searches returned broader Bernoulli tail and coupling topics but no formula for the exceptional-cost symmetric-marginal family.",
+        "The indexed work on Bernoulli pair balancing describes a transfer law for a Poisson-binomial distribution; that changes marginal parameters of independent trials rather than optimizing arbitrary couplings under fixed marginal constraints."
+      ],
+      "reasoning": "The same theorem can be phrased as a best-coupling upper-tail problem for a weighted Bernoulli sum. A general coupling linear program encodes such instances, but does not by itself imply the explicit m+1-level harmonic budget-cap frontier. No compared indexed statement asserts the same closed form or its sharp BB1 attainability; this is best-knowledge, not uniqueness certification.",
+      "searches": [
+        "sharp optimal coupling of weighted Bernoulli sums and upper-tail risk with prescribed marginals",
+        "minimum probability weighted Bernoulli sum exceeds budget fixed marginals",
+        "lottery minimum probability budget violation heavy project and cheap projects exact formula staircase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-result retrieval contained relevant general budget and Bernoulli titles but no record tabulating or giving the formula for this family.",
+        "The initiating paper contains BB1 Definition 3.1, Theorem 3.2 and BFx Proposition 3.4, not an exact exceptional-project risk table."
+      ],
+      "reasoning": "A searched database or enumeration of project lotteries with this weighted family and its whole infinite cap ladder was not identified. The absence of an indexed table is not a proof that no stronger full-text theorem exists.",
+      "searches": [
+        "BB1 participatory budgeting asymmetric project costs exact minimum probability budget exceed capacity implementation fractional marginals one expensive k unit costs",
+        "probability of budget overspend in marginal-preserving randomized rounding project costs budget balance up to one Aziz",
+        "fractional participatory budget BB1 overbudget tradeoff one exceptional item uniform marginal k cheap items"
+      ]
+    },
+    "rationale": "The primary full-text Sections 2-3 establish general BB1 implementability but not the sharp probability-of-overspending versus allowed-overrun ladder. Searches of relevant indexed mathematical findings, source aliases and alternative Bernoulli-coupling terminology yielded no equivalent explicit risk frontier; general stochastic coupling or dependent rounding results do not directly imply the formula. Publication-priority uncertainty persists for inaccessible full texts, unindexed tables and alternative formulations.",
+    "residual_risks": [
+      "The optimal-coupling and dependent-rounding literatures are broad; abstract-only secondary-source inspection cannot exclude an explicit previously published equivalent formula elsewhere.",
+      "The public search and mathematical-result index is not an exhaustive novelty oracle.",
+      "The theorem assumes identical unit-project marginals; it is not a general heterogeneous marginal risk formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence of a BB1 marginal-preserving lottery and BFx incompatibility, not the closed-form optimum overbudget probability for prescribed symmetric marginals under every cap",
+        "evidence": [
+          "https://arxiv.org/abs/2404.05198 Sections 2-3",
+          "Theorem 3.2 guarantees BB1 marginal implementation; Proposition 3.4 excludes BFx in some instances; neither statement is a sharp tail-risk formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.05198",
+        "material_read": "Accessible full text of Introduction and Sections 2-3, especially Definitions 2 and 3.1, Theorem 3.2 and its proof, Proposition 3.4 and its proof, and discussion of hard budgets; related-work discussion and Sections 5-6 scope inspected",
+        "method": "Read source-rendered article sections and compare hypotheses, objective, and output guarantee to the new theorem",
+        "title": "Fair Lotteries for Participatory Budgeting",
+        "trigger": "Same project lottery, fractional marginals, BB1 notion, and heterogeneous costs"
+      },
+      {
+        "assessment": "Confirms early public source in middle-date cohort and the scope of the original general BB1 claim; the arXiv manuscript permits detailed theorem comparison",
+        "evidence": [
+          "Official venue date 2024-03-24",
+          "DOI 10.1609/aaai.v38i9.28801"
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/28801",
+        "material_read": "Official AAAI publication metadata, authors, abstract, publication date 2024-03-24 and DOI",
+        "method": "Read venue article webpage",
+        "title": "Fair Lotteries for Participatory Budgeting",
+        "trigger": "Verify earliest public date and correct originating publication"
+      },
+      {
+        "assessment": "No decisive covering implication established; inaccessible unexamined full text is recorded as risk",
+        "evidence": [
+          "https://www.researchwithrutgers.org/en/publications/dependent-rounding-and-its-applications-to-approximation-algorith/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1147954.1147956",
+        "material_read": "Accessible Rutgers/CiNii abstract and bibliographic summary, not the full article",
+        "method": "Compare the documented randomized-rounding tasks and guarantee classes against exact risk-cap optimization",
+        "title": "Dependent Rounding and its Applications to Approximation Algorithms",
+        "trigger": "Algorithmic technique explicitly used by the primary paper"
+      },
+      {
+        "assessment": "Distinct constraints, not identified as a direct formula for the target; residual full-text uncertainty explicitly retained",
+        "evidence": [
+          "https://arxiv.org/abs/1910.06321",
+          "https://doi.org/10.1287/ijoo.2019.0038"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/ijoo.2019.0038",
+        "material_read": "Accessible article abstract and public arXiv metadata; not the entire article",
+        "method": "Check mathematical object: integer/unweighted Bernoulli count tails with specified pairwise distributions, compared to a one-heavy-project weighted sum and cap-constrained arbitrary coupling",
+        "title": "Tree Bounds for Sums of Bernoulli Random Variables: A Linear Optimization Approach",
+        "trigger": "Potentially stronger optimal-tail-bound literature"
+      },
+      {
+        "assessment": "Generic framework not a verified explicit covering statement; uncertain inaccessible consequences remain",
+        "evidence": [
+          "https://doi.org/10.1287/moor.2015.0755"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/moor.2015.0755",
+        "material_read": "Accessible abstract and publication summary; not the complete article",
+        "method": "Compare constant-sum joint mixability statements with sharp capped strict-tail probability under prescribed weighted Bernoulli marginals",
+        "title": "Joint Mixability",
+        "trigger": "Generic marginal-coupling theory may dominate a special-case result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e316b81-68b9-4c00-97ec-8b4a0c77ded3",
+  "value": {
+    "rationale": "The initiating public-finance lottery result makes BB1 implementation possible without quantifying the chance of violating a hard budget. Risk of overspend and its maximum amount are directly relevant decision criteria. This theorem supplies a complete exact policy frontier, sharp impossibility threshold, harmonic step transitions, equality construction and O(k) support in a canonical one-exceptional-cost model. The dimension and restrictions arise from the natural heterogeneous-cost obstacle, not an arbitrary table cell.",
+    "status": "PASS"
+  }
+}
