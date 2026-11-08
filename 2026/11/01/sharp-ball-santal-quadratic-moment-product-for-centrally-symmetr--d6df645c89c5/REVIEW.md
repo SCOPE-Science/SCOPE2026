@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A centered symmetric six-gon is exactly a three-generator planar zonotope. Affine invariance reduces all shapes to generators \((1,0),(0,1),(p,q)\) with strictly positive parameters; the six polar vertices follow by intersecting adjacent supporting lines. Exact second-moment integration gives the displayed rational formula. Its upper deficit is a symmetric degree-nine polynomial with 46 positive coefficients in ordered gap coordinates; its strictly positive degree-two-in-gaps term proves equality rigidity. The lower deficit has 19 positive coefficients. `verify.py` independently reconstructs each equation from the vertices with integer/rational symbolic arithmetic. Proof limitations: only symmetric genuine hexagons; no numeric experiment is used to infer a universal inequality.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The current general Ball–Santaló result supplies \(\pi^2/8\) in the plane, which is strictly larger than the optimal hexagonal value. Its inspected theorems and stability statements do not give a polygon-side-count refinement. The closest published specialized calculation on dual \(\ell_p\)-balls concerns a one-parameter class and does not contain all symmetric hexagons. A second relevant geometric paper calculates enclosing parallelogram area of the same hexagons, not polar quadratic moments. Searches of relevant mathematical records and the inspected prior corpus did not identify an implication to the exact \(25/24\) bound. Older polygonal-moment results may exist; the priority conclusion is conditional on accessible sources.
+PASS
 
-**Mathematical value — PASS.** The theorem gives an exact and sharp extremal classification of a natural affine-polar functional over the complete two-dimensional shape moduli of centrally symmetric hexagons, with rigid equality and a strict degeneration endpoint. This nontrivially sharpens the global ellipsoidal bound on a distinguished combinatorial class and makes the affine-regular hexagon a quantitative benchmark for polygonal forms of Santaló-type inequalities. It is more than computing the same integral on one symmetric example.
+Affine normalize a centered three-zonotope to generators (1,0),(0,1),(p,q), p,q>0. Independently reconstruct the six vertices, six polar support vertices, and unnormalized tensor moments from exact polygon determinant formulas: their trace product reproduces 8N/(9D) for x,y,z pairwise absolute generator determinants. The algebraic upper gap 75D-64N expands at x=W+U+V,y=W+U,z=W to exactly 46 positive integer monomials, including 1024 W^7(U^2+UV+V^2): it vanishes only at U=V=0. The lower gap factors as 8pq H(p,q)/(9(1+p)^3(p+q)^3(1+q)^3), with all 19 coefficients of H positive, and tends to 0 as one positive generator shrinks. At p=q=1 the exact moment gives 25/24; limiting parallelograms have 8/9. Hence no extrapolation from finite tests is required.
 
-Scientific limits: The result does not imply any optimal bound for general nonsymmetric polygons or higher-dimensional zonotopes; its published-priority status remains provisional. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier Ball/Santaló general inequality caps this quadratic moment by the disk value pi^2/8, which is larger than 25/24, and does not determine the sharp affine-regular hexagon subclass. Directly related Resultary hexagon findings concern enclosing-parallelogram area and other invariants; the l_p moment-product work is only a one-parameter family. No matched full all-hexagon polar moment result in the actual searches; best-of-knowledge PASS, not priority certification.
+
+## value
+
+PASS
+
+The quadratic Ball–Santaló polar moment is a classical affine invariant. Determining its *sharp* global range, unique affinely regular optimizer, and nonattained parallelogram boundary in the complete natural centrally symmetric six-gon moduli gives a nontrivial structural polygon extremal theorem. The 46-monomial certificate is materially stronger than quoting the general ellipsoid inequality; its exact constant is not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

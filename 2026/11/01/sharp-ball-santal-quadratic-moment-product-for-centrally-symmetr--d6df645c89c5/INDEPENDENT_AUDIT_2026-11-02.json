@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T07:09:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, Git blob 67cd996cdb90c0a44244daef89324dfa7813e3c2",
+        "frozen verify.py Git blob 81dc7277dfab4c3eaf755edc1a29772167c117bd",
+        "independent SymPy polygon integration and exact polynomial coefficient replay"
+      ],
+      "rationale": "Affine normalize a centered three-zonotope to generators (1,0),(0,1),(p,q), p,q>0. Independently reconstruct the six vertices, six polar support vertices, and unnormalized tensor moments from exact polygon determinant formulas: their trace product reproduces 8N/(9D) for x,y,z pairwise absolute generator determinants. The algebraic upper gap 75D-64N expands at x=W+U+V,y=W+U,z=W to exactly 46 positive integer monomials, including 1024 W^7(U^2+UV+V^2): it vanishes only at U=V=0. The lower gap factors as 8pq H(p,q)/(9(1+p)^3(p+q)^3(1+q)^3), with all 19 coefficients of H positive, and tends to 0 as one positive generator shrinks. At p=q=1 the exact moment gives 25/24; limiting parallelograms have 8/9. Hence no extrapolation from finite tests is required.",
+      "residual_risks": [
+        "The theorem requires six genuine vertices and center-based polarity; degeneration supplies only the unattained lower endpoint.",
+        "The determinant parametrization is for centered 3-zonotopes in the plane and cannot be extrapolated to general nonsymmetric six-gons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Böröczky–Patsalos–Saroglou provide the general ellipsoid extremal bound pi^2/8 >25/24.",
+          "The published l_p-scale statement is restricted to a one-parameter family rather than arbitrary 3-zonotope generators."
+        ],
+        "reasoning": "Neither the general disk upper bound nor one-parameter monotonicity identifies the exact 3-parameter symmetric-hexagon maximum or strict lower infimum.",
+        "searches": [
+          "affine invariant Ball Santaló quadratic polar moment product centrally symmetric hexagon affine regular maximum 25/24 parallelogram lower 8/9",
+          "https://arxiv.org/abs/2602.20325",
+          "Ball Santaló l_p log concavity moment product"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.20325",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-enclosing-parallelogram-profile-and-sharp-affine-stability--72e7e289e20b",
+        "Resultary QHEX query",
+        "frozen RESULT.md References 1-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General bound pi^2/8 cannot imply specialized maximum 25/24; different enclosing area invariant cannot imply the dual moment profile.",
+          "The claimed 46-coefficient inequality works on all positive determinant triples, not a predetermined l_p curve."
+        ],
+        "reasoning": "Proof-level implication analysis leaves the sharp subclass optimization unaccounted for in the inspected results.",
+        "searches": [
+          "https://arxiv.org/abs/2602.20325",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-enclosing-parallelogram-profile-and-sharp-affine-stability--72e7e289e20b",
+          "Resultary Strict log-concavity of Ball Santaló moment product along the l_p scale"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integral equals trace of two unnormalized covariance moment matrices and is invariant under affine GL(2); the RHEX finding instead optimizes enclosing area.",
+          "The general quadratic Santaló upper extremizer is an ellipsoid, not a six-vertex polygon."
+        ],
+        "reasoning": "Equivalent tensor-moment, isotropic-covariance and determinant-invariant statements were compared, not merely literal 25/24 searches.",
+        "searches": [
+          "affine invariant Ball Santaló quadratic polar moment product centrally symmetric hexagon affine regular maximum 25/24 parallelogram lower 8/9",
+          "Ball Santaló polar quadratic moment zonotope determinant polar covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: enclosing-parallelogram profile is the minimum outer area, not trace(M(K)M(K polar)).",
+          "No indexed table of exact polar quadratic moments for all determinant triples found in the returned ranked Resultary hits."
+        ],
+        "reasoning": "Compared exact object, functional and parameters; failure to locate a table is only a search limitation.",
+        "searches": [
+          "affine invariant Ball Santaló quadratic polar moment product centrally symmetric hexagon affine regular maximum 25/24 parallelogram lower 8/9",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-enclosing-parallelogram-profile-and-sharp-affine-stability--72e7e289e20b"
+        ]
+      },
+      "rationale": "The earlier Ball/Santaló general inequality caps this quadratic moment by the disk value pi^2/8, which is larger than 25/24, and does not determine the sharp affine-regular hexagon subclass. Directly related Resultary hexagon findings concern enclosing-parallelogram area and other invariants; the l_p moment-product work is only a one-parameter family. No matched full all-hexagon polar moment result in the actual searches; best-of-knowledge PASS, not priority certification.",
+      "residual_risks": [
+        "An older affine-inequality, tensor cubature or polygon-moment paper under another vocabulary might contain the exact three-determinant statement.",
+        "The two Resultary comparisons are abstract-level inspections, not complete full-paper reviews."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quadratic-moment upper bound for origin-symmetric bodies, not claimed exact 25/24 among genuine hexagons",
+          "evidence": "General ellipsoid/disk endpoint pi^2/8 exceeds claimed 25/24.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.20325",
+          "material_read": "Full accessible arXiv HTML, particularly principal theorem statements of the general inequality and equality case, searched for hexagon/polygon specialization",
+          "method": "read theorem/primary text",
+          "title": "On Ball’s conjectured Santaló type inequality",
+          "trigger": "Exact same quadratic polar integral"
+        },
+        {
+          "assessment": "Different optimized functional, no whole-document NOT_COVERING conclusion",
+          "evidence": "Uses generator-pair determinants to optimize enclosing parallelogram area rather than polar quadratic moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-enclosing-parallelogram-profile-and-sharp-affine-stability--72e7e289e20b",
+          "material_read": "Resultary semantic hit title and scientific summary, not whole proof",
+          "method": "indexed record abstract",
+          "title": "Exact enclosing-parallelogram profile and sharp affine stability for symmetric hexagons",
+          "trigger": "Same centrally symmetric planar hexagon family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.20325",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-enclosing-parallelogram-profile-and-sharp-affine-stability--72e7e289e20b",
+        "frozen RESULT.md"
+      ],
+      "rationale": "The quadratic Ball–Santaló polar moment is a classical affine invariant. Determining its *sharp* global range, unique affinely regular optimizer, and nonattained parallelogram boundary in the complete natural centrally symmetric six-gon moduli gives a nontrivial structural polygon extremal theorem. The 46-monomial certificate is materially stronger than quoting the general ellipsoid inequality; its exact constant is not a routine substitution.",
+      "residual_risks": [
+        "No implication for asymmetric hexagons or more sides."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem requires six genuine vertices and center-based polarity; degeneration supplies only the unattained lower endpoint.",
+    "The determinant parametrization is for centered 3-zonotopes in the plane and cannot be extrapolated to general nonsymmetric six-gons.",
+    "An older affine-inequality, tensor cubature or polygon-moment paper under another vocabulary might contain the exact three-determinant statement.",
+    "The two Resultary comparisons are abstract-level inspections, not complete full-paper reviews.",
+    "No implication for asymmetric hexagons or more sides."
+  ],
+  "schema_version": 1
+}
