@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "From the cited pure-noise zero formula, equality of first intensities is exactly an affine difference of log Gaussian convolutions. Gaussian-weighted PSD measures have entire Laplace transforms; equality on real arguments extends to imaginary arguments and gives a translated positive measure by Fourier uniqueness. Undoing the weights yields the precise orbit with factor a²/(8π). A two-sided polynomial lower bound rules out nonzero a by exponential-growth contradiction, while compact supports demonstrate failure without that hypothesis. The constant-intensity converse follows by quadratic moment-generating function and polynomial-growth exclusion. The numerical checker separately validates convolution and variance identities; it is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haimi--Koliander--Romero, arXiv:2012.12298, abstract describes general window and white-noise Weyl--Heisenberg invariant zero statistics.",
+        "Escudero et al., Foundations of Computational Mathematics (2024), abstract and introduction concern Bargmann zeros with additive white noise and numerical computation.",
+        "arXiv:2609.18689 Proposition 1.3 establishes the Gaussian forward case but not its converse."
+      ],
+      "reasoning": "The earlier white-noise or twisted-stationary results do not classify raw stationary colored-noise PSDs sharing frequency-dependent zero intensity. The most relevant 2026 theorem is used as the starting formula and its specific covered components are credited.",
+      "searches": [
+        "\"spectrogram zeros\" \"power spectral density\" \"polynomial tails\" identifiability",
+        "\"expected zeros\" \"stationary\" \"spectral\" \"Gaussian\" \"rigidity\"",
+        "arxiv:2012.12298",
+        "doi:10.1007/s10208-022-09593-5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.18689: Theorem 1.1; Proposition 1.3; Remark 5.1; sections 3-5",
+      "doi:10.1007/s10208-022-09593-5: abstract/introduction",
+      "arxiv:2012.12298: abstract/metadata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2609.18689 Section 5.1 the two constants are explicitly described as unknowable from smoothed zero intensity without an external slope/level normalization.",
+        "The present proof shows, under two-sided polynomial lower tails, that admissibility forces the smoothed slope gauge to vanish and only scale remains; on compact spectra the same gauge produces raw PSDs with arbitrarily separated disjoint support.",
+        "The source Gaussian constant-intensity example is one direction; the converse uses identification of the entire Gaussian-weighted measure by its quadratic moment-generating function."
+      ],
+      "reasoning": "The prior formula is assumed and not restated as an original theorem. The new raw-fiber classification and distinct tail regimes answer the inverse admissibility question not resolved in the inspected text. The novel components require a measure-transform identity and growth arguments in addition to differentiating the smoothed formula.",
+      "searches": [
+        "arxiv:2609.18689, Sections 1, 3, 4, 5.1",
+        "arxiv:2609.18689, Theorem 1.1, Proposition 1.3, Remark 5.1",
+        "\"colored noise\" \"zeros\" \"spectrogram\" identifiability slope power spectral density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Escudero--Koliander--Romero, arXiv:2609.18689, Remark 5.1: smoothed spectra differing by an exponential-affine multiplier have equal first intensity.",
+        "Equation (1) in RESULT.md identifies the unsmoothed admissible spectra via Gaussian-weighted Laplace-transform uniqueness."
+      ],
+      "reasoning": "The prior source explicitly covers the affine gauge on smoothed spectra. It does not identify its exact counterpart on unsmoothed polynomial-growth PSDs, prove polynomial-tail collapse of the gauge, or construct arbitrarily distant disjoint-band equivalents. The new theorem treats the admissible raw spectral inverse fibers and derives these further consequences rather than claiming the known smoothed identity.",
+      "searches": [
+        "\"colored noise\" \"zeros\" \"spectrogram\" identifiability slope power spectral density",
+        "\"Gaussian convolution\" \"exponential tilt\" \"translation\" identifiability",
+        "arxiv:2609.18689, Remark 5.1",
+        "arxiv:2609.18689, equation (4.1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public searches led to arXiv:2609.18689 and background spectrogram-zero literature; no raw-PSD fiber classification or exact spectral table was found.",
+        "The theorem is a continuous functional inverse classification; no finite database or numerical census is used."
+      ],
+      "reasoning": "No exact database or tabulation was found that enumerates these infinite-dimensional equivalence classes. This is not a uniqueness certificate; novelty rests primarily on direct implication comparison with the relevant primary paper.",
+      "searches": [
+        "\"spectrogram zeros\" \"power spectral density\" \"polynomial tails\" identifiability",
+        "\"spectrogram zeros\" \"Gaussian\" \"PSD\" \"tail\" uniqueness",
+        "\"spectrogram zeros\" \"same intensity\" Gaussian spectral shift exponential tilt"
+      ]
+    },
+    "rationale": "The 2026 primary work proves the forward intensity and explicitly describes the affine gauge for smoothed spectra (Remark 5.1); those ingredients are credited. New work classifies all admissible unsmoothed orbits and exact sharp tail behavior, constructs fully separated spectral aliases, and gives the converse Gaussian/white homogeneity rigidity. Targeted primary and semantic searches did not find a stronger covering result; equivalent heat-kernel/exponential-family statements remain possible.",
+    "residual_risks": [
+      "Equivalent inverse heat-kernel or exponential-tilt classification may exist under other terminology.",
+      "The older Haimi--Koliander--Romero full paper was not examined, although its abstract concerns a different covariance setting.",
+      "The new theorem is derived from the cited first-intensity formula and does not assert priority for that formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the first-intensity identity, smoothed affine ambiguity and centered Gaussian forward example; NOT_COVERING the unsmoothed admissibility orbit, two-sided polynomial-tail rigidity, disjoint-band construction, or homogeneous-intensity converse in inspected statements.",
+        "evidence": [
+          "Equations (1.9)/(4.1), Theorem 1.1",
+          "Remark 5.1",
+          "Proposition 1.3",
+          "Sections 3.1 and 3.2 covariance/Kac--Rice derivation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+        "material_read": "Full relevant HTML sections 1.2, 3.1, 3.2, 4, 5.1 including equations (1.9)/(4.1), Proposition 1.3 and Remark 5.1",
+        "method": "Open-access arXiv primary HTML, theorem and proof line comparison",
+        "title": "Zeros of the Spectrogram of Colored Noise",
+        "trigger": "Same Gaussian window, pure stationary colored-noise PSD and zero-intensity inverse problem"
+      },
+      {
+        "assessment": "Background on additive white-noise zero computation, not direct evidence of a colored-PSD identifiability theorem; older full-text overlap remains a minor risk.",
+        "evidence": [
+          "Abstract and introduction: additive white-noise Bargmann-zero computation"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10879403/",
+        "material_read": "Open-access article title, abstract, introduction and initial model; no complete full-text exclusion claim",
+        "method": "PMC open-access HTML",
+        "title": "Efficient Computation of the Zeros of the Bargmann Transform Under Additive White Noise",
+        "trigger": "Earlier zero-set methods for Gaussian STFT"
+      },
+      {
+        "assessment": "Covers a different white-noise/general-window or twisted stationary setting. Full text not examined; no definitive claim of all-section exclusion.",
+        "evidence": [
+          "Abstract: expected first intensity for Weyl-Heisenberg invariant functions and white-noise STFT general windows"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.12298",
+        "material_read": "ArXiv abstract and metadata, not full mathematical text",
+        "method": "ArXiv public record",
+        "title": "Zeros of Gaussian Weyl-Heisenberg functions and hyperuniformity of charge",
+        "trigger": "Earlier expected zero densities and Gaussian rigidity for white-noise STFT"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5cbd7b2-c321-4377-85ce-a7acf5d5998c",
+  "value": {
+    "rationale": "Exactly characterizes when a natural stochastic Fourier zero statistic identifies its underlying colored-noise PSD, without imposing two arbitrary smoothed-spectrum integration constants. It gives a broad polynomial-tail uniqueness regime and an explicit arbitrarily disjoint spectral-band nonidentifiability mechanism at the opposite extreme, plus a complete classification of homogeneous zero density. These are motivated structural inverse facts with direct interpretation for zero-based spectral inference, not an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
