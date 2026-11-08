@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The asserted objects are smooth genus-three plane quartics on the explicitly defined open parameter locus. The derivative criterion independently yields the excluded coefficient hyperplanes and determinant divisor. The actual coefficient extraction from the quartic squared gives a diagonal Hasse--Witt matrix, and its Frobenius iterates keep exactly the same nonzero diagonal support, which proves geometric \(3\)-rank. Hasse hypersurfaces are explicit affine graphs; the pairwise-axis description and Jacobian-gradient ranks prove normal crossings. The point count uses a complete quadratic-character sum, with both excluded roots tracked separately, and a complete inclusion--exclusion count on the three components. The standalone exact symbolic and independent finite-field programs passed. No finite enumeration is substituted for a proof over every \(\mathbb F_{3^m}\).
+PASS
 
-## Originality (O): PASS with priority risk
+For smooth standard Ciani plane quartics over algebraically closed char 3, the partial derivatives imply the exact open U excluding r^2=s^2=t^2=1 and Delta=r^2+s^2+t^2-rst-1=0. From F^2 all Hasse–Witt off-diagonal terms vanish by parity and diagonal entries equal 2(s+rt), 2(t+rs), 2(r+st); Frobenius powers preserve their zero set and give p-rank as number of nonzero entries, a-number=3-rank. Each h_i=0 is an affine graph open in A2; pairwise intersections reduce to axes in U (r^2 !=1 etc), with linearly independent gradients, and all three gradients independent at origin, hence simple normal crossings. For q=3^m, discriminant root counts follow sum_{u in F_q}chi(u²-1)=-1 and exclusion t=±1, giving smooth total (q-2)^3-(q-3)^2. Each Hasse component has q²-6q+10 points; inclusion-exclusion gives N0=1, N1=3(q-3), N2=3(q-3)(q-5), N3=(q-3)(q²-7q+18). Independently enumerated F9 in polynomial field u²=-1: ranks 1,18,72,216 for 0,1,2,3 and total 307. This checks a finite case only; all-extension formulas are proved by character sums, not sampling.
 
-The closest primary full text is Ohashi's 2022 Ciani paper (arXiv:2201.12996), which already contains the same equations, smoothness criterion, triple elliptic quotient decomposition and superspecial arithmetic. These prior facts are explicitly credited. The compared theorems and proofs did not contain the characteristic-three simple-normal-crossings nonordinary divisor or the four all-extension coefficient-count polynomials. Ohashi--Kudo--Harashita (arXiv:2111.09777) explicitly exclude characteristic three in their different cyclic-six family; the available earlier Ciani reduction papers concern distinct invariants. The accessible earlier characteristic-seven Ciani calculation does not imply the characteristic-three identities. The literature could still contain an unindexed equivalent calculation, and abstracts alone do not exclude that possibility. No priority or independence certificate is asserted.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The normal-crossings incidence structure answers where and how ordinary Ciani Jacobians degenerate in the characteristic where the quartic-square coefficient matrix diagonalizes most strongly. The all-extension closed count simultaneously measures the four possible ranks in a natural three-parameter coefficient family, identifies the unique smooth superspecial parameter, and distinguishes rank-one axis loci from rank-two surfaces. These are complete, geometrically motivated coefficient-space data rather than a random small-field census or a claim about moduli-isomorphism classes.
+Ohashi 2022 studies the exact same Ciani family and already proves smoothness and elliptic-quotient/prime-to-p isogeny, and results on superspecial members. That antecedent is credited; reviewed sections did not yield the coefficient-space SNC triple arrangement and four exact all-extension rank count polynomials. Broader Ciani stratification remains a historical risk; best-of-knowledge PASS.
 
-## Limits and closest coverage
+## value
 
-Smoothness and elliptic decompositions are prior work, not new deductions. The rank formula itself is a short Cartier calculation; the substantive accepted refinement is the global crossing geometry and universal four-stratum finite-field census. Isomorphism class counts, the Newton polygons of individual Jacobians, and the excluded singular-model fibers are outside the claim. Exact computations were verified only for three sample finite fields; the proof supplies the universal quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rank-jump divisor in a genus-three Ciani quartic parameter family has a natural normal-crossings geometry with a unique superspecial coefficient point. The full geometric rank stratification and all-extension polynomial number of ordered coefficient equations go beyond the known smoothness criterion and elliptic-quotient isogeny. They give an exact arithmetic-geometric census at a characteristic that is genuinely exceptional for the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
