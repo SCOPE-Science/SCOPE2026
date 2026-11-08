@@ -1,12 +1,21 @@
-# Mathematical review: four-moment distance-histogram theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes unit-length intrinsic edges, normalized arclength, positive integer part sizes and equality of complete global probability distributions. Six ordered-edge-pair classes are exhaustive and disjoint. Their shortest-path formulas follow by checking endpoint paths; their piecewise-linear densities follow from elementary integration on a unit square. Ordered counts reduce exactly to the four part-size power sums. Four density features reconstruct edge count, wedge count, triangle-wedge count and a weighted disjoint-edge count, which in turn algebraically reconstruct those four power sums. Newton's identities and a directly checked five-part equal-power-sum pair prove the sharp threshold. Exact-rational standalone computations corroborate 247,806 point comparisons; finite testing is not relied on for the universal conclusion.
+## correctness
 
-## Originality — PASS, qualified
-The closest full-text inspected results are Jin–Zhang's theorem on complete multipartite distance **spectra** (arXiv:1307.5931), Mémoli–Needham's general global/local distance-distribution framework and tree counterexamples (arXiv:1810.09646), and Garijo–Márquez–Silveira's algorithm and **means** for continuous graph distances (arXiv:2103.11676). Their objects, data strength and theorems differ from a complete iff classification of global arclength histograms by four part-size moments. The published five-term Prouhet–Tarry–Escott arithmetic mechanism is acknowledged as known. Searches for multipartite distance histograms, corresponding fourth-moment reconstruction and exact shape-distribution collisions returned no more general covering statement. Older network papers or differently titled equivalent treatments remain residual priority risks; searches cannot prove novelty and an independent audit remains unperformed.
+PASS
 
-## Value — PASS
-The result solves a natural inverse metric-geometry question for **every** finite unit-edge complete multipartite graph, rather than providing one isolated counterexample. It specifies exactly what the entire continuous two-point histogram retains and loses, supplies four explicit measurable reconstruction features, proves recovery for all graphs with at most four parts, and constructs a five-part failure at the first possible part count. The sharp contrast with the known distance-spectrum reconstruction theorem explains why this stronger-than-mean but weaker-than-spectral invariant matters. No implication is claimed for arbitrary metric graphs.
+Reconstructed the six ordered-edge classes S,O,T,B,C,F from endpoint-geodesic alternatives, including conditional densities in the three intervals (0,1),(1,3/2),(3/2,2) and the identity q_C=(q_B+q_F)/2. Normalized counts sum to m^2, where m=(N^2-P2)/2. The density intercept 2/m, slope at zero, jump at 3/2 and left limit at 2 recover m,A=O+T,T,H=B+C/2. The algebraic identities 2A-T=2m(N-2), A=-N^3+4mN-2m+P3 and 2H=P4+N(N+1)P2-N^3-2NP3+2m recover all four powers. Newton identities prove <=4-part rigidity; s=(-9,-5,-1,7,8) has sum s and s^3 zero, giving the distinct positive five-part lists with identical first four powers. Independently enumerated all ordered-edge categories for 27 small multipartite examples and checked the collision powers; this is bounded corroboration, not proof for all part sizes. Endpoints of density are one-sided; sampling vertices has zero probability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original for the exact global four-power-sum equivalence and sharp five-part boundary. Existing metric-measure distance-histogram generalities, discrete distance spectra and continuous mean distance have related but nonimplicative conclusions; a partly inaccessible highly relevant primary remains a genuine priority risk.
+
+## value
+
+PASS
+
+Global continuous two-point distance histograms are a natural, information-losing metric-graph invariant. Determining exactly what part-size information they encode is an inverse problem; four-moment recovery yields the sharp identification threshold, while explicit nonisomorphic five-part collisions show the limitation. Full distribution equivalence is strictly finer than a mean-only computation, and the collision is a motivated boundary, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
