@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies the finite-dimensional field, dimensions, norm-one hypothesis, normalized relative seminorm, and real-part pairing constraint. Compactness identifies the top singular subspace \(E=\ker(I-G^*G)\) and yields the exact formulas \(p_G(T)=\|T|_E\|\) and \(\nu_G(T)=w(U^*P_FT|_E)\). Every step in the proof has an explicit witness or inequality: the proper-range case uses a rank-one operator into \(F^\perp\), the full-range case is equivalent to coisometry and reduces to the classical sharp real/complex Hilbert numerical-index constants. Perturbations preserving another singular value one establish the discontinuity. Supplementary checks in `relative_index_check.py` pass 6,720 finite assertions; they are not a substitute for proof.
+PASS
 
-## Originality — PASS, best-knowledge
+For any nonzero finite-dimensional H1,H2 over the same real or complex scalar field and norm-one G, compactness of the unit spheres localizes near-norming x to E=ker(I-G*G) and near-norming pairs (x,y) for Re<Gx,y>→1 to y=Gx, x∈E. The exact formulas are p_G(T)=||T|E|| and ν_G(T)=w(U*P_F T|E), F=GE, U=G|E isometric. If F≠H2, a rank-one T with norming source e∈E and orthogonal output z∈Fperp has p_G=1 and ν_G=0. If F=H2, G vanishes on Eperp so GG*=I (and conversely); every A:E→E lifts to some T with p_G=||A|| and ν_G=w(A). Classical finite-dimensional Hilbert numerical indices then give index 1 if dim H2=1, 1/2 for complex coisometry with dim H2>=2, and 0 otherwise (real skew 2x2 witness, complex nilpotent witness). If dim H1>=dim H2>=2 complex, a coisometry can be approximated on the norm-one sphere by attenuating one, but not every, singular value, proving discontinuity exactly on coisometries. Independent 10000 complex unit-vector samples of 2x2 nilpotent lifted through 2x3 coisometry gave max radius ~0.499999996, compatible with sharp analytic 1/2. Finite samples do not certify universal theorem, which follows from Hilbert compression and polarization.
 
-The source by Dey and Pal establishes finite-dimensional localization and a *necessary* partial-isometry condition for relative spear operators but neither the complete exact \(n_G^{(2)}\) values nor the dimension- and field-dependent coisometric classification and discontinuity. Kadets et al.'s classical \(n_G\) uses \(\|T\|\) instead of \(p_G(T)\), so its rectangular vanishing cannot imply this relative index. Their generating-operator work characterizes equality of relative and full norms, not a numerical-radius quotient. The closest published relative-seminorm result is about infinite-dimensional essential norms, with different domain and conclusion. The inspected full texts and mathematical-record searches returned no dominating claim. Possible older equivalent compression/relative-radius formulas remain a publication-priority risk; the top-singular localization itself is not claimed novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original relative numerical index gives a natural quantitative refinement of the relative spear property. This theorem completely resolves it for the basic finite-dimensional real and complex Hilbert class, making the entire dependence on output dimension and coisometry explicit. In particular, it separates the old full-norm index from the relative seminorm index for rectangular coisometries and identifies a sharp discontinuity locus. It is a structural classification with a natural motivating gap, not a numerical coincidence or arbitrary slice. No general-Banach or infinite-dimensional conclusion follows.
+Qualified PASS for the complete relative-seminorm-index trichotomy and discontinuity locus, not for norming localization or classical Hilbert numerical-index values. Closest Dey–Pal paper supplies partial-isometry necessity for spear operators but not the stated coisometry iff condition and 1/2-on-coisometries jump; earlier G-numerical index uses a different normalization.
 
-## Limitations and closest sources
+## value
 
-The classification is restricted to nonzero finite-dimensional Hilbert spaces. Its normalized seminorm is not assumed faithful. Most directly related are Dey–Pal (arXiv:2603.20796v1, Proposition 2.4 and Theorems 3.12–3.13), Kadets et al. (arXiv:1905.12257, classical full-norm index) and Kadets et al. (arXiv:2306.02645v1, generating operators). Historical mathematical-record comparisons cannot eliminate the possibility of earlier unindexed formulations. No independent validation or publication-priority certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The relative numerical index is a natural already-defined operator geometric invariant; the complete real/complex and rectangular dimension trichotomy, exact coisometric positive case and discontinuity locus are specific useful classification statements. The sharp value and quotient interpretation distinguish it from routine restating the classical Hilbert index, especially for degenerate seminorms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

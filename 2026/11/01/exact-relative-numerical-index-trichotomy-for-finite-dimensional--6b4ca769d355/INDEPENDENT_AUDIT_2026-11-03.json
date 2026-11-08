@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T06:51:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonzero finite-dimensional H1,H2 over the same real or complex scalar field and norm-one G, compactness of the unit spheres localizes near-norming x to E=ker(I-G*G) and near-norming pairs (x,y) for Re<Gx,y>→1 to y=Gx, x∈E. The exact formulas are p_G(T)=||T|E|| and ν_G(T)=w(U*P_F T|E), F=GE, U=G|E isometric. If F≠H2, a rank-one T with norming source e∈E and orthogonal output z∈Fperp has p_G=1 and ν_G=0. If F=H2, G vanishes on Eperp so GG*=I (and conversely); every A:E→E lifts to some T with p_G=||A|| and ν_G=w(A). Classical finite-dimensional Hilbert numerical indices then give index 1 if dim H2=1, 1/2 for complex coisometry with dim H2>=2, and 0 otherwise (real skew 2x2 witness, complex nilpotent witness). If dim H1>=dim H2>=2 complex, a coisometry can be approximated on the norm-one sphere by attenuating one, but not every, singular value, proving discontinuity exactly on coisometries. Independent 10000 complex unit-vector samples of 2x2 nilpotent lifted through 2x3 coisometry gave max radius ~0.499999996, compatible with sharp analytic 1/2. Finite samples do not certify universal theorem, which follows from Hilbert compression and polarization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known partial-isometry necessity alone cannot imply coisometry sufficiency; known generating-operator condition concerns p_G(T)=||T|| for every T rather than lower bound on ν_G/p_G."
+        ],
+        "reasoning": "Neither broader functional-space theorem covers the exact finite-dimensional coisometric index trichotomy without the orthogonal-output and classical-index deductions.",
+        "searches": [
+          "Dey Pal On the geometry of G-norm arXiv HTML full sections relative numerical indices",
+          "Kadets et al Generating operators between Banach spaces arXiv:2306.02645"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md SHA 66d76fa3ad8e9a59ad87fae13adaaa8fbe85d9d4",
+        "Frozen Git relative_index_check.py SHA 742ea6aefe14dcaf0137fde97026ce32034050fd",
+        "arXiv:2603.20796v1",
+        "arXiv:1905.12257",
+        "arXiv:2306.02645",
+        "Resultary compact-defect 668d42891382"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.12 gives necessary partial isometry for relative spear; e.g. G a rank-one partial isometry to 2D codomain has index zero, so it is not sufficient. Coisometric complex 2D G has sharp index 1/2 not spear."
+        ],
+        "reasoning": "The exact trichotomy and jump do not formally follow as stated from a partial-isometry necessity or essential/full norm comparison; new full-range obstruction and quotient reduction are required.",
+        "searches": [
+          "arXiv:2603.20796 Theorem 3.12 partial isometries",
+          "arXiv:1905.12257 original numerical index of operators",
+          "Resultary compact-defect full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dey–Pal Proposition 2.4 and Theorems 3.12–3.13 discuss norming pairs, partial-isometry necessity and norming-space reduction; classical G-index literature normalizes by full ||T|| instead of p_G(T)."
+        ],
+        "reasoning": "Compared two inequivalent denominators explicitly; a rectangular coisometry has relative index 1/2 complex although a full-norm operator index can vanish for off-norming-source T.",
+        "searches": [
+          "arXiv:2603.20796v1 G-norm relative numerical index finite Hilbert coisometry",
+          "arXiv:1905.12257 numerical index with respect to an operator",
+          "Resultary relative seminorm compact-defect essential norm 668d42891382"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest published Resultary record is a classification of relative seminorm equality with Calkin essential norm in infinite dimension, not this index; no exact finite-dim table was found."
+        ],
+        "reasoning": "No database table of the exact three cases was retrieved; unsuccessful searches are weak and unindexed equivalences remain possible.",
+        "searches": [
+          "Resultary semantic relative numerical index trichotomy G Hilbert",
+          "Resultary compact-defect characterization 668d42891382",
+          "search: G numerical radius Hilbert coisometry 1/2"
+        ]
+      },
+      "rationale": "Qualified PASS for the complete relative-seminorm-index trichotomy and discontinuity locus, not for norming localization or classical Hilbert numerical-index values. Closest Dey–Pal paper supplies partial-isometry necessity for spear operators but not the stated coisometry iff condition and 1/2-on-coisometries jump; earlier G-numerical index uses a different normalization.",
+      "residual_risks": [
+        "Unindexed equivalent finite-dimensional quotient numerical-radius classification possible.",
+        "Only nonzero finite-dimensional real/complex Hilbert spaces with norm-one G, relative seminorm normalization; not a statement for general Banach or infinite-dimensional spaces."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "found antecedent localization/necessity, not exact trichotomy",
+          "evidence": "Finite-dimensional relative spear => partial isometry is weaker than codomain-dimension-one classification; Hilbert compression yields additional Fperp obstruction.",
+          "identifier_or_url": "https://arxiv.org/html/2603.20796v1",
+          "material_read": "full available arXiv HTML text, mathematical definitions, Proposition 2.4, Theorems 3.12–3.13 and relevant index statements",
+          "method": "lawful arXiv HTML primary reading",
+          "title": "On the geometry of G-norm",
+          "trigger": "same relative seminorm and associated numerical index, strongest priority risk"
+        },
+        {
+          "assessment": "distinct full operator norm normalization",
+          "evidence": "Original G-index uses inf over ||T||=1, whereas reviewed claim inf over p_G(T)=1; not interchangeable when p_G has kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.12257",
+          "material_read": "abstract and relevant source framework/normalization; did not inspect all full-text results in this run",
+          "method": "arXiv primary abstract and available results",
+          "title": "On the numerical index with respect to an operator",
+          "trigger": "similarly named G-numerical index"
+        },
+        {
+          "assessment": "distinct infinite-dimensional quotient norm equality",
+          "evidence": "Its G has compact injective defect and no exact norm attainment; no finite-dimensional relative numerical-radius index.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-compact-defect-characterization-of-the-essential-norm-among-rela--668d42891382",
+          "material_read": "entire RESULT.md theorem, analytic proof and comparisons",
+          "method": "GitHub published primary blob",
+          "title": "Compact-defect characterization of the essential norm among relative operator seminorms",
+          "trigger": "same relative seminorm but different Hilbert regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The relative numerical index is a natural already-defined operator geometric invariant; the complete real/complex and rectangular dimension trichotomy, exact coisometric positive case and discontinuity locus are specific useful classification statements. The sharp value and quotient interpretation distinguish it from routine restating the classical Hilbert index, especially for degenerate seminorms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not conventional full-norm G-index, which can have different values.",
+    "No general Banach-space extension or classification of all index-attaining T."
+  ],
+  "schema_version": 1
+}
