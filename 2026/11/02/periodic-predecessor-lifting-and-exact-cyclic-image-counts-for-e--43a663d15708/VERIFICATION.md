@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute the adjacent standalone Python file `verify.py` using standard Python 3:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-Expected terminal confirmation: `VERIFY_OK`.
+A genuine counterexample disproves a universal multiplier assertion in the original: n=1, y=1 has no one-cell predecessor but y^3=111 has input 001 on the 3-ring. Thus the original cannot PASS unchanged. The corrected RESULT.md explicitly isolates the singleton; on nonconstant outputs the XOR-boundary factorization y_i=d_{i-1} OR d_i and even cyclic parity prove the forced 2-run parity obstruction and exactly-even multiplier set. All-one length k>=2 is reachable (even k all-one boundary; odd k>=3 one zero boundary). The 4-state forbidden-word trace and signed cycle-block generating functions prove the unchanged R_n formula. I independently enumerated direct images to n=17 and checked all formulas, not inferring an infinite proof from them.
 
-The check independently enumerates every binary ring input and every output through length \(18\); compares exact image counts against the closed formula; computes the forbidden-subword transfer matrix through length \(120\); exhaustively checks parity-signed cyclic two/three-one-run classes through length \(15\); and explicitly constructs minimal repeated-ring predecessors for every `010`-avoiding output through length \(13\). Successful replay produced `VERIFY_OK` and counts `1,2,2,6,12,23,37,66,119,217,387,693,1237,2207,3927,6986,12412,22028,39047` for lengths \(1\) through \(19\).
+## originality
 
-These finite checks do not establish an infinite theorem by themselves; the all-length analytical argument appears in `RESULT.md`. No independent audit, machine-checked proof formalization, or comprehensive historical-priority certification has been performed.
+PASS
+
+Earlier Rule126 sources know the 010 Garden-of-Eden word, de Bruijn methods and local XOR/OR identity. The corrected global periodic parity classification, singleton exception and all-length indexed count were not found in inspected primary material. McIntosh 2009 remains an inaccessible plausible priority risk; not an automatic rejection.
+
+## value
+
+PASS
+
+The surviving corrected theorem resolves a natural cyclic finite-period inverse problem and supplies exact lift multipliers for all locally admissible words and a rational census; the singleton correction is essential to general validity, not a superficial caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

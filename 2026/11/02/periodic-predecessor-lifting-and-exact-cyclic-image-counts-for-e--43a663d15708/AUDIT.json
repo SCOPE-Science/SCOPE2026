@@ -1,137 +1,113 @@
 {
   "correctness": {
-    "rationale": "Boundary XOR parity gives an exact bijection between predecessor existence and even-weight boundary labels; rigorous run analysis handles n=1, n=2, constant outputs and repeat multipliers. A 4-state transfer matrix and cyclic block enumerator plus its signed version prove the closed R_n generating function; dominant roots yield growth. Independent direct exhaustive checks n<=18 and analytic coefficient recurrences n<=120 replay VERIFY_OK.",
+    "rationale": "Corrected period-multiplier claim: n=1 singleton one target fails same-period but reaches all larger ring lengths, including odd lengths (001->111). For nonconstant 010-avoiding parity-obstructed targets forced odd boundary parity repeats k times, so exactly even k lift. The XOR-boundary factorization, run criterion, signed cyclic enumerator and four-state transfer matrix establish all-length counts, asymptotics and boundary cases.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Martínez et al. investigates finite periodic basins and memory-enhanced Rule 126",
-        "published-finding corpus quadratic five-site CA analysis is about reversibility rather than Rule-126 image"
+        "Martinez et al. gives finite basins and 010 preimage obstruction",
+        "McIntosh monograph unavailable in full"
       ],
-      "reasoning": "A complete prior finite-ring image characterization for Rule 126 would dominate this theorem, even without matching the counting notation. No such stronger result was located in accessible inspected text; full McIntosh book remains unresolved.",
+      "reasoning": "A full Rule-126 periodic-image theorem would dominate this claim; inspected accessible antecedents do not give it, with priority risk remaining.",
       "searches": [
-        "elementary cellular automaton Rule 126 exact periodic ring one-step image, cyclic Garden of Eden forbidden patterns and generating function",
-        "cellular automaton ECA 126 reachability image periodic points",
-        "binary elementary cellular automaton 126 one step image entropy generating function cyclic 010",
+        "Rule 126 cyclic image period lifting full preimage classification",
+        "McIntosh 2009 One Dimensional Cellular Automata",
         "arxiv:1212.0124v1"
       ]
     },
     "checked_sources": [
       "https://arxiv.org/html/1212.0124v1",
-      "https://arxiv.org/abs/1212.0124",
       "https://oeis.org/A269173",
-      "https://mathworld.wolfram.com/Rule126.html",
-      "published-finding corpus exact queries recorded in private envelope"
+      "Resultary semantic search: Rule 126 cyclic predecessor parity obstruction length two runs periodic lifting image enumeration"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 010 obstruction was explicitly known by 2009 and is not a new component",
-        "The Rule-126 XOR/OR identity was known by 2016 and is not a new component",
-        "Compared published-finding corpus 2026 CA claims address other rules or other automaton families"
+        "Known forbidden word 010 does not imply same-period image: cyclic 011 fails",
+        "Known local XOR/OR formula does not itself give counting formula"
       ],
-      "reasoning": "A local forbidden 010 condition is strictly weaker than same-period reachability (witness cyclic 011), and a local XOR/OR update formula is not itself an exact global image enumeration. The new claim is the sharp parity separation, period-doubling equivalence, and full n-uniform count. Historical monograph may still contain a dominating result.",
+      "reasoning": "New parity and counting steps are substantive specializations beyond inspected prior statements; only boundary corrected, not inferred from antecedents.",
       "searches": [
-        "elementary cellular automaton Rule 126 exact periodic ring one-step image, cyclic Garden of Eden forbidden patterns and generating function",
-        "Rule 126 local factor OR of adjacent differences, even parity cyclic domain, no isolated ones, parity obstruction for short runs",
-        "Exact cyclic image Rule 126 periodic predecessor parity 010 and 011 odd blocks Lucas counts",
-        "Run length classification of Garden of Eden states for elementary cellular automaton 126, rational image zeta",
-        "arxiv:1212.0124v1",
-        "OEIS:A269173"
+        "Rule 126 010 garden of eden de Bruijn periodic rings",
+        "Rule 126 parity cyclic preimage Lucas count",
+        "arxiv:1212.0124v1"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "OEIS A269173 states bitwise XOR/OR local Rule-126 formula",
-        "Martínez et al. Sect. 2.3 discusses de Bruijn graph cycles and periodic constructions"
+        "Martinez et al., arxiv:1212.0124v1 Section 2 discusses 010 Garden-of-Eden",
+        "OEIS A269173 has local formula"
       ],
-      "reasoning": "The known OR/XOR local factorization is equivalent to the first algebraic step, but its mere statement does not imply the odd-cyclic-boundary obstruction or count; a de Bruijn labeled-cycle algorithm could in principle decide each ring but does not by itself state the closed all-length parity classification.",
+      "reasoning": "Local factor is equivalent to the first computation only; neither by itself supplies all-length parity classification and image count.",
       "searches": [
-        "Rule 126 local factor OR of adjacent differences, even parity cyclic domain, no isolated ones, parity obstruction for short runs",
-        "Exact cyclic image Rule 126 periodic predecessor parity 010 and 011 odd blocks Lucas counts",
-        "Run length classification of Garden of Eden states for elementary cellular automaton 126, rational image zeta",
-        "OEIS:A269173",
-        "arxiv:1212.0124v1"
+        "Rule 126 periodic predecessor parity 010 cyclic output even boundary",
+        "arxiv:1212.0124v1",
+        "OEIS A269173"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "OEIS A269173 tabulates single-input bitwise Rule-126 transform, not counts of target ring images",
-        "2010/2012 paper shows finite basins through length 18, not exact symbolic image-count recurrence in inspected text"
+        "A269173 records bitwise local transform rather than indexed cyclic-image cardinalities",
+        "Martinez et al. finite periodic basin plots are not all-length enumeration"
       ],
-      "reasoning": "Input-to-output numeric sequences and finite basin diagrams need not imply the rational generating function, the n=1 exception or minimal doubled-period obstruction. Numerical coincidence alone would be covered if a database already exactly tabulated these image counts, but no such relevant table was found.",
+      "reasoning": "No exact all-length count table or generating function covering this theorem located; absence is not proof of novelty.",
       "searches": [
-        "Rule 126 predecessor count cyclic configurations",
-        "binary elementary cellular automaton 126 one step image entropy generating function cyclic 010",
-        "periodic-image enumeration for Rule 126 with runs 2,3 parity",
-        "OEIS:A269173",
-        "arxiv:1212.0124v1"
+        "Rule126 cyclic image count OEIS 1 2 2 6 12 23",
+        "OEIS A269173"
       ]
     },
-    "rationale": "The inspected full arXiv primary Rule-126 paper explicitly covers the 010 forbidden factor and finite basins, and OEIS gives the local XOR/OR expression, neither of which is claimed new. Actual published-finding corpus queries and local prior-claim dedup found no same-period parity obstruction, minimal period doubling or all-length cyclic image counts. The uninspected McIntosh monograph and other unindexed history remain a residual priority risk.",
+    "rationale": "Known 010 forbidden factor and local XOR/OR formula excluded from novelty; surviving contribution is exact all-length same-period parity obstruction and full indexed image census, with singleton correction.",
     "residual_risks": [
-      "The full McIntosh 2009 monograph was not accessible; its subset-automaton analysis might entail a stronger periodic statement.",
-      "An unindexed or non-OA source may already state the same all-length ring image formula.",
-      "Full historical priority requires independent expert investigation; present original-comparison is best-knowledge, not uniqueness proof."
+      "Uninspected McIntosh 2009 monograph may contain equivalent cyclic-lifting statement",
+      "Other unindexed periodic-CA tables may contain exact counts"
     ],
     "source_inspections": [
       {
-        "assessment": "Documents Rule-126 transition table, pre-existing 010 forbidden factor, finite basin analysis through length 18 and de Bruijn construction, but inspected text does not give the parity criterion, exact period lift or all-length image counts",
+        "assessment": "Prior 010 factor and finite dynamics, not corrected all-length period parity plus rational image census",
         "evidence": [
-          "https://arxiv.org/html/1212.0124v1#S2.SS2",
-          "https://arxiv.org/html/1212.0124v1#S2.SS3",
-          "https://arxiv.org/abs/1212.0124"
+          "https://arxiv.org/html/1212.0124v1#S2"
         ],
         "identifier_or_url": "https://arxiv.org/html/1212.0124v1",
-        "material_read": "Full accessible HTML, Sections 1–5, especially Sections 2.2–2.3 and references; 459 lines in text rendering",
-        "method": "Read public arXiv HTML and compared explicit definitions, finite results and discussion of predecessor languages",
+        "material_read": "Accessible full HTML Sections 1-5, particularly rule table, de Bruijn and finite-ring basins",
+        "method": "Read primary article and compare concrete claims",
         "title": "How to make dull cellular automata complex by adding memory: Rule 126 case study",
-        "trigger": "Same elementary rule, 010 obstruction, de Bruijn diagrams, finite periodic basins"
+        "trigger": "same rule and exact 010 forbidden factor"
       },
       {
-        "assessment": "Prior identity computes a single Rule-126 output from the input bits; does not state parity-lift classification or cyclic output counts; local identity explicitly excluded from novelty claim",
+        "assessment": "Inaccessible plausible source retains priority risk",
+        "evidence": [
+          "https://arxiv.org/html/1212.0124v1"
+        ],
+        "identifier_or_url": "McIntosh (2009)",
+        "material_read": "Only citation and described 010 factor in Martinez; full book inaccessible",
+        "method": "Cited-source examination only, no whole-text verdict",
+        "title": "One Dimensional Cellular Automata",
+        "trigger": "potentially stronger antecedent subset automata"
+      },
+      {
+        "assessment": "Known local formula excluded from novelty",
         "evidence": [
           "https://oeis.org/A269173"
         ],
         "identifier_or_url": "https://oeis.org/A269173",
-        "material_read": "Public OEIS entry: title, formula, cross-references and examples",
-        "method": "Directly inspected formula and its domain, compared with periodic preimage/counting conclusion",
-        "title": "OEIS A269173: Rule 126 local formula",
-        "trigger": "Potential equivalence through XOR/OR representation"
-      },
-      {
-        "assessment": "Known 010 factor and subset construction are excluded from claimed novelty; cannot rule out a stronger uninspected result on finite periodic rings",
-        "evidence": [
-          "https://arxiv.org/html/1212.0124v1"
-        ],
-        "identifier_or_url": "McIntosh (2009), cited in Martínez et al. (2010)",
-        "material_read": "Bibliographic description and citation within Martínez et al.; full monograph unavailable",
-        "method": "Inspected cited description, not a complete book; recorded unresolved comparison",
-        "title": "One Dimensional Cellular Automata",
-        "trigger": "Attributed 010 forbidden word and subset diagram possibly stronger predecessor coverage"
-      },
-      {
-        "assessment": "Identifies classical cellular automaton, but does not provide same-period image-count theorem",
-        "evidence": [
-          "https://mathworld.wolfram.com/Rule126.html"
-        ],
-        "identifier_or_url": "https://mathworld.wolfram.com/Rule126.html",
-        "material_read": "Full accessible Rule 126 public page",
-        "method": "Inspected rule definition and references",
-        "title": "Rule 126 (MathWorld)",
-        "trigger": "Classical rule definition and references"
+        "material_read": "Referenced publicly documented local bitwise map",
+        "method": "Compare local relation to global cyclic inverse/count",
+        "title": "OEIS A269173",
+        "trigger": "local formula equivalence"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "43a663d1-5708-44ce-a731-906917fc56e3",
+  "scientific_correction_note": "Older universal odd-multiplier impossibility false for singleton y=1 at n=1: the repeated y^3=111 has input 001. Corrected full theorem and proof in RESULT.md.",
   "self_review_status": "passed",
   "value": {
-    "rationale": "Exactly separates symbolic local admissibility from same-period predecessor existence, gives minimal sharp doubling of spatial period for obstructed targets, and supplies a full indexed image census with asymptotic image entropy for a classical nontrivial CA. This combines a structural finite-period obstruction and all-length exact count, with an infinite family of witnesses, not just a finite table.",
+    "rationale": "Natural exact image/reachability invariant of ECA Rule126; parity obstruction, exceptional n=1 multiplier set, sharp nonconstant period doubling and rational enumeration are independent useful structural facts.",
     "status": "PASS"
   }
 }
