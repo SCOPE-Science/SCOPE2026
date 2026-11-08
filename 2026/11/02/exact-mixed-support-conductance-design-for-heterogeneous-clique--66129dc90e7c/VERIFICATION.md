@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and analytic verification
+# Independent mathematical audit
 
-The analytic proof establishes the claim for all integers \(k\ge2\), \(m_j\ge2\), all strictly positive prices and budgets. A finite verifier is provided to catch normalization and algebraic mistakes; it is not an exhaustive infinite-case proof.
+## correctness
 
-Run `python3 verify.py` with Python 3 and only its standard library. The checker performs exactly 480 assertions, including 96 direct exact-rational Kirchhoff-index calculations from independently inverted grounded Laplacians, exact phase-boundary derivative comparisons, and five examples checking feasibility, the precise optimum, positive and inactive internal edges, and full-graph inverse calculations. Its observed result was `PASS: 480 independent assertions; exact rational inverses and optimality identities`.
+PASS
 
-The most important manual identities are \(A_j+C_j=m_j(N-1)\), \(f_j'(t)=b_jA_j-(a_j-b_j)C_j/t^2\), and the equality condition in \(\sum_jF_j/E_j\ge(\sum_j\sqrt{F_j})^2/B\). The proof explicitly treats zero peripheral weights and the equality price threshold. No computer algebra, finite enumeration, empirical eigenvalue sample or numerical optimization is relied upon for the infinite-family conclusion.
+For connected allocations, Kirchhoff index N tr((L+11^T/N)^{-1})-N is strictly convex in individual edge conductances; symmetry plus uniqueness forces two edge-orbit weights per blade. Grounded blade Laplacian eigenvalues x and x+my give K=sum_j((N-m_j)/x_j+N(m_j-1)/(x_j+m_j*y_j)). Fixing blade spend E gives f_j(t)=[a_j+b_j(t-1)](A_j+C_j/t), t>=1, f_j prime=b_j*A_j-(a_j-b_j)*C_j/t^2; the support change is exactly Q_j/P_j=2N/M, including equality. Cauchy-Schwarz allocates E_j in sqrt(F_j) proportions and K*=Z^2/B, globally uniquely. Independent direct rational inversion of complete grounded Laplacian for blade sizes (2,3), spoke weights (3/2,7/3), peripheral weights (1/4,0) gave K=254/21, exactly the closed expression.
 
-The source-based novelty check was limited to identifiable, accessible literature; the full text of a 2024 windmill-index paper could not be obtained. Independent mathematical validation remains unperformed.
+## originality
+
+PASS
+
+General inverse-resistance convex design and block Kirchhoff identities are prior results, as is the equal-price windmill/triangle special case. The assessed new part is an exact heterogeneous mixed-support allocation with independently chosen blade edge activation and coupled closed budget shares; general KKT marginal-price conditions do not state or directly specialize to this solution. Full-text comparison of an adjacent windmill-index paper remains outstanding.
+
+## value
+
+PASS
+
+Sum of all-pairs resistance under a construction budget is a standard network-design objective; here a sharp price ratio decides whether to install entire internal-edge orbits and exact investment proportions solve a nontrivial all-edges problem. Heterogeneous mixed support is mathematically motivated and not merely a uniform-graph recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

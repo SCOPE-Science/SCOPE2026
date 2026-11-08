@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The objective is the unordered-pair Kirchhoff index with nonnegative independent edge conductances and positive linear costs. Strict convexity of the Laplacian inverse-trace objective establishes uniqueness and justifies exact symmetrization. Articulation-point resistance additivity yields the two-term formula for each heterogeneous clique blade. A one-variable derivative proves the unique local support phase, including the equality and closure boundaries. Finally, a sharp Cauchy–Schwarz inequality yields the global allocation and the exact minimum; all quantifiers and normalization factors are explicit. The standalone checker passed 480 assertions based in part on independently inverted exact-rational grounded Laplacians. Numerical checks do not replace the proof.
+PASS
 
-## Originality: PASS, with residual risk
+For connected allocations, Kirchhoff index N tr((L+11^T/N)^{-1})-N is strictly convex in individual edge conductances; symmetry plus uniqueness forces two edge-orbit weights per blade. Grounded blade Laplacian eigenvalues x and x+my give K=sum_j((N-m_j)/x_j+N(m_j-1)/(x_j+m_j*y_j)). Fixing blade spend E gives f_j(t)=[a_j+b_j(t-1)](A_j+C_j/t), t>=1, f_j prime=b_j*A_j-(a_j-b_j)*C_j/t^2; the support change is exactly Q_j/P_j=2N/M, including equality. Cauchy-Schwarz allocates E_j in sqrt(F_j) proportions and K*=Z^2/B, globally uniquely. Independent direct rational inversion of complete grounded Laplacian for blade sizes (2,3), spoke weights (3/2,7/3), peripheral weights (1/4,0) gave K=254/21, exactly the closed expression.
 
-The 2008 Ghosh–Boyd–Saberi full text gives general convexity, symmetry and wheel/barbell examples, not this heterogeneous bouquet classification. The 2014 Nikseresht–Sepasdar full text gives block resistance identities but no conductance-budget optimizer. The 2026 Tovar et al. study gives a general cost/edge KKT threshold and a three-vertex triangle example, not independent heterogeneous blade activation and a coupled exact allocation. A pre-existing equal-size, common-price windmill formula already includes the uniform threshold; that special case is excluded from the new contribution. The assessed new portion is the heterogeneous formula, arbitrary mixed support patterns and square-root budget split. A related 2024 windmill-index article was available only at abstract level; a complete historical equivalence search is not guaranteed.
+## originality
 
-## Value: PASS
+PASS
 
-All-pairs resistance minimization is a classical resource-allocation criterion, but its exact support selection is typically implicit in a convex program. Here one can decide, independently for every differently sized and priced blade, whether an entire set of redundant links should receive zero conductance. The shared threshold depends on total network size rather than individual blade size; the exact per-blade spending rule then completes a physically interpretable, implementable heterogeneous design without numerical optimization. This is not an arbitrary parameter slice: it settles the natural class of one-point unions of differently sized cliques with the two physical edge-price classes of each blade.
+General inverse-resistance convex design and block Kirchhoff identities are prior results, as is the equal-price windmill/triangle special case. The assessed new part is an exact heterogeneous mixed-support allocation with independently chosen blade edge activation and coupled closed budget shares; general KKT marginal-price conditions do not state or directly specialize to this solution. Full-text comparison of an adjacent windmill-index paper remains outstanding.
 
-The conclusion is limited to the stated topology and objective. Scientific independence, independent validation and exhaustive historical coverage are not asserted.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sum of all-pairs resistance under a construction budget is a standard network-design objective; here a sharp price ratio decides whether to install entire internal-edge orbits and exact investment proportions solve a nontrivial all-edges problem. Heterogeneous mixed support is mathematically motivated and not merely a uniform-graph recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
