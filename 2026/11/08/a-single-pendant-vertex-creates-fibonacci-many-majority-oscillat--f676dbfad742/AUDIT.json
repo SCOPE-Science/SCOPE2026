@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The two-phase constraints are equivalent to the complete one-step and two-step dynamics, fixing the leaf phase uniquely. Their labelled cyclic count equals tr(B A^(n-1)) with explicit 16-state 0–1 matrices. Exact integer multiplication proves A^2(A^6−2A^5+2A^3−2A^2+I)=0, yielding a sixth-order recurrence for n>=3, and six initial traces match the claimed Fibonacci/period-six expression. The fixed-state transfer has characteristic (X^2−X−1)(X^2−X+1). Independent direct dynamics checks all configurations for n=3..13, but infinite validity comes from recurrence induction, not enumeration. Boundaries n=3 and tie retention are checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519v1, introduction and §1: upper bounds and graph contractions for first entry into a 1- or 2-periodic state; no primitive-state census.",
+        "Tošić–Agha 2004 author full text §3: the 1D regular automata setting does not permit a single degree-three junction and its degree-one leaf.",
+        "Nakar–Ron 2022 §1, §4: uniform radius-r neighborhoods; results describe spatial structure, not an exact one-leaf count.",
+        "Earlier all-site sunlet exact recorded result 4965dafb-6e67-4a8c-b8ca-7eea66595bb3 has every cyclic vertex decorated, and its \\(\\varphi^{2n}\\) primitive-two growth differs from the one-leaf family."
+      ],
+      "reasoning": "Period bound and time-to-stabilize theorems are broader in graph class but strictly weaker regarding number of initially periodic states. An all-site sunlet formula cannot be specialized to one leaf; the graph has \\(n\\) pendent vertices instead of one. No identified stronger quantitative theorem dominates the new family.",
+      "searches": [
+        "\"pendant vertex\" \"majority dynamics\" periodic states",
+        "\"majority\" \"sunlet graph\" synchronous",
+        "majority dynamics on corona graphs complete graph with leaves synchronous two-cycle exact count",
+        "\"cycle\" \"pendant\" \"majority\" \"two-cycle\" dynamics",
+        "majority dynamics cycle with pendant leaves sunlet graph periodic two orbits fixed point counting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1508.03519v1, first posted 2015-08-14; accessible mathematical text.",
+      "DOI:10.1007/978-3-540-30479-1_89; author-hosted primary PDF, material described in source_inspections.",
+      "arXiv:2205.08972v1, posted 2022-05-18; accessible mathematical text.",
+      "Historical homogeneous cycle claim ID 380fba13-c913-4d98-b22e-7fb741018a8d, checked for implication only.",
+      "Historical all-sites sunlet claim ID 4965dafb-6e67-4a8c-b8ca-7eea66595bb3, checked for implication only.",
+      "Multiple mathematical-record searches for one-leaf, defect, corona, tadpole and equivalence phrases; nearest noncovering records compared by subject and assumptions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bare-cycle rule-232 classification: exactly \\(1+(-1)^n\\) primitive-two states, not \\(2f_{n-2}+c_{n\\bmod6}\\).",
+        "All-sites sunlet exact census: exponentially many primitive-two configurations with exponent \\(2\\log\\varphi\\), not the one-pendant exponent \\(\\log\\varphi\\).",
+        "Tošić–Agha 2004 §3 Lemma 4 classifies the regular ring but does not include irregular graph junction conditions.",
+        "Kaaser–Mallmann-Trenn–Natale (2015) studies \\(\\min\\{t:M^{t+2}x=M^t x\\}\\), a different invariant from \\(|\\operatorname{Fix}(M^2)\\setminus\\operatorname{Fix}(M)|\\)."
+      ],
+      "reasoning": "The target is not a restatement or parameter restriction of a stronger counted-family theorem: it changes the underlying graph by exactly one leaf, a case absent from both homogeneous and fully decorated families. General existence of periods 1 and 2 does not imply the exact formula, nor does a stabilization time bound imply any count. This comparison is at the level of conclusions and hypotheses, not paper titles.",
+      "searches": [
+        "sunlet C_n corona K1 single pendant leaf cycle strict majority fixed states primitive two cycle Fibonacci",
+        "tadpole graph C_n with one leaf synchronous majority exact period-two census Fibonacci recurrence",
+        "majority fixed point counting graph Cartesian product cycle cycle transfer matrix",
+        "\"Characterizing configuration spaces of simple threshold cellular automata\" 2004 full pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tošić–Agha 2004, §3 Lemmas 3–4: temporal cycles of homogeneous radius-one majority on regular one-dimensional rings; the graph definition requires regularity.",
+        "Nakar–Ron arXiv:2205.08972v1, abstract, introduction and §4: homogeneous radius-r majority words, not a single exceptional node with a pendant leaf.",
+        "Prior recorded homogeneous ring result 380fba13-c913-4d98-b22e-7fb741018a8d is a no-defect rule-232 census."
+      ],
+      "reasoning": "Changing the description from a leaf to one delayed copy of a core opinion gives the same object only when the single exceptional vertex and its 2-step memory are retained. Homogeneous radius-one majority statements exclude this heterogeneity. No equivalent one-exception state count or Fibonacci six-residue expression was found in the inspected sources; this is evidence bounded by search and access, not proof of universal nonexistence.",
+      "searches": [
+        "sunlet C_n corona K1 single pendant leaf cycle strict majority fixed states primitive two cycle Fibonacci",
+        "tadpole graph C_n with one leaf synchronous majority exact period-two census Fibonacci recurrence",
+        "binary majority vote unicyclic graph single pendant vertex two-cycles",
+        "\"single defect\" \"majority cellular automaton\" periodic points",
+        "\"majority\" \"one leaf\" cycle oscillations synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned no exact primitive-two sequence for the single-leaf cycle; the closest on-topic available mathematical record was the all-sites sunlet result 4965dafb-6e67-4a8c-b8ca-7eea66595bb3.",
+        "The independent integer trace formula begins with primitive-two state counts 0,2,4,10,12,18 for lengths 3–8; a direct update checker confirms through length 13."
+      ],
+      "reasoning": "No found exact table or archived entry matches both the graph and invariant. A blank or unrelated search result does not itself establish novelty, hence the claim is also compared against the primary documents and stronger-implication possibilities.",
+      "searches": [
+        "sunlet C_n corona K1 single pendant leaf cycle strict majority fixed states primitive two cycle Fibonacci",
+        "tadpole graph C_n with one leaf synchronous majority exact period-two census Fibonacci recurrence",
+        "binary majority vote unicyclic graph single pendant vertex two-cycles",
+        "\"majority\" \"tadpole graph\" dynamics oscillation",
+        "\"majority\" \"one leaf\" cycle oscillations synchronous"
+      ]
+    },
+    "rationale": "The exact one-leaf family and Fibonacci congruence law are not supplied by the exact bare-cycle or all-sites-corona censuses, which use graph families not including the one-pendant graph; their claims cannot imply this formula by specialization. Materially inspected primary literature treats either homogeneous one-dimensional automata or general convergence-time bounds. Search absence is not a proof of absolute novelty; an unindexed matching theorem remains a risk.",
+    "residual_risks": [
+      "An unindexed or unpublished identical formula or a general local-defect transfer theorem might cover the result; indexed absence is not a proof of priority.",
+      "The inspected excerpts of the 2015 and 2022 arXiv sources cover relevant hypotheses and main statements but not every subsection; a stronger hidden appendix cannot be ruled out solely by snippets.",
+      "The full graph-family literature is unbounded; the priority assessment is best knowledge, not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO_COVERAGE_OF_TARGET: the studied one-dimensional automata are regular, whereas the one-leaf cycle is irregular; the homogeneous cycle comparison is covered but not the one-leaf census.",
+        "evidence": "Definition 1 requires a regular underlying graph; §3 Lemma 4 determines homogeneous radius-one majority periodic states. No one-pendant cycle condition is given.",
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Author-hosted primary PDF: abstract, definitions of regular graph and CA, §3 Lemmas 3–6, their proofs and discussion; visually checked original pages 1 and 7.",
+        "method": "Author-hosted full-text PDF, parsed text with original-page visual inspection.",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "Closest old primary classification of homogeneous one-dimensional majority fixed states and cycles."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CENSUS: defines voting time and bounds or complexity, rather than enumerating initially periodic configurations on the one-leaf cycle.",
+        "evidence": "§1 Definition 3 defines convergence time; Theorems 1.1 and 1.2 concern complexity and voting time upper bounds, not \\(|\\operatorname{Fix}(M^2)|\\).",
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "ArXiv accessible full-text HTML: introduction, §1.1 definitions and §1.2 stated results, graph-contraction discussion.",
+        "method": "Accessible arXiv primary HTML mathematical text.",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Verified archival first-public source date and general period-two majority background."
+      },
+      {
+        "assessment": "NO_COVERAGE_OF_DEFECT: homogeneous radius-r neighborhoods on cyclic strings, not a cycle with a pendant degree-one neighbor.",
+        "evidence": "§1 explicitly fixes a uniform radius-r cyclic neighborhood; the stated main theorem is structural, not a numerical single-defect census.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "ArXiv accessible full-text HTML: abstract, introduction, neighborhood and stability definitions, §4 temporal periodicity framework, high-level main result.",
+        "method": "Accessible arXiv primary HTML with section and theorem inspection.",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Plausibly stronger classification of homogeneous one-dimensional majority periodic states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f676dbfa-d742-41c1-8e39-3787b466bb2c",
+  "value": {
+    "rationale": "A single local pendant attachment to a homogeneous cycle leaves its fixed-state count unchanged but creates exponentially many primitive-two configurations of exact Fibonacci order; the original ring has at most two. The single-defect versus no-defect contrast is a motivated sensitivity question for majority dynamics, with a complete natural family classification, sharp n=4 existence threshold, exact mod-six correction, and entropy log(phi). The fact does not follow from the distinct all-sites pendant decoration.",
+    "status": "PASS"
+  }
+}
