@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Identity \\(2(P_s(x)-P_s(y))=(x-y)((s-2)(x+y)-(s-4))\\) establishes all parity cases. When s is 2 mod 4, the odd difference factor yields a permutation. When s is 0 mod 4, completing the square yields an exact affine square-map fiber law, with classical verified valuation cases and geometric image count. For odd s, equal same-parity inputs are impossible, and opposite-parity inputs collide if and only if their integer sum is \\(c=2m+1-2r\\), which gives disjoint pairs and \\(d=\\min(r-1,m+1-r)\\). These implications prove the entire spectrum and extreme criteria. A separate exact checker enumerated 1253 (s,k) cases and all 186092 input residues, but only the algebraic proof supports unbounded parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dehnavi et al. (2019), Lemmas 3.3-3.4 and Theorem 3.6 give individual quadratic-solution counts and square-root classifications over complete 2-power residue rings.",
+        "Rivest (2001) characterizes permutation polynomials with integral coefficients; for odd s the polynomial is integer-valued with half-integral coefficients, and its natural period can be 2^(k+1).",
+        "Ulness (2022), Proposition 1 states triangular saturation equals one on powers of two."
+      ],
+      "reasoning": "The prior general quadratic solver covers the classical single-target root computation and the even-order square-map factors. In the odd case it counts two roots over the full \\(2^{k+1}\\) ring after doubling P_s(n)-t; the present statement concerns their simultaneous distribution after selecting the first half of that ring. The inverse-controlled count of double classes, holes, and reflection pairs is not stated there and requires an additional half-period argument. The narrower triangle case does not cover other shapes. The primitive ingredients are acknowledged as known.",
+      "searches": [
+        "Complete solving the quadratic equation mod 2^n Dehnavi Mirzaee Shamsabad Rishakani DOI:10.7546/nntdm.2019.25.1.75-83",
+        "Permutation Polynomials Modulo 2^w Rivest DOI:10.1006/ffta.2000.0282",
+        "Exact triangular number residues modulo m multiplicity distribution powers of two mapping permutation modulo 2^k"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/appliedmath2030020",
+      "https://www.mdpi.com/2673-9909/2/3/20/notes",
+      "https://nntdm.net/papers/nntdm-25/NNTDM-25-1-075-083.pdf",
+      "https://arxiv.org/abs/2409.02023",
+      "https://doi.org/10.1006/ffta.2000.0282"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Ulness theorem gives \\(s=3\\) one-to-one dyadic saturation; our n-window includes all orders and classifies remaining two congruence classes of s.",
+        "The Dehnavi work gives methods for each congruence, which does not directly establish how often zero, one, and two roots fall in the initial half of a doubled period, nor the modular-inverse global count d.",
+        "Bandyopadhyay-Baruah counts additive representations as sums of polygonal numbers rather than singleton residues."
+      ],
+      "reasoning": "The prior general methods logically make individual cases computationally accessible but do not state or immediately imply without a new cross-parity reflection/counting lemma the simultaneous half-period distribution. The even square-root case is explicitly credited; the combined structural trichotomy and odd-order census are the asserted contribution, not a renaming of the primitive root formula. General originality remains provisional.",
+      "searches": [
+        "Ulness 2022 DOI:10.3390/appliedmath2030020 Sections 2 and 6",
+        "Dehnavi et al. 2019 DOI:10.7546/nntdm.2019.25.1.75-83 Theorem 3.6 and Table 1",
+        "arXiv:2409.02023v1 Sections 1-3",
+        "integer valued quadratic half-polynomials mod power two restricted first half of 2^(k+1) solutions two root pairing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full classification is equivalent to a simultaneous all-target spectrum for P_s on [0,2^k), with odd-order collisions determined by n+n_prime = 2^(k+1)+1-2r.",
+        "The strongest retrieved numerical-polygonal source addresses triangular residues only (Ulness 2022); no retrieved indexed document states the odd-order inverse-reflection spectrum."
+      ],
+      "reasoning": "The triangular-order permutation theorem is the s=3 case, not logically sufficient for s>=5. Search results that match pentagonal terminology concern a different valuation-defined pentagonal exponent map, not integer polygonal numbers. No explicit equivalent all-order fiber classification was found, although indexing gaps remain possible.",
+      "searches": [
+        "\"polygonal number P_s(n) modulo powers of two permutation complete residue system 2-adic\"",
+        "polygonal numbers modulo 2^k complete residue set saturation permutations odd s-gonal and even s-gonal 2-adic valuation of s minus three",
+        "pentagonal numbers modulo power of two maximum fiber size two and bijection when shape congruent",
+        "Pentagonal heptagonal nonagonal polygonal residues modulo powers of two: collisions distinct image size number double fibers and holes exact formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned a similarly titled result about the pentagonal exponent e(m)=m(v_2(m)+2), a distinct object, and no polygonal-number table or complete dyadic image census.",
+        "Ulness exhibits triangular saturation data for many moduli, not an order-indexed polygonal fiber table."
+      ],
+      "reasoning": "No exact existing database or table was found listing the complete images, fiber multiplicities, and congruence extremals for all s and k; no conclusion of uniqueness follows from this negative search.",
+      "searches": [
+        "Polygonal integers P_s(n) residues modulo 2^k multiplicity distribution count distinct pentagonal residues",
+        "Generalized quadratic integer-valued polygonal polynomial x(x+1)/2 modulo 2^k saturation multiple roots",
+        "Full dyadic residue image and multiplicity spectrum of s-gonal polygonal numbers P_s(n)=((s-2)n^2-(s-4)n)/2 for n from 0 to 2^k-1: odd order zero one two fibers D inverse s-2 modulo 2^k; even order square root fibers",
+        "\"polygonal numbers modulo powers of 2 residue classes distinct number images 2023\""
+      ]
+    },
+    "rationale": "Compared with triangular dyadic saturation, the 2019 complete quadratic congruence solver, general quadratic permutation tests and additive polygonal representation literature. General quadratic root solving computes individual target counts, and the square case is acknowledged classical; it does not state the global inverse-controlled first-half image and collision spectrum in the odd polygonal class. Existing triangular saturation is only the s=3 specialization. Named searches did not identify a covering published theorem; literature indexing and partially inaccessible primary full texts are residual risks.",
+    "residual_risks": [
+      "An equivalent unindexed family-wide image spectrum may exist, since a database search cannot certify uniqueness.",
+      "The indexed Ulness portions and Rivest abstract do not constitute full-text exclusion of all their appendices; Ulness source had a temporary HTTP 429 on full HTML.",
+      "General solution algorithms for quadratic congruences are computationally broader than this specialization; priority of the closed inverse-parameter collision formula requires independent human literature assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the triangular power-of-two saturation proposition and related congruence structure, but not an observed all-s polygonal fiber spectrum. Only partial text inspection; unresolved unindexed appendices or clauses remain a stated risk.",
+        "evidence": [
+          "Publisher version page records public release 1 July 2022",
+          "Section 6 Proposition 1: triangular saturation equals one for modulus 2^n"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/appliedmath2030020",
+        "material_read": "Abstract and indexed substantial text of Section 6 (saturation propositions), opening sections; full HTML retrieval blocked by HTTP 429",
+        "method": "Publisher-indexed full-page excerpts, version-history page and targeted source searches",
+        "title": "Structure of Triangular Numbers Modulo m",
+        "trigger": "Most direct predecessor for polygonal residue saturation at s=3; potential dominating full-triangle claim"
+      },
+      {
+        "assessment": "Classifies all target equations and implies square-root counts, but has no stated global odd-order polygonal first-half collision spectrum. Classical root-count ingredient is explicitly acknowledged.",
+        "evidence": [
+          "Theorem 3.6 supplies 2-adic square-root count cases.",
+          "Lemma 3.4 gives two roots for odd-odd-even integral quadratic coefficients modulo 2^n.",
+          "Table 1 lists individual-root scenarios, not a half-period image census."
+        ],
+        "identifier_or_url": "https://nntdm.net/papers/nntdm-25/NNTDM-25-1-075-083.pdf",
+        "material_read": "All nine pages; especially Lemmas 3.3 and 3.4, Theorem 3.6, Corollary 3.6.1, solution table",
+        "method": "Publisher-hosted open-access full PDF with page screenshot and textual page inspection",
+        "title": "Complete solving the quadratic equation mod 2^n",
+        "trigger": "Strongest plausible general result, with complete root counts for integral quadratics"
+      },
+      {
+        "assessment": "Studies sums of polygonal numbers and divisor-sum identities; no observed singleton residue-image spectra modulo powers of two.",
+        "evidence": [
+          "Abstract and introduction describe additive representation counts, with Theorem 2.3 on divisor identities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.02023",
+        "material_read": "Entire accessible arXiv HTML text, main Theorem 2.3 and Sections 1-3",
+        "method": "Open-access primary preprint HTML",
+        "title": "A Note on the Number of Representations of n as a Sum of Generalized Polygonal Numbers",
+        "trigger": "Recent general polygonal-order treatment; potential uniform order coverage"
+      },
+      {
+        "assessment": "Provides an older integral-polynomial permutation test, applicable to an even-order subclass; does not present the full half-integral odd polygonal and square-root fiber classification in the inspected abstract. Full text remains an access risk.",
+        "evidence": [
+          "The abstract characterizes permutations by parity of polynomial coefficients."
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/ffta.2000.0282",
+        "material_read": "Bibliographic record and published abstract; full text not accessed",
+        "method": "Publisher-independent bibliographic abstract and reference citations",
+        "title": "Permutation Polynomials Modulo 2^w",
+        "trigger": "General criterion potentially subsuming permutation portions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f938951-6a16-421b-ae49-b28bf2249e4d",
+  "value": {
+    "rationale": "A complete and motivated classification of dyadic modular saturation for every polygonal order and every exponent: one-to-one, affine-square, and zero/one/two-valued regimes. The odd-order formula \\(d=\\min(r-1,m+1-r)\\) yields natural exact invariant (number of missing residue classes), an explicit collision pairing, and exact families of permutations and twofold coverings. This goes beyond a finite table or a trivial reparameterization of individual quadratic-root counts, while making no claim to additive polygonal representation results.",
+    "status": "PASS"
+  }
+}
