@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run `python3 verify.py` using Python 3 with only the standard library. The complete observed output is `verify_output.txt`; its final line is `CORONA_JORDAN_DOUBLING_VERIFIED`.
+# Independent mathematical audit
 
-The code checks all integer partitions of dimensions one through eight (66 nilpotent Jordan models), ten path/cycle families at powers two through 64, and exhaustive labelled-state periodic-orbit counts on two small paths and two small cycles. The exhaustive state counts total 82,240. It constructs every graph and matrix afresh from explicit definitions and independently computes ranks via binary elimination, not from stored certificates.
+## correctness
 
-The all-size Jordan and orbit formulas are proved algebraically in `RESULT.md`; finite computations cannot establish them for unbounded graph sizes. No nonnilpotent period-count formula and no independent external validation is asserted.
+PASS
+
+For B=[[A,I],[I,0]] its inverse is [[0,I],[I,A]] and in characteristic two B+B^-1=diag(A,A); B unipotent iff A nilpotent, equivalent on a finite vector space to all state periods powers of two. On a nilpotent Jordan block J_l(0), determinant of tI-B=(t+1)^(2l), while ker(B+I) is ker A of dimension one, so there is precisely one J_{2l}(1). In characteristic two (I+J)^2^j=I+J^2^j and Fix counts are q^{sum min(2^j,2lambda_i)}, primitive orbit counts by difference/period; B invertible excludes transients. Path continuant f_m=t f_{m-1}+f_{m-2}, f_{2u+1}=t f_u² plus nonzero even constant prove path nilpotence exactly m=2^r−1; independently computed path characteristic polynomials over GF2 n1..20 and checked all such sizes. Cycle S+S^-1=S^-1(S+I)² implies two nilpotent blocks when n=2^r and nonzero eigenvalue otherwise. The claimed path versus cycle maximal period and probabilities then follow from Jordan block length, not finite enumeration.
+
+## originality
+
+PASS
+
+The reversible block lift and real spectral corona identities are historical antecedents. The claimed novel object is characteristic-two nilpotent Jordan *block doubling*, its full finite-field orbit census and exact dyadic path/cycle family comparison. No known stronger result located proving that full combination; high-priority inaccessible 2004 cellular automaton paper retained explicitly.
+
+## value
+
+PASS
+
+Gives a complete finite-field orbit census from the nilpotent Jordan partition under a natural pendant graph lift, and exactly characterizes when path/sunlet coronas have exclusively dyadic time periods. The path core with two fewer vertices attaining twice the maximal period of a cycle core is a precise structural contrast. The result identifies a usable invariant of reversible XOR network dynamics rather than merely restating invertibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
