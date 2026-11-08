@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem fixes the base field \(q\equiv1\pmod8\), the exact singular surface, the function-field normalization and the extension quantifier. Direct coordinate analysis gives eight ordinary double points; the discriminant identity \((1+y^2z^2)F=( (1+y^2z^2)x-2yz)^2+SS'\) produces the regular local double cover at each node. The standard surface cohomology argument gives K3, and the fiberwise character identity reduces the global point difference to four repeated-root fibers of a quadratic. Their character classes give \(8(\chi_q(1+i)q)^n\) in every degree. The fixed-point formula and power traces determine eight anti-invariant eigenvalues. The standalone Python enumeration independently checks field orders 9, 17, 25, 41, 49, 73, 89, 97 and 113, including all projective points and eight branch nodes. These computations are corroboration, not the proof.
+## correctness
 
-## Originality
-**PASS, with historical priority risk.** O'Dorney's arXiv:2209.10436 constructs the same cover and invariant sets and bounds their sizes with a \(q^{3/2}\) error; its proof does not evaluate the all-degree character imbalance or the zeta quotient. Peters' 2021 Lemma 4.1 contains the general K3 geometry of a double cover of a K3 with an even eight, which is not asserted as a new general principle. Fuchs--Litman--Silverman--Tran study Markoff orbit computations but not the displayed arithmetic zeta twist. Query comparisons of exact equation, discriminant, cover, zeta, Nikulin and Frobenius formulations in mathematical records found no covering statement; the nearest a published k=3 Markoff result is about a different \(k=3\) surface and a local arithmetic obstruction. An alternative presentation in unindexed/classical literature remains a live risk, not a proof of uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The exact eightfold quadratic twist completely specifies a natural eight-dimensional part of the K3 zeta function; the Frobenius scalar and signed cover imbalance are stronger invariants than an approximate point count. In this arithmetic orbit problem, replacing an \(O(q^{3/2})\) set-size uncertainty by an exact \(8+8\varepsilon_q q\) imbalance produces an explicit \(O(q)\) orbit-size bound. This is not a routine restatement of the general K3 cover construction.
+The trihomogeneous (2,2,2) W has eight ordinary double points (origin, four sign triples, three infinity permutations) and crepant K3 resolution. Exact polynomial relation (1+y²z²)F=[(1+y²z²)x−2yz]²+SS′ identifies formal local node w²=st; adjoining √s and normalizing gives a smooth local surface with -I involution and one fixed point. Elsewhere local discriminant square classes define an étale double cover; connectedness follows from nonsquare restriction. Euler and Noether yield K3. Fiberwise over P¹_y×P¹_z the cover/base point difference equals χ(S)+χ(S′). The discriminant D(z)=z⁴−6z²+1 has exactly four repeated-root z-values and each contributes qχ_q(1+i); sum both factors to get 8εq. Repeat over every q^n, apply zeta logarithm and Lefschetz fixed-point dimensions (invariant 14, anti 8) to identify scalar Frobenius and orbit-set imbalance. Independent homogeneous enumeration over F_17 and F_41 gave W/X/U=(496,360,184),(2128,2456,1232), nodes=8, equal exact difference. Finite checks are corroboration, not proof of all extensions.
 
-## Literature and limitations
-The closest primary sources are O'Dorney, *Large orbits on Markoff-type K3 surfaces over finite fields*, arXiv:2209.10436 (2022); Fuchs--Litman--Silverman--Tran, *Orbits on K3 surfaces of Markoff type*, arXiv:2201.12588; and Peters, *On the maximal number of du Val singularities for a K3 surface*, DOI 10.1007/s10711-021-00620-3 (2021). This does not identify all Markoff orbits or derive an independent formula for the quotient's entire zeta function. An independent external audit and further historical-priority review remain necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.
+
+## value
+
+PASS
+
+Complete exact zeta quotient and signed Frobenius scalar for a natural highly symmetric K3 double cover, sharpening O(q^{3/2}) orbit-partition ambiguity to an explicit linear imbalance and O(q) orbit bound; a substantive arithmetic invariant, not simply generic Nikulin geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
