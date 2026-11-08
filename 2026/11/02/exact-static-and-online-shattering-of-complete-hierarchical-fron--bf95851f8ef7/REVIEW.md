@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the exact hypothesis family, handles height zero in the induction and all positive branching degrees, and proves both directions of VC and online dimension. The essential argument is a one-sided online-rank upper bound: conditioning on a positive vertex query leaves a product of independently chosen sibling-subtree frontiers, whose online ranks add. The resulting sum telescopes to one less than the number of penultimate vertices. No computational check is used to infer the infinite-parameter theorem. The finite verifier independently recomputes version-space depth and, on small examples, every shattering projection.
+PASS
 
-## Originality — PASS under accessible comparisons
+For finite level-regular rooted tree of height h>=1 and b_i>=1, a frontier is a maximal antichain meeting every root-to-leaf path once, with whole-vertex binary queries. Last-level parents P (size product_{i<h} b_i) are VC-shattered by independently keeping parent or all its leaf children. A shattered set cannot include comparable vertices or two sibling leaves (identical membership across frontiers), permitting a disjoint injection into leaf-parent blocks and VC upper |P|. For any positive response at depth d, the remainder is the Cartesian product of independent maximal frontiers in path sibling subtrees, whose online ranks add; their rank sum telescopes to |P|-1, so Ldim<=|P|, and VC<=Ldim yields equality. Unary branching and h=1 are included. For binary trees, N_h=1+N_{h-1}^2 gives N_4=677 vs dimension8 and a growing entropy gap. Independent enumeration confirmed profiles (1,2,2): 6 frontiers / rank2, (2,2,2):26/rank4, (2,1,3):10/rank2.
 
-Bhaskar (2017) and Walker (2022) define the underlying adaptive notions and prove general shatter bounds, without calculating the exact dimensions of the class of all maximal prefix-code antichains of complete level-regular trees. Darnstädt, Ries and Simon (2017 preprint/2018 journal) use precisely such maximal antichains to encode hierarchical partitions and prove weighted-optimization recursions, but their inspected sections do not derive the stated VC or Littlestone formula. Ghazi et al. (2020), Sections 2--3, prove general aggregation bounds, with no exact complete-frontier formula in the inspected full HTML text. Published research record and accessible prior-claim comparisons did not locate an equivalent or stronger statement; this is not a proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complete prefix-code frontiers are a standard, non-arbitrary family of hierarchical partitions. The exact dimensions apply to infinitely many depths and all positive branching profiles, establish an optimal online mistake budget, and prove an unbounded, quantitatively controlled slack in the naive logarithmic hypothesis-count bound. This is not an arbitrary small-case table, and it contrasts sharply with related classes of all rooted-tree ideals. The result remains limited to level-regular trees and ordinary vertex-membership queries.
+Best-of-knowledge PASS for exact VC and Littlestone formula for the *maximal-antichain vertex-membership* concept class of level-regular finite rooted trees. Maximal frontiers themselves are classical (Darnstädt–Ries–Simon 2018), and general thicket and product-Ldim machinery is prior. Full primary PDF of the hierarchical minimum-disagreement paper, inspected with page screenshot, uses antichains for partition optimization and mentions VC in different learning arrangements; it does not provide the sharp membership-class online formula. Walker examines leaf subsets of decision trees rather than frontier hypotheses; Ghazi et al give general closure bounds, not this evaluation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact number of penultimate-level parents as both shattering dimensions for every (including unary) level-regular profile is a natural complete classification of a basic hierarchical coding object. It exposes a meaningful exponential gap between the hypothesis-count entropy ceiling and optimal online mistakes without creating a VC/Ldim gap, and separates membership-based learning from partition-fitting; not a mere reparametrization of frontier enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

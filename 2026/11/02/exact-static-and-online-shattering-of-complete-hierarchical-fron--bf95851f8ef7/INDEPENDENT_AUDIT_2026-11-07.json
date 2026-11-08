@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite level-regular rooted tree of height h>=1 and b_i>=1, a frontier is a maximal antichain meeting every root-to-leaf path once, with whole-vertex binary queries. Last-level parents P (size product_{i<h} b_i) are VC-shattered by independently keeping parent or all its leaf children. A shattered set cannot include comparable vertices or two sibling leaves (identical membership across frontiers), permitting a disjoint injection into leaf-parent blocks and VC upper |P|. For any positive response at depth d, the remainder is the Cartesian product of independent maximal frontiers in path sibling subtrees, whose online ranks add; their rank sum telescopes to |P|-1, so Ldim<=|P|, and VC<=Ldim yields equality. Unary branching and h=1 are included. For binary trees, N_h=1+N_{h-1}^2 gives N_4=677 vs dimension8 and a growing entropy gap. Independent enumeration confirmed profiles (1,2,2): 6 frontiers / rank2, (2,2,2):26/rank4, (2,1,3):10/rank2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhaskar, Thicket Density, arXiv:1702.03956, §2–3",
+          "Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arXiv:2203.12211, §1–2",
+          "Darnstädt–Ries–Simon, Theoretical Computer Science 716 (2018), full primary MinDis PDF §2.3 and §4, containing maximal antichains and weighted objective",
+          "Ghazi et al., arXiv:2007.03668 generic closure bounds",
+          "Resultary antichain rank-profile census was about Boolean lattices, not hierarchy frontiers"
+        ],
+        "reasoning": "Bhaskar general thicket density and Walker leaf-set learning theorems do not evaluate these frontier hypotheses; Darnstädt–Ries–Simon give root-versus-product enumeration/MinDis optimization, while Ghazi et al derive generic closure inequalities, none an exact Ldim=penultimate-parent count.",
+        "searches": [
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier",
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier cutsets membership queries",
+          "Darnstädt Ries Simon hierarchical minimum disagreement 2018 maximal antichain VC dimension"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ruhr-uni-bochum.de/lmi/ries/MinDis_TCS2018.pdf",
+        "https://arxiv.org/abs/1702.03956",
+        "https://arxiv.org/abs/2203.12211",
+        "https://arxiv.org/abs/2007.03668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bhaskar, Thicket Density, arXiv:1702.03956, §2–3",
+          "Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arXiv:2203.12211, §1–2",
+          "Darnstädt–Ries–Simon, Theoretical Computer Science 716 (2018), full primary MinDis PDF §2.3 and §4, containing maximal antichains and weighted objective",
+          "Ghazi et al., arXiv:2007.03668 generic closure bounds",
+          "Resultary antichain rank-profile census was about Boolean lattices, not hierarchy frontiers"
+        ],
+        "reasoning": "A product recurrence for the number or optimal weight of frontiers is weaker than the key positive-query version-space product and rank bound: latter proves Ldim exactly. Generic entropy ceiling floor(log2 N_h) is strictly larger for h>=4 and hence cannot imply equality.",
+        "searches": [
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier",
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier cutsets membership queries",
+          "Darnstädt Ries Simon hierarchical minimum disagreement 2018 maximal antichain VC dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhaskar, Thicket Density, arXiv:1702.03956, §2–3",
+          "Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arXiv:2203.12211, §1–2",
+          "Darnstädt–Ries–Simon, Theoretical Computer Science 716 (2018), full primary MinDis PDF §2.3 and §4, containing maximal antichains and weighted objective",
+          "Ghazi et al., arXiv:2007.03668 generic closure bounds",
+          "Resultary antichain rank-profile census was about Boolean lattices, not hierarchy frontiers"
+        ],
+        "reasoning": "Maximal antichains in ancestor poset, complete prefix codes and root-to-leaf cutsets denote the same frontiers; queries are whole original vertex coordinates, not arbitrary downsets, leaf subsets, or label partitions.",
+        "searches": [
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier",
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier cutsets membership queries",
+          "Darnstädt Ries Simon hierarchical minimum disagreement 2018 maximal antichain VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bhaskar, Thicket Density, arXiv:1702.03956, §2–3",
+          "Walker, Tree Dimension and the Sauer–Shelah Dichotomy, arXiv:2203.12211, §1–2",
+          "Darnstädt–Ries–Simon, Theoretical Computer Science 716 (2018), full primary MinDis PDF §2.3 and §4, containing maximal antichains and weighted objective",
+          "Ghazi et al., arXiv:2007.03668 generic closure bounds",
+          "Resultary antichain rank-profile census was about Boolean lattices, not hierarchy frontiers"
+        ],
+        "reasoning": "For complete binary profiles, N_h recurrence is a pre-existing routine count, not the contribution. The exact dimension for all positive b_i profiles does not follow from N_h and was not located as an indexed table. Finite computed frontiers merely corroborate the proof.",
+        "searches": [
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier",
+          "Littlestone VC dimension maximal antichain complete prefix code rooted tree frontier cutsets membership queries",
+          "Darnstädt Ries Simon hierarchical minimum disagreement 2018 maximal antichain VC dimension"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact VC and Littlestone formula for the *maximal-antichain vertex-membership* concept class of level-regular finite rooted trees. Maximal frontiers themselves are classical (Darnstädt–Ries–Simon 2018), and general thicket and product-Ldim machinery is prior. Full primary PDF of the hierarchical minimum-disagreement paper, inspected with page screenshot, uses antichains for partition optimization and mentions VC in different learning arrangements; it does not provide the sharp membership-class online formula. Walker examines leaf subsets of decision trees rather than frontier hypotheses; Ghazi et al give general closure bounds, not this evaluation.",
+      "residual_risks": [
+        "An older coding-theory or ordered-poset sample-complexity result may disguise the same maximal-prefix-code membership theorem.",
+        "Inspecting relevant passages and PDF screenshot does not certify every appendix in the literature universe."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sets up maximal antichains for empirical weighted partition disagreement; does not establish the vertex-membership VC=Ldim exact formula",
+          "evidence": [
+            "§2.3 hierarchy antichains; §4 MinDis objective; absence of a Littlestone theorem in inspected text"
+          ],
+          "identifier_or_url": "https://www.ruhr-uni-bochum.de/lmi/ries/MinDis_TCS2018.pdf",
+          "material_read": "Primary PDF relevant introduction, §2.3 maximal antichain model, §4 optimisation and VC terminology; not every page line-by-line",
+          "method": "Direct primary PDF reading, web screenshot of page and term searches",
+          "title": "Hierarchical Design of Fast Minimum Disagreement Algorithms",
+          "trigger": "Closest literal maximal-antichain frontiers and root-versus-product recursion"
+        },
+        {
+          "assessment": "General adaptive dimension and rank recurrence, not family-specific exact formula",
+          "evidence": [
+            "§§2–3 thicket/Littlestone definitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+          "material_read": "Public full-text HTML definitions, shattering and rank foundational sections",
+          "method": "Direct HTML relevant sections",
+          "title": "Thicket Density",
+          "trigger": "General Littlestone theory"
+        },
+        {
+          "assessment": "Decision-tree leaf-subset complexity has different hypotheses; no direct frontier membership reduction given",
+          "evidence": [
+            "§§1–2 tree dimension and leaf-set notion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "Full-text HTML introduction, definitions and leaf-subset theorems",
+          "method": "Direct HTML relevant-section reading",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Potential theorem on trees with same invariant name"
+        },
+        {
+          "assessment": "Provides broad inequalities, not exact penultimate-parent number",
+          "evidence": [
+            "Aggregation/closure bounds rather than maximal-antichain membership rank"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Public full-text HTML introductory closure theorem and aggregation bounds",
+          "method": "Direct full-text relevant-section reading",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Potential general dimension-bound domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number of penultimate-level parents as both shattering dimensions for every (including unary) level-regular profile is a natural complete classification of a basic hierarchical coding object. It exposes a meaningful exponential gap between the hypothesis-count entropy ceiling and optimal online mistakes without creating a VC/Ldim gap, and separates membership-based learning from partition-fitting; not a mere reparametrization of frontier enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.ruhr-uni-bochum.de/lmi/ries/MinDis_TCS2018.pdf",
+    "https://arxiv.org/abs/1702.03956",
+    "https://arxiv.org/abs/2203.12211",
+    "https://arxiv.org/abs/2007.03668"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not assert nonuniform rooted trees or different query language, nor fixed-size cutsets."
+  ],
+  "residual_risks": [
+    "An older coding-theory or ordered-poset sample-complexity result may disguise the same maximal-prefix-code membership theorem.",
+    "Inspecting relevant passages and PDF screenshot does not certify every appendix in the literature universe."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Sets up maximal antichains for empirical weighted partition disagreement; does not establish the vertex-membership VC=Ldim exact formula",
+      "evidence": [
+        "§2.3 hierarchy antichains; §4 MinDis objective; absence of a Littlestone theorem in inspected text"
+      ],
+      "identifier_or_url": "https://www.ruhr-uni-bochum.de/lmi/ries/MinDis_TCS2018.pdf",
+      "material_read": "Primary PDF relevant introduction, §2.3 maximal antichain model, §4 optimisation and VC terminology; not every page line-by-line",
+      "method": "Direct primary PDF reading, web screenshot of page and term searches",
+      "title": "Hierarchical Design of Fast Minimum Disagreement Algorithms",
+      "trigger": "Closest literal maximal-antichain frontiers and root-versus-product recursion"
+    },
+    {
+      "assessment": "General adaptive dimension and rank recurrence, not family-specific exact formula",
+      "evidence": [
+        "§§2–3 thicket/Littlestone definitions"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+      "material_read": "Public full-text HTML definitions, shattering and rank foundational sections",
+      "method": "Direct HTML relevant sections",
+      "title": "Thicket Density",
+      "trigger": "General Littlestone theory"
+    },
+    {
+      "assessment": "Decision-tree leaf-subset complexity has different hypotheses; no direct frontier membership reduction given",
+      "evidence": [
+        "§§1–2 tree dimension and leaf-set notion"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+      "material_read": "Full-text HTML introduction, definitions and leaf-subset theorems",
+      "method": "Direct HTML relevant-section reading",
+      "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+      "trigger": "Potential theorem on trees with same invariant name"
+    },
+    {
+      "assessment": "Provides broad inequalities, not exact penultimate-parent number",
+      "evidence": [
+        "Aggregation/closure bounds rather than maximal-antichain membership rank"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+      "material_read": "Public full-text HTML introductory closure theorem and aggregation bounds",
+      "method": "Direct full-text relevant-section reading",
+      "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+      "trigger": "Potential general dimension-bound domination"
+    }
+  ]
+}
