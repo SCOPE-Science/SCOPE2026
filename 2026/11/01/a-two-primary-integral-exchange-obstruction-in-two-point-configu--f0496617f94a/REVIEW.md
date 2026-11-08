@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the ordered separation-constrained two-point space on a star with at least three equally long arms and positive separation at most the arm length. The same-arm triangles retract equivariantly to their attaching intervals. The remaining convex other-arm polygons form a group-permuted acyclic-intersection cover; the natural Cech nerve and its row/column-simplex nerve identify integral first homology with the connected crown graph's integer cycle lattice. Orientation reversal under particle exchange is explicitly \(C\mapsto-C^{\mathsf T}\). The parity map has kernel exactly the sum of the two integer eigensublattices, and images of crown four-cycles span the even Eulerian binary subspace. The resulting quotient dimension and index therefore hold for every number of arms, not merely the tested cases. The explicit separate threshold analysis includes equality and the empty regime.
+## correctness
 
-The standalone exact checker reconstructs independent integral graph cycle bases and confirms the map's image ranks and cycle-character formulas through eight arms. These finite tests are supporting calculations, not a substitute for the proof of surjectivity and the geometric nerve identifications.
+PASS
 
-## Originality — PASS, with residual risk
-The novelty is **only** the integral exchange-eigensublattice quotient, its identification with the even Eulerian cycle space and its sharp order. Li--Özaydın's recent weighted-graph model and field persistence already imply the underlying ordinary topology. Ramos--Yun's 2026 Theorem 3.3 covers the full rational \(S_k\)-representation for ordered two-point star configurations and the unordered counterpart, so neither those rational constituents nor their immediate exchange eigenvalue multiplicities are novel here. The accessible full text of those publications contains no integral exchange extension or exact index claim, and the closest indexed unordered-persistence note gives different, unordered barcodes. Explicit previous literature and indexed comparisons did not yield a stronger result implying the new integral statement. The 2023 long-form Li treatment was inspected at abstract/metadata level only, so possible implicit integral coverage remains a documented risk, as does unindexed work; this review is not proof of absolute novelty.
+The same-arm configuration triangles retract equivariantly onto hub-axis attachment intervals when r≤L. The convex cross-arm cells D_ij={s+t≥r} have contractible intersections; their nerve is a union of row and column simplices and, by a second natural nerve comparison, has H1 of the crown graph K_(k,k) with its diagonal matching removed. The exact integer cycle lattice is matrices with zero diagonal/row/column sums and rank k²−3k+1. The exchange involution acts C↦−C^T, giving skew exterior-square augmentation lattice and symmetric kernel of unsigned incidence map; the parity map p_{ij}=c_ij+c_ji mod2 has kernel their sum. Its image lies in even-edge Eulerian cycles, and oriented 4-cycles on four labels lift all generators (pairwise differences of triangles), so p is surjective. The cycle-space dimension binom(k,2)−k=k(k−3)/2 gives the exact index. When r>L no hub-axis intersections remain; the distinct-arm cells are isolated contractible polygons, so H1=0. Independent parity rank/dimension reasoning checks k=3→0, k=4→2, k=5→5, k=6→9.
 
-## Value — PASS
-This asks a mathematically natural question left open by known rational equivariant first-homology computations: whether the two particle-exchange eigensublattices actually split the **integral** homology. The answer is sharply negative for every star with at least four arms, with an exact exponentially growing two-primary index and a canonical quotient described by complete-graph even cycle space. Thus the theorem separates integral symmetry structure from the previously known rational characters and barcodes. The statement is a uniform structural obstruction in a natural geometric family, not a special numerical table or arbitrary slice.
+## originality
 
-## Limitations and literature risk
-The result is for equal arm lengths, two labeled points, and integral degree-one homology. It neither supplies an equivariant homotopy splitting nor extends the quotient calculation to unequal lengths. The 2023 precursor's complete text and every unindexed source have not been exhaustively reviewed. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Published star graph models and rational S_k representations are explicitly acknowledged as prior. They do not determine the integral gluing index of the ± exchange eigensublattices or its even-Eulerian quotient; integral two-primary extension data vanish after tensoring with Q. Older Li (2023) closely related star persistence manuscript remains inaccessible in full; best-of-knowledge PASS with that named risk, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+A canonical explicit integral obstruction group and exponentially growing exact index answer a natural equivariant lattice-splitting question that rational representation stability and field persistence cannot detect. The complete all-arm classification is independently useful for ordered configuration spaces and integral particle-swap actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

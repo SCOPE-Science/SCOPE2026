@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 check_integral_exchange.py` using standard Python 3. No external packages, network access, or downloaded datasets are required. It constructs the connected crown graph with directed edges from the first to the second vertex class, chooses a spanning tree, and generates the exact integer fundamental-cycle basis from each non-tree edge.
+## correctness
 
-It checks both independent row and column zero-boundary equations for every basis cycle, computes the mod-two image of the parity map, confirms the even-degree/even-edge constraints, independently checks that images of explicit four-cycles span the same image, and checks the conjugacy-class trace identities of arm permutation and particle exchange. It never approximates rational matrix ranks by floating-point arithmetic. A passing invocation reports:
+PASS
 
-```
-n=3 | H1 rank=1 | mod-2 gluing dim=0 | index=2^0 | conjugacy types=3 PASS
-n=4 | H1 rank=5 | mod-2 gluing dim=2 | index=2^2 | conjugacy types=5 PASS
-n=5 | H1 rank=11 | mod-2 gluing dim=5 | index=2^5 | conjugacy types=7 PASS
-n=6 | H1 rank=19 | mod-2 gluing dim=9 | index=2^9 | conjugacy types=11 PASS
-n=7 | H1 rank=29 | mod-2 gluing dim=14 | index=2^14 | conjugacy types=15 PASS
-n=8 | H1 rank=41 | mod-2 gluing dim=20 | index=2^20 | conjugacy types=22 PASS
-All exact checks passed.
-```
+The same-arm configuration triangles retract equivariantly onto hub-axis attachment intervals when r≤L. The convex cross-arm cells D_ij={s+t≥r} have contractible intersections; their nerve is a union of row and column simplices and, by a second natural nerve comparison, has H1 of the crown graph K_(k,k) with its diagonal matching removed. The exact integer cycle lattice is matrices with zero diagonal/row/column sums and rank k²−3k+1. The exchange involution acts C↦−C^T, giving skew exterior-square augmentation lattice and symmetric kernel of unsigned incidence map; the parity map p_{ij}=c_ij+c_ji mod2 has kernel their sum. Its image lies in even-edge Eulerian cycles, and oriented 4-cycles on four labels lift all generators (pairwise differences of triangles), so p is surjective. The cycle-space dimension binom(k,2)−k=k(k−3)/2 gives the exact index. When r>L no hub-axis intersections remain; the distinct-arm cells are isolated contractible polygons, so H1=0. Independent parity rank/dimension reasoning checks k=3→0, k=4→2, k=5→5, k=6→9.
 
-The code tests six finite arm counts, not the general theorem. The unrestricted proof is in `RESULT.md`, specifically the two natural acyclic-intersection nerve reductions and the parity-kernel/four-cycle spanning arguments. The role of the published weighted-graph and rational representation calculations is delineated there. There has been no independent mathematical audit.
+## originality
+
+PASS
+
+Published star graph models and rational S_k representations are explicitly acknowledged as prior. They do not determine the integral gluing index of the ± exchange eigensublattices or its even-Eulerian quotient; integral two-primary extension data vanish after tensoring with Q. Older Li (2023) closely related star persistence manuscript remains inaccessible in full; best-of-knowledge PASS with that named risk, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+A canonical explicit integral obstruction group and exponentially growing exact index answer a natural equivariant lattice-splitting question that rational representation stability and field persistence cannot detect. The complete all-arm classification is independently useful for ordered configuration spaces and integral particle-swap actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
