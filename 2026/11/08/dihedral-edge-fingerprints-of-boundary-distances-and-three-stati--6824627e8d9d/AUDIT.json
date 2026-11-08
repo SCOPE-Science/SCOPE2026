@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For each convex polygonal face the ordered interior pair integral is pi*A*r^2 - (2/3)*L*r^3 + O(r^4). Adjacent face pairs yield twice the 3D ball-wedge integral 2*(pi-theta)*r^3/(3*sin(theta)) per edge length; vertex-only pairs are O(r^4). This proves the formula. For boxes exact face autocorrelation and quarter-ball integrals yield the quartic polynomial for r<min(a,b,c); centering computes M2. Solving elementary symmetric polynomials and the cubic gives inverse uniqueness. Standalone randomized and quadrature checks pass; finite checks alone are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gille 2005 full paper pages 106 and 108 uses Crofton-type line chords; Ciccariello 2019 polyhedron line chords; Mathai 1999 fixed cube face-pairs, not arbitrary polyhedra."
+      ],
+      "reasoning": "None of the inspected statements provides a dominating exact result for the Euclidean separation of independent surface-area points on an arbitrary convex polyhedron. A general random-line chord distribution cannot be substituted without changing the sampling measure.",
+      "searches": [
+        "Polyhedron surface point pair distance asymptotic probability small r dihedral edges wedge defect coefficient curvature",
+        "two independent surface-area-uniform points on boundary of convex polyhedron Euclidean separation r small dihedral angle edge contribution (pi-theta)/sin theta, exact cuboid quartic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3844/jmssp.2005.106.112",
+      "doi:10.6092/issn.1973-2201/1104",
+      "arxiv:1312.2498",
+      "arxiv:1911.02532",
+      "2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+      "doi:10.1107/S0021889899010869"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mathai cube formulas specialize to a single a=b=c case, not a general 3D dihedral-edge formula. Gille wedge line-chord probability uses isotropic lines. Two-dimensional polygon pair distances are supported on planar regions."
+      ],
+      "reasoning": "The proposed theorem implies the cube face-distance expansion but is not implied by a single cube formula: it quantifies all edge lengths and dihedral angles for all convex polyhedra and explicitly inverts any three side lengths. The three moments are independent, model-appropriate statistics. No inspected source states an equal-or-stronger corresponding implication.",
+      "searches": [
+        "Uniform random points on surface of a rectangular box: exact small Euclidean distance distribution, edge dihedral angle coefficient, and inverse recovery of side lengths from local probability and second moment",
+        "Recover rectangular cuboid side lengths from surface pairwise distance distribution first two asymptotic coefficients and squared distance moment",
+        "two independent surface-area-uniform points on boundary of convex polyhedron Euclidean separation r small dihedral angle edge contribution (pi-theta)/sin theta, exact cuboid quartic",
+        "surface point distance distribution rectangular orthotope inverse reconstruction side lengths from Euclidean boundary-pair second moment and r^3 coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathai et al. 1999 treats unit cube face pairs; Gille 2005 IUR line chords; MathWorld summarizes exact cube face-pair formulas."
+      ],
+      "reasoning": "Pair-distance distribution/Euclidean surface correlation is equivalent wording; line chords and interior-point pair distances are different probability measures. The published cube case is explicitly conceded, not equated to a theorem for every convex polyhedron or recovery of arbitrary cuboid dimensions.",
+      "searches": [
+        "Uniform random points on surface of a rectangular box: exact small Euclidean distance distribution, edge dihedral angle coefficient, and inverse recovery of side lengths from local probability and second moment",
+        "Polyhedron surface point pair distance asymptotic probability small r dihedral edges wedge defect coefficient curvature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit MathWorld face-and-face formulas are existing unit-cube special-case data. Published planar polygon coefficient record involves dimension two."
+      ],
+      "reasoning": "Known cube distance formulas are not treated as new. A finite or exact database for arbitrary rectangular-box surface-point probability coefficients plus global moment and reconstruction was not found. Search failure alone is not a novelty certificate.",
+      "searches": [
+        "Recover rectangular cuboid side lengths from surface pairwise distance distribution first two asymptotic coefficients and squared distance moment",
+        "surface point distance distribution rectangular orthotope inverse reconstruction side lengths from Euclidean boundary-pair second moment and r^3 coefficient"
+      ]
+    },
+    "rationale": "Best-knowledge original combined claim: the general 3D surface-area pair-distance cubic edge formula and exact three-statistic inverse box theorem are not stated or implied by inspected sources. Published cube-only and random-line chord results are explicitly separated and credited. Published scientific comparisons were conducted by statement rather than matching titles. Full 1999 cube article not obtained, so priority remains provisional.",
+    "residual_risks": [
+      "Full primary Mathai et al. (1999) PDF unavailable through attempted direct link; inspected publisher abstract and MathWorld detailed cube formulas instead.",
+      "Unindexed stereology/scattering literature could contain an equivalent surface-area pair correlation asymptotic or a broader formula; no claim of exhaustive archive coverage.",
+      "Published planar pair-distance record full text inaccessible, although its abstract is dimensionally and measure-wise inapplicable.",
+      "Gille (1999) cuboid covariogram full article not obtained; journal abstract describes volume rather than boundary-area correlations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies isotropic-uniform-random line sections of long rectangular wedges/rods, not two independent points uniform on a three-dimensional polyhedral surface. It does not establish surface pair correlation coefficients or cuboid inverse recovery.",
+        "evidence": [
+          "https://thescipub.com/jmss/jmssp.2005.106.112.pdf",
+          "https://thescipub.com/jmss/jmssp.2005.106.112"
+        ],
+        "identifier_or_url": "doi:10.3844/jmssp.2005.106.112",
+        "material_read": "PDF pages 106, 108, 111, 112 of 106–112 and HTML abstract/version history",
+        "method": "Opened primary PDF and visually inspected first page, wedge-integral page, endpoint discussion and references; checked publication-date metadata",
+        "title": "Analysis of the Chord Length Distribution Along an Edge: The Wedge Case and the Quadratic Rod Case",
+        "trigger": "Closest archival edge/wedge random-chord calculation, publicly dated 2005-06-30"
+      },
+      {
+        "assessment": "Cube-only face-pair formulas are admitted as prior and likely give the special cube polynomial after summation; they do not give the stated universal all-polyhedron edge law or demonstrate the three-statistic reconstruction for arbitrary boxes. Risk: uninspected full text might discuss further generalizations.",
+        "evidence": [
+          "https://rivista-statistica.unibo.it/article/view/1104",
+          "https://mathworld.wolfram.com/CubeLinePickingFaceandFace.html"
+        ],
+        "identifier_or_url": "doi:10.6092/issn.1973-2201/1104",
+        "material_read": "Publisher abstract and detailed MathWorld summaries of adjacent/opposite face formulas; complete source PDF not retrieved (502).",
+        "method": "Publisher article HTML, MathWorld Cube Line Picking—Face and Face article; attempted direct institutional PDF link",
+        "title": "Distance between random points in a cube",
+        "trigger": "Known exact cube face-to-face distances, including adjacent faces, and arbitrary moments"
+      },
+      {
+        "assessment": "Random points inside two-dimensional triangle regions, not three-dimensional surface-area sampling; no logical stronger theorem for polyhedral surface edge coefficients.",
+        "evidence": [
+          "https://arxiv.org/abs/1312.2498"
+        ],
+        "identifier_or_url": "arxiv:1312.2498",
+        "material_read": "arXiv abstract and public study scope dated 2013-11-29; no full PDF needed for scope distinction.",
+        "method": "arXiv metadata and abstract",
+        "title": "Random Distances Associated with Arbitrary Triangles: A Systematic Approach between Two Random Points",
+        "trigger": "Generic polygonal point-to-point Euclidean distance integral methods"
+      },
+      {
+        "assessment": "Chord length of a random line through a three-dimensional polyhedron is a different measure from independent area-uniform boundary-point separation. General chord formulas do not directly imply the asserted surface-pair expansion or the three-statistic inverse theorem.",
+        "evidence": [
+          "https://arxiv.org/abs/1911.02532"
+        ],
+        "identifier_or_url": "arxiv:1911.02532",
+        "material_read": "arXiv abstract and summary of measure being integrated; full text not inspected.",
+        "method": "arXiv abstract read and comparison of random-line versus random-boundary-point measures",
+        "title": "The chord-length distribution of a polyhedron",
+        "trigger": "General polyhedron distance/chord distribution potentially broader than candidate"
+      },
+      {
+        "assessment": "Applies to two-dimensional polygonal interior sampling and its quartic coefficient. Does not entail a 3D surface pair-edge law or all-box inversion.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "material_read": "Searchable published-record title and substantive abstract; full GitHub text inaccessible in available web access.",
+        "method": "Scientific statement/abstract comparison",
+        "title": "Sharp uniform angular stability for the short-pair distance coefficient of convex polygons",
+        "trigger": "Closest retrieved published planar pair-distance coefficient theorem"
+      },
+      {
+        "assessment": "Reports three-dimensional volume covariogram and isotropic random-line scattering/chord geometry; not a two-dimensional surface-area pair correlation formula. Full text remains an overlap risk.",
+        "evidence": [
+          "https://doi.org/10.1107/S0021889899010869"
+        ],
+        "identifier_or_url": "doi:10.1107/S0021889899010869",
+        "material_read": "Journal of Applied Crystallography volume 32 issue 6 abstract/bibliographic entry; full article not obtained.",
+        "method": "Inspected publisher abstract and compared the underlying uniform-volume autocorrelation sampling measure against the boundary-area pair measure.",
+        "title": "The small-angle scattering correlation function of the cuboid",
+        "trigger": "1999 cuboid covariogram paper potentially containing a distance-pair law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6824627e-8d9d-4c71-b317-298e45c05905",
+  "value": {
+    "rationale": "The first departure from planar pi*r^2/S surface-point behavior is a positive dihedral-angle-weighted edge invariant, a structural observable for any convex polyhedron. Exact all-box short-distance laws and one global second moment uniquely determine arbitrary three-dimensional rectangular-box side lengths. It provides a precise, natural inverse geometric classification from only three scalar distance statistics, rather than a table recomputation or arbitrary narrow numerical instance.",
+    "status": "PASS"
+  }
+}
