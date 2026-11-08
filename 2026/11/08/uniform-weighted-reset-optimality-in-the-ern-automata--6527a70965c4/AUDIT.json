@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For each inverse merging letter the rotated inverse set can gain at most one state and only a predecessor of an existing state at a specified rotation residue. First introductions must follow the cyclic predecessor chain, spaced by at least n-1 inverse rotations. This proves #a >= (n-1)(n-2), and cardinality gives #b>=n-1. Equality forces r=0 and the unique standard word. The separate forward-subset 0-1 BFS and weighted Dijkstra checks pass for n=2..13; they supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruszil 2021 proves algorithmic approximation/hardness, not a cost-ratio-independent exact optimum for this family",
+        "Fominykh et al. 2012 study more general costs but their published generality concerns algorithmic complexity, not such a structural exact-value statement",
+        "Ferens–Szykuła 2022 bound reaching thresholds but not separate letter costs"
+      ],
+      "reasoning": "A general theoretical framework is not a stronger theorem unless its hypotheses entail the specific coordinatewise result. None of the inspected general results establishes positive-cost uniqueness or rotation-count minima for this cyclic one-defect family.",
+      "searches": [
+        "weighted Černý exact synchronization cost (n-1)(n-2) alpha + (n-1) beta unique canonical word",
+        "weighted Cerny automaton reset word positive letter costs invariant same shortest word",
+        "Fominykh Volkov Playing for synchronization 2012 Cerny weighted automaton letter cost",
+        "arxiv:1205.2174",
+        "arxiv:2208.05956"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2103.16185",
+      "https://arxiv.org/pdf/1205.2174",
+      "https://acta.bibl.u-szeged.hu/12877/1/Martyugin_2009_ActaCybernetica.pdf",
+      "https://arxiv.org/abs/2208.05956",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Černý shortest reset length equals (n-1)^2; this alone cannot exclude longer resets with fewer rotation letters",
+        "Reachability and rank-profile statements constrain certain shortest paths, not every positive weighted sum over all reset words",
+        "Ruszil explicitly notes generic minimum length versus minimum weight can differ"
+      ],
+      "reasoning": "The present two simultaneous bounds imply all positive-weight optima; the compared results do not imply even the rotation-only bound without a new cyclic predecessor-gate argument.",
+      "searches": [
+        "arxiv:2103.16185",
+        "arxiv:1205.2174",
+        "arxiv:2208.05956",
+        "letter composition Pareto-minimal reset words of Cerny automata",
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "New theorem uses each of the two letter counts for all reset words; earlier classical bound concerns sum of counts for a shortest word",
+        "Ruszil 2021, Section 1 defines additive letter costs; optimal word can differ from minimum-length word in general"
+      ],
+      "reasoning": "The novelty-bearing equivalent is a least exponent of the cycle letter (allowing unlimited merge letters), or a singleton Pareto-minimal reset Parikh vector. The inverse-gate proof supplies this for every reset word, not merely fixed-length words; no retrieved primary statement expresses it.",
+      "searches": [
+        "Černý C_n minimum a letter occurrences (n-1)(n-2) and b occurrences n-1 in reset words",
+        "reverse predecessor propagation minimum rotations cost Černý automata inverse synchronization",
+        "letter composition Pareto-minimal reset words of Cerny automata",
+        "Cerny automaton letter count lower bound occurrences of permutation letter in synchronizing word (n-1)(n-2)",
+        "arxiv:2103.16185"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest identifiers include deficiency and avoidance thresholds; these do not tabulate all-n two-letter Parikh minima",
+        "Independent subset enumeration for n=2..13 corroborates but was not substituted for an all-n literature search"
+      ],
+      "reasoning": "No retrieved exact database or table specifies the claimed all-n composition vector. A finite automaton table cannot by itself dominate a theorem for every n. Search incompleteness remains a risk.",
+      "searches": [
+        "Cerny automata minimum occurrence permutation letter reset",
+        "Cerny weighted reset word rotation letter cost exact minimum",
+        "Černý C_n minimum a letter occurrences (n-1)(n-2) and b occurrences n-1 in reset words",
+        "published-finding corpus semantic result query: Černý automaton coordinatewise optimal reset counts rotation count n-1 n-2"
+      ]
+    },
+    "rationale": "Primary full-text weighted synchronization results concern generic algorithms, complexity, and reachable-subset lengths. Classical shortest Černý reset length does not imply the coordinatewise rotation bound for arbitrary-length resets. Actual semantic record and prior-ledger claim comparisons found no dominating exact weighted all-n statement, with residual risk of an unindexed equivalent.",
+    "residual_risks": [
+      "A different naming of cyclic one-defect automata or Parikh-optimal synchronization could conceal an equivalent published theorem",
+      "Older literature beyond inspected portions of Martyugin 2009 and non-indexed books was not exhaustively compared",
+      "The semantic research index and accessible own ledger do not exhaust all historical mathematics"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithms and a counterexample to generic shortest-length/cost coincidence; no theorem giving two separate lower bounds for every reset word of this labeled cyclic family",
+        "evidence": [
+          "arxiv:2103.16185v1, pp. 1-3, weighted automata, Example/Figure 1, approximation algorithms",
+          "https://arxiv.org/abs/2103.16185"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.16185",
+        "material_read": "Nine-page lawful arXiv PDF: definitions, counterexample in section 1, algorithm sections, applications and references; inspected first and final page images and relevant full extracted text",
+        "method": "Read primary preprint, compare the optimization objective and exact automaton specialization",
+        "title": "Approximation algorithm for finding short synchronizing words in weighted automata",
+        "trigger": "Closest dated primary work defining letter-additive weighted synchronization and variable-cost optimizers"
+      },
+      {
+        "assessment": "General budgeted transition-cost complexity does not assert or imply the coordinatewise minimum for the specific Černý labeling",
+        "evidence": [
+          "arxiv:1205.2174, weighted synchronization framework and complexity statements",
+          "https://arxiv.org/abs/1205.2174"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1205.2174",
+        "material_read": "Lawful arXiv PDF with opening pages, weighted-setting definitions, complexity/algorithmic results and end sections inspected in extracted text; page images inspected",
+        "method": "Compare transition-cost framework and generic lower/upper complexity against exact letter-count theorem",
+        "title": "P(l)aying for Synchronization",
+        "trigger": "Potentially dominating weighted-synchronization theory"
+      },
+      {
+        "assessment": "General reset decision/length complexities and classical Černý example; no explicit all-letter-count or variable-positive-cost optimum on inspected pages. Remaining pages not assessed for noncoverage",
+        "evidence": [
+          "Acta Cybernetica 19 (2009), pp. 517-519",
+          "https://acta.bibl.u-szeged.hu/12877/"
+        ],
+        "identifier_or_url": "https://acta.bibl.u-szeged.hu/12877/1/Martyugin_2009_ActaCybernetica.pdf",
+        "material_read": "Acta Cybernetica PDF title/abstract and introductory/complexity pages 1-3 inspected visually and in extracted text",
+        "method": "Check stated scope and quantitative reset thresholds",
+        "title": "Complexity of Problems Concerning Reset Words for Some Partial Cases of Automata",
+        "trigger": "Older reset-word complexity might subsume a letter-count lower bound"
+      },
+      {
+        "assessment": "Subset-reaching length bounds are not the two-coordinate Pareto bound for arbitrary reset words",
+        "evidence": [
+          "arxiv:2208.05956, abstract and main reachability results",
+          "https://arxiv.org/abs/2208.05956"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05956",
+        "material_read": "Open primary full-text HTML: abstract, problem setup, principal reachability results and discussions of reaching thresholds",
+        "method": "Compare subset-reaching thresholds with weighted reset paths",
+        "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on reaching threshold",
+        "trigger": "Reachable-subset and cyclic one-defect bounds might imply cost-optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6527a709-65c4-494a-82d3-02c0641aaa82",
+  "value": {
+    "rationale": "Exact positive-weight synchronization is a natural question because generic weighted automata can have cost-ratio-dependent optimizers. The theorem determines an entire two-dimensional cost cone and a sharp all-word Parikh minimum, with an explicit inverse-gate structural mechanism. This is stronger than a routine restatement of the known shortest reset length.",
+    "status": "PASS"
+  }
+}
