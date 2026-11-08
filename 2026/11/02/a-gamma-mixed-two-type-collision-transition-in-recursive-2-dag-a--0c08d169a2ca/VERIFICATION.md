@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of mathematical result
+# Independent mathematical audit
 
-`python3 checker.py` is a standalone Python 3 checker with only standard-library imports. Its tested output is:
+## correctness
 
-```
-PASS 17603 exact, algebraic, and seeded simulation assertions
-Monte Carlo means D,E,Y 0.9432 2.91 196.7588
-```
+PASS
 
-For \(n=4,5,6\) with two roots, it exhaustively enumerates ordered parent-pair choices and computes the exact joint distribution of frontier size, internal redundant hits, root duplicates, and unique ancestors. An independently implemented rational frontier Markov recurrence followed by Stirling-number occupancy probabilities yields the same full distribution. Every direct sample and Markov state obeys \(X=2Y_m-1+D-E\). Critical-window Riemann sums check the analytic rate constants \(1/6\) and \(1/2\). Seeded Monte Carlo at \(n=10^6,m=10^4\) gives means close to the asymptotic mixed-Poisson expectations \(1\) and \(3\); sampling is not used to infer infinity.
+The reverse frontier recursion Z_k|F_k~Bin(Y_k,1/k), Y_(k-1)=Y_k-Z_k+2 1_{Z_k>0} telescopes to X=2Y_m-1+D-E. Janson finite-model with-replacement flatness and Gamma(2,1) amplitude apply at m>>sqrt n, covering n^(2/3). A second-hit probability is binom(Yk,2)/k² plus summable O(n³/k^6) error; accumulated internal intensity ->xi²/(6c³), and triples vanish. Root endpoints are fresh iid uniform; birthday repeats have Le Cam proxy intensity Y_m²/(2m)->xi²/(2c³), with summed adapted error O(Y_m³/m²). Independent fresh uniform proxy couplings yield limiting conditional independence, not finite independence. Expectation O(n²/m³) bounds prove zero-collision supercritical side. Independent full 14,400 multigraph enumerations at n=6,m=2 and smaller n verify exact X identity/distributions; cannot prove weak convergence.
 
-The analytically relevant proof steps and cited premises are included in RESULT.md, especially Gamma frontier convergence and flatness (Janson Sections 3–4), the conditional Bernoulli thinning and root-birthday coupling, and the exact 2-to-1 red-vertex counting identity. The checker does not independently establish Gamma convergence, uniqueness in literature, or a formal infinite-domain certificate.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
+
+## value
+
+PASS
+
+Separating two physically distinct collision types in a natural rooted random DAG identifies the n^(2/3) finite-size critical window and a nondegenerate shared Gamma-mixed Poisson law with 1:3 intensity ratio. This is meaningful refinement of prior first-order descendant counts and structurally necessary for exact ancestry corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

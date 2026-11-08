@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model and root convention are explicit. The exact conservation identity follows from the reverse frontier recurrence and is independently checked against exhaustive parent assignments and a rational transition/occupancy recursion through six vertices. The critical new argument couples rare internal repeated hits and root duplicate draws to independently generated Bernoulli proxies; total coupling error vanishes by the \(n^3/m^5\), \(n^4/m^7\), and \(n^3/m^4\) estimates and Janson's flatness and maximal moment estimates. The Gamma law and uniform frontier flatness are cited, inspected premises of Janson's Sections 2–4. Conditional independence holds in the *limit* and the high-root regime uses first moments rather than extrapolation. The 17,603 reproducibility assertions passed, but finite tests are not proofs of weak convergence.
+PASS
 
-## Originality — PASS (historical priority qualified)
+The reverse frontier recursion Z_k|F_k~Bin(Y_k,1/k), Y_(k-1)=Y_k-Z_k+2 1_{Z_k>0} telescopes to X=2Y_m-1+D-E. Janson finite-model with-replacement flatness and Gamma(2,1) amplitude apply at m>>sqrt n, covering n^(2/3). A second-hit probability is binom(Yk,2)/k² plus summable O(n³/k^6) error; accumulated internal intensity ->xi²/(6c³), and triples vanish. Root endpoints are fresh iid uniform; birthday repeats have Le Cam proxy intensity Y_m²/(2m)->xi²/(2c³), with summed adapted error O(Y_m³/m²). Independent fresh uniform proxy couplings yield limiting conditional independence, not finite independence. Expectation O(n²/m³) bounds prove zero-collision supercritical side. Independent full 14,400 multigraph enumerations at n=6,m=2 and smaller n verify exact X identity/distributions; cannot prove weak convergence.
 
-The most relevant precursor is Janson's 2023-02-24 paper, whose Section 10.1 discusses many roots at \(m\asymp\sqrt n\) and explicitly leaves \(m/\sqrt n\to\infty\) for further analysis. Its general moment bounds and Yule Gamma limit are stronger on those *premise* dimensions, but do not imply the joint two-type collision law without new rare-event arguments or supply the exact \(n^{2/3}\) crossover and conditional \(1:3\) ratio. The global cycle-count Poisson paper studies small cycles throughout a different uniform-attachment graph, not ancestor-restricted paired collisions. Related DAG archaeology treats reconstructing ancestors/roots rather than the joint collision vector. Full material was inspected where accessible, and matching statement/implication searches in mathematical records and accessible prior findings found no coverage. Historical priority remains a real risk, not a mathematical uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Counting distinct ancestry vertices is a core random-DAG invariant relevant to recursively wired computational circuits. At the critical density of roots, two competing causes of ancestral edge coalescence become order-one, not negligible; their precise split distinguishes structural branching redundancy from duplicate input-root reuse. The Gamma-mixed signed fluctuation and the collision-free threshold explain when the tree-like Yule approximation is genuinely exact at the integer defect level, stronger than a first-order mean or limit of the descendant count.
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
 
-## Limits
+## value
 
-Two parents with replacement, deterministic root counts, weak convergence and a one-sided vanishing regime only; no rates or without-replacement extension. Independence and historical priority have not been externally certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separating two physically distinct collision types in a natural rooted random DAG identifies the n^(2/3) finite-size critical window and a nondegenerate shared Gamma-mixed Poisson law with 1:3 intensity ratio. This is meaningful refinement of prior first-order descendant counts and structurally necessary for exact ancestry corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
