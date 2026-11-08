@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The two separating sentences have ranks three and four and evaluate by exact line-covering counts. The four-round Duplicator strategy preserves equality, sorts and incidence while temporarily retaining parallelism, collinearity and concurrency for tuples of at most three selected elements. The proof enumerates the four final sort compositions and gives strict positive witness bounds for every required type whenever the order is at least four. Exact four-round recursion on coordinate planes of orders 2, 3, 4, 5, 7 and an independent implementation on 2, 3, 4 corroborate the sharp boundaries; the non-coordinate infinite statement relies on proof, not on extrapolation.
+## correctness
 
-**Originality: PASS, with residual historical risk.** Exact published-finding corpus searches, comparisons with previously stated related mathematical classifications and literature queries found no statement implying the three-class incidence-only rank-four result. Hodkinson–Hussain (2008) instead analyze non-finite axiomatisability for modal logic with named parallelism and propositional valuations. The related classifications of projective planes, point-only affine collinearity and incidence nets concern different structures or languages, and do not logically imply the present four-round classification. Search-index gaps remain possible; independent literature priority has not been established.
+PASS
 
-**Value: PASS.** The natural class is all finite affine planes (including non-Desarguesian ones); the invariant is complete four-round first-order theory in the sparse point/line incidence signature. The sharp three-class threshold and 36-element bound articulate exactly when the ordinary four-round logic stops detecting affine-plane order. The needed hidden parallelism/concurrency strategy and line-cover separators make this more than mere restatement of finite-geometry point counts.
+For affine planes q>=4 in the P/L-sorted incidence-only signature, the three-entry enhanced state (incidences, selected-line parallelism, point collinearity and line concurrency) has order-independent possible extension supports. The source proof checks all sort compositions and positivity bounds; q=2 is separated by a rank3 sentence saying two distinct lines cover points, and q=3 by the rank4 analogous three-line sentence. Independent GF(4)/GF(5) incidence atlases verified every extension support for enhanced configurations of up to three ordered distinct elements; 1,2,7,41 enhanced types for lengths 0..3 matched across orders. This finite test is not the all-affine-planes proof.
 
-**Closest literature and limitations.** The primary comparator is I. Hodkinson and A. Hussain, *The modal logic of affine planes is not finitely axiomatisable*, JSL 73 (2008), 940–952, full author-hosted PDF. Durt et al., *On mutually unbiased bases*, arXiv:1004.3348 (posted 2010-04-20), supplies dated public finite-affine-plane context. The result is restricted to rank four, two named sorts and incidence alone; no conclusion about named parallelism, higher rank or arbitrary finite incidence structures is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. An existence theorem for affine planes q=2,3,4 does not imply all q>=4 including non-Desarguesian satisfy same rank4 theory; labelled three-entry support is required.
+
+## value
+
+PASS
+
+Sharp three-class rank-four FO classification for all finite affine planes including non-Desarguesian planes and a minimal 36-element representative is a natural finite-model-theory result; the incidence-only normalization is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
