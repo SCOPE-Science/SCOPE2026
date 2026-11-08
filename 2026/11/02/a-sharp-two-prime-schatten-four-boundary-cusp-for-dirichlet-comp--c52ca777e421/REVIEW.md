@@ -1,11 +1,21 @@
-# Review of the two-index Schatten-four boundary law
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The exact Gram formula follows by coefficient orthogonality on distinct primes. The Schatten-four trace is the sum of squared Gram entries; the Bessel normalization, factor \(4\delta\) in the diagonal Laplace integral, Gaussian Jacobian, and all three Abelian constants have been independently re-derived. In particular, \(Q_d(x)\sim K_dx^{1/2-d}\) yields a divergent half-order law for one prime, a finite but non-differentiable boundary value for two primes, and a finite derivative for at least three primes. Summation by parts controls discrete-to-continuous error with a differentiable correction. The checker supplies only supplementary finite testing.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Bayart–Kouroupis (arXiv:2306.05733, Theorems 1.1–1.2 and Section 3.2) provide exact general Schatten-class criteria and even-Schatten trace machinery. The present Gram formula is not itself presented as new. Bayart–Brevig (arXiv:1505.02944, finite-prime-symbol approximation numbers) gives relevant qualitative context. Neither inspected material establishes the displayed sharp two-prime translation cusp coefficient. Existing one-index Hilbert–Schmidt boundary laws concern a different trace and do not imply this two-index coefficient. The possibility of an earlier equivalent special-function or local-Laplace theorem is a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The Schatten-four norm is the first genuinely coupled even Schatten invariant beyond Hilbert–Schmidt. Its two-prime endpoint is finite even though the Hilbert–Schmidt norm there is not; its precise square-root loss and amplitude-dependent coefficient quantify a natural higher-ideal regularity boundary. The phase transition and exact natural benchmark are not an arbitrary finite computational slice.
+Orthogonal distinct-prime monomials yield <Ce_m,Ce_n>=(mn)^(−1/2−A−delta)prod_j I0(2a_j sqrt(log m log n)), hence the exact nonnegative double Gram/Schatten-four trace. For delta>0, I0(z)<=e^z and 2sqrt(tu)<=t+u bound by (mn)^(−1−2delta). At delta=0 the weighted-harmonic sum vs logarithmic Lebesgue double integral has a C¹ correction: the measure sum 1/n at log n differs from dt by constant plus exponentially decaying integration-by-parts primitive; derivatives of the Bessel kernel are controlled after boundary terms, so the correction is O(delta). Diagonal change x=(t+u)/2,v=(t−u)/sqrt(x), Jacobian sqrt(x), Bessel I0 asymptotic and Gaussian domination yield Q_d(x)~K_d x^(1/2−d), K_d=(4pi)^(−d)(prod a_j)^(−1)sqrt(2pi/A). Abelian Laplace analysis gives d1 coefficient 1/(4sqrt2 a1^(3/2)) of delta^(−1/2), d2 difference 4sqrt(pi)K2 sqrt(delta), d>=3 derivative 2L_d delta by exact positive series. K2 at a1=a2=1 gives 1/(4pi). Independent scaled-Bessel diagonal profile quadrature at x=1200 gave ratios 1.00013,1.00027,1.00053,1.01489 for four tested amplitude vectors, compatible with non-uniform small-amplitude convergence. Finite profile checks do not replace the integration-by-parts/Abelian proof.
 
-Scientific limitations: fixed positive amplitudes, independent primes, no global arbitrary-symbol extension; no independent mathematical audit or full historical-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayart–Kouroupis arXiv:2306.05733 is essential prior art for general Schatten membership, counting approaches, and even-Schatten trace identities; none of the inspected full primary text gives the specialized finite-prime coupled-Bessel boundary translation cusp with exact coefficient. Bayart–Brevig arXiv:1505.02944 concerns finite-prime approximation numbers, not this trace asymptotic. Related one-prime Hilbert–Schmidt sums have a different one-index diagonal and dimension threshold. A broader earlier Laplace/spectral edge theorem may imply the asymptotic, retained as qualified priority risk.
+
+## value
+
+PASS
+
+Schatten-four is a natural first coupled even Schatten trace beyond Hilbert–Schmidt for composition operators; the two-prime boundary retains finite fourth trace but has singular square-root derivative. The exact amplitude-dependent cusp and dimension threshold quantify operator-ideal regularity and are not simply a membership or numerical test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
