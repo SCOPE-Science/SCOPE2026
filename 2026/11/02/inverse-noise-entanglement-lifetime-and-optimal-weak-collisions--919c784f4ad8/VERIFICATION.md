@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and finite checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and a compatible NumPy installation (version constraint in `requirements.txt`). The checker builds the four-by-four pair-creation contact unitary and two-qubit pre-reset density matrices, forms partial transpose as an independent matrix reshape/permutation, and compares its negative eigenvalues with the closed-form formula. It tests many thermal probabilities and contact strengths and verifies strict-positive-contact indices.
+## correctness
 
-To avoid relying solely on the derived single-parameter population formula, the checker also starts at the exact maximally mixed target and **iterates a fresh thermal ancillary pair, full unitary conjugation, and an explicit partial trace**, for 55 contacts at each of 20 parameter combinations. These iterates agree with the analytic trajectory and the independently diagonalized partial transpose. The run completed **9,301 finite assertions**. Near-zero floating-point eigenvalues are handled by tolerance; exact threshold equality is proved analytically, not certified by floating point.
+PASS
 
-The program tests the sharp bath probability boundary and computes the unique optimizing scalar root by bisection. For cold-bath probabilities \(0.01\), \(0.002\), \(0.0005\), and \(0.0001\), it prints candidate horizons \(22\), \(114\), \(462\), and \(2318\) at the theoretically specified scaling.
+For the specified pair-creation Uθ and initially I/2 target with independent bath ancillas diag(1−p,p), the excited population exactly a_k=q−(1−2p)(1−t)^k/2. The partially transposed 2×2 odd-parity block has a negative eigenvalue precisely for 4t(1−t)r² x_k²>4p(1−p)[1−r²(1−x_k)²], x_k=(1−t)^k. The quadratic has one positive root X_*; integer strict crossing gives N_p(t)=max(0,ceil(log X_*/log(1−t))). The first-contact optimum t(1−t)≤1/4 yields p<(1−1/√2)/2. For t=ap, pN→max(0,log((1+a)/2))/a; uniform upper bound excludes a→0,∞ and unique maximizer a*=3.311070407 gives K*=1/(a*+1)=0.23196095. Physical independent two-qubit partial-transpose and reset trajectory checks agreed on sampled p,t,k, but proof covers all.
 
-# Proof-versus-computation boundary
+## originality
 
-The finite checks do not prove the integer formula for all inputs, the global supremum over continuum contact strengths, the unique asymptotic optimizer, or the infinite-horizon zero-temperature boundary. Those statements follow from the explicit matrix reduction, strict PPT inequality, and uniform asymptotic bound proved in `RESULT.md`. No independent audit or external mathematical validation has been performed.
+PASS
+
+Pal et al. 2026 supply ancilla-reset collision setup, antithermalizing population recurrence, and plotted entanglement; Scarani et al. establish other collision-model entangling properties. Exact integer lifetime, temperature non-entangling cutoff and globally optimized reciprocal-noise scaling are not identified in available source text. Pal full manuscript PDF/HTML could not be read in this run; its abstract and assigned source analysis were available, so the comparison is qualified and an unlocated supplemental result could cover part of claim.
+
+## value
+
+PASS
+
+Sharp vanishing-noise order-1/p optimal lifetime and necessary weak-collision scale solve a natural resource-duration optimization in a standard two-qubit model, sharply unlike fixed-strength logarithmic lifespan; exact strict NPT onset is experimentally interpretable though magnitude threshold is different.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

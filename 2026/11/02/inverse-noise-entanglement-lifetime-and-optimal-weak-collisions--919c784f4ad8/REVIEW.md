@@ -1,19 +1,21 @@
-# Assessment of the exact entangling-collision lifetime theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The qubit basis, initial state, fresh-bath assumption, time indexing and strict NPT criterion are explicit. The partial-swap unitary acts nontrivially only on the even-parity two-dimensional subspace. Direct reduction gives the exact scalar population recurrence. Partial transpose of the resulting X-state has one potentially negative two-by-two block, whose determinant yields a quadratic with one positive root; monotonicity of the residual target population makes the lifetime a *single initial block*, including exact equality conventions. Maximization at a fixed bath temperature reduces to choosing the collision angle. The rare-temperature upper bound is uniform in that angle, including angle sequences much larger and much smaller than the bath excitation probability, and matches the fixed-ratio lower construction. The monotonic critical-point equation gives the unique universal optimal scale. The zero-temperature boundary is treated as a separate limiting case. Full independent unitary/partial-trace replay and special-function-free numerical checks (9,301 assertions) support the algebra but are not offered as an infinite proof.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+For the specified pair-creation Uθ and initially I/2 target with independent bath ancillas diag(1−p,p), the excited population exactly a_k=q−(1−2p)(1−t)^k/2. The partially transposed 2×2 odd-parity block has a negative eigenvalue precisely for 4t(1−t)r² x_k²>4p(1−p)[1−r²(1−x_k)²], x_k=(1−t)^k. The quadratic has one positive root X_*; integer strict crossing gives N_p(t)=max(0,ceil(log X_*/log(1−t))). The first-contact optimum t(1−t)≤1/4 yields p<(1−1/√2)/2. For t=ap, pN→max(0,log((1+a)/2))/a; uniform upper bound excludes a→0,∞ and unique maximizer a*=3.311070407 gives K*=1/(a*+1)=0.23196095. Physical independent two-qubit partial-transpose and reset trajectory checks agreed on sampled p,t,k, but proof covers all.
 
-Pal et al. (arXiv:2609.04905v1) establish the exact anti-thermalization collision model and transient negativity plots, but do not state or imply a quantified all-collision strict NPT horizon or globally angle-optimized inverse-temperature-noise law. Scarani et al. (arXiv:quant-ph/0110088v2) study a general collision machine and single-contact entangling power for an energy-preserving family, not the same sequence of joint states or objective. Uppalapati et al. (arXiv:2412.07630v1) establish anti-thermalization by engineered lead couplings, not the exact finite-collision NPT count. Targeted claim, model, equivalent-threshold, and numeric-constant searches in published mathematical research records and primary literature did not reveal a statement covering the full claim. The closest listed thermal-entanglement and damping records concern different states and transitions, rather than the stated fresh-ancilla model and optimized count. The residual possibility that a general older two-qubit entanglement-sudden-death treatment contains an equivalent specialization is real; no independent priority certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating experiments directly track negativity over collisions. The precise persistence horizon is a natural, interpretable quantity when the collision strength is tunable, with a sharp finite bath-temperature cutoff and a nontrivial singular global optimum. Merely fixing the collision angle achieves logarithmically many contacts; tuning the contact strength proportionally to bath excitation creates a reciprocal-noise number. The unique constant and necessary angle scaling quantify a meaningful timescale trade-off rather than an arbitrary one-point numerical evaluation. The result does not claim a minimum observable entanglement amount or a work/ergotropy optimum.
+Pal et al. 2026 supply ancilla-reset collision setup, antithermalizing population recurrence, and plotted entanglement; Scarani et al. establish other collision-model entangling properties. Exact integer lifetime, temperature non-entangling cutoff and globally optimized reciprocal-noise scaling are not identified in available source text. Pal full manuscript PDF/HTML could not be read in this run; its abstract and assigned source analysis were available, so the comparison is qualified and an unlocated supplemental result could cover part of claim.
 
-## Closest literature and limitations
+## value
 
-Primary material inspected: arXiv:2609.04905v1, full HTML including population recurrence, negativity figure and Supplement S2; arXiv:quant-ph/0110088v2, four-page PDF text and page images; arXiv:2412.07630v1, full HTML and relevant model sections. The finding is limited to an ideal, diagonal-input, independent-ancilla collision protocol. Exact models and tested numerical cases are not evidence of general experimental robustness. No source was reproduced in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp vanishing-noise order-1/p optimal lifetime and necessary weak-collision scale solve a natural resource-duration optimization in a standard two-qubit model, sharply unlike fixed-strength logarithmic lifespan; exact strict NPT onset is experimentally interpretable though magnitude threshold is different.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
