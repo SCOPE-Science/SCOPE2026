@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact metric statement for the standard Euclidean hypersimplex and every valid integer parameter. All faces arise by fixing coordinate zeros and ones. Finite-group averaging is admissible because both separated convex sets are invariant under the face stabilizer. The two-parameter quadratic lower bound is sharp, not merely a relaxation: explicit one-swap outside vertices attain both endpoint mass configurations. Exact minimization gives the face formula. A separate argument handles vertex faces, after which maximizing a concave integer quadratic yields the globally sharp piecewise value. The exceptional segment \(\Delta_{2,1}\) is treated separately. The accompanying standard-library verifier completed 49,100 exact comparisons and witness checks; selected independently posed convex-hull quadratic programs also agreed. Neither calculation is substituted for the global proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Every face of Δ_{n,k} fixes disjoint I,J coordinates at 1,0; positive-dimensional free remainder has m=n−a−b, 0<r=k−a<m. The stabilizer S_I×S_J×S_M preserves both the face and excluded-vertex hull, so averaging closest pairs reduces to the symmetric face point and outsider characterized by total fixed-one loss s and fixed-zero gain v. Every outsider vertex violates at least one fixed coordinate, hence s+v>=1. Squared distance is s²/a+v²/b+(s−v)²/m, with empty-group terms omitted. Strict convexity and homogeneity reduce minimization to s+v=1; its minimizer s=a(m+2b)/[m(a+b)+4ab], v=b(m+2a)/[...] yields n/[m(a+b)+4ab]. Both (1,0) and (0,1) rays are attained by actual one-swap outside vertices whenever relevant, making the relaxation exact. Vertex face case separately gives n/[k(n−k)]. For n>=3 maximize D(a,b)=n(a+b)−(a−b)² over nonvertex faces: increasing in a gives a=q−1, then integer concavity in b gives breakpoint n=4q−1 and D pieces exactly as claimed. Vertex bound never lower; n=3 ties, n=2 is segment sqrt2. Independently checked 2,275 exact rational face-type quadratics/optimizer cases through n=15 and n=2 boundary, with code reproduction not extrapolated to arbitrary n.
 
-The two nearest primary papers, Peña–Wirth arXiv:2608.28971 and Deza–Martínez-Rubio–Peña–Wirth arXiv:2609.32440, provide general face-gap bounds and a sharp Birkhoff-polytope calculation, but their accessible full texts do not give the present exact all-rank hypersimplex formula, its facewise version, or the integer transition. Searches for hypersimplex, Johnson-polytope and uniform-matroid-base-polytope facial distance and pyramidal width did not yield a stronger equivalent calculation. Targeted mathematical-record searches returned nearest claims about matroid inballs, circumspheres, and related simplex metrics, not this face-to-complement metric. Standard simplex endpoint values and the general 0–1-polytope bounds are expressly credited. Unindexed equivalent formulations in optimization or matroid work remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The facial distance is the pyramidal width, a conditioning invariant in geometric analysis of conditional-gradient algorithms. Hypersimplices are the canonical uniform-matroid base polytopes, so an exact all-parameter value and optimizing face classification supply a natural benchmark beyond the previously isolated exact simplex/cube/Birkhoff cases. The quarter-density transition changes the dimension of the minimizing faces and makes the calculation structural rather than a routine evaluation of one fixed example. No new algorithmic convergence guarantee is claimed.
+Best-of-knowledge PASS for exact facewise uniform-matroid base-polytope distances and sharp n/q optimizer transition. The full Peña–Wirth primary manuscript was read via lawful public OA (Optimization Online), including simplex-like bound §6.7; it does not state a hypersimplex exact formula. Deza et al. abstract discusses global ratio and Birkhoff exact values, not a hypersimplex expression, but inaccessible full text leaves a specific unclosed priority risk.
 
-## Sources, methods and remaining risks
+## value
 
-The primary-paper full texts were inspected in their definitions, generic calculus, examples and main theorem sections. The comparison included both published mathematical records and available earlier claims, checking whether their conclusions imply this face-separation result. Numeric optimizations verify representative finite instances only. Historical priority remains provisional; weighted and nonuniform-matroid variants are not addressed. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: pyramidal width is a natural Frank–Wolfe geometric condition measure, and hypersimplices are uniform-matroid base polytopes; exact facewise separation, integer minimizing face classification and sharp quarter-density transition answer a nontrivial natural invariant question. No new algorithm-rate theorem is required for the exact geometric value to be substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
