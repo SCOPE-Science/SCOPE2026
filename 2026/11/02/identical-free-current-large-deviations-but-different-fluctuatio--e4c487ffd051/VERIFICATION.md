@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and checked limits
+# Independent mathematical audit
 
-Install Python 3, NumPy, and SciPy, and run `python verify.py` in the directory containing this document. The completed execution returned:
+## correctness
 
-`PASS 432 independent deterministic matrix, quadrature and Legendre checks`
+PASS
 
-The executable independently constructs the four-phase tilted generator rather than relying on the displayed symbolic factorization, computes its characteristic determinant and eigenvalues at multiple parameters, uses numerical matrix exponentiation for the phase orientation correlation, evaluates both finite-time and harmonic covariances by direct numerical quadrature, checks the derived strict gaps, and compares a numerical Legendre optimization with the athermal rate formula.
+The four-phase cyclic generator with signs ++-- has characteristic polynomial [z(z+2λ)-v²k²][(z+λ)²+λ²-v²k²]; the first factor gives the strictly dominant Perron root -λ+sqrt(λ²+v²k²) equal to the 2-state telegraph root. Adding drift uk and Brownian Dk² gives identical SCGF; Gärtner–Ellis gives interior LDP, ballistic endpoint no-switch events carry exponent λ and close the zero-D endpoints. Stationary sign correlations are e^{-λt}cos(λt) versus e^{-2λt}; integrating them proves transient gap v² e^{-λt}[sinh(λt)-sin(λt)]/λ²>0. Harmonic filtering yields positive stationary variance gap v²λ/[(κ+2λ)((κ+λ)²+λ²)]. Independent SymPy determinant, both variance integrals and filtered gap verified. No equality of mean run times is claimed.
 
-For an exact algebraic check, expansion of the four-state determinant gives a product of the two quadratic factors stated in equation (7) of `RESULT.md`. Its spectral ordering is elementary and remains true for all real tilts, not just the tested grid. The finite-noise LDP follows from finite-state Feynman–Kac, Gaussian independence, and contraction. The boundary case \(D=0\) uses explicit no-reversal events to prove the endpoints, since differentiability of the cumulant-generating function alone does not provide lower bounds at both finite-slope extremes.
+## originality
 
-The numerical tests are bounded sample checks and are not an exhaustive certificate for the infinitely many parameters or the infinite time limit. The publication-priority comparison is based on inspected accessible material, not a claim that every possible reference has been read. Independent external auditing remains unperformed.
+PASS
+
+Best-of-knowledge statement/implication comparisons of the precise final claim, with material primary reading and relevant Resultary searches. General renewal large deviations and stationary filter theory are inputs, but asserting coincident leading spectral branches while nonleading modes shift covariance requires this explicit four-phase model calculation. Inaccessible primary work is named as residual risk rather than declared noncovering.
+
+## value
+
+PASS
+
+Explicit non-identifiability witness for an entire level-one large-deviation rate function while finite-time fluctuations and linear-trap observables disagree strictly; calibrated example isolates what persistent-memory data free-current LDP cannot identify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

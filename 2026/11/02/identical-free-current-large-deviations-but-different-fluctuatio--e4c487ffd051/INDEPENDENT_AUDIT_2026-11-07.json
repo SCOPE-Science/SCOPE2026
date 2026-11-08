@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:47:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051/RESULT.md",
+        "2026/11/02/identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051/verify.py",
+        "/mnt/data/scope_worker03_20261107T1038Z/independent_checks_output.txt"
+      ],
+      "rationale": "The four-phase cyclic generator with signs ++-- has characteristic polynomial [z(z+2λ)-v²k²][(z+λ)²+λ²-v²k²]; the first factor gives the strictly dominant Perron root -λ+sqrt(λ²+v²k²) equal to the 2-state telegraph root. Adding drift uk and Brownian Dk² gives identical SCGF; Gärtner–Ellis gives interior LDP, ballistic endpoint no-switch events carry exponent λ and close the zero-D endpoints. Stationary sign correlations are e^{-λt}cos(λt) versus e^{-2λt}; integrating them proves transient gap v² e^{-λt}[sinh(λt)-sin(λt)]/λ²>0. Harmonic filtering yields positive stationary variance gap v²λ/[(κ+2λ)((κ+λ)²+λ²)]. Independent SymPy determinant, both variance integrals and filtered gap verified. No equality of mean run times is claimed.",
+      "residual_risks": [
+        "Finite independent checks corroborate indicated identities; unrestricted assertions are supported by proof reconstruction, not by finite tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farago–Smith §§I–IV use effective position-dependent rates to compute trapped stationary densities; Macci 2016 abstract covers other nonstandard telegraph LDP hypotheses but detailed text unavailable."
+        ],
+        "reasoning": "Known Feynman–Kac and renewal SCGF methods could yield equality after algebra, but no inspected theorem includes the combined SCGF identity plus universal strict transient and harmonic-trap differences.",
+        "searches": [
+          "general renewal telegraph rate function Erlang 2 and exponential same; Macci 2016",
+          "Farago Smith non Markov harmonic trapping 2401.01576; Resultary semantic search 2026-11-07"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2401.01576",
+        "doi:10.1239/aap/1005091360",
+        "doi:10.1016/j.spl.2015.12.016",
+        "Resultary semantic searches (queries in four checks)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farago–Smith paper covers arbitrary renewal trap distributions but does not report this Erlang-vs-exponential SCGF equality; 2019 standard Markov tilted method is credited."
+        ],
+        "reasoning": "General renewal large deviations and stationary filter theory are inputs, but asserting coincident leading spectral branches while nonleading modes shift covariance requires this explicit four-phase model calculation.",
+        "searches": [
+          "Farago Smith 2401.01576 full text Erlang; van Gisbergen Redig arxiv:1910.03350 tilted generator; Macci 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farago–Smith arxiv:2401.01576 studies non-Markov confined RTP with general waiting distributions; Resultary 2026/9/21 mixture obtains identical two-time laws, unlike current different two-time laws."
+        ],
+        "reasoning": "Same SCGF does not mean same two-time law; the near-prior Resultary construction matches two-time functions but is not this Erlang-2 non-identifiability witness.",
+        "searches": [
+          "Erlang-2 telegraph tilted generator same large deviation rate exponential; Resultary semantic search 2026-11-07",
+          "Di Crescenzo 2001 Erlang alternating motions, Macci 2016 telegraph LDP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Di Crescenzo 2001 abstract announces density formulas, not the precise equal-SCGF and strict trap comparison; no relevant named exact database or tabulation located."
+        ],
+        "reasoning": "Individual telegraph transition-density or second-moment tables would not by themselves establish equality of the entire level-one rate function and both strict gaps.",
+        "searches": [
+          "Erlang alternating telegraph cumulant rate exact table moments determinant; Resultary semantic search 2026-11-07"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparisons of the precise final claim, with material primary reading and relevant Resultary searches. General renewal large deviations and stationary filter theory are inputs, but asserting coincident leading spectral branches while nonleading modes shift covariance requires this explicit four-phase model calculation. Inaccessible primary work is named as residual risk rather than declared noncovering.",
+      "residual_risks": [
+        "The highly relevant Di Crescenzo (2001) and Macci (2016) full texts could not be examined; institutional VPN disconnected. The abstract alone does not rule out broader coverage.",
+        "Matching compares flip rate λ, not equal mean reversal duration; different calibration changes conclusion.",
+        "Only level-one free-current LDP and harmonic variance established; not path large deviations or nonlinear traps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_GENERAL_METHOD, not this explicitly paired all-current-LDP claim",
+          "evidence": [
+            "web turn531008view2, turn175623view4–5: paper studies steady-state distributions and effective tumbling rates, no Erlang mention."
+          ],
+          "identifier_or_url": "arxiv:2401.01576",
+          "material_read": "Full-text Introduction and methods/results for non-Markov stationary densities, finite memory examples, selected conclusions",
+          "method": "arXiv extracted full-text HTML",
+          "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+          "trigger": "same confining potentials and non-exponential sojourns"
+        },
+        {
+          "assessment": "NOT_FULLY_INSPECTED; no noncoverage verdict",
+          "evidence": [
+            "DOI and Oxford access status vpn_disconnected, job f43f5c70634ef1d70e3d083b860fb011."
+          ],
+          "identifier_or_url": "doi:10.1239/aap/1005091360",
+          "material_read": "Bibliographic abstract only; arXiv/OA full text not obtained and authorized institutional service reports vpn_disconnected",
+          "method": "publisher metadata plus authorized institutional access attempt",
+          "title": "On random motions with velocities alternating at Erlang-distributed random times",
+          "trigger": "exact same Erlang-2 alternating motion"
+        },
+        {
+          "assessment": "NOT_FULLY_INSPECTED; possible priority overlap",
+          "evidence": [
+            "web turn910256search9; Oxford job 84d8decd6908f463c9b7f42a8d94e89f."
+          ],
+          "identifier_or_url": "doi:10.1016/j.spl.2015.12.016",
+          "material_read": "Bibliographic abstract only; neither arXiv nor OA full text recovered; institutional access blocked by disconnected VPN",
+          "method": "journal abstract plus authorized institutional access attempt",
+          "title": "Large deviations for some non-standard telegraph processes",
+          "trigger": "potential broader non-Markov telegraph LDP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051/RESULT.md",
+        "arxiv:2401.01576",
+        "doi:10.1239/aap/1005091360",
+        "doi:10.1016/j.spl.2015.12.016"
+      ],
+      "rationale": "Explicit non-identifiability witness for an entire level-one large-deviation rate function while finite-time fluctuations and linear-trap observables disagree strictly; calibrated example isolates what persistent-memory data free-current LDP cannot identify.",
+      "residual_risks": [
+        "The highly relevant Di Crescenzo (2001) and Macci (2016) full texts could not be examined; institutional VPN disconnected. The abstract alone does not rule out broader coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The highly relevant Di Crescenzo (2001) and Macci (2016) full texts could not be examined; institutional VPN disconnected. The abstract alone does not rule out broader coverage.",
+    "Matching compares flip rate λ, not equal mean reversal duration; different calibration changes conclusion.",
+    "Only level-one free-current LDP and harmonic variance established; not path large deviations or nonlinear traps.",
+    "Scientific acceptance is separate from publication; public-file privacy validation and guarded sanitization remain incomplete."
+  ],
+  "schema_version": 1
+}
