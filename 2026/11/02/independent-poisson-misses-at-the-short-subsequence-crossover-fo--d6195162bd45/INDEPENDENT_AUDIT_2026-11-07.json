@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed r≥1 and independent uniform binary length-n strings with d_n a_nr→lambda, greedy matching makes a single fixed r-pattern absence probability a_nr=2^-n sum_{j=0}^{r-1} binom(n,j). For distinct patterns u,v, the joint greedy automaton has at most r-1 loop-capable states on live paths (otherwise they agree at every coordinate), hence O_r(n^(r-2)) jointly avoiding binary words and pair absence o(a_nr), including r=1 exactly zero. Single-row probability generating functions have rare-event expansion 1+a_nr sum_u(t_u-1)+o(a_nr); raising to d_n yields 2^r independent Poisson(lambda) coordinate misses. Coordinate zeros give Binomial(2^r,e^-lambda) common r-patterns; a_(r-1)/a_r→0 and a_(r+1)/a_r→∞ sandwich maximum LCS into {r-1,r} (empty subsequence for r=1). Independent exact enumeration and greedy DP checked one-pattern and paired-avoidance cases r≤4. Finite checks are not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published one-word universality-index law gives marginal distribution of all-short-pattern coverage of one word; other LCS works give estimates for fixed-number many-string constants."
+        ],
+        "reasoning": "A single-word universality-index distribution is not the joint per-pattern missed-event asymptotic for exponentially many independent input strings; marginal universality alone cannot establish asymptotic Poisson coordinate independence.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "https://arxiv.org/abs/2407.10925",
+          "random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 04616665aa64a65c766ff98faa2404f5e3a19bdd and verify_greedy.py blob 423bea615951919d88b7ca2c17c67f76396a95f6",
+        "Li–Ren–Wen, arXiv:2504.10425 full primary text",
+        "Heineman et al., arXiv:2407.10925 abstract",
+        "Resultary published single-word universality law and semantic query: random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Ren–Wen study gamma_(k,d), normalized LCS length for a fixed d and n→∞, with gamma_(2,d)=1/2+Theta(d^-1/2); the new theorem holds r fixed, d_n a_nr→lambda, and random maximum lies asymptotically in {r-1,r}."
+        ],
+        "reasoning": "Different scaling orders and observables prevent deduction of the joint Poisson vector, common-pattern Binomial law or two-point crossover from prior Chvátal–Sankoff bounds; standard rare events theorem only applies after establishing the strong pair-avoidance estimate.",
+        "searches": [
+          "https://arxiv.org/abs/2504.10425",
+          "https://arxiv.org/abs/2407.10925",
+          "random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each fixed binary r-pattern is missed with exact one-row probability a_{n,r}=2^-n sum_{j<r} C(n,j) via greedy matching. Cross-pattern joint misses are o(a) by a finite increasing automaton loop-state bound."
+        ],
+        "reasoning": "This rare-event vector limit differs from the Chvátal–Sankoff normalized mean LCS constant, which fixes the number of input strings before length asymptotics. The present number of rows grows like 2^n/n^(r-1).",
+        "searches": [
+          "random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence",
+          "https://arxiv.org/abs/2504.10425"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary record counts extremal shortest absent subsequences of a single binary word, not the limiting joint missing-pattern count for d_n iid words."
+        ],
+        "reasoning": "Finite binary word tables for r=1..4 cannot yield an exact asymptotic independent Poisson vector for every fixed r; no database table covers the distributional law.",
+        "searches": [
+          "random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+        ]
+      },
+      "rationale": "Best-of-knowledge original joint rare-pattern independent Poisson law and two-point common-subsequence length crossover for exponentially many input words at fixed r. Fixed-d normalized LCS asymptotics and one-word universality-index laws cover different observables and regimes.",
+      "residual_risks": [
+        "An older rare-event/automata theorem might imply joint Poisson independent missed-pattern counts under this scaling but was not located.",
+        "The limit assumes fixed r, equiprobable binary alphabet and independent input strings; cannot infer uniformity for growing r or nonuniform sources.",
+        "Exact finite-n pattern-miss indicators are not independent; independence is only asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ASYMPTOTIC_REGIME_NOT_COVERING",
+          "evidence": [
+            "Its constant gamma_(k,d) concerns n-normalized LCS for a fixed d; no exponentially growing d_n, fixed r, rare missing-pattern joint Poisson theorem was found in inspected full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.10425",
+          "material_read": "Accessible full primary text and appendices covering generalized Chvátal–Sankoff constants, diagonal matching and fixed-number-of-strings asymptotic bounds",
+          "method": "Primary full-text scaling and theorem-implication comparison",
+          "title": "Expected Length of the Longest Common Subsequence of Multiple Strings",
+          "trigger": "Same LCS object and number of independent strings; plausible stronger asymptotic results"
+        },
+        {
+          "assessment": "PRIOR_DIFFERENT_QUANTITY",
+          "evidence": [
+            "Lower bounds on normalized LCS constants do not imply fixed-r, exponentially-many-input two-point crossover; incomplete full-text comparison retained as residual risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.10925",
+          "material_read": "Accessible abstract and cited estimate; complete paper not read",
+          "method": "Abstract and order-of-limits comparison",
+          "title": "Improved Lower Bounds on the Expected Length of Longest Common Subsequences",
+          "trigger": "Other contemporary many-string LCS bounds"
+        },
+        {
+          "assessment": "MARGINAL_PRIOR_NOT_FULL_JOINT_LAW",
+          "evidence": [
+            "One binary word universality index has generating function (1+z)/(1-z-2uz²); it does not characterize correlations between distinct missed patterns across exponentially many independent words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Resultary published summary and rational generating function statement, not full article",
+          "method": "Same-object partial theorem implication comparison",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "One-word rare missing subsequences and potential general domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact many-input crossover resolves a natural transition for the existence of short common scattered patterns, providing all joint limiting counts and a sharp two-point LCS distribution rather than just an expectation or a heuristic independence statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 04616665aa64a65c766ff98faa2404f5e3a19bdd and verify_greedy.py blob 423bea615951919d88b7ca2c17c67f76396a95f6",
+    "Li–Ren–Wen, arXiv:2504.10425 full primary text",
+    "Heineman et al., arXiv:2407.10925 abstract",
+    "Resultary published single-word universality law and semantic query: random binary strings many exponential input strings fixed length scattered subsequences missed patterns independent Poisson crossover longest common subsequence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older rare-event/automata theorem might imply joint Poisson independent missed-pattern counts under this scaling but was not located.",
+    "The limit assumes fixed r, equiprobable binary alphabet and independent input strings; cannot infer uniformity for growing r or nonuniform sources.",
+    "Exact finite-n pattern-miss indicators are not independent; independence is only asymptotic."
+  ],
+  "residual_risks": [
+    "An older rare-event/automata theorem might imply joint Poisson independent missed-pattern counts under this scaling but was not located.",
+    "The limit assumes fixed r, equiprobable binary alphabet and independent input strings; cannot infer uniformity for growing r or nonuniform sources.",
+    "Exact finite-n pattern-miss indicators are not independent; independence is only asymptotic."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_ASYMPTOTIC_REGIME_NOT_COVERING",
+      "evidence": [
+        "Its constant gamma_(k,d) concerns n-normalized LCS for a fixed d; no exponentially growing d_n, fixed r, rare missing-pattern joint Poisson theorem was found in inspected full text."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2504.10425",
+      "material_read": "Accessible full primary text and appendices covering generalized Chvátal–Sankoff constants, diagonal matching and fixed-number-of-strings asymptotic bounds",
+      "method": "Primary full-text scaling and theorem-implication comparison",
+      "title": "Expected Length of the Longest Common Subsequence of Multiple Strings",
+      "trigger": "Same LCS object and number of independent strings; plausible stronger asymptotic results"
+    },
+    {
+      "assessment": "PRIOR_DIFFERENT_QUANTITY",
+      "evidence": [
+        "Lower bounds on normalized LCS constants do not imply fixed-r, exponentially-many-input two-point crossover; incomplete full-text comparison retained as residual risk."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2407.10925",
+      "material_read": "Accessible abstract and cited estimate; complete paper not read",
+      "method": "Abstract and order-of-limits comparison",
+      "title": "Improved Lower Bounds on the Expected Length of Longest Common Subsequences",
+      "trigger": "Other contemporary many-string LCS bounds"
+    },
+    {
+      "assessment": "MARGINAL_PRIOR_NOT_FULL_JOINT_LAW",
+      "evidence": [
+        "One binary word universality index has generating function (1+z)/(1-z-2uz²); it does not characterize correlations between distinct missed patterns across exponentially many independent words."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "material_read": "Resultary published summary and rational generating function statement, not full article",
+      "method": "Same-object partial theorem implication comparison",
+      "title": "Closed-form law for binary subsequence universality",
+      "trigger": "One-word rare missing subsequences and potential general domination"
+    }
+  ]
+}
