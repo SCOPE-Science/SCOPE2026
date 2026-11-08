@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:52:34.008012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Trace inverse on connected Laplacians is strictly convex in all individual edge conductances because edge-to-Laplacian mapping is injective on a simple graph; unique global optimizer inherits automorphism orbits. Eigenvalues for symmetric conductances a,b are 0, a+rb (multiplicity s(r-1)), a (s-1), and (sr+1)a (1). Reduce budget to (E-F)u+Fv=B with u=a, v=a+rb and objective C/u+A/v. The critical price Q/P=2(sr+1)/(sr) follows from boundary directional derivative, with strict uniqueness even at equality; interior follows Cauchy–Schwarz with z>1. Independent direct weighted Laplacian numerical eigenvalue sums matched closed formula in 12 graph/price cases to about 1e-13; these finite samples corroborate the algebra and cannot certify universal optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi 2006 conference and 2008 expanded accounts cover the general convex objective.",
+          "Sardar–Xu 2024 studies fixed unit-resistance distance/Kirchhoff index in windmill graphs according to accessible abstract, not free optimization."
+        ],
+        "reasoning": "General optimization methodology is broader as an algorithmic formulation, but its stated closed-form cases do not dominate this windmill theorem; fixed-weight resistance identities are not an adjustable-weight support classification.",
+        "searches": [
+          "Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance",
+          "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "doi:10.2174/0115701794299562240606054510"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "doi:10.2174/0115701794299562240606054510",
+        "arxiv:1004.2285",
+        "published Resultary semantic search: Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known inverse-Laplacian objective and strict convexity give uniqueness once a candidate is found, but not the threshold without the windmill spectrum and budget optimization.",
+          "Fixed-price/no-design windmill resistance formulas do not imply zero-versus-positive optimal internal conductances under arbitrary Q/P."
+        ],
+        "reasoning": "The phase boundary follows from the specific spectral multiplicities and KKT directional derivative; no inspected explicit prior special case states it. An uninspected full windmill-weight paper could change that originality conclusion.",
+        "searches": [
+          "Ghosh Boyd Saberi 2006 Section 5 tree wheel barbell",
+          "Sardar Xu windmill resistance 2024 abstract",
+          "Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi developed budgeted effective-resistance minimization equivalent to N tr(L dagger).",
+          "A friendship graph is the special r=2 windmill; a general weighted windmill is K1 join of disjoint cliques."
+        ],
+        "reasoning": "The convex framework is prior, while its known explicit tree, wheel and barbell examples are structurally different and do not state this two-price windmill support boundary.",
+        "searches": [
+          "Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance",
+          "optimal Kirchhoff index effective resistance network design windmill graph K1 join m copies K_r weighted spoke and internal clique conductance under edge cost budget threshold",
+          "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an all-integer s,r and all-continuous-price ratio result; source verification logs sampled prices but are not known tables."
+        ],
+        "reasoning": "A fixed-conductance windmill index table alone does not solve the minimax over individual edge conductances or its universal price cutoff.",
+        "searches": [
+          "Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance",
+          "windmill Kirchhoff index price ratios edge support table"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinction based on actual statement/implication comparisons: generic techniques or marginals are credited, and the explicit theorem-specific conclusions were not found as covered by the primary material inspected; no claim of exhaustively proven historical novelty. For all clique-windmill graphs W_(s,r) with independently weighted edges and uniform per-edge-class prices, the unique Kirchhoff-index minimizer uses all internal edges exactly for Q/P<2(sr+1)/(sr); the optimal conductances and objective have closed square-root formulas and the boundary optimum is the spoke-only star.",
+      "residual_risks": [
+        "An unavailable windmill-graph or special friendship-graph optimal-design article may contain the explicit support threshold.",
+        "Any extension to nonuniform per-edge prices is not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework prior; no explicit independently weighted clique-windmill price support transition in relevant examples.",
+          "evidence": "Ghosh, Boyd, Saberi (2006), Section 5",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Accessible original conference PDF, convexity and Section 5 analytical examples including trees/wheels/barbells",
+          "method": "direct primary PDF text and visual pages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "same convex weighted network-design objective"
+        },
+        {
+          "assessment": "No inference about full article; accessible scope is evaluation of resistances rather than budgeted optimal edge weights.",
+          "evidence": "Sardar and Xu, published online 2024",
+          "identifier_or_url": "doi:10.2174/0115701794299562240606054510",
+          "material_read": "Title and abstract identifying fixed unit-resistance windmill indices; complete article not accessible",
+          "method": "publisher abstract",
+          "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+          "trigger": "same graph family and Kirchhoff invariant"
+        },
+        {
+          "assessment": "Broad network design context, not identified exact support law.",
+          "evidence": "Johnson and Chertkov (2010)",
+          "identifier_or_url": "arxiv:1004.2285",
+          "material_read": "Article abstract and model overview; full statement not compared",
+          "method": "arXiv abstract",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "potential broad network-design method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp, budget-independent edge-support phase transition separates a fully connected internally reinforced graph from a pure star; uniqueness is global over all asymmetric edge choices, not an imposed symmetric ansatz. A simple threshold depending only on sr despite distinct blade geometries is mathematically explanatory and design-useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+    "doi:10.2174/0115701794299562240606054510",
+    "arxiv:1004.2285",
+    "published Resultary semantic search: Kirchhoff index windmill clique graph optimal conductance edge support price transition effective resistance",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/universal-edge-support-threshold-in-kirchhoff-index-design-of-cl--5bb3f4f9b118/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/universal-edge-support-threshold-in-kirchhoff-index-design-of-cl--5bb3f4f9b118/verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all clique-windmill graphs W_(s,r) with independently weighted edges and uniform per-edge-class prices, the unique Kirchhoff-index minimizer uses all internal edges exactly for Q/P<2(sr+1)/(sr); the optimal conductances and objective have closed square-root formulas and the boundary optimum is the spoke-only star.",
+  "limitations": [
+    "Only uniform spoke price P and internal price Q with independent nonnegative conductances, s,r>=2, B>0; no other objectives or price heterogeneity.",
+    "Scientific C/O/V judgment is complete; publication remains not_ready because neutral guarded public metadata replacements were not produced."
+  ],
+  "residual_risks": [
+    "An unavailable windmill-graph or special friendship-graph optimal-design article may contain the explicit support threshold.",
+    "Any extension to nonuniform per-edge prices is not addressed."
+  ],
+  "schema_version": 1
+}
