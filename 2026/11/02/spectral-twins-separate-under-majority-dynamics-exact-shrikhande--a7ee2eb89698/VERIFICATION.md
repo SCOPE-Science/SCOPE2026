@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,42 +19,24 @@
 }
 ---
 
-# Exact finite-state verification
+# Independent mathematical audit
 
-The vertex indexing is \((i,j)\mapsto4i+j\), for \(0\le i,j<4\). Both self-contained source files generate adjacency directly from the graph definitions; they do not read precomputed transition tables.
+## correctness
 
-Run `python3 verify_functional.py` and `g++ -std=c++17 -O2 verify_direct.cpp -o verify_direct && ./verify_direct` from the directory containing those files. The full run outputs recorded in `functional_output.json` and `direct_output.txt` were reproduced. The Python implementation builds the full successor array and decomposes the directed functional graph; the C++ implementation uses a separately written signed-neighbor update and direct finite iteration for each state.
+PASS
 
-Graph prerequisites were checked, for both graphs: 16 vertices, six neighbors per vertex, exactly two common neighbors for every two distinct vertices, no loops, symmetric adjacency. Four-clique counts were eight (rook) and zero (Shrikhande).
+Both 16-vertex degree-six graphs were independently generated directly from rook coordinate agreement and Shrikhande Cayley differences ±(1,0),±(0,1),±(1,1); adjacency common neighbor count two confirms SRG parameters, while rook has eight four-cliques and Shrikhande none. For a binary state x, each site updates to one when ≥4 of six neighbors are one, zero when ≤2, and keeps x_v when exactly 3. Independent direct all-65536-state successor arrays (not read from repository verifier) were decomposed into cycles and predecessor basins; complete values: rook (fixed 302, 2-cycles 1197, periodic states 2696, max t=3, consensus basin each 20789), Shrikhande (142,685,1512,5,28221), entry histograms [2696,14136,29984,18720] and [1512,9304,26240,18496,9024,960]. Both finite-domain iterate identities F_R^5=F_R^3 and F_S^7=F_S^5 were exhaustively checked. Thus this is a complete exact finite census, not an extrapolated sample; all counts are for labeled configurations.
 
-## First-periodic-entry times
+## originality
 
-| Time \(t\) | Rook | Shrikhande |
-|---|---:|---:|
-| 0 | 2,696 | 1,512 |
-| 1 | 14,136 | 9,304 |
-| 2 | 29,984 | 26,240 |
-| 3 | 18,720 | 18,496 |
-| 4 | 0 | 9,024 |
-| 5 | 0 | 960 |
-| Total | 65,536 | 65,536 |
+PASS
 
-The following stronger finite identities were checked on all 65,536 states: \(F_R^5=F_R^3\) and \(F_S^7=F_S^5\). Each is sharp, witnessed by the explicit state trajectories in `RESULT.md`.
+Best-knowledge PASS for exact majority-attractor census difference between these classical spectral twin graphs. Prior work proves eventual period one or two for undirected synchronous majority and has published different invariants of the exact graph pair, but no inspected table provides these exact majority basins or transient census. An obscure existing majority fixed-point enumeration could overlap.
 
-## Basin histograms
+## value
 
-Each entry lists *basin size : number of recurrent orbits with that basin size*.
+PASS
 
-Rook fixed points: 1:144, 7:96, 10:32, 413:12, 715:16, 20789:2.
+The complete nonlinear time-dynamics comparison gives a useful counterexample to inferring consensus behavior from a graph spectrum or strongly regular parameters, including an exact substantial disparity of unanimity probabilities; natural 16-vertex canonical graphs, no arbitrary slice.
 
-Rook two-cycles: 2:405, 4:288, 8:288, 10:216.
-
-Shrikhande fixed points: 1:96, 22:32, 433:12, 28221:2.
-
-Shrikhande two-cycles: 2:205, 4:288, 6:48, 8:96, 10:48.
-
-The basin-size weighted sums separately equal 65,536, and the orbit frequencies reproduce 302/1,197 for the rook graph and 142/685 for the Shrikhande graph. The two global-consensus basins are the equal largest fixed-point basins in each graph, by bit-complement symmetry.
-
-## Boundaries
-
-These are exhaustive calculations for two specified finite graphs, not infinite-family proofs. Replay of exact code verifies all asserted state outcomes; recorded stdout by itself is not a proof. An independent external mathematical audit has not been performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

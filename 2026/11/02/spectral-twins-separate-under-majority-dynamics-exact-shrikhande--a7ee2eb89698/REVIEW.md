@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and fully quantified: two explicitly defined graphs, one deterministic tie-retaining synchronous majority map, all \(2^{16}=65,536\) binary initial states per graph. Graph incidence, degree, pairwise common-neighbor counts, and four-clique separation have independent direct checks. The two complete enumerators implement the transition separately, one using neighbor bit masks and a functional-graph traversal, the other using signed neighbor sums and direct state iteration. Both reproduce the complete recurrence, first-entry, orbit and basin statistics, including the two sharp witnesses. The exhaustive identities prove eventual period at most two for **all** states rather than extrapolating from a random sample. The analytical equality \(A^2=4I+2J\) proves common adjacency spectra.
+## correctness
 
-## Originality — PASS, qualified
-Benjamini et al. (arXiv:1405.2486v1, 2014) establish and discuss general eventual period-two behavior and random-graph phenomena, not an exact finite comparison of these cospectral graphs. Agur–Fraenkel–Klein (1988) count fixed points of a three-site cyclic majority rule, not the present six-regular graphs. The ordinary graph-theoretic distinction between the Shrikhande and rook graphs is well known and explicitly not claimed as new. A previously available line-graph half-factor theorem can classify part of the rook graph's recurrent two-cycles because \(R=L(K_{4,4})\); it neither covers \(S\) nor implies the two exact consensus basins or the sharp discrepancy in transient times. Searches for equivalent and stronger exact majority-attractor tabulations did not find one. Relevant research-record neighbors concerned topology, adjacency spectra, or other graph update rules. Residual risk: an unindexed specialized threshold-network computation might contain these exact figures.
+PASS
 
-## Mathematical value — PASS
-The Shrikhande and \(4\times4\) rook graphs are the canonical smallest distinct strongly regular graphs with the same parameters \((16,6,2,2)\). Their attractor counts, sharp dynamical clocks and especially a \(929/4096\) difference in fair-initialization consensus probability form a motivated counterexample to spectral determination of a nonlinear dynamical invariant. It is not an arbitrary parameter slice or mere recomputation of a known spectral table. The full basin histograms make the contrast quantitatively interpretable and reproducible. No infinite-family theorem is asserted or required for this finite natural pair.
+Both 16-vertex degree-six graphs were independently generated directly from rook coordinate agreement and Shrikhande Cayley differences ±(1,0),±(0,1),±(1,1); adjacency common neighbor count two confirms SRG parameters, while rook has eight four-cliques and Shrikhande none. For a binary state x, each site updates to one when ≥4 of six neighbors are one, zero when ≤2, and keeps x_v when exactly 3. Independent direct all-65536-state successor arrays (not read from repository verifier) were decomposed into cycles and predecessor basins; complete values: rook (fixed 302, 2-cycles 1197, periodic states 2696, max t=3, consensus basin each 20789), Shrikhande (142,685,1512,5,28221), entry histograms [2696,14136,29984,18720] and [1512,9304,26240,18496,9024,960]. Both finite-domain iterate identities F_R^5=F_R^3 and F_S^7=F_S^5 were exhaustively checked. Thus this is a complete exact finite census, not an extrapolated sample; all counts are for labeled configurations.
 
-## Closest sources and limitations
-The relevant starting reference is Benjamini, Chan, O'Donnell, Tamuz and Tan, *Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs* (2014), https://arxiv.org/abs/1405.2486. The nearest title-level antecedent is Agur, Fraenkel and Klein, *The number of fixed points of the majority rule* (1988), https://doi.org/10.1016/0012-365X(88)90005-2; its cyclic-string setting differs. For the classical graph comparison see Shrikhande (1959) and https://jaanos.github.io/tables/graphs/Shrikhande.html. A prior general line-graph majority classification is relevant to one constituent but does not resolve the present comparison. The finite proofs rest on exact replayable enumeration; no external independent audit or formal verification has been performed. Publication-overlap search cannot establish global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for exact majority-attractor census difference between these classical spectral twin graphs. Prior work proves eventual period one or two for undirected synchronous majority and has published different invariants of the exact graph pair, but no inspected table provides these exact majority basins or transient census. An obscure existing majority fixed-point enumeration could overlap.
+
+## value
+
+PASS
+
+The complete nonlinear time-dynamics comparison gives a useful counterexample to inferring consensus behavior from a graph spectrum or strongly regular parameters, including an exact substantial disparity of unanimity probabilities; natural 16-vertex canonical graphs, no arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
