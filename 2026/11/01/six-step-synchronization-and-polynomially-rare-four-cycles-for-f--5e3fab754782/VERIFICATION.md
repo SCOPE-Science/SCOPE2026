@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From the directory containing this document and the included sources, execute:
+## correctness
 
-```bash
-python3 check_symbolic.py
-c++ -std=c++17 -O2 -Wall -Wextra check_direct.cpp -o check_direct
-./check_direct
-```
+PASS
 
-`check_symbolic.py` reconstructs the exact capped-type map, verifies the complete \(722\)-class finite-state dichotomy and all eight formal exponential generating functions by exact polynomial arithmetic, and tests their coefficients for \(2\le n\le20\). The saved `symbolic_output.txt` records the successful run.
+Each missing-edge pair belongs to one of six unordered color types. Its update depends only on the number of visible 1-color blinkers capped at two, so the six type multiplicities capped at two form an exact finite-state quotient for every n. Independently rebuilt and exhaustively classified all 3^6-7=722 admissible capped states; every state synchronizes within six or starts in the exceptional 02/12/22 trap. An independently implemented symbolic EGF calculation reproduced all eight outcome polynomial identities for y=exp(z), giving N_t(n) and 4n(n-1) nontransient period-four states. Direct source C++ checker was inspected, not separately executed. The exceptional labelled orbit has primitive period four; sharpness of six follows from explicit single-2 initial state and positive N6. n>=3 and synchronous 3-color rule are essential.
 
-`check_direct.cpp` does not use the capped-type transition. It directly checks the labelled graph's vertex-to-vertex adjacency and applies the synchronous inhibitory update to every initial coloring on the five graph sizes with \(2\le n\le6\), totalling \(597861\) labelled states. It checks exact synchronization layers and primitive four-cycle return. The saved `direct_output.txt` records the successful run.
+## originality
 
-The infinite-family conclusion depends on the proven capped-multiplicity preservation identity, the exact complete finite-state enumeration and the analytic exponential generating-function conversion. Direct small-size tests alone would not prove the theorem. The finite-state checker is an executable exhaustive proof, not an independently certified formal development. No independent validation has been performed.
+PASS
+
+Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. Prior statements do not mathematically dominate this classification under the graph and update hypotheses.
+
+## value
+
+PASS
+
+This supplies a complete temporal basin census and sharp bounded synchronization time for a natural infinite complete-multipartite graph family, plus a rare nonsynchronizing class quantified exactly, extending rather than repeating generic finite-state eventual periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
