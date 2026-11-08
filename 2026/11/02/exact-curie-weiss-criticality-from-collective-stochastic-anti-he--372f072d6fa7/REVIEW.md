@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The averaged Gaussian anti-Hermitian kernel follows directly from a scalar Gaussian moment generating function. The full density operator is exactly a positive mixture of qubit product projectors, with an explicit probability measure. The diagonal is identically Curie--Weiss at every finite population. Laplace's method, including the quartic degenerate saddle, supplies the three sharp correlation regimes. The finite-size checker passed 136 independent numerical comparisons; those do not replace the analytic proof. The physical averaged map is trace nonincreasing for the selected coefficient, and all limits specify their quantifiers.
+## correctness
 
-**Originality — PASS, with literature risk.** The non-Hermitian Gaussian ensemble construction is established by Martínez-Azcona et al. Classical Curie--Weiss pressure, the Hubbard--Stratonovich transformation and its mean-field critical behavior are established results and are not claimed as new. The claim evaluated here is the finite-population equivalence of the *full* normalized non-Hermitian quantum ensemble to an explicitly separable state with a Curie--Weiss diagonal, and the consequent exactly normalized connected two-qubit correlation trichotomy. Direct primary-source comparison and targeted mathematical-record searches found no covering evaluated result, though a general postselected collective-measurement or Gaussian-mean-field theorem may imply it. Search failures alone are not used as uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The result pinpoints a nontrivial boundary between many-body classical correlations and genuine entanglement: a macroscopic order parameter emerges in a fully separable quantum state. It converts a collective stochastic non-Hermitian dynamics into an exactly solved, quantitatively sharp critical phenomenon, and distinguishes the ensemble-normalization convention that physically changes the conclusion. These are motivated structural statements beyond a routine finite-size moment computation.
+For N qubits with K_t=exp(-t L_N-N^(-1/2) L_N W_t), scalar Gaussian averaging produces every unnormalized matrix element 2^(-N)e^(-Nt/2)exp(t(M_s+M_u)^2/(8N)), and the diagonal after trace normalization is exactly the Curie–Weiss Gibbs weight exp(t M_s^2/(2N)). Hubbard–Stratonovich yields a normalized positive Gaussian mixture of rank-one product-qubit projectors, proving full separability, not just a classical diagonal. The induced measure has potential f_t(y)=log cosh y-y²/(2t). Its unique quadratic maximum for t<1, quartic maximum -y^4/12 at t=1, and two symmetric nondegenerate maxima for t>1 give the three stated two-spin correlation limits by justified Laplace localization. E[K†K] eigenvalues exp(-2tk(1-k/N))<=1 ensure physical trace nonincrease. The finite-N trace and asymptotics have fixed-t quantifiers, and only fixed-k reduced limits are claimed.
 
-**Limitations and closest literature.** The original stochastic non-Hermitian theory supplies the generator; the classical Curie--Weiss reference already supplies the Ising limit law. This investigation does not establish a new classical mean-field theorem, and does not address normalization of individual trajectories, independent noise, finite-N thermodynamic singularities, or entanglement production. Broader postselection equivalences may still be present in unlocated sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Curie–Weiss partition function, Gaussian Hubbard decoupling and mean-field critical exponents are established. The 2025 stochastic non-Hermitian formalism is also prior. The candidate’s particular explicit full-state separable realization of the classical law plus correlation trichotomy for a shared-noise, average-before-normalization loss model is not directly stated in the inspected predecessor and may be a straightforward special case of wider postselection or collective-measurement equivalences. Qualification is explicit.
+
+## value
+
+PASS
+
+The exact correspondence connects a physically specified completely positive trace-decreasing many-qubit process to an Ising transition while rigorously separating emergent extensive classical correlations from entanglement. It resolves a meaningful structural question about collective noise and the order of stochastic normalization, not merely a recalculated classical partition function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

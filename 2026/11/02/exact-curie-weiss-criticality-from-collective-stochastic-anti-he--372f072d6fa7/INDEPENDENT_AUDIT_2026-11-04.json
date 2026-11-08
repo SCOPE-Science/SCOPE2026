@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:48:30.149374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N qubits with K_t=exp(-t L_N-N^(-1/2) L_N W_t), scalar Gaussian averaging produces every unnormalized matrix element 2^(-N)e^(-Nt/2)exp(t(M_s+M_u)^2/(8N)), and the diagonal after trace normalization is exactly the Curie–Weiss Gibbs weight exp(t M_s^2/(2N)). Hubbard–Stratonovich yields a normalized positive Gaussian mixture of rank-one product-qubit projectors, proving full separability, not just a classical diagonal. The induced measure has potential f_t(y)=log cosh y-y²/(2t). Its unique quadratic maximum for t<1, quartic maximum -y^4/12 at t=1, and two symmetric nondegenerate maxima for t>1 give the three stated two-spin correlation limits by justified Laplace localization. E[K†K] eigenvalues exp(-2tk(1-k/N))<=1 ensure physical trace nonincrease. The finite-N trace and asymptotics have fixed-t quantifiers, and only fixed-k reduced limits are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original PRL discusses quantum stochastic non-Hermitian trajectories, ensemble ordering and single-qubit examples; its inspected parts do not contain N-qubit separable Curie–Weiss exact reduction."
+        ],
+        "reasoning": "Generic Gaussian stochastic evolution covers formalism but not the stated explicit many-body construction in its directly examined assertions. Broad postselection-theory coverage is a residual risk.",
+        "searches": [
+          "Resultary: shared Gaussian stochastic non-Hermitian qubit loss collective ensemble Curie Weiss separable classical phase transition",
+          "web: stochastic non-Hermitian collective loss quantum Ising transition"
+        ]
+      },
+      "checked_sources": [
+        "A. Martínez-Azcona et al., Quantum Dynamics with Stochastic Non-Hermitian Hamiltonians, arXiv:2407.07746 / PRL 135 010402 (2025)",
+        "M. Kochmański et al., Curie–Weiss magnet—a simple model of phase transition, arXiv:1301.2141",
+        "D. Brody & E. Graefe, Mixed-state evolution in the presence of gain and loss, arXiv:1208.5297",
+        "Resultary found nearby mean-field quantum results but no same statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2025 PRL defines average-before-normalization; 2013 Curie–Weiss theory derives symmetry breaking and critical scaling. Neither source by itself asserts equality of every density-matrix entry to a separable qubit mixture for this chosen common-noise model."
+        ],
+        "reasoning": "The combination is a short but substantive exact specialization; classical mean-field asymptotics are credited, and absence of a stronger general quantum theorem is not certified.",
+        "searches": [
+          "arxiv:2407.07746 Quantum Dynamics with Stochastic Non-Hermitian Hamiltonians",
+          "arxiv:1301.2141 Curie-Weiss magnet a simple model of phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martínez-Azcona et al. 2025 supplies stochastic anti-Hermitian averaging framework, while Kochmański et al. arXiv:1301.2141 supplies classical Ising mean-field solution."
+        ],
+        "reasoning": "The entire output is a Hubbard mixture of products, equivalent to a postselected common-field ensemble. Prior classical saddle-point results do not alone identify the physical qubit-state mixture for this exact loss model.",
+        "searches": [
+          "Resultary: shared Gaussian stochastic non-Hermitian qubit loss collective ensemble Curie Weiss separable classical phase transition",
+          "web: collective Gaussian weak measurement posterior Curie Weiss separable common noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The critical amplitude sqrt(12)Gamma(3/4)/Gamma(1/4) follows standard Curie–Weiss quartic saddle and is not independently novel as a number."
+        ],
+        "reasoning": "No claim of discovering a previously unknown classical table; new assessed object is a quantum realization with exactly those already known constants.",
+        "searches": [
+          "Resultary: shared Gaussian stochastic non-Hermitian qubit loss collective ensemble Curie Weiss separable classical phase transition",
+          "web: postselected common noise N-qubit Curie Weiss correlation gamma quarter saddle"
+        ]
+      },
+      "rationale": "Classical Curie–Weiss partition function, Gaussian Hubbard decoupling and mean-field critical exponents are established. The 2025 stochastic non-Hermitian formalism is also prior. The candidate’s particular explicit full-state separable realization of the classical law plus correlation trichotomy for a shared-noise, average-before-normalization loss model is not directly stated in the inspected predecessor and may be a straightforward special case of wider postselection or collective-measurement equivalences. Qualification is explicit.",
+      "residual_risks": [
+        "An equivalent postselected collective weak-measurement result could imply the same mixture and critical spin correlation without identical terminology.",
+        "Classical Ising trichotomy and Gaussian decoupling are prior, not independent novel contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction is prior, but the inspected article does not assert the exact full N-qubit Curie–Weiss density or separable-product decomposition.",
+          "evidence": [
+            "PRL 135 010402 (2025), equation-level distinction between normalization prescriptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.07746",
+          "material_read": "Full accessible primary published PRL PDF, early theory and model sections (four-page article), distinguishing normalization of the averaged ensemble from averaging individual normalized trajectories.",
+          "method": "Read lawful publicly accessible publisher PDF text and inspected its displayed stochastic evolution formulas; PDF screenshot was attempted.",
+          "title": "Quantum Dynamics with Stochastic Non-Hermitian Hamiltonians",
+          "trigger": "Same stochastic anti-Hermitian ensemble and averaging convention"
+        },
+        {
+          "assessment": "Classical phase transition and quartic limit are preexisting; not awarded novel status.",
+          "evidence": [
+            "Mean-field equation m=tanh(tm), standard symmetry-breaking and quartic critical fluctuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.2141",
+          "material_read": "Accessible abstract and classical mean-field formula context; not re-read entire paper during this run.",
+          "method": "arXiv public record and comparison to explicit Ising partition in source.",
+          "title": "Curie–Weiss magnet—a simple model of phase transition",
+          "trigger": "Same classical mean-field law and saddle-point behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact correspondence connects a physically specified completely positive trace-decreasing many-qubit process to an Ising transition while rigorously separating emergent extensive classical correlations from entanglement. It resolves a meaningful structural question about collective noise and the order of stochastic normalization, not merely a recalculated classical partition function.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Shared Brownian fluctuation, no coherent Hamiltonian, initial |+> product, gamma=1/(2N), averaging before normalization, fixed-t limits.",
+    "No transition at finite N and no entanglement is generated; general postselection equivalence priority remains qualified."
+  ],
+  "schema_version": 1
+}

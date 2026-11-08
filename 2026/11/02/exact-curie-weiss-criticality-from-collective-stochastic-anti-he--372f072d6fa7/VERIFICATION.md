@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 checker requiring NumPy and SciPy; execute `python verify.py`. The program computes the normalized density matrix using both exact Gaussian moment generating functions and independent 200-node Gauss-Hermite quadrature. It checks matrix positivity, unit trace, Curie--Weiss basis weights, global spin-flip symmetry, and averaged trace nonincrease for 20 combinations of \(N\in\{2,3,4,5\}\) and \(t\in\{0.15,0.75,1,1.75,3\}\). It also tests finite-size trends in the critical \(N^{-1/2}\) correlation coefficient and the ordered/disordered regimes. Recorded result: `PASS 136 independent finite-size and asymptotic checks`; critical coefficient `1.1708286566075286`.
+## correctness
 
-These are deterministic numerical checks and not mathematical proofs of infinite-population convergence. The analytical proof uses the exact kernel, Gaussian integral and Laplace asymptotics. The stochastic construction conditions on the ensemble after averaging; altering that order invalidates the claimed identity. All identities remain within the stated finite-dimensional model and specified limit regimes.
+PASS
+
+For N qubits with K_t=exp(-t L_N-N^(-1/2) L_N W_t), scalar Gaussian averaging produces every unnormalized matrix element 2^(-N)e^(-Nt/2)exp(t(M_s+M_u)^2/(8N)), and the diagonal after trace normalization is exactly the Curie–Weiss Gibbs weight exp(t M_s^2/(2N)). Hubbard–Stratonovich yields a normalized positive Gaussian mixture of rank-one product-qubit projectors, proving full separability, not just a classical diagonal. The induced measure has potential f_t(y)=log cosh y-y²/(2t). Its unique quadratic maximum for t<1, quartic maximum -y^4/12 at t=1, and two symmetric nondegenerate maxima for t>1 give the three stated two-spin correlation limits by justified Laplace localization. E[K†K] eigenvalues exp(-2tk(1-k/N))<=1 ensure physical trace nonincrease. The finite-N trace and asymptotics have fixed-t quantifiers, and only fixed-k reduced limits are claimed.
+
+## originality
+
+PASS
+
+Classical Curie–Weiss partition function, Gaussian Hubbard decoupling and mean-field critical exponents are established. The 2025 stochastic non-Hermitian formalism is also prior. The candidate’s particular explicit full-state separable realization of the classical law plus correlation trichotomy for a shared-noise, average-before-normalization loss model is not directly stated in the inspected predecessor and may be a straightforward special case of wider postselection or collective-measurement equivalences. Qualification is explicit.
+
+## value
+
+PASS
+
+The exact correspondence connects a physically specified completely positive trace-decreasing many-qubit process to an Ising transition while rigorously separating emergent extensive classical correlations from entanglement. It resolves a meaningful structural question about collective noise and the order of stochastic normalization, not merely a recalculated classical partition function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
