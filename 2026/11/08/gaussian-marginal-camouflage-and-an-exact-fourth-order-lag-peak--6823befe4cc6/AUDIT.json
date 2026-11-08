@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Invariant Gaussian distribution and detailed balance follow from self-adjoint OU and refresh operators; a Doeblin minorization proves uniqueness. Conditioning on zero or positive Poisson counts proves the two-Gaussian mixture, covariance and conditional variance; Wick contractions give the strictly positive connected fourth cumulant. Exact derivative proves the unique maximizer, time rescaling proves strict peak monotonicity and limits, and Gaussian cross-entropy matching proves the positive KL mutual-information gap. All critical cases use λ,D,r,t>0. The supplied script verifies identities and numerical samples; the analytic proof covers the continuum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General renewal and moment methodologies in https://arxiv.org/abs/2211.15372 and https://arxiv.org/abs/2310.04840 have broad model scope.",
+        "The reviewed general formulas address entropy production or stationary single-time moments rather than an explicit inequality on two-time mutual information or the optimal quartic lag."
+      ],
+      "reasoning": "These general sources make the two-time mixture potentially derivable but do not state a dominating two-time theorem implying the exact optimum and its strict rate dependence. The Gaussian entropy bound is generic and used only after the new model-specific non-Gaussian joint law is established. Residual implicit-coverage risk is recorded.",
+      "searches": [
+        "Poisson resetting harmonic trap resetting to equilibrium Gaussian distribution two time joint probability Gaussian mixture autocorrelation kurtosis",
+        "resetting to equilibrium distribution OU process non gaussian two-time joint distribution mutual information",
+        "arXiv:2211.15372 renewal framework, arXiv:2310.04840 general distributed-reset stationary moments"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2211.15372",
+      "https://arxiv.org/abs/2301.12304",
+      "https://arxiv.org/abs/2310.04840",
+      "https://arxiv.org/abs/1212.4096"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2301.12304 considers OU reset to a fixed state, which generally changes the one-time marginal from the invariant Gaussian.",
+        "https://arxiv.org/abs/2310.04840 implies Gaussian single-time moment values if the reset law equals equilibrium, but provides no two-time covariance-matched information gap."
+      ],
+      "reasoning": "Point-reset results do not cover the equilibrium-refresh regime; stationary one-point Gaussianity does not imply bivariate Gaussianity or fourth cumulant zero, and generic OU covariance/entropy properties alone cannot specify the strict optimized lag. General renewal conditioning remains a known proof method, which limits priority confidence.",
+      "searches": [
+        "reversible Gaussian marginals stochastic resetting mutual information excess matched Gaussian",
+        "Poisson resetting to equilibrium distribution of Ornstein Uhlenbeck process Gaussian marginal bivariate two time non-Gaussian",
+        "arXiv:2301.12304, full text, resetting-to-point regime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2211.15372 defines resetting to a general distribution in a trap; its central derived quantity is resetting entropy production.",
+        "https://arxiv.org/abs/2310.04840 Eq. (1), §§II–III concerns one-time stationary moments after general distributed resets."
+      ],
+      "reasoning": "A Gaussian invariant law does not imply a Gaussian two-time process; the exact conditional-reset/no-reset mixture and strictly positive connected fourth cumulant distinguish the new statement from one-time moment identities. Reversibility alone is not an equivalent assertion of Gaussianity. No inspected source explicitly supplies the complete peak and strict information comparison.",
+      "searches": [
+        "equilibrium Poisson refreshed Ornstein Uhlenbeck dynamics Gaussian invariant two-time kurtosis peak",
+        "Gaussian stationary marginals and covariance-matched OU fourth-order time cumulant under Poisson resetting",
+        "arXiv:2211.15372, full text §§I–II; arXiv:2310.04840, full text §§II–III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest established explicit tabulations in https://arxiv.org/abs/2310.04840 are single-time stationary moment formulas.",
+        "No matching published two-time fourth-cumulant curve with exact optimal lag was found in the searched records and inspected named primary papers."
+      ],
+      "reasoning": "The claimed invariant is a continuous-time, two-time cumulant and its unique maximum, not a finite database enumeration; no exact table of that invariant was located. Search nonappearance is not a proof of novelty.",
+      "searches": [
+        "Gaussian stationary marginals and covariance-matched OU fourth-order time cumulant under Poisson resetting",
+        "equilibrium renewal refresh process fourth cumulant and mutual information versus covariance-matched Gaussian OU",
+        "steady-state moments under resetting to a distribution arXiv:2310.04840"
+      ]
+    },
+    "rationale": "Primary random-position resetting and OU stationary-moment sources were materially inspected and compared by implication. They cover the general model or stationary one-time moments, rather than the combined reversible Gaussian-marginal versus covariance-matched temporally non-Gaussian classification, strict information gap and exact unique fourth-order time optimum. Results are potentially implicit in general renewal laws, so priority risk is retained.",
+    "residual_risks": [
+      "General renewal identities and Gaussian maximum-entropy facts may make individual identities immediate to specialists; no publication-priority certification is implied.",
+      "Published related stochastic resetting or temporal information literature may contain an implicit equivalent result outside inspected texts.",
+      "Literature was compared by stated conclusions and full available text, but cannot certify global uniqueness of this formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines general distributed resets and entropy framework; the equilibrium-refresh two-time cumulant and lag optimum are not stated.",
+        "evidence": "arXiv:2211.15372 §§I–II, general reset distribution and entropy equations.",
+        "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+        "material_read": "Full public arXiv HTML text, introduction, model and master equation/entropy sections",
+        "method": "Compared state-dependent model and explicitly discussed observables against the stated two-time formula",
+        "title": "Entropy production of resetting processes",
+        "trigger": "Distributed resets to a probability distribution in confining Brownian potentials overlap directly with the setup."
+      },
+      {
+        "assessment": "Analyzes OU/comb stochastic resetting with point restoration and stationary profiles, not Gaussian refresh law and fourth-order two-time distinction.",
+        "evidence": "arXiv:2301.12304, resetting and OU sections; source abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.12304",
+        "material_read": "Full public arXiv HTML, OU resetting and confined comb sections",
+        "method": "Checked reset law and target dynamical observables",
+        "title": "Ornstein-Uhlenbeck process and generalizations: particle dynamics under comb constraints and stochastic resetting",
+        "trigger": "Exact OU resetting primary literature could dominate the case."
+      },
+      {
+        "assessment": "Establishes generic single-time moment coefficients, which explain the marginal Gaussianity but do not explicitly cover two-time non-Gaussianity or optimal lag.",
+        "evidence": "arXiv:2310.04840 §§II–III; stationary moments Eq. (1), OU propagator.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+        "material_read": "Full public arXiv HTML, renewal and OU sections and moment recurrence",
+        "method": "Compared scope of all stationary one-time moments with nonlocal-in-time joint cumulants",
+        "title": "Steady-state moments under resetting to a distribution",
+        "trigger": "General harmonic-trap random resetting moments may subsume the invariant law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6823befe-4cc6-4207-9c32-07a275bedf8b",
+  "value": {
+    "rationale": "A natural process at equilibrium has genuinely hidden dynamical non-Gaussianity even though all one-time stationary histograms and second-order time functions exactly match a Gaussian OU comparator. The exact positive conditional-variance/fourth-cumulant witness, optimal lag and rate law give operationally meaningful discrimination, while the strict KL identity separates information structure. These are structural relationships for every positive parameter, not a contrived isolated case.",
+    "status": "PASS"
+  }
+}
