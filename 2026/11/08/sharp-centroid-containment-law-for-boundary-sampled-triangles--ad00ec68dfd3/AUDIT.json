@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The centroid-in-sampled-hull event is affine invariant under mapping of each chosen edge parameter to the reference triangle. The two exhaustive nonzero occupancy types give exact integrals \\\\(1/9+4\\\\log2/27\\\\) and \\\\(2\\\\log 2/3\\\\); the multinomial occupancy sum reduces to the proposed symmetric polynomial. Strict side inequalities \\\\(0<p_i<1/2\\\\) prove the unattained lower bound; AM-GM plus Cauchy inequalities prove upper equality precisely at the equilateral triangle. Pairwise averaging strictly increases the second elementary symmetric polynomial and does not decrease the third. SymPy integrations and independent Euclidean Monte Carlo confirm crucial expressions; finite simulation is not taken as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wendel proved absorption for centrally symmetric distributions, inapplicable to three-sided perimeter measure.",
+        "Halasz--Kleitman discusses the interior sampling model; accessible abstract alone does not resolve possible broader formulations.",
+        "Ionaşcu derives fixed-point absorption by interior random triples, with nonuniform boundary projection densities."
+      ],
+      "reasoning": "A result for all centrally symmetric point laws would cover many boundary distributions but not a triangle. A result for arbitrary interior-density models could imply the equiprobable-edge subcase but not directly the Euclidean perimeter-arclength law, which is singular along the perimeter. No inspected theorem with arbitrary boundary edge masses implies the complete coefficient and sharp shape range.",
+      "searches": [
+        "doi:10.7146/math.scand.a-10655",
+        "doi:10.1002/SAPM1974533225",
+        "random triangles containing fixed point arbitrary density boundary length weighted",
+        "arxiv:1612.08619"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.7146/math.scand.a-10655",
+      "doi:10.1007/BF02018666",
+      "doi:10.1002/SAPM1974533225",
+      "arxiv:1612.08619",
+      "https://starvind.com/mathematics/randomtri.html",
+      "2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5",
+      "2026/10/11/SCOPE-exact-offcenter-centroid-core-of-every-convex-body--488f943b65d7",
+      "2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published regular-polygon vertex work computes conditional area moments, not continuous arclength capture probability.",
+        "The centroid-core result concerns a deterministic set of centers, not probabilities of random enclosing triangles.",
+        "The distance-moment result concerns squared distances between boundary points, not centroid containment.",
+        "Prékopa covers the upper equality value and Starvind covers one conditional integral, but their statements do not by themselves specify the arbitrary side-weight mixture or exact sharp lower range."
+      ],
+      "reasoning": "The main theorem includes a genuinely varying shape parameter, an exact polynomial in physical normalized lengths, and strict Schur-concavity. Previous equal-weight or interior results are its boundary-independent special cases; matching one constant is not enough to imply the full law. The closest other published mathematical-record claims have different sample objects and observables.",
+      "searches": [
+        "For a triangle with perimeter sampled independent boundary points probability triangle formed by three arclength-uniform points contains centroid equals (1/3+4 log2/9) sum normalized side length pair products plus (8 log2/3 -1) product; sharp equilateral bound 2/27+20 log2/81",
+        "random triangle boundary points contains centroid logarithm two law sharp equilateral triangle containment probability",
+        "triangle centered containment boundary point sampling 0.245221526064 0.160349686729",
+        "2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5",
+        "2026/10/11/SCOPE-exact-offcenter-centroid-core-of-every-convex-body--488f943b65d7",
+        "2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prékopa Section 5 computes the classical probability only for the regular triangle model, or an affine equivalent interior-uniform model.",
+        "Ionaşcu Theorem 1.1 is expressed via area-uniform samples or their radial projection, whose side masses are 1/3, not proportional to arbitrary Euclidean edge lengths.",
+        "The complete prior one-point-on-each-edge calculation has the same conditional term but not the three-edge multinomial mixture."
+      ],
+      "reasoning": "The centroid containment event is invariant under positive radial rescaling, so interior-uniform sampling is equivalent to sampling each edge with weight 1/3 and uniform fractional coordinate. Euclidean perimeter-uniform sampling instead has edge weights equal to normalized side lengths, generally not 1/3. This changes the law and is not an equivalent formulation unless the triangle is equilateral.",
+      "searches": [
+        "probability centroid belongs to convex hull three iid points uniform perimeter of scalene triangle edge-length weights sharp Schur-concavity",
+        "Prekopa centroid random triangle boundary non-equilateral arbitrary edge weights two-one-one probabilities logarithm",
+        "centroid containment arbitrary triangle length-proportional boundary random three points sharp shape range",
+        "arxiv:1612.08619",
+        "doi:10.1007/BF02018666"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The upper-end decimal agrees with the classical constant \\\\(2/27+20\\\\log2/81\\\\); this known special case is credited.",
+        "The one-point-per-side value \\\\(2\\\\log 2/3\\\\) is independently known.",
+        "No exact table or recorded polynomial for the variable side-length perimeter model was found in the searches completed."
+      ],
+      "reasoning": "Exact agreement on the equilateral input and the uniform one-per-side conditional contribution is deliberate compatibility with prior values, not novelty. A table of a single triangle or fixed equal edge weights cannot cover strict shape monotonicity across all normalized side triples.",
+      "searches": [
+        "triangle centered containment boundary point sampling 0.245221526064 0.160349686729",
+        "probability centroid boundary-sampled scalene triangle exact symmetric polynomial",
+        "doi:10.1007/BF02018666"
+      ]
+    },
+    "rationale": "Directly inspected Prékopa (1972) on the equilateral case and interior-uniform triangle model; this proves the upper-end constant but not a shape-dependent arclength boundary law over all triangles. Ionascu (2016/2019) treats interior-uniform planar regions and nonuniform radial projection densities. The one-point-per-side term \\\\(2\\\\log 2/3\\\\) is credited to a 2021 full derivation. Wendel (1962) assumes centrally symmetric random vectors, which triangular perimeter sampling violates. A related discrete-regular-polygon study concerns a different law. The arbitrary edge-weight symmetric polynomial and strict Schur-concavity with sharp nonattained infimum were absent from inspected readable full texts and targeted research-record searches. Priority remains provisional; full Halasz--Kleitman 1974 was not accessible.",
+    "residual_risks": [
+      "Full Halasz--Kleitman 1974 text could not be inspected; its publisher abstract is insufficient for a whole-document noncoverage claim.",
+      "An unindexed general weighted boundary absorption identity could algebraically imply this specialization.",
+      "The classical equilateral and one-on-each-edge constants have prior publication and are not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Central symmetry of point distribution is required and fails for any nondegenerate triangular arclength boundary measure.",
+        "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+        "material_read": "Original open-access four-page paper (including theorem and hypotheses)",
+        "method": "Primary PDF full text and page image inspection",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "Potential general convex-hull absorption theorem"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Computes classical \\\\(2/27+20\\\\log2/81\\\\) in the equal-side/equal-edge model; no arbitrary nonregular true arclength shape polynomial or sharp lower endpoint established.",
+        "identifier_or_url": "https://rutcor.rutgers.edu/Prekopa/pdf/number.pdf",
+        "material_read": "Original full PDF, with close inspection of Section 5 and equations around 5.24",
+        "method": "Primary PDF text and page image inspection",
+        "title": "On the Number of Vertices of Random Convex Polyhedra",
+        "trigger": "Known exact equilateral centroid containment probability"
+      },
+      {
+        "assessment": "DIFFERENT_SAMPLING",
+        "evidence": "Uses uniform planar area point distribution and a radial boundary projection density, not uniform Euclidean triangle perimeter arclength with variable side masses.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.08619",
+        "material_read": "Full available author preprint including main theorems and sampling assumptions",
+        "method": "Open-access full text, searched for arclength/perimeter and inspected theorem",
+        "title": "Random triangles in planar regions containing a fixed point",
+        "trigger": "Potential fixed-point absorption for general planar regions"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Already establishes conditional c111=\\\\(2\\\\log 2/3\\\\); does not evaluate two-one edge occupancy or general edge weights.",
+        "identifier_or_url": "https://starvind.com/mathematics/randomtri.html",
+        "material_read": "Complete online derivation with geometric inequalities and resulting constant",
+        "method": "Full online article text",
+        "title": "Triangle Centroid Probability",
+        "trigger": "Exact conditional event for one sample on each side"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "Available description concerns interior point sampling; without full text a broader boundary-weighted formula cannot be completely excluded.",
+        "identifier_or_url": "https://doi.org/10.1002/SAPM1974533225",
+        "material_read": "Publisher abstract and bibliographic description only; full text inaccessible",
+        "method": "Publisher/index abstract and citation evidence",
+        "title": "A Note on Random Triangles",
+        "trigger": "Older potential general interior random-triangle absorption statement"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": "Finite regular polygon vertices, conditional area moments and centered triangles, not arclength-uniform samples on arbitrary Euclidean triangles.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5",
+        "material_read": "Published title and detailed research summary (full article not claimed read)",
+        "method": "Published summary and statement comparison",
+        "title": "Conditional area moments for center-containing regular-polygon triangles",
+        "trigger": "Closest published center-containment mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad00ec68-dfd3-4493-a931-a321597df1e5",
+  "value": {
+    "rationale": "The result solves the natural fully specified probability for a genuine arclength-uniform random triangle on every triangular boundary. Although the equilateral constant is classical, the physical-versus-affine side-weight distinction produces a nonconstant geometric invariant with a complete sharp shape range and strict majorization principle, plus an arbitrary-edge-weight formula clarifying the classical shape-independent sampling law. The class and boundary limits are geometrically natural rather than arbitrary numerical cuts.",
+    "status": "PASS"
+  }
+}
