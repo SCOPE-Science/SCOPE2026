@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T02:59:19.363820Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/a-third-dimensional-sphere-wedge-theorem-for-hamiltonian-cycle-d--e829c600cc04/RESULT.md",
+        "2026/11/01/a-third-dimensional-sphere-wedge-theorem-for-hamiltonian-cycle-d--e829c600cc04/verify.py"
+      ],
+      "rationale": "PASS. Graph G_n=K_(n,n) with the alternating Hamiltonian 2-factor a_i b_i and a_i b_(i+1) deleted has faces of Ind_2 precisely vertex sets of induced degree<=1. The proof partitions by selected B subset: zero, one, two adjacent/nonadjacent, three and >=4 fibers under sequential toggles in A. For nonconsecutive B pairs there is one four-vertex critical mixed face each, count n(n-3)/2; subsequent B stages pair all remaining pure independent triples and leave (n^2-3n-2)/2 pure critical four-faces and lone a_0. Thus one critical 0-cell and n^2-3n-1 critical 3-cells. The inspected Deshpande–Singh Proposition 2.10 supplies sequential-matching acyclicity, and Forman gives integral wedge of exactly that many S3 (not merely homology). INDEPENDENT Python construction of all graph faces, sequential matching, directed Hasse acyclicity and exact critical sets for n=4..10 corroborated counts 3,9,17,27,39,53,69; infinite n follows from enumerated fiber cases and cited general matching proposition. At n=3 G3 is a matching so Ind2 is a simplex.",
+      "residual_risks": [
+        "The graph family is only one alternating Hamiltonian deletion; arbitrary deleted 2-factors not addressed.",
+        "Formal proof relies on correctly applying sequential element matching theorem to this vertex ordering; independent Hasse checks cover n<=10 only.",
+        "Publication-priority risk from alternate terminology dissociation complex, P3-free sets, and unindexed work."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh arXiv:2001.05448 Theorem 3.5 covers complete multipartite graphs, including K_(n,n), with S1 wedges; not edge-deleted dense bipartite graphs.",
+          "Taylan arXiv:1501.06754 path/cycle/forest special cases include the n=4 cycle."
+        ],
+        "reasoning": "Neither broader parameter on complete multipartite graphs nor cycle/forest topology covers the dense deleted-Hamiltonian family n>=5, and neither yields n^2-3n-1 third-sphere count.",
+        "searches": [
+          "Resultary semantic: 2-independence complex complete bipartite graph minus Hamiltonian cycle wedge S3 n squared minus 3n minus 1",
+          "https://arxiv.org/abs/2001.05448",
+          "https://arxiv.org/abs/1501.06754"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py, verification_output.txt scope and review at exact frozen Git tree",
+        "P. Deshpande, A. Singh, Higher independence complexes of graphs and their homotopy types, arXiv:2001.05448, original PDF page with Proposition 2.10 and Theorem 3.5",
+        "D. Taylan, Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs, arXiv:1501.06754",
+        "Independent actual face/matching DAG n=4..10 in private bounded Python check",
+        "Resultary semantic higher independence bipartite factor complement matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sequential-element-matching lemma is a reusable proof method, not a theorem stating this critical-face classification.",
+          "For complete K_(n,n), known Ind2~wedge^(n^2-1) S1, which cannot imply the deleted-cycle Ind2~wedge^(n^2-3n-1) S3."
+        ],
+        "reasoning": "Deleting a spanning Hamiltonian cycle changes the face poset; the cited theorems do not algebraically imply the new uniform third-dimensional wedge without the fiber analysis.",
+        "searches": [
+          "Resultary semantic: 2-independence complex complete bipartite graph minus Hamiltonian cycle wedge S3 n squared minus 3n minus 1",
+          "https://arxiv.org/abs/2001.05448",
+          "https://arxiv.org/abs/1501.06754"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind_2(G) is the dissociation-set/P3-free induced-degree-one complex, also called first higher independence in the cited source.",
+          "Ordinary Ind(G) and Rips complexes of the deleted 2-factor select different sets and thus are not equivalent here."
+        ],
+        "reasoning": "Aliases for P3-avoiding vertex sets were searched, but no result implying the full n>=4 wedge formula was found; the n=4 cycle overlap is explicitly already known.",
+        "searches": [
+          "Resultary semantic: 2-independence complex complete bipartite graph minus Hamiltonian cycle wedge S3 n squared minus 3n minus 1",
+          "Exact source: https://arxiv.org/abs/2001.05448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known n=4 cycle model is one table entry with rank 3; n>=5 computed values 9,17,27,... arise from new all-n proof.",
+          "Resultary nearest bipartite complement Rips barcodes use ordinary independence of deleted H, not P3-free vertex sets of retained G."
+        ],
+        "reasoning": "A finite n=4 overlap or nearby persistence table does not render the infinite exact homotopy theorem a recomputation; no covering table identified.",
+        "searches": [
+          "Resultary semantic: 2-independence complex complete bipartite graph minus Hamiltonian cycle wedge S3 n squared minus 3n minus 1",
+          "Resultary published SCOPE corpus semantic hits, object and parameter comparison"
+        ]
+      },
+      "rationale": "PASS on best-of-knowledge search and primary comparison. Taylan path/cycle/forest higher-independence cases cover at most isolated n=4 cycle, not the all-n dense bipartite 2-factor deletion. Deshpande–Singh Theorem 3.5 computes higher-independence of *complete* multipartite graphs, n>=4 deleted-edge family is not complete bipartite and its homotopy shifts from S1 to S3. Graph-metric Rips of deleted factor and ordinary independence are different face conditions. No stronger inclusion/duality theorem found to determine the claimed all-n wedge count.",
+      "residual_risks": [
+        "The graph family is only one alternating Hamiltonian deletion; arbitrary deleted 2-factors not addressed.",
+        "Formal proof relies on correctly applying sequential element matching theorem to this vertex ordering; independent Hasse checks cover n<=10 only.",
+        "Publication-priority risk from alternate terminology dissociation complex, P3-free sets, and unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TOOLS COVERED; RESULT NOT COVERED",
+          "evidence": "Theorem 3.5 requires complete multipartite graph; n>=5 graph has deleted edges and new critical-face count.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Original full 24-page PDF, inspected definition, Proposition 2.10 and Theorem 3.5 including visual page screenshot",
+          "method": "Read full primary PDF and verified the precise matching technique/graph-class hypotheses",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Closest general matching lemma and complete multipartite formula"
+        },
+        {
+          "assessment": "COVERS n=4 SPECIAL CASE ONLY",
+          "evidence": "G4 is C8, while G_n for n>=5 is connected dense regular bipartite, not just a cycle/forest.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+          "material_read": "Accessible abstract, theorem numbers and theorem scope cited by record; full primary not separately read",
+          "method": "Compared cycle/forest graph hypothesis to dense deleted-cycle bipartite graph",
+          "title": "Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs",
+          "trigger": "Cycle special case n=4 and path-devoid constructions"
+        },
+        {
+          "assessment": "DISTINCT INVARIANT",
+          "evidence": "Its scale-two Rips=ordinary Ind(H), not Ind2(K_nn - H).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e",
+          "material_read": "Resultary published finding and precise scale-two Rips equivalence scope; full proof not read",
+          "method": "Compared complexes and face conditions directly",
+          "title": "Independence-complex transfer and three-periodic Rips barcodes of bipartite factor complements",
+          "trigger": "Same K_nn minus low-degree bipartite forbidden H"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py, verification_output.txt scope and review at exact frozen Git tree",
+        "P. Deshpande, A. Singh, Higher independence complexes of graphs and their homotopy types, arXiv:2001.05448, original PDF page with Proposition 2.10 and Theorem 3.5",
+        "D. Taylan, Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs, arXiv:1501.06754",
+        "Independent actual face/matching DAG n=4..10 in private bounded Python check",
+        "Resultary semantic higher independence bipartite factor complement matches"
+      ],
+      "rationale": "PASS. Hamiltonian-cycle deletion is a canonical spanning 2-regular factor modification of a dense bipartite graph. The first higher-independence complex changes dimension and gains explicit quadratic sphere count; a full infinite uniform integral homotopy type supplies useful base case for deleted 2-factor topology, not a small arbitrary enumeration.",
+      "residual_risks": [
+        "The graph family is only one alternating Hamiltonian deletion; arbitrary deleted 2-factors not addressed.",
+        "Formal proof relies on correctly applying sequential element matching theorem to this vertex ordering; independent Hasse checks cover n<=10 only.",
+        "Publication-priority risk from alternate terminology dissociation complex, P3-free sets, and unindexed work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, verify.py, verification_output.txt scope and review at exact frozen Git tree",
+    "P. Deshpande, A. Singh, Higher independence complexes of graphs and their homotopy types, arXiv:2001.05448, original PDF page with Proposition 2.10 and Theorem 3.5",
+    "D. Taylan, Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs, arXiv:1501.06754",
+    "Independent actual face/matching DAG n=4..10 in private bounded Python check",
+    "Resultary semantic higher independence bipartite factor complement matches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The graph family is only one alternating Hamiltonian deletion; arbitrary deleted 2-factors not addressed.",
+    "Formal proof relies on correctly applying sequential element matching theorem to this vertex ordering; independent Hasse checks cover n<=10 only.",
+    "Publication-priority risk from alternate terminology dissociation complex, P3-free sets, and unindexed work."
+  ],
+  "residual_risks": [
+    "The graph family is only one alternating Hamiltonian deletion; arbitrary deleted 2-factors not addressed.",
+    "Formal proof relies on correctly applying sequential element matching theorem to this vertex ordering; independent Hasse checks cover n<=10 only.",
+    "Publication-priority risk from alternate terminology dissociation complex, P3-free sets, and unindexed work."
+  ],
+  "schema_version": 1
+}

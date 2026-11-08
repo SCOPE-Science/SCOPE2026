@@ -1,23 +1,21 @@
-# Review: Hamiltonian-cycle-deleted bipartite graphs
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The graph, two-independence face condition, and integer range \(n\ge4\) are explicit. The proof partitions faces by the chosen bipartite class \(B\) and performs a sequential-element matching. The fiber case analysis leaves one vertex, \(n(n-3)/2\) mixed three-cells, and \((n^2-3n-2)/2\) pure three-cells. The standard acyclicity proposition for sequential element matchings is given in Deshpande–Singh, Proposition 2.10; Forman's theorem then gives an integral wedge of \(n^2-3n-1\) three-spheres. Unlike an inference from homology, the absence of critical intermediate-dimensional cells supplies trivial attaching maps.
+PASS
 
-The executable `verify.py` independently evaluates the membership predicate on every subset through \(n=8\), verifies all matching arrows and acyclicity through \(n=12\), and computes mod-two homology through \(n=8\). These checks corroborate but do not replace the infinite proof. The exceptional \(n=3\) graph is a disjoint matching, hence a simplex at parameter two.
+PASS. Graph G_n=K_(n,n) with the alternating Hamiltonian 2-factor a_i b_i and a_i b_(i+1) deleted has faces of Ind_2 precisely vertex sets of induced degree<=1. The proof partitions by selected B subset: zero, one, two adjacent/nonadjacent, three and >=4 fibers under sequential toggles in A. For nonconsecutive B pairs there is one four-vertex critical mixed face each, count n(n-3)/2; subsequent B stages pair all remaining pure independent triples and leave (n^2-3n-2)/2 pure critical four-faces and lone a_0. Thus one critical 0-cell and n^2-3n-1 critical 3-cells. The inspected Deshpande–Singh Proposition 2.10 supplies sequential-matching acyclicity, and Forman gives integral wedge of exactly that many S3 (not merely homology). INDEPENDENT Python construction of all graph faces, sequential matching, directed Hasse acyclicity and exact critical sets for n=4..10 corroborated counts 3,9,17,27,39,53,69; infinite n follows from enumerated fiber cases and cited general matching proposition. At n=3 G3 is a matching so Ind2 is a simplex.
 
-## Originality (O) — PASS on inspected evidence, with residual risk
+## originality
 
-Taylan, *Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs* (arXiv:1501.06754v1, first posted 2015-01-27), treats path/cycle/forest graph complexes; its cycle theorem covers the isolated \(n=4\) case, not the family. Deshpande–Singh, *Higher independence complexes of graphs and their homotopy types* (arXiv:2001.05448), gives the technique and a complete-multipartite classification; the latter does not apply to a graph with an alternating Hamiltonian cycle deleted.
+PASS
 
-The ordinary independence complex of the same deleted-cycle graph, a graph-metric Vietoris–Rips complex described using its deleted factor, the first higher-independence complex of a crown graph (one deleted matching), and the complete bipartite graph without deleted edges all have different face conditions and do not imply this theorem. Searches covering dissociation, \(P_3\)-devoid, induced-degree-one and Hamiltonian-cycle deletion terminology found no covering stronger result. Accessible indexed records and earlier recoverable claims were compared on their implications, not only title similarities. An equivalent unindexed publication remains possible.
+PASS on best-of-knowledge search and primary comparison. Taylan path/cycle/forest higher-independence cases cover at most isolated n=4 cycle, not the all-n dense bipartite 2-factor deletion. Deshpande–Singh Theorem 3.5 computes higher-independence of *complete* multipartite graphs, n>=4 deleted-edge family is not complete bipartite and its homotopy shifts from S1 to S3. Graph-metric Rips of deleted factor and ordinary independence are different face conditions. No stronger inclusion/duality theorem found to determine the claimed all-n wedge count.
 
-## Mathematical value (V) — PASS
+## value
 
-Deleting one alternating spanning cycle is a canonical, connected, regular-graph construction rather than an arbitrary choice of exceptional small graph. The first higher-independence complex of this dense bipartite family has an exact uniform, nontrivial integral homotopy type. It changes from the complete bipartite family's degree-one homology to degree-three homology, with an explicit quadratic sphere multiplicity. This identifies the structural impact of deleting a single spanning 2-factor and supplies a baseline for more general 2-factor deletions. The value comes from the uniform topology, not from a small numerical improvement or code alone.
+PASS
 
-## Scope and limitations
+PASS. Hamiltonian-cycle deletion is a canonical spanning 2-regular factor modification of a dense bipartite graph. The first higher-independence complex changes dimension and gains explicit quadratic sphere count; a full infinite uniform integral homotopy type supplies useful base case for deleted 2-factor topology, not a small arbitrary enumeration.
 
-The result is nonequivariant and concerns exactly the first higher-independence parameter. Neither arbitrary unions of deleted cycles nor higher parameters are addressed. Finite verification does not prove the infinite statement. Definitive publication priority and independent mathematical validation remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
