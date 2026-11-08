@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:46:58.469178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every shortest path between cliques crosses the unique Exp(beta) bridge. Memorylessness and exchangeability give independent clique discovery holding times Exp(k(n-k)/n) and nongate gate rank J uniform on {2,...,n}; exact T=max(F_n,H_n+E_beta+F_n_prime) where H_n is partial sum up to J-1 (dependent on F_n). For nongate, H_n-log n tends to Gumbel plus logit(U); second clique F_n_prime-2log n tends to independent two-Gumbel sum; first clique F_n is lower by log n and exponential-moment control makes its positive correction vanish in L2. Therefore T-3log n converges to three Gumbels + logistic + Exp(beta) with mgf beta/(beta-s)*Gamma(1-s)^4*Gamma(1+s) and mean/variance constants 3gamma+1/beta,5pi^2/6+1/beta^2. At gate H_n=0; the exact maximum yields T-2log n -> max(two independent Gumbel sums, exponential bridge plus independent two-Gumbel sum). Independently computed exact rational CTMC infected-count expectations for n=2..5 at rates beta=1/2,1,3, obtaining e.g. n=2,beta=1 nongate=5,gate=11/3; independent Gumbel/logistic MGF factor at s=1/4 evaluated. No finite test stands for limiting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mountford-Saliba and Leskelä-Ngo analyze random sparse degree-controlled graphs, unlike deterministic two cliques of growing degree n-1 connected by a single bottleneck. The established complete graph rate 1/n flooding limit is two independent Gumbels, without a bridge or random gate rank."
+        ],
+        "reasoning": "General sparse-graph theorems do not cover the barbell graph hypotheses, while complete-graph theory supplies one building block not its bridge-rank logistic mixture or gate-sensitive maximum.",
+        "searches": [
+          "Mountford and Saliba arXiv:1909.04563 general flooding of configuration model",
+          "Leskelä and Ngo arXiv:1806.09568 first passage flooding sparse random graphs",
+          "van der Hofstad Hooghiemstra Van Mieghem complete graph flooding"
+        ]
+      },
+      "checked_sources": [
+        "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf",
+        "https://arxiv.org/abs/1909.04563",
+        "https://arxiv.org/abs/1806.09568",
+        "Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete clique limit F_n-2log n -> G1+G2 is an explicit component of the new limit; H_n has a uniform random infection rank introducing log(U/(1-U)), absent from the old one-clique theorem. Gate root instead compares two simultaneous clique completion processes; neither sparse FPP paper covers deterministic high-degree bridge."
+        ],
+        "reasoning": "No compared theorem has hypotheses and conclusion logically entailing both nongate and gate source-orbit limits. The new gamma transform follows only after adding the rank-mixture mechanism.",
+        "searches": [
+          "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf",
+          "https://arxiv.org/abs/1909.04563",
+          "https://arxiv.org/abs/1806.09568"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-passage percolation flooding equals completion time of permanent SI infection with independent exponential edge waits. Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2 is deterministic zero forcing, not passage-time distribution."
+        ],
+        "reasoning": "Searched FPP, SI, first infection of a gate, and complete-barbell terminology. Equivalent SI formulation preserves same independence and rate normalization, but the found deterministic invariant does not entail a stochastic limit.",
+        "searches": [
+          "Resultary: weighted complete graph barbell exponential first passage percolation flooding gate source logistic Gumbel",
+          "web: \"barbell\" \"flooding time\" \"Gumbel\" \"logistic\" first passage exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed related bridge-barbell zero-forcing polynomial is a different object; no exact barbell FPP law or numerical tabulation providing this n->infinity law was found."
+        ],
+        "reasoning": "An asymptotic distribution is not itself a finite table. The source checker provides finite exact expectations but a prior table of expectations would not imply the joint limit/mgf. Negative search does not prove priority.",
+        "searches": [
+          "Resultary: stochastic flooding distribution of two cliques connected by a bridge",
+          "web: two clique gate source exponential flooding exact moment distribution"
+        ]
+      },
+      "rationale": "The two-Gumbel completion limit on a single complete graph is old and explicitly used; sparse configuration-model flooding results have incompatible graph hypotheses. The record adds the bridge entrance-rank logistic mixture and the distinct gate-source law. No prior result found that implies the full distributional conjunction; a specialized community-FPP result could remain undiscovered.",
+      "residual_risks": [
+        "Potential specialized two-community SI or weighted-barbell FPP limit might be reported under epidemic notation outside indexed searches.",
+        "Uniform exponential moments for the random-rank entrance time were reconstructed at proof-outline level rather than every product error constant mechanically certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: single-clique flooding law",
+          "evidence": "Known two-Gumbel limit supplies F_n but has no unique interclique bridge, nongate entrance rank or gate-source distinction.",
+          "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf",
+          "material_read": "Available primary source sections on exponential complete-network flooding and two-Gumbel time limit, as used by the package; not all pages exhaustively compared.",
+          "method": "primary mathematical formula/sections",
+          "title": "Complete-graph flooding with exponential link weights (van der Hofstad, Hooghiemstra, Van Mieghem)",
+          "trigger": "identical intra-clique passage model"
+        },
+        {
+          "assessment": "NOT_APPLICABLE to growing-degree deterministic barbell under stated hypotheses",
+          "evidence": "Configuration-model degree assumptions are not met by two growing cliques with one separating bridge.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.04563",
+          "material_read": "Primary theorem and assumptions/intro sections on sparse configuration models were read; no full-text exclusion claim.",
+          "method": "primary available preprint",
+          "title": "Flooding and diameter in the configuration model with edge weights",
+          "trigger": "potentially stronger random graph flooding theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a source-location-sensitive flooding-time limit for a canonical two-community bottleneck graph; distinguishes gate and nongate 2log n vs 3log n and yields the complete fluctuation law plus moment constants. This sharp geometric dependence is not a routine rewrite of the one-clique process.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential specialized two-community SI or weighted-barbell FPP limit might be reported under epidemic notation outside indexed searches.",
+    "Uniform exponential moments for the random-rank entrance time were reconstructed at proof-outline level rather than every product error constant mechanically certified."
+  ],
+  "schema_version": 1
+}

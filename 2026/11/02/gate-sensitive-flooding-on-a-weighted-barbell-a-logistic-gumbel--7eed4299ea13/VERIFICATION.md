@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact graph-level infected-count recursion and a separate uniform gate-rank conditioned recursion use rational arithmetic to calculate the mean flooding time on the two-clique, single-bridge network. They agree for every \(2\le n\le8\) and each bridge rate in \(\{1/2,1,3/2,3\}\). The gate-source specialization and lower bound obtained by retaining only the delayed second-clique completion are checked for the same parameter pairs. Total exact checks: \(84\).
+## correctness
 
-Two further Laplace/moment product comparisons at each of \(n=100,1000,10000\) and \(s=\pm1/4\) confirm convergence toward the derived gamma transforms, totaling \(12\) additional numerical checks. Execute `python checker.py` to reproduce `CHECKS_PASS 96`.
+PASS
 
-The independence of the uniform infection order and the exponential holding times, the two-Gumbel convergence, the gate-rank Gumbel–logistic convergence, and uniform moment control are proved analytically in `RESULT.md`. No finite checker run is treated as an infinite proof. Source comparisons are limited to the identified papers and indexed searches. Independent audit and historical-priority certification have not been performed.
+Every shortest path between cliques crosses the unique Exp(beta) bridge. Memorylessness and exchangeability give independent clique discovery holding times Exp(k(n-k)/n) and nongate gate rank J uniform on {2,...,n}; exact T=max(F_n,H_n+E_beta+F_n_prime) where H_n is partial sum up to J-1 (dependent on F_n). For nongate, H_n-log n tends to Gumbel plus logit(U); second clique F_n_prime-2log n tends to independent two-Gumbel sum; first clique F_n is lower by log n and exponential-moment control makes its positive correction vanish in L2. Therefore T-3log n converges to three Gumbels + logistic + Exp(beta) with mgf beta/(beta-s)*Gamma(1-s)^4*Gamma(1+s) and mean/variance constants 3gamma+1/beta,5pi^2/6+1/beta^2. At gate H_n=0; the exact maximum yields T-2log n -> max(two independent Gumbel sums, exponential bridge plus independent two-Gumbel sum). Independently computed exact rational CTMC infected-count expectations for n=2..5 at rates beta=1/2,1,3, obtaining e.g. n=2,beta=1 nongate=5,gate=11/3; independent Gumbel/logistic MGF factor at s=1/4 evaluated. No finite test stands for limiting proof.
+
+## originality
+
+PASS
+
+The two-Gumbel completion limit on a single complete graph is old and explicitly used; sparse configuration-model flooding results have incompatible graph hypotheses. The record adds the bridge entrance-rank logistic mixture and the distinct gate-source law. No prior result found that implies the full distributional conjunction; a specialized community-FPP result could remain undiscovered.
+
+## value
+
+PASS
+
+Determines a source-location-sensitive flooding-time limit for a canonical two-community bottleneck graph; distinguishes gate and nongate 2log n vs 3log n and yields the complete fluctuation law plus moment constants. This sharp geometric dependence is not a routine rewrite of the one-clique process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact distributional identity holds because the bridge is the sole inter-community route, and exponential boundary races in each clique have independent holding times of rates \(k(n-k)/n\) and an independent uniform label order. The limit of full-clique flooding is the established sum of two independent Gumbels; the designated-gate hitting time has a separate Gumbel plus logistic limit. The second-clique completion exceeds the first-clique completion by order \(\log n\) for nongate sources, with the maximum correction vanishing in \(L^2\). The gate-source maximum limit follows independently. The gamma transform and mean/variance calculations follow by differentiating a product of established transforms. The standalone rational checker independently tests the finite epidemic-state recursion and the rank-conditioned construction, and checks centered finite transforms. Residual scientific risk: none identified within the exact assumptions, but the result is not independently audited.
+PASS
 
-## Originality — PASS (qualified)
+Every shortest path between cliques crosses the unique Exp(beta) bridge. Memorylessness and exchangeability give independent clique discovery holding times Exp(k(n-k)/n) and nongate gate rank J uniform on {2,...,n}; exact T=max(F_n,H_n+E_beta+F_n_prime) where H_n is partial sum up to J-1 (dependent on F_n). For nongate, H_n-log n tends to Gumbel plus logit(U); second clique F_n_prime-2log n tends to independent two-Gumbel sum; first clique F_n is lower by log n and exponential-moment control makes its positive correction vanish in L2. Therefore T-3log n converges to three Gumbels + logistic + Exp(beta) with mgf beta/(beta-s)*Gamma(1-s)^4*Gamma(1+s) and mean/variance constants 3gamma+1/beta,5pi^2/6+1/beta^2. At gate H_n=0; the exact maximum yields T-2log n -> max(two independent Gumbel sums, exponential bridge plus independent two-Gumbel sum). Independently computed exact rational CTMC infected-count expectations for n=2..5 at rates beta=1/2,1,3, obtaining e.g. n=2,beta=1 nongate=5,gate=11/3; independent Gumbel/logistic MGF factor at s=1/4 evaluated. No finite test stands for limiting proof.
 
-The most relevant preexisting complete-graph paper establishes the \(2\)-Gumbel clique flood and therefore covers an essential ingredient, not the two-community gate-conditioned result. The inspected 2018 and 2019 first-passage papers treat large random sparse graphs with regularity assumptions, not deterministic high-degree communities separated by a unique bridge; no theorem there implies the present exact rank-mixture representation or the two source-orbit fluctuation laws. A 2024 study concerns quantum search on the weighted barbell, not exponential classical flooding. Actual targeted literature and published-claim comparisons did not find the complete assertion. Residual risk: terminology other than “barbell” or a separately indexed source-conditioned epidemic could contain equivalent prior work; absence in retrieved results is not proof of world-first priority.
+## originality
 
-## Value — PASS
+PASS
 
-A barbell is a canonical network with two dense communities and a single bottleneck, and flooding-time dependence on source position is a natural network-reliability and dissemination question. The theorem quantifies a leading \(\log n\) savings from using a gate rather than any ordinary source, identifies the full non-Gaussian fluctuation law and gives explicit moments. These facts are not furnished by the classical complete-graph result or logarithmic-order bounds for random sparse networks; the logistic component records the random infection rank of the bottleneck endpoint. The graph family is motivated by its bottleneck geometry rather than chosen as an arbitrary finite slice.
+The two-Gumbel completion limit on a single complete graph is old and explicitly used; sparse configuration-model flooding results have incompatible graph hypotheses. The record adds the bridge entrance-rank logistic mixture and the distinct gate-source law. No prior result found that implies the full distributional conjunction; a specialized community-FPP result could remain undiscovered.
 
-## Closest sources and limitations
+## value
 
-Mountford–Saliba (arXiv:1909.04563v1), Leskelä–Ngo (arXiv:1806.09568v1), and van der Hofstad–Hooghiemstra–Van Mieghem (2001/2002) are the central comparisons. The theorem requires one bridge, independent exponential weights, two equal cliques and constant positive bridge rate. No independent audit or priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines a source-location-sensitive flooding-time limit for a canonical two-community bottleneck graph; distinguishes gate and nongate 2log n vs 3log n and yields the complete fluctuation law plus moment constants. This sharp geometric dependence is not a routine rewrite of the one-clique process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
