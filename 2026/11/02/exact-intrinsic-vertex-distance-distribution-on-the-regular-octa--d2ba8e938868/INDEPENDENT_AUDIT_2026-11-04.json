@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For the unit-edge regular octahedron, four top/bottom face rhombi unfold the fixed vertex N to N′=(√3,0) on each bottom triangle. A globally continuous facewise Euclidean 1-Lipschitz distance candidate gives a lower bound for all surface paths, while straight rhombus paths realize it, so it is globally exact (including cut-locus points). For r<=1 each rhombus gives a π/3 disk sector, resulting F=πr²/(3√3). For 1<r<√3 the complement comprises four equal corner triangles minus circular segments with t=(3−√(4r²−3))/2 and s=√3(1−t/2), giving the stated arccosine branch. Barycentric second moments on top/bottom faces are 5/12,17/12 hence E[R²]=11/12; differentiating gives F″ jump −4, and radial expansion at S yields tail (2/3)ε². Independent face-grid CDF computations agree. Universal proof is geometric.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miller–Pak supplies general cut-locus/source-unfolding machinery. Schwartz identifies antipode of an octahedral cone vertex as farthest point. Neither full text provides the exact CDF, squared moment and jump/tail coefficients."
+        ],
+        "reasoning": "Farthest-point maximal-radius result overlaps endpoint √3 only; does not determine the volume of all metric balls. General unfolding methods are not an evaluated distribution.",
+        "searches": [
+          "Miller Pak math/0312253 source unfoldings",
+          "Schwartz arXiv 2004.11852 Lemma 2.1",
+          "Ciccariello arXiv:1401.7950"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1401.7950",
+        "https://arxiv.org/abs/2004.11852",
+        "https://arxiv.org/abs/math/0312253",
+        "Resultary semantic search (octahedron intrinsic vertex distance)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schwartz cone-point antipode result implies one endpoint and provides no area distribution. The proof here needs four rhombus area complements and circle segment, giving second derivative jump -4 and tail 2/3 eps²."
+        ],
+        "reasoning": "The geometric law is not merely a restatement of maximum-distance dynamics or ambient chord density.",
+        "searches": [
+          "Schwartz arXiv:2004.11852 full text Lemma 2.1",
+          "Miller–Pak math/0312253 full geometric machinery"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The metric is intrinsic shortest path from a *fixed vertex* to a *surface-area uniform* point, not Euclidean chord length between random points or the pointwise maximum over endpoints."
+        ],
+        "reasoning": "Aliases via intrinsic geodesic ball-area profile and normalized radial-distance CDF were included; full Schwarz paper evaluates farthest-point map but not this all-radii pushforward distribution.",
+        "searches": [
+          "Resultary: regular octahedron geodesic distance vertex uniform surface distribution mean squared",
+          "Schwartz 2004.11852 regular octahedron farthest point map",
+          "Ciccariello 1401.7950 octahedron chord length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published chord PDF treats Euclidean straight-segment distances; the Resultary octahedron items found width/section-diameter invariants, different pushforwards."
+        ],
+        "reasoning": "No same intrinsic CDF database was found in the searches actually performed; this does not exclude nonindexed classical wavefront tables.",
+        "searches": [
+          "Resultary octahedron geodesic vertex uniform surface distribution",
+          "arXiv:1401.7950 octahedron chord distribution",
+          "arXiv:2004.11852 octahedron farthest map"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty of the full fixed-vertex intrinsic surface-area distance distribution on the regular octahedron; no originality credit for known polyhedral source-unfolding methods, ambient octahedron chord laws, or farthest-point maps.",
+      "residual_risks": [
+        "Classical polyhedral wavefront calculations may contain equivalent ball-area formula without modern probabilistic notation.",
+        "Farthest-point literature is strongly relevant but the inspected full Schwartz text stops short of this distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_METRIC_AND_SAMPLING",
+          "evidence": [
+            "Euclidean chord length, not a fixed-source surface geodesic metric."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.7950",
+          "material_read": "Full accessible PDF, chord-distance definition, face-pair integrals and stated density",
+          "method": "Read complete arXiv preprint",
+          "title": "The chord-length probability density of the regular octahedron",
+          "trigger": "Same regular octahedron, plausible distance density"
+        },
+        {
+          "assessment": "PARTIAL_ENDPOINT_ONLY",
+          "evidence": [
+            "Vertex antipode is farthest point; no full sublevel surface-area law in inspected paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.11852",
+          "material_read": "Full accessible primary preprint, introduction, Lemma 2.1, main map/dynamics conclusions",
+          "method": "Read full PDF including geometric theorems",
+          "title": "The Farthest Point Map on the Regular Octahedron",
+          "trigger": "Same intrinsic metric and vertex antipode"
+        },
+        {
+          "assessment": "METHOD_PRIOR_NOT_EXPLICIT_FORMULA",
+          "evidence": [
+            "General machinery not an exact regular-octahedron fixed-vertex distribution table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312253",
+          "material_read": "Full available primary preprint, source-unfolding and cut-locus statements",
+          "method": "Read full PDF and relevant theorems",
+          "title": "Metric combinatorics of convex polyhedra: cut loci and nonoverlapping unfoldings",
+          "trigger": "General polyhedral geodesic method might dominate construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The vertex-centered metric-ball area profile is a natural intrinsic polyhedral invariant. The complete distribution, squared moment 11/12, unique antipodal radius √3, exact differentiability break and tail coefficient give reusable exact data for geodesic probability and wavefront comparison, not just a numerical one-point computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed vertex on regular unit-edge octahedron and surface-area-uniform independent endpoint, not two random points or ambient chord lengths.",
+    "Classical geodesic wavefront sources may include equivalent law under different nomenclature."
+  ],
+  "schema_version": 1
+}

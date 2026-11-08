@@ -1,19 +1,21 @@
-# Scientific review: exact intrinsic vertex-distance distribution on the regular octahedron
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The facewise distance formula is proved by a continuous piecewise Euclidean distance function that is globally 1-Lipschitz, coupled with explicit straight-line realizations in each developed rhombus. The four-sector geometric decomposition has a minimum radial boundary distance of one, which gives the first CDF branch without an unproved geodesic assumption. The upper branch follows by subtracting four exact circular-segment complements. The moment is derived by barycentric integration, and the tail by a uniform small-radius polar expansion near the opposite vertex. The standalone exact rational unfolding and seeded samples passed. These finite checks support but do not replace the proof.
+PASS
 
-## Originality
+PASS. For the unit-edge regular octahedron, four top/bottom face rhombi unfold the fixed vertex N to N′=(√3,0) on each bottom triangle. A globally continuous facewise Euclidean 1-Lipschitz distance candidate gives a lower bound for all surface paths, while straight rhombus paths realize it, so it is globally exact (including cut-locus points). For r<=1 each rhombus gives a π/3 disk sector, resulting F=πr²/(3√3). For 1<r<√3 the complement comprises four equal corner triangles minus circular segments with t=(3−√(4r²−3))/2 and s=√3(1−t/2), giving the stated arccosine branch. Barycentric second moments on top/bottom faces are 5/12,17/12 hence E[R²]=11/12; differentiating gives F″ jump −4, and radial expansion at S yields tail (2/3)ε². Independent face-grid CDF computations agree. Universal proof is geometric.
 
-PASS under the available literature, with explicit priority risk. The complete accessible preprint of Ciccariello (arXiv:1401.7950) studies ambient Euclidean octahedral chords, a different metric and sampling domain. Schwartz (arXiv:2004.11852) addresses farthest-point dynamics, not the entire distribution of sublevel areas from a fixed source, according to the accessible abstract; its inaccessible full text is a residual risk and was not claimed to be checked. Published-record searches targeted aliases, geodesic balls, fixed-vertex distributions, second moments, and equivalent octahedral source unfoldings. The nearest neighboring fixed-vertex formulas concerned the tetrahedron or cube, neither intrinsically isometric to the octahedron.
+## originality
 
-## Value
+PASS
 
-PASS. This is a canonical fixed-source metric-measure invariant of a Platonic surface. The complete exact law reveals a cancellation of the apparent equatorial threshold, a genuine sharp second-derivative transition at unit distance, a closed rational second moment, and a sharp terminal-tail constant. These distinguish the intrinsic law from known Euclidean chord and farthest-point results and provide reproducible benchmarks for polyhedral geodesic-ball computations. The result is restricted to the regular octahedron; no generalization is implied.
+Qualified best-of-knowledge novelty of the full fixed-vertex intrinsic surface-area distance distribution on the regular octahedron; no originality credit for known polyhedral source-unfolding methods, ambient octahedron chord laws, or farthest-point maps.
 
-## Closest literature and scientific limits
+## value
 
-Ciccariello (2014), arXiv:1401.7950, full text inspected: Euclidean chord distribution, not intrinsic. Schwartz (2020), arXiv:2004.11852, abstract inspected but full text unavailable: related octahedral farthest-point map, historical-priority caveat. Unknown earlier published or unindexed fixed-vertex area calculations cannot be excluded. Independent scientific validation has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The vertex-centered metric-ball area profile is a natural intrinsic polyhedral invariant. The complete distribution, squared moment 11/12, unique antipodal radius √3, exact differentiability break and tail coefficient give reusable exact data for geodesic probability and wavefront comparison, not just a numerical one-point computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
