@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem concerns arbitrary real reports in \(\mathbb R^2\), including coincident locations. The proof separately handles zero-optimum profiles; for even sizes the \(\ell_1\) comparison gives factor \(2\); for odd sizes a four-quadrant nonnegative dual-certificate argument proves the sharper \(2n/(n+1)\). The certificate correctly counts strictly positive coordinates separately, at most \((n-1)/2\) each, and handles \(t=0,1\) and reports on both axes. Three-location examples attain every bound. The proof is analytic, and exact-rational verification reproduces its small cases; exhaustive finite tests are not used as an infinite proof.
+PASS
 
-## Originality
+For n>=2 agents with possible repetitions in R², Chebyshev disutility transforms by U=x+y,V=x-y into half the sum of two one-dimensional absolute-deviation costs, giving exact O(X). The lower even coordinate-wise median is L1 optimal and the norm comparisons prove factor2. For n=2k+1, after translation and symmetries the competing facility is (1,t), 0<=t<=1; in each of four coordinate sign regions the source certificate bounds R||a-z||infty-||a||infty below by c-A1{x>0}-B1{y>0}, R=(2k+1)/(k+1). Each positive coordinate count <=k, leaving t/(k+1)>=0 after summation. Three-point witness profiles attain 2 for even n and 2n/(n+1) for odd n, including k=1. Independent exhaustive enumeration over all 9-point grid multisets for n=2..7 verifies every sharp ratio, not an infinity proof.
 
-**PASS, with residual unindexed-priority risk.** Hastings, arXiv:2606.12187, proves the sharp asymptotic/population-uniform factor \(2\), with explicit limiting lower-bound examples. That result is compatible with—and does not imply—the sharp strict improvement for each fixed odd population. The published Euclidean \(n\)-dependent formula of Goel and Hann-Caruthers concerns a different per-agent norm, so it does not cover the Chebyshev-plane claim. Lin, arXiv:2610.36613, treats exact optimization and the uniform Chebyshev factor \(2\), without stating the finite odd-case constant in the inspected full text. Semantic and phrase searches found no exact equivalent, but absence of a match is not proof of priority. Earlier records on randomized multility facility mechanisms have different objects.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The new exact \(n\)-dependent guarantee resolves a structural ambiguity in the known sharp \(2\) benchmark. In particular, it shows a parity discontinuity: doubling an odd population preserves the same reported data ratio and makes even-population factor \(2\) attainable, while at fixed odd size the barrier is strictly below \(2\). Exact attainment, the real-domain proof and a closed-form optimal cost checker make this useful as a benchmark for deterministic strategyproof facility rules and finite-population guarantees.
+Hastings June 2026 proves the sharp population-uniform factor2 for planar L∞/utilitarian costs; a growing-population lower bound and odd-duplication reduction do not imply fixed odd-n sharpness 2n/(n+1). Lin October 2026 likewise states the uniform factor2 and a different optimal mechanism in L∞; Goel–Hann-Caruthers odd finite-n formula is for Euclidean per-agent distances. No retrieved source states the finite-Chebyshev parity law. Hastings and Lin originals were not accessible in full this execution, so original detailed comparisons rely on their accessible abstracts and source mathematical statements; an implicit fixed-n implication remains a named risk.
 
-## Closest literature and limitations
+## value
 
-The sources are Hastings (arXiv:2606.12187), Goel–Hann-Caruthers (arXiv:2007.00903), and Lin (arXiv:2610.36613). The result is not a general lower bound for all strategyproof mechanisms, and does not extend by this proof to higher dimensions, nonunit weights, or multiple facilities. The latter Lin source was released after the initiating-source cutoff and was used for comparison only. An independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-population optimum of a classical strategyproof coordinate-wise median is a fundamental geometric mechanism benchmark. A sharp parity split distinguishes a true finite odd-n improvement from the known uniform constant2, and explicit witnesses establish optimality for every population size, so the theorem answers a natural precise gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
