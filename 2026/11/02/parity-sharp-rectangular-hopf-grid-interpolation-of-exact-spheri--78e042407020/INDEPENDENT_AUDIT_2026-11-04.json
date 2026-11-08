@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:14:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An explicit Laplacian recurrence c_(a+1)=-c_a (m-a)(m-a+beta)/((a+1)(a+1+alpha)) constructs one harmonic for every angular weight (u,v) with |u|+|v|<=k and k-|u|-|v| even. These (k+1)^2 distinct torus characters span H_k(S³); their radial factors are nonzero rational polynomials Q(s) with Q(0)=1. Since s=e^-1 is transcendental, no radial coefficient vanishes for any weight or degree. The grid evaluation matrix is therefore diagonalized into discrete characters modulo (N,M), and its rank equals the exact number of residues of the weight diamond W_k. Along coordinate axes the step-2 weights -k,-k+2,...,k force each period T to be odd T>=k+1 or even T>2k. Conversely, congruent differences must respect |du|+|dv|<=2k and even total parity; the allowed periods prevent nonzero collisions in all mixed parity cases. Thus the necessary/sufficient rectangular-grid rule and optimal (k+1)^2 even, (k+2)^2 odd site counts follow for every degree, including k=0 and size-one grids. Independently exhaustively enumerated 4056 (k,N,M) combinations through k=12 to check the alias criterion. This is finite corroboration, not the transcendental universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published separated Hopf-coordinate modes provide the basis, but without additional combinatorial analysis they neither state the optimal product sample counts nor the sharp even-period penalty."
+        ],
+        "reasoning": "Generic multivariate Nyquist sufficient conditions are broader but not shown to imply this iff condition in the constrained exact-degree parity diamond. No general theorem found with identical hypotheses and stronger result.",
+        "searches": [
+          "Ben Achour Huguet Queva Renaud Explicit vector spherical harmonics 3 sphere Jacobi modes Section II",
+          "spherical harmonic sampling Hopf coordinates Nyquist tensor grid interpolation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1505.03426",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2015 scalar Jacobi/Hopf basis is used directly, but its angular weight functions alone do not assert which residue collisions occur for given arbitrary N,M or the optimal products."
+        ],
+        "reasoning": "The prior separated-mode result is a necessary premise, not an already stated interpolation theorem; the exact alias/no-collision classification supplies substantive additional math.",
+        "searches": [
+          "arxiv:1505.03426 Section II eq 3 scalar harmonics",
+          "odd even angular frequencies alias rectangular grid 3 sphere"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ben Achour et al separate S^3 scalar harmonics in angular (m+,m-) and radial Jacobi factors; the proposed torus restriction is the two-dimensional finite Fourier character system of the diamond W_k.",
+          "No explicit all-k N×M injectivity criterion or parity-adjusted site minimum appeared in the full inspected author text."
+        ],
+        "reasoning": "Equivalent formulation as spectral alias-free injection of a parity diamond into Z_N×Z_M is explicitly compared; the new part is the geometric harmonic-band identification plus sharp product alias criterion.",
+        "searches": [
+          "Hopf torus rectangular grid exact spherical harmonic interpolation unisolvent parity alias",
+          "Hopf torus Jacobi spherical harmonics two angle sampling exact degree rectangular unisolvent Nyquist",
+          "arxiv:1505.03426"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching finite table of exact all-degree minimal rectangular torus grid sizes was located; the formula gives a uniform infinite family rather than reusing a table."
+        ],
+        "reasoning": "A standard sampling table for a parity-diamond Fourier support, if known, could encode the same condition; searches are not proof of novelty.",
+        "searches": [
+          "\"Hopf torus\" \"spherical harmonics\" \"grid\" interpolation",
+          "rectangular root unity sample exact degree three-sphere parity grid",
+          "Resultary Hopf torus sampling exact harmonics"
+        ]
+      },
+      "rationale": "Separated S^3 Hopf/Jacobi harmonics are established, and ordinary DFT aliasing is standard. The exact finite rectangular-grid necessary-and-sufficient condition for all exact degree-k harmonics, including parity sharpness and optimal site counts on a fixed nonresonant torus, was not found in inspected primary work. Qualified best-of-knowledge originality with general Nyquist-theorem and unindexed interpolation-literature risks.",
+      "residual_risks": [
+        "A multivariate sampling/alias theorem for parity-restricted Fourier diamonds might render the proof a specialization even if S^3 is not named.",
+        "The exceptional algebraic radii are not classified and no stability estimate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODES_BUT_NOT_GRID_CRITERION",
+          "evidence": "Section II formula (3) is separated Jacobi and angular e^{i(m+theta++m-theta-)} modes; later sections treat vector one-forms, not rectangular root-of-unity unisolvence.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.03426",
+          "material_read": "Complete author-uploaded manuscript text, especially section II scalar harmonics in Hopf coordinates and section III vector harmonics",
+          "method": "author_uploaded_full_text",
+          "title": "Explicit vector spherical harmonics on the 3-sphere",
+          "trigger": "Same separated S^3 angular harmonic modes"
+        },
+        {
+          "assessment": "NO_DIRECT_MATCH_IN_SEARCH",
+          "evidence": "Matched different discrete Fourier sampling sets; absence of a hit is not absence of a general theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Semantic search titles and short summaries across currently published records; no full text read except the q-ary Hamming paper for another record",
+          "method": "ranked_summary_search",
+          "title": "Resultary published sampling and Fourier frames findings",
+          "trigger": "Possible dominating exact Fourier interpolation rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the exact sampling threshold of a natural separated harmonic basis on a single torus, identifying parity-sensitive angular Nyquist aliasing and a sharp interpolation-vs-oversampling cost. The constraint to root-of-unity product grids and a nonresonant radius is mathematically motivated by Fourier separation and not a synthetic slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not unisolvence for low-pass sum of degrees; no arbitrary irregular-site optimality; requires transcendental/nonresonant torus radius.",
+    "Only injectivity, not conditioning, is established.",
+    "Nonpublic private scientific assessment, not external independent expert/formal attestation; publication plan explicitly not ready."
+  ],
+  "schema_version": 1
+}
