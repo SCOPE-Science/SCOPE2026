@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The upper bound is constructive: empty petals of mass at least four are locally cleared into the center by induction on their mass; the five small-mass cases have explicit legal moves; a sharp linear deposit-minus-residual inequality guarantees that the center has enough capital to clear every residual petal. The possible terminal center pile of size three is handled separately by withholding one petal and invoking the explicitly quoted complete-graph clearing lemma. The lower bound uses exact move-count balance equations on each petal, proves that a mass-\(4m-1\) witness reaches neither a center stack nor a peripheral stack of size three, and reduces other possible peripheral piles to the center via clearing. The case \(m=1\) is checked directly. A monotonicity argument above the vertex count establishes minimality from the single sharp witness. Exact dynamic programming checks the full mass-\(4m\) configuration class for \(m=1,\ldots,5\), but the infinite claim rests on the proof.
+## correctness
 
-**Originality (PASS, with priority risk).** Csernák and Soukup (arXiv:2604.22341v1, April 24, 2026) introduce these parameters and determine them for complete and complete multipartite graphs and paths, with conditional statements for cycles. Their relevant full-text Sections 1, 2, 8, 11 contain no friendship-graph formula; \(K_1\vee(mK_2)\) for \(m\ge2\) is neither a tree nor complete multipartite. Fairfax-Ball (arXiv:2609.31811) resolves tree stacking only; the directed Csernák–Soukup paper (arXiv:2606.04659) imposes directed edges. Searches for windmill, triangle bouquet, friendship graph, aliases, and stacking/clearing formulas in the mathematical-record repository and public literature did not identify an equivalent theorem. Negative searches do not establish global priority; historical terminology or as-yet-unindexed work remains a residual risk.
+PASS
 
-**Mathematical value (PASS).** The equal sharp thresholds answer a concrete infinite-family question for two recently introduced graph-pebbling invariants. The family interpolates between one triangle and arbitrarily many mutually edge-disjoint triangles sharing a vertex, and is excluded from the source's exact classes. The sharp \(4m\) threshold improves the generic diameter-based sufficient bound and strictly exceeds the source's independence lower bound \(3m+1\) for \(m\ge2\), exhibiting a nontrivial interaction between local triangles and global gathering.
+For all m>=1, reconstruction uses the actual ordinary undirected 2-to-1 move, hub plus m paired leaves, full arbitrary configurations and a single target vertex. Every petal of mass >=4 is discharged into the hub with a precise floor((s-2)/2) deposit, and all 0..3 cases give p_i-r_i >= (s_i-4)/2. At total 4m this yields H>=R+1; clearing the R residual petals leaves >=1 hub pebble. The case H-R=3 is handled separately by retaining a last residual triangle or postponing a positive-deposit petal and applying the K3 four-pebble clearing lemma. The 4m-1 heavy-petal witness (2m+1,0), others (1,1), cannot produce a sole stack: conservation 2u_i+s_i=w_i+o_i forces center deficits for emptied light petals and limits heavy export to m-1; peripheral final piles 1,2,>=4 reduce to clearability while the size-three possibilities are excluded by the same flux balance. For m=1, all-one K3 is the obstruction. Finite independent state reachability (m<=3) corroborates but is not an all-m proof; monotone upward guarantee and all-one low-mass configurations exclude smaller threshold candidates.
 
-**Limitations.** Ordinary undirected, unprescribed-target pebbling only. The theorem does not classify every maximal obstruction, directed models, or larger clique bouquets; independent assessment and wider priority verification are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the standalone first scalar 4m threshold and explicit sharp obstruction, with meaningful chronology caveat. Csernák–Soukup arXiv:2604.22341 supplies definitions, K3 clearing and other graph-family formulas, but neither its complete multipartite case nor its general lower bound gives 4m on K1∨mK2. Independently inspected same-day SCOPE critical-obstruction theorem is mathematically stronger and explicitly entails this threshold but *describes the scalar 4m result as previously established*, treating exhaustive 2m exceptional configurations as its new contribution. It is therefore a subsequent extension citing an earlier result rather than independent evidence of preemption; exact intra-day first-public chronology is not authenticated. Resultary queries found related windmill polynomial invariants rather than covering pebbling formulas.
+
+## value
+
+PASS
+
+The friendship graph is the canonical triangle-bouquet graph, and exact unrestricted-target stack/clear thresholds are natural new pebbling parameters. The common exact 4m value, constructive all-configuration clearing argument and sharp nonstackable configuration resolve two different universal extremal problems; this is not merely a small finite computation or relabelling of complete multipartite formulas. A later critical-configuration census genuinely builds on the threshold as useful input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
