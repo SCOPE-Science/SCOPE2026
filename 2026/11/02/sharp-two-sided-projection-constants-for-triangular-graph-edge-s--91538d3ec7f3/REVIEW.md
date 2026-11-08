@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For integers \(n\ge5\), the explicit invariant-flow obstruction shows that the unique label-permutation-invariant projections are the complementary orthogonal ones. Averaging makes them optimal among all projections, not just invariant competitors. The mean-zero two-amplitude Laplacian potential is checked by exact neighbor counts; the five edge classes yield both claimed norms, with correct endpoint normalization. The standalone rational checker recomputes all columns for \(3\le n\le9\); these finite assertions are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For every n>=5, write C=im(B^T), Z=ker(B) of J(n,2) with coordinate l1 norm. The stabilizer of vertex {1,2} fixes no circulation (two non-internal orbit amplitudes killed by divergences at A and F); stars span cut space. The adjoint argument forces invariant projections uniquely Q=B^T(BB^T)^+B and R=I-Q. Averaging any projection over S_n does not increase l1 norm. Explicit mean-zero potential with a=(n+1)/(2n(n-1)), b=1/(2n(n-1)) solves the Laplacian edge source, and five exact edge-column types produce ||Q||=(n-2)(3n-1)/(n(n-1)) and ||R||=2(2n-5)/(n-1). INDEPENDENT rational graph Laplacian/pseudoinverse checks at n=5,6 agree. A wrong order of limiting values in the original RESULT prose (claimed 4,3 rather than the correct 3,4) was repaired in a complete RESULT.md, and the final C/O/V is for that corrected text; SLOGAN was already correct. Other minimizers are not asserted unique.
 
-Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) develops the general cycle-space method and obtains Hamming/tori results, but the inspected primary text does not state sharp constants for triangular graphs. Abascal et al. (arXiv:1812.04230) computes projections on *vertex* adjacency eigenspaces, which do not imply optimal \(\ell_1\) projection norms on *edge* cycle and cut subspaces. published-finding corpus search compared these distinctions and related projections. The lower-order identity \(J(4,2)\cong K_{2,2,2}\) is recognized as an existing boundary and excluded. Historical priority remains subject to a possible unlocated equivalent under network-flow terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural complete infinite family is solved, including simultaneous sharpness of complementary projections, a stabilizer-based uniqueness mechanism, and exact limits \(3\) and \(4\). The formulas concern relative coordinate-\(\ell_1\) projections, not arbitrary ambient embeddings or other Johnson levels.
+Qualified PASS after repairing the original reversed asymptotic prose: sharp relative edge-space C/Z formulas and triangular-graph invariant rigidity appear absent from inspected primary graph-cycle work, while general averaging/stabilizer methods and Johnson vertex spectral projectors are credited. Inexact aliases remain a priority risk; negative search is not proof of absolute priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural infinite graph family has exact sharp relative l1 projections onto both cut and circulation spaces, complementary attainment and invariant uniqueness. Asymptotic limits differ (3 versus 4), relevant to edge transport/cycle geometry; not merely a restated generic projection theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
