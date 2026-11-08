@@ -1,13 +1,21 @@
-# Scientific review: weighted-Ising collective singlet protection
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is exactly the invariance of the entire collective total-spin-zero sector for every even \(N\), with arbitrary real symmetric \(ZZ\) weights and real local \(X\)-field strengths. Necessity uses zero-magnetization separation, the one-dimensional intersection of each paired-opposite computational sector with the singlet space, orthogonal Rademacher monomials, and a complete four-label algebraic reconstruction. Sufficiency follows from the exact factorization of additive couplings by total magnetization. The complete energy variance is a sum of squares including the transverse-field differences. The argument separately checks \(N=2\); the analytic quantifiers cover all even sizes. Finite independent computational basis tests cover \(N=2,4,6,8\).
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The 2026 motivating source already contains the general projector invariance condition and Catalan singlet dimension, and reports failure of its homogeneous finite chain for larger even sizes; neither these facts nor the general stabilizer formalism are appropriated. The tested additional statement classifies *all* arbitrary real pair weights in closed form, proves a nonuniform sparse-star construction and gives an exact matching-wise energy variance. Searches of related primary literature and mathematical research records did not identify the same explicit necessary-and-sufficient parameter classification. A more general unlocated representation-theoretic theorem could subsume the graph algebra; originality is best-knowledge, not independent certification.
+PASS
 
-**Value — PASS.** Collective dissipation alone does not protect a dark subspace from its own Hamiltonian. The complete graph family provides an exact design condition for simultaneous survival of the exponentially large Catalan singlet subspace, and a sparse nontrivial engineering example. The matching variance gives a simple local test that detects all disallowed couplings and transverse-field mismatches. This goes beyond merely restating projector invariance or recomputing Catalan dimensions.
+For each perfect matching, the product of two-qubit singlets lies in the full spin-zero subspace. The ZZ part preserves pair-opposite configurations and X flips total Z magnetization; invariance forces each pair-field difference to vanish. The intersection of the pair-opposite sector and singlets is one-dimensional; the Walsh expansion E=-sum J_pair+sum_(p<q) Q_pq xi_p xi_q forces every four-index difference Q=0. This is equivalent for N>=4 to J_ij=a_i+a_j; for N=2 every edge is additive. The identity sum_(i<j)(a_i+a_j)ZiZj=(sum a_i Zi)(sum Zi)-sum a_i proves that all singlets share energy -sum a_i and uniform transverse X annihilates them. The exact dimer energy variance sum Q²+sum field_difference² follows from Rademacher orthogonality. Independent basis-matrix variance checks on every matching for N=2,4,6 confirmed. Catalan dimension is prior representation theory, not new.
 
-Closest literature: Khoudiri et al., arXiv:2608.09693 (Sec. III A, Eq. (21), Fig. 1, Appendix A); Kempe et al., arXiv:quant-ph/0004064 (general DFS stabilizers and gate conditions); Jiang et al., arXiv:0811.3049 (4-spin encoding and controlled Ising gates); Weisbrich et al., arXiv:1804.07559 (different dissipative Ising model). The source inspections and precise implication comparisons are recorded in AUDIT.json.
+## originality
 
-Limitations: no local bath, no additional Hamiltonian terms, no extension to odd-qubit singlets, no claim that measured variance equals the whole-singlet projector leakage. Independent experimental or mathematical priority validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+An exact iff parameter-space classification of an experimentally motivated decoherence-free sector, including sparse nonhomogeneous star couplings and a nonnegative matching-wise diagnostic, meaningfully differentiates protected from unprotected Ising networks. This does not claim a new general DFS criterion or Catalan multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

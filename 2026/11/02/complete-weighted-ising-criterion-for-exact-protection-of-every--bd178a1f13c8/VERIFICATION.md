@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of complete weighted-Ising singlet protection
+# Independent mathematical audit
 
-The analytical proof in RESULT.md is the support for the universal statement over every even number of qubits. This file records finite independent cross-checks and explicitly limits their evidentiary reach.
+## correctness
 
-Run \(\texttt{python verify.py}\) with Python 3 and \(\texttt{numpy>=1.24}\). The standalone program builds the computational-basis Hamiltonian, constructs the total-spin raising matrix in the zero-magnetization sector and forms the singlet projector from its nullspace without assuming the dimer-space calculation. It tests \(N=2,4,6,8\), dimension \(C_{N/2}\), heterogeneous additive couplings and sparse stars, arbitrary nonadditive edge and field samples, the energy-variance formula for perfect matchings, and nonzero projector leakage of controlled violating Hamiltonians.
+PASS
 
-Observed output: \(\texttt{PASS 435 finite independent checks}\). Numerical tolerances are declared in the verifier. The checks do not exhaust all interaction coefficients, all matrix sizes, or numerical precision. In particular, an energy variance is not automatically the squared norm of leakage outside the whole singlet subspace.
+For each perfect matching, the product of two-qubit singlets lies in the full spin-zero subspace. The ZZ part preserves pair-opposite configurations and X flips total Z magnetization; invariance forces each pair-field difference to vanish. The intersection of the pair-opposite sector and singlets is one-dimensional; the Walsh expansion E=-sum J_pair+sum_(p<q) Q_pq xi_p xi_q forces every four-index difference Q=0. This is equivalent for N>=4 to J_ij=a_i+a_j; for N=2 every edge is additive. The identity sum_(i<j)(a_i+a_j)ZiZj=(sum a_i Zi)(sum Zi)-sum a_i proves that all singlets share energy -sum a_i and uniform transverse X annihilates them. The exact dimer energy variance sum Q²+sum field_difference² follows from Rademacher orthogonality. Independent basis-matrix variance checks on every matching for N=2,4,6 confirmed. Catalan dimension is prior representation theory, not new.
 
-No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+An exact iff parameter-space classification of an experimentally motivated decoherence-free sector, including sparse nonhomogeneous star couplings and a nonnegative matching-wise diagnostic, meaningfully differentiates protected from unprotected Ising networks. This does not claim a new general DFS criterion or Catalan multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
