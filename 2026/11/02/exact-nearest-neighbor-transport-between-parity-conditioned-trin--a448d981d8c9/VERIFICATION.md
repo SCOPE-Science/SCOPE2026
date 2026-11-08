@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library only. The expected final line is:
+## correctness
 
-```
-PASS exhaustive_sequences=54240 exact_CDF_inequalities=551570 greedy_coupling_edges=19273 boundary_cases_included=true
-```
+PASS
 
-The program convolves the exact integer weights of all 15 nonnegative three-outcome probability triples with denominator 4, for every ordered sequence of 1 through 4 summands. This gives 54,240 cases, including zero weights. For each with positive probability of both parity classes it verifies every neighboring-lattice CDF inequality by exact integer cross-multiplication.
+For strictly positive triples, F(ix)=P(-x^2)+ixQ(-x^2) has argument sum of n strictly increasing angles from 0 to n*pi, hence zeros of P and Q strictly alternate along the negative axis in oriented order. Normalized P and Q are Poisson-binomial with Bernoulli parameters u_1>v_1>u_2>...>v_(n-1)>u_n. Coupling aligned Bernoulli coordinates proves K=O-1/2 <=st E <=st K+1. A common-quantile coupling gives 0<=E-K<=1, so |E-O|=1/2 a.s. Lower bound follows from disjoint integer and half-integer lattices. Approximation of boundary probabilities and positive parity masses extends the result to zeros. Independently convolved all denominator-three triples up to n=4 and checked all CDF inequalities for 10,330 admissible conditional pairs.
 
-A separate deterministic pseudorandom sample of rational triples with denominator 7 at sizes 1 through 12 checks the same inequalities and constructs the increasing-quantile coupling with exact `fractions.Fraction` masses. It verifies that each paired support index differs by zero or one and that the total transported mass is one. A one-summand sharpness example is also checked.
+## originality
 
-These finite verifications are independent computational tests of the formula; they are not a proof for unbounded sample sizes or real-valued parameters. The general theorem follows from the analytic phase-interlacing argument, Bernoulli stochastic orderings, and boundary limits in `RESULT.md`. The mathematical status is self-reviewed only; no independent audit is represented.
+PASS
+
+Broadie–Petkova Theorem 1 proves conditional Poisson-binomial laws and individual mean bounds plus modal comparisons, not the paired stochastic ordering or sharp Wasserstein identity. Prior repository result on sharp modal alignment in exactly the same model proves |m_E-m_O|<=3/2, and 1/2 under positive parameters; it concerns modal points rather than a law-to-law optimal transport. Classic oriented Hermite–Biehler and quantile theorems supply the techniques, and a general oriented interlacing theorem could imply this as a corollary, creating an explicit residual priority risk.
+
+## value
+
+PASS
+
+The sharp optimal transport identifies a structural coupling of entire parity laws and uniform W_p equality across all orders, substantially stronger than separate mean/mode proximity, with direct relevance to three-outcome scoring models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
