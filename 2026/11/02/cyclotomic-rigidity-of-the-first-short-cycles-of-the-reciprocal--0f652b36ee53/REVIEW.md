@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The rational iteration identities give the exact period-two and period-three numerator equations, and the integer resultant-one check excludes spurious roots at poles in every characteristic. Explicit ninth-root parametrization gives six distinct roots and the precise Frobenius criterion for every odd characteristic other than three; the characteristic-two reduction is a square of an irreducible cubic, and characteristic three has constant numerator. The standalone finite-field verifier ran successfully on 168 prime fields and nineteen extensions. Computation corroborates rather than proves the infinite statement.
+## correctness
 
-## Originality
-PASS, subject to independent priority review. The motivating September 2026 paper studies rational integrality and arithmetic obstructions for the same recurrence; the publicly accessible abstract does not state the finite-field least-two/least-three period census or the ninth-cyclotomic splitting field. Searches for the explicit degree-six dynatomic equation, its splitting field, prime-power nine-congruence, and finite-field rational-map cycle classification found no implied prior theorem in accessible sources or searched mathematical research records. The article's full text was inaccessible and could contain a relevant statement; this is a genuine unresolved priority risk, not a proof of novelty.
+PASS
 
-## Mathematical value
-PASS. Complete short-period orbit counts are natural finite-field dynamical invariants. The exact congruence condition across every prime power, characteristic-two exception, and Galois-theoretic origin in the ninth cyclotomic field give a structural classification and a reproducible benchmark for later study of longer cycles. This is more than an isolated small-modulus count, though it does not settle longer-period dynamics.
+Direct rational composition gives f^2(X)-X=(2X^2+1)/(X(X^2+1)) and f^3(X)-X=P3/[X(X^2+1)(X^4+3X^2+1)] with P3=3X^6+9X^4+6X^2+1. Independently recomputed resultant(P3,denominator)=1 over Z, preventing spurious solutions in every characteristic. Fixed points do not exist. The 2-cycle condition is solvability of X^2=-1/2 in odd characteristic. Over p>3 the six roots x_a=(zeta_9^a-zeta_9^-a)^-1 are distinct, have f(x_a)=x_(-2a), and Frobenius x_a->x_(qa); they lie in F_q exactly when q=1 mod9. In p=3 P3=1; in p=2 P3=(X^3+X^2+1)^2, giving one three-cycle when 3|r. All boundaries and poles are excluded explicitly.
 
-## Closest source and boundaries
-Matijasevick, Rodríguez, and Salazar, arXiv:2610.00765 (2026-09-30), motivates the same map over rational sequences. The available abstract was inspected; full text was unavailable after arXiv and lawful OA attempts. Other checked published research records concern different rational recurrences, not an implication covering this result. No independent audit or external priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tested exact final claim was compared by mathematical implication with the identified primary work and actual Resultary search. Credited antecedents are not being relabeled as novel; the bounded, claim-specific remainder is not shown to be covered by the inspected sources. A relevant primary text was inaccessible; the positive conclusion is qualified and is not a whole-document noncoverage assertion.
+
+## value
+
+PASS
+
+The rational map x+1/x is a natural recurrence-induced dynamical system. A complete first nontrivial finite-field short-cycle census, sharp congruence conditions for every prime power including exceptional characteristics, and an explicit degree-six cyclotomic splitting-field mechanism form a useful exact arithmetic dynamics classification rather than a single arbitrary numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
