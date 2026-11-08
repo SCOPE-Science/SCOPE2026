@@ -1,15 +1,21 @@
-# Scientific review — Petersen ordinary matching-complex symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an explicitly finite rational chain-complex calculation. The exact verifier enumerates all \(331\) nonempty simplices with face vector \((15,75,145,90,6)\). Complete signed cyclic-orbit invariant bases for every permutation cycle type give boundary ranks and invariants in seven group classes. Fraction elimination proves the chain ranks, and element-order induction reconstructs all seven character values independently of the candidate representation formulas. The character values match the sign-twisted five-point permutation module in degree two and \(S^{(3,2)}\) in degree three. Signed fixed-face Lefschetz calculations, plus averaging all 120 group elements, check the quotient consequence. No experimental extrapolation or claimed independent audit is involved.
+## correctness
 
-## Originality — PASS, with residual risks
-Li's graph-matching theorem supplies graded unsigned permutation modules and an equivariant log-concavity injection, not the signed Petersen homology action. The complete-hypergraph and fibre-closed representation results of Bate–Everitt–Ford–Ramos do not state or imply this finite Petersen representation. The two closest published exact Petersen results already prove the nonequivariant wedge of five two-spheres and five three-spheres; their full findings and proof sections were read, and neither identifies the \(S_5\)-action or the alternating quotient. Matching, perfect-matching, configuration-space, and line-graph formulations were compared by definitions and implications. Unindexed equivalent representations and implications from additional inaccessible literature remain possible. Their mere absence from the searches is not treated as proof of novelty.
+PASS
 
-## Value — PASS
-The ten-dimensional reduced rational homology of a canonical highly symmetric graph has a nontrivial decomposition: the two equal-rank degrees realize inequivalent five-dimensional modules, one reducible and one irreducible. The alternating-quotient two-class-to-one-class contrast is topological information impossible to infer from the published Betti numbers alone. This is a complete, naturally motivated symmetry refinement, not an arbitrary subparameter or a routine recomputation of known ranks.
+PASS: The Petersen graph is KG(5,2) on ten two-subsets, its 15 graph edges are disjointness pairs, and its ordinary matching-complex simplex counts in dimensions 0..4 are exactly (15,75,145,90,6). Independent exact rational elimination of all cyclic orientation-signed invariant chain complexes for the seven S5 conjugacy classes returned boundary-rank rows [(14,61,79,6),(8,28,39,3),(8,29,37,4),(4,21,27,2),(2,10,13,1),(4,14,19,1),(2,13,15,2)], yielding invariant (H2,H3) dimensions [(5,5),(1,3),(3,3),(3,1),(1,1),(1,1),(1,1)]. Möbius/element-order inversion of cyclic invariant dimensions gives characters chi2=(5,-3,1,2,0,-1,0)=sign(g)*fixed_symbols(g) and chi3=(5,1,1,-1,1,-1,0)=character of S^(3,2). Independent checks of all 120 signed Lefschetz traces and modular boundary ranks corroborate. In characteristic zero, averaging chain complexes is exact and barycentric subdivision gives rational homology of quotient X/G as G-invariants, which vanish for S5 and yield exactly one H2 for A5. This is an exhaustive finite computation rather than partial search.
 
-## Literature and scope limits
-Relevant complete primary materials: Li (arXiv:2202.08828v2, introductory theorem and discussion of homology), Bate–Everitt–Ford–Ramos (arXiv:2312.13750, §§1–3), and the two published Petersen ordinary-matching-complex RESULT.md texts dated 2026-10-11. Other same-graph constructions are distinguished explicitly. The result concerns rational equivariant homology of this finite complex; it does not supply an integral lattice or equivariant homotopy classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Known Petersen ordinary matching-complex nonequivariant integral wedge^5S2 vee wedge^5S3 determines Betti numbers but not the S5 action. Li 2022 studies unsigned graded representations on sets of graph matchings, explicitly discussing homology only as a possible connection. Bate–Everitt–Ford–Ramos 2023/2026 treat homology representations for matching complexes of complete hypergraphs and fibre-closed families rather than this Petersen matching complex. No verified general theorem implies both stated Specht modules and the contrast of quotient homologies, though unindexed equivariant Petersen computations remain possible.
+
+## value
+
+PASS
+
+PASS: A complete S5 character for both nonzero rational homology groups and the different S5/A5 quotient homologies is a canonical, concrete refinement of a known nonequivariant Petersen matching complex. Such equivariant data distinguish symmetry-invariant cycles that Betti numbers and wedge-of-spheres topology cannot detect, making it an independently meaningful exact finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

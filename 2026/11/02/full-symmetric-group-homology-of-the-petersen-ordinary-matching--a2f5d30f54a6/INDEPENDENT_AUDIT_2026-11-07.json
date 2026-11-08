@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:54:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The Petersen graph is KG(5,2) on ten two-subsets, its 15 graph edges are disjointness pairs, and its ordinary matching-complex simplex counts in dimensions 0..4 are exactly (15,75,145,90,6). Independent exact rational elimination of all cyclic orientation-signed invariant chain complexes for the seven S5 conjugacy classes returned boundary-rank rows [(14,61,79,6),(8,28,39,3),(8,29,37,4),(4,21,27,2),(2,10,13,1),(4,14,19,1),(2,13,15,2)], yielding invariant (H2,H3) dimensions [(5,5),(1,3),(3,3),(3,1),(1,1),(1,1),(1,1)]. Möbius/element-order inversion of cyclic invariant dimensions gives characters chi2=(5,-3,1,2,0,-1,0)=sign(g)*fixed_symbols(g) and chi3=(5,1,1,-1,1,-1,0)=character of S^(3,2). Independent checks of all 120 signed Lefschetz traces and modular boundary ranks corroborate. In characteristic zero, averaging chain complexes is exact and barycentric subdivision gives rational homology of quotient X/G as G-invariants, which vanish for S5 and yield exactly one H2 for A5. This is an exhaustive finite computation rather than partial search.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bate et al. homology representation calculations are for complete hypergraph matching complexes/fibre-closed families, not an arbitrary 15-edge Petersen graph with the S5 natural action.",
+          "Li relates graph matching representations to homology as further research and does not compute the Petersen rational character in the inspected manuscript."
+        ],
+        "reasoning": "The general matching-complex homology functor alone is too broad to imply a specific finite character without computation; a specialized class theorem that includes KG(5,2) would cover it, but none was located in examined full texts.",
+        "searches": [
+          "Bate Everitt Ford Ramos arXiv:2312.13750 Theorem 1",
+          "Li arXiv:2202.08828 Remark 1.4",
+          "Petersen graph ordinary matching complex equivariant S5 homology character"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob e47415bb36e8c555387b79144cd152873b57889b",
+        "petersen_matching_s5_verify.py blob 6a5d113367de0fac1c7274e760b495209548bc89",
+        "arXiv:2202.08828 full author manuscript",
+        "arXiv:2312.13750 full lawful 12-page manuscript",
+        "Resultary Petersen ordinary matching nonequivariant wedge reference",
+        "Resultary two-particle configuration different complex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two nonisomorphic five-dimensional S5 modules can have the same ordinary Betti number; the signed character values chi2,chi3 distinguish them.",
+          "The invariant dimensions give H*(X/S5)=0 reduced, while H2(X/A5)=Q, not determined by dimension counts."
+        ],
+        "reasoning": "The exact equivariant module/quotient assertions are genuinely stronger than nonequivariant wedge counts and are not automatic consequences of unsigned matching permutation characters without signed boundary-rank computations.",
+        "searches": [
+          "Bate Everitt Ford Ramos complete hypergraph homology",
+          "Li graph matching unsigned representation",
+          "Petersen graph ordinary matching complex equivariant S5 homology character"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary matching complex M(P) equals the independence complex of the line graph of Petersen, and S5 acts by permuting five underlying symbols.",
+          "Li treats graded unsigned matchings as permutation modules; homology uses signed simplicial boundaries and is not their direct graded representation."
+        ],
+        "reasoning": "Comparison explicitly accounts for line-graph independence-complex aliases and the distinction between homology representations and permutation chain representations.",
+        "searches": [
+          "Petersen graph ordinary matching complex equivariant S5 homology character",
+          "Petersen Kneser KG(5,2) independence complex of line graph equivariant homology",
+          "Li equivariant log-concavity graph matchings homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known same graph ordinary matching homotopy type supplies H2 and H3 dimensions 5 and 5 only.",
+          "Resultary Petersen two-particle configuration S5-modules concern a different graph topological space, while its Petersen 2-matching complex is also a different complex."
+        ],
+        "reasoning": "Previously known nonequivariant Betti tables are not the full seven-class character table; the seven rational invariant-chain rank vectors were recomputed independently rather than inferred from ranks alone.",
+        "searches": [
+          "Petersen graph ordinary matching complex equivariant S5 homology character",
+          "Petersen ordinary matching complex wedge five S2 five S3 Resultary",
+          "Petersen two-particle configuration homology as S5 module"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Known Petersen ordinary matching-complex nonequivariant integral wedge^5S2 vee wedge^5S3 determines Betti numbers but not the S5 action. Li 2022 studies unsigned graded representations on sets of graph matchings, explicitly discussing homology only as a possible connection. Bate–Everitt–Ford–Ramos 2023/2026 treat homology representations for matching complexes of complete hypergraphs and fibre-closed families rather than this Petersen matching complex. No verified general theorem implies both stated Specht modules and the contrast of quotient homologies, though unindexed equivariant Petersen computations remain possible.",
+      "residual_risks": [
+        "An unindexed earlier Petersen matching-complex equivariant character or an independence-complex-of-line-graph calculation might duplicate the modules.",
+        "Direct published nonequivariant same-object RESULT.md link reported 404 and was not falsely claimed read.",
+        "Computation is exhaustive for one finite graph but does not establish integral equivariant representation or broader family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNSIGNED_CHAIN_REP_NOT_HOMOLOGY_CHARACTER",
+          "evidence": "Studies unsigned permutation representations of matchings; explicitly raises interaction with graph matching complex homology rather than computing the Petersen homology module.",
+          "identifier_or_url": "arXiv:2202.08828; https://www.researchgate.net/publication/358687128_Equivariant_log-concavity_of_graph_matchings",
+          "material_read": "Full searchable author-uploaded paper, especially main theorem and explicit homology discussion around Remark 1.4",
+          "method": "Accessible full-text inspection",
+          "title": "Equivariant log-concavity of graph matchings",
+          "trigger": "Closest graded matching representation paper"
+        },
+        {
+          "assessment": "COMPLETE_HYPERGRAPH_FAMILY_NOT_PETERSEN",
+          "evidence": "The paper studies complete hypergraph matching complexes and fibre-closed families; no construction yielding the exact Petersen 15-edge matching-complex S5 character was identified in its statement/sections.",
+          "identifier_or_url": "arXiv:2312.13750; https://eprints.whiterose.ac.uk/id/eprint/234058/7/Homological_reps_of_symmetric_groups_1.pdf",
+          "material_read": "Lawful 12-page full PDF inspected in its theorem statements and constructions, with rendered-page screenshots",
+          "method": "Full text PDF review",
+          "title": "Homology of matching complexes and representations of symmetric groups",
+          "trigger": "Very close title/object and symmetric-group characters"
+        },
+        {
+          "assessment": "PRIOR_NONEQUIVARIANT_COVERAGE_CONFIRMED_FROM_CITATION_NOT_FULL_FILE",
+          "evidence": "The cited known statement is X≃vee^5 S2 vee^5 S3, and cannot alone determine the S5 action. Direct full source unavailable this run.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-petersen-matching-complex-is-a-wedge-of-five-two-spheres-and--80050a324367",
+          "material_read": "Assigned source RESULT.md provides exact bibliographic pointer and known integral homotopy statement; direct linked full published file could not be retrieved (GitHub 404), so whole published source not read",
+          "method": "Cross-referenced title and same-object assertion, bounded failed file retrieval",
+          "title": "The Petersen matching complex is a wedge of five two-spheres and five three-spheres",
+          "trigger": "Exactly same underlying ordinary matching complex"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_CONFIGURATION_SPACE",
+          "evidence": "Describes unordered two-particle configuration-space H1,H2, not the graph-edge matching complex.",
+          "identifier_or_url": "2026/10/11/SCOPE-two-particle-petersen-configuration-homology-as-an-s-5-module--2bac82e0590d",
+          "material_read": "Resultary published result title/abstract/character summary; full RESULT not read",
+          "method": "Resultary semantic search",
+          "title": "Two-particle Petersen configuration homology as an S5-module",
+          "trigger": "Same graph and automorphism group but different complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A complete S5 character for both nonzero rational homology groups and the different S5/A5 quotient homologies is a canonical, concrete refinement of a known nonequivariant Petersen matching complex. Such equivariant data distinguish symmetry-invariant cycles that Betti numbers and wedge-of-spheres topology cannot detect, making it an independently meaningful exact finite invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Petersen graph ordinary matching complex, reduced rational H2 is the sign-twisted five-point S5 permutation module, reduced H3 is the Specht module S^(3,2), other reduced rational homology vanishes, and the S5 and A5 quotients have the stated distinct homology.",
+  "limitations": [
+    "Only rational homology representations of one Petersen ordinary matching complex; no integral equivariant lattice/homotopy theorem.",
+    "Nonequivariant wedge type is prior art, not claimed as a new result.",
+    "Direct original published result file inaccessible and unindexed exact characters remain a priority risk; sanitized public metadata not staged."
+  ],
+  "schema_version": 1
+}

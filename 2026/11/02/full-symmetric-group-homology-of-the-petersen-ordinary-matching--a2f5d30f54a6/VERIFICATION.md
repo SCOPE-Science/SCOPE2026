@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included `petersen_matching_s5_verify.py` is a Python 3 standard-library exact checker. It enumerates all 331 oriented nonempty simplices, constructs full signed cyclic invariant bases for all seven permutations' cycle types, calculates reduced rational Betti numbers of the invariant chain complexes using exact `fractions.Fraction` Gaussian elimination, and then reconstructs the homology characters by induction on element orders. It also independently verifies signed fixed-simplex Lefschetz numbers, and averages the character values over all 120 permutations to compute full and alternating symmetry invariants.
+# Independent mathematical audit
 
-Reproduce with `python3 petersen_matching_s5_verify.py`; compare standard output byte-for-byte to the embedded `petersen_matching_s5_verification.txt`. The expected final marker is `PETERSEN_MATCHING_S5_EXACT_OK`. No random sampling, floating point or external package is involved.
+## correctness
 
-The computed face vector is `(15,75,145,90,6)`, and the identity boundary ranks in degrees one through four are `(14,61,79,6)`. The resulting reduced rational homology is five-dimensional in each of degrees two and three and zero otherwise. The recovered characters on the seven conjugacy classes are exactly `(5,-3,1,2,0,-1,0)` and `(5,1,1,-1,1,-1,0)`, respectively. For the group quotients, averaging gives invariant dimensions `(0,0)` for the full symmetric group and `(1,0)` for the alternating group in degrees two and three.
+PASS
 
-This is a finite self-contained mathematical verification of rational ranks and characters, not an integral equivariant chain-lattice classification and not an independent scientific audit. The published nonequivariant integral homotopy type is cited separately and not presented as new.
+PASS: The Petersen graph is KG(5,2) on ten two-subsets, its 15 graph edges are disjointness pairs, and its ordinary matching-complex simplex counts in dimensions 0..4 are exactly (15,75,145,90,6). Independent exact rational elimination of all cyclic orientation-signed invariant chain complexes for the seven S5 conjugacy classes returned boundary-rank rows [(14,61,79,6),(8,28,39,3),(8,29,37,4),(4,21,27,2),(2,10,13,1),(4,14,19,1),(2,13,15,2)], yielding invariant (H2,H3) dimensions [(5,5),(1,3),(3,3),(3,1),(1,1),(1,1),(1,1)]. Möbius/element-order inversion of cyclic invariant dimensions gives characters chi2=(5,-3,1,2,0,-1,0)=sign(g)*fixed_symbols(g) and chi3=(5,1,1,-1,1,-1,0)=character of S^(3,2). Independent checks of all 120 signed Lefschetz traces and modular boundary ranks corroborate. In characteristic zero, averaging chain complexes is exact and barycentric subdivision gives rational homology of quotient X/G as G-invariants, which vanish for S5 and yield exactly one H2 for A5. This is an exhaustive finite computation rather than partial search.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Known Petersen ordinary matching-complex nonequivariant integral wedge^5S2 vee wedge^5S3 determines Betti numbers but not the S5 action. Li 2022 studies unsigned graded representations on sets of graph matchings, explicitly discussing homology only as a possible connection. Bate–Everitt–Ford–Ramos 2023/2026 treat homology representations for matching complexes of complete hypergraphs and fibre-closed families rather than this Petersen matching complex. No verified general theorem implies both stated Specht modules and the contrast of quotient homologies, though unindexed equivariant Petersen computations remain possible.
+
+## value
+
+PASS
+
+PASS: A complete S5 character for both nonzero rational homology groups and the different S5/A5 quotient homologies is a canonical, concrete refinement of a known nonequivariant Petersen matching complex. Such equivariant data distinguish symmetry-invariant cycles that Betti numbers and wedge-of-spheres topology cannot detect, making it an independently meaningful exact finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
