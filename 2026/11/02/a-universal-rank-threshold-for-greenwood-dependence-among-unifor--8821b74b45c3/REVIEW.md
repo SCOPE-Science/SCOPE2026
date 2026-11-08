@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The ranked-gap map is an invertible constant-Jacobian linear map between uniform simplices, so its image has uniform Dirichlet law. Expressing the quadratic statistic as a Dirichlet quadratic form and applying exact degree-two/three Dirichlet moments gives the harmonic-tail covariance. The explicit adjacent-rank difference plus signs at the first and last ranks proves one sign transition; harmonic asymptotics prove the \(e^{-2}\) limit. A separately coded rational monomial integration agrees in dimensions two through nine, and deterministic sign checks extend through 350 gaps. These finite experiments do not replace the proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Rao–Sobel's complete author-posted text establishes ordered-spacing marginal and joint density results; Royen's 2010 complete arXiv article gives the marginal law of the quadratic sum. Neither inspected statement supplies the mixed rankwise covariance or the \(e^{-2}\) sign boundary. Classical Dirichlet moments and ranked spacing laws make the formula computable but do not themselves establish the rank-sign classification. A prior exact maximum-spacing/Greenwood covariance is the \(k=1\) subcase; a broader maximum/Schur-convexity sign result cannot cover intermediate ordered coordinates, which need not be Schur-convex. No direct equivalent was recovered in targeted published searches, but uninspected specialized work may exist.
+PASS
 
-**Mathematical value — PASS.** Ranked uniform spacings and Greenwood's statistic are independently natural diagnostics of nonuniformity. The theorem completely classifies how global quadratic concentration is associated with local spacing size *by rank* in each dimension and discovers an unexpectedly stable boundary at approximately 13.5% of the ranked gaps. This is a substantive structural localization, not a numerical one-off, with a clear distinction between extreme and moderate gaps.
+For m>=2 let Y_j=j(X_[j]-X_[j+1]) on ordered uniform simplex (X_[m+1]=0). This is a bijective linear map of constant Jacobian to the full simplex, so Y~Dirichlet(1,...,1). Then X_[k]=sum_{j=k}^m Y_j/j and Q=sum_{a,b} Y_aY_b/max(a,b). Direct factorial Dirichlet moments of degree three give Cov(Y_j,Q)=2(T_{m,j}-1)/(m(m+1)(m+2)), hence Cov(X_[k],Q)=(T_{m,k}²+U_{m,k}-2T_{m,k})/[m(m+1)(m+2)], where T=sum_{j>=k}1/j, U=sum_{j>=k}1/j². For W equal to numerator, W_k-W_{k+1}=2(T_k-1)/k, and T_k strictly decreases in k: W first decreases then increases; W_1>0 and W_m<0 ensure exactly one positive-to-negative sign boundary (possible one zero). At k=ceil(theta*m), T->log(1/theta), U->0, so threshold fraction r_m/m->e^-2. Verified 44 all-rank covariance values via independent degree-three factorial-moment integration for m=2..9 and all 349 complete sign profiles m=2..350 with rational arithmetic. No finite extrapolation used for arbitrary m.
 
-**Limitations.** The null law is uniform Dirichlet; arbitrary concentration parameters are not treated. Covariance signs do not establish stochastic association. Published-literature priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known ordered-spacing joint distributions (Rao–Sobel 1980) and marginal squared-spacing distributions/quantiles (Royen 2010) are acknowledged as foundations. The claimed additional joint-moment simplification to two harmonic tails and sharp positive-rank fraction e^-2 is not stated in inspected source material. A broad incomplete-Dirichlet integral formula could permit a derivation, but source comparison found no already published exact rank sign boundary.
+
+## value
+
+PASS
+
+The covariance of each descending order statistic with the canonical Greenwood quadratic concentration index is a natural finite-sample dependence invariant, and its exact harmonic formula plus universal e^-2 rank cutoff make a useful quantitative classification across sample size. It is neither a marginal Greenwood table recomputation nor simply a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

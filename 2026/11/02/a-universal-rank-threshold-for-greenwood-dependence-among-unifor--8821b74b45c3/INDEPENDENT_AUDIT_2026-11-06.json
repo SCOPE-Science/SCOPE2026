@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:58:40.940499Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2 let Y_j=j(X_[j]-X_[j+1]) on ordered uniform simplex (X_[m+1]=0). This is a bijective linear map of constant Jacobian to the full simplex, so Y~Dirichlet(1,...,1). Then X_[k]=sum_{j=k}^m Y_j/j and Q=sum_{a,b} Y_aY_b/max(a,b). Direct factorial Dirichlet moments of degree three give Cov(Y_j,Q)=2(T_{m,j}-1)/(m(m+1)(m+2)), hence Cov(X_[k],Q)=(T_{m,k}²+U_{m,k}-2T_{m,k})/[m(m+1)(m+2)], where T=sum_{j>=k}1/j, U=sum_{j>=k}1/j². For W equal to numerator, W_k-W_{k+1}=2(T_k-1)/k, and T_k strictly decreases in k: W first decreases then increases; W_1>0 and W_m<0 ensure exactly one positive-to-negative sign boundary (possible one zero). At k=ceil(theta*m), T->log(1/theta), U->0, so threshold fraction r_m/m->e^-2. Verified 44 all-rank covariance values via independent degree-three factorial-moment integration for m=2..9 and all 349 complete sign profiles m=2..350 with rational arithmetic. No finite extrapolation used for arbitrary m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General ordered-spacing joint law can in principle be integrated against Q, but this is not the same as explicitly containing the resulting harmonic reduction and e^-2 sign theorem.",
+          "Royen broad Dirichlet squared-sum distribution lacks an order statistic k."
+        ],
+        "reasoning": "Possible implicit calculability from general distributions is a priority risk, but no presented stronger published theorem immediately implies this signed rank classification without new calculation.",
+        "searches": [
+          "Pyke 1965 Spacings review",
+          "Rao Sobel 1980 ordered uniform spacings joint density"
+        ]
+      },
+      "checked_sources": [
+        "Rao–Sobel 1980 primary accessible mathematical text (some extraction garbling)",
+        "Royen arXiv:1008.4059 complete accessible HTML",
+        "Pyke 1965 metadata/abstract",
+        "Resultary ordered uniform spacing Greenwood search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The moment identity with 1/max(a,b) after the normalized ordered-gap map is the intermediate calculation needed to derive the new formula.",
+          "Existing marginal distributional theorems do not assert the harmonic W_k one-switch sign or asymptotic e^-2."
+        ],
+        "reasoning": "Earlier tools may make the derivation possible, but their stated conclusions do not simply subsume the claimed exact joint dependence and universal sign classification.",
+        "searches": [
+          "Rao Sobel 1980 Section 3",
+          "Royen 2010 Sections 2-5",
+          "Dirichlet third moment rank Greenwood"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao–Sobel derive distributional formulas for ranked uniform spacings.",
+          "Royen derives distributions of Q and Greenwood quantiles."
+        ],
+        "reasoning": "The new object is Cov(X_[k],Q), a cross-moment involving both ranked gap and squared-spacing sum. Neither marginal formula is equivalent to this exact harmonic expression or its sign threshold.",
+        "searches": [
+          "Rao Sobel 1980 Incomplete Dirichlet integrals with applications to ordered uniform spacings",
+          "Royen 2010 square sum of Dirichlet random variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen provides quantiles of marginal Q, not the joint Cov(X_[k],Q).",
+          "Resultary semantic results nearest on rank correlations or quadratic statistics do not match this formula or rank transition."
+        ],
+        "reasoning": "No exact mixed covariance table located; external negative search is not a novelty certificate.",
+        "searches": [
+          "Resultary ordered spacing Greenwood cross covariance rank e^-2",
+          "Royen arXiv:1008.4059 quantile tables Greenwood"
+        ]
+      },
+      "rationale": "Known ordered-spacing joint distributions (Rao–Sobel 1980) and marginal squared-spacing distributions/quantiles (Royen 2010) are acknowledged as foundations. The claimed additional joint-moment simplification to two harmonic tails and sharp positive-rank fraction e^-2 is not stated in inspected source material. A broad incomplete-Dirichlet integral formula could permit a derivation, but source comparison found no already published exact rank sign boundary.",
+      "residual_risks": [
+        "A classic ordered-Dirichlet mixed-moment formula may imply the answer as an unremarked specialization, even though no explicit e^-2 threshold was found.",
+        "Uniform Dirichlet is essential; no independence, regression or stochastic-order consequence from covariance sign."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordered distributional prior art; no explicit Greenwood order-rank covariance or e^-2 sign criterion in material inspected",
+          "evidence": "Exact sorted spacing laws and integrals can serve as background but require further integration.",
+          "identifier_or_url": "https://doi.org/10.1016/0047-259X(80)90073-1",
+          "material_read": "Accessible author-uploaded mathematical text of Introduction and Section 3 on ordered spacing joint distributions; some equations imperfectly extracted",
+          "method": "Read primary text through accessible public academic copy; compared listed results and variables",
+          "title": "Incomplete Dirichlet integrals with applications to ordered uniform spacings",
+          "trigger": "Same ordered simplex coordinates and possible cross-moments"
+        },
+        {
+          "assessment": "Does not cover cross-covariance with each ordered X_[k]",
+          "evidence": "Univariate Q representations/quantile tables; rank-index k absent from the central results.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.4059",
+          "material_read": "Full accessible arXiv HTML main text Sections 2-5, marginal Q distribution, quantile tables",
+          "method": "Read scientific full text rather than abstract alone",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood’s statistic",
+          "trigger": "Exactly same Q statistic, possible dominating theorem"
+        },
+        {
+          "assessment": "Background reference; no whole-document noncoverage claim",
+          "evidence": "General spacing review, possible older equivalent formulas remain a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "Bibliographic record and high-level description, no accessible full review",
+          "method": "Metadata/abstract level only",
+          "title": "Spacings",
+          "trigger": "Classical spacing review potentially gives source for ordered gap identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance of each descending order statistic with the canonical Greenwood quadratic concentration index is a natural finite-sample dependence invariant, and its exact harmonic formula plus universal e^-2 rank cutoff make a useful quantitative classification across sample size. It is neither a marginal Greenwood table recomputation nor simply a finite census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rao–Sobel 1980 primary accessible mathematical text (some extraction garbling)",
+    "Royen arXiv:1008.4059 complete accessible HTML",
+    "Pyke 1965 metadata/abstract",
+    "Resultary ordered uniform spacing Greenwood search"
+  ],
+  "disposition": "passed",
+  "limitations": "Only uniform simplex Dirichlet(1,...,1), 1<=k<=m and covariance signs; possible exact zero rank not classified arithmetically, not a stochastic order or independence claim.",
+  "residual_risks": [
+    "A classic ordered-Dirichlet mixed-moment formula may imply the answer as an unremarked specialization, even though no explicit e^-2 threshold was found.",
+    "Uniform Dirichlet is essential; no independence, regression or stochastic-order consequence from covariance sign."
+  ],
+  "schema_version": 1
+}
