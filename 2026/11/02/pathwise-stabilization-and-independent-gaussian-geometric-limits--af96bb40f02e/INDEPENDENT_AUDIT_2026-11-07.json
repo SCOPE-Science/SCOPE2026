@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:12:51.050427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the lift to Z, visited positions form [m_t,M_t], so C_n first becomes covered precisely when its range reaches n-1; final new vertex is the newly reached end. Positive drift ensures finite attained global minimum -J, after which all large-cycle cover events are new maximum H_{n-1-J}. Gambler ruin gives P(J>=j)=(q/p)^j. The ladder increments H_b-H_{b-1} are iid with mean 1/(p-q), variance 4pq/(p-q)^3 and an exponential moment. The CLT for H_n transfers to T_n because a geometric-tight random terminal offset changes time only O_P(1). To show independence, truncate J to its finite-time minimum J_m, invoke the Markov property for the future long first passage, and let m grow after n. Independently tested cycle cover/range identity on 100 deterministic path-cycle pairs; not a proof of the infinite statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical gambler ruin gives P(J>=j)=r^j and iid ascending ladder first-passage CLT.",
+          "Idnani–Salem arXiv:2610.15115 describes finite-cycle last coverage probabilities, but complete primary proof was inaccessible."
+        ],
+        "reasoning": "General first-passage CLTs cover the normal coordinate alone, and ruin law covers the geometric alone; the claimed joint product and eventual equality need the stopping-minimum stabilization and sigma-field truncation. Stronger older marked-passage theorems could potentially imply these results.",
+        "searches": [
+          "Fixed-bias random walk covering cycles pathwise last vertex stabilizes to overall minimum, jointly independent normal cover time and geometric final deficit",
+          "random walk on Z with drift ultimate infimum and hitting time Gaussian asymptotic independent"
+        ]
+      },
+      "checked_sources": [
+        "Idnani and Salem arXiv:2610.15115 abstract and indexed material only",
+        "Aldous and Fill Reversible Markov Chains and Random Walks on Graphs Chapter 6 relevant excerpt",
+        "Lovász and Winkler J. Graph Theory 17 (1993) 593–596 abstract",
+        "Resultary 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2610.15115 indexed abstract describes finite-n last-coverage probabilities and a geometric limit under drift.",
+          "Classical hitting-time CLT gives normal fluctuations; neither univariate result implies independence of the common random J."
+        ],
+        "reasoning": "The proof constructs a common path coupling, stabilizes the ultimate minimum and separates early finite history from late Gaussian increments. This is additional to the cited source marginal; it is not claimed independent of all earlier drifted-walk literature.",
+        "searches": [
+          "Fixed-bias random walk covering cycles pathwise last vertex stabilizes to overall minimum, jointly independent normal cover time and geometric final deficit",
+          "Idnani Salem Last-Coverage Probabilities of Random Walks on Cycle Graphs symmetric biased time-dependent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Idnani–Salem arXiv:2610.15115 abstract and indexed Sections 3–4 concern final coverage location and geometric concentration.",
+          "Aldous–Fill reversible-chain cover times treats uniform/unbiased cycle last vertices, not a fixed positive-drift coupling across all sizes."
+        ],
+        "reasoning": "The statement is equivalently a positive-drift integer random-walk ultimate-drawdown / passage-time coupling. Checked last-vertex, range-cover and hitting-time phrasing; a known marginal geometric law does not imply joint independence or eventual equality across n.",
+        "searches": [
+          "Fixed-bias random walk covering cycles pathwise last vertex stabilizes to overall minimum, jointly independent normal cover time and geometric final deficit",
+          "biased cycle range covering last new vertex geometric distribution joint cover time CLT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 concerns path-maximal ranges, not biased cycle last-vertex coupling.",
+          "Idnani–Salem finite-cycle marginal tables are known and not asserted novel."
+        ],
+        "reasoning": "No matching published joint-limit table was identified. Such absence is not a novelty certificate; the pathwise all-n claim is an infinite distributional theorem not an isolated table entry.",
+        "searches": [
+          "Fixed-bias random walk covering cycles pathwise last vertex stabilizes to overall minimum, jointly independent normal cover time and geometric final deficit",
+          "Resultary biased cycle coverage geometric terminal Gaussian independent"
+        ]
+      },
+      "rationale": "The source 2026 cycle-walk paper already gives finite-cycle last-vertex geometric marginals and range-based methods. The assessed contribution is an eventual all-n sample-path coupling and jointly independent Gaussian/geometric limit, not the known marginal. Older first-passage CLTs and ruin formulas are credited. Same-object full-text inaccessibility is a documented priority risk, not an inferred failure.",
+      "residual_risks": [
+        "Highly relevant Idnani–Salem full text inaccessible; it may contain a related joint-limit theorem.",
+        "Earlier random-walk ultimate-minimum/first-passage asymptotic independence results may subsume the special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL PRIOR COVERAGE; exact full-document coverage of the claimed joint/pathwise result remains a residual risk",
+          "evidence": [
+            "arXiv:2610.15115 abstract/metadata; source statement on geometric terminal distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15115",
+          "material_read": "Public arXiv abstract, indexed descriptions of finite-n marginal and asymptotic geometric last-vertex law; original full article unavailable despite arXiv and lawful OA attempts",
+          "method": "Compared stated results and scope; authorized Oxford retrieval returned vpn_disconnected (job c3ea78762fd3c79a6ba453b94a32997d); no bypass",
+          "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+          "trigger": "Same biased cycle walker and final-vertex distribution"
+        },
+        {
+          "assessment": "KNOWN classical cover-time tools; no located marked positive-drift all-n joint limit",
+          "evidence": [
+            "Aldous–Fill Chapter 6 cycle discussion."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.html",
+          "material_read": "Relevant cycle-cover and last-vertex searchable chapter excerpt, not the complete work",
+          "method": "Compared symmetric cycle coverage and standard first-passage reasoning with positive drift",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Could give stronger general cycle-cover statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The almost-sure shared-path stabilization is sharper than a one-dimensional weak marginal limit and couples two naturally dependent statistics. Joint asymptotic independence answers a meaningful refinement of biased cover-time theory and can be reused to analyze terminal locations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For p∈(1/2,1) fixed, nearest-neighbor biased cycle walks coupled by one infinite increment sequence have eventually n-1-L_n=J and T_n=H_{n-1-J} almost surely for all sufficiently large n, J=-inf S_t~Geometric(1-q/p); normalized cover time and terminal deficit converge jointly to independent standard Gaussian and geometric variables.",
+  "limitations": [
+    "Fixed p>1/2, not critical weak-drift scaling or p=1/2; no finite-n joint independence claimed.",
+    "Oxford institutional access unavailable (vpn_disconnected), no human authentication bypass."
+  ],
+  "schema_version": 1
+}

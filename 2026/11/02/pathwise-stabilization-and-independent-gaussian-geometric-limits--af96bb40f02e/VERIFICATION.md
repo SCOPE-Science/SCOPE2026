@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Reproduce with `python3 verify.py`. This file reports a completed test run of 26,859 exact finite checks. The verifier uses rational arithmetic for finite biased-cycle last-vertex distributions, exhaustive short-increment traces for the range/coverage equivalence, and seeded long-prefix examples for the strong pathwise identity. Those finite checks cannot establish almost-sure stabilization or limiting independence. The proof in `RESULT.md` supplies the required infinite argument using the strong law, gambler's ruin, first-passage renewal CLT, and finite-prefix conditioning.
+## correctness
 
-No independent audit or validation was conducted. The search for historical equivalences is qualified by the accessible full-text material listed in `AUDIT.json`.
+PASS
+
+On the lift to Z, visited positions form [m_t,M_t], so C_n first becomes covered precisely when its range reaches n-1; final new vertex is the newly reached end. Positive drift ensures finite attained global minimum -J, after which all large-cycle cover events are new maximum H_{n-1-J}. Gambler ruin gives P(J>=j)=(q/p)^j. The ladder increments H_b-H_{b-1} are iid with mean 1/(p-q), variance 4pq/(p-q)^3 and an exponential moment. The CLT for H_n transfers to T_n because a geometric-tight random terminal offset changes time only O_P(1). To show independence, truncate J to its finite-time minimum J_m, invoke the Markov property for the future long first passage, and let m grow after n. Independently tested cycle cover/range identity on 100 deterministic path-cycle pairs; not a proof of the infinite statement.
+
+## originality
+
+PASS
+
+The source 2026 cycle-walk paper already gives finite-cycle last-vertex geometric marginals and range-based methods. The assessed contribution is an eventual all-n sample-path coupling and jointly independent Gaussian/geometric limit, not the known marginal. Older first-passage CLTs and ruin formulas are credited. Same-object full-text inaccessibility is a documented priority risk, not an inferred failure.
+
+## value
+
+PASS
+
+The almost-sure shared-path stabilization is sharper than a one-dimensional weak marginal limit and couples two naturally dependent statistics. Joint asymptotic independence answers a meaningful refinement of biased cover-time theory and can be reused to analyze terminal locations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
