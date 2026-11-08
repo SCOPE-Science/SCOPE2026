@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The boundary period map contracts uniformly on the inward-invariant high-density interval. Integrating the forced quadratic logistic equation gives the exact prey mean–variance identity; selecting the correct square-root branch uses the mean being above half the carrying capacity. Convex/concave supporting-line inequalities give strict response-average shifts because the forcing is nonconstant. The triangular linearization makes predator invasion a scalar Floquet multiplier and proves the opposite local-stability classifications. The closed-form rational derivative values and three numerical waveforms passed reproducible finite checks. No claims about positive-cycle existence follow from the sign alone.
+## correctness
 
-## Originality: PASS, subject to listed historical risk
-The closest model paper, El Khateeb et al. (arXiv:2610.32306v1), examines constant-harvest autonomous bifurcations and predator-free equilibria. The author-accessible Etoua–Rousseau paper (2010) also assumes constant harvesting and studies autonomous bifurcations. Seasonal work by Banerjee–Das (2016) perturbs different demographic rates with impulses; Song et al. (2019) study a different Leslie–Gower predator equation and existence of positive periodic solutions. Public mathematical findings concerned with harvest ceilings for positive cycles, Jensen defects for other species models, and impulsive predator-free orbits do not imply a strict waveform-uniform comparison of the two predator-invasion thresholds in the specified periodically harvested Gause system. Classical Jensen inequalities and scalar contraction are acknowledged antecedent methods, not independently claimed discoveries. Search limitations leave a residual priority risk in older periodic-harvesting Floquet literature.
+PASS
 
-## Mathematical value: PASS
-A natural predator-invasion threshold is changed by harvesting *variance* even when the harvest mean is fixed. The theorem distinguishes two biologically meaningful response curvatures, proves a signed result for every admissible period and waveform (rather than an asymptotic claim), gives an exact mean–variance shell and strict quantitative bounds, and identifies open mortality intervals with reversed local stability. Both response regimes have explicit positive-denominator parameter examples, demonstrating that neither is an artifact of empty hypotheses. This is a local invasion statement, not an unsupported assertion of global coexistence or eradication.
+For the periodically forced high-density predator-free logistic equation, inward pointing vector fields at u,v and strictly negative fprime over u>K/2 make the time-T map a contraction and produce a unique attracting periodic x_s in that interval. Nonconstant mean-zero forcing ensures variance V>0. Averaging the quadratic logistic equation gives exact V=delta(Delta-delta), delta=Xplus-mean(x_s) in (0,Delta/2), hence delta=(Delta-sqrt(Delta²-4V))/2>V/Delta. The supporting-line inequality for convex negative-slope p and concave positive-slope p gives opposite strictly signed C(avg p(x_s)-p(Xplus)) shifts with claimed sharp symbolic variance expression. Triangular predator-free variational system has multipliers exp(int fprime) and exp(T(C avg p-d)), proving actual transverse stability reversal for d strictly between thresholds. Independently verified rational trapping margins f(u)-h0=9/200, h0-f(v)=11/200, group response p(3/2)=90/19, pprime=-2400/361 and curvature sign, ordinary response 9/13, 48/169 and opposite curvature. Numerical waveforms are not needed for all-waveform proof.
 
-## Remaining limitations
-The result is confined to the high-density scalar trapping strip, positive smooth functional responses with specified curvature, continuous mean-zero bounded periodic harvests, and first-order local invasion. Unindexed matching antecedents remain possible; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An unusually relevant primary source, Chen/Huang/Ruan/Wang (2013) on seasonal prey harvesting and predator-prey invariant tori, was inspected in open full text, particularly model setup and Section 4. It analyzes a different seasonal bifurcation/coexistence regime and does not give the exact high-density predator-free Floquet threshold shift for *every* zero-mean waveform. Prior constant-harvest generalized Gause/group-defense threshold work has no forcing. Resultary discovered related mean-variance shells in other predator-prey models but not this same signed local invasion comparison. Classical Jensen and Floquet tools alone are not the identical prior theorem.
+
+## value
+
+PASS
+
+The arbitrary-period, arbitrary-waveform finite-amplitude signed stability-reversal theorem answers a natural ecological invasion question in a group-defense versus monotone-saturation model without relying on an asymptotic forcing regime. Exact variance-controlled quantitative thresholds and the possibility of opposite predator-invasion classifications at identical average harvest are independently useful, beyond simply renaming Jensen. Scope explicitly excludes global predator persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
