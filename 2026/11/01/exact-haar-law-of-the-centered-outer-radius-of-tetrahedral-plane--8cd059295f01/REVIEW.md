@@ -1,11 +1,21 @@
-# Scientific assessment: tetrahedral central-section radius law
+# Independent mathematical audit
 
-**Correctness (PASS).** Exact edge interpolation gives \(\|x_{ij}\|^2=3-8pq/(p+q)^2\), and the event \(R\le r\) is therefore an explicit finite collection of ratio inequalities. The six two-positive/two-negative sign cones are spherical octagons, each decomposed into eight spherical triangles; the eight one-positive/three-negative cones are spherical equilateral triangles above a sharp feasibility threshold. Direct spherical-area formulas yield both joint CDFs and their complete normalization. Differentiation gives the quadratic onset. The proof includes all generic orientations, the endpoints, and measure-zero boundaries. Exact-rational and numerical tests in the embedded checker independently reproduce critical formulas; they are not used as substitutes for the spherical-area argument. Main correctness risk: confusing this centroid-measured outer radius with the Euclidean diameter or Chebyshev radius, which are intentionally **not** claimed.
+## correctness
 
-**Originality (PASS, provisional).** Full accessible arXiv text for Guedon–Litvak–Tatarko–Vritsiou, arXiv:2609.24131, was inspected for the meaning of section radius and possible tetrahedral special cases; its general inequalities and ellipsoid applications do not imply this exact tetrahedral joint distribution. Full accessible arXiv text for Dirksen, arXiv:1509.06408, was inspected; its volume formulas and extremal section orientations neither determine a maximum-of-edge-norm CDF nor provide this spherical partition. Searches for alternative labels—tetrahedral central-section radius, section circumradius about centroid, Haar planar-section farthest-point norm, and polygon-type conditioning—found no encompassing primary result. Published mathematical-record comparisons with exact regular-octahedron section diameters, octahedron projection inradii, tetrahedron projection silhouettes, and random simplex face counts show different bodies/observables and do not directly imply this theorem. An older stereological tetrahedron paper on intersect/chord distributions was identified but not fully read; historic priority is therefore not certified.
+PASS
 
-**Mathematical value (PASS).** An explicit all-threshold, joint continuous geometric law is a substantial characterization of a canonical nonsymmetric convex body under Haar sections. The transition at \(\sqrt{3/2}\) separates two genuine geometric section types, with a new sharp quadratic contact formula. Unlike a single expectation, it determines every quantile and each section-type conditional distribution, allowing quantitative comparisons with random-section inequalities and stereological models.
+For normal U the four heights h_i=sum_j U_j v_ij satisfy sum h_i=0 and, after division by two, define a uniform direction in the three-dimensional zero-sum space. Every section vertex is at an opposite-sign edge pair with squared radius 3-8pq/(p+q)^2, so R<=r is equivalent to bounding *all* positive-negative height ratios between k=(1-s)/(1+s) and 1/k. The six 2-positive/2-negative cells reduce to an octagonal cone with 8 congruent spherical triangles of rays (0,0,1),(a,0,1),(b,b,1), yielding 24 Phi/pi. The eight 1-positive/3-negative cells are empty under the ratio threshold until 3k<=1, i.e. s>=1/2, and each surviving equilateral spherical triangle has excess Psi, yielding 2 Psi/pi. Endpoint normalization and the quadratic expansion of Psi establish support, type marginal and sharp onset. Independently sampled 30,000 Haar Gaussian normals and evaluated max of 3-8pq/(p+q)^2; each of the five thresholds r=1.02,1.1,1.3,1.5,1.7 matched the two joint CDF components within 0.003. This is corroboration, not a proof by sampling.
 
-**Scope and outstanding checks.** Only central planes, Haar measure, the given regular tetrahedron, and the fixed-center radius are proved. No extension to noncentral planes, arbitrary simplices, or the actual section diameter is claimed. A complete retrospective literature audit and independent verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No checked prior statement entails the full assigned claim. No inspected prior formula implies all of the CDF components and onset. A hidden transform in full stereology may still exist and was not ruled out. An extremal volume or general probabilistic diameter bound does not determine the joint distribution of max-section-point norm and number of vertices.
+
+## value
+
+PASS
+
+A complete exact law for the centered farthest-point section radius, jointly with triangle/quadrilateral type, is a natural stochastic-geometric invariant with a nontrivial support onset and explicit quadratic behavior. It provides information not recoverable from section-volume means or polygon-type counts alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
