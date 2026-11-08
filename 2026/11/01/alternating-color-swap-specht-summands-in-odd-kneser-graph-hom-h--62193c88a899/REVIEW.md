@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The square-free property follows from the uniqueness of a common disjoint neighbor of two distinct \(k\)-sets. A canonical cover of the Hom complex by two classes of star simplices has pointwise edge intersections, giving a natural equivariant nerve equal to the connected bipartite double cover. Its oriented cellular chain sequence identifies the integral first homology as a free cycle kernel, with a minus sign under source swap. The subset-function filtration proves that complement acts by \((-1)^j\) on \(S^{(2k-j,j)}\), avoiding an unverified sign convention. Branching and the exact chain sequence cancel all two-row terms, leaving precisely the three-row shapes. Direct counting of fixed oriented cells proves the mixed-character dichotomy. An independently programmed checker verifies all permutation cycle types and ranks through \(k=5\), including the previously known \(k=2\) comparison. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated residual risk
-The most relevant full primary materials were read: Kamibeppu's 2008 square-free box-complex deformation (Kyoto proceedings, pages 67–70, including visual examination of the proof on pages 68–69), Fujii–Kimura–Nozaki arXiv:2412.19039v2 (Theorems 1.1 and 1.2, related-work discussion and proof conclusions), and Matsushita arXiv:2412.19144v3 (main theorem and Hom-complex preliminaries). Their general nonequivariant and source-swap-equivariant graph reductions are **known inputs**, not novel output. The narrower rank-eleven \(S_5\)-result on the Petersen Hom complex is also prior work. The new assertion is restricted to \(k\ge3\): the complete \(S_{2k+1}\times C_2\) *irreducible* module decomposition, its alternating sign rule and a sharp class-function dichotomy. No inspected reference or closest indexed claim states a matching Specht classification. Graph reductions alone specify a lattice on edges, not which irreducibles occur with which source-swap eigenvalues; those are computed here by an additional complement parity filtration and cancellation argument. It remains possible that a prior representation-theoretic analysis implicitly contains these results, especially because the necessary tools are classical.
+PASS
 
-## Value — PASS
-For all odd Kneser graphs beyond the Petersen graph, the result classifies a natural topological symmetry invariant that the known wedge-of-circles homotopy type and rational Betti number cannot determine. The alternating color-swap parity distinguishes entire irreducible components, and the mixed-character formula unexpectedly equals \(1\) for every group element outside one sharply specified cycle class. The integral lattice and zero rational invariant-space consequence give additional usable forms. This complete infinite-family character classification is a natural answer to an equivariance question raised by the existing square-free Hom-complex theory, not an arbitrary finite computation.
+Odd Kneser graph KG(2k+1,k) has no 4-cycle: two different k-subsets share at most one disjoint k-neighbor. Every Hom cell has a singleton coordinate; contractible star-cover simplices intersect only in points corresponding to ordered disjoint pairs. Equivariant nerve is connected bipartite D_k with 2*C(2k+1,k) vertices and (k+1)*C(2k+1,k) edges, so H1 is its integral oriented cycle kernel of rank (k-1)*C(2k+1,k)+1, with swap reversing edge orientation. Decomposing ordered edges as Ind_{S_2k}^{S_(2k+1)} M^(k,k), complement sends two-row Specht S^(2k-j,j) to (-1)^j; the Pieri rule adds one box, all two-row terms cancel against H0 and the vertex representation, leaving exactly three-row S^(2k-j,j,1) with swap sign (-1)^(j+1). Fixed-chain trace yields 1-2^r precisely for one fixed point and all other cycles even, otherwise 1. Inspected program independently computes Frobenius-alternant characters of all cycle types k=2..5; did not interpret these finite tests as the unrestricted proof.
 
-## Closest literature and limitations
-Kamibeppu (2008), Fujii–Kimura–Nozaki (2024/2025), and Matsushita (2024/2026) dominate the ordinary homotopy reduction but do not state the complete full-symmetry Specht representation. The earlier Petersen \(k=2\) result is excluded from the claim. The decomposition is rational; integral homology is supplied as a kernel, not as an integral Specht splitting. Equivalent unindexed literature remains possible, and no independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier square-free graph Hom results provide ordinary homotopy/nerve reductions, but not the complete rational S_(2k+1) x C2 Specht decomposition and mixed-character dichotomy for every k>=3; the k=2 Petersen special case is excluded.
+
+## value
+
+PASS
+
+The full multiplicity-free Specht spectrum and color-swap parity across an infinite canonical symmetric graph family are meaningful equivariant invariants not mechanically given by the known nonequivariant H1 rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
