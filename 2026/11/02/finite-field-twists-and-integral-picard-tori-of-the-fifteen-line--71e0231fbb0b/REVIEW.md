@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fifteen syntheme lines lie on the stated Igusa quartic by a polynomial identity. The integral minors show their claimed incidence persists in every characteristic greater than three, and the independent tangent directions imply three-branch seminormal points of normalization quotient length two. The cycle rank gives the genus and Picard torus dimension. Normalization gives the zeta formula. All 720 permutations and eleven cycle types have been enumerated exactly. The five-cycle torus isomorphism is established at the integral group-lattice level via a connected cyclic graph covering, not by comparing orders. Finite-field checks are independent corroboration, not an infinite proof. Source: the standalone verifier and the argument in RESULT.md.
+## correctness
 
-## Originality — PASS (qualified)
-Prokhorov's 2007 Lemmas 3.16–3.17 give the fifteen lines, Rito describes their geometry, and Bruin–Kulkarni study twisted Igusa quartics. None of the inspected relevant passages gives the evaluated eleven Frobenius zeta spectra, the exact rational-point-free five-cycle criterion, or the integral Picard-torus isomorphism. Those are the only contributions assessed as original; the classical configuration and graph-Jacobian method are not. The statement is not inferred from absent search hits alone: comparison is by objects and mathematical implications. Historical priority remains qualified because classical incidence/graph-descent sources could imply the formulas, and not all older publications were available in full.
+PASS
 
-## Mathematical value — PASS
-The fifteen-line singular boundary on the canonical Igusa quartic is a distinguished moduli-geometric object. The eleven-type arithmetic classification, nine distinct zeta spectra, and point-free fifth-cycle cases give complete natural arithmetic invariants. The integral five-cycle torus decomposes the actual rational-point group and cannot be recovered from a rational character alone. The equal-zeta but different singular-orbit classes show a meaningful limitation of zeta data. These are complete evaluated invariants rather than arbitrary numerical slices.
+The syntheme/duad incidence graph has 15+15 vertices and 45 branches; ordinary triple points have normalization delta=2 and arithmetic genus 16. For each extension degree, normalization counts fixed syntheme P1 lines minus fixed flags plus fixed duads, giving the claimed zeta factors. Independently generated the 15 perfect matchings, 15 duads and 45 flags, enumerated all 720 permutations, found exactly 11 cycle types, 9 distinct complete zeta signatures and 144 rational-point-free five-cycles, with all relevant orbits of length five. The 5-cycle graph-cover integral character lattice is ker((h_i-1):Z[C5]^4 ->Z[C5]); a nontrivial loop monodromy exists because the lifted graph is connected, and C5 prime ensures a generator. Elementary integral group-ring operations reduce the boundary to (h-1,0,0,0), hence the kernel Z ⊕ Z[C5]^3 and the claimed k-torus isomorphism, not just an isogeny. Full singular-line intersection determinant claims are supplied in source verification but not independently regenerated; this limits the separate local-geometry check.
 
-## Literature, boundaries, and risks
-The 2007 Prokhorov text was inspected at the Igusa-quartic lemmas; Rito's 2013 full open PDF at its Igusa configuration sections; and Bruin–Kulkarni's 2023 openly available article at its twisted-Igusa discussion. The manuscript excludes characteristic two and three, forms outside the stated coordinate action, and arbitrary automorphism-twists. The full historical classification of integral Picard tori for this exact incidence graph was not established, so the priority risk is material but not a proven covering statement. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
+
+## value
+
+PASS
+
+An exact finite-field arithmetic evaluation of a canonical 15-line geometry, including all twists under a specified symmetry action, rational-point-free criterion and integral Galois character module. This is a natural zeta/Picard invariant, not an arbitrary slice or mere restatement of the classical configuration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
