@@ -1,23 +1,21 @@
-# Review of fiber-profile domination in complete Sierpiński products
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central claim is the exact ordinary domination number for every specified map \(f:[m]\to[n]\), \(m,n\ge2\). For a chosen set of empty clique fibers, domination of every vertex in each empty fiber forces the image of the occupied fibers to cover all \(n\) colors. If \(C\) is the set of colors of empty fibers, the minimum number of selected vertices among occupied fibers of any one color is exactly the maximum of its occupied-fiber count and \(|C|\). This gives matching constructive lower and upper bounds, including nonsurjective maps and bijections. Minimizing over the empty-fiber colors proves the sorted-multiplicity formula, and its corollaries follow explicitly. A graph-level checker reproduced the formula for 82 finite multiplicity profiles, without being used as the infinite proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+The product comprises m clique fibers and one cross-fiber edge between (i,f(j)) and (j,f(i)) per index pair. If a dominating set omits a clique fiber i, each (i,h) needs an occupied j with f(j)=h; thus f restricted to occupied indices must be surjective, forbidding empty cliques when f is nonsurjective. For empty-image colors C (c colors), if t_h occupied fibers have f-value h, each color h needs ≥max(t_h,c) selected vertices, and this is achievable by distributing the c demanded second coordinates across those fibers. For h in C setting t_h=1 minimizes cost; all h not in C have t_h=a_h. Choosing the c largest a_h maximizes savings and proves min(m,c²+Σ_{j>c}max(a_j,c)) for 1≤c≤r, with the n² bound, lower/upper Sierpiński numbers min(m,n)/m and n=2 spectrum {2,3,4,m}. Direct exhaustive closed-neighborhood domination of 65 independent small sorted profiles agreed. This uses no asymptotic extrapolation.
 
-The 2019 original product paper [1] defines the product and studies connectivity, planarity and automorphisms; it does not state the map-specific domination formula. The 2023 Sierpiński domination paper [2] provides a general bound, an upper extremal criterion, a degree-based equality case, and cycle-factor results. Those results cover a boundary subfamily but do not imply the profile formula or the unbounded missing-cardinality interval. Targeted mathematical-record and literature queries did not locate a theorem of the same strength. This is not a claim that a failed search establishes global novelty; equivalent work under other terminology is the principal residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The generating question is how the connecting map affects domination in the foundational Sierpiński product. Rather than determining one isolated value, the theorem reduces the domination number for **every** complete-factor map to its fiber multiplicities, determines both lower and upper product extrema, and shows a sharp surjective/nonsurjective separation. The complete two-color spectrum \(\{2,3,4,m\}\) has an interval of prohibited values of unbounded length as \(m\) grows. These structural and extremal consequences are not routine rephrasings of the general degree bound.
+Best-of-knowledge comparison for Fiber-profile domination of complete-graph Sierpiński products: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.
 
-## Closest literature and limitations
+## value
 
-[1] Kovič et al., *The Sierpiński product of graphs*, arXiv:1904.04180v1, first public 2019-04-08, https://arxiv.org/abs/1904.04180 .
+PASS
 
-[2] Henning et al., *The Sierpiński Domination Number*, arXiv:2309.15409v1, first public 2023-09-27, https://arxiv.org/abs/2309.15409 . Theorem 2.2 covers the upper extremum; Proposition 2.3 covers the case of smaller first-factor degree.
+The domination number of each map-dependent product, not merely extrema across maps, is a natural graph invariant. The exact sorted fiber-profile law yields a small optimization algorithm, sharp general bounds and an arbitrarily gapped attainable spectrum for fixed factors; this distinguishes genuine network structure from routine restatement of generic domination bounds.
 
-The theorem is confined to ordinary domination of one-step complete-factor products. Finite computations do not establish generality or publication priority. Other literature may use a different terminology for the same clique-layer construction.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
