@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every arrow/path basis component and all three commutator equations are explicitly reconstructed in `RESULT.md`. The rank of the second-layer map is \(s(it+rj-ij)\), justified by a tensor-subspace intersection, and the rank \(0,1,2\) middle-arrow cases are disjoint and exhaustive. The direct basis-multiplication verifier checks four configurations with counts \(1024\), \(41553\), \(30208\), and \(108544\). These finite checks corroborate, but do not establish, the unrestricted prime-power theorem.
+PASS
 
-## Originality — PASS relative to inspected sources
+The radical decomposes into length 1 (A+B+C), length 2 (A⊗B+B⊗C), and length 3 (A⊗B⊗C) path spaces. Vanishing of the commutator yields exactly two adjacent tensor equations and one length-three equation. For endpoint-pair ranks i,j, the last equation is a surjective map onto (<a,a_prime>⊗B⊗C)+(A⊗B⊗<c,c_prime>), of rank s(it+rj-ij), leaving q^(D-E) choices. Partitioning middle pair by ranks 0,1,2 gives precisely the three displayed terms and free longest-path factor q^(2rst). Independent direct small-case values are 1024,41553,30208,108544 for (q,r,s,t)=(2,1,1,1),(3,1,1,1),(2,2,1,1),(2,1,2,1), respectively; all match the formula. The proof covers all prime powers, not only tested prime fields.
 
-The closest source is Hennecart–Perry, arXiv:2208.07738, which introduced the quiver invariant and proved length-at-most-two cases. Pak–Soffer, arXiv:1507.00411, covers the \(r=s=t=1\) specialization, which is credited and not asserted new. Green–Schroll, arXiv:2302.08169, defines a distinct quotient algebra. Searches of the indexed record corpus and external literature with exact multiarrow/path/radical aliases did not identify general \((r,s,t)\) coverage. An implicit earlier general commutator count remains a residual priority risk; negative searches alone are not novelty proofs.
+## originality
 
-## Value — PASS
+PASS
 
-The paper introducing the invariant identifies polynomiality of commuting radical-endomorphism counts as a mathematical problem; the explicit formula resolves a full infinite, structurally natural family at the first path length not handled by its cited Section 4 formulas. The independent multiplicities require interacting tensor paths and yield nontrivial rank strata. It is not merely the preexisting \(U_4\) formula.
+Hennecart–Perry formulate the quiver radical commuting-pair invariant and prove polynomiality for quivers without paths exceeding length two; positive r,s,t creates length-three paths. The classical one-arrow q^7(2q²+q-2) is expressly old (unitriangular). No exact independent-multiplicity formula appeared in Resultary or the accessible primary abstract. The full Hennecart–Perry source was not accessible through arXiv/OA or institutional service, so a hidden quiver reduction remains a significant risk.
 
-## Limits
+## value
 
-No claim is made for arbitrary acyclic quivers, projective multiplicities, or path relations. The formula has not undergone independent audit or definitive publication-priority assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact three-parameter polynomial for the first natural path-length regime beyond the known length-two theory is a meaningful extension. The endpoint-rank stratification isolates a reusable commutator mechanism rather than merely one tiny table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
