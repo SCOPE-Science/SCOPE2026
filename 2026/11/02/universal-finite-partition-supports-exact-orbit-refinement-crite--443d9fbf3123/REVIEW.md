@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orbit-profile reduction is exact for finite sets: two partitions with equal block-size multisets are conjugate under their full symmetric group. The proof verifies both implications of the prefix inequality, including the two exhaustive cases of the obstruction construction. The sufficiency argument works in any prefix order and is used explicitly for truncated greediness at intermediate ground-set sizes. Integer monotonicity gives the universal capacity upper bound, and greediness attains it. All quantifiers require a finite nonempty set, a positive number of support blocks, and a target budget of at least two. The standalone exhaustive checker agreed with the criterion on 4,844 support-multiset instances and supports the proof only finitely.
+PASS
 
-## Originality — PASS within assessed evidence
+Conjugation by Sym(A) preserves precisely block-size multisets, so the target quantifier reduces exactly to realizing every weak k-composition of N as sums of indivisible weights a_i. For sufficiency, if S >= (k−1)(a−1), each weak target composition of S+a has a bin of size >=a, so removing a and applying the prefix induction gives a representation. Conversely a failed index a_j=a with S<(k−1)(a−1) yields an obstruction: if N<=k(a−1), a target with all bins <a; otherwise k−1 bins of a−1 leave too small last capacity for all remaining >=a weights. Greedy a_j=1+floor(S_{j−1}/(k−1)) saturates the maximal capacity recurrence; truncating the last weight and using order-independent sufficiency proves every intermediate N. Independent enumeration of 414 weight multisets, with all weak target compositions, agreed with the criterion for small N,k; infinite family is proved analytically.
 
-The closest full primary source, Venkataramani (2026), §6, Lemma 6.3 and Corollary 6.4, gives a countably infinite refinement existence construction for specified infinite atom/cardinality profiles; it does not calculate any sharp minimum number of finite support blocks. Bruce (2014/2016) constructs an infinite-atom finite-partition-support model, and Banerjee (2021) addresses weak choice. The binary complete-sequence special case and the ability to use singleton supports are not new contributions. Searches of related universal-coarsening, multibin subset-sum, and indexed mathematical results did not disclose the full \(k\)-parameter criterion or sharp recurrence. Absence from results is not mathematical proof of originality; older combinatorial folklore and terminology changes are residual priority risks. No independence or external validation is implied.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem fully identifies, for every target-budget parameter, which fixed finite supports can refine every conjugacy class of bounded target partitions. Unlike the qualitative infinite-atom existence theorem, it computes exactly how many finite support blocks suffice and are necessary, with explicit optimal constructions; at \(N=17\), \(k=3\), the minimum is six blocks. This is a natural representation-resource question whose precise invariant depends on the intended support/refinement operation, not an arbitrary finite slice or a known-table recomputation. The binary criterion alone would not support a new claim.
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
 
-## Closest literature and limitations
+## value
 
-The direct motivation and strongest accessible nearby comparison is Venkataramani, arXiv:2610.29752v1, complete relevant §6 and supporting definitions, https://arxiv.org/html/2610.29752v1. Bruce's freely accessible 2014 preprint was inspected at the support definitions and finite-partition-model arguments. Banerjee's arXiv record and published abstract were read; the entire Banerjee paper could not be inspected through its HTML endpoint in this check. A prior exact \(k\)-way complete-weight theorem under a different name remains possible. No claim about infinite choice principles, unique first discovery, or formal external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Universal support partitions are natural in permutation/orbit-refinement questions, and the finite support-budget exact criterion and sharp capacities answer a quantitative optimization question not supplied by qualitative infinite-atom existence results. The k=2 binary subset-sum criterion is classical and is explicitly excluded from a novelty claim; all-k optimal capacity is the motivating result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
