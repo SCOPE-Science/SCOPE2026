@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python3 verify_desargues_perfect.py` next to this file. This fully self-contained Python 3 program performs exact integer and Boolean calculations without any third-party packages. `VERIFY_OUTPUT.txt` holds its recorded output.
+## correctness
 
-The program computes two independent perfect-matching counts (both sixty), enumerates all \(113{,}192\) ordinary matchings and tests extendibility by residual-vertex dynamic programming, and obtains \(44{,}282\) faces including the empty face. It constructs \(22{,}124\) valid matched covers, checks all \(244{,}830\) nonempty-face Hasse incidences and visits each of the \(44{,}281\) nonempty faces in a complete topological sort. The remaining critical cells have dimensions zero (one), three (thirty-one), and four (one). Its signed integral projection gives thirty-one zero coefficients in the only possible Morse boundary, and direct mod-two boundary-rank calculations independently give ranks thirty-one and one in dimensions three and four.
+PASS
 
-The integral homotopy inference also uses the standard discrete-Morse CW theorem and the identification \(\pi_3(\bigvee^{31}S^3)\cong\mathbb Z^{31}\); these are mathematical arguments, not properties tested by a finite-field computation. The proof does not establish anything about other generalized Petersen graphs. Independent external audit has not been performed.
+For GP(10,3) with 20 vertices and 30 edges, independent exact enumeration gives 60 perfect matchings, whose full downward closure contains 44,282 faces including empty; direct union agrees with perfect-extendibility. Independent algorithm using the specified 30 edge-order toggles yields 22,124 acyclic matched pairs; all 244,830 nonempty Hasse incidences topologically sort, leaving one 0-cell, 31 critical 3-cells and one critical 4-cell. Exact signed Morse reduction of the only critical four-cell returns a 31x1 zero integer vector, not merely mod2; pi3(wedge 31 S3)=Z31 so attaching map is null and the claimed wedge follows. Source verifier further confirms 10x10 bipartite permanent=60 and all ordinary-matchings completion. No family extrapolation asserted.
+
+## originality
+
+PASS
+
+The exact final theorem is not implied by the materially inspected same-object and broader theorems; individual prior components are credited. Priority is best-of-knowledge with named risks, not absolute novelty proof.
+
+## value
+
+PASS
+
+The Desargues graph is the canonical 20-vertex bipartite cubic incidence/middle-level graph and perfect extendibility is a natural matching-complex functor. Its full integral homotopy type was not implied by the ordinary matching complex or Heawood case. A complete zero-attaching-map certificate in this natural sparse graph is a meaningful finite classification despite no general GP(n,k) theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

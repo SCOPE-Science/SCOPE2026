@@ -1,11 +1,21 @@
-# Scientific review of the Desargues perfect-matching homotopy classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact graph and extendible-matching definition fix every finite quantifier. Sixty facets are independently counted by recursive enumeration and a bipartite permanent. All \(113{,}192\) ordinary matchings are independently classified for perfect extendibility, recovering exactly \(44{,}282\) faces including the empty face. A complete directed-Hasse topological sort certifies the acyclic matching. Forman reduction gives one zero-cell, thirty-one three-cells, and one four-cell. Exact signed elimination yields a zero integral degree vector, not merely zero mod two; since \(\pi_3\) of the wedge of three-spheres is freely detected by degrees, the four-cell attaches nullhomotopically. The verifier reproduces every finite step.
+## correctness
 
-**Originality — PASS against checked evidence.** The closest same-graph published theorem classifies the ordinary matching complex with \(113{,}191\) nonempty faces, whereas the new perfect-matching subcomplex has \(44{,}281\); the former's wedge in dimensions five and six does not imply the latter's wedge in dimensions three and four. The nearest same-construction result treats the Heawood incidence graph, and the relevant primary papers classify honeycomb or polygonal-line families. Exact alias, parameter, and stronger-coverage searches returned no equivalent theorem. Residual risk: an unindexed equivalent computation is possible.
+PASS
 
-**Value — PASS.** The Desargues graph is the canonical twenty-vertex bipartite double cover of the Petersen graph and is a natural, highly symmetric test object for the difference between all matchings and extendible matchings. The precise mixed-dimensional integral homotopy type is not supplied by the known ordinary matching classification or by generic perfect-matching-complex constructions. A natural finite classification, rather than a claim of a uniform graph-family theorem, is the contribution.
+For GP(10,3) with 20 vertices and 30 edges, independent exact enumeration gives 60 perfect matchings, whose full downward closure contains 44,282 faces including empty; direct union agrees with perfect-extendibility. Independent algorithm using the specified 30 edge-order toggles yields 22,124 acyclic matched pairs; all 244,830 nonempty Hasse incidences topologically sort, leaving one 0-cell, 31 critical 3-cells and one critical 4-cell. Exact signed Morse reduction of the only critical four-cell returns a 31x1 zero integer vector, not merely mod2; pi3(wedge 31 S3)=Z31 so attaching map is null and the claimed wedge follows. Source verifier further confirms 10x10 bipartite permanent=60 and all ordinary-matchings completion. No family extrapolation asserted.
 
-The statement does not assert equivariant homotopy, inclusion-induced maps, or a classification beyond this graph. All mathematical certification here is limited to the supplied finite reconstruction and accepted mathematical principles; no outside audit is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact final theorem is not implied by the materially inspected same-object and broader theorems; individual prior components are credited. Priority is best-of-knowledge with named risks, not absolute novelty proof.
+
+## value
+
+PASS
+
+The Desargues graph is the canonical 20-vertex bipartite cubic incidence/middle-level graph and perfect extendibility is a natural matching-complex functor. Its full integral homotopy type was not implied by the ordinary matching complex or Heawood case. A complete zero-attaching-map certificate in this natural sparse graph is a meaningful finite classification despite no general GP(n,k) theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
