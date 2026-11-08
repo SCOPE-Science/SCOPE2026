@@ -1,0 +1,187 @@
+{
+  "correctness": {
+    "rationale": "The edge-increment identity is exact: C_{j,k}=P_max−P_jP_k=P_max(1−P_min)>0. Fixing the remaining arms, the Cauchy--Schwarz upper bound on the within-arm quadratic and the opposing-linear term is simultaneously achievable only for full-length collinear increments, forcing radial arm geometry. The remaining Hilbert optimization is the polygon minimum residual delta, attainable in dimension 2; equality gives all maximizers and eta gives the exact one-dimensional threshold. The packaged independent arithmetic checker verifies 3,240 exact covariance calculations and 270 finite scalar comparisons; finite samples do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006), §4.3-4.5, provide SDP duality and general rank inequalities, but not this explicit class or weighted-measure equality statements.",
+        "Lee--Naor--Peres, arXiv:0706.0545, Theorems 1.1-1.2, concern bi-Lipschitz distortion of metric trees and Markov convexity, not maximum centered quadratic moment.",
+        "Addario-Berry--Janson--McDiarmid, arXiv:0902.1156, §1, define scalar uniform-vertex graph spread and study random graphs.",
+        "Fiedler (1990) relates absolute algebraic connectivity of unweighted trees to their squared-distance metric center objective; this contains the uniform fixed-length tree spread value as a special case, not the weighted-spider arbitrary vertex mass equality map statement.",
+        "Göring--Helmberg--Wappler (2005) Corollary 30 already describes radial geometry and planarity for unweighted-tree optimal embeddings; the currently asserted novelty is the general positive vertex/edge weighted exact formula, all equality cases, and the line-versus-plane criterion.",
+        "Göring--Helmberg--Reiss (2011) Table 1 accommodates arbitrary node parameters and edge lengths at the abstract SDP level; Corollary 20 bounds dimension, not the exact weighted spider formula."
+      ],
+      "reasoning": "General SDP algorithms and tree distortion theorems are broader in objects but do not, as inspected, state stronger inequalities implying the exact weighted-spider formula, universal arm rigidity and minimal dimension. The scalar spread formula does not cover Hilbert targets. A potentially stronger unknown SDP specialization remains a residual literature risk.",
+      "searches": [
+        "doi:10.1137/S0036144504443821",
+        "arxiv:0706.0545",
+        "arxiv:0902.1156",
+        "Hilbert-valued spread of weighted spider trees variance Lipschitz polygon inequality radial arms",
+        "maximum variance embedding finite metric graph Hilbert valued Lipschitz optimal stars",
+        "Fiedler absolute algebraic connectivity of trees 1990 variance metric center",
+        "Göring Helmberg Wappler Embedded in the Shadow of the Separator 2005 Corollary 30",
+        "Göring Helmberg Reiss 2011 graph realizations weighted vertex edge"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144504443821, §§4.1–5.1 (full primary PDF material)",
+      "arxiv:0902.1156, §§1–2 and tree constructions (primary PDF material)",
+      "arxiv:0706.0545, §§1–1.1 (primary PDF material)",
+      "2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217 (indexed record summary)",
+      "2026/10/11/SCOPE-exact-dudley-norms-and-mass-imbalance-thresholds-on-equiradial-s--ecc3b6450a54 (indexed record summary)",
+      "prior-claim:f710075d-11ed-459f-b2b9-a8c127c6a56c (accessible claim text only)",
+      "prior-claim:8a5786a6-2d5b-4941-a8e9-aa41b460e22f (accessible claim text only)",
+      "M. Fiedler, Absolute algebraic connectivity of trees (1990), publisher abstract only; exact text not accessed",
+      "F. Göring, C. Helmberg, M. Wappler, Embedded in the Shadow of the Separator (2005), primary full PDF §§1–2 and Corollary 30",
+      "F. Göring, C. Helmberg, S. Reiss (2011), primary full PDF Table 1 and Corollaries 19–20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible earlier scalar weighted-spider claim f710075d... states R−min-sign-discrepancy² and signed-radial rigidity. It is exactly the dimension-one restriction of the proposed problem.",
+        "Accessible earlier Hilbert complete-multipartite claim 8a5786a6... assumes uniform equal cluster sizes and a different non-tree metric.",
+        "Sun et al. (2006) Eq. (8) uses uniform vertex weight, permits any graph and gives a general variational SDP rather than the closed form or all optimizer structures.",
+        "2005 Corollary 30 already determines unweighted tree optimizer geometry, and Fiedler 1990 gives the unweighted tree metric-center relationship; these cover weaker cases, so no originality is claimed for those consequences."
+      ],
+      "reasoning": "Restriction of the new theorem to line-valued maps recovers a previous scalar formula, but the previous scalar formula does not imply that planar targets replace discrepancy with the polygon residual or prove global arm rigidity for noncollinear Hilbert maps; the unit 3-leaf example separates their conclusions. Multipartite metric constraints cannot specialize to arbitrary weighted spiders. A generic SDP formulation computes a finite optimum but neither states nor directly implies the new explicit family-wide formula without the new structural argument. In particular, the current uniform unweighted special case is substantially anticipated by Fiedler 1990 and Göring et al. 2005. Their conclusions do not state the parameterized positive-mass and weighted-edge spider theorem or solve the specific subset-sum dimension cut-off.",
+      "searches": [
+        "sharp Hilbert-valued Lipschitz variance spider path arms weighted vertex measure",
+        "vector-valued spread tree star weighted centroid polygon inequality",
+        "maximum variance unfolding semidefinite programming Weinberger Saul 2006 graph metric constraints pdf",
+        "prior-claim:f710075d-11ed-459f-b2b9-a8c127c6a56c",
+        "prior-claim:8a5786a6-2d5b-4941-a8e9-aa41b460e22f",
+        "Fiedler absolute algebraic connectivity of trees 1990 variance metric center",
+        "Göring Helmberg Wappler Embedded in the Shadow of the Separator 2005 Corollary 30",
+        "Göring Helmberg Reiss 2011 graph realizations weighted vertex edge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006) §4.1 Eq. (8), pp.689-690, is maximum variance unfolding with distance upper bounds and uniform masses; §4.5 treats dimension by a spectral multiplicity bound.",
+        "The current statement is that exact MVU value for arbitrary positive vertex masses on a spider is R−delta², with full optimizer classification and a two-dimensional realization; scalar weighted-spider value is R−eta²."
+      ],
+      "reasoning": "The geometric-configuration, weighted Gram SDP, variance-embedding, and polygonal-centroid descriptions are equivalent formulations of this question. The Sun et al. general SDP supplies a formulation, not the closed-form weighted-spider answer or equality classification. A scalar signed partition is not equivalent because a uniform 3-leaf star has optimal Hilbert variance 3/4 but scalar variance 11/16.",
+      "searches": [
+        "sharp Hilbert-valued Lipschitz variance spider path arms weighted vertex measure",
+        "vector-valued spread tree star weighted centroid polygon inequality",
+        "maximum variance unfolding spider metric Hilbert target two dimensional",
+        "vector-valued Lipschitz graph spread Hilbert variance spider tree discrete sharp",
+        "maximum variance unfolding semidefinite programming Weinberger Saul 2006 graph metric constraints pdf",
+        "doi:10.1137/S0036144504443821",
+        "Fiedler absolute algebraic connectivity of trees 1990 variance metric center",
+        "Göring Helmberg Wappler Embedded in the Shadow of the Separator 2005 Corollary 30",
+        "Göring Helmberg Reiss 2011 graph realizations weighted vertex edge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed similarity search returned closest records on spider curvature, Dudley star norms and Hilbert distortion of small metric spaces; no returned summary states the weighted-spider Hilbert-variance polygon law.",
+        "Relevant full-text sources explain general MVU or scalar graph spread, with no extracted table matching arbitrary arm lengths and vertex masses."
+      ],
+      "reasoning": "No matching database entry or exact table was found in the actually queried indexed results and inspected sources. Search failure is not uniqueness evidence; unindexed and terminology-mismatched exact values remain possible.",
+      "searches": [
+        "Hilbert-valued spread of weighted spider trees variance Lipschitz polygon inequality radial arms",
+        "sharp Hilbert-valued Lipschitz variance spider path arms weighted vertex measure",
+        "maximum variance unfolding spider metric Hilbert target two dimensional",
+        "Hilbert-valued spread finite trees one Lipschitz variance weighted spider polygon inequality metric embedding",
+        "vector-valued Lipschitz graph spread Hilbert variance spider tree discrete sharp",
+        "arxiv:0706.0545",
+        "Fiedler absolute algebraic connectivity of trees 1990 variance metric center",
+        "Göring Helmberg Wappler Embedded in the Shadow of the Separator 2005 Corollary 30",
+        "Göring Helmberg Reiss 2011 graph realizations weighted vertex edge"
+      ]
+    },
+    "rationale": "Specific weighted-spider Hilbert-valued exact envelope, all radial optimizers, planar optimality and one-dimensional criterion are not supplied by the inspected general MVU, scalar spread or tree-distortion statements. Indexed searches for synonymous exact formulations returned no covering candidate. This is a qualified same-model literature assessment, not uniqueness certification. Fiedler (1990) already addresses the unweighted tree metric center variance, and Göring--Helmberg--Wappler (2005) prove uniform-tree planar existence/radial structure; neither is claimed as novel. The weighted-spider arbitrary-mass full formula and rank-one criterion are not stated in inspected sources.",
+    "residual_risks": [
+      "An equivalent arbitrary-weighted-spider solution might appear in unindexed maximum-variance-unfolding or absolute algebraic-connectivity literature under another name.",
+      "General SDP duality predates the result, so novelty is the exact closed form, equality characterization and dimension cutoff, not the optimization setup.",
+      "The mathematical proof has same-model review only, without independent validation.",
+      "The 1990 Fiedler paper is accessible only through abstract; its full theorem might subsume aspects of the positive-weight calculation, so weighted-spider originality is qualified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general MVU SDP with uniform vertex masses; did not find explicit formula for arbitrary positive vertex masses on spiders, full radial optimizer rigidity, or sharp minimal-dimensional criterion. General SDP framework is acknowledged as prior.",
+        "evidence": [
+          "§4.1 Eq. (8) is maximizing sum of centered squared vector norms subject to edge distance upper bounds.",
+          "§4.5 gives rank bounds from optimal Laplacian multiplicity; §5.1 evaluates a six-vertex numerical example, not a weighted-spider family theorem."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "PDF pp. 681-684 (problem and normalization), 687-696 (SDP, §4.1-4.7 geometry, rank, and example); text plus page 689 image",
+        "method": "Primary open-access full-text section reading and PDF page image inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Most directly matching vector-valued maximum-variance-under-edge-bounds formulation"
+      },
+      {
+        "assessment": "Uniform vertex measure and real scalar Lipschitz functions; random-graph estimates and basic spread facts, not Hilbert-valued arbitrary-weighted spider optimizer geometry.",
+        "evidence": [
+          "§1.1 explicitly defines scalar Lipschitz spread and gives path and product examples.",
+          "No Hilbert target terminology was located in the examined PDF text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+        "material_read": "PDF pp.1-4 introduction and listed results, pp. 12-15 tree-related construction, and search across full text for Hilbert-valued results",
+        "method": "Primary full-text reading of relevant sections and PDF page 2 image inspection",
+        "title": "On the spread of random graphs",
+        "trigger": "Foundational exact graph spread/variance framework and scalar competitors"
+      },
+      {
+        "assessment": "Studies finite/infinite tree embeddings into Hilbert with bi-Lipschitz distortion and Markov convexity; different objective from maximizing weighted map variance with edgewise upper bounds.",
+        "evidence": [
+          "Theorem 1.1 characterizes finite distortion tree-to-Hilbert embeddings; Theorem 1.2 relates distortion to binary-tree obstructions.",
+          "No variance objective was located in text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0706.0545",
+        "material_read": "PDF abstract and §1--1.1, including Theorems 1.1 and 1.2; full-text search for variance; page 1 image",
+        "method": "Primary open-access PDF material inspection and targeted textual search",
+        "title": "Trees and Markov convexity",
+        "trigger": "Most relevant early tree-to-Hilbert nonlinear geometry source"
+      },
+      {
+        "assessment": "Substantially anticipates the unweighted tree-variance invariant. Whether technical details generalize directly to arbitrary weighted vertex measures is not decidable from abstract alone. Uniform special case cannot be called novel.",
+        "evidence": [
+          "The abstract states the reciprocal absolute algebraic connectivity equals a metric center sum-of-squared-distances variance for trees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Publisher abstract and precise quotation of the metric-center characterization; full text unavailable",
+        "method": "Publisher abstract and bibliography, not full-text inspection",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Older tree-variance equivalence plausibly dominating the uniform case"
+      },
+      {
+        "assessment": "Corollary 30 supplies uniform unweighted tree radial embedding geometry and planar existence. Does not state arbitrary positive vertex weights, edge lengths or the weighted-spider radial moment formula and sharp rank cut-off.",
+        "evidence": [
+          "Corollary 30: every optimal unweighted tree realization is rooted radially at origin or centered along one tree edge.",
+          "The initial SDP has equal node weights and unit edge bounds."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "29-page PDF: abstract, §§1–2 SDP, tree-specific Corollary 30 p. 26 and the preceding discussion",
+        "method": "Primary full-text inspection and page sections",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "Prior spectral dual exact objective with a strong tree optimizer classification"
+      },
+      {
+        "assessment": "Provides generalized node/edge weighted graph realization and treewidth bound, but no explicit spider arm-moment value or all maximizing configurations, no if-and-only-if minimum dimension criterion.",
+        "evidence": [
+          "Table 1 permits positive node weights and nonnegative edge lengths.",
+          "Corollary 20 proves a dimension bound in a coupled problem under a connected active-subgraph assumption."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "material_read": "29-page PDF abstract, Table 1 on p. 3, §1 background and Corollaries 19–20 on p. 13",
+        "method": "Primary full-text passage and page-image inspection",
+        "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+        "trigger": "General weighted-node, weighted-edge SDP and dimension results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d054889a-ff7c-4f96-9077-9c46bdbd8172",
+  "value": {
+    "rationale": "Determines the exact positive-weight Hilbert-valued nonlinear Lipschitz-to-centered-L² norm on an infinite structured metric family, every extremal map, and the minimal dimension (one or two). Whereas the scalar metric has a discrete signed-partition residual, the Hilbert residual is an explicit linear-time polygon imbalance. This resolves the entire weighted family, including nonuniform arm depths, and exhibits a strict dimension gap already for the uniform three-leaf star. It is a motivated exact maximum-variance-unfolding result, not a table recomputation.",
+    "status": "PASS"
+  }
+}
