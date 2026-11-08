@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The square map is additive precisely because of commutativity in characteristic two, so any binary evolution-algebra structure matrix acts as an \(\mathbb F_2\)-linear Frobenius-semilinear idempotent equation after scalar extension. The Fitting decomposition eliminates the nilpotent component. A normal basis gives \(2^r\) explicit geometric solutions and conjugates Frobenius to the invertible stable binary matrix inverse. Pairwise coprime leading monomials of the transformed equations prove the coordinate-ring length \(2^r\); the identity Jacobian proves reducedness. Kernel counts, Möbius inversion, zeta and splitting-degree statements follow. Primitive irreducible characterizes the maximally delayed first nonzero idempotent by eigenvalue order. The standard-library checker independently of matrix-power counting tests the original square equations in 2,208 bounded cases. Residual correctness risk: the proof is not formally or independently audited; exhaustive finite testing does not cover every dimension/degree.
+PASS
 
-## Originality — PASS (qualified historical search)
+Over F2 any commutative algebra has F2-linear squaring map A; over F_{2^s}, x^2=x iff x=A sigma(x). Fitting decomposition kills the nilpotent component and reduces to invertible B on stable image W=im A^n, dimension r. A normal basis of F_{2^L} for L=ord(B) explicitly parameterizes all 2^r geometric idempotents; Jacobian I for equations x-A x^[2] ensures the zero-dimensional scheme is reduced finite etale. Arithmetic Frobenius acts B^{-1}, giving N_s=2^{dim ker(A^s-I)} and Mobius closed-point/zeta formula. In the perfect case the first nonzero idempotent appears when some eigenvalue order divides s; its minimal eigenvalue order is <=2^n-1, and equality forces a primitive irreducible characteristic polynomial of degree n. Conversely every primitive companion realizes it, one Frobenius orbit on the nonzero idempotents. Independently enumerated all 16 2x2 binary matrices over F2 extension degrees 1..4, five 3x3 matrices at degrees 1..3, comparing direct idempotent enumeration against matrix-power nullities without relying on check.py; every case agreed. Inspected actual check.py, including cubic order-seven and nonsemisimple intended cases.
 
-The 2010 primary evolution-algebra paper studies idempotent systems for real parameters. The 2026 survey gives general geometric idempotent bounds and a two-dimensional Galois criterion, but not the dimension-uniform sharp primitive-irreducible first-occurrence classification or its one-orbit zeta. The previously reported graphical-algebra formula already implies the fixed-point census for binary adjacency matrices and is expressly excluded from the claimed novelty; graph matrices form a restricted symmetric zero-diagonal class and cannot realize the cubic primitive companion construction. The earlier finite-field idempotent-free result establishes existence, not the exact optimal extension degree or Frobenius cycle type. Broad normal-basis/Singer-cycle facts underlie the proof and are not claimed as new. The scope, strict extremizer equivalence and all-extension orbit structure were not found in inspected primary literature or targeted searchable records; a general semilinear theorem that already packages this conclusion remains the leading originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The absence of nonzero idempotents in perfect evolution algebras over the original finite field is a motivated structural obstruction; field extension is the natural way to measure it. The theorem gives the **sharp** maximal minimal splitting degree, growing exponentially with dimension, classifies every extremizer by a natural matrix invariant, and resolves the exact Frobenius cycle/zeta profile of those extremizers rather than just counting points over one field. This is a natural family-wide cutoff and complete arithmetic classification, not a single arbitrary computation. It also distinguishes arbitrary binary structure matrices from graph-adjacency special cases. It does not purport to classify isomorphism types or all fields.
+Earlier evolution algebra papers give existence and classification of idempotents in small dimensions and some graphical subfamilies; a published result for fixed points of iterated squaring in graphical evolution algebras already contains a restricted one-step counting identity. That special case does not cover arbitrary binary structure matrices, all extension degrees, full Frobenius orbit zeta, or sharp primitive-polynomial iff characterization. General linearized-polynomial/Hilbert 90 theory makes these deductions elementary, so an equivalent general semilinear fixed-point classification is a plausible priority risk; no decisive covering source was identified. The most relevant 2026 survey full text was inaccessible (institutional VPN disconnected) after OA attempts; this alone is not scientific rejection.
 
-## Closest antecedents and limitations
+## value
 
-Casas–Ladra–Rozikov (2010), arXiv:1004.0155; Casas–Ladra–Omirov–Rozikov (2012), arXiv:1208.1709; Kaygorodov–Martín González–Viruel (2026), arXiv:2610.22248; Narkuziyev (2018), arXiv:1803.11415; Wei–Zou (2023), arXiv:2310.12368; previously published fixed-point formula for graphical evolution algebras; and the published finite-field perfect idempotent-free existence result (URL in RESULT.md). Main residual risk: potential implication from an unidentified stronger general theorem on semilinear fixed points. Independent validation and exhaustive publication-priority certification are not supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first extension degree where a perfect binary evolution algebra gains a nonzero idempotent is a natural arithmetic splitting invariant; it can be exponentially delayed in dimension, with exact extremizers and complete closed-point data. This is an exact classification of a motivated phenomenon, not a re-labelled numerical table, although its tools are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
