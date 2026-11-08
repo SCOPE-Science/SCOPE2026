@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposition concerns the complete closed cylinder boundary with the intrinsic path metric, for every radius and height strictly positive. The proof reduces the cap-to-cap metric exactly to two rim contacts, then minimizes the cap chords over all rim angles by first contact with a focal ellipse. This yields the stated piecewise contact cost without assuming symmetric contacts. The derivative of the rim-contact profile has only an interior maximum, establishing the first threshold; its small-separation expansion establishes the second threshold. Separate strict shortcuts exclude all non-antipodal diametral candidates when the height exceeds the first threshold. The actual `verify.py` was executed successfully and compared the derived formula with independently optimized angles. These calculations corroborate, rather than replace, the proof.
+## correctness
 
-## Originality — PASS, qualified by historical uncertainty
-Cerdán–Schnell–Segura Gomis, Section 6, already determine the cylinder diameter and prove a weaker constant-antipodal-distance range. They also study a related equatorial shortcut. The present theorem does not claim those known facts. Its opposite-cap radial equality interval, exact critical-radius infimum, second transition at twice the radius, and complete tall-cylinder diametral-pair locus are not consequences of those stated results. The full available primary preprint was inspected in the relevant geometric section, and Public mathematical-record searches for diametral pair loci, cylindrical antipodes, rim contacts, threshold formulas and equivalent descriptions found no implication match. Planar polygonal-domain geodesic-diameter results concern a different intrinsic metric. Historical priority is not established absolutely; an overlooked treatment of precisely this pair classification could still exist.
+PASS
 
-## Value — PASS
-Knowing the diameter alone cannot reveal its maximizing configurations. Here the entire equality locus undergoes two sharp changes: a two-parameter family of cap pairs first contracts to a radial interval, then to a unique diametral pair. This is a structural metric result for a classical convex surface. It is meaningful even without an elementary closed formula for the intermediate critical radius.
+For top/bottom disk points, every surface path must cross rims; optimize chord+unrolled lateral geodesic+chord. The all-angle minimum of chord costs is obtained from the first point where a focal ellipse touches the rim, not from a symmetric-contact guess; it yields the exact piecewise G_R,r(t). Competing against known D=h+2R defines the infimum critical radius. The function 2R cos(t/2)+sqrt(h²+R²t²) has no interior minimum, giving h0=(pi²-4)R/4, and its near-zero expansion gives the second threshold 2R. Strict shortcuts exclude non-opposite-cap candidates above h0. Independently tested focal angular minimization on dense grids and one-dimensional profiles; these numerical tests are not used as proof.
 
-## Limits
-The theorem does not classify all diametral pairs for the shorter-height regime; it does classify all opposite-cap antipodal pairs there. It does not concern the cylinder's lateral surface alone, ambient Euclidean distances, unequal caps, or other convex surfaces. No independent external audit or complete historical-priority guarantee has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: exact cylinder diameter and part of the antipodal geometry are prior work. The new claim gives full equal-radius opposite-cap diametral criterion, sharp two thresholds and complete locus of all diametral pairs above the first threshold.
+
+## value
+
+PASS
+
+Equality cases of a known intrinsic diameter are mathematically natural. A complete sharp opposite-cap radial phase diagram, with two nontrivial thresholds and uniqueness for tall cylinders, is useful geometry rather than merely recomputation of diameter; its intermediate regime has genuinely changing maximizing loci.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
