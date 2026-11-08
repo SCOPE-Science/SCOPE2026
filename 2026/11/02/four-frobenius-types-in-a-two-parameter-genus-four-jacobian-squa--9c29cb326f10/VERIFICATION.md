@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-`verify_bruin_kulkarni.py` is a standalone Python 3 checker using only the standard library. Execute it from its directory with `python3 verify_bruin_kulkarni.py`. It uses polynomial arithmetic over prime fields to compute \(\gcd(F(X),X^{p^d}-X)\) for \(d=1,2,4\). From these gcd degrees it independently obtains the number of Frobenius cycles of lengths \(1,2,4\), verifies the ten roots split by degree four, and compares them with the character-based classification for each admissible parameter. It also checks the degree-ten polynomial directly at every field element and confirms the exact frequency counts.
+## correctness
 
-The completed exhaustive prime-field runs were:
+PASS
 
-- \(q=3\): \(3\) coefficient pairs, frequencies \((0,0,0,3)\).
-- \(q=5\): \(13\) coefficient pairs, frequencies \((0,0,4,9)\).
-- \(q=7\): \(31\) coefficient pairs, frequencies \((0,4,9,18)\).
-- \(q=11\): \(91\) coefficient pairs, frequencies \((1,14,31,45)\).
-- \(q=13\): \(133\) coefficient pairs, frequencies \((1,18,51,63)\).
-- \(q=17\): \(241\) coefficient pairs, frequencies \((3,36,94,108)\).
-- \(q=19\): \(307\) coefficient pairs, frequencies \((6,52,114,135)\).
-- \(q=23\): \(463\) coefficient pairs, frequencies \((10,80,175,198)\).
+For odd prime-power q, the coefficient-marked genus-four hyperelliptic family y^2=(x^2+1)G_{u,v}(x) has smooth locus v*(u^2-4v)*(1+u+v)!=0, cardinality q^2-3q+3. Factor G=P_{t1}P_{t2} where t_i solve t^2+u*t+v and P_t=t(x^2+1)^2-4x^2. Each P_t has roots expressed using sqrt(t) and sqrt(1-t), with exact splitting field Fq(i,sqrt(t1),sqrt(1-t1),sqrt(t2),sqrt(1-t2)); no roots collide on smooth locus. For split quadratic t_i, all four roots rational iff both character tests +1, otherwise 2^2; for irreducible t_i, norm characters chi(v),chi(1+u+v) classify 2^4 versus 4^2 over eight roots. The independent x=±i block contributes 1^2 or 2 according to epsilon=chi(-1). Counting good t via sum chi(t(1-t))=-epsilon and conjugate pairs over Fq² yields four coefficient frequencies comb(g,2),g*(q-2-g),comb(q-2-g,2)+(q-1)*(q-3)/8,3*(q²-1)/8, g=(q-4-epsilon)/4. These sum q²-3q+3 and give splitting degrees <=4 and exact Frobenius fixed branch points. For genus four, Jac[2] invariants are Frobenius-invariant even subsets of ten branch points modulo complement; the all-even-cycle alternating-complement option is impossible because length five is odd, yielding stated orders 256/128,64/32,16,4 depending on epsilon. Independently counted rational branch roots and four frequency types directly in all valid coefficient pairs over q=3,5,7,11,13. This is all odd prime powers by character algebra, not finite extrapolation; geometric isomorphism classes, zeta functions and Newton polygons are out of scope.
 
-The checker additionally verified the cardinalities of Frobenius-invariant even-subset classes modulo complement in all eight cycle configurations. Independent direct coefficient and rational-root enumeration in the quadratic extensions \(\mathbb F_9\) and \(\mathbb F_{25}\) checked respectively \(57\) and \(553\) smooth pairs, with frequencies \((0,6,21,30)\) and \((10,90,219,234)\). All tests passed, ending in `BRUIN_KULKARNI_PRIME_POWER_AND_TWO_TORSION_PASS`.
+## originality
 
-These finite checks do not prove the theorem for untested finite fields; the universal proof is in `RESULT.md`. The literature-comparison limitations and the scientific reasoning for correctness, originality, and value are in `REVIEW.md` and `AUDIT.json`. No independent audit has been performed.
+PASS
+
+Qualified PASS for the four-type finite-field Frobenius frequency table, splitting degrees, and rational 2-torsion in the explicitly marked family. Bruin–Kulkarni supplies the EXACT SAME genus-four family and Jacobian-square isogeny (these are not new). The relevant accessible original Example 7.3 does not state these global coefficient-frequency and torsion classifications; broad hyperelliptic character theory gives tools, not a seen equivalent final statement.
+
+## value
+
+PASS
+
+A complete, exact arithmetic stratification of an already-important genus-four Jacobian-square family, including Frobenius types, frequencies, rational Weierstrass counts and rational two-torsion, is a natural finite-field invariant used in arithmetic geometry. The new distribution is not equivalent to the previously known decomposition-isogeny statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review of the genus-four branch-orbit census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd prime power \(q\), the exact smooth domain is \(v(u^2-4v)(1+u+v)\ne0\). The displayed branch polynomial factors as \((x^2+1)P_{t_1}(x)P_{t_2}(x)\), where \(P_t(x)=t(x^2+1)^2-4x^2\) and \(t_1,t_2\) are distinct roots of \(t^2+ut+v\) not equal to \(0\) or \(1\). The four radical roots of each factor and the norm identities completely determine Frobenius cycles, without a geometric genericity assumption. The two quadratic-character counts prove the four exact frequency formulas, and the even-branch-subset computation gives rational Jacobian \(2\)-torsion orders. The standalone checker tested polynomial separability, genuine Frobenius root counts for extension degrees \(1,2,4\), and all parameters over eight prime fields; checks over two nonprime fields independently verified rational branch counts and the frequency formulas. The proof is universal; the finite checks are not used to infer infinite validity.
+PASS
 
-## Originality — PASS, with priority limitations
+For odd prime-power q, the coefficient-marked genus-four hyperelliptic family y^2=(x^2+1)G_{u,v}(x) has smooth locus v*(u^2-4v)*(1+u+v)!=0, cardinality q^2-3q+3. Factor G=P_{t1}P_{t2} where t_i solve t^2+u*t+v and P_t=t(x^2+1)^2-4x^2. Each P_t has roots expressed using sqrt(t) and sqrt(1-t), with exact splitting field Fq(i,sqrt(t1),sqrt(1-t1),sqrt(t2),sqrt(1-t2)); no roots collide on smooth locus. For split quadratic t_i, all four roots rational iff both character tests +1, otherwise 2^2; for irreducible t_i, norm characters chi(v),chi(1+u+v) classify 2^4 versus 4^2 over eight roots. The independent x=±i block contributes 1^2 or 2 according to epsilon=chi(-1). Counting good t via sum chi(t(1-t))=-epsilon and conjugate pairs over Fq² yields four coefficient frequencies comb(g,2),g*(q-2-g),comb(q-2-g,2)+(q-1)*(q-3)/8,3*(q²-1)/8, g=(q-4-epsilon)/4. These sum q²-3q+3 and give splitting degrees <=4 and exact Frobenius fixed branch points. For genus four, Jac[2] invariants are Frobenius-invariant even subsets of ten branch points modulo complement; the all-even-cycle alternating-complement option is impossible because length five is odd, yielding stated orders 256/128,64/32,16,4 depending on epsilon. Independently counted rational branch roots and four frequency types directly in all valid coefficient pairs over q=3,5,7,11,13. This is all odd prime powers by character algebra, not finite extrapolation; geometric isomorphism classes, zeta functions and Newton polygons are out of scope.
 
-Bruin and Kulkarni's September 5, 2023 preprint, Section 7.1, Example 7.3, and its September 12, 2025 journal presentation give the two-parameter genus-four model and the Jacobian-square isogeny. These are explicitly attributed. The inspected Example and related classification tables concern geometric constructions and permutations of six genus-two branch points, not Frobenius on the ten genus-four branch points. Neither inspected version states the four-type census, exact parameter frequencies, or rational two-torsion orders. Searches targeting the exact polynomial, the cover \(2x/(x^2+1)\), and these arithmetic invariants found no identical result; a search failure does not prove priority. Overlap comparisons with accessible earlier findings found related genus-two Weierstrass studies and separate genus-four isogeny and Hasse-stratum results, but none imply this all-\(q\), all-parameter ten-point classification. An equivalent calculation in an unindexed general finite-field factorization source remains the main residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source identifies an exceptional two-dimensional family whose genus-four Jacobians are isogenous to squares of genus-two Jacobians. Its ten geometric Weierstrass points naturally encode the full rational \(2\)-division branch data. The result gives **the complete Frobenius type distribution**, not a selected example, and proves a uniform degree-four splitting cutoff with an exact count \(3(q^2-1)/8\) of pairs requiring degree four. It yields exact rational Weierstrass and Jacobian \(2\)-torsion distributions across the entire coefficient surface, providing concrete arithmetic information not determined by the geometric isogeny statement alone. The counting is motivated by the unexpected large-dimensional family; no unproved downstream conjecture is invoked to justify value.
+Qualified PASS for the four-type finite-field Frobenius frequency table, splitting degrees, and rational 2-torsion in the explicitly marked family. Bruin–Kulkarni supplies the EXACT SAME genus-four family and Jacobian-square isogeny (these are not new). The relevant accessible original Example 7.3 does not state these global coefficient-frequency and torsion classifications; broad hyperelliptic character theory gives tools, not a seen equivalent final statement.
 
-## Closest literature and limitations
+## value
 
-The closest source is Bruin–Kulkarni, *On (2,2)-decomposable genus 4 Jacobians*, arXiv:2309.01959v1, Section 7.1, Example 7.3, and the 2025 Canadian Journal of Mathematics online version of the same paper. Prior mathematics includes finite-field quadratic character identities and the hyperelliptic even-subset model for Jacobian two-torsion. The accepted statement counts literal smooth coefficient pairs, not isomorphism classes, and determines branch-point arithmetic rather than full curve zeta functions. A prior equivalent enumeration may exist in unindexed literature. No independent external mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete, exact arithmetic stratification of an already-important genus-four Jacobian-square family, including Frobenius types, frequencies, rational Weierstrass counts and rational two-torsion, is a natural finite-field invariant used in arithmetic geometry. The new distribution is not equivalent to the previously known decomposition-isogeny statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
