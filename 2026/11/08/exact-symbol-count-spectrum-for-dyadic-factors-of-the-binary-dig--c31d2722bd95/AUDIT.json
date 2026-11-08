@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The dyadic-block factor decomposition is exact and realizes all nine boundary phase pairs. Prefix count differences satisfy an elementary recurrence whose level-2 to level-8 shift and six-periodic Fourier coefficients prove every further six-step extension. Exact base rows imply both parity-dependent endpoints. Each prefix difference is a walk with increments in {-1,0,1}, and anchored intervals connect, establishing all intermediate integer counts. verify.py separately checks recurrence to k=120 and direct windows to k=10; experiments are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1802.03610, Sections 3.1-3.3, bounds pairwise count differences and proves additive-sum values; those inequalities are weaker than the exact fixed-letter frequency interval.",
+        "arXiv:2410.02409, Sections 4.1-4.3, gives additive-complexity results for a different ternary fixed point and restates the earlier scalar result for this exact word."
+      ],
+      "reasoning": "The direct numerical bounds on |u|_2-|u|_0 do not force the exact minimum and maximum of |u|_0, let alone every intermediate count. The general abelian-complexity theorem in arXiv:1809.06554 requires a length-q alphabet-q substitution, which does not match the present length-two alphabet-three word.",
+      "searches": [
+        "\"abelian complexity\" \"0 01\" \"1 12\" \"2 20\" morphism",
+        "abelian complexity generalized Thue Morse sequence base two mod three",
+        "\"ternary\" \"binary digit sum\" \"balance function\" \"Thue Morse\" 2019"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1802.03610",
+      "arxiv:1809.06554",
+      "arxiv:2410.02409",
+      "OEIS A071858 (sequence identification only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Wen–Wu: exact additive complexity 2 floor(log_2 n)+3 counts distinct total digit sums; it is a projection of Parikh classes and does not imply the coordinate-support result.",
+        "Chen–Wen generalized theorem: morphism length equals alphabet size, inapplicable at alphabet size three with image length two.",
+        "Popoli–Shallit–Stipulanti: the same additive theorem is labeled prior Theorem 28; no dyadic single-letter support spectrum is stated in the inspected relevant section."
+      ],
+      "reasoning": "The new theorem is about projections onto each coordinate, not onto the fixed linear functional (0,1,2). Its precise interval boundaries and sharp per-letter balance do not logically follow from the previously published count of attainable total weights or from a theorem about a different word.",
+      "searches": [
+        "arxiv:1802.03610 full text Sections 2-3",
+        "arxiv:1809.06554 first two pages and theorem statements",
+        "arxiv:2410.02409 full text Sections 4.1-4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1802.03610 studies the same fixed point 0->01, 1->12, 2->20 but counts scalar additive weights, not attainable frequencies of one chosen symbol.",
+        "arXiv:1809.06554 defines its generalized ternary Thue-Morse word using 0->012, 1->120, 2->201, not this length-two substitution."
+      ],
+      "reasoning": "A scalar additive projection |u|_1+2|u|_2 does not determine an individual coordinate |u|_j. A coincidence of the phrase generalized Thue-Morse is not equivalence: the underlying substitution lengths and factor languages differ.",
+      "searches": [
+        "binary sum of digits modulo three ternary 2 automatic word abelian balance exact counts in factors of dyadic length 2^k max-min k+1",
+        "\"abelian complexity\" \"sum of binary digits modulo 3\"",
+        "\"A071858\" \"balance\" \"abelian complexity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A071858 identifies the digit-sum-modulo-three automatic word but does not supply the dyadic count-support classification in the inspected record.",
+        "Research-index searches returned other Thue-Morse, Fourier, and automaton results but no corresponding fixed-symbol dyadic frequency table."
+      ],
+      "reasoning": "No exact table or equivalent invariant was found in the inspected indexed material. The available index is not a completeness certificate; unpublished or poorly indexed tables remain a residual risk.",
+      "searches": [
+        "\"abelian complexity\" \"sum of binary digits modulo 3\"",
+        "\"0 -> 01\" \"1 -> 12\" \"2 -> 20\" \"abelian complexity\"",
+        "abelian complexity exact dyadic 2^k Parikh vectors ternary Thue Morse 2-automatic digit sum modulo 3 subword"
+      ]
+    },
+    "rationale": "The precise per-letter frequency spectrum is not the previously known additive-sum complexity and is not supplied by the generalized length-three ternary Thue-Morse word results. Exact research-index queries and high-relevance primary text comparisons found no dominating source. Risk of unindexed equivalent is explicitly retained.",
+    "residual_risks": [
+      "An equivalent fixed-symbol discrepancy theorem may appear in an unindexed balance/automatic-word source.",
+      "The new claim intentionally does not assert the full abelian-complexity function."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers weighted digit sums and extrema of pairwise letter-count differences, not the precise individual-coordinate count support",
+        "evidence": [
+          "Theorem 1 and Proposition 1-3 give scalar sum counts and their realizations",
+          "Equation (3.1) identifies the scalar weight with a difference of two letter counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.03610",
+        "material_read": "Abstract, introduction, Sections 2 and 3 including propositions on extremal letter-count differences and accessible scalar sums, conclusions/references",
+        "method": "Open-access PDF parsed text and page-image inspection",
+        "title": "On the additive complexity of a Thue-Morse like sequence",
+        "trigger": "Exact same morphism; potentially dominant predecessor"
+      },
+      {
+        "assessment": "Different generalized Thue-Morse family, with substitution length equal alphabet size; no coverage of length-two ternary fixed point",
+        "evidence": [
+          "Definition 0->01... (q-1) for q-letter alphabet (q=3 gives 0->012)",
+          "Theorem 1 is about that different family"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1809.06554",
+        "material_read": "Abstract, introduction, explicit substitution definition, theorem statements and paper scope",
+        "method": "Open-access PDF parsed text and page-image inspection",
+        "title": "On the abelian complexity of generalized Thue-Morse sequences",
+        "trigger": "Plausible title claiming exact abelian complexity"
+      },
+      {
+        "assessment": "Theorem 28 cites the earlier additive-complexity formula for this word, but does not state the fixed-symbol frequency support",
+        "evidence": [
+          "Theorem 28 gives 2 floor(log_2 n)+3 for additive complexity",
+          "Definitions 1 and 3 distinguish additive equivalence from Parikh equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.02409",
+        "material_read": "Abstract, definitions, Section 4 especially Theorems 23 and 28 and their adjoining remarks",
+        "method": "Open-access PDF parsed text and page-image inspection",
+        "title": "Additive word complexity and Walnut",
+        "trigger": "Recent additive complexity paper whose examples include this word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c31d2722-bd95-4633-a5fd-eb68edcb4786",
+  "value": {
+    "rationale": "Exact attainable letter frequencies at every dyadic length are a natural sharp one-coordinate invariant controlling possible Parikh vectors of a classical automatic word. The complete k+2-point contiguous support and logarithmic exact balance gap are structurally informative and not implied just by knowing the number of scalar additive weights. This supports abelian-complexity bounds without claiming a full classification.",
+    "status": "PASS"
+  }
+}
