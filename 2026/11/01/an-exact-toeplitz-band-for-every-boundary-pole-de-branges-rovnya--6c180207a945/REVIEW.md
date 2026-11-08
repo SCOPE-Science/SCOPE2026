@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all degrees \(m\ge1\), all degree-\(m\) denominators \(Q\) whose zeros lie on the unit circle, all complex numerators \(P\) of degree at most \(m\), and finite truncations \(N\ge2m\). The proof uses the self-inversive identity \(Q^{\#}=\kappa Q\), which holds with \(|\kappa|=1\), to cancel the adjoint Toeplitz singularity in \(z^jQ^2\). Since the resulting image is in the domain of multiplication by \(P/Q\), adjointness exactly produces the coefficients of \(Q^2+\kappa^{-1}PP^{\#}\). Matrix multiplication then gives every interior row; at most \(2m\) rows remain. This is an infinite-quantifier analytical proof, supplemented by 726 exactly represented Gaussian-integer comparisons in six independent parameter choices. No special finite case is promoted to a universal conclusion.
+PASS
 
-## Originality — PASS relative to inspected evidence
+With deg Q=m>=1, all Q-roots on unit circle, deg P<=m, the m-reversal satisfies Q#=κQ with |κ|=1, hence on circle overline(P/Q) Q²=κ^{-1}QP#, a nonsingular polynomial. For F_j=z^jQ², the adjoint Toeplitz operator T_barφ maps it to κ^{-1}z^jQP#; this polynomial belongs to domain T_φ and maps further to κ^{-1}z^jPP#. The de Branges–Rovnyak norm identity <f,g>_H(b)=<f,g>_H²+<T_barφ f,T_barφ g> yields <F_j,z^k>=coefficient w_{k-j} of W=Q²+κ^{-1}PP#. In finite monomial Gram M_N, all rows j<=N-2m of Q(B_N)²M_N coincide with upper Toeplitz band T_N(W); last 2m rows differ and residual rank<=2m. Handles repeated poles, complex coefficients, P=0, N>=2m; no assumption that original M_N is banded.
 
-Dellepiane–Seco, arXiv:2603.03093v1, §4.2 prove a second-order single-pole band structure and §4.3 state the analogous all-order property as expected; the explicit all-orders Toeplitz symbol, constant diagonals and arbitrary multiple boundary pole sets are not included. Hartmann–Lamberti, DOI 10.1112/jlms.70323, give multi-pole space decompositions and interpolation, not this exact Gram identity. The earlier higher-order local Dirichlet article, arXiv:2306.07146, treats single-point derivative norms and shift properties. Subject and claim-equivalence searches of published literature and a scientific results index found no dominating statement. The full text of the 2023 source was not accessed directly; an unindexed earlier equivalent formulation remains a genuine residual risk. The absence of a search match is not asserted as mathematical proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper identifies higher-order matrix structure as a substantive route to orthogonal polynomials but leaves its general form as a proposed direction. An exact parameter-uniform band with computable symbol and a fixed number of exceptional rows supplies that structure for all pole multiplicities and arbitrary locations on the unit circle, and resolves the general band question in a stronger form. This is a structural lemma for finite Gram–Schmidt systems, not merely a small numerical improvement. The theorem does not derive explicit closed forms for all orthonormal polynomials or identify the exceptional matrix rank exactly.
+Qualified PASS for explicit arbitrary boundary-pole and multiplicity all-order Gram transformation with constant band diagonals and a 2m-row correction. Dellepiane–Seco 2026 §§4.2–4.3 treat a second-order single pole and discuss an all-order generalization but do not establish the exact polynomial W or all boundary-pole sets. Hartmann–Lamberti multi-boundary-pole decompositions and higher local Dirichlet literature do not give this transformed finite Gram matrix identity in inspected material. Known Toeplitz adjoint identity remains foundational prior work.
 
-## Scope of verification
+## value
 
-The proof is complete in the stated rational setting. Independent mathematical audit and completeness of unindexed literature searches have not been established. The checker is supplemental and has no bearing on the universal quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite-band symbol resolves a motivated higher-order Gram structure question raised by prior orthogonal-polynomial work, with all poles/multiplicities and uniform boundary rank. It provides concrete symbolic input for Gram–Schmidt/orthogonal polynomial computations and a structural lemma beyond a textbook adjoint identity. Does not claim explicit orthonormal polynomials or exact boundary rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

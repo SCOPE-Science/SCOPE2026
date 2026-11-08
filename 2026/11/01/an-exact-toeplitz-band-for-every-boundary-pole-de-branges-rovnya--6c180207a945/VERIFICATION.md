@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the basis for the universal result. The key nonstandard calculation is the exact boundary identity \(\overline{\phi}Q^2=\kappa^{-1}QP^{\#}\), and the critical domain condition is \(\phi(\kappa^{-1}QP^{\#})=\kappa^{-1}PP^{\#}\), both polynomials. With the norm formula and adjointness this yields the entrywise Toeplitz formula for arbitrary indices before finite truncation. The last-row count follows directly from the degree of \(Q^2\).
+## correctness
 
-Run the standalone Python standard-library script `python CHECK.py` from the package directory. Six exact Gaussian-integer examples cover a repeated boundary pole, two opposite poles, two distinct nonreal-complex coefficients, mixed multiplicities and a fourth-order pole. The script verifies \(Q^{\#}=\kappa Q\), computes coefficients by the exact rational-function recurrence, and compares 726 transformed Gram entries against the explicit Toeplitz symbol. In the displayed bounded examples, ordinary floating-point complex arithmetic represents all intermediate Gaussian integers exactly; a failed equality raises an assertion. This is a supplementary finite check only, not an exhaustion of all coefficients or degrees.
+PASS
 
-All normalization assumptions, matrix orientation, degree ranges, and the possible \(P=0\) case are specified in `RESULT.md`. No independent mathematical audit has been performed.
+With deg Q=m>=1, all Q-roots on unit circle, deg P<=m, the m-reversal satisfies Q#=κQ with |κ|=1, hence on circle overline(P/Q) Q²=κ^{-1}QP#, a nonsingular polynomial. For F_j=z^jQ², the adjoint Toeplitz operator T_barφ maps it to κ^{-1}z^jQP#; this polynomial belongs to domain T_φ and maps further to κ^{-1}z^jPP#. The de Branges–Rovnyak norm identity <f,g>_H(b)=<f,g>_H²+<T_barφ f,T_barφ g> yields <F_j,z^k>=coefficient w_{k-j} of W=Q²+κ^{-1}PP#. In finite monomial Gram M_N, all rows j<=N-2m of Q(B_N)²M_N coincide with upper Toeplitz band T_N(W); last 2m rows differ and residual rank<=2m. Handles repeated poles, complex coefficients, P=0, N>=2m; no assumption that original M_N is banded.
+
+## originality
+
+PASS
+
+Qualified PASS for explicit arbitrary boundary-pole and multiplicity all-order Gram transformation with constant band diagonals and a 2m-row correction. Dellepiane–Seco 2026 §§4.2–4.3 treat a second-order single pole and discuss an all-order generalization but do not establish the exact polynomial W or all boundary-pole sets. Hartmann–Lamberti multi-boundary-pole decompositions and higher local Dirichlet literature do not give this transformed finite Gram matrix identity in inspected material. Known Toeplitz adjoint identity remains foundational prior work.
+
+## value
+
+PASS
+
+The exact finite-band symbol resolves a motivated higher-order Gram structure question raised by prior orthogonal-polynomial work, with all poles/multiplicities and uniform boundary rank. It provides concrete symbolic input for Gram–Schmidt/orthogonal polynomial computations and a structural lemma beyond a textbook adjoint identity. Does not claim explicit orthonormal polynomials or exact boundary rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
