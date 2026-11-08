@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific boundaries
+# Independent mathematical audit
 
-Run `python3 checker.py` from a directory containing the supplied script. The script uses only the Python standard library and evaluates the four modal truth clauses directly for every finite persistent valuation considered. It checks 1-, 2-, and 3-point preorder universes exhaustively, tests all 65,536 accessibility relations on a fixed four-world branching height-two partial order, and verifies the explicit two-world indispensability pairs and universal obstruction patterns on small orders. The expected terminal output ends `ALL_CHECKS_OK`.
+## correctness
 
-No computation on finite carriers establishes the theorem for infinite preorders. The separate symbolic proof directly reconstructs all edges and constructs noninjective relation pairs on every disallowed preorder. The verification does not cover arbitrary accessibility-class restrictions or comparisons of frame-validity logics.
+PASS
 
-Scientific overlap checks compared the exact claim with primary four-connective semantics, distributive modal operator compatibility, and earlier finite-chain observational results. The latter already covers the finite-chain subcase. The new mathematical contribution concerns the full classification for arbitrary preorders, including branching and non-antisymmetric cases, and the irredundance of all four operations. Historical priority has not been independently validated.
+Operators D,B,E,F act on all upsets with the four explicitly quantified clauses. In a height-at-most-two antisymmetric order every world is minimal or maximal: if target v maximal use the singleton upset {v}, and D on minimal source or E on maximal source reads whether sRv; if target v minimal, use W\{v} and complement F/B respectively. Thus all individual edges are reconstructed for arbitrary finite or infinite W. If preorder has equivalent distinct targets a,b, replacing a by b in one relation row preserves every upset intersection/containment test and hence all operators. If strict chain a<b<c, replacing row {a,c} by {a,b,c} likewise preserves these row tests and all operators. The four explicit relation-pair witnesses on a two-element chain are indistinguishable after removing D, B, E or F respectively; independent evaluation of the three possible upsets verified each. The source checker enumerates 1–3 worlds and a 4-world branching poset, but the general proof uses the direct recovery/obstruction arguments, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full arbitrary-preorder fixed-labelled relation injectivity criterion, including branching and infinite orders, and four-operator indispensability. Balbiani–Gencer introduced precisely these operators and have noneliminability/observational examples; earlier finite-chain observational-fiber notes subsume chain-only cases, not this full structural iff. However full Balbiani–Gencer paper was not accessible (Oxford access blocked) and a stronger distributive-modal representation theorem could conceal the result; explicitly qualified.
+
+## value
+
+PASS
+
+Identifying which intuitionistic modal truth-set operators retain the underlying accessibility relation is a natural semantic inverse problem. The theorem gives the exact height-two structural boundary and an explicit edge-reconstruction algorithm, while showing minimality of all four operator coordinates on the smallest nontrivial poset. This is broadly meaningful for relational semantics, not a finite cardinality stunt.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
