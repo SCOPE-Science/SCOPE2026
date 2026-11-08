@@ -1,19 +1,21 @@
-# Review of the three-state stationary-error crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-state Markov generator, exact Lie and symmetric Strang factor order, strict positive-rate domain, and total-variation metric are fully specified. Symbolic invariant-law substitution and a separate cofactor derivation agree. Exact deviation signs remove the absolute-value ambiguity, and polynomial factorization plus strict positivity of every coefficient of the polynomial derivative prove precisely one crossover. The general-rate statement uses a direct exact Lie invariant, analytic small-step perturbation of the simple stationary eigenvector, and deterministic large-step limits. The packaged verifier completed all symbolic assertions and 300 exact-rational checks. No infinite conclusion relies on finite enumeration.
+PASS
 
-## Originality — PASS (with stated risk)
+For rates (1,2,2) and row-stochastic E1(h)E2(h)E3(h) / E1(h/2)E2(h/2)E3(h)E2(h/2)E1(h/2), independently formed each exact stochastic matrix and solved its unique invariant row distribution. The resulting total variation deviations reduce to D_L=(1-q^2)(1+2q^2)/(2(1+q^2+2q^4)) and D_S=(1-q)^2(3q^2+2q+3)/(4(1+q^2)^2). Exact SymPy subtraction factors D_S-D_L=(q-1)P(q)/[4(1+q^2)^2(1+q^2+2q^4)], P=10q^7+2q^6+15q^5+3q^4+12q^3+4q^2+3q-1. P strictly increases on (0,1), P(0)=-1,P(1)>0, so q*=0.22049649 gives unique reversal h*=3.02374697; independent small-h expansions give 3h/8 and h²/8, large-h limits 1/2 and 3/4. For general a,b,c>0 the exact Lie stationary weights and symmetric perturbative O(h²) versus linear Lie error, plus saturated deterministic limits at a<b, prove existence not uniqueness. All-step proof is algebraic, not finite sampling.
 
-The most relevant inspected full texts concern positivity/mass preservation in graph-Laplacian solvers and relative-entropy analyses of stochastic splitting. Neither inspected source states the exact all-step stationary total-variation laws, unique degree-seven threshold, or general orientation-dependent reversal for conventional edge exponentials. Earlier balanced-splitting work clearly establishes steady-state bias and corrective methods, so neither phenomenon is presented as new. Its detailed PDF was not accessible; the repository abstract alone cannot exclude specialized overlap, which remains an explicit priority risk. Equivalent statements phrased as a three-state Markov kernel, ordered graph-edge exponential, or stationary splitting bias were considered rather than searching titles alone.
+## originality
 
-## Value — PASS
+PASS
 
-This is a sharp, analytically complete benchmark for long-time errors of unconditional positivity- and mass-preserving operator splitting. It shows a concrete, non-pathological circumstance in which the scheme with the formally higher local order becomes worse for the invariant distribution at every sufficiently large step, with exactly one error-ranking transition in the minimal directed-cycle example. The precise threshold can test step-selection criteria and diagnose steady-state distortion in finite-state integrators. No general method performance or novel stationary-bias phenomenon is asserted.
+Exact full-stepsize invariant-TV ranking crossover for uncorrected three edge exponentials is distinguishable from known operator-splitting steady-state bias and balanced corrections, positivity preservation or path-space relative entropy analysis. Qualified because the 2013 balanced-splitting PDF could not be read in full and general Markov-kernel splitting analysis might include this three-state specialization.
 
-## Relevant prior literature and scientific limitations
+## value
 
-The relevant background is Blanes–Iserles–Macnamara (2021 preprint), Gourgoulias–Katsoulakis–Rey-Bellet (2015 preprint), and Speth–Green–MacNamara–Strang (2013). The 2013 repository abstract is available but the complete paper was not read, so its full scope is unresolved. The exact phase diagram applies to a specified three-state cycle and specific edge ordering; the arbitrary-rate portion establishes at least one reversal only under the stated inequality. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal genuine Markov chain gives a nontrivial finite step-size threshold where higher-order positivity-preserving splitting ceases to be the better stationary approximant, despite unconditional mass preservation and convergence. The threshold and exact stationary laws provide a meaningful benchmark for long-time integrator choice, not a claim about trajectory-error dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
