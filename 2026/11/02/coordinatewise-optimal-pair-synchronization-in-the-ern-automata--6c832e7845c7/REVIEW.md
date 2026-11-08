@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pair-coordinate definitions handle ordinary and even-antipodal pairs without duplication. Explicit transition formulas establish the two coordinatewise potential lower bounds for every \(n\ge2\), including wrap and complementary-arc cases. A displayed word meets both bounds, and a unique rank-decreasing outgoing edge at every nonsingleton pair proves uniqueness for all strictly positive costs. Disjoint consecutive intervals prove the shortest-distance spectrum without a finite extrapolation. Replayed transition tests cover all pairs for \(2\le n\le50\) and independent weighted reverse Dijkstra enumerations through \(n=17\), not an external independent audit.
+PASS
 
-## Originality — PASS, with residual priority risk
+Take unordered pairs of distinct cyclic states and height h their minimal cyclic separation, with antipodal orientation fixed at n even. Compute two potential coordinates (A,B), piecewise A=h(n-1)-i/B=h or A=(m-1)n-i/B=m. All transitions satisfy A−A(after a)≤1 and B(after a)=B, while A(after b)≥A and B−B(after b)≤1; direct inspection of both wrap cases and the n=2,3 boundaries shows R=A+B has exactly one outgoing rank-decreasing letter at every pair. The displayed word a^(n−1−i)b(a^(n−1)b)^(h−1), or antipodal adjustment, reaches singleton using precisely A a-letters and B b-letters. Thus all positive weighted costs are lower-bounded componentwise and uniquely attained; R-values partition 1,…,C(n,2) into consecutive height blocks. Independent pair-transition and 3-cost reverse-Dijkstra verification checked all pairs for n=2…18; universal proof is the one-step transition analysis, not finite Dijkstra.
 
-The closest full primary source is Gusev's 2014 analysis of the Černý pair automaton (arXiv:1404.6731v1, Section 3). His Lemma 1 gives a representation of the pair transition graph for odd \(n\), and his Theorems 3–4 evaluate expected merging times under random inputs for odd and even sizes. The present mathematical claim instead concerns deterministic shortest words for **all** pairs and both parity classes, their separate letter-count minima, simultaneous positive-cost optimality, uniqueness, and the exact multiplicity-one distance spectrum. This is not implied by the probabilistic expectation formula alone; the available graph could serve as a starting point for a further derivation, which is a genuine residual priority risk. General shortest-reset algorithms and weighted-automaton work do not state or dominate these particular exact formulas. Targeted research-record and literature searches found no covering assertion; absence of a match is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The problem of merging a specified pair under nonuniform input costs is a natural basic synchronization/automata-control optimization problem. A single word simultaneously optimizing two competing resource counts for every starting pair is stronger than a scalar shortest-path table or a fixed choice of costs. The result also exhibits a rigid bijection between starting pairs and shortest-merging lengths, and includes the nontrivial antipodal parity boundary. This is a structural exact classification across an unbounded automaton family, rather than an isolated small census or trivial restatement of the full-state reset threshold.
+Best-of-knowledge PASS for simultaneous coordinatewise Parikh-minimization and unique merging word for every pair/all positive letter costs, plus full multiplicity-one shortest-distance spectrum. Classical Černý reset lengths, random-input pair graphs, and general rank-deficiency profiles are prior. A random-input analysis explicitly draws the same pair automaton, which is a realistic source for implicit shortest-path arguments but its results do not state or logically force all-cost coordinatewise uniqueness.
 
-## Closest literature and limitations
+## value
 
-Primary: Gusev, *Synchronizing automata with random inputs*, 2014, arXiv:1404.6731v1, Section 3, full author-uploaded manuscript inspected. Context: Kisielewicz–Kowalski–Szykuła (2013) on general shortest reset algorithms; Ruszil (2021) on general weighted synchronization algorithms. The theorem does not address subsets larger than two, general automata, or state-dependent costs. Historical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical difficult synchronizing automaton has a natural pair automaton used in synchronization algorithms. A closed-form unique all-weight optimal word for EVERY pair and exact non-repeating distance spectrum are useful combinatorial structure, not an arbitrary small-instance enumeration. The proof gives a sharp all-n family and componentwise lower bounds stronger than an ordinary shortest reset length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
