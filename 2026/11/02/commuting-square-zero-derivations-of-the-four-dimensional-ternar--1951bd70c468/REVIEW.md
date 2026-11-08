@@ -1,15 +1,21 @@
-# Review of the compatible square-zero derivation classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The determinant differential identity gives the entire derivation algebra, including trace constraints in odd characteristic. A split tensor-product orthogonal model and a partial-trace argument force every square-zero derivation into exactly one of the two simple ideals. The rank-two conclusion, the nilpotent-line centralizer lemma, the all-support finite-field enumeration, and the reduced-component dimensions are proved algebraically. Direct original-bracket computations test the coefficient conclusions in small fields, including an extension field.
+## correctness
 
-## Originality
-**PASS, provisionally.** The classical four-dimensional ternary algebra, orthogonal derivations, split \(\mathfrak{so}_4\), and ordinary nilpotent cones are credited as antecedents. The specific complete count of all mutually commuting endomorphism-square-zero ternary derivation tuples, their multivariate rank spectrum, and their \(2^m\) reduced-component non-equidimensional geometry are not stated in the inspected original literature. The strongest related finite-field paper addresses commuting pairs of unrestricted or ordinary Lie-nilpotent operators, rather than this stronger square-zero condition and arbitrary arity. Historical priority cannot be guaranteed, especially if a general orthogonal commuting-tuple theorem already implies these formulas.
+PASS
 
-## Value
-**PASS.** The pairwise compatibility problem is intrinsic to simultaneous square-zero derivations of a nonassociative algebra. The exact all-arity rank polynomial is a complete natural finite-field invariant; its mixed-ideal terms quantify a structural phenomenon invisible in the single-operator census. The reduced solution varieties are non-equidimensional for every length at least two, with a sharp exponential component count and two distinct component dimensions. These features offer a meaningful structural rather than arbitrary finite slice.
+Determinant differentiation gives derivations D+D^T=tr(D)I; tracing forces tr(D)=0 in odd characteristic, hence so4. The determinant-one quadratic space is split, so so4=sl2⊕sl2 via A⊗I+I⊗B. With A²=aI,B²=bI, D²=(a+b)I+2A⊗B; partial traces force a+b=0 and A⊗B=0, so nonzero square-zero D lies in one pure nilpotent sl2 ideal and has rank 2. In each ideal, nonzero commuting nilpotents share a projective conic line (q+1 choices). For support size s, counting monochromatic 2(q+1)(q-1)^s and mixed (2^s-2)(q+1)²(q-1)^s assignments gives all coefficients and total. Each fixed ideal allocation gives an irreducible product of nilpotent-line cones, dimensions m+1 (two pure) and m+2 (others), no containment. Independently enumerated all 3^6 skew 4x4 matrices: 17 square-zero and 193 commuting ordered pairs, agreeing with q=3 m=2. Characteristic 2 and nonreduced schemes are excluded.
 
-## Limits and closest literature
-Papadopoulos (arXiv:0804.2662) and de Medeiros--Figueroa-O'Farrill--Méndez-Escobar (arXiv:0806.3242) study the underlying ternary algebras and derivations; Panyushev (arXiv:math/9906049) treats general semisimple Lie nilpotent pairs; Fulman--Guralnick (arXiv:1611.05499) treats finite-field commuting pair counts. The present statement is restricted to odd characteristic, the specified four-dimensional ternary bracket, and reduced varieties. Its historical priority still requires independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The canonical metric 3-Lie algebra, so4 splitting and sl2 nilpotent cone are classical. Fulman–Guralnick 2018 enumerate commuting pairs for general linear, unitary and symplectic Lie algebras; their full primary text explicitly says the orthogonal case is not worked out, and it does not impose endomorphism square-zero in every coordinate. General nilpotent commuting varieties can cover parts of geometric structure, but not directly this all-arity rank-refined square-zero count in the specific ternary derivation algebra. Historical priority against an orthogonal commuting-nilpotent tuple classification remains qualified.
+
+## value
+
+PASS
+
+The all-arity joint-rank polynomial and explicit non-equidimensional 2^m irreducible-component census are natural structural invariants of a classical ternary Lie algebra; they identify how the commuting and square-zero constraints interact in two simple ideals. This is more than reproducing known so4 decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
