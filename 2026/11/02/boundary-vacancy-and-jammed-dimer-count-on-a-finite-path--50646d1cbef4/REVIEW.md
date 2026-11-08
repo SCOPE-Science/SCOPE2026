@@ -1,19 +1,21 @@
-# Scientific review: boundary vacancy and jammed dimer count
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-arriving edge splits a path into independent subpaths, producing explicit recurrences for the mean dimer count, endpoint vacancy probability and their mixed moment. Formal-power-series solutions give the stated closed mixed-moment generating function. The coefficient formulas are rational and were independently checked by exhaustive attempted-edge enumeration through eight sites. The all-size sign proof does not extrapolate from finite tests: for lengths at least ten it bounds exponential-series tails strictly below the magnitude of the negative limiting constant. The remaining sizes are exactly evaluated. The limiting constant follows from the singular and entire parts of the explicit generating functions.
+PASS
 
-## Originality — PASS, with priority qualifications
+Conditioning on the earliest attempted path edge splits into two independent subpaths, giving correct recurrences for a_n=EM_n, u_n=EU_n and c_n=E[U_n M_n] with n=1 boundary. Formal differential equations yield A=x(1-e^-2x)/(2(1-x)^2), U=xe^-x/(1-x), and the stated C. Explicit coefficient formulas and positive exponential-tail error bound B_n<=B_10<1/12 for n>=10 prove strictly negative covariance; the finite exceptions n=2,3,5 and remaining n<=9 are exact rational checks. An independently written permutation enumerator tested all (n-1)! edge-orderings for each n=2,...,8 and reproduced their stated rational covariances. This is corroboration, not an infinite sign proof.
 
-The discrete dimer-parking model and recursive splitting are classical, not claims of novelty. Gerin's arXiv:1411.8002 supplies an exact first-edge construction and occupation-density results; Krapivsky's arXiv:2009.08609 treats an isomorphic monomer-exclusion model and gives marginal total-count statistics and boundary occupation probabilities. Neither inspected manuscript states the mixed endpoint-vacancy versus final dimer-count generating function, the exceptional fifth-size zero, or the nonzero limiting covariance. The closest related current mathematical records concern endpoint-to-endpoint vacancy dependence and random-greedy matching on different graphs, which do not directly imply this mixed boundary/global claim. Full historical coverage of older adsorption correlation methods has not been established: J. W. Evans's 1993 survey and certain older books were accessible only as abstracts/descriptions.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question couples a local boundary defect to a natural global jamming statistic. Its dependence remains strictly negative, with a nonzero limiting covariance, and exhibits a finite-size equality at exactly five sites. This contrasts with rapidly decaying endpoint-to-endpoint interactions and cannot be read from either marginal expectation alone. The exact mixed generating function supplies reusable finite-volume information for boundary-sensitive sequential adsorption.
+Qualified PASS for the mixed boundary-vacancy by jammed-dimer generating function and exact sign/limit, not for the classic first-edge decomposition or marginal occupancy/full counting statistics. Gerin 2015 covers the original Page–Rényi model and total density; Krapivsky 2020 treats boundary means and total-count statistics separately, and no mixed first-site/global moment is stated in inspected sections. Older RSA spatial correlation literature may imply it.
 
-## Limitations and risks
+## value
 
-Only uniformly ordered nearest-neighbor dimers on a finite path are treated. Full statistical independence is neither asserted nor established from a covariance zero. Existing general correlation frameworks may subsume portions of the argument; independent priority assessment remains necessary. Computational checks cover finitely many instances and are not infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Boundary vacancy and global jammed population are natural correlated observables in random sequential adsorption. Determining an exceptional zero at n=5, strict signs at all other sizes and a nonzero limiting covariance is a meaningful joint-statistic refinement of known marginals, not a routine count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:12:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the earliest attempted path edge splits into two independent subpaths, giving correct recurrences for a_n=EM_n, u_n=EU_n and c_n=E[U_n M_n] with n=1 boundary. Formal differential equations yield A=x(1-e^-2x)/(2(1-x)^2), U=xe^-x/(1-x), and the stated C. Explicit coefficient formulas and positive exponential-tail error bound B_n<=B_10<1/12 for n>=10 prove strictly negative covariance; the finite exceptions n=2,3,5 and remaining n<=9 are exact rational checks. An independently written permutation enumerator tested all (n-1)! edge-orderings for each n=2,...,8 and reproduced their stated rational covariances. This is corroboration, not an infinite sign proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gerin gives first-car splitting and total occupied fraction; Krapivsky derives separate boundary occupation and full counting-statistic generating functions.",
+          "No formula in inspected key sections gives mixed boundary-vacancy/dimer total generating function."
+        ],
+        "reasoning": "A full total-count distribution does not determine its covariance with boundary vacancy without a boundary-marked joint generating function.",
+        "searches": [
+          "Gerin 2015 arxiv:1411.8002",
+          "Krapivsky 2020 arxiv:2009.08609"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1411.8002",
+        "https://arxiv.org/pdf/2009.08609"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-edge model and total-count mean are prior; the new recurrence for E[U_n M_n] depends jointly on boundary and right-segment mean.",
+          "Its e^-1 and e^-3 limiting covariance differs from the prior one-point boundary occupation and total count cumulants."
+        ],
+        "reasoning": "The inspected marginal results do not logically fix the covariance; the new mixed recursion and uniform sign estimate supply an additional nontrivial fact.",
+        "searches": [
+          "https://arxiv.org/pdf/1411.8002",
+          "https://arxiv.org/pdf/2009.08609"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The process is equivalent to nearest-neighbor-exclusion monomer RSA on n-1 candidate edges.",
+          "A dimer corresponds to an accepted edge; U_n means the first site has no accepted adjacent edge."
+        ],
+        "reasoning": "Changing to monomer RSA changes names not the mixed observable; inspected equivalent formulations treat marginals rather than the joint mixed moment.",
+        "searches": [
+          "Resultary semantic: Page Renyi parking process dimer random sequential adsorption path boundary vacancy jammed dimer count covariance",
+          "Page Renyi parking discrete path first-site vacancy total accepted dimers covariance",
+          "arxiv:2009.08609"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching boundary/global covariance table appeared among closest published-record semantic hits; original papers present marginal small-L quantities."
+        ],
+        "reasoning": "An alternate correlation table could cover the same finite statistic, not excluded merely by search failure.",
+        "searches": [
+          "Resultary semantic: Page Renyi parking process dimer random sequential adsorption path boundary vacancy jammed dimer count covariance",
+          "random sequential adsorption boundary global covariance finite path exact"
+        ]
+      },
+      "rationale": "Qualified PASS for the mixed boundary-vacancy by jammed-dimer generating function and exact sign/limit, not for the classic first-edge decomposition or marginal occupancy/full counting statistics. Gerin 2015 covers the original Page–Rényi model and total density; Krapivsky 2020 treats boundary means and total-count statistics separately, and no mixed first-site/global moment is stated in inspected sections. Older RSA spatial correlation literature may imply it.",
+      "residual_risks": [
+        "Old adsorption correlation theory may implicitly supply the mixed first-boundary/global statistic.",
+        "Uniform finite path and length-two cars only; exact finite enumeration is not evidence for every n without analytic tail bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS model and aggregate law, not mixed endpoint/global statistic in inspected theorem statements",
+          "evidence": "Theorem 1 gives coverage fraction 1-e^-2; first-car law appears in introduction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.8002",
+          "material_read": "Primary 13-page PDF first-car recursion, Sections 1–2 and limiting one-site occupancy, rendered page 5",
+          "method": "Primary PDF text and page image reading",
+          "title": "The Page–Rényi parking process",
+          "trigger": "Original finite path process and splitting law"
+        },
+        {
+          "assessment": "PARTIAL_COVERING: boundary mean and total counting separately, no same mixed moment identified",
+          "evidence": "Section II.B explicitly computes boundary occupation; Section III derives full counting statistics of global N.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.08609",
+          "material_read": "Primary 11-page PDF Sections II.B and III.A, exact boundary means, total-count Riccati equation, rendered pages 4 and 7",
+          "method": "Primary PDF text plus page images",
+          "title": "Large Deviations in One-Dimensional Random Sequential Adsorption",
+          "trigger": "Same RSA model; potential dominating full counting statistics and boundary observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Boundary vacancy and global jammed population are natural correlated observables in random sequential adsorption. Determining an exceptional zero at n=5, strict signs at all other sizes and a nonzero limiting covariance is a meaningful joint-statistic refinement of known marginals, not a routine count alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1411.8002",
+    "https://arxiv.org/pdf/2009.08609"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical priority is qualified to actually inspected material; source full-text access limitations are recorded specifically.",
+    "Finite checks corroborate analytic and combinatorial arguments, not infinite-parameter proofs.",
+    "No GitHub writes, public publication, independent external certification or dispatcher closeout."
+  ],
+  "residual_risks": [
+    "Old adsorption correlation theory may implicitly supply the mixed first-boundary/global statistic.",
+    "Uniform finite path and length-two cars only; exact finite enumeration is not evidence for every n without analytic tail bound."
+  ],
+  "schema_version": 1
+}
