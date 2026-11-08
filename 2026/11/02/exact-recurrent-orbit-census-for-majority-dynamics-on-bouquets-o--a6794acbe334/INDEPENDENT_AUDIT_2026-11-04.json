@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:08:31.970759Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A strict majority tie-retaining symmetric-graph Lyapunov function proves eventual period at most two. When hub fixed zero, four fixed local triples (000,011,110,111) give (1+z)^2 adjacent one-count per blade; complement symmetry yields E_k=4^k+binom(2k,k). On a nonfixed two-cycle the hub must flip: if fixed, leaf endpoints evolve monotonically. The exhaustive eight-triple local two-step table leaves (000↔000),(101↔010),(111↔111), with counts a,b,c; hub flips precisely when 2c<k<2(b+c). Thus Q_k is exactly the multinomial count, and multinomial concentration proves Q_k/3^k→1 and recurrent 2-cycle-state fraction ∼2(3/4)^k. Independent exhaustive direct state evaluation matched E,Q for k=1..5: (6,1),(22,1),(84,13),(326,21),(1276,141); finite checks corroborate the all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General eventual period at most two is classical and dominates only the possible period lengths, not the number of recurrent states on a specified graph."
+        ],
+        "reasoning": "Standard period bound is expressly prior; exact local blade enumeration is additional nontrivial graph-dependent mathematics.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486 Theorem 1.1 and references",
+          "Tamuz–Tessler arXiv:1307.4035"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1307.4035",
+        "https://arxiv.org/abs/1405.2486",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2016.55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All recurrent periods are at most two, but 2c<k<2(b+c) requires the exhaustive local two-step map and hub inequalities."
+        ],
+        "reasoning": "General majority convergence does not imply an evaluated multinomial two-cycle formula or its rarity asymptotic.",
+        "searches": [
+          "Benjamini et al. arXiv:1405.2486 general majority theorem",
+          "Kaaser et al. 2016 modular voting-time analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary similarly named Dutch windmill sources concern matching-complex homology, not synchronous majority-map recurrence; other majority results concern voting tournaments."
+        ],
+        "reasoning": "Aliases square friendship bouquet/quadrilateral Dutch windmill, deterministic synchronous Boolean majority; none of returned finding descriptions gave this exact counting claim.",
+        "searches": [
+          "Resultary semantic query: majority dynamics bouquets squares Dutch windmill recurrent two cycles enumeration",
+          "Search: majority dynamics on Dutch windmill square bouquet fixed points 2 cycles counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Examined majority dynamics abstracts and voting-time work discuss convergence and upper bounds, not E_k,Q_k or all-size three-type multinomial table."
+        ],
+        "reasoning": "No exact database/table of these recurrent labelled square-bouquet counts was identified; absence alone not novelty proof.",
+        "searches": [
+          "Resultary Dutch windmill majority query",
+          "Kaaser–Mallmann-Trenn–Natale MFCS2016"
+        ]
+      },
+      "rationale": "General finite symmetric majority dynamics period-1-or-2 (Goles–Olivos) and convergence/voting-time estimates are established. Neither the inspected universal periodicity statement nor the broad majority network results calculate labelled primitive orbits on one-vertex unions of four-cycles.",
+      "residual_risks": [
+        "A graph-family-specific recurrence count could occur in an unindexed majority-automaton thesis or table; only inspected relevant passages support noncoverage, not an exhaustive literature proof.",
+        "Results exclude asynchronous updates, different tie policies and basin-size distributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies broad period-one/two upper bound; no exact specific bouquet enumeration in inspected material (not a whole-document negative claim)",
+          "evidence": [
+            "Benjamini et al. 2014, Theorem 1.1 and discussion of finite majority dynamics"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Accessible primary PDF introductory theorem and Goles–Olivos finite-period statement; relevant result statements inspected",
+          "method": "Open PDF and inspect rendered first page and theorem passages",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Closest general synchronous majority periodicity"
+        },
+        {
+          "assessment": "No direct same-object count observed from material inspected; specialized full-text equivalence remains risk",
+          "evidence": [
+            "Tamuz–Tessler, arXiv:1307.4035"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4035",
+          "material_read": "Abstract and stated focus on information retention, Lyapunov functions",
+          "method": "Open-access publication summary/theorem descriptions",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "Earlier relevant majority convergence and information work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite graph family with a high-degree hub admits a closed complete recurrent orbit census and a striking distinction between exponentially many temporal oscillations and vanishing stationary proportion of oscillatory configurations. The exact labelled count and asymptotic are motivated structural dynamics, not routine parity checks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1307.4035",
+    "https://arxiv.org/abs/1405.2486",
+    "https://doi.org/10.4230/LIPIcs.MFCS.2016.55"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A graph-family-specific recurrence count could occur in an unindexed majority-automaton thesis or table; only inspected relevant passages support noncoverage, not an exhaustive literature proof.",
+    "Results exclude asynchronous updates, different tie policies and basin-size distributions.",
+    "Every k≥1 labelled four-cycle bouquet, binary synchronous majority ties retained; only recurrence counts and asymptotic proportions, not basin times."
+  ],
+  "schema_version": 1
+}

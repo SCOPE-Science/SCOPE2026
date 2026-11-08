@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition specifies a labelled bouquet of four-cycles and simultaneous strict neighbor-majority with retention on ties. A finite symmetric-potential argument excludes periods exceeding two. Local tables with all eight blade triples give four fixed patterns per hub phase and exactly three patterns for a hub-flipping two-cycle. Hub tie thresholds are strict in the two-cycle case and weak in the fixed-state case; they produce precisely the stated binomial and multinomial counts. Direct graph-state replay independently agrees for all \(599184\) states at six small sizes. The proof, rather than this sample computation, covers every \(k\ge1\). The asymptotic follows from concentration of independent three-state choices.
+PASS
 
-## Originality — PASS, qualified
+A strict majority tie-retaining symmetric-graph Lyapunov function proves eventual period at most two. When hub fixed zero, four fixed local triples (000,011,110,111) give (1+z)^2 adjacent one-count per blade; complement symmetry yields E_k=4^k+binom(2k,k). On a nonfixed two-cycle the hub must flip: if fixed, leaf endpoints evolve monotonically. The exhaustive eight-triple local two-step table leaves (000↔000),(101↔010),(111↔111), with counts a,b,c; hub flips precisely when 2c<k<2(b+c). Thus Q_k is exactly the multinomial count, and multinomial concentration proves Q_k/3^k→1 and recurrent 2-cycle-state fraction ∼2(3/4)^k. Independent exhaustive direct state evaluation matched E,Q for k=1..5: (6,1),(22,1),(84,13),(326,21),(1276,141); finite checks corroborate the all-k proof.
 
-The strongest relevant broad result is the established Goles–Olivos period-two theorem, as quoted in Benjamini et al. That theorem excludes longer cycles but cannot supply the square-bouquet orbit multiplicities. Tamuz–Tessler's 2013 paper studies information retention and Lyapunov methods; Kaaser–Mallmann-Trenn–Natale's 2016 paper studies voting times. The accessible material and exact graph-name searches did not identify the three-word blade theorem or the fixed/two-cycle formulas. The closest retrieved graph-structure references concern Dutch-windmill definitions rather than majority recurrence. Historical claims on triangular friendship graphs and clique-windmill chip-firing concern, respectively, a different blade length and a different update rule. Previously unindexed equivalent work remains a genuine residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a standard synchronous majority rule, the theorem completely classifies the recurrent configurations of every graph in a natural infinite one-cutvertex family. Exact orbit counts and an explicit local symbolic encoding reveal a nontrivial discrepancy between exponentially abundant oscillations and their exponentially vanishing proportion among recurrent configurations. The result is not a new general convergence theorem and does not assert any optimal transient bound.
+General finite symmetric majority dynamics period-1-or-2 (Goles–Olivos) and convergence/voting-time estimates are established. Neither the inspected universal periodicity statement nor the broad majority network results calculate labelled primitive orbits on one-vertex unions of four-cycles.
 
-## Limits and status
+## value
 
-The computational tests are finite corroboration. Literature inspection cannot establish absolute world-wide uniqueness. The result excludes asynchronous or alternative tie-breaking updates and does not count transient basins.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural finite graph family with a high-degree hub admits a closed complete recurrent orbit census and a striking distinction between exponentially many temporal oscillations and vanishing stationary proportion of oscillatory configurations. The exact labelled count and asymptotic are motivated structural dynamics, not routine parity checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
