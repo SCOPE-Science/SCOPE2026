@@ -1,0 +1,47 @@
+# The perfect-matching complex of the four-letter permutahedron is a mixed sphere wedge
+
+## Finding
+Let \(G\) be the graph whose vertices are the 24 permutations of \((0,1,2,3)\), with an edge when two permutations differ by swapping entries in consecutive positions. This is the one-skeleton of the three-dimensional four-letter permutahedron, also called the truncated-octahedral graph. Let \(\mathcal M_{\mathrm p}(G)\) be its perfect-matching complex: its vertices are the edges of \(G\), and a set is a face exactly when it is contained in some perfect matching of \(G\).
+
+The complete **integral homotopy type** is
+\[\boxed{\mathcal M_{\mathrm p}(G)\simeq \bigvee^{25} S^4\ \vee\ S^5.}\]
+Thus the reduced integral homology groups are \(\widetilde H_4\cong\mathbb Z^{25}\), \(\widetilde H_5\cong\mathbb Z\), and zero in all other degrees. This 11-dimensional pure complex is not shellable: reduced homology in degree four lies below its top dimension.
+
+## Assumptions and scope
+The graph is *precisely* the adjacent-transposition graph, **not** the graph of all transpositions. Order the 24 permutations lexicographically. Order each undirected graph edge increasingly by its vertex indices and then order the resulting 36 edges lexicographically. For \(0\le j<36\), the bit \(2^j\) designates the \(j\)-th edge. A perfect matching uses twelve graph edges and covers all 24 vertices. The simplices consist of the subsets of the 169 distinct perfect matchings; the empty simplex is included for augmented calculations. All homotopy statements concern ordinary finite geometric realizations, with integral coefficients.
+
+The face-vector in dimensions zero through eleven is
+\[(36,558,4656,21003,54360,87928,94440,69003,34020,10854,2028,169).\]
+Including the empty face, there are 379056 faces. The complex has 169 11-dimensional facets, each corresponding to a perfect matching.
+
+## Proof
+**Exact face enumeration.** The verifier constructs the Cayley graph directly. A recursive enumeration fixes the smallest unmatched graph vertex, pairs it with each available neighbor, and recurses; an independent memoized dynamic-programming recurrence counts perfect matchings by unmatched-vertex masks. Both methods return 169. All nonempty submasks of the resulting twelve-edge facet masks are inserted into a set, yielding the face-vector above. This includes every simplex because an extendible edge set is, by definition, contained in a perfect matching.
+
+**Acyclic discrete Morse matching.** On the augmented face poset, successively traverse the graph-edge indices in ascending order. At index \(j\), pair every still-unpaired face \(\sigma\) not containing the bit \(2^j\) with the still-unpaired face \(\sigma\cup\{2^j\}\), whenever both exist. This yields 189500 disjoint face/coface pairs and critical dimensions \((3:10,4:40,5:6)\). The empty face is paired in this construction. On the ordinary realization, that augmented pair corresponds to the usual one critical 0-cell.
+
+The verifier exhaustively orients every unmatched cover down and every matched cover up. Kahn's topological sort visits all 379056 faces along 2550660 incidences without encountering a directed cycle. Thus this pairing is acyclic, not merely a collection of admissible local cancellations. Repeating with reverse index order independently yields 189499 pairs, critical dimensions \((3:7,4:40,5:10,6:1)\), and another successful exhaustive acyclicity check.
+
+**Signed integral Morse differential.** For an upward-matched lower cell \(\tau\subset\eta\), solve its cellular relation by replacing \(\tau\) with minus the signed sum of the other codimension-one faces of \(\eta\). Recursively reduce each codimension-one face of a critical cell, recording the alternating boundary signs determined by the lexicographically ordered edge labels. A downward-matched upper cell maps to zero under this reduction. Acyclicity makes this recursion finite, and it computes the integer Morse boundary, not a field approximation.
+
+For the ascending pairing the only nonzero-degree boundary maps lie in the augmented degrees
+\[\mathbb Z^6\xrightarrow{\partial_5}\mathbb Z^{40}\xrightarrow{\partial_4}\mathbb Z^{10}.\]
+Their rational ranks, calculated by exact fractions, are five and ten respectively, and the integer product \(\partial_4\partial_5\) is zero entrywise. More strongly, in the declared critical-cell ordering, a \(10\)-by-\(10\) submatrix of \(\partial_4\) using **all** rows and columns \((0,3,4,6,7,16,20,24,32,37)\) has determinant \(+1\). A \(5\)-by-\(5\) submatrix of \(\partial_5\) using rows \((0,5,8,9,19)\) and columns \((1,2,3,4,5)\) has determinant \(-1\). Both determinants are computed with exact Bareiss elimination, including divisibility checks. Hence these boundary images are primitive direct summands, excluding torsion.
+
+**From Morse CW structure to the homotopy type.** Forman's construction yields a CW model with one zero-cell and only ten 3-cells, forty 4-cells and six 5-cells. Since the 3-skeleton is \(\bigvee^{10}S^3\), its four-cell attaching maps are classified by their integral degrees: \(\pi_3(\bigvee^{10}S^3)\cong\mathbb Z^{10}\). The unimodular rank-ten minor permits integral change of cellular generators and cancellation of all ten 3-cells against ten 4-cells, leaving a wedge of thirty 4-spheres with six 5-cells. The induced map from the remaining 5-cells to this \(\mathbb Z^{30}\) lattice has rank five and primitive image: \(\operatorname{im}(\partial_5)\subseteq\ker(\partial_4)\), and its exhibited unit minor makes it a direct summand even before the 4-cell cancellation. Since \(\pi_4(\bigvee^{30}S^4)\cong\mathbb Z^{30}\), further integral changes of cellular bases and cancellation of five 4/5-cell pairs leave 25 4-cells and one 5-cell, all attached trivially to the point. This establishes \(\bigvee^{25}S^4\vee S^5\) as a homotopy type, not solely a homology computation.
+
+## Verification
+The standalone reproducibility program `VERIFY.py` uses Python 3.10+ standard library only and requires no input files. Execute `python VERIFY.py`; its expected exact terminal output is embedded as `VERIFICATION_OUTPUT.txt`. It recomputes the graph, distinct perfect matchings by two algorithms, every face and its dimension, both complete acyclic matchings, every signed Morse boundary, exact rational ranks, chain identities and the two determinant certificates. All 2550660 Hasse incidences are checked in both orientations. The reverse matching independently returns boundary ranks \((7,8,1)\) in dimensions \((4,5,6)\), consistent with the same homology. The exact deterministic output ends with `PERMUTOHEDRAL_PERFECT_MATCHING_WEDGE_VERIFIED`.
+
+## Relationship to prior work
+Bayer, Jelić Milutinović and Vega, *Perfect Matching Complexes of Honeycomb Graphs* (arXiv:2209.02803v1; first posted 2022-09-06), define this same functor and obtain specific homotopy types for *honeycomb patches*. Their inspected statements and graph-family hypotheses do not cover the closed, 3-regular truncated-octahedral graph with square and hexagonal faces. Chandrakar and Singh, *Perfect Matching Complexes of Polygonal Line Tilings* (arXiv:2407.05809v1; first posted 2024-07-08), treat polygonal line tilings and two-row grid graphs, not this permutahedron. Neither theorem implies the claimed 25-four-sphere/one-five-sphere wedge.
+
+Published same-graph calculations for the **ordinary vertex independence complex** and **graph-metric Vietoris–Rips complexes** address different simplicial functors. Published exact matching-complex results on the dodecahedral, Heawood and truncated-tetrahedral graphs concern different input graphs and, in several instances, the unrestricted ordinary matching complex rather than extension-to-perfect-matching. Titles and keyword similarity were not treated as claim implication. No exact or stronger covering result was found among the inspected primary texts and indexed research records; nonindexing or an inaccessible source remains a possibility, not a proof of absolute uniqueness.
+
+## Limitations
+This is a single canonical finite graph, not a universal theorem for permutahedra of arbitrary rank or for all polyhedral graphs. The homotopy equivalence is nonequivariant; no canonical symmetry-adapted sphere basis or automorphism representation is asserted. The correctness proof depends on a complete finite enumeration and signed integer reductions, supplied as self-contained executable code. It is not an external independent validation. The closest recent work on perfect matching complexes of Möbius and circular ladders was available only at abstract level and was not used to claim full-text exclusion. An unindexed equivalent homotopy result is a residual bibliographic risk.
+
+## References
+1. Margaret Bayer, Marija Jelić Milutinović, Julianne Vega, *Perfect Matching Complexes of Honeycomb Graphs*, arXiv:2209.02803v1 (2022-09-06), https://arxiv.org/abs/2209.02803 .
+2. Himanshu Chandrakar, Anurag Singh, *Perfect Matching Complexes of Polygonal Line Tilings*, arXiv:2407.05809v1 (2024-07-08), https://arxiv.org/abs/2407.05809 .
+3. R. Forman, *Morse Theory for Cell Complexes*, Advances in Mathematics **134** (1998), 90–145 (discrete Morse theorem and cellular cancellation).
+4. Agarwal and Basak, *The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs*, arXiv:2608.30601 (2026), https://arxiv.org/abs/2608.30601 ; abstract-level contextual comparison only.
