@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Run `python3 verify.py` using Python 3's standard library in the same directory as this document. The script directly forms all factorial-ratio coefficients and independently computes each polynomial discriminant using the fraction-free Bareiss determinant of its Sylvester matrix. Tested cases: \((3,1,2)\), \((3,2,2)\), \((5,1,2)\), \((5,1,3)\), \((5,1,4)\), \((7,1,2)\), \((7,1,3)\), \((7,1,4)\).
+# Independent mathematical audit
 
-Actual completed command output:
+## correctness
 
-`VERIFY_OK cases=8 exact_resultant_discriminants=8 coefficient_checks=56 derivative_competitor_checks=40`
+PASS
 
-For each case the script checks the strict Newton-polygon inequalities, derivative-term valuation dominance, exact discriminant valuation and integral-index identity. The code requires no third-party packages, downloads, or external input. The mathematical proof, not these eight cases, establishes the stated universal claim. No other-prime discriminants, global Galois groups, or independent external audit are certified.
+PASS. Legendre gives h=(n-1)/(p-1), coefficient valuations r(h-v_p(k!)); the strict gap above the Newton edge from (0,s) to (n,0) is r/(p-1)*(s_p(k)-k/n)>0 for 0<k<n. Since p is odd, 2<=r<p and h=1+p+...+p^(a-1), gcd(s=rh,n)=1; all root valuations are s/n and local irreducibility/totally ramified degree n follow. The n basis candidates alpha^j/p^floor(js/n) have pairwise distinct fractional valuations, so the unique least-term argument establishes both sufficiency and necessity for integral Z_p-coefficients. Index valuation sum floor(js/n)=(n-1)(s-1)/2. In P prime, the k=1 term has valuation s and every competitor k>=2 exceeds it, by digit sums or pure-p-power k; hence derivative valuation s, polynomial discriminant ns, field discriminant n+s-1. Different r yield distinct exponents. Independent exact Sylvester discriminant checks for p=3,n=3,r=2 and p=5,n=5,r=2,4 agreed. Scope excludes r=1, other primes, and non-prime-power n.
+
+## originality
+
+PASS
+
+Qualified PASS for a natural explicit family of Hadamard powers (r≥2) of truncated-exponential factorial-ratio coefficients, with complete p-local integral bases and discriminant exponents for all odd-prime power degrees. The Newton-polygon techniques, r=1 original exponential Taylor cases, and general local-basis arguments are standard; the all-parameter powered family is the assessed contribution. Closest 2024 full primary text inaccessible.
+
+## value
+
+PASS
+
+PASS. Coefficientwise factorial-ratio Hadamard powers are a natural variant of truncated exponential/Taylor polynomials, and exact ramification, local integral basis, index and discriminant over every odd-prime power degree provide reusable number-field arithmetic data. The strict range 2<=r<p is motivated by primitive Newton slope; formula distinguishes p-2 local-field types. Novelty is the explicit family, not generic Newton polygon methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
