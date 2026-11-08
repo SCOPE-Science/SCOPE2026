@@ -1,15 +1,21 @@
-# Scientific assessment: two distinct pendant edges on a clique
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every pairwise shortest-path distance is specified; direct expansion gives the three independent zero-sum sectors in (1). The fluctuations have strictly negative quadratic form, the antisymmetric block is strictly negative for \(0<p<2\), and the symmetric block has determinant \(-kF_k(p)\) and positive top-left entry. Differentiation proves that \(F_k\) crosses zero exactly once in \((1,2)\). The endpoint kernel vector and the centered-Gram ranks follow directly. Li--Weston Theorem 5.4 proves exclusion of any later positive-type interval. The exact-arithmetic script checks 528 finite test cases, independently of the theorem's analytic proof.
+## correctness
 
-## Originality
-**PASS with residual literature risk.** The closest fully inspected primary records are Sánchez (arXiv:1108.0451, Corollary 2.4 and Sections 2--3) and Li--Weston (arXiv:0901.0695, Theorem 5.4). Sánchez supplies the general determinant algorithm and evaluated complete bipartite graphs and different five-vertex examples; it does not state the all-orders scalar equation and spectral kernel for leaves attached at distinct clique vertices. Li--Weston supplies negative-type interval theorems, not an evaluated clique-attachment family. Searches for the distinct-attachment family, its powered-distance determinant, and graph-synonym formulations did not identify direct coverage. Earlier adjacent families with a single shared attachment vertex or a shared clique of size two are not the same graph family. Nonetheless, lack of an indexed match is not priority proof, and other papers about pendant graph metrics may cover it implicitly.
+PASS
 
-## Value
-**PASS.** The object is a minimal, natural two-articulation extension of the complete graph and gives a new parameter axis distinct from one-hub clique bouquets. Its nontrivial \(3^p\) coupling forces a sharp two-sector classification; the theorem determines the exact endpoint, unique degeneracy direction, Euclidean dimension loss, strict order monotonicity, and limiting exponent. These are infinite-family structural facts beyond a one-off determinant calculation. The exact limit and its first correction quantify the effect of increasing clique redundancy while keeping both attachments fixed.
+The full RESULT.md gives an exact powered-distance quadratic decomposition for K_m with two unit pendant leaves attached to distinct core vertices (m>=3,k=m-2), separating a negative fluctuation space, an antisymmetric 2x2 sector (strictly negative for 0<p<2) and symmetric 2x2 block with determinant -k[kU(p)+V(p)]. With U(p)=4^p-6*2^p+3^p+3 and V(p)=2*3^p-4*2^p-2, the derivative/convexity inequalities show kU+V increases from negative at 1 to positive at 2 with unique root p_m. An explicit zero-sum kernel vector at the root gives a one-dimension drop in centered Gram rank (m+1 below to m at p_m). Li–Weston exponent reduction excludes recovery of negative type beyond the endpoint. The strictly negative V on [1,2) and U increasing give strict m monotonicity and asymptotic p_infty≈1.629581635586, correction 0.342777710028/(m-2). Independently built BFS graph distance matrices and recomputed critical eigenvalue signs for m=3..10, giving m=3:1.801349035 and m=4:1.743145058, but finite checks do not establish universal theorem.
 
-## Limits and sources
-The proof is specific to two leaves attached to different core vertices and unit graph shortest-path distances. The relevant general negative-type results are Sánchez 2011 (arXiv:1108.0451) and Li--Weston 2009 (arXiv:0901.0695); publication priority has not been independently certified. No formal proof assistant or third-party audit was used.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The m=3 graph is the bull graph, distinct pendant leaves attached to two different triangle vertices; its higher-m graph is clique-expanded bull. Sánchez arxiv:1108.0451 gives generic finite-metric determinant and different five-vertex examples, not an evaluated bull-clique infinite-family equation. Li–Weston arxiv:0901.0695 supplies strictness theory but not this graph spectral calculation. Resultary bull-graph Morse complex and pineapple graph curvature results treat other invariants. Best-of-knowledge exact threshold/equality/asymptotic are additional mathematics, with unindexed graph metric priority risk.
+
+## value
+
+PASS
+
+The bull graph and its clique expansion are a natural minimal nontrivial two-articulation extension of a complete metric graph. Unlike one-hub variants, cross-pendant distances introduce a 3^p spectral term. The result gives a complete exact all-order negative-type threshold, a one-dimensional first-loss equality space, the Hilbert snowflake dimension change, monotone dependence on clique order, and a computable limiting exponent with first correction. Those natural structural facts are not routine small-instance type checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
