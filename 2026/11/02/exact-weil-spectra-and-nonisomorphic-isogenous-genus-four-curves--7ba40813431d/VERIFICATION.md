@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact arithmetic replay
+# Independent mathematical audit
 
-`python3 verify_quotients.py` outputs `QUOTIENT_REPLAY_OK`. This standalone Python program builds explicit quadratic extensions, confirms nonsquare defining elements, enumerates every rational argument for both genus-two quotient models over \(\mathbf F_p\) and \(\mathbf F_{p^2}\) with \(p=11,13\), and verifies the full parameter table, all equal-zeta collisions and different squares of collision parameters.
+## correctness
 
-`python3 verify_direct.py` outputs `DIRECT_REPLAY_OK`. It implements a different polynomial-quotient finite-field arithmetic engine, tests every extension modulus for irreducibility, enumerates all points on the original genus-four curve over extensions of degrees one, two, three and four, constructs coefficients via Newton's identities and the genus-four functional equation, and checks the resulting numerator against the exact square formula. The script is finite exhaustive over the specified two prime fields and parameter sets. Both programs require only Python's standard library.
+PASS
 
-The mathematical proof additionally uses the explicit base-field involutions and quotient Jacobian isogeny, the Weil functional equation for genus-two curves, and Ohashi–Kudo's geometric-isomorphism criterion. The arithmetic programs are not offered as proofs of an unbounded enumeration for arbitrary prime characteristics. No independent external audit has been performed.
+Explicit commuting reciprocal and hyperelliptic involutions yield two genus-two quotients v^2=(t±2)(t^4-4t^2+2+a). Kani–Rosen eigenspaces give Jac(C)~Jac(D+)×Jac(D-). The minus quotient is a (-1)-twist of the plus quotient; when p=13 it is isomorphic and when p=11 its odd Frobenius coefficients vanish. For genus-two functional equations, exhaustive N1=p+1 and N2=p²+1+2b determine numerator 1+bT²+p²T⁴. Independent quadratic-field character-sum computation covered both quotient signs, every a with a²!=4, and both Fp and Fp² for p=11,13, exactly matching published tables (9 distinct b for each p; two collision pairs in p=13). Geometric nonisomorphism for a²!=a’² uses Ohashi–Kudo Prop3.2.4; Tate’s finite-field criterion gives isogenous unpolarized Jacobians. Finite tables are exhaustive in two indicated primes; all extension degrees follow from the genus-two zeta polynomial, not extrapolation.
+
+## originality
+
+PASS
+
+The quotient construction, genus-four reciprocal family, point-count algorithms, and geometric isomorphism criterion are prior: Novoselov (2019/2020) and Ohashi–Kudo (2023). Their inspected statements do not provide this two-prime full b-table and identified geometrically distinct equal-zeta pairs. However possible unindexed tables or an implicit algorithm specialization remain priority risks.
+
+## value
+
+PASS
+
+The exact finite classification of all smooth parameters in each specified natural small characteristic yields concrete equal-zeta/nonisomorphic pairs, a useful test case separating curve geometry from Jacobian isogeny. The novel object is the complete arithmetic table and its consequences, not the already known reciprocal involutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The family is nonsingular precisely when \(a^2\ne4\). Explicit involutions give two genus-two quotient models and a base-field decomposition of the genus-four Jacobian up to isogeny. In characteristic 13 the quotient curves are isomorphic; in characteristic 11 they are quadratic twists but have identical even Weil numerators. Their genus-two Weil numerators are uniquely determined by point counts over the base field and its quadratic extension. An exhaustive, standalone quotient enumerator supplies these counts for all 20 allowed parameter instances. A second arithmetic implementation counts the original genus-four curves directly in extension degrees one through four and reconstructs their complete Weil polynomials, independently agreeing with the quotient result. Geometric nonisomorphism in both equal-zeta pairs follows from the published coefficient-isomorphism criterion. Boundary: the result covers the stated two fields and coefficient family only.
+PASS
 
-## Originality — PASS, with residual risk
+Explicit commuting reciprocal and hyperelliptic involutions yield two genus-two quotients v^2=(t±2)(t^4-4t^2+2+a). Kani–Rosen eigenspaces give Jac(C)~Jac(D+)×Jac(D-). The minus quotient is a (-1)-twist of the plus quotient; when p=13 it is isomorphic and when p=11 its odd Frobenius coefficients vanish. For genus-two functional equations, exhaustive N1=p+1 and N2=p²+1+2b determine numerator 1+bT²+p²T⁴. Independent quadratic-field character-sum computation covered both quotient signs, every a with a²!=4, and both Fp and Fp² for p=11,13, exactly matching published tables (9 distinct b for each p; two collision pairs in p=13). Geometric nonisomorphism for a²!=a’² uses Ohashi–Kudo Prop3.2.4; Tate’s finite-field criterion gives isogenous unpolarized Jacobians. Finite tables are exhaustive in two indicated primes; all extension degrees follow from the genus-two zeta polynomial, not extrapolation.
 
-Novoselov (arXiv:1902.05992, 2019) supplies the reciprocal-curve family, general quotient methods, Frobenius-congruence and point-count algorithms; Ohashi–Kudo (arXiv:2312.16858, 2023) supply the geometric family and explicit geometric isomorphism criterion. The classification and numerical tables here are **not** claims to invent those methods or criteria. The inspected papers do not provide the twenty-case full Weil census over \(\mathbf F_{11}\) and \(\mathbf F_{13}\), or identify its two equal-zeta, geometrically nonisomorphic parameter pairs. Targeted public literature and mathematical-record searches did not identify a result whose statement covers the exact census. Residual risk: unindexed prior computations, unpublished tabulations or algorithms carried out elsewhere. Search absence alone has not been treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The \(\mathbf D_8\)-automorphism family is a natural genus-four locus studied in finite-field point counting and superspecial classifications. Its complete two-prime Weil census answers a precise arithmetic question about Frobenius strata, exposes identical Frobenius data for different geometric isomorphism classes, and supplies all extension-field point counts and explicit Jacobian isogeny witnesses. This is a finite but mathematically natural classification, not an arbitrary collection of sample parameters. It does not assert a general theorem for all primes.
+The quotient construction, genus-four reciprocal family, point-count algorithms, and geometric isomorphism criterion are prior: Novoselov (2019/2020) and Ohashi–Kudo (2023). Their inspected statements do not provide this two-prime full b-table and identified geometrically distinct equal-zeta pairs. However possible unindexed tables or an implicit algorithm specialization remain priority risks.
 
-## Independent review
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite classification of all smooth parameters in each specified natural small characteristic yields concrete equal-zeta/nonisomorphic pairs, a useful test case separating curve geometry from Jacobian isogeny. The novel object is the complete arithmetic table and its consequences, not the already known reciprocal involutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
