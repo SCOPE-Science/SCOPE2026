@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "At finite n, the 4-type state has exactly three allowed-edge categories with counts xv,uy,uv. Density-dependent martingale quadratic variation is O(T/n) for each fixed T, and the drift is Lipschitz. The explicit scalar W transformation has a first positive zero W*=log(beta/alpha)/(beta-alpha), or W*=1/alpha on the diagonal, yielding positive terminal bad density L. The terminal sandwich between X_n(T)-V_n(T) and X_n(T)+U_n(T) handles infinite time. Hall feasibility is equivalent to a_n+b_n<=n. The integral representation log L=average(g), g(s)=log s+1-1/s, and strict concavity/monotonicity establish L<=1/(2e), with unique equality at alpha=beta=1/2. The supplied verifier ran successfully with exact small-state terminal probabilities; program tests are subsidiary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti (2021) Theorems 1 and 2 compare RANDOM-EDGE, RANDOM-VERTEX, and RANKING over random graph ensembles and do not provide this deterministic blocked-rectangle occupancy formula.",
+        "Penrose--Sudbury (2005) develops graph adsorption and Bethe lattice vacancy probabilities, and does not state this fixed dense two-block limit in the examined sections.",
+        "Dyer--Frieze (1991) abstract describes worst-case and forest matching results; the full text was not retrieved."
+      ],
+      "reasoning": "Worst-case matching bounds and comparisons of algorithms over random graph ensembles do not imply an exact terminal density on the deterministic fixed-block family, let alone its globally sharp Hall-feasible maximum. The full-text limit for Dyer--Frieze is recorded, not converted to a negative claim of coverage.",
+      "searches": [
+        "web: randomized greedy matching Dyer Frieze 1991 pdf full text",
+        "web: Nick Arnosti Greedy Matching in Bipartite Random Graphs 2021 pdf RANDOM-EDGE full text",
+        "web: random greedy matching bipartite graph complete bipartite missing submatrix block random matching jam fraction exp",
+        "doi:10.1002/rsa.3240020104",
+        "doi:10.1287/stsy.2021.0082"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0503519 (PDF definitions/results inspected)",
+      "doi:10.1287/stsy.2021.0082 (full-text sections and theorem statements inspected)",
+      "doi:10.1002/rsa.3240020104 (abstract only; full text inaccessible)",
+      "published-finding corpus semantic searches with closest IDs recorded",
+      "103 previously accessible scientific claim statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The bounded-degree deletion result assumes every forbidden vertex has bounded exclusion degree, whereas the forbidden rectangle here has degrees proportional to n.",
+        "The exceptional-vertex result features one sparse vertex on a clique, not a positive proportion of pair-incompatible vertices in a bipartite graph.",
+        "The matching-linked cliques result uses sparse interclique connectors and has Poisson cross-edge counts, rather than a dense chain graph with macroscopic terminal unmatched populations."
+      ],
+      "reasoning": "None of the exact statements semantically checked covers the proposed claim by specialization or parameter domination. The difference is not just in titles: the old hypotheses exclude linear-degree forbidden rectangles, and the blocked rectangle is a dense obstruction with a linear kinetic loss. The general lower matching ratio from Dyer--Frieze would be far weaker than the two-parameter formula and its sharp restricted-family maximum.",
+      "searches": [
+        "previous mathematical claim: A universal rare-jamming coefficient for dense dimer adsorption with bounded-degree exclusions",
+        "previous mathematical claim: A logarithmic-degree jamming window for a nearly complete dimer-adsorption graph",
+        "previous mathematical claim: Poisson cross-dimer counts and parity jamming on two matching-linked cliques",
+        "published-finding corpus: random edge greedy maximal matching complete bipartite graph with block exclusions, fluid limit",
+        "doi:10.1287/stsy.2021.0082 Theorems 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Penrose--Sudbury (2005) section 2.2 states iid edge priorities and exponential clocks yield the same terminal random edge order.",
+        "Arnosti (2021) section 1.1 explicitly defines RANDOM-EDGE as a uniform random edge ordering."
+      ],
+      "reasoning": "These two descriptions are equivalent to the uniform-current-admissible-edge process because at every step the first still-admissible edge of an iid random priority order is uniform among all still-admissible edges. This equivalence is acknowledged; neither cited general definition gives the claimed two-block density or sharp extremum.",
+      "searches": [
+        "published-finding corpus: random edge greedy matching complete bipartite graph one forbidden complete bipartite submatrix, asymptotic unmatched fraction alpha exp(-(1-alpha)/alpha)",
+        "published-finding corpus: random sequential dimer adsorption dense bipartite two vertex types one forbidden cross-type, jamming density logarithmic mean",
+        "published-finding corpus: randomized greedy matching chain graph two neighborhood types K_n,n minus K_an,bn Hall threshold 1/(2e) deficit",
+        "web: random greedy matching complete bipartite graph with forbidden subgraph missing block ODE",
+        "arxiv:math/0503519 sections 2.1-2.2",
+        "doi:10.1287/stsy.2021.0082 section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published-finding corpus chain-graph record concerns maximal independent sets selected by a vertex-order rule, not edge-dimer matching.",
+        "published-finding corpus deleted-matching CIS result counts maximal-clique/stable-set disjoint pairs, not greedy matching outcomes.",
+        "Previously accessible findings address random dimer adsorption on almost-complete graphs, clique-connector graphs, and a single-exceptional-vertex threshold, but not the one-rectangle bipartite density formula."
+      ],
+      "reasoning": "No matching exact probability table or equivalent theorem was returned by the actual semantic searches. Distinct graph and stochastic mechanisms prevent the named hits from implying this theorem; indexing gaps still make this only positive evidence for the assessed originality, not a proof of universal novelty.",
+      "searches": [
+        "published-finding corpus: random edge greedy matching complete bipartite graph one forbidden complete bipartite submatrix, asymptotic unmatched fraction alpha exp(-(1-alpha)/alpha)",
+        "published-finding corpus: random sequential dimer adsorption dense bipartite two vertex types one forbidden cross-type, jamming density logarithmic mean",
+        "published-finding corpus: randomized greedy matching chain graph two neighborhood types K_n,n minus K_an,bn Hall threshold 1/(2e) deficit",
+        "published-finding corpus: random edge greedy maximal matching complete bipartite graph with block exclusions, fluid limit",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+        "2026/9/20/SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f"
+      ]
+    },
+    "rationale": "The novel claim is the two-parameter limiting terminal vacancy law and its unique 1/(2e) extremum under Hall feasibility, not the general algorithm or the existence of graphs where greedy matching fails. Compared the results of Penrose--Sudbury (2005) and Arnosti (2021) from accessible primary full texts, and Dyer--Frieze (1991) only at abstract/secondary-description level. Semantically searched published-finding corpus and 103 previously accessible mathematical claims. No examined stronger result implies the specific fixed dense deleted-biclique limit or extremum; the inaccessible 1991 paper leaves a residual historical-priority risk.",
+    "residual_risks": [
+      "Dyer--Frieze (1991) full text not accessed; a specific result or example therein might overlap.",
+      "Unindexed earlier two-class greedy matching or adsorption calculations may be equivalent under other terminology.",
+      "published-finding corpus similarity search and accessible historical claims cannot establish global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model and general statements, not the deleted-biclique two-parameter formula in examined results.",
+        "evidence": [
+          "arXiv first version 2005-03-24; definitions of edge arrivals and event-order equivalence.",
+          "Main results describe trees, correlations, lattices and normal approximations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+        "material_read": "Abstract, introduction, finite-graph dimer definition, random-order equivalence, stated main results and bipartite discussion (PDF pages 1-4 and 10-11).",
+        "method": "Public arXiv first version text plus source PDF page inspection",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "Original graph-dimer adsorption model and possible general coverage"
+      },
+      {
+        "assessment": "Studies algorithm comparisons over random graph ensembles and sparse random graph asymptotics; no fixed block-deleted dense graph sharp jamming formula found in examined theorems.",
+        "evidence": [
+          "Theorem 1 stochastic domination over random edge sets with prescribed degree counts.",
+          "Theorem 2 compares RANDOM-VERTEX and RANKING; Section 1.4 surveys average-case graph ensembles."
+        ],
+        "identifier_or_url": "https://pubsonline.informs.org/doi/pdf/10.1287/stsy.2021.0082",
+        "material_read": "PDF Introduction 1.1-1.4, Theorems 1-2, Markov coupling description and outline of Appendix B; inspected PDF pages 3 and 7.",
+        "method": "Lawful publicly accessible full PDF, text and page inspection",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Direct randomized-edge greedy matching comparison that may dominate proposed result"
+      },
+      {
+        "assessment": "Important unresolved priority comparison; no assertion that inaccessible full text excludes this result.",
+        "evidence": [
+          "Abstract says worst-case fixed graph greedy matching, with principal result on forests.",
+          "No detailed statements about dense deleted bicliques accessible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and Arnosti 2021 discussion of its scope; original full text not accessible.",
+        "method": "Publisher abstract; public arXiv/open-access searches did not provide the full text.",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational fixed-input RANDOM-EDGE analysis, plausible historical equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a1a50e97-5e33-4b19-9760-323756830a9e",
+  "value": {
+    "rationale": "The same deterministic graph has perfect matchings throughout a+b<=n, yet a uniform irreversible greedy dimer process leaves Theta(n) uncovered vertices, whose exact fraction depends nontrivially on two blocked proportions. The sharp 1/(2e) global feasible-block extremum isolates a natural worst jamming configuration and makes a measurable prediction about kinetic inefficiency that is not a simple Hall or matching-number deduction.",
+    "status": "PASS"
+  }
+}
