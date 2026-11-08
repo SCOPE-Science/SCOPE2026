@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Designated-sink counting yields the exact marked bivariate generating function. The normalized diagonal coefficients are controlled by the smooth, strictly minimal point at \((\log2,\log2)\); the critical-point derivatives give a nonzero curvature determinant, and analytic uniformity in the marking parameter supplies a full-disc \(O_R(n^{-1})\) probability-generating-function approximation. Cauchy's estimates prove the uniform geometric local error and total-variation bound. The independent finite enumerator checks small graphs and factorial moments but does not certify the asymptotic theorem.
+
+**Originality — PASS, qualified.** The established general sink polynomial (Hwang et al., 2019) and the exact unique-sink counts (Ayyer et al., 2020, plus earlier papers) explicitly cover important *components* of the finite problem. Lonesum counting and diagonal asymptotics (Khera, Lundberg and Melczer, 2019) provide the unmarked coefficients; Khera and Lundberg (2024) prove a Gaussian result for a different statistic, longest directed path, and supply the analytic transfer mechanism. The inspected primary results do not state the complete zero-truncated Poisson sink-count limit with its \(O(n^{-1})\) total-variation and geometric local-error bounds. Combining these sources is a substantive marked-asymptotic argument; no claim is made that the counting or saddle-point framework itself is new. Priority under other terminology remains possible.
+
+**Value — PASS.** The complete distribution of an intrinsic random-acyclic-orientation statistic has a non-Gaussian, nondegenerate limiting law even as the graph size diverges. The quantitative total-variation estimate, geometric local control, limiting moments, and exact fair side-of-sinks dichotomy make this a precise benchmark distinct from the known growing Gaussian longest-path statistic. It is not an arbitrary finite computation or a reformulation of a named unique-sink count.
+
+**Scientific limitations.** Balanced bicliques only; no leading total-variation constant or nonbalanced asymptotic claim. Relevant historical works on general sink enumeration could conceal an equivalent formulation, and independent verification of the proof has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

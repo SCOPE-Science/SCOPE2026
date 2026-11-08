@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For a specified nonempty sink subset of one bipartition, forcing edges gives B_(a-r,b); sets intersecting both parts cannot be sinks. This proves the marked EGF exactly. H=1-(exp(x)-1)(exp(y)-1) has a strictly minimal smooth diagonal point at rho=log 2 by Khera–Lundberg Lemma 4.1, with Q=16*rho^3*(1-rho)>0. Entire numerators exp(zx+y) have compact-parameter uniformly bounded derivatives; ACSV Theorem 4.2 gives ratio exp((z-1)rho)+O_R(1/n), proving the limiting PGF, Cauchy geometric local errors and TV rate. The standalone checker verified finite exact distributions independently for all K_(a,b) with 1<=a,b<=4 and factorial moments plus numerical controls; no finite test is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1910.10920 develops sink polynomials on arbitrary graphs; arxiv:2408.12716 Theorem 4.2 is a general smooth-point coefficient transfer result and Lemma 4.1 establishes a suitable singularity; arxiv:1912.08850 gives asymptotic unmarked poly-Bernoulli enumeration."
+      ],
+      "reasoning": "The general sink polynomial framework controls formal finite distributions, and the general ACSV theorem controls supplied rational/exponential generating functions. Neither directly states the marked biclique numerator or its compact-parameter coefficient ratio, so the complete local Poisson limit requires the additional identification and analytic comparison. We do not claim originality for those broad tools.",
+      "searches": [
+        "Random acyclic orientations complete bipartite graph all sink counts asymptotics source sinks limit law",
+        "acyclic orientation polynomials and the sink theorem for chromatic symmetric functions arxiv:1910.10920"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2408.12716",
+      "arxiv:1912.08850",
+      "arxiv:1910.10920",
+      "arxiv:2010.11236",
+      "arxiv:1412.3685",
+      "Bényi-Hajnal-2017-poly-Bernoulli-relatives",
+      "published mathematical semantic records on acyclic orientations / lonesum matrices",
+      "accessible prior same-topic ledger claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2408.12716 proves a Gaussian longest-directed-path limit rather than the count of sinks; arxiv:1912.08850 covers the unmarked denominator; arxiv:1910.10920 covers exact formal sink polynomials; arxiv:2010.11236 studies unique sinks."
+      ],
+      "reasoning": "The target statement follows after an explicitly new marked generating-function decomposition and a parameter-uniform smooth-point ratio estimate. Existing general techniques are applicable but the inspected published conclusions neither dominate nor immediately specialize to the complete quantitative zero-truncated Poisson law; the one-sink finite case is explicitly excluded from any separate novelty claim.",
+      "searches": [
+        "Uniform random acyclic orientation of complete bipartite graph K(n,n), number of sinks converges in total variation to zero-truncated Poisson(log 2), probability generating function 2^z - 1",
+        "Random acyclic orientations complete bipartite graph all sink counts asymptotics source sinks limit law",
+        "number of sinks in uniform random acyclic orientation complete bipartite limiting distribution",
+        "poly-Bernoulli sink distribution poisson log 2 lonesum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1910.10920 defines the all-graph sink polynomial; arxiv:2010.11236 describes fixed unique sinks; arxiv:1912.08850 relates acyclic orientations to lonesum 0–1 matrices.",
+        "Under the lonesum correspondence, a sink is a zero row or a one column, but these cannot occur simultaneously in a nontrivial matrix."
+      ],
+      "reasoning": "The exact problem can be equivalently formulated as the number of all-zero rows or all-one columns in a uniformly selected square lonesum matrix. Earlier studies cover the objects and finite polynomial counting methods, but the inspected statements do not imply a stated zero-truncated-Poisson total-variation estimate for their combined count.",
+      "searches": [
+        "Uniform random acyclic orientation of complete bipartite graph K(n,n), number of sinks converges in total variation to zero-truncated Poisson(log 2), probability generating function 2^z - 1",
+        "Sink counting generating function for lonesum 0-1 matrices, marked all-zero rows and all-one columns, diagonal asymptotics of acyclic orientation polynomials",
+        "number of sinks in uniform random acyclic orientation complete bipartite limiting distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2010.11236 Section 6.1 gives exact unique-sink enumerations; arxiv:1912.08850 gives the total orientation counts and their asymptotics; the accessible earlier ledger has 118 claims, none matching acyclic biclique sink multiplicities."
+      ],
+      "reasoning": "A table of unique-sink counts or total acyclic orientations may determine the k=1 atom but does not give the k>=2 limit or the uniform local O(1/n) bound. No identified exact table records the claimed limiting law.",
+      "searches": [
+        "Sink counting generating function for lonesum 0-1 matrices, marked all-zero rows and all-one columns, diagonal asymptotics of acyclic orientation polynomials",
+        "arxiv:2010.11236 unique-sink exact counting tables",
+        "random lonesum matrix zero rows number distribution asymptotic"
+      ]
+    },
+    "rationale": "Inspected the general sink-polynomial literature, exact unique-sink biclique results, poly-Bernoulli lonesum counts, and a Gaussian longest-path limit for the identical uniform acyclic-orientation model. They supply pieces and methods but the inspected material does not state the complete zero-truncated Poisson sink-count law with full-disc O(1/n) error and geometric local bounds. Originality is qualified by historical-priority uncertainty and the possibility of an equivalent formulation elsewhere.",
+    "residual_risks": [
+      "General sink polynomials and chromatic symmetric functions can encode the finite distribution, so novelty is confined to this complete quantitative limiting statement.",
+      "Earlier equivalent asymptotic results might exist under all-zero-row/all-one-column statistics or older lonesum enumeration language.",
+      "Not every potentially relevant older full paper was inspected entirely, including arxiv:1412.3685; none inspected appears to dominate the target conclusion.",
+      "Independent scholarly priority and proof review remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Longest path length Gaussian; same analytic singularity and coefficient transfer, but no sink-count limit",
+        "evidence": [
+          "Theorem 1.2 studies longest path length",
+          "Theorem 4.2 and Lemma 4.1 establish coefficient transfer and strict minimality"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.12716",
+        "material_read": "Full HTML, introduction, main results, analytic Section 4 including Theorem 4.2, Lemma 4.1 and critical-point proof",
+        "method": "read accessible arXiv HTML primary text",
+        "title": "The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph",
+        "trigger": "Identical random orientation model; possible broader joint-statistic theorem"
+      },
+      {
+        "assessment": "Unmarked matrix enumeration; does not state all-sink count Poisson law",
+        "evidence": [
+          "Theorem 3.1 provides asymptotics for B_(n,k)",
+          "the introduction explains alternating-minor characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.08850",
+        "material_read": "Full HTML introduction, explicit poly-Bernoulli formula, Sections 2 and 3 including Theorem 3.1",
+        "method": "read accessible arXiv HTML primary text",
+        "title": "Asymptotic enumeration of lonesum matrices",
+        "trigger": "Asymptotic count for denominator and lonesum alias"
+      },
+      {
+        "assessment": "Formal finite sink counts on general graphs; no distributional diagonal asymptotics or claimed Poisson rate",
+        "evidence": [
+          "Definition 2.1 and Theorem 2.3",
+          "The general sink-polynomial relation to chromatic symmetric functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+        "material_read": "Full HTML Sections 1 and 2 and theorem statements for deletion-contraction and chromatic-symmetric framework",
+        "method": "read accessible arXiv HTML primary text",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "General sink polynomial may dominate exact enumerator"
+      },
+      {
+        "assessment": "Unique sinks and exact AUSO enumeration only; not a multiple-sink Poisson or TV theorem",
+        "evidence": [
+          "Theorem 2.5 gives fixed unique-sink enumeration",
+          "Section 6.1 derives enumeration for AUSOs on complete bipartite graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.11236v2",
+        "material_read": "Full HTML Introduction, Sections 5 and 6, including Theorem 2.5 and Section 6.1",
+        "method": "read accessible arXiv HTML primary text",
+        "title": "Toppleable permutations, excedances and acyclic orientations",
+        "trigger": "Exact unique-sink biclique counts, possible covering k=1"
+      },
+      {
+        "assessment": "Enumerations for poly-Bernoulli relatives/unique sinks; no identified full multiple-sink limit in read material",
+        "evidence": [
+          "Published 2017, relates poly-Bernoulli relatives to sink-constrained acyclic orientations"
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/r31/r31.pdf",
+        "material_read": "Published article overview and rendered pages 19–20 with relevant oriented-biclique enumeration",
+        "method": "read publisher-hosted paper including rendered page images",
+        "title": "Combinatorial properties of poly-Bernoulli relatives",
+        "trigger": "Earlier combinatorial orientation classifications including unique sink relatives"
+      },
+      {
+        "assessment": "Foundational orientation-count and lonesum bijection; insufficient for full-document novelty clearance by itself",
+        "evidence": [
+          "ArXiv abstract establishes B_(a,b) as number of acyclic orientations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+        "material_read": "ArXiv abstract and bibliographic summary, as well as precise counting statements independently confirmed in later full-text primary works",
+        "method": "read arXiv bibliographic and abstract material; explicitly not full text",
+        "title": "Acyclic orientations and poly-Bernoulli numbers",
+        "trigger": "Original complete-bipartite orientation enumerator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71931ebc-05c2-41cb-bfc5-50cb4a4e0c39",
+  "value": {
+    "rationale": "The number of sinks is an intrinsic probabilistic statistic of the same dense acyclic orientations whose longest-path behavior is known to be Gaussian. Its full distribution instead converges to a nondegenerate zero-truncated Poisson(log 2) law, with uniform analytic O_R(1/n), total-variation O(1/n), and geometrically summable individual probability errors. This gives a quantitative finite-size benchmark and complete asymptotic multiplicity information, not just the known total counts, one-sink enumeration, or a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
