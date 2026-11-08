@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:50:26.864633Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each non-backtracking petal excursion returns to the hub, and the petal label has same-state probability 1/(2k-1) and any distinct-state probability 2/(2k-1). Given r distinct petals seen, next new-petal probability p_r=2(k-r)/(2k-1) yields independent geometric waiting times for coupon completion J; exact cover time is weighted excursion length sum minus one final untraversed return edge. Exchangeability gives E C_i=E J/k, and a two-state marked-petal recurrence evaluates transverse occupation-count covariance eigenvalue b_k. Orthogonal covariance decomposition yields variance L²Var(J)/k²+b_k(Q-L²/k). Because b_k>0, integer unit smoothing strictly reduces variance until lengths differ by <=1. Independent first-principles directed-edge/visited-vertex rational Markov-chain moments agreed for six bouquets, including k=2,3,4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsuo et al analyze nonbacktracking cover times in random regular and random-degree graphs, rather than exact bouquet length-by-length variance.",
+          "Breen et al Kemeny constant is a separate stationary hitting-time invariant."
+        ],
+        "reasoning": "Neither inspected published result supplies b_k(Q-L²/k) and strict balancing for fixed bouquets.",
+        "searches": [
+          "nonbacktracking random walk bouquet cycles cover time variance petal lengths mean",
+          "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+          "https://arxiv.org/abs/2203.12049"
+        ]
+      },
+      "checked_sources": [
+        "Matsuo–Kawagishi–Ohsaki IEICE 2023 full 6-page PDF",
+        "Breen et al arXiv:2203.12049 abstract",
+        "Resultary NB walk bouquet query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A mean cover-time estimate in random configuration graphs cannot determine exact fixed-bouquet variance or convexity in individual petal lengths.",
+          "Stationary average hitting times are not the law of covering all petals."
+        ],
+        "reasoning": "The occupation covariance calculation and strict positivity of b_k add genuinely distinct data not implied by the prior results.",
+        "searches": [
+          "nonbacktracking random walk bouquet cycles cover time variance petal lengths mean",
+          "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+          "https://arxiv.org/abs/2203.12049"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Covering all vertices of a petal is equivalent to having entered it because nonbacktracking forces complete cycle traversal, but final return edge is not needed.",
+          "Occupation-label covariance is a weighted Markov coupon-collector statistic."
+        ],
+        "reasoning": "Compared cover time with Kemeny constant and weighted Markov coupon collection, not title matching.",
+        "searches": [
+          "nonbacktracking random walk bouquet cycles cover time variance petal lengths mean",
+          "https://arxiv.org/abs/2203.12049",
+          "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed eleven-petal word local-rigidity census is unrelated to stochastic bouquet graph petals.",
+          "No mean/variance table for same hub-start model in retrieved record query."
+        ],
+        "reasoning": "A negative record search is not evidence of universal novelty.",
+        "searches": [
+          "nonbacktracking random walk bouquet cycles cover time variance petal lengths mean",
+          "Resultary:2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171",
+          "https://arxiv.org/abs/2203.12049"
+        ]
+      },
+      "rationale": "Breen et al investigate non-backtracking Kemeny constant, a stationary mean hitting-time statistic that does not determine cover variance. Matsuo–Kawagishi–Ohsaki study expected non-backtracking cover times in random graph models, not exact fixed bouquet mean-and-variance or balanced-length inequality. Resultary non-backtracking bouquet query returned unrelated cover-time and petal items.",
+      "residual_risks": [
+        "General Markov coupon-collector occupation-covariance literature might contain an equivalent two-eigenvalue variance formula.",
+        "Other specialized cactus graph nonbacktracking cover-time formulas may cover the bouquet as a special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Random graph mean cover times rather than the exact deterministic bouquet variance or strict balancing",
+          "evidence": [
+            "Sections 2–3: expected mean cover time for randomized graph ensembles"
+          ],
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/comex/12/1/12_2022XBL0146/_pdf",
+          "material_read": "Full six-page primary PDF, text and all pages visually inspected, especially model and formulas in Sections 2–3",
+          "method": "full publisher-hosted PDF and screenshots",
+          "title": "On the mean first passage time and mean cover time of a non-backtracking random walk on graphs",
+          "trigger": "Closest original on nonbacktracking mean cover time"
+        },
+        {
+          "assessment": "Kemeny constant is stationary average hitting times, not vertex cover time variance",
+          "evidence": [
+            "Abstract explicitly frames Kemeny constant for NB random walks"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.12049",
+          "material_read": "Abstract and available theorem description only",
+          "method": "arXiv abstract",
+          "title": "Kemeny's constant for non-backtracking random walks",
+          "trigger": "Nonbacktracking graph statistic possibly dominating cover times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separating mean invariance from strict variance sensitivity is a motivated exact stochastic-graph phenomenon: fixed number of cycles and total length give identical expected cover time but quantitatively different risk. The sharp balancing rule is useful in designing finite bouquet networks and interprets memory effects of the non-backtracking walk.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Matsuo–Kawagishi–Ohsaki IEICE 2023 full 6-page PDF",
+    "Breen et al arXiv:2203.12049 abstract",
+    "Resultary NB walk bouquet query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a hub-start non-backtracking walk on bouquet of k>=2 simple cycles of lengths ell_i>=3, exact vertex cover-time mean E[T]=L m_k/k-1 and variance L² v_k/k²+b_k(Q-L²/k), with m_k=1+(2k-1)H_(k-1)/2, v_k=(2k-1)^2 H_(k-1)^(2)/4-(2k-1)H_(k-1)/2, b_k=1/k+(2k-1)(k-2)H_(k-1)/(2k(k-1))>0; balancing lengths minimizes variance strictly.",
+  "limitations": [
+    "Bounded independent experiments corroborate but do not replace the unrestricted analytic proof (or complete finite exhaustive argument for Pappus).",
+    "Historical priority is best-of-knowledge, not established against all unindexed literature.",
+    "Scientific PASS is distinct from transport/publication not_ready."
+  ],
+  "residual_risks": [
+    "General Markov coupon-collector occupation-covariance literature might contain an equivalent two-eigenvalue variance formula.",
+    "Other specialized cactus graph nonbacktracking cover-time formulas may cover the bouquet as a special case."
+  ],
+  "schema_version": 1
+}
