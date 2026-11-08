@@ -1,19 +1,21 @@
-# Review of the root–degree-profile covariance result
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The uniform-parent update gives exact degree enumerator and root-indicator conditional moments, from which the mixed covariance recurrence follows by total covariance. The resulting explicit first-class formula is algebraically telescoped; its sign changes once because the numerator is strictly increasing from size 7 onward with rigorously checked rational boundary signs at sizes 21 and 22. Fixed-class limits follow by an induction on degree with a Cesàro recursion and vanishing fixed-degree root masses. Independent exact parent-array enumeration through size 9 and 637 reproducibility checks corroborate the argument, but do not substitute for it.
+PASS
 
-## Originality
+Independently reconstructed parent-choice PGF recurrences for ρ_n, µ_n and A_n=Cov(D_n,B_n(z)), including conditional root-selection covariance. Coefficient extraction gives exact unary formula [n/4−(3/2)H_{n−2}−1/(2(n−1))]/(n−1). An independent parent-array enumeration verified finite cases through n=7, and exact rational boundary values are negative at 21 and positive at 22; F(n+1)−F(n)=(n²−7n+2)/(4n(n−1))>0 for n≥7 proves uniqueness. For fixed k, root PGF implies P(D_n=k)→0, µ_k/n→2^{-k-1}, and the Cesàro recurrence proves the covariance limit. No uniformity in k; finite-sum conservation makes the nonuniformity necessary.
 
-**PASS, qualified.** Janson's 2005 degree-profile work supplies global count–count asymptotic covariance and the known limiting frequencies, not the distinguished-root cross-covariance or the sharp unary sign reversal. Backhausz–Móri focus on fixed levels, and Acan–Hitczenko work in a different plane-recursive growth model. A prior exact root-degree/leaf covariance covers the leaf special case only, which is excluded from the novelty claim. Historical coverage in inaccessible earlier degree-distribution literature is still possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The sharp transition at 22 vertices for the intrinsically natural one-child population reveals a finite-size reversal hidden by global degree-profile limit theorems. The all-class fixed-degree geometric covariance law explains how a distinguished founder's branching is transmitted through the macroscopic population of low-degree vertices, despite the exact zero sum over all degree classes at finite size. These results answer a specific natural joint-statistic question, not an arbitrary reparameterization.
+Best-of-knowledge: exact 22-vertex unary sign threshold and all fixed-k root mixed covariance profile survive; k0 leaf identity acknowledged as known.
 
-## Boundaries
+## value
 
-No uniformity over child degree, finite-size sign classification for all degree classes, or full joint distribution is claimed. The general central limit theorem for the degree-profile counts is established background. Priority remains open to independent literature review, particularly for the older Mahmoud–Smythe paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Root branching and global outdegree counts are canonical recursive-tree observables. The unique n=22 sign reversal and geometric fixed-degree cross profile quantify a founder effect invisible in bulk profile CLTs and expose a meaningful nonuniformity constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
