@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The smoothness discriminant is derived directly from the derivative, the three differentials form an explicit basis, and Cartier's semilinear matrix proves the rank and \(a\)-number classification for all geometric parameters. The translation quotient formula proves the three supersingular elliptic quotients and their isogeny; coefficient counting establishes the full-extension formulas. The included finite-field verifier is a corroborating check, not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Exact statement comparisons with older Picard literature and indexed mathematical records did not establish prior coverage of the combined translation criterion, three-quotient isogeny and complete characteristic-two Newton stratification. Estrada-Sarlabous (1991) treats ordinary/supersingular conditions by Hasse–Witt matrices and could overlap with part of the rank calculation; only its abstract was accessible. Lario–Somoza (2014) treats an isolated CM curve rather than the full smooth parameter space. A more exhaustive historical-priority assessment requires the inaccessible 1991 text.
+PASS
 
-**Mathematical value — PASS.** This gives a natural complete arithmetic stratification of a genus-three family, identifies a geometric symmetry underlying the exceptional Newton polygon, excludes intermediate ranks and provides exact counts for each finite extension. The elliptic-quotient decomposition explains rather than merely detects the supersingular locus.
+From f′=aX²+c, direct resultant algebra yields Δ. Riemann–Hurwitz gives genus three for tame degree-three cover with five simple branch points. In a holomorphic basis dX/Y²,X dX/Y²,dX/Y, Cartier is the √-semilinear matrix [[0,0,√c],[0,0,√a],[0,1,0]]. Δ≠0 forces Cartier rank 2, so a-number 1; its stable semilinear rank is 0 if a=0, 2 if a≠0, giving the p-rank dichotomy and generic height-two slope pair. At a=0 the additive separable polynomial X⁴+bX²+cX (c≠0) yields four translations and three genus-one quotients Y³=U²+(c/t)U+d; each is supersingular j=0, and their odd-ℓ cohomology sum gives a product isogeny and supersingular Newton polygon. For finite q, count a=0,c≠0 and a≠0 with one excluded d per a,b,c. Independent exact GF(2)/GF(4) coefficient and Cartier calculations agree, not a substitute for all extensions.
 
-**Limits.** Counts concern marked quartic models, not isomorphism classes. The splitting is up to isogeny, not an identification of polarized Jacobians. Historical priority is qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality of the precise joint final claim; searched published mathematical records and compared primary statements, stronger methods and equivalent formulations. The full joint theorem is not a formal specialization of the accessible special-case primary text. Because the 1991 full theorem is inaccessible, that comparison remains qualified rather than categorically excluded. All residual priority/access risks are recorded.
+
+## value
+
+PASS
+
+The binary-characteristic Picard family is a natural genus-three cyclic-cover locus; a complete Newton, a-number, automorphism, and marked-model count stratification is a meaningful arithmetic-geometric classification. The V4 elliptic decomposition explains the exceptional Newton stratum rather than just tabulating small fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
