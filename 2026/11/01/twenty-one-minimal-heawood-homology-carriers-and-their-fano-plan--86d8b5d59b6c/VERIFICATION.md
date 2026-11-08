@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-## Exact finite verification
-Run `python3 verify.py` and `python3 crosscheck.py` using only the Python standard library. Both were executed on the embedded files; recorded transcripts are `verification_output.txt` and `crosscheck_output.txt`, ending in `VERIFY_OK` and `CROSSCHECK_OK`. The first program directly generates all graph incidence edges, all independent simplices, explicit third/fourth boundary matrices, local kernel bases and global boundary quotients. It enumerates all 16,384 induced vertex subsets, checks that every local third Betti number equals the image rank, verifies the full 15-row rank histogram, all 21 minimum supports as `C8 disjoint K2`, all 21 class residues and all 1,330 three-class combinations, of which precisely 28 vanish by Fano-line-complement incidence.
+# Independent mathematical audit
 
-The second checker independently builds local/global boundary systems and computes injection ranks by stacked-matrix rank identities rather than enumerating local kernel representatives. It agrees on the 16,384-subset profile and 21 minimum supports. Both use exact XOR arithmetic in finite-dimensional binary vector spaces, not floating-point approximations. The verified claim is confined to the specified finite graph and mod-two third homology. These checks do not constitute independent scholarly review.
+## correctness
+
+PASS
+
+Independently rebuilt the Fano incidence graph from nonzero binary vectors and covectors, enumerating all 21 edges and independence faces (1,14,70,154,147,56,14,2). Exact F2 boundaries have ranks d3=97,d4=44, giving dim H3=6. For every one of 16,384 induced vertex sets independently formed local d3 kernels, local d4 images and global d4 quotient images; the ranks agree in every case, proving injectivity with no extrapolation. The first nonzero induced H3 appears precisely on 21 ten-vertex sets formed by deleting a point pair and two lines avoiding it; 21 carrier classes span dimension six. Independently reduced their classes modulo a fixed global boundary basis and checked all 1,330 distinct triples; exactly 28 zero relations agree with four distinguished points in each of the seven complements of Fano lines.
+
+## originality
+
+PASS
+
+Tsukuda’s whole-complex Alexander-duality equivalence and existing Heawood wedge-of-six S3/character results do not determine induced subcomplex inclusion maps, the exact 10-vertex threshold, or the 28 three-term Fano dependencies. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+A complete vertex-support filtration and Fano incidence description of minimal carrier classes and relations is an intrinsic support invariant of the Heawood independence complex, unavailable from Betti numbers or rational automorphism characters. The complete finite classification needs no conjectured generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

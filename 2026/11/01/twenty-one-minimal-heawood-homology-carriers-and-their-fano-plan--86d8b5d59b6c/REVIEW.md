@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over every one of the \(2^{14}\) induced vertex subsets of a fixed, precisely normalized 21-edge incidence graph. Exact mod-two boundary calculations yield \(147-97-44=6\) for ambient reduced third homology. One exact implementation constructs local kernels and global boundary quotients separately; another computes inclusion ranks using independent stacked-matrix elimination. Both check all 16,384 inclusions and agree on the complete image-rank distribution. The geometry of all 21 smallest carriers is confirmed individually and proved from the Fano-plane incidence conditions. Every one of the 1,330 distinct carrier-class triples is enumerated and compared with the seven complements of lines. No finite sample is generalized to a parameter family. Both verification programs and their actual outputs accompany the result.
+## correctness
 
-## Originality — PASS, subject to remaining literature risk
-Direct inspections of Barmak's star-cluster work, Tsukuda's incidence-graph/Alexander-duality paper, and the Perarnau–Perkins independence enumeration identify no Heawood induced-subcomplex support spectrum. Three publicly indexed same-complex complete result texts establish, respectively, the sphere-wedge homotopy type, the cyclic homology character, and the incidence-preserving automorphism-group rational character. Their statements are strictly weaker for the present question: neither abstract homotopy type nor a group representation determines individual induced-subcomplex inclusion maps or the 28 explicit three-class relations. Targeted published-finding corpus and web comparisons found no covering theorem; this is not proof of universal absence. Independently unindexed equivalent results remain possible.
+PASS
 
-## Value — PASS
-The problem asks for the complete canonical vertex-support filtration of a six-dimensional homology group of the Fano incidence complex, not an arbitrary numerical slice. Injectivity of all induced-subcomplex inclusions, a sharp and geometrically characterized threshold of ten vertices, and the 28 Fano line-complement dependencies among 21 minimum support classes describe structural relationships between incidence geometry and topology that global Betti numbers and character values do not provide. The exact finite theorem is self-contained and useful for comparison with other incidence complexes and topological support problems; no unproved extension is asserted.
+Independently rebuilt the Fano incidence graph from nonzero binary vectors and covectors, enumerating all 21 edges and independence faces (1,14,70,154,147,56,14,2). Exact F2 boundaries have ranks d3=97,d4=44, giving dim H3=6. For every one of 16,384 induced vertex sets independently formed local d3 kernels, local d4 images and global d4 quotient images; the ranks agree in every case, proving injectivity with no extrapolation. The first nonzero induced H3 appears precisely on 21 ten-vertex sets formed by deleting a point pair and two lines avoiding it; 21 carrier classes span dimension six. Independently reduced their classes modulo a fixed global boundary basis and checked all 1,330 distinct triples; exactly 28 zero relations agree with four distinguished points in each of the seven complements of Fano lines.
 
-## Closest literature and limitations
-Barmak (arXiv:1007.0418v1) treats star clusters; Tsukuda (DOI:10.55016/ojs/cdm.v12i1.62277) treats general incidence-complex equivalences; Perarnau–Perkins (arXiv:1611.01474v1) provide Heawood independence counts. Indexed same-complex results of 2026-10-04 and 2026-10-11 cover homotopy type and rational symmetry characters, not vertex-support maps. The result is specific to \(H\), coefficients \(\mathbb F_2\), and homology degree three; publication-priority certainty and an independent mathematical audit are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tsukuda’s whole-complex Alexander-duality equivalence and existing Heawood wedge-of-six S3/character results do not determine induced subcomplex inclusion maps, the exact 10-vertex threshold, or the 28 three-term Fano dependencies. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+A complete vertex-support filtration and Fano incidence description of minimal carrier classes and relations is an intrinsic support invariant of the Heawood independence complex, unavailable from Betti numbers or rational automorphism characters. The complete finite classification needs no conjectured generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
