@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite automorphism average preserves the range and identity action of a projection. The stabilizer calculation proves every equivariant edge-to-zero-sum-vertex map factors through incidence; invertibility of the Laplacian on zero-sum vertices forces uniqueness of the invariant cut projection, and adjoint complementation forces uniqueness for the circulation projection. The two-eigenspace Laplacian inversion gives an explicit edge-column potential. Enumerating all edge classes yields the two exact norms. The strict difference follows from \(q(r-1)\ge4\). An independent exact-rational finite replay checks the formulas in nine cases, including nonclaimed boundary cases.
+## correctness
 
-**Originality — PASS, with bounded priority risk.** Full material from the 2023 graph cycle-space paper, including introductory representations, its summary and graph-family sections, was compared. Its generic averaging method applies, but explicit classification concerns tori and Hamming graphs and does not state these multipartite constants. The 2018 cycle-space precursor focuses on recursively generated diamond/Laakso graphs. The two-part complete-bipartite case is a different known boundary; it does not imply the three-or-more-part values by substitution or direct specialization. Database and article searches for complete-multipartite projection norms did not reveal a dominating claim. Search nonreturn is not a mathematical proof of priority; equivalent electrical-flow terminology is a residual risk.
+PASS
 
-**Value — PASS.** This is a complete quantitative two-parameter family classification of the smallest possible projection norms for two canonical Banach subspaces, including a strictly positive projection/complement gap, explicit unique symmetry-invariant extremizers, and two distinct asymptotic regimes. Balanced multipartite graphs are natural dense extensions of the complete-bipartite setting; identifying optimality over every projection is not supplied by direct resistance or Laplacian column calculations alone.
+For G=K_{q,...,q}, r>=3,q>=2, symmetrize any real edge-ℓ1 projection under S_q≀S_r; the conjugation average remains a projection to the same invariant range and cannot increase the norm. The fixed-edge stabilizer and sign-reversing part swap force an equivariant T=DP to factor S D with S=sI+tqR on zero-sum vertices. Identity on the cut space implies SL=L and invertibility of L, hence S=I and unique invariant cut projector Q=D^T L^+D. Complementation/adjoints prove unique invariant cycle projector I−Q. The Laplacian has positive eigenvalues rq and q(r−1); its edge-response potential has a=(rq−1)/(rq²(r−1)) and b=1/(rq²(r−1)). Exhaustive symbolic edge class counting gives λ(C)=2(q²r²−q²−2qr+2)/(q²r(r−1)) and λ(Z)=(3q²r²−q²r−2q²−8qr+8)/(q²r(r−1)). The difference 1−4(rq−1)/(rq²(r−1))>0 follows from q(r−1)>=4. Independent numpy pseudoinverse calculations checked idempotence and every column 1-norm in four (r,q) cases, 117 columns. Finite tests support rather than prove all parameters.
 
-The bounds concern real unweighted graphs with equal parts, not weighted or general multipartite graphs. Finite checks supplement an unlimited-parameter proof, not replace it. Historical priority and correctness have not undergone independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new evaluated complete multipartite cut/circulation pair, acknowledging the general invariant-projection principle and prior related graph family computations.
+
+## value
+
+PASS
+
+A complete natural two-parameter Banach-space projection classification with explicit globally minimal norms for complementary canonical graph subspaces, a strict gap, uniqueness among symmetry-invariant minimizers, and contrasting large-r and large-q limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

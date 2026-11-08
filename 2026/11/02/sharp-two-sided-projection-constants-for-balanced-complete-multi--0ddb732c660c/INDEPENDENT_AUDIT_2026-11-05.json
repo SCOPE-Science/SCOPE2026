@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:53:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G=K_{q,...,q}, r>=3,q>=2, symmetrize any real edge-ℓ1 projection under S_q≀S_r; the conjugation average remains a projection to the same invariant range and cannot increase the norm. The fixed-edge stabilizer and sign-reversing part swap force an equivariant T=DP to factor S D with S=sI+tqR on zero-sum vertices. Identity on the cut space implies SL=L and invertibility of L, hence S=I and unique invariant cut projector Q=D^T L^+D. Complementation/adjoints prove unique invariant cycle projector I−Q. The Laplacian has positive eigenvalues rq and q(r−1); its edge-response potential has a=(rq−1)/(rq²(r−1)) and b=1/(rq²(r−1)). Exhaustive symbolic edge class counting gives λ(C)=2(q²r²−q²−2qr+2)/(q²r(r−1)) and λ(Z)=(3q²r²−q²r−2q²−8qr+8)/(q²r(r−1)). The difference 1−4(rq−1)/(rq²(r−1))>0 follows from q(r−1)>=4. Independent numpy pseudoinverse calculations checked idempotence and every column 1-norm in four (r,q) cases, 117 columns. Finite tests support rather than prove all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 characterizes uniqueness of invariant cycle projections by absence of equivalent subrepresentations; Section 2.6 treats Hamming graphs; section 2.7 hypercube."
+        ],
+        "reasoning": "These general theorems provide a proof strategy, but the multipartite stabilizer factorization and exact computed edge-column norms are additional input. No inspected general formula specializes to both rational expressions.",
+        "searches": [
+          "Dilworth-Kutzarova-Ostrovskii 2024 Theorem 5 / Corollary 6",
+          "arXiv:1807.03814"
+        ]
+      },
+      "checked_sources": [
+        "https://denka.web.illinois.edu/CycleSpaces.pdf",
+        "https://arxiv.org/abs/2305.12582",
+        "https://arxiv.org/abs/1807.03814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier averaging ensures existence of invariant optimal projections; showing uniqueness for G=K_{q,...,q} uses a new two-parameter stabilizer argument and L decomposition, leading to λ(C),λ(Z) and their strict gap."
+        ],
+        "reasoning": "The source theorem entails optimality after uniqueness is separately established, not the full claimed pair of explicit constants. Exact potential and edge class count are not merely substituting a published Hamming formula.",
+        "searches": [
+          "arXiv:2305.12582 §1.4 and §§2.4–2.7",
+          "arXiv:1807.03814"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle space Z=ker D, cut space C=im(D^T), transport quotient ℓ1(E)/Z, projection norm λ(Y,ℓ1(E))."
+        ],
+        "reasoning": "This checks free-space terminology and graph electrical-flow aliases rather than relying on different titles. The paper's abstract invariant framework is broad, but its exact computations concern different graph operations.",
+        "searches": [
+          "Resultary: projection constants cut space cycle space l1 balanced complete multipartite K_q q invariant projections graph automorphism",
+          "complete multipartite graph cycle space minimum projection constant l1",
+          "arXiv:2305.12582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related records concern cactus edge bases, clustered free spaces and Boolean primitive projections rather than K_{q,...,q} edge cut/circulation constants."
+        ],
+        "reasoning": "This is a two-parameter infinite family, not a known small-graph numerical table; the relevant prior complete-bipartite r=2 case does not determine r>=3.",
+        "searches": [
+          "Resultary: projection constants cut space cycle space l1 balanced complete multipartite K_q q invariant projections graph automorphism",
+          "complete multipartite graph cycle space minimum projection constant l1"
+        ]
+      },
+      "rationale": "Best-of-knowledge new evaluated complete multipartite cut/circulation pair, acknowledging the general invariant-projection principle and prior related graph family computations.",
+      "residual_risks": [
+        "An electrical-network or free-space treatment may already evaluate complete multipartite graph projectors under different terminology.",
+        "Proof only establishes uniqueness among automorphism-equivariant projections, not all minimizers; r>=3,q>=2, equal parts and real ℓ1 norm mandatory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_PRIOR",
+          "evidence": "Symmetry averaging and invariant uniqueness criterion are prior; the paper computes tori/Hamming graphs and does not present balanced complete multipartite formulas.",
+          "identifier_or_url": "https://denka.web.illinois.edu/CycleSpaces.pdf",
+          "material_read": "Full primary 2024 published PDF accessed: Sections 1.1, 1.4(C-D) including averaging equation (4), Theorem 5 and Corollary 6, sections 2.4–2.7 on discrete tori/Hamming graphs; page 102 screenshot inspected.",
+          "method": "read PDF sections/text and screenshot",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "general theorem specifically on cut/cycle ℓ1 minimal projections"
+        },
+        {
+          "assessment": "RELATED_GRAPH_CLASSES",
+          "evidence": "Diamond/Laakso-oriented methods are not the r>=3 balanced multipartite exact constants; broader graph projections remain potential indirect implications.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "Accessible primary portions on finite metric free-space method and recursive graph families.",
+          "method": "read relevant abstract, introduction and technical graph examples",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "older graph cycle-space projection precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural two-parameter Banach-space projection classification with explicit globally minimal norms for complementary canonical graph subspaces, a strict gap, uniqueness among symmetry-invariant minimizers, and contrasting large-r and large-q limits.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://denka.web.illinois.edu/CycleSpaces.pdf",
+    "https://arxiv.org/abs/2305.12582",
+    "https://arxiv.org/abs/1807.03814"
+  ],
+  "disposition": "passed",
+  "limitations": "An electrical-network or free-space treatment may already evaluate complete multipartite graph projectors under different terminology.; Proof only establishes uniqueness among automorphism-equivariant projections, not all minimizers; r>=3,q>=2, equal parts and real ℓ1 norm mandatory.",
+  "residual_risks": [
+    "An electrical-network or free-space treatment may already evaluate complete multipartite graph projectors under different terminology.",
+    "Proof only establishes uniqueness among automorphism-equivariant projections, not all minimizers; r>=3,q>=2, equal parts and real ℓ1 norm mandatory."
+  ],
+  "schema_version": 1
+}
