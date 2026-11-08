@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every d>=3, exact plane maximizing a rank-one spike gives ratio 1-(p.x)^2. Conditional spherical isotropy yields iid Beta((d-2)/2,1/2) factors, with an explicit gamma-moment identity. At k=floor(cd), the scaled log-MGF converges on theta<1/2 to -(c/2)log(1-2theta), and the tilted variance is O(1/d); matching exponential upper/lower bounds and exponential tightness give the full rate I_c(s) for s>0 and infinity otherwise. Correct boundaries and finite-step positivity verified. An independent matrix-eigensolver script returned VERIFY_OK with 320 direct updates, 12 moment comparisons and 12 rate checks; it is not relied upon as asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bresch et al. 2024 give almost-sure convergence for the adjoint-free random-plane algorithm.",
+        "Bresch et al. 2025 give generalized Rayleigh iteration and sublinear convergence; neither displays the joint dimension/iteration rate.",
+        "Bresch and Melnyk 2026 establish global expected-rate bounds and a broad geometric first-hit upper bound."
+      ],
+      "reasoning": "A general convergence theorem or an expectation estimate is not a bound on both exponentially rare tails with their optimal constants. The papers are broader in operator class but do not dominate the specific distributional conclusion.",
+      "searches": [
+        "stochastic Rayleigh Ritz rank one spike dimension proportional iteration large deviations rate (s-c-c log(s/c))/2",
+        "randomized Rayleigh Ritz independent beta gap factors sharp Cramer rare event error rate dimension iterations",
+        "rank one eigenvalue stochastic tangent subspace Rayleigh Ritz concentration large deviation gamma product",
+        "arXiv:2410.08297v1 convergence; arXiv:2512.05520v1 generalized Rayleigh"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.42071v1 (full arXiv text; Algorithm (2), Example 2.4, Proposition 2.5, experiments)",
+      "arXiv:2410.08297v1 (abstract, algorithm, convergence sections)",
+      "arXiv:2512.05520v1 (abstract, algorithm, convergence sections)",
+      "published-finding corpus published-record semantic queries as listed; returned IDs assessed from metadata/abstract-level summaries",
+      "Earlier related mathematical claims were compared at the claim/implication level for overlap; no covering statement was identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Example 2.4 fixes the rank-one model and expected gap rate; the source does not state log-gap finite-dimensional moments or a d-speed large deviation theorem.",
+        "2026 Proposition 2.5 bounds the probability of not entering a spectral neighborhood and does not supply two-sided optimal dimension-linear iteration exponents.",
+        "Earlier convergence results are not quantitatively equivalent to a full large-deviation principle."
+      ],
+      "reasoning": "The source supplies the geometric ingredients and its exact expectation is intentionally excluded from novelty. The LDP requires identifying iid gap multipliers, evaluating gamma moments at parameters proportional to d, and proving a matching tilted lower probability. No inspected source proves those implications for this algorithm.",
+      "searches": [
+        "rank-one spike random plane Rayleigh Ritz ascent multiplicative beta error law independent iid exact moments Lyapunov exponent",
+        "stochastic Rayleigh Ritz rank one spike dimension proportional iteration large deviations rate (s-c-c log(s/c))/2",
+        "random tangent Rayleigh Ritz error Beta((d-2)/2,1/2) Cramer rate (s-c-c log(s/c))/2",
+        "arXiv:2610.42071v1 §§2.1,2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.42071v1 Example 2.4 gives a spiked ascent identity and exact expected error, not a high-dimensional large-deviation distribution.",
+        "arXiv:2610.42071v1 Proposition 2.5 uses spherical-cap incomplete Beta probabilities for a different first-hit upper bound."
+      ],
+      "reasoning": "The closest equivalent representation is the random product of independent Beta gap multipliers. Example 2.4 plus spherical isotropy motivates its derivation, but the high-dimensional scaled logarithmic cumulant and exact upper/lower rare-event exponent are distinct statements; their implication requires the new asymptotic argument.",
+      "searches": [
+        "rank-one spike random plane Rayleigh Ritz ascent multiplicative beta error law independent iid exact moments Lyapunov exponent",
+        "adjoint free random plane top singular eigenvector rank one spiked matrix log error beta product almost surely",
+        "random tangent Rayleigh Ritz error Beta((d-2)/2,1/2) Cramer rate (s-c-c log(s/c))/2",
+        "arXiv:2610.42071v1 Example 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches returned related CG fluctuation, spiked ellipsoid, and numerical Ritz filtering claims, but no matching iterative rare-event rate.",
+        "The 2026 primary paper provides algorithmic examples and mean-error tables/plots, not a numerical table of dimension-scale large-deviation probabilities."
+      ],
+      "reasoning": "No known exact tabulation of this algorithm-specific law was identified. This is negative search evidence only, not a mathematical uniqueness certificate.",
+      "searches": [
+        "stochastic Rayleigh Ritz rank one spike dimension proportional iteration large deviations rate (s-c-c log(s/c))/2",
+        "arXiv:2610.42071 stochastic Rayleigh Ritz ascent Example 2.4 rank one beta gap 65F35",
+        "spiked Rayleigh Ritz sharp large deviation random plane logarithmic gap dimension proportional iterations"
+      ]
+    },
+    "rationale": "The October 30 2026 source Example 2.4 already gives the exact spiked spectral ascent and expectation, while Proposition 2.5 uses Beta spherical caps for a different hitting-time upper bound. The new assertion is the sharp dimension-scale LDP and both matched tail exponents, obtained by finite-d gamma moments and a nontrivial joint d,k limit; these do not follow from its displayed expected factor or generic tail upper bound without an additional distributional and tilted-exponent argument. The earlier 2024/2025 papers address different types of convergence. Query results for one-shot ellipsoid sections, spectral filtering, and random-pivot products do not logically imply this result. Unpublished or unlocated specialized Beta-product applications remain a priority risk.",
+    "residual_risks": [
+      "Older randomized search or Beta-product papers could contain an equivalent large-deviation statement not indexed by searched terms.",
+      "published-finding corpus closest entries assessed by returned summaries where primary full text could not be retrieved; absence of a match is not a proof of novelty.",
+      "The rank-one expected contraction, spherical Beta law, and general Cramer/Gartner–Ellis machinery are known; the novelty claim is specifically the algorithmic sharp dimension-scale reliability law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies exact mean-contraction and spherical-cap ingredients, not the dimension-proportional iteration full LDP",
+        "evidence": "Example 2.4 gives epsilon_k-epsilon_{k+1}=Delta beta_k^2; Prop 2.5 gives geometric upper bound (1-p)^k for first entry; §3 analyzes mean error.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.42071",
+        "material_read": "Full arXiv text including §1.1 Algorithm (2); §2.1 Example 2.4; §2.3 Proposition 2.5 and Beta cap proof; §3 experiments and bibliography",
+        "method": "Read primary arXiv full text and relevant PDF pages",
+        "title": "Stochastic Rayleigh–Ritz Ascent: Global Linear Convergence under a Spectral Gap",
+        "trigger": "Same exact algorithm and rank-one spiked example"
+      },
+      {
+        "assessment": "Almost-sure convergence in a general operator setting without this spiked dimension-scale rare-event rate",
+        "evidence": "Abstract states almost-sure convergence; the paper sets the original matrix-free random-plane algorithm.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.08297",
+        "material_read": "Abstract, introduction, algorithm description, almost-sure convergence statements and assumptions",
+        "method": "Read publicly accessible arXiv text and selected PDF pages",
+        "title": "Matrix-free stochastic calculation of operator norms without using adjoints",
+        "trigger": "Original random-plane algorithm and possible stronger almost-sure convergence statement"
+      },
+      {
+        "assessment": "Generalized quotient/sublinear convergence does not state the sharp spiked dimension-proportional LDP",
+        "evidence": "Abstract describes sublinear rate with probability one for generalized quotient; no matching product-log rare-event theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2512.05520",
+        "material_read": "Abstract, introductory contributions, algorithm formulation and sublinear convergence statements, Beta-related references",
+        "method": "Read publicly accessible arXiv text and selected PDF pages",
+        "title": "Stochastic Zeroth-Order Method for Computing Generalized Rayleigh Quotients",
+        "trigger": "Generalized Rayleigh quotient method and potentially equivalent random-plane representation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d8eafad-6f60-41ea-8750-5c612a9b219d",
+  "value": {
+    "rationale": "The exact exponent determines success and failure probabilities at practical dimension-proportional budgets for an adjoint-free eigenvalue solver. Mean rates in the source give no optimal two-sided reliability probabilities. The specific sharp rate, typical exponent and scaling are natural stability/performance invariants, useful for planning randomized operator norm estimation and not an arbitrary computational slice.",
+    "status": "PASS"
+  }
+}
