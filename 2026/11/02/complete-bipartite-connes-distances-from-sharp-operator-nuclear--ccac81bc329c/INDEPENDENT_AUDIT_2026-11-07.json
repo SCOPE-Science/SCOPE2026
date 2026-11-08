@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:57:23.715895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unweighted adjacency D of K_{p,q}, integers p,q>=2, directly derived the commutator off-diagonal block M=a 1_q^T-1_p b^T and ||[D,diag(f)]||=||M||_op. Row-difference bound and rank-one equality witness give sqrt(2/q) within p-part and sqrt(2/p) within q-part. For cross pairs, the explicit rank-two partial isometry gives (sqrt(p-1)+sqrt(q-1))/sqrt(pq); the displayed Y has both exact e1 marginals, and its 2x2 nuclear norm equals this witness by the Frobenius-plus-determinant identity. The inequality is sharp in all p,q including p=q=2. Five fresh floating-point SVD certificate checks corroborate identities; analytic matrix duality proves the full infinite family, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clare et al. 2024 give Birkhoff–James graph framework and complete paths; Besnard 2021 general bounds d<=ell and ell/Delta<=d; neither yields exact K_{p,q} formulas without additional optimization.",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ],
+        "reasoning": "A general inequality can bound but not determine the exact three-valued metric; no inspected stronger formula dominates every biclique parameter.",
+        "searches": [
+          "Connes spectral distance adjacency matrix complete bipartite graph K_pq operator norm exact vertex pair",
+          "SCOPE-Science/SCOPE2026 code search: Connes bipartite",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ]
+      },
+      "checked_sources": [
+        "Clare et al arXiv:2409.04146",
+        "Besnard arXiv:2105.09056",
+        "Iochum et al arXiv:hep-th/9912217",
+        "Resultary semantic query for Kpq Connes adjacency metric (7 nonmatching results)",
+        "Scoped repository code query Connes bipartite returned zero matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General duality of operator and nuclear norms is classical; new application requires the explicit marginal-correct Y and a rank-two sharp primal witness on every Kpq. Prior path and general-bound theorems do not imply equality from their estimates alone.",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ],
+        "reasoning": "The mathematical novelty is a closed equality with certificates, not invention of Schatten duality or the graph spectral-distance definition.",
+        "searches": [
+          "Connes spectral distance adjacency matrix complete bipartite graph K_pq operator norm exact vertex pair",
+          "SCOPE-Science/SCOPE2026 code search: Connes bipartite",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "adjacency-Dirac spectral metric on bicliques, noncommutative graph distances, operator/nuclear norm additive matrices",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ],
+        "reasoning": "The claimed norm is ||[adjacency, diag(f)]|| on vertex Hilbert space; it is neither the geodesic graph distance nor the Lipschitz-free transportation norm. Both labels and the actual defining operator were compared.",
+        "searches": [
+          "Connes spectral distance adjacency matrix complete bipartite graph K_pq operator norm exact vertex pair",
+          "SCOPE-Science/SCOPE2026 code search: Connes bipartite",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Iochum–Krajewski–Martinetti 1999 finite-space n<=3 calculations and Clare/Besnard example graphs do not tabulate all bicliques of arbitrary p,q. Resultary returned unrelated bipartite polytopes, not this metric.",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ],
+        "reasoning": "Even if small bicliques occur as examples, a finite table cannot imply a two-parameter all-size classification.",
+        "searches": [
+          "Connes spectral distance adjacency matrix complete bipartite graph K_pq operator norm exact vertex pair",
+          "SCOPE-Science/SCOPE2026 code search: Connes bipartite",
+          "Clare et al arXiv:2409.04146",
+          "Besnard arXiv:2105.09056",
+          "Iochum et al arXiv:hep-th/9912217"
+        ]
+      },
+      "rationale": "Clare–Li–Poon–Swartz (2024) define the same adjacency-Dirac spectral distance and solve paths, not K_{p,q}. Besnard (2021) proves universal geodesic/degree estimates and pruning comparisons, not exact biclique distances. Classical finite-space results cover small vertex totals but do not provide the all-biclique three-pair-type formula. No equivalent family result found in the targeted published records; alternate matrix-norm formulas remain a plausible priority risk.",
+      "residual_risks": [
+        "An equivalent uniform classification may exist under matrix-norm duality or differently named spectral triples.",
+        "Claims exclude weighted, noncomplete, other Dirac operators and states beyond vertex evaluations.",
+        "Numerical SVD corroboration is not an exact arithmetic certificate; exact proof is the stated operator/nuclear duality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, but paths solved; no all-biclique primal-dual formula in inspected statements",
+          "evidence": [
+            "arXiv:2409.04146, Section 2 and path theorem; search for bipartite returned no match"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.04146",
+          "material_read": "Accessible full original arXiv text and PDF, definition/commutator reduction, general algebra and main path characterization; searched bipartite keyword",
+          "method": "Primary arXiv full text, original exact definitions and central theorems read",
+          "title": "Noncommutative distances on graphs: An explicit approach via Birkhoff-James orthogonality (Clare et al., 2024)",
+          "trigger": "Same graph-adjacency Dirac metric"
+        },
+        {
+          "assessment": "Derives ell/Delta<=d<=ell and edge modifications, not exact Kpq distances",
+          "evidence": [
+            "arXiv:2105.09056v1, Sections 2 and 4, inequality (4)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2105.09056v1",
+          "material_read": "Original arXiv HTML Sections 1,2,3,4: definition, bounds, graph pruning and chain refinements, conclusion",
+          "method": "Primary full text read in relevant theory sections",
+          "title": "Estimating noncommutative distances on graphs (Besnard, 2021)",
+          "trigger": "Possible general bound subsuming exact biclique formulas"
+        },
+        {
+          "assessment": "General small n<=3 computations, not a verified general Kpq formula",
+          "evidence": [
+            "arXiv:hep-th/9912217; Clare et al. 2024 introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/hep-th/9912217",
+          "material_read": "ArXiv abstract/bibliographic information and small-order description cited within Clare et al.",
+          "method": "Primary record and secondary treatment in closely related paper, not full-text noncoverage",
+          "title": "Distances in Finite Spaces from Noncommutative Geometry (Iochum, Krajewski, Martinetti)",
+          "trigger": "Potential earlier formula for vertex spectral distances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Connes distance with an adjacency Dirac operator is not shortest-path distance and is difficult beyond tiny graphs because edges couple in the spectral norm. The first explicit all-size bipartite exact three-type classification with attaining primal-dual nuclear certificates supplies a natural benchmark and quantifies dependence on both shore sizes, rather than a numerical table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite complete bipartite simple graphs p,q>=2; adjacency Dirac with real diagonal observables. All-size proof exact; five numerical instances are diagnostics.",
+    "An equivalent uniform classification may exist under matrix-norm duality or differently named spectral triples.",
+    "Claims exclude weighted, noncomplete, other Dirac operators and states beyond vertex evaluations.",
+    "Numerical SVD corroboration is not an exact arithmetic certificate; exact proof is the stated operator/nuclear duality."
+  ],
+  "schema_version": 1
+}

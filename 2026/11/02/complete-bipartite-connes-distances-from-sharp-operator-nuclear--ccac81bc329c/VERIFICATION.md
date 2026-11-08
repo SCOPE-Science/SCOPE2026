@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-The mathematical proof in `RESULT.md` gives an exact operator-norm block reduction, explicit same-part equality cases, an explicit rank-two cross-part extremizer, and a nuclear-norm dual certificate attaining the same value. The determinant-based nuclear formula remains valid at \(p=q=2\), where the determinant vanishes. These derivations hold for every integer \(p,q\ge2\).
+# Independent mathematical audit
 
-The packaged standalone `verify.py` requires Python 3 with NumPy and can be run as `python3 verify.py`. It tests all \(196\) ordered size pairs \(2\le p,q\le15\), checks sharp primal/dual equalities and includes \(1568\) randomized operator/nuclear dual inequalities. The tests are diagnostic only; no finite sample establishes the general theorem. No independent audit or external certification has been performed. Literature search cannot logically exclude every unknown equivalent formulation.
+## correctness
+
+PASS
+
+For unweighted adjacency D of K_{p,q}, integers p,q>=2, directly derived the commutator off-diagonal block M=a 1_q^T-1_p b^T and ||[D,diag(f)]||=||M||_op. Row-difference bound and rank-one equality witness give sqrt(2/q) within p-part and sqrt(2/p) within q-part. For cross pairs, the explicit rank-two partial isometry gives (sqrt(p-1)+sqrt(q-1))/sqrt(pq); the displayed Y has both exact e1 marginals, and its 2x2 nuclear norm equals this witness by the Frobenius-plus-determinant identity. The inequality is sharp in all p,q including p=q=2. Five fresh floating-point SVD certificate checks corroborate identities; analytic matrix duality proves the full infinite family, not sampling.
+
+## originality
+
+PASS
+
+Clare–Li–Poon–Swartz (2024) define the same adjacency-Dirac spectral distance and solve paths, not K_{p,q}. Besnard (2021) proves universal geodesic/degree estimates and pruning comparisons, not exact biclique distances. Classical finite-space results cover small vertex totals but do not provide the all-biclique three-pair-type formula. No equivalent family result found in the targeted published records; alternate matrix-norm formulas remain a plausible priority risk.
+
+## value
+
+PASS
+
+Connes distance with an adjacency Dirac operator is not shortest-path distance and is difficult beyond tiny graphs because edges couple in the spectral norm. The first explicit all-size bipartite exact three-type classification with attaining primal-dual nuclear certificates supplies a natural benchmark and quantifies dependence on both shore sizes, rather than a numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
