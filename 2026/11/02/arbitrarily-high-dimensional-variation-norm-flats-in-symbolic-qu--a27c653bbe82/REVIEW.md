@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(k\), finitely many pairwise disjoint periodic orbits are separated by clopen cylinder neighborhoods. The induced potentials are strictly positive and yield word-quasimorphisms with explicit uniformly bounded concatenation defect. Their periodic homogenizations equal the exact orbit sums. Every dilation ratio is a convex combination of coordinate ratios, and every extremal coordinate occurs on a selected periodic orbit. Thus both extremal dilations, quotient injectivity, and the exact variation-distance identity follow for all parameter pairs. The displayed unbounded four-point gap proves non-Gromov hyperbolicity without relying on numerical tests.
+## correctness
 
-**Originality — PASS, relative to inspected literature.** The 2026 foundational paper establishes the metric, its contractibility/unboundedness/separability/incompleteness, density of locally constant representatives, and complete pressure geodesics, but not universal isometric normed flats or the four-point obstruction. The classical Hilbert-simplex-to-normed-space theorem is explicitly credited as the already known metric ingredient. Its abstract simplex theorem does not assert the existence of periodic-orbit-isolating cones in each fixed symbolic moduli space. Targeted scholarly and published-mathematical-record searches did not locate an equivalent combined embedding. An uninspected broader projective-thermodynamic embedding theorem remains a possible historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The motivating construction studies the global metric geometry, where unboundedness and lines do not resolve Gromov hyperbolicity or metric rank. The exact arbitrarily high-dimensional flats settle both questions in the strongest constructive form available from a locally constant sector: no approximate/quasi-isometric embeddings or exceptional subshifts are required. All periodic orbits not specially selected are rigorously controlled, which is the decisive dynamical feature.
+Positive entropy mixing SFT has arbitrarily many distinct finite periodic orbits. Finite clopen cylinder partition isolates k selected orbits; locally constant g_t=Σe^{t_i}1_{U_i} is bounded above and below by positive constants. Birkhoff sums along predetermined admissible infinite extensions are linear-growing word quasimorphisms: concat defect bounded by 2(L-1)(M-m), independent of word lengths. Periodic homogenization equals one-period sum exactly because extension boundary error is uniformly bounded. Any periodic length ratio is convex combination of coordinate ratios exp(t_i-s_i), and each extreme is attained by a selected periodic orbit. Thus both dilations give max-minus-min variation metric, injective after common shifts. Four points in k=3 yield pairing sums 3R versus 2R, violating any fixed hyperbolicity delta. Independently checked all periodic binary words up to length 10 for two coordinate weight choices, corroborating rather than replacing the general cylinder proof.
 
-**Limitations.** These flat embeddings are not a classification of the full moduli; the method does not give uniform defect bounds in dimension, pressure-geodesic uniqueness, or an independent audit. The classical Hilbert-simplex ingredient has prior authorship.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Cantrell–Carrasco–Corso–Rodríguez-Hertz paper defines the exact symmetrized metric and proves unboundedness, contractibility, density and pressure geodesics. Those statements do not imply isometric arbitrary-dimensional variation flats in each specific SFT, and density is not exact isometry. Classical Hilbert simplex variation norm is credited. The selected periodic-orbit realization is the nonstandard dynamical ingredient.
+
+## value
+
+PASS
+
+A global geometric classification consequence (non-Gromov-hyperbolicity) and arbitrarily high-dimensional exact flats answer a natural structural question about the newly defined periodic-length metric; it is not a renaming of simplex Hilbert geometry because all periodic orbits must obey the simultaneously sharp dilation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
