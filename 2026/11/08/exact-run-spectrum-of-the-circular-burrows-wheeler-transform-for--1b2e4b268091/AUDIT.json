@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For each cyclic zero gap, row parameter t runs from 0 to the gap length; sorting t descending then the next two gaps in reverse lexicographic order reproduces the full circular BWT and identifies exactly the three marked rows. Adjacency of those marked rows gives the complete 2/4/6 classification. The s-gap count is b_s=(1 if 3|s else 3) and a_s=(3s if 3|s else 3s-3); the marked-one double count transfers it to indexed words by a factor of n/3. Every quantifier, including periodic words, is treated explicitly. Independent direct rotation checks agree for 8,435 rooted gaps and 10,625 indexed words; the all-length proof does not depend on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giuliani et al. (2020), introduction and propositions on Fibonacci/standard-word extensions and reversal-ratio; pages 1–5 inspected.",
+        "Fici et al. (2023), Proposition 4 and Sections 3–4, 6, 8: two-run equivalence, Parikh-preserving morphism-order lemmas and run-change statements; their claims concern morphisms, not a fixed-weight census.",
+        "Giuliani et al. establish BWT-run patterns under reversal of standard-word extensions; Fici et al. establish morphism-preservation and possible run increases. Neither result enumerates all three-one words."
+      ],
+      "reasoning": "General results that the circular BWT has an even run count and that exactly two runs corresponds to circular balance constrain the support and one subclass, but do not determine the frequency of run counts four and six within a fixed Parikh slice. Morphism closure, sensitivity, and reversals do not dominate the claimed census.",
+      "searches": [
+        "Burrows Wheeler Christoffel 2-run binary word characterization and 4-run spectrum",
+        "Giuliani et al. (2020) arxiv:2008.08506",
+        "Fici et al. (2023) Proposition 4, Theorem 14 and Conclusions"
+      ]
+    },
+    "checked_sources": [
+      "Jamie Simpson and Simon Puglisi (2008), published binary two-run circular BWT characterization.",
+      "Giuliani, Inenaga, Lipták, Prezza, Sciortino and Toffanello (2020), BWT run ratio under word reversal.",
+      "Fici, Romana, Sciortino and Urbina (2023), BWT-run change under morphisms.",
+      "Semantic published-record search involving fixed-weight binary BWT runs, with closest unrelated topics of binary pair multispectra and string attractors.",
+      "Accessible previous mathematical claims on cyclic palindromic factors, cyclic gap profiles and rotation signatures; they concern distinct statistics."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simpson and Puglisi (2008), Theorem 2.5 and Corollary 2.6: binary two-run BWT iff a standard/Christoffel conjugate or its power; full section 2 examined.",
+        "Giuliani et al. (2020), introduction and propositions on Fibonacci/standard-word extensions and reversal-ratio; pages 1–5 inspected.",
+        "Fici et al. (2023), Proposition 4 and Sections 3–4, 6, 8: two-run equivalence, Parikh-preserving morphism-order lemmas and run-change statements; their claims concern morphisms, not a fixed-weight census.",
+        "The paper’s published two-run theorem implies the N_2 part after a separate count, but does not imply the stated 4/6 count without the new three-gap row-order and adjacency analysis."
+      ],
+      "reasoning": "The claim is carefully delimited to the *complete* distribution, especially the quadratic N_4 and cubic N_6 classes. The classical two-run equivalence is a proper subcase, not represented as original. BWT evenness bounds the possible support but cannot infer the counts. The 2020/2023 literature supplies families and operation laws, not full conditional enumeration.",
+      "searches": [
+        "Simpson and Puglisi (2008) Theorem 2.5, Corollary 2.6",
+        "Fici et al. (2023) Proposition 4, Theorem 14",
+        "Burrows Wheeler transform circular binary words exactly three ones number of BWT runs distribution 2 4 6",
+        "Exact count of binary words with three occurrences of one whose circular Burrows-Wheeler transform has two four or six runs; n(n-4) four runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Simpson and Puglisi (2008), Theorem 2.5 and Corollary 2.6: binary two-run BWT iff a standard/Christoffel conjugate or its power; full section 2 examined.",
+        "Fici et al. (2023), Proposition 4 and Sections 3–4, 6, 8: two-run equivalence, Parikh-preserving morphism-order lemmas and run-change statements; their claims concern morphisms, not a fixed-weight census.",
+        "Direct comparison in the three-gap normalization: the old circular-balance criterion recovers only N_2, while the new N_4 and N_6 require nonbalanced gap ordering."
+      ],
+      "reasoning": "The alternative formulations checked were Christoffel/standard-word conjugacy, circular balance, cyclic gap triples and fixed-Parikh-vector BWT run spectra. The equivalent two-run restriction is known; its equivalence neither evaluates the four-/six-run populations nor supplies their constructive adjacency criterion.",
+      "searches": [
+        "Burrows Wheeler transform circular binary words exactly three ones number of BWT runs distribution 2 4 6",
+        "cyclic BWT run count three markers gap triples sparse weight three necklace",
+        "Burrows Wheeler Christoffel 2-run binary word characterization and 4-run spectrum",
+        "Exact count of binary words with three occurrences of one whose circular Burrows-Wheeler transform has two four or six runs; n(n-4) four runs",
+        "3 ones cyclic Burrows Wheeler transforms run distribution balanced gap triples 2 4 6",
+        "Simpson and Puglisi (2008) doi:10.37236/807",
+        "Fici et al. (2023) doi:10.4230/LIPIcs.CPM.2023.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No count table for weight-three 2/4/6 circular BWT classes was found in the inspected 2008, 2020, or 2023 texts.",
+        "Searched published mathematical finding records include binary pair-multispectra and string-attractor censuses; their invariants and counting scopes differ from BWT runs."
+      ],
+      "reasoning": "Exact equality of statements was tested: indexed words of length n and weight three, circular BWT sorted with 0<1, and cardinalities N_4=n(n-3) or n(n-4) by n mod3. Other binary two-multispectrum and string-attractor counts concern different equivalence relations and are not a table containing the same invariant. A failed search is not taken as a proof of absence.",
+      "searches": [
+        "Exact count of binary words with three occurrences of one whose circular Burrows-Wheeler transform has two four or six runs; n(n-4) four runs",
+        "3 ones cyclic Burrows Wheeler transforms run distribution balanced gap triples 2 4 6",
+        "Combinatorial enumeration of sparse binary necklaces by BWT run count fixed Parikh vector 3",
+        "\"Burrows Wheeler\" \"three ones\" \"runs\"",
+        "\"Burrows Wheeler\" \"3 ones\" \"six runs\" distribution",
+        "\"BWT\" \"three occurrences\" \"runs\" binary enumerating"
+      ]
+    },
+    "rationale": "The known two-run structural theorem is excluded from novelty. The new content is the all-length four-/six-run distribution conditioned on exactly three binary ones, with a complete cyclic-gap adjacency criterion. The 2008 source only characterizes the single-block-per-symbol case; the inspected 2020 reversal and 2023 morphism results have different quantifiers and do not imply these exact indexed-word counts. No equivalent table surfaced from the checked published primary literature, published-finding corpus claims or accessible own records. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "An unindexed older enumeration of sparse circular BWT runs could cover the same formulas under alternate terminology.",
+      "Literature comparison was limited to available indexed records, searched primary papers and inspected sections; it is not an exhaustive bibliographic priority certificate.",
+      "The near-field two-run class is classical and must not be presented as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers two-run characterization but no four/six run census at fixed weight three. This known component is excluded from novelty.",
+        "evidence": [
+          "Simpson and Puglisi (2008), Theorem 2.5 and Corollary 2.6: binary two-run BWT iff a standard/Christoffel conjugate or its power; full section 2 examined.",
+          "Journal confirms publication 2008-06-20 and primary MSC 68R15."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/807",
+        "material_read": "Publisher publication metadata, full PDF abstract, introduction, Section 2 including Theorem 2.5 and Corollary 2.6, first portion of Section 3, and concluding references",
+        "method": "Opened lawful publisher PDF, inspected rendered page and searchable original text",
+        "title": "Words with Simple Burrows-Wheeler Transforms",
+        "trigger": "Same circular BWT object; exact characterization of 2-run words"
+      },
+      {
+        "assessment": "Investigates reversals and standard-word extensions; no stated enumeration of all weight-three binary words.",
+        "evidence": [
+          "Giuliani et al. (2020), introduction and propositions on Fibonacci/standard-word extensions and reversal-ratio; pages 1–5 inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.08506",
+        "material_read": "ArXiv PDF abstract, introduction and Sections 2–3 through the Fibonacci-plus results and BWT row arguments",
+        "method": "Opened arXiv open-access full text, inspected text and rendered page",
+        "title": "Novel Results on the Number of Runs of the Burrows-Wheeler-Transform",
+        "trigger": "Potential general BWT-run theorem dominating fixed-weight results"
+      },
+      {
+        "assessment": "Provides evenness, two-run equivalence, morphism preservation and run-change phenomena, but not complete conditional fixed-weight frequencies.",
+        "evidence": [
+          "Fici et al. (2023), Proposition 4 and Sections 3–4, 6, 8: two-run equivalence, Parikh-preserving morphism-order lemmas and run-change statements; their claims concern morphisms, not a fixed-weight census."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "material_read": "Open-access PDF abstract, introduction, Sections 2–3 (including Proposition 4, Parikh/rotation lemmas), Sections 6 and 8 (conclusions)",
+        "method": "Opened original publisher full-text PDF and compared theorem statements and quantifiers",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Close BWT-run literature with same Parikh-vector terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b2e4b26-8091-43b3-878f-b0c7a201667b",
+  "value": {
+    "rationale": "Run number of the circular BWT is a basic compression/indexing statistic. Counting its values conditional on three ones is a natural sparse-data problem: the full population is cubic in n, four-run strings are quadratic and six-run strings asymptotically dominate. The explicit cyclic gap criterion gives a complete infinite structural classification and exact all-length probability law, not a routine substitution or isolated small-instance table. A closed-form distinction between rare low-run and generic high-run members can guide sparse BWT test cases and combinatorial enumerations. The result does not claim a general BWT theorem for arbitrary weight.",
+    "status": "PASS"
+  }
+}
