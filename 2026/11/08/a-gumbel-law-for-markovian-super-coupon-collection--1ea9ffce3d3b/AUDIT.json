@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes the exact Johnson-inclusion action and fixed-r spectral gap; single and joint target stationary fluxes and one-step entrance supnorm; a spectral perturbation \\(\\delta=k\\lambda+O(n^{-s-1/2})\\); k-target avoidance at \\(t=(\\log N+x)/\\lambda\\) uniformly; factorial-moment Poisson and Gumbel convergence; and a uniform single-target survival tail for mean asymptotics. Normalizations, quantifiers (fixed r,s,k, \\(n\\to\\infty\\)), initial state and integer-round boundaries are specified. Standalone rational transition and flux checks agree; finite checks are auxiliary, not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard reversible-chain spectral gaps and abstract rare-event exponential approximation results concern tools or individual hitting times.",
+        "Athreya et al., 2023, Theorem 2.5 is for \\(s=r\\); Theorem 2.3 assumes independent sampling.",
+        "A 2026 published study of mixing on balanced spiders does not address coupon collection, and a separate study of balanced nonuniform reset coupon rates uses a different sampling process."
+      ],
+      "reasoning": "A general rapid-mixing theorem would need to control the extremal dependence of all distinct s-target misses at \\(t\\asymp n^s\\log n\\); no examined source supplies or states a result implying the uniform k-target estimate here. The absence of a decisive general theorem remains a genuine historical risk.",
+      "searches": [
+        "\"cover time\" \"rapidly mixing\" \"Gumbel\" \"Markov\" general state subsets",
+        "\"Bernoulli-Laplace diffusion\" \"s-subsets\" cover time",
+        "supercoupon Markovian temporally dependent coupon collector fixed r s s-subset cover time mixing random walk Johnson graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.01145",
+      "https://doi.org/10.1007/s10959-025-01417-w",
+      "Published mathematical record: Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders",
+      "Published mathematical record: Balanced nonuniform reset coupon rates and heterogeneity penalties",
+      "Published mathematical record: Exact two-coordinate-face concentration spectrum on Johnson slices",
+      "Aldous--Fill, Reversible Markov Chains and Random Walks on Graphs (general methodology, not a direct coverage result)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Athreya et al., arXiv:2304.01145, Conjecture 2.4: dependent \\(s<r\\) expectation proposed, not proved in that paper.",
+        "Athreya et al., Theorem 2.3: iid r-subsets with hazard binom(r,s)/binom(n,s), a distinct and faster process.",
+        "Athreya et al., Theorem 2.5: dependent exact-match case \\(s=r\\) with first-order expectation.",
+        "2025 open-access J. Theor. Probab. article still labels the fixed \\(s<r\\) law as Conjecture 2.4."
+      ],
+      "reasoning": "A proof for independent samples is not strong enough: adjacent dependent r-sets share r-1 elements and the correct entrance intensity is smaller by \\(s/r\\). The \\(s=r\\) case does not imply \\(s<r\\) since one visited r-state collects many s-sets and the target hitting sets overlap. The present result proves the conjectured mean and a Gumbel limit for every fixed \\(s<r\\).",
+      "searches": [
+        "\"Athreya\" \"Mukherjee\" \"Conjecture 2.4\" proved",
+        "\"super-coupon\" \"Markovian\" \"Gumbel\"",
+        "Johnson graph Markovian super-coupon collector cover time Gumbel Athreya Mukherjee conjecture temporally dependent s less than r stationary entrance flux"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Athreya et al., arXiv:2304.01145, Conjecture 2.4, gives the Johnson walk as a one-element-replacement super-coupon process.",
+        "The proposed alternative phrase \"cover time of the s-subset shadow of a Johnson walk\" has the same state transitions and coverage event."
+      ],
+      "reasoning": "The theorem concerns all s-sets appearing inside some state of a Markov chain on r-subsets, not visits to every r-state or independent hyperedge sampling. Search returned no claim of the same fixed \\(s<r\\) Gumbel and expectation law; synonym matches were compared on the process and quantifiers.",
+      "searches": [
+        "\"Markovian\" \"super-coupons\" cover time proof fixed r s",
+        "\"Johnson graph\" \"subsets\" \"cover time\" \"coupon\"",
+        "Johnson graph Markovian super-coupon collector cover time Gumbel Athreya Mukherjee conjecture temporally dependent s less than r stationary entrance flux"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 article provides a conjectured expectation formula in a theorem-and-conjecture exposition, not an exact all-n table proving the \\(s<r\\) fluctuation law.",
+        "No returned mathematical-record item supplies a table or database that subsumes the asymptotic theorem."
+      ],
+      "reasoning": "An exact finite-state transition matrix does not by itself imply the joint \\(n\\to\\infty\\) asymptotic. No published exact table/result was found covering it; database incompleteness remains a limitation.",
+      "searches": [
+        "coupon collector Johnson walk covering design 3-subsets edges pair patterns",
+        "asymptotic E T_RW^(r,s) = (binomial(n,s)/binomial(r-1,s-1)) log binomial(n,s)",
+        "fixed-size random subset random walk Johnson graph shadow s-subsets first time all included Gumbel 2023 Athreya Mukherjee conjecture"
+      ]
+    },
+    "rationale": "The 2023 source explicitly leaves the dependent fixed \\(s<r\\) model as Conjecture 2.4. Its independent-draw Gumbel theorem and \\(s=r\\) dependent theorem do not imply the \\(s<r\\) Johnson-shadow-cover Gumbel law. Relevant published summaries, full-source portions and semantic mathematical-record searches were compared by implication, with broader general rare-event theorem priority left as a real risk.",
+    "residual_risks": [
+      "General extreme-value/rare-hit cover-time theorems outside the examined primary literature could subsume the special Johnson-chain result.",
+      "Recent or poorly indexed independent resolutions might exist; semantic and web searches cannot establish global novelty.",
+      "Only inspected relevant portions of broad background references; no assertion of complete worldwide literature coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The dependent fixed \\(s<r\\) estimate appears as a conjecture and is not established by the inspected independent or \\(s=r\\) results.",
+        "evidence": [
+          "Original initial version dated 2023-04-03; Conjecture 2.4 asks for the dependent expected-time scale.",
+          "Distinct theorem assumptions: independent r-subsets versus Markov chain, and \\(s=r\\) versus \\(s<r\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+        "material_read": "Abstract and introductory statements; Conjecture 2.4 and Theorems 2.3 and 2.5; relevant full-text proof discussion for independent and equal-size models; references.",
+        "method": "Open-access arXiv text and original PDF page inspection",
+        "title": "On a generalisation of the coupon collector problem",
+        "trigger": "The original statement of the temporally dependent model and Conjecture 2.4"
+      },
+      {
+        "assessment": "The journal paper retains Conjecture 2.4 for fixed dependent \\(s<r\\); no dominating coverage theorem is present in the inspected sections.",
+        "evidence": [
+          "The journal version still presents the dependent \\(s<r\\) cover-time assertion as Conjecture 2.4."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w",
+        "material_read": "Open-access journal HTML, the model definitions, theorems and conjecture statement, and discussion of the dependent case.",
+        "method": "Section-by-section mathematical statement comparison",
+        "title": "On a Generalisation of the Coupon Collector Problem, journal version",
+        "trigger": "Check whether the published version resolved the original conjecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1ea9ffce-3d3b-42f0-8050-6d2b260f9253",
+  "value": {
+    "rationale": "A directly stated fixed-parameter dependent super-coupon mean-scale conjecture is proved and strengthened to an extreme-value limit. The correct entrance-rate correction \\(s/r\\) relative to independent draws quantifies the essential memory of the sampling process; a uniformly controlled multi-target principal-eigenvalue analysis is required, not a formal substitution. This provides a natural full-family asymptotic and a reusable structural interpretation of dependent coupon collection.",
+    "status": "PASS"
+  }
+}
