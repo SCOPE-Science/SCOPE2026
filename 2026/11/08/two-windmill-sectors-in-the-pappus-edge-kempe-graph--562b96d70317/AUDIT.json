@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The Pappus graph is defined by 18 indexed vertices and a six-periodic LCF chord sequence. Complete matching recursion produces 42 perfect matchings, partitioned into 36 Hamiltonian complements and six three-hexagon complements, whose complete edge-index sets are supplied. Each normal matching belongs to one factorization; each exceptional matching belongs to four, giving 20 total factorizations by double counting. Direct check of those six sets establishes exactly two all-exceptional triples and 18 other states with exactly one exceptional matching. Legal flips in a three-hexagon complement form K4; a Hamiltonian complementary flip is just a global colour permutation. Thus six K4 intersect three at each of two hubs, establishing precisely two copies of the cone over three triangles and all metric consequences. The matching and direct colour-search checkers are separate exhaustive implementations, both executed successfully on the actual files. No extrapolation is involved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goedgebeur–Östergård 2021 has an exhaustive class-count census for all connected bipartite cubic graphs through order 36 (Table 2) and all cubic graphs through order 30 (Table 1).",
+        "Belcastro–Haas 2012 gives general class-count statements and families; neither statement yields state-graph adjacency or diameter.",
+        "Abreu–Labbate–Sheehan arxiv:1002.1891v1 Theorem 3.1 explicitly covers Pappus pseudo-2-factor isomorphism: all its 2-factors have the same parity of number of cycles, but it does not enumerate the individual matching complements or Kempe moves."
+      ],
+      "reasoning": "The large-coverage 2021 study dominates the bare question of how many classes can occur and could algorithmically recover the component count for Pappus. Therefore two components is treated as known-in-principle, not an independent novelty claim. Aggregated class numbers do not imply a three-tetrahedra-cone structure or the location of the unique hubs. The stronger reported result is an exact isomorphism type. The 2010 pseudo-2-factor property restricts cycle parity but cannot imply the six exceptional matchings or the windmill Kempe adjacency.",
+      "searches": [
+        "Kempe equivalence of edge colorings cubic graphs 2015 Pappus Desargues 3 edge colourings",
+        "\"Pappus graph\" \"Kempe\" equivalence \"two\"",
+        "arxiv:2105.01363v1 Tables 1 and 2 edge-Kempe equivalence classes",
+        "arxiv:1002.1891v1 Theorem 3.1 Pappus pseudo 2-factor isomorphic cubic bipartite"
+      ]
+    },
+    "checked_sources": [
+      "Abreu, Labbate and Sheehan, arxiv:1002.1891v1 (2010), abstract, Section 2 and Theorem 3.1",
+      "Belcastro and Haas, arxiv:1209.1730v1, Sections 1, 4 and 5",
+      "Goedgebeur and Östergård, arxiv:2105.01363v1, Sections 1 and 3, Algorithm 1, Tables 1 and 2",
+      "MathWorld, Pappus Graph, LCF notation and references"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited earlier statements about one-class planar bipartite cubic graphs cannot cover the nonplanar Pappus graph.",
+        "The 2021 census could imply a class count after identifying a graph in its underlying enumeration, but its published aggregates contain no distance or adjacency information.",
+        "The finite structural census here distinguishes six exceptional matchings and shows that each creates a K4, with three K4 intersecting at one of two hubs.",
+        "Theorem 3.1 of the 2010 Pappus two-factor study establishes parity of 2-factor component counts but not one-factorization intersections or Kempe-switch graphs."
+      ],
+      "reasoning": "No cited theorem plus a trivial substitution forces the exact windmill state graph. The independent finding is the exceptional-matching intersection arrangement and its distance geometry, not the previously investigated definition of Kempe switching, the general enumeration algorithm, or the mere count of equivalence classes. The 2010 parity theorem is compatible with many distinct distributions of perfect matchings, so it does not logically entail the claimed switching graph.",
+      "searches": [
+        "arxiv:1209.1730 Section 5 edge-Kempe prism Möbius graphs",
+        "arxiv:2105.01363 Algorithm 1 Table 2 connected bipartite cubic graphs",
+        "\"Pappus\" \"Kempe\" \"edge colorings\"",
+        "arxiv:1002.1891 Theorem 3.1 Pappus pseudo 2-factor isomorphic graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-factorization switching and three-edge Kempe equivalence are the same operation after quotient by global color names: Belcastro–Haas arxiv:1209.1730, Sec. 1; Goedgebeur–Östergård arxiv:2105.01363, Secs. 1 and 3.",
+        "Pappus is also the Levi graph of the Pappus configuration, Bouwer graph B(3,2,3) and honeycomb toroidal graph HTG(3,6,3), per MathWorld Pappus Graph."
+      ],
+      "reasoning": "The statement was compared under Tait-colouring, cubic 1-factorization and edge-Kempe switching terminology, and under the standard alternate graph descriptions. The novel structural claim is two copies of a specific ten-vertex windmill, not merely connectivity or matching counts. No inspected source provides that graph isomorphism.",
+      "searches": [
+        "Pappus graph 3-edge-colorings Kempe equivalence alternating cycles perfect matchings",
+        "\"Pappus graph\" \"Kempe\" \"coloring\"",
+        "\"Pappus\" \"factorizations\" \"Kempe\" \"twenty\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 of arxiv:2105.01363v1 tabulates the numbers of graphs with each Kempe-class count at order 18, but not adjacency matrices, component diameters or per-graph 20-state structures.",
+        "MathWorld Pappus Graph provides an LCF specification rather than a reconfiguration table."
+      ],
+      "reasoning": "A table of class counts or counts of factorizations does not determine an induced state graph. The exact claimed graph isomorphism and the six exceptional matchings were not found in the inspected tables or by targeted search. A future full per-graph switching-graph database could change priority; it was not found in these searches.",
+      "searches": [
+        "\"Pappus graph\" \"1-factorizations\" 20",
+        "\"Pappus graph\" \"3-edge-colourings\" switching graph",
+        "Goedgebeur Ostergard 2021 Table 2 bipartite cubic graphs order 18"
+      ]
+    },
+    "rationale": "The novelty scope is narrowed to the complete isomorphism type of the unlabelled Pappus edge-Kempe reconfiguration graph and its exceptional-matching decomposition, not the definition of the operation, the raw factorization count or the bare number of components. Earlier arxiv:1002.1891 (2010) establishes Pappus pseudo-2-factor isomorphism (cycle-count parity, not a reconfiguration adjacency graph). Closest edge-switching studies are arxiv:1209.1730 (2012) and arxiv:2105.01363 (2021), the latter providing stronger generic enumeration coverage for mere class counts but not the claimed Pappus-specific adjacency graph, clique intersections or metric. Targeted searches for Tait, one-factorization, Pappus aliases and windmill structures found no exact antecedent. This remains a best-knowledge claim with documented risk of inaccessible specialised tables or unindexed results.",
+    "residual_risks": [
+      "The 2010 Pappus paper refers to an earlier original 2008 proof of pseudo-2-factor isomorphism; the old parity fact is acknowledged, not claimed. Other historical parity studies may contain extra unpublished enumeration data.",
+      "The broad computational study of all small cubic graphs may have unpublished per-graph switching data; its published aggregate tables do not state the Pappus windmill decomposition.",
+      "An unindexed historical list of one-factorizations or obscure paper may already contain an equivalent full adjacency classification.",
+      "The graph-specific finite exact classification has no claimed extension to arbitrary cubic graphs or named palettes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the parity of 2-factor cycle counts for Pappus (earlier priority accepted), not the multiplicities of individual cycle types, three-hexagon exceptional matching list or complete edge-Kempe state graph.",
+        "evidence": [
+          "Section 1 defines pseudo 2-factor isomorphism: cycle-count parity constant across all two-factors.",
+          "Section 2 identifies the Pappus irreducible Levi graph; Section 3 Theorem 3.1 proves its pseudo 2-factor isomorphism and cites the original earlier proposition."
+        ],
+        "identifier_or_url": "arxiv:1002.1891v1 | https://arxiv.org/pdf/1002.1891",
+        "material_read": "Abstract, introduction, definition of pseudo 2-factor isomorphism, Section 2 Pappus irreducible Levi graph description, Theorem 3.1 and its proof in Section 3.",
+        "method": "Read original arXiv PDF with page image and compare its parity result against six-matching enumeration and the new Kempe adjacency theorem.",
+        "title": "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs",
+        "trigger": "Direct earlier work on every complementary 2-factor of the Pappus cubic graph; could dominate the six exceptional matching property."
+      },
+      {
+        "assessment": "Establishes the number of Kempe classes for several families, but the inspected portions do not give the Pappus-specific 20-state graph or the three-K4 cone decomposition.",
+        "evidence": [
+          "Sec. 4.1: planar cubic bipartite graphs have one class (Pappus is nonplanar).",
+          "Secs. 4.2–4.3: examples with multiple classes and composition rules; Sec. 5: Möbius-ladder, prism and crossed-prism class counts."
+        ],
+        "identifier_or_url": "arxiv:1209.1730v1 | https://arxiv.org/pdf/1209.1730",
+        "material_read": "PDF text in the introduction, Sections 4.1–4.3 and Section 5 on computations and prism families, including Theorems 4.7–4.11 and 5.1.",
+        "method": "Read relevant original preprint sections, theorem statements, examples and compared structural implications.",
+        "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+        "trigger": "Direct original study of the same edge-Kempe operation on cubic graphs; potential stronger equivalence result."
+      },
+      {
+        "assessment": "It includes Pappus order in an aggregate census and its underlying algorithm could compute the component count. The inspected report does not give per-graph adjacency graphs, Pappus-specific windmill structure, six exceptional matching lists, or metric classification.",
+        "evidence": [
+          "Section 3, Algorithm 1 computes connected components of the implicit switching graph, not their full isomorphism types.",
+          "Table 2 records aggregate distributions of numbers of Kempe classes for bipartite cubic graphs of order 18, not a Pappus row or its component adjacencies."
+        ],
+        "identifier_or_url": "arxiv:2105.01363v1 | https://arxiv.org/pdf/2105.01363",
+        "material_read": "PDF sections 1 and 3, Algorithm 1, Tables 1 and 2 (pages 11–13) and explanation of treatment of unlabelled colors.",
+        "method": "Read original study and inspect table page image; compare aggregates and algorithm output scope to requested complete state-graph isomorphism.",
+        "title": "Switching 3-Edge-Colorings of Cubic Graphs",
+        "trigger": "Exhaustive computational study of exactly these moves, covering all cubic graphs through 30 vertices and bipartite cubic graphs through 36."
+      },
+      {
+        "assessment": "Provides the standard graph definition and earlier structural references; does not report an edge-Kempe reconfiguration graph.",
+        "evidence": [
+          "The graph is cubic on 18 vertices and has LCF notation [5,7,-7,7,-7,-5]^3 (Frucht 1976)."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+        "material_read": "Graph identification, LCF entry, structural properties and references.",
+        "method": "Read the graph reference page.",
+        "title": "Pappus Graph",
+        "trigger": "Identification of the finite graph and validation of its standard LCF specification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "562b96d7-0317-453a-9e7c-3eb7bd17f356",
+  "value": {
+    "rationale": "The Pappus graph is a canonical highly symmetric cubic bipartite graph. Its nonplanarity allows nontrivial edge-Kempe sectors unlike the planar bipartite one-class theorem. The exact two-windmill decomposition resolves not just disconnectedness but every legal one-step adjacency, the unique central factorizations in each sector, all shortest-path distances and the 54 extremal distance-two pairs. The mechanism of six exceptional one-factors whose complementary two-factors split into three hexagons explains a nonobvious reconfiguration geometry. A natural complete finite classification is useful as an exact benchmark, not an arbitrary slice or mere count of states.",
+    "status": "PASS"
+  }
+}
