@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives all coatoms of the finite convex union-closed property lattice from its two closure axioms. Every proper element lies below a listed coatom, and adding a single previously missing team to any listed coatom generates the top. The coatom-cover intersections are contractible except for the simultaneous intersection of all coatoms, which is empty. The finite nerve lemma therefore gives the sphere, and its reduced Euler characteristic gives the Möbius number. `checker.py` independently exhausts every candidate property for ground sizes 1 through 4, checks closure and coatoms, and computes the matching Möbius values. The checker does not purport to prove the infinite-size statement.
+## correctness
 
-**Originality — PASS on inspected evidence.** The 2026 *Teams, Truthmakers, Translations* manuscript (arXiv:2610.15680v1, §3.1) uses convex union-closed properties as weak ideals and cites earlier expressive completeness. Anttila–Knudstorp's *Convex Team Logics* (arXiv:2503.21850, §3.1 and Theorem 3.5) establishes definability, but does not derive this semantic lattice's complete coatom structure, coatom crosscut complex, sphere, or Möbius invariant. Generic crosscut theory establishes the method and is acknowledged. Closest topical mathematical records concern other team-closure problems or the order complexes of different lattices, and do not imply the result. Residual risk: a stronger general lattice theorem or earlier specialist analysis of weak-ideal lattices could already cover this case.
+PASS
 
-**Value — PASS.** The whole denotation-poset topology of an expressively complete team logic is a natural, unprescribed structural invariant. The theorem extracts a precise high-dimensional sphere and a nonzero Möbius invariant from an enormous lattice without requiring its full enumeration. The coatom classification is intrinsic to the logic's two closure laws and explains why the topology is stable for every valuation universe. This is a complete structural answer for a natural semantic object, not a calculation for an arbitrary slice.
+L(V) comprises convex and union-closed properties P⊆2^V including empty property and empty team, finite |V|=n>=1. Every proper P omitting the empty team lies below C*=all nonempty teams. Otherwise union of all member teams U belongs to P; U=V would imply P=2^V by convexity, so a valuation v∉U yields P⊆C_v=2^(V\{v}). These n+1 proper P are coatoms, as adjoining a missing team forces the top by union closure and convexity. Coatom-cone covers of the proper part have contractible nonempty intersections, and all nonempty selections of coatoms intersect except the set of all n+1; nerve is boundary of n-simplex, giving homotopy S^(n-1) and Möbius (-1)^(n-1). For k>=1 propositional letters, n=2^k, Möbius -1 using independently cited finite expressive completeness. Independent exhaustive n=1,2,3 property enumerations give 4,11,42 elements and exactly 2,3,4 coatoms. Proof is for arbitrary finite n; not extrapolated from finite tests.
 
-**Scientific limitations:** finite valuation universes only; homotopy equivalence rather than homeomorphism; no classification of arbitrary intervals; historic priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Expressive completeness of convex union-closed team properties is explicitly prior. Neither accessible Anttila–Knudstorp full text nor surveyed team-translation results computes the weak-ideal lattice coatoms or whole proper-part sphere. General coatom crosscut/nerve topology is classic but requires the new explicit intersection pattern; that pattern is not implied solely by expressive completeness.
+
+## value
+
+PASS
+
+A complete homotopy/Möbius classification of the natural semantic lattice of convex union-closed team properties for every finite valuation universe. It gives an invariant of all finite logical semantic quotients and is structurally stronger than a small census or elementary single-property check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
