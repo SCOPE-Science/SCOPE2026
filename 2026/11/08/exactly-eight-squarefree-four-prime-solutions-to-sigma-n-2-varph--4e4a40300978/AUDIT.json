@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Multiplicativity reduces the problem to a strictly monotone product of four rational factors. Exact inequalities force four ordered first-two-prime possibilities and finite third-prime upper bounds. Necessary inequalities restrict these to twelve prime triples; the equation uniquely determines the fourth prime and exact primality tests yield precisely eight cases. Each solution directly verifies the original identity; no unverified infinite exhaustion is inferred from finite trials. A standard-library verifier reproduces every critical finite step.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan–Delbourgo (JIS 16, 13.8.8) classify at most three distinct prime factors and prove more general finiteness bounds.",
+        "Broughan–Zhou (JIS 17, 14.9.2), in its inspected theorems and tables, addresses small prime support and gives 24871 as a four-prime example."
+      ],
+      "reasoning": "A general finiteness upper bound does not imply an eight-element exact classification, and low-support theorems do not contain the four-prime case. Conversely, a single example or numerical list is not proof of exhaustion.",
+      "searches": [
+        "\"sigma(n)=2phi(n)\" \"four prime factors\" squarefree classification",
+        "Broughan Delbourgo 2013 sigma phi squarefree omega four",
+        "Broughan Zhou 2014 sigma phi squarefree four prime"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A062699",
+      "https://oeis.org/A292390",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.html",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.html",
+      "https://www.kevinbroughan.nz/papers/sopFour.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem of Broughan–Delbourgo: only 3, 35, 1045 occur with at most three prime factors.",
+        "Exact result here derives twelve possible three-prime prefixes and tests forced last primes without a numerical-size cutoff."
+      ],
+      "reasoning": "The old low-support classification and general upper bounds neither logically imply nor subsume the present eight-solution exactly-four-prime classification. The present proof supplies the missing exhaustive reduction, while acknowledging that equivalent unpublished or unindexed work might exist.",
+      "searches": [
+        "JIS 13.8.8 Theorem 11 squarefree three distinct prime factors",
+        "JIS 14.9.2 Section 7 tables four-prime ratio sigma phi",
+        "\"sigma(n)\" \"2 phi(n)\" squarefree four prime iff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For squarefree integers, Dedekind psi(n)=sigma(n), so psi(n)=2phi(n) is literally equivalent on this domain.",
+        "OEIS A292390 records an equivalent ratio problem but no proof of the all-four-prime exhaustion in its inspected record."
+      ],
+      "reasoning": "Algebraic equivalence means non-identical function names cannot justify originality. The specific all-four-prime theorem was not found under the equivalent psi terminology; this is limited evidence, not a uniqueness proof.",
+      "searches": [
+        "\"Dedekind psi\" \"2 phi\" \"four prime\" squarefree",
+        "\"psi(n)=2phi(n)\" \"four prime\" classification",
+        "OEIS:A292390"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A062699 explicitly lists all eight numerical terms among its first eleven sequence entries.",
+        "Broughan–Zhou (2014) tabulates the four-prime example 24871."
+      ],
+      "reasoning": "This is substantial exact prior tabulation of all result values; the new claim is not that those values were unknown, but that the four-prime squarefree fiber has no other values anywhere. The inspected tables alone provide no such global proof.",
+      "searches": [
+        "OEIS:A062699",
+        "\"24871\" \"29029\" \"50065\" \"58435\" \"64285\" \"87685\" \"137885\" \"140335\" proof",
+        "JIS 14.9.2 Table 3 24871"
+      ]
+    },
+    "rationale": "The numbers appear in OEIS A062699, so novelty is exclusively the unrestricted exhaustive classification for squarefree integers with exactly four distinct prime factors. Broughan–Delbourgo (2013) prove the three-prime boundary and general finite bounds, while Broughan–Zhou (2014) display one four-prime example but do not give the exact four-prime classification in the inspected material. No exact theorem recovered through equivalent psi formulation, indexed searches, or accessible historical claims. Residual priority risk remains.",
+    "residual_risks": [
+      "Historical priority: another unindexed proof might enumerate the complete squarefree four-prime layer.",
+      "A sequence records every one of the eight integers, so only proof of unbounded completeness is original; novel terms are not claimed.",
+      "Not an independent external mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "All eight values already numerically recorded; no global four-prime classification proof supplied by the inspected entry",
+        "evidence": [
+          "The displayed sequence begins 3,35,1045,24871,29029,50065,58435,64285,87685,137885,140335.",
+          "Author Jason Earls; original date July 11, 2001."
+        ],
+        "identifier_or_url": "https://oeis.org/A062699",
+        "material_read": "Definition, listed terms, author/entry date, links, comments, references",
+        "method": "Read accessible sequence record",
+        "title": "Numbers k such that sigma(k)=2*phi(k)",
+        "trigger": "Exact sequence of equation solutions and potential recorded four-prime terms"
+      },
+      {
+        "assessment": "Classifies at most three distinct prime factors; its general finiteness theorems do not give the eight-item four-prime list",
+        "evidence": [
+          "Published JIS 16 (2013), Article 13.8.8.",
+          "Abstract: only 3,35,1045 with at most three distinct prime factors."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.html",
+        "material_read": "Journal abstract, publicly accessible full-text discussion of small support and Theorem 11, Lemma 12, Theorem 13",
+        "method": "Read journal abstract and substantial primary full text",
+        "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function I",
+        "trigger": "Direct primary theorem on the same sigma/phi=2 equation"
+      },
+      {
+        "assessment": "Reports 24871 among four-prime examples, but inspected statements do not classify every squarefree exactly-four-prime solution",
+        "evidence": [
+          "Published JIS 17 (2014), Article 14.9.2.",
+          "Journal abstract emphasizes solutions with three or fewer prime factors."
+        ],
+        "identifier_or_url": "https://www.kevinbroughan.nz/papers/sopFour.pdf",
+        "material_read": "Full PDF introduction, theorem statements, Section 7, numerical examples and tables including Table 3",
+        "method": "Read open-access author PDF with text extraction/page examination",
+        "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function II",
+        "trigger": "Follow-up primary paper could already classify the squarefree four-prime case"
+      },
+      {
+        "assessment": "Alternative notation checked; no exact covering four-prime theorem identified in inspected text",
+        "evidence": [
+          "For squarefree n, psi(n) = product_{p|n}(p+1) = sigma(n)."
+        ],
+        "identifier_or_url": "https://oeis.org/A292390",
+        "material_read": "Sequence title, description and entry links",
+        "method": "Read sequence record",
+        "title": "Dedekind psi to Euler phi equality sequence",
+        "trigger": "Equivalent formulation on squarefree numbers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e4a4030-0978-4d4e-8b3c-7d7f2d521399",
+  "value": {
+    "rationale": "The first squarefree prime-support stratum beyond the published complete at-most-three classification is a motivated natural Diophantine classification. The eight integer values were known as sequence terms, but the proof determines the exact complete stratum at all sizes and illustrates a transferable monotone rational-product bound. This is stronger than table recomputation, while deliberately excluding nonsquarefree cases.",
+    "status": "PASS"
+  }
+}
