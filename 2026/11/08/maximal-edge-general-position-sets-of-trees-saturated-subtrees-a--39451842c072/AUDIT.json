@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md §§ Finding–Proof, items 1–5",
+      "VERIFICATION.md",
+      "verify_edge_general_position_trees.py"
+    ],
+    "rationale": "For any edge-general-position set with at least two selected edges, its minimal spanning subtree must select every pendant edge and no internal edge; conversely leaf edges of any subtree cannot place three selected edges on a path. Maximality is equivalent to the absence of an unused external edge at an internal hull vertex. The leaf-degree identity, exact two types of rooted continuation, and the one-edge correction derive both complete polynomials, the least maximal degree, extremal coefficients, and path-or-star characterization. The standalone checker independently tested every edge subset on all 18,247 labelled trees of orders three through seven and 450 additional seeded trees of orders eight through ten (18,697 instances; 556,214 feasible and 172,716 maximal edge sets). The unrestricted result rests on the proof, not the finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 generalized edge-position paper is about maximal cardinality for k-edge conditions and geodesic cover/partition parameters.",
+        "The 2023 extremal paper centers on maximum-cardinality edge-general-position sets and block graph bounds.",
+        "The earlier tree-corona general-position polynomial is a vertex-set statement on the corona graph, not edge-maximality in the original tree."
+      ],
+      "reasoning": "The only located directly comparable full enumerator is the published spider-tree case, a strict subfamily of all trees. Scalar maximum formulas and generic subtree-enumerator methods do not imply the saturated-maximality condition or the lower parameter without additional reasoning.",
+      "searches": [
+        "published-finding corpus: edge general position sets all trees weighted connected subtree exact formula",
+        "Web: \"maximal edge general position sets\" \"trees\" characterization",
+        "Web: \"Generalization of edge general position problem\" 2022 2024 pdf trees generalized k",
+        "arXiv:2207.07357"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2105.04292",
+      "https://arxiv.org/abs/2302.01587",
+      "https://arxiv.org/abs/2207.07357",
+      "https://users.fmf.uni-lj.si/klavzar/preprints/Edge-gp%28May-9-2022%29.pdf",
+      "https://users.fmf.uni-lj.si/klavzar/preprints/s00373-024-02770-z.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manuel–Prabha–Klavžar prove gp_e(T)=number of leaves; no count of maximal sets or minimum greedy outcome.",
+        "Tian–Klavžar–Tan discuss edge-general-position maxima, with no lower tree parameter.",
+        "Spider RESULT.md provides exact polynomials for trees with one branching vertex; it expressly notes that multi-branching trees need different treatment.",
+        "The previous tree-corona result counts vertex general-position sets in T corona K1, not maximal edge subsets of T."
+      ],
+      "reasoning": "The final new statement contains a genuinely additional condition: all nonleaf vertices of the edge-hull must be saturated in the original tree. Neither a leaf-count maximum nor a spider-only formula implies this all-tree criterion. Its lower number, complete maximal polynomial, and path-or-star classification are therefore not corollaries of the inspected prior claims.",
+      "searches": [
+        "arXiv:2105.04292 Section 3, Theorem 3.3",
+        "arXiv:2302.01587 Section 3 and Proposition 1.1",
+        "GitHub published-finding corpus/2026: All edge general-position sets of spider trees, RESULT.md",
+        "2026-11_week1 own ledger: Exact general-position polynomials of tree coronas via rooted-subtree recursions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2105.04292 Theorem 3.3 proves a scalar maximum equal to leaf count.",
+        "The published spider-tree theorem explicitly treats a single central branch vertex.",
+        "No same all-tree maximal-hull implication was found in these results."
+      ],
+      "reasoning": "Equivalent descriptions could use leaf edges of a minimal Steiner tree, terminal edges of a connected subtree, or saturation of nonterminal vertices. The primary tree theorem states the maximum and a one-sided obstruction but does not classify all maximal configurations. A spider-only formula cannot cover trees with multiple branching vertices.",
+      "searches": [
+        "published-finding corpus: edge general position polynomial arbitrary trees leaf subtree generating function",
+        "published-finding corpus: maximal edge-general-position sets in trees all internal vertices of hull saturated",
+        "Web: \"edge general position polynomial\" \"tree\" geodesics all sets",
+        "Web: \"lower edge general position number\" \"trees\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query returned the published spider-tree census as closest direct match, but no full arbitrary-tree lower-number or maximal enumerator.",
+        "The OEIS-restricted query yielded no confirmed table asserting the all-tree formula."
+      ],
+      "reasoning": "A failed index query is not novelty proof; however, the closest identified published mathematical record has a strictly smaller domain and the cited primary theorems only give scalar maximum values.",
+      "searches": [
+        "published-finding corpus: lower edge general position number trees minimum nonleaf degree minimal maximal edge sets",
+        "published-finding corpus: complete edge general position polynomial all trees rooted subtree recurrence leaves",
+        "Web: site:oeis.org \"edge general position\" tree sequence",
+        "Web: \"edge general position\" \"polynomial\" \"tree\" enumeration"
+      ]
+    },
+    "rationale": "The first 2021 paper determines only the maximum tree edge-general-position cardinality and contains a useful one-sided-edge lemma, not all maximal tree hulls or the lower number. The 2023 extremal paper gives maximum-cardinality bounds. The 2022 k-edge paper studies different maximum and covering problems. A published spider-tree census exactly covers the one-branch-vertex special case, acknowledged and excluded from novel coverage; its full RESULT text was examined and explicitly notes lack of extension to general trees. The present saturated-subtree characterization, all-tree maximal-set recursion and lower-number characterization are not implied by the special-case theorem, and were not located in searches of indexed literature or published-finding corpus. A prior tree-corona general-position result has a related leaf-subtree weighting but no statement on maximal edge subsets of the original tree. Priority remains provisional.",
+    "residual_risks": [
+      "An unindexed exact all-tree statement, including under alternative terminology, cannot be excluded.",
+      "The higher-k 2022 paper was compared through its relevant available framework and summary, not every page.",
+      "A generic preexisting dynamic-programming machinery might permit a parallel derivation; priority has not been independently validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete maximal-set classification and lower-number theorem; its scalar upper maximum is explicitly credited",
+        "evidence": [
+          "Theorem 3.3 proves gp_e(T) equals the number of pendant edges.",
+          "Proof notes that a selected nonpendant edge cannot have selected edges in both components of its deletion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+        "material_read": "arXiv HTML introduction, preliminaries and Section 3 including Theorem 3.3; lawful author-hosted PDF relevant pages and tree proof",
+        "method": "Direct primary-text comparison of arbitrary-tree hypotheses and quantified conclusions",
+        "title": "Edge general position problem",
+        "trigger": "Seminal definition and exact same-object tree theorem"
+      },
+      {
+        "assessment": "NOT_COVERING the new lower tree parameter or all-tree maximal-set polynomial",
+        "evidence": [
+          "Proposition 1.1 restates gp_e(T)=pendant-edge count.",
+          "Section 3 establishes block-graph maximum cardinality bounds rather than all maximal edge-set counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.01587",
+        "material_read": "arXiv HTML introduction, main theorem statements and relevant block-graph section; lawful full PDF text of Sections 1–3, especially tree occurrences and references",
+        "method": "Compared all-tree maximum cardinality and block-graph arguments against distribution of inclusion-maximal tree edge sets",
+        "title": "Extremal edge general position sets in some graphs",
+        "trigger": "Plausible stronger theorem on trees and block graphs"
+      },
+      {
+        "assessment": "No covering result identified in inspected material; full-text equivalence remains residual risk",
+        "evidence": [
+          "Studies k-edge general-position maxima and edge geodesic covers/partitions for tori, hypercubes and Beneš networks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.07357",
+        "material_read": "arXiv HTML abstract, introduction and stated framework, with publication metadata",
+        "method": "Compared parameter quantifiers and network classes; did not infer full-document absence from abstract alone",
+        "title": "Generalization of edge general position problem",
+        "trigger": "Higher k-edge variant could imply the k=3 case"
+      },
+      {
+        "assessment": "STRONG_SPECIAL_CASE_COVERAGE; explicitly excluded from the new priority assertion; arbitrary multi-branching case is not proved there",
+        "evidence": [
+          "A spider has one vertex of degree at least three; its full enumerator is a product over arm lengths with a quadratic correction.",
+          "Its limitations state that general trees may have geodesics crossing several branching vertices and are not directly covered."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+        "material_read": "Complete publicly available RESULT.md including statement, proof, verification, limitations and references",
+        "method": "Compared domain, implications, exact formulas and stated limitations",
+        "title": "All edge general-position sets of spider trees",
+        "trigger": "Closest semantically matched published record; exact same edge-subset polynomial on spiders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "39451842-c072-4ebe-b2b7-598008b0438d",
+  "value": {
+    "rationale": "This is an unrestricted classification for all tree topologies, including arbitrary numbers of branching vertices. It gives the complete inclusion-maximal edge-set cardinality polynomial, a natural new lower/greedy invariant equal to the minimum nonleaf degree, a sharp path-or-star equicardinality criterion, and counts of extremal configurations, all computable by rooted polynomial-time recurrences. The critical saturated-hull condition is not a mere substitution into the known maximum-size formula or the previous spider theorem, and determines which otherwise valid edge sets are maximal. This is a motivated graph-distance obstruction enumeration, with concrete future utility for studying greedy outcomes and extremal edge-set distributions.",
+    "status": "PASS"
+  }
+}
