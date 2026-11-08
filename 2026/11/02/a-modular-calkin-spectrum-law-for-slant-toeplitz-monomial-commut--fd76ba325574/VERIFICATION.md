@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The analytic proof verifies both operator normalizations, exact congruence supports, the two gamma-moment coefficient limits, compactness of the weighted-shift remainder, and the two mutually exclusive Calkin-algebra spectral calculations. The Fredholm essential-spectrum conclusion is therefore independent of finite sampling.
+## correctness
 
-Run `python3 check_slant.py` using the Python standard library. The code makes 184,712 deterministic assertions for sampled weights, slant orders, degrees, and large-index Gram coefficients. These finite tests are diagnostic only; they are neither exhaustive parameter checks nor an independent validation. No computer proof assistant or external audit was used.
+PASS
 
-# Limits
+On A^2_alpha, alpha>-1, s>=2 and fixed nonnegative m,n, normalized monomial vs orthonormal slants have asymptotic product coefficients c=s^(alpha+1) and c=1, respectively. Their two product supports are residue classes rhoA=-n-sm and rhoB=-m-sn mod s^2. Gamma-moment ratios give norm-compact tail errors to c(S^a V_rhoA^* - S^b V_rhoB^*). The supports agree exactly iff s^2 divides m-n because gcd(s-1,s^2)=1. For distinct classes CC* is 2c^2 I in the Calkin algebra; otherwise it is c^2(2I-U^d-U^-d), d nonzero, giving respectively singleton {2c^2} or interval [0,4c^2]. Infinite kernels enforce zero in sigma_e(|C|) in the first case; m=n zero. Thus both essential norms sqrt(2)c or 2c and |C| spectra are reconstructed; ordinary nonnormal C spectrum is NOT claimed. Original check_slant.py was read and its coefficient/support logic inspected; its finite 184k assertions do not prove the all-index limit.
 
-The 2010 qualitative essential-commutativity article could be inspected only at abstract level; no definitive assertion about its complete contents is made. This is self-reviewed mathematics and has not received an independent audit or certification.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise claim; general ingredients and prior examples credited. Full-text gaps and implication risks listed explicitly.
+
+## value
+
+PASS
+
+This is a motivated exact operator-theoretic classification of noncompact analytic monomial slant commutators, detecting a nontrivial s^2 divisibility boundary and a change in the topology of the Calkin positive spectrum. The two canonical slant normalizations are carefully distinguished. Quantified essential norm/spectral types have independent utility beyond a yes/no commutativity criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
