@@ -1,0 +1,15 @@
+# Research assessment
+
+## Correctness
+PASS. The exact two-color difference recursion has deterministic total \(T_j=T_0+(a+b)j\) and a bounded martingale innovation with conditional variance \(v_N-\bar k_N^2(D_j/T_j)^2\). Uniform second-moment estimates make the latter correction negligible in weighted logarithmic quadratic variation. Gamma-product normalization, a uniform weighted harmonic Riemann sum, bounded-jump martingale functional CLT and uniform approximation then give the asserted Ornstein–Uhlenbeck process. The proportion conversion has the factor \(1/[2(a+b)]\). Independent exact finite-state and moment checks in `check.py` passed (206 assertions). Remaining correctness risk concerns standard tightness and uniform approximation details; those steps are stated explicitly in the proof, not replaced by tests.
+
+## Originality
+PASS under best-knowledge comparison, with historical-priority risk. Shi–Yin–Miao's full primary text (Sections 2–4, arXiv:2605.26669v1) establishes a fixed-parameter CLT under strict \(2\Gamma>1\), not a varying \(p_N\) or a log-time path limit. Alves–Rosales's primary preprint (arXiv:2502.16768v1) establishes the fixed-probability almost-sure proportion limit, not a fluctuation crossover. Laulin's complete critical/small/large treatment (arXiv:2003.04592v1) and its cited Gouet/Janson theory apply to fixed replacement rules and explain the standard critical central limit ingredient. No checked work establishes the stated triangular-horizon drifted OU interpolation; nevertheless broader triangular-array stochastic approximation results could imply this specialization, and full historical uniqueness is not claimed. Related published-finding corpus semantic searches yielded no direct implication; the most similar OU hits concern different processes.
+
+## Mathematical value
+PASS. Equal total increments are a natural comparison between the two reinforcement mechanisms. The logarithmic \(1/\log N\) displacement is the unique first-order scale at which the critical eigenvalue shift accumulates to an order-one drift on logarithmic time. The result gives the full covariance function and a nonconstant terminal variance crossover, not merely a fixed-parameter CLT restatement. It directly fills the boundary excluded by the motivating strict-inequality theorem while also quantifying local alternatives.
+
+## Scope and risks
+The result is restricted to two colors, fixed positive counts and positive integer reinforcements with \(a<3b\) and Pólya batch size \(a+b\). It provides a functional weak limit, not rates, independence across experiments, or a general theorem for random total increments. Bai and Hu (1999) and Bai, Hu and Zhang (2002) also address nonhomogeneous and randomized generating matrices; accessible abstracts do not explicitly cover a row-constant critical-window family or its OU log-time process, and their full texts were not inspected. A pre-existing general triangular-array urn theorem may encompass the statement by specialization; this is the principal originality risk. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

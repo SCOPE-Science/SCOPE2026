@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The deterministic total T_j=T_0+(a+b)j and exact difference recursion follow directly from the two replacement rules. The centered differences are bounded martingale increments with predictable variance v_N-(s lambda_N)^2(D_j/T_j)^2. The exact second-moment recursion bounds E[D_j^2] by C(j+1)(1+log(j+1)) uniformly over j<=N. Uniform gamma-product bounds reduce the log-clock process to a weighted martingale; its squared-proportion quadratic-variation correction is O(1/log N) in expectation, while the main weighted harmonic sum converges uniformly to v_* int_0^t exp(2 delta u) du. Bounded jumps give a functional martingale CLT, and gamma-ratio/Doob bounds supply uniform error control. The endpoint proportion factor is 1/[2(a+b)]. Running the packaged check.py verified 206 finite exact/algebraic/asymptotic assertions; these corroborate rather than prove the infinite limit. No claim is made for unequal or random total additions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai–Hu 1999 abstract gives nonhomogeneous-generating-matrix asymptotics and the critical eigenvalue case, and Bai–Hu–Zhang 2002 abstract gives functional Gaussian approximations for urns with homogeneous and nonhomogeneous matrices.",
+        "Their available abstract statements do not identify a triangular family whose reinforcement is constant within each horizon but approaches the eigenvalue boundary at exactly 1/log N, nor the explicit log-time OU covariance."
+      ],
+      "reasoning": "A general central limit theorem with a fixed limiting generating matrix or within-run time variation is not directly a uniform triangular array result. These broadly relevant papers are explicitly retained as priority risks because their full texts were not inspected. No stronger covering implication was established from accessible materials.",
+      "searches": [
+        "near-critical logarithmic window urn eigenvalue half triangular array functional Ornstein Uhlenbeck log time central limit theorem",
+        "critical urn nonstationary near-half eigenvalue stochastic approximation logarithmic time Gaussian covariance",
+        "Bai Hu 1999 Asymptotic theorems for urn models with nonhomogeneous generating matrices main theorem convergence rates eigenvalues",
+        "https://doi.org/10.1214/aoap/1037125857"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.26669v1",
+      "https://arxiv.org/abs/2502.16768",
+      "https://arxiv.org/html/2003.04592v1",
+      "https://ideas.repec.org/a/eee/spapps/v80y1999i1p87-101.html",
+      "https://doi.org/10.1214/aoap/1037125857",
+      "published-finding corpus published finding: Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode (distinct high-dimensional sensor model)",
+      "published-finding corpus published finding: Critical-scale phase transition in logarithmically monotone Marcinkiewicz renormings (unrelated analytic functional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shi–Yin–Miao Theorem 3.3 assumes 3bp+cp>ap+c; for c=a+b this requires p>p_*, excluding theta<=0 and failing to be uniform as theta/log N tends to 0 from above.",
+        "Alves–Rosales gives almost-sure fixed-p proportion convergence without a critical-window covariance law.",
+        "Laulin proves an n log n normalization at a fixed critical eigenvalue, not a triangular p_N sequence with drift delta that survives in the log-time limit."
+      ],
+      "reasoning": "The original strict diffusive CLT does not imply a finite variance limit under p=p_*+theta/log N: its variance denominator tends to zero while the normalization simultaneously changes to sqrt(N log N). A fixed-critical theorem only treats theta=0. The general martingale functional CLT is a proof tool, not itself a prior mixed-urn application identifying delta and v_*.",
+      "searches": [
+        "arxiv:2605.26669v1 Theorem 3.3 and Sections 2–4",
+        "arxiv:2502.16768v1 Theorem 1",
+        "arxiv:2003.04592v1 Section 3.2 and 5.3",
+        "arxiv:2605.26669 Pólya Friedman mixed urn central limit critical parameter p = (a+b)/(4b) fixed increment across horizon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is a balanced two-color generalized urn with second-eigenvalue ratio lambda_N=1/2-delta/log N; this makes the result equivalently a near-critical eigenmode functional limit.",
+        "Laulin 2020 treats fixed eigenvalue ratio, including lambda=1/2, and relates generalized urns to elephant random walks; the explicit across-horizon drifted OU interpolation is not in its theorem statements."
+      ],
+      "reasoning": "Equivalence to a varying-eigenvalue urn or to a reinforced-walk martingale does not turn a fixed-eigenvalue CLT into a triangular, nonzero-drift OU process. The zero-drift specialization is classical; the claimed result is the whole parameter-dependent functional window.",
+      "searches": [
+        "Pólya Friedman mixed urn critical phase logarithmic central limit at eigenvalue threshold 2bp = mean total increment random replacement",
+        "Friedman Polya urn exact log-time Ornstein Uhlenbeck covariance near critical mixture",
+        "arxiv:2605.26669v1; arxiv:2003.04592v1; arxiv:2502.16768v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The proposed invariant is a continuum covariance kernel from a stochastic process, not a finite tabulated enumeration.",
+        "published-finding corpus closest hits concern stochastic covariance in unrelated sampling or OU systems; no matching table of the claimed kernel or p_N window was returned."
+      ],
+      "reasoning": "A known fixed-parameter CLT variance formula is not an exact database covering the finite-horizon moving-parameter covariance. No relevant exact table was found.",
+      "searches": [
+        "mixed urn p_N critical window fixed increments Gaussian variance table",
+        "Pólya Friedman mixed urn",
+        "joint fluctuations of two-color random replacement urn proportion and replacement counts covariance"
+      ]
+    },
+    "rationale": "The principal 2026 mixed-urn source proves a fixed-p, strictly diffusive terminal CLT, whose variance denominator tends to zero as p approaches the critical value; its conditions do not provide a uniform-in-p logarithmic-window theorem. The earlier fixed-p law of large numbers and fixed-matrix critical-urn martingale literature do not state the triangular array or nonzero-drift log-time OU interpolation. published-finding corpus searches for this source, near-critical eigenvalue, symmetric urns, and OU covariance found no implication covering this model. General randomized and nonhomogeneous urn theory creates a residual historical-priority risk, but abstract-level statements do not directly resolve the specific row-constant triangular-horizon process.",
+    "residual_risks": [
+      "Older stochastic-approximation theorems could encompass varying eigenvalue triangular arrays without naming the mixed urn; there is no claim of definitive historical uniqueness.",
+      "Bai–Hu (1999) and Bai–Hu–Zhang (2002) full text could not be completely inspected; their abstract-level critical and nonhomogeneous assertions are not directly comparable enough to establish a dominating implication.",
+      "Exact relationship to existing reinforced-walk OU crossovers might yield a more general equivalent result under a model transformation not established here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strict fixed-p diffusive CLT; does not state near-critical triangular functional window",
+        "evidence": [
+          "arXiv:2605.26669v1, 2026-05-26, MSC2020 60F05",
+          "Theorem 3.3 assumes 3bp+cp>ap+c and gives sqrt(n) terminal normalization"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+        "material_read": "Abstract; model definitions in Section 2; Theorems 3.1–3.3 and proofs in Section 4; hypotheses and variance denominator",
+        "method": "Public full-text HTML, direct theorem-to-claim comparison",
+        "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+        "trigger": "same stochastic urn, identical replacement modes and source for research question"
+      },
+      {
+        "assessment": "Almost-sure proportion convergence for fixed mixture probability; no triangular critical-window functional CLT",
+        "evidence": [
+          "arXiv:2502.16768v1, 2025-02-24"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.16768",
+        "material_read": "Author-posted complete short preprint text and Theorem 1; definition and proof conclusion",
+        "method": "Public preprint textual inspection",
+        "title": "Friedman vs Pólya",
+        "trigger": "prior original mixed-urn limit model"
+      },
+      {
+        "assessment": "Critical fixed-replacement martingale CLT and references to fixed-case invariance principles; no rowwise near-critical window",
+        "evidence": [
+          "arXiv:2003.04592v1, Theorems 3.6 and 3.9, fixed sigma=1/2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04592v1",
+        "material_read": "Full primary HTML with Section 3.2 critical results, Section 5.3, and proof framework",
+        "method": "Public full-text HTML, eigenscale and limit statement comparison",
+        "title": "A martingale approach for Pólya urn processes",
+        "trigger": "general balanced-urn critical eigenvalue and invariance literature"
+      },
+      {
+        "assessment": "May include general results relevant to proof machinery; the accessible abstract does not establish the explicit triangular OU window; residual priority risk",
+        "evidence": [
+          "Bai and Hu, Stochastic Processes and their Applications 80 (1999), 87–101; abstract states nonhomogeneous matrix and critical-eigenvalue results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0304-4149(98)00094-5",
+        "material_read": "Abstract only; lawful PDF attempt was inaccessible",
+        "method": "Publisher-indexed abstract and citation record",
+        "title": "Asymptotic theorems for urn models with nonhomogeneous generating matrices",
+        "trigger": "plausible general nonhomogeneous and critical generating-matrix coverage"
+      },
+      {
+        "assessment": "General functional Gaussian approximation may offer a route but no explicit across-horizon OU parameter law identified; priority remains uncertain",
+        "evidence": [
+          "Bai, Hu and Zhang, Annals of Applied Probability 12 (2002)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1037125857",
+        "material_read": "Author-posted abstract; full article not inspected",
+        "method": "Bibliographic and abstract comparison",
+        "title": "Gaussian approximation theorems for urn models and their applications",
+        "trigger": "plausible broader functional Gaussian approximations for random replacement matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3770a89-3f1f-4bf6-b1ff-83562c3723ca",
+  "value": {
+    "rationale": "A fixed batch-size Friedman-versus-Pólya mixture is the natural balanced subclass of a newly studied random-replacement urn. The recent fixed-p theorem covers only a strict side of the spectral threshold, whose usual Gaussian variance diverges on approach. The parameter displacement theta/log N is the precise scale on which the eigenmode shift aggregates over logarithmic time, giving a nontrivial family of OU drifts rather than just another value of a fixed-parameter covariance. The theorem supplies all finite-dimensional covariances, the functional limit and an explicit terminal interpolation across both sides, while clearly separating its structural content from standard martingale-CLT machinery.",
+    "status": "PASS"
+  }
+}
