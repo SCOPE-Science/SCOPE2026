@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Integer parity follows from evenness of central binomial coefficients. Coefficientwise mod-2 Frobenius plus repeated squaring gives exact 2^k separated-block congruences. The doubling-index terms are Cauchy, limit 3 mod 8. A valuation argument gives maximal order 2^(k-2) in the index-two unit subgroup, and index construction realizes powers and 7-times-powers at infinitely many n. Explicit boundary cases k=1,2 are reductions from k=3. Standalone checks corroborate finite cases, not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun, arXiv:1008.3887, defines T_n and studies generalized congruence sums, with primary MSC 11A07, 11B75.",
+        "Kohen, arXiv:2411.03681, Proposition 7 gives base-p digit multiplicativity modulo p."
+      ],
+      "reasoning": "The generalized family includes the classical sequence, but the results inspected do not assert arbitrary-power 2-adic value coverage. Kohen works mod p, not mod 2^k for all k, so its fixed-prime digit law cannot imply this theorem without a new lift argument.",
+      "searches": [
+        "trinomial coefficient CT (x^-1+1+x)^n p-adic Lucas multiplicative block congruence attain units",
+        "central trinomial coefficients Gauss congruences powers two separated binary blocks multiplicative residue coverage",
+        "arXiv:1008.3887 generalized central trinomial congruences",
+        "arXiv:2411.03681 Proposition 7 digit products modulo p"
+      ]
+    },
+    "checked_sources": [
+      "T. D. Noe, JIS 9 (2006), article 06.2.7, PDF Theorems 8.1 and 8.5: parity and prime divisibility only.",
+      "Z.-W. Sun, arXiv:1008.3887, introduction and congruence material: weighted sums and prime-dependent congruences, not full images modulo all powers of two.",
+      "OEIS A002426: Gauss congruences and sequence identities, no statement of dyadic unit-group coverage.",
+      "N. Kohen, arXiv:2411.03681, Introduction and Proposition 7: digit products modulo a prime, not modulo arbitrary prime powers.",
+      "Published research-record semantic searches for central trinomial dyadic closures, aliases and separated blocks; closest hits concern different sequences."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Noe establishes only reduction mod 2 for ordinary T_n.",
+        "Sun gives other trinomial congruences, not this unit-group image.",
+        "Kohen Proposition 7 is only modulo p.",
+        "OEIS Gauss relation supplies one stabilizing subsequence, not coset completeness."
+      ],
+      "reasoning": "Our finding implies all classical central trinomial coefficients are odd, the already-known result. Conversely, no inspected stronger result implies both separated-block composition modulo 2^k and maximal-order generation of units. Complete coverage requires both the group generator and the complementary coset, absent from inspected statements.",
+      "searches": [
+        "central trinomial coefficient T_n dense 2-adic units all odd residues modulo 2^k attain infinitely often separated binary blocks",
+        "trinomial coefficient CT (x^-1+1+x)^n p-adic Lucas multiplicative block congruence attain units",
+        "2-adic closure central trinomial sequence residues surjectivity",
+        "central trinomial coefficients Gauss congruences powers two separated binary blocks multiplicative residue coverage",
+        "Noe 2006 Theorems 8.1 and 8.5",
+        "Sun arXiv:1008.3887",
+        "Kohen arXiv:2411.03681"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Noe, 2006, Theorem 8.1 proves parity (T_n odd).",
+        "OEIS:A002426 records Gauss congruences for T_{np^r} but no full residue-image formula."
+      ],
+      "reasoning": "The 2-adic closure statement and surjectivity to all odd residue classes are equivalent by the inverse-limit topology. Parity and existence of the stable doubling limit alone leave open which unit classes occur. The separated-block argument supplies the missing implication.",
+      "searches": [
+        "central trinomial coefficient T_n dense 2-adic units all odd residues modulo 2^k attain infinitely often separated binary blocks",
+        "2-adic closure central trinomial sequence residues surjectivity",
+        "central trinomial coefficients all odd residues modulo 2 powers closure 2-adic unit group",
+        "OEIS:A002426 comments, Gauss congruences and residue-related sections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A002426 lists the sequence and Gauss congruences, and includes parity information through references to Noe.",
+        "Empirically checked complete residue images for k=1..8, but experiments do not imply all levels."
+      ],
+      "reasoning": "A finite table or initial segment cannot imply infinitely many witnesses for every residue at every k; no all-level table/theorem carrying the same information was located.",
+      "searches": [
+        "OEIS:A002426 central trinomial coefficients",
+        "central trinomial coefficient T_n dense 2-adic units all odd residues modulo 2^k attain infinitely often separated binary blocks",
+        "central trinomial coefficients all odd residues modulo 2 powers closure 2-adic unit group"
+      ]
+    },
+    "rationale": "Originality at best available evidence: the result determines all residue images modulo powers of two with infinite representations; inspected parity, general sum congruences, Gauss congruences and prime-modulus digit laws do not entail the claimed surjectivity. No directly covering research-record result was found. Unindexed stronger general constant-term results remain a historical-priority risk.",
+    "residual_risks": [
+      "An earlier general theorem about constant terms of Laurent powers modulo prime powers might imply the same unit-group image without using the phrase central trinomial.",
+      "Historical priority is not certified by a negative semantic search; specialist review of additional older literature remains appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 8.1 and 8.5 describe divisibility modulo primes, not complete images modulo all powers of 2.",
+        "evidence": [
+          "Theorem 8.1 asserts parity; Theorem 8.5 relates p-divisibility to base-p digits."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+        "material_read": "Abstract, definition, recurrence, Section 7 (Schur congruences) and Section 8 (Theorems 8.1 through 8.9), with PDF page-image confirmation of Section 8.",
+        "method": "Full-text extraction and relevant PDF page-image examination",
+        "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+        "trigger": "Direct study of parity and prime divisibility in the same sequence"
+      },
+      {
+        "assessment": "No direct all-dyadic-residue classification in material inspected. Broad paper introduces general congruences, mainly sum identities and odd-prime statements.",
+        "evidence": [
+          "Definition of classical T_n in introduction; abstract summarizes sums, prime congruences and conjectures."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.3887",
+        "material_read": "Abstract and introduction with main congruence statements; targeted search for 2-adic statements; PDF page-image confirmation of coefficient formula and introductory claims.",
+        "method": "Full-text search/extraction and PDF page-image review",
+        "title": "Congruences Involving Generalized Central Trinomial Coefficients",
+        "trigger": "Foundational primary archived paper on the same coefficients and congruences"
+      },
+      {
+        "assessment": "Gauss congruences and explicit values are recorded, not the all-power image theorem.",
+        "evidence": [
+          "A002426 comments give T_{np^r}≡T_{np^{r-1}} mod p^r."
+        ],
+        "identifier_or_url": "https://oeis.org/A002426",
+        "material_read": "Sequence definition, comments, bibliography, Gauss congruence note and residue-related keyword searches.",
+        "method": "Read database sequence page and find terms",
+        "title": "OEIS A002426: Central trinomial coefficients",
+        "trigger": "Possibility that the all-residue invariant is already tabulated"
+      },
+      {
+        "assessment": "Proposition 7 is a digit product modulo a prime, and density statements concern residue 0 modulo p, not full mod 2^k images.",
+        "evidence": [
+          "Proposition 7: T_n≡product of T_{base-p digits} modulo p."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.03681v2",
+        "material_read": "Abstract, Introduction and Sections 2-3 including Proposition 7 and its proof.",
+        "method": "Read open HTML full-text relevant sections",
+        "title": "Density and Symmetry in the Generalized Motzkin Numbers mod p",
+        "trigger": "Later research comparing central-trinomial digit products and residue density"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4c2014d-dfba-40f1-9e37-3f18e4f3c1f4",
+  "value": {
+    "rationale": "Classifying all dyadic residue images and infinite occurrence for the natural central trinomial sequence solves a full invariant, rather than providing merely first terms or known parity. Explicit separated-block lifts and the 2-adic unit-generator mechanism explain the classification, creating a useful structural starting point for distribution questions.",
+    "status": "PASS"
+  }
+}
