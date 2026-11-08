@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Every dependent support has a missing trace because one point lies in the affine span of the rest. For each independent support of at most \(k+1\) points, an explicit linear functional with prescribed zero/one values produces each nonempty trace, and a parallel translate produces the empty trace. Quotienting the positive branch bounds the Littlestone dimension, and an independent support gives a matching lower bound. The count is the exact ordered independent-tuple product divided by \(m!\). The conditional rank is independently checked by quotienting the span of already-positive points. Direct incidence enumeration on fourteen finite parameter cases corroborates this proof.
+
+**Originality (PASS within inspected comparisons).** The pre-existing numerical online dimension of affine subspace indicator classes, described by Pradeep–Nachum–Gastpar (2022), is not claimed as new. Guingona–Kolesnikov–Nierwinski–Soucy (2021) establishes a different linear-zero-set theorem, and classical affine-matroid rank enumeration is not claimed as a new counting method. The inspected material does not identify the entire VC-shattering complex of the fixed-rank finite-field affine-flat incidence family, nor express its complete coefficientwise polynomial and conditional rank in that membership model. The Kordecki (2000) full text was inaccessible and could contain the same numerical counts; this is an acknowledged originality risk.
+
+**Value (PASS).** A complete, parameter-uniform classification gives all shattered point configurations rather than just the maximum support size, identifies their matroid structure, and yields exact sampling probabilities and a conditional adaptive-learning budget. It is a natural finite-geometry incidence family, not an arbitrary parameter slice. Its proof is compact, and the contribution is a natural joint structural identification, not the elementary counting product by itself.
+
+**Limits.** The theorem does not cover arbitrary collections of flats, lower-rank mixtures, projective spaces or general mixed-sign conditional constraints. Available literature comparisons do not certify global historical priority, and the computations are finite corroboration. No independent mathematical audit was conducted.
+
+Self-review: passed. Independent audit: not yet performed.
