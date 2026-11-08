@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=J_(n−2)⊕J_2, n≥5, over arbitrary fields the nilpotent fixed-centralizer matrices have module-coefficient form with a0=d0=0. Coordinate reduction extracts x,b,c,B,C∈k^m subject to rank([x;b;c])≤1 and b∧C+B∧c=0, with (n−3)m free affine factors. The closed L={b=c=0} has dimension 3m; the complementary U has common line ℓ∈P^(m−1), parameters ν,λ,μ with (λ,μ)≠0 and m−1 independent constraints on (B,C), hence irreducible dimension 2m+3. Rank(x,B,C)≤2 on closure(U) but L contains rank 3 for m≥3, proving exactly 2 components with dimensions nm,(n−1)m+3. Explicit degenerations yield L⊂closure(U) for m≤2, hence irreducible (m0 trivial). Over F_q, b=c=0 contributes q^(3m), and nonzero proportional b,c contribute (q+1)(q^m−1)·q·q^(m+1), yielding q^(nm)+q²(q+1)(q^((n−1)m)−q^((n−2)m)) after free factors; m0 gives one empty tuple. Independent complete enumeration of five-coordinate two-vector constraints gave q2:208 and q3:3321, matching source; inspected actual matrix-multiplication checker code, which supplements algebraic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nilpotent commuting variety reducibility and one-matrix Jordan-structure centralizer papers use ambient spaces or different fixed partition; 2024 paper treats equal-sized blocks and Jordan types for one matrix."
+        ],
+        "reasoning": "A global ambient reducibility result cannot imply exact components/dimensions of this fixed-centralizer subvariety; published pair irreducibility does not decide m3.",
+        "searches": [
+          "https://arxiv.org/abs/1308.2420",
+          "https://doi.org/10.1216/JCA-2010-2-3-295",
+          "https://doi.org/10.1016/j.laa.2024.03.008"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1308.2420",
+        "https://doi.org/10.1216/JCA-2010-2-3-295",
+        "https://doi.org/10.1112/jlms/jdq088",
+        "https://doi.org/10.1016/j.laa.2024.03.008",
+        "Resultary semantic query: commuting nilpotent tuples centralizer Jordan partition n minus 2 2 irreducible two components m >=3 rational counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known theorem: commuting nilpotent pairs in a 2-regular nilpotent centralizer are irreducible, which matches m2. Other papers classify commuting similarity types, not raw fixed N tuples."
+        ],
+        "reasoning": "Only the m≤2 portion is covered; m≥3 two irreducible components and point-count identities are neither corollaries of m2 geometry nor ambient tuple results.",
+        "searches": [
+          "https://arxiv.org/abs/1308.2420",
+          "https://doi.org/10.1112/jlms/jdq088"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guralnick–Ngo analyze varieties of nilpotent commuting tuples with no fixed-centralizer requirement, including an irreducibility theorem for commuting pairs centralizing 2-regular nilpotent matrices."
+        ],
+        "reasoning": "The current m2 statement is encompassed by known 2-regular centralizer theory, but m≥3 2-component decomposition and all-m rational formula are not derived in inspected primary theorems.",
+        "searches": [
+          "commuting nilpotent tuples centralizer Jordan partition n minus 2 2 irreducible two components m >=3 rational counts",
+          "https://arxiv.org/abs/1308.2420",
+          "https://doi.org/10.1112/jlms/jdq088"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct formula yields q=2,n5 counts 128,3328,75776 for m=1,2,3; no exact all-m table in inspected sources."
+        ],
+        "reasoning": "Small finite-field tables alone would not prove the all-q characteristic-independent polynomial; here the formula follows via affine fibers.",
+        "searches": [
+          "commuting nilpotent tuples centralizer Jordan partition n minus 2 2 irreducible two components m >=3 rational counts",
+          "finite field commuting nilpotent centralizer Jordan type (n-2,2) ordered tuples q point count"
+        ]
+      },
+      "rationale": "Qualified PASS for exact all-arity reducibility threshold at m=3, both component dimensions and entire q-point formula in fixed centralizer of Jordan partition (n−2,2). Existing two-regular centralizer literature proves irreducibility for commuting PAIRS (m=2); unrestricted nilpotent commuting tuple reducibility and commuting similarity type classifications do not impose the same fixed partition or provide the all-m count.",
+      "residual_risks": [
+        "An older centralizer-geometry paper may already give an equivalent determinantal five-row decomposition for arbitrary tuple arity.",
+        "Scheme-theoretic nonreduced structures and other Jordan partitions are outside this reduced variety claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR COVERAGE m2; NOT_COVERING observed m3/all-m fixed-centralizer theorem",
+          "evidence": [
+            "General N(d,n) reducibility and known irreducible 2-regular centralizer pairs, not the all-arity fixed unequal Jordan split."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.2420",
+          "material_read": "Available eight-page full preprint; introduction, theorem scope and section on centralizer pairs",
+          "method": "Read primary PDF and inspected a page screenshot",
+          "title": "Reducibility of nilpotent commuting varieties",
+          "trigger": "Nearby exact commuting nilpotent tuples and 2-regular centralizers"
+        },
+        {
+          "assessment": "PARTIAL; one-matrix and pair research",
+          "evidence": [
+            "One-matrix fixed-centralizer results do not by themselves imply threshold for commuting m≥3."
+          ],
+          "identifier_or_url": "https://doi.org/10.1216/JCA-2010-2-3-295",
+          "material_read": "Published abstract and contextual descriptions; complete manuscript not inspected in this run",
+          "method": "Publisher metadata and cited theorem descriptions",
+          "title": "Commuting nilpotent matrices and Artinian algebras",
+          "trigger": "Nilpotent centralizer parameter spaces"
+        },
+        {
+          "assessment": "NOT_COVERING: different equal-block partition and one-matrix Jordan-type classification",
+          "evidence": [
+            "Addresses Jordan partitions of one commuting nilpotent for J_s⊕J_s."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2024.03.008",
+          "material_read": "Publisher HTML abstract and introduction, including Question 1 and Weyr-block form",
+          "method": "Read publisher accessible HTML sections",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Potentially stronger two-block centralizer result"
+        },
+        {
+          "assessment": "PARTIAL; not a whole-document noncoverage proof",
+          "evidence": [
+            "Similarity-orbit classification and commuting class pairs rather than all raw fixed-N m-tuples."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/jdq088",
+          "material_read": "Published abstract and exact scope summary only; full manuscript not inspected here",
+          "method": "Read publisher abstract",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Commuting similarity classes and nilpotent pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp m=3 onset of a second component and exact arithmetic point counts for every characteristic give a complete natural geometric/arithmetic invariant of a canonical minimal unequal two-block centralizer, explaining how adding the third commuting nilpotent changes geometry. Not simply a known one-matrix nilpotency count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1308.2420",
+    "https://doi.org/10.1216/JCA-2010-2-3-295",
+    "https://doi.org/10.1112/jlms/jdq088",
+    "https://doi.org/10.1016/j.laa.2024.03.008",
+    "Resultary semantic query: commuting nilpotent tuples centralizer Jordan partition n minus 2 2 irreducible two components m >=3 rational counts"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Algebraic geometric component result is over algebraically closed fields; point counts separately hold for all finite fields including even characteristic; tuples nilpotent and commute with the fixed Jordan N.",
+    "m0 handled as an empty tuple and n≥5 is required for the reduction."
+  ],
+  "residual_risks": [
+    "An older centralizer-geometry paper may already give an equivalent determinantal five-row decomposition for arbitrary tuple arity.",
+    "Scheme-theoretic nonreduced structures and other Jordan partitions are outside this reduced variety claim."
+  ],
+  "schema_version": 1
+}

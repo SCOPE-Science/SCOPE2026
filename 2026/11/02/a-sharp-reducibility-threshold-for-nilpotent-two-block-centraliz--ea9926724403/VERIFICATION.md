@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify_nilpotent_centralizer.py` with Python 3 and standard library. The checker is self-contained. It constructs actual matrices from the endomorphism-module basis and independently multiplies them, checks each commutes with the fixed Jordan matrix and is nilpotent, and counts ordered commuting pairs/triples in two matrix dimensions over \(\mathbb F_2\). It also verifies the reduced five-vector pairwise commutation equations over \(\mathbb F_2\) and \(\mathbb F_3\).
+## correctness
 
-Observed output:
-```
-matrix_case 5 2 128 3328 75776
-matrix_case 6 2 256 13312 606208
-coordinate_case 2 2 208
-coordinate_case 3 2 3321
-NILPOTENT_TWO_BLOCK_CENTRALIZER_OK
-```
+PASS
 
-The checker confirms these finite examples, not all finite extensions, infinitely many matrix sizes and arities, or any assertion of algebraic irreducibility. Those require the detailed structural proof in `RESULT.md`. The reduced scheme qualification is essential; no embedded-component analysis is claimed. Independent audit has not been performed.
+For N=J_(n−2)⊕J_2, n≥5, over arbitrary fields the nilpotent fixed-centralizer matrices have module-coefficient form with a0=d0=0. Coordinate reduction extracts x,b,c,B,C∈k^m subject to rank([x;b;c])≤1 and b∧C+B∧c=0, with (n−3)m free affine factors. The closed L={b=c=0} has dimension 3m; the complementary U has common line ℓ∈P^(m−1), parameters ν,λ,μ with (λ,μ)≠0 and m−1 independent constraints on (B,C), hence irreducible dimension 2m+3. Rank(x,B,C)≤2 on closure(U) but L contains rank 3 for m≥3, proving exactly 2 components with dimensions nm,(n−1)m+3. Explicit degenerations yield L⊂closure(U) for m≤2, hence irreducible (m0 trivial). Over F_q, b=c=0 contributes q^(3m), and nonzero proportional b,c contribute (q+1)(q^m−1)·q·q^(m+1), yielding q^(nm)+q²(q+1)(q^((n−1)m)−q^((n−2)m)) after free factors; m0 gives one empty tuple. Independent complete enumeration of five-coordinate two-vector constraints gave q2:208 and q3:3321, matching source; inspected actual matrix-multiplication checker code, which supplements algebraic proof.
+
+## originality
+
+PASS
+
+Qualified PASS for exact all-arity reducibility threshold at m=3, both component dimensions and entire q-point formula in fixed centralizer of Jordan partition (n−2,2). Existing two-regular centralizer literature proves irreducibility for commuting PAIRS (m=2); unrestricted nilpotent commuting tuple reducibility and commuting similarity type classifications do not impose the same fixed partition or provide the all-m count.
+
+## value
+
+PASS
+
+Sharp m=3 onset of a second component and exact arithmetic point counts for every characteristic give a complete natural geometric/arithmetic invariant of a canonical minimal unequal two-block centralizer, explaining how adding the third commuting nilpotent changes geometry. Not simply a known one-matrix nilpotency count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

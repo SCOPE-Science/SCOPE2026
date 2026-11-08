@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full statement is reconstructed directly from module-homomorphism coordinates for the endomorphism algebra of \(k[t]/t^{n-2}\oplus k[t]/t^2\). The zero constant-term criterion for nilpotence is proven via the \(t\)-adic filtration. All four commutator equations follow from multiplication of these homomorphisms, including the exceptional \(r=3\) intermediate term. A rank-one parametrization identifies the two possible components, proves the precise \(m=3\) threshold, and yields the finite-field formula without appealing to finite experiments. The independent dense-matrix checker verifies examples for matrix orders five and six in characteristic two and five-coordinate pair counts for two small fields. Risks are restricted to potential unnoticed proof errors and unchecked nonreduced scheme structure, not asserted by the claim.
+## correctness
 
-## Originality — PASS, subject to historical uncertainty
-A search across published mathematical records, directly inspected relevant literature, and existing same-domain research claims produced no covering all-arity point formula or exact two-component transition for a fixed two-block nilpotent centralizer. Britnell–Wildon address commuting types/classes; Basili–Iarrobino–Khatami's cited one-matrix centralizer irreducibility does not imply the transition at three tuples; Guralnick–Ngo treat the ambient nilpotent commuting variety; Sharma counts simultaneous similarity orbits. The closest earlier family in the local collection concerns free-Jordan lifts or rank-one nilpotent matrices rather than this fixed partition. This comparison is a bounded originality assessment, not certified global priority; the full Basili–Iarrobino–Khatami text was not inspected, leaving specific residual historical risk.
+PASS
 
-## Value — PASS
-The geometrically sharp transition at the first nontrivial tuple length is a structural classification of a natural slice of nilpotent commuting varieties. Its two component dimensions hold in all characteristics, and the same proof gives a uniform exact finite-field count in arbitrary arity. These facts are not textbook normalization checks or isolated small counts: they answer a natural extension of the classical single-centralizer irreducibility question and make geometric component information directly comparable with finite-field arithmetic.
+For N=J_(n−2)⊕J_2, n≥5, over arbitrary fields the nilpotent fixed-centralizer matrices have module-coefficient form with a0=d0=0. Coordinate reduction extracts x,b,c,B,C∈k^m subject to rank([x;b;c])≤1 and b∧C+B∧c=0, with (n−3)m free affine factors. The closed L={b=c=0} has dimension 3m; the complementary U has common line ℓ∈P^(m−1), parameters ν,λ,μ with (λ,μ)≠0 and m−1 independent constraints on (B,C), hence irreducible dimension 2m+3. Rank(x,B,C)≤2 on closure(U) but L contains rank 3 for m≥3, proving exactly 2 components with dimensions nm,(n−1)m+3. Explicit degenerations yield L⊂closure(U) for m≤2, hence irreducible (m0 trivial). Over F_q, b=c=0 contributes q^(3m), and nonzero proportional b,c contribute (q+1)(q^m−1)·q·q^(m+1), yielding q^(nm)+q²(q+1)(q^((n−1)m)−q^((n−2)m)) after free factors; m0 gives one empty tuple. Independent complete enumeration of five-coordinate two-vector constraints gave q2:208 and q3:3321, matching source; inspected actual matrix-multiplication checker code, which supplements algebraic proof.
 
-## Scope and integrity
-Only reduced geometric varieties and raw tuple counts are claimed. No independent assessment or priority certification is asserted. Finite checks do not establish the universal theorem; the written proof does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact all-arity reducibility threshold at m=3, both component dimensions and entire q-point formula in fixed centralizer of Jordan partition (n−2,2). Existing two-regular centralizer literature proves irreducibility for commuting PAIRS (m=2); unrestricted nilpotent commuting tuple reducibility and commuting similarity type classifications do not impose the same fixed partition or provide the all-m count.
+
+## value
+
+PASS
+
+Sharp m=3 onset of a second component and exact arithmetic point counts for every characteristic give a complete natural geometric/arithmetic invariant of a canonical minimal unequal two-block centralizer, explaining how adding the third commuting nilpotent changes geometry. Not simply a known one-matrix nilpotency count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
