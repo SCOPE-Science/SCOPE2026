@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof reconstructs the quantifiers for every integer \(k\ge2\) and every positive norm-one \(f\in C([0,1])\). A function with orthogonal norm-one summands has \(k\) ordered peaks equal to one and exact separating zeros, so any approximation error majorizes the alternating witness objective. Conversely, an arbitrary witness of error \(\delta\) produces a continuous approximant through the clipping envelopes \(L=(f-\delta)_+\) and \(U=\min(f+\delta,1)\); its separator zeros split it into exactly \(k\) summands of norm one. Compactness proves closure; \(f(t)=t\) gives an unattained distance of \(1/2\); uniform continuity proves the all-\(k\) limiting law. The strictly subhalf vertex-transfer argument gives the rational finite formula. The standalone checker passed 940 rational finite test cases. No finite test substitutes for the general proof; the stated claims do not include rates of convergence or noncommutative extensions.
+PASS
 
-## Originality (O): PASS, best-knowledge
+For k>=2 orthogonal positive norm-one summands g in C([0,1]), each summand has a norm-one peak in a distinct component of {g>0}. They give k ordered peaks value 1, separated by k-1 true zeroes, hence d>= ordered minimax value. For any ordered witness and δ equal to peak/valley cost, lower envelope L=max(f-δ,0), upper U=min(f+δ,1) and a continuous interpolant w taking 1 at peaks and 0 at separators give g=L+(U-L)w with exactly those 1/0 values; splitting across zeroes produces k valid orthogonal summands. That yields equality (1) and attainment characterization. Compact limit of witnesses for a convergent g_n∈I_k cannot collide adjacent 1/0 points, proving I_k norm closed. For f(t)=t, a t1<s1 witness has max(1-t1,s1)>1/2, but clustered witnesses approach 1/2, so infimum unattained. Merging summands gives monotonic d_k; vanishing lower bound m, uniform continuity obstruction to arbitrarily many alternations at δ<1/2, and clustering near f nearest 1/2 jointly give limit max(1/2,m). For piecewise-affine f, any δ<1/2 witness can shift highs and lows to strict ordered extreme vertices, giving finite formula (3). Independent exact rational evaluations: vertex heights [0,1,0,1] gave d2=0,d3=1/2; [0,3/4,0,3/4,0] gave d2=1/4,d3=1/2. Tests do not cover all continuous functions.
 
-Taghavi, arXiv:2610.15167 (Theorem 3.2 and full proof), establishes qualitative closure and an exact zero-set criterion for the **two-summand** locus; his Theorem 3.1 and earlier arXiv:1301.3129 treat distance from the algebra identity. The current claim is a different, strictly quantitative all-input and all-summand distance problem, with a nearest-point obstruction and a limit invariant. Biswas et al., doi:10.1007/s41468-023-00126-9, characterize persistence critical pairings and variation on 1D maps; their inspected main theorem does not compute constrained norm-one orthogonal-summand distances or nearest points. Targeted published research-record queries and checks of the accessible prior same-slot claims, including source ID, alternate vocabulary, and implication comparisons, produced no covering statement. Failure of search is not a novelty proof: unindexed nonlinear approximation/persistence formulations remain the principal originality risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Normalized orthogonal positive sums are a canonical nonlinear object in \(C^*\)-algebra geometry. Exact distance from an arbitrary positive norm-one input, a complete nearest-point criterion, and the failure of proximinality despite norm closedness provide substantive metric structure beyond the initiating qualitative theorems. The all-\(k\) limit \(\max\{1/2,\min f\}\) shows a sharp complexity transition, and the finite rational formula permits exact reproducible computations for piecewise-affine data. The result is not a precomputed table or a consequence of just changing notation.
+PASS for exact all-k point-to-locus uniform distance, nonproximinality and piecewise-linear finite minimax. Taghavi’s new 2026 paper proves I_2(C(X)) closed for locally path-connected X and distance from identity for general unital A; those known facts are credited. Neither gives d_k(f) for arbitrary positive norm-one f or the unattained infimum from f(t)=t. One-dimensional persistence/pairing of extrema may offer alternate language, but no checked theorem yields this very constrained orthogonal-unit target exactly. The exact peak–valley minimax is independently motivated as nonlinear best uniform approximation, with priority risk from older persistence/approximation literature.
 
-## Closest sources and limits
+## value
 
-The nearest primary source is A. Taghavi, *On the set of orthogonal positive sums in a \(C^*\)-algebra* (arXiv:2610.15167, submitted 2026-10-10). Its closedness theorem is acknowledged. Earlier A. Taghavi, arXiv:1301.3129, and Biswas et al., doi:10.1007/s41468-023-00126-9, were compared for distinct metrics and related persistence interpretations. The statement is restricted to the interval algebra, positive unit-sphere inputs, and the indicated finite-dimensional discretization. Independent correctness and publication-priority checks are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nonlinear locus of mutually orthogonal positive unit summands is natural in C*-algebra geometry and explicitly nonproximinal despite closedness. Exact d_k(f), its attainment characterization and k→∞ limit give a complete one-dimensional approximation theory rather than a routine restatement of qualitative closedness. Finite rational formula is directly usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

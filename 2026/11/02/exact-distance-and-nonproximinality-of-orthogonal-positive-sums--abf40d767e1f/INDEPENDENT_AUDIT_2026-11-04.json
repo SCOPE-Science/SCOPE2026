@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:00:23.096040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 orthogonal positive norm-one summands g in C([0,1]), each summand has a norm-one peak in a distinct component of {g>0}. They give k ordered peaks value 1, separated by k-1 true zeroes, hence d>= ordered minimax value. For any ordered witness and δ equal to peak/valley cost, lower envelope L=max(f-δ,0), upper U=min(f+δ,1) and a continuous interpolant w taking 1 at peaks and 0 at separators give g=L+(U-L)w with exactly those 1/0 values; splitting across zeroes produces k valid orthogonal summands. That yields equality (1) and attainment characterization. Compact limit of witnesses for a convergent g_n∈I_k cannot collide adjacent 1/0 points, proving I_k norm closed. For f(t)=t, a t1<s1 witness has max(1-t1,s1)>1/2, but clustered witnesses approach 1/2, so infimum unattained. Merging summands gives monotonic d_k; vanishing lower bound m, uniform continuity obstruction to arbitrarily many alternations at δ<1/2, and clustering near f nearest 1/2 jointly give limit max(1/2,m). For piecewise-affine f, any δ<1/2 witness can shift highs and lows to strict ordered extreme vertices, giving finite formula (3). Independent exact rational evaluations: vertex heights [0,1,0,1] gave d2=0,d3=1/2; [0,3/4,0,3/4,0] gave d2=1/4,d3=1/2. Tests do not cover all continuous functions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taghavi has broader C* algebra scope but weaker metric statement; the nonlinear distance is absent in §3.",
+          "Persistence characterizes extremal pairs under perturbations, not directly this unit-positive mutually annihilating target and its nonproximinality."
+        ],
+        "reasoning": "Different generality in underlying algebra does not imply dominance of arbitrary positive-input distance calculation.",
+        "searches": [
+          "Taghavi 2026 arxiv:2610.15167 Theorem 3.2",
+          "Biswas Cultrera Edelsbrunner Saghafian Geometric characterization persistence of 1D maps 2024"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob ca0a7940663f6573d64f3cbaabcbea6a7a4a3456, checker.py blob 07b343e6cefc4f752107af9b93ad9d926cb119db",
+        "Taghavi full primary HTML https://arxiv.org/abs/2610.15167",
+        "Taghavi arxiv:1301.3129 (indexed scope)",
+        "Resultary search orthogonal positive sums and distance",
+        "Persistence of 1D maps PMC11639680 (metadata/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taghavi’s exact d(A)=dist(1,I(A)) concerns the fixed function 1; this claim concerns all 0<=f<=1 with max=1 and arbitrary k.",
+          "Taghavi’s I(C([0,1])) closedness is contained in new proof, and is not claimed novel."
+        ],
+        "reasoning": "Higher-arity distance, lack of best approximation and k-asymptotic are not implied by the inspected qualitative older results.",
+        "searches": [
+          "arxiv:2610.15167 Theorem 3.1 and 3.2",
+          "Taghavi 2013 arxiv:1301.3129"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taghavi §3 computes distance from identity and establishes closedness for k=2, not an all-input exact approximation formula.",
+          "The ordered peak–valley objective can be interpreted via one-dimensional superlevel-set components, but a published exact equivalence was not identified."
+        ],
+        "reasoning": "The source’s qualitative membership/closedness is a consequence at zero distance, not the quantitative all-k formula.",
+        "searches": [
+          "orthogonal positive sums C([0,1]) uniform distance k peaks valleys nonproximinal Taghavi [Resultary]",
+          "\"orthogonal positive\" \"nonproximinal\" \"C([0,1])\" distance [web]",
+          "Taghavi arxiv:2610.15167 3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Formula (3) is for arbitrary rational breakpoint values and k, not a closed list of fixed data."
+        ],
+        "reasoning": "Earlier persistence diagrams might provide algorithmic approaches; a finite tabulation is not an equivalent theorem.",
+        "searches": [
+          "piecewise-linear orthogonal sum uniform approximation finite peak valley algorithm [web]",
+          "1D persistence bottleneck minimax alternating peaks valleys L∞ distance [web]"
+        ]
+      },
+      "rationale": "PASS for exact all-k point-to-locus uniform distance, nonproximinality and piecewise-linear finite minimax. Taghavi’s new 2026 paper proves I_2(C(X)) closed for locally path-connected X and distance from identity for general unital A; those known facts are credited. Neither gives d_k(f) for arbitrary positive norm-one f or the unattained infimum from f(t)=t. One-dimensional persistence/pairing of extrema may offer alternate language, but no checked theorem yields this very constrained orthogonal-unit target exactly. The exact peak–valley minimax is independently motivated as nonlinear best uniform approximation, with priority risk from older persistence/approximation literature.",
+      "residual_risks": [
+        "An equivalent bottleneck-persistence description in older nonlinear approximation literature may exist",
+        "Full persistence primary paper not read; did not declare its entire text noncovering"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes qualitative two-term closedness and unit-distance only; not arbitrary-f all-k distance formula",
+          "evidence": [
+            "Theorem 3.2 says I(C(X)) closed for compact locally path connected X; Theorem 3.1 treats dist(1,I(A))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15167",
+          "material_read": "Full accessible HTML article introduction, topological/metric §3 including Theorems 3.1–3.3 and proof",
+          "method": "web article lines 17–665",
+          "title": "On the set of orthogonal positive sums in a C*-algebra",
+          "trigger": "same positive norm-one orthogonality target"
+        },
+        {
+          "assessment": "Cannot assert whole-document absence; possible deeper equivalence is residual risk",
+          "evidence": [
+            "Title and abstract concern critical-pair persistence of 1D maps."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11639680/",
+          "material_read": "Search description and abstract only, not full mathematical text",
+          "method": "web search",
+          "title": "Geometric characterization of the persistence of 1D maps",
+          "trigger": "potential equivalent superlevel persistence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonlinear locus of mutually orthogonal positive unit summands is natural in C*-algebra geometry and explicitly nonproximinal despite closedness. Exact d_k(f), its attainment characterization and k→∞ limit give a complete one-dimensional approximation theory rather than a routine restatement of qualitative closedness. Finite rational formula is directly usable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob ca0a7940663f6573d64f3cbaabcbea6a7a4a3456, checker.py blob 07b343e6cefc4f752107af9b93ad9d926cb119db",
+    "Taghavi full primary HTML https://arxiv.org/abs/2610.15167",
+    "Taghavi arxiv:1301.3129 (indexed scope)",
+    "Resultary search orthogonal positive sums and distance",
+    "Persistence of 1D maps PMC11639680 (metadata/abstract only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only interval C([0,1]); inputs 0<=f<=1, ||f||=1",
+    "Piecewise affine assumption for finite vertex formula",
+    "Nearest point not guaranteed, and large-k rate is not claimed"
+  ],
+  "schema_version": 1
+}
