@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The Laplacian of K_k vee H has n as the nonconstant clique/contrast eigenvalue and restricts to kI+L_H on residual zero-sum vectors. Exact projector arithmetic yields the three block identities. Convexity makes the residual rank-one correction nonnegative, and the shifted nonnegative matrix B=Delta I-L_H gives F_p(h(kI+L_H))=sum h^j F_{p-j}(s)B^j/j!, whose coefficients are nonnegative for s <=1. F_p(nh)<=1 exactly up to beta_p, and every clique-to-residual entry becomes strictly negative afterward. All stated boundaries and quantifiers are proved. Exact fraction verifier passed 222 graph/order cases and 231840 entry comparisons; tests are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth--Song--Terlaky 2014, section 3.1, gives a sufficient positivity test by nonnegative coefficients after a global diagonal shift; it explicitly warns that its threshold need not be largest.",
+        "Horváth 2005, complete 16-page primary text, establishes general RK positivity threshold conditions on classes of ODEs and invariant cones; it does not derive graph-join spectral blocks.",
+        "Gottlieb--Shu--Tadmor 2001 concerns general SSP decompositions and CFL-type inheritance."
+      ],
+      "reasoning": "The generic nonnegative-coefficient shift applied directly to the whole join Laplacian uses its maximum degree n-1 and gives at most h <=1/(n-1) by the first-order Taylor remainder coefficient; it does not establish the larger exact beta_p/n threshold. The current proof isolates the dominating clique eigenvalue and shifts only the residual block, which is an additional implication not supplied by the broad criteria.",
+      "searches": [
+        "sharp positivity threshold graph Laplacian classical Runge Kutta cone universal vertex",
+        "positivity and mass preservation of RK4 truncated matrix exponential on graph Laplacian",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "arxiv:1406.6755",
+        "doi:10.1137/S003614450036757X"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S003614450036757X",
+      "doi:10.1016/j.apnum.2004.08.026",
+      "arxiv:1406.6755",
+      "Indexed summary: Eight-state barrier for Markov positivity of the [2/2] Pade map",
+      "Indexed summary: A resolvent-return law for Crank-Nicolson positivity on reversible Markov chains",
+      "c55885b0-d081-4b19-bd48-a6779f895e85 (statement comparison only)",
+      "01bb6b2f-127c-4ffd-8433-d1c77e3176ac (statement comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem here: for all even p and all H with n>=beta_p(k+Delta), positivity iff h<=beta_p/n.",
+        "Generic coefficient nonnegativity with full shifted n-1 degree yields an earlier sufficient h endpoint but not the sharp clique-to-H obstruction.",
+        "Prior restricted families omit arbitrary core paths/cycles for the general joins."
+      ],
+      "reasoning": "The new iff criterion strengthens the previously applicable sufficient full-matrix shift on a structurally natural large class. The exact hub-to-residual negative entry after beta_p/n and strictly positive residual block up to it are additional geometric conclusions, not a restatement of general positivity conditions.",
+      "searches": [
+        "arxiv:1406.6755, section 3.1, Theorem 3.3 and theorem 3.4",
+        "doi:10.1016/j.apnum.2004.08.026, sections 2-4",
+        "cone graph universal vertex fourth order Taylor Runge Kutta heat flow positivity maximum degree exact step threshold",
+        "sharp positivity threshold graph Laplacian classical Runge Kutta cone universal vertex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Previously documented disjoint-clique-core convex-filter result, identifier c55885b0-d081-4b19-bd48-a6779f895e85, requires k=1 and H disjoint union of cliques.",
+        "Previously documented complete-multipartite even-Taylor classification, identifier 01bb6b2f-127c-4ffd-8433-d1c77e3176ac, covers different restricted graph class.",
+        "No equivalent general arbitrary-residual-graph join statement was found in the queried published mathematical records."
+      ],
+      "reasoning": "A join K_k vee H with H a long path or cycle (or an arbitrary bounded-degree nonsymmetric graph) is in neither prior restricted family in general; even-Taylor scalar equality on those special families does not logically imply the new graph-uniform sufficiency for arbitrary H. No generic polynomial-renaming equivalence was found.",
+      "searches": [
+        "cone graph universal vertex fourth order Taylor Runge Kutta heat flow positivity maximum degree exact step threshold",
+        "graph Laplacian polynomial positivity even Taylor order cone join arbitrary sparse graph",
+        "graph coning universal vertex even order Taylor positivity",
+        "graph cone universal vertex Runge Kutta fourth order positivity Laplacian",
+        "arxiv:1406.6755"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search of the accessible current mathematical findings ledger yielded no exact K_k vee H arbitrary-residual statement among its 42 existing finding claims.",
+        "Published indexed Padé/Crank--Nicolson positivity records concern rational methods rather than completed even Taylor polynomial maps."
+      ],
+      "reasoning": "The requested output is an analytic infinite-family threshold, not a database invariant. The checked exact numerical and table-style results have different graph classes or different integration maps; none is an exact table subsuming this result. Search absence alone is not asserted to certify novelty.",
+      "searches": [
+        "complete multipartite graph even Taylor polynomial heat map positivity threshold",
+        "complete multipartite graph even Taylor polynomial heat map positivity threshold",
+        "positivity and mass preservation of RK4 truncated matrix exponential on graph Laplacian"
+      ]
+    },
+    "rationale": "On sources examined, the unrestricted residual graph and k-vertex dominating clique with an exact even-order Taylor threshold is not covered by the known general RK positivity criteria or the narrower complete-multipartite and disjoint-clique-core cases. The proof does not claim the established scalar Taylor coefficient shift as new. Specialist publication-priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "Specialist literature not indexed by the searches might contain a broader arbitrary-join theorem.",
+      "The public published-record landing pages could not be fetched in full, so their indexed summaries, not full manuscripts, were compared; they concern different time integrators.",
+      "The sufficient degree-density assumption may be improvable or unnecessary for particular graphs; the theorem does not claim optimal structural scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SSP inheritance framework; no exact graph join cone positivity result in the inspected sections",
+        "evidence": [
+          "Published electronically 2001-02-02; section 2 discusses forward Euler stability and SSP decompositions."
+        ],
+        "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "Abstract, introduction, relevant SSP lemmas and linear-method section, with page-5 visual inspection; paper is 24 pages",
+        "method": "Public PDF text and visual page inspection",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Baseline absolute monotonicity and SSP source for Taylor/RK methods"
+      },
+      {
+        "assessment": "General RK positivity radii and invariant cones are established; graph join blocks, arbitrary residual core degree and beta_p/n iff threshold are not given",
+        "evidence": [
+          "Pages 341--350 treat generic IVP classes and RK threshold criteria; pages 351--355 concern positivity for restricted initial-vector cones."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "All 16 article pages, including definitions, theorems and examples in sections 2--4 and references",
+        "method": "Full scholarly article text",
+        "title": "On the positivity step size threshold of Runge--Kutta methods",
+        "trigger": "Closest general RK positivity-threshold article"
+      },
+      {
+        "assessment": "Theorem 3.3 gives a sufficient coefficient positivity threshold, not an exact sparse-core clique-join characterization",
+        "evidence": [
+          "Theorem 3.3 and Theorem 3.4 at PDF pages 6--7 give nonnegative shifted-matrix coefficient criteria; the discussion around page 12 notes nonmaximal thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+        "material_read": "Abstract, sections 1--3.1 and coefficient test on PDF pages 1--8, relevant limitations on PDF pages 12--13; inspected original page image",
+        "method": "Public arXiv PDF text and visual inspection",
+        "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+        "trigger": "Most relevant polynomial Taylor-step threshold algorithm and matrix-shift lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c2f6e8a-0c2d-4395-8045-47c0fa1ccf39",
+  "value": {
+    "rationale": "The result gives one exact sharp step-size constant for all even Taylor orders and infinitely many nonsymmetric and disconnected residual cores, with no matrix entry root searches. It explains an improvement over the generic full-matrix coefficient positivity estimate by isolating the dominating-clique rank-one obstruction, produces a strict core-block positivity guarantee, and yields exact thresholds for long fan and wheel graph families. The natural object is positivity-preserving graph heat diffusion on networks with dominant hubs, and the specific beta_p/n threshold is simultaneously necessary and sufficient in the stated sparse-core regime.",
+    "status": "PASS"
+  }
+}
