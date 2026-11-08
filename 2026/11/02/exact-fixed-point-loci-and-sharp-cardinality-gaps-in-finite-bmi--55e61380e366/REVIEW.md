@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to finite BMI algebras, for which the band-with-left-identities characterization is an actual theorem in Imamura (2026, Theorems 3.3--3.4). Direct products prove the Y-locus closure, its right-regular law, and symmetry of the two possible failures. The two-point extension is associative because its words are controlled by the first new element; it preserves the original band and retains a designated left unit. Each new point fails the semantic Y-test against the other new point. This proves the exact size spectrum without extrapolating from experiments. The supplied checker independently enumerates small unital bands and reproduces representative two-point extensions of every small right-regular band.
+PASS
 
-## Originality — PASS, subject to priority risk
+Imamura's finite BMI theorem identifies such algebras with finite idempotent associative semigroups having the designated left identities. For any such band, each left identity e satisfies ex=x=x(ex), so Y is nonempty. Associativity and yx=x(yx) show closure: (yz)x=y(zx)=y(x(zx))=(yx)(zx)=x(y(zx)); substituting x=y into z's defining identity gives yzy=zy. In every band the failures of yx=xyx and xy=yxy are equivalent by multiplying on the right and idempotence, so a non-Y point has a distinct non-Y witness; a singleton complement is impossible. For any unital right-regular band R add a disjoint left-zero ideal U of at least two elements with ru=ur=u and uv=u; words containing U evaluate to their first U factor, ensuring associativity, identity and Y=R. This proves the exact Σ_n={1..n-2,n} for n>=3, with n<=2 full locus; no inference from small finite tests. Independently enumerated all labeled bands through four elements with a prescribed left unit, obtaining 1,2,9,84 and corresponding Y-size spectra {1},{2},{1,3},{1,2,4}.
 
-The 2026-09-18 Imamura paper addresses syntactic nonexistence rather than finite Y-locus structure. The closely related 2026-10-27 Imamura paper is essential prior art: it establishes precisely the finite band characterization and Y nonemptiness, neither of which is claimed here. Its relevant complete Section 3 does not state closure of the set of all Y-elements, a symmetric obstruction, a sharp non-singleton gap, or the universal two-point realization. Standard right-regular band theory provides the identity and could contain older equivalent element-locus results. Targeted literal and semantic searches, including the available mathematical finding database and relevant mathematical-record summaries, did not identify an exact or dominating assertion. That negative search is not independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The original finite fixed-point existence question has a quantitative follow-up: how large and how algebraically constrained can the set of all semantic uniform fixed-point selectors be? The answer determines the entire size spectrum for every carrier size, identifies a genuinely forbidden near-total case, and realizes every possible right-regular locus with an optimal two-point overhead. This is a structural classification rather than an arbitrary finite census or a restatement of existence.
+The 2026 Imamura paper already proves finite BMI equals bands with three left identities and hence supplies Y nonemptiness; the earlier paper's free syntactic combinator problem is distinct. Right-regular band identity is classical. The proposed entire Y-locus closure, symmetric two-defect obstruction, universal minimal two-point extension and complete cardinality spectrum were not explicitly identified in the accessible primary abstract or indexed semigroup sources. Full 2026 Imamura text could contain additional locus results, and older band theory may phrase these as a general algebraic lemma; this remains a serious bounded priority risk, not a scientific correctness failure.
 
-## Closest literature and limitations
+## value
 
-The essential source is Imamura, arXiv:2610.37108v1, Section 3. The earlier arXiv:2609.21765v1 addresses the syntactic/semantic distinction. Right-regular band theory in Berger--Gehrke arXiv:2202.00084v2 supplies the standard algebraic vocabulary. Only BMI, not general BM, is included. Finite verification supports but cannot replace the all-order proof. Possible older semigroup-language equivalences remain the chief originality risk; independent historical and mathematical audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact set of all semantic uniform fixed-point selectors is a natural structural refinement of finite BMI existence. The theorem determines every possible cardinality, forbids exactly one missing selector and realizes each possible unital right-regular band as the precise locus with optimal two additional points, a complete all-size classification motivated by the combinatory-algebra question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

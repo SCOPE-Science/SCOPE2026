@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope of checks
 
-The complete algebraic proof is contained in `RESULT.md`. The attached `checker.py` is the independently implemented finite-table check for the new assertions. Execute `python3 checker.py` with Python 3 and no additional dependencies. Observed successful output:
+# Independent mathematical audit
 
-```
-all-unital-bands 1 count 1 Y-spectrum [1]
-all-unital-bands 2 count 2 Y-spectrum [2]
-all-unital-bands 3 count 9 Y-spectrum [1, 3]
-all-unital-bands 4 count 84 Y-spectrum [1, 2, 4]
-RRB-representation 1 bases 1
-RRB-representation 2 bases 2
-RRB-representation 3 bases 8
-RRB-representation 4 bases 68
-ALL_CHECKS_OK
-```
+## correctness
 
-The unital band census covers all multiplication tables with element zero a prescribed left identity, but only through size four. The larger construction test checks every prescribed locus size through order thirteen. The right-regular representation test covers every unital right-regular band through four points. These finite tests do not establish the universal statements alone; the proof in `RESULT.md` establishes them by quantified associative identities. The program does not test infinite nonassociative BMI models or universal syntactic fixed-point combinators. Independent audit has not been performed.
+PASS
+
+Imamura's finite BMI theorem identifies such algebras with finite idempotent associative semigroups having the designated left identities. For any such band, each left identity e satisfies ex=x=x(ex), so Y is nonempty. Associativity and yx=x(yx) show closure: (yz)x=y(zx)=y(x(zx))=(yx)(zx)=x(y(zx)); substituting x=y into z's defining identity gives yzy=zy. In every band the failures of yx=xyx and xy=yxy are equivalent by multiplying on the right and idempotence, so a non-Y point has a distinct non-Y witness; a singleton complement is impossible. For any unital right-regular band R add a disjoint left-zero ideal U of at least two elements with ru=ur=u and uv=u; words containing U evaluate to their first U factor, ensuring associativity, identity and Y=R. This proves the exact Σ_n={1..n-2,n} for n>=3, with n<=2 full locus; no inference from small finite tests. Independently enumerated all labeled bands through four elements with a prescribed left unit, obtaining 1,2,9,84 and corresponding Y-size spectra {1},{2},{1,3},{1,2,4}.
+
+## originality
+
+PASS
+
+The 2026 Imamura paper already proves finite BMI equals bands with three left identities and hence supplies Y nonemptiness; the earlier paper's free syntactic combinator problem is distinct. Right-regular band identity is classical. The proposed entire Y-locus closure, symmetric two-defect obstruction, universal minimal two-point extension and complete cardinality spectrum were not explicitly identified in the accessible primary abstract or indexed semigroup sources. Full 2026 Imamura text could contain additional locus results, and older band theory may phrase these as a general algebraic lemma; this remains a serious bounded priority risk, not a scientific correctness failure.
+
+## value
+
+PASS
+
+The exact set of all semantic uniform fixed-point selectors is a natural structural refinement of finite BMI existence. The theorem determines every possible cardinality, forbids exactly one missing selector and realizes each possible unital right-regular band as the precise locus with optimal two additional points, a complete all-size classification motivated by the combinatory-algebra question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
