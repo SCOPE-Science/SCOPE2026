@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional Gaussian Schur complement follows from the free-flight covariances \\(\\operatorname{Var}(X_t)=2Dt^3/3\\), \\(\\operatorname{Cov}(X_t,V_t)=Dt^2\\), and \\(\\operatorname{Var}(V_t)=2Dt\\). Conditioning the exponential backward age gives an exact posterior proportional to \\(t^{-3/2}\\exp[-rt-3x^2/(4Dt^3)]\\). The unique saddle \\(\\tau_x=(9x^2/(4Dr))^{1/4}\\) yields \\(\\varphi(z)=z+1/(3z^3)\\), with a strict minimum \\(4/3\\) at \\(z=1\\) and second derivative \\(4\\). The oriented joint density has exponent \\(\\Psi(z,u)=\\varphi(z)+(u-1/z)^2/z\\) and a polynomial prefactor; coercivity provides a full good LDP. Under the non-outward constraint \\(u\\le0\\), the minimum is \\(u=0,z=\\sqrt2\\), producing \\(4(\\sqrt2-1)/3\\). The open-event limit agrees by approaching the boundary from below. An independent conditional standard Gaussian gives \\(B=-\\sigma A+Z/\\sqrt2+o_{\\Pr}(1)\\), with \\(A\\sim\\mathcal N(0,1/4)\\); covariance and second moments follow using uniform Laplace moment bounds. A standalone standard-library checker replayed the rational Gaussian covariance, rate, local curvature, conditional moment quadrature, and wrong-way tail at two large parameters. Finite tests supplement the analytic proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singh (2020), section 3.1 and Appendix A: stationary joint mixture and far-position tail.",
+        "Montero et al. (2023), sections II, IV–V: crossing-rate moments and stationary position tail."
+      ],
+      "reasoning": "The first is a stronger exact distributional input, so every conditional property follows in principle with further analysis; the theorem explicitly refrains from presenting that input as new. The second conditions on crossings and thus differs by velocity size bias. Neither inspected relevant result supplies the explicit LDP, rate, wrong-direction exponent and age–velocity Gaussian limit in the new theorem. Priority risk from potentially implicit already-worked asymptotics is recorded.",
+      "searches": [
+        "stationary integrated Brownian random acceleration complete resetting far-displacement wrong-direction velocity stretched exponential conditional large deviation age and velocity",
+        "Singh random acceleration reset joint distribution conditioned on displacement wrong sign speed probability exp gamma sqrt displacement",
+        "arxiv:2007.05576v1",
+        "arxiv:2312.13968v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.05576v1",
+      "arxiv:2312.13968v1",
+      "arxiv:1903.03963v1 (abstract-level)",
+      "arxiv:2401.12685v1 (abstract-level)",
+      "six named semantic queries recorded in the first four comparison categories"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source formula is the exponential-age integral of a Gaussian pair with covariances Var(X)=2Dt³/3, Cov(X,V)=Dt², Var(V)=2Dt.",
+        "The present derivation conditions the reset age at \\(X=x\\), then conditions the velocity at both age and position and analyzes the resulting joint far-field exponent.",
+        "Montero et al. analyze level-crossing processes, whose velocity law has a flux bias."
+      ],
+      "reasoning": "The original exact joint density mathematically determines all conditional laws, but neither its displayed marginal position-tail saddle alone nor crossing-velocity moments equals the explicit full conditional velocity rate and Gaussian joint limit established here. The further contraction and wrong-way minimization at \\(z=\\sqrt2\\), and the local two-variable Gaussian scaling are additional conclusions. Prior work on record-setting complete flight areas already includes an age-only saddle, so no new claim is made for an age-only saddle; a completed-flight-area extreme is not the present stationary full-reset snapshot conditioned on its position and terminal velocity.",
+      "searches": [
+        "random acceleration process complete Poisson resetting rare extreme displacement conditioned on position stationary velocity distribution conditional age joint Gaussian fluctuations saddle point",
+        "stationary integrated Brownian random acceleration complete resetting far-displacement wrong-direction velocity stretched exponential conditional large deviation age and velocity",
+        "random acceleration large spatial conditioning joint age velocity Gaussian covariance universal minus 1 over square root 3",
+        "arxiv:2007.05576v1",
+        "arxiv:2312.13968v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the complete-reset dynamics, the stationary position is the area under a Brownian velocity over an exponentially distributed age; the latter is a special Brownian-area setting discussed by Meerson (2019).",
+        "Singh (2020) gives a joint stationary mixture, but the analyzed output concerns pointwise spatially conditioned terminal velocity, not only the marginal area/position tail."
+      ],
+      "reasoning": "The area equivalence was checked explicitly. Area marginal/tail laws fix the denominator of a conditional expectation but do not by themselves state the conditional terminal-velocity LDP and covariance; the underlying joint mixture does contain sufficient ingredients for deriving them.",
+      "searches": [
+        "random acceleration process complete Poisson resetting rare extreme displacement conditioned on position stationary velocity distribution conditional age joint Gaussian fluctuations saddle point",
+        "integrated Brownian motion with resets conditional velocity large position large deviation concentration fluctuation law",
+        "Prashant Singh 2007.05576 random acceleration particle positional tail conditional velocity asymptotics",
+        "arxiv:2007.05576v1",
+        "arxiv:1903.03963v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-index matches included a generalized Rayleigh oscillator velocity-regression theorem, a random-sensor Ornstein–Uhlenbeck threshold, and a renewal age–residual-life correlation theorem.",
+        "All compare different underlying stochastic dynamics, reset conventions, conditioning event or observable; no matching velocity rate function or covariance law was returned."
+      ],
+      "reasoning": "The actual semantic index comparisons covered complete/partial reset phrases, Brownian area aliases, large-displacement conditional velocities and joint age–velocity fluctuations. The retrieved records are not a table or exact database of these conditional terminal-velocity asymptotics. A negative index search is not a proof of global novelty.",
+      "searches": [
+        "random acceleration process complete Poisson resetting rare extreme displacement conditioned on position stationary velocity distribution conditional age joint Gaussian fluctuations saddle point",
+        "integrated Brownian motion with resets conditional velocity large position large deviation concentration fluctuation law",
+        "Prashant Singh 2007.05576 random acceleration particle positional tail conditional velocity asymptotics",
+        "stationary integrated Brownian random acceleration complete resetting far-displacement wrong-direction velocity stretched exponential conditional large deviation age and velocity",
+        "Singh random acceleration reset joint distribution conditioned on displacement wrong sign speed probability exp gamma sqrt displacement",
+        "random acceleration large spatial conditioning joint age velocity Gaussian covariance universal minus 1 over square root 3"
+      ]
+    },
+    "rationale": "The exact complete-reset joint Gaussian–exponential stationary mixture and its stretched-exponential position tail were already derived in Singh (2020). The inspected pertinent source does not state the far-position conditioned *velocity* full LDP, exact wrong-way exponent, or coupled age–velocity Gaussian law. The two further source comparisons involve crossing-weighted rather than snapshot velocities and velocity-only rather than complete resetting. Research-index searches found neighboring age saddle and velocity facts in different models, but no identical or dominating conditional theorem. The nonroutine conditional speed, wrong-direction penalty, and joint fluctuation profile remain meaningful asymptotic consequences not stated in the compared literature; implicit derivability from a published exact joint density remains a substantive priority risk.",
+    "residual_risks": [
+      "A complete-reset stationary joint law was explicitly published in 2020; current results are nontrivial but derivable asymptotic consequences of it, creating publication-priority uncertainty.",
+      "The Brownian-area and velocity-resetting comparators were accessed only at abstract level, not in full; relevant unstated connections could remain.",
+      "Published records and literature search do not guarantee uniqueness; other conditional large-deviation treatments could exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes model mixture and position tail, not the stated conditional velocity LDP and coupled Gaussian limit in the inspected results. Underlying formula can imply these after derivation.",
+        "evidence": [
+          "Stationary joint density is a Poisson-age mixture of the integrated-Brownian Gaussian pair.",
+          "Appendix treats stationary position-tail asymptotic; the proposed contribution conditions velocity on an extreme observed position."
+        ],
+        "identifier_or_url": "arxiv:2007.05576v1 (https://arxiv.org/pdf/2007.05576)",
+        "material_read": "Abstract and the stationary joint-density, position marginal and asymptotic sections, including section 3.1, equations and Appendix A",
+        "method": "Full arXiv PDF text inspection with page-image cross-check of the stationary expression",
+        "title": "Random acceleration process under stochastic resetting",
+        "trigger": "Exact same complete-reset random-acceleration dynamics; strongest plausible coverage"
+      },
+      {
+        "assessment": "Concerns Rice crossing intensities and marginal stationary tails. Its velocity-crossing weighting is not the exact spatial snapshot conditioning of the new result.",
+        "evidence": [
+          "Rice crossing rates involve velocity-weighted joint distribution.",
+          "The source includes stationary position-tail analysis, a close but different observable."
+        ],
+        "identifier_or_url": "arxiv:2312.13968v1 (https://arxiv.org/pdf/2312.13968)",
+        "material_read": "Abstract, opening model and results passages, and equations/arguments in the level-crossing and stationary-tail parts of sections IV–V",
+        "method": "ArXiv PDF text extraction and displayed-page inspection of pertinent sections",
+        "title": "The effect of stochastic resettings on the counting of level crossings for inertial random processes",
+        "trigger": "Same stochastic inertial observable but crossing-weighted sampling"
+      },
+      {
+        "assessment": "Area equivalence identified; absence of a conditional terminal-velocity result was not established from full text.",
+        "evidence": [
+          "Brownian area accumulated to exponential killing is an equivalent one-excursion position observable."
+        ],
+        "identifier_or_url": "arxiv:1903.03963v1 (https://arxiv.org/abs/1903.03963)",
+        "material_read": "Abstract-level and available literature-description text only; not represented as a full-document inspection",
+        "method": "Public bibliographic and abstract search",
+        "title": "Mortal Brownian motion: three short stories",
+        "trigger": "Equivalent Brownian-area stochastic stopping representation"
+      },
+      {
+        "assessment": "Velocity resetting without simultaneous position reset defines a different model. No claim of exhaustive document noncoverage.",
+        "evidence": [
+          "The model resets velocity while retaining position, unlike complete resets in the present theorem."
+        ],
+        "identifier_or_url": "arxiv:2401.12685v1 (https://arxiv.org/abs/2401.12685)",
+        "material_read": "Abstract and accessible description only; not full text",
+        "method": "Public abstract search",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "Nearby acceleration model and reset terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c2024516-27eb-42f2-b1d2-aaed5a892418",
+  "value": {
+    "rationale": "The stationary randomly accelerated resetting system is a natural exactly solvable inertial-transport model. Conditioning on a rare remote position probes whether particles are still moving away or are returning, an observable not captured by the marginal spatial tail alone. The full velocity rate profile, exact non-outward penalty and correlated local age–velocity fluctuations give a structural, parameter-normalized rare-event description and distinguish stationary snapshots from flux-weighted crossings. The exact wrong-way exponent and correlation are not arbitrary slices, and the result allows independent numerical or physical tests. Its scope and priority risks are explicit.",
+    "status": "PASS"
+  }
+}
