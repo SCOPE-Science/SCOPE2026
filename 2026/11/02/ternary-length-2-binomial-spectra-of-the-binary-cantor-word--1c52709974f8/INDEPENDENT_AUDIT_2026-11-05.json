@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:47:37.170857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8/RESULT.md",
+        "Git blob 57d9b231ddbc344d3b89e696013b9a99958f8567",
+        "Git tree 601debff503f5cf5472090713e43b1be3a0a0c5a",
+        "Independent checker /mnt/data/scope_worker03_20261105T0438Z/independent_checks.py"
+      ],
+      "rationale": "For fixed point of 1→101, 0→000, length n=3^k and B=2^k, the ones in C_k occupy positions f(j)=2Σ epsilon_i(j)3^i. Every length-n factor is 0^n or a zero-padded prefix/suffix of C_k because the base word has no 11 and contains 00,01,10. Counting scattered 01 using first t one-positions gives exactly the two progressions t(m-t)-P_t and t(n-m)+P_t, m∈[f(t-1)+1,f(t) or n]. Counting their intersections using m+m’=n+t+2P_t/t proves b_{c,2}(3^k)=2·3^k+1−ΣO_t. For k≥3, t=3·2^{k-2} and the explicit paired lengths produce 2·3^{k-3}+1 distinct nonidentical factor pairs with equal binomial profiles; their differing last-one positions exclude literal identity. Independent brute-force scattered-subsequence profiles of actual substitution words for k=1..6 match the arithmetic family exactly. That finite test does not establish the all-k claim.",
+      "residual_risks": [
+        "Formula is a 2^k-term explicit sum rather than a simplified closed form.",
+        "No assertion covers all lengths or higher-order k-binomial equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rigo–Salimov compute binomial complexity of Sturmian and fixed points of Parikh-constant morphisms; Cantor images have unequal Parikh vectors (101 versus 000). Tribonacci is a different morphic system."
+        ],
+        "reasoning": "The broad general theory defines the invariant but the known classes do not contain the non-Parikh-constant Cantor system as a corollary.",
+        "searches": [
+          "Rigo Salimov TCS 601 (2015) 47–57",
+          "Lejeune Rigo Rosenfeld Tribonacci 2020"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8/RESULT.md",
+        "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+        "https://arxiv.org/abs/1703.04063",
+        "https://orbi.uliege.be/handle/2268/178703"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Morphic block palindrome and explicit ternary positions yield progressions not supplied by generic binomial-equivalence definitions."
+        ],
+        "reasoning": "Standard binary reduction V(w)=(#1,#01) is known; it does not determine the Cantor-specific profile union, exact overlap count or infinitely many nonidentical collisions.",
+        "searches": [
+          "Rigo-Salimov Theoretical Computer Science 2015",
+          "arXiv:1703.04063",
+          "Lejeune-Rigo-Rosenfeld 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2-binomial equivalence counts scattered subsequence 01; k-abelian equivalence counts adjacent factor multiplicities."
+        ],
+        "reasoning": "Even though both papers concern complexity of infinite words, the k-abelian and scattered-binomial quotients differ; neither is a reformulation of the displayed all-profile formula.",
+        "searches": [
+          "Rigo Salimov 2015 Another Generalization of Abelian Equivalence",
+          "Chen Lü Wen Wu arXiv:1703.04063 k-abelian complexity Cantor sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published word-complexity database/search hits concerned ordinary, k-abelian, or unrelated Cantor spectra, not the exact 2-binomial profile set or collisions."
+        ],
+        "reasoning": "No exact matching table or published k=1..7 count series was found; failed lookup is retained as residual risk, not independent novelty proof.",
+        "searches": [
+          "Resultary query: Cantor word fixed point 1->101 0->000 2-binomial complexity at powers three scattered 01",
+          "Rigo-Salimov 2015",
+          "arXiv:1703.04063"
+        ]
+      },
+      "rationale": "The source morphism is not Parikh constant, so Rigo–Salimov Parikh-constant-morphism binomial complexity theorem does not apply. The same Cantor sequence has k-abelian complexity literature, but k-abelian counts contiguous blocks rather than the scattered subsequences in 2-binomial equivalence. The exact power-of-three profile and linear collision family are best-of-knowledge additional results.",
+      "residual_risks": [
+        "An older unindexed specialized Cantor-word binomial enumeration may contain an equivalent formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundations and computed Parikh-constant cases; Cantor morphism outside stated condition",
+          "evidence": [
+            "Defines scattered subsequence binomial complexity and studies Sturmian/Thue–Morse morphic families."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/178703",
+          "material_read": "Accessible abstract and full-author-preprint source description, especially scope of Parikh-constant fixed points",
+          "method": "Publisher metadata and lawful author-preprint text examination",
+          "title": "Another generalization of abelian equivalence: binomial complexity of infinite words",
+          "trigger": "Primary binomial-equivalence definition and possible general covering results"
+        },
+        {
+          "assessment": "Different k-abelian observable, not the scattered 2-binomial profiles",
+          "evidence": [
+            "k-abelian compares contiguous factors, while binomial compares scattered subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "Primary PDF opening page and definitions inspected",
+          "method": "arXiv PDF text and screenshot",
+          "title": "On k-abelian complexity of Cantor sequence",
+          "trigger": "Exact same morphic Cantor word"
+        },
+        {
+          "assessment": "Tribonacci-specific not a Cantor-word all-length implication",
+          "evidence": [
+            "Theorem on Tribonacci factors and template complexity."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "material_read": "Author-preprint theorem statements and identified Tribonacci scope",
+          "method": "Open author preprint",
+          "title": "Templates for the k-binomial complexity of the Tribonacci word",
+          "trigger": "Other named k-binomial word census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8/RESULT.md",
+        "Git blob 57d9b231ddbc344d3b89e696013b9a99958f8567"
+      ],
+      "rationale": "The exact complete 2-binomial profile set at all ternary lengths is a natural infinite combinatorics-on-words invariant; explicit O(2^k)-term arithmetic counting avoids enumerating the 3^k factors, and linear nontrivial collisions elucidate information lost by binomial observation.",
+      "residual_risks": [
+        "Value concerns the precise scoped invariant; it is not evidence of additional unstated stronger implications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Only one-sided binary Cantor fixed point, 2-binomial equivalence and lengths 3^k, not arbitrary lengths or class sizes."
+}
