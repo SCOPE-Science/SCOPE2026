@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (C): PASS.** PASS: Two independently implemented full factor-class constructions (suffix automaton endpos and suffix-array/LCP suffix tree) agree on every minimal coverage mask at each length through 6561. The exhaustive mask intersection counts enumerate every size-three attractor; the k=3 pair obstruction and symbolic alignment projection prove the lower bound at every further depth. Exact size-three witnesses were verified for k=3..8; no beyond-range finite extrapolation.
+
+**Originality (O): PASS, with priority risks.** PASS under accessible-literature priority assessment: the 2026 full primary paper describes optimal-attractor families for Fibonacci, period doubling and Thue-Morse, and not the Stewart choral morphism. The older Stewart source studies Toeplitz factor properties but does not identify the spectrum in accessible material; a preexisting MUS result only forces necessary hits and does not count satisfying sets. Semantic records were searched for equivalences and tables. Remaining unindexed-work and inaccessible-full-text risks are explicitly recorded.
+
+**Value (V): PASS.** PASS: Exact numbers of minimum position sets quantify compressive repetitiveness beyond the minimum size, precisely the finer invariant highlighted by the motivating 2026 paper. The first eight canonical morphic iterates up to length 6561 reveal a nontrivial size transition and five consecutive linearly increasing counts, confirmed by exhaustive search, plus an independently proved structural monotonicity bound. No universal progression is implied.
+
+The closest directly comparable primary paper is Banbara et al., arXiv:2602.16152v3; its full text considers distinct words. The Stewart primary source is Fici–Shallit, arXiv:2112.12125v1, for which the complete full text could not be retrieved in this assessment. Published semantic records include Thue–Morse and period-doubling attractor counts for different fixed points, not this census. Earlier MUS results give only necessary coverage constraints. The infinite conclusion is solely the size lower bound; the exact counts are finite through depth eight.
+
+Self-review: passed. Independent audit: not yet performed.
