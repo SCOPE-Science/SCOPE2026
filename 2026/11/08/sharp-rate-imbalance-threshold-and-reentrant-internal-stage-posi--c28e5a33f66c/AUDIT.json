@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-one projector decomposition proves the two stage scalar factors and output factor; entrywise positivity is equivalent to -1/r<=g<=1. Elementary quadratic discriminant controls all rate and step parameters, including equality and strict endpoints. The published standalone verifier symbolically reconstructs stage equations and exact negative witness, with independent rational block solves; experiments alone are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanes–Iserles–Macnamara §3 constructs exponential/splitting/Patankar schemes distinct from the classical Gauss RK stage equations.",
+        "published-finding corpus eight-state [2/2] Padé record concerns the end-step map, not the two internal transition matrices."
+      ],
+      "reasoning": "A general SSP/absolute-monotonicity theorem might address stronger uniform positivity over all generators, but such sufficient or impossibility statements do not give this exact generator-specific phase diagram. Fixed two-stage Gauss endpoint rational stability does not imply its internal stages are nonnegative.",
+      "searches": [
+        "two stage Gauss collocation internal stage monotonicity nonnegative vector weak strong SSP 2 by 2 Metzler",
+        "sharp stiffness imbalance threshold positivity internal collocation stages two-state CTMC",
+        "two-stage Gauss-Legendre RK2 Gauss Markov internal stages 2x2 strong positivity at all steps imbalance",
+        "Blanes Iserles Macnamara positivity preserving graph Laplacian two-state stages Gauss",
+        "arxiv:2102.08242 §3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2005.06268 (accessible full text, specific stage/positivity sections)",
+      "arxiv:2102.08242 (accessible arXiv HTML, positive graph-Laplacian constructions)",
+      "Gauss–Legendre coefficient table: https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method",
+      "published-finding corpus published eight-state Gauss end-step positivity record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus published SSP SDIRK endpoint record 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "published-finding corpus published Crank–Nicolson resolvent endpoint record 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior arXiv 2005.06268 recognizes the general stage-positivity issue and solves an adaptive-output task, not fixed Gauss internal-stage parameters.",
+        "Prior arXiv 2102.08242 graph-Laplacian positivity is for distinct integrators and Magnus quadrature.",
+        "The closest published-finding corpus published Gauss record gives end-step positivity, which our explicit witness shows can coexist with a negative internal stage."
+      ],
+      "reasoning": "The same-method end-step result is not stronger coverage: endpoint and stage maps are different; the witness simultaneously satisfies endpoint positivity and violates stage positivity. Other sources do not yield the exact iff rate threshold, double-root boundary, and bounded unsafe stepsize interval under their stated conclusions.",
+      "searches": [
+        "two stage Gauss Legendre collocation internal stage probability positivity two state generator contrast reentry threshold sqrt3",
+        "positivity preserving adaptive Runge Kutta Nusslein Ranocha Ketcheson stage values not positive 2020",
+        "Blanes Iserles Macnamara positivity preserving graph Laplacian two-state stages Gauss",
+        "arxiv:2005.06268 equations (2.4)–(2.9) and §5.1",
+        "arxiv:2102.08242 §3",
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Our matrix criterion is exactly positivity of each Gauss internal stage on the two-state probability simplex; equivalent to g2(z)>=-1/r rather than merely scalar stability or endpoint positivity.",
+        "Nüßlein et al. §5.1 recognize negative RK stage values generically but do not supply the Gauss/2-state exact boundary in inspected text."
+      ],
+      "reasoning": "Aliases include Gauss collocation, internal stages, stage positivity, two-state CTMC, and scalar rank-one Markov projector. The general possibility of negative stages covers the existence of examples but not the new complete rate-dependent characterization. No equivalent classification was identified in the checked primary material.",
+      "searches": [
+        "two stage Gauss Legendre collocation internal stage probability positivity two state generator contrast reentry threshold sqrt3",
+        "implicit Gauss Runge Kutta stage negative while Markov endpoint positive two-state 7.6 rate ratio",
+        "Gauss collocation stage 2 negative probability even though endpoint stochastic for two state CTMC",
+        "gauss stage monotonicity 7.595754 2 sqrt3 Markov",
+        "arxiv:2005.06268 §5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical coefficient table is established and used verbatim.",
+        "published-finding corpus semantically closest records concern different observables (endpoint maps) or different methods."
+      ],
+      "reasoning": "A coefficient table or stability function is not the exact classifier z^2+(6-2sqrt(3)r)z+12(1+r)>=0. No matching published table of the sharp cutoff and reentrant internal-stage interval was identified in the actual searches; this is not proof of global absence.",
+      "searches": [
+        "gauss stage monotonicity 7.595754 2 sqrt3 Markov",
+        "two stage Gauss Legendre collocation internal stage probability positivity two state generator contrast reentry threshold sqrt3",
+        "Gauss–Legendre method fourth-order Butcher tableau"
+      ]
+    },
+    "rationale": "The examined 2020 stage-positivity paper documents a general risk and adapted endpoint weights, not this sharp fixed-Gauss two-state classification. The examined graph-Laplacian paper uses other integrators. Closest published findings on the same [2/2] Padé method concern endpoint positivity, which does not imply stage positivity as the exact counterexample demonstrates. The standard tableau and generic negative-stage possibility are prior knowledge. Residual specialist precedence risk remains.",
+    "residual_risks": [
+      "Known RK absolute-monotonicity and stage-monotonicity literature might contain a less explicitly named implication.",
+      "Specialist preprints and earlier numerical-stochastic literature beyond the specifically inspected sources may contain the same exact two-state classification.",
+      "Semantic no-match is not uniqueness proof; the review is same-model, not independent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper explicitly notes internal stage values need not be positive and develops adapted weights for endpoint bounds; the inspected scientific statements do not classify fixed two-stage Gauss stage matrices on two-state generators by rate ratio. Its known generic warning is not claimed new.",
+        "evidence": [
+          "Section 2, equations (2.4)-(2.9): standard RK stages and adapted endpoint weights",
+          "Section 5.1: negative intermediate stages may require right-hand-side extension",
+          "No occurrence of the Gauss method identified in the accessible text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+        "material_read": "Full accessible arXiv text sections 1–2 and 4–5, especially exact stage equations (2.4), endpoint modification (2.5–2.9), section 4.3 and section 5.1 stage warning",
+        "method": "Read the openly accessible rendered full-text source and located references to stage values and Gauss",
+        "title": "Positivity-Preserving Adaptive Runge–Kutta Methods",
+        "trigger": "Closest 2020 primary literature on Runge–Kutta stage and endpoint positivity, and earliest motivating source"
+      },
+      {
+        "assessment": "Constructs alternate positive integrators and uses Gauss–Legendre quadrature nodes inside a Magnus approximation, not the internal stages of the fourth-order classical Gauss collocation RK map. Does not directly imply the exact two-state sharp stage boundary in examined portions.",
+        "evidence": [
+          "Section 3.1: graph-Laplacian exponential and backward-Euler resolvent positivity",
+          "Sections 3.2–3.4: splitting and positivity-preserving Patankar methods",
+          "Section 3.5: Gauss–Legendre points are quadrature points for Magnus, not the internal stages studied here"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+        "material_read": "Accessible full-text HTML introduction, sections 3.1–3.5 and formulas (3.10)–(3.17), plus the Gauss-point discussion in section 3.5",
+        "method": "Read arXiv full HTML sections on exponential, splitting, Magnus and Patankar methods, with text search for Gauss",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Highly relevant Markov/graph Laplacian positivity and internal-stage methods"
+      },
+      {
+        "assessment": "Supplies the standard method coefficients; no result on Markov two-state stage positivity claimed here.",
+        "evidence": [
+          "Two-stage order-four classical Gauss Butcher tableau"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method",
+        "material_read": "Fourth-order two-stage Butcher tableau and order statement",
+        "method": "Read openly accessible reference entry",
+        "title": "Gauss–Legendre method",
+        "trigger": "Standard tableau, not novelty support"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c28e5a33-f66c-476a-9ffe-43f04cbd3db1",
+  "value": {
+    "rationale": "The smallest irreducible Markov model exhibits a sharp, nontrivial rate-ratio phase threshold with an intermediate negative-stage window followed by positivity recovery, even though every endpoint remains a strictly positive probability distribution. This is directly relevant to RHS domain admissibility and a reproducible benchmarking failure mode. The theorem is a complete natural two-state classification, not an arbitrary one-off negative example.",
+    "status": "PASS"
+  }
+}
