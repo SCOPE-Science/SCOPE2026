@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Adjacent increments are binary, and the displacement from the identity is nonincreasing with opposite endpoint signs, which forces a contiguous nonempty zero interval and monotonic capture at its endpoints. For each specified fixed interval, exactly two adjacent zero increments (when present) and all internal one increments are forced; every remaining increment is freely selectable, and the starting value is uniquely determined. The resulting binomial fiber counts yield the entire bivariate polynomial and marginal rank law. Uniformly geometric rank tails, equal interior-location weights and a conditional binomial central limit theorem prove the joint independent limit. The verifier directly iterated and counted all maps through length thirteen. Its bounded exhaustive check supports but does not replace the all-length argument.
+## correctness
 
-## Originality
-**PASS relative to inspected evidence; publication priority provisional.** Fernandes–Paulista (2021, arXiv:2112.13427v1) establish the very same monoid, its initial-image rank cardinalities and idempotents, not the eventual-power fibers or the three-scale limiting law. Fernandes (2024, arXiv:2407.05084v1) develops presentations for the same monoid and variants rather than fixed-interval iteration statistics. Searches for aliases (interval-image order-preserving transformations, weak endomorphisms, fixed-point sets, eventual images, iterates) and relevant research records did not identify a statement implying this complete joint classification. A full-text fixed-point article on all partial order-preserving transformations was inaccessible; equivalence through a wider theorem remains a residual risk. Prior numerical cardinalities are acknowledged, never independently claimed.
+PASS
 
-## Value
-**PASS.** The idempotent-power projection is a natural canonical map in finite aperiodic transformation semigroups. Its exact fibers and refined ranks identify typical long-term behavior not determined by the known initial-image counts. The distributional distinction is structural: typical original image rank is of order half the chain length, but eventual rank stays geometric of bounded size, at an asymptotically uniform location, independently of original-rank Gaussian fluctuations.
+The increments f(i+1)-f(i) in {0,1} make displacement f(i)-i weakly decreasing with endpoint signs, giving a nonempty fixed integer interval. Iteration traps every point at its nearest fixed endpoint within n steps. Fixing [a,b] forces boundary zero increments and inside ones; exactly max(0,a-2)+max(0,n-b-1) exterior increments are freely binary, and each additional one increases initial image rank by one. Summing locations gives J_n and stable-rank counts; conditional binomial CLT with tight geometric stable-rank tails proves the independent triple limit. Independent enumeration of all such maps and f^n for n<=9 matched exact binomial fiber and normalization. Boundary n=1 and n=2 checked.
 
-## Limits
-The fixed interval and every finite count are proved for all positive lengths; normal and location limits concern only uniformly random elements as length grows. No claim is made about different families, unrestricted order-preserving maps, independent audit, or unqualified global publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known directed-path monoid, initial-image rank, monoid size and idempotent count are credited to Fernandes–Paulista and Fernandes. The finer eventual-power fibers jointly refined by initial rank and their independent geometric/uniform/Gaussian limit were not found in the inspected full primary works; an unindexed iterate-statistics specialization remains possible.
+
+## value
+
+PASS
+
+The eventual idempotent fiber and its joint initial-rank/stable-rank/location statistics are natural invariants of a known transformation monoid; the exact binomial classification and three-scale independent probability law add nontrivial information to aggregate cardinality and rank formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
