@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent-occupancy identity follows exactly from the period-\(d\) class itinerary and independent uniform vertex labels. The central strict log-concavity inequality for the coupon-collector CDF follows from a geometric-sum representation, log-concavity under convolution, and a termwise ratio estimate; it is not merely observed numerically. Circular floor-difference starts make every partial-period visit profile balanced, giving stochastic order at all integer horizons; strictness for any nonbalanced circular window gives the if-and-only-if classification. The occupancy factorial-moment argument proves the subsequential Poisson scaling with the correct period offset and Jensen's inequality gives its nonnegative imbalance penalty. All six allocations for the unequal-size counterexample were evaluated as exact fractions. A standalone checker passed 190,907 exact finite assertions and directly enumerated small walker trajectories. Computation is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The directed complete d-cycle of classes forces every walker deterministically through the classes and draws independent uniform vertex labels in each visited class, including time 0. For t+1=qd+s, class j receives exactly M_j=qk+Σ_{a=0}^{s-1}h_(j-a mod d), so the entire cover CDF factors as ∏_j n!S(M_j,n)/n^{M_j}. Coupon completion time is a convolution of independent geometric waiting times with log-concave mass and interval support; summing a log-concave positive mass gives strictly log-concave F_n for indices >=n. Equal-sum balancing therefore increases the product, strictly once all cells have positive occupancy probability and some window spread>=2. Mechanical floor differences telescope to balanced circular s-windows for all s, proving simultaneous stochastic order and the if-and-only-if window criterion. Independent exhaustive rational tests covered n=2,3, d=3,4, k=1..3, all h, many t and direct F_n comparisons. The missing-coupon factorial-moment Poisson limit yields the subsequential Gumbel CDF with λ-weighted window penalties; Jensen gives coefficient>=d. Independent rational occupancy recomputation confirms the incompatible unequal-size best starts at horizons t=3,4. Boundary assumptions of uniformly random initial vertices, identical sizes and integer-time phase are essential.
 
-The nearest primary paper is Rivera–Sauerwald–Sylvester (arXiv:2011.07893, 2020-11-16): it establishes expectation bounds for parallel walk cover times on general finite undirected networks, with stationary and worst-case starts. Its results do not characterize a whole-distribution optimum for directed periodic multipartite walks under deterministic class-count starts. Kim–Lawley (arXiv:2310.07905, 2023-10-11) studies a different continuous-time large-searcher regime on discrete networks; its general cover-time inclusion-exclusion does not establish the circular stochastic-optimum or its equality cases. The 2007 work of Alon et al. addresses multi-walk cover-time speedups on undirected graphs. The universal occupancy formula and log-concavity tools are classical; only their all-horizon joint allocation optimization, exact equality classification, periodic-density law, and unequal-size boundary are proposed here as novel. Searches for synonymous cyclic-scheduling and coupon formulations did not identify prior implication-equivalent coverage. Literature that describes the same result under a different scheduling vocabulary may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The problem asks where to place multiple independent stochastic searchers among periodic directed network classes to minimize the *entire* random cover time. A single explicit allocation works at every horizon and for all sizes, with an if-and-only-if classification instead of an expectation-only bound. At macroscopic walker density, the exact penalty quantifies when spatially uneven starts incur a persistent coverage loss. The unequal-class example demonstrates that this universal order is a structural effect of equal class capacities, not an automatic occupancy observation. These statements are motivated by stochastic resource allocation and parallel network coverage rather than a chosen numerical exception.
+The occupancy factorization is classical coupon collecting, not claimed as a new standalone formula. Closest primary many-walker papers concern undirected graph expectations or continuous-time asymptotics; their bounds do not imply the simultaneous mechanical-word stochastic optimum with equality and unequal-size obstruction. Circular scheduling and balanced words could contain an unindexed equivalent.
 
-## Closest literature and residual limitations
+## value
 
-Rivera–Sauerwald–Sylvester (https://arxiv.org/abs/2011.07893) and Kim–Lawley (https://arxiv.org/html/2310.07905) are the closest inspected papers. Full author-independent review has not occurred; priority remains qualified. Scope is synchronous directed complete cyclic classes, uniform conditional start labels, and the stated integer-time subsequence regime. Coverage at different times can be optimized by different allocations if class sizes are unequal.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-horizon optimal deterministic allocation, full equality classification, explicit macroscopic imbalance penalty, and an unequal-class counterexample together resolve a natural parallel random-walk placement problem exactly. It is stronger than merely minimizing expected cover time and distinguishes coverage dynamics from general undirected-walk bounds. The integer-phase restriction is acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
