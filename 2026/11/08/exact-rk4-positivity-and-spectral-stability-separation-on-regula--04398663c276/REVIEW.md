@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The final claim applies to finite connected undirected regular bipartite graphs and the final four-stage classical RK4 map. The proof is complete: nonnegative walk-polynomial coefficients for normalized steps at most one; an exact negative distance-three entry for every larger step on noncomplete bipartite support; an explicit three-eigenspace calculation for complete bipartite graphs; and an independent scalar stability polynomial argument placing the spectral endpoint at the unique positive root of the stated cubic. All signs, endpoints, degree scalings, and the weighted extension were reconsidered. The self-contained checker replayed 160 exact polynomial and matrix calculations. Finite checks are supplementary, not the proof of the infinite-family assertion.
+
+## Originality — PASS on inspected evidence
+Known results on absolute monotonicity and classical SSP/linear stability are credited as prior work; the standard normalized-step sufficiency is not treated as new. The distinct statement is the graph-by-graph classification and its strict stability–positivity gap: among connected regular bipartite graphs only the complete bipartite support permits positivity throughout the full RK4 stable interval. Direct comparisons with the identified original articles and several method-specific mathematical records did not show a stronger implication yielding this topology classification. A specialist priority risk remains, including an older primary absolute-monotonicity article for which only bibliographic and abstract material was accessible.
+
+## Value — PASS
+The same stable fourth-order diffusion integrator has an exact, structurally determined positivity cutoff on a natural infinite graph family. The theorem distinguishes a mere spectral CFL condition from a genuine positivity-preserving timestep, shows that this gap is independent of graph size, and supplies a single explicit distance-three entry witnessing failure for every forbidden step. The weighted extension shows the critical obstruction depends on graph support and constant weighted degree rather than equality of edge weights. The complete bipartite exception yields a sharp factor of approximately \(1.39264678\) between allowable normalized steps, a meaningful practical distinction for numerical diffusion and consensus.
+
+## Nearest literature and residual limits
+Kraaijevanger (1986) addresses the absolute monotonicity of stability polynomials; Lóczi and Ketcheson (2013) provide the general stability-function framework; Gottlieb, Grant and Higgs (2014) discuss nonlinear SSP limitations versus linear autonomous systems; Blanes, Iserles and Macnamara (2021) discuss positivity barriers for standard high-order integrators. These do not, in the portions inspected, classify the complete-bipartite exception. Specialist graph-diffusion publications might still contain an equivalent statement. No generality beyond the final stated class or independent verification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
