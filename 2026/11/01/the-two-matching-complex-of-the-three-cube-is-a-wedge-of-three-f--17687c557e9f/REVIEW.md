@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the complete twelve-edge, eight-vertex cube graph at vertex-degree cutoff two. Independent face predicates exhaust all \(4096\) edge subsets, yielding \(1698\) nonempty simplices. An explicit greedy pairing covers \(1692\) of them, and a complete topological sort of the \(846\) lower-cell gradient-path graph verifies Forman acyclicity. The six remaining Morse cells comprise one zero-cell, one four-cell, and four five-cells. Exact signed elimination of all paired four/five incidence pairs gives the row \((-1,1,-1,-1)\). Since the row is primitive and the only lower skeleton is a single four-sphere, the integral homotopy cancellation yields three five-spheres. Independent mod-two boundary ranks corroborate the reduced homology. The standalone code, not the recorded output alone, reconstructs each step.
+## correctness
 
-## Originality — PASS against inspected sources
-The nearest available result for the cube computes the *ordinary* edge matching complex \(M_1(Q_3)\simeq\bigvee^4 S^2\); changing the vertex-degree cutoff from one to two changes the simplicial faces and does not follow from that result. A different recorded result concerns \(M_2(K_{3,4})\), which is not the cube. The primary full texts of Vega's two-matching paper and Singh's forest and complete-(bi)partite classifications have been inspected for their hypotheses and principal results. None yields the exact \(Q_3\), cutoff-two homotopy type. The publicly accessible abstract/summary of the ordinary cube matching result establishes only the different cutoff. Equivalent unindexed work, or an uninspected general monograph table, is a residual literature risk, not proof of uniqueness.
+PASS
 
-## Value — PASS
-The cube is the minimal three-dimensional regular hypercube and a canonical cubic graph. Cutoff two is the first nontrivial degree relaxation after ordinary matchings, distinct from cutoff three, when all edge subsets are allowed and the complex is a simplex. The classification computes a complete integral homotopy type at this natural transition. The surprising shift from four two-spheres for ordinary matchings to three five-spheres at cutoff two is a mathematically interpretable benchmark for comparing higher-matching topology. This is not claimed as an arbitrary large-family theorem.
+I independently enumerated all 4096 subsets of the cube’s 12 graph edges using the degree<=2 predicate; 1698 nonempty faces, dimensions0..7 have exact counts (12,66,212,423,516,352,108,9), matching the forbidden full-degree-three star characterization. The specified staged greedy matching produced 846 disjoint pairs with stage counts (665,94,8,51,8,10,7,0,2,1,0,0), leaving one vertex (mask1), a four-cell (598), four five-cells (888,1446,2710,3158). A full 1698-face/7980-incidence Hasse DAG sort confirmed acyclicity. Independent signed oriented gradient elimination gave exact integer row (-1,1,-1,-1) from the four critical 5-cells to one 4-cell. Since pi4(S4)=Z and the row is primitive, an integral basis change cancels one 4/5 pair and makes other three attaching maps null, yielding ∨3 S5. Independent mod2 ranks (11,55,157,266,250,99,9) give reduced b5=3, but alone would not justify the integral wedge.
 
-## Limits of review
-The proof is computational but exhaustive over a completely specified finite face poset. No general assertion for higher cubes, other regular graphs, or unindexed literature follows. The primary monograph on graph complexes was not fully accessible and is not assigned a blanket negative-coverage verdict.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous exact calculation M1(Q3) uses degree cap1 and cannot imply cap2 homotopy. Vega addresses 2-matchings primarily caterpillars/wheels; Singh 2020 forest theorem requires acyclic graph; Singh higher matching theorems involve K_n/K_{n,n}, not cubic cube Q3. Distinct K3,5 two-matching result not relevant. No direct indexed M2(Q3) homotopy classification found.
+
+## value
+
+PASS
+
+The cube Q3 is a canonical minimal cubic hypercube. Degree cap2 is its one interesting relaxation between ordinary matchings (cap1) and the full edge simplex (cap3). The exact homotopy class contrasts M1(Q3)≈4 S2 with M2(Q3)≈3 S5, a meaningful natural invariant and benchmark for higher matching complexes, without claiming all hypercubes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
