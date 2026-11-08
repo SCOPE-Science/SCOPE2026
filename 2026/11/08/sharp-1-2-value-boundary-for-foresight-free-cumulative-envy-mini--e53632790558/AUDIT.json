@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For all finite {1,2} suffixes, prove that the cost-to-go F is nondecreasing by discrepancy parity and F(2)-F(0) lies in [0,2]. Backward induction then forces the lower-imbalance successor to be globally optimal. Four-good exact opposing assignments prove sharp failure at 3 and at 0; the reverse triangle inequality proves no length-under-four nonnegative counterexample exists. Check.py independently compares direct enumeration, dynamic programming, and the claimed greedy rule on explicitly bounded test domains; finite tests are not invoked as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.09843v1, Section 4: general dynamic programming and greedy binary-valuation proposition; Section 3: general hardness, which does not provide positive {1,2} greedy exactness.",
+        "arXiv:2410.14593v1: temporal EF1 existence, a predicate at each prefix rather than a minimized numerical sum.",
+        "arXiv:2505.22174v1: personalized two-value MMS/EF1/EF2 bounds, not minimization of cumulative maximum envy."
+      ],
+      "reasoning": "A general exact dynamic program can compute an optimum but does not entail that the myopic action is always optimum. Temporal EF1 and MMS results do not dominate sum-of-envy optimality; the parameters and objectives differ. In the originating paper its list-scheduling analysis permits the algorithm to set the item order, so the approximation bound does not cover every fixed order or certify optimality.",
+      "searches": [
+        "temporal fair division two-valued online greedy optimal sum envy",
+        "\"Minimizing Cumulative Envy in Allocating a Sequence of Items\" full text",
+        "online fair division personalized 2-value instances exact cumulative envy",
+        "temporal EF1 versus cumulative maximum envy"
+      ]
+    },
+    "checked_sources": [
+      "Goldberg, Robinson, Teh, arXiv:2610.09843v1 (first public October 7, 2026)",
+      "Elkind et al., arXiv:2410.14593v1 (2024)",
+      "Amanatidis et al., arXiv:2505.22174v1 (2025)",
+      "Targeted searches for cumulative envy, greedy balancing, two positive value sizes, fixed-order temporal allocation and equivalent imbalance minimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.09843v1, Proposition 1: binary identical values {0,1} admit exact greedy with every round at its trivial lower bound. The paper explicitly treats fixed-order non-binary identical valuations by a dynamic program and approximation algorithms.",
+        "A previously stated finite-horizon nonincreasing-sequence bound for up to six arbitrarily valued goods is logically independent of the present arbitrary-horizon positive {1,2} statement.",
+        "arXiv:2410.14593v1 and arXiv:2505.22174v1: related procedural fairness guarantees with distinct predicates."
+      ],
+      "reasoning": "Neither a bounded-six-good real-valued monotone-order result nor a {0,1} any-length result implies a universal {1,2} arbitrary-order statement; 0 in place of 1 is not a harmless shift, because the objective accumulates absolute *sums*. Conversely the new theorem does not imply any arbitrary-real-valued six-good statement. The paper’s dynamic program describes how to compute an optimum, not why its first-step minimizer equals the current-load greedy choice. The value-3 and zero counterexamples delimit the exact new assertion.",
+      "searches": [
+        "\"Minimizing Cumulative Envy\" identical binary greedy Proposition 1 proof",
+        "two agents cumulative envy greedy balancing 1 2 goods optimal",
+        "temporal fair division minimum sum of pairwise envy across prefixes integer item weights at most 2",
+        "two agents identical valuations greedy cumulative envy fixed sequence six goods nonincreasing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldberg–Robinson–Teh, arXiv:2610.09843v1, Section 4 Proposition 1 and Appendix 0.B.1: binary identical {0,1} prefix exactness; no positive {1,2} arbitrary-horizon theorem in inspected statements.",
+        "Goldberg–Robinson–Teh, arXiv:2610.09843v1, Section 5: identical-lowest-first jointly chooses a sorted order and compares to order-optimizing benchmarks, a different optimization domain."
+      ],
+      "reasoning": "This theorem is about absolute load discrepancy for each fixed exogenous arrival sequence, equivalently cumulative maximum directed envy for two agents with identical valuations. It is not equivalent to zero-one prefix balancing: a positive size-two good may force a temporary discrepancy of 2, and a zero-valued good can preserve earlier regret. Nor is a guarantee from sorting the goods equivalent to the fixed-order claim; sorting changes the admissible solutions.",
+      "searches": [
+        "\"cumulative envy\" \"greedy\" \"two agents\" identical valuations",
+        "\"cumulative maximum envy\" \"1 2\" greedy",
+        "\"fixed order\" \"greedy\" \"cumulative envy\" identical",
+        "two-agent identical 1 2 valued items fixed arrival cumulative maximum envy greedy optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary papers provide no explicit exact {1,2}-valued all-length classification or tabulation of the two four-good counterexamples.",
+        "Published results on other fair-division objectives were not a database of exact cumulative-envy optima for the same sequences."
+      ],
+      "reasoning": "The theorem is a uniform statement over infinitely many finite words, so no bounded finite table directly establishes it. The exhaustive computations through length 15 are used only as corroboration and do not stand in for infinite proof; no matching exact sequence table was found in inspected sources.",
+      "searches": [
+        "sharp threshold for greedy minimizing cumulative imbalance 1 2 versus 1 3 goods",
+        "cumulative maximum envy and greedy optimum for identical valuations one or two two agents",
+        "\"1 2\" \"cumulative maximum envy\" greedy \"two agents\"",
+        "\"fixed sequence\" two-agent cumulative maximum envy item sizes one two optimal greedy shortest path"
+      ]
+    },
+    "rationale": "The closest initiating full text proves greedy exactness only for common binary {0,1} values; the new suffix-function parity induction establishes any-horizon fixed-order {1,2} exactness and a sharp positive-alphabet cutoff. Comparison with temporal EF1 and online two-value MMS papers shows different objective and quantifiers. No inspected published statement implies this result, though publication priority remains conditional on available indexing.",
+    "residual_risks": [
+      "Unindexed or differently termed signed-discrepancy dynamic-programming literature may contain an equivalent all-horizon induction.",
+      "A general prior scheduling theorem might imply exactness for sizes {1,2} without explicitly discussing envy; available primary comparisons did not identify one.",
+      "Same-model scientific review is not independent verification of novelty or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state or imply the strictly positive {1,2} arbitrary fixed-order greedy-optimality theorem.",
+        "evidence": [
+          "Proposition 1 in §4 and proof in Appendix 0.B.1 prove binary {0,1} prefix tightness.",
+          "Section 5 sorts the item order and gives approximate guarantees under this additional choice, not exact fixed-order optimality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+        "material_read": "Full accessible HTML text; Introduction and problem definition, Section 3 hardness, Section 4 tractability and Proposition 1, Section 5 ordering algorithm and approximation statements, Appendix 0.B.1 proof and 0.C.5 example.",
+        "method": "Read mathematical statements and proofs in accessible HTML; compare fixed versus variable arrival order and {0,1} versus {1,2} assumptions.",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Same objective and identical-valuations model; especially plausible dominating result."
+      },
+      {
+        "assessment": "Proves temporal per-prefix fairness guarantees but not minimization of the numerical cumulative envy sum.",
+        "evidence": [
+          "Temporal EF1 is an existence and feasibility guarantee, weaker in objective than exact cumulative maximum-envy minimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+        "material_read": "Accessible HTML introduction, definitions, and temporal EF1 results.",
+        "method": "Compare TEF1 predicate to sum of maximum envy and compare heterogeneity and valuation restrictions.",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Greedy balancing of temporal item allocations and possible stronger statement."
+      },
+      {
+        "assessment": "Does not provide the exact cumulative-maximum-envy optimization claim.",
+        "evidence": [
+          "The main criteria are MMS, EF1, and EF2 guarantees for personalized values, not an exact sum-over-prefixes objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.22174",
+        "material_read": "Accessible HTML introduction, formal model, and main MMS/EF1/EF2 guarantee statements.",
+        "method": "Inspect objective and setting relative to fixed-order identical valuations and exact cumulative envy.",
+        "title": "Online Fair Division for Personalized 2-Value Instances",
+        "trigger": "Potential general two-value online-fairness coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5363279-0558-4151-97d0-1d37c4f0a187",
+  "value": {
+    "rationale": "Cumulative envy is the principal numerical objective of the initiating work, where unrestricted two-agent identical values are hard and {0,1} is the tractable benchmark. Allowing values {1,2} introduces nontrivial temporary imbalance and no pointwise-best prefix rule, yet the simple online rule remains optimal against full foresight for all arrival orders. The exact {1,2}-versus-3 and positivity-versus-zero boundaries clarify the first structural enlargement and failure of a natural fairness algorithm; not merely a bounded enumeration.",
+    "status": "PASS"
+  }
+}
