@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T02:59:19.363828Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/a-torsion-staircase-through-five-in-doubles-of-cyclic-six-polyto--c55250862e38/RESULT.md",
+        "2026/11/01/a-torsion-staircase-through-five-in-doubles-of-cyclic-six-polyto--c55250862e38/verify.py"
+      ],
+      "rationale": "PASS. The finite domain is exactly 7<=m<=16, with K_m=boundary of cyclic C(m,6) and double vertices unordered two-sets; faces are matchings whose union is a Gale-evenness facet face. Independently regenerated all Gale 6-facets, every 1/2/3-pair face, and full 2-dimensional simplicial poset for every m=7..16. Independently performed a complete sequential-toggle acyclic matching, directed-Hasse DAG topological sorting for every face, and oriented integer gradient-path Morse boundary, Hermite+Smith normal forms (with a separate program, not merely checking the reported stdout). The ten facet counts (7,16,30,50,77,112,156,210,275,352), all face vectors, critical cells and exact invariant factors agreed with source table: H1 torsion Z/3 at m=7; Z/2, Z/3, Z/4, Z/5 at m=10,12,14,16; no torsion at 8,9,11,13,15; H1 free ranks 0,15,0,24,0,35,0,48,0,63 and H2 ranks 20,78,134,263,384,610,818,1167,1484,1982. Raw and Morse modular ranks were independently cross-checked for primes 2,3,5,7. In particular m=16 Morse d2 has rank110, nonunit Smith factor5; H1=Z^63+Z/5, H2=Z^1982. The result claims only this finite range; no extrapolation to m>16.",
+      "residual_risks": [
+        "The observed even-m torsion progression 2,3,4,5 is a finite staircase, not a theorem for higher m.",
+        "Higher homotopy classification and automorphism representations are unproved.",
+        "Equivalent unindexed computations in combinatorial topology may preexist."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lesh–Schreiner–Wahl arXiv:2506.10436v1 Theorem A covers connectivity of D(K) for arbitrary weak Cohen–Macaulay K but not explicit integral homology ranks or torsion of D(boundary C(m,6)).",
+          "Gale evenness gives the facet list of cyclic polytope, a construction ingredient not a double-homology theorem."
+        ],
+        "reasoning": "Neither general connectivity nor Gale facets dominate the exact torsion table; both are inputs to the nontrivial full integral chain computation.",
+        "searches": [
+          "Resultary semantic: double simplicial complex cyclic polytope boundary torsion H1 Z/5 m16 Gale evenness",
+          "https://arxiv.org/html/2506.10436v1",
+          "https://arxiv.org/abs/1203.5650"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py, requirements.txt, METADATA.json, REVIEW.md from exact frozen Git trees",
+        "Fresh independent full Gale-face, Hasse-Morse, exact HNF/SNF and modular calculations m=7..16 using SymPy",
+        "K. Lesh, B. Schreiner, N. Wahl, The double of a simplicial complex, arXiv:2506.10436v1 (full arXiv HTML)",
+        "J. Jonsson, Five-Torsion in the Homology of the Matching Complex on 14 Vertices, arXiv:1203.5650",
+        "M. Bayer, T. Bisztriczky, On Gale and braxial polytopes, arxiv:math/0610940",
+        "Resultary semantic torsion/double cyclic boundary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jonsson 5-torsion result is on the ordinary matching complex on 14 vertices; the present m16 doubled cyclic boundary is not it.",
+          "Lesh et al connectivity theorem is compatible with many distinct H1 torsion possibilities; no determinant or Smith invariant fixed."
+        ],
+        "reasoning": "The finite invariant-factor table cannot be obtained by a parameter relabeling from either prior claim; it required complete new Gale matching and signed integral matrices.",
+        "searches": [
+          "Resultary semantic: double simplicial complex cyclic polytope boundary torsion H1 Z/5 m16 Gale evenness",
+          "https://arxiv.org/html/2506.10436v1",
+          "https://arxiv.org/abs/1203.5650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Double D(K) has vertices edges of K and selected disjoint pairs whose union must be a face of K; an ordinary complete-graph matching complex drops the K-face restriction.",
+          "The original cyclic polytope is a simplicial 5-sphere, but the double is two-dimensional and can exhibit H1 torsion."
+        ],
+        "reasoning": "The matching-complex alias is valid only for K a full simplex; cyclic boundary introduces genuine forbidden six-vertex pairings, so general matching torsion cannot be directly reused as this table.",
+        "searches": [
+          "Resultary semantic: double simplicial complex cyclic polytope boundary torsion H1 Z/5 m16 Gale evenness",
+          "Exact source: https://arxiv.org/html/2506.10436v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10-by-2 complete reduced H1/H2 table has torsion invariants 3,2,3,4,5 at m7,10,12,14,16, with m16 uniquely Z/5 in indicated range.",
+          "Resultary returned unrelated lens-space and matching-complex torsion tables, not this cyclic-boundary doubling family."
+        ],
+        "reasoning": "No exact same-natural-family table found; those unrelated tables concern different chain complexes. Search failure is not conclusive priority proof.",
+        "searches": [
+          "Resultary semantic: double simplicial complex cyclic polytope boundary torsion H1 Z/5 m16 Gale evenness",
+          "Resultary published SCOPE corpus semantic hits, object and parameter comparison"
+        ]
+      },
+      "rationale": "PASS on checked source implications. Lesh–Schreiner–Wahl arXiv:2506.10436v1 defines the double and proves connectivity bounds using weak Cohen–Macaulay hypotheses; its full arXiv HTML does not state the cyclic-six-polytope exact integral H1/H2 table or order-five m=16 fact. Jonsson arXiv:1203.5650 gives Z/5 torsion for the ordinary matching complex on 14 vertices, a different complex (all disjoint pairings allowed), hence does not imply torsion in doubles of cyclic boundaries. No exact published table of these ten cyclic-boundary doubles was found in the searches, with standard risk of unindexed equal computations.",
+      "residual_risks": [
+        "The observed even-m torsion progression 2,3,4,5 is a finite staircase, not a theorem for higher m.",
+        "Higher homotopy classification and automorphism representations are unproved.",
+        "Equivalent unindexed computations in combinatorial topology may preexist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL; DOES NOT GIVE EXACT TABLE",
+          "evidence": "General connectivity theorem does not compute integral torsion for doubles of cyclic six-polytope boundaries.",
+          "identifier_or_url": "https://arxiv.org/html/2506.10436v1",
+          "material_read": "Accessible full primary HTML, Definition 2.1, Theorem A, overview of double construction and scope, searched for cyclic-polytope and torsion comparison",
+          "method": "Read entire relevant full text and searched exact objects/parameters",
+          "title": "The double of a simplicial complex",
+          "trigger": "Defines exactly D(K) and studies general topology"
+        },
+        {
+          "assessment": "DIFFERENT COMPLEX",
+          "evidence": "Unrestricted matchings on K14 differ from edge pairings constrained by cyclic six-polytope boundary faces.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.5650",
+          "material_read": "Accessible abstract and mathematical statement only, complete article not read",
+          "method": "Compared strict double face admissibility with ordinary matching complex",
+          "title": "Five-Torsion in the Homology of the Matching Complex on 14 Vertices",
+          "trigger": "Exact same torsion order five in related matching construction"
+        },
+        {
+          "assessment": "BACKGROUND ONLY",
+          "evidence": "Gale facets alone imply no first integral homology invariant factors for D(K).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0610940",
+          "material_read": "Accessible abstract/known criterion as cited, no full-text inspection",
+          "method": "Checked that evenness is used only to enumerate source boundary facets",
+          "title": "On Gale and braxial polytopes",
+          "trigger": "Cyclic-polytope Gale evenness facet criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify.py, requirements.txt, METADATA.json, REVIEW.md from exact frozen Git trees",
+        "Fresh independent full Gale-face, Hasse-Morse, exact HNF/SNF and modular calculations m=7..16 using SymPy",
+        "K. Lesh, B. Schreiner, N. Wahl, The double of a simplicial complex, arXiv:2506.10436v1 (full arXiv HTML)",
+        "J. Jonsson, Five-Torsion in the Homology of the Matching Complex on 14 Vertices, arXiv:1203.5650",
+        "M. Bayer, T. Bisztriczky, On Gale and braxial polytopes, arxiv:math/0610940",
+        "Resultary semantic torsion/double cyclic boundary search"
+      ],
+      "rationale": "PASS. Doubling is a natural recently introduced functor; six-dimensional cyclic polytopes are canonical neighborly polytopes with explicit Gale facets and natural smallest m=7. Exact integral homology through m=16, including the first order-five torsion and alternating free/torsion behavior, is a useful fully determined natural-family finite classification; no larger or infinite formula is needed for a meaningful exact invariant and no unsupported infinite torsion claim is made.",
+      "residual_risks": [
+        "The observed even-m torsion progression 2,3,4,5 is a finite staircase, not a theorem for higher m.",
+        "Higher homotopy classification and automorphism representations are unproved.",
+        "Equivalent unindexed computations in combinatorial topology may preexist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, verify.py, requirements.txt, METADATA.json, REVIEW.md from exact frozen Git trees",
+    "Fresh independent full Gale-face, Hasse-Morse, exact HNF/SNF and modular calculations m=7..16 using SymPy",
+    "K. Lesh, B. Schreiner, N. Wahl, The double of a simplicial complex, arXiv:2506.10436v1 (full arXiv HTML)",
+    "J. Jonsson, Five-Torsion in the Homology of the Matching Complex on 14 Vertices, arXiv:1203.5650",
+    "M. Bayer, T. Bisztriczky, On Gale and braxial polytopes, arxiv:math/0610940",
+    "Resultary semantic torsion/double cyclic boundary search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The observed even-m torsion progression 2,3,4,5 is a finite staircase, not a theorem for higher m.",
+    "Higher homotopy classification and automorphism representations are unproved.",
+    "Equivalent unindexed computations in combinatorial topology may preexist."
+  ],
+  "residual_risks": [
+    "The observed even-m torsion progression 2,3,4,5 is a finite staircase, not a theorem for higher m.",
+    "Higher homotopy classification and automorphism representations are unproved.",
+    "Equivalent unindexed computations in combinatorial topology may preexist."
+  ],
+  "schema_version": 1
+}
