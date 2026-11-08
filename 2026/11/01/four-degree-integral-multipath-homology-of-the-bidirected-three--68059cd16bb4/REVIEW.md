@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two independent enumerations of all directed path forests in the bidirected cube agree on 6,496 nonempty simplices. The complete 29,136-incidence matching is acyclic, and exact integral Morse contraction leaves only two unit rank-one boundary maps. The resulting chain complex is torsion-free and has the stated four Betti ranks. The one-vertex low-dimensional Morse skeleton proves 2-connectivity and identifies the third homotopy group by Hurewicz. The proof does not mistake mod-two calculations for integral results.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The closest full-text primary paper (Caputi–Collari–Smith, 2026, arXiv:2601.05670v1) determines bidirectional path/polygon topology, not the bidirected cube. The earlier full-text paper (Caputi–Collari–Di Trani–Smith, 2022, arXiv:2208.04656v1) treats specifically one-way oriented grid products. Reports about the ordinary cube Morse and matching complexes concern different simplicial constructions, and the bidirected double-star result concerns trees. Searches for cube aliases, partial-injection formulations, and the exact four-degree vector did not identify a covering statement. Undiscovered equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The three-dimensional cube is a natural first non-polygonal cubical test for multipath topology; all its vertices have three bidirectional branches. The resulting four consecutive reduced homology groups and exact integral torsion-freeness document substantial higher-dimensional structure, supply a benchmark for product-digraph methods, and avoid claiming a wedge decomposition that the evidence does not establish.
+Independent enumeration as all partial injective neighbor maps on the eight cube vertices, rejecting directed cycles, gives exactly 6496 nonempty multipath faces with f-vector (24,216,928,2016,2160,1008,144). Independent reproduction of the explicit 24-arc toggle order gives 3196 disjoint Morse pairs and critical counts (1,0,0,7,47,37,12) in dimensions 0..6; topological sort of all 6496 cells/29136 oriented incidences establishes global acyclicity. An independently formed exact integer Morse boundary has only ∂4 and ∂5 nonzero, each rank1 with Smith invariant (1), and ∂6=0; chain composition is zero. Thus torsion-free reduced H3=Z6,H4=Z45,H5=Z36,H6=Z12. The critical CW model has one vertex and no critical 1- or 2-cells, so it is 2-connected and Hurewicz gives pi3=Z6. This does NOT claim full homotopy equivalence to a wedge.
 
-**Scientific limitation.** The full homotopy type and higher-dimensional cube formulas are not determined, and the result is not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full-text comparison with Caputi–Collari–Smith on bidirected polygons and Caputi–Collari–Di Trani–Smith on differently oriented grids revealed no theorem with hypotheses encompassing the fully bidirected degree-three cube; the same undirected cube Morse or matching complexes define different simplices. The exact integral vector and low connectivity remain best-of-knowledge new with residual risk of an unindexed cube computation.
+
+## value
+
+PASS
+
+The three-cube is the smallest natural higher-dimensional hypercube with multiple intersecting directed cycles and three outgoing directions, a structural boundary beyond bidirected path/polygon cases. Its four consecutive torsion-free homology degrees and 2-connectivity are exact benchmark invariants needed for comparison with possible cubical product formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
