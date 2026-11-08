@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedure and scope
+# Independent mathematical audit
 
-Use Python 3 standard library and run `python3 verify.py` beside this document. The checker reconstructs the two projective flow matrices from the stated positive physical parameters and logarithmic durations; uses exact integer arithmetic for both composition products and the quadratic numerator; verifies positive/negative/positive numerator signs at adopters \(0,1/2,1\); confirms the two simple interior roots and individual positive equilibria; and independently integrates each continuous stage using fixed-step fourth-order Runge–Kutta at 200 reproducible initial conditions to compare against the exact flow formula. All checks in the supplied run succeeded. No nonstandard package, external data, randomness without a fixed seed, or remote service is required.
+## correctness
 
-The universally quantified upper bound is supported by the elementary degree-two proof, not by numerical sampling. The common-equilibrium obstruction follows from two equal first derivatives and a double polynomial root, not from tests. Numerical integration is an additional consistency check and supplies no separate global proof or independently performed audit. Historical priority is not established by the program.
+PASS
+
+Scalar fields p+(q-p-r)x-qx^2 point inward at 0 and 1. Each time-T Riccati flow is a positive-denominator fractional linear map induced by exp(TL), with off-diagonal positive and diagonal positive because sigma>|beta|. The two projective compositions have quadratic numerator N and everywhere-positive denominator, proving at most two sign changes for arbitrary strictly positive model parameters. Independently multiplied exact positive matrices A=(40,12;14,62), B=(34,4;30,32), recovering N=128(3697x^2-3962x+493). Exact signs at x=0,1/2,1 are +,-,+; two simple roots lie in (0,1), attained for p1=6,q1=7,r1=12,T1=log2/17 and p2=2,q2=15,r2=12,T2=log2/11. Continuity retains two roots under small common-attrition perturbation. A common equilibrium e is fixed by both maps; equal composition derivatives force N(e)=N_prime(e)=0; degree<=2 implies constant sign. The attrition-free Bass boundary e=1 follows though not assumed in positive-attrition theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The exact positive matrices and inward-pointing physical parameters supply a nontrivial existence witness, while the common fixed-point obstruction is derived in the same setting. Unlocated broader Riccati-order results are residual risk.
+
+## value
+
+PASS
+
+A two-intervention marketing sequencing comparison is naturally state dependent. Exhibiting two strict crossovers despite identical positive customer departure contradicts a tempting single-threshold ordering heuristic; the universal quadratic ceiling and robust, fully physical witness show sharpness. The shared-equilibrium obstruction explains the no-attrition boundary. This is a motivated counterexample/classification inside a model, not a claim of empirical policy optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
