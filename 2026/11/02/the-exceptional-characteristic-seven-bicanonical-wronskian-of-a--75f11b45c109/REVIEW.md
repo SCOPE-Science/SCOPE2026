@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six sections are a complete basis of \(H^0(2K)\), and the determinant reduces exactly to the final Hasse derivative. The polynomial recursion in \(\mathbb F_7[x,t]\) proves that the ordinary determinant has a single reduced parameter factor and that the next nonzero determinant at the exceptional curve occurs at order seven. The global section is in \(K^{29}\); valuations at all branch, ordinary finite, and infinite points give the listed zero divisor of degree \(116\), equal to \(29(2g-2)\). The independent-on-paper reconstruction was checked against the attached exact arithmetic script. No finite enumeration is substituted for the parameter-uniform identity.
+## correctness
 
-## Originality — PASS, with historical risk
-Shaska--Shor compute ordinary characteristic-zero 2-Weierstrass Wronskians for related octavics, which provide essential precedent, and general Stöhr--Voloch theory implies how to form higher Hasse Wronskians. The specific characteristic-seven exceptional Hasse order sequence, the reduced nonclassical parameter scheme, and the complete evaluated higher Hasse-Wronskian divisor were not found in the inspected primary sections or matched mathematical records. These are not inferred from the earlier Hasse--Witt/\(7\)-rank stratum computation for the same special curve. Some older literature on large-automorphism or Roquette-type genus-three curves may contain an equivalent formulation; complete historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-A positive-characteristic jump in the generic orders of a natural complete linear series makes the ordinary characteristic-zero Weierstrass divisor the wrong invariant on the exceptional fiber. Determining both the reduced jump locus and the replacement degree-\(116\) ramification divisor resolves the precise degeneration in a classical symmetry-rich genus-three pencil, with geometric support and multiplicities explicit.
+Riemann–Roch gives dimension 6 and sections (1,x,x^2,x^3,x^4,y)(dx/y)^2 as a basis. The triangular Hasse derivative determinant reduces to D^(j)y. The polynomial recursion for B_j=y^(2j-1)D^(j)y gives B5=3t(t²-4)x^7(x^8-1)F, B5=B6=0 at t=0, and nonzero explicit B7. Reduced nonclassical parameter ideal follows from coefficient -3t(t²-4). Global Wronskian K^29 and valuations give eight branch points of weight4, 80 other nonbranch roots plus two zeros and two infinity points of weight1, degree116. Independent SymPy GF7 identities checked j<=7; local divisor argument is mathematical, not finite testing.
 
-## Limits
-The result concerns the marked characteristic-seven hyperelliptic pencil, and its weights use the characteristic-seven Hasse order sequence. No theorem on all genus-three curves or all characteristics is claimed. General historical work may imply a reformulation of the evaluated calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shaska–Shor study characteristic-zero ordinary bicanonical Wronskians of genus-three octavic curves with extra automorphisms; Stöhr–Voloch supplies the general positive-characteristic Hasse-order formalism. Neither inspected statement is the evaluated char7 exceptional parameter, reduced nonclassical scheme, and degree116 higher Hasse-Wronskian divisor. Special-curve literature may encode an equivalent ramification sequence, retained as residual risk.
+
+## value
+
+PASS
+
+Exceptional nonclassical Hasse orders and inflection divisors in positive-characteristic algebraic curves are natural geometric invariants; the complete reduced parameter stratum and degree-116 weighted divisor give an exact boundary case beyond characteristic-zero formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

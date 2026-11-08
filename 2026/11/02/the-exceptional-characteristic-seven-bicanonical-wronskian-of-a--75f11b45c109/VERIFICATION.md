@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 standard library only. Its sparse-polynomial arithmetic in \(\mathbb F_7[x,t]\) checks the seven Hasse-recursion stages, the factorization of the ordinary order-five Wronskian, the order-six vanishing and order-seven nonvanishing on the exceptional curve, and the equality \(B_7(x,0)(x^8+1)=x(1-x^{48})/2\). The script independently checks the three nonzero Hasse--Witt coefficients as contextual cross-checks; it does not claim a new Hasse--Witt classification. It verifies the numerical degree of the divisor. The recorded standard output is `verify_output.txt`.
+## correctness
 
-The proof, rather than the script, supplies the complete bicanonical basis, the Hasse-order determinant criterion, the globalization of the Hasse Wronskian, and local valuations at the branch points and both points at infinity. The recurrence is an identity of polynomials in the free parameter, rather than a sample of parameter values. Literature comparisons remain a same mathematical model historical-priority assessment, not independent peer review.
+PASS
+
+Riemann–Roch gives dimension 6 and sections (1,x,x^2,x^3,x^4,y)(dx/y)^2 as a basis. The triangular Hasse derivative determinant reduces to D^(j)y. The polynomial recursion for B_j=y^(2j-1)D^(j)y gives B5=3t(t²-4)x^7(x^8-1)F, B5=B6=0 at t=0, and nonzero explicit B7. Reduced nonclassical parameter ideal follows from coefficient -3t(t²-4). Global Wronskian K^29 and valuations give eight branch points of weight4, 80 other nonbranch roots plus two zeros and two infinity points of weight1, degree116. Independent SymPy GF7 identities checked j<=7; local divisor argument is mathematical, not finite testing.
+
+## originality
+
+PASS
+
+Shaska–Shor study characteristic-zero ordinary bicanonical Wronskians of genus-three octavic curves with extra automorphisms; Stöhr–Voloch supplies the general positive-characteristic Hasse-order formalism. Neither inspected statement is the evaluated char7 exceptional parameter, reduced nonclassical scheme, and degree116 higher Hasse-Wronskian divisor. Special-curve literature may encode an equivalent ramification sequence, retained as residual risk.
+
+## value
+
+PASS
+
+Exceptional nonclassical Hasse orders and inflection divisors in positive-characteristic algebraic curves are natural geometric invariants; the complete reduced parameter stratum and degree-116 weighted divisor give an exact boundary case beyond characteristic-zero formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
