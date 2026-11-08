@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:53:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595/2026/10/25/the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595/2026/10/25/the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595/2026/10/25/the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec/VERIFICATION.md",
+        "Independent exact-rational Laplacian calculations, privately saved as check_math_quick.py and check_output.txt, n3..18",
+        "Independently reconstructed Git source tree from eight blob hashes, SHA b45e2831ab01a1a071d63896a14d0f15dc69e8b4"
+      ],
+      "rationale": "For W_n=K1 join C_n with n>=3, unit edges and independent unit Brownian follower noise, dX_F=-L_FF X_F dt+dB_F gives stationary trace covariance exactly tr(L_FF^-1)/2. The two-shorted-terminal effective-resistance formula follows from minimizing an unrestricted quadratic energy split (negative component currents are permitted); summing over all vertices equals the grounded inverse trace. For T=3I-A(C_n), solving the exact circular recurrence establishes G_d=(q^d+q^(n-d))/(sqrt5(1-q^n)), with q=(3-sqrt5)/2, and sum_v resistances to one rim vertex=(2n+1)G_0-2. Differences between rim potentials give sum_v(r(v,a)-r(v,b))^2=8((T^-2)_00-(T^-2)_0d), and -d/da log(G_0(a)-G_d(a)) at a=3 gives the claimed R_n(d). For hub+rim, differentiating the path tridiagonal determinant gives H_n. On 0<d<n/2, s_n(d) grows strictly and phi(d)+phi(n-d) falls strictly because phi(t)=t/(e^{ct}-1) is strictly convex; thus maximum separation uniquely minimizes rim pairs. Direct rational n=3..8 comparisons establish all boundary cases (n=3 all 6 pairs tie at 3/4; n=4..6 opposite rim pair; n=7 hub+rim). For every n>=8, R_n(d)-H_n > delta_n=(n+1)/(2sqrt5)-2-(phi(n)+phi(2n))/sqrt5, delta_8=33sqrt5/10-36362/4935>0, and delta_n increases because phi is decreasing. Therefore n>=7 hub/rim is uniquely optimal by type, counting n rotations; no extrapolation from finite computations. Independent Python built exact integer grounded Laplacians, inverted them over rationals and compared 96 leader-pair orbit-class costs (n3..18), including 80 rim distances, to formulas. The exact cyclic Green inverse entries were compared to the closed form for all n3..29; n3..8 rational table verified. Git tree independently recomputed from eight actual blob SHAs and matched b45e2831ab01a1a071d63896a14d0f15dc69e8b4.",
+      "residual_risks": [
+        "The statement is exactly for integer rim size n>=3, perfect two-leader pinning, unit undirected conductance, homogeneous independent follower noise; it does not address weighted spokes, finite-gain/noisy leaders or 3+ leaders.",
+        "The 96 finite exact inversions and 27 Green-kernel size checks are corroboration; infinite n conclusion rests on analytic convexity/monotonicity and uniform delta bound.",
+        "SymPy check is a separately built direct matrix test, not an external formal proof or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patterson–McGlohon–Dyagilev 1412.6595 gives efficient optimal leader selection for one-dimensional paths/rings, not wheels.",
+          "Patterson–Yi–Zhang 1708.06873 provides graph-general resistance formulations and explicit path/cycle/tree optimization results, not wheel all-size minimizer classification.",
+          "General optimization algorithms exist, but a solver applicable to any graph does not itself state these strict placements and closed wheel transition laws."
+        ],
+        "reasoning": "A wheel with a universal hub is not a path, ring, or tree. General network-wide objective/algorithm machinery does not by logical implication yield the precise hub/rim switch without solving the wheel inequalities. Published Resultary findings surfaced other wheel invariants and cycle sensor criteria, with different objective parameters.",
+        "searches": [
+          "Resultary: wheel graph resistance-based optimal leader selection stochastic consensus two leaders sharp threshold",
+          "Resultary: optimal leader locations on cycle with universal hub wheel graph two leaders coherence",
+          "arxiv:1412.6595 §I-III",
+          "arxiv:1708.06873 §IV and Appendix B",
+          "wheel topology optimal leader selection coherence H2 pinned multiple leaders"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1407.1569 full PDF, Section V and Appendices A-B",
+        "arxiv:1412.6595 full PDF, Sections I-III",
+        "arxiv:1708.06873 full PDF, Sections I, III-IV and Appendix B",
+        "https://doi.org/10.1109/TAC.2014.2356694 accessible overview only",
+        "Resultary: two pinned noise-free leaders minimizing H2 coherence trace inverse grounded Laplacian wheel graph hub rim optimal switch at seven rim vertices",
+        "Resultary: wheel graph resistance-based optimal leader selection stochastic consensus two leaders sharp threshold",
+        "Resultary: optimal leader locations on cycle with universal hub wheel graph two leaders coherence",
+        "wheel graph two leaders coherence optimal consensus",
+        "wheel networks leader selection two leaders noisy",
+        "wheel graph grounded Laplacian two leader optimal trace",
+        "wheel topology optimal leader selection coherence H2 pinned multiple leaders",
+        "wheel graph optimal leaders steady state variance noisy consensus two leaders hub spokes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1407.1569: cycle proof exploits transitivity; wheel hub differs in degree.",
+          "arxiv:1412.6595: algorithm and proof rely on the one-dimensional path/ring topology.",
+          "arxiv:1708.06873: general resistance formula specializes to any graph, but explicit optimality results do not include wheel networks; the new proof performs nontrivial graph-specific optimization."
+        ],
+        "reasoning": "A published general formula for evaluation of arbitrary S does not contain a strict optimal leader-set decision rule for W_n; applying it requires computing hub and rim formulas and proving inequalities and threshold. Prior cycle/path/tree optimizer statements have incompatible graph hypotheses. Thus the additional all-wheel classification is not an immediate existing special case of the inspected theorems.",
+        "searches": [
+          "Fitch–Leonard arxiv:1407.1569 Corollary 1, Section V C-D, Appendix A-B",
+          "Patterson–McGlohon–Dyagilev arxiv:1412.6595 Sections I-III",
+          "Patterson–Yi–Zhang arxiv:1708.06873 Section IV Appendix B",
+          "wheel graph optimal leaders steady state variance noisy consensus two leaders hub spokes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noise-free leader H2 coherence is proportional to trace of the grounded Laplacian inverse; joint centrality and effective-resistance formulations are mathematically equivalent objectives (Fitch–Leonard 1407.1569; Patterson–Yi–Zhang 1708.06873).",
+          "The two-leader placement corollaries inspected in 1407.1569 concern cycles and paths; all rim vertices are symmetric in the cycle, unlike the hub/rim wheel.",
+          "The general resistance approach 1708.06873 offers evaluation identities, not an explicit all-n wheel optimizer switch."
+        ],
+        "reasoning": "Equivalent stochastic stability, grounded Green trace, H2 variance, joint-centrality, and electrical resistance objectives were explicitly compared. Their universal evaluation formulas underlie rather than mechanically settle a global comparison of non-equivalent two-leader sets in wheels; the proof supplies additional strict d- and n-inequalities.",
+        "searches": [
+          "Resultary: two pinned noise-free leaders minimizing H2 coherence trace inverse grounded Laplacian wheel graph hub rim optimal switch at seven rim vertices",
+          "Resultary: wheel graph resistance-based optimal leader selection stochastic consensus two leaders sharp threshold",
+          "arxiv:1407.1569 §V C,D and Appendix A",
+          "arxiv:1708.06873 §III-IV",
+          "wheel graph two leaders coherence optimal consensus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No queried Resultary finding specified n=3.. all wheel two-leader grounded-Laplacian trace optima or n=7 hub switch. Top related results were cycle two-sensor frame bounds and wheel cover-free numbers, neither is H2 leader placement.",
+          "The exact small-n comparison table (3/4, 31/30, 67/44, 2, 31/12, 221/70 for optimal rim pair) and all-size threshold were absent from examined primary theorems."
+        ],
+        "reasoning": "Checked exact parameter equality, graph class and objective rather than keyword overlap; no existing table found in inspected text or semantic records, but negative search alone is not proof of novelty.",
+        "searches": [
+          "Resultary: two pinned noise-free leaders minimizing H2 coherence trace inverse grounded Laplacian wheel graph hub rim optimal switch at seven rim vertices",
+          "Resultary: wheel graph resistance-based optimal leader selection stochastic consensus two leaders sharp threshold",
+          "Resultary: optimal leader locations on cycle with universal hub wheel graph two leaders coherence",
+          "wheel networks leader selection two leaders noisy",
+          "wheel graph grounded Laplacian two leader optimal trace"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact all-size, all-pair wheel optimizer classification with its strict hub/rim transition at n=7, not for the general H2 objective, grounding/effective-resistance identity, cycle Green resolvent, or generic network optimization framework. The three primary arXiv papers were compared in full-text at their hypotheses and specialized conclusions; Resultary published-result searches and web searches found no dominating exact wheel classification. This is not historical-priority certification.",
+      "residual_risks": [
+        "Wheel H2 leader-location theorem might exist under different network topology, pinning or joint-centrality terminology outside indexed primary sources.",
+        "A general optimization identity can be specialized by other authors to the same wheel threshold without using the same formulas; searches do not certify absence.",
+        "The additional general-leader-selection algorithms article was not read in full; no whole-document negative coverage conclusion is claimed.",
+        "No independent proof of novelty or external certification; this is best-of-knowledge mathematical comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general joint centrality and specialized path/cycle optimizers. Wheel has degree-distinguished hub and is not covered by the cited cycle/path optimal placement classification.",
+          "evidence": [
+            "Section V C solves a vertex-transitive unweighted cycle (and an even-cycle corollary); Section V D treats paths.",
+            "Appendix A exploits cycle circulant symmetry; wheel hub is not transitive with rim.",
+            "General joint-centrality formula is accepted prior input, but an optimization over all wheel two-leader pair types and n is not directly stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Full arXiv PDF: abstract, model and joint-centrality objective, Corollary 1 and Section V C cycle case, Section V D path case, Appendices A-B cycle arguments and conclusion",
+          "method": "Read arXiv full-text PDF sections, locate relevant corollaries/appendices, and inspect rendered page (screen) of the actual PDF",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Direct prior general two-leader H2/joint centrality formulas and possible all-graph optimizer"
+        },
+        {
+          "assessment": "The main algorithm is for path and ring formations, not a wheel with a hub connected to all ring vertices.",
+          "evidence": [
+            "Abstract and Sections I-III explicitly restrict exact graph-class algorithms to one-dimensional paths and rings.",
+            "The wheel has additional spokes and a non-transitive hub, hence is not a ring/path special case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+          "material_read": "Full-text arXiv PDF: abstract, introduction, objective, model and Sections I-III path/ring algorithm scope, first-page render",
+          "method": "Read and search arXiv paper including graph-class hypotheses; inspect rendered PDF page",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Potential exact algorithm or classification that dominates wheel leader placement"
+        },
+        {
+          "assessment": "General resistive identities cover evaluation on wheel networks but published explicit optimal leader types are paths/cycles/selected trees, not an all-size strict wheel optimizer.",
+          "evidence": [
+            "Introduction and Section IV list paths, cycles and perfect/tree cases.",
+            "The resistance identity is a general antecedent; additional wheel Green-kernel and n-threshold inequalities are not directly implied by those graph-specific theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+          "material_read": "Full-text arXiv PDF: abstract, Section I, grounded consensus objective, Sections III-IV specialized graph classes, Appendix B trees, and first-page render",
+          "method": "Read primary arXiv PDF with rendered-page check, search the wheel family and compare precise optimization hypotheses",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "General resistance-based graph theory may subsume every grounded-wheel optimization"
+        },
+        {
+          "assessment": "General algorithm and graph optimization framework relevant, but absence of wheel theorem cannot be inferred from accessible abstract alone.",
+          "evidence": [
+            "The inspected overview concerns stochastic leader-selection algorithms and semidefinite/combinatorial optimization generally."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2356694",
+          "material_read": "Accessible abstract/overview and indexed source metadata; not asserted as complete paper inspection",
+          "method": "Read web search result and accessible publication description; no full-text claim",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "General network-wide leader-selection algorithms could encode the same wheel threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fitch–Leonard 1407.1569 network H2/joint centrality motivation",
+        "Patterson–McGlohon–Dyagilev 1412.6595 path/ring leader optimization",
+        "Patterson–Yi–Zhang 1708.06873 exact graph placement objectives",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595/2026/10/25/the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec/RESULT.md"
+      ],
+      "rationale": "Optimal placement of two noise-free leaders minimizing H2 coherence/steady-state variance is a mathematically motivated network-control problem. The unweighted wheel is a natural symmetric rim with structurally distinct hub, where coverage (opposite rim pins) competes against centrality (hub pin). The sharp switch at n=7, all placement equality cases, exact optimal costs and strict pair-distance ranking classify an infinite family rather than arbitrary tiny instances. The result provides a sharp, reproducible benchmark for network-design and leader-selection algorithms and illustrates a topological phase change not obtained by merely naming a known generic resistance objective.",
+      "residual_risks": [
+        "Unweighted wheel and ideal independent disturbances are a special model; no general-network, weighted or multiple-leader theorem claimed.",
+        "This is an exact classification on a natural graph family, not claimed as universal theory of network centrality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No historical-priority certification; the three strongest prior papers were compared and possible unindexed equivalent wheel theorem remains.",
+    "Public-facing METADATA.json and AUDIT.json retain scope_run_id operational provenance; full sanitized replacement bytes and verified SHA-256 guards have not been staged. Withhold publication until sanitized source files are complete and reviewed.",
+    "No publication, GitHub write or server report performed."
+  ],
+  "schema_version": 1
+}
