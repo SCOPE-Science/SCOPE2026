@@ -1,15 +1,21 @@
-# Review of a twisted-versus-cylindrical Hamiltonian switch theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact domain is the two cubic ribbon graphs with \(2n\) vertices for every integer \(n\geq5\). The proof identifies the rung set of each Hamiltonian cycle, shows that every nonempty proper rung set decomposes into forced pairs of adjacent columns, and proves that \(r\) selected column cuts create exactly \(r\) disjoint circuits. It separately treats zero rungs and all rungs, including the phase-parity distinction between the two seam conditions. All four-cycle switches are then classified. These arguments prove the infinite family; no bounded experiment is used as an infinite certificate. A perfect-matching enumerator and a separate Hamiltonian depth-first search both reproduce the exact configurations and switch adjacency for their respective finite verification ranges. Residual mathematical risk is concentrated in the short, explicitly stated circuit-decomposition lemma and the parity analysis for the all-rung case, not in hidden computational assumptions.
+## correctness
 
-## Originality
-**PASS with explicitly recorded access uncertainty.** The Hamiltonian cycle counts are already known and are not the claimed contribution. Heinig (arXiv:1112.5101v1) studies Hamiltonian-cycle spans in cycle spaces of prisms and Möbius ladders; his statements do not compare the symmetric difference of pairs of Hamiltonian cycles for single-switch adjacency. The general switch operation and graph-class complexity results in Takaoka (2018) do not give these two exact infinite-family switch graphs. Search results in the published mathematical record contained adjacent results on perfect-matchings, independent complexes, and prism graph topology, not the claimed Hamiltonian switch decomposition. McSorley's 1998 article is a highly relevant historical enumeration source. Only its abstract and published Hamiltonian count were accessible, and its complete text could not be inspected. Possible prior local-switch observations in that article are a residual coverage risk, not grounds for inventing a full-text exclusion.
+PASS
 
-## Value
-**PASS.** This is a natural complete reconfiguration classification, not a restatement of a static count. The exact graphs show a qualitative topological dichotomy: every Hamiltonian tour is frozen by a single two-edge switch on a cylinder, whereas on the twisted strip there is a unique central tour adjacent to all \(n\) two-rung tours, and exactly two extra frozen tours in odd widths. These structures determine whether elementary 2-opt moves can explore the Hamiltonian state space and precisely when a single-switch Markov chain can be irreducible. The reason to study these two families together is their identical local cubic ladder structure and their one changed seam identification.
+For n>=5 the cylindrical ladder and crossed-seam Möbius ladder have 2n vertices and three incident edges per vertex. A Hamiltonian cycle with a proper nonempty set S of chosen rungs forces omitted horizontal edges in paired adjacent cuts; r such disjoint cuts yield exactly r disjoint circuits, so Hamiltonian cases with such support have exactly one paired cut and n corresponding two-rung cycles. No-rung support is Hamiltonian only in Möbius ladder (one perimeter cycle); full-rung support produces exactly two Hamiltonian cycles for even cylindrical ladder or odd Möbius ladder, none otherwise. All simple 4-cycles for n>=5 are rung squares, and any two-edge Hamiltonian switch is an alternating four-cycle. The Möbius rim swaps with each one-cut cycle, other moves either disconnect or are locally impossible; cylindrical cycles are isolated, and Möbius odd full-rung cycles isolated. Independent fresh perfect-matching-complement enumeration for n=5..9, including every pairwise symmetric-difference-of-4 adjacency, matched nK1, (n+2)K1, K1,n and K1,n plus 2K1 exactly. The proof, not enumeration, handles all n>=5.
 
-## Related literature and limits
-Historical static enumeration: Guy–Harary (1967), McSorley (1998). Archival literature anchor: Heinig (arXiv:1112.5101v1, first posted 2011-12-21). Switch operation and general complexity: Takaoka (2018). Newer two-switch grid methods: Kazazi (arXiv:2601.06749). No statement is made about priority over inaccessible full text. No result for arbitrary cubic graphs, broader multi-switch connectivity, or rapid mixing is asserted. The second computational program checks \(4\leq n\leq13\); the first checks \(4\leq n\leq18\). Independent external scholarly audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualification: actual Resultary searches and directly compared primary mathematical results show no decisive prior implication of this exact final claim; component methods, previously known examples, accessible full-text scope and named inaccessible-source risks are explicitly distinguished.
+
+## value
+
+PASS
+
+The full reconfiguration adjacency graph for Hamiltonian cycles is a natural invariant in local-search combinatorics, not merely their known count. A single seam twist changing every local Hamiltonian state from frozen to a hub-and-leaf star, with a parity obstruction, is a mathematically motivated global classification for two standard graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

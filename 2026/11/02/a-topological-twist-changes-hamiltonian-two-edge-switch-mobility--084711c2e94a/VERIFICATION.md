@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and validation limits
+# Independent mathematical audit
 
-Run `python check_matching.py` and `python check_dfs_templates.py` under standard Python 3. Both require only the standard library. The first outputs `MATCHING_ENUMERATION_ALL_2_EDGE_SWITCHES_PASS`; the second outputs `DFS_AND_EXPLICIT_TEMPLATES_PASS`.
+## correctness
 
-The matching-based program builds both cubic graphs directly, enumerates every perfect matching by recursive branching on the least remaining vertex, complements it to obtain a spanning degree-two subgraph, and retains it only if a graph traversal finds all \(2n\) vertices connected. It then tests *every unordered pair* of Hamiltonian cycles for symmetric difference of four edges, not merely a prescribed subset of quadrilateral moves. It verifies the exact vertex counts, degree multisets and component sizes for every \(4\leq n\leq18\) and both seam types.
+PASS
 
-The other program uses a different construction: direct depth-first search over Hamiltonian vertex traversals without matching enumeration. It compares all resulting edge sets with explicit rim, paired-rung and all-rung templates. It then checks all four-edge symmetric differences for every \(4\leq n\leq13\) and both seam types. The small width \(n=4\) is checked for additional confidence but not included in the infinite claim.
+For n>=5 the cylindrical ladder and crossed-seam Möbius ladder have 2n vertices and three incident edges per vertex. A Hamiltonian cycle with a proper nonempty set S of chosen rungs forces omitted horizontal edges in paired adjacent cuts; r such disjoint cuts yield exactly r disjoint circuits, so Hamiltonian cases with such support have exactly one paired cut and n corresponding two-rung cycles. No-rung support is Hamiltonian only in Möbius ladder (one perimeter cycle); full-rung support produces exactly two Hamiltonian cycles for even cylindrical ladder or odd Möbius ladder, none otherwise. All simple 4-cycles for n>=5 are rung squares, and any two-edge Hamiltonian switch is an alternating four-cycle. The Möbius rim swaps with each one-cut cycle, other moves either disconnect or are locally impossible; cylindrical cycles are isolated, and Möbius odd full-rung cycles isolated. Independent fresh perfect-matching-complement enumeration for n=5..9, including every pairwise symmetric-difference-of-4 adjacency, matched nK1, (n+2)K1, K1,n and K1,n plus 2K1 exactly. The proof, not enumeration, handles all n>=5.
 
-Neither finite program is an exhaustive test of every integer \(n\). Infinite correctness rests on the proof in `RESULT.md`: the forced pairing of selected rungs, exact circuit count between paired cuts, parity classification of all-rung configurations, and complete four-cycle switch analysis. In particular, an orientation, a nonspanning two-factor, or an illegal intermediate state is not counted as a Hamiltonian cycle.
+## originality
 
-The source-inspection and originality review is a self-review. The 1998 McSorley full article was unavailable; only bibliographic/abstract material and the static Hamiltonian count could be examined, so independent validation and comprehensive historical priority checks remain unperformed.
+PASS
+
+Best-of-knowledge qualification: actual Resultary searches and directly compared primary mathematical results show no decisive prior implication of this exact final claim; component methods, previously known examples, accessible full-text scope and named inaccessible-source risks are explicitly distinguished.
+
+## value
+
+PASS
+
+The full reconfiguration adjacency graph for Hamiltonian cycles is a natural invariant in local-search combinatorics, not merely their known count. A single seam twist changing every local Hamiltonian state from frozen to a hub-and-leaf star, with a parity obstruction, is a mathematically motivated global classification for two standard graph families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
