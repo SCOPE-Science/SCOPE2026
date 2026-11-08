@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The final claim is a formal coefficientwise identity for each \(a,b\ge1\), \(m\ge0\), a total-count monotonicity for fixed \(s=a+b\) and \(m\ge1\), and a per-period exponential rate. Every distinct nonempty subsequence belongs to exactly one ending-letter class, and appending its final letter gives the stated exact update. The matrix resolvent determines every profile coefficient without truncation. Differentiating the total-count generating function at fixed \(s\) gives \(z(1+sz-z^2)/(1-(p+2)z+z^2)^2\); its coefficients are strictly positive for \(p\ge1\), proved using an increasing linear-recurrence sequence and its convolution. The dominant pole is simple and not canceled. Standard-library code compares three finite derivations; it is supplementary evidence, not an infinite proof.
+
+## Originality (O): PASS with residual risk
+Flaxman–Harrow–Sorkin (2004), Theorems 2 and 5, give simultaneous maximum profiles for unrestricted binary words, which specialize to the alternating case \(a=b=1\). This does not determine the exact profiles of arbitrary two-run periodic words or the maximizing split at a fixed longer period. Bruda (2026), Theorems 1.4 and 1.8, studies indexed pattern-occurrence frequency rather than the distinct values attained as subsequences; it supplies neither the rational fixed-source enumerator nor the run-balancing conclusion. Biers-Ariel–Godbole–Kelley (2018) concerns expectation over random words, not exact deterministic period profiles. Searches for the rational denominator, two-run periodic source, and balancing aliases returned no equivalent published-finding corpus entry; nearby results concern absent subsequences, universality, and substring complexity. A generic transfer-matrix method is not itself novel; the exact identity and strict constrained extremum are the compared claim. No priority claim is absolute: an implicit specialization, unpublished calculation, or unindexed table is a residual risk.
+
+## Value (V): PASS
+Distinct subsequences are a natural finite-word language-complexity measure, and run-periodic words interpolate between the globally extremal alternating word and highly redundant long runs. The two-variable enumerator gives every length-resolved invariant in a single formula, and strict run balancing is a global all-period-count optimizer under a natural fixed-period constraint. The product-controlled exponential rate separates long-horizon complexity from short-horizon dependence on the full run-length sum. These are motivated structural results for an infinite family, not one-off small-table entries.
+
+## Limits of this review
+This result has not been independently mathematically audited. The finite checker does not certify the general theorem; the proof supplies the universal quantifiers. A historical priority issue remains possible, especially from unindexed work expressing general periodic-subsequence transfer operators.
+
+Self-review: passed. Independent audit: not yet performed.

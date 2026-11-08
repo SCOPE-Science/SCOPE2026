@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact disjoint ending-symbol DP gives a 3x3 affine period matrix with determinant polynomial and numerator explicitly computed. At x=1 its total-count rational GF differentiates to a series with strictly positive coefficients for p=ab>=1 and fixed s=a+b, proving the unique balanced split. The positive simple dominant pole gives the exact exponential rate. Independent-value brute force (73 cases), matrix/recurrence agreement (112), and finite run-balance (190) supplement the all-parameter symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin (2004) Theorem 2: unrestricted binary extremizer alternating at fixed total word length",
+        "Flaxman–Harrow–Sorkin (2004) Theorem 5: GF for global maxima",
+        "published-finding corpus title: Minimal absent scattered subsequences of repeated binary run blocks (distinct invariant)"
+      ],
+      "reasoning": "An unrestricted maximizer only upper-bounds nonalternating period words. It does not compare nonalternating splits for fixed run-period length, determine each profile, or entail that balance is uniquely optimal among positive splits. Absent-subsequence minimality is a different language statistic.",
+      "searches": [
+        "maximal number of distinct subsequences within run-limited binary periodic words balancing run lengths a+b fixed product ab sharp optimizing",
+        "bivariate length enumerator distinct scattered subsequences of (0^a1^b)^m exact rational generating function run lengths a b periods m",
+        "DOI:10.37236/1761"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.37236/1761",
+      "arXiv:2607.02578",
+      "DOI:10.23638/DMTCS-19-2-10",
+      "OEIS:A293722",
+      "Published published-finding corpus title: Minimal absent scattered subsequences of repeated binary run blocks",
+      "Published published-finding corpus title: Exact tortoise-complexity spectra for two-run periodic binary words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flaxman et al (2004) derive generating functions for cyclic globally maximizing distinct-subsequence words, with binary period 01",
+        "Bruda (2026) runs-based bounds are for how many times a fixed pattern embeds",
+        "published-finding corpus related own claims concern absent scattered subsequences of the same two-run periodic source, and tortoise/group invariants of the infinite periodic word"
+      ],
+      "reasoning": "The final claim is a rational GF for all a,b,m and a strict fixed-a+b total maximizer with a product-controlled exponential base. Neither a global bound nor an occurrence-frequency bound evaluates or orders those quantities. Closest own-source claims have the same generating word but a different target invariant, so do not subsume the result.",
+      "searches": [
+        "DOI:10.37236/1761",
+        "arXiv:2607.02578",
+        "maximal number of distinct subsequences within run-limited binary periodic words balancing run lengths a+b fixed product ab sharp optimizing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin (2004) Theorems 2 and 5 (global maximizers and their generating functions)",
+        "Bruda (2026) Definition 1.2 and Theorems 1.4 and 1.8 (indexed occurrences of a fixed pattern)",
+        "No matching published-finding corpus formula among returned titles and summaries"
+      ],
+      "reasoning": "Subsequence embedding count, distinct value count, and random expectation are inequivalent statistics. The global Fibonacci/alternating case is included as a proper specialization but does not imply the full run-length parameter family or its constrained optimum.",
+      "searches": [
+        "distinct scattered subsequences count for periodic binary run word (0^a1^b)^m exact generating polynomial coefficient rational denominator 1-(x^a+x^b+(x+...+x^a)(x+...+x^b))z+x^(a+b)z²",
+        "binary periodic words run lengths unique subsequences length spectrum generating function rational transfer matrix all periods 2026",
+        "bivariate length enumerator distinct scattered subsequences of (0^a1^b)^m exact rational generating function run lengths a b periods m",
+        "DOI:10.37236/1761",
+        "arXiv:2607.02578"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A293722 gives general computation of distinct subsequences of a binary integer representation, not an indexed all-parameter run-period identity",
+        "No matching exact periodic-profile table located in published-finding corpus results; related titles concern global maxima or absent subsequences"
+      ],
+      "reasoning": "A generic computation algorithm is not an explicit family-wide generating identity plus strict all-m optimal split. Negative searches are not proof of priority; possible unindexed tables remain a risk.",
+      "searches": [
+        "distinct scattered subsequences count for periodic binary run word (0^a1^b)^m exact generating polynomial coefficient rational denominator 1-(x^a+x^b+(x+...+x^a)(x+...+x^b))z+x^(a+b)z²",
+        "two-run periodic word a^p b^q repeated m times count distinct subsequences length generating series, transfer matrix eigenvalue",
+        "distinct subsequences a^a b^b repeated m count growth rate lambda determined by ab+2",
+        "distinct subsequences repeated binary blocks (0^a 1^b)^m generating function exact count length k"
+      ]
+    },
+    "rationale": "Compared the new all-a,b,m exact distinct-subsequence length series and fixed-period optimizing law against the global alternating extremizer/enumerator of Flaxman–Harrow–Sorkin (2004), the indexed-pattern-frequency results of Bruda (2026), random-word expectation results, and indexed published-finding corpus nearby claims. No compared source implies the arbitrary-run rational profile or unique balancing theorem; residual unindexed-priority risk is identified.",
+    "residual_risks": [
+      "The classical dynamic-programming recurrence is not claimed as new; an earlier unindexed periodic-run special formula or optimization may exist.",
+      "The 2018 random-source paper was read at abstract/scope level; however it is not a plausible direct covering theorem for a fixed deterministic run period.",
+      "No independent proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GLOBAL_MAXIMUM_SPECIAL_CASE_ONLY",
+        "evidence": [
+          "Theorem 2 determines globally optimal alternating words",
+          "Theorem 5 counts the global maxima by subsequence length",
+          "No arbitrary two-run length a,b or fixed-period balance formula in the inspected sections"
+        ],
+        "identifier_or_url": "DOI:10.37236/1761; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+        "material_read": "Primary PDF pages 1–6, focusing on the introduction, Section 2, Theorem 2, Theorem 5 and the proof sketch on page 6",
+        "method": "Primary PDF text and page images, compared the exact objects and statement implications",
+        "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+        "trigger": "Direct 2004 primary work on maximizing distinct subsequences and its GF"
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC_NOT_IMPLICATIVE",
+        "evidence": [
+          "Definition 1.2 counts embeddings of one prescribed pattern",
+          "Theorem 1.4 enumerates sources by a specified embedding frequency",
+          "Theorem 1.8 bounds indexed embeddings using run parameters"
+        ],
+        "identifier_or_url": "arXiv:2607.02578; https://arxiv.org/abs/2607.02578",
+        "material_read": "Full publicly accessible HTML, definitions, theorems, run discussions and proof sections",
+        "method": "Original arXiv HTML, distinguish indexed occurrence frequencies from distinct target-word sets",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Fresh 2026 first-public run-sensitive subsequence literature"
+      },
+      {
+        "assessment": "RANDOM_INPUT_EXPECTATION_DIFFERENT_FROM_DETERMINISTIC_PERIOD_PROFILE",
+        "evidence": [
+          "Study investigates expectation over random binary words and Markov-generated words; not fixed two-run source"
+        ],
+        "identifier_or_url": "DOI:10.23638/DMTCS-19-2-10; https://dmtcs.episciences.org/4590",
+        "material_read": "Journal abstract and study scope, not the entire full paper",
+        "method": "Publisher/index abstract comparison only",
+        "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+        "trigger": "Related exact distinct-subsequence statistic in binary strings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1009b6cc-ac44-4ee4-8b06-3229003215b9",
+  "value": {
+    "rationale": "Run-periodic binary words are natural structured sources between constant runs and alternating words. The result resolves all length-resolved unique-subsequence counts at arbitrary period count and proves a unique optimizer for every positive repetition count under fixed two-run period length. The growth base depends exactly on ab, exposing a product invariant and a nontrivial constrained extremal principle beyond a standard dynamic-programming identity.",
+    "status": "PASS"
+  }
+}
