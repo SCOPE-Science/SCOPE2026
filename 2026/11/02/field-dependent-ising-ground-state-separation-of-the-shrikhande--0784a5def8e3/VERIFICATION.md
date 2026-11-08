@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later and no nonstandard dependencies. It prints the nine low-half fixed-magnetization optima and exact multiplicities for each graph, followed by `VERIFY_OK`. The associated `verification_output.txt` records the execution of the included program.
+## correctness
 
-The implementation checks 65,536 configurations for each of the two 16-site labelled graphs through two independent combinatorial descriptions. The first performs single-vertex Gray-code flips with exact incremental cut updates; the second calculates the same coefficients by enumerating all ordered four-row assignments with explicit within-row and between-row edge formulas. The entire bivariate cut-size versus negative-spin-count tables agree, not only their maxima. Exact strong regularity and ten construction masks are checked separately. The analytic Rayleigh-quotient lower bound and the row-column counting obstruction in `RESULT.md` establish the extremal profiles without relying on random testing.
+PASS
 
-No infinite system, thermal behavior, transverse-field spectrum, or independent scientific validation is claimed.
+For negative-spin r-set in either degree-six graph, cut B=6r-2e; the strongly regular identity A²=4I+2J yields min-eigenvalue lower bound e>=r²/4-r. Independent-set witnesses attain r<=4 and explicit binary masks attain the sharp integrality bounds for r=5..8 except rook r=6; there the row-column pair count forces e>=4 versus the Shrikhande e=3 witness. Independently rebuilt each coordinate graph, enumerated ALL 65,536 labelled spin assignments each and reproduced every sector B,C entry for r=0..8 (and complement symmetry for 9..16), including Shrikhande C6=32 vs rook C6=1224. Convex envelopes of sector points give exact field breaks 1,3,6 vs 2,6 and all coexisting labelled degeneracies. Finite exhaustive census is a complete proof of finite multiplicities because the entire 2^16 domain is visited, not sample extrapolation.
+
+## originality
+
+PASS
+
+Vinci et al introduce longitudinal-field Ising polynomial and test small vertex-transitive graphs up to 15 sites; their full article does not contain this 16-site Shrikhande/rook pair or its exact sector counts. Earlier strong-regular parameter tables give spectra but not Ising cut populations. Rook comparator is known from line-graph classification; new aspect is the Shrikhande r6 extremum and separation of the two exact field-response envelopes.
+
+## value
+
+PASS
+
+The minimal famous cospectral 16-vertex strongly-regular pair is a canonical test of graph invariants beyond adjacency spectrum; exact zero-temperature field transitions, magnetization plateau, and degeneracies supply a reproducible, physically motivated separating invariant and sharp finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
