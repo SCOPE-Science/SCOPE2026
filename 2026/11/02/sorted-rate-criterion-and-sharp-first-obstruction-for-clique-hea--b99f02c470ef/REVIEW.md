@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The ordered-chamber identity writes every instantaneous variation derivative as a positive-gap linear combination. The rearrangement inequality maximizes each coefficient over all assignments of reciprocal masses, yielding the sharp infinitesimal logarithmic norm; a tie-direction argument and Gronwall imply the all-time upper bound. Concentrated positive gaps asymptotically realize each coefficient. Explicit coefficient lists prove the four-site threshold, and exact fractions produce a strictly positive derivative. The bundled verifier tested 741,152 exact rearrangement comparisons and the four-site witness. Remaining mathematical limit: the finite checks do not replace the all-dimensional proof, and the theorem does not determine the finite-time norm exactly.
+## correctness
 
-## Originality (PASS, with residual risk)
-Comparisons with the 2012 discrete graph heat semigroup treatment and the 2014 full-text graph-variation/heat paper separate vertex-space Markov contraction and homogeneous clique heat from heterogeneous vertex-mass pairwise-variation contraction. The latter paper's explicitly examined homogeneous complete-graph section does not imply the sorted criterion for arbitrary masses. No direct previous equivalent was located in the searches and accessible material. Remaining risk: an abstract, general polyhedral-seminorm logarithmic-norm formula could specialize to this classification without using the same terminology.
+PASS
 
-## Value (PASS)
-The theorem converts an all-signals, all-time stability question into an exact \(O(n^2\log n)\) criterion, supplies a sharp growth invariant and identifies the first nontrivial mass-imbalance obstruction on four vertices. Distinguishing counting-measure edge variation from the preserved mass-weighted vertex geometry is a motivated structural stability problem, not an arbitrary isolated graph calculation.
+In an increasing-value chamber, b_i=2i-n-1 and d_k=u_{pi(k+1)}-u_{pi(k)} yield J=sum_k k(n-k)d_k. Differentiating the nonuniform-mass clique generator gives coefficients C_{pi,k}=sum_i c_i^(k) r_{pi(i)}. Rearrangement gives exact maximum M_k, hence D^+J<=mu J, all-time Gronwall and iff contraction for M_k<=0. Concentrating a positive gap while keeping others eps realizes the logarithmic norm mu; tied states follow by continuity. For n<=3 all maxima negative; for n=4 only endpoint sign condition is nontrivial and becomes sorted r4<=9r1+3r2+r3. Independently verified exact c lists, exhaustive small permutations and 33/100 strict derivative for r=(1,14,1,1), u=(0,1,1.01,1.02). Does not claim exact finite-time norm equals e^(mu t).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The specific sharp heterogeneous vertex-mass clique-variation bound and four-vertex criterion are not established by inspected homogeneous-clique or general graph semigroup work, though abstract polyhedral norm formulae may provide an equivalent general derivation.
+
+## value
+
+PASS
+
+A natural all-signal graph-TV stability question for vertex-mass heat is reduced to an explicit finite sorted-rate test; the sharp logarithmic norm and earliest four-site failure reveal the interaction of preserved mass geometry with unweighted pairwise variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
