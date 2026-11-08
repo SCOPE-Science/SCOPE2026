@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For a shattered k-support, all-positive trace yields a decreasing grid antichain. Each support point must admit a comparable replacement while all other marked points remain, forcing a slack coordinate in at least one flanking gap. At most two marked points share an unoccupied row/column level, giving 5k<=2(m+n). Explicit four-label maximal-antichain witnesses on 2x3 (and its transpose), plus two-label 1x2 witnesses, are anti-diagonally block-concatenated using ceil(k/2) spare coordinate levels, and maximal extension cannot add excluded marked points since they are already blocked. This handles every integer m,n>=1; independent finite enumeration on 28 rectangles through 7x7 and local patterns agrees. Only the written proof establishes the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cambie et al., arXiv:1807.04957 (2018-07-13), Sections 1 and 3: lattice-valued shattering and Sauer-Shelah-Perles results, rather than the incidence family of maximal antichains.",
+        "2018 lattice-shattering result studies the meet operation in a ranked lattice, unlike intersection traces on the ground set of grid cells.",
+        "Related maximal-independent-set results use other graph classes and do not state the dimension for the comparability graph of a rectangular product of chains."
+      ],
+      "reasoning": "The concept family can be phrased as maximal independent sets in the comparability graph, and the candidate was checked under that reduction. The closest broad result located gives lattice-SSP or maximal-independent-set information for different predicates/classes. None of the actual searched statements supplies a dominating general theorem plus a known invariant evaluation implying this formula.",
+      "searches": [
+        "VC dimension of inclusion-maximal independent sets of comparability graphs of product posets, grid Ferrers graph",
+        "maximal independent sets comparability graph rectangular grid poset VC dimension shattering number floor 2(m+n)/5",
+        "VC dimension family of maximal independent sets equals independent domination graph invariant",
+        "VC dimension hypergraph maximal independent sets graph exact induced matching number lower upper bound 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.16243 (primary full rendered text)",
+      "arxiv:1701.06750 (main definitions/theorem)",
+      "arxiv:1807.04957 (main shattering definitions/results)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bouyssou, Marchant, Pirlot, arXiv:2410.16243 (2024-10-21), Sections 2-3 and appendices: bijections, restricted alignments and enumeration of maximal antichains of two chains, not their binary membership VC dimension.",
+        "Tsai, arXiv:1701.06750 (2017-01-24), introduction and theorem: maximal antichains for strict coordinatewise order; in the weak order maximal antichain cardinalities already differ in the 2-by-2 example.",
+        "Cambie et al., arXiv:1807.04957 (2018-07-13), Sections 1 and 3: lattice-valued shattering and Sauer-Shelah-Perles results, rather than the incidence family of maximal antichains.",
+        "The indexed result entitled \"Height and width are the exact Euclidean radii of enriched chain polytopes\": exact height and width via enriched chain-polytope radii, not binary membership shattering."
+      ],
+      "reasoning": "The 2024 enumeration of maximal antichains does not entail the exact VC dimension without an additional combinatorial trace characterization or bound. The 2017 strict-order antichains and 2018 lattice-meet shattering results do not apply to the present weak-order incidence family. Comparisons were conducted on object, parameter domain and logical implication, not merely titles. Searches are finite and cannot demonstrate global priority.",
+      "searches": [
+        "\"VC dimension\" \"maximal antichains\" grid shattering",
+        "VC dimension maximal antichains products of chains shattered membership sets",
+        "Sauer Shelah Perles lattice shattering maximum antichains binary incidence dimension",
+        "Shattering and Littlestone dimensions of induced matchings, maximal independent sets on cycles and caterpillar graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bouyssou, Marchant, Pirlot, arXiv:2410.16243 (2024-10-21), Sections 2-3 and appendices: bijections, restricted alignments and enumeration of maximal antichains of two chains, not their binary membership VC dimension.",
+        "Tsai, arXiv:1701.06750 (2017-01-24), introduction and theorem: maximal antichains for strict coordinatewise order; in the weak order maximal antichain cardinalities already differ in the 2-by-2 example."
+      ],
+      "reasoning": "Maximal antichains in the weak product of two chains correspond to restricted alignments and maximal strict chains under a coordinate reversal; those equivalent descriptions are explicitly acknowledged in the 2024 paper. The enumerative bijection does not by itself yield or state the incidence VC dimension, and the strict-coordinate poset in Tsai is a different order. Searches using both antichain and alignment terminology found no equivalent dimension statement.",
+      "searches": [
+        "Maximal antichains in product of two finite chains, shattered sets and VC dimension two chains",
+        "Shattering maximal strict chain alignments of two strings no alternating skips, VC dimension three-letter words",
+        "\"VC dimension\" \"maximal antichains\" \"product\" chains",
+        "\"VC dimension\" \"maximal antichain\" poset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bouyssou et al. (2024) list counts such as 817 maximal antichains on a 7-by-7 grid; this is a hypothesis-count table, not a table of shattered support sizes.",
+        "The indexed result entitled \"Exact rank-profile census of antichains in T5 and M6 with Dilworth width certificates\": counts of antichains in truncated Boolean lattices T5 and M6 with width certificates, a different ground poset and invariant."
+      ],
+      "reasoning": "The published 2024 census and the closest indexed tabulations do not give the stated VC values or imply the exact two-parameter formula as recorded mathematical statements. The new verifier compared small values to the formula directly; those finite tests do not substitute for or make an originality argument.",
+      "searches": [
+        "Exact Vapnik-Chervonenkis dimension of maximal antichain incidence concepts in two dimensional grid poset [m] x [n], floor(2(m+n)/5)",
+        "grid maximal antichains [m]×[n] membership VC shattering, 2x3 gadgets anti-diagonal rectangles",
+        "\"2(m+n)\" \"maximal antichains\" shattering"
+      ]
+    },
+    "rationale": "The 2024 primary source treats the identical maximal-antichain objects, but its main mathematical assertions count and encode them; they do not establish the binary membership VC dimension. The 2017 strict-order and 2018 lattice-shattering results use genuinely different objects or predicates. Comparisons with indexed scientific records concern antichain counts in Boolean-lattice truncations, path maximal independent sets, or other graph families rather than this full rectangular-grid formula. The new local slack covering bound and sharp two-point gadget implication were checked directly. Remaining risk: unknown earlier equivalence under alternative terminology.",
+    "residual_risks": [
+      "Prior work under maximal independent-set, grid alignment, poset incidence, or teaching-dimension terminology could have escaped finite searches.",
+      "A literature search and same-model argument check do not constitute independent historical-priority or proof validation.",
+      "Some indexed scientific summaries were not primary-full-text inspected and are not grounds for an absolute noncoverage assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains count/bijection results on exactly the objects, but no binary incidence VC-dimension statement in inspected manuscript.",
+        "evidence": "arXiv:2410.16243, first posted 2024-10-21; Sections 2.2-2.5, 3.1-3.2, Appendices A-D.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.16243",
+        "material_read": "Accessible complete arXiv-rendered manuscript sections 1-3 and appendices A-D, including alignment/word bijections, grid-walk correspondences, propositions 9-13, enumeration recurrence and tables.",
+        "method": "Full-text reading of arXiv-rendered HTML/text, including focused examination of main statements and appendices.",
+        "title": "About maximal antichains in a product of two chains: A catch-all note",
+        "trigger": "Same finite weak product-order maximal-antichain objects; primary closest source."
+      },
+      {
+        "assessment": "The theorem concerns strict coordinatewise comparability and maximum-vs-maximal equality, hence does not determine weak-order membership shattering.",
+        "evidence": "arXiv:1701.06750, introduction and theorem; strict versus nonstrict example.",
+        "identifier_or_url": "https://arxiv.org/abs/1701.06750",
+        "material_read": "ArXiv-rendered introduction, order definitions, 2-by-2 counterexample under weak order, and statement of main theorem.",
+        "method": "Primary arXiv full-text excerpt inspected directly.",
+        "title": "Two properties of maximal antichains in strict chain product posets",
+        "trigger": "Maximal antichains of integer-grid products, possible dual/reduction."
+      },
+      {
+        "assessment": "The lattice-form VC dimension uses meet traces of lattice elements; it is not the same as binary traces on individual cells of a maximal-antichain concept family.",
+        "evidence": "arXiv:1807.04957, Definition 3.1, Theorems 1.1-1.6.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.04957",
+        "material_read": "ArXiv-rendered Sections 1, 2, 3.1, including definitions of lattice shattering and named main theorems.",
+        "method": "Primary arXiv full-text read of relevant definitions and results.",
+        "title": "A Sauer-Shelah-Perles Lemma for Lattices",
+        "trigger": "Potentially dominating theorem for shattering on product lattices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad79ae3e-4c22-425b-9dac-cd146a38fdb8",
+  "value": {
+    "rationale": "A natural combinatorial question left by the 2024 complete census of maximal antichains is how many cell-membership queries those objects can realize independently. A sharp universal exact formula and aspect-ratio transition answer that question for all rectangular products; in square grids the fraction of width attainable is asymptotically 4/5, while full width occurs at ratio n/m >= 3/2. The new two-points-for-one-slack structural lemma and universal 2x3 gadgets explain the exact threshold and support further analysis.",
+    "status": "PASS"
+  }
+}
