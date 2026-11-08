@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Record-count decrements are independent sums of Bernoulli(1/j). The exact potential identity D_n-A_n= - sum (R_m-H_m)/H_m - U_n has nonnegative drift debt with expectation O(log n) because a descending state can be visited at most once and the one-step debt is O(1/m) in expectation. The rescaled predictable quadratic variation converges to 1 by separating states above epsilon*n, an intermediate interval, and states below n^(1/3). Fourth moment bounds prove conditional Lindeberg. Martingale CLT yields Gaussian fluctuations of scale sqrt(n)/log n. Euler--Maclaurin/integral comparison gives harmonic-center asymptotics. The standalone standard-library checker passed 146 exact-rational/permutation checks up to m=13; these checks do not assert the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zariski and Kratter, Recursive Record Filtering and Longest Decreasing Subsequences, arXiv:2604.23825, Theorem 3 and following non-resampling section",
+        "Alsmeyer, Kabluchko and Marynych, A leader-election procedure using records, arXiv:1512.04750",
+        "Chern, Jiu and Simonelli, A central limit theorem for a card shuffling problem, arXiv:2309.08841, section on merging dynamics"
+      ],
+      "reasoning": "Standard martingale limit theorems cover arrays after checking their hypotheses, but do not directly imply the asserted harmonic-potential center and the state-occupation variance limit. The 2017 record-leader and 2023 card-merging processes have different laws; their published limits do not dominate this claim. General decreasing-chain theorems not yet fully canvassed remain a stated residual risk.",
+      "searches": [
+        "iterated random permutation cycle removal process log decrements absorption time normal law",
+        "recursive record filtering longest decreasing subsequence resampling Zariski Kratter passes asymptotic",
+        "arxiv:2309.08841 CLT card shuffle merging process"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.23825",
+      "arxiv:1512.04750",
+      "arxiv:2309.08841",
+      "2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper identifies the resampling Stirling transition and an expectation recurrence; it treats Tracy--Widom for the non-resampling algorithm.",
+        "Leader-election iterates R_m, whereas this claim iterates m-R_m.",
+        "Card merging changes the state by a distinct block-merging statistic and has a different number-of-rounds order."
+      ],
+      "reasoning": "An expectation recurrence by itself neither establishes a Gaussian weak limit nor supplies a deterministic center accurate at the standard-deviation scale. Results for different Markov transition kernels do not logically cover this CLT by changing variable names. A general Markov-depletion CLT could be stronger if its hypotheses and centering entail this precise result; that possibility remains a non-decisive residual priority risk.",
+      "searches": [
+        "arxiv:2604.23825 resampling exact expectation recurrence Theorem 3",
+        "arxiv:1512.04750 leader election record count repeated iteration",
+        "arxiv:2309.08841 card-shuffling CLT merge process"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zariski and Kratter, Recursive Record Filtering and Longest Decreasing Subsequences, arXiv:2604.23825, Theorem 3 and following non-resampling section",
+        "The retained-records leader-election chain m -> R_m in arxiv:1512.04750 differs from deleting records m -> m-R_m."
+      ],
+      "reasoning": "The equivalent Markov form is the absorption time of an independent rank-record decrement chain. The motivating recurrence addresses its expectation; its longest-decreasing-subsequence identity is for a different fixed-sample algorithm. The identified record-election dual is not equivalent because it retains rather than removes the R_m records.",
+      "searches": [
+        "Disappear-Sort independent resampling Gaussian passage count recursive records Stirling central limit theorem n log n",
+        "recursive record filtering resampling number of passes expected hitting time normal fluctuations n/log n",
+        "arxiv:2604.23825 resampling Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest published entry 2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4 concerns bivariate Pareto-record kills and a fixed-k Stirling probability, not the absorption-time CLT.",
+        "The source arXiv:2604.23825 lists an exact expectation recurrence, not a table of Gaussian asymptotic laws."
+      ],
+      "reasoning": "No exact matching database claim was retrieved. Record-count Stirling coefficients occur in both problems, but matching coefficients alone do not imply an absorption-time Gaussian theorem. This is search evidence, not a proof that no older theorem exists.",
+      "searches": [
+        "Disappear-Sort independent resampling Gaussian passage count recursive records Stirling central limit theorem n log n",
+        "recursive record filtering resampling number of passes expected hitting time normal fluctuations n/log n",
+        "2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4"
+      ]
+    },
+    "rationale": "Direct comparison with the source resampling recurrence shows an expected-value relation rather than the claimed Gaussian fluctuation limit. The other record-leader chain retains records (m->R_m, not m->m-R_m), and the card-shuffling chain has another transition mechanism. Separate semantic database searches and accessible historical claim comparisons returned no directly covering statement. Priority remains provisional relative to general depletion-chain limit theorems.",
+    "residual_risks": [
+      "A general, potentially stronger Markov-depletion or stochastic-approximation central limit theorem could imply this specialized result after a nontrivial reduction; no such decisive source was located.",
+      "Complete older journal text for the record-retention model was not available in this review; the accessible transition description suffices to distinguish that named model but cannot exclude all appendices.",
+      "Historical-priority determination has not been independently verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expectation recursion for the resampling variant is prior; displayed Gaussian theorem and harmonic centering not supplied there. Tracy--Widom result belongs to the non-resampling variant.",
+        "evidence": [
+          "arxiv:2604.23825 v1 first posted 2026-04-26",
+          "Section containing Theorem 3 (resampling expectation recurrence)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.23825",
+        "material_read": "Abstract, full accessible manuscript text, resampling formulation and Theorem 3, comparison with non-resampling limit; first-public date confirmed on arXiv v1",
+        "method": "arXiv open-access HTML plus PDF page screenshots",
+        "title": "Recursive Record Filtering and Longest Decreasing Subsequences",
+        "trigger": "Exact same algorithm and Stirling expectation recurrence"
+      },
+      {
+        "assessment": "Its iterated chain keeps records and has transition m->R_m, not m->m-R_m; its log-star duration cannot cover the claimed Gaussian law.",
+        "evidence": [
+          "arxiv:1512.04750 abstract and record-retention definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.04750",
+        "material_read": "Abstract and available description of the recurrent record-retention procedure; entire older journal PDF not inspected",
+        "method": "arXiv abstract and freely available descriptions",
+        "title": "A leader-election procedure using records",
+        "trigger": "Repeated left-to-right record filtering can look equivalent"
+      },
+      {
+        "assessment": "The card-merging decrement distribution is not the Stirling record-removal decrement; the displayed result cannot be substituted for the present CLT.",
+        "evidence": [
+          "arxiv:2309.08841 abstract, process definition and CLT section"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.08841",
+        "material_read": "Full open-access arXiv HTML, abstract, chain definition and applicable CLT sections",
+        "method": "arXiv HTML text inspection",
+        "title": "A central limit theorem for a card shuffling problem",
+        "trigger": "Published central limit theorem for a decreasing combinatorial Markov chain"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "861a44b8-102d-426e-af2e-808fea3281e3",
+  "value": {
+    "rationale": "The source explicitly defines a natural resampling variant but leaves its fluctuation scale unresolved. The Gaussian standard deviation sqrt(n)/log n contrasts sharply with Tracy--Widom fluctuations in the non-resampling problem. A deterministic harmonic potential center differs from the exact expectation by O(log n), which is negligible relative to fluctuation scale and avoids repeated computation of the expectation recurrence. This gives a meaningful asymptotic classification rather than a finite table or a routine numerical correction.",
+    "status": "PASS"
+  }
+}
