@@ -1,19 +1,21 @@
-# Review: universal weak-return-trap moment hierarchy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem explicitly fixes the two-mode generator, unit absorbing target, reset and return stopping rules, and limit with positive fixed interruption rate. The proof independently reconstructs the killed Brownian resolvent, OU hitting-time distribution via Brownian time change, a uniform domination of its moment integral, and the success-probability identity from optional stopping. The essential cancellation \(p_0=H_r\) is checked analytically and by numerical quadrature. The renewal moment induction is valid because positive-return exit times are uniformly bounded on a compact interval and the negative OU hitting law has all positive-stiffness moments. The finite checker passes, but does not replace the infinite-range arguments.
+PASS
 
-## Originality — PASS, qualified
+The killed search resolvent gives interruption density rho_r(x)=sqrt(r)/2(e^{-sqrt(r)|x|}-e^{-sqrt(r)(2-x)}) for x<1. Optional stopping yields p_0=e^{-sqrt r}+int_0^1 x rho_r(x)dx=H_r=int_{x<0}(-x)rho_r(x)dx=(1-e^{-2sqrt r})/(2sqrt r). The OU return from negative distance y has exact time-change law tau_k(y)=(2k)^{-1}log(1+k y²/Z²), Z standard normal, giving k^{n-1/2} E[tau_k(y)^n]→c_n y by an integrable logarithmic kernel and dominated convergence. Positive-side return durations have uniformly bounded moments on [0,1]; negative-side return alone contributes H_r c_n to the cycle n-th moment. The renewal recursion p_k M_n=E[C^n]+sum_{1≤j<n}binom(n,j)E[C^{n-j}F]M_j makes cross-cycle terms O(k^{-(n-1)}) vs leading k^{-(n-1/2)}, proving all integer n≥1 for FIXED r>0. c1=√(π/2), c2=√(2π)log2, variance leading order k^{-3/2}; at k=0 the unmodified Brownian hitting time has infinite mean. Independently integrated the killed-resolvent martingale identity at four r values and evaluated the universal constants. No numerical result substitutes for the n-induction or uniform moment bound.
 
-Full HTML was examined for arXiv:2610.18814v1 and arXiv:2511.14646v1, including the former's model/mean derivation and the latter's SR-B setup, first-passage splitting probabilities, return-time distributions and conclusion. Both develop *mean* first-passage formulas that cover the model; the current theorem does not claim these formulas as new. The checked literature did not give the all-integer weak-return-stiffness moment hierarchy, the reset-rate cancellation for each moment, or the variance and coefficient-of-variation exponents. Targeted published-record searches yielded other Brownian first-passage and harmonic-return findings but no claim with the same quantifiers or an implication covering this joint theorem. The novelty assessment is best-knowledge, not a proof of priority: a more general renewal/moment theorem or unlocated appendix could subsume part of the conclusion.
+## originality
 
-## Value — PASS
+PASS
 
-Existing first-passage mean formulas do not quantify how unreliable completion times become as optical return traps soften. The theorem gives the *entire integer moment spectrum*, explicit universal amplitude ratios, and a sharp divergence of relative fluctuations for the experimentally motivated target-visible return protocol. It distinguishes the physical clock (which counts stochastic return residence) from instantaneous resetting, and supplies parameters for testing weak-trap regimes without needing to fit the interruption rate in the leading amplitude. The result has substantive observable content beyond a special-function rewrite of the known mean.
+The first-moment problem and OU hitting-time laws are known; the nontrivial addition is the complete all-integer moment weak-stiffness exponent hierarchy, sharp variance and cancellation of reset-rate dependence. Best-of-knowledge priority remains qualified because a more general renewal-asymptotic paper might entail this combination.
 
-## Scientific boundaries
+## value
 
-Strictly fixed positive interruption rate; harmonic drift in the return, free Brownian search; target accessible in either mode; no joint zero-rate limit, no distributional scaling theorem; relevant first-moment formulas and OU time-change law are known. The source-date/primary-scope classification and original claim are recorded in metadata. Independent evaluation remains necessary before external claims of priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The divergence of all moments at distinct half-integer powers, a universal interruption-rate-independent amplitude, and a sharply divergent coefficient of variation expose a mathematically natural singular return-to-unconfined-Brownian transition; variance alone is not fixed by prior mean formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

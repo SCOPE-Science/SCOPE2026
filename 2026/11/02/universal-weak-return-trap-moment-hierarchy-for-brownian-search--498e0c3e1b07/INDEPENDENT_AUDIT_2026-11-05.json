@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:49:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed search resolvent gives interruption density rho_r(x)=sqrt(r)/2(e^{-sqrt(r)|x|}-e^{-sqrt(r)(2-x)}) for x<1. Optional stopping yields p_0=e^{-sqrt r}+int_0^1 x rho_r(x)dx=H_r=int_{x<0}(-x)rho_r(x)dx=(1-e^{-2sqrt r})/(2sqrt r). The OU return from negative distance y has exact time-change law tau_k(y)=(2k)^{-1}log(1+k y²/Z²), Z standard normal, giving k^{n-1/2} E[tau_k(y)^n]→c_n y by an integrable logarithmic kernel and dominated convergence. Positive-side return durations have uniformly bounded moments on [0,1]; negative-side return alone contributes H_r c_n to the cycle n-th moment. The renewal recursion p_k M_n=E[C^n]+sum_{1≤j<n}binom(n,j)E[C^{n-j}F]M_j makes cross-cycle terms O(k^{-(n-1)}) vs leading k^{-(n-1/2)}, proving all integer n≥1 for FIXED r>0. c1=√(π/2), c2=√(2π)log2, variance leading order k^{-3/2}; at k=0 the unmodified Brownian hitting time has infinite mean. Independently integrated the killed-resolvent martingale identity at four r values and evaluated the universal constants. No numerical result substitutes for the n-induction or uniform moment bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical OU first-passage transforms cover the negative-return subproblem. Linear-return potential yields a different return tail; neither cited mean-only work supplies moments of the full concatenated search/return process."
+        ],
+        "reasoning": "An OU hitting law is a premise but must be mixed over the killed-search endpoint and geometric cycle renewal; known mean formulas alone cannot force the n-th asymptotic constant.",
+        "searches": [
+          "Resultary: Brownian search stochastic harmonic returns Ornstein Uhlenbeck weak confinement moments completion time variance renewal return",
+          "Grebenkov, First exit times of harmonically trapped particles DOI:10.1088/1751-8113/48/1/013001",
+          "arXiv:2406.08975 stochastic linear returns"
+        ]
+      },
+      "checked_sources": [
+        "Frydel, arXiv:2511.14646v1 §III.4",
+        "Dubey and Pal, arXiv:2610.18814v1 abstract/model; full paper not read",
+        "Biswas et al., arXiv:2406.08975v1",
+        "Grebenkov, J. Phys. A 48 (2015) 013001, OU first-passage background",
+        "Resultary: Brownian search stochastic harmonic returns Ornstein Uhlenbeck weak confinement moments completion time variance renewal return"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known OU hitting law plus source MFPT establish at most n=1; the result also proves Var(T)~√(2π)log2 k^-3/2 and n-th leading moments for all integer n."
+        ],
+        "reasoning": "New renewal cross-term estimates and martingale cancellation prove the higher-moment regime; the mean equation does not determine variance or high moments.",
+        "searches": [
+          "Resultary: Brownian search stochastic harmonic returns Ornstein Uhlenbeck weak confinement moments completion time variance renewal return",
+          "arXiv:2610.18814v1 text available at abstract/model level",
+          "arXiv:2511.14646v1 §III.4 SR-B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubey–Pal describe the target-visible switching harmonic protocol and its mean; Frydel provides OU return distribution and the regenerative SR-B mean first-passage time."
+        ],
+        "reasoning": "Same model identification is substantive: n=1 is prior-implied and not credited as new in isolation; the complete n≥2 asymptotic hierarchy and r-independent coefficients require the cycle moment induction, not a reformulation of an MFPT.",
+        "searches": [
+          "Resultary: Brownian search stochastic harmonic returns Ornstein Uhlenbeck weak confinement moments completion time variance renewal return",
+          "arXiv:2610.18814 stochastic return protocol",
+          "arXiv:2511.14646 §III.4 SR-B visible target"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked other OU sensor extremes, critical cover times and unrelated Brownian problems rather than an exact Brownian-search OU-return moment table."
+        ],
+        "reasoning": "No exact c_n table of this model located; the missing-table inference is bounded to checked sources.",
+        "searches": [
+          "Resultary: Brownian search stochastic harmonic returns Ornstein Uhlenbeck weak confinement moments completion time variance renewal return",
+          "Resultary OU first-passage and random-search nearest semantic hits",
+          "arXiv:2511.14646 §III.4 numerical mean tables"
+        ]
+      },
+      "rationale": "The first-moment problem and OU hitting-time laws are known; the nontrivial addition is the complete all-integer moment weak-stiffness exponent hierarchy, sharp variance and cancellation of reset-rate dependence. Best-of-knowledge priority remains qualified because a more general renewal-asymptotic paper might entail this combination.",
+      "residual_risks": [
+        "Dubey–Pal October 2026 same-protocol full text was inaccessible here; not classified NOT_COVERING on snippets.",
+        "Unlocated general renewal/OU mixed-tail result may dominate higher-moment conclusion.",
+        "Limits are pointwise in fixed r, not uniform as r→0 or ∞."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model ingredients/mean, not the stated n≥2 weak-trap full-time hierarchy",
+          "evidence": [
+            "Section III.4 first-passage mean and stochastic OU return mechanics; no all-n coefficient sequence established there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.14646v1",
+          "material_read": "Accessible primary HTML mathematical text, SR-B model, §III.4 mean completion-time formulas and OU return discussion",
+          "method": "Read primary HTML, equations and relevant model definitions",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials — Frydel (2025)",
+          "trigger": "Direct stochastic harmonic return and target-visible SR-B protocol"
+        },
+        {
+          "assessment": "Important priority risk; no full-document noncoverage claim from abstract alone",
+          "evidence": [
+            "Source focuses on mean completion time in target-visible switching harmonic return; uninspected full text could contain extra asymptotic results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18814",
+          "material_read": "Accessible abstract and bibliographic description; full primary text not obtained in this execution",
+          "method": "Checked arXiv primary abstract and attempted HTML/PDF full access",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols — Dubey and Pal (2026)",
+          "trigger": "Same switching harmonic model and possible complete coverage"
+        },
+        {
+          "assessment": "Return drift differs and cannot directly imply harmonic weak-trap exponents",
+          "evidence": [
+            "Source treats linear/drift-diffusive return rather than -kx OU trapping."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.08975v1",
+          "material_read": "Title, model description and relevant comparison, not all sections",
+          "method": "Compared available source description with target-visible OU return normalization",
+          "title": "Drift-diffusive resetting search process with stochastic returns — Biswas et al. (2024)",
+          "trigger": "Related stochastic-return renewal framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The divergence of all moments at distinct half-integer powers, a universal interruption-rate-independent amplitude, and a sharply divergent coefficient of variation expose a mathematically natural singular return-to-unconfined-Brownian transition; variance alone is not fixed by prior mean formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No distributional scaling limit proved, only integer moments; do not extrapolate uniformity in reset rate.",
+    "Full same-protocol Dubey–Pal 2026 manuscript not obtained; explicit residual priority risk retained.",
+    "Dubey–Pal October 2026 same-protocol full text was inaccessible here; not classified NOT_COVERING on snippets.",
+    "Unlocated general renewal/OU mixed-tail result may dominate higher-moment conclusion.",
+    "Limits are pointwise in fixed r, not uniform as r→0 or ∞."
+  ],
+  "schema_version": 1
+}
