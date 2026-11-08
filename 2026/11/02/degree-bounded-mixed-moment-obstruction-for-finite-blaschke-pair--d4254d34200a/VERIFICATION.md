@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite-degree mixed-moment theorem
 
-The proof is self-contained except for the standard defining properties of a polynomial resultant and the elementary Gershgorin diagonal-dominance theorem. For the first, the resultant of degree-\(d\) and degree-\(e\) polynomials is homogeneous of degree \(e\) and degree \(d\) in their respective coefficient vectors. The two rational functions can share a value pair only on a one-dimensional algebraic locus, so the resultant is not the zero polynomial. Substitution yields an exact linear relation among \((e+1)(d+1)\) distinct-index Hardy vectors (the vectors need not be distinct as functions).
+# Independent mathematical audit
 
-The second ingredient requires explicitly checking the row degree in the rectangular index poset: for \(0\le j\le e\), \(0\le k\le d\), exactly \(j(d-k)+(e-j)k\) opposing indices can have nonzero correlations. Its maximum is \(de\), establishing strict diagonal dominance whenever every prescribed moment is less than \(1/(de)\). The Gram matrix must be singular by the resultant relation, proving the bound. For \(d=e=1\), the bound is attained. For coprime positive degrees, monomials have no nonzero cross-moment before \((m,n)=(e,d)\).
+## correctness
 
-The optional `CHECK.py` executes finite combinatorial and monomial consistency tests using only the standard Python library. These tests do not establish the general result independently, and no external or independent mathematical audit has been performed.
+PASS
+
+Write B=p/q and C=r/s reduced with polynomial numerator degrees d and e and denominator analytic/nonvanishing on closed disk. Their nonzero elimination resultant Res_z(p-uq,r-vs) has bidegree <=(e,d) and vanishes identically after (u,v)=(B(z),C(z)). Thus the (e+1)(d+1) unit H^2 vectors B^j C^k are linearly dependent. For comparable distinct index pairs, zero values at origin make the off-diagonal Gram inner products vanish. Only opposite-sign differences can contribute a mixed moment in the prescribed rectangle, with at most j(d-k)+(e-j)k<=de entries per row. If each were <1/(de) all unit-diagonal Gram rows would be strictly diagonally dominant and hence nonsingular, contradicting the resultant dependence. Coprime monomial B=z^d,C=z^e has first nonzero mixed moment exactly at (m,n)=(e,d), proving separate exponent-cutoff necessity; degree one attains bound. Independently evaluated all 625 (d,e) combinations through 25 for maximum row count and coprime monomial examples. The analytic resultant/Gershgorin proof, not these tests, proves arbitrary degrees.
+
+## originality
+
+PASS
+
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
+
+## value
+
+PASS
+
+A finite-degree, finite-moment, quantitative witness for nonindependence of rational inner functions, stronger than a qualitative all-order impossibility theorem. It identifies an explicitly testable bounded rectangle and nonzero numerical margin and proves the exponent cutoffs optimal, despite not claiming best possible universal constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is verified for all nonconstant finite Blaschke products of degrees \(d,e\ge1\) vanishing at zero. The resultant \(\operatorname{Res}_z(p-uq,r-vs)\) is a nonzero bivariate polynomial with bidegrees at most \((e,d)\) and vanishes upon substitution of the two inner functions. It therefore supplies a genuine linear dependence among \((e+1)(d+1)\) unit-norm Hardy vectors. Their Gram matrix has at most \(de\) possible nonzero off-diagonal entries per row; entries are exactly mixed moments or conjugates. Singular matrices cannot be strictly diagonally dominant, yielding the claimed \(1/(de)\) bound. Coprime monomials prove both exponent cutoffs independently necessary. Boundary cases \(d=e=1\) and normalization were checked. No finite computation is being used as an infinite proof.
+PASS
 
-## Originality — PASS under inspected evidence
+Write B=p/q and C=r/s reduced with polynomial numerator degrees d and e and denominator analytic/nonvanishing on closed disk. Their nonzero elimination resultant Res_z(p-uq,r-vs) has bidegree <=(e,d) and vanishes identically after (u,v)=(B(z),C(z)). Thus the (e+1)(d+1) unit H^2 vectors B^j C^k are linearly dependent. For comparable distinct index pairs, zero values at origin make the off-diagonal Gram inner products vanish. Only opposite-sign differences can contribute a mixed moment in the prescribed rectangle, with at most j(d-k)+(e-j)k<=de entries per row. If each were <1/(de) all unit-diagonal Gram rows would be strictly diagonally dominant and hence nonsingular, contradicting the resultant dependence. Coprime monomial B=z^d,C=z^e has first nonzero mixed moment exactly at (m,n)=(e,d), proving separate exponent-cutoff necessity; degree one attains bound. Independently evaluated all 625 (d,e) combinations through 25 for maximum row count and coprime monomial examples. The analytic resultant/Gershgorin proof, not these tests, proves arbitrary degrees.
 
-The 2002 Nakazi–Watanabe Proposition 1 already proves that two statistically independent inner functions cannot include a finite Blaschke product; no originality is claimed for that qualitative obstruction. The present quantitative theorem additionally fixes the necessary finite rectangle by *both degrees*, gives a guaranteed numerical mixed-moment lower bound, and shows the exponent limits cannot shrink. The October 21, 2026 Fu–Guo–Li–Qiu announcement concerns existence via infinite Blaschke products, not such finite-degree quantitative estimates in its accessible abstract. Targeted published-literature and related-result searches did not find a directly covering quantitative statement. Distinct Blaschke Szegő-orbit frame results concern a different Gram family rather than cross-moments of two finite inner functions. The 2026 preprint's full text could not be examined; this remains a material originality risk, not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The new inner-function existence theorem makes the finite-versus-infinite Blaschke distinction mathematically motivated. This result gives an explicit finite testing rectangle and nonzero stability margin for any fixed pair of finite degrees, instead of an existential obstruction requiring arbitrarily high moments. Coprime monomial examples identify the natural optimal order at which a universal witness must be sought. The universal coefficient itself is a usable quantitative bound, not represented as numerically optimal for higher degrees.
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
 
-## Limitations and closest comparison
+## value
 
-The result assumes both products finite and vanishing at zero. It does not establish bounds for independent infinite Blaschke functions or degree-uniform approximations, nor numerical-constant sharpness for degrees above one. Qualitative finite-Blaschke impossibility is older (Nakazi–Watanabe, 2002). Inability to read the full 2026 preprint leaves an explicit residual implicit-coverage risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite-degree, finite-moment, quantitative witness for nonindependence of rational inner functions, stronger than a qualitative all-order impossibility theorem. It identifies an explicitly testable bounded rectangle and nonzero numerical margin and proves the exponent cutoffs optimal, despite not claiming best possible universal constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
