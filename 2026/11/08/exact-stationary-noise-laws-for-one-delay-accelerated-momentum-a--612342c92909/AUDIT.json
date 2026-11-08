@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Direct derivation of cubic modal AR(3) from published update and independently read Schur proof, exact Yule--Walker stationary formula, exact endpoint asymptotics, two-lag minimax delayed GD and its stationary variance. 450 numerical/simulation plus 9 exact-rational checks passed. No finite test substituted for analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mohammadi et al. establishes general second-order momentum √κ penalty; Stich/Karimireddy stochastic delay bounds involve D-SGD but not the cubic rate-optimal DREAM tuning"
+      ],
+      "reasoning": "Existing general bounds describe the broad phenomenon but neither the exact three-state method nor its rate-optimized delayed comparator; therefore they do not dominate the numerical statement.",
+      "searches": [
+        "delay resistant accelerated momentum noise amplification stationary covariance quadratic Lyapunov cubic characteristic one step",
+        "two spectral endpoint accelerated delayed gradient noise floor compared delayed gradient descent kappa sqrt kappa",
+        "arxiv:2209.11920",
+        "JMLR 21 (2020) 19-748"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.37444v1",
+      "arxiv:2209.11920v3",
+      "JMLR 21 (2020) 19-748",
+      "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "2026/10/4/SCOPE-noise-amplification-imposes-an-exact-deterministic-stability-tax--8be1c7e1df01"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DREAM authors: deterministic root bound and no stochastic stationary theorem. Mohammadi et al.: two-lag delayed-free momentum, generic noise scaling."
+      ],
+      "reasoning": "The exact AR(3) Yule--Walker formula, endpoint constants, delayed-GD minimax choice and 3/20 comparison require new derivations. Prior generic Θ(√κ) claims are not asserted as novel.",
+      "searches": [
+        "arxiv:2610.37444v1 Proposition 3.19 Eq.(81)",
+        "arxiv:2209.11920 Eq.(2) and Table I",
+        "DREAM delay resistant acceleration with momentum stochastic stationary variance soft eigenmode kappa^3/2 square root noise 2610.37444"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DREAM cubic characteristic Eq.(81) but no stationary additive-noise formula; classic noisy momentum Eq.(2) is two-state"
+      ],
+      "reasoning": "AR(3) vs AR(2) state order differs and the optimized delayed-GD comparator is likewise absent; generic noise sensitivity alone does not imply the specific constants.",
+      "searches": [
+        "DREAM delay resistant acceleration with momentum stochastic stationary variance soft eigenmode kappa^3/2 square root noise 2610.37444",
+        "one-step delayed generalized momentum extrapolation additive white noise stationary variance kappa^(3/2) accelerated gradient",
+        "arxiv:2610.37444v1",
+        "arxiv:2209.11920"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned nearest entries on stochastic STORM, randomized delayed Gauss-Seidel, and PNM noise amplification, all different algorithms"
+      ],
+      "reasoning": "No source table matching the cubic rational law or the 3/20 coefficient was recovered. Negative searches do not prove uniqueness.",
+      "searches": [
+        "DREAM delay resistant acceleration with momentum stochastic stationary variance soft eigenmode kappa^3/2 square root noise 2610.37444",
+        "one-step delayed generalized momentum extrapolation additive white noise stationary variance kappa^(3/2) accelerated gradient",
+        "delay resistant accelerated momentum noise amplification stationary covariance quadratic Lyapunov cubic characteristic one step",
+        "two spectral endpoint accelerated delayed gradient noise floor compared delayed gradient descent kappa sqrt kappa",
+        "published-finding corpus id: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+        "published-finding corpus id: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "published-finding corpus id: 2026/10/4/SCOPE-noise-amplification-imposes-an-exact-deterministic-stability-tax--8be1c7e1df01"
+      ]
+    },
+    "rationale": "Method-specific exact one-delay DREAM stationary variance (including 1/8 and 1/7 constants and the 3/20 comparator) is absent from inspected source results; generic √κ momentum noise tradeoff is already known and excluded. Relevant published-finding corpus and accessible own-claim searches found no coverage. Remaining possibility of unindexed prior equivalent noted.",
+    "residual_risks": [
+      "Unindexed or inaccessible older third-order delay-momentum covariance calculations may imply the exact law.",
+      "The general accelerated-method noise-vs-speed phenomenon, including relative order √κ, is prior work; novelty is limited to exact parameters and delayed comparator.",
+      "No independent validation or complete exhaustive literature coverage has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Schur stability and deterministic rate only; conclusion identifies stochastic gradients as open; no stationary additive-gradient-noise variance computed",
+        "evidence": [
+          "Proposition 3.19 α, β, ν and ρ=1-q/2; equation (81); conclusion notes stochastic-gradient extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37444v1",
+        "material_read": "Sections 2.1, 3.2 (Proposition 3.19 and proof, equation 81 and 82-83), conclusion and cited stochastic-related work",
+        "method": "Read HTML full-text relevant sections, parameter and polynomial comparison",
+        "title": "DREAM: Delay-Resistant Acceleration with Momentum",
+        "trigger": "Identical delayed GMM recurrence and rate-optimal parameters"
+      },
+      {
+        "assessment": "Already establishes general √κ relative variance penalty for two-state HB/NAG; its recurrence uses x at current and previous steps in gradient and cannot directly specialize to the three-state one-delay DREAM cubic or sharp delayed-GD 3/20 coefficient",
+        "evidence": [
+          "Equation (2) has x[t+2] depending only on x[t+1], x[t]; introduction explicitly credits Θ(√κ) relative penalty for HB/NAG; scope says two-step momentum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.11920",
+        "material_read": "Abstract, introduction, equations (2)-(4), noise-amplification discussion and table of rates, end/limitations",
+        "method": "Read PDF text and first-page screenshot; compared order/state of recurrence and exact implications",
+        "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+        "trigger": "Plausible broader coverage of accelerated stochastic noise amplification"
+      },
+      {
+        "assessment": "Studies stochastic delayed GD nonasymptotic rates; no exact stationary cubic DREAM spectrum/variance ratio in inspected sections",
+        "evidence": [
+          "Introduction states D-SGD update, optimization plus stochastic error-rate terms; no momentum cubic in stated framework."
+        ],
+        "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume21/19-748/19-748.pdf",
+        "material_read": "Abstract and Introduction including delayed stochastic SGD definition and Arjevani et al. quadratic bounds",
+        "method": "Read PDF extracted full-text opening pages and first-page screenshot",
+        "title": "The Error-Feedback Framework: Better Rates for SGD with Delayed Gradients and Compressed Updates",
+        "trigger": "Delayed gradient stochastic bounds possibly imply exact stationary law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "612342c9-2909-4f67-b80f-0bbaeaf69835",
+  "value": {
+    "rationale": "Quantifies unbounded stationary noise sensitivity of a current accelerated one-delay tuning with sharp constants and normalizes against its natural independently rate-optimal delayed-GD competitor; relevant to stochastic parameter selection. Does not claim universal lower bound or that generic √κ tradeoff is new.",
+    "status": "PASS"
+  }
+}
