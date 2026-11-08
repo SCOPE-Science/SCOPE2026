@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Positive unilateral shift weights give exact weighted-shift singular values; iteration applies the binomial smoothing kernel to log weights. Binomial concentration proves the fixed-parameter norm scale and locally uniform normalized singular profile. For alpha>1 the lower derivative bound alpha*j yields a fixed summable majorant and dominated convergence. Alpha=1 evaluates to an exact geometric series. For 0<alpha<1 a uniformly convergent derivative on j=O(n^(1-alpha)) gives the exponential profile, and two separate tail estimates (j<=n and j>n) give tightness for an infinite Riemann sum, yielding t^(1-alpha)/(pc alpha). The conclusion holds for all fixed p>0, including the quasi-norm regime. Source check.py passed 582 finite assertions; those are diagnostics, not the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stankovic proves convergence of the Schatten quasi-norm for all Schatten-class unilateral weighted shifts; this is broader in operator class but strictly weaker in quantitative conclusion.",
+        "Bala addresses convergence of compact-operator Aluthge iterates in norm, with no displayed normalized mass law.",
+        "Dykema--Schultz establishes binomially averaged ergodic convergence in the finite-von-Neumann-algebra setting, not the stretched-exponential unilateral-shift boundary layer."
+      ],
+      "reasoning": "The broader results explain or supply the known binomial mechanism and unnormalized convergence. None of the inspected statements determines the normalized Schatten-p mass, its n^(1-alpha) prefactor or the locally uniform singular-value profile. A broader regular-variation theorem not captured in these searches remains a material priority risk.",
+      "searches": [
+        "arxiv:2611.07728, Proposition 5.8",
+        "arxiv:2602.07916, compact-operator iteration results",
+        "\"Aluthge\" \"asymptotic\" \"weighted shift\" \"rate\"",
+        "arxiv:math/0512197, section 4 binomial ergodic theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11336",
+      "arxiv:2602.07916",
+      "arxiv:2611.07728",
+      "arxiv:math/0512197"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pal--Chandok compare numerical-radius and Schatten bounds via generalized Aluthge transforms, with no n-dependent normalized singular-value distribution.",
+        "Stankovic formula (9) covers exactly the binomial weight step, while Proposition 5.8 proves only eventual zero of Schatten norms; that is consistent with all three different normalized regimes.",
+        "Dykema--Schultz Theorem 4.1 proves convergence of binomial ergodic averages but not growth of the number of significant singular values for compact stretched-exponential shifts."
+      ],
+      "reasoning": "The proposed conclusion has an essential normalized denominator and a noninterchangeable growing-rank summation. None of the inspected prior theorem conclusions logically supplies its explicit constant and trichotomy without new uniform estimates. The binomial identity itself is excluded from the novelty claim.",
+      "searches": [
+        "arxiv:2610.11336, main-results section 2",
+        "arxiv:2611.07728, Proposition 5.8 and equation (9)",
+        "arxiv:math/0512197, theorem 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stankovic (arXiv:2611.07728) equation (9) represents the iterates as binomial geometric means, equivalent to the exact expectation formula after logarithms.",
+        "Stankovic Proposition 5.8 concludes that the unnormalized Schatten quasi-norm tends to zero but does not state the normalized spectral-mass trichotomy.",
+        "Direct source inspection of the main-results statements in Pal--Chandok (arXiv:2610.11336) found numerical-radius bounds rather than sharp iterated singular-value distribution."
+      ],
+      "reasoning": "Equivalent binomial representations are credited; the normalized mass requires simultaneous control of a growing number of singular values. The known exact weight formula alone does not state a sharp three-regime summation result, and a qualitative zero limit does not imply the stated normalized constants or local spectral profile.",
+      "searches": [
+        "\"Aluthge\" \"normalized\" \"singular values\" weighted shift",
+        "\"Aluthge\" \"binomial\" Schatten norm asymptotic",
+        "arxiv:2611.07728, equation (9) and Proposition 5.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined source equations and examples contain no table of the finite-n normalized spectral mass or the three phase constants for exp(-c(j+1)^alpha) weights.",
+        "The finite numerical diagnostics are generated afresh from the explicit model, not imported from a preexisting mathematical table."
+      ],
+      "reasoning": "The target is an infinite-dimensional asymptotic invariant, not a lookup-table computation. Lack of an indexed match does not certify novelty; priority remains subject to wider expert examination.",
+      "searches": [
+        "\"Aluthge\" \"stretched exponential\" Schatten",
+        "\"Aluthge\" \"binomial\" Schatten norm asymptotic",
+        "\"Aluthge\" \"normalized\" \"singular values\" weighted shift"
+      ]
+    },
+    "rationale": "The binomial iterated-shift formula is known (Stankovic, equation (9)) and general Schatten convergence to zero is known (Stankovic, Proposition 5.8); neither is asserted as novel. The sharp three-regime normalized Schatten mass, exact coefficient and locally uniform stretched-regime singular-value profile are not conclusions in the relevant inspected papers. Existing binomial ergodic results and numerical-radius bounds do not supply the uniform summable tail analysis needed for this normalized mass asymptotic. The source comparisons and residual publication-priority risks are recorded below.",
+    "residual_risks": [
+      "A general regularly-varying binomial-averaging or Laplace-asymptotic theorem under another name might imply the quantitative result.",
+      "Some earlier work on Aluthge transforms of weighted shifts was accessible only via abstract or limited indexed material; priority beyond the inspected primary texts is not independently established.",
+      "The recent Stankovic paper contains exactly the iterate formula used in the proof; the distinction must remain at the level of sharp normalized limits and not the underlying binomial identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state or imply a quantitative normalized Aluthge iterate spectral mass trichotomy; results principally weighted numerical-radius inequalities.",
+        "evidence": [
+          "First public submission 2026-10-08; listed Primary 47A12, 47A30.",
+          "Main-results Theorems 2.2--2.12 involve weighted numerical-radius/Schatten inequalities, not iterated stretched-exponential shift mass."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11336",
+        "material_read": "ArXiv HTML abstract, primary MSC listing, definitions, and theorem/corollary statements of its main-results section",
+        "method": "Full-text HTML navigation and targeted mathematical statement comparison",
+        "title": "On weighted Schatten p-numerical radii via generalized Aluthge transformation",
+        "trigger": "October 2026 original source, primary 47A30, generalized Aluthge and Schatten norms"
+      },
+      {
+        "assessment": "Covers the binomial iterate formula and general unnormalized convergence; does not specify the claimed sharp normalized ratios, boundary-layer profile or coefficient.",
+        "evidence": [
+          "Equation (9) gives binomial geometric means; Proposition 5.8 gives Schatten quasi-norm limit zero.",
+          "This work first appeared after the current November 1 source-date boundary and is used for prior-art comparison, not as the motivating eligible primary source."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.07728v1",
+        "material_read": "Full relevant section 5 text, particularly Proposition 5.8 and its proof including equation (9), plus abstract and stated main results",
+        "method": "Direct full-text HTML inspection and term-specific comparison",
+        "title": "Singular values of iterated Aluthge transforms of compact operators",
+        "trigger": "Most directly relevant broad compact-operator singular-value convergence result, made public 2026-11-05"
+      },
+      {
+        "assessment": "Qualitative norm convergence for compact iterates; no quantitative normalized singular-value profile.",
+        "evidence": [
+          "First public submission 2026-02-08; main claim is norm convergence to normal compact operators."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.07916",
+        "material_read": "ArXiv parsed abstract, introduction and stated main result",
+        "method": "Full-text HTML inspection of relevant problem and theorem statements",
+        "title": "The iterated Aluthge Transforms of compact operators",
+        "trigger": "Broad compact-operator convergence theorem in the same transform family"
+      },
+      {
+        "assessment": "Binomial mean-ergodic convergence concerns finite von Neumann algebras and invariant-subspace averages, not the quantitative unilateral-shift Schatten boundary layer.",
+        "evidence": [
+          "First posted 2005-12-09; Theorem 4.1 proves convergence of binomially weighted powers of a contraction to its fixed-space projection."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0512197v4",
+        "material_read": "Full-text HTML introduction, setting and section 4 statements including Theorem 4.1",
+        "method": "Direct comparison of hypotheses and conclusions",
+        "title": "Brown measure and iterates of the Aluthge transform for some operators arising from measurable actions",
+        "trigger": "Earlier binomial ergodic averaging mechanism for iterated Aluthge transforms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8ed808d0-b606-4da0-8d6d-4fc98a948195",
+  "value": {
+    "rationale": "The intrinsic normalized Schatten mass measures how many singular modes remain significant when the operator norm tends to zero. The work completely distinguishes rank-one concentration (alpha>1), fixed geometric spectral mass (alpha=1), and a diverging effective-rank boundary layer with sharp coefficient and full limiting profile (0<alpha<1) in a natural stretched-exponential family. The exact phase boundary is the standard exponential weight and the change of behavior is invisible to qualitative Schatten convergence. This yields a meaningful structural classification rather than an arbitrary finite computation or a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
