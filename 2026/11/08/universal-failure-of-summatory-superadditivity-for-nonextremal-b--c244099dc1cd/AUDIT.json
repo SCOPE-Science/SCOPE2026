@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The occurrence-at-position-j predicate is exactly a union of intervals [2^j(Hq+v),2^j(Hq+v+1)-1]. For m=v+1, n=H+v+1, and m+n=H+2v+2, bounds H/2+1<=v<=H-2 show offset 0 contributes 1,2,2; offset 1 contributes 0,2,2; offsets >=2 contribute zero, producing exact 1,4,4 and defect -1. The proof applies to all h>=3 and all strict interior v. A direct independent string/bit counter checks h=3..10 but is not used for the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2309.00142v1 Theorem 2.1 establishes Gaussian approximation for binary 11-count differences under an additive shift, not a universal sum-of-counts inequality",
+        "arXiv:2412.15851v1 Theorem 1.2 extends such distributional estimates to all words, but does not assert the finite exact defect at the given two addends."
+      ],
+      "reasoning": "A Gaussian distributional statement for c_w(t+s)-c_w(t) as s varies cannot imply an exact sign of F_w(a+b)-F_w(a)-F_w(b) at a specified small a,b; the quantifiers and outputs differ. Positive all-one results cannot cover negative interior words.",
+      "searches": [
+        "Search query: For binary word w not all ones or one followed by zeros, summatory occurrence function fails Graham inequality",
+        "arXiv:2309.00142v1 Theorem 2.1",
+        "arXiv:2412.15851v1 Theorem 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.00142v1 (2023; owning source)",
+      "arXiv:2311.16806v1 (2023; supporting public question)",
+      "arXiv:2412.15851v1 (2024 Dec; supporting broader distributional theorem)",
+      "Published indexed title: Superadditivity of summatory all-one block counts (2026; all-ones endpoint)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 question explicitly proposes testing inequalities when digit sums are replaced by arbitrary block-counting functions.",
+        "The nearest 2026 mathematical result gives positive superadditivity for all-one words, disjoint from strict-interior words.",
+        "Theorem proves exact strict negative at an explicit pair for every allowed h and v."
+      ],
+      "reasoning": "The 2023 source supplies the problem but no theorem resolving strict-interior words. The positive all-one theorem does not imply a negative interior theorem. The distributional results do not imply exact negative witnesses. A stronger unindexed prior classification is the remaining risk.",
+      "searches": [
+        "arXiv:2311.16806 §8 question on block-counting analogues",
+        "arXiv:2309.00142 Theorem 2.1 Gaussian limit",
+        "Search query: Summatory binary pattern counting function superadditivity fails all words containing both zero and one except 10..0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.16806, §8, pp. 9–10: asks about block-counting replacements for digital-sum inequalities",
+        "The finite-witness equivalence is F_w(m+n)-F_w(m)-F_w(n)=-1 for m=v+1, n=2^h+v+1; neither count-difference distribution nor all-one positivity asserts it."
+      ],
+      "reasoning": "Rewording as violation of the binary block-count Graham inequality, count of words below a cutoff, or defect of the summatory step function leaves the same exact 1,4,4 implication. Search and the inspected relevant texts did not reveal this family of uniform negative witnesses.",
+      "searches": [
+        "Search query: Summatory binary pattern counting function superadditivity fails all words containing both zero and one except 10..0",
+        "arxiv:2311.16806 §8 Graham/Allaart block counting question"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest publicly indexed mathematical result: \"Superadditivity of summatory all-one block counts\", covers the opposite endpoint.",
+        "arXiv:2309.00142 discusses binary-11 shifted count distributions, a different quantity from exact summatory counterexamples."
+      ],
+      "reasoning": "The two nearest indexed records address different objects and opposite-endpoint signs; finite tables for short words would not imply the all-length uniform construction. No exact table asserting the claimed entire family was found.",
+      "searches": [
+        "Search query: Graham superadditivity binary block patterns 101 and 110 explicit counterexample",
+        "Search query: binary word block occurrence count summatory function Graham inequality superadditivity 111 100",
+        "Graham superadditivity binary block patterns 101 and 110 explicit counterexample"
+      ]
+    },
+    "rationale": "The 2023 primary source studies shifted pointwise 11-count distributions; the 2023 Graham-inequality paper poses a block-counting generalization as a question; the indexed positive all-one result covers the disjoint boundary word only. No inspected theorem implies negative witnesses for every strict interior leading-one word. Remaining unindexed-equivalence and incomplete-indexed-fulltext risks are stated.",
+    "residual_risks": [
+      "Search cannot establish uniqueness against unindexed or differently described block-count inequalities.",
+      "Indexed 2026 positive endpoint result was checked from its scientific summary only, not primary full text; its title/claim do not cover the negative interior family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The main result is about Gaussian approximation to 11-count differences, not the exact superadditivity of F_w for general strict-interior w.",
+        "evidence": [
+          "Theorem 2.1 p.4; MSC statement p.1; arXiv date line p.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.00142",
+        "material_read": "Preprint v1 introduction, definitions, Theorem 2.1 and remarks (pp. 1–4); full-text keyword search for summatory and superadditive",
+        "method": "Direct PDF text and page-1 visual inspection",
+        "title": "Block occurrences in the binary expansion",
+        "trigger": "Same base and block occurrence counts, eligible primary MSC 11A63, earliest posting 2023-08-31"
+      },
+      {
+        "assessment": "Question in section 8 explicitly raises the direction without establishing uniform negative strict-interior witnesses. Its primary MSC is 68R15 so it is supporting literature rather than the owning source.",
+        "evidence": [
+          "p.10 question; p.1 MSC 68R15 primary; Theorem 3.1 p.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.16806",
+        "material_read": "Introduction and Graham inequality sections (pp. 2–4), section 8 Questions (p. 9–10), references (pp. 10–11)",
+        "method": "Direct PDF text, targeted full-text search and p. 9 visual inspection",
+        "title": "Summing the sum of digits",
+        "trigger": "Closest explicit question asking for Graham-type inequalities for binary block-count functions"
+      },
+      {
+        "assessment": "Gaussian law for pointwise shifted count differences, not sum-function superadditivity or uniform exact finite counterexamples. First posted December 2024, later than the motivating source and used only for coverage comparison.",
+        "evidence": [
+          "Theorem 1.2 pp.3–4; posting date and abstract p.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.15851",
+        "material_read": "Abstract, definitions and main theorem 1.2 on pp. 1–4",
+        "method": "Direct PDF text and first-page visual inspection",
+        "title": "On the behavior of binary block-counting functions under addition",
+        "trigger": "A possible stronger post-2024 general theorem covering every binary word"
+      },
+      {
+        "assessment": "Covers only the all-one endpoint; not the strict-interior counterexamples. Remaining risk cannot be excluded solely by summary.",
+        "evidence": [
+          "Indexed summary states universal positive inequality for every all-one word of length at least 2"
+        ],
+        "identifier_or_url": "Indexed scientific title, 2026: Superadditivity of summatory all-one block counts",
+        "material_read": "Scientific title and indexed summary only; no full-text inspection",
+        "method": "Indexed summary and implication comparison, without claiming full-text inspection",
+        "title": "Superadditivity of summatory all-one block counts",
+        "trigger": "Indexed stronger positive statement near the asserted family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c244099d-c1cd-4610-af92-e6520376574b",
+  "value": {
+    "rationale": "The 2023 published Graham-type block-counting question asks whether summatory digit-sum inequalities extend to nontrivial patterns. The theorem identifies a uniform constructive obstruction for all but two leading-one words at every length, excluding exponentially many natural cases by one length-independent mechanism. This is a structural boundary for the whole family, not an isolated small numerical counterexample. It does not assert the remaining endpoint classification.",
+    "status": "PASS"
+  }
+}
