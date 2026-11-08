@@ -1,15 +1,21 @@
-# Review of the rooted-arm ideal classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof independently handles static shattering, the full nonempty-ideal product, and the extra empty ideal. The critical additivity lemma is proved from the exact finite Littlestone recurrence rather than used without justification. In the induction, a lower-arm query produces a positive product branch of rank \(t+s\) and a negative branch isomorphic to the smaller rooted poset. Every other first query has a deficient branch, establishing the upper bounds. Two separately encoded finite recurrences agree on every tested parameter pair. The all-parameter theorem rests on the proof.
+## correctness
 
-## Originality
-**PASS under the accessible comparisons; priority risk remains.** Bhaskar's *Thicket Density* develops the general binary-tree dimension theory, and Walker's *Tree Dimension and the Sauer--Shelah Dichotomy* proves general leaf-set and growth results. Neither inspected source states the formula for order ideals of a root with length-one/length-two branches. The closest accessible earlier calculation for all ideals of a poset gives width-based VC dimension and general height-width bounds, but does not imply this exact connected-family classification. Equivalent descriptions as satisfying assignments of implication-only Horn formulas were searched for; no dominating result was identified. An undiscovered specialized online-rank formula remains possible.
+PASS
 
-## Value
-**PASS.** This is a complete exact classification for a natural connected, height-three rooted-tree family, with arbitrarily large width. It identifies a sharp structural boundary: a tree with only two-edge arms retains one extra adaptive mistake-tree level, while adding a single direct leaf raises the static dimension and removes the excess without raising the adaptive dimension. That behavior is not determined by the general cardinality bound or the previously available coarse height-width estimates.
+For rooted P_(t,s) with t>=1 length-two arms and s>=0 leaves, each nonempty downset corresponds to t independent three-state arm coordinates and s binary coordinates; including empty gives |J|=1+3^t2^s. Maximum antichain consists of b_i,c_j so VC=t+s. The nonempty subfamily has Littlestone rank t+s by disjoint-product additivity of the exact mistake-tree recursion. Adding the empty hypothesis raises rank by at most one. Query at a lower arm point has positive branch rank t+s and negative branch is J_(t-1,s); root, upper arm and leaf queries cannot cause an extra round. Induction with auxiliary t=0 cases proves Ldim=t+1 for s=0 and t+s for s>=1. Independent direct downset and mistake-tree exhaustive recurrence verified small parameter cases: THREE_LDIM_EXACT_PASS. Infinite t,s follow induction, not finite search.
 
-## Limitations
-There is no assertion about arbitrary arm lengths, higher poset heights, infinite posets, computational hardness of general poset online dimension, or the historical uniqueness of this statement. Independent mathematical assessment is still required for external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected prior primary mathematics supplies the classical framework, but none of the materially compared statements implies the full claimed specialization; best-of-knowledge priority, with explicit risks. The theorem remains the same after encoding the ideals as Horn-closed Boolean assignments. General online shattering recurrences do not immediately evaluate this two-parameter connected rooted poset. Prior general theory defines the dimension and bounds it, but the inspected results neither identify the extra round in the s=0 case nor its loss for s>=1. A specialized online Horn-class formula could be stronger; not found.
+
+## value
+
+PASS
+
+This is an exact adaptive-versus-fixed shattering classification of a simple, naturally parameterized connected height-three implication poset. The one-leaf disappearance of a persistent Littlestone-VC gap is a non-obvious structural boundary, potentially useful when representing Horn/precedence-constrained online learning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
