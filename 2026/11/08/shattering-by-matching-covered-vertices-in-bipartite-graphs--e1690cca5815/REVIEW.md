@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The bipartite criterion has a complete two-direction proof: two prescribed one-shore-positive labelings extract disjoint crossing submatchings, and any crossing matching realizes every labeling by edge deletion. The maximum-matching formula and complete-bipartite polynomial are direct all-parameter consequences. The forced-partner proof makes the path face inclusion-maximal for every positive integer parameter. An independent finite trace enumerator agrees with the crossing-matching algorithm on 598 bipartite instances.
+
+**Originality — PASS within reviewed material.** The exact feasible-set representation is the classical matching delta-matroid (Koana–Wahlström 2024 §1.1), and is not new; the claim is the complete shattered-support cut characterization and nonpure path face family. The closest matching paper, Bucić et al. (arXiv:1906.05908), analyzes perfect-matching intersections and derangement ratios. Adler–Benediktsson–Macpherson (arXiv:2007.16042) analyze neighborhood-defined graph concept families. Simon (arXiv:2402.06729) analyzes ordered greedy matchings and concept/sample consistency graphs. None supplies an identified theorem with the present binary **vertex-coverage** concept class, Hall-type shattered-support criterion, and connected-path nonpurity construction. This is a bounded originality finding, not a statement of global historical uniqueness. Priority under alternate matching-system terminology remains a risk.
+
+**Value — PASS.** The claim completely characterizes the shattering complex of a naturally occurring matching-defined concept class, gives a polynomial-time membership test and an exact VC invariant for every finite bipartite graph, and reveals unbounded nonpurity even for paths. The contrast with a full skeleton for complete bipartite graphs shows genuine structural content beyond the scalar VC formula.
+
+**Boundaries.** The result relies on bipartiteness, includes the empty matching and isolated vertices, and concerns covered-vertex rather than matched-edge queries. No online dimension is inferred. No full priority guarantee or outside mathematical validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
