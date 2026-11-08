@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `verify.py` is dependency-free Python and computes every literal oriented cyclic three-gram multiplicity profile for every binary word of length \(1\) through \(18\), using a direct enumeration of each of the \(2^n\) input words. It independently enumerates possible profile vectors by the four connected-support cases proved in RESULT.md, checks equality of the entire *sets* in each tested length, and compares their sizes to the exact quasipolynomial formula. It additionally checks the formula against the case-parameter enumeration for lengths \(19\) through \(46\).
+## correctness
 
-A successful execution displays three `VERIFY_OK` lines; the last includes \(C_{12}=98\) and \(C_{24}=1247\). Source paths are relative; execute `python3 verify.py` in the directory containing both files. No downloaded data or external packages are needed.
+PASS
 
-The mathematical all-length assertion rests on the proof of the directed Eulerian support characterization, exhaustive case partition, rational generating-function identity, and coefficient extraction. Finite code execution neither proves infinite validity on its own nor independently establishes publication priority. Independent audit has not been performed.
+Use order-2 binary de Bruijn digraph (4 vertices, 8 edges): a cyclic word gives nonnegative balanced connected edge support and conversely an Eulerian connected circulation yields a cyclic word. Balance leaves a,b,c,d,f,h with c+d=b+f and n=a+h+2b+c+2d+f. Case b=d=0, exactly one positive bridge, or both b,d>0 partitions supports; geometric summation gives rational GF. Algebraic partial fractions with genuine order3/order4 root-of-unity poles give exact n>=1 quasipolynomial and least period12; coefficient grows n^4/288. Independent complete 8-vector census n=1..14; symbolic algebra independently confirms same GF as record5. This is an infinite proof by support enumeration and identities, not finite testing.
+
+## originality
+
+PASS
+
+Qualified: Kiah et al. generic substring profile/Ehrhart counts and Jacquet et al. order-one Markov types are antecedents; the earlier 2026-11-02 composition-only profile is coarser, while a subsequent same-repository full-trigram record has exactly this generating function but was committed later. The new extra period12 quasi-polynomial is not identified as covered by earlier primary research; historical equivalent remains possible.
+
+## value
+
+PASS
+
+The exact all-length image cardinality is a natural information-theoretic zero-error capacity; the previously available general asymptotic methods do not specify the exact period12 oscillation and all-length corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

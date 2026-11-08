@@ -1,19 +1,21 @@
-# Scientific review of the cyclic binary three-gram profile theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A cyclic word corresponds exactly to an Eulerian closed walk in the order-two binary de Bruijn digraph. The key extra condition beyond balanced nonnegative edge counts is connected positive support. The proof partitions by the positive occurrence of the two bridge types and accounts separately for the otherwise disconnected loops and alternating two-cycle. The partition gives a rational generating function by direct geometric sums, and exact coefficient extraction yields the all-length period-twelve quasipolynomial. Its small-length conventions include lengths one and two. A standalone, dependency-free checker compares actual length-three profile sets of every binary word to the independently enumerated parameter cases for lengths one through eighteen and checks the coefficient formula through length forty-six. Finite verification is corroboration, not the infinite proof.
+PASS
 
-## Originality
+Use order-2 binary de Bruijn digraph (4 vertices, 8 edges): a cyclic word gives nonnegative balanced connected edge support and conversely an Eulerian connected circulation yields a cyclic word. Balance leaves a,b,c,d,f,h with c+d=b+f and n=a+h+2b+c+2d+f. Case b=d=0, exactly one positive bridge, or both b,d>0 partitions supports; geometric summation gives rational GF. Algebraic partial fractions with genuine order3/order4 root-of-unity poles give exact n>=1 quasipolynomial and least period12; coefficient grows n^4/288. Independent complete 8-vector census n=1..14; symbolic algebra independently confirms same GF as record5. This is an infinite proof by support enumeration and identities, not finite testing.
 
-**PASS at the level of the available evidence, with residual literature risk.** Kiah–Puleo–Milenkovic's profile theory implies polynomial-order growth and gives the asymptotic constant \(1/288\) at binary three-grams, but its relevant sections and table do not state the exact cyclic finite-length count, rational series, or least quasipolynomial period. Jacquet–Knessl–Szpankowski count first-order, rather than second-order, Markov types. Yehezkeally et al. study distinct read/reconstruction constraints. The closest related published two-multispectrum record counts cyclic bigram profiles, not trigram profiles. No explicit equivalent rational series or degree-four period-twelve formula was located. A high-order Markov-type specialization in other literature remains the principal uncertainty; this is not a claim of globally established priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact number of distinguishable outcomes of a natural noiseless read-multiset channel is a directly motivated information-theoretic invariant. The result sharpens the known asymptotic leading constant to a complete all-length formula, distinguishes connected realizable profiles from balanced but disconnected pseudoprofiles, and identifies the minimal period-twelve arithmetic variation. It gives a sharp zero-error code cardinality for every block length, including small lengths for which asymptotics provide no exact answer.
+Qualified: Kiah et al. generic substring profile/Ehrhart counts and Jacquet et al. order-one Markov types are antecedents; the earlier 2026-11-02 composition-only profile is coarser, while a subsequent same-repository full-trigram record has exactly this generating function but was committed later. The new extra period12 quasi-polynomial is not identified as covered by earlier primary research; historical equivalent remains possible.
 
-## Boundaries and validation status
+## value
 
-No alphabet size larger than two, read length other than three, fiber cardinality classification, or efficient optimal encoder is claimed. The proof is mathematical; computational checks cover only stated finite ranges. The self-review is not an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-length image cardinality is a natural information-theoretic zero-error capacity; the previously available general asymptotic methods do not specify the exact period12 oscillation and all-length corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

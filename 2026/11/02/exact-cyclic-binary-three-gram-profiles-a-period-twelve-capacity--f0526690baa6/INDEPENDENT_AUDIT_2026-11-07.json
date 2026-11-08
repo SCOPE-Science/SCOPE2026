@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:46:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use order-2 binary de Bruijn digraph (4 vertices, 8 edges): a cyclic word gives nonnegative balanced connected edge support and conversely an Eulerian connected circulation yields a cyclic word. Balance leaves a,b,c,d,f,h with c+d=b+f and n=a+h+2b+c+2d+f. Case b=d=0, exactly one positive bridge, or both b,d>0 partitions supports; geometric summation gives rational GF. Algebraic partial fractions with genuine order3/order4 root-of-unity poles give exact n>=1 quasipolynomial and least period12; coefficient grows n^4/288. Independent complete 8-vector census n=1..14; symbolic algebra independently confirms same GF as record5. This is an infinite proof by support enumeration and identities, not finite testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah et al. provides general Ehrhart and leading growth results; its generic framework may compute this specialization after work but the inspected tables do not state its 12-period formula."
+        ],
+        "reasoning": "A general method applicable with additional derivation is not itself an explicit earlier theorem implying precise formula if special-case evaluation is unprovided.",
+        "searches": [
+          "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+          "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+          "higher-order Markov types Ehrhart explicit q=2 k=3"
+        ]
+      },
+      "checked_sources": [
+        "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+        "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cyclic-binary-three-gram-profiles-a-period-twelve-capacity--f0526690baa6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later same-repo record 5 generating function simplifies exactly to this record 3 GF; earliest recorded commits are 04:19:35Z and 04:21:18Z on Nov 2 respectively."
+        ],
+        "reasoning": "This record is an antecedent for later near-duplicate rather than a corollary of that later import. Earlier composition-only record loses trigram orientation and cannot recover full count.",
+        "searches": [
+          "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+          "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+          "https://github.com/SCOPE-Science/SCOPE2026/commit/07b2b84f1c921be66ddfd7b146063cd61060a226",
+          "https://github.com/SCOPE-Science/SCOPE2026/commit/f1f6b4ad2541e1d9d4a05ddf98c06acd26332c75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiah–Puleo–Milenkovic models de Bruijn edge-count DNA profiles and constrained read channels; Jacquet et al. handle Markov counts, not this exact connected order2 binary cyclic eight-count profile."
+        ],
+        "reasoning": "Equivalent balanced de Bruijn circulation is only a characterization, and connected support plus explicit vector enumeration are needed for exact coefficients.",
+        "searches": [
+          "cyclic binary trigram multiplicity profiles count de Bruijn flow 3-gram exact quasipolynomial 12",
+          "binary cyclic 3 gram profiles generating function number attainable counts connected Eulerian de Bruijn",
+          "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary binary two-multispectrum is length TWO oriented observations, not three; current record 5 has same GF but later source timestamp."
+        ],
+        "reasoning": "Lower-order counts do not determine eight-coordinate trigram profiles. Near-duplicate later record cannot defeat originality of this earlier assertion.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "cyclic binary trigram profile exact counts n 3 12 sequence 4 6 8 13 18 27 38 53"
+        ]
+      },
+      "rationale": "Qualified: Kiah et al. generic substring profile/Ehrhart counts and Jacquet et al. order-one Markov types are antecedents; the earlier 2026-11-02 composition-only profile is coarser, while a subsequent same-repository full-trigram record has exactly this generating function but was committed later. The new extra period12 quasi-polynomial is not identified as covered by earlier primary research; historical equivalent remains possible.",
+      "residual_risks": [
+        "An older Markov-type or DNA-sequence-profile exact specialization may contain this 12-period correction under different terminology; unsuccessful search is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains general framework, asymptotic/Ehrhart results; does not supply displayed exact n-uniform period12 correction in inspected relevant sections",
+          "evidence": "Constrained de Bruijn profile-count and Eulerian digraph framework",
+          "identifier_or_url": "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+          "material_read": "Full accessible conference primary PDF; definitions, channel model, Sections 2–5, rate/count discussion and Table I",
+          "method": "primary full-text PDF",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Identical de Bruijn frequency-profile object and possible exact count"
+        },
+        {
+          "assessment": "First-order complete transition counts and asymptotics; present connected order2 sparse graph all-n coefficient not displayed",
+          "evidence": "Balances stationary transition matrices; does not handle strong-support characterization for this sparse higher order",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+          "material_read": "Full primary PDF, introduction, main counting results, cyclic balance and Section 3 inspected",
+          "method": "primary full-text PDF",
+          "title": "Counting Markov Types",
+          "trigger": "Potential high-order Markov type exact formula"
+        },
+        {
+          "assessment": "This record gives stronger exact quasipolynomial and predates later record5 on Git",
+          "evidence": "2026-11-02T04:19:35Z associated initial Git commit",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cyclic-binary-three-gram-profiles-a-period-twelve-capacity--f0526690baa6/RESULT.md",
+          "material_read": "Entire RESULT.md and generating function at pinned Git commit",
+          "method": "pinned original Git blob",
+          "title": "Earlier full-trigram source record",
+          "trigger": "Exact same claim within current assignment; chronology for duplicate scrutiny"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-length image cardinality is a natural information-theoretic zero-error capacity; the previously available general asymptotic methods do not specify the exact period12 oscillation and all-length corrections.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+    "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cyclic-binary-three-gram-profiles-a-period-twelve-capacity--f0526690baa6/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=1, number of 8-coordinate full oriented cyclic binary trigram profiles equals an explicit degree-four quasipolynomial of least period 12; rational generating function and exact zero-error observation code capacity.",
+  "limitations": [
+    "No claim of historical priority beyond the stated primary-source comparisons and residual risks.",
+    "Finite direct enumeration does not prove unbounded claims.",
+    "Public file publication blocked on provenance sanitization; the scientific assessment is distinct from any release or certification."
+  ],
+  "residual_risks": [
+    "An older Markov-type or DNA-sequence-profile exact specialization may contain this 12-period correction under different terminology; unsuccessful search is not proof of absence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contains general framework, asymptotic/Ehrhart results; does not supply displayed exact n-uniform period12 correction in inspected relevant sections",
+      "evidence": "Constrained de Bruijn profile-count and Eulerian digraph framework",
+      "identifier_or_url": "https://personal.ntu.edu.sg/hmkiah/docs/papers/DNA_seq_profile_ISIT.pdf",
+      "material_read": "Full accessible conference primary PDF; definitions, channel model, Sections 2–5, rate/count discussion and Table I",
+      "method": "primary full-text PDF",
+      "title": "Codes for DNA Sequence Profiles",
+      "trigger": "Identical de Bruijn frequency-profile object and possible exact count"
+    },
+    {
+      "assessment": "First-order complete transition counts and asymptotics; present connected order2 sparse graph all-n coefficient not displayed",
+      "evidence": "Balances stationary transition matrices; does not handle strong-support characterization for this sparse higher order",
+      "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+      "material_read": "Full primary PDF, introduction, main counting results, cyclic balance and Section 3 inspected",
+      "method": "primary full-text PDF",
+      "title": "Counting Markov Types",
+      "trigger": "Potential high-order Markov type exact formula"
+    },
+    {
+      "assessment": "This record gives stronger exact quasipolynomial and predates later record5 on Git",
+      "evidence": "2026-11-02T04:19:35Z associated initial Git commit",
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cyclic-binary-three-gram-profiles-a-period-twelve-capacity--f0526690baa6/RESULT.md",
+      "material_read": "Entire RESULT.md and generating function at pinned Git commit",
+      "method": "pinned original Git blob",
+      "title": "Earlier full-trigram source record",
+      "trigger": "Exact same claim within current assignment; chronology for duplicate scrutiny"
+    }
+  ]
+}
