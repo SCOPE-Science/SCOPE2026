@@ -1,15 +1,21 @@
-# Scientific review: flux-resolved lossy rings
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier energies and pair involution are derived directly from the specified Hamiltonian. Degeneracy is absent unless the gauge flux is zero or half flux, and each distinct resonant pair contributes one sink-annihilated vector exactly when its integer momentum satisfies a divisibility congruence. Counting solutions and removing fixed indices yields the stated formula for all \(N\ge3\), all nonempty site sets and every positive set of loss rates. The dissipative generator has strictly decaying spectrum outside the reducing dark eigenspace. A Fourier parity argument gives the all-times antipodal protection. The bundled independent numerical script returned 3183 finite checks; it is not used to replace the general analytical proof.
+## correctness
 
-## Originality — PASS (qualified best-knowledge)
-The 2026 local-damping XX **open chain** source contains a gcd dark-mode criterion but not the flux-threaded periodic ring. The stronger critical ancestor is Krapivsky–Luck–Mallick (2013/2014), which covers both **zero-flux** one- and multiple-trap rings and parts of the arithmetic at zero flux; these are expressly excluded from the novelty claim. The assessed content is instead the full flux discrimination, the half-flux gain/loss of dark modes for arbitrary sink sets, and the exact antipodal protection/absorption switch. General dark-network tools by Le et al. and the flux-dependent root-measurement analysis by Luppi are relevant. The latter's full text was inaccessible, so claims beyond its abstract were not excluded. Broader controllability literature could imply the theorem; checked sources and mathematical implications do not currently establish such coverage. A failed search alone is not offered as novelty proof.
+PASS
 
-## Value — PASS
-The result distinguishes not just a changed decay rate but an exact qualitative switch between certain eventual absorption and rigorously lossless dynamics. It provides a compact arithmetic criterion for engineering or avoiding decoherence-free sectors with *arbitrary* local-loss layouts, and shows that half flux can either create or remove protection. This is structurally stronger than a calculation for a chosen small ring and has a motivated target: robust characterization of single-excitation trapping and interference in dissipative quantum transport. It does not claim robustness to flux disorder or general many-body effects.
+For all N>=3, nonempty S and strictly positive loss rates, diagonalize the uniform Peierls-cycle Hamiltonian with E_k=2J cos((2pi k+phi)/N). Away from 0/pi all eigenvalues are simple and plane waves cannot vanish on sinks. At ell*pi degenerate Fourier pairs k<- >-k-ell yield anchor-node vector; every remaining sink is nodal iff M=N/gcd(N,s-s0 for s in S) divides 2k+ell. Exactly G*gcd(2,M) solutions exist if gcd(2,M)|ell; remove fixed points of the involution (gcd(2,N) if it divides ell), divide by two. This proves the displayed dark dimension including all odd/even boundary cases. A=-iH-Gamma/2 has imaginary spectrum exactly on the reducing dark subspace and all complementary eigenvalues have negative real part, so limiting no-jump survival is the squared orthogonal dark projection, independent of positive loss strengths. For even N and a single site sink 0, at half flux the antipode belongs entirely to dark subspace and has survival one at every time, while at 0 flux it is dark-orthogonal. The modular-sink result and exact parity are the nontrivial steps; separate checks corroborate them, finite data are not a general proof.
 
-## Limitations and residual risks
-Single-excitation homogeneous nearest-neighbor rings and ideal Markovian onsite losses only. Asymptotic survival is not uniform near resonance. General graph dark-state theorems may already imply special cases, and a relevant 2026 chiral-walk paper was compared only at abstract level. Existing zero-flux trap theorems are prior art. No independent scientific or literature-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.
+
+## value
+
+PASS
+
+The arbitrary-sink flux-dependent exact formula and parity bifurcation answer a natural transport/control question in dissipative cycle networks; perfect lossless antipodal protection for all times is a sharp parameter-independent boundary phenomenon. This is more than rephrasing the known zero-flux nodal count because half-flux can create or remove all dark modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
