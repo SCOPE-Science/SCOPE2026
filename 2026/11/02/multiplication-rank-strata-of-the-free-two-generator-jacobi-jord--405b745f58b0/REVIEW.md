@@ -1,15 +1,21 @@
-# Scientific review: multiplication-rank strata of a free Jacobi–Jordan algebra
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified eight-dimensional multiplication has been checked against all 512 Jacobi triples in characteristics 5, 7, and 11. The general normal-form argument uses commutativity, the Jacobi identity, and division only by 2 (with the characteristic-3 restriction inherited from the classical free-algebra setup); the displayed multiplication table is a faithful nonzero eight-dimensional realization. The rank-five open stratum follows from the universal algebra's invertible generator substitutions. On the radical, the two-by-two matrix \(\begin{pmatrix}-B/2&A\\C&-B/2\end{pmatrix}\) and independent degree-four functional prove the rank formula without finite-field assumptions. The nonzero rank-one symmetric cone has exactly \(q^2-1\) rational points, yielding the complete count. Direct modular elimination of all 390625 elements in characteristic 5 and 5000 sampled elements in each of characteristics 7 and 11 confirms the enumeration. A finite check is not a proof; the case analysis establishes all fields of stated characteristic.
+## correctness
 
-## Originality — PASS, provisional priority
-Burde–Fialowski (2014) establish the Jacobi–Jordan framework; Agore–Militaru (2015) develop its extension and representation theory. Remm (2022/2024), §5.1, already derives the graded basis and multiplication of the eight-dimensional free two-generator algebra. This is explicitly treated as known. The new statement concerns the rank of every left multiplication, all its determinantal loci, the absent rank four, and exact arithmetic of the strata. In the inspected source sections, and in searches for rank spectra, annihilator dimensions, and the binary discriminant, no such classification appeared. The closest database entries concern multiplication or adjoint ranks in different algebra families and do not imply the result on this nonassociative free algebra. There remains a serious but not decisive priority risk: the normal form is published and these ranks can be derived from it by finite linear algebra; a previous explicit calculation under different terminology could exist.
+PASS
 
-## Value — PASS
-The algebra is the canonical free rank-two Jacobi–Jordan object and the first non-special free example, rather than a parameter-selected finite algebra. The complete left-regular rank stratification identifies its annihilator dimensions, a rank-four gap, a geometrically irreducible singular rank-degeneracy cone, and counts over every finite field of characteristic greater than three. These data refine the published multiplication table into an intrinsic stratification likely useful for comparing quotients, regular representations, and degeneration behavior. The value claim is local to this natural free object; no unproved general result about all Jacobi–Jordan algebras is invoked.
+The eight-dimensional normal form with basis (x,y,a,b,c,d,e,f) and eleven nonzero multiplication products satisfies the commutative Jacobi identity and spans the free object by reduction of all degree-five monomials; in characteristics not 2,3 the explicit faithful model proves independence. A nonzero linear component of z is the image of x under an automorphism inducing an invertible graded generator change, so L_z has rank 5. For z in F², the degree-three map from (x,y) is M(A,B,C)=[[-B/2,A],[C,-B/2]], determinant (B²−4AC)/4. Nonzero quadratic part has an independent quartic output, giving rank 1+rank M, i.e. 2 on the nonzero quadric and 3 off it; cubic-only gives rank1 and quartic-only gives rank0. The discriminant rank-one symmetric cone has q²−1 nonzero finite-field points and unique singular vertex, so counts are q, q(q²−1), q³(q²−1), q^5(q−1), q^6(q²−1), and rank4 never occurs. Independently reconstructed all multiplication matrices over F5, obtaining 5,120,3000,12500,375000 for ranks 0,1,2,3,5 among 5^8 states. General assertions rest on the algebraic proof, not this sample.
 
-## Closest literature and limits
-The relevant foundational texts are Burde–Fialowski, arXiv:1404.5435 (first submitted 2014-04-22), and Agore–Militaru, arXiv:1507.08146 (first submitted 2015-07-29). The most important antecedent is Remm, arXiv:2202.10812v2, §5.1 (initially 2022-02-22), which identifies the full graded normal form. The theorem deliberately does not claim that normal form or its non-speciality as new. Searches for equivalent left multiplication or annihilator rank spectra returned no covering statement; absence from those searches is not a proof of historical uniqueness. The restrictions exclude characteristics 2 and 3, all other free ranks, and nonreduced scheme structures. Human publication-priority verification and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Remm (2022/2024) already gives the eight-dimensional free Jacobi–Jordan graded multiplication, so the basis/table are not new; Burde–Fialowski and Agore–Militaru establish the general setting. The additional statement classifies every left multiplication rank and geometric discriminant stratum, with explicit finite-field counts. This follows by a short but genuine determinantal case analysis of known structure constants; it is a natural exact result although priority could reside in previous rank/annihilator tables.
+
+## value
+
+PASS
+
+Left-multiplication rank and annihilator dimension are intrinsic to a finite-dimensional algebra, and the free two-generated Jacobi–Jordan algebra is the canonical finite example with a known eight-dimensional normal form. The exact geometric rank loci, discriminant cone, forbidden rank four, and all-q arithmetic strata form a natural complete invariant rather than an arbitrary slice, and can support study of representations, generic rank and annihilator stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
