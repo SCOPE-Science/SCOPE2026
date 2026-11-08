@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact coefficient arithmetic reconstructs the generic 49-point incidence arrangement and proves the nonzero 1330-triple determinant norm restriction to powers of two. This gives a uniform all-odd-characteristic argument, not a numerical extrapolation. The two special-fibre equations are obtained by exact reduction at the distinct split primes, and the 49 collision profiles use projectively primitive coordinates obtained by exact uniformizer division. The independently derived reduced incidence counts and local Tjurina calculation are consistent. The attached program was executed from its actual packaged path.
+## correctness
 
-**Originality — PASS, qualified.** Bauer et al. (2014) give the defining coefficient list and the generic 49-point data. The later Bauer et al. study treats characteristic seven, and Gévay–Pokora and subsequent articles expand the classical geometry. These sources make elementary reductions computationally accessible, so a mere restatement of their equations would not be original. The assessed result instead supplies the precise *pair* of nonisomorphic characteristic-two scheme-theoretic fibres, the complete 49-section collision profiles at the two distinct primes, and a certificate of no other incidence-bad primes. Searches of the relevant published mathematical records and accessible prior results found no equivalent classification. Residual risk: this calculation might be implicit in a published integral-model discussion or in an unindexed table.
+PASS
 
-**Value — PASS, with stated scope.** Blowups of the 49 Klein intersection points are a principal classical application, making the specialization of their actual centres a natural arithmetic question. The 28-fold collision at one prime versus three 14-fold collisions at the other shows sharply different degenerations over isomorphic residue fields. The different supports (six versus seven lines), special Cartier multiplicities, and reduced Tjurina lengths are geometric distinctions not recorded by the characteristic-zero incidence diagram. No assertion about the complete flat limit scheme or birational uniqueness is made.
+In R=Z[a]/(a^2+a+2), the 21 explicit coefficient rows in the assigned verify_klein_reduction.py give 49 projective cross-product classes (21 fourfold, 28 triple) by exact arithmetic. The 1330 triple determinants have norm histogram {0:112,1:169,2:228,4:271,8:320,16:156,32:70,64:4}, so nonzero determinants are units at all odd residue primes. At a mod 2=0: line multiplicities 1^3 6^3; at a mod2=1: 1^3 2^3 12^1. Independent uniformizer-normalized cross-products give point-section profiles at p0: axes (1,4), pair points (2,0), diagonal (12,16); at p1: axes (1,0), pair points (6,8), diagonal (0,4). Char2 reduced supports have respectively 4 triple+3 node, or 7 triple, with Tjurina 19 vs28 and arithmetic genera 10 vs15. Exact independent enumeration and the norm-unit argument cover every claimed residue characteristic, not just sampled primes. No claim is made about the Hilbert-scheme limit of union of 49 sections or nonreduced-fibre singular schemes.
 
-The closest sources and the model-dependence risk are identified in `RESULT.md` and `AUDIT.json`. The reported specializations refer to individual sections; they do not certify the Hilbert function of a scheme-theoretic union.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the specified marked Klein integral model's two distinct characteristic-two Cartier residual fibers plus the complete 49-section collision classification and odd-prime incidence persistence. All 21 lines, 49 generic points and their complex incidence are antecedents. Historical arithmetic-degeneration calculations, possibly unpublished, remain a material priority risk.
+
+## value
+
+PASS
+
+The Klein 21-line/49-point configuration is a canonical highly symmetric geometric arrangement. Arithmetic degeneration at the two conjugate primes over two is natural because its coefficients live in Q(sqrt(-7)), and the full 49-section collision profile distinguishes two ostensibly similar F2 reductions. The determinant-norm proof closes all other residue characteristics for the incidence lattice, making this a self-contained substantial exact classification; the specific integral model is explicit and motivated, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
