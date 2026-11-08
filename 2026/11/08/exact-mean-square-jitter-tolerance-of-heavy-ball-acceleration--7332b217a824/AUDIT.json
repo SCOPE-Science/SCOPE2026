@@ -1,0 +1,198 @@
+{
+  "correctness": {
+    "rationale": "Exact positive-definite Lyapunov covariance W solves the zero-noise modal moment recursion. The two-step comparison has a strictly positive-definite cone direction and coefficient of sign vW11−1, proving geometric decay below, a nondecaying fixed covariance at, and exponential growth of a covariance above the sharp threshold. Worst-curvature monotonicity establishes the full SPD result. Chebyshev and GD thresholds simplify algebraically; exact rational counterexample and standalone checker replay passed. Finite verification is supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bollapragada–Chen–Ward prove sufficient minibatch HB rate bounds, not a necessary-and-sufficient iid scalar jitter cutoff.",
+        "Velikanov–Kuznedelev–Yarotsky analyze a different spectrally expressible minibatch covariance model; their SE operator is not an arbitrary sigma squared H X H without additional nontrivial specialization.",
+        "Loizou–Richtárik and Dang–Babanezhad–Vaswani also impose different stochastic sampling/noise models."
+      ],
+      "reasoning": "Broad stochastic heavy-ball theorems apply to particular sketch distributions, batch sampling and sufficient acceleration rates. Their hypotheses do not automatically yield the exact universal finite-variance common step multiplier threshold, and the assessed exact boundary is not a direct numerical corollary of their displayed statements.",
+      "searches": [
+        "heavy-ball quadratic Chebyshev optimally tuned stochastic multiplicative stepsize jitter iid exact mean-square stability threshold variance 2 divided sqrt condition number times kappa plus one",
+        "arxiv:2206.07553",
+        "arxiv:2401.06738",
+        "arxiv:2206.11124",
+        "arxiv:1710.10737"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "NOT_COVERING this common scalar jitter claim: independent minibatch stochastic gradients and sufficient concentration bounds, not necessary-and-sufficient finite-variance jitter tolerance",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "url": "https://arxiv.org/abs/2206.07553"
+      },
+      {
+        "assessment": "NOT_COVERING: minibatch additive/noninterpolation gradient noise and sufficient batch-size thresholds, not exact common iid multiplicative stepsize variance boundary",
+        "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+        "url": "https://arxiv.org/abs/2401.06738"
+      },
+      {
+        "assessment": "NOT_COVERING: stochastic matrix/pseudoinverse sketch sampling with sufficient convergence guarantees, not this sharp distribution-free scalar jitter criterion",
+        "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+        "url": "https://arxiv.org/abs/1710.10737"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COVERING: source is confined to its specific minibatch sampling and spectrally expressible tensor form; general scalar common jitter operator does not satisfy the source fixed tau1-positive SE structure without a new reduction",
+        "title": "A view of mini-batch SGD via generating functions: conditions of convergence, phase transitions, benefit from negative momenta",
+        "url": "https://arxiv.org/abs/2206.11124"
+      },
+      {
+        "assessment": "NOT_COVERING quantitatively: qualitative stationary heavy-tail criteria in broader stochastic optimizers, not this exact zero-additive-noise HB variance threshold",
+        "title": "Multiplicative noise and heavy tails in stochastic optimization",
+        "url": "https://arxiv.org/abs/2006.06293"
+      },
+      {
+        "assessment": "NOT_COVERING: the principal results analyze stochastic-gradient descent random steps and tail properties, not the exact HB frontier",
+        "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+        "url": "https://arxiv.org/abs/2302.05516"
+      },
+      {
+        "assessment": "NOT_COVERING the HB component: source studies no-momentum minibatch SGD, though its methodology is related",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "url": "https://arxiv.org/abs/2306.07850"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim gives an iff common-step variance criterion, identifies the worst curvature L, and proves strict Chebyshev-HB versus GD tolerance separation.",
+        "The nearest momentum works give minibatch sufficient convergence/stability claims or model-specific generating functions; exact no-momentum SGD thresholds cannot imply an HB threshold."
+      ],
+      "reasoning": "The deterministic-HB, stochastic-SGD and additive-noise prior statements do not imply the exact variance cutoff for a second-order common-noise recurrence. Conversely the new threshold does not dominate arbitrary minibatch or correlated-noise models. A more general random-coefficient AR(2) theorem might imply the scalar piece and remains an acknowledged specialist-precedence risk.",
+      "searches": [
+        "heavy-ball quadratic Chebyshev optimally tuned stochastic multiplicative stepsize jitter iid exact mean-square stability threshold variance 2 divided sqrt condition number times kappa plus one",
+        "exact mean-square stability iid random multiplicative global learning-rate stepsizes Polyak heavy-ball quadratic finite variance critical jitter sigma squared two over sqrt kappa times kappa plus one, gradient descent comparator",
+        "arxiv:2206.07553",
+        "arxiv:2206.11124",
+        "arxiv:2006.06293",
+        "arxiv:2306.07850"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The moment matrix has an AR(2) random coefficient and a fixed lag coefficient. The prior deterministic heavy-ball real-root barrier concerns absence of complex roots, not stochastic moment stability.",
+        "Hodgkinson–Mahoney arXiv:2006.06293 studies multiplicative random recurrences and tail regimes but does not identify this exact threshold."
+      ],
+      "reasoning": "The equivalent formulation is mean-square stability of iid random-coefficient AR(2), or spectral radius below one of a 3x3 second-moment map. Existing general random-matrix criteria motivate the approach but found sources do not state or directly imply the sharp largest-eigenvalue Chebyshev/GD comparison. A specialist exact AR(2) formula remains a residual originality risk.",
+      "searches": [
+        "random-stepsize Polyak momentum random coefficient autoregressive order 2 exact mean square stability variance Schur boundary",
+        "exact mean-square stability iid random multiplicative global learning-rate stepsizes Polyak heavy-ball quadratic finite variance critical jitter sigma squared two over sqrt kappa times kappa plus one, gradient descent comparator",
+        "random coefficient AR 2 mean square stationarity condition variance autoregressive coefficient second-order fixed b",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible mathematical record searches surfaced mean-square frontiers for distinct methods such as Loopless SVRG and PAGE, not this iid common-step heavy-ball law.",
+        "The checked primary articles give theorem families or bounds; no numerical parameter table matching this all-condition-number sharp relation was found."
+      ],
+      "reasoning": "This is a continuous exact stability classification, not a known finite table. Searches found no exact matching formula, although absence from search results does not certify novelty.",
+      "searches": [
+        "heavy-ball quadratic Chebyshev optimally tuned stochastic multiplicative stepsize jitter iid exact mean-square stability threshold variance 2 divided sqrt condition number times kappa plus one",
+        "random-stepsize Polyak momentum random coefficient autoregressive order 2 exact mean square stability variance Schur boundary",
+        "random learning rates iid perturbed heavy ball versus optimal gradient descent condition number noise tolerance acceleration fragile",
+        "exact mean-square stability iid random multiplicative global learning-rate stepsizes Polyak heavy-ball quadratic finite variance critical jitter sigma squared two over sqrt kappa times kappa plus one, gradient descent comparator",
+        "arxiv:2306.07850"
+      ]
+    },
+    "rationale": "A full-text comparison with stochastic HB acceleration, noise-adaptive minibatch methods, spectral minibatch momentum, general multiplicative recurrences, randomized SGD stepsizes and exact stochastic-GD stability did not reveal the exact necessary-and-sufficient finite-variance common-step HB criterion or the sharp condition-number contrast. Some random-coefficient AR(2) stability literature may subsume the scalar calculation; novelty is qualified, not claimed exhaustively.",
+    "residual_risks": [
+      "Unindexed stochastic difference-equation or AR(2) specialist results may already include the scalar modal Lyapunov threshold.",
+      "A general second-moment stability theorem for common scalar Hessian multipliers could subsume the multidimensional maximum-eigenvalue specialization.",
+      "No independent expert precedence review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this common scalar jitter claim: independent minibatch stochastic gradients and sufficient concentration bounds, not necessary-and-sufficient finite-variance jitter tolerance",
+        "evidence": [
+          "arXiv 2206.07553 lines 27-45, 123-148 and subsequent minibatch bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+        "material_read": "Full accessible text: introduction, deterministic HB transition matrix, minibatch distribution and theorem discussion",
+        "method": "Read primary full-text mathematical model and acceleration statements, compare noise assumptions and quantitative thresholds",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Closest stochastic quadratic heavy-ball acceleration theory"
+      },
+      {
+        "assessment": "NOT_COVERING: minibatch additive/noninterpolation gradient noise and sufficient batch-size thresholds, not exact common iid multiplicative stepsize variance boundary",
+        "evidence": [
+          "arXiv 2401.06738 introduction and Section 4, particularly the batch-size lower-bound discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.06738",
+        "material_read": "Full accessible text: introduction, quadratics upper and lower bound, multi-stage schemes",
+        "method": "Inspect hypotheses and comparison with deterministic HB rates and gradient noise",
+        "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+        "trigger": "Potential stronger stochastic HB theory with lower bound"
+      },
+      {
+        "assessment": "NOT_COVERING: stochastic matrix/pseudoinverse sketch sampling with sufficient convergence guarantees, not this sharp distribution-free scalar jitter criterion",
+        "evidence": [
+          "arXiv 1710.10737 Sections 1-2, equation (5), stated L2 convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.10737",
+        "material_read": "Full accessible HTML: convergence results and stochastic sketch formulation",
+        "method": "Compare specific random projection pseudo-norm / stochastic gradient recursion to common scalar multiplicative stepsizes",
+        "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+        "trigger": "Earlier mean-square stochastic heavy-ball theorem"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COVERING: source is confined to its specific minibatch sampling and spectrally expressible tensor form; general scalar common jitter operator does not satisfy the source fixed tau1-positive SE structure without a new reduction",
+        "evidence": [
+          "arXiv 2206.11124 Sections 2-4 and SE map in Appendix D equation (81)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.11124",
+        "material_read": "Full accessible text: SE approximation tensor and spectral generating-function hypotheses, statements of stability theorem",
+        "method": "Compare stochastic noise covariance operator of source with sigma squared H X H for scalar common jitter",
+        "title": "A view of mini-batch SGD via generating functions: conditions of convergence, phase transitions, benefit from negative momenta",
+        "trigger": "Could imply a sharper momentum mean-square stability condition"
+      },
+      {
+        "assessment": "NOT_COVERING quantitatively: qualitative stationary heavy-tail criteria in broader stochastic optimizers, not this exact zero-additive-noise HB variance threshold",
+        "evidence": [
+          "arXiv 2006.06293 introduction, Section 4 and appendix recurrence discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.06293",
+        "material_read": "Full accessible text: random recurrence discussion, qualitative heavy-tail theorem and momentum scope",
+        "method": "Compare tail/existence statements to sharp all-curvature second-moment frontier",
+        "title": "Multiplicative noise and heavy tails in stochastic optimization",
+        "trigger": "Stochastic random-coefficient recurrence possibly containing momentum"
+      },
+      {
+        "assessment": "NOT_COVERING: the principal results analyze stochastic-gradient descent random steps and tail properties, not the exact HB frontier",
+        "evidence": [
+          "arXiv 2302.05516 stochastic stepsizes and SGD tail sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.05516",
+        "material_read": "Full accessible text: model assumptions, recurrence and stability/tail sections",
+        "method": "Contrast random SGD stepsize tail analysis with second-order heavy-ball momentum mean-square bound",
+        "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+        "trigger": "Random iid stepsize perturbations as noise source"
+      },
+      {
+        "assessment": "NOT_COVERING the HB component: source studies no-momentum minibatch SGD, though its methodology is related",
+        "evidence": [
+          "arXiv 2306.07850 Sections 2-3, stochastic gradient update (2) and linearization (5)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07850",
+        "material_read": "Full accessible text: exact SGD threshold, linearized stochastic Hessian and covariance formulation",
+        "method": "Check for momentum variables and compare specific iid scalar jitter GD corollary",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Potential broad exact moment stability that may dominate claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7332b217-a824-4fc8-b82f-a83a84d8ab3f",
+  "value": {
+    "rationale": "The exact distribution-free tolerance quantifies a natural robust optimization tradeoff: classically accelerated HB needs noise variance of order κ^{-3/2} versus order κ^{-1} for classical minimax GD; explicit positive-step two-point jitter gives a strict stability reversal. Exact if-and-only-if curvature uniformity and the practical contrast provide a substantive benchmark rather than a mere standard sufficient estimate or arbitrary finite experiment.",
+    "status": "PASS"
+  }
+}
