@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled standalone Python program `verify_linear_inner.py` runs with Python 3 and no third-party packages. It enumerates every ordered pair \(g,h\) of two-by-two matrices over prime fields \(\mathbb F_2\) and \(\mathbb F_3\), constructs the exact domains and images of the partial-inner generators, deduplicates them, and checks closure under all ordered compositions.
+## correctness
 
-Observed outputs:
+PASS
 
-- `VERIFY_OK` for \(q=2\): 16 matrices, 256 generator pairs, 52 distinct maps with domain-size profile 1, 2, 16 having multiplicities 1, 45, 6; all 2,704 compositions checked.
-- `VERIFY_OK` for \(q=3\): 81 matrices, 6,561 generator pairs, 201 distinct maps with domain-size profile 1, 3, 81 having multiplicities 1, 176, 24; all 40,401 compositions checked.
+For P=gh in M2(F_q), D_P={A: PA=A=AP} is Hom(V/im(P-I),ker(P-I)); if dim ker(P-I)=d, both kernel and quotient have dimension d and domain dimension d^2, i.e. 0,1,4. d=0 gives partial id {0}, d=2 global conjugation PGL2(q). Rank-one domains split idempotent lines (q(q+1) source lines) and square-zero lines (q+1 source lines). Each ordered pair of idempotent lines has one arrow; each square-zero pair has q-1 scalar arrows. Choosing P=e or P=I+N and h=U realizes all via conjugation; distinct lines intersect only in 0, implying two Brandt components with common zero, and closure under globals. Total q(q²-1)+1+q²(q+1)²+(q-1)(q+1)². Independently enumerated every M2(F2) generator map and every 2704 ordered composition, confirming 52 maps; inspected source verify_linear_inner.py for F3 too (not independently executed).
 
-Proof of the theorem for any prime power uses finite-field linear algebra and is independent of these computations. The program does not enumerate nonprime extension fields and does not verify the historical originality of the result. Independent audit has not been performed.
+## originality
+
+PASS
+
+Araújo et al. 2026 provide the definition and structural results, explicitly posing in Problem 7.9 the endomorphism monoid of finite-dimensional vector spaces, including matrix semigroups. The inspected full article contains no M2(F_q) Brandt decomposition; present result addresses dimension 2 for all finite q. General framework and 2024 precursor are prior, and possible unpublished matrix-monoid classification remains a risk.
+
+## value
+
+PASS
+
+Answers a concrete first nontrivial finite-dimensional case of an explicit open classification question: describes the complete inverse monoid, domain types, Brandt components and exact cardinalities for all finite fields. Structural content goes beyond a small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
