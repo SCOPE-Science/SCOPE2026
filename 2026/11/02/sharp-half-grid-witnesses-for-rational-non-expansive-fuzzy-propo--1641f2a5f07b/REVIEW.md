@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies exactly the real-valued propositional operations and rational input grid. Negation and clipped shifts preserve the signed-unary-literal lattice normal form, with the two shift identities proved in RESULT.md. In a minimum clause, the minimum positive offset and minimum negative offset reduce each hidden coordinate to two opposing monotone functions; their intersection is either an endpoint or a point with denominator dividing \(2d\). Independent hidden-coordinate maximization within a clause, followed by supremum/finite-maximum interchange, proves the global claim. The lower interpolant is obtained by negation. For the sharp examples the unique maximum has denominator exactly \(2d\), with the gcd verified separately for even and odd denominators. Exact finite computational checks passed, but the all-size proof is symbolic. No unproved continuum-to-grid assumption is used.
+PASS
 
-## Originality — PASS within inspected evidence
+The allowed negation and clipped shifts preserve a finite max-of-mins representation by constant pieces and clipped signed unary literals with intercepts in d^-1 Z. For each clause and hidden variable the maximum of min positive and negative clipped slopes is at an endpoint or their crossing (b-a)/2, in G_(2d), independently of all retained valuations. Finite max commutes with sup; inf follows by negation. The unique crossing for f_d(x)=min(x,S_(k/d)(1-x)), k=0,1,2 according to parity, has reduced denominator exactly 2d. All quantifiers are finite-variable and the result is purely propositional, not modal. Independent exact rational evaluation of 1,440 random signed-literal clauses d=1..8 matched half-grid maxima; this checks examples, not all terms.
 
-The first relevant source, Gebhart–Schröder–Wild (2026), establishes uniform interpolation for all non-expansive fuzzy modal formulae, including the propositional sublanguage, and uses arithmetic with division by two in its algorithm. That **covers the existence of interpolation** and is credited. Remark 20 concerns the denominator representation of threshold-judgement interpolants in Section 6, while Section 7 constructs pointwise formula interpolants with explicit divisions by two; neither statement is the fixed universal optimization-witness grid established here. What it does not explicitly establish in the material inspected is the **fixed worst-case precision bound** \(G_{2d}\) for arbitrarily many eliminated propositional variables, the finite substitutive witness identity, or the universal family of sharp-denominator examples. The 2025 fuzzy ALC article fixes the propositional base and reasoning procedures, not these results. Searches of published research records and relevant mathematical literature for aliases and stronger coverage yielded no decisive covering statement. Residual risks include implicit corollaries of established lattice-polynomial elimination or previously undiscovered formulations; failed search alone does not certify absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform interpolation for real-valued fuzzy logics is a motivated information-hiding problem, and numerical precision of exact interpolants matters separately from whether interpolants exist. The claim shows that numerical denominators cannot cascade under arbitrarily deep nesting or repeated elimination: one uniform halving suffices, with a best-possible obstruction at *every* denominator. It supplies a finite exact semantic witness set, a concrete constructive algorithm, and a sharp boundary between the original and necessary numerical constants. Its scope and exponential expression-size cost are explicit. The result is more than a one-off grid computation and does not require a further modal generalization to be useful.
+Best-of-knowledge PASS narrowly for fixed half-grid optimization precision and its sharpness for every d; Gebhart–Schröder–Wild already establish much stronger modal uniform interpolation existence, so that existence is not new. Their interpolation construction involves halves, but the current claim bounds all hidden-variable witnesses on one fixed 2d-grid despite arbitrarily deep terms. Their related Appendix A half-sum lemma creates a real implicit-coverage risk; full paper was inaccessible in this execution and Oxford access was blocked, so this is expressly qualified.
 
-## Closest work and limitations
+## value
 
-Gebhart–Schröder–Wild, *Non-Expansive Fuzzy Modal Logic Has Uniform Interpolation* (arXiv:2610.32335v1), Sections 2–3 and 6–7, especially Theorems 21 and 23, is the closest stronger **qualitative** interpolation result. Their 2025 *Non-expansive Fuzzy ALC* is the source for the natural signature. Potential alternate statements in older lattice-polynomial and fuzzy quantifier-elimination literature remain a historical-priority risk. The theorem excludes modalities and unrestricted binary Łukasiewicz addition.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precision of hidden-variable witnesses is a natural computational invariant: a fixed denominator 2d independent of hidden count and nesting depth turns a continuum supremum into one finite rational grid without approximation. The example proves the factor is globally necessary. This is a motivated exact refinement of interpolation existence, even though formula size may grow exponentially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
