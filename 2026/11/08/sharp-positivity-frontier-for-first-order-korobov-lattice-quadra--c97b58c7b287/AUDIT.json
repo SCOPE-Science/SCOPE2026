@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The Fourier kernel gives an exact H1 periodic energy. The variational spline/bubble Euler equation implies w_j=H_j-D uniformly in j. Strictly nonnegative Fourier-hat multipliers against nonpositive cosine coefficients of the sine density imply H_j>=H_0. Direct endpoint integral H_0 and bubble Fourier coefficients give exact parity-dependent B_N. B_N>1/(12N²) and H_0<=1/N certify a positive denominator. The equality and sign follow exactly, for every N and gamma. Series/Taylor calculations give Gamma_N=N+pi²/3+O(1/N). The stand-alone script cross-checks 44 finite cases by an independently assembled Gram system; it is not used for the all-N assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karvonen, Kanagawa & Särkkä 2019 establish positive Bayesian quadrature weights for locally optimized nodes under certain totally positive kernels and bounds for Sobolev-related settings.",
+        "Bartel et al. 2026 describe the original periodic Korobov interpolatory quadrature and state that asymptotic positivity is unknown for their multivariate method."
+      ],
+      "reasoning": "Total positivity and node optimization do not apply to arbitrary gamma and this fixed cyclic lattice with a kernel that can take negative values; existing source rates and multivariate questions do not directly imply a sharp discrete critical gamma. General affine exactness/weight mass results are weaker than sign classification.",
+      "searches": [
+        "arxiv:1812.08509v2 Section 3 Section 4",
+        "arxiv:2610.01113v1 Section 7.2",
+        "kernel quadrature optimal weights negative weights univariate periodic Sobolev kernel uniform grid"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01113v1 full-text Sections 2.1,3.1-3.3,7.2",
+      "arxiv:1812.08509v2 full-text Sections 3-4",
+      "arxiv:2506.07729 full-text Sections 2-5",
+      "Published mathematical-finding search: Korobov periodic Sobolev kernel interpolation quadrature optimal weights positivity negative weights threshold sine periodization full uniform lattice",
+      "Published mathematical-finding search: Univariate lattice kernel quadrature μ(y)=π/2 |sin(2π y)| negative weights exact gamma smoothing parameter positivity",
+      "Published mathematical-finding search: Cardinal periodic linear spline kernel cubature eventual positive weights, Fourier mass defect, asymptotic threshold kernel parameter",
+      "Published finding on positivity defect of three-knot natural cubic interpolation",
+      "Accessible historical claims of same research area, including separate finite-feature Legendre quadrature and randomized least-squares quadrature results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines K, sine mapping, density, and Gram-vector weights but gives convergence rates rather than the critical gamma separating signs of all N coefficients.",
+        "Locally optimized positive-weight results cannot control the sign of endpoint weights for a uniform full grid without their hypotheses.",
+        "Subsampled lattice approximation rates do not address these density-weighted cardinal integrals."
+      ],
+      "reasoning": "The claim is a necessary-and-sufficient statement for every full 1D lattice size and every positive kernel parameter, plus exact asymptotic gamma_N. We checked both source identity and potential stronger positivity theorems at the level of their hypotheses/conclusions. Neither the source error rate nor earlier positive-weight sufficient conditions dominate this statement.",
+      "searches": [
+        "arxiv:2610.01113v1 Sections 2.1, 3.1, 3.2, 3.3, 7.2",
+        "arxiv:1812.08509v2 Sections 3,4",
+        "arxiv:2506.07729 Sections 2-5",
+        "Korobov periodic Sobolev kernel interpolation quadrature optimal weights positivity negative weights threshold sine periodization full uniform lattice"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem equivalently characterizes positivity of the integral of all first-order Korobov cardinal functions against the sine-periodized probability measure.",
+        "Fourier signs identify the endpoint cardinal weight as the smallest; common subtraction shows this is the unique sign-changing mode in the unmodified weight vector, possibly tied at the opposing grid node.",
+        "The nearest indexed finding on the positivity defect of natural cubic interpolation addresses a different interpolation space and extremal problem."
+      ],
+      "reasoning": "Checked periodic spline/cardinal quadrature, equivalent kernel-interpolation weights and endpoint-weight tests. Prior cubic-spline extrema and sign criteria are not equivalent to the all-N threshold for an H1 periodic kernel integrated against the specified nonuniform sine density.",
+      "searches": [
+        "Korobov periodic Sobolev kernel interpolation quadrature optimal weights positivity negative weights threshold sine periodization full uniform lattice",
+        "Univariate lattice kernel quadrature μ(y)=π/2 |sin(2π y)| negative weights exact gamma smoothing parameter positivity",
+        "Cardinal periodic linear spline kernel cubature eventual positive weights, Fourier mass defect, asymptotic threshold kernel parameter",
+        "periodic Sobolev quadrature negative weights kernel",
+        "Korobov quadrature weights positive equispaced"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical findings returned nearest numerical-quadrature/spline findings but no all-N parameter table or explicit B_N parity formula.",
+        "The derived threshold includes exact cotangent branches for even and odd N and a universal asymptotic law."
+      ],
+      "reasoning": "No relevant exact database or table was found that tabulates or implies the full parity-resolved H_N, B_N, Gamma_N identity. A failed indexed search alone is not proof of originality.",
+      "searches": [
+        "Korobov periodic Sobolev kernel interpolation quadrature optimal weights positivity negative weights threshold sine periodization full uniform lattice",
+        "Univariate lattice kernel quadrature μ(y)=π/2 |sin(2π y)| negative weights exact gamma smoothing parameter positivity",
+        "Cardinal periodic linear spline kernel cubature eventual positive weights, Fourier mass defect, asymptotic threshold kernel parameter",
+        "sine periodization kernel quadrature negative weights positivity",
+        "periodic spline quadrature sine positive weights"
+      ]
+    },
+    "rationale": "The source arXiv:2610.01113v1 defines the method and identifies multivariate positivity as unresolved, without giving an exact all-N, all-parameter one-dimensional endpoint weight classification. Related positive-weight papers impose different node-optimality and total-positivity hypotheses. Four actual published-mathematics database searches, 7 direct published-literature searches and accessible historical claims did not identify a statement covering the explicit parity-dependent critical parameter and its N+π²/3 asymptotic; this is best-knowledge priority only, with older spline/product-integration sources a residual risk.",
+    "residual_risks": [
+      "Older periodic spline and product-integration literature may contain an equivalent all-parameter grid-weight theorem not indexed by the searches.",
+      "No claim is made about multivariate generality or higher smoothness.",
+      "Independent priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original method covered; all-N sign frontier and sharp gamma threshold not stated; multivariate asymptotic positivity explicitly identified as unknown",
+        "evidence": [
+          "Korobov Fourier kernel and sine-periodization equation in Sections 2-3",
+          "Section 7.2 discusses lack of known asymptotic positivity in its broader method"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01113v1",
+        "material_read": "Full-text sections 2.1, 3.1, 3.2, 3.3, 7.2 including kernel, weight-system definitions and positivity discussion",
+        "method": "Direct arXiv HTML reading, equations and surrounding text",
+        "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+        "trigger": "Exact originating Korobov kernel, sine periodization, and quadrature weight formula"
+      },
+      {
+        "assessment": "Conditional positivity for optimized nodes and totally positive kernels, and weight size bounds; hypotheses do not cover fixed grid with arbitrary gamma",
+        "evidence": [
+          "Positive-weight criteria rely on node locations or special kernel properties",
+          "Norm/total-weight bounds do not imply individual weights nonnegative"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+        "material_read": "Relevant full-text Sections 3 and 4 and proposition on total mass; PDF pages visually checked",
+        "method": "Direct scholarly full-text reading and PDF page inspection",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Strongest plausible prior positivity result for Bayesian/kernel quadrature"
+      },
+      {
+        "assessment": "Provides sampling/approximation convergence rates, not explicit sine-density kernel quadrature weight signs",
+        "evidence": [
+          "Lattice approximation and subsampling rates are the principal objects, unlike integrated cardinal weights"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.07729",
+        "material_read": "Full-text Sections 2 through 5, sampling and approximation statements",
+        "method": "Direct arXiv HTML reading and claim comparison",
+        "title": "Minimal Subsampled Rank-1 Lattices for Multivariate Approximation with Optimal Convergence Rate",
+        "trigger": "Related Korobov lattice approximation and Fourier sampling, potential stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c97b58c7-b287-424a-b670-c1eb89ae6c6b",
+  "value": {
+    "rationale": "The parameter is the natural smoothness/kernel scale in a recent one-dimensional baseline of a multivariate integration method. The finding resolves a complete sharp necessary-and-sufficient positivity classification for all full lattice sizes, with closed parity branches and a nontrivial linear asymptotic threshold. Negative endpoint weights are consequential because exact integration of nonnegative data can fail, while eventual positivity for fixed gamma supplies a usable rigorous design guarantee. The result is not an arbitrary single finite case or a routine renormalization.",
+    "status": "PASS"
+  }
+}
