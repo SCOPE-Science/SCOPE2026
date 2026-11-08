@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every selected general-position set is an induced cluster graph because the direct product has diameter two for the stated domain. The four and only four mutually exclusive configurations are classified and counted; the resulting expressions are independently checked on six full graphs. All exceptional coefficient boundaries and every real interval required for the sharp four-part unimodality decision are covered by explicit inequalities. A finite computation is not treated as an infinite proof.
+
+**Originality — PASS, provisional.** The 2021 construction establishes the graph but does not count these sets. The full accessible 2024 primary paper displays a different polynomial for precisely this graph and poses the unimodality classification as Problem 5.2. The published cubic coefficient for the nine-vertex case is 66, while the correct value is 48 (proved combinatorially and directly enumerated). Its displayed formula cannot imply the corrected all-parameter enumeration or the four-part threshold. The 2019 general structural characterization supplies the known cluster-graph criterion, not the exact coefficients. Targeted research-record searches found distinct families rather than this theorem. Priority remains provisional for unindexed equivalent or corrected work; this is not independent novelty certification.
+
+**Value — PASS.** The finding combines a complete naturally parametrized counting classification with the sharp, nonmonotone change of unimodality as one part size grows. The exact 28-consecutive-integer valley resolves a four-part instance of a named open classification, not a routine scalar extraction. A two-variable family and a proved sharp threshold are mathematically substantive, with no assertion of a full arbitrary-part unimodality classification.
+
+**Scope and limits.** All claims require both factors to contain at least three vertices; at the diameter-three boundary the classification changes. The public source's incorrect coefficient is compared for the same graph, same size, and same normalization. Exact finite checks are supplementary. Unindexed equivalent literature and lack of external review remain risks.
+
+Self-review: passed. Independent audit: not yet performed.
