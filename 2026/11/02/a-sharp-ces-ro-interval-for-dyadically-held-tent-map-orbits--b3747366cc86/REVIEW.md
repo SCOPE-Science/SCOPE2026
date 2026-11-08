@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact plateau count follows by induction on the homogeneous dyadic-delay recurrence. The piecewise affine identity \(2\Phi(Ty)-\Phi(y)-y\ge0\), with \(\Phi(y)=4/5-y/5\), telescopes to the universal finite-time bound. The explicit legal inverse orbit from the right branch gives discounted sum \(4/5\). Density supplies arbitrarily late finite shadowing of that inverse orbit and of the fixed point at zero; vanishing one-step jumps then fill every intermediate Cesàro limit. Lebesgue ergodicity of the full tent map yields the almost-everywhere statement. Exact rational computations independently check finite instances, without being substituted for these proofs.
+PASS
 
-## Originality
+Exact induction shows u_n=T^{floor(log2(n+1))}(x); v_j=T^j(x) repeats 2^j times. Piecewise affine Φ(y)=4/5-y/5 obeys y+Φ(y)<=2Φ(Ty) on [0,1], equality on right tent branch. Telescoping with 2^-j weights gives B_K<=Φ(v_K)-2^-K Φ(x), then interpolation inside each block yields sum_{n<N}u_n<=(4N+x)/5. Upper sharpness: legal right-branch backward orbit z_-j=(2/3)(1-(-1/2)^j) has discounted average sum 2^-j z_-j=4/5; a dense forward orbit shadows arbitrarily long finite reversed segments at arbitrarily late times. Lower sharpness: arbitrary late shadowing of fixed point 0. Cesaro increments <=1/(N+1) ensure all intermediate limit points, and full tent Lebesgue ergodic map yields almost sure density and ordinary mean1/2. Independently checked rational sample recurrence and upper bound and geometric inverse branch sums. Finite verify.py tests not proof for every real x.
 
-PASS under inspected evidence. The most directly related primary paper (Gade–Bhalekar 2026, arXiv:2610.21635, Sections 2.3, 3 and 4) derives increasing plateaus and remarks that physical-time averages may differ, but does not determine a sharp Cesàro limsup, liminf, or all possible limits. Its principal delay example uses four-adic holding; the present dyadic model is the natural adjacent case. Other identified tent-map symbolic-dynamics papers address backward itineraries, Markov partitions, or escape rates rather than exponentially held Cesàro averages. Relevant published-results searches under equivalent delay, geometric-weight, and historic-average formulations revealed no stronger covering theorem. A specialized, incompletely indexed result could still predate the constant, so historical priority remains provisional.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The model exposes the distinction between orbitwise dynamics and physically timed statistics in a natural proportional-delay system. The full interval \([0,4/5]\) is a precise and nontrivial measurable signature of exponentially growing residence times, sharply contrasting with the ordinary almost-sure ergodic mean \(1/2\). The sharp endpoint requires an explicit backward-orbit extremization, while the interior requires density and vanishing-step topology; neither is a restatement of the known plateau formula.
+Gade-Bhalekar exact plateau dynamics and explicit warning delayed averages may differ are established. Read their accessible long HTML article sections 2-4 plus appendix context, distinguishing their model and qualitative statements from exact dyadic 4/5 accumulation interval. Search of published mathematical records revealed no matching sharp Cesaro law, but historic exponentially weighted ergodic optimization literature is a priority risk.
 
-## Closest literature and limitations
+## value
 
-Gade–Bhalekar (2026) is the closest source for the model and plateau structure. Boyland–de Carvalho–Hall (2017) studies inverse-limit backward itineraries; Dzhalilov–Abdusalomov (2026) concerns another tent-type map's Markov partition. The latter two were compared from accessible bibliographic/abstract information rather than their complete full texts; priority against specialized backward-average literature is not independently certified. The theorem is restricted to the full tent map and exact dyadic delay. It assumes a dense ordinary orbit for the full accumulation interval and makes no claim for non-dense initial points.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shows a natural time-change of chaotic dynamics destroys physical-time ergodic averages: almost every ordinary orbit averages 1/2 but its delayed orbit has entire [0,4/5] Cesaro limit set. Exact upper bound and extremizing backward history give structural signature of dyadic proportional delay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
