@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:49:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/two-patch-ecological-occupancy-covariance-has-a-sharp-catastroph--17227e340650",
+        "Verified source verify.py blob aaef77ec2142acfd3d9915db6c01964c9794b908",
+        "Independent symbolic and/or exhaustive checks in independent_math_checks.py; limitations of those tests specified"
+      ],
+      "rationale": "For four generator states (00,10,01,11), solve stationary balance: w=2bv/(2e+d), u=[e+d+bd/(2e+d)]v/a. Normalization yields positive stationary probabilities, and Cov(X1,X2)=uw-v²=F(d)/[a(2e+d)^2 Z^2], with the denominator positive. For fixed d the quadratic in b is strictly increasing on b>0. The critical b(d) has exactly one interior minimum iff a>2e (from F=F_d=0 and the discriminant), with tangency b*=2sqrt[e(a+2e)]-3e; the endpoints b(0)=a and b(infinity)=a/2 classify 0,1,2 crossings. At (a,b,e)=(10,4,1), F=-2(d-2)(d-6); independent symbolic substitution gives exact covariance -60/3721 at d=0, 20/15129 at d=4 and -60/40401 at d=8. The source standard-library verifier builds and solves the actual four-state generator in rational arithmetic; finite checks corroborate, while the algebra proves all positive real parameters.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cornell–Ovaskainen 2008, Theoretical Population Biology 74:209–225, author OA manuscript at eprints.whiterose.ac.uk/id/eprint/4943/1/cornells1.pdf; Fidino et al DOI 10.1111/2041-210X.13117"
+        ],
+        "reasoning": "General correlated landscapes/mean occupancy and multistate stationary transition calculations are broader MODEL classes but do not give an implication from their cited results to the specific conditional-establishment two-site covariance sign polynomial, let alone the double root boundary. A general recipe to invert a small generator is not a preexisting parametric phase theorem.",
+        "searches": [
+          "Cornell Ovaskainen Exact asymptotic analysis metapopulation correlated dynamic landscapes 2008 full paper",
+          "Johst Drechsler spatially correlated disturbances survival of species 2003",
+          "Fidino Simonis Magle multistate dynamic occupancy 2018"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and metadata for record 1 at assigned Git tree",
+        "Resultary published semantic records query (two-patch catastrophe occupancy)",
+        "Cornell–Ovaskainen 2008 OA manuscript",
+        "Johst–Drechsler 2003 abstract",
+        "Wilcox–Cairns–Possingham 2006 metadata",
+        "Fidino–Simonis–Magle 2018 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johst–Drechsler DOI 10.1034/j.1600-0706.2003.12770.x addresses survival time; Cornell–Ovaskainen DOI 10.1016/j.tpb.2008.07.003 addresses landscape-scale mean occupancy; Wilcox et al DOI 10.1890/05-0587 addresses persistence"
+        ],
+        "reasoning": "No implication from mean survival, perturbative mean occupancy or generic multistate transition estimation to sign changes of covariance for the specified irreducible, exchangeable, inhibitory-establishment CTMC was established. Inaccessibility of some older full texts leaves a named residual priority risk.",
+        "searches": [
+          "Johst Drechsler 2003 correlated disturbance survival Oikos 103",
+          "Cornell Ovaskainen 2008 correlated landscapes mean occupancy",
+          "Wilcox Cairns Possingham 2006 disturbance recovery persistence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md generator and F(d); Resultary closest distinct species-discovery covariance (2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac)"
+        ],
+        "reasoning": "Checked the equivalent 4-state birth/death/reset generator and covariance uw-v², including alias stationary co-occurrence/synchrony and reliability shared failures. No reviewed candidate supplied the exact F quadratic or complete b*(a,e) phase diagram; search absence alone is not novelty proof.",
+        "searches": [
+          "Resultary: two-patch exchangeable binary occupancy continuous time Markov chain shared catastrophic clearing covariance changes sign twice immigration local extinction colonization",
+          "web: two-patch metapopulation shared catastrophe stationary covariance colonization extinction sign reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen four-state analytical solution is symbolic for all a,b,e,d; exact rates (10,4,1) give two crossings d=2,6."
+        ],
+        "reasoning": "An exact finite transition-state table is not the claimed all-parameter sign phase classification; did not locate a database/theorem table giving F and its discriminant.",
+        "searches": [
+          "Resultary semantic search query as recorded in equivalent_formulations",
+          "two patch stationary covariance exact double reversal catastrophe rate Markov graph table"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.",
+      "residual_risks": [
+        "Potential prior four-state ecological or reliability-theory generator already classified under different terminology; older plausible sources not all fully accessible.",
+        "Model requires exchangeability, inhibitory conditional colonization and stationary observation; not a theorem about generic correlated disturbances or inference from data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different large-landscape asymptotic mean-occupancy objective, not an inspected derivation of the four-state stationary cross-patch covariance threshold.",
+          "evidence": "Cornell and Ovaskainen (2008), abstract and perturbative spatial-landscape model",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/4943/1/cornells1.pdf",
+          "material_read": "OA PDF abstract, introduction, stated mean-occupancy perturbation formulation and relevant summary passages; did not examine every appendix calculation",
+          "method": "Public OA PDF opened and visual pages inspected",
+          "title": "Exact asymptotic analysis for metapopulation dynamics on correlated dynamic landscapes",
+          "trigger": "Same habitat occupancy and correlated landscape turnover"
+        },
+        {
+          "assessment": "Comparisons are limited to abstract: target is species survival/extinction time, not proved full-document noncoverage.",
+          "evidence": "Johst and Drechsler, Oikos 103 (2003), 449–456",
+          "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2003.12770.x",
+          "material_read": "Accessible abstract and bibliographic result; full text inaccessible",
+          "method": "Public search/abstract reading",
+          "title": "Are spatially correlated or uncorrelated disturbance regimes better for the survival of species?",
+          "trigger": "Same spatially shared clearing and recolonization mechanism"
+        },
+        {
+          "assessment": "Generic stationary matrix operation may include the model computationally but no exact sign phase result evidenced.",
+          "evidence": "Fidino et al (2018) multistate occupancy methodology",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.13117",
+          "material_read": "Public abstract and stated model aim; no complete independent full-text inspection",
+          "method": "Public bibliographic/abstract search",
+          "title": "A multistate dynamic occupancy model to estimate local colonization–extinction rates",
+          "trigger": "Generic multistate stationary occupancy formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding/Assumptions/Relationship to prior work",
+        "Independent structural/parameter motivations reviewed against cited prior claims"
+      ],
+      "rationale": "Small exchangeable ecological patch models are canonical mechanistic benchmarks for separating shared habitat destruction from context-dependent establishment. The sharp necessary-and-sufficient reentrant covariance boundary is an unknown natural structural feature and guards against interpreting correlated disturbances as uniformly synchronizing or desynchronizing. It is a motivated, exact parameter-phase classification, not merely a new notation or an unexplained numerical sample; no larger-network prediction is asserted.",
+      "residual_risks": [
+        "Potential prior four-state ecological or reliability-theory generator already classified under different terminology; older plausible sources not all fully accessible.",
+        "Model requires exchangeability, inhibitory conditional colonization and stationary observation; not a theorem about generic correlated disturbances or inference from data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact stationary cross-patch covariance sign of a symmetric two-site occupancy CTMC is the displayed quadratic F(d); two strict negative-positive-negative catastrophe-rate reversals occur exactly for a>2e and 2 sqrt(e(a+2e))-3e<b<a/2.",
+  "limitations": [
+    "Potential prior four-state ecological or reliability-theory generator already classified under different terminology; older plausible sources not all fully accessible.",
+    "Model requires exchangeability, inhibitory conditional colonization and stationary observation; not a theorem about generic correlated disturbances or inference from data."
+  ],
+  "schema_version": 1
+}
