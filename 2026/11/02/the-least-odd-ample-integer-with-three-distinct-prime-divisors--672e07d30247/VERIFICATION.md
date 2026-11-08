@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification protocol
+# Independent mathematical audit
 
-Run `python3 verify.py` in an environment with Python 3 and its standard library. No dependencies, network access, external data, stochastic search, or specially configured interpreter are necessary.
+## correctness
 
-The program checks the complete logically bounded space of all exponent triples \((a,b,c)\) with \(a,b,c\ge1\) and \(3^a5^b7^c\le801204488268064453125\). It uses two algebraically independent integer recurrences for every cell of the larger enclosing box, cross-checks 343 initial cells by direct proper-divisor loops, and performs seven comparisons against Fink's binomial identity. It counts 4,650 triples in the closed range; 4,649 strictly smaller candidates all satisfy \(\kappa(n)\le n\), and precisely the boundary triple \((20,9,6)\) is ample. The exact candidate valuation is \(841632661765951062016\).
+PASS
 
-A successful run prints `VERIFY_OK`, the counts and a SHA-256 checksum of the canonical ordered census. Since this is a finite exhaustive certificate, its reliability depends on the proved exponent reduction and on executing the complete checker. It does not certify bibliographic priority or replace independent scientific review.
+For kappa(n)=1+sum_{d|n,d<n} kappa(d), kappa depends only on prime exponent tuple. Replacing distinct odd primes with (3,5,7) weakly lowers n while preserving kappa, so any smaller odd three-support ample n yields a smaller canonical ample triple. The rational exponent generating function 1/[2(1-x)(1-y)(1-z)-1] gives an exact seven-neighbor recurrence. A separately implemented multidimensional prefix recurrence independently exhausts ALL 4650 positive canonical triples with 3^a5^b7^c<=801204488268064453125: all 4649 strictly smaller have kappa<=n and the sole boundary triple (20,9,6) yields kappa=841632661765951062016>n. Odd numbers with <=2 prime supports have sigma(n)/n<=15/8<2, are deficient, and by proper-divisor induction cannot be ample. Uniqueness at minimum follows strict increase of the product under larger primes.
+
+## originality
+
+PASS
+
+Fink introduced recursive-divisor ample numbers and recorded the least odd ample integer without support constraint, on five prime supports; that does not determine the minimum at exactly three supports. The published finite-prime-support theorem proves existential infinitely many ample numbers if Euler product>2 but expressly has no effective least-witness bound. The explicit threshold and uniqueness are strictly finer than existence.
+
+## value
+
+PASS
+
+Exact first witness at the minimal possible odd prime-support cardinality is a natural extremal invariant of the recursive divisor function. The exhaustive, reproducible finite cutoff is not an arbitrary slice: canonical-prime reduction proves it covers every possible smaller candidate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
