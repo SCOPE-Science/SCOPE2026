@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The four sign classes of the two action sums are disjoint and exhaustive. Nonzero sums force each response; zero sums make all responses weakly optimal. The four contributions produce the exact count, including the smallest side sizes and balanced-type cases. Independent direct-payoff enumeration checked 400 complete side-composition instances and 102,400 action profiles for side sizes through five, and exact rational aggregation checked 64 random-type distributions. This computation validates finite cases only; the written four-case proof establishes the unbounded assertion.
+
+**Originality — PASS, with residual risk.** The nearest published 2026 complete-bipartite statement, Pei–Cao–Zhang Result 3, assumes a pure conformist side and a pure rebel side. Our theorem includes this special case but gives an exact count and allows mixed behavioral types *within both sides*. Cao–Yang (2014) establishes the parity of equilibrium counts and an odd-degree obstruction only in that segregated setting. Cao–Sánchez–Zhang (2026) provides heterogeneous-game existence results, not this enumeration. Shen–Lin (2020) studies max-min utility and other listed graph classes. The comparisons use substantive assumptions and proof coverage, not just title differences. Equivalent unindexed material and portions of inaccessible or later versions remain possible.
+
+**Mathematical value — PASS.** The exact count is a natural complete classification for a canonical dense two-population network, not a hand-selected finite value. Its parity dichotomy shows that when both sides have even size PNEs are unavoidable under *any* type arrangement, while when both sizes are odd a fair random assignment of types has PNE failure probability exactly one half. The sharp minimum count quantifies multiplicity, not merely existence. These findings refine a 2026 architecture-specific question beyond role segregation.
+
+**Limits.** Exactly two actions, weak PNE, unit-weight complete bipartite graph, fixed types, no stubborn agents. Random-type result assumes independent fair type assignments. No dynamics, arbitrary graphs, or more actions are covered. Mathematical reproducibility checks are not independent scholarly validation.
+
+Self-review: passed. Independent audit: not yet performed.

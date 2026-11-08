@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For nonzero neighbor sum, each vertex has a unique type-dependent best response, and for zero sum all actions tie. The four disjoint (S_A zero/nonzero, S_B zero/nonzero) cases give the exact four-term formula; all boundary cases a,b>=1, including degree-one and balanced types, are included. Exact rational binomial-sign symmetry gives the fair random-type law. Independently iterating direct payoff inequalities across 400 type-count configurations and 102400 action-profile tests (a,b<=5), plus 64 exact-rational side-size probability tests (a,b<=8), reproduced the formula; the general claim relies on the analytic proof, not finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao, Sánchez, Zhang (2026) provide general sufficient existence conditions and asymptotic random sparse graph obstructions, not an exact formula for fixed complete bipartite graphs.",
+        "Shen and Lin (2020) optimize minimum utility and derive results on paths, cycles, complete graphs, and trees; not a claimed PNE count for mixed-type bicliques."
+      ],
+      "reasoning": "General existence/complexity and social-network dynamics theorems do not dominate an exact counting theorem. The 2026 three-type paper gives a true special case but no larger theorem from which the mixed-side result follows by substitution.",
+      "searches": [
+        "binary coordination anti coordination game complete bipartite arbitrary player types exact Nash equilibrium count",
+        "arxiv:2607.05932v1",
+        "doi:10.1016/j.disopt.2020.100606"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10997v1",
+      "doi:10.1016/j.tcs.2014.05.009",
+      "arxiv:2607.05932v1",
+      "doi:10.1016/j.disopt.2020.100606"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 role-segregated theorem yields existence iff both side sizes are even; setting opposite pure types in the present formula gives exactly Z_a Z_b and recovers its existence condition.",
+        "The 2014 universal even-PNE proposition is compatible with all four terms here, each even, but does not supply their counts."
+      ],
+      "reasoning": "The new statement strictly extends the role-segregated special case in domain and yields finer multiplicities, random-type no-equilibrium probabilities, and even-even guarantees for arbitrary types; the reverse implication from known special cases is invalid. The 2014 necessary obstruction under role segregation cannot apply to mixed-side type assignments.",
+      "searches": [
+        "arxiv:2607.10997v1",
+        "doi:10.1016/j.tcs.2014.05.009",
+        "arxiv:2607.05932v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cao and Yang (2014), Proposition 1 proves only parity of the PNE count; Proposition 3 concerns one conformist side versus one rebel side, with odd degree obstruction.",
+        "Pei, Cao, Zhang (2026), Result 3, proof explicitly assumes one side entirely conformist and the other entirely rebel; no within-side type mixing."
+      ],
+      "reasoning": "The full mixed-side count specializes to known role-segregated equilibria, but the preceding conclusions do not imply its four-term formula, its nonsegregated configurations, or the exact fair random-type law. Search also tested spin-sign and coordination/anti-coordination wording.",
+      "searches": [
+        "fashion game complete bipartite graph number of pure Nash equilibria conformists rebels arbitrary distribution",
+        "equilibrium count bipartite fashion game mixed conformists rebels bipartite complete graphs binary",
+        "\"fashion game\" \"complete bipartite\" number equilibrium",
+        "arxiv:2607.10997v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible public search results and research-index comparisons recovered other finite-game censuses and graph-game parity results but no table of exact equilibrium counts for arbitrary mixed-type complete bipartite networks."
+      ],
+      "reasoning": "A finite table would not by itself imply the closed formula for all positive side sizes and all compositions. No exact enumerator or equivalent table was recovered; search absence is not asserted to prove absolute novelty.",
+      "searches": [
+        "pure equilibrium count K_mn fashion game conformist rebel arbitrary types",
+        "complete bipartite fashion game conformist rebel mixed types on BOTH vertex classes exact pure Nash equilibrium count parity and binomial central coefficients",
+        "conformist rebel star complete bipartite network games exact pure equilibrium existence parity tie cycles"
+      ]
+    },
+    "rationale": "The 2026 motivating Result 3 is role segregated (one whole part conformist, the other rebel), whereas the present theorem allows arbitrary independent side compositions and yields a closed count and exact random-type law. The 2014 evenness and odd-degree obstruction are strictly weaker/special. No dominating all-mixed-side count or database was recovered from primary full-text comparisons and public/research-index searches; possible equivalent unindexed work and unexamined revisions are explicit residual risks.",
+    "residual_risks": [
+      "Equivalent calculations may exist in unindexed or unpublished sources.",
+      "The publisher PDF of Shen and Lin (2020) and later revisions of the 2026 arXiv source were not fully inspected.",
+      "The originality claim concerns the exact mixed-type complete-bipartite count and its consequences, not the known evenness theorem or side-segregated existence criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Role-segregated conformists and rebels only on opposite sides; does not state or imply the all-mixed-side exact equilibrium count.",
+        "evidence": "Result 3 says the counts c,r are divisible by the number of strategies; proof defines conformist payoff using only rebel strategy counts and rebel payoff using only conformist counts, requiring every cross edge to be between unlike types.",
+        "identifier_or_url": "https://www.researchgate.net/publication/409443985_Network_games_with_three_types_of_players",
+        "material_read": "Full available manuscript text including the model, Result 3 and its entire proof, and neighboring general theorems",
+        "method": "Read full open HTML manuscript rendering, including lines around Result 3 (407–481) and general cases (483 onward); compared agent-type placement assumptions",
+        "title": "Network games with three types of players",
+        "trigger": "Same graph architecture and agent types in Result 3"
+      },
+      {
+        "assessment": "Evenness of equilibrium count and pure-type bipartite odd-degree obstruction are covered, but not arbitrary mixed-side biclique multiplicity.",
+        "evidence": "Proposition 1: every fashion game has an even number of PNEs; Proposition 3: bipartite graph with one part all conformists and the other all rebels has no PNE if an odd-degree vertex is present.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.05.009",
+        "material_read": "Open full PDF, notably model and Proposition 1–3, plus the paper sections on graph families",
+        "method": "Read full PDF text and inspect the relevant printed page showing Propositions 1 and 3",
+        "title": "The fashion game: Network extension of Matching Pennies",
+        "trigger": "Foundational graphical conformist--rebel game and parity theorem"
+      },
+      {
+        "assessment": "Broad sufficient-existence and large random sparse nonexistence results; no exact PNE-count formula for this dense bipartite class in inspected material.",
+        "evidence": "Abstract and body describe universal type reduction, sufficient existence, random sparse equilibrium failure, and dynamics rather than fixed-biclique equilibrium multiplicities.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.05932",
+        "material_read": "Full accessible online manuscript rendering, introductory theorems, existence and large sparse-network results",
+        "method": "Read full HTML presentation and search for complete-bipartite exact enumerators",
+        "title": "Network games with heterogeneous players",
+        "trigger": "More general 2026 heterogeneous game model and strong potential coverage"
+      },
+      {
+        "assessment": "Different max-min satisfaction objective and structural focus; exact equilibrium counts on arbitrary mixed-type bicliques not recovered; full-text access limitation remains.",
+        "evidence": "Paper states its goal is t-satisfiability; it treats paths, cycles, complete graphs and trees rather than an equilibrium-count classification for complete bipartite mixed types.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disopt.2020.100606",
+        "material_read": "Available long publisher-rendered article text, abstract, introduction, contribution and related-work sections",
+        "method": "Read article HTML excerpt on the max-min utility problem and listed graph families; publisher full PDF not accessible",
+        "title": "Fashion game on graphs",
+        "trigger": "Plausible earlier source analyzing same model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d5cc658-885e-476a-8b0c-f504eeed80f5",
+  "value": {
+    "rationale": "Fixed dense bipartite social interactions are a natural two-population game architecture. The complete exact multiplicity classification over all sizes and arbitrary type compositions is an intrinsic structural invariant with no arbitrary cutoffs; it reveals the sharp universal even-even existence guarantee, odd-odd fair-type nonexistence probability exactly 1/2, and exponentially many minimum equilibria when both sizes are even. These facts discriminate equilibrium robustness by side parity rather than merely repeating generic PNE existence statements; the 2026 role-segregated special case motivates this gap.",
+    "status": "PASS"
+  }
+}
