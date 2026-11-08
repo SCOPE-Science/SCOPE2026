@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:53:41.371513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coupon, occurrence frequency is Bin(t,p), p=s/n; conditioning on another coupon absent in every packet changes its per-round inclusion probability to s/(n-1). Summing n(n-1) ordered distinct-coupon pairs gives E[U M_r] and exact Cov=n² q^t binom(t,r)p^r q^(t-r)(R_r-1) with R_r=(n/(n-1))^(t-1)((n-s-1)/(n-s))^(t-r). For s<=n-2, R_1<1<R_t and R_{r+1}/R_r>1; equality at intermediate r would equate powers with reduced numerators n and n-s and is impossible. For s=n-1 only r=t is positive. Logarithmic root gives j, and packet-width monotonicity follows monotonic (n-s-1)/(n-s). Dense regime logs ratio tends 1-rho; ceiling/t→0. Independent exact enumeration for n=4,s=2,t=3 (216 ordered packet sequences) reproduced every r=1..3 covariance. Exact fraction evaluations reproduced 120475/839808 and -160256/820125 for the claimed s=1,2 sign reversal at n=6,t=5,r=2. Boundary 0^0 exponent convention checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 Proposition 1 is a general exact covariance expression and already contains the raw finite calculation after specialization.",
+          "Its §10.1 gives some explicit 0/1 entries; no all-positive-r sign switching and rational-tie impossibility in inspected result/discussion."
+        ],
+        "reasoning": "The derived sign theorem is not automatic as a stated corollary: its strict threshold and reduced-fraction number theoretic argument require additional work, although accessible general formula makes originality relatively narrow.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6EA3B354E8AC065BCB89AB1705DAF2A3/S000186780000567Xa.pdf/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection.pdf",
+          "fixed size coupon group drawings covariance missing count count exactly r sign switching coupon frequencies"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6EA3B354E8AC065BCB89AB1705DAF2A3/S000186780000567Xa.pdf/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+        "https://arxiv.org/abs/2202.07485"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact 2012 all-type covariance covers the input formula, not explicitly the all-r sign and zero-tie structure.",
+          "Single-item iid richness result maps to U by sign reversal and is a special case of group packets."
+        ],
+        "reasoning": "Neither prior statement found dominates the full dependent packet-width classification; risk that the 2012 formula has already been analyzed elsewhere remains significant.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6EA3B354E8AC065BCB89AB1705DAF2A3/S000186780000567Xa.pdf/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier one-switch occupancy theorem for K=n-U has inverted sign under U and uses iid one-item sampling.",
+          "Group drawings without replacement inside packets have pair dependencies not reducible to independent coupon allocations except s=1."
+        ],
+        "reasoning": "Term aliases U vs richness K, type r vs occupancy frequency r, group sampling vs iid coupons were compared.",
+        "searches": [
+          "fixed size coupon group drawings covariance missing count count exactly r sign switching coupon frequencies",
+          "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection/6EA3B354E8AC065BCB89AB1705DAF2A3",
+          "Resultary 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published one-switch Resultary record covers the s=1 iid occupancy subcase (for K rather than U).",
+          "No exact fixed-packet all-r sign phase table identified in inspected Cambridge 2012 primary paper."
+        ],
+        "reasoning": "Prior same-shape thresholds require matching within-round sampling law; failed search alone does not guarantee originality.",
+        "searches": [
+          "fixed size coupon group drawings covariance missing count count exactly r sign switching coupon frequencies",
+          "Resultary one-switch occupancy richness frequency counts",
+          "Mahmoud Smythe 2012 covariance sign packets exact table"
+        ]
+      },
+      "rationale": "Mahmoud–Smythe Proposition 1 already provides the generalized full covariance matrix and is prior for the finite second moment. The assessed new statement is the uniform strict one-transition sign pattern, impossibility of zero ties, monotonic packet width, explicit width reversal and dense asymptotic threshold. Closest published occupancy-richness sign switch uses iid single draws, i.e. a subcase not this dependent fixed-size packet model.",
+      "residual_risks": [
+        "General covariance and special s=1 sign phenomenon are established prior findings; originality only in full s>=2 strict classification.",
+        "A prior deduction from Mahmoud–Smythe may cover the exact monotonicity and tie theorem under different words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already supplies general finite covariance, but inspected sections do not state the strict single sign switch for all positive frequencies, nor no-tie arithmetic and width monotonicity.",
+          "evidence": "p.430 fixed distinct S coupons each round; Proposition 1 covariance; pp.447–448 §10 focuses (0,1) and CLT",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6EA3B354E8AC065BCB89AB1705DAF2A3/S000186780000567Xa.pdf/on-the-joint-behavior-of-types-of-coupons-in-generalized-coupon-collection.pdf",
+          "material_read": "Complete public Cambridge PDF inspected via searchable text and mandatory page screenshots: pages 1,7,19,20 including model assumptions, Proposition 1 and §10 formulas",
+          "method": "Lawful publisher OA PDF; page screenshots and full mathematical text",
+          "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+          "trigger": "Exact same packet-drawing model and full covariance possible priority"
+        },
+        {
+          "assessment": "Single iid-draw occupancy model, not arbitrary fixed packet width; identifies substantial overlap in s=1",
+          "evidence": "Sign positive for low r vs high r for observed richness K",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Published title and short semantic summary, not the full text",
+          "method": "Resultary",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Known same-shape one-switch sign law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-size group sampling is natural in coupon and species occupancy models. An exact all-frequency sign boundary, strict nonzero covariance and packet-width reversal predict qualitative dependence not visible from a covariance formula alone; the value lies in this complete phase characterization, not in recomputing an old moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive multiplicities only, fixed packet size and independent rounds; no multivariate independence claims.",
+    "Covariance formula is a specialization of older published generalized covariance theory.",
+    "Unknown prior reduction from that general formula to this strict sign theorem remains a substantive priority risk."
+  ],
+  "schema_version": 1
+}
