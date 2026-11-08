@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "An independent set of a clique substitution uses at most one vertex per clique and dominates iff its support is a dominating base set, proving all minimum-set vertices. Token slides split exhaustively into label changes or base slides with common labels fixed, yielding the graph fibers, precise edge counts, components and degrees. Projecting a lifted walk accounts for every persistent mismatched label, while lifting any base walk and setting labels on last entry realizes equality of path lengths. The cyclic 2/3-gap counting independently proves the specializing formulas, with n>=4 boundary. The actual standalone verify.py tests 180 profiles and 1870 directly computed path pairs; all checks passed. Finite checks support, but do not prove, the general statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2303.06299 Proposition 4.3 treats disjoint union and Cartesian products of i-graphs; Lemmas 5.4–5.5 inflate seeds without altering their i-graphs, unlike clique-fiber substitution.",
+        "Bonsma, Independent Set Reconfiguration in Cographs and their Generalizations (2016), concerns fixed-size independent-set TAR reachability rather than minimum independent domination i-graph enumeration and metric.",
+        "arXiv:2606.31815 synopsis, §true twins: reachability invariant under removal of a true twin, not evidence of exact shortest paths in every nonuniform expansion."
+      ],
+      "reasoning": "General fixed-size independent-set reconfiguration algorithms and i-graph realizability results do not directly supply an exact graph-isomorphism-level construction with nonuniform fiber parameters and exact distances. The possible priority risk is an unlocated more general twin-replication result; the candidate does not claim mere connectivity as novel.",
+      "searches": [
+        "\"minimum independent dominating\" \"true twins\" \"reconfiguration\"",
+        "\"token sliding\" \"twin expansion\" \"distance\"",
+        "\"minimum independent dominating\" \"reconfiguration\" \"lexicographic product\"",
+        "Exact token slide shortest path distance of minimum independent dominating sets under clique substitution, labels persistent through base walks; fibers Hamming graphs, number of edges."
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.06299 (full HTML)",
+      "arxiv:2303.08190 (full HTML)",
+      "arxiv:2003.05956 (survey abstract)",
+      "arxiv:2606.31815 (secondary synopsis only, primary unavailable)",
+      "Published mathematical records returned by targeted reconfiguration/lexicographic queries",
+      "Related prior claims on clique blowup visibility, induced matching and super domination (different graph properties)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Proposition 4.3 gives a Cartesian product i-graph for disjoint unions, while the candidate constructs Cartesian Hamming fibers connected by disjoint bicliques over arbitrary base i-graph edges.",
+        "Prior arXiv:2303.08190 determines ordinary cycle reconfiguration graphs; it does not analyze clique substitutions or label-persistence shortest-path cost.",
+        "The accessibility-limited 2026 twin-reduction comparison supports only reachability, not the entire quantitative/metered graph theorem."
+      ],
+      "reasoning": "A theorem about unlabelled base i-graphs does not by itself imply the exact weighted lift, where varying m_v changes edge multiplicities and paths. The explicit proof establishes the additional labelled structure and metric. Independent assessment remains desirable to rule out unindexed stronger coverage.",
+      "searches": [
+        "arXiv:2303.06299 full HTML, §§1.3, 2, 4–6, especially Proposition 4.3 and Lemma 5.5",
+        "arXiv:2303.08190 full HTML, §§3.1–3.4",
+        "independent dominating reconfiguration for cycles and their clique blowups minimum maximal independent sets",
+        "maximal independent set reconfiguration of lexicographic product graph with cliques"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brewster–Mynhardt–Teshima arXiv:2303.06299, §§1.3, 4, 5: token-slide i-graphs and constructions; no all-fiber clique substitution description.",
+        "arXiv:2606.31815 accessible secondary synopsis names a true-twin reduction for reachability; the primary arXiv abstract request failed and no metric or weighted census was established by inspected text.",
+        "Nearest indexed result under the exact clique-substitution query: a study of clique-fiber Čech nerves, involving a different simplicial-complex invariant rather than i-graphs."
+      ],
+      "reasoning": "A true-twin reduction can imply preservation of reachability, which is therefore acknowledged as prior context. It does not alone entail the explicit labelled Hamming-fiber/cross-biclique graph, weighted degree and edge formulas, or shortest-path minimization with persistent labels. Searches for substitutions, lexicographic products, blowups, and true twins identified no direct statement of the complete conjunction.",
+      "searches": [
+        "i-graph ℐ(G[K_m]) of lexicographic clique blowup, reconfiguration, edge and component counts.",
+        "\"i-graph\" \"lexicographic product\" \"clique\"",
+        "\"i-graph\" \"clique\" \"blowup\" \"minimum independent dominating sets\"",
+        "\"token sliding\" \"true twins\" reconfiguration graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2303.08190, §3.1 gives the exact number of ordinary cycle i-sets and §3.2 classifies their i-graphs; those base claims are explicitly acknowledged.",
+        "Related earlier claims on clique blowup visibility, induced matchings, and super domination address different predicates.",
+        "Closest public index records found were other domination/metric constructions, not the proposed i-graph metric."
+      ],
+      "reasoning": "The base-cycle enumeration is covered, but the m-dependent reconfiguration graph order/edge formulas are not a table recomputation: they are corollaries of the new general labelled-lift structure. No exact i-graph metric or variable-fiber edge table with these parameters was identified.",
+      "searches": [
+        "cycle independent domination i-set reconfiguration graph count of vertices and edges for cycles 3q+1 and 3q+2",
+        "\"i-graph\" \"cycles\" Brewster Mynhardt Teshima 2023",
+        "Indexed previous work: minimum independent domination, clique blowups, token sliding"
+      ]
+    },
+    "rationale": "2023 i-graph primary texts give token-slide definitions, disjoint-union Cartesian products and cycle base graphs, not the labelled nonuniform clique substitution with weighted edges, degrees and exact walk metric. General true-twin reachability is acknowledged and not passed off as novel. Targeted literature and public-index searches did not locate equivalent stronger coverage. Residual unindexed true-twin metric theorem risk remains.",
+    "residual_risks": [
+      "An equivalent complete theorem could appear under true-twin extension or clique replication terminology and was not located by searched indexing.",
+      "The full primary manuscript for arxiv:2606.31815 was unavailable in the checked source; the known reachability reduction may have further implications not resolved here.",
+      "The base cycle i-graph enumeration is explicitly covered by arxiv:2303.08190; novelty is restricted to the labelled blowup graph structure and metric."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines i-graphs and constructions; no nonuniform clique substitution metric or enumerator observed",
+        "evidence": [
+          "§1.3 definition",
+          "Proposition 4.3",
+          "Lemmas 5.4–5.5",
+          "Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.06299",
+        "material_read": "Full HTML body: definitions, observation lemmas, Sections 4–6 including Cartesian product and inflation/deletion constructions",
+        "method": "Read primary full-text HTML, inspected statements and implications",
+        "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+        "trigger": "Closest definition and general i-graph construction paper"
+      },
+      {
+        "assessment": "The ordinary cycle base counts and structures are covered and are not claimed as novel; clique blowup metric and weighted graph counts not stated",
+        "evidence": [
+          "§3.1 cycle count",
+          "Lemmas 3.3, 3.5",
+          "Theorem 3.7 and following results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+        "material_read": "Full HTML body: introduction, Section 3.1 cycle counting, 3.2 bracelet structures, 3.3–3.4 Hamiltonicity and traceability",
+        "method": "Read primary full-text HTML and compared exact base cycle configurations",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Same i-graph and cyclic objects; potential direct coverage of specialization"
+      },
+      {
+        "assessment": "True-twin reachability appears established; not enough primary material to exclude some stronger unindexed metric result; priority risk retained",
+        "evidence": [
+          "Secondary summary of true-twin deletion lemma; no inspected full primary proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31815",
+        "material_read": "Secondary scientific synopsis only; primary arXiv page not accessible in this run",
+        "method": "Attempted original arXiv access, inspected available secondary technical synopsis",
+        "title": "Token Sliding on Graphs with Few P4s",
+        "trigger": "Potential general true-twin reduction beyond i-graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee83f58e-90a8-49f0-8a97-f597586d0a27",
+  "value": {
+    "rationale": "Minimum independent dominating sets are a natural nonhereditary reconfiguration state space. Clique substitution creates exponentially many labelled states while preserving the component partition; the theorem determines every local/cross-fiber adjacency, exact weighted edge and degree census, and all pair distances via a small base-walk optimization rather than simply computing the minimum parameter. This yields general controllable lifts and a closed infinite family of cycle-blowup reconfiguration graphs; the metric and nonuniform data are not implied by the ordinary cycle enumeration alone. The proof requires an explicit persistent-label path argument, not only a textbook independence-number identity.",
+    "status": "PASS"
+  }
+}
