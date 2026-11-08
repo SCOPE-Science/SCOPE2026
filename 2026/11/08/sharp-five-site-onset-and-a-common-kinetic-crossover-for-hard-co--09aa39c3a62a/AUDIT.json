@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The first-arrival recursion is an exact identity; all 1,099 labeled graphs of orders 1 through 5 are evaluated by exact fractions and independently by all n! permutations. Exhaustive connected input/missing-edge comparisons yield zero positive cases up to order four and exactly 180 at order five, all in the two explicit marked isomorphism classes, with gain 1/15. An independent uniform-permutation prefix table derives identical closed-form time polynomials for both edges. The cubic derivative has negative discriminant and strictly positive leading coefficient, yielding a unique root and the correct sign boundaries. The actual embedded verify.py was executed successfully and outputs were compared to the draft proof. No infinite conjecture is inferred from finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1907.07216, Sec. 8: counterexample sizes 2(n+1) with n>=2, i.e. 6 or more.",
+        "arxiv:1510.05560, Theorem 1.1: large-random-graph degree-distribution limit, not an exact classification of five-vertex marked graph pairs."
+      ],
+      "reasoning": "A general first-arrival recurrence permits evaluation, but does not supply the evaluated minimality theorem or the two-class exhaustive result. The published six-or-more vertex construction has no implication establishing failure on five, much less that there are exactly two classes and the same time polynomial. The random-graph asymptotic theorem does not specialize to arbitrary fixed five-vertex graphs.",
+      "searches": [
+        "P5 to pendant C4 to K2,3 edge additions increase expected greedy independent set from 37/15 to 38/15 to 13/5, crossover cubic",
+        "smallest connected graph edge addition increases random sequential adsorption expected size; exactly two five vertex graph pairs",
+        "arxiv:1907.07216 Section 8 and Section 9",
+        "arxiv:1510.05560 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.05560",
+      "arxiv:1907.07216",
+      "doi:10.1137/0402034 (abstract only)",
+      "Published mathematical finding 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+      "Published mathematical finding 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+      "Published mathematical finding 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1907.07216 exhibits nonmonotonicity at orders at least six, not a sharp minimum.",
+        "Earlier examined monomer-adsorption results for the Robertson graph and the rook/Shrikhande pair do not imply the five-site edge-addition minimum or crossover.",
+        "Published finding 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f concerns variance of MIS size on complete multipartite graphs, not an augmentation of two specific five-vertex graphs."
+      ],
+      "reasoning": "The final theorem strengthens the prior qualitative observation by proving a minimal connected order, classifying all minimal single-edge additions, and resolving all times. Prior matching and dimer-adsorption formulas involve a different blocking object, and the fixed five-site monomer statement is not their corollary.",
+      "searches": [
+        "time dependent edge augmentation occupancy random greedy independent set crossover",
+        "arxiv:1907.07216 exact monotonicity passage pp. 19-20",
+        "random greedy MIS variance complete multipartite graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Random-order greedy maximal independent set is equivalent to irreversible monomer adsorption at jamming (arxiv:1907.07216, Introduction).",
+        "arxiv:1907.07216 Section 8 shows nonmonotonicity for two joined stars of total order at least six."
+      ],
+      "reasoning": "Aliases checked include vertex parking, hard-core monomer RSA, random greedy independent sets, jamming, monotonicity under edge deletion/addition. The qualitative paradox is prior art and is excluded from novelty; the five-site minimum, two marked classes and time crossover are not entailed by the displayed two-star family.",
+      "searches": [
+        "adding an edge increases expected random sequential adsorption jammed coverage on a five vertex graph smallest paradox",
+        "nonmonotonicity random greedy maximal independent set size under edge addition smallest graph",
+        "edge addition improves expected number of occupied vertices in random-order greedy independent set",
+        "arxiv:1907.07216 Section 8",
+        "arxiv:1510.05560 Theorem 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search comparisons returned published mathematical findings on greedy MIS on threshold graphs (2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d) and chain graphs (2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de); neither summary evaluates the two marked five-site augmentations.",
+        "No indexed exact five-vertex augmentation table or shared time crossover was identified in the searched literature."
+      ],
+      "reasoning": "The classification is independently obtained by exhaustive finite enumeration, not by absence of web results. Search absence cannot rule out private, historical or unindexed tables; this remains a priority limitation.",
+      "searches": [
+        "P5 to pendant C4 to K2,3 edge additions increase expected greedy independent set from 37/15 to 38/15 to 13/5, crossover cubic",
+        "random greedy independent set five vertex minimal monotonicity failure connected graphs",
+        "P5 K2,3 greedy independent set edge",
+        "five vertices greedy independent edge augmentation mean monotonicity",
+        "smallest connected graph edge addition increases RSA expected size"
+      ]
+    },
+    "rationale": "A published 2019 counterexample already establishes that edge addition may increase expected random greedy independent-set size, and the present claim explicitly does not claim that discovery. Its actual smallest example has six vertices. Exact searches and inspected primary text did not find the sharper minimum order five, its complete two-class marked-augmentation classification, or the shared all-time cubic crossover. The 2015 source concerns asymptotic random graph jamming rather than these fixed-order invariants. Novelty is best-knowledge, not certified by search; the full 1989 source is a priority risk.",
+    "residual_risks": [
+      "Full text of Pippenger 1989 could not be obtained; the available abstract is insufficient to exclude an unindexed smallest-graph computation.",
+      "No indexed search establishes exhaustive historical novelty; other finite graph tables may exist.",
+      "Independent human or external mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves asymptotic jamming laws for random graphs with prescribed degree sequences, not a classification of connected five-vertex edge additions or exact finite-time crossover.",
+        "evidence": [
+          "arxiv:1510.05560v1, pp. 1-3, Theorem 1.1; first public 2015-10-19",
+          "https://arxiv.org/abs/1510.05560"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.05560",
+        "material_read": "Abstract, introduction, model definition, Theorem 1.1 and its conditions, and relevant full-document phrase searches; first-version date 2015-10-19 checked on arXiv and page image",
+        "method": "Read lawful arXiv PDF and associated HTML text, inspect page image and theorem; targeted searches for edge deletion and monotonicity",
+        "title": "The greedy independent set in a random graph with given degrees",
+        "trigger": "Earliest verified dated focal source for uniform-order greedy adsorption; check whether an existing theorem determines exact marked small-graph augmentations"
+      },
+      {
+        "assessment": "Section 8 explicitly disproves edge-deletion monotonicity using two stars with at least two leaves each (minimum six vertices); the general phenomenon is prior art. The source does not state the sharp five-vertex minimum, both complete marked classes, or their common time-dependent polynomial.",
+        "evidence": [
+          "arxiv:1907.07216, Sec. 8, printed p. 19, paragraph after Lemma 8.1; source version first public 2019-07-16",
+          "https://arxiv.org/abs/1907.07216"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+        "material_read": "Abstract, introduction, Section 8 pp. 19-20 and preceding first-arrival recursion, Section 9 concluding remarks; original six-vertex double-star construction inspected on page image",
+        "method": "Read public arXiv PDF and source text; inspect page 19 image and compare source statement and its consequences to the exact five-site claim",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Highly relevant prior nonmonotonicity counterexample for the same greedy adsorption observable"
+      },
+      {
+        "assessment": "Abstract describes regular-tree, large-girth and lattice approximation results. It cannot settle whether the article contains an unindexed order-five exact calculation; residual risk retained.",
+        "evidence": [
+          "https://scholarship.claremont.edu/hmc_fac_pub/117/",
+          "https://doi.org/10.1137/0402034"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0402034",
+        "material_read": "Publisher and institutional abstract only; full PDF could not be obtained through the examined public download (403), and institutional-access lookup could not retrieve full text",
+        "method": "Read SIAM and institutional bibliographic abstracts; attempt institution-hosted PDF, then an authorized academic-access lookup; no material access to full paper",
+        "title": "Random Sequential Adsorption on Graphs",
+        "trigger": "Foundational work on the exact physical process, potentially relevant historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09aa39c3-a62a-4864-8842-2c344a391be2",
+  "value": {
+    "rationale": "The minimum order of a counterintuitive adsorption enhancement is a natural structural boundary for irreversible hard-core occupancy under bond addition, not an arbitrary graph invariant. The exact two-pair classification completes this smallest order, and the shared cubic quantifies a genuine reversal: added exclusion initially reduces occupation but raises the final expected coverage beyond an exact crossover. This sharpens the published qualitative six-vertex-and-larger example; it does not require a thermodynamic-limit contribution.",
+    "status": "PASS"
+  }
+}
