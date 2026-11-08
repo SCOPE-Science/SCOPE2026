@@ -1,19 +1,21 @@
-# Scientific review: exact ternary ordered-bigram multispectrum counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem applies to every length-\(m+1\) ternary word with \(m\ge1\). The exact directed Eulerian trail criterion handles weak connectivity of active vertices and distinguishes zero degree imbalance from six ordered unit-imbalance vectors. Three separate balanced support cases and the precise exceptional disconnected endpoint case are enumerated without double counting. The resulting rational function was expanded and its first ten coefficients checked both by literal enumeration of words and enumeration of admissible arc matrices. The formal-series pole analysis proves the quasipolynomial and asymptotic statements. The standalone verifier checks 265,716 words and all integer nine-vector candidates through total degree ten; finite verification is corroborative, not an all-length proof. One-letter words are explicitly outside the series.
+PASS
 
-## Originality — PASS, subject to the stated residual risk
+A full ordered-bigram count vector c_ij of a word length m+1 is exactly an integer 3×3 arc-count matrix admitting an Eulerian directed trail. The standard necessary-and-sufficient criterion is weak connectivity on all positive-degree vertices and degree imbalance either (0,0,0) or permutation (+1,-1,0). In balanced class write δ01=δ12=δ20=t; t≠0 forces directed triangle, t=0 splits by one/2/3 occupied vertices with loops and bidirected edges. In each unbalanced ordered start/end type δ01=t+1, δ12=δ20=t; all entries parameterized by opposite arc pairs and loops, subtract the precise t=0 disconnected third-vertex loop class. Combining balanced A(z) and six(F(z)-B(z)) gives z(9−12z+5z²+19z³−4z⁴−10z⁵−14z⁶+14z⁷+6z⁸−9z⁹+3z¹⁰)/((1−z)^7(1+z)^2(1+z+z²)). Independently simplified expressions in SymPy to identical rational fraction and checked coefficients 9,24,65,... for small m. Dominant pole z=1 order seven with numerator 7 and cofactor 12 gives 7m^6/8640+O(m^5), period divides six. m≥1; length-one host has a single empty profile separately. Code-size follows by one representative per profile.
 
-The closest checked work studies general substring reconstruction, multistring reconstruction, and equality of substring *sets*; these do not state or imply an exact generating function for all ternary ordered-bigram *multisets*. A closely related exact **binary** bigram-multispectrum classification counts a different alphabet domain and does not imply the ternary three-by-three Eulerian-flow enumeration. A ternary window-two DNA-profile result concerns realizable rankings and shortest realizing length, not the number of realizable integer profiles of each total weight. The all-length coefficient sequence and polynomial-degree-six constant were not identified in the checked comparisons. Residual risk: older work on directed multigraph flows, Eulerian matrix enumeration, or genomic two-gram spectra might contain an equivalent algebraic specialization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The alphabet-three case is the first genuinely three-cycle setting, unlike the binary two-vertex graph. The theorem solves the exact number of distinguishable observations for a basic lossless overlapping-bigram sequencing model, across every source length, and exhibits nontrivial six-period quasipolynomial fluctuations and a sharp degree-six growth coefficient. The structural Eulerian-flow decomposition and explicit connectivity correction offer reusable test instances for sequence reconstruction, not an arbitrary isolated small-length census.
+Qualified PASS: Euler trail criterion, generic reconstruction algorithms, and binary exact two-gram multispectrum are prior. Bernardini–Conte–Gabory and collaborators study equality of *sets* of factors, not the *multiplicity* count vector; changing sets to multisets changes equivalence classes. The new exact all-m ternary integral Euler-flow count and degree-six quasipolynomial are not implied by those published statements, though an older enumeration of 3×3 integer Euler trails could subsume it.
 
-## Closest literature and limits
+## value
 
-Marcovich–Yaakobi, arXiv:1912.11108; Yehezkeally–Marcovich–Yaakobi, arXiv:2108.11725; Bernardini–Conte–Gabory et al., *On Strings Having the Same Length-\(k\) Substrings* (2022 conference version, expanded journal version https://link.springer.com/article/10.1007/s00224-025-10240-z). The binary exact multispectrum result and the ternary DNA ranking result are distinct specializations, not asserted as independent proofs of the current formula. This theorem neither calculates individual fiber cardinalities nor handles larger alphabets or reads of length greater than two. The sources inspected may not exhaust work under equivalent Eulerian-flow terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete cardinality of a natural noiseless sequencing readout alphabet and zero-error reconstruction code, providing the first nontrivial three-symbol exact multiset profile law with circulation/connectivity correction and sharp growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

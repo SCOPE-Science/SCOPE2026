@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification information
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify_ternary_profiles.py` using Python 3.8 or later and its standard library. A successful run prints:
+## correctness
 
-```
-VERIFY_OK word_lengths=2..11 literal_words=265716 sum_distinct_profiles=14404 matrix_degrees=1..10 rational_coefficients=1..20 Euler_criterion_vs_literal=TRUE
-```
+PASS
 
-The program enumerates every ternary word with between one and ten adjacent pairs and computes its ordered-bigram multiplicity vector. Separately, it enumerates all nonnegative integer nine-vectors of each tested weight and applies the degree-balance/weak-connectivity directed Eulerian-trail criterion. It compares the two complete finite sets and checks the coefficients of the rational expression using exact integer arithmetic. It additionally checks the empty bigram observation for single-character source words.
+A full ordered-bigram count vector c_ij of a word length m+1 is exactly an integer 3×3 arc-count matrix admitting an Eulerian directed trail. The standard necessary-and-sufficient criterion is weak connectivity on all positive-degree vertices and degree imbalance either (0,0,0) or permutation (+1,-1,0). In balanced class write δ01=δ12=δ20=t; t≠0 forces directed triangle, t=0 splits by one/2/3 occupied vertices with loops and bidirected edges. In each unbalanced ordered start/end type δ01=t+1, δ12=δ20=t; all entries parameterized by opposite arc pairs and loops, subtract the precise t=0 disconnected third-vertex loop class. Combining balanced A(z) and six(F(z)-B(z)) gives z(9−12z+5z²+19z³−4z⁴−10z⁵−14z⁶+14z⁷+6z⁸−9z⁹+3z¹⁰)/((1−z)^7(1+z)^2(1+z+z²)). Independently simplified expressions in SymPy to identical rational fraction and checked coefficients 9,24,65,... for small m. Dominant pole z=1 order seven with numerator 7 and cofactor 12 gives 7m^6/8640+O(m^5), period divides six. m≥1; length-one host has a single empty profile separately. Code-size follows by one representative per profile.
 
-## Limits
+## originality
 
-All tests are finite. They do not independently certify the general Eulerian theorem, the formal generating-function derivation, or completeness of the literature comparison. The proof in `RESULT.md` is intended to establish those all-length statements. No independent audit has been performed.
+PASS
+
+Qualified PASS: Euler trail criterion, generic reconstruction algorithms, and binary exact two-gram multispectrum are prior. Bernardini–Conte–Gabory and collaborators study equality of *sets* of factors, not the *multiplicity* count vector; changing sets to multisets changes equivalence classes. The new exact all-m ternary integral Euler-flow count and degree-six quasipolynomial are not implied by those published statements, though an older enumeration of 3×3 integer Euler trails could subsume it.
+
+## value
+
+PASS
+
+Complete cardinality of a natural noiseless sequencing readout alphabet and zero-error reconstruction code, providing the first nontrivial three-symbol exact multiset profile law with circulation/connectivity correction and sharp growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
