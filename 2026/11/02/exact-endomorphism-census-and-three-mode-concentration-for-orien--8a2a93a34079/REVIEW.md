@@ -1,21 +1,21 @@
-# Scientific review: oriented-star Hecke–Kiselman endomorphisms
+# Independent mathematical audit
 
-## Correctness — PASS
-For each positive number of leaves, the presentation is fixed and every endomorphism is specified by idempotent images of the generators. The proof first classifies all elements using unique normal forms \(u_U\) and \(u_Pcu_Q\) with disjoint \(P,Q\), then derives necessary-and-sufficient tests for the commutations of leaf images and directed relations involving the center. The target-leaf coordinates factor independently, giving the exact \(\binom ma\)-weighted formula. The asymptotic conclusion follows by isolating three exact families and bounding the remainder with binomial tails. The normalization \(2^{m(m+1)}\) counts all free membership bits in each distinguished family. No finite-search result is used to prove the general formula.
+## correctness
 
-The standalone computational check constructs the small monoids by normal-form multiplication, tests associativity and all idempotents, exhaustively enumerates all endomorphism-generator images for \(m=1,2,3\), and compares the full \((a,b_0)\) counts. No counterexample was found. The values for \(m=4,5\) are checks of the formula only, not complete enumeration of maps.
+PASS
 
-## Originality — PASS, with a concrete implicit-coverage qualification
-Andrenšek, arXiv:2604.15497v3, Theorems 4.5 and 5.4, already characterizes all Hecke–Kiselman monoid endomorphisms by admissible Boolean matrices for arbitrary finite oriented graphs. It therefore supplies an *implicit* enumeration procedure for each fixed star. It does **not** state the evaluated binomial-sum cardinality for the star family, the exact sizes of the three dense classes, or the asymptotic concentration law. The present contribution is explicitly restricted to those evaluated statements. Aragona–D'Andrea's normal-form theorem is used as established background; it has no endomorphism-count theorem. Andrenšek's earlier Kiselman monoid classification applies to complete orientations, not the outward star with at least two leaves. Wiertel's semigroup-identity classification concerns a different property. The \(m=1\) instance is an overlapping boundary case, not the claimed new family-wide result.
+For m>=1 the outward-star HK presentation has canonical normal forms u_U or u_P c u_Q with P cap Q empty, and exactly 2^(m+1) idempotents u_U and c u_U. Images of generators must be idempotents; source leaves commute and center-leaf arrow relations impose coordinatewise inclusion constraints. For a fixed set I of a leaves whose image contains target c, at one target leaf coordinate the choices for leaf images are K=2^a+2^(m−a)−1. A center-containing f(c) allows 2^m K^m choices; center-free f(c) gives (K+2^(m−a))^m. Summing binom(m,a) gives exact E_m; direct independently implemented relation enumeration for m=1,2,3 yields 15,339,22233 and formula produces 4780047,4058199945 at m=4,5. Three disjoint a=0,b0=0; a=0,b0=1; a=m,b0=1 families each contain 2^(m(m+1)); all other strata have aggregate O(2^(m(m+1))m2^(−m)) by endpoint/tail bounds, so E_m~3·2^(m(m+1)) and each family probability tends 1/3. Finite enumeration is not used as proof for growing m.
 
-Targeted literature and mathematical-record searches found no statement that directly gives the displayed family-wide evaluated formula or concentration theorem. A differently indexed calculation, or an unstated but straightforward corollary of a general Boolean parametrization, remains a residual originality risk. The cited general theorem is not portrayed as absent or rediscovered.
+## originality
 
-## Mathematical value — PASS
-Endomorphism monoids encode self-symmetries beyond automorphisms and are the explicit object of the motivating recent classification. Outward stars are the first naturally branching oriented-tree family, with unbounded vertex count. The exact endomorphism census is a family-wide algebraic invariant; its three equal leading families identify a nontrivial large-size concentration phenomenon that is invisible from the existence of a finite Boolean description alone. The result is not a single arbitrary small example, a mere change of notation, or a restatement of the general admissibility criterion.
+PASS
 
-## Limitations and evidence
-This is a result for labeled, identity-preserving maps of outgoing-star Hecke–Kiselman monoids; it is not a classification for all trees or an enumeration of endomorphism conjugacy classes. The earlier Boolean matrix theorem already determines every finite answer implicitly. Numerical verification is exhaustive only for up to three leaves, while the symbolic proof covers all positive leaf counts. Independent mathematical validation has not been performed.
+Andrenšek 2026 establishes a general Boolean classification of endomorphisms of HK monoids, which implicitly decides each fixed oriented-star case. The present uniform evaluated m-binomial count and asymptotic three equally likely image-family concentration are not stated in inspected general-classification theorems. Aragona–D’Andrea normal forms are classical input and not original. A general fixed-size decision theorem is not automatically a closed m-variable asymptotic census.
 
-Closest primary sources: L. Andrenšek, *Homomorphisms of Hecke–Kiselman Monoids Associated to Simple Oriented Graphs*, arXiv:2604.15497; R. Aragona and A. D'Andrea, *Normal form in Hecke–Kiselman monoids associated with simple oriented graphs*, arXiv:1904.10745; L. Andrenšek, *A complete classification of endomorphisms of Kiselman's semigroup*, DOI 10.1007/s00233-025-10577-4; M. Wiertel, *Identities of Hecke–Kiselman monoids*, DOI 10.1007/s00233-024-10451-9.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source objects form a canonical infinite family of finitely presented monoids. Exact counts, an unexpectedly three-modal dominating partition and limiting probabilities supply nontrivial global structure beyond brute-force enumeration; highly useful if studying typical HK self-maps or growth of endomorphism monoids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
