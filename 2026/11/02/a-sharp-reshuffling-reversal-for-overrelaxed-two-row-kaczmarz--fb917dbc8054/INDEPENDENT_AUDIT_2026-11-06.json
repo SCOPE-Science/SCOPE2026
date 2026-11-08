@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two independent real unit row normals u,v with positive oriented inner product ρ∈(0,1), relaxed row maps B=I−αuuᵀ and C=I−αvvᵀ, 0<α<2. The exact IID-with-replacement Gram average over four ordered two-update sequences is (B⁴+C⁴+BC²B+CB²C)/4, while uniform random reshuffling without replacement is (BC²B+CB²C)/2. Their difference D=(β/4)[(β+α²ρ²)(P+Q)−2α(PQ+QP)], β=α(2−α), P=uuᵀ,Q=vvᵀ. P+Q has orthogonal eigenvectors u±v with eigenvalues 1±ρ; substitution yields λ±=α²(2−α)(1−ρ²)[2−α(1±ρ)]/4. λ−>0 for α∈(0,2), λ+ changes sign exactly at α=2/(1+ρ); thus RR beats IID for all deterministic e exactly up to that sharp threshold, with equality only e∥u+v at boundary. Above threshold IID wins on + direction, while RR wins on −. Independent exact rational computation gives u=(1,0),v=(3/5,4/5),α=3/2,e=(2,1), E_I=161/100,E_R=197/100, D spectrum {−9/125,63/250}. Convergence is separate: IID stepwise mean-square contraction 1−β(1−ρ)/2 and both deterministic two-row sweep norms <1, hence RR epoch convergence. Source verify.py independently inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie prove unrelaxed RR Kaczmarz linear convergence and order bounds; stochastic reshuffling studies longer-horizon or steady-state expected objectives."
+        ],
+        "reasoning": "Asymptotic convergence or general reshuffling rate bounds do not imply a sharp finite two-update IID/RR comparison for α>1 and all deterministic initial directions.",
+        "searches": [
+          "https://arxiv.org/abs/2410.01140",
+          "https://arxiv.org/abs/1803.07964",
+          "https://arxiv.org/abs/2106.06880"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2410.01140",
+        "https://arxiv.org/abs/2006.01510",
+        "https://arxiv.org/abs/1202.4184",
+        "https://arxiv.org/abs/1803.07964",
+        "https://arxiv.org/abs/2106.06880",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "Resultary semantic query: two-row relaxed Kaczmarz random reshuffling versus with-replacement reversal angle threshold overrelaxation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-row unrelaxed RR results cover α=1 subset and yield no sign reversal; deterministic sweep norm result neither calculates with-replacement average nor all-initial-vector PSD ordering."
+        ],
+        "reasoning": "Sign-changing eigenvalue λ+ and sharp α threshold cannot be inferred from the cited prior statements without the separate two-update calculation.",
+        "searches": [
+          "https://arxiv.org/abs/2006.01510",
+          "https://arxiv.org/abs/2410.01140",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Recht–Ré comparisons involve noncommutative arithmetic-geometric mean and sampling without replacement; relaxed row maps I−αP become indefinite for α>1, unlike PSD products in the simplest standard regime."
+        ],
+        "reasoning": "The present exact D eigenvalues classify indefinite 2×2 relaxed projection updates and deterministic error directions, not a mere statement of the standard PSD AGM inequality.",
+        "searches": [
+          "two-row relaxed Kaczmarz random reshuffling versus with-replacement reversal angle threshold overrelaxation",
+          "https://arxiv.org/abs/2006.01510",
+          "https://arxiv.org/abs/1202.4184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published result gives exact finite-horizon deterministic cyclic-sweep norm for asymptotically optimal two-row overrelaxation; it does not average IID and RR two-update Gram matrices."
+        ],
+        "reasoning": "This is a formula/parameter comparison, not a table-search problem; the identified exact prior fact optimizes different functionals.",
+        "searches": [
+          "two-row relaxed Kaczmarz random reshuffling versus with-replacement reversal angle threshold overrelaxation",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ]
+      },
+      "rationale": "Qualified PASS for necessary-and-sufficient two-update directionwise sign reversal criterion at overrelaxation α>1, within convergent regime. Existing unrelaxed RR-Kaczmarz proofs, noncommutative arithmetic-geometric mean comparisons for positive semidefinite update operators, and deterministic finite-horizon two-row overrelaxation concern different norms or sampling protocols. The exact two-projection matrix formula may be implicit in earlier matrix-product inequalities, which is recorded as risk.",
+      "residual_risks": [
+        "A specialized two-projector operator inequality may already give the same sign formula without describing Kaczmarz.",
+        "The reversal is only after exactly two updates and particular initial orientations, not an all-epoch or convergence failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING α>1 exact two-update spectral comparison",
+          "evidence": [
+            "Studies convergence for standard Kaczmarz, not the overrelaxed direction-dependent IID-versus-RR expected squared-error difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.01140",
+          "material_read": "Available arXiv full HTML: statements, model assumptions, main theorem, convergence discussion",
+          "method": "Read full primary HTML relevant sections",
+          "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+          "trigger": "Same algorithm, RR sampling"
+        },
+        {
+          "assessment": "PARTIAL general context",
+          "evidence": [
+            "Matrix-product inequalities for different operator positivity regimes; two-row indefinite overrelaxation not resolved by accessible statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.01510",
+          "material_read": "Abstract and stated n≥5 counterexample framework; not full text re-read in this run",
+          "method": "Read primary abstract/summary",
+          "title": "Recht–Ré Noncommutative Arithmetic-Geometric Mean Conjecture is False",
+          "trigger": "Analogous product ordering under random shuffles"
+        },
+        {
+          "assessment": "RELATED DIFFERENT OBSERVABLE",
+          "evidence": [
+            "Deterministic cyclic-sweep operator-norm/transient objective, not stochastic IID vs RR quadratic expectations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "Resultary indexed title and full summary only, not complete primary RESULT.md in this run",
+          "method": "Semantic catalogue result",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Closest published exact two-row overrelaxed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp α=2/(1+ρ) frontier exposes non-monotone algorithmic performance under overrelaxation, with exact rational counterexample where both algorithms still converge; quantifies when a general preference for sampling without replacement fails in its first nontrivial noncommuting setting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2410.01140",
+    "https://arxiv.org/abs/2006.01510",
+    "https://arxiv.org/abs/1202.4184",
+    "https://arxiv.org/abs/1803.07964",
+    "https://arxiv.org/abs/2106.06880",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+    "Resultary semantic query: two-row relaxed Kaczmarz random reshuffling versus with-replacement reversal angle threshold overrelaxation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two distinct unit row normals in R², a consistent system, 0<α<2, deterministic initial solution error and expected squared Euclidean norm after one two-update epoch.",
+    "Not a claim about residual norms, inconsistent/noisy systems, more rows, or arbitrary reshuffling horizons."
+  ],
+  "residual_risks": [
+    "A specialized two-projector operator inequality may already give the same sign formula without describing Kaczmarz.",
+    "The reversal is only after exactly two updates and particular initial orientations, not an all-epoch or convergence failure."
+  ],
+  "schema_version": 1
+}
