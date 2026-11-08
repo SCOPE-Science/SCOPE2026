@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The Dirichlet covariance identity yields the explicit affine reproducing kernel. Its first-variable affinity and full-support sign disagreement prove strict vertex reduction. Beta truncated moments yield the exact norm/negative-part formula. A three-cell Dirichlet aggregation coupling and strict conditional Jensen show that normalized Beta coordinates are strictly decreasing in convex order with increasing shape at fixed total, selecting precisely the least-parameter vertices. Fractional beta moments justify the rare-coordinate supremum; a beta CLT plus bounded second moments justifies the Gaussian regime. The actual standalone verify.py reproduces the moment identity and 275 rational beta-integral checks. The general theorem is analytic, not based on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Uniform simplex exact RESULT.md restricts to normalized Lebesgue volume: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "Griffiths–Spanò: general kernel/canonical correlations, no asserted weighted endpoint norm in inspected sections: https://arxiv.org/pdf/1003.5131",
+        "Chebyshev polynomial-mesh general algorithms: https://arxiv.org/pdf/2311.18656"
+      ],
+      "reasoning": "The 2010 work covers the common starting kernel but does not state an L∞ sharp norm or classify norming vertices. The 2026-10-04 result strongly covers the symmetric point α=(1,...,1), which is acknowledged as a special case, not new. The 2023 source has broad methods for rigorously estimating many Lebesgue constants, but no closed analytic formula or monotonic parameter collapse for these continuous Dirichlet measures.",
+      "searches": [
+        "published-finding corpus: L infinity norm of L2 orthogonal affine polynomial projection on uniform volume simplex, exact 2(d+1)(d/(d+1))^d-1",
+        "Web: \"weighted simplex\" \"least squares\" \"projection\" \"maximum norm\"",
+        "Web: \"multivariate Jacobi\" \"Lebesgue constant\" \"degree one\" Dirichlet simplex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.5131",
+      "arxiv:1309.1510 (abstract only)",
+      "arxiv:2311.18656",
+      "published-finding corpus:2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known exact degree-one Q_1 kernel: https://arxiv.org/pdf/1003.5131 (Section 2.2)",
+        "Full proof of known uniform-volume projector norm: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "General mesh-based numerical Lebesgue estimates, arXiv:2311.18656: https://arxiv.org/pdf/2311.18656"
+      ],
+      "reasoning": "The novel implication starts with the known kernel but compares the L1 norms at distinct vertices through an explicit martingale coupling between Beta(a,A-a)/a and Beta(c,A-c)/c. No inspected prior claim establishes that strict convex-order comparison or the resulting reduction to min α and A, unique balance, and sharp boundary 2A+1. The uniform case is precisely recovered and deliberately not claimed as new. The general kernel alone is not a dominating theorem for this optimization result without the additional ordering argument.",
+      "searches": [
+        "published-finding corpus: Dirichlet multivariate Jacobi degree one kernel convex ordering normalized beta coordinates, least parameter determines projection Lebesgue constant",
+        "Web: \"Beta\" \"convex order\" shape parameter fixed sum scaled mean",
+        "Web: \"Dirichlet\" \"least-squares\" \"simplex\" \"L∞\" projector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Griffiths–Spanò, arXiv:1003.5131, Section 2.2, Eq. for Q_1 (full text): https://arxiv.org/pdf/1003.5131",
+        "Uniform simplex published result (full RESULT.md): https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "Xu Jacobi/Hahn kernels: https://arxiv.org/abs/1309.1510 (abstract only)"
+      ],
+      "reasoning": "Degree-one orthogonal Jacobi polynomials, local affine least-squares projector, Lebesgue function, and negativity/positivity defect were used as aliases. The known kernel is equivalent to the projection representation, but neither its statement nor the uniform-volume norm gives the strict least-coordinate ordering for arbitrary real Dirichlet weights; that comparison requires the normalized-Beta convex-order lemma proved in the present result. Xu abstract alone cannot establish whole-document noncoverage and remains a risk.",
+      "searches": [
+        "published-finding corpus: Dirichlet distribution with unequal parameters, affine orthogonal L2 projection L infinity norm depends only smallest Dirichlet concentration parameter and total concentration, Beta CDF",
+        "published-finding corpus: weighted simplex least-squares degree-one projection exact norm asymmetric alpha minimum vertex",
+        "Web: \"Dirichlet\" \"projection\" \"L infinity\" \"affine\" simplex",
+        "Web: \"Dirichlet\" \"norm\" \"orthogonal projection\" \"first degree\" Lebesgue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed exact table/formula is the uniform-simplex one: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "2010 Dirichlet orthogonal polynomial formulas: https://arxiv.org/pdf/1003.5131"
+      ],
+      "reasoning": "Neither the exact published uniform-volume constant nor the general orthogonal-polynomial kernel tables include the arbitrary nonuniform Dirichlet endpoint operator norm as a table entry. Numeric algorithms on arbitrary simplices do not tabulate these exact parameters. Indexed search is evidence of comparison only, not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Sharp Lebesgue constant of L2 least squares linear regression on Dirichlet simplex, Beta distribution affine projection norm",
+        "Web: Dirichlet weighted Jacobi polynomials simplex L infinity norm degree one projection Lebesgue constant alpha"
+      ]
+    },
+    "rationale": "The closest published uniform-volume simplex result covers only equal unit Dirichlet parameters. The Griffiths–Spanò full text supplies the general degree-one kernel, not a norm-optimization, negative-part/least-coordinate theorem or fixed-total balancing principle. Published polynomial-mesh numerical results give general evaluation algorithms, not the exact weighted norm and ordering. No stronger encompassing claim was found in the actual scientific searches. Equivalent literature remains a residual risk, notably a Jacobi-kernel paper inspected only at abstract level.",
+    "residual_risks": [
+      "An equivalent sharp weighted Dirichlet projection norm may appear in unindexed approximation-theory literature or under an alternate terminology.",
+      "The full 2013 Jacobi-kernel paper was not accessible during the comparison; no whole-document noncoverage conclusion is drawn from its abstract.",
+      "The general degree-one Dirichlet kernel is previously known and does not constitute a new contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_KERNEL_ONLY; does not state the claimed exact L∞ norm or least-parameter optimizer rule in the material examined",
+        "evidence": "Section 2.2 gives Q1=(A+1)(A Σ x_i y_i/α_i−1); paper objectives concern orthogonal polynomial kernels and canonical correlations.",
+        "identifier_or_url": "arxiv:1003.5131; https://arxiv.org/pdf/1003.5131",
+        "material_read": "Abstract and introduction, explicit degree-one formula in Section 2.2 on page 15, and selected canonical-correlation discussion",
+        "method": "Open lawful arXiv PDF; inspect text and rendered pages including the explicit kernel",
+        "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+        "trigger": "Same arbitrary Dirichlet simplex measure and degree-one projection kernel"
+      },
+      {
+        "assessment": "EXACT_SYMMETRIC_SPECIAL_CASE; not the arbitrary nonuniform Dirichlet theorem",
+        "evidence": "Uniform-volume norm is 2m(m/(m+1))^(m−1)−1 for m vertices, α_i=1; proof uses permutation symmetry, unavailable for unequal α.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Entire RESULT.md including finding, proof, verification and limitations",
+        "method": "Read public repository RESULT.md through GitHub read-only connector",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Same affine projection and sharp endpoint norm in the uniform simplex"
+      },
+      {
+        "assessment": "GENERAL_NUMERICAL_METHOD; no exact unequal-Dirichlet affine norm or min-coordinate formula in material read",
+        "evidence": "The paper presents rigorous upper/lower polynomial-mesh evaluations for classes of operators, not closed forms for continuous weighted Dirichlet affine projectors.",
+        "identifier_or_url": "arxiv:2311.18656; https://arxiv.org/pdf/2311.18656",
+        "material_read": "Full-text abstract, introduction, method and theorem statements in Section 2 (pp 1–4)",
+        "method": "Read lawful arXiv PDF text and page-1 rendering",
+        "title": "Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex and ball",
+        "trigger": "Broader weighted least-squares and simplex Lebesgue-constant methods"
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_TO_MODERATE_RISK; abstract indicates kernels rather than sharp weighted endpoint constants",
+        "evidence": "Abstract focuses on connecting coefficients, reproducing kernels, and Poisson-kernel positivity; cannot infer whole-document exclusion.",
+        "identifier_or_url": "arxiv:1309.1510; https://arxiv.org/abs/1309.1510",
+        "material_read": "Abstract only; original full text not recovered",
+        "method": "Search indexed arXiv abstract; PDF retrieval unavailable in this session",
+        "title": "Hahn, Jacobi, and Krawtchouck polynomials of several variables",
+        "trigger": "Plausible general simplex polynomial kernel treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc5dae7c-2af4-47e3-9fb5-3f3b4f370f77",
+  "value": {
+    "rationale": "The exact norm of a natural least-squares projector under arbitrary Dirichlet sampling controls worst-case amplification and positivity loss. The least-coordinate principle is a complete structural classification of instability: only the smallest concentration and total matter, and precisely the rarest-coordinate vertices are extremal. The unique balancing minimum, sharp unattained 2A+1 boundary, and Gaussian high-concentration growth give directly motivated design/stability consequences. These go beyond a uniform-weight recomputation and are not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
