@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-**Actual command:** `python3 verify.py`.
+## correctness
 
-The self-contained script reconstructs the 256 orientations of all eight complement-pairs of length-four factors in the eight-state de Bruijn graph. It directly computes all 324 cycle-bearing SCC edge sets and checks coverage by the six displayed families. It also checks the recurrent cycles of all 15 pairwise family intersections, and computes each of the six eight-by-eight adjacency determinants with exact integer power traces and Newton's identities. These checks establish the finite graph premises used for an all-length theorem.
+PASS
 
-A separate direct source-word enumeration checks every one of the 131,056 marked binary circular words of lengths 4 through 16, and both the general counts and the mixed-doublet counts agree. Exact transfer traces agree at all lengths 1 through 30. The script prints `VERIFY_OK; orientations=256; recurrent_SCCs=324; families=6; pair_intersections=15; bruteforce_instances=131056; lengths=4..16; transfer_lengths=1..30` when successful.
+There are 8 complementary pairs of four-bit de Bruijn edges; every admissible circular walk is contained in an SCC of one of 256 eight-edge orientation graphs. Independently rebuilt reachability and all 324 cycle-bearing SCCs; every SCC lies in one of six specified family graphs. All 15 pairwise intersection SCC tests establish only constant words can be common. Exact 8x8 characteristic polynomials are 1-z-z^7 (four graphs) or 1-z-z^3 (two). Transfer trace and inclusion-exclusion yield the unrestricted recurrence and mixed-doublet count; a finite graph certificate proves a premise for all lengths, not a bounded-word extrapolation. Direct independent binary word enumeration n=1..16 matched; use explicit marked indexing, periodic extension for n<4. Growth follows Perron roots of the two renewal polynomials.
 
-**Scope of verification:** finite component coverage and characteristic polynomials are exhaustive for their stated fixed graph classes; direct word enumeration is only finite validation, not an infinite proof. The all-length deduction, inclusion-exclusion correction and spectral consequences are reconstructed in `RESULT.md`. The priority comparison is qualified by potential unindexed literature. This verification is not an independent scientific audit.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the evaluated six-family all-n circular count, not for graph trace methods or complement avoidance as a concept.
+
+## value
+
+PASS
+
+Exact all-length count of the natural pairwise-complement avoidance constraint for cyclic words, including the first simultaneously 00/11-bearing words, mixed-doublet enumeration and exponential rate. Its six-graph classification is substantive beyond routine transfer-matrix use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
