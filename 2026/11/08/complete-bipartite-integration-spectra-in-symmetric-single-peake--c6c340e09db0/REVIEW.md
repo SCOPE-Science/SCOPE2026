@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem uses closed-neighborhood own-color fractions, one occupied agent per vertex, two colors, equal symmetric half-peak utilities and swaps requiring both participants to improve strictly. Cross-part swaps exchange the participants' old utility levels, and within-part swaps leave personal utility unchanged. This proves all-size stability. The integration polynomial counts the four exact vertex classes on bicliques; boundary evaluation proves the sharp min/max across the permitted range. A standalone verifier independently enumerates all opposite-color swaps for 85 complete multipartite structures and all integration histograms for 184 biclique parameter cases using exact rational arithmetic. Finite checks are corroborative, not substituted for the proof.
+
+## Originality — PASS, with residual risk
+The complete 2022 source paper was examined through its mathematical model, Section 2 swap identity, existence, PoA/PoS sections and concluding discussion, and the complete earlier monotone-model source was also inspected. The source's adjacent-swap complement identity already implies the no-profitable-cross-part step; this component is explicitly attributed and is not itself claimed novel. The narrower original object is the exact full biclique integration spectrum, multiplicities, extrema and sharp efficiency ratio for every part size/minority count, together with the complete-multipartite stability context. The source states general existence and broad efficiency bounds but no such complete biclique welfare classification in the inspected text. Research-record queries targeting aliases, parameters, relevant topologies and equilibria returned superficially close but different graph coloring, majority coloring, graph robustness and domination results; older accessible results do not contain the spectrum. Residual risks: an unindexed prior treatment, or equivalence to a published special-case corollary not recovered by the searches.
+
+## Value — PASS
+The degree of integration is a substantive model objective established by the source literature. Its *complete* distribution across stable outcomes is more informative than isolated examples or loose bounds: it demonstrates simultaneously universal non-improvability, perfect best-equilibrium integration, and arbitrarily poor worst-equilibrium integration on the natural family \(K_{2,t}\). The exact all-size counting and extremal formulas reveal a concrete tension between decentralized stability and social diversity; the result has no claim of broad generalization beyond the specified class.
+
+## Limitations
+Only complete multipartite topologies, symmetric strictly half-peaked two-color utilities and strictly bilateral, vacancy-free swaps are proved. The finite verifier does not certify infinitely many parameters. The source identity overlaps the stability proof and bibliographic priority cannot be guaranteed by negative searches.
+
+Self-review: passed. Independent audit: not yet performed.
