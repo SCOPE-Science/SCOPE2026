@@ -1,19 +1,21 @@
-# Review of finite second De Morgan defect rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reduces pseudocomplements to principal-downset disjointness, giving the precise witness criterion for a binary failure. The injection from unary failures is explicit and preserves distinct first coordinates. The two-minimum rigidity argument covers every non-Stone poset: a third minimum or a nonminimal point above only one of the two witness minima supplies a second failing partner. The converse enumerates all ideals of an ordinal sum, yielding the exact two-failure classification. The sharp probability is then an exact count, not a numerical extrapolation. The higher-minimum formula is a direct disjoint-subset count. Independently implemented direct-negation and minimal-trace computations agree for the stated finite range.
+PASS
 
-## Originality
+In finite downset representation J(P), neg A={p:↓p∩A=empty}. Failure of neg(A∩B)=neg A ∪neg B has a witness p above two different minimal points split between disjoint traces. The injection A↦(A,neg A) gives b>=u. Equality forces exactly two minima and every other poset point above both: a third minimal point or nonminimal point above just one gives two distinct bad partners for an already unary-bad coordinate. Conversely in A2⊕Q only the two ordered singleton cross pairs fail, while Ak⊕Q has disjoint nonempty proper subset pairs counted 3^k−2^(k+1)+1. At h>=5 the bound and chain Q witnesses are sharp. Independently computed all naturally labeled posets through 5 points (407), checking direct pseudocomplements, b>=u, equality characterization.
 
-PASS under the inspected and accessible sources. Arrieta (arXiv:2001.09143, Proposition 2.4) establishes qualitative equivalences for the second De Morgan law and studies infinite variants; those statements do not count its violating ordered pairs. Bumpus–Kocsis (arXiv:2110.11515, Sections 1–3) establish the degree-of-satisfiability framework and results for different equations, not the exact sharp fixed-size two-variable Stone-law defect spectrum. Existing Stone/weak-excluded-middle equivalences settle the zero-defect case but do not supply the quantitative comparison or its equality class. Targeted searches for aliases, defect counts, and fixed-carrier-size extrema found no dominating accessible result. Unindexed historical sources remain a genuine priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. Counting assignments rather than only distinguishing validity from failure is a motivated refinement of the 2020–2021 literature. The result completely characterizes the first positive binary defect, proves a strict comparison between two universal-law-equivalent but quantitatively distinct notions except at a rigid boundary, and determines the best possible satisfaction degree for every finite carrier size at which failure is possible. The equality class allows arbitrary upper posets and is not merely a weak-order or chain case. The exact ordinal-sum formula and same-unary/different-binary examples show additional structure beyond a one-number bound.
+Arrieta gives qualitative second De Morgan/Stone equivalences in locale theory. Bumpus–Kocsis supplies the framework of equation satisfaction degrees and other finite Heyting inequalities but does not state the exact positive binary defect minimum and equality-poset rigidity in the passages inspected. Specialists may know equivalent quantitative Stone-algebra results outside reviewed sources.
 
-## Limitations and closest comparisons
+## value
 
-Finite algebras only; ordered pairs, uniform sampling; no fixed-join-irreducible extremum or complete enumeration of higher defects. The reproduction program checks finite instances but the universal proof is mathematical. The comparison with published sources is not an absolute priority certificate; specialized literature on Stone algebras could contain earlier equivalent statements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial first-nonzero-defect rigidity and sharp satisfaction probability by algebra cardinality, attainable for every admissible size, provide an exact structure theorem valuable for quantitative algebraic logic and defect distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

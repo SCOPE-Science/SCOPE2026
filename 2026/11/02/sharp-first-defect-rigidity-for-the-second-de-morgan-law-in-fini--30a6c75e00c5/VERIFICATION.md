@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of finite second De Morgan defect rigidity
+# Independent mathematical audit
 
-The source `verify_second_demorgan.py` is standalone, standard-library Python 3 code. From the directory containing the files, execute:
+## correctness
 
-```sh
-python3 verify_second_demorgan.py
-```
+PASS
 
-Checks performed: exhaustive enumeration of naturally labeled posets on one through six points (1, 2, 7, 40, 357, 4824); independent direct pseudocomplement and minimal-trace counting of ordered binary failures; direct unary weak-excluded-middle counts; the inequality between defects; the full equality classification; constructions attaining the cardinality bound for every algebra order 5–23; 200 higher-minimum ordinal-sum instances; and two eleven-element examples with identical unary but different binary defects. All checks use exact integers.
+In finite downset representation J(P), neg A={p:↓p∩A=empty}. Failure of neg(A∩B)=neg A ∪neg B has a witness p above two different minimal points split between disjoint traces. The injection A↦(A,neg A) gives b>=u. Equality forces exactly two minima and every other poset point above both: a third minimal point or nonminimal point above just one gives two distinct bad partners for an already unary-bad coordinate. Conversely in A2⊕Q only the two ordered singleton cross pairs fail, while Ak⊕Q has disjoint nonempty proper subset pairs counted 3^k−2^(k+1)+1. At h>=5 the bound and chain Q witnesses are sharp. Independently computed all naturally labeled posets through 5 points (407), checking direct pseudocomplements, b>=u, equality characterization.
 
-The expected terminal marker is:
+## originality
 
-```text
-ALL_SECOND_DEMORGAN_CHECKS_PASS examined_posets=5231
-```
+PASS
 
-The exhaustive range is finite; the stated universal claims rely on the proof in `RESULT.md`. The script does not establish historical originality and is not an independent mathematical audit.
+Arrieta gives qualitative second De Morgan/Stone equivalences in locale theory. Bumpus–Kocsis supplies the framework of equation satisfaction degrees and other finite Heyting inequalities but does not state the exact positive binary defect minimum and equality-poset rigidity in the passages inspected. Specialists may know equivalent quantitative Stone-algebra results outside reviewed sources.
+
+## value
+
+PASS
+
+A nontrivial first-nonzero-defect rigidity and sharp satisfaction probability by algebra cardinality, attainable for every admissible size, provide an exact structure theorem valuable for quantitative algebraic logic and defect distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
