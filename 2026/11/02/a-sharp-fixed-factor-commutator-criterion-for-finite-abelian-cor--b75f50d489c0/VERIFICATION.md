@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the complete general argument. The test programs are finite independent consistency checks, not a proof by enumeration of infinitely many groups.
+## correctness
 
-`verify_cyclic.py` uses integer basis commutators and disjoint-set graph components for every cyclic order \(1\) through \(144\). It checks the coset-span rank, incidence image, exact divisor-cycle formula, necessity and sufficiency of the sharp fixed-factor condition, and explicit telescoping preimages. It also tests reductions of the displayed integer equalities modulo \(2,3,5,7\).
+PASS
 
-`verify_abelian.py` uses the direct group law and a separately written commutator evaluator on 29 finite abelian groups, both cyclic and noncyclic. It independently constructs the commutator-generated equivalence classes and \(-2\) components, and directly verifies integral primitive formulas for positive cases; it constructs a component-sum obstruction in negative cases.
+For all finite abelian A=A₂⊕O and nonzero commutative unital rings K, basis [e_x,e_y]=e_{2y−x}−e_{2x−y}; the differences lie in 3A cosets and span their integral coefficient-sum kernels. Closure under bilinear quandle products gives full commutator-generated subalgebra B′=ker(K[A]→K[A/3A]). The fixed-factor image D=[−,e₀] is spanned by incidence edges e_x−e_{−2x}, hence componentwise sum-zero over any K. Functional components are indexed by −2-orbits on O, yielding free B′/im D≈K^{c(O)−|A/3A|}. This vanishes iff O is exponent 3, via distinct zero and nonzero orbits in the zero 3O coset otherwise. Telescoping σ=−2 produces an actual primitive when onto, proving fixed-factor and nontrivial width-one claims. Direct exact finite group evidence includes C9 obstruction rank2 and surjectivity for C2⊕C3⊕C3; finite samples corroborate, not replace, proof.
 
-Commands from the directory containing both scripts:
+## originality
 
-```bash
-python3 verify_cyclic.py
-python3 verify_abelian.py
-```
+PASS
 
-The results are stored in `verify_cyclic_output.txt` and `verify_abelian_output.txt`; both end in `VERIFY_OK`. Representative cases include cyclic orders \(5,9,12,32,72,128\), and \(C_4\oplus C_4\), \(C_3\oplus C_9\), \(C_2\oplus(C_3)^2\), and \((C_2)^2\oplus(C_3)^2\). No testing establishes absolute novelty, historical priority, or externally validated correctness.
+Qualified PASS: subgroup ideal B′ and core commutativization were previously known; the fixed e₀ image as −2 functional graph components, exact free obstruction over arbitrary K, and sharp universal criterion are not in inspected earlier results.
+
+## value
+
+PASS
+
+Natural structural refinement of commutator-width questions: a single fixed-factor surjectivity criterion and exact integral module obstruction for every finite abelian core quandle and any coefficient ring, with constructive primitives and clean two-/three-primary boundary. Not a mere renaming of the known augmentation ideal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
