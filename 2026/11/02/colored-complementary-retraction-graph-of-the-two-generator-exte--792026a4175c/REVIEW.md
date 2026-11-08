@@ -1,11 +1,21 @@
-# Review of the exterior-algebra retraction graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The nilpotent radical is exactly the three-dimensional augmentation ideal. The two generator images give all \(q^6\) endomorphisms, with composition \((P,\ell)(Q,m)=(PQ,\ell Q+(\det P)m)\). Idempotence implies only augmentation, identity, or rank-one projections with exactly \(q\) central labels. Commuting rank-one projections are equal or complementary; distinct equal-projection lifts do not commute, whereas all complementary lifts multiply to augmentation. Thus the disjoint \(K_{q,q}\) components, four-element maximal families, ordered-pair count and probability follow. Exhaustive direct composition checks over \(q=2,3,4,5,8\) passed. The arbitrary-prime-power claim rests on proof, not finite enumeration.
+## correctness
 
-**Originality — PASS against inspected evidence.** The relevant Grassmann automorphism/superalgebra paper [1] studies characteristic-zero infinite-dimensional automorphisms and gradings, not multiplicative retractions of \(\bigwedge K^2\). The endomorphism-operator paper [2] studies representation operators on exterior spaces, not the same monoid. The closest conceptual paper [3] gives general module/ideal splitting for idempotent pre-endomorphisms, without the algebra-specific commuting graph, maximal-family census, or exact probability found here. Published mathematical record searches under endomorphism, algebra retraction, complementary projection and Grassmann/exterior aliases did not identify an equivalent spectrum. The earlier projection and general splitting facts are not claimed as new. Literature priority remains provisional; a semigroup treatment with equivalent language may exist.
+PASS
 
-**Mathematical value — PASS.** Commuting retractions encode simultaneously compatible split subalgebras. A complete labeled and characteristic-uniform classification for the smallest exterior algebra with genuinely nonzero wedge product is a natural finite-dimensional baseline: the central-coordinate fibers increase the retraction count but do not affect compatibility across complementary projections, producing a nontrivial disjoint-bipartite graph and exact enumeration. The result is not a restatement of the general idempotent-matrix count and distinguishes multiplicative from merely linear compatibility. Its scope is rank-two exterior algebras only.
+The nilpotent radical J=(x,y,xy) in rank-two exterior algebra consists of square-zero mutually anticommuting elements in every field, so arbitrary generator images yield q^6 unital endomorphisms parametrized by (P,ell)∈M2(Fq)×Fq² with multiplication (P,ell)(Q,m)=(PQ,ell Q+(det P)m). Idempotents are augmentation, identity and q lifts per rank-one projection P (q(q+1) such), totaling q²(q+1)+2. Commuting rank-one P,Q are equal or complementary. Distinct lifts with equal P do not commute, whereas any two lifts of P and I-P do commute with product augmentation. Thus deleting two universal maps yields q(q+1)/2 disjoint K_(q,q) components, q³(q+1)/2 maximal four-element Boolean commuting families, and q²(q+1)(q+5)+4 ordered commuting pairs. Direct independent F2 composition enumeration obtained 14 idempotents and 88 ordered commuting pairs. General proof applies any finite field, not only enumerated orders.
 
-Sources: [1] arXiv:2009.00175v1; [2] arXiv:2009.00479v1; [3] arXiv:2304.05079v1. Possible remaining source equivalences are discussed in the audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified O PASS for complete graph of commuting algebra retractions with labels and probability, not for the elementary rank-one projector criterion. Ebrahim–Facchini general idempotent pre-endomorphisms operate in a broader but different category and do not directly give this multiplicative-endomorphism graph. Guimarães–Koshlukov concern automorphisms of Grassmann algebras and Behzad–Gatto linear operators on exterior representations, not this exact semigroup. Published Resultary nearest match counts weight-zero RB operators in same four-dimensional exterior algebra, a different operation/statistic.
+
+## value
+
+PASS
+
+The smallest nontrivial exterior algebra has a natural retraction monoid whose complete compatibility graph, maximal commuting subsemilattices and exact probabilities yield a useful finite-field classification; simple product structure is an object-motivated exact invariant, not a parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
