@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge4\) and common spoke length \(1/2\le t\le1\), the shortest-path distance takes only the three specified nonzero values. The zero-sum powered-distance form splits exactly into a scalar radial coefficient \(F_n(p,t)=2+(n-3)(2t)^p-2nt^p\) and Fourier sectors of the rim cycle. The latter have maximal eigenvalue \((2c_n-1)(2t)^p-2c_n\), of multiplicity one on even rims and two on odd rims. Strict monotonicity of the radial coefficient with exponent and opposite monotonicity of the two first-zero thresholds give a single simultaneous crossing. Solving their two equations gives the exact parameters; rank-nullity of the Schoenberg Gram matrix gives the claimed critical Euclidean dimensions. These arguments work for every real exponent and length in the stated range, not just enumerated samples. Independently built weighted Dijkstra distances were checked against the derived formula; 600 exact rational quadratic-form identities and 36 numerical transition signatures were checked using the standalone checker. The finite checks corroborate rather than prove the universal claim.
+PASS
 
-## Originality — PASS, with residual risk
+For n>=4, spoke length t in [1/2,1], rim edges 1, the weighted graph geodesic has hub-rim=t, adjacent rim=1 and other rim=2t. On the zero-sum space the powered distance quadratic form splits exactly into radial coefficient F_n=2+(n-3)(2t)^p-2n*t^p and rim Fourier eigenvalues -b+(1-b)*2*cos(2pi*k/n). The greatest rim eigenvalue is (2c_n-1)b-2c_n, with real multiplicity 1 (even n) or 2 (odd n). Radial F_n strictly increases in p and has exactly one zero >1; its zero increases in t while the rim threshold log(b_n)/log(2t) decreases. These give one simultaneous crossing and the stated closed formulas b_n=2c_n/(2c_n-1), s_n=[2+(n-3)b_n]/(2n), p*=log_2(b_n/s_n), t*=s_n^(1/p*). Nullity 2/3 at crossing, hence centered Schoenberg Gram rank n-2/n-3. Independent shortest-distance and centered-Gram calculations for n=4,5,6,7,11 corroborated both parity nullities, but are not proof for all n and t.
 
-Buckley and Harary (1988), despite the closely related title, study graph edge-unit-distance realizations rather than isometric embedding of the weighted all-pairs geodesic metric. The closest same-object literature concerns unweighted ordinary wheel distance matrices (Balaji, Bapat and Goel, arXiv:2006.02841), and generalized distance spectra of graph joins, including unweighted wheels (Alhevaz et al., DOI:10.3390/sym12010169). These do not explicitly derive the unique continuously weighted spoke-length crossing or parity-dependent multiplicity of the critical negative-type kernel in the material inspected. Li and Weston (arXiv:0901.0695) and Sánchez (arXiv:1108.0451) give general negative-type methods, not this classified wheel deformation. A separate unweighted wheel classification already covers the \(t=1\) boundary and is **not** asserted as new. The originality claim is limited to the evaluated weighted two-mode resonance, exact transition length and multiplicity result. Publisher text for the graph-join spectrum paper could not be inspected completely, and an equivalent derivation from its methods or unindexed sources remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A wheel is the minimal cyclic-spoke deformation of a star with a uniform, geometrically meaningful length parameter. Radial and rim Fourier modes are competing structural negative-type obstructions. The theorem finds a unique resonance where they fail simultaneously, and determines its sharp embedding-dimension drop by two for even rims and three for odd rims. The exact length and exponent formulas, universal two-mode phase classification and parity effect describe an entire natural family and are not single-instance computations.
+Best-of-knowledge originality for the precise final mathematical claim; generic tools and starting formulae are acknowledged as prior. Metric negative type is equivalent to Schoenberg centered Gram positivity, and the wheel parameter reduces to radial plus two frequency sectors. General spectral criteria and unweighted wheel formulas do not explicitly establish the one-parameter resonance.
 
-## Limits
+## value
 
-The proof does not address spoke lengths outside \([1/2,1]\), unequal spokes, electrical resistance, or publication priority in unindexed literature. Numerical checks do not independently certify the theorem for infinitely many orders or arbitrary real lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shortest-path wheel metrics with uniformly varied spoke length are a canonical cycle-plus-hub deformation. The exact competition between radial and Fourier modes is a natural negative-type invariant; the unique resonance and parity-dependent Euclidean snowflake rank drop classify the whole allowed family, not an ad hoc single wheel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

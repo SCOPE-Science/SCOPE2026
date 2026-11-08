@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The standalone `verify_weighted_wheel.py` independently constructs the weighted wheel and computes shortest paths with NetworkX weighted Dijkstra. SymPy rational arithmetic checks 600 quadratic identities for rim orders 4 through 13 at rational spoke lengths and positive integral exponents. The code also uses NumPy and SciPy to inspect the critical eigenvalue signs and centered Gram ranks for orders 4 through 39.
+## correctness
 
-Observed output from running that standalone checker:
+PASS
 
-```text
-EXACT_WEIGHTED_SHORTEST_PATH_DECOMPOSITION_OK 600
-CRITICAL_TRANSITIONS_OK 36 n=4..39 nullities even=2 odd=3
-TRANSITION 4 t= 0.707106781187 p= 2.0
-TRANSITION 5 t= 0.839979313649 p= 1.855205961074
-TRANSITION 6 t= 0.774281326315 p= 1.584962500721
-TRANSITION 7 t= 0.852446141977 p= 1.517495752539
-TRANSITION 10 t= 0.844676487308 p= 1.321928094887
-TRANSITION 11 t= 0.882359312101 p= 1.296289919657
-TRANSITION 20 t= 0.912599155962 p= 1.152003093445
-TRANSITION 21 t= 0.924973161004 p= 1.14524783392
-ALL_WEIGHTED_WHEEL_CHECKS_OK
-```
+For n>=4, spoke length t in [1/2,1], rim edges 1, the weighted graph geodesic has hub-rim=t, adjacent rim=1 and other rim=2t. On the zero-sum space the powered distance quadratic form splits exactly into radial coefficient F_n=2+(n-3)(2t)^p-2n*t^p and rim Fourier eigenvalues -b+(1-b)*2*cos(2pi*k/n). The greatest rim eigenvalue is (2c_n-1)b-2c_n, with real multiplicity 1 (even n) or 2 (odd n). Radial F_n strictly increases in p and has exactly one zero >1; its zero increases in t while the rim threshold log(b_n)/log(2t) decreases. These give one simultaneous crossing and the stated closed formulas b_n=2c_n/(2c_n-1), s_n=[2+(n-3)b_n]/(2n), p*=log_2(b_n/s_n), t*=s_n^(1/p*). Nullity 2/3 at crossing, hence centered Schoenberg Gram rank n-2/n-3. Independent shortest-distance and centered-Gram calculations for n=4,5,6,7,11 corroborated both parity nullities, but are not proof for all n and t.
 
-The infinite-family proof follows from an exact zero-sum decomposition, Fourier eigenvalue bounds and monotonicity; finite computations are not a substitute. Published-source priority remains potentially incomplete. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise final mathematical claim; generic tools and starting formulae are acknowledged as prior. Metric negative type is equivalent to Schoenberg centered Gram positivity, and the wheel parameter reduces to radial plus two frequency sectors. General spectral criteria and unweighted wheel formulas do not explicitly establish the one-parameter resonance.
+
+## value
+
+PASS
+
+Shortest-path wheel metrics with uniformly varied spoke length are a canonical cycle-plus-hub deformation. The exact competition between radial and Fourier modes is a natural negative-type invariant; the unique resonance and parity-dependent Euclidean snowflake rank drop classify the whole allowed family, not an ad hoc single wheel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
