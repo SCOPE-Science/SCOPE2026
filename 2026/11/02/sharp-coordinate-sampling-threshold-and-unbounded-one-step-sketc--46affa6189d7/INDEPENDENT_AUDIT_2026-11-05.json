@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:06:57.474067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md d6da35794b9da5f3b0c436b7c04bf0083290b470",
+        "Frozen check.py b372346668234fd8f3853ff9453559874786240a read",
+        "Independent exact-construction and residual-ratio checks C3 for four n,s pairs in independent_checks.log"
+      ],
+      "rationale": "For SPD A=alpha I+E with alpha=(L+mu)/2 and ||E||<=(L-mu)/2, ||SAb||>=alpha||Sb||-||E||, so zero implies (kappa-1)/(kappa+1)>=theta=||Sb||>=sqrt(s/n). Let u=Pb/theta and u±=(b±u)/sqrt(2(1±theta)); H=u+u+^T-u-u-^T sends b to u and u to b with spectrum +/-1,0. A0=I-theta H has condition number (1+theta)/(1-theta) and S A0b=0. Unique maximizing s-row selector is obtained from first s coordinates of amplitude q>1. A_eta=(1+eta)I-theta H has SA_eta b=eta Sb, sketched coefficient 1/eta, true residual sqrt(1-theta^2)/eta; ordinary GMRES optimum theta sqrt(1-theta²)/||A_eta b||. Their ratio ||A_eta b||/(theta eta) diverges as eta->0, while for s fixed, n grows, A_eta approaches identity conditioning. This does not assert DEIM/Q-DEIM s>1 operational equivalence or failure under affine-residual subspace embedding.",
+      "residual_risks": [
+        "Finite diagnostic checks corroborate but do not replace analytical all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General embedding residual guarantees assume a sketch controls the affine residual span, which this coordinate selector need not do; backward-stability results likewise impose conditioning assumptions."
+        ],
+        "reasoning": "A guarantee under stronger hypotheses does not cover the constructed weaker-hypothesis counterexample; no stated broad theorem supplies the sharp boundary.",
+        "searches": [
+          "Nakatsukasa Tropp arxiv:2111.00113 embedding span b Ab sketched GMRES",
+          "Burke Carson Ma arxiv:2503.19086 sketched GMRES stability"
+        ]
+      },
+      "checked_sources": [
+        "Bergermann Deterministic sketching for Krylov subspace methods, arXiv:2604.07158v1, inspected complete primary PDF text and sections 3–5",
+        "Nakatsukasa–Tropp arXiv:2111.00113, affine residual-subspace embedding hypotheses",
+        "Resultary query: deterministic coordinate selection sketch GMRES SPD rank one Krylov basis maximizing norm can yield unbounded residual"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The algorithm motivates but does not quantify this worst case; affine embedding theorem would not apply because S need not embed span{b,Ab}."
+        ],
+        "reasoning": "The original algorithm and higher-assumption stability theorem do not logically imply the new pathological construction.",
+        "searches": [
+          "Bergermann arxiv:2604.07158 Section 5.2",
+          "Nakatsukasa Tropp Fact 1 randomized sketching affine residual space"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Bergermann method samples basis columns but solves residual using sampled A times Krylov basis. This theorem constrains SAb for *SPD* A using full condition number and exact one-step residual amplification."
+        ],
+        "reasoning": "Both use a similar sketch objective, but published method definitions do not establish exact SPD threshold or show the global basis-only optimum is catastrophically bad.",
+        "searches": [
+          "Bergermann arXiv 2604.07158 Algorithm 5 deterministic sketching basis sampling",
+          "DEIM Q-DEIM sketched GMRES sampled Ab near zero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim applies to unbounded n,s,eta, q and provides symbolic formulas; demonstrations in earlier algorithms are finite numerical tests."
+        ],
+        "reasoning": "There is no exact finite database whose entries imply the all-dimensional sharp necessity and unbounded residual ratio.",
+        "searches": [
+          "Bergermann Algorithm 5 coordinate sampling numerical tables",
+          "sketch GMRES SPD threshold exact n s"
+        ]
+      },
+      "rationale": "The primary 2026 deterministic sketching paper optimizes sampling of Krylov basis and then solves sampled-image least squares; its inspected Algorithm 5 and stability discussion do not state the sharp SPD annihilation frontier or this residual divergence formula. General randomized sketch guarantees require embedding the full affine residual space span{b,Ab} and so do not imply performance for this weaker basis-only selector. The result correctly separates s=1 DEIM/Q-DEIM from s>1 global basis-only optimization. Potential implicit oblique-projection literature remains.",
+      "residual_risks": [
+        "A general sharp SPD subspace-angle or oblique projection lemma might independently imply the simple spectral threshold, even if not in sampled literature.",
+        "The catastrophe addresses globally basis-maximizing row choices and one Krylov vector only; it is not evidence of failure under full affine embeddings or every practical oversampling heuristic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm defines sampled basis objective; no exact near-identity SPD annihilation threshold or divergent one-step residual formula located in inspected text.",
+          "evidence": [
+            "arXiv:2604.07158v1, 2026-04-08",
+            "Original PDF selected screenshots pp8,15"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+          "material_read": "Full 26-page preprint retrieved and examined; methods for DEIM/Q-DEIM row selection, Algorithm 5 and Section 5.2 discussion of residual comparison",
+          "method": "arXiv primary PDF rendered text and screenshots near algorithm and discussion",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Same algorithmic strategy and main potentially covering source"
+        },
+        {
+          "assessment": "More demanding embedding hypothesis is violated here; does not rule out counterexample.",
+          "evidence": [
+            "arXiv:2111.00113"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+          "material_read": "Relevant affine subspace embedding assumptions and general comparison statements, not entire appendices",
+          "method": "Original article accessible rendered source relevant sections",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Broader sketched least-squares residual guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md d6da35794b9da5f3b0c436b7c04bf0083290b470",
+        "Frozen check.py b372346668234fd8f3853ff9453559874786240a read",
+        "Independent exact-construction and residual-ratio checks C3 for four n,s pairs in independent_checks.log",
+        "Bergermann Deterministic sketching for Krylov subspace methods, arXiv:2604.07158v1, inspected complete primary PDF text and sections 3–5",
+        "Nakatsukasa–Tropp arXiv:2111.00113, affine residual-subspace embedding hypotheses",
+        "Resultary query: deterministic coordinate selection sketch GMRES SPD rank one Krylov basis maximizing norm can yield unbounded residual"
+      ],
+      "rationale": "Supplies a sharp necessary-and-attainable operator-image annihilation condition and an important concrete failure mode of a plausible basis-only coordinate row-selection heuristic in sketched Krylov methods, even in well-conditioned SPD systems; identifies exactly which embedding assumption is insufficient.",
+      "residual_risks": [
+        "Mathematical significance is confined to the precisely stated natural invariant/parameter regime; no unproved downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general sharp SPD subspace-angle or oblique projection lemma might independently imply the simple spectral threshold, even if not in sampled literature.",
+    "The catastrophe addresses globally basis-maximizing row choices and one Krylov vector only; it is not evidence of failure under full affine embeddings or every practical oversampling heuristic."
+  ],
+  "schema_version": 1
+}
