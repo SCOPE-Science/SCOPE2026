@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For all a,b>=3 the graph distance matrix has 2 on all distinct same-side pairs and 1/3 on cross pairs according to deleted matching membership. Every same-side pair is distinguishable precisely when at most one unprotected vertex remains on its side; hence k+x<=1 and k+y<=1 are both necessary and sufficient. Disjoint k=0 and k=1 counting gives the all-set polynomial. A complete single-deletion classification gives every minimal-set case. The crown probability is exactly a zero-or-one binomial event, with the stated Poisson limit. A BFS distance implementation independently verified all 15,872 subsets in 41 cases, including 4,473 resolving and 979 inclusion-minimal sets. Smaller sides are explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galby et al. (arXiv:2206.15424) give hardness/FPT results for general structural graph classes, without a formula for exact numbers of resolving sets.",
+        "Chartrand–Poisson–Zhang (2000) supply the concept of upper dimension, but not the present matching-deleted family transition.",
+        "Connected chain graphs include K_(a,b) and K_(a,b) minus one edge, but not K_(a,b) minus two or more disjoint edges (which contain an induced 2K2)."
+      ],
+      "reasoning": "A general algorithm deciding metric dimension, or an extremal bound on all graphs, does not mathematically determine these complete coefficients or classify inclusion-minimal sets. No stronger formula covering the three-parameter deleted-matching family was located in inspected literature. The stronger chain-graph theorem decisively covers t<=1 but cannot cover t>=2 because of the induced-2K2 obstruction.",
+      "searches": [
+        "minimal resolving sets upper metric dimension complete bipartite minus matching K_ab t edges",
+        "upper dimension well-dimensioned graphs matching deleted complete bipartite",
+        "\"upper dimension\" \"crown graph\" metric dimension minimal resolving",
+        "\"metric dimension\" \"K_{a,b}\" \"matching\" removed edges exact resolvers"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1101.3624",
+      "arxiv:2206.15424",
+      "doi:10.37418/amsj.9.4.43",
+      "doi:10.1016/j.kjs.2023.12.008",
+      "Chartrand–Poisson–Zhang (2000), Resolvability and the Upper Dimension of Graphs",
+      "Resolving sets and the resolving polynomial of chain graphs (2026 public research record; abstract and main-claim summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saputro et al., Theorem 1, implies only the old special-case equality beta(K_{n,n} minus perfect matching)=n-1.",
+        "Azhar et al. (2024, DOI:10.1016/j.kjs.2023.12.008) use k for a count of edges induced within a distinguishing set, not for its number of vertices.",
+        "The published chain-graph resolving-polynomial theorem subsumes the t=0,1 subfamilies but not t>=2."
+      ],
+      "reasoning": "Restricting the new theorem to t=a=b gives the known scalar beta=n-1 but also new candidate all-set and minimum-set multiplicities. A result about edge-metric resolving or the induced-edge count within selected vertex landmarks cannot imply these vertex-cardinality counts merely by a shared word resolving. The new metric-dimension values in other subcases are not separately asserted as unknown. In particular, no novelty is asserted for the t=0 or t=1 polynomial specializations in isolation.",
+      "searches": [
+        "metric dimension polynomial crown graph K n n resolving sets pairs unused",
+        "minimal resolving sets upper metric dimension complete bipartite minus matching K_ab t edges",
+        "crown graph resolving metric basis 2^n (n) matched pairs exactly one omitted",
+        "\"Graphs with distinguishing sets of size k\" Azhar Fazil Javaid 2023 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Saputro et al. (arXiv:1101.3624) derive only minimum resolving-set cardinality of a full crown graph, not all cardinality counts.",
+        "Shahida–Sunitha (2020, DOI:10.37418/amsj.9.4.43) give graph-resolvability bounds and examples, not a labeled matching-deletion polynomial.",
+        "The public mathematical record \"Resolving sets and the resolving polynomial of chain graphs\" provides a stronger statement covering the t=0 and t=1 boundary cases, which are chain graphs."
+      ],
+      "reasoning": "The natural aliases are resolving polynomial, metric-dimension polynomial, landmark-set distribution, and full metric-generator census. Matching-deleted complete bipartite graphs specialize to crown graphs and ordinary bicliques. None of the inspected source statements gives or entails the two polynomial identities, including at intermediate deleted-matching size. The boundary cases t=0 and t=1 are already subsumed by the connected-chain-graph theorem; the claimed new content is the uniform t>=2 non-chain regime and its exact minimal-cardinality spectrum.",
+      "searches": [
+        "resolving set polynomial metric dimension crown graph complete bipartite graph minus perfect matching exact every resolving set",
+        "metric dimension polynomial crown graph K n n resolving sets pairs unused",
+        "resolving polynomial matching deleted complete bipartite crown graphs three-parameter",
+        "\"resolving polynomial\" \"crown graph\" metric dimension",
+        "\"resolving polynomial\" \"deleted matching\" \"complete bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2011 crown-graph paper contains a scalar metric-dimension theorem and a witness basis, not a table enumerating all resolving sets.",
+        "The inspected 2022 structural-parameter paper reports complexity and algorithms, not an all-cardinality census for this family."
+      ],
+      "reasoning": "A stored table of metric-dimension numbers or metric-basis examples would not imply the full cardinality distributions or all inclusion-minimal sets. No exact matching table or database result matching these coefficients was found.",
+      "searches": [
+        "resolving set polynomial metric dimension crown graph complete bipartite graph minus perfect matching exact every resolving set",
+        "resolving polynomial matching deleted complete bipartite crown graphs three-parameter",
+        "\"resolving polynomial\" \"deleted matching\" \"complete bipartite\"",
+        "\"resolving polynomial\" crown graph"
+      ]
+    },
+    "rationale": "The full metric-dimension scalar theorem for balanced matching deletion (Saputro et al. 2011, Theorem 1), generic parameterized algorithmic results (Galby et al. 2022), bipartite resolving bounds (Shahida–Sunitha 2020), and related different graph/metric variants were compared by mathematical implication. The connected-chain-graph resolving polynomial already covers t=0 and t=1 and those boundary formulas are not claimed as new. For t>=2, matching-deleted bicliques contain an induced 2K2, so that chain-graph result does not entail the new complete polynomial and inclusion-minimal transition. No other inspected statement covers those non-chain cases. Searches do not certify global novelty; unindexed overlap remains a material but presently nondecisive publication-priority risk.",
+    "residual_risks": [
+      "Unindexed or uninspected equivalent enumeration for matching-deleted bipartite graphs remains possible.",
+      "An access-restricted publisher treatment of bipartite metric dimension was not inspected in full; no identified statement there presently contradicts the non-coverage comparison.",
+      "A true priority determination requires independent expert literature verification.",
+      "The chain-graph public record was available through its theorem summary but not as a full manuscript during inspection; its stated coverage of t<=1 is accounted for directly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers crown minimum metric dimension n-1; no formula for all-cardinality or inclusion-minimal-set distribution.",
+        "evidence": [
+          "Theorem 1 asserts beta=n-1 for an (n-1)-regular balanced bipartite graph; Lemma 2 gives a particular resolving set."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1101.3624",
+        "material_read": "Accessible arXiv full text; Introduction, Theorem 1, Section 2 Lemmas 1 and 2, proof and distance patterns.",
+        "method": "Direct reading of arXiv primary text and comparison of theorem quantifiers and results.",
+        "title": "The Metric Dimension of Regular Bipartite Graphs",
+        "trigger": "Exact graph family when a=b=t"
+      },
+      {
+        "assessment": "Structural-parameter complexity and fixed-parameter tractability; does not address complete polynomial enumeration of matching-deleted bicliques.",
+        "evidence": [
+          "States hardness for combined feedback vertex set number/pathwidth and FPT for distance to cluster or co-cluster."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.15424",
+        "material_read": "Accessible arXiv full text; abstract, Introduction, contribution summary, structural-parameter theorems and definitions.",
+        "method": "Direct reading of arXiv primary text, checking whether enumeration or graph family is included.",
+        "title": "Metric Dimension Parameterized by Feedback Vertex Set and Other Structural Parameters",
+        "trigger": "Middle-period motivation and potential stronger structural theorem"
+      },
+      {
+        "assessment": "The displayed bounds and family cases do not provide the exact deleted-matching resolution or minimal-basis polynomials.",
+        "evidence": [
+          "Theorems 3.1–3.3 give other path and complete-bipartite observations, not the stated three-parameter enumeration."
+        ],
+        "identifier_or_url": "https://doi.org/10.37418/amsj.9.4.43",
+        "material_read": "Accessible 2020 open primary PDF, including introduction and Section 3 theorems; page images also inspected.",
+        "method": "Direct PDF textual reading with page inspection.",
+        "title": "Results on Resolvability and Metric Dimension in Graphs",
+        "trigger": "Graph-resolvability bounds potentially dominating the claim"
+      },
+      {
+        "assessment": "Its size k counts induced edges within a distinguishing set and is not the number of landmarks, so it does not cover the theorem.",
+        "evidence": [
+          "Definition 2.1 distinguishes the induced-edge statistic from the vertex cardinality statistic."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.kjs.2023.12.008",
+        "material_read": "Accessible article HTML, abstract, definition and relevant result description.",
+        "method": "Direct reading and normalization of the meaning of its parameter k.",
+        "title": "Graphs with distinguishing sets of size k",
+        "trigger": "Potential equivalent resolving-set enumeration under a different name"
+      },
+      {
+        "assessment": "Decisively covers t=0 and 1; does not cover t>=2, when an induced 2K2 appears",
+        "evidence": [
+          "The record gives an all-set resolving characterization and polynomial for connected chain graphs.",
+          "The graph K_(a,b) minus t disjoint edges is a chain graph exactly when t<=1."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a",
+        "material_read": "Record title and mathematical summary (not full paper)",
+        "method": "Check hereditary chain-graph criterion against two independent removed matching edges",
+        "title": "Resolving sets and the resolving polynomial of chain graphs",
+        "trigger": "Potential stronger theorem covering a partially matching-deleted biclique"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01c06d3f-b257-4d94-a297-15c9857e7d22",
+  "value": {
+    "rationale": "A natural density interpolation from K_{a,b} through a partial deleted matching to the crown graph is classified at every resolving-set cardinality and every inclusion-minimal cardinality. The result determines an exact nontrivial if-and-only-if phase boundary 0<t<min(a,b) for non-well-dimensioned graphs, with complete multiplicities and a meaningful random-landmark failure window. This information is not inferred from any inspected scalar metric-dimension theorem.",
+    "status": "PASS"
+  }
+}
