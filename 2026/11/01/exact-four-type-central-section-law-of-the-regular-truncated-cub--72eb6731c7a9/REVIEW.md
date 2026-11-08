@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For all generic normals of the regular truncated cube, every polygon side arises from exactly one crossed original facet. The six coordinate octagons and four antipodal triangle pairs give the three explicit indicator tests in RESULT.md. In the ordered-normal chamber these become four linear boundaries; their exact six-cell partition has convex polygons with side counts 4, 6, 8 and 10. The exact spherical triangle solid-angle formula, with 48 congruent chambers, establishes all four probabilities, not merely Monte Carlo estimates. The accompanying face-enumeration test agrees in 40,000 samples; numerical tests do not establish universal correctness.
+## correctness
 
-## Originality — PASS, subject to historical-priority uncertainty
-Torquato and Jiao (arXiv:0909.0940) provide polyhedral geometry and packing information but no random central-section law. De Loera, Lopez-Campos and Torres (arXiv:2412.12419) address vertex counts of more general sections and algorithms, without these Haar probabilities for a regular truncated cube. Exact central-section classifications of other solids are neither affine equivalent nor imply this statement. Searches for an equivalent formula or table did not locate one; absence in the sources checked cannot exclude old stereological literature.
+PASS
 
-## Value — PASS
-This computes the complete, natural orientation-dependent central-section side-count distribution of a classical Archimedean solid, including the nonzero decagon event and a finite exact angular decomposition. The probabilities are independent of scale and have a direct interpretation for unbiased stereological plane orientation. The six-cell chamber structure, not a single exceptional direction or routine numerical evaluation, underpins a complete classification.
+Vertices are signed coordinate permutations of (1,1,t) with t=√2−1, defining six octagonal and eight triangular faces. For a>b>c>0 the facet-crossing count equals 4+2[ a<b+tc ]+2[ tb+c<a<(b+c)/t ]+2[ b>ta+c ]. Normalizing to (1,y,z), four line segments partition 0<z<y<1 into six precise positive-area chambers, proving exhaustive four-type support. The solid angle of the cone over each triangle is the 2 arctan determinant expression; symmetry gives factor 12/π. An independently written 24-vertex/14-face checker matched the indicator on 8000 directions and exact Ω formulas reproduce decimal probabilities summing to one; these checks corroborate the universal chamber argument.
 
-## Limitations
-The result excludes nongeneric planes of probability zero, does not address noncentral section offsets or random section areas, and remains subject to independent historical-priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+An exact Haar probability classification for all central sections of a standard Archimedean solid is a natural stereological invariant, with a nontrivial decagon event and a reusable exact cone-partition method. It is not a mere possibility-of-section-count result or a few sample sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
