@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** A clique orientation determines a total order, and each independent vertex has a unique cut relative to that order. All local cover edges are enumerated exactly, producing the degree formula. Counting weighted gap assignments proves the polynomial and the simple-vertex count; the explicitly simplicity-preserving leftward sliding algorithm proves induced connectivity. The dimensional subtraction, extreme-degree condition, and special case \(s=1\) have been separately checked. Complete edge-orientation enumeration agrees for five small parameter pairs, and independent simple-subgraph BFS agrees for sixteen parameter pairs. The finite checks are not the infinite proof.
+## correctness
 
-**Originality (PASS, with residual risk).** Grujić (arXiv:1604.06931, 2016), full Sections 1–5 including Theorem 1.1 and examples inspected, gives a global face-count polynomial for arbitrary graphical zonotopes, not the local degree multiset or induced connectivity of the simple vertices of a complete-split graph. Postnikov–Reiner–Williams (arXiv:math/0609184, 2006), Section 5, gives the condition for *global* simplicity of a graphical zonotope and associated general face data, not this local classification. Queries included `complete split graph graphical zonotope local vertex degree distribution simple vertices connected induced subgraph`, `join clique independent set zonotope acyclic orientations degree polynomial simplicial chambers`, `split graph arrangement simplicial regions connected via wall crossings`, and web searches for local degree/simplicial chambers. No covering exact claim appeared. A published analogous result for the distinct complete-bipartite family does not imply the current split-graph theorem. Equivalent unindexed literature remains possible; a failed search is not a novelty proof.
+PASS
 
-**Value (PASS).** The distinction between a globally nonsimple graphical zonotope and its local simple vertices is mathematically natural in polytope theory. This gives the full local-degree distribution, its extremal multiplicities, a closed simple-vertex census, and a constructive connectedness theorem for a nontrivial two-parameter family; in particular it distinguishes connected simple strata from disconnected ones in other familiar families. This is a structural classification rather than a generic face-total recomputation.
+For K_r join independent s vertices, every acyclic orientation determines a clique total order and one of r+1 gaps for each independent vertex; hence r!(r+1)^s vertices. One-skeleton edge flips are precisely cover-arc reversals in the acyclic reachability order. Each end-gap occupant contributes one cover edge, interior occupant two, and a clique consecutive edge contributes one iff its gap is empty: d(c)=c_0+c_r+2Σc_i(interior)+Σ1[c_i=0]. Thus d−(r+s−1)=Σ max(c_i−1,0), and exponential generating functions give D_{r,s}(z)=r!s![x^s] e^{2xz}(z+e^{xz²}−1)^{r−1}. Simple orientations have distinct occupants in interior gaps; injective placement yields r!Σ_{j≤min(r−1,s)}binom(r−1,j)s!/(s−j)! 2^{s−j}. Sliding interior occupants left across empty gaps and then right-end occupants left, followed by adjacent clique-label swaps with all independent vertices in an end gap, gives connectedness through only simple orientations. Constructed degree support [r+s−1,r+2s−2] for s≥2, maximum r!(r−1); for s=1 every vertex has degree r. Independently enumerated all orientations and cover degrees for r,s=(2,1),(2,2),(3,2), matching exact histograms. No finite enumeration replaces the gap/cover proof.
 
-**Limits.** No claim for arbitrary split graphs, graph-associahedra, or induced-diameter formulas. Research literature may contain an equivalent statement under arrangement-chamber language; no external independent scholarly validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Global graphical-zonotope face enumerations and global simplicity criteria are established, but neither yields this complete vertexwise degree histogram, simple vertex count and connectivity of the simple subgraph in a generally nonsimple complete-split family.
+
+## value
+
+PASS
+
+A complete natural degree distribution, exact count of simple vertices, and connectivity of their induced graph together describe the local combinatorial geometry and accessible simple stratum of an infinite, nontrivial family of generally nonsimple zonotopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

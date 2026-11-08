@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:49:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_r join independent s vertices, every acyclic orientation determines a clique total order and one of r+1 gaps for each independent vertex; hence r!(r+1)^s vertices. One-skeleton edge flips are precisely cover-arc reversals in the acyclic reachability order. Each end-gap occupant contributes one cover edge, interior occupant two, and a clique consecutive edge contributes one iff its gap is empty: d(c)=c_0+c_r+2Σc_i(interior)+Σ1[c_i=0]. Thus d−(r+s−1)=Σ max(c_i−1,0), and exponential generating functions give D_{r,s}(z)=r!s![x^s] e^{2xz}(z+e^{xz²}−1)^{r−1}. Simple orientations have distinct occupants in interior gaps; injective placement yields r!Σ_{j≤min(r−1,s)}binom(r−1,j)s!/(s−j)! 2^{s−j}. Sliding interior occupants left across empty gaps and then right-end occupants left, followed by adjacent clique-label swaps with all independent vertices in an end gap, gives connectedness through only simple orientations. Constructed degree support [r+s−1,r+2s−2] for s≥2, maximum r!(r−1); for s=1 every vertex has degree r. Independently enumerated all orientations and cover degrees for r,s=(2,1),(2,2),(3,2), matching exact histograms. No finite enumeration replaces the gap/cover proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grujić enumerates global face numbers, not degree multiset or connectivity of selected vertices. Postnikov et al. characterize when the entire zonotope is simple, not which individual vertices are simple when not all are."
+        ],
+        "reasoning": "Neither general theorem dominates the new local two-part claim; knowing global edge/vertex totals does not reconstruct the local degree distribution.",
+        "searches": [
+          "Resultary: graphical zonotope complete split graph acyclic orientations vertex degrees simple vertices connectivity degree distribution",
+          "Grujić 2016/2017 face polynomial Theorem 1.1",
+          "Postnikov–Reiner–Williams arXiv:math/0609184 §5 Proposition 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Grujić, arXiv:1604.06931 Theorem 1.1 and §§2,5",
+        "Postnikov–Reiner–Williams arXiv:math/0609184 §5 Proposition 5.2",
+        "Stanley, Acyclic orientations of graphs, Discrete Math. 5 (1973) background",
+        "Resultary: graphical zonotope complete split graph acyclic orientations vertex degrees simple vertices connectivity degree distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The face polynomial gives total numbers of vertices and edges but not the local degree generating polynomial or the connectivity of simple vertices; global simplicity is an all-or-none property."
+        ],
+        "reasoning": "The gap encoding and cover reversal path argument are additional structure; neither follows directly from a scalar f-vector or an iff condition for the whole polytope to be simple.",
+        "searches": [
+          "Resultary: graphical zonotope complete split graph acyclic orientations vertex degrees simple vertices connectivity degree distribution",
+          "arXiv:1604.06931 Theorem 1.1",
+          "arXiv:math/0609184 §5 Proposition 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acyclic orientation chambers/graphic arrangement regions are equivalent to graphical-zonotope vertices; their local degree is the number of Hasse cover flips."
+        ],
+        "reasoning": "Under arrangement terminology the new result counts chamber wall degrees and connects simplicial chambers in the complete-split arrangement; the checked general correspondence does not supply those formulas.",
+        "searches": [
+          "Resultary: graphical zonotope complete split graph acyclic orientations vertex degrees simple vertices connectivity degree distribution",
+          "split graph graphical arrangement simplicial chambers degree distribution",
+          "Grujić arXiv:1604.06931 orientation/zonotope correspondence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed zonotope studies concern different invariants (diameter, circumsphere, complete bipartite ellipsoid) and do not give complete-split cover-degree histograms."
+        ],
+        "reasoning": "No matching table for all r,s found, but searched examples are not exhaustive and index absence is not novelty proof.",
+        "searches": [
+          "Resultary: graphical zonotope complete split graph acyclic orientations vertex degrees simple vertices connectivity degree distribution",
+          "Resultary complete-multipartite graphical zonotopes cubic-moment circumspheres 2026/10/11",
+          "Resultary universal Euclidean cone law farthest-point rigidity 2026/10/11"
+        ]
+      },
+      "rationale": "Global graphical-zonotope face enumerations and global simplicity criteria are established, but neither yields this complete vertexwise degree histogram, simple vertex count and connectivity of the simple subgraph in a generally nonsimple complete-split family.",
+      "residual_risks": [
+        "An unindexed equivalent theorem on simplicial chambers of complete-split graphic arrangements may coincide with the gap formulas.",
+        "The complete-split family is not the same as complete bipartite graph zonotopes; no cross-family implication assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global face polynomial is distinct from local degree counts/connectivity of simple stratum",
+          "evidence": [
+            "Theorem 1.1 evaluates global face polynomial via graph coloring; not a local vertex-degree enumerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Relevant full primary PDF sections on graphical zonotopes and f-polynomial, including Theorem 1.1 and examples",
+          "method": "Read primary PDF text and viewed pages",
+          "title": "Counting faces of graphical zonotopes — Grujić (2016/2017)",
+          "trigger": "Primary global face enumeration and acyclic orientation correspondence"
+        },
+        {
+          "assessment": "Global simplicity criterion does not provide number or adjacency of locally simple vertices",
+          "evidence": [
+            "Proposition 5.2 classifies graphs whose entire graphical zonotope is simple."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609184",
+          "material_read": "Relevant full PDF §5, Proposition 5.2 and chamber/poset discussion",
+          "method": "Read relevant primary PDF section and viewed page screenshot",
+          "title": "Faces of generalized permutohedra — Postnikov, Reiner and Williams (2006/2008)",
+          "trigger": "Primary criterion for globally simple graphical zonotopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural degree distribution, exact count of simple vertices, and connectivity of their induced graph together describe the local combinatorial geometry and accessible simple stratum of an infinite, nontrivial family of generally nonsimple zonotopes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Results are specifically complete-split graphs K_r join independent s, not arbitrary split graphs; no diameter of induced simple graph claimed.",
+    "Exhaustion of three small graphs is corroboration, not all-parameter proof.",
+    "An unindexed equivalent theorem on simplicial chambers of complete-split graphic arrangements may coincide with the gap formulas.",
+    "The complete-split family is not the same as complete bipartite graph zonotopes; no cross-family implication assumed."
+  ],
+  "schema_version": 1
+}
