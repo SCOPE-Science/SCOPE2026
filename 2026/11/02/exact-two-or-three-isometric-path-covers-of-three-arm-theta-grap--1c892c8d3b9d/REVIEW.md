@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-path lower bound follows from the diameter estimate and vertex count. Two covering geodesics can share at most one vertex. The structural case analysis handles paths passing both hubs and paths rooted separately at opposite hubs. Shortest-path comparisons on the exclusive and shared arms force the smallest two arm lengths to sum to at most six and yield the exact parity restrictions. Explicit two-path witnesses cover the exceptional families, and three constructed geodesics cover every theta graph. Direct enumeration corroborates 455 small and 80 wider length triples, and construction checks cover another 1,140 triples. No finite extrapolation is used as a proof.
+## correctness
 
-## Originality — PASS, qualified
-The October 15, 2026 paper by Chakraborty et al. treats isometric-path-cover complexity on general bounded-width graphs, not an exact three-arm theta formula. Closest prior graph-family work on equal-arm theta graphs by Manuel and Klavžar computes the different general-position invariant. The 2025 full open-access cyclomatic-number paper proves a vertex-isometric-path partition upper bound of four and an edge-geodesic cover bound on the present family, neither of which implies this exact cover value. Searches for equivalent names, generalized theta families, path partitions and stronger coverage found no matching theorem in inspected sources or available existing records. Searches cannot prove novelty. The uninspected full Manuel (2021) body and unindexed writings remain residual priority risks.
+PASS
 
-## Mathematical value — PASS
-The result gives the complete sharp classification on a natural 2-connected bicyclic series-parallel family, with nontrivial alternating parity phenomena and infinite three-versus-two regimes. It connects a current complexity-theoretic covering problem to an exact and interpretable structural obstruction, rather than merely providing an isolated parameter value.
+For all integers 2<=a<=b<=c, read proof: no single geodesic can span a+b+c-1 vertices because diameter<=floor((b+c)/2); an A-arm and two opposite-hub B/C geodesics cover the graph with three. With two geodesics, the diameter bound limits their overlap to <=3-a<=1, excluding a>=4. Hub and exclusive-arm cases force a+b<=6, and the shared-arm geodesic inequalities force even c for (a,b)=(2,4) and odd c for (3,3); (2,2),(2,3) unrestricted. Exact two-path construction covers all asserted cases. Independently wrote graph BFS/all-geodesic-set search (not packaged verifier) and confirmed the theorem for 84 triples; this finite check supports, but does not prove, the unlimited claim.
 
-## Limits
-Only three simple arms of lengths at least two are covered. The theorem is about vertex coverings by geodesics, not edge coverings, general-position numbers, or disjoint partitions. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On best-of-knowledge available primary texts, the exact theta vertex-isometric COVER minimum (2 vs 3 for all 3-arm lengths, parity included) is not already implied by general complexity, partition bounds, general-position or pathwidth results. Full specialist Manuel 2021 text uninspected; historical duplication possible.
+
+## value
+
+PASS
+
+An exact all-length classification on the natural minimal noncactus 2-connected series-parallel graph family resolves when two geodesics suffice, including two infinite parity-dependent exceptions, a motivated structural gap beyond bounded-width general algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

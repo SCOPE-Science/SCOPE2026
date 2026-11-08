@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:52:31.053883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers 2<=a<=b<=c, read proof: no single geodesic can span a+b+c-1 vertices because diameter<=floor((b+c)/2); an A-arm and two opposite-hub B/C geodesics cover the graph with three. With two geodesics, the diameter bound limits their overlap to <=3-a<=1, excluding a>=4. Hub and exclusive-arm cases force a+b<=6, and the shared-arm geodesic inequalities force even c for (a,b)=(2,4) and odd c for (3,3); (2,2),(2,3) unrestricted. Exact two-path construction covers all asserted cases. Independently wrote graph BFS/all-geodesic-set search (not packaged verifier) and confirmed the theorem for 84 triples; this finite check supports, but does not prove, the unlimited claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2025 paper gives vertex-isometric path partition upper bound 2c(G)+ell(G), equal four for theta; pathwidth is only a necessary bounded-width constraint; general algorithms do not display exact arm-length conditions."
+        ],
+        "reasoning": "A general upper bound four or a bounded pathwidth characterization does not imply which theta graphs have cover number two rather than three; the submitted lower bounds and parity obstruction are extra.",
+        "searches": [
+          "Chakraborty Foucaud Hakanen arXiv:2509.00383v1 Theorem 22",
+          "Dumas et al arXiv:2206.15088",
+          "Chakraborty et al arXiv:2610.22010"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2509.00383v1",
+        "https://arxiv.org/abs/2610.22010",
+        "https://geodesic.mathdoc.fr/item/DMGT_2021_41_4_a13/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 22 gives only isometric path PARTITION <=4; theta graph general-position sets measure mutual geodesic avoidance; the full statement here is a cover with <=3 and a sharp iff 2 criterion."
+        ],
+        "reasoning": "None of the materially read bound statements determines the asserted universal four-case classification as a corollary. An uninspected Manuel 2021 article remains a risk.",
+        "searches": [
+          "arXiv:2509.00383 Theorem 22",
+          "arXiv:2610.22010 isometric path cover complexity",
+          "Manuel and Klavzar general position of theta graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Isometric path partition imposes disjoint paths, unlike this vertex cover with overlap; general-position number/2-distance chromatic number are different invariants."
+        ],
+        "reasoning": "The three-arm parity formula cannot be read off from a theta general-position value or a minimum disjoint path partition; allowing overlap can reduce the optimum and the claim explicitly addresses cover.",
+        "searches": [
+          "Resultary: minimum isometric path cover number theta graphs three internally vertex disjoint paths of arbitrary lengths exact two three parity",
+          "Chakraborty et al arXiv:2610.22010",
+          "Manuel 2021 isometric path partition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary theta hits include two-distance chromatic number and algebraic gnarledness, not this cover statistic; no exact 2/3 table in examined 2025 text."
+        ],
+        "reasoning": "The absence of matching table in searched indexes is not novelty proof; an older unindexed family result could give the same values.",
+        "searches": [
+          "Resultary: minimum isometric path cover number theta graphs three internally vertex disjoint paths of arbitrary lengths exact two three parity",
+          "Theta graph isometric path cover numbers",
+          "Manuel 2021 isometric path partition"
+        ]
+      },
+      "rationale": "On best-of-knowledge available primary texts, the exact theta vertex-isometric COVER minimum (2 vs 3 for all 3-arm lengths, parity included) is not already implied by general complexity, partition bounds, general-position or pathwidth results. Full specialist Manuel 2021 text uninspected; historical duplication possible.",
+      "residual_risks": [
+        "Complete Manuel 2021 specialized paper remains unread; exact theta cover formula might be contained as corollary under different naming.",
+        "Independent BFS checked 84 finite triples; unbounded proof relies on the case analysis and explicit constructions, not the finite census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_CLAIM",
+          "evidence": "Vertex-isometric path partition upper bound 2c+ell gives at most four, not exact theta isometric path cover 2/3.",
+          "identifier_or_url": "https://arxiv.org/html/2509.00383v1",
+          "material_read": "Full accessible HTML theorem statements and path-cover/partition sections including Theorem 22, bounds and hypotheses",
+          "method": "Read primary full open-access text",
+          "title": "Distance-based (and path-based) covering problems for graphs of given cyclomatic number",
+          "trigger": "Same geodesic-cover invariant and cyclomatic number 2 might dominate theta case"
+        },
+        {
+          "assessment": "PRIORITY_RISK_PARTIAL_INSPECTION",
+          "evidence": "General complexity result does not in inspected material state formula for theta; complete paper not classified as noncovering.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22010",
+          "material_read": "Accessible abstract and indexed main-results description, not complete article body",
+          "method": "Public arXiv abstract and results indexing",
+          "title": "Parameterized Complexity of Isometric Path Cover: Treewidth and Diameter",
+          "trigger": "Very recent paper explicitly on identical cover invariant"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED",
+          "evidence": "Title concerns partition, which need not equal overlapping cover; cannot assert content noncoverage.",
+          "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2021_41_4_a13/",
+          "material_read": "Bibliographic citation and index; complete primary body not obtained",
+          "method": "Citation/index inspection",
+          "title": "On the Isometric Path Partition Problem",
+          "trigger": "Specialist prior path partition theory potentially equivalent via known graph-family bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-length classification on the natural minimal noncactus 2-connected series-parallel graph family resolves when two geodesics suffice, including two infinite parity-dependent exceptions, a motivated structural gap beyond bounded-width general algorithms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2509.00383v1",
+    "https://arxiv.org/abs/2610.22010",
+    "https://geodesic.mathdoc.fr/item/DMGT_2021_41_4_a13/"
+  ],
+  "disposition": "passed",
+  "limitations": "Only simple 3-arm theta graphs with arm lengths >=2; vertex-geodesic COVER, not edge cover or path partition.",
+  "residual_risks": [
+    "Complete Manuel 2021 specialized paper remains unread; exact theta cover formula might be contained as corollary under different naming.",
+    "Independent BFS checked 84 finite triples; unbounded proof relies on the case analysis and explicit constructions, not the finite census."
+  ],
+  "schema_version": 1
+}
