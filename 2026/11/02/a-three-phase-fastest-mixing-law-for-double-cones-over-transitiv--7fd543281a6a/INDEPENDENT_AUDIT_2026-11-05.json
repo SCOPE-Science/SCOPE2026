@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:16:28.875279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected vertex- and edge-transitive d-regular H on n≥3, conjugation averaging under its automorphisms preserves feasibility and cannot increase ||P−J||₂. The orbit-symmetric family has apex-base a≤1/n, base-edge b≤(1−2a)/d, and full eigenvalues 1,1−na,1−(n+2)a,1−2a−bλ for nonzero Laplacian λ. Base minimax clips q=b/(1−2a) to min(2/(u+v),1/d). Its residual κ gives three-affine minimax max{1−na,(n+2)a−1,κ(1−2a)}, producing three stated phases and boundaries. Cyclic C_n check yields n=3 μ=.25, n=4 μ=.20, n=5 μ≈.283246387, n=6 μ=.4; general n≥6 follows sin t≤t. Independent numerical eigenspectral cycles n=3..10 corroborate but do not establish all graph cases. Clipping holds for triangular J(7,2) at q=.1 versus unconstrained 2/19.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. 2009 §5.3.2 covers K_{2,2,2} (C4 base) and clique-backbone complete multipartite instances.",
+          "General SDP method covers computational solvability of each finite instance; no explicit n,d,u,v global three-phase formula is given."
+        ],
+        "reasoning": "The published general method is properly credited and includes particular endpoints, but further invariant-subspace and clipped minimax work is needed for full claim.",
+        "searches": [
+          "arxiv:0709.0955 §5.3.2 complete multipartite §5.3.3 wheel",
+          "fastest mixing Markov chain double cone join two nonadjacent apices transitive regular graph three regimes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py, exact Git tree",
+        "Boyd et al., arxiv:0709.0955, §2–3 and §5.3",
+        "Boyd–Diaconis–Xiao 2004 general SLEM formulation and small known case",
+        "Resultary semantic query: fastest mixing Markov chain double cone join two nonadjacent apices transitive regular graph three regimes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior wheel has only a single hub and its cycle optimum is (1−1/n)κ_n for n≥6.",
+          "The claim yields (1−2/n)κ_n on the double cone, with extra mode and clipped base optimization on general H."
+        ],
+        "reasoning": "Not an immediate single-wheel corollary; generic symmetry averaging is a tool rather than precomputed formula.",
+        "searches": [
+          "arxiv:0709.0955 §5.3.3 one-hub wheel exact optimum",
+          "fastest mixing Markov chain double cone join two nonadjacent apices transitive regular graph three regimes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. §5.3.3 has one hub and n-cycle with a 2×2 radial block; double cone has a further antisymmetric apex eigenvalue 1−na.",
+          "Resultary double-cone search returned a Laplacian state-transfer-fidelity finding, not stochastic SLEM minimization."
+        ],
+        "reasoning": "Wheel or transfer fidelity are not algebraic aliases for the present two-apex symmetric random-walk SLEM.",
+        "searches": [
+          "fastest mixing Markov chain double cone join two nonadjacent apices transitive regular graph three regimes",
+          "Boyd Diaconis Parrilo Xiao bipyramid double cone fastest mixing",
+          "Fastest Mixing Markov Chain on Graphs with Symmetries wheel graph 5.3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao 2004 Table 1 graph(d) gives K5 missing edge μ=1/4, the n=3 endpoint.",
+          "Earlier complete-tripartite formulas imply n=4 μ=1/5; no table for n≥5 cyclic double cones located."
+        ],
+        "reasoning": "The two finite endpoints are covered and explicitly excluded from new independent contributions; larger cycles and three regimes are not a known same-object table.",
+        "searches": [
+          "fastest mixing Markov chain double cone join two nonadjacent apices transitive regular graph three regimes",
+          "Boyd Diaconis Xiao 2004 table graph d K5 missing edge",
+          "Resultary semantic double cone fastest mixing"
+        ]
+      },
+      "rationale": "Qualified PASS for complete two-nonadjacent-apex join law with extra anti-apex eigenmode and three-phase threshold. Boyd–Diaconis et al. 2007/2009 supply convex symmetry averaging, wheel and multipartite endpoints; they do not state this all-backbone double-cone minimax. Generic SDP solvability is not itself the explicit all-parameter formula.",
+      "residual_risks": [
+        "Older specialized bipyramid/double-cone mixing results under alternative graph nomenclature may exist.",
+        "Global existence of a symmetric optimum is proved, but uniqueness of unrestricted optimal matrices is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS convex principle, single wheel, multipartite endpoints; not explicit double-cone family",
+          "evidence": [
+            "§5.3.3 transition matrix uses one hub; §5.3.2 includes K_{n1,...,nk}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Complete accessible rendered preprint including §2–3 graph symmetrization, §5.3.2 multipartite, §5.3.3 wheel formulas",
+          "method": "Read full rendered public arXiv primary article, locating and comparing named sections",
+          "title": "Fastest mixing Markov chain on graphs with symmetries",
+          "trigger": "Same optimization and similar wheel geometry"
+        },
+        {
+          "assessment": "COVERS definition and K5 minus edge endpoint only",
+          "evidence": [
+            "2004 convex FMMC formalism; explicit 2007 companion statement refers to earlier table."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Primary prior summary and original Table 1 graph(d) as reported in accessible 2007/2009 primary companion",
+          "method": "Read public cited formulation, small case description from companion; table not fully reopened in this pass",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General SDP and known small case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Useful structural classification of an important natural graph operation with an exact mixing phase transition, an active stochastic holding constraint and all-cycle closed specialization. The two-apex obstruction and sharp spectral-gap comparison with the one-wheel case give mathematical significance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Connected simple vertex- and edge-transitive d-regular n≥3, symmetric stochastic chains with free self-loops; not irreversible/nonuniform/edge-price models.",
+    "Older specialized bipyramid/double-cone mixing results under alternative graph nomenclature may exist.",
+    "Global existence of a symmetric optimum is proved, but uniqueness of unrestricted optimal matrices is not claimed."
+  ],
+  "schema_version": 1
+}

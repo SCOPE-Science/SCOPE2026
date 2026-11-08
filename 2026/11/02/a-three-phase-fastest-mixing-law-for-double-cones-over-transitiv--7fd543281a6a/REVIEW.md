@@ -1,21 +1,21 @@
-# Scientific review: a three-phase fastest-mixing law for double cones
+# Independent mathematical audit
 
-## Correctness — PASS
-For a connected vertex- and edge-transitive regular backbone, conjugation averaging is feasible and cannot increase the convex spectral-norm objective; hence an unrestricted minimizer can be selected with just two edge probabilities. The exact orthogonal decomposition consists of the constant mode, the anti-apex mode, the hub-versus-backbone radial mode, and every mean-zero backbone Laplacian eigenspace. It yields the full SLEM, not only the radial part. The base edge minimax is an endpoint Chebyshev problem clipped by the nonnegative base holding-probability constraint; the apex minimax is an exact comparison of three affine functions. All endpoints, budget-like row bounds, and equality cases have been traced. The complete cyclic specialization follows by exact trigonometry and the bound \(\sin t\le t\). The proof, not the finite tests, supports all admissible backbone graphs.
+## correctness
 
-The standalone script `verify.py` completed 43 full transition-matrix spectrum checks, 43 independent three-variable linear programs, 560 feasible asymmetric perturbation comparisons, three rational symbolic characteristic-spectrum identities, and six clipped-base-constraint cases. The checks support, but do not logically replace, the general proof.
+PASS
 
-## Originality — PASS, with explicit prior coverage
-Boyd, Diaconis and Xiao (2004) provide the FMMC convex/SDP objective and already solve the five-vertex graph \(K_5\) minus an edge, the cyclic size-three special case. Boyd, Diaconis, Parrilo and Xiao (arXiv v1 released 2007-09-06, published 2009) prove automorphism averaging and a **one-hub** cycle (wheel) formula. Their complete multipartite block decomposition contains the special backbones \(H=K_n\) and cyclic size four \(K_{2,2,2}\); it is not a published three-phase closed-form optimization over two nonadjacent apexes for all eligible backbones. The present eigenmode comparison and clipped minimax produce an explicitly different all-backbone theorem; in particular, for each cyclic size at least five the new two-apex formula is not a direct restatement of the wheel result. Search-based non-detection alone is not relied on as proof of novelty. Specialized uninspected earlier results might subsume it, which remains the main residual originality risk.
+For connected vertex- and edge-transitive d-regular H on n≥3, conjugation averaging under its automorphisms preserves feasibility and cannot increase ||P−J||₂. The orbit-symmetric family has apex-base a≤1/n, base-edge b≤(1−2a)/d, and full eigenvalues 1,1−na,1−(n+2)a,1−2a−bλ for nonzero Laplacian λ. Base minimax clips q=b/(1−2a) to min(2/(u+v),1/d). Its residual κ gives three-affine minimax max{1−na,(n+2)a−1,κ(1−2a)}, producing three stated phases and boundaries. Cyclic C_n check yields n=3 μ=.25, n=4 μ=.20, n=5 μ≈.283246387, n=6 μ=.4; general n≥6 follows sin t≤t. Independent numerical eigenspectral cycles n=3..10 corroborate but do not establish all graph cases. Clipping holds for triangular J(7,2) at q=.1 versus unconstrained 2/19.
 
-## Mathematical value — PASS
-The complete three-regime transition separates a radial-apex bottleneck, an intermediate balancing regime, and an apex stochastic-saturation regime. It gives actionable exact transition probabilities and SLEM on an infinite class of natural reversible Markov networks, including all cycle bipyramids; in the large-cycle regime the two-apex spectral-gap improvement over the published single-wheel benchmark is asymptotically doubled. The clipped subcase matters for nontrivial transitive backbones such as triangular and rook graphs, where an unconstrained spectral equioscillation would violate nonnegative holding probabilities. The general framework alone did not supply this structural trichotomy.
+## originality
 
-## Closest literature and limitations
-1. Boyd–Diaconis–Xiao (2004), *Fastest Mixing Markov Chain on a Graph*, §2 and Table 1, graph (d), https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf. General SDP and already known small-graph endpoint.
-2. Boyd–Diaconis–Parrilo–Xiao (2007/2009), *Fastest Mixing Markov Chain on Graphs with Symmetries*, §§2, 5.3.2, 5.3.3, https://arxiv.org/abs/0709.0955. Prior complete-multipartite reduction and exact single-hub wheel law; not the claimed double-cone theorem in the inspected text.
-3. Boyd–Diaconis–Parrilo–Xiao (2005), *Symmetry Analysis of Reversible Markov Chains*, https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf. Orbit and representation background.
+PASS
 
-The theorem assumes symmetric stochastic transition matrices, free holding probabilities and connected vertex- and edge-transitive regular backbones. It constructs an optimal chain rather than classifying all unrestricted optimizers. Precise online dates earlier than the verified arXiv v1 release were not established. Special historical coverage remains possible.
+Qualified PASS for complete two-nonadjacent-apex join law with extra anti-apex eigenmode and three-phase threshold. Boyd–Diaconis et al. 2007/2009 supply convex symmetry averaging, wheel and multipartite endpoints; they do not state this all-backbone double-cone minimax. Generic SDP solvability is not itself the explicit all-parameter formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Useful structural classification of an important natural graph operation with an exact mixing phase transition, an active stochastic holding constraint and all-cycle closed specialization. The two-apex obstruction and sharp spectral-gap comparison with the one-wheel case give mathematical significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

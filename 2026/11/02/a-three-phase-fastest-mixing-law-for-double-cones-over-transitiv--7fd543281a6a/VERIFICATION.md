@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Numerical and symbolic reproducibility
+# Independent mathematical audit
 
-The self-contained proof in `RESULT.md` establishes the theorem without reliance on finite computation. The auxiliary `verify.py` program (Python 3 with NumPy, SciPy and SymPy installed) independently reconstructs the graph transition matrices. Run:
+## correctness
 
-```sh
-python -m pip install -r requirements.txt
-python verify.py
-```
+PASS
 
-On the supplied source, it completed 43 exact-eigenmode versus full-matrix spectral comparisons, 43 separate linear-programming minimizations of the original four endpoint eigenvalue inequalities with stochasticity, 560 unrestricted asymmetric feasible design comparisons, three SymPy rational characteristic-spectrum checks, and six instances where the holding-probability bound clips the base-edge Chebyshev optimum. Numerical comparisons use floating-point tolerances displayed in the script; they are not exact mathematical certificates for infinite families.
+For connected vertex- and edge-transitive d-regular H on n≥3, conjugation averaging under its automorphisms preserves feasibility and cannot increase ||P−J||₂. The orbit-symmetric family has apex-base a≤1/n, base-edge b≤(1−2a)/d, and full eigenvalues 1,1−na,1−(n+2)a,1−2a−bλ for nonzero Laplacian λ. Base minimax clips q=b/(1−2a) to min(2/(u+v),1/d). Its residual κ gives three-affine minimax max{1−na,(n+2)a−1,κ(1−2a)}, producing three stated phases and boundaries. Cyclic C_n check yields n=3 μ=.25, n=4 μ=.20, n=5 μ≈.283246387, n=6 μ=.4; general n≥6 follows sin t≤t. Independent numerical eigenspectral cycles n=3..10 corroborate but do not establish all graph cases. Clipping holds for triangular J(7,2) at q=.1 versus unconstrained 2/19.
 
-The symbolic checks use explicit small cycle matrices with rational edge probabilities. The all-graph proof relies on convex graph-automorphism averaging, orthogonal invariant eigenspaces, the endpoint property of an affine spectral function and the exact piecewise affine minimax. The previous cyclic results at sizes three and four and the single-wheel formula are acknowledged as earlier literature; the general two-nonadjacent-apex trichotomy and larger-cycle consequences are the subject of this verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for complete two-nonadjacent-apex join law with extra anti-apex eigenmode and three-phase threshold. Boyd–Diaconis et al. 2007/2009 supply convex symmetry averaging, wheel and multipartite endpoints; they do not state this all-backbone double-cone minimax. Generic SDP solvability is not itself the explicit all-parameter formula.
+
+## value
+
+PASS
+
+Useful structural classification of an important natural graph operation with an exact mixing phase transition, an active stochastic holding constraint and all-cycle closed specialization. The two-apex obstruction and sharp spectral-gap comparison with the one-wheel case give mathematical significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
