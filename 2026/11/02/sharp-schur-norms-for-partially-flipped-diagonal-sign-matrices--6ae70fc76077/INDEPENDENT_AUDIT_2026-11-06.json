@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:58:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the signed Schur multiplier M_(n,k) with negative first k diagonal entries, an explicit nonnegative vector u gives trace-norm lower bound ||diag(u) M diag(u)||_1, and positive semidefinite P±M with diagonal T gives factorization upper bound T. The fully flipped k-core has eigenvalues (k−2)/k once and −2/k repeated k−1. With one additional unflipped coordinate, explicit maximizer a_k and 2x2 Gram block determinants yield T=1+k/(1+sqrt(2k)) for 1<=k<=5, versus 3−4/k for k>=6. Replication of the unflipped Gram vectors proves no dependence on further n. Checked n=k=1 and k=0 separately; independently recomputed eigenvalue/witness and PSD certificates for k=1..30, including transition at six. Infinite proof is symbolic positive semidefiniteness, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General semidefinite P bounds allow optimization but no closed k-dependent formula was located.",
+          "Fully flipped core is circulant; partial core has two coordinate orbits."
+        ],
+        "reasoning": "Known general methods mathematically encompass the optimization problem as an instance but do not give claimed closed values or stabilization without further exact derivation.",
+        "searches": [
+          "arXiv:2505.24670 SDP dual norm characterization",
+          "arXiv:math/0506073 transitive orbit matrix results"
+        ]
+      },
+      "checked_sources": [
+        "Real Schur norms and Hadamard matrices — https://arxiv.org/abs/2206.02863",
+        "Norms of Schur Multipliers — https://arxiv.org/abs/math/0506073",
+        "The Schur multiplier norm and its dual norm — https://arxiv.org/abs/2505.24670",
+        "Resultary semantic search: Schur multiplier norm sign matrix negative diagonal subset k flipped one positive coordinate sharp k 6 Grothendieck Haagerup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "J_k-2I_k core has norm 3−4/k from classical circulant theorem.",
+          "Partial extension increases norm for 1<=k<=5 and stabilizes at k>=6."
+        ],
+        "reasoning": "Old core alone fails to imply strict amplification. General SDP duality gives proof technology but not the explicit sharp inequality and cutoff.",
+        "searches": [
+          "Mathias 1993 circulant Schur norm",
+          "arXiv:2206.02863 Sections 4,6",
+          "arXiv:2505.24670"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complex spectral-operator-norm Schur multiplier is not ||M||_op and not a Schatten-4 idempotent projection.",
+          "General Haagerup vector factorization is the mechanism behind explicit P±M proof."
+        ],
+        "reasoning": "The exact symbol is a real two-orbit signed reflection of a diagonal projection; general factorization equivalence requires a nontrivial exact evaluation.",
+        "searches": [
+          "Schur multiplier norm sign matrix negative diagonal subset k flipped one positive coordinate sharp k 6 Grothendieck Haagerup",
+          "arXiv:2206.02863 Sections 2 and 4",
+          "arXiv:math/0506073 Grothendieck-Haagerup factorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small n numerical spectra overlap with some computed constants.",
+          "Independent PSD and trace checks yield symbolic all-k proof, not mere recomputation of known table."
+        ],
+        "reasoning": "Published tables cover isolated small orders; they do not dominate k>=6 or arbitrary replicated unflipped rows.",
+        "searches": [
+          "arXiv:2206.02863 Section 4 Schur spectra",
+          "Schur multiplier norm sign matrix negative diagonal subset k flipped one positive coordinate sharp k 6 Grothendieck Haagerup"
+        ]
+      },
+      "rationale": "Mathias circulant formula covers the n=k fully flipped symbol, and general Schur factorization/SDP methods are classical. Holbrook–Johnston–Schoch publish several small corresponding numerical Schur values. The asserted new contribution is an all-size evaluation, one-coordinate effect and exact k=6 stabilization; no inspected broader theorem states that specialization explicitly.",
+      "residual_risks": [
+        "Exact n=k subcase and small n values are prior; claim novelty rests on all-size partially flipped evaluation and threshold.",
+        "Older symmetric matrix-completion or norm optimal factorization literature might conceal an equivalent closed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers small Schur values and framework, no universal two-orbit formula found in examined sections.",
+          "evidence": [
+            "Finite spectra list values overlapping k=2–5; Section 6 gives SDP."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.02863",
+          "material_read": "PDF Sections 2, 4, 6 on norm definition, finite spectra, optimization; relevant pages displayed",
+          "method": "Full-text PDF text plus relevant page image",
+          "title": "Real Schur norms and Hadamard matrices",
+          "trigger": "Closest evaluated small Schur norm spectra"
+        },
+        {
+          "assessment": "General Haagerup formulation and transitive action special cases, not the nontransitive partial flip cutoff.",
+          "evidence": [
+            "Factorization bound for Schur multipliers and orbit-symmetric subcases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+          "material_read": "Full PDF introduction and Section 4 theorem descriptions",
+          "method": "ArXiv PDF text",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "Potential general domination by transitive formula"
+        },
+        {
+          "assessment": "Provides general optimization identity; no evaluated all-size formula for this one-negative-diagonal-orbit symbol identified.",
+          "evidence": [
+            "Semidefinite minimal diagonal positive P with P±M positive semidefinite."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.24670",
+          "material_read": "Main general semidefinite characterization in primary PDF",
+          "method": "ArXiv PDF text",
+          "title": "The Schur multiplier norm and its dual norm",
+          "trigger": "Broad PSD characterization might subsume claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Analytically solves a natural one-parameter symmetry reduction of a nontrivial operator multiplier-norm problem and identifies a sharp qualitative cutoff where one unflipped coordinate ceases to increase the norm, with constructive lower contractions and PSD upper witnesses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact n=k subcase and small n values are prior; claim novelty rests on all-size partially flipped evaluation and threshold.",
+    "Older symmetric matrix-completion or norm optimal factorization literature might conceal an equivalent closed formula.",
+    "Scientific PASS is not formal verification, independently certified proof, or guaranteed exhaustive historical priority; no file published."
+  ],
+  "schema_version": 1
+}
