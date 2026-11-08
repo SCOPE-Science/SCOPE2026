@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and only its standard library. Its recorded output is included as `verification_output.txt`.
+## correctness
 
-The verifier uses two mathematically distinct routes: direct synchronous updates of every labelled wheel configuration for each \(3\le n\le16\), and separate cyclic-run binomial counts for the two-cycle formula. It also performs direct enumeration of permissible cyclic words for lengths two through twelve and symbolic polynomial multiplication of the three-state transfer matrix for lengths two through ten. It compares exact counts of fixed configurations, constant-hub primitive two-cycle orbits, and switching-hub primitive two-cycle orbits. The total finite simulation size is \(262{,}128\) configurations. Every test passed and the recorded terminal marker is `WHEEL_MAJORITY_ORBITS_VERIFY_OK`.
+PASS
 
-The infinite-family theorem rests on the mathematical proof in `RESULT.md`, particularly the necessity and sufficiency of the hub-switching conditions, the one/two-cycle decomposition under step-two adjacency, and the weighted cyclic-word transfer. Finite tests cannot prove the full quantified statement; they are reproducible discrepancy checks. The independent audit status remains unperformed.
+At every n>=3 with labelled W_n, rim with h=0 has x_i(t+1)=x_(i-1)x_(i+1) and with h=1 OR of the neighbors. The symmetric strict-sign energy implies eventual period <=2. Fixed hub supports only two complemented fixed states or, for even n, two alternating-rim two-cycle orbits. For flipping hub, unique h=0 representative must obey 2A>n, 2B<n and no isolated ones in cyclic step-two order. One odd ring or two even parity rings and the three-state transfer trace give exactly the stated N_n; compositions of runs of >=2 ones give coefficient m/r*binom(a-r-1,r-1)binom(m-a-1,r-1). Block concatenations 110/1110 and rho^4=rho+1 prove the exponential lower liminf (not an exact growth rate). Independent direct synchronous-update enumeration gives (fixed,primitive-orbits): n=3..12: (2,3),(2,2),(2,5),(2,11),(2,21),(2,34),(2,66),(2,77),(2,220),(2,227).
+
+## originality
+
+PASS
+
+The period-at-most-two potential theorem, one-dimensional fixed-point counting and finite automata are prior techniques. The particular wheel hub-switch strict inequalities, parity-ring transfer and closed primitive-orbit binomial census are not implied by the inspected broader convergence theorems or published Resultary matches. Priority is best-of-knowledge, not an exhaustive historical exclusion.
+
+## value
+
+PASS
+
+Counts all labelled primitive two-cycle orbits of a natural family where attracting period-two states are abundant but convergence theory alone does not enumerate them. Distinguishes fixed-hub exceptions, odd/even parity and exponential family; a precise infinite graph dynamical invariant likely useful for studying synchronous majority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
