@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T12:11:43.462120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, blob 440d5f619c3a23cb1a77d1dba20b5b79fb113706",
+        "Frozen Git verify_frontier.py, blob ecff51ded455001ec85dbea73cffb3d2d63b08d7",
+        "Independent locally reconstructed 700-step original-state propagation and exact transition DP"
+      ],
+      "rationale": "From the actual RESULT.md proof: at a discovery with m visited arc sites and current frontier at right, gambler ruin gives a_m=r^m/S_m for switching right→left; for current left it gives b_m=1/S_m to switch left→right, with S_m=∑_{j=0}^m r^j and r=(1−p)/p after reflection p≥1/2. At r=1 both equal 1/(m+1), so uniform U_m realizes independent Bernoulli switch indicators exactly, including m=n−1 interpreted by entry side. For mθ≤1, S_m≥(m+1)e^(−mθ) and 1−r^j≤jθ give b_m−1/(m+1)≤eθ/2 and 1/(m+1)−a_m≤eθ; summing stagewise mismatches through M=min(n−1,floor θ^(−1)) gives ≤e. For m>M, a_m=(1−r)r^m/(1−r^(m+1))≤(1−r)r^m/(1−e^(−1)); its sum is ≤1/(1−e^(−1)), while binary switches alternate so total tail switches ≤1+2N_(R→L). Hence E|K−∑B_m|≤e+1+2/(1−e^(−1))<7 for all n≥3 and 0<p<1. Independent B_m have harmonic mean and variance log ℓ+O(1), and Lindeberg plus L1 approximation gives triangular-array CLT for ℓ=min(n,θ^(−1))→∞. For fixed θ>0, summable right→left transitions yield finitely many switches almost surely under common-chain coupling. Independent raw-step propagation for n=3..7, p=1/3,1/2,3/4 (700 steps each) matched exact two-state probabilities with maximal coefficient difference ≤6.7×10^(−16), residual non-absorption ≤1.1×10^(−31); separate early-mismatch calculations at θ=10^(−6),.001,.01,.03,.1,.4 satisfied the analytic e bound. These bounded checks are corroborative only. All quantifiers, centering, first/final discovery conventions, cutoff θ=0 and fixed-drift boundary are accounted for.",
+      "residual_risks": [
+        "No optimized universal coupling constant, local limit or cover-time joint result.",
+        "Finite checks only at n≤7 and tested p values; general conclusion relies on proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.15115: Theorem 3.4 gives exact product probability for every discovery sequence; Theorem 4.1 gives last-vertex marginal. This is broader finite distribution machinery.",
+          "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf: full text studies universal logarithmic lead-change mean for independent maxima, not a single cyclic walk’s frontier switch count.",
+          "https://arxiv.org/html/1206.6972v2: Section I and main-record theorems concern temporal upper records of random walks with drift, not left/right direction switches at newly discovered sites."
+        ],
+        "reasoning": "The exact pre-existing two-state chain is a stronger description of finite discovery histories, and its distributional consequences are in principle computable, but neither that chain description nor existing time-indexed record theorems imply the claimed drift-uniform absolute coupling without additional estimates. The bounded early-stage mismatch and summable late-switch count are mathematically additional content. Do not claim the chain itself as new.",
+        "searches": [
+          "web:fast Idnani Salem Last-Coverage Probabilities Random Walks Cycle Graphs arxiv 2610.15115 full html",
+          "web:slow random walk upper lower record alternations range two frontiers",
+          "web:slow maxima of two random walks lead changes universal logarithmic law",
+          "Resultary query: cycle nearest-neighbor biased random walk discovery directions switches between left and right frontiers exact Bernoulli distribution Gaussian logarithmic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.15115 (accessible full text, Sections 1–6)",
+        "https://arxiv.org/html/1204.5039v1 (accessible full HTML, sections I–V and conclusion)",
+        "https://arxiv.org/html/1206.6972v2 (accessible HTML, introduction/model and summary of main distribution results)",
+        "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf (full PDF text with first two page screenshots, Sections I–V checked for model and main results)",
+        "https://arxiv.org/abs/2605.29185 (accessible abstract, model comparison only)",
+        "Resultary semantic search: 3 focused queries; relevant hits examined at abstract/summary level, not full-text exclusions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.15115: a_m=r^m/S_m and b_m=1/S_m are already consequences of its gambler-ruin representation; exact finite Markov chain coverage is acknowledged.",
+          "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf: logarithmic 1/π coefficient for two independent walk maxima lead changes, whereas new K has coefficient 1 in log spatial effective length, with a different clock and dependent frontier geometry.",
+          "https://arxiv.org/html/1204.5039v1: time records R_(n,N) grow ~sqrt(n) and are a different variable."
+        ],
+        "reasoning": "The earlier interval-expansion chain does allow derivation of every finite K distribution. However the claimed absolute uniform E|K−Σ_{m≤min(n−1,floor(1/θ))}Bernoulli(1/(m+1))| bound is a quantitative pathwise comparison requiring a uniform small-θ mismatch estimate and the late geometric tail; no comparison theorem giving those consequences was identified. It yields a nontrivial triangular-array crossover not inferred simply from the marginal last-vertex law.",
+        "searches": [
+          "web:arxiv 2610.15115 Theorems 3.4, 4.1 and Conclusions full text",
+          "web:arxiv 1204.5039 HTML Sections I–V",
+          "web:CNLS Ben-Naim Krapivsky Randon-Furling lead change paper PDF full text",
+          "Resultary query: cycle nearest-neighbor biased random walk discovery directions switches between left and right frontiers exact Bernoulli distribution Gaussian logarithmic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.15115: Sections 3–4, Theorems 3.4 and 4.1, explicitly define expansion direction Y_i and its transition process; no switching-count or all-bias L1 comparison in inspected main text and conclusions.",
+          "https://arxiv.org/html/1204.5039v1: introduction, Sections II–V, upper time-record counts for independent walks; differs from one walk’s alternations of left/right spatial discovery frontiers.",
+          "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf: Sections I–IV, lead changes between maxima of TWO independent stochastic walks, average ~π^−1 log t; different random object and clock."
+        ],
+        "reasoning": "Unwrapped one-dimensional simple walk has new maxima and minima exactly when the interval frontier expands; Y_i is the sign of those boundary expansions. This equivalent description was searched. Two independent walkers changing leader and one walk attaining upper records at ordinary times do not determine the alternating extrema of a single walk indexed by spatial range. No inspected theorem identifies the proposed coupled Bernoulli approximation.",
+        "searches": [
+          "web:fast random walk range exploration alternations left right record maxima minima switches frontier count logarithmic Bernoulli cycle coverage",
+          "web:slow random walk number of switches between maxima and minima records Bernoulli logarithm",
+          "web:fast alternations of maxima and minima discoveries random walk Stirling generating function",
+          "Resultary query: alternation between running minimum and maximum records of one dimensional simple random walk harmonic Bernoulli limit law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/1204.5039v1: classical iid record-count harmonic/Gaussian law recalled in Introduction, but no table for discovery-frontier alternations of a nearest-neighbor cycle walk.",
+          "Resultary hits include fixed-composition binary-run dependence (2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d), which has a different fixed-composition sample model."
+        ],
+        "reasoning": "The symmetric PGF equals a tail of the classical permutation-cycle Bernoulli product, but equal distributions of two different observables do not establish a known table for this geometry. The nonzero drift L1 cutoff is not a standard finite combinatorial table. Search failure is not treated as proof of originality.",
+        "searches": [
+          "web:fast random walk two-sided range expansion directions independent Bernoulli log",
+          "web:fast random walk range record minima maxima sequence switches sides logarithmic",
+          "Resultary query: biased random walk cycle cover time frontier switching logarithmic threshold mixing coupon collector cover time extremal gaps",
+          "Resultary query: alternation between running minimum and maximum records of one dimensional simple random walk harmonic Bernoulli limit law"
+        ]
+      },
+      "rationale": "The predecessor Idnani–Salem (2026), Theorems 3.4 and 4.1, gives the exact interval-expansion process and two-state gambler-ruin transition law, and so implicitly determines all finite laws, but its analyzed target is the last-covered vertex. It neither states a law for the number of changes between expansion sides nor an all-bias absolute-L1 independent-Bernoulli comparison and effective drift-scale Gaussian limit. A fresh statement-level comparison of primary full text, relevant classical record literature, independent two-walk lead-change literature and published Resultary search hits did not find a result implying this uniform coupling/critical crossover. Familiar permutation-cycle Bernoulli factors are an algebraic law analogy, not a theorem about frontier switches. Originality is a narrow best-of-knowledge assessment, with prior transition machinery fully credited.",
+      "residual_risks": [
+        "Prior full expansion-chain theorem implicitly determines finite K, and a reader may regard the elementary coupling as a short derivation; priority of quantitative theorem depends on no earlier statement of the uniform estimate.",
+        "Older literature on alternations between upper/lower ladder records, range extensions and exploration frontiers may be indexed under terms not captured by these searches.",
+        "Accessible literature is not exhaustive, and Resultary hits were compared by summaries unless specifically opened; no worldwide novelty certification.",
+        "Record statistics with drift and auxiliary lead-change paper were read only to the stated material; no all-document exclusion for every candidate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TRANSITION_PROCESS_PREVIOUSLY_KNOWN; QUANTITATIVE_FRONTIER_SWITCH_COUPLING_NOT_STATED",
+          "evidence": "Theorem 3.4 sums products over all expansion histories, while Theorem 4.1 computes last-covered vertex probabilities from two-state g_R,g_L; no total alternation-count or uniform error-coupled CLT theorem in inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15115",
+          "material_read": "Abstract, Introduction, Section 2 gambler ruin, Section 3 (Theorems 3.1, 3.4), Section 4 (Theorem 4.1, proof and last-discovery results), Section 6 conclusion and future directions, as rendered by arXiv full-text source",
+          "method": "Web full-text reader on arXiv abstract endpoint (which exposes full article text), targeted theorem and proof reading",
+          "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+          "trigger": "Same cyclic random-walk discovery-direction process and exact two-state transition probabilities"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "R_(n,N) counts upper time records of N independent walks, with sqrt(n) scale for one walk; not sign changes of newly visited spatial frontier.",
+          "identifier_or_url": "https://arxiv.org/html/1204.5039v1",
+          "material_read": "Full article HTML, Introduction, model/results Sections II–V and conclusion, including definitions of upper time records",
+          "method": "arXiv HTML full-text section reading",
+          "title": "Record Statistics for Multiple Random Walks",
+          "trigger": "Potential equivalent through record counts or harmonic Bernoulli law"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC_IN_READ_SECTIONS",
+          "evidence": "The paper counts temporal upper records and persistence of an increment-drift walk, with no identified side-of-discovery alternation; limited-reading risk recorded.",
+          "identifier_or_url": "https://arxiv.org/html/1206.6972v2",
+          "material_read": "Introduction/model and main-results discussion from accessible arXiv HTML, not a complete article-wide exclusion",
+          "method": "arXiv HTML targeted sections",
+          "title": "Record statistics and persistence for a random walk with a drift",
+          "trigger": "Prior drift-dependent record distribution and possible transition to a finite number of switches"
+        },
+        {
+          "assessment": "DIFFERENT_TWO_PARTICLE_LEADER_STATISTIC",
+          "evidence": "Counts overtaking of running maxima of two independent walkers, with mean ~(1/π)log(time); no single-walk left/right range-boundary expansion process.",
+          "identifier_or_url": "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf",
+          "material_read": "PDF text Sections I–IV, introduction and conclusion; visually checked PDF pages 1 and 2 and their model definition",
+          "method": "Web PDF full-text extraction plus page screenshots",
+          "title": "Maxima of Two Random Walks: Universal Statistics of Lead Changes",
+          "trigger": "Strongest searched title mentioning logarithmic number of alternations of extrema"
+        },
+        {
+          "assessment": "ABSTRACT_DIFFERENT_MODEL; FULL_TEXT_NOT_CLAIMED",
+          "evidence": "Gaussian increments and LIS/upper record skeleton vs discrete nearest-neighbor cycle frontier alternations.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.29185",
+          "material_read": "arXiv abstract and bibliographic metadata only",
+          "method": "Web arXiv abstract; no whole-text exclusion",
+          "title": "Records, drift, and the longest increasing subsequence of biased Gaussian random walks",
+          "trigger": "Possible known bias crossover in random-walk records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and proof, same source tree",
+        "https://arxiv.org/abs/2610.15115 prior full discovery chain",
+        "https://cnls.lanl.gov/People/ebn/pubs/rw-lead-change/rw-lead-change.pdf related different logarithmic lead changes"
+      ],
+      "rationale": "A walk’s alternation between opposite exploration frontiers indexed by newly discovered sites is a natural coverage statistic not characterized by its last vertex alone or by ordinary time-indexed record counts. The nonasymptotic drift-uniform L1 transfer to a harmonic Bernoulli array yields the effective exploration scale min(n,1/|log odds|), an exact symmetric generating function, a Gaussian crossover across all bias-decay triangular arrays, and a fixed-bias finite-switch regime. This reveals a meaningful stochastic phase boundary and gives a reusable quantitative approximation, not an arbitrary special case or mere finite computation. Its contribution is bounded by the known underlying Markov chain and does not claim optimal constant or cover-time law.",
+      "residual_risks": [
+        "The transition process was already known, making mathematical depth of the additional estimate modest but the uniform critical crossover still substantive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Cannot infer novelty from absence of search results; exact discovery-transition chain is prior work.",
+    "No source/publisher write or publication performed; scientific PASS is not an independent certification of provenance.",
+    "The early/later coupling constant is not optimized; no local limit or joint cover-time law."
+  ],
+  "schema_version": 1
+}

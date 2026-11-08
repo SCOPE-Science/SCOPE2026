@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The chain transition probabilities follow from a two-boundary gambler's-ruin problem and hold at the final discovery under the specified side-of-entry convention. With \(r=e^{-\theta}\), the right-to-left and left-to-right switch probabilities at arc length \(m\) are respectively \(r^m/(1+\cdots+r^m)\) and \(1/(1+\cdots+r^m)\). A uniform-uniform coupling incurs at most \(e\theta\) mismatch per stage up to inverse log-odds, and the expected number of subsequent switches is at most \(1+2/(1-e^{-1})\). The resulting absolute \(L^1\) bound is below seven. Independence at symmetry, Lindeberg's theorem, and summability at fixed nonzero drift complete all parts of the claim. A standalone finite-state rational checker passed 2435 checks, including a separately propagated original-step chain with explicitly bounded unabsorbed mass; no finite enumeration was used as a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The main predecessor is Idnani and Salem (arXiv:2610.15115v1, 10 October 2026), which supplies the two-state discovery process and the last-vertex law, not the uniform drift-dependent Bernoulli approximation or frontier-alternation CLT. The latter are separately proved here. Relevant record articles by Wergen, Majumdar and Schehr (2012) and Mendonça (2026) concern upper time-record statistics of different processes. The other closest current records concern binary fixed-composition runs and bivariate Pareto record kills, not this walk. The existing transition chain permits computing the exact finite switch law, so priority should not be claimed for the chain or for a generic matrix product. Historical treatments of alternating extrema remain a residual risk.
+PASS
 
-## Value — PASS
-A cyclic search's count of reversals of its *exploration frontier* is a natural coverage statistic. Its sharp effective logarithmic cutoff and a bias-uniform coupling place symmetric Gaussian fluctuations and fixed-bias finite alternations into one theorem. This is not an arbitrary parameter slice or a minor numerical correction.
+From the actual RESULT.md proof: at a discovery with m visited arc sites and current frontier at right, gambler ruin gives a_m=r^m/S_m for switching right→left; for current left it gives b_m=1/S_m to switch left→right, with S_m=∑_{j=0}^m r^j and r=(1−p)/p after reflection p≥1/2. At r=1 both equal 1/(m+1), so uniform U_m realizes independent Bernoulli switch indicators exactly, including m=n−1 interpreted by entry side. For mθ≤1, S_m≥(m+1)e^(−mθ) and 1−r^j≤jθ give b_m−1/(m+1)≤eθ/2 and 1/(m+1)−a_m≤eθ; summing stagewise mismatches through M=min(n−1,floor θ^(−1)) gives ≤e. For m>M, a_m=(1−r)r^m/(1−r^(m+1))≤(1−r)r^m/(1−e^(−1)); its sum is ≤1/(1−e^(−1)), while binary switches alternate so total tail switches ≤1+2N_(R→L). Hence E|K−∑B_m|≤e+1+2/(1−e^(−1))<7 for all n≥3 and 0<p<1. Independent B_m have harmonic mean and variance log ℓ+O(1), and Lindeberg plus L1 approximation gives triangular-array CLT for ℓ=min(n,θ^(−1))→∞. For fixed θ>0, summable right→left transitions yield finitely many switches almost surely under common-chain coupling. Independent raw-step propagation for n=3..7, p=1/3,1/2,3/4 (700 steps each) matched exact two-state probabilities with maximal coefficient difference ≤6.7×10^(−16), residual non-absorption ≤1.1×10^(−31); separate early-mismatch calculations at θ=10^(−6),.001,.01,.03,.1,.4 satisfied the analytic e bound. These bounded checks are corroborative only. All quantifiers, centering, first/final discovery conventions, cutoff θ=0 and fixed-drift boundary are accounted for.
 
-## Scope and limitations
-The drift is homogeneous within each cycle, the walk is nearest-neighbor, and switches are recorded only on new discoveries. The absolute coupling constant is not optimized, no local limit theorem or joint cover-time law is proved, and publication priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The predecessor Idnani–Salem (2026), Theorems 3.4 and 4.1, gives the exact interval-expansion process and two-state gambler-ruin transition law, and so implicitly determines all finite laws, but its analyzed target is the last-covered vertex. It neither states a law for the number of changes between expansion sides nor an all-bias absolute-L1 independent-Bernoulli comparison and effective drift-scale Gaussian limit. A fresh statement-level comparison of primary full text, relevant classical record literature, independent two-walk lead-change literature and published Resultary search hits did not find a result implying this uniform coupling/critical crossover. Familiar permutation-cycle Bernoulli factors are an algebraic law analogy, not a theorem about frontier switches. Originality is a narrow best-of-knowledge assessment, with prior transition machinery fully credited.
+
+## value
+
+PASS
+
+A walk’s alternation between opposite exploration frontiers indexed by newly discovered sites is a natural coverage statistic not characterized by its last vertex alone or by ordinary time-indexed record counts. The nonasymptotic drift-uniform L1 transfer to a harmonic Bernoulli array yields the effective exploration scale min(n,1/|log odds|), an exact symmetric generating function, a Gaussian crossover across all bias-decay triangular arrays, and a fixed-bias finite-switch regime. This reveals a meaningful stochastic phase boundary and gives a reusable quantitative approximation, not an arbitrary special case or mere finite computation. Its contribution is bounded by the known underlying Markov chain and does not claim optimal constant or cover-time law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
