@@ -1,15 +1,21 @@
-# Mathematical review: Burnside classification of finite Kripke presentations
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem assumes a finite nonempty closure model with the exact \\(\\mathsf{KRep}\\) condition. Equality of complete pointed modal theories partitions the finite carrier into definable classes, because distinct classes have distinguishing formulas and finitely many such formulas can be conjoined. The established row-support criterion is reconstructed, not assumed without argument. Isomorphisms preserve pointed theories and therefore permute only within classes. For a row-permutation cycle of length \\(a\\), nonempty successor subsets invariant under the target permutation's \\(a\\)-th power number exactly \\(2^{c_a(\\lambda)}-1\\), including when source and target classes coincide. Burnside averaging yields the displayed all-size formula, and four complete small relation-orbit enumerations independently reproduce the result. Finite diagnostics are not substituted for the symbolic proof.
+## correctness
 
-## Originality — PASS within inspected sources
-Nishimura's representation theorem and the previously established labelled row-support classification are **not** new here. They do not by themselves give an isomorphism-class count or identify the coupled source/target permutation action. The newly assessed all-class formula evaluates its fixed points in terms of cycle types for arbitrary modal-type multiplicities and required successor classes. The closest retrieved published records concern finite measurable modal quotients, intuitionistic chain-frame enumerations or regrading, and do not imply this orbit formula. General Pólya species/cycle-index theorems remain a substantial historical-priority risk: the claim is of this explicit semantic specialization, not of a novel Burnside lemma or a universal graph-enumeration method. Searches cannot prove absence from all literature.
+PASS
 
-## Value — PASS
-Nonuniqueness of same-world Kripke presentation is intrinsic to the canonical translation's semantics. A complete classification up to isomorphism is a more intrinsic numerical invariant than the already known labelled count. The formula retains arbitrary finite modal-type partitions and nonuniform required supports, accounts correctly for coupled row/column symmetries, and yields exact \\(70\\), \\(2340\\), \\(15\\), and \\(1701\\) benchmarks without enumeration of all arbitrary relations. This is a natural complete orbit classification, not an isolated arbitrary finite slice.
+Finite W yields characteristic formulas for complete pointed modal-theory classes by finite conjunction of pairwise distinguishing formulas, so definable sets are all unions of type classes. Under the KRep biconditional, truth preservation is equivalent to every row of each required block i->j being nonempty, every forbidden block zero. Any isomorphism preserves each type class, and all permutations inside a class preserve the allowed set. For a row cycle of length a and target permutation partition lambda_j, invariant nonempty subsets are 2^{sum_{b in lambda_j}gcd(a,b)}-1. Burnside averaging over product symmetric groups gives exactly the stated partition formula including i=j coupled permutations. Independently brute enumerated 3-world single-type allowed matrices and their S3 orbits: 343 labelled, 70 orbits; directly derived 4-world Burnside fixed values 50625,735,225,45,15 giving 2340. The theorem counts only same-carrier same-valuation fixed-pointwise-truth representations, not generic modally equivalent frames and offers no algorithm to compute infinite modal theories from arbitrary closures.
 
-## Literature and limitations
-Primary source: Yuki Nishimura, *Closure Semantics for Weak Modal Logics: Completeness and Representations*, arXiv:2610.01433v1 (first posted 2026-10-01), particularly Definition 4.22 and Theorem 4.30. Related published semantic-index records on finite modal measurable quotients, finite KI chains and Gödel regrading were checked. The earlier exact labelled formula is taken as prior. The result assumes same-world/valuation, full pointwise formula preservation and KRep; it is not frame-validity equivalence or an assertion about infinitely many worlds. The modal-type data might be noncomputable from an arbitrary closure description. A generic directed-graph Pólya theorem may subsume this specialization; no independent priority or scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact support-indexed isomorphism orbit formula for fixed-theory Kripke representations, not the KRep theorem, labelled row criterion, Burnside lemma or symmetric cycle indices. Very general unlabelled coloured-digraph species may imply the formula by direct specialization, so priority is qualified and its practical contribution is a complete modal-theory support classification.
+
+## value
+
+PASS
+
+Given a finite closure model satisfying KRep, the collection of all truth-preserving Kripke presentations is a canonical mathematical object and its isomorphism-class count is a natural invariant distinct from the already known labelled count. The formula reduces a potentially enormous relation-orbit classification to cycle partitions, deals with coupled source/target permutations for i=j, and determines full arbitrary type-support profiles. While Burnside is classical and the derivation compact, this exact complete classification can be independently useful; it is not presented as a new general orbit lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

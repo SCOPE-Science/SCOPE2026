@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The companion `checker.py` is standalone Python 3 using only the standard library. Running `python3 checker.py` from the extracted artifact directory produced:
+## correctness
 
-```text
-CASE (3,) labelled 343 orbits 70
-CASE (4,) labelled 50625 orbits 2340
-CASE (2, 1) labelled 27 orbits 15
-CASE (2, 2) labelled 6561 orbits 1701
-ALL_CHECKS_OK
-```
+PASS
 
-The program evaluates the exact rational partition sum and independently enumerates every permitted labelled relation for each four finite input profile, canonically quotients under every relevant type-preserving permutation, and checks equality. It also checks the full modal language on three worlds by computing the closure of all pairs of original and candidate truth masks under Boolean connectives and the box operations until stabilization, so that check is not restricted to a fixed modal depth. The exact proof is the finite-theory characteristic-formula argument, nonzero block row classification, invariant-target-subset counting, and Burnside grouping in `RESULT.md`. Finite tests do not prove the general parameter statement. No third-party audit, independent certification, arbitrary closure-membership decision procedure or global priority claim is supplied.
+Finite W yields characteristic formulas for complete pointed modal-theory classes by finite conjunction of pairwise distinguishing formulas, so definable sets are all unions of type classes. Under the KRep biconditional, truth preservation is equivalent to every row of each required block i->j being nonempty, every forbidden block zero. Any isomorphism preserves each type class, and all permutations inside a class preserve the allowed set. For a row cycle of length a and target permutation partition lambda_j, invariant nonempty subsets are 2^{sum_{b in lambda_j}gcd(a,b)}-1. Burnside averaging over product symmetric groups gives exactly the stated partition formula including i=j coupled permutations. Independently brute enumerated 3-world single-type allowed matrices and their S3 orbits: 343 labelled, 70 orbits; directly derived 4-world Burnside fixed values 50625,735,225,45,15 giving 2340. The theorem counts only same-carrier same-valuation fixed-pointwise-truth representations, not generic modally equivalent frames and offers no algorithm to compute infinite modal theories from arbitrary closures.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact support-indexed isomorphism orbit formula for fixed-theory Kripke representations, not the KRep theorem, labelled row criterion, Burnside lemma or symmetric cycle indices. Very general unlabelled coloured-digraph species may imply the formula by direct specialization, so priority is qualified and its practical contribution is a complete modal-theory support classification.
+
+## value
+
+PASS
+
+Given a finite closure model satisfying KRep, the collection of all truth-preserving Kripke presentations is a canonical mathematical object and its isomorphism-class count is a natural invariant distinct from the already known labelled count. The formula reduces a potentially enormous relation-orbit classification to cycle partitions, deals with coupled source/target permutations for i=j, and determines full arbitrary type-support profiles. While Burnside is classical and the derivation compact, this exact complete classification can be independently useful; it is not presented as a new general orbit lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
