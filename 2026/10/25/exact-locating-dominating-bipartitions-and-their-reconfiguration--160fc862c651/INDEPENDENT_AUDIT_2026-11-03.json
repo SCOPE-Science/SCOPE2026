@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T10:08:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=4, pairwise same-row open-neighborhood traces force at most one RR and one BB column (a,b<=1). Each part then has size >=n-1>=3, excluding cross-row collisions because equality would force all selected vertices in at most two matched positions. Domination fails only for a single RR or BB when one split orientation is absent; hence the four a,b cases are necessary and sufficient. Counting yields n(2^(n-1)-2)(z^(n-1)+z^(n+1))+(2^n+n(n-1)2^(n-2))z^n and total 2^(n-2)(n^2+3n+4)-4n. For flips, all-split opposite pure words are isolated; all other states reduce via permitted transfers to mixed split words, and mixed words connect through a hypercube with opposite corners removed. Level-0/1 edges are 4n(2^(n-1)-2); level-1/2 edges are 4n(n-1)(2^(n-2)-1); sum n(n+1)(2^n-4). This validates for EVERY integer n>=4 from the symbolic proof, not just finite tests. Fresh independent graph-adjacency enumeration exhaustively checked all 87,296 assignment masks over n=4..8, with exact size coefficients, edges, component orders and zero characterization mismatches; n=3 has 20 isolated states and is explicitly excluded. The source verifier was read as evidence only, not executed as a black box.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucaud, Maniya, Paul and Pradhan, Locating-dominating partitions for some classes of graphs (arXiv:2506.12933), Theorem 4.2 and proof, section 4.",
+          "Murtaza, Fazil, Javaid and Benish, Locating-Dominating Sets of Functigraphs (arXiv:1709.05152, 2017), Lemma 3.3, PDF pp.7–8.",
+          "Chakraborty, Foucaud, Henning and Laihonen, A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set (arXiv:2610.03131, 2026), main theorem and proof.",
+          "Resultary: Self- and solid-locating domination in complete multipartite graphs, https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf, different graph class and stricter location variants."
+        ],
+        "reasoning": "Foucaud et al. general co-bipartite existence theorem includes K_n square K_2; hence existence is covered. Murtaza et al. covers all complete-graph functigraphs for minimum LD cardinality, implying near-balance but no counts. Chakraborty et al. require only one class to locate while the other dominates and cannot imply an enumeration of two LD classes. No inspected broader theorem yields the proposed full coefficients or exact state-graph connectivity/edge counts.",
+        "searches": [
+          "arXiv:2506.12933 locating-dominating partitions co-bipartite Theorem 4.2",
+          "arXiv:2610.03131 dominating and locating dominating partition theorem",
+          "arXiv:1709.05152 functigraph bijective locating domination number",
+          "Resultary Self- and solid-locating domination in complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Murtaza, Fazil, Javaid and Benish, Locating-Dominating Sets of Functigraphs (arXiv:1709.05152, 2017), Lemma 3.3, PDF pp.7–8.",
+        "Foucaud, Maniya, Paul and Pradhan, Locating-dominating partitions for some classes of graphs (arXiv:2506.12933), Theorem 4.2 and proof, section 4.",
+        "Chakraborty, Foucaud, Henning and Laihonen, A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set (arXiv:2610.03131, 2026), main theorem and proof.",
+        "Resultary corpus: published same-graph Roman {3} domination, threshold-graph LD-set polynomial, complementary crown graph restrained domination, complete multipartite self/solid location domination."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Murtaza, Fazil, Javaid and Benish, Locating-Dominating Sets of Functigraphs (arXiv:1709.05152, 2017), Lemma 3.3, PDF pp.7–8.",
+          "Foucaud, Maniya, Paul and Pradhan, Locating-dominating partitions for some classes of graphs (arXiv:2506.12933), Theorem 4.2 and proof, section 4.",
+          "Chakraborty, Foucaud, Henning and Laihonen, A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set (arXiv:2610.03131, 2026), main theorem and proof.",
+          "2017 Lemma 3.3 gives lambda(G_n)=n-1 for n>=4. Since S,T partition 2n vertices and both are LD, it immediately forces |S|,|T| to be in {n-1,n,n+1}; the near-balance subclaim is therefore covered.",
+          "2025/2026 theorem implies at least one valid two-LD partition but gives no number, cardinality polynomial, component sizes, isolation classification, or transfer edges."
+        ],
+        "reasoning": "Mathematically distinguish covered corollaries (near-balance, mere existence) from full new claims: a minimum set size and a global existence theorem cannot determine all ordered partitions by size, which are admissible, or the one-bit-flip adjacency graph; the audited theorem proves exactly those extra properties. No proven implication from the inspected existing results to the full classification was found.",
+        "searches": [
+          "arXiv:1709.05152 Lemma 3.3 lambda F K_n bijection n-1 proof",
+          "arXiv:2506.12933 co-bipartite two locating-dominating parts full theorem",
+          "arXiv:2610.03131 asymmetric locating-domination partition and algorithm",
+          "reconfiguration graph of locating-dominating bipartitions matched-clique prism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Murtaza, Fazil, Javaid and Benish, Locating-Dominating Sets of Functigraphs (arXiv:1709.05152, 2017), Lemma 3.3, PDF pp.7–8.",
+          "The bijective functigraph F^f_{K_n} is isomorphic to K_n square K_2; also L(K_{2,n}), the two-row rook graph, and the complement of the crown graph K_{n,n}-M_n.",
+          "Resultary exact same-graph entry: Roman {3}-domination of complete prisms, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2, treats a different domination invariant."
+        ],
+        "reasoning": "Aliases identify exactly the audited graph, not a renamed new graph. The 2017 functigraph paper establishes the minimum size of ONE LD set; hence for any valid bipartition each class must have at least n-1, so near-balance is known by implication. The full ordered two-LD enumerator and flip-reconfiguration topology are not equivalent to this scalar minimum. Other same-graph results concern Roman domination or topology, not two LD parts.",
+        "searches": [
+          "locating-dominating partitions complete prism K_n Cartesian K_2 rook graph L(K_2,n) exact enumeration reconfiguration single-vertex transfer",
+          "two locating dominating sets matched cliques co-bipartite graph count size distributions state graph",
+          "locating dominating functigraph K_n bijective f single vertex recoloring partitions",
+          "arXiv:1709.05152 Lemma 3.3 complete graph functigraph bijective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: Locating-dominating sets of threshold graphs by canonical omissions, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-locating-dominating-sets-of-threshold-graphs-by-canonical-omissi--db9a27cc7092, counts single LD sets on a graph class not containing these induced-C4 matched cliques.",
+          "Resultary: Restrained-dominating-set profile of crown graphs, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa, involves the complementary graph and different domination condition.",
+          "Own independent direct graph enumeration for n=4..8 reproduces the proposed numbers but is not a previously published exact table."
+        ],
+        "reasoning": "Searches of relevant graph aliases and published findings did not return a previously published polynomial or full one-transfer reconfiguration table. A negative search cannot certify global priority; alternate coding terminology or overlooked tabulations are a residual risk.",
+        "searches": [
+          "locating-dominating partition counting number size distribution complete matching between two cliques",
+          "complete prisms location domination enumerator",
+          "LD locating dominating partition graph reconfiguration one vertex flip complete multipartite line graphs",
+          "Resultary locating-dominating sets of threshold graphs by canonical omissions"
+        ]
+      },
+      "rationale": "The genuinely new best-knowledge contribution is the full ordered two-class locating-dominating partition size polynomial and exact one-vertex transfer reconfiguration component/edge census for every n>=4. Prior existence is covered by the 2025/2026 co-bipartite partition theorem; prior lambda(K_n square K_2)=n-1 from a 2017 complete-graph functigraph theorem already IMPLIES the near-balance part. These subresults are not independently original. Earlier work inspected does not furnish the all-partition census or move-graph characterization, and the analogous asymmetric partition result has a different property. Full relevant primary text, Resultary published corpus and graph aliases were checked; historical priority is qualified by explicit remaining risks.",
+      "residual_risks": [
+        "A previously published complete partition enumeration might be indexed under permutation/functigraphs, locating codes or transfer/reconfiguration terminology not retrieved by the searches.",
+        "2017 functigraph theorem already proves near-balance by logical implication and must not be presented as a new standalone corollary.",
+        "Other table sequences or future expanded full-text sources may cover the census; searched databases are incomplete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the near-balance subclaim but not full ordered bipartition counts or flip graph.",
+          "evidence": [
+            "Murtaza, Fazil, Javaid and Benish, Locating-Dominating Sets of Functigraphs (arXiv:1709.05152, 2017), Lemma 3.3, PDF pp.7–8.",
+            "https://arxiv.org/pdf/1709.05152"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.05152",
+          "material_read": "Full accessible PDF through definitions, complete Section 3 including Lemma 3.3 and proof on PDF pages 7–8 (zero-index page 6 rendered), and surrounding theorems; checked hypotheses n>=4 and bijective f.",
+          "method": "Read and rendered-page inspection of original 2017 PDF, matching graphs and deducing near-balance from lambda=n-1.",
+          "title": "Locating-Dominating Sets of Functigraphs",
+          "trigger": "Exact graph alias under bijective complete-graph functigraph and already-known minimum LD cardinality"
+        },
+        {
+          "assessment": "Covers existence in the target graph but not the census or one-transfer state graph.",
+          "evidence": [
+            "Foucaud, Maniya, Paul and Pradhan, Locating-dominating partitions for some classes of graphs (arXiv:2506.12933), Theorem 4.2 and proof, section 4.",
+            "https://perso.limos.fr/ffoucaud/Publications/Papers/J60_Locating-dominating-partitions_DM_2026.pdf"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.12933",
+          "material_read": "Full relevant Section 4 Theorem 4.2 and proof in lawful author-posted manuscript PDF, including hypotheses about isolated vertices and twins; rendered relevant page inspected.",
+          "method": "Original-primary-full-text comparison of quantified graph class and existence-only conclusion with audited all-witness counts.",
+          "title": "Locating-dominating partitions for some classes of graphs",
+          "trigger": "Direct statement of two simultaneous locating-dominating classes on co-bipartite graphs"
+        },
+        {
+          "assessment": "Does not classify partitions with both parts locating-dominating or their reconfiguration.",
+          "evidence": [
+            "Chakraborty, Foucaud, Henning and Laihonen, A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set (arXiv:2610.03131, 2026), main theorem and proof.",
+            "https://arxiv.org/abs/2610.03131"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03131",
+          "material_read": "Lawful full-text source, main theorem, proof and associated algorithmic discussion, with PDF main-proof page rendered.",
+          "method": "Statement, definition, proof and algorithm comparison of symmetric both-LD versus asymmetric one-LD-one-dominating requirements.",
+          "title": "A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set",
+          "trigger": "Recent very similar two-part locating and domination partition title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-color locating-dominating partitions are established motivated objects, with a prior broad existence theorem. The new useful exact invariants are a complete infinite-family ordered partition size profile and the state-space geometry under the natural one-vertex move: precisely two frozen states and one connected bulk with a closed edge formula. These data are neither mechanically implied by previously known existence/minimum-size theorems nor an arbitrary parameter slice; the n=3 boundary is genuinely different. Near-balance itself is known from 2017 lambda=n-1 and is credited, not counted as intrinsic novelty or value on its own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Limited to simple graph K_n square K_2, n>=4, ordered partitions, both parts located, single-vertex moves; no automorphism quotient or other co-bipartite families.",
+    "Prior Murtaza et al. 2017 lambda=n-1 already implies near-balance; do not state near-balance as original.",
+    "Published source inspections and scientific search cannot eliminate unindexed full census or reconfiguration work."
+  ],
+  "schema_version": 1
+}
