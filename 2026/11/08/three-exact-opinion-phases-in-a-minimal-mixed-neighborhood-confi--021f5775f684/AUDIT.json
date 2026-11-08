@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For the directed NDW rule, leaf scores equal sigma*h+(1-sigma)/2 and sigma*(1-h)+(1-sigma)/2, while hub scores are sigma*h and sigma*(1-h). For epsilon<=1/4 and sigma<2 epsilon the leaves are immobile; at sigma>=2 epsilon the symmetric initial state is absorbing. For sigma<=epsilon the hub always makes fair affine half-updates and has an exact dyadic-uniform law; independent constant edge blocks prove liminf 0 and limsup 1 almost surely. For epsilon<sigma<2epsilon, both-edge receptiveness is precisely the interval (1-epsilon/sigma,epsilon/sigma), and blocks force almost-sure finite exit with geometric tail; thereafter exactly one influence direction remains, leading to endpoints 0 or 1 equally likely by reflection. The bounded variance limits and special binomial finite-time formula follow. The exact rational verifier passed its finite branching identities and strict threshold checks; finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang–Hong–Hu (2017), SIAM J. Control Optim. 55, 2543–2573, abstract: a threshold for fluctuations in a different model with explicitly stubborn agents; full text unavailable.",
+        "Bernardo et al. (2024), Automatica 159, 111302, discusses synchronous bounded-confidence convergence and models with stubborn agents rather than this model-specific mixed NDW rule.",
+        "A mathematical research result about a seven-agent nonfreezing confidence network addresses a different update mechanism and seven-agent graph."
+      ],
+      "reasoning": "The closest general fluctuation theorem concerns exogenously stubborn agents, not the three-node path with non-stubborn agents that become immobile under opposite-neighborhood tests. It cannot be assumed to yield the two parameter thresholds or the exact nonmonotone limiting-variance law without an explicit model reduction; no such reduction was found in the accessible material. Full-text unavailability leaves residual priority risk rather than a definitive noncoverage certification.",
+      "searches": [
+        "2017 nonlocal aggregative opinion fluctuations 2024 neighborhood Deffuant exact threshold random two stubborn leaves three node path",
+        "\"Multiagent Opinion Dynamics of Bounded Confidence with Nonlocal Aggregative Interaction\" filetype:pdf",
+        "\"bounded confidence\" non-convergent opinion dynamics recurrent 3 agents stochastic asynchronous model"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.05368v1 (HTML inspected)",
+      "arxiv:2402.05368v2 (HTML inspected)",
+      "doi:10.1137/16M1083268 (abstract only)",
+      "doi:10.1016/j.automatica.2023.111302 (open-access review material)",
+      "arxiv:2409.15148v1 (abstract)",
+      "published seven-agent nonfreezing confidence result 2026-10-11, distinct system"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krishnagopal–Porter arXiv:2402.05368v1, introduction and section III: defines neighborhood-based receptiveness; arXiv:2402.05368v2 sections II–V describe update formulas and simulation phenomenology.",
+        "Zhang–Hong–Hu 2017 abstract describes nonlocal-aggregation fluctuations with assumed stubborn agents; it does not display the NDW threshold gate or a second all-update-freezing transition.",
+        "Chu–Porter arXiv:2409.15148v1 abstract concerns different random interevent-time distributions in traditional bounded-confidence updates."
+      ],
+      "reasoning": "The original NDW equations imply the elementary local score identities but do not themselves state the global pathwise consequence, the sharp triple phase classification for every direct weight, or the limiting nonmonotone variance. The standard all-receptive Bernoulli affine law only implies the first regime. Published related models require additional assumptions or different update semantics and do not imply the entire fixed-parameter NDW trichotomy as a corollary.",
+      "searches": [
+        "Krishnagopal Porter neighborhood Deffuant mixed sigma phase transition oscillation fixation freeze sigma equals epsilon sigma equals two epsilon three node path opinion variance 1/12 1/4 0",
+        "2017 nonlocal aggregative opinion fluctuations 2024 neighborhood Deffuant exact threshold random two stubborn leaves three node path",
+        "\"Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects\" three node star nonconvergence stationary distribution 2024",
+        "\"Deffuant\" \"star graph\" nonconvergence oscillations opinion transitive influence",
+        "\"Multiagent Opinion Dynamics of Bounded Confidence with Nonlocal Aggregative Interaction\" arxiv",
+        "\"10.1137/16M1083268\" pdf open access"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krishnagopal–Porter 2024 arXiv:2402.05368, section III, directional NDW rule; v2 explicitly has two distinct endpoint indicators.",
+        "Zhang–Hong–Hu 2017 DOI:10.1137/16M1083268 abstract describes an exogenously stubborn-agent aggregation model with a confidence-bound fluctuation threshold.",
+        "The all-receptive center recurrence is the classical Bernoulli affine recursion; its stationary law and the pure neighborhood special case are not claimed novel."
+      ],
+      "reasoning": "Rewriting the receptive center as a binary affine iterated map recovers a standard object and previously considered pure-neighborhood behavior. That equivalence by itself covers neither the mixed model's almost-sure exit and polarization region nor the second sharp stationary regime with all updates blocked; these require the direction-specific confidence inequalities at every nonzero direct-weight parameter.",
+      "searches": [
+        "Krishnagopal Porter neighborhood Deffuant mixed sigma phase transition oscillation fixation freeze sigma equals epsilon sigma equals two epsilon three node path opinion variance 1/12 1/4 0",
+        "neighborhood bounded confidence model three node path asymmetric one-way updating frozen leaves mean neighborhood opinion almost surely oscillates",
+        "bounded confidence opinion update stochastic random affine recurrence uniform stationary nonconvergence three agents sigma epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published research record: Exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system, 2026-10-11 (distinct seven-agent proximity rule).",
+        "Krishnagopal–Porter preprint v1 and v2 provide model equations and numerical tests, not a table of exact all-weight threshold outcomes for the symmetric three-agent path."
+      ],
+      "reasoning": "No relevant exact table or specialized source identifying both weight thresholds or all three variance values was encountered in the actual searches. Missing matches alone are not a proof of novelty; the claim was compared against the primary source's mathematical content and the related published results.",
+      "searches": [
+        "Krishnagopal Porter neighborhood Deffuant mixed sigma phase transition oscillation fixation freeze sigma equals epsilon sigma equals two epsilon three node path opinion variance 1/12 1/4 0",
+        "social network neighborhood-confidence endogenous stubborn leaves one-way interaction sharp parameter trichotomy convergence nonconvergence stationary uniform law"
+      ]
+    },
+    "rationale": "The original 2024 NDW paper introduces neighborhood-dependent direction-specific receptiveness and demonstrates numerical behaviors but does not classify the symmetric three-agent path throughout the full mixed-direct weight interval. Known pure-sigma=0 affine perpetuities are excluded from the claim of novelty. The all-sigma double threshold and nonmonotone variance are not implied by the inspected model introduction or conventional asymmetric bounded confidence results. The 2017 nonlocal aggregation article with explicitly stubborn agents remains a documented full-text priority risk.",
+    "residual_risks": [
+      "The 2017 nonlocal-aggregation paper was not accessible in full; its broader theorem may admit a non-obvious reduction despite the different model semantics.",
+      "Unindexed or unpublished equivalent model-specific calculations may exist.",
+      "The originally printed 2024 preprint has an ambiguous repeated second indicator; the later arXiv v2 explicitly implements the direction-specific interpretation and agrees with the v1 explanatory prose."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces relevant model. The preprint prose establishes intended asymmetric influence, although its displayed second update indicator repeats the first instead of switching direction. No mixed three-node exact phase classification found.",
+        "evidence": [
+          "Original dated arXiv v1 2024-02-08, section III describes agent-specific neighbor-mean tests; numerical observations near Fig. 1 discuss opinion fluctuation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.05368v1",
+        "material_read": "Abstract, introductory motivation, Section III directed influence prose and printed update equation, numerical observations in Section V",
+        "method": "Full accessible HTML text examined for formula, assumptions, three-node results and sigma phase boundaries",
+        "title": "Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects (original preprint)",
+        "trigger": "Same model first public 2024-02-08; mixed direct-neighborhood confidence rule"
+      },
+      {
+        "assessment": "Eq. (3) correctly uses distinct direction-specific neighborhood means, matching the present theorem. Numerical results discuss nonconvergent-looking clusters but no exact three-node all-weight variance trichotomy.",
+        "evidence": [
+          "arXiv:2402.05368v2 §III.1, lines 100–116: separate directed indicators and homogeneous parameters; §IV.1, lines 254–257: finite simulation behavior"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.05368v2",
+        "material_read": "Sections II and III including full equation (3), simulation analysis in Section IV, discussion in Section V",
+        "method": "Full accessible HTML text inspected, direct comparison of equation (3) and the three-node theorem statement",
+        "title": "Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects (revised preprint)",
+        "trigger": "Confirm exact direction-specific rule for the object being proved"
+      },
+      {
+        "assessment": "The abstract uses exogenously stubborn agents and a different nonlocal aggregate rule. It poses an analogous possible broader-coverage risk, not direct evidence of both NDW weight thresholds.",
+        "evidence": [
+          "SIAM J. Control Optim. 55 (2017), abstract: fluctuation iff confidence bound above a critical value in model with stubborn agents"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/16M1083268",
+        "material_read": "Publisher abstract, publication metadata and secondary bibliographic description; full text not obtained",
+        "method": "Publisher abstract, open-access/preprint searches; full text could not be obtained",
+        "title": "Multiagent Opinion Dynamics of Bounded Confidence with Nonlocal Aggregative Interaction",
+        "trigger": "Earlier analytical almost-sure fluctuations and confidence threshold in nonlocal opinion systems"
+      },
+      {
+        "assessment": "Survey focuses on synchronous bounded-confidence dynamics, with different receptiveness and stubbornness assumptions; provides context, not this NDW threshold classification.",
+        "evidence": [
+          "Automatica 159 (2024), survey abstract and Section 12"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2023.111302",
+        "material_read": "Open-access HTML abstract, discussion of stubborn-agent examples, conclusions and model scope",
+        "method": "Article HTML reading and topical search of convergence sections",
+        "title": "Bounded confidence opinion dynamics: A survey",
+        "trigger": "Standard and heterogeneous bounded-confidence convergence regimes"
+      },
+      {
+        "assessment": "Changes event timing in conventional bounded-confidence rules; its abstract does not imply the specific neighborhood-directed weight phase diagram.",
+        "evidence": [
+          "arXiv:2409.15148v1, submitted 2024-09-23, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.15148",
+        "material_read": "Abstract and article metadata",
+        "method": "ArXiv abstract inspection, not full-text noncoverage assertion",
+        "title": "Bounded-confidence opinion models with random-time interactions",
+        "trigger": "Later related bounded-confidence stochastic interactions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "021f5775-f684-4f4b-bb0f-ffb82bea85f3",
+  "value": {
+    "rationale": "The three-vertex path is the smallest connected graph permitting asymmetric mean-neighborhood influence. With fixed confidence, fixed initial opinions, and no exogenous stubbornness, increasing the direct-influence weight produces three sharp qualitative phases and nonmonotonic limiting variance 1/12,1/4,0 at exactly epsilon and 2epsilon. This is a motivated complete classification of a natural minimal network, not merely a low-impact parameter substitution, known-table recomputation or isolated simulation.",
+    "status": "PASS"
+  }
+}
