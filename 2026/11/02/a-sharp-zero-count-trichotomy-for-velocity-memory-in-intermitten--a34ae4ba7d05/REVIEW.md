@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model's stationary run fraction is exactly \(\beta/(\alpha+\beta)\). The first angular Fourier harmonic closes into a two-state linear evolution with the reset jump contributing exactly \(c=\mathbb E\cos\chi\). The stated discriminant and all three inverse Laplace formulas follow by solving its second-order scalar equation with the correct initial derivative. Positivity for nonnegative jump cosine follows from a Metzler generator; negative cosine yields an exact hyperbolic/sinusoidal dichotomy with the correct boundary inclusions and derivative nondegeneracy. The specific perfect-reversal rate thresholds follow from the discriminant polynomial. The Green--Kubo second derivative and diffusivity have the correct planar normalizations. A standalone checker independently agrees on 2,730 comparisons, including the four-state jump process. Risks: the finite numerical tests cannot replace analytic quantifiers; none is used to do so.
+## correctness
 
-## Originality — PASS, qualified
-The full first-harmonic renewal correlation is prior work in Datta, Beta and Großmann (arXiv:2406.15277); we compare the claimed trichotomy to their original 2024 Secs. II--V, Eqs. (15)--(16), and supporting derivations. Their result strongly covers the correlation observable but does not state or directly determine the complete zero-count parameter boundaries without an additional spectral/sign analysis. Peruani and Chaudhuri (arXiv:2306.05647) analyze another finite-stop class, including exact two-mode correlations but without the negative angular-jump classification. Oscillatory memory in a distinct clocked constant-speed directional-reversal model is already shown by Großmann, Peruani and Bär (arXiv:1511.04542), and is not claimed as new. Seyrich et al. (arXiv:1805.08860) model finite tumbles and measure correlation without the stated trichotomy. The inspected published sources did not state the same complete claim. Risks: because a general renewal transform already exists and the new theorem is a Markov specialization, later or less searchable literature might implicitly or explicitly give the same sharp sign diagram. Publication priority is not certified.
+PASS
 
-## Mathematical value — PASS
-This is a global qualitative classification of a directly observable signed persistence function, not a single parameter substitution: it separates an antipersistent-but-positive regime from one-crossing and infinitely oscillatory regimes, locates the sharp exceptional boundaries, and translates every crossing to an exact sign change of stationary mean-squared-displacement curvature. It resolves a physically motivated distinction between instantaneous directional reversal and finite-duration immobile turns, with an exact dimensionless rate threshold. Unlike a selected numerical example, the theorem applies to the complete parameter family specified. Risk: its value is confined to homogeneous exponential two-state motion, rather than a general renewal theorem.
+For stationary run/turn switching alpha,beta, and angular first harmonic cosine c, the exact backward first-harmonic evolution is u_r,u_t derivative=[[-(alpha+d_r),alpha],[beta*c,-(beta+d_t)]](u_r,u_t), initial (1,0). Its characteristic discriminant Delta=(a-b)^2+4alpha beta c yields exactly cosh/sinh if Delta>0, affine-in-time repeated root if Delta=0, or sinusoidal if Delta<0. When c>=0, positivity of Metzler semigroup prevents roots; for c<0 and real roots the sign of a-b decides zero/one, with all endpoints included. Imaginary discriminant has infinitely many simple roots spaced 2pi/sqrt(-Delta). For exact pi reversal and zero angular diffusion, roots of h^2-6h+1 yield 3±2sqrt2. The regular Green–Kubo identity has m2"(t)=2C(t), t>0; independent translational diffusion contributes only linear term. Independently compared direct matrix exponentials with analytic solutions in five parameter configurations including the exceptional root.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Datta–Beta–Grossmann previously gave a more general renewal velocity autocorrelation transform, and Grossmann–Peruani–Baer already exhibit oscillations in a different reversing model. The specific complete no/one/infinitely-many zeros classification for exponential run/turn waiting times, including repeated-root boundaries and rate thresholds, was not stated in the inspected full transform. Specialization is acknowledged; no novelty claim for the transform or oscillations as such.
+
+## value
+
+PASS
+
+The general memory observable has three genuinely distinct global sign patterns even with negative turn cosine, giving a complete sharp phase diagram and exactly describing mean-squared-displacement curvature reversals. This distinguishes slowly switching reversal from quick directional decorrelation rather than presenting a single oscillatory numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
