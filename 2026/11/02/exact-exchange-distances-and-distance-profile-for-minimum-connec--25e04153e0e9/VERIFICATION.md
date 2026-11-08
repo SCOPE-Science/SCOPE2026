@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard-library interpreter. The verifier constructs the original bipartite graph and directly checks every vertex subset for connected domination for \(3\le n\le7\). It compares the resulting set sizes with the all-CDS polynomial, independently identifies all inclusion-minimal configurations, enumerates token exchanges, and compares breadth-first-search distances from every state to the exact metric and the complete five-coefficient ordered-pair polynomial. No external data, randomness, or third-party dependencies are required. A passing execution terminates with `VERIFY_OK`.
+## correctness
 
-The exhaustive verifier checks only these finite cases. The published proof uses an explicit structural characterization, Johnson common-neighbor counts, and finite case-split geodesic constructions that apply to every integer \(n\ge3\). The three-step adjacent-swap route is necessary because both shortest two-step orders collide. Prior publication of the scalar connected-domination minimum and its configuration count is credited; independent audit and exhaustive publication-priority validation have not been performed.
+PASS
+
+C PASS. For n>=3 a crown CDS has at least two vertices on each shore, except the disconnected equal 2-by-2 choice; removal shows only admissible (2,2) sets are inclusion-minimal. Token exchanges preserve each shore count, yielding the off-diagonal square of J(n,2). Case-wise bypass of the forbidden diagonal preserves Cartesian distance except for adjacent-coordinate swaps, which cost one extra step. Four common neighbors for Johnson distance-two paths ensure routes exist. Inclusion-exclusion over forbidden starts/ends gives v(v-2)(1+kt+qt^2)^2+v(1+kt^2+qt^4)+vk(t^3-t^2). Degree, diameter, token-slide rigidity follow. Independently breadth-first enumerated the entire metric and ordered-pair shells for n=3,4,5; finite checks are not a proof for all n.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for all-pairs exchange metric and exact distance enumerator only; the count of minimum connected dominating sets is explicitly known and excluded from novelty. No source inspected gives the particular off-diagonal Johnson-square distance correction; priority of a general two-particle collision metric remains a qualified risk.
+
+## value
+
+PASS
+
+V PASS. Shortest paths and exact shells of the natural minimum-connected-dominating-set reconfiguration graph, plus a jump-versus-slide dichotomy, are useful structural data for a canonical graph family; not merely recomputation of its previously known minimum-set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
