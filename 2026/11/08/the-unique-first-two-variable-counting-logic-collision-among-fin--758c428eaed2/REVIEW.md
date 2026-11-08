@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The six-vertex cutoff follows from inductive complete generation with exact permutation canonicalization; the shared-palette directed refinement test gives the 55-class partition. A second verifier reads a separately compiled published 56-type catalogue and independently finds the same one collision. The two witnesses have matching equitable directed quotients and different transitive-four counts; extensions preserve equivalence and nonisomorphism symbolically. Finite computations do not replace the infinite family proof.
+
+**Originality — PASS, subject to priority risk.** The general 2015 identification theorem covers all finite binary relations and therefore supplies a powerful general decision method. It does not explicitly tabulate the first six-vertex tournament collision class, its uniqueness, the transitive-four distinction, or the complete first-layer count. McKay lists the 56 tournaments but does not evaluate counting-logic equivalence. Searches of published-finding corpus and web sources found no exact table or stronger published small-order census; this does not certify historical priority. The claim is a specific exact numerical and structural first-layer classification, not a new general logical characterization.
+
+**Mathematical value — PASS.** The threshold and complete first obstruction are natural reference points for the limitations of two-variable counting logic within the canonical class of finite tournaments. Identifying the unique obstruction and its transitive-subtournament count difference makes the expressive-power limitation concrete; the construction extends it to every larger order. This is a narrow but mathematically motivated finite classification, not a claim of a general classification of tournaments.
+
+**Closest literature and limitations.** Kiefer–Schweitzer–Selman (arXiv:1503.08792, first 2015-03-30), Theorems 24 and 27, is the strongest relevant prior result. McKay's six-vertex catalogue supplies independent exhaustive representatives. The general theorem can be applied computationally to the same finite range; the historical novelty of this exact numerical application remains to be independently assessed. The uniqueness statement stops at order six; independent mathematical audit is pending.
+
+Self-review: passed. Independent audit: not yet performed.
