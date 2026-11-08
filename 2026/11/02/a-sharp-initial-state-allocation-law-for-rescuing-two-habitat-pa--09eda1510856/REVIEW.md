@@ -1,15 +1,21 @@
-# Scientific review: initial-state-dependent optimal rescue direction
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a fully specified four-state absorbing continuous-time Markov chain. The proof reconstructs the three first-step linear equations, solves them with strictly positive denominators, and differentiates the exact first-passage means on the closed feasible budget interval. The identity \(T''(c)=-2/[ab(a+b+B)]<0\) establishes uniqueness and both endpoint cases without relying on a numerical optimizer. Independently coded rational generator inversions, curvature and optimization assertions passed 2916 checks. The finite tests support but do not replace the algebraic proof. Boundary \(c=0\) or \(c=B\) remains valid; local extinction rates must be positive.
+## correctness
 
-## Originality — PASS, provisional priority
-Compared claims and implication coverage rather than title similarity. Day and Possingham (1995) give a discrete-time patch-occupancy transition framework, not the stated closed continuous-time allocation classification. Vuilleumier and Possingham (2006), examined in full, use many-patch simulation initially fully occupied; their objective and dynamics differ. Bode, Burrage and Possingham (2008), including its two-patch appendix, prove an asymptotic eigenvalue-based symmetry conclusion for equal-extinction discrete-time connectivity, not an arbitrary-initial-law mean-first-passage optimum. The closest risk is Etienne and Heesterbeek (2001), which addresses metapopulation persistence management: only its abstract was accessible, so an uninspected theorem may imply this result. Ross and Pollett (2010) address scalar colonization/extinction resource changes in a homogeneous model, with full text unavailable in the accessible sources. Existing related work on externally recolonized stationary two-patch occupancy concerns a different irreducible objective and cannot imply absorption-time optimality in the closed model. Searches did not identify a statement equivalent to the universal curvature and projected initial-weighted split, but absence of retrieval is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-The theorem is a complete, sharp policy classification for a natural, small closed-network ecological conservation problem. It identifies a measurable role of initial occupancy information and a surprising exception to the heuristic that symmetric links should always be best in a symmetric habitat: with one initial surviving patch, all capacity may be optimally directed outward. The universal curvature supplies an exact allocation-regret scale and proves no other local policies are optimal. The result is specialized to two patches and fixed rates, not a claim about larger networks, finite-horizon survival or empirical ecology. General Markov first-step methods are standard, but the state-conditioned directional budget law and its all-parameter boundary are the scientifically assessed result.
+Rebuilt first-step equations for transient states 11,10,01 with 00 absorbing, solved their three-by-three linear system and checked all positive denominators including c=0 or B. With D=ab(a+b+B), the means are [a²+ab+b²+(a+b)B+c(B-c)]/D, [(b+c)(a+b+B-c)]/D, [(a+B-c)(a+b+c)]/D. Weighted derivative T'(c)=[B+a w10-b w01-2c]/D, second derivative −2/D<0. Projection of (B+a w10−b w01)/2 to [0,B] uniquely optimizes, including equality at endpoints. Independently evaluated 756 exact-rational generator/inequality assertions; this finite grid does not prove the general theorem.
 
-## Closest literature and risks
-Most relevant primary sources: Day and Possingham (1995); Etienne and Heesterbeek (2001); Vuilleumier and Possingham (2006); Bode, Burrage and Possingham (2008); Ross and Pollett (2010), with DOIs and fuller comparisons in RESULT.md. Historical priority is provisional because the Etienne–Heesterbeek and Ross–Pollett full texts were not obtained. No independent evaluation has been conducted. The scientific model is a stylized two-patch occupancy approximation, so quantitative conservation use would require model validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct result: continuous-time two-patch *mean hitting time*, arbitrary initial-law-dependent fixed directional split, quadratic curvature; compared with discrete-time patch processes, symmetric spectral resilience, many-patch asymmetric connectivity and general intervention heuristics. Full text of key Etienne–Heesterbeek source inaccessible; substantial historical risk remains but no positive evidence it already states this exact law.
+
+## value
+
+PASS
+
+Expected regional extinction time under constrained directional recolonization is a motivated finite-state conservation objective. The exact initial-distribution control and endpoint-switching rule separate extinction time from quasi-stationary eigenvalue or all-patches-initially-occupied criteria. Although three-state CTMC algebra is elementary, the sharply interpreted allocation response to initial uncertainty is a natural exact invariant that could be needed in intervention design; not a claim about realistic demographics or arbitrary networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
