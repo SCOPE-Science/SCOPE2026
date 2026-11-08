@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for the exact \(\operatorname{Dirichlet}(1,\ldots,1)\) gap vector with \(m\ge2\). Translation of any \(k\) constrained gaps produces a rescaled uniform simplex and the exact conditional quadratic moment; finite inclusion–exclusion proves the threshold CDF and weighted moment for every threshold. Layer-cake integration and two binomial harmonic identities yield the mixed moment and covariance. The numerator is strictly positive because its increment at \(m\) is \(2(H_m-1)/m>0\). Exact marginal second and fourth moments yield the displayed Pearson correlation and limiting scale. Standalone `verify.py` passed 2760 assertions, including exact polynomial integration over the two-dimensional simplex for \(m=3\). The all-size proof does not rely on enumerated cases.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-The closest identifiable theory is the Fisher–Pinelis distribution of the **largest** gap, whereas the present theorem determines a **quadratically weighted** maximum-threshold moment and its exact covariance. Aaron–Cholaquidis–Fraiman studies maximal-spacings asymptotics and geometric testing but not the squared-gap mixed moment. Pyke and Das–Maiti document the marginal spacings and Greenwood statistic separately. An accessible earlier calculation for the *smallest* spacing and the same quadratic statistic concerns a different conditioning event with a different law and opposite covariance sign, and does not imply the present largest-spacing formulas. Published general spacing theory may encode an equivalent result; in particular, Pyke (1965) was not readable completely, so historical uniqueness remains uncertain. No exact matching published theorem or stronger dominating mixed-moment theorem was located in the sources materially inspected.
+PASS
 
-## Mathematical value — PASS
-The maximum gap measures the largest empty interval, whereas the Greenwood sum measures total quadratic unevenness. Their joint dependence is pertinent to spacing-based null testing and periodogram peak diagnostics: the theorem gives the entire *truncated first quadratic moment* for every peak threshold and a positive finite-sample covariance despite vanishing asymptotic correlation. It is distinct from recomputing the marginal maximum-spacing or Greenwood moments; the weighted inclusion–exclusion term, harmonic-square closed form, and explicit \((\log m)^2/\sqrt m\) correlation scale address a natural dependence question. No combined-test tail law, calibration improvement, or asymptotic independence claim is made.
+PASS: For m-1 iid uniform order statistics the m gaps are Dirichlet(1,...,1). Conditioning on k specified gaps exceeding t leaves a scaled simplex; computing conditional sum of squares gives k t^2+2kt(1-kt)/m+2(1-kt)^2/(m+1). Inclusion-exclusion proves F_m and A_m at all thresholds, including breakpoints. Layer-cake beta integration and harmonic binomial sums yield E[MG] and covariance B_m/[m(m+1)(m+2)], with B_m-B_{m-1}=2(H_m-1)/m>0. Exact Dirichlet fourth moments yield Pearson correlation and asymptotic sqrt(6)/(2pi)*(log m)^2/sqrt m. Independent exact rational checks m=2..34 and a separate m=2 threshold integral supplement, not replace, the all-m proof.
 
-## Scope and residual uncertainties
-The finding concerns the uniform-simplex (broken-stick) null only. Earlier works on multiple spacing statistics may conceal equivalent formulas; a complete primary-text priority audit remains for an independent reviewer, particularly for Pyke's classic survey. These limitations do not alter the exact mathematics proved here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.
+
+## value
+
+PASS
+
+PASS: The maximum spacing and Greenwood quadratic gap sum are two classical, naturally compared goodness-of-fit statistics. Their exact conditional first quadratic moment and positive finite-m covariance, together with asymptotically vanishing correlation, resolve a motivated dependence question and provide directly usable finite-sample calibration. No independence or testing-power theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

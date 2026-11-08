@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:55:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For m-1 iid uniform order statistics the m gaps are Dirichlet(1,...,1). Conditioning on k specified gaps exceeding t leaves a scaled simplex; computing conditional sum of squares gives k t^2+2kt(1-kt)/m+2(1-kt)^2/(m+1). Inclusion-exclusion proves F_m and A_m at all thresholds, including breakpoints. Layer-cake beta integration and harmonic binomial sums yield E[MG] and covariance B_m/[m(m+1)(m+2)], with B_m-B_{m-1}=2(H_m-1)/m>0. Exact Dirichlet fourth moments yield Pearson correlation and asymptotic sqrt(6)/(2pi)*(log m)^2/sqrt m. Independent exact rational checks m=2..34 and a separate m=2 threshold integral supplement, not replace, the all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pyke 1965 Spacings surveys general spacing-function distributions, but full text not read.",
+          "Ghosh–Jammalamadaka Greenwood distribution studies second moment statistic separately, not explicit max-weighted mixed moment in inspected material."
+        ],
+        "reasoning": "A theorem giving a complete joint distribution of the entire Dirichlet vector could in principle imply the formulas through integration, but no inspected primary source states the evaluated weighted moment. Such a tautological implication from the known Dirichlet law is not the same as an already evaluated exact result.",
+        "searches": [
+          "uniform spacings maximum gap Greenwood statistic joint moments covariance truncated quadratic sum",
+          "Pyke 1965 Spacings pdf full text 395 436",
+          "Ronald Pyke Spacings 1965 full pdf university",
+          "Pyke 1965 Spacings \"Greenwood\" \"maximum\" \"covariance\"",
+          "\"Greenwood\" \"largest spacing\" covariance sum squares",
+          "https://arxiv.org/pdf/1909.06406"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md d1be1b26a98cd03fea1e27536c539609df3d9d45",
+        "Frozen verify.py 179bb0a856f8039a33df3ee92e6dcd0c9a889941",
+        "https://arxiv.org/pdf/1909.06406",
+        "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+        "Independent harmonic-beta binomial sum / m=2 geometric integral"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Fisher–Pinelis distribution of M and Dirichlet marginal moments E[G] do not determine E[MG] without the dependence copula.",
+          "The shift-and-rescale conditional G expectation followed by inclusion-exclusion determines E[MG] exactly."
+        ],
+        "reasoning": "Separate marginals logically allow many covariances; the newly weighted inclusion-exclusion performs nontrivial joint integration not supplied by them.",
+        "searches": [
+          "uniform spacings maximum gap Greenwood statistic joint moments covariance truncated quadratic sum",
+          "Pyke 1965 Spacings pdf full text 395 436",
+          "Ronald Pyke Spacings 1965 full pdf university",
+          "Pyke 1965 Spacings \"Greenwood\" \"maximum\" \"covariance\"",
+          "\"Greenwood\" \"largest spacing\" covariance sum squares",
+          "https://arxiv.org/pdf/1909.06406"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinelis 2019 Theorem 1.1 and Eq 1.5 recover the maximum-spacing marginal cdf, equivalent to F_m.",
+          "The new A_m is E[sum_i D_i^2 * 1{max_i D_i<=t}], involving a quadratic statistic absent from the max-only formula."
+        ],
+        "reasoning": "The first displayed F_m is classical and not original; the weighted-truncation and mixed covariance are distinct joint functionals rather than renamed order statistic marginals.",
+        "searches": [
+          "uniform spacings maximum gap Greenwood statistic joint moments covariance truncated quadratic sum",
+          "Pyke 1965 Spacings pdf full text 395 436",
+          "Ronald Pyke Spacings 1965 full pdf university",
+          "Pyke 1965 Spacings \"Greenwood\" \"maximum\" \"covariance\"",
+          "\"Greenwood\" \"largest spacing\" covariance sum squares",
+          "https://arxiv.org/pdf/1909.06406"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinelis Eq 1.5 is an exact max-spacing CDF table/formula; no covariance or conditional quadratic energy.",
+          "Independent m=2 covariance=1/48, m=3=19/1080; Resultary semantic query did not produce an equivalent joint moment record."
+        ],
+        "reasoning": "Checked explicit existing marginal formulas against the actual joint moment; no known table of the evaluated mixed statistic was encountered. The absence of search results is not a proof of priority.",
+        "searches": [
+          "uniform spacings maximum gap Greenwood statistic joint moments covariance truncated quadratic sum",
+          "Pyke 1965 Spacings pdf full text 395 436",
+          "Ronald Pyke Spacings 1965 full pdf university",
+          "Pyke 1965 Spacings \"Greenwood\" \"maximum\" \"covariance\"",
+          "\"Greenwood\" \"largest spacing\" covariance sum squares",
+          "https://arxiv.org/pdf/1909.06406"
+        ]
+      },
+      "rationale": "Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.",
+      "residual_risks": [
+        "Pyke (1965) full text not retrieved by lawful preprint/OA nor institutional attempt; historic exact joint formulas may exist there.",
+        "Specialist older literature on maximal spacings versus Greenwood statistics was not exhaustively indexed.",
+        "Vanishing Pearson correlation does not establish asymptotic independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computes marginal ordered-spacing CDFs, not truncated expectation of sum of squared gaps.",
+          "evidence": "Eq 1.5 gives P(max gap>x) as inclusion-exclusion, with no quadratic energy marker.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.06406",
+          "material_read": "Complete ten-page primary arXiv PDF, especially Thm 1.1-1.2 and Eq 1.5",
+          "method": "Read parsed full PDF and visually inspected p.2 via screenshot",
+          "title": "Order statistics on the spacings between order statistics for the uniform distribution (Pinelis, 2019)",
+          "trigger": "Exact distribution of maximum uniform spacing"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING judgment. Exact mixed result could be known in this 1965 survey or citations.",
+          "evidence": "Publisher summary explicitly covers general functionals and limiting laws of spacings, making full-text priority inspection desirable.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "Oxford journal abstract and visible references only; full journal PDF not accessible after open/preprint/institution attempts",
+          "method": "Read publisher summary; lawful OA full-text search and institutional access attempt failed",
+          "title": "Spacings (Pyke, 1965)",
+          "trigger": "Classical comprehensive survey of joint gap statistics may already contain mixed moment"
+        },
+        {
+          "assessment": "Deals with maximal empty regions and goodness-of-fit, not an explicit sum-of-squares threshold moment in material read.",
+          "evidence": "Abstract emphasizes maximal-spacings geometric generalizations.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.2482",
+          "material_read": "Public arXiv abstract and bibliographic record, not full article",
+          "method": "Read public abstract",
+          "title": "A Generalization of the maximal-spacings in several dimensions and a convexity test (Aaron, Cholaquidis, Fraiman, 2014)",
+          "trigger": "Broad maximum-gap testing literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The maximum spacing and Greenwood quadratic gap sum are two classical, naturally compared goodness-of-fit statistics. Their exact conditional first quadratic moment and positive finite-m covariance, together with asymptotically vanishing correlation, resolve a motivated dependence question and provide directly usable finite-sample calibration. No independence or testing-power theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md d1be1b26a98cd03fea1e27536c539609df3d9d45",
+    "Frozen verify.py 179bb0a856f8039a33df3ee92e6dcd0c9a889941",
+    "https://arxiv.org/pdf/1909.06406",
+    "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+    "Independent harmonic-beta binomial sum / m=2 geometric integral"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a Dirichlet(1,...,1) m-spacing vector with m>=2, the exact joint threshold moment E[G 1{M<=t}], covariance (H_m^2+H_m^(2)-2H_m)/[m(m+1)(m+2)]>0, and asymptotic Pearson correlation sqrt(6)/(2 pi)*(log m)^2/sqrt(m) hold for all permitted m and t.",
+  "limitations": [
+    "Distribution exactly uniform-simplex Dirichlet concentration 1; no arbitrary nonuniform spacing law.",
+    "At t<=1/m, conditioning event has zero probability, so conditional quotient only claimed for t>1/m."
+  ],
+  "residual_risks": [
+    "Pyke (1965) full text not retrieved by lawful preprint/OA nor institutional attempt; historic exact joint formulas may exist there.",
+    "Specialist older literature on maximal spacings versus Greenwood statistics was not exhaustively indexed.",
+    "Vanishing Pearson correlation does not establish asymptotic independence."
+  ],
+  "schema_version": 1
+}
