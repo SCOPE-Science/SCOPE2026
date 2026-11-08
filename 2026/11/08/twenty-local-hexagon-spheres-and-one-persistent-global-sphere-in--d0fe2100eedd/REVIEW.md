@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The full graph and shortest-path metric are explicit; exact clique enumeration finds 802 and 6,462 nonempty faces. Verified elementary collapses reduce them to two-dimensional cores, and elimination of all non-tree-edge generators in complete triangle presentations proves simple connectivity. Euler characteristics yield ranks 21 and 1; the two-dimensional homology-Whitehead argument proves integral sphere-wedge homotopy types. A directly computed unit determinant minor proves that the 20 octahedral hexagon cycles together with the global polyhedral cycle form an integral (rather than rational) basis. The local cycles bound at scale three; the surviving global cycle has a unit coefficient after reduction. The standalone checker uses exact arithmetic and reproduces its recorded output.
+
+**Originality — PASS subject to residual publication-priority risk.** Adamaszek–Adams (arXiv:1503.03669) classifies Rips complexes of subsets of a circle under the circle metric; its theorem does not include an intrinsic graph metric on the truncated icosahedron. Saleh–Titz Mite–Witzel (arXiv:2302.14388) classifies the five Platonic solids and expressly leaves Archimedean examples as a prospective extension. The closest indexed calculations concern the truncated octahedron, truncated cube, rhombicuboctahedron and other graphs, not this specific 60-vertex fullerene or the 20-versus-one integral persistence decomposition. Indexed-search failures cannot exclude unindexed fullerene results; this remains a declared risk.
+
+**Mathematical value — PASS.** The truncated icosahedron is the canonical 60-vertex fullerene, with twenty geometrically distinguished hexagons and twelve pentagons. The theorem explains a sharp, interpretable topological event: the twenty local octahedral sphere classes die precisely on enlarging the threshold from two to three, while a primitive global polyhedral sphere persists. The integral basis and inclusion map add information unavailable from Betti numbers alone and provide a natural test case for graph-metric topological persistence.
+
+Scientific limits: not a classification at all radii, and no equivariant or Euclidean-metric result; no definitive priority or independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
