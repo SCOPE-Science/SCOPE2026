@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every integer \(a\ge2\), every subgroup of the dyadic unit group, and every multiplicative coset. The dyadic decomposition \(\langle-1\rangle\times\langle5\rangle\) and \(\nu_2(5^{2^k}-1)=k+2\) yield an exhaustive graph classification of subgroups avoiding \(-1\). Unsigned cosets are complete single arithmetic progressions, giving defects \(h(r-L/2)\). Signed cosets are disjoint unions of two such progressions, giving exactly \(\pm m/2\). The central case follows from complementary pairing. Each sign, range, parity, and coset multiplicity is accounted for, including \(a=2\) and singleton subgroups. The half-interval criterion follows independently from the involutions and the two remaining minimal cases. The attached checker exhausts 126 groups and 4043 cosets for \(2\le a\le10\); this is supplementary evidence, not the infinite proof.
+PASS
 
-## Originality — PASS, with stated risk
+For every a≥2 and every multiplicative subgroup H≤(Z/2^aZ)^×, G=⟨−1⟩×⟨5⟩, ν_2(5^(2^k)−1)=k+2. Subgroups not containing −1 inject into the cyclic 5-power factor and hence are either U_j=units congruent 1 mod L or signed graph V_j (j≥1), h=2^j, L=2^a/h. Explicit coset arithmetic progression sums give U_j defect h(r−L/2) for each odd r in [1,L−1]; for V_j the union of two disjoint progressions gives exactly L/4 defects −2^(a−1) and L/4 defects +2^(a−1). Cosets of −1-containing groups pair to zero. All noncentral defects are odd nonzero, so a centered coset exists exactly iff −1∈H; half-interval balance holds iff −1∈H or 1+2^(a−1)∈H. Boundary a=2 and j=0 handled. Independently enumerated 2000 exact cosets for a=2..9 with zero discrepancies; all-a proof is group-theoretic and arithmetic.
 
-The October 2026 Ma–Merca–Zhang source addresses centered residue sums at odd semiprime moduli; its full HTML formulation does not provide a dyadic formula. Pomerance–Ulmer's half-interval balanced-subgroup theory treats a different statistic, and its known involution constructions do not yield the centered sum itself. Girstmair's 2026 survey concentrates on prime moduli; a 1997 general-modulus paper, consulted through its abstract but not in full, could contain an implicit character-theoretic antecedent. No checked source or targeted indexed search identified the exact two-type spectrum or its all-coset nonvanishing implication. This does not establish publication priority; the original contribution asserted is the explicit complete first-moment classification, not established general character identities.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is a natural missing prime-power case of recently studied residue-sum balance, directly connected with period digit means. The result handles all subgroups and all cosets rather than a selected small-index case, determines exact defect multiplicities (not merely existence or a bound), and sharply separates two previously related notions of balance at the dyadic boundary. The formulas reveal two invariant mechanisms that persist for every exponent. The proof uses elementary group theory, but the completed structural classification and its interpretation are the substantive contribution; no global density or higher-moment consequence is claimed.
+The dyadic power-of-two unit coset first-moment spectra are distinct from the older literature on half-interval balanced subgroups and from October 2026 odd-semiprime residue sums. The group decomposition and involution symmetries are prior knowledge; the explicit entire defect multiset and its exact distinction from balanced half intervals are the assessed claim. An older residue-moment-vector theorem could imply part or all of it; full text of a close 2026 paper and a 1997 article was unavailable, so priority is best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-Ma, Merca and Zhang, arXiv:2610.29608v1, study odd semiprime centered sums; Pomerance and Ulmer, arXiv:1204.6705v1, study half-interval counts; Girstmair's general residue-distribution program could conceal an implicit derivation. The result does not extend to all composite even moduli, and independent scrutiny of priority and mathematical significance is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Centered residue sums and half-interval balance are natural but inequivalent subgroup/coset invariants. The full signed/unsigned defect distributions close the 2-power modulus case neglected by odd-semiprime residue-sum work; exact multiplicities and the m=16 counterexample separate two established balance notions. The explicit all-subgroup classification is more informative than standard dyadic group structure alone, albeit elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
