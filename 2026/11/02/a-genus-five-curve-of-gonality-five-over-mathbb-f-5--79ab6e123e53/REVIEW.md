@@ -1,14 +1,21 @@
-# Scientific review of the genus-five \(\mathbb F_5\) example
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete intersection is geometrically smooth by five affine-chart Jacobian-ideal Gröbner calculations, each yielding the unit ideal. Adjunction and connectedness give a geometrically integral genus-five canonical curve. An exhaustive exact check of all 31 rational quadrics gives four rank-four members, with nonsquare four-dimensional determinants \(2,3,3,3\), and 27 rank-five members. The field-independent pencil criterion in Faber–Grantham, Lemma 6.6, excludes degree-four maps, while canonical geometry excludes degree-two and degree-three maps. A rational point and Riemann–Roch provide a degree-at-most-five map, so the arithmetic gonality is exactly five. Both embedded verification scripts completed successfully.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The 2022 Faber–Grantham–Howe problem formulates the genus-equals-gonality existence question and explicitly reports genus-five examples only for fields with at most four elements, offering the three-quadric approach as a heuristic for larger fields. Faber–Grantham already prove the split-quadric criterion and treat fields of two, three and four elements in the earlier series; those are prior mathematical ingredients. The inspected papers, targeted literature searches, and accessible published record comparisons reveal no stronger result that implies this specific \(\mathbb F_5\) existence certificate. An unindexed earlier explicit \(\mathbb F_5\) example remains possible; uniqueness and global priority are not asserted.
+PASS
 
-## Mathematical value
-**PASS.** The pair \((g,q)=(5,5)\) is the first prime-field instance immediately beyond the computed genus-five cases in the motivating work. The explicit sparse equations, geometric smoothness certificate, and full rational net classification provide a concrete positive instance of an open-ended natural existence question. The arithmetic distinction between nonsplit and split rank-four quadrics explains why the curve can have gonality five even though geometric tetragonal structures need not descend.
+The intersection of Q1=xy+z²+2u², Q2=4xu+yz+3uv+3v², Q3=x²+2y²+4z²+4uv in P4(F5) has exactly two rational points, 27 full-rank and four rank-four net quadrics, the latter all nonsplit (determinants 2,3,3,3). Independently enumerated all 31 rational net members and 781 rational projective points. Independently computed five affine-chart Jacobian-minor Gröbner ideals as unit ideals over F5, proving geometric smoothness. Adjunction gives genus5, complete intersection canonically embedded/nontrigonal. Faber–Grantham Lemma 6.6 makes absence of split rank4 or rank3 rational net members a gonality≥5 certificate, while K−3P at a rational point gives degree≤5 by Riemann–Roch; bound is over F5, not geometric.
 
-The only external proof imported is the published genus-five canonical pencil criterion, which is cited and discussed in the result. There is no claim of classification or independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: The question of maximum gonality over F5 is a special instance of the published general existence question, not equivalent to the published upper bound gonality≤g. The constructed 3-quadric curve is a concrete witness not found among the F2/F3/F4 examples inspected. Faber–Grantham–Howe prove upper bound g for all curves g≥5 but do not establish attaining g for each field. That general bound cannot imply this F5 existence witness.
+
+## value
+
+PASS
+
+An explicit exact certificate for the naturally posed (g,q)=(5,5) maximum-gonality existence question, with a smooth genus-5 curve, complete quadric-net rank census and point locus; not a trivial textbook recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
