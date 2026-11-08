@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Every nonempty antichain of a fully layered poset lies inside one layer. Down-monotonicity of the chain polytope makes the all-ones order vertex the unique forward extremum. Euclidean projection is solved by strict convexity and a unique scalar KKT multiplier. Backward distance is convex over the chain polytope, hence maximized at a characteristic antichain vertex; isotonic least squares pools its selected coordinates with all upper layers, yielding aU/(a+U). Exact comparison of the quadratic forms proves equality for two layers and strict dominance for k>=3; distinct 1-layer case is a cube. Finite computations check 33 profiles but are not relied on as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahmad–Fourier–Joswig arXiv:2309.01626 Theorem 4.1 and Corollary 4.2 give face-number comparisons for all maximal ranked posets, including precisely these layers; no Hausdorff calculation in the examined entire text.",
+        "Freij-Hollanti–Lundström arXiv:2312.13890 Sections 3–6 give ordinal-sum constructions and face-vector inequalities, not ambient Euclidean distances.",
+        "Lee arXiv:2610.07413 analyzes edge lengths and graph distances for all posets; the identified theorem concerns edges, not the directed Hausdorff separation."
+      ],
+      "reasoning": "Although the cited works apply to broader classes of posets, their invariants (face vectors, edge lengths, combinatorial graph diameter) do not determine Euclidean set-to-set Hausdorff distances in a fixed coordinate placement. Even an affine isomorphism of polytopes does not establish their canonical position-sensitive metric distance.",
+      "searches": [
+        "distance from 1 vector to chain polytope and isotonic regression of antichain indicator to order polytope",
+        "Euclidean Hausdorff separation layered poset order chain, matching level sizes invariance",
+        "arXiv:2309.01626",
+        "arXiv:2312.13890",
+        "arXiv:2610.07413"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.01626 (Ahmad, Fourier, Joswig; first 2023-09-04)",
+      "arXiv:2312.13890 (Freij-Hollanti, Lundström; first 2023-12-21)",
+      "arXiv:2610.07413 (Lee; first 2026-10-05)",
+      "DOI:10.1137/18M1228529 (publisher abstract only)",
+      "DOI:10.1007/BF02187680 (Stanley 1986; foundational definitions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original order/chain definitions and their Ehrhart equivalence follow Stanley, Two poset polytopes (1986), but neither an exact distance nor layer-order-insensitive Hausdorff formula follows from equal Ehrhart polynomials.",
+        "Ahmad–Fourier–Joswig (2023) gives maximal-ranked poset face-number dominance; Freij-Hollanti–Lundström (2023 preprint) gives f-polynomial inequalities under ordinal sums.",
+        "Lee (2026) provides graph edge-length and graph-diameter comparisons; it is a different metric."
+      ],
+      "reasoning": "The present theorem requires projecting the all-ones vector onto an anti-blocking polytope, projecting every antichain vertex onto an isotonic cone, and proving dominance between the two directed extrema. The cited statements do not carry these Euclidean nearest-point values as direct corollaries without the new derivation. Residual possibility of a prior equivalent calculation is acknowledged.",
+      "searches": [
+        "Euclidean Hausdorff distance between order and chain polytopes of finite posets, exact formula for ordinal sums of antichains",
+        "\"order polytope\" \"chain polytope\" \"Hausdorff distance\"",
+        "arXiv:2610.07413",
+        "Euclidean directed Hausdorff metric order polytope to chain polytope and reverse, water filling projection all-ones"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact pairwise Euclidean metric result identified under Hausdorff, directed distance, nearest-point or Chebyshev/projection formulations in the retrieved primary studies.",
+        "The nearest published-finding corpus isotonic regression result concerns perturbation sensitivity, not the two-body distance."
+      ],
+      "reasoning": "The exact objects are ordinary, canonically placed order and chain polytopes of maximal ranked posets. A formula for the inradius or the Lipschitz constant of one projection is not equivalent to a supremum over points of the other polytope. The two directional values and strict ratio remain separate geometric data.",
+      "searches": [
+        "Hausdorff distance d_H(O(P), C(P)) of Stanley order and chain polytopes; ordinal sum A_m1⊕...⊕A_mk exact separation",
+        "Euclidean directed Hausdorff metric order polytope to chain polytope and reverse, water filling projection all-ones",
+        "\"order polytope\" \"chain polytope\" \"Hausdorff distance\"",
+        "\"order and chain polytopes\" \"Euclidean distance\" exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ahmad–Fourier–Joswig arXiv:2309.01626 Section 5 tables and algorithms enumerate f-vectors and vertex/facet descriptions, not the two Euclidean distance extrema.",
+        "Accessible current-week titles and recoverable claims were compared for directed Hausdorff, layered posets, projection and isotonic least squares; no corresponding values or formulas identified."
+      ],
+      "reasoning": "An existing vertex/face table is not an exact table of nearest-point distances. A 33-profile numerical check is diagnostic, not claimed as a new finite invariant independent of the theorem. No identified published exact-value table subsumes the formulas for all k and all positive widths.",
+      "searches": [
+        "Hausdorff distance d_H(O(P), C(P)) of Stanley order and chain polytopes; ordinal sum A_m1⊕...⊕A_mk exact separation",
+        "Euclidean Hausdorff separation layered poset order chain, matching level sizes invariance",
+        "Hausdorff distance ordinal sum antichains chain polytope order polytope"
+      ]
+    },
+    "rationale": "Originality assessed for the joint exact two-directed-distance law, permutation invariance of the overall distance, ordered reverse-distance distinction and the unbounded sqrt(k-1) ratio. Nearby theorems concern f-vectors/edges/radii of one body rather than Hausdorff metrics. Actual semantic database, ledger and primary-paper comparisons yielded no covering statement; historical priority remains provisional.",
+    "residual_risks": [
+      "An unpublished or unindexed equivalent two-directed Hausdorff or isotonic-regression formula may exist.",
+      "The full text of the 2020 marked-poset interpolation work was not inspected; abstract inspected only.",
+      "The metric depends on canonical coordinate placement; an affine/invariant distance would be a different claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the precise combinatorial family and its f-vector comparisons, not the claimed directed Hausdorff distances in the inspected material.",
+        "evidence": [
+          "arXiv:2309.01626 lines 20–25, 246–261, 421–485, full-text Hausdorff/distance searches empty."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.01626",
+        "material_read": "Full-text HTML introduction, definitions in Section 2, key face normal-form statements, Section 4 Theorem 4.1/Corollary 4.2 and Section 5 computation tables and algorithms; full-text targeted search for Hausdorff and distance.",
+        "method": "Rendered accessible full paper text with section-level inspection and keyword queries.",
+        "title": "Order and chain polytopes of maximal ranked posets",
+        "trigger": "Same exact layered posets and pair of polytopes; prime overlap risk."
+      },
+      {
+        "assessment": "Uses subdirect sums to prove face-vector inequalities, but neither Euclidean Hausdorff distance nor directional separation was found.",
+        "evidence": [
+          "arXiv:2312.13890 Sections 2–6, Propositions 4–5, no matching full-text Hausdorff/Euclidean/distance strings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.13890",
+        "material_read": "Accessible complete full-text HTML Sections 1–6, especially preliminaries and Section 4 ordinal sums, Section 5 f-polynomials; targeted full-text queries for Hausdorff, Euclidean and distance.",
+        "method": "Opened rendered full text and inspected statements/proofs and relevant sections.",
+        "title": "f-vector inequalities for order and chain polytopes",
+        "trigger": "Covers ordinal sums including all layered posets and might dominate a special-case comparison."
+      },
+      {
+        "assessment": "Edge-length and one-skeleton metric statements do not give the ambient Euclidean set-to-set metric, and no Hausdorff formula was found in the inspected material.",
+        "evidence": [
+          "arXiv:2610.07413 abstract/intro lines 0–66 and full-text Hausdorff search (no match)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+        "material_read": "Accessible full-text abstract and introduction, central edge and diameter comparisons and targeted whole-document searches for Hausdorff and Euclidean distance.",
+        "method": "Rendered paper text with named theorem comparison and targeted search.",
+        "title": "A refinement of the edge theorem for order and chain polytopes",
+        "trigger": "Recent stronger graph-metric and Euclidean edge-length comparisons between the same two polytopes."
+      },
+      {
+        "assessment": "Abstract supplies transfer-map and face-deformation results, not a metric-distance theorem; since no full-text check, no whole-document noncoverage claim is made.",
+        "evidence": [
+          "SIAM Discrete Mathematics 34 (2020), DOI 10.1137/18M1228529 abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1228529",
+        "material_read": "Publisher abstract, keywords and bibliographic metadata, not full text.",
+        "method": "Publisher accessible summary only.",
+        "title": "A Continuous Family of Marked Poset Polytopes",
+        "trigger": "Family includes marked order-chain interpolations that could provide a global geometric comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e4ceaefb-bc0e-4699-b462-99ad5cf1e003",
+  "value": {
+    "rationale": "The two canonically embedded polytopes share Ehrhart polynomial and Euclidean volume, so their exact metric separation is a natural finer comparison. The theorem determines both directed distances for every layered width profile, reveals that the symmetric distance forgets rank ordering while the reverse distance retains it, and provides the unbounded sharp ratio sqrt(k-1) on equal layers. These are structural infinite-family phenomena, not isolated low-dimensional examples.",
+    "status": "PASS"
+  }
+}
