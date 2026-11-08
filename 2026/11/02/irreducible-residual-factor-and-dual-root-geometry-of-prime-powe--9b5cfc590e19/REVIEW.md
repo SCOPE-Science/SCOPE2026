@@ -1,11 +1,21 @@
-# Review of prime-power Ramanujan-sum residual factors
+# Independent mathematical audit
 
-**Correctness:** PASS. The prime-power formula is prior known. The residual factor's mod-prime translated form is a single monomial, while its constant term is divisible by exactly one prime power; Eisenstein gives irreducibility and the local valuation. Coefficient-ratio inequalities and a direct real-polynomial monotonicity argument give the complex root geometry. The exact discriminant comes from the derivative-resultant identity and the real-root sign count. The supplied exact-check script corroborates, but does not replace, the universal argument.
+## correctness
 
-**Originality:** PASS, subject to explicit literature risk. Tóth's Theorem 5, equation (19), and Theorem 7 already give the full input coefficient formula and the cyclotomic divisor, but do not assert that the remaining factor is irreducible over either rational or local fields, nor the exact residual discriminant and archimedean/nonarchimedean root classification. The derivative-of-cyclotomic reformulation was searched; the inspected later logarithmic derivative article treats evaluations instead. An undiscovered stronger result on irreducibility of cyclotomic derivatives would subsume the contribution. The distinct gcd-power coefficient family of Dilcher--Robins was compared at abstract level only; its full text was not assessed.
+PASS
 
-**Value:** PASS. The result completes the rational irreducible factorization, computes a discriminant, and gives a unified local-to-complex zero classification for an infinite, canonical arithmetic-polynomial family. The advancement is a compact structural classification, not a novel expression for the original polynomial.
+The prime-power Ramanujan sum coefficient pattern gives the factorization, already known. Modulo p, E(X)=(X-1)^{(p-2)P}; E(1)=p(p-1)/2 has valuation exactly one, proving translated Eisenstein and total ramification with all alpha-1 valuations 1/d. Positive descending coefficients imply Eneström--Kakeya annulus for beta=alpha^P, bounded between (p-1)/(p-2) and 2; P is odd for odd p so the unique negative real root of Q_p remains unique for E. Identity (Y-1)^2 Q_p(Y)=Y^p-pY+(p-1) gives derivative at every root and resultant/discriminant under power composition; sign from (d-1)/2 nonreal pairs. Independent exact prime-power coefficient, shifted valuation and symbolic Sylvester resultant tests passed eight representative cases. The proof covers all odd primes and exponents, not merely tests.
 
-**Limitations:** No composite support with two distinct primes, and no exact Galois-group description. The complex bounds need not be sharp for every parameter. Independent scrutiny is still required to remove bibliographic priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tóth's 2010 full primary paper already proves coefficient formulas and cyclotomic divisor for prime powers (Theorem 5 equation (19), Theorem 7). Those MUST NOT be counted as original. The inspected complete Tóth manuscript does not contain translated Eisenstein, residual irreducibility, exact discriminant or archimedean annulus. Cyclotomic logarithmic-derivative and root-location literature could contain equivalent results; the complete residual arithmetic and root geometry is assessed best-of-knowledge original while preserving that concrete uncertainty.
+
+## value
+
+PASS
+
+Once the defining polynomial is factored by its visible cyclotomic part, whether the entire remaining factor is irreducible is the natural structural completion of the factorization problem. Its local ramification, exact discriminant and Archimedean root enclosure are arithmetic and complex-geometric invariants useful for further Galois or spectral analysis, not a known-table recomputation, even though the first factor formula itself is old.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
