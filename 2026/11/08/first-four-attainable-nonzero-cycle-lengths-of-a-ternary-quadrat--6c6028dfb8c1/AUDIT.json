@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "An arbitrary nonzero periodic word must contain zero. Rotation fixes the last symbol at zero; the binary nonzero indicator must have weight divisible by three, and it determines the word uniquely by exact partial sums. The deterministic C++17 checker enumerates every nonzero mask for each period 1..22 and every lag class, checks compatibility, exact primitivity, table rotation class, expected zero-ended multiplicity and the original modular-square recurrence. The resulting eight rows each form a unique orbit; all other cases fail. An independently structured direct ternary-word checker corroborates periods 1..11. No infinite claims rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch 2026 Proposition 12 determines the shape of length-four cycles, but Theorems and addenda do not give the complete spectrum for arbitrary initial states.",
+        "Finch 2002 pages 1-4 and OEIS A112683 report least periods from the specific initial vector, a strictly narrower domain."
+      ],
+      "reasoning": "A theorem covering all possible delay-dependent periodic states would imply this result, but the inspected older sources focus on one seed or use a different recurrence. The 1995 text was partially garbled and remains a named access risk.",
+      "searches": [
+        "Steven Finch Three Quadratic Recurrences modulo 3 recurrence A periods 4 9 forbidden 5 6 7 8 first 9 cycles",
+        "ternary non-linear lag recurrence squared delay length 9 minimal non-four orbit",
+        "Finch A112683 2010 2026 cyclic ternary recurrence small period classification all initial conditions",
+        "Finch (2002) Periodicity in Sequences Mod 3 pp.1-4",
+        "Cassaigne–Finch (1995) Section 3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.34300v1",
+      "https://www.mit.edu/~sfinch/seqmod3.pdf",
+      "https://oeis.org/A112683",
+      "https://mathoverflow.net/questions/50678/finchs-sequence-over-mathbbf-3",
+      "https://projecteuclid.org/journals/experimental-mathematics/volume-4/issue-1/A-class-of-1-additive-sequences-and-quadratic-recurrences/em/1062621142.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch 2026 proves a general period-four shape and a capture criterion for the distinguished seed, while displaying N_A(4)=9,N_A(5)=19,N_A(8)=22.",
+        "Cassaigne and Finch 1995 Section 3 concerns a different multi-lag ternary recurrence connected to 1-additive sequences."
+      ],
+      "reasoning": "Period-four orbit classification is subsumed and not novel. The source examples demonstrate only existence of lengths 9,19,22 for certain delays and seeds. They do not exclude the other primitive lengths through 22 or rule out multiple cyclic orbits at arbitrary delay residues. Neither published statement entails the proposed classification.",
+      "searches": [
+        "quadratic recurrence x_n = x_{n-1} + x_{n-k}^2 modulo 3 periodic orbits short periods classification",
+        "Finch A112683 2010 2026 cyclic ternary recurrence small period classification all initial conditions",
+        "arxiv:2610.34300 Section 4 Proposition 12",
+        "OEIS A112683",
+        "Cassaigne and Finch 1995 abstract and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For ternary entries, x_{t-k}^2=[x_{t-k}\\neq0]. Finch 2026 Section 4 uses this same equivalent indicator recurrence for one distinguished seed."
+      ],
+      "reasoning": "Compared the squared-delay and binary-indicator formulations, cyclic-word/finite-state recurrence interpretations, and phase-rotation equivalence. Only partial seed-specific and period-four results matched; no full small-period classification.",
+      "searches": [
+        "quadratic recurrence x_n = x_{n-1} + x_{n-k}^2 modulo 3 periodic orbits short periods classification",
+        "Finite field ternary quadratic delayed feedback recurrence x_n=x_(n-1)+x_(n-k)^2 shortest primitive cycles and periodic words lengths 4,9,19,22, unique phase orbit",
+        "arXiv:2610.34300v1 Sections 4, 6-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112683 lists initial-seed periods at k=2,3,4,5,8 as 4,4,9,19,22, respectively.",
+        "The numerical source tables do not enumerate alternative initial states, exclude other short periods, or report orbit multiplicity."
+      ],
+      "reasoning": "The four lengths are already known as particular-seed examples. The new classification is a different exact object: all primitive cyclic words up to 22 over every lag residue, unique up to rotation.",
+      "searches": [
+        "Finite field ternary quadratic delayed feedback recurrence x_n=x_(n-1)+x_(n-k)^2 shortest primitive cycles and periodic words lengths 4,9,19,22, unique phase orbit",
+        "OEIS A112683",
+        "Finch 2002 numerical table k=1..300",
+        "MathOverflow question 50678"
+      ]
+    },
+    "rationale": "The recent Finch paper establishes the minimum period-four mechanism and reports sample-seed periods 9,19,22, but supplies no all-initial-condition primitive-period spectrum through 22, no exclusions of the missing lengths, and no uniqueness of rotation classes at these larger periods. Earlier tables concern only the canonical seed. Direct mathematical statement and implication comparisons found no covering theorem in inspected sources or returned research records; historical unindexed work remains a risk.",
+    "residual_risks": [
+      "Earlier numerical calculations of global short-cycle structure may exist without searchable titles or indexed claims.",
+      "The historical 1995 source was not completely readable; its identified recurrence is different but any unexamined reduction is unresolved.",
+      "An independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_PRIOR_ONLY",
+        "evidence": [
+          "Proposition 12 covers exact period four; sample seed table lists periods 9,19,22; no full uniform primitive-cycle census through 22."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.34300v1",
+        "material_read": "Complete available HTML, especially Sections 1 and 4 and both addenda",
+        "method": "Read definitions, Proposition 11-13, Theorem 16, data table, and later text; compared quantifiers and the asserted periods",
+        "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+        "trigger": "Direct same recurrence, primary motivation"
+      },
+      {
+        "assessment": "NONCOVERING_WITH_PRIORITY_RISK",
+        "evidence": [
+          "Contains canonical-seed period table k=1..300 and asks for N(k); does not state all-state uniqueness or excluded short-period lengths."
+        ],
+        "identifier_or_url": "https://www.mit.edu/~sfinch/seqmod3.pdf",
+        "material_read": "PDF pages 1-4, including recurrence definition and data tables",
+        "method": "Inspected web-rendered PDF text and screenshot of page 1",
+        "title": "Periodicity in Sequences Mod 3",
+        "trigger": "Original historical source for the same recurrence"
+      },
+      {
+        "assessment": "EXISTENCE_EXAMPLES_ONLY",
+        "evidence": [
+          "Definition fixes first k-1 entries zero and final seed one; not all periodic sequences."
+        ],
+        "identifier_or_url": "https://oeis.org/A112683",
+        "material_read": "Sequence definition, first values, references, example and comments",
+        "method": "Reviewed displayed sequence definition against claim quantifiers",
+        "title": "OEIS A112683",
+        "trigger": "Likely exact historical table"
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_ONLY",
+        "evidence": [
+          "Discusses period-four words and distinguished seed, not all least periods up to 22."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/50678/finchs-sequence-over-mathbbf-3",
+        "material_read": "Question and excerpt of Pinch observation",
+        "method": "Compared period-four orbit explanation and open problem to present claim",
+        "title": "Finch’s sequence over the finite field of three elements",
+        "trigger": "Older public discussion potentially containing solution"
+      },
+      {
+        "assessment": "DIFFERENT_RECURRENCE_WITH_ACCESS_RISK",
+        "evidence": [
+          "1995 formula uses a different ternary multi-lag recurrence; this cannot directly imply the present exact lag-dependent census without an additional reduction not located."
+        ],
+        "identifier_or_url": "https://projecteuclid.org/journals/experimental-mathematics/volume-4/issue-1/A-class-of-1-additive-sequences-and-quadratic-recurrences/em/1062621142.pdf",
+        "material_read": "Abstract, introduction and identifiable portion of Section 3 from accessible extracted PDF text; full verification limited by garbled extraction",
+        "method": "Compared recurrence in Section 3, which uses lags 2, 4k+3, and 8k+4, with present one-lag feedback",
+        "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+        "trigger": "Plausible same-author historical general coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c6028df-b8c1-46e2-8ddb-feb2ac2b5096",
+  "value": {
+    "rationale": "The 2026 paper highlights the arithmetic complexity of the nonlinear recurrence and gives specific seed periods 4,9,19,22. Classifying all primitive cycles for arbitrary initial states and all delay congruences through the fourth attainable length gives an exact small-cycle spectrum, excludes 5..8,10..18,20..21, and establishes uniqueness of each short phase orbit. This is a natural finite classification at the source-motivated frontier, not a single isolated instance, and supplies structural constraints for future period and basin studies.",
+    "status": "PASS"
+  }
+}
