@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Executed `python3 check_period_doubling_mus.py`; the captured exact output is embedded as `check_period_doubling_mus.out`. The independent suffix-array/LCP census checks all lengths \(2^m\) for \(3\le m\le12\). A separate brute-force factor-frequency implementation checks \(3\le m\le7\). Explicit finite suffix-occurrence parity checks span 504 terminal suffixes at \(3\le m\le8\), and all six length-four factors are independently checked for repeated occurrence.
+## correctness
 
-The theorem for all generations follows from the formal parity-recognition, terminal-suffix induction, and MUS-lifting proof in RESULT.md. No finite run proves all generations, and no proof of exhaustive novelty or independent mathematical audit is claimed.
+PASS
+
+For φ(0)=01, φ(1)=00, all length≥3 factors of φ(w) have start parity determined by factor. Every terminal suffix of finite D_m occurs an odd number of times, eliminating the spurious exactly-two terminal source occurrence. With no MUS shorter than five beyond D3, the exact bijection MUS(D_(m+1))={[2i+1,2j):[i,j) in MUS(D_m)} is proved both directions. Base D3 has four length-three MUSs; their lifted intervals equal [N/4−1,N/2), [3N/8−1,5N/8), [N/2−1,3N/4), [3N/4−1,N), each length N/4+1 for all m≥3. Independent brute substring frequencies for m3..7 exactly confirmed the four intervals; not substituted for induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary-literature and published-record comparison; limited access and substantive priority risks explicitly recorded. 
+
+## value
+
+PASS
+
+An exact structural classification of the entire minimal-unique-substring family of natural period-doubling prefixes, with constant four-count but growing linear length and explicit morphic lift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
