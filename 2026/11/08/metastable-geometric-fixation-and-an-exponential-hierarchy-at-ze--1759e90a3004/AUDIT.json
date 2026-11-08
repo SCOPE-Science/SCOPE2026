@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the exact Stirling support kernel, a monotone-support holding-time decomposition, uniform first-entry skip bounds, a geometric strong-Markov coupling, fixed-level occupancy probabilities, inclusion-exclusion exit asymptotics and a uniform remainder estimate. Its exact-fraction checker independently passed 2501 finite-state assertions; the infinite bounds are analytic, not computational extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Conclave Process, arXiv:2607.22324, main results concern fixed alpha>0, and its open-problems section discusses threshold exponents but not the alpha-zero endpoint.",
+        "Cancrini–Posta arXiv:2001.11246 reallocates to a fixed bin set, in contrast to permanently excluded empty bins here.",
+        "Nested and extended occupancy papers considered growing-level or sequential-addition counts, rather than survivor-only repeated synchronous voting."
+      ],
+      "reasoning": "The plausible broader literature uses different transitions. Related occupancy and mapping constructions are not by themselves stronger results about this restricted support process; nevertheless only abstracts/introduction were accessible for some comparisons, leaving a stated priority risk.",
+      "searches": [
+        "published-finding corpus: balls into bins active bins only iterated occupancy support process absorption time asymptotically geometric exponential survivor-only random voting",
+        "Web: multinomial resampling repeated same categories extinction expected time optimal initial state two balanced categories geometric 2^n",
+        "Web: stochastic occupancy chain balls uniform only nonempty boxes absorbing time one occupied box",
+        "arxiv:2001.11246 abstract (Repeated Balls into Bins dynamics)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.22324v1 first public 2026-07-24",
+      "arxiv:2607.22324v2 abstract/introduction/results",
+      "MathWorld Classical Occupancy Problem (one-step formula)",
+      "arxiv:2001.11246 abstract",
+      "published-finding corpus searches for zero reinforcement, survivor-only occupancy, Stirling transition and exponential hierarchy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.5 of arXiv:2607.22324 gives a lower exponential bound at 0<alpha<1 and does not identify an exact zero-exponent limiting law or correction hierarchy.",
+        "The paper explicitly assumes strictly increasing weights, excluding the binary positive-support weight that defines this endpoint.",
+        "The ordinary uniform occupancy identity is sufficient to derive the displayed kernel, but alone contains neither its repeated-time transition analysis nor the fixation distribution."
+      ],
+      "reasoning": "The noncoverage is by differing hypotheses and observables, not merely by title or parameter names. The endpoint is a new, well-defined limit case, and the proof independently derives its multi-round asymptotics. A later general theorem not accessible in primary full text could still imply the result.",
+      "searches": [
+        "arxiv:2607.22324v2 HTML: Definition 1.1; Theorems 1.3, 1.5, 1.6; Section 1.3 open problems; Section 1.4 alpha-one coalescent",
+        "Web: The Conclave Process alpha zero equal probability survivors election absorption time exponential geometric",
+        "published-finding corpus: The Conclave Process subcritical power alpha below one exponential upper bound expectation absorption time n voters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 conclave model uses strictly increasing weight functions and then fixed positive power exponent; at alpha zero the positive-support weight is not strictly increasing.",
+        "Classical occupancy probability for j occupied bins equals (k)_j times a Stirling number divided by k^n, yielding the kernel but not its iterated absorption law.",
+        "published-finding corpus returned no same-model multi-round endpoint theorem; the closest occupation results concerned multinomial modes or single-round distributions."
+      ],
+      "reasoning": "The endpoint process is not the alpha-one Wright-Fisher chain or a standard fresh-bin occupancy experiment. Deriving the exact support process is standard, but none of the inspected statements implies its all-order exponential expected-fixation hierarchy or the quantitative geometric total-variation limit.",
+      "searches": [
+        "published-finding corpus: zero reinforcement conclave process alpha equals zero survivor-only uniform multinomial occupancy Markov chain Stirling numbers geometric consensus time 2^(n-1) total variation",
+        "published-finding corpus: iterated occupancy Markov chain nonempty bins never recover Stirling-number transitions hitting time 2 bins geometric fixation",
+        "Web: \"iterated occupancy\" \"absorption time\" bins",
+        "Web: conclave process \"alpha=0\" \"absorption\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld contains the one-step occupancy count through Stirling numbers, not the multi-round fixation-time law.",
+        "Nearest published-finding corpus titles concerned occupancy modes, exact-count envelopes and iterated processes with materially different transition mechanisms; no checked indexed claim stated the geometric TV bound or hierarchy."
+      ],
+      "reasoning": "The finite-state probabilities are recoverable from standard combinatorics, so they are credited as known inputs. The new assertion is the sharp infinite sequence of exponential corrections plus TV approximation for the absorbing repeated process, not a table entry.",
+      "searches": [
+        "published-finding corpus: survivor-only multinomial resampling process geometric absorption time 2^(n-1) correction (3/2)^n hierarchy levels of occupied categories exact Stirling recurrence",
+        "published-finding corpus: multinomial occupancy process active categories never reappear probability all bins reduce expected consensus absorption time upper bound 2^(n-1)",
+        "MathWorld Classical Occupancy Problem (one-step formula)"
+      ]
+    },
+    "rationale": "The known one-round occupancy identity and motivating fixed-positive-exponent voting results are credited. The new survivor-only zero-weight endpoint has a different transition mechanism and its full geometric TV approximation and exponential correction hierarchy were not found in targeted published-finding corpus and primary-source comparisons. Some full-text priority uncertainty remains explicitly stated.",
+    "residual_risks": [
+      "A general prior theorem on absorbing iterative occupancy may subsume the result without using the same model terminology.",
+      "Full original proofs of the motivating preprint and broader repeated-balls literature were not materially examined.",
+      "Same-model review does not replace independent mathematical or historical assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Positive exponent alpha and strictly increasing weights; does not directly state the zero-support-only endpoint result in inspected sections. Full proofs not compared.",
+        "evidence": [
+          "Definition requires strictly increasing mu and specializes to mu(m)=m^alpha with alpha>0.",
+          "Theorem 1.5 states at least exp(Omega(n)) for 0<alpha<1; not a zero-exponent exact limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.22324",
+        "material_read": "Definition 1.1, Introduction, main results 1.3/1.5/1.6, Section 1.3 open problems, and Section 1.4 positive-power and Wright-Fisher comparisons (visible lines 42–175). Remaining proofs were not retrievable in this run.",
+        "method": "Direct HTML text inspection; submission history independently checked at https://arxiv.org/abs/2607.22324",
+        "title": "The Conclave Process",
+        "trigger": "Same voting process, nearest originating publication"
+      },
+      {
+        "assessment": "Supports classical one-step input; no observed iterative absorbing support theorem.",
+        "evidence": [
+          "The one-step count uses binomial coefficient times factorial times Stirling number."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/ClassicalOccupancyProblem.html",
+        "material_read": "Indexed description and Stirling surjection probability for one-step uniform box allocation.",
+        "method": "Web search excerpt; full page not examined",
+        "title": "Classical Occupancy Problem",
+        "trigger": "Potential exact finite transition database"
+      },
+      {
+        "assessment": "Different dynamics: balls reassigned to fixed bins, not to currently surviving support. Full text not inspected.",
+        "evidence": [
+          "Abstract defines fixed L bins and repeated reallocation after taking a ball from each nonempty bin."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.11246",
+        "material_read": "Abstract only, as surfaced by academic search.",
+        "method": "Bibliographic abstract comparison",
+        "title": "Mixing time for the Repeated Balls into Bins dynamics",
+        "trigger": "Plausible broader repeating occupancy literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1759e90a-3004-4a8f-8f77-80101e83d637",
+  "value": {
+    "rationale": "The zero-exponent survivor-only endpoint is a natural singular boundary of a current reinforced voting model. The result determines its whole-scale geometric fixation law with quantitative total-variation convergence, a fully constructive finite-state law and all fixed-order exponential corrections to its mean. These show an ordered sequence of genuine metastable support bottlenecks rather than an arbitrary finite invariant.",
+    "status": "PASS"
+  }
+}
