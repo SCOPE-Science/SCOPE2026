@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For positive directed 3-cycle edges, each Osborne coordinate update exactly averages the corresponding two log weights while preserving their sum. On the zero-sum plane the three projection lines have absolute pairwise cosine one-half; switch indicators under iid uniform choices are independent Bernoulli(2/3). The exact binomial error, moments and negative-binomial log-tolerance waiting times follow. The nonlinear normalized ell-one residual divided by log norm is bounded above/below on all post-first rays, with ratio tending to sqrt(2/3). This couples its tolerance time within bounded L2 difference of renewal hitting times and yields the mean, variance and CLT. The generic no-one-step-balance hypothesis is necessary. A standalone exact-rational finite-word checker passed 10005 tests, not used as proof of the infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s10107-022-01825-4",
+        "https://arxiv.org/abs/2205.04535",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf"
+      ],
+      "reasoning": "Source complexity and spectral convergence results encompass the model but bound expected error or stopping complexity. The claimed full finite-time law, threshold waiting-time distribution and CLT for the original nonlinear error are not directly implied by their published bounds. Classical geometric renewal sums give the final distribution once special triangle projection geometry is identified; those general facts are not claimed as new.",
+      "searches": [
+        "\"Near-linear convergence of the Random Osborne algorithm for Matrix Balancing\" randomized cyclic bounds",
+        "\"Repeated Averages on Graphs\" triangle convergence exponential",
+        "\"Randomized Gossip Algorithms\" convergence mean square spectral"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "General rates and algorithm; no equivalent exact triangle distribution or nonlinear residual stopping CLT identified",
+        "title": "Near-linear convergence of the Random Osborne algorithm for Matrix Balancing",
+        "url": "https://link.springer.com/article/10.1007/s10107-022-01825-4"
+      },
+      {
+        "assessment": "Mean/second-moment and spectral convergence framework; no matching exact stopping law in material inspected",
+        "title": "Randomized Gossip Algorithms",
+        "url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf"
+      },
+      {
+        "assessment": "Deterministic finite-time reachability analysis does not imply quantitative tolerance hitting-time CLT",
+        "title": "Finite-time Convergent Gossiping",
+        "url": "https://arxiv.org/abs/1206.0992"
+      },
+      {
+        "assessment": "General repeated-averaging estimates; no identical pathwise binomial or epsilon-stopping central limit statement found",
+        "title": "Repeated Averages on Graphs",
+        "url": "https://arxiv.org/abs/2205.04535"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s10107-022-01825-4",
+        "https://arxiv.org/abs/2205.04535",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "https://arxiv.org/abs/1206.0992"
+      ],
+      "reasoning": "Altschuler–Parrilo prove algorithmic bounds for balancing under a normalized ell-one criterion, not a negative-binomial exact law on 3-cycle support. Boyd et al. analyze expected/randomized gossip spectral convergence and Shi et al. exact finite-time consensus obstructions. Movassagh et al. examine expected graph averaging. The specialized distribution and stopping CLT are stronger in this restricted instance than their general rate bounds. A prior unpublished or older elementary argument could still cover this claim.",
+      "searches": [
+        "\"near linear convergence random Osborne\" matrix balancing distribution l1 stopping",
+        "\"repeated averages on graphs\" expected time cycle",
+        "\"randomized gossip algorithms\" convergence probability complete graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "https://arxiv.org/abs/1206.0992",
+        "https://arxiv.org/abs/2205.04535"
+      ],
+      "reasoning": "Replacing positive cycle weights by zero-sum logarithms makes one Osborne node update a pairwise orthogonal projection, a triangle-gossip equivalent. General gossip spectral estimates and finite-time solvability do not imply the conditional exact switch-count distribution, negative-binomial times or nonlinear residual central limit law. A direct potential equivalence to simple renewal was checked and used as proof, rather than assumed to be a new technique.",
+      "searches": [
+        "\"matrix balancing Osborne on triangle directed cycle exact convergence stopping time\"",
+        "\"three nodes random gossip pairwise averaging exact binomial distribution finite time\"",
+        "\"randomized pairwise gossip on triangle graph exact squared error binomial distribution and stopping time\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/1206.0992",
+        "https://link.springer.com/article/10.1007/s10107-022-01825-4"
+      ],
+      "reasoning": "No directly matching numerical table, exact 3-cycle balancing law or previously reported threshold classification was identified. Finite-word symbolic enumeration verifies the law but is not itself evidence of originality; it is not a pre-existing source table.",
+      "searches": [
+        "\"matrix balancing directed cycle 3 exact distribution negative binomial\"",
+        "\"three-node randomized averaging exact binomial switch count\"",
+        "\"finite-time convergent gossiping three agents\""
+      ]
+    },
+    "rationale": "Primary full-text and relevant averaging literature searches yield general Osborne complexity, gossip second-moment and consensus results, but not the complete exact conditional switch-count law plus asymptotic nonlinear criterion hitting-time CLT. The novelty resides in the precise complete natural three-cycle classification, not in log-coordinate linearization, pairwise gossip, binomial mathematics or the general algorithm. Older elementary special-case literature remains a real precedence risk.",
+    "residual_risks": [
+      "The special triangle result is elementary after the projection equivalence, so an older exact gossip calculation or an implicit classical corollary could predate it.",
+      "The checked principal full texts and searchable records cannot certify publication novelty, and no independent expert assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General rates and algorithm; no equivalent exact triangle distribution or nonlinear residual stopping CLT identified",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s10107-022-01825-4",
+          "https://arxiv.org/abs/2004.02837"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10107-022-01825-4",
+        "material_read": "Full accessible HTML scientific article: algorithm, performance results, complexity arguments and special strategies",
+        "method": "Primary full-text comparison including 3-node support and stopping-law terminology",
+        "title": "Near-linear convergence of the Random Osborne algorithm for Matrix Balancing",
+        "trigger": "Same balancing algorithm and normalized ell-one residual"
+      },
+      {
+        "assessment": "Mean/second-moment and spectral convergence framework; no matching exact stopping law in material inspected",
+        "evidence": [
+          "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "PDF introduction, model and principal convergence bounds, with page image inspected",
+        "method": "Comparison of mean-square spectral estimates to pathwise triangle switch law",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Exact logarithmic-projection equivalence to pairwise randomized gossip"
+      },
+      {
+        "assessment": "Deterministic finite-time reachability analysis does not imply quantitative tolerance hitting-time CLT",
+        "evidence": [
+          "https://arxiv.org/abs/1206.0992"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1206.0992",
+        "material_read": "Accessible PDF text and first-page image",
+        "method": "Compared exact finite-time consensus obstructions and update model",
+        "title": "Finite-time Convergent Gossiping",
+        "trigger": "Small-network one-step finite termination and exceptional cases"
+      },
+      {
+        "assessment": "General repeated-averaging estimates; no identical pathwise binomial or epsilon-stopping central limit statement found",
+        "evidence": [
+          "https://arxiv.org/abs/2205.04535"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.04535",
+        "material_read": "Full accessible arXiv HTML including principal results",
+        "method": "Compared graph classes and expected convergence with exact triangle log error law",
+        "title": "Repeated Averages on Graphs",
+        "trigger": "Potential stronger coverage of graph averaging exact finite-time laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b13a7250-a064-4b16-9379-26317ce2593a",
+  "value": {
+    "rationale": "The three-vertex directed triangle is the smallest strongly connected cycle whose balancing dynamics has nontrivial repeated averaging. An all-initial-data conditional exact law, negative-binomial stopping distribution and original ell-one residual confidence-calibration CLT create a motivated and reusable benchmark for numerical matrix balancing and identify a mean-square versus typical-rate distinction invisible in general rates. The phenomenon and precise error criterion arise directly from the standard algorithm, not an arbitrary slice. No downstream algorithmic improvement is claimed.",
+    "status": "PASS"
+  }
+}
