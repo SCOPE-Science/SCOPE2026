@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the autonomous two-mark chain, its positive transition kernel, and the equilibrium renewal-age mixture. The DLMF equal-index Mellin formula is valid at all sufficiently large site indices; the finite-age correction is super-algebraically small and the gamma-ratio first-order term vanishes for complementary shifts. Fixed reset-site shifts yield the two opposite alpha*b/n corrections; positive tail comparison gives the if-and-only-if moment threshold. Tonelli and the exact Bessel ballistic moment give the alpha>3 second moment, with an alpha=3 spatial logarithm. The included script independently checks 90 finite-parameter identities or comparisons; numerical checks are not used to prove the infinite-lattice limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singh et al. Eq. (1)-(2) is a general fixed-reset renewal equation and moment transform, and their finite-variance threshold pertains to diffusive growth.",
+        "Acharya--Gupta discuss stationarity for alpha>1 and finite-lattice alpha=3 MSD numerical saturation, not the sharp occupation tail."
+      ],
+      "reasoning": "The general renewal framework can yield the moment threshold by inserting ballistic growth, so that threshold is a consequence, not separately asserted to be methodologically new. It does not directly supply the protocol-dependent first skew coefficient.",
+      "searches": [
+        "Power-law resetting for ballistic quantum walk: alpha>3 mean-squared displacement threshold and logarithmic alpha=3, despite stationary occupation at alpha>1",
+        "https://arxiv.org/abs/2203.04046",
+        "https://arxiv.org/html/2308.14040v2: Eq. (23), Sec. V"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.14040",
+      "arxiv:2203.04046",
+      "DLMF:10.22.57",
+      "literature search: Stationary site occupation of continuous-time tight-binding quantum walk with conditional power-law renewal resetting; Pareto waiting law; gamma-function n^{-alpha} lattice tail and directional asymmetry",
+      "literature search: Power-law resetting for ballistic quantum walk: alpha>3 mean-squared displacement threshold and logarithmic alpha=3, despite stationary occupation at alpha>1",
+      "literature search: Bessel square Mellin stationary distribution of quantum walk renewal reset, universal symmetric leading tail and antisymmetric subleading coefficient",
+      "literature search: Acharya Gupta 2023 conditional quantum tight-binding resetting with Pareto tail stationary site occupation asymptotic p_n proportional n^{-alpha} left-right asymmetry correction alpha E[reset site]/n",
+      "literature search: Ballistic tight-binding random reset Pareto alpha 3 divergent stationary variance 41 site finite lattice numerical saturation",
+      "scientific statement comparisons for previously published quantum-walk and renewal results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source propagator is J_{m-j}(gamma t)^2; its Pareto law f(t) and 41-site numerical MSD analysis are given in Sec. V.",
+        "The DLMF gamma-ratio Mellin identity yields an exact transform, and first-order shifted expansion requires identifying the embedded reset-mark distribution."
+      ],
+      "reasoning": "The present conditional-reset result follows from the specific stationary Markov-renewal mixture plus the classical Bessel Mellin formula and a uniform gamma-ratio expansion. The general ingredients make it derivable but do not themselves assert its first directional coefficient, universal amplitude, or quantitative boundary; publication-priority risk is retained.",
+      "searches": [
+        "Bessel square Mellin stationary distribution of quantum walk renewal reset, universal symmetric leading tail and antisymmetric subleading coefficient",
+        "Acharya Gupta 2023 conditional quantum tight-binding resetting with Pareto tail stationary site occupation asymptotic p_n proportional n^{-alpha} left-right asymmetry correction alpha E[reset site]/n",
+        "https://arxiv.org/html/2308.14040v2: Sections IV, V",
+        "https://arxiv.org/abs/2203.04046: Eqs (1),(2)",
+        "https://dlmf.nist.gov/10.22.E57"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acharya--Gupta Eq. (23) gives a Bessel-square kernel but Sec. V reports a power-law reset simulation, not the exact far-tail expansion.",
+        "DLMF 10.22.57 gives the Bessel-square Mellin integral for equal indices, not the conditional-reset stationary mixture or its skew."
+      ],
+      "reasoning": "The full two-sided expansion encodes both a universal amplitude and the reset-mark mean in opposite 1/n corrections. Neither the classical integral alone nor the quantum propagator alone states this stationary conditional-reset result.",
+      "searches": [
+        "Stationary site occupation of continuous-time tight-binding quantum walk with conditional power-law renewal resetting; Pareto waiting law; gamma-function n^{-alpha} lattice tail and directional asymmetry",
+        "Bessel square Mellin stationary distribution of quantum walk renewal reset, universal symmetric leading tail and antisymmetric subleading coefficient",
+        "https://arxiv.org/html/2308.14040v2: Sec. III-IV and V",
+        "https://dlmf.nist.gov/10.22.E57"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed quantum-walk results concern full-disorder Riccati dynamics or graph spectral quantities, not Pareto renewal and conditional occupation tails.",
+        "Known quantum-walk entropy, interference, and renewal topics concern different observables and do not give this conditional-reset Pareto tail profile."
+      ],
+      "reasoning": "Search nonhits are not proof of uniqueness. The physical observables, parameters, and stationary implications of nearby results were compared and found different; inaccessible literature remains a limitation.",
+      "searches": [
+        "Stationary site occupation of continuous-time tight-binding quantum walk with conditional power-law renewal resetting; Pareto waiting law; gamma-function n^{-alpha} lattice tail and directional asymmetry",
+        "Acharya Gupta 2023 conditional quantum tight-binding resetting with Pareto tail stationary site occupation asymptotic p_n proportional n^{-alpha} left-right asymmetry correction alpha E[reset site]/n",
+        "Ballistic tight-binding random reset Pareto alpha 3 divergent stationary variance 41 site finite lattice numerical saturation",
+        "quantum tight-binding Pareto resetting and Bessel-square stationary tails"
+      ]
+    },
+    "rationale": "The inspected full text of Acharya--Gupta establishes the conditional quantum walker and Pareto waiting law, but gives no exact infinite-lattice stationary power-tail coefficient, no first left/right asymmetry term, and no infinite-lattice third-moment threshold; its alpha=3 finite-lattice numerical saturation is inapplicable to that threshold. Singh--Górska--Sandev covers the generic renewal formula and the diffusive mean-square threshold, not the conditional two-tail quantum statement. DLMF covers the Mellin integral, which is explicitly credited as classical. No claim-level match was identified in the documented literature and statement-level comparisons; generic renewal-plus-Mellin derivability remains a recorded residual risk.",
+    "residual_risks": [
+      "A broader uninspected theorem in the quantum-resetting literature may imply this explicit conditional-reset formula.",
+      "The gamma-ratio asymptotic is classical; new method is not claimed.",
+      "The source paper finite-size alpha=3 saturation may be valid for finite chains and cannot resolve the infinite-volume limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest same-object comparison: the source has no sharp infinite-volume tail or first directional coefficient; reports alpha=3 finite-lattice saturation, not a theorem on infinite-lattice moments.",
+        "evidence": [
+          "https://arxiv.org/html/2308.14040v2 Sec. III Eq. (23),(25)",
+          "https://arxiv.org/html/2308.14040v2 Sec. IV conditional protocol",
+          "https://arxiv.org/html/2308.14040v2 Sec. V, Fig. 8 and 41-site simulation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.14040v2",
+        "material_read": "Sec. III Eq. (23),(25); Sec. IV conditional reset rules; complete Sec. V (Pareto intervals, finite-lattice simulations); conclusions",
+        "method": "Read HTML source text and checked explicit propagator/interval assumptions, theorem versus numerical claims",
+        "title": "Tight-binding model subject to conditional resets at random times",
+        "trigger": "Same two-site conditional quantum walker, same Pareto reset waiting law"
+      },
+      {
+        "assessment": "General renewal transform and diffusive moment criteria are prior, but no conditional quantum asymmetry-tail theorem identified.",
+        "evidence": [
+          "https://arxiv.org/abs/2203.04046 Eq. (1),(2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.04046",
+        "material_read": "Introduction, renewal equations (1),(2), diffusion MSD discussion and abstract",
+        "method": "Read accessible full text and compared assumptions on fixed reset, stochastic motion, and observables",
+        "title": "General approach to stochastic resetting",
+        "trigger": "Broader renewal equations and moment thresholds may subsume the claim"
+      },
+      {
+        "assessment": "The integral is known and explicitly not claimed new; tail synthesis and conditional-reset skew are the evaluated claim.",
+        "evidence": [
+          "https://dlmf.nist.gov/10.22.E57"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/10.22.E57",
+        "material_read": "Section 10.22(iv), Eq. 10.22.57, domain and gamma factors",
+        "method": "Read formula and verified specialization mu=nu=n, lambda=alpha analytically and against quadrature",
+        "title": "DLMF Bessel-product Mellin identity",
+        "trigger": "Exact known special function integral may directly cover central computation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cea96489-bb70-4194-8db1-60ebc5f00150",
+  "value": {
+    "rationale": "The exact spatial decay and directional skew are physically motivated by the source protocol that generates asymmetric quantum localization. They identify what reset bias does and does not affect at extreme sites, and settle the infinite-volume observable boundary: stationary occupation exists for alpha>1 but its variance only for alpha>3. The coefficient of the marginal logarithmic divergence enables mathematically meaningful comparisons with finite-lattice truncation, which the motivating 41-site simulation could not decide. The result is not merely a rephrased moment substitution; the first skew correction is a new structural property of the conditional two-site dynamics.",
+    "status": "PASS"
+  }
+}
