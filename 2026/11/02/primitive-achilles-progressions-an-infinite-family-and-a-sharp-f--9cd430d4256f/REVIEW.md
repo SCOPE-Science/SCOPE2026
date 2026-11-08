@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The infinite construction is certified by a degree-four polynomial identity, a fully factored integral resultant, a Chinese-remainder congruence ray and exact prime-adic valuations. These steps prove strict increase, pairwise coprimality and Achilles status for every parameter in an infinite class. An exhaustive smallest-prime-factor classification of all integers through \(57967\) and all eligible ordered pairs proves the sharp first occurrence and its uniqueness. The standalone verifier recomputes the critical certificates; finite enumeration is not used to infer infinitude.
+## correctness
 
-**Originality — PASS within inspected evidence.** Chan (arXiv:2210.00281) and van Doorn (arXiv:2605.06697) exhibit infinite powerful progressions including two perfect squares. Bajpai, Bennett and Chan (arXiv:2302.03113, Theorem 1.2 and §5.1) exhibit primitive powerful progressions consisting of three squares, and their cubefull construction is also different. Their statements do not imply primitive progressions with all terms Achilles. OEIS A390953 lists the three seed integers but no sharp AP theorem. Explicit published-finding corpus and literature searches covered aliases, the exact conic, stronger ambient results and the numerical witnesses, and related mathematical statements were compared. No covering theorem was found; priority beyond the inspected material is not certified.
+PASS
 
-**Value — PASS.** Existence of primitive all-Achilles progressions isolates a structurally meaningful, previously unaddressed subclass of the primitive squarefull AP problem. The exact minimal largest term \(57967\) gives a natural sharp boundary supported by a complete search rather than a guessed numerical example. The result does not characterize longer Achilles progressions or optimize the common difference.
+PASS. Polynomial convolution gives identically 27X(t)^2+343Z(t)^2=250Y(t)^2; quartic difference positive for t>=2 ensures increasing positive AP. Independently computed resultant of quadratics X,Y is 90724673403000=2^3*3^3*5^3*7^6*13^4, hence any common factor of first two AP terms is among 2,3,5,7,13; t congruent 1 mod 2730 agrees at each with coprime t=1 case, so pairwise gcd=1 because A+C=2B and oddness. CRT residues t=5 mod 11², t=0 mod17², t=3 mod19² impose exact exponent 2 in squared polynomial terms alongside fixed cube exponents 3 at 3,5,7; therefore each term is powerful but no perfect power, for infinitely many distinct t. Independently factored all integers <=57967 using SPF: exactly 186 Achilles numbers; exhaustive ordered pair / third-term membership check yields only primitive (14283,36125,57967), establishing sharp least largest term. The finite certificate proves only bounded minimality; the polynomial/CRT argument separately proves infinitude.
 
-**Verification and limits.** The executable verifier uses exact integer operations and standard Python only. A separate correctness proof covers the unbounded parameter class, while finite checks cover all candidates through the sharp cutoff. Closest sources are Chan (2022), Bajpai–Bennett–Chan (2023), van Doorn (2026), and OEIS A390953; the inspected sources do not cover the claim, but unavailable or unindexed literature may.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Chan and Bajpai–Bennett–Chan establish infinitely many primitive progressions of powerful numbers but their exhibited entries are perfect squares, thus not Achilles. Van Doorn likewise includes square entries. Their ambient powerful-number existence does not imply the stronger all-Achilles primitive construction. OEIS lists the three values separately, not a certified least primitive progression. No direct dominating prior theorem found.
+
+## value
+
+PASS
+
+PASS. Primitive APs composed exclusively of powerful non-perfect-powers are naturally constrained additive-number-theory objects. Infinite pairwise-coprime construction plus a sharp minimal first occurrence pinpoints an arithmetic existence problem not settled by powerful-number AP examples containing perfect powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
