@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The standalone `checker.py` (Python 3, standard library only) generates every independent face of a bouquet, computes the augmented simplicial chain ranks over \(\mathbb F_2\) by exact bitset elimination, and evaluates signed reduced Lefschetz traces over integers. It exhaustively tests every reflection/permutation group element in each listed case and compares the traces with the theorem's predicted one-dimensional characters.
+# Independent mathematical audit
 
-Tested \((m,L)\) values are \((2,4),(2,5),(2,6),(2,7),(2,8),(2,9),(2,10),(3,4),(3,5),(3,6)\). The group comprises \(8\) elements for two petals and \(48\) for three petals. Every tested full-group element passed both the signed-trace comparison and the homology-rank check. The generated output file `checker_output.txt` is included in this package, with terminating marker `BOUQUET_CYCLE_HOMOLOGY_AND_SIGNED_CHARACTER_CHECKS_OK`.
+## correctness
 
-For the two-hexagon bouquet, the enumerated complex has \(193\) nonempty faces and mod-two reduced Betti numbers \(\widetilde b_2=\widetilde b_3=1\), with all other reduced mod-two Betti numbers zero. Independent evaluation of its independence polynomial gives value \(0\) at \(-1\), consistent with the two-sphere wedge of different dimensions and inconsistent with a lone odd sphere.
+PASS
 
-**Scope limits.** Computations on selected small finite graphs are not proofs of statements for all positive parameters or of integral torsion-freeness. The latter are established by path folds, the vertex cofiber sequence, and the integral homology exact sequence in the mathematical proof. The checker does not independently verify published source coverage or establish uniqueness, and no external independent audit has been performed.
+For bouquet B_{m,L} of m≥2 cycles of length L≥4 glued at their sole high-degree vertex v, removing v leaves m paths P_{L-1}; removing v and its neighbors leaves m paths P_{L-3}; thus K=Ind(P_{L-1})^{*m}, A=Ind(P_{L-3})^{*m}, with exact simplicial cofiber A→K→Ind(B). The path-fold recurrence Ind(P_t)≃ΣInd(P_{t-3}) gives sphere/contractible types by t mod 3 and integral torsion-freeness. For L=3q, K is S^{mq-1}, A=S^{m(q-1)-1}; since m≥2 the inclusion A→K is null-homotopic nonequivariantly, and the cofiber exact sequence gives independent homology Z in degrees mq-1 and m(q-1). For L=3q+1 only K survives; for L=3q+2 only suspended A survives. Signed fixed-independent-face counts of path reversal give reflection degrees (-1)^{floor(q/2)} on Ind(P_{3q}) and (-1)^{ceil(q/2)} on Ind(P_{3q-1}), while factor swaps in an m-fold join act by (-1)^{d+1}. The resulting wreath characters χ_{a,b} are the displayed complete integral lines. In rational quotient homology the finite-group invariants occur iff both independent-petal reflection and permutation exponents are even, giving the four mod-4 classes. Independently enumerated reflection-stable faces and signed Lefschetz traces on small P_{3q}, P_{3q-1} for q=1..6, matching all sign characters. Reconstructed C6∨C6 as H2=Z,H3=Z; source's finite checker corroborates but does not prove infinite cases.
+
+## originality
+
+PASS
+
+Daundkar–Panja–Prasad arXiv:2303.08798 is precisely the cycle-bouquet independence-complex prior; its accessible FULL PDF Section 3 Lemma 3.3 uses a path of L-2 vertices as the link when the correct closed-neighborhood deletion is P_{L-3}. Its Theorem 3.5 includes the two-hexagon subcase as a single sphere, contradicted by the direct correct cofiber Euler and homology computation. This paper supplies none of the integral full W_m reflection/permutation characters. Adamaszek 2011 gives general vertex-cofiber machinery (acknowledged), and classic path independence-complex homotopy is known; neither evaluates these modules. Resultary nearby wreath/dihedral homology claims concern Möbius–Kantor or MATCHING complexes rather than bouquet INDEPENDENCE complexes. The fixed correction plus full character classification are original on the inspected record, with risk of corrected later literature.
+
+## value
+
+PASS
+
+Complete integral W_m homology characters for an infinite two-parameter family and the parity criterion for full-symmetry rational quotient provide genuinely new natural equivariant information not visible in homotopy ranks. More importantly the two-hexagon example supplies a checkable substantive correction of a directly comparable published sphere count, not merely renaming of a general cofiber. The equal-petal and m≥2 hypotheses naturally make full wreath symmetry and separated cofiber degrees available; no equivariant wedge splitting falsely claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
