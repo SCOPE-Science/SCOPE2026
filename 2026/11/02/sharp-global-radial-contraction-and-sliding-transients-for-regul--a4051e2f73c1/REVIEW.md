@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The piecewise-affine parent coefficients reduce exactly to tangent transport plus normal relaxation. The proof checks both the sector interior and the nonsmooth vertex rays, solves the tangency convex-weight equation, and integrates the resulting attractive sliding dynamics. The inequality applies to every nonzero initial condition and all forward Filippov solutions for all integers \(N\ge3\). A linear-growth Filippov existence argument and avoidance of the origin close the global quantifiers. The exact sliding residence and sharpness witness are reconstructed algebraically. The 57 reproducible algebraic tests support, but do not replace, the proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-Kai's 2026 complete article gives the oscillator coefficients and local transversal-hybrid stability, but not Filippov sliding or a uniform sharp contraction for its regular-polygon specialization. Kai–Masuda already established polygonal cycle synthesis and uniqueness, which are not asserted as new. The globally attracting cycles in the full accessible Hanke–Stursberg and Hanke–Liu–Stursberg papers are different switched-system constructions and do not imply this exact ray-convexified exponent or slide-duration identity. The 2011 and 2012 Kai–Masuda full texts were inaccessible; that is a real residual historical-priority risk, not proof of their noncoverage.
+PASS
 
-## Mathematical value — PASS
-The result resolves a natural discontinuity in oscillator modeling: switching rays can attract trajectories when a purely transversal hybrid convention is replaced by the canonical Filippov completion. The theorem supplies a sharp all-initial-condition contraction coefficient and closed sliding residence law, exposing a qualitatively different global relaxation mechanism that the known within-sector energy estimate alone misses.
+Reconstructed sector dynamics F_j, polygon gauge and derivative rho′=−2λa(rho−1) in interiors, and exact two-sided ray fields. The zero transverse velocity constraint on positive-measure ray times forces the Filippov convex weight and z′=−λb² z−ω²/(λz), valid for |z|≥ω/(λa). These bounds integrate by Grönwall to global prefactor-one λb² contraction for every nonzero complete solution, no reaching origin, uniqueness of nonconstant period N/ω orbit; large-z sliding proves sharpness. Independently checked rational parameter algebra and logarithmic exit time for N=3,4,6,9; analytic piecewise absolute continuity handles unrestricted N.
 
-## Scope and limitations
-The result assumes a unit regular polygon, common positive angular/normal parameters, zero tangential perturbation, and nonzero initial data. It concerns the Filippov inclusion, not the distinct one-sided hybrid model. No result for arbitrary polygonal geometries, nonzero tangential perturbation or uniqueness at the origin is asserted. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+The natural Filippov completion of a prescribed polygonal switching oscillator has attractively sliding rays absent from the hybrid convention. The exact global rate and ray residence predict a qualitatively new slow transient and give a sharp all-initial-data stability benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

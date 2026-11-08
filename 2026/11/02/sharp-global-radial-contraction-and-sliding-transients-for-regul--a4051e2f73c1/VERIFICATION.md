@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-`RESULT.md` gives the complete all-parameter analytic argument. With Python 3, run `python3 check.py`: the script checks the identities \(a^2+b^2=2a\), \(2a\ge b^2\), the inward transverse signs, the unique convex sliding weight, the rational radial identity, and the integrated residence equation at polygon sizes \(N=3,4,6\). The expected output ends with `57 checks passed`. Numerical residence checks have floating-point tolerance \(10^{-12}\), and finite samples do not certify the all-integer theorem.
+## correctness
 
-Independent mathematical audit has not been performed. The 2011 and 2012 direct predecessor articles could not be read in full; historical novelty is therefore subject to that limitation. The analysis applies to the specified Filippov boundary completion, which differs from the originating article's transversal hybrid convention.
+PASS
+
+Reconstructed sector dynamics F_j, polygon gauge and derivative rho′=−2λa(rho−1) in interiors, and exact two-sided ray fields. The zero transverse velocity constraint on positive-measure ray times forces the Filippov convex weight and z′=−λb² z−ω²/(λz), valid for |z|≥ω/(λa). These bounds integrate by Grönwall to global prefactor-one λb² contraction for every nonzero complete solution, no reaching origin, uniqueness of nonconstant period N/ω orbit; large-z sliding proves sharpness. Independently checked rational parameter algebra and logarithmic exit time for N=3,4,6,9; analytic piecewise absolute continuity handles unrestricted N.
+
+## originality
+
+PASS
+
+Based on primary source and Resultary comparison, the final parameter-specific theorem is not materially implied by the identified prior statements, with stated access and priority caveats.
+
+## value
+
+PASS
+
+The natural Filippov completion of a prescribed polygonal switching oscillator has attractively sliding rays absent from the hybrid convention. The exact global rate and ray residence predict a qualitatively new slow transient and give a sharp all-initial-data stability benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
