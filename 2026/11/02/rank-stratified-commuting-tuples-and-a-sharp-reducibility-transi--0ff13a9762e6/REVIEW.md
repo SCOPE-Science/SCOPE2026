@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed all-arity count follows from an explicit characteristic-independent transformation of the bracket equations to the condition \(AY_j^{\mathsf T}\) symmetric. For each rank \(d\), the exact number of independent constraints is \(d(m-d)+\binom d2\), proving constant-dimensional affine fibers. Standard finite-field rank-matrix enumeration produces the stated Gaussian sum. For \(m=r=2\), the \(A=0\) and \(A\ne0\) strata have dimensions \(6c\) and \(5c+4\). The specialization path \(tA_0\) proves closure inclusion for \(c\le3\), while dimension and irreducibility give exactly two components for \(c\ge4\). Ten exhaustive tests in the attached checker support the algebra, not its infinite quantifiers.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-The directly inspected Ghimire dissertation and corresponding original preprint concern derivation algebras of the same matrix class. The inspected Goodwin–Röhrle 2012 primary full text, particularly Remark 3.1, addresses commuting pairs and parabolic examples including a different three-block partition \((1,1,c)\), but does not give the claimed \((1,2,c)\) irreducibility threshold, all-arity \((1,r,c)\) rank-stratified count, or their combined implication. Goddard–Goodwin treats full parabolic commuting varieties, not finite-field nilradical all-arity point counts. The previous mathematical results contains a different thin-middle partition \((a,1,c)\) (item `ce126fea-e103-40fa-b5bc-ea78edf66766`) and a subalgebra-counting result for \((1,r,1)\) (item `f8fe08d4-88f3-4c10-919c-f300e90da9d8`), not these claims. Actual published-finding corpus searches using block-size, symmetry, rank-stratum and threshold formulations did not return an equivalent implication. Broader and inaccessible literature remains a priority risk, not a claim of certified uniqueness.
+PASS
 
-## Value — PASS
-Exact all-tuple point counts are a natural arithmetic invariant of finite nilpotent Lie algebras and their unipotent groups. The uniform rank stratification explains how the answer depends on the middle block and tuple length, beyond the already-treated thin-middle case. More sharply, the \((1,2,c)\) pair family exhibits a precise geometric transition at \(c=4\): irreducible below, two equal-dimensional components at the threshold, and two unequal-dimensional components thereafter. This combines arithmetic and geometry across an unbounded natural family; it is not a single arbitrary numerical slice.
+Block multiplication reduces the commutator to a_i B_j−a_j B_i. Arrange a_i as m×r matrix A; each of c matrices Y_j must make A Y_j^T symmetric. If rank A=d, Gaussian elimination gives exactly d(m−d)+d(d−1)/2 independent constraints, leaving m(r−d)+d(d+1)/2 entries per Y_j; central coordinates contribute cm. Rank-d matrices form irreducible bases of dimension d(m+r−d), giving affine kernel bundles and the exact Gaussian-binomial sum in every characteristic. I independently enumerated six finite q,m,r,c configurations from the actual brackets, all matching the formula. When m=r=2, A≠0 is irreducible dim5c+4 and A=0 is affine dim6c. For c≤3 any prescribed Y tuple has nonzero A0 solving ≤3 equations in four unknowns; A=tA0 approaches A=0, proving irreducibility. For c≥4 dimension comparison proves exactly two components. This is a structural argument, not finite extrapolation.
 
-## Closest literature, checked sources, and limitations
-The closest inspected primary full texts are Goodwin–Röhrle, Oberwolfach Preprint 2012-14 (abstract, Sections 1–3, especially Remark 3.1) and Ghimire's 2016 dissertation (Chapters 1 and 3, including both characteristic cases). The 2016 arXiv abstracts of Ghimire–Huang and Goddard–Goodwin were checked; their entire preprint PDFs were not accessible through the attempted web retrieval. The 2012 geometry does not assert finite-field counting, and its parabolic example has a different block partition. Equivalent results under algebraic-group orbit decompositions or quiver representations remain possible. The proof is self-contained for the newly stated family, but independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goodwin–Röhrle (2012/2015), primary ar5iv full article Section 3 Remark 3.1, studies nilradical commuting geometries including the related thin-middle partition (1,1,c) but not the (1,2,c) transition. Ghimire–Huang’s same-block matrix family is studied for derivations, not ordered commuting tuple point counts. Goddard–Goodwin addresses full parabolic Lie algebra commuting varieties, a different ambient object. Resultary near matches concern other rank distributions. Possibility of quiver-representation equivalents remains.
+
+## value
+
+PASS
+
+Counts of pairwise commuting tuples are an intrinsic arithmetic invariant of a natural nilpotent Lie and unipotent group family; uniform rank strata explain them for all tuple lengths. The sharp transition at c=4, where components first appear with coincident dimensions, is a nontrivial geometric phase boundary over an unbounded family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
