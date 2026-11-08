@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:47:05.022502Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B=-(p d/dx) d/dx+1>=I, the form -B plus positive point traces is a selfadjoint finite-rank form perturbation. The resolvent eigenproblem for t>=0 is equivalent, with multiplicity, to K(t)z=z. Positivity and strict quadratic-form decrease of (B+t)^-1 on finite nonzero combinations of point masses show exactly eigenvalues K(0)>1 cross 1 once, with K(0)=1 giving zero modes; essential spectrum <=-1. For an isolated crossing b' = V_s'(s)+G(s,s), giving d=G/(G-b')<1 on P phases and >1 on Q phases. Source Theorem 5.3 gives exponentially close crossing positions and isolated slopes; the Floquet Green off-diagonals decay exponentially, so the full K is uniformly close to its finite diagonal gap around 1. Weyl perturbation therefore gives exactly one positive direction per Q and no neutral mode for large separation. The proof correctly limits to selfadjoint transmission spectrum and does not claim nonlinear stability. Independent analytic reconstruction of the Birman–Schwinger index argument was performed; numerical checker was inspected, but its output alone was not treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bastiaansen et al. smooth cubic Allen–Cahn with weak topography; Mori et al. fixed order-one periodically discontinuous diffusion and McKean kinetics"
+        ],
+        "reasoning": "Asymptotic stability conclusions in a smooth small-heterogeneity regime do not imply the transmission-matrix index in this nonperturbative family. Broad point-interaction principles are background, not direct exact parameter coverage.",
+        "searches": [
+          "Morse index periodic necklace graph McKean equation pinning separated nonmonotone fronts spectral transmission Green matrix Mori Ogawa Sintavanuruk",
+          "arxiv:2501.16195",
+          "arxiv:2610.32917v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.32917v1",
+        "https://arxiv.org/abs/2501.16195",
+        "Git frozen RESULT.md §§1–3 and numerical checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary explicitly leaves nonmonotone-front stability unresolved; spectral statement here is narrower than nonlinear Lyapunov stability"
+        ],
+        "reasoning": "Existing nonlinear single-front stability or smooth weak-forcing multi-front selection does not logically imply Q-letter eigenvalue index. This is a spectral, not nonlinear dynamical, resolution.",
+        "searches": [
+          "Morse index periodic necklace graph McKean equation pinning separated nonmonotone fronts spectral transmission Green matrix Mori Ogawa Sintavanuruk",
+          "arxiv:2610.32917v1 Theorem 5.3 and Section 6",
+          "arxiv:2501.16195"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori et al. Theorem 5.3 supplies 2^m separated fronts and b' phase monotonicity; Green resolvent index is classical"
+        ],
+        "reasoning": "The reported spectral count is not a renaming of the front-existence result; the relevant object is the selfadjoint transmission operator and its full positive-index count.",
+        "searches": [
+          "Morse index periodic necklace graph McKean equation pinning separated nonmonotone fronts spectral transmission Green matrix Mori Ogawa Sintavanuruk",
+          "arxiv:2610.32917v1",
+          "Birman–Schwinger finite-rank point interactions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite exact tabulation to match: the result is uniform over all odd crossing counts and sufficiently distant periods"
+        ],
+        "reasoning": "No exact database/table is the claimed output. The source contains a 2^m EXISTENCE count, which does not determine the Morse-index table without the new proof.",
+        "searches": [
+          "Morse index periodic necklace graph McKean equation pinning separated nonmonotone fronts spectral transmission Green matrix Mori Ogawa Sintavanuruk",
+          "Resultary Morse index, periodic Green, pinned McKean fronts",
+          "arxiv:2610.32917v1"
+        ]
+      },
+      "rationale": "The primary Mori–Ogawa–Sintavanuruk full-text paper proves the exact family of 2^m distant fronts and stability of monotone fronts; the nonmonotone cases are explicitly left open in discussion. Bastiaansen–Doelman–Kaper study qualitatively analogous spectral selection for smooth small-amplitude topography but cannot imply the fixed-contrast discontinuous McKean transmission law. Birman–Schwinger machinery is classical, but the exact Q-letter index for these pinned profiles is not an automatic consequence of front existence.",
+      "residual_risks": [
+        "Broader older point-interaction or McKean-front spectral theorems might imply the index count and were not exhaustively searched.",
+        "Independent numerical implementation for the m=5 example was not essential to the all-parameter analytic proof; supplied floating-point checker does not certify intervals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS front existence, isolated P/Q branch properties and Floquet tail estimates but not the new complete finite-dimensional transmission spectrum",
+          "evidence": "Theorem 5.3 2^m configurations; Section 6 nonmonotone stability question; b(s) monotone at branch roots",
+          "identifier_or_url": "https://arxiv.org/html/2610.32917v1",
+          "material_read": "Full arXiv HTML, Lemma 3.5, §§3.2,3.6, Theorem 5.3, Section 6 and related coefficient/phase definitions",
+          "method": "arXiv full-text HTML read",
+          "title": "Stationary bistable fronts on a periodic necklace graph: existence, stability and multiplicity",
+          "trigger": "Exactly same model, threshold phases and 2^m separated front family"
+        },
+        {
+          "assessment": "Different smooth cubic and small topographic contrast; do not assert whole-document exclusion",
+          "evidence": "Related spectral selection theme but nonmatching hypotheses; residual older transmission results remain",
+          "identifier_or_url": "https://arxiv.org/abs/2501.16195",
+          "material_read": "Accessible abstract and cited theorem description, not verified full manuscript",
+          "method": "arXiv abstract and cited mathematical summary",
+          "title": "Multi-front dynamics in spatially inhomogeneous Allen–Cahn equations",
+          "trigger": "Very close qualitative multi-front index conclusions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite Green-matrix index criterion is an exact check for arbitrary simple crossing configurations. Its large-gap specialization gives the complete binomial Morse-index spectrum of a natural 2^m multistable-front family at order-one periodic heterogeneity; it distinguishes the unique spectrally negative all-P word and isolates where nonlinear stability remains open.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.32917v1",
+    "https://arxiv.org/abs/2501.16195",
+    "Git frozen RESULT.md §§1–3 and numerical checker.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any finite simple crossings of the scalar periodic-McKean stationary front, the number of positive eigenvalues of its specified selfadjoint transmission operator equals the number of eigenvalues of finite Green matrix K(0) exceeding 1 and its nullity equals dim ker(K-I). For each fixed odd m>=3 and sufficiently separated m-crossing words, index equals number of Q letters, with binomial multiplicities and no kernel.",
+  "limitations": [
+    "Exactly spectral index of the specified scalar selfadjoint transmission linearization (paired-edge-symmetric necklace sector); no claim of Frechet differentiability or nonlinear Lyapunov stability.",
+    "For Q-letter count, m fixed and odd >=3, sufficiently widely spaced crossings; no uniform sharp separation threshold."
+  ],
+  "residual_risks": [
+    "Broader older point-interaction or McKean-front spectral theorems might imply the index count and were not exhaustively searched.",
+    "Independent numerical implementation for the m=5 example was not essential to the all-parameter analytic proof; supplied floating-point checker does not certify intervals."
+  ],
+  "schema_version": 1
+}

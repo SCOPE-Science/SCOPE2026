@@ -1,31 +1,21 @@
-# Scientific review: exact spectral index of separated necklace McKean fronts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise mathematical object is the selfadjoint transmission linearization with quadratic form \(-\int(p|v_x|^2+|v|^2)+\sum_i |v(\rho_i)|^2/|u_x(\rho_i)|\) on \(H^1(\mathbb R)\). It is **not** asserted to be an independently established Frechet derivative of the nonlinear discontinuous-reaction flow. The proof derives the finite Green matrix directly from the resolvent eigen-equation, proves its strict monotonicity in the nonnegative spectral parameter, and counts positive eigenvalues by crossings of 1. The zero-eigenvalue test follows from the same resolvent equivalence. The essential spectrum is bounded by \(-1\).
+PASS
 
-At each isolated threshold phase, direct differentiation of the half-line resolvent solution gives \(|V_s'(s)|=G(s,s)-b'(s)\), so a P phase yields a Green ratio below 1 and a Q phase yields a ratio above 1. The sourced matching theorem provides exponentially close separated crossing locations; the same exponential Floquet estimates bound the off-diagonal Green entries and the contributions to crossing slopes. A strict finite diagonal gap around 1 therefore survives at large separation. Consequently the Morse index equals the number of Q letters, and the nullity is zero. No numerical extrapolation substitutes for this proof.
+For B=-(p d/dx) d/dx+1>=I, the form -B plus positive point traces is a selfadjoint finite-rank form perturbation. The resolvent eigenproblem for t>=0 is equivalent, with multiplicity, to K(t)z=z. Positivity and strict quadratic-form decrease of (B+t)^-1 on finite nonzero combinations of point masses show exactly eigenvalues K(0)>1 cross 1 once, with K(0)=1 giving zero modes; essential spectrum <=-1. For an isolated crossing b' = V_s'(s)+G(s,s), giving d=G/(G-b')<1 on P phases and >1 on Q phases. Source Theorem 5.3 gives exponentially close crossing positions and isolated slopes; the Floquet Green off-diagonals decay exponentially, so the full K is uniformly close to its finite diagonal gap around 1. Weyl perturbation therefore gives exactly one positive direction per Q and no neutral mode for large separation. The proof correctly limits to selfadjoint transmission spectrum and does not claim nonlinear stability. Independent analytic reconstruction of the Birman–Schwinger index argument was performed; numerical checker was inspected, but its output alone was not treated as proof.
 
-The standalone numerical program independently reconstructs profiles from transfer matrices for all eight three-crossing and all 32 five-crossing words at two in-range thresholds. It verifies threshold residuals, transverse slopes and Green-matrix eigenvalue indices. These computations are corroboration, not proof of the infinite-parameter theorem.
+## originality
 
-## Originality — PASS under inspected evidence
+PASS
 
-Mori, Ogawa and Sintavanuruk [1, Theorem 5.3] establish the family and \(2^m\) multiplicity but explicitly leave nonmonotone-front stability unproved [1, Sections 1 and 6]. Their theorem and estimates do not themselves give the count of positive eigenvalues for each of the \(2^m\) fronts, nor the finite-dimensional zero-energy resolvent index test. The present theorem supplies a **spectral** resolution in the paired-edge-symmetric scalar channel; it does not claim the stronger nonlinear stability problem has been solved.
+The primary Mori–Ogawa–Sintavanuruk full-text paper proves the exact family of 2^m distant fronts and stability of monotone fronts; the nonmonotone cases are explicitly left open in discussion. Bastiaansen–Doelman–Kaper study qualitatively analogous spectral selection for smooth small-amplitude topography but cannot imply the fixed-contrast discontinuous McKean transmission law. Birman–Schwinger machinery is classical, but the exact Q-letter index for these pinned profiles is not an automatic consequence of front existence.
 
-Bastiaansen, Doelman and Kaper [2, Theorem 6.1] establish a closely analogous small-eigenvalue selection principle for a smooth cubic Allen--Cahn equation with *small-amplitude topographic forcing*. That is a serious thematic antecedent and explains why one stable word may be expected. However, it does not include discontinuous McKean kinetics or the fixed order-one two-zone diffusion contrast, and its asymptotic regime does not imply this Green-matrix formula. Classical Birman--Schwinger reduction is an acknowledged standard method, not claimed as original.
+## value
 
-Semantic searches for the same source identifier, moving-crossing linearization, Green-resolvent point-interaction index, and all-P/Q exact Morse counts returned no equivalent published result in the available records. This is an evidence-bounded priority assessment, not uniqueness certification. Historic contributions on discontinuous-reaction eigenvalue transmission and pinned multi-fronts could still overlap.
+PASS
 
-## Mathematical value — PASS
+The finite Green-matrix index criterion is an exact check for arbitrary simple crossing configurations. Its large-gap specialization gives the complete binomial Morse-index spectrum of a natural 2^m multistable-front family at order-one periodic heterogeneity; it distinguishes the unique spectrally negative all-P word and isolates where nonlinear stability remains open.
 
-The new theorem closes a specifically identified *spectral* gap for all of the source's exponentially separated multi-front solutions at **fixed, nonperturbatively strong diffusion contrast**, and it does so with an exact non-asymptotic finite Green-matrix criterion for *every* finite set of simple crossings. It distinguishes a single spectrally stable word, gives the entire binomial Morse-index distribution across \(2^m\) patterns, and proves the absence of neutral modes. The integer-index classification is structurally relevant to stability, bifurcation and nonlinear analysis of pinned fronts, and is not a generic small numerical improvement or a relabeling of the source's existence theorem.
-
-## Closest literature and limitations
-
-[1] Y. Mori, T. Ogawa and C. Sintavanuruk, *Stationary bistable fronts on a periodic necklace graph: existence, stability and multiplicity*, arXiv:2610.32917v1 (23 October 2026), https://arxiv.org/html/2610.32917v1, especially Lemma 3.5, Theorem 5.3 and Section 6.
-
-[2] R. Bastiaansen, A. Doelman and T. J. Kaper, *Multi-front dynamics in spatially inhomogeneous Allen--Cahn equations*, arXiv:2501.16195 (27 January 2025), https://arxiv.org/abs/2501.16195, especially Section 6.3 and Theorem 6.1.
-
-Limitations: formal/transmission linearization only; paired-edge-symmetric sector only for the necklace graph; no nonlinear Lyapunov stability, asymmetric graph spectral theorem, optimal gap, or fully independently verified priority claim. Related older jump-heterogeneity models have not all been examined in complete full text.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
