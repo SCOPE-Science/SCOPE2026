@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T14:05:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=1, the Buck–Elder–Figueroa–Harris–Harry–Simpson type-B partition bijection maps a distinguished zero block with z extra labels to a word of (d,p)=(0,1) when z=0, otherwise (1,z), giving Z=u+t(exp(ux)-1). A nonzero block pair of s absolute labels, normalized with its smallest absolute label positive, has q negative and s-q positive entries; its word f(N)g(P) has (d,p)=(0,1) for s=1, and for s>=2 the mutually exhaustive classes q=0, q=s-1 and 1<=q<=s-2 contribute t*u^(s-1), t*u^s and binom(s-1,q)*t^2*u^(s-1), respectively. Counting signs gives the factor 2^(s-1)-2. The canonical order of blocks makes every interblock adjacency a strict ascent; thus no boundary plateau/descent and the labeled SET exponential formula proves Z*exp(W) over Z[t,u][[x]] for all n. The x^(n-1)/(n-1)! index shift and 2n-1 internal comparisons are correct; n=1 gives H1=u. Independent exhaustive insertion enumeration of all (2n-1)!! Stirling permutations for each 1<=n<=8, filtered by weak-run starts, matched the independently derived signed-block polynomial recurrence in every (d,p) cell (totals 1,2,6,24,116,648,4088,28640); at n=4 the five coefficients match RESULT.md. At u=1 algebra yields exactly Shankar Corollary 10; at t=u=1 the total EGF is exp(x+(e^(2x)-1)/2). The infinite proof comes from the bijection plus local weights, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buck et al., arXiv:2306.13034v2, Theorem 1.1 and Proposition 3.6: explicit flattened/type-B bijection, without simultaneous descent–plateau EGF.",
+          "Ma–Ma–Yeh, arXiv:1801.08056v2, p.1 and Sections 2–3: multivariate statistics over all Stirling permutations, a strictly larger sample space; restriction is not a simple coefficient extraction.",
+          "Ma–Liu–Yeh–Yeh, arXiv:2506.16438v2, Section 3.2 Lemma 11: Q^(1)_{n+1} consists of {1,2,2,...,n+1,n+1}, with smallest letter once; it is not the flattened two-copy family.",
+          "Baril–Ramírez 2026 full open HTML, Section 3: flattened permutations are words with distinct symbols of [n], counted by Bell numbers, not Stirling multipermutations counted by Dowling numbers."
+        ],
+        "reasoning": "The closest broader trivariate Stirling results do not mark the flattened subset, whereas the 2026 ordinary flattened-permutation results count a different object. The type-B bijection provides ingredients for a refinement but does not state this bivariate theorem; its use is acknowledged. Any further general theorem that explicitly specializes to the flattened class remains a priority risk.",
+        "searches": [
+          "Dowling type B partitions flattened Stirling permutations plateau count bivariate polynomial H_n(t,u)",
+          "flattened Stirling permutations plateaux 2026",
+          "Some distributions on increasing and flattened permutations Baril Ramirez 2026",
+          "arXiv 2506.16438 Eulerian-type polynomials restricted Stirling singleton one occurrence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.07730v2 (Shankar 2023)",
+        "arXiv:2306.13034v2 (Buck et al. 2023)",
+        "arXiv:1801.08056v2 (Ma–Ma–Yeh 2018/2019)",
+        "arXiv:2506.16438v2 (Ma–Liu–Yeh–Yeh 2025)",
+        "Baril–Ramírez 2026 DOI:10.1007/s00010-026-01275-9",
+        "Resultary semantic searches for joint flattened Stirling descents/plateaux and bivariate type-B partition EGF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shankar, Corollary 10 (arXiv:2307.07730v2, p.4): (1+t(e^x-1)) exp{x+2t(e^x-x-1)+(t^2/2)(3+2x-4e^x+e^(2x))}, which is precisely H(t,1) and says nothing independently about u.",
+          "Buck et al. Proposition 3.6 word map and Theorem 3.9: transfers block structures to flattened words; carrying the new plateau weighting needs three separate signed-pattern cases.",
+          "Ma et al. 2025 Lemma 11: a trivariate formula for Q^(1), not a theorem about flattened Q_n."
+        ],
+        "reasoning": "The u=1 specialization and total count are known and not claimed; the joint coefficients are not a formal consequence of either marginal. A researcher can derive them by newly marking plateaux in the established block model; this is a nontrivial but limited extension rather than new bijective machinery.",
+        "searches": [
+          "Shankar arXiv 2307.07730 Corollary 10 EGFs Section 6 Section 7 question 4",
+          "flattened 2-Stirling permutations ascent plateau joint distribution Shankar",
+          "unrestricted Stirling permutation trivariate second-order Eulerian versus flattened subclass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a length-2n word all comparisons split into 2n-1=a+d+p, giving the joint ascent–plateau polynomial by v^(2n-1)H_n(t/v,u/v) with t marking descents and u marking plateaux.",
+          "Shankar, arXiv:2307.07730v2, p.20, Section 7 question 4: joint ascent–plateau distribution is posed as further study; p.4 Corollary 10 contains only the descent marker."
+        ],
+        "reasoning": "Equivalent descriptions are the joint ascent/plateau polynomial, joint descent/plateau polynomial, or a signed-partition block-weight EGF. The prior univariate descent polynomial and known total Dowling EGF cannot algebraically recover the separate plateau distribution.",
+        "searches": [
+          "flattened Stirling permutations joint descents plateaus bivariate exponential generating function type B set partitions",
+          "flattened 2-Stirling permutations ascent plateau joint distribution Shankar",
+          "flattened Stirling permutations plateau generating function",
+          "flattened Stirling ascent plateau polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned related set-partition/orbit enumeration and permutation-statistics findings, not the same flattened Stirling descent–plateau polynomial; in particular 2026/9/9/SCOPE032 counts (fp,exc,des) for 123-avoiding ordinary permutations, not this family.",
+          "Buck et al. 2023, p.3 Table 1, and Shankar 2023, p.20 Table 1, give flattened counts by number of runs, i.e. descent marginals, not (des,plat) coefficient tables."
+        ],
+        "reasoning": "A run-count table or exact Dowling number table does not determine joint cells. No relevant exact published table was found in the inspected sources, but coverage is judged from statements and object classes, not search silence.",
+        "searches": [
+          "flattened Stirling permutations joint descents plateaus bivariate exponential generating function type B set partitions",
+          "Dowling type B partitions flattened Stirling permutations plateau count bivariate polynomial H_n(t,u)",
+          "Shankar Corollary 10 plateau ascent joint flattened k Stirling permutations",
+          "bivariate polynomial B_n(t,u) flattened Stirling permutations number descents and equal adjacencies"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the all-order simultaneous internal-descent/internal-plateau enumerator on flattened 2-Stirling permutations. Shankar 2023 gives only the u=1 descent marginal and expressly asks in Section 7 item 4 for the joint ascent/plateau distribution. Buck et al. give the requisite bijection but not the joint marked species. Ma–Ma–Yeh 2019 concerns all Stirling permutations, Ma–Liu–Yeh–Yeh 2025 concerns the distinct singleton-minimum class; Baril–Ramírez 2026 concerns ordinary distinct-letter flattened permutations. Actual Resultary queries found no dominating same-object result, but search noncoverage does not establish priority. The proof refines prior block decomposition with a separate plateau marking; the established bijection, totals, and descent marginal are excluded from the novelty claim.",
+      "residual_risks": [
+        "A relevant later paper, unindexed thesis, appendix, or specialization of a broader theorem might already state the same joint polynomial.",
+        "The proof and EGF architecture use the previously published type-B block bijection and Shankar’s descent-weighted species; novelty is solely the separate plateau refinement, with correspondingly bounded significance.",
+        "The result treats only two copies per symbol (k=2), not the full k-Stirling family asked about by Shankar."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DESCENT_MARGINAL_ONLY",
+          "evidence": "Corollary 10 p.4 is the u=1 specialization; Section 7 question 4 explicitly poses joint ascent/plateau.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.07730",
+          "material_read": "22-page OA PDF: abstract, theorem/corollary formulas, Section 6 marked-structure proof (pp.17–19), Section 7 questions and Table 1 (pp.19–20); PDF page images 19–20 inspected",
+          "method": "Primary PDF text and rendered pages; compare variables and specializations",
+          "title": "Enumeration of flattened k-Stirling permutations with respect to descents",
+          "trigger": "Most directly potentially dominating exact family"
+        },
+        {
+          "assessment": "BIJECTION_NOT_JOINT_ENUMERATOR",
+          "evidence": "Proposition 3.6 gives f(N)g(P) word map, and Table 1 is by run count; no plateau marker.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13034",
+          "material_read": "17-page OA PDF: Theorem 1.1, Proposition 3.6 and Theorem 3.9 in Section 3, Figure 1, Table 1; p.7 image inspected",
+          "method": "Primary PDF text plus rendered p.7",
+          "title": "Flattened Stirling Permutations",
+          "trigger": "Original type-B bijection"
+        },
+        {
+          "assessment": "ALL_STIRLING_NOT_FLATTENED",
+          "evidence": "Sample space Q_n includes all Stirling permutations; ascent/descent conventions include artificial endpoints, different from this internal comparison and flattened restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08056",
+          "material_read": "15-page OA PDF: abstract, definition/boundary convention on p.1, statistics and scope of Sections 2–3; rendered p.1 inspected",
+          "method": "Primary PDF and page image",
+          "title": "The Ascent-Plateau Statistics on Stirling Permutations",
+          "trigger": "Potential stronger multi-variable result"
+        },
+        {
+          "assessment": "DIFFERENT_RESTRICTED_CLASS",
+          "evidence": "Their Q^(1)_{n+1} has a singleton smallest letter rather than two copies of each letter plus flattened run starts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.16438",
+          "material_read": "23-page OA PDF: contents, main theorem statements, Section 3.2 Lemma 11 and its proof, rendered p.8 inspected",
+          "method": "Primary PDF and page image",
+          "title": "Eulerian-type polynomials over Stirling permutations and box sorting algorithm",
+          "trigger": "More recent six-variable restricted-class theorem"
+        },
+        {
+          "assessment": "ORDINARY_PERMUTATIONS_DIFFERENT_CLASS",
+          "evidence": "Section 3 enumerates flattened words on n distinct letters; Bell-number totals differ from Dowling-number totals for flattened Stirling permutations.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-026-01275-9",
+          "material_read": "Full open HTML: abstract, basic definitions and Section 3 results on ordinary flattened permutations, plus cited literature",
+          "method": "Read full open HTML relevant mathematical definitions and theorem scopes",
+          "title": "Some distributions on increasing and flattened permutations",
+          "trigger": "Recent same-adjective and EGF statistical paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural and previously explicitly requested joint distribution for flattened 2-Stirling permutations is determined at all sizes, not just another marginal or finite table. It gives every descent–plateau covariance and mixed moment, with equivalent joint ascent–plateau statistics and consistency with the known descent EGF and Dowling totals. This is a specific nonroutine bivariate enumeration motivated by Shankar’s Section 7 question 4. The paper-sized k>2 extension is not proved or required; significance is narrow because the base bijection and univariate EGF are prior art.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2307.07730v2 (Shankar 2023)",
+    "arXiv:2306.13034v2 (Buck et al. 2023)",
+    "arXiv:1801.08056v2 (Ma–Ma–Yeh 2018/2019)",
+    "arXiv:2506.16438v2 (Ma–Liu–Yeh–Yeh 2025)",
+    "Baril–Ramírez 2026 DOI:10.1007/s00010-026-01275-9",
+    "Resultary semantic searches for joint flattened Stirling descents/plateaux and bivariate type-B partition EGF"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assesses only k=2; no universal k theorem, exact asymptotics, or closed coefficient formula promised.",
+    "Published sources are read at relevant mathematical sections; residual historical-priority risk is nonzero.",
+    "Independent finite generation verifies n<=8 only; the proof of all n requires the published bijection and checked block enumeration.",
+    "Public-bound source METADATA/AUDIT contain private operational run ID; publication depends on complete sanitized guarded replacements."
+  ],
+  "schema_version": 1
+}
