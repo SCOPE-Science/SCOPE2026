@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The first-passage tail and all moments are derived by reflection and the tail-sum identities, the reset mean from a renewal equation, and the one-sided response from the probability generating function. Explicit rational error enclosures bound *all* uncomputed tails and prove the strict signs at five through eight searchers; monotonic moment comparison settles every larger count. The infinite moments at three and four are handled analytically, not with finite truncation.
+## correctness
 
-**Originality: PASS, qualified.** Biroli, Majumdar and Schehr (arXiv:2303.18012) analyze Brownian first arrival under resets, with a related but distinct noninteger continuum threshold; the discrete two-step threshold is not a logical specialization of their continuous-space result. Das and Giuggioli (arXiv:2209.08330) analyze discrete-space resetting but do not supply the exact multi-searcher sign cutoff. The related network encounter-time literature addresses collision of walkers rather than first hitting a fixed absorbing target. No equivalent statement was identified in the available claim searches or accessible literature. Broader general restart theorems or overlooked lattice analyses remain priority risks; no absence-of-prior-results claim is absolute.
+PASS
 
-**Value: PASS.** A natural lattice-scale analogue of a Brownian critical-searcher phenomenon yields an exact phase boundary with a nontrivially narrow margin at six walkers. A proof controlling all searcher counts, rather than merely sample values, is relevant to choosing whether weak common restart is locally beneficial for parallel randomized search.
+For independent fair nearest-neighbor lattice walkers started at 2 and stopped when any reaches 0, reflection gives Pr(tau_1>2m)=Pr(tau_1>2m+1)=a_m=(2m+1)/(m+1)*C(2m,m)/4^m. Thus mu_N=2 sum_m a_m^N, h_N=sum_m(4m+1)a_m^N and mu finite iff N>2, h finite iff N>4. Geometric reset after failed steps gives exact mean (1-q)(1-f_N(q))/(q f_N(q)), f_N=E(1-q)^tau, yielding right derivative mu²-mu-h for N>=5 and -infinity N3,4. Source check_restart.py provides outward integer fixed-point sums through m=9999 with analytical Wallis/integral remainder bounds, giving h+mu-mu² positive N5,6 (D6 in (0.082,0.084)), negative N7,8 and h9<2; monotonicity hN<=h9 and muN>=2 completes N>=9. Fresh independent long-series numerical sums corroborated approximate D5=3.8973,D6=0.08287,D7=-0.67706,D8=-0.90187, but unrestricted sign rests on the rigorous tail certificate, not truncation. N1,2 unreset infinite while any positive q has finite mean.
 
-Limitations: Only the derivative sign near zero restart rate for fair walks from distance two is classified; it is not global restart optimality. No independent verification of mathematical novelty or correctness has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Biroli–Majumdar–Schehr derive a closely related Brownian continuous-space multiwalker restart threshold near 6.3556, yielding a similar 6-versus-7 integer division but not the fixed-site lattice renewal law. Das–Giuggioli study discrete-space reset first passage, principally single-walker. The exact lattice distance-two rigorous cutoff and narrow 6-walker margin were not located in primary material read; possibility of a general theorem already implying it remains.
+
+## value
+
+PASS
+
+Distinguishing the exact effect of weak synchronized restart for parallel search on a discrete lattice is a natural lattice-scale phenomenon: a sharp six-to-seven transition proved for every N, not a sample or time-limited simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

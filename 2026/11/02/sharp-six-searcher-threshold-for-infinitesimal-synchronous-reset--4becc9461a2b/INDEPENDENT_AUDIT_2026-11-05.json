@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:06:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent fair nearest-neighbor lattice walkers started at 2 and stopped when any reaches 0, reflection gives Pr(tau_1>2m)=Pr(tau_1>2m+1)=a_m=(2m+1)/(m+1)*C(2m,m)/4^m. Thus mu_N=2 sum_m a_m^N, h_N=sum_m(4m+1)a_m^N and mu finite iff N>2, h finite iff N>4. Geometric reset after failed steps gives exact mean (1-q)(1-f_N(q))/(q f_N(q)), f_N=E(1-q)^tau, yielding right derivative mu²-mu-h for N>=5 and -infinity N3,4. Source check_restart.py provides outward integer fixed-point sums through m=9999 with analytical Wallis/integral remainder bounds, giving h+mu-mu² positive N5,6 (D6 in (0.082,0.084)), negative N7,8 and h9<2; monotonicity hN<=h9 and muN>=2 completes N>=9. Fresh independent long-series numerical sums corroborated approximate D5=3.8973,D6=0.08287,D7=-0.67706,D8=-0.90187, but unrestricted sign rests on the rigorous tail certificate, not truncation. N1,2 unreset infinite while any positive q has finite mean.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al continuous Brownian N_c about 6.3556; Das–Giuggioli discrete single-walker laws."
+        ],
+        "reasoning": "The continuum threshold has same integer partition but is not a logical uniform discrete lattice result at fixed distance two. A generic restart criterion does not establish its sign at this exact lattice law.",
+        "searches": [
+          "multiple lattice random walkers synchronous stochastic resetting threshold number searchers start distance two first passage",
+          "Biroli Majumdar Schehr 2023 critical number walkers resetting",
+          "Das Giuggioli 2022 discrete space time resetting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.18012",
+        "https://arxiv.org/abs/2209.08330",
+        "https://arxiv.org/abs/2604.20770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biroli et al main simultaneous-reset FPT is Brownian, whose survival law differs from central-binomial lattice a_m.",
+          "Das–Giuggioli considers finite-step lattice resetting but does not in inspected material prove all-N synchronized multiwalker sign."
+        ],
+        "reasoning": "Neither inspected statement gives the strict rational tail-enclosed sign for N6 or all N>=7; nevertheless an unindexed lattice specialization remains possible.",
+        "searches": [
+          "multiple lattice random walkers synchronous stochastic resetting threshold number searchers start distance two first passage",
+          "arxiv 2303.18012 Brownian critical number 6.3556",
+          "arxiv 2209.08330 discrete space time resetting first passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical renewal restart identity and E[tau(tau-1)] tail-sum criterion give sign as mu²-mu-h."
+        ],
+        "reasoning": "The result can be phrased as a moment/variance inequality or a near-zero restart criterion, but the claim is its exact evaluation on the discrete two-site multiple-searcher distribution.",
+        "searches": [
+          "multiple lattice random walkers synchronous stochastic resetting threshold number searchers start distance two first passage",
+          "lattice independent walkers first passage geometric restart derivative factorial moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included unrelated Markov reset-word and walks but no same lattice moment table.",
+          "The source proves a nontrivial close margin h6+mu6-mu6² between 0.082 and 0.084."
+        ],
+        "reasoning": "No corresponding exact table found by named search, but that absence is not proof of novelty.",
+        "searches": [
+          "multiple lattice random walkers synchronous stochastic resetting threshold number searchers start distance two first passage",
+          "Resultary semantic multiple discrete lattice searchers simultaneous resetting six seven threshold"
+        ]
+      },
+      "rationale": "Biroli–Majumdar–Schehr derive a closely related Brownian continuous-space multiwalker restart threshold near 6.3556, yielding a similar 6-versus-7 integer division but not the fixed-site lattice renewal law. Das–Giuggioli study discrete-space reset first passage, principally single-walker. The exact lattice distance-two rigorous cutoff and narrow 6-walker margin were not located in primary material read; possibility of a general theorem already implying it remains.",
+      "residual_risks": [
+        "Continuous Brownian model already yields same integer division, so scientific novelty rests on rigorous discrete two-site boundary rather than generic restart threshold; a stronger general restart comparison might dominate.",
+        "The large-N sign uses a rigorously proven h9<2 bound, not finite partial sums alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Brownian continuous-space process with a different unreset first-passage law; establishes analogous threshold but not direct lattice specialization.",
+          "evidence": "Biroli–Majumdar–Schehr 2023 critical count ~6.3556 and simultaneous restart analysis",
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+          "material_read": "Open arXiv full PDF introductory assumptions, main critical threshold, simultaneous-reset section and selected appendices, with visual page inspection.",
+          "method": "OA arXiv PDF",
+          "title": "Critical Number of Walkers for Diffusive Search Processes with Resetting",
+          "trigger": "Most relevant same multiwalker simultaneous-reset critical phenomenon"
+        },
+        {
+          "assessment": "General discrete lattice first-passage restart and closely related formulas, but no complete same N6/N7 classification located in material actually read.",
+          "evidence": "Das–Giuggioli 2022 discrete renewal model",
+          "identifier_or_url": "https://arxiv.org/abs/2209.08330",
+          "material_read": "Open arXiv full PDF introduction, model, first-passage developments, and sampled conclusion; visual page inspection.",
+          "method": "OA arXiv PDF",
+          "title": "Discrete space-time resetting model",
+          "trigger": "Discrete restarting FPT could contain stronger identity"
+        },
+        {
+          "assessment": "Interwalker encounter target rather than target-first hitting; whole-document noncoverage not asserted.",
+          "evidence": "April 2026 arXiv abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2604.20770",
+          "material_read": "Abstract and subject scope only, not complete text.",
+          "method": "Open abstract-level triage",
+          "title": "Encounter times of random walkers with simultaneous resetting on networks",
+          "trigger": "Possible multiple walkers and resetting overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishing the exact effect of weak synchronized restart for parallel search on a discrete lattice is a natural lattice-scale phenomenon: a sharp six-to-seven transition proved for every N, not a sample or time-limited simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2303.18012",
+    "https://arxiv.org/abs/2209.08330",
+    "https://arxiv.org/abs/2604.20770"
+  ],
+  "disposition": "passed",
+  "limitations": "Fair one-dimensional random walks from starting distance two, common geometric restart after failed steps; strictly infinitesimal effect, not optimal finite q.",
+  "residual_risks": [
+    "Continuous Brownian model already yields same integer division, so scientific novelty rests on rigorous discrete two-site boundary rather than generic restart threshold; a stronger general restart comparison might dominate.",
+    "The large-N sign uses a rigorously proven h9<2 bound, not finite partial sums alone."
+  ],
+  "schema_version": 1
+}
