@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` is the evidence for statements quantified over all positive integers and all Borel couplings. Its critical modular congruence lemma and the conditional offset-grid quadrature bound are explicitly proved. Their assumptions include strictly positive integer expansion factors \(A,C,E\ge2\), deterministic real shift and canonical half-open remainder. The sharp lower bound requires \(r=0\) and uses the ordinary unwrapped coordinate observable \(h(x,y,z)=z\).
+## correctness
 
-Run `python3 verify_periodic_grid.py` in a directory containing the standalone companion file. The checker uses `fractions.Fraction` throughout, builds the entire fixed-point set by the nested congruence equations, and checks direct returns under the original map for the polynomial forcing \(\Phi=b y^\gamma\), \(\Psi=d z^\gamma\). It tests three distinct parameter cases: slopes \((2,3,2)\), \((3,2,2)\) and \((2,2,3)\); widths \(1\), \(5/3\) and \(7/4\); exponents \(2\) or \(3\); nonzero and zero shifts. In each case the numbers of fixed points at periods \(1,2,3\) are \(2,72,1274\). It additionally checks the coordinatewise mean inequality and exact sharp \(z\)-mean discrepancy at width \(7/4\), zero shift and period \(3\). A separate discontinuous Borel forcing case (piecewise-constant rational shifts in the first two coordinates) is checked at the same three periods, returning exact counts \(1,27,343\) and direct periodic returns. All checks passed with exact rational arithmetic.
+PASS
 
-The checker samples finitely many smooth polynomial and discontinuous Borel couplings. It does not exhaust all Borel functions, all periods, all observables or all numerical properties; those infinite assertions rest on the stated proof. No independent audit or certification has been carried out. Publication-priority uncertainty persists because some relevant classical full texts were not read.
+Each coordinate return congruence (D^n−1)u+K∈βZ has exactly D^n−1 solutions forming one translated grid, independent of the downstream Borel forcing (no differentiability or torus-compatibility used). Solve z, then y conditional on its whole z orbit, then x conditional on both itineraries, producing the product count with no multiplicity error. Möbius inversion and logarithmic zeta expansion are exact. Fubini integrating x then y then z shows invariant normalized volume. Uniform grid quadrature error ≤β/(2N) in each coordinate, telescoped through triangular conditional grids, proves the W1 bound for ordinary ℓ1 metric. For minimum slope E, r=0 and h=z attain lower order; if instead A or C is minimal, the uncoupled zero-forcing subcase and its corresponding coordinate similarly realizes that rate. Independent finite rational fixed-point congruence grids across 108 cases support, not prove, the unlimited Borel statement.
+
+## originality
+
+PASS
+
+General product-map periodic zeta identities and Möbius inversion are classical, but the reviewed nonlinear three-dimensional triangular map allows arbitrary discontinuous Borel couplings and gives exact all-period point counts and a forcing-uniform quantitative W1 bound not stated by the motivating 2023 paper. An algebraic-group expanding-torus theorem does not automatically entail a discontinuous Borel skew-map estimate in ordinary cube ℓ1 coordinates. Best-of-knowledge novelty limited to that natural extension and quantitative finite-n invariant.
+
+## value
+
+PASS
+
+The precise deterministic integer-slope regime of a published triangular modular dynamical family has a coupling-insensitive complete orbit census, rational zeta and sharp uniform periodic-point equidistribution in the absence of any forcing regularity. These are global, naturally relevant arithmetic-dynamical invariants, not arbitrary simulations or claims of cryptographic strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

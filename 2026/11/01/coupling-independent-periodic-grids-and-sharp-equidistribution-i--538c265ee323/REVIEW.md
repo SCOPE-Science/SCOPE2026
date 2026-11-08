@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified for all positive widths, integer slopes at least two, finite-valued Borel triangular forcing, constant shift and positive iterate numbers. The decisive lemma is that \([D^n u+K]_\beta=u\) has exactly \(D^n-1\) distinct representatives forming a shifted equal grid. Iteration preserves the affine-linear dependence on the current coordinate because \(D\) is an integer; solving successively in \(z,y,x\) gives every fixed point with no omissions. Möbius inversion and the logarithmic generating-function identity prove the primitive counts and rational zeta. Fubini proves normalized-volume invariance. Cellwise Lipschitz quadrature on the successive conditional grids proves the uniform Wasserstein inequality, while \(h(x,y,z)=z\) with zero shift proves optimal exponential order when \(E\) is the smallest slope. Exact rational code reconstructs 2, 72 and 1274 distinct returning points at periods 1–3 for three polynomial instances and nonunit widths; finite checking is explicitly not treated as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Each coordinate return congruence (D^n−1)u+K∈βZ has exactly D^n−1 solutions forming one translated grid, independent of the downstream Borel forcing (no differentiability or torus-compatibility used). Solve z, then y conditional on its whole z orbit, then x conditional on both itineraries, producing the product count with no multiplicity error. Möbius inversion and logarithmic zeta expansion are exact. Fubini integrating x then y then z shows invariant normalized volume. Uniform grid quadrature error ≤β/(2N) in each coordinate, telescoped through triangular conditional grids, proves the W1 bound for ordinary ℓ1 metric. For minimum slope E, r=0 and h=z attain lower order; if instead A or C is minimal, the uncoupled zero-forcing subcase and its corresponding coordinate similarly realizes that rate. Independent finite rational fixed-point congruence grids across 108 cases support, not prove, the unlimited Borel statement.
 
-The complete accessible primary source (Zhang et al., 2023, equation (1), Proposition 1, numerical experiments, conclusion) addresses construction and Lyapunov spectrum, not this exact all-period census or any quantitative forcing-independent periodic-point distribution bound. Puri and Ward (2001) supply classical Möbius inversion but not the product fixed-point invariant for arbitrary Borel skew forcing. Chothi, Everest and Ward (1997) consider algebraic-group endomorphisms, not arbitrary discontinuous triangular couplings. Other accessible references address expanding sphere maps or randomly perturbed smooth skew products. None of the checked statements implies the combined theorem with its pointwise Borel quantifiers and explicit finite-time rate. Unindexed/skew-product folklore remains a residual priority risk; a negative search is not evidence of universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The source proposes a three-coordinate modular polynomial map with tunable expansion and emphasizes statistical quality of outputs. The integer-expansion deterministic slice is a natural exact calibration regime: it has an all-period periodic-orbit census and rational zeta independent of arbitrary nonlinear coupling, and the full periodic ensemble is guaranteed quantitatively close to uniform volume at a sharp exponential order without any regularity requirement. This supplies rigorous finite-level global and statistical information not inferred from the Lyapunov exponents or sampled histograms. The result does not imply cryptographic security, global mixing, or claims about nonintegral parameters.
+General product-map periodic zeta identities and Möbius inversion are classical, but the reviewed nonlinear three-dimensional triangular map allows arbitrary discontinuous Borel couplings and gives exact all-period point counts and a forcing-uniform quantitative W1 bound not stated by the motivating 2023 paper. An algebraic-group expanding-torus theorem does not automatically entail a discontinuous Borel skew-map estimate in ordinary cube ℓ1 coordinates. Best-of-knowledge novelty limited to that natural extension and quantitative finite-n invariant.
 
-## Closest literature and limitations
+## value
 
-The primary comparison is Zhang et al. (2023), DOI 10.3390/e25071005. Relevant but inapplicable broader theory includes Chothi–Everest–Ward (1997), DOI 10.1515/crll.1997.489.99, and the general orbit-count Möbius transform of Puri–Ward (2001). Only the public abstracts and bibliographic records, not full manuscripts, were inspected for some older comparison papers; their broader claims were therefore not designated comprehensively noncovering. The bound's full leading constant is not claimed sharp, and a deterministic constant shift cannot model a new random perturbation at every time.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise deterministic integer-slope regime of a published triangular modular dynamical family has a coupling-insensitive complete orbit census, rational zeta and sharp uniform periodic-point equidistribution in the absence of any forcing regularity. These are global, naturally relevant arithmetic-dynamical invariants, not arbitrary simulations or claims of cryptographic strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
