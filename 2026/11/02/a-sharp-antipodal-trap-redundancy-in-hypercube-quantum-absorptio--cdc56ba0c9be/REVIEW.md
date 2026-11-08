@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof decomposes the two-sink bright space into Walsh spectral eigenspaces of the hypercube adjacency. Each of the two terminal sectors contributes rank one, and the remaining sectors contribute rank two for non-antipodal sinks but rank one for an antipodal pair. A spectral argument shows that the asymptotic total absorption of the uniform incoherent mixture is exactly the bright-space dimension divided by the number of vertices. The explicit checker independently evaluated every dimension from two through six and every possible pair separation, passing all 20 rank comparisons. Numerics are not used to infer validity for higher dimensions.
+## correctness
 
-**Originality — PASS on examined evidence, with a specific priority risk.** The 2015 Scientific Reports source evaluates hypercube transport with one sink and the corresponding radial invariant space, but the examined sections do not state the distinct all-dimension two-sink rank outcomes. The 2021 Entropy paper develops the single-trap spectral-subspace method, not the evaluated two-trap distance classification. Targeted current research-index searches gave no matching statement. The broad spectral-subspace mechanism is prior art; the new contribution is the exact two-sink result. An equivalent two-sink theorem under another language remains possible.
+PASS
 
-**Value — PASS.** The natural design question is whether adding a second trapping site increases overall quantum capture on the hypercube. The result gives a complete classification of every pair geometry and a sharp asymptotic design contrast. In particular, the farthest-possible location is exactly redundant, whereas all other locations are optimally effective; classical intuition based solely on distance or coverage would miss this bright-space degeneracy. The closed expression is an exact, natural graph-invariant transport benchmark, not an arbitrary special-case computation.
+For Q_d, d>=2, adjacency Hamiltonian J A with J nonzero, two positive local irreversible sink rates, the dark space is the orthogonal complement of the two-source cyclic subspace B=span{H^j|a>,H^j|b>}; any nondecaying eigenvector of H-iK/2 must lie in ker K and thus be dark. Finite-dimensional evolution on B decays, even with Jordan blocks. Uniform mixed initial state yields eta=dim(B)/2^d independently of rates. Distinct Walsh eigenspaces indexed by l have rank 1 at l=0,d. If separation k=d, parity of intersection with b is constant across each l-subset, giving rank 1 in all d+1 levels. For 1<=k<d, both parity signs occur among each 1<=l<=d-1 (connectivity of Johnson l-subset graph and availability of an inside-outside exchange), giving rank 2, hence total rank 2d. Checks of exact Walsh parity rank for every 2<=d<=11 agree. The proof is all-dimensional; finite tests only corroborate.
 
-Independent verification and experimental relevance have not been established. The source comparisons are limited to explicitly described material and cannot guarantee global historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novo et al 2015 and Razzoli et al 2021 establish the single-trap bright cyclic subspace and hypercube baseline, not this two-sink classification. The full-text 2021 paper specifically treats a single trap and concludes multiple traps require future analysis, supporting the no-direct-coverage comparison. Multi-marked quantum walks remain a broader priority risk.
+
+## value
+
+PASS
+
+The difference between an antipodal second sink (zero marginal benefit) and any other second sink (uniform best gain) is a sharp, unexpected design law for coherent transport on a canonical symmetric graph. It gives an exact all-dimensional optimal trap-placement classification beyond a routine single-trap calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
