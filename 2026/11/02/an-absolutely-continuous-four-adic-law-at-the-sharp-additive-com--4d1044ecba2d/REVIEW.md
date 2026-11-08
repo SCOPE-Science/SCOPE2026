@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact lower-digit counts are reconstructed from the base-four digit blocks, with a uniform \(2^{-k}\) Cantor-cylinder error estimate. The quantitative distribution bound follows from bounded variation, not from finite sampling. The density and its complete mass decomposition follow by a measure-preserving change of variables and a gap-by-gap transformation of Lebesgue measure. The first-gap coefficient, phase intervals, exact support, and finite checks were recomputed. Finite tests do not replace these analytic arguments.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** Zhang (arXiv:2610.29963v1, Sections 1 and 6) establishes the sharp threshold and revisits the base-four construction; Ma (arXiv:2205.04128, relevant digit-block results) supplies earlier general extremal formulas. Neither inspected statement supplies the quantitative limiting law or explicit Cantor-gap density. Comparisons with accessible related research-record descriptions and historical claim records did not identify an equivalent result. The construction and sharp \(3/2\) limsup are acknowledged as known. An unindexed equivalent analysis is still possible; this review is not a priority certificate.
+PASS
 
-**Mathematical value — PASS.** The new result determines a canonical limiting *distribution*, rather than a previously known endpoint. Its nontrivial absolutely continuous law has full support on the extremal interval, a quantitative convergence rate, and a rigorous \(2/3\)-to-\(1/3\) decomposition between an elementary density and an infinite Cantor-gap correction. This gives precise typical and atypical behavior within the published sharpness example, potentially useful when comparing additive complements with identical extremal constants.
+For base-four A digits 0,1 and B=2A, exact counts on a full [4^k,4^(k+1)) block use lower-digit empirical Cantor CDFs F_k. Coupling finite/infinite independent base-four bits gives uniform |F_k-F|<=2^-k; the ratio converges uniformly to a bounded-variation piecewise profile. Riemann summation yields Lipschitz test error <=L(4*2^-k+2*4^-k). Two rational profile branches yield 2/y^2 dy with mass 2/3; complementary Cantor gaps each map diffeomorphically under phi(u)=(1+F(u))/(1+u), giving explicit nonnegative density correction of total mass 1/3, support exactly [1,3/2] with no atoms. Independently verified exact digit counts across k<=6, uniqueness and 12 finite gap-mass formulas. Infinite density and convergence rely on analysis, not finite trials.
 
-**Scope and risks.** The result is confined to full four-adic blocks for this specific digital pair. No full-cutoff natural-density law or result for arbitrary complements is claimed. The infinite probability-law assertions are proved analytically but have not undergone independent validation. An earlier unindexed density computation remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp 3/2 upper-limit and the base-four digital example are explicitly prior work (Zhang 2026, older Ma). The new content is the complete-block limiting law, quantitative convergence and gap-by-gap absolutely continuous density. No equivalent distribution detected in accessible source statements or Resultary; the central October 2026 paper full text was inaccessible after lawful preprint/OA and authorized Oxford (vpn_disconnected), so priority risk is material and documented.
+
+## value
+
+PASS
+
+For a canonical sharp additive-complement construction, the result determines quantitative typical limiting behavior instead of just the known limsup. Exact full-support absolutely continuous density with Cantor gap series and 2/3 versus 1/3 mass decomposition is a natural nontrivial arithmetic distribution and a reusable benchmark for more general complement pairs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
