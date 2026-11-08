@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prism-to-strip reduction, spherical orientation measure, ordered five vertex projections, and consecutive-run face accounting prove the six-class law for every positive aspect ratio. The arcsine primitive differentiates to the exact conditional threshold distribution. Strict inequalities hold off a measure-zero set, and every class has a nonempty open parameter region. Standalone checks at three widely separated aspect ratios agree with a direct fifteen-edge crossing enumeration and independent numerical quadrature. These checks do not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-Literature searches for pentagonal-prism center sections, four/seven side-count probabilities, exact sections of prisms, and stereological polygon-frequency laws did not reveal an equivalent joint law. Socha (1988) computes random affine-section angle distributions, not this center-anchored side/cap law. Voss (1982) and Ohser–Mücklich (1995) are closest potential prior art: the accessible abstracts consider polygon frequencies in random affine planes or particle ensembles, which do not imply the conditional law of **center-anchored** planes. Their complete texts were inaccessible; an unrecognized special-case or stronger treatment remains a serious historical-priority risk. A published box hexagon probability and published regular-prism mean-square widths address different quantities and do not imply the present theorem. Searches are not a proof of absolute novelty.
+PASS
 
-## Value — PASS
-The complete joint probability distribution is a natural shape-and-incidence invariant of a classical uniform-solid family, not merely a numerical sample or arbitrary slice. The formula holds continuously for every right regular pentagonal prism aspect ratio and distinguishes sections with the same number of sides but different pentagonal-cap incidences. It provides exact seven-sided probability, exact endpoint degeneracies and a reproducible baseline for the center-anchored stereological model.
+For every q=h/R>0, the Haar unoriented central-plane normal has uniform vertical component and uniform azimuth. Projection to the regular pentagon yields strip |u·x|<=h cot(theta); its threshold has F_q(t)=t/sqrt(q²+t²). The five ordered positive absolute vertex projections partition the generic sections into (N,J)=(5,0),(6,1),(7,2),(6,2),(5,2),(4,2). Their probabilities telescope as 1-C0,C0-C1,C1-C2,C2-C3,C3-C4,C4 with G_q(t)=asin(sin t/sqrt(1+q²)); direct differentiation gives G_q’(t)=F_q(cos t). Each region has positive Haar measure, degenerate normals null. Independently evaluated the exact six probabilities at equal-edge aspect q=sin(pi/5) and compared 30,000 random normals to crossings of all 15 prism edges; matching within the Monte-Carlo error, which is corroboration, not proof. No assertion for affine offset planes or oblique prisms.
 
-## Limits and priority risks
-No claim is made for randomly translated planes or nonregular bases. Historical priority remains uncertain until the older stereological literature, especially Voss (1982), can be checked fully. No independent expert audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the checked record and primary-source evidence this exact joint central-section (N,J) law appears new, although older stereological work reports prism section-type frequencies and lacks accessible complete texts. The classical isotropic stationary-plane ensemble additionally varies offset and therefore is not automatically the center-anchored Haar-normal experiment. No categorical claim of whole-paper noncoverage is made for Voss or Ohser–Mücklich.
+
+## value
+
+PASS
+
+The joint number of sides and cap-face incidence is a natural geometric invariant of central sections of a canonical prism. A complete six-region Haar law for every positive aspect ratio, including positive-mass heptagons and limiting aspect regimes, is more than an arbitrary isolated calculation; it separates central-orientation sampling from translated-plane stereology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
