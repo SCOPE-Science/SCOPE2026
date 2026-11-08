@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The invariant polynomial algebra and its augmentation-one affine hyperplane give the precise total count. Averaging by the inversion involution is valid in odd characteristic and shows that a repeated-root reduction has exactly \(q^{(n-m)/2}\) invariant lifts. The proof identifies fixed roots, partitions all remaining roots into joint inversion–Frobenius orbits, derives determinant norms with correct repeated-root multiplicities, and uses surjective finite-field norms. All three cases, including the pure-characteristic-power exception and the order-one boundary, follow algebraically. Independent finite-field Gaussian elimination checks 19,740 matrices in 44 cases, without replacing the infinite proof.
+## correctness
 
-## Originality — PASS (self-review; residual risk)
-Appel's 2009 treatment counts unrestricted invertible circulants, not the determinant fibers of the normalized symmetric subalgebra. Here the inversion condition forces pairs of eigenvalues, producing a square-class obstruction for odd order, whereas the unpaired eigenvalue at \(-1\) restores full uniformity for even order. The repeated-root case and exceptional characteristic-power family are part of the statement. Searches of equivalent and broader formulations in the named mathematical archive and the available primary literature did not establish a theorem that implies all three cases. The related orthogonal-circulant paper was only available bibliographically; older algebraic treatments may contain an equivalent formulation.
+PASS
 
-## Mathematical value — PASS
-Fixing row sum \(1\) removes the trivial eigenvalue and isolates the arithmetic determinant obstruction. The theorem classifies all determinant fibers, not just invertibility, for an infinite two-parameter family across every odd finite field. The clean even/odd/special-characteristic trichotomy identifies a structural boundary with direct use for counting reversible cyclic convolution operators. It is a natural exact arithmetic invariant and not a small isolated table value.
+A symmetric circulant is an inversion-fixed polynomial in R=F_q[X]/(X^n-1), normalized by f(1)=1. In odd field characteristic ℓ, reduction to S=F_q[X]/(X^m-1), n=ℓ^s m, is surjective on involution invariants by averaging and has q^((n-m)/2) uniform normalized lifts. Reconstructed the decomposition of nonfixed roots under Frobenius and negation into factors F_(q^e), with fixed root 1 and an extra -1 factor iff m even. The determinant is (product of norms)^(2ℓ^s) for m odd, and v^(ℓ^s)(product of norms)^(2ℓ^s) for m even; nilpotents do not affect the determinant. Surjective finite-field norms give the exact even uniform fibers, odd square-only fibers, and pure-ℓ-power determinant-one exception, including n1. Independently enumerated symmetric first rows and evaluated determinants by finite-field Gaussian elimination at q3 n2..6 and q5 n3,4; all individual fibers matched formulas. Finite checks were corroboration of the general finite-field algebra proof.
 
-## Scope and limitations
-Odd characteristic is essential to the proof as given. No claim for nonsymmetric matrices with extra coefficient restrictions, even characteristic, or an independent audit. The historical source-access risk remains explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unrestricted finite-field circulant determinant counts are known (Appel), but involution-fixed row-sum-one matrices have a genuinely different distribution (square support at odd nonexceptional order, uniform even order, determinant-one pure characteristic powers). No inspected exact source subsumes all three cases. These are derived with standard field-norm algebra; an equivalent older self-reciprocal group-algebra formula remains a material priority risk.
+
+## value
+
+PASS
+
+Complete determinant-fiber distribution for every symmetric circulant row-sum-normalized matrix over odd finite fields is a natural algebraic invariant. The even/odd/special-characteristic trichotomy explains exact arithmetic obstructions and supplies zero, square and every nonzero determinant counts, going beyond mere invertibility tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
