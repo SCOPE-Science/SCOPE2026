@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "With positive iid categorical probabilities, exact count of positive-prefix occupancies gives F_i(t)=p_i(t-1)![z^{t-1}]prod_{r != i}(exp(p_r z)-1). Factors p^k/k!, k>=1, are log-concave with interval support and convolution preserves Toeplitz TP2. The determinant expansion into k<l pairs has nonnegative terms; k=w-m+2,l=k+1 (or k=w,l=v for m=2) gives a strictly positive witness for every w<v. Positive row normalization gives strict LR order, then strict stochastic/mean order; symmetry proves equal-weight case. All quantifiers, boundary m=2 and t=m covered. Bundled checker verifies 30,533 finite exact assertions but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anceaume et al. 2015 compare T_{c,m}(p) over different distributions p, including stochastic minimum at the uniform p.",
+        "Anceaume–Busnel–Sericola 2014 give the marginal law of T_{c,m}(p) for fixed p."
+      ],
+      "reasoning": "Neither stochastic minimization over p nor the unmarked law of T entails a comparison of T|C=i and T|C=j at one p; the latter needs the distinct joint two-label signed determinant. General total-positivity theory supplies a proof lemma but does not itself identify the relevant coupon-collector marked kernel.",
+      "searches": [
+        "positive weight coupon probabilities last-arriving coupon and total collection time total positivity logconcavity",
+        "reverse TP2 joint mass P(T=t, final coupon label i) from products exp(p_j z)-1",
+        "coupon collector last coupon type time joint distribution monotone likelihood ratio",
+        "arXiv:1504.03878",
+        "arXiv:1402.5245"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1209.2667",
+      "https://arxiv.org/html/1209.2667v2",
+      "https://doi.org/10.37236/3348",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i2p33/pdf/",
+      "https://arxiv.org/abs/1402.5245",
+      "https://arxiv.org/abs/1504.03878",
+      "Relevant published probabilistic research records (searched under six equivalent expressions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferrante–Frigo 2012 gives an unmarked waiting-time mean.",
+        "Shank–Yang 2013 gives expected waiting-time integral under nonuniform quotas.",
+        "Anceaume et al. 2014 give the unmarked waiting-time distribution; Anceaume et al. 2015 give stochastic optimization across probability vectors."
+      ],
+      "reasoning": "Unmarked means or marginals do not specify joint marks C, and stochastic ordering of two different sampling distributions does not order conditionals by the identity of the final coupon within one law. The proof derives a new marked coefficient determinant and establishes strict sign for all m,t,u. Existing multinomial coefficients allow one to calculate special values, but do not state or subsume the universal strict order without its nontrivial TP2 argument.",
+      "searches": [
+        "nonuniform coupon collector conditional completion time given identity of last coupon likelihood ratio stochastic order",
+        "strict likelihood ratio ordering of total coupon collector completion time conditional on the identity of last discovered coupon, nonuniform unequal probabilities",
+        "arXiv:1209.2667v1",
+        "doi:10.37236/3348",
+        "arXiv:1402.5245v1",
+        "arXiv:1504.03878v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conditional row determinants F_i(t)F_j(u)-F_i(u)F_j(t) are equivalent to strict monotonicity of conditional likelihood ratios.",
+        "The checked generalized nonuniform coupon model concerns unmarked completion distributions, not the marked last-coupon kernel."
+      ],
+      "reasoning": "Compared equivalent expressions: monotone likelihood ratios of T|C, reverse total positivity of the joint (C,T) kernel, and stochastic conditional completion ordering. No inspected published result expresses the fixed-vector marked two-row determinant; search noncoverage alone would not prove uniqueness.",
+      "searches": [
+        "nonuniform coupon collector conditional completion time given identity of last coupon likelihood ratio stochastic order",
+        "coupon collector last collected category more frequent last coupon completion time monotone likelihood ratio",
+        "strict likelihood ratio ordering of total coupon collector completion time conditional on the identity of last discovered coupon, nonuniform unequal probabilities",
+        "\"coupon collector\" \"last\" \"likelihood ratio order\" nonuniform",
+        "\"last coupon\" \"completion time\" \"conditional\" \"stochastic\"",
+        "arXiv:1402.5245"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published and accessible related claims include frequency counts at termination and marked first-repeated-label birthday statistics, both different stopping questions.",
+        "No matched finite tabulation covers all positive vectors and times; this theorem is all-size and analytic."
+      ],
+      "reasoning": "Compared mathematical events and quantifiers, not simply labels: the birthday variable is first repeat, not completion; a uniform terminal-frequency table does not characterize unequal probabilities or label-conditioned T. No inspected table subsumes the claimed infinite strict inequality.",
+      "searches": [
+        "strict likelihood ratio ordering of total coupon collector completion time conditional on the identity of last discovered coupon, nonuniform unequal probabilities",
+        "last coupon identity conditional completion time stochastic domination likelihood ratio",
+        "\"coupon collector\" \"last\" \"likelihood ratio order\" nonuniform",
+        "arXiv:1209.2667",
+        "arXiv:1402.5245"
+      ]
+    },
+    "rationale": "The exact marked mass follows from classical multinomial generating functions, but the strict reverse-TP2 comparison across last labels at all completion times is not implied by the unconditional waiting-time results inspected in Ferrante–Frigo (2012), Shank–Yang (2013), Anceaume–Busnel–Sericola (2014), or Anceaume et al. (2015). Searches of relevant published claims under equivalent formulations did not reveal equivalent or stronger coverage. This is a qualified best-knowledge originality assessment, not a claim of certified historical priority.",
+    "residual_risks": [
+      "A pre-2012 or other historical coupon-collector/occupancy paper could encode this marked conditional inequality implicitly without terminology matched by searches.",
+      "Classical total positivity and random-word enumerations may yield a known general theorem that implies this special case; not all older full texts were accessible.",
+      "No independent priority search or mathematical validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats unmarked waiting times and expectations; conditional time by last arriving type and its reverse-TP2 determinant inequality are not claimed in inspected material",
+        "evidence": [
+          "arXiv:1209.2667v1 dated 2012-09-12",
+          "https://arxiv.org/abs/1209.2667",
+          "https://arxiv.org/html/1209.2667v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.2667v2",
+        "material_read": "Full article in HTML including introductory assumptions, single-arrival formulas and group-arrival development; also arXiv abstract/date/MSC",
+        "method": "Read complete rendered article and compare definitions, quantities and equations to marked conditional law",
+        "title": "A note on the coupon-collector's problem with multiple arrivals and the random sampling",
+        "trigger": "Same iid heterogeneous coupon model and primary 60C05 scope; arXiv v1 dated 2012-09-12"
+      },
+      {
+        "assessment": "Computes unmarked expectations under nonuniform quotas, not conditional finish-label likelihood-ratio ordering",
+        "evidence": [
+          "Theorem 3.1 expectation integral",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i2p33/pdf/"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/3348",
+        "material_read": "10-page primary PDF with equations for expected collection times and quota sampling, including main theorem and introduction",
+        "method": "Read web-extracted full text, inspected page images for title/abstract and main theorem",
+        "title": "Coupon Collector Problem for Non-Uniform Coupons and Random Quotas",
+        "trigger": "Nonuniform coupon quotas may subsume singleton quotas"
+      },
+      {
+        "assessment": "Describes unmarked time to c distinct types and extremal distributions; no last-type conditioning or pairwise LR order established in inspected material",
+        "evidence": [
+          "arXiv:1402.5245 abstract and Sections 2–6",
+          "https://arxiv.org/abs/1402.5245"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.5245",
+        "material_read": "Complete readable arXiv HTML exposition, definitions and Markov-chain theorems",
+        "method": "Checked stated distributional and optimization results against marked pairwise determinants",
+        "title": "New results on a generalized coupon collector problem using Markov chains",
+        "trigger": "Unmarked exact waiting-time distribution for arbitrary unequal probabilities can imply marked results after differentiation"
+      },
+      {
+        "assessment": "Stochastic comparison varies the coupon probability vector, not the last label conditioned on a fixed vector. Thus its statement does not imply the new LR determinant comparison.",
+        "evidence": [
+          "arXiv:1504.03878 Sections 1–4",
+          "https://arxiv.org/abs/1504.03878"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+        "material_read": "Complete accessible arXiv HTML primary article, definitions, optimization theorems and conclusions",
+        "method": "Compared the theorem quantifiers (varying p) against conditional T|C at one fixed p",
+        "title": "Optimization results for a generalized coupon collector problem",
+        "trigger": "Published stochastic ordering theorem might dominate the proposed stochastic claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03baa301-8be4-406d-9bf8-6da3b110088e",
+  "value": {
+    "rationale": "A collector observes the final coupon identity C as a natural marker of heterogeneous coverage difficulty. The theorem identifies a sharp and distribution-wide association: conditional on C, every completion-time quantile and increasing risk functional is ordered by that coupon's frequency, with strict likelihood ratios rather than only expected times. It provides a reusable global structural law across arbitrary finite probability vectors and all times; the key marked determinant is not a routine calculation of one tabulated sample size.",
+    "status": "PASS"
+  }
+}
