@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every frame, one simplex has cube-fitting radius half the largest coordinate prefix range. Over permutations this range equals max of the positive and negative row totals. Integer full-rank matrices have nonzero rows, giving minimum at least 1/2, with equality precisely for rows ±e_j or e_j−e_k. These rows are a reduced oriented edge incidence matrix of a graph on d+1 vertices, invertible iff it is a tree. Leaf expansion proves determinant ±1; Prüfer coding plus edge labels and orientations gives exactly 2^d(d+1)^(d−1) unordered frames. Exact verifier enumerates all threshold-admissible d×d matrices for d≤4 and every row in {-2,-1,0,1,2}^d for d≤5. The proof, not these tests, establishes the unbounded-dimensional statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.39034v1 Proposition 2.2 is a broad attainment theorem, but existence does not imply the optimizer set or its count.",
+        "arXiv:2606.14584v3 §6 treats a prescribed basis and an independent three-dimensional containment problem."
+      ],
+      "reasoning": "A broad statement such as existence or an exact numerical optimum could cover this result only if its implications force every optimizer to be a tree incidence matrix. The inspected general theorems provide no such implication, while the step from box-fitting equality to signed incidence is a separate equality analysis.",
+      "searches": [
+        "Fei Xue κ-covering cube Z^n all optimal frames signed trees incidence row sums Cayley formula",
+        "Kuhn packet standard lattice cube minimizers classification oriented complete graph spanning trees",
+        "\"Kuhn packet\" \"spanning tree\"",
+        "\"Kuhn triangulation\" \"trees\" \"optimal basis\" cube"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39034v1; https://arxiv.org/abs/2610.39034",
+      "arXiv:2606.14584v3; https://arxiv.org/html/2606.14584v3",
+      "arXiv:2610.21572v1; https://arxiv.org/abs/2610.21572"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xue (2026), equation (3.2): optimum equals 1/2; the present theorem does not claim novelty for the value.",
+        "Grozev–Nikolov (2026), Lemma 5: per-simplex pairwise differences characterize fitting, but are not themselves an all-frame iff-count statement.",
+        "Lian–Xue (2026), §6: fixed-basis feasibility does not enumerate all optimal bases."
+      ],
+      "reasoning": "Prior formula plus a specified standard frame cannot imply the cardinality of all minimizers. Applying the prior simplex criterion to every order still requires proving the exact row total reduction, integer row classification, full-rank graph characterization, and the counting quotient. Those implications are supplied by the current proof and were not found established in the inspected sources.",
+      "searches": [
+        "\"Kuhn packet\" \"minimizing\" \"frames\" cube lattice",
+        "parallelotope Kuhn packet minimal fitting radius incidence matrix tree cube",
+        "fixed frame packet radius cube formula positive negative coordinate totals spanning tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.39034v1 equation (3.2) gives only the radius, with no all-frame characterization.",
+        "arXiv:2610.21572v1 Lemma 5 gives a per-simplex containment test, which after quantifying over every permutation yields the row condition proved here, but the source does not perform that quantification or tree classification."
+      ],
+      "reasoning": "Compared the exact quantified statement: every minimizing independent d-frame (including possible proper sublattices), iff a signed incidence tree, counted literally with no symmetry quotient. The found results formulate radius existence or a test for one simplex, not an equivalent full optimum-locus theorem.",
+      "searches": [
+        "optimal Kuhn packet frames cube Z^d all minimizers spanning trees Cayley",
+        "Kuhn packet standard lattice cube minimizers classification oriented complete graph spanning trees",
+        "permutation simplex fitting unit cube exactly characterizes reduced incidence matrices spanning trees",
+        "parallelotope Kuhn packet minimal fitting radius incidence matrix tree cube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible full text of arXiv:2610.39034v1 supplies a table of standard κ_i values, not counts of optimal frames.",
+        "The complete all-dimension count of 2^d(d+1)^(d-1) has not been found in the retrieved records."
+      ],
+      "reasoning": "No inspected exact tables or enumerations tabulate the set of optimal cube packet frames. The small-d exhaustive counts are freshly computed checks, not new claims of table novelty in place of the infinite proof.",
+      "searches": [
+        "optimal Kuhn packet frames cube Z^d all minimizers spanning trees Cayley",
+        "permutation simplex ordered partial sums lattice frame cube spanning tree incidence matrix",
+        "spanning tree bases coordinate cube permutation simplices unit width"
+      ]
+    },
+    "rationale": "The newly proved contribution is the complete structure and exact cardinality of all cube-optimal common frames, not the previously known radius. Primary full-text comparisons find the optimal-value formula and one-simplex fitting conditions but not the all-frame incidence-tree classification. Numerous exact semantic queries and inspected historical claims revealed no statement implying this enumerator. The classical spanning-tree and total-unimodularity ingredients are acknowledged. Residual historical priority risk remains because search cannot establish global uniqueness.",
+    "residual_risks": [
+      "A previous treatment of optimizers of unit-cube Kuhn triangulations under other terminology (especially signed incidence matrices or integer polyhedral coverings) may imply the result, despite no matching source in the actual searches.",
+      "The Prüfer enumeration and the unimodularity of tree incidence matrices are classical, so the originality claim is restricted to their exact role as the optimizer classification for the newly defined packet radius.",
+      "No independent expert or exhaustive historical-priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes κ(C_d,Z^d)=1/2 and gives one optimal frame, but does not characterize or enumerate all such frames. Its attainment argument is more general and gives no tree-parametrized optimizer locus.",
+        "evidence": [
+          "Definition (1.1) permits independent frames that generate proper sublattices; equation (3.2) has κ_i(B_∞^n,Z^n)=1/2.",
+          "Proposition 2.2 establishes existence of optimal frames without classifying them."
+        ],
+        "identifier_or_url": "arXiv:2610.39034v1; https://arxiv.org/abs/2610.39034",
+        "material_read": "Full accessible HTML text, especially §§1–3 (definition (1.1), Proposition 2.2 and equation (3.2)) and reference list; also searched entire text for spanning-tree descriptions.",
+        "method": "Full-text HTML inspection, definition/proposition comparison and keyword searches.",
+        "title": "On κ-covering minima",
+        "trigger": "Defines the precise invariant, optimizes it for coordinate cubes and explicitly states equation (3.2)."
+      },
+      {
+        "assessment": "Contains criteria for a given lattice basis and representation of parallelohedra; it does not optimize the cube fitting radius over all independent integer frames or count optimizers in every dimension.",
+        "evidence": [
+          "Theorem 1.1 concerns six 3-dimensional Kuhn tetrahedra and coverage.",
+          "Section 6 gives finite intersection tests for a prescribed basis, not a global census of cube-optimal bases."
+        ],
+        "identifier_or_url": "arXiv:2606.14584v3; https://arxiv.org/html/2606.14584v3",
+        "material_read": "Accessible 29-page HTML: introduction, §§2–3, §6 and relevant hits of searches for optimal/basis/spanning-tree.",
+        "method": "Primary HTML sections and within-document searches.",
+        "title": "Minimal Covering Bodies and a Minkowski-Type Criterion for Lattice Coverings",
+        "trigger": "Introduces common Kuhn-simplex covering criteria and prescribed-basis feasibility tests."
+      },
+      {
+        "assessment": "Lemma 5 characterizes one simplex fitting in a parallelotope via pairwise vertex differences; it does not classify all integer frames attaining the joint all-permutations minimum, nor give a spanning-tree count.",
+        "evidence": [
+          "Lemma 5: one simplex fits a parallelotope iff every vertex difference lies in its difference body.",
+          "Theorem 2 concerns coverings by a parallelotope containing a cube facet and opposite vertex."
+        ],
+        "identifier_or_url": "arXiv:2610.21572v1; https://arxiv.org/abs/2610.21572",
+        "material_read": "Full accessible short-paper HTML including Results, Lemma 5, and all proof sections.",
+        "method": "Primary full-text HTML inspection and scope comparison.",
+        "title": "Lattice coverings by parallelotopes containing cube vertices",
+        "trigger": "Proves a closely related simplex-to-parallelotope containment lemma and uses the unit cube."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a9ae509-9955-4153-98db-c823605a6a38",
+  "value": {
+    "rationale": "The complete optimizer family for the natural cube benchmark of the newly introduced common-frame covering invariant has a nonobvious graph-theoretic classification: oriented labeled spanning trees, basis rigidity despite allowing sublattices, and an exact all-dimensional optimizer count. This answers the equality/multiplicity question left open by a mere radius calculation and supplies a useful canonical comparison for future shape/lattice perturbations; the object and invariant are natural, rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

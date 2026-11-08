@@ -1,0 +1,15 @@
+# Scientific review of the cube-optimal Kuhn-frame classification
+
+## Correctness — PASS
+The fixed-frame radius is exactly half the maximum of the positive and negative coordinate-row sums, by the coordinate-range formula for box fitting and an all-permutation contiguous-block argument. Integer row totals reduce equality at the known radius \(1/2\) to precisely the reduced oriented incidence rows. Reduced-incidence rank is full precisely for a spanning tree; leaf expansion yields determinant \(\pm1\), and Prüfer coding establishes the exact labeled count. The full proof handles every integer dimension \(d\ge1\), all frames including possible proper sublattices, and the distinction between ordered and unordered frames. Exact integer checks for \(d\le4\) and a complete row-span test through \(d=5\) agree with the theorem. This verification is same-model and not independent.
+
+## Originality — PASS, with historical limitations
+Xue's arXiv:2610.39034v1, §3.1, equation (3.2), already gives the optimal radius for coordinate cubes, and his §2 establishes minimizer existence and general covering comparisons. Lian–Xue arXiv:2606.14584v3, introduction and §6, provides Kuhn-family covering criteria for given bases, and Grozev–Nikolov arXiv:2610.21572v1, Lemma 5, provides parallelotope simplex containment. The cited results do not state the rowwise equality classification, the spanning-tree parametrization of **all** cube minimizers, basis rigidity, or the exact all-dimensional count. Searches for the description in terms of permutation simplices, signed incidence matrices, complete-graph spanning trees, and coordinate-prefix ranges did not uncover an equivalent statement. The general incidence-matrix and Prüfer ingredients are classical. Remaining risk: an older equivalent characterization may be buried in lattice triangulation or totally unimodular matrix literature; absence of a matching search result does not certify historical novelty.
+
+## Mathematical value — PASS
+The recently defined common-frame fitting invariant admits multiple optimal frames even in the elementary cube benchmark. The result determines the **entire optimizer locus** across all dimensions, not merely its known optimum value. Its unexpected bijection with oriented labeled trees, exact superexponential count, and automatic unimodularity give a structural benchmark for studying equality and optimizer nonuniqueness under changes of convex body or lattice. This natural complete classification is meaningful independently of any downstream extension; it is not a parameter renaming or recomputation of the existing radius.
+
+## Scope and unresolved issues
+No claim is made about arbitrary convex bodies, unmatched lattices, or optimizers modulo cube symmetries. Finite checks do not prove the infinite classification; the combinatorial argument does. Priority could be affected by unrecognized equivalent older formulations. No independent review or external mathematical certification has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
