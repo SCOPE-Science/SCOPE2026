@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:16:12.509969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md signed SVD proof at Git blob f755d8806d67deb6c7829f60696d65148b5ed368",
+        "verify.py Git blob 84ba9352ffdaf50042ed42a994d964b890838b29, tests exact rational resonances and SVD trajectories"
+      ],
+      "rationale": "Diagonalize W0 in signed fixed singular bases. For q=1−ηa≠0 and τ=ηλ>0, coefficients evolve x⁺=q x−τ sgn(qx) unless x=0; radii evolve by strict contraction h(r)=|s r−τ| with s=|q|∈(0,1), fixed c=τ/(1+s). Preimages of zero are exactly R_j=τ(s^(−j)−1)/(1−s), since once the backward target exceeds τ only the high-radius inverse branch remains. Zero is absorbing. All other radii approach c; eventually q>0 flips coefficient signs and hence a matrix two-cycle, while q<0 preserves signs and converges to a partial-isometry scalar multiple. At q=0 all radii zero after one step. Effective rank, Frobenius/nuclear norms and positive objective gap follow. Proximal clipped map is max(sr−τ,0), so terminates. Independent hand-derived scalar recursion, q=±1/2 example and checked exact-rational verification script support boundary signs; no numerical tolerance interpreted as true rank.",
+      "residual_risks": [
+        "Exact polar minimum-Frobenius subgradient convention at zero crucial.",
+        "Near resonance tiny perturbations have discontinuous eventual exact rank; practical floating-point and approximate polar outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker polar decomposition computes the genuine clipped proximal SVT r→max(sr−τ,0).",
+          "Combettes–Pesquet 2007 proximal thresholding also clips; they cannot imply persistent positive rank for the un-clipped signed step."
+        ],
+        "reasoning": "General proximal guarantees concern a different update; neither theorem dominates this exact-polar nonproximal recurrence.",
+        "searches": [
+          "arxiv:2607.22484 singular-value soft-thresholding polar decomposition",
+          "proximal thresholding finite convergence nuclear norm",
+          "exact rank staircase finite termination resonance matrix completion SVT"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.11730",
+        "https://www.paperpeel.com/paper/2610.11730",
+        "https://arxiv.org/abs/2607.22484",
+        "https://doi.org/10.1137/060669498",
+        "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Origin paper Section 4 and Appendix A identify single-step spectral crossing and order sensitivity; no long-time W_k classification or resonance radii formula found in inspected relevant sections.",
+          "Becker computes soft-thresholding rather than polar subtraction."
+        ],
+        "reasoning": "Long-time theorem is not a corollary of a one-step crossing statement alone without solving the discontinuous signed recurrence and exceptional set. The difference is substantive for rank.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.11730",
+          "https://arxiv.org/abs/2607.22484",
+          "https://doi.org/10.1137/060669498"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Andriianov–Veprikov–Beznosikov (2026) define Z−ηλ UV^T with no clipping; the update agrees exactly.",
+          "Standard l1 quadratic scalar subgradient map exhibits overshoot; radius map here is absolute-value contraction with absorbing zero."
+        ],
+        "reasoning": "The scalar dynamics share an elementary form, but the claimed global matrix rank, exceptional set, and signed matrix convergence are additional consequences not stated in inspected origin paper.",
+        "searches": [
+          "arxiv:2610.11730 Section 4 Appendix A post-step spectral correction",
+          "constant step sign subgradient l1 scalar quadratic cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f studies a smoothed Polar-Express surrogate with different map.",
+          "Resultary 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c studies SOAP stale basis and is not this scalar polar step."
+        ],
+        "reasoning": "No exact matching table/database or published Resultary record yielded the countable zero-preimage classification; non-hit does not prove novelty.",
+        "searches": [
+          "Resultary: post-step spectral weight decay exact polar subtraction quadratic gradient descent singular value cycling rank persistence collapse resonance two cycle"
+        ]
+      },
+      "rationale": "Best-knowledge PASS narrowly for exact complete repeated-iterate matrix rank/loss and resonance classification, not for the known scalar subgradient chattering or the originally published update. Compared primary 2026 spectral-weight-decay post-step operation, genuine proximal polar singular-value thresholding, and related different fixed-step/cycling algorithms.",
+      "residual_risks": [
+        "Because the scalar dynamics are elementary, a historically documented constant-step l1-subgradient theorem may already contain the complete rank-resonance corollary.",
+        "No assertion about novelty of un-clipped post-step algorithm or sign-overshoot mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: update and sign crossing known; not complete centered-quadratic iterates",
+          "evidence": "Andriianov et al 2026 Section 4 defines postgradient Z−ηλQ(Z), notes crossing zero but not the all-iterate resonance classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11730",
+          "material_read": "Full readable manuscript main Section 4 and Appendix A through lawful readable text, and update/relative-order descriptions",
+          "method": "Matched SVD polar-subtraction formula and checked repeated-iteration claims against sections",
+          "title": "Spectral Weight Decay: Inducing Low-Rank Structure in Neural Network Weights",
+          "trigger": "Exact same algorithm and post-step polar step"
+        },
+        {
+          "assessment": "DIFFERENT MAP",
+          "evidence": "Becker 2026 implements actual proximal SVT; its rank-zeroing is not the claimed un-clipped behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22484",
+          "material_read": "Available primary abstract/method summary and defining clipped singular-value formula",
+          "method": "Compared radial map r→max(sr−τ,0) with reviewed |sr−τ|",
+          "title": "Singular value soft-thresholding via the polar decomposition",
+          "trigger": "Potential same polar approach to nuclear penalty"
+        },
+        {
+          "assessment": "NO DIRECT IMPLICATION; primary-text inspection limited",
+          "evidence": "2007 paper is on proximal thresholding over orthonormal bases; abstract/algorithmic characterization does not match the un-clipped polar map.",
+          "identifier_or_url": "https://doi.org/10.1137/060669498",
+          "material_read": "Primary description and thresholding algorithm statement; did not obtain whole publisher paper",
+          "method": "Compared clipped proximal operator and convergence with deliberately nonproximal polar step",
+          "title": "Proximal Thresholding Algorithm for Minimization over Orthonormal Bases",
+          "trigger": "Dominating general proximal result possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and relevant prior literature for Rank persistence and the exact two-cycle transition in post-step spectral decay"
+      ],
+      "rationale": "The recent un-clipped post-gradient spectral method advertises low-rank structure, yet the theorem proves generic nonzero full-rank spectral equalization, explicit exceptional rank-drop hypersurfaces, a step-size-zeroing resonance, and distinct matrix fixed/two-cycle regimes. This algorithm-specific exact classification materially informs whether the update behaves like genuine singular-value thresholding; the scalar contraction itself is classical.",
+      "residual_risks": [
+        "Homogeneous isotropic quadratic only; not a conclusion about adaptive/approximate machine-learning optimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact polar minimum-Frobenius subgradient convention at zero crucial.",
+    "Near resonance tiny perturbations have discontinuous eventual exact rank; practical floating-point and approximate polar outside scope.",
+    "Homogeneous isotropic quadratic only; not a conclusion about adaptive/approximate machine-learning optimizers.",
+    "Because the scalar dynamics are elementary, a historically documented constant-step l1-subgradient theorem may already contain the complete rank-resonance corollary.",
+    "No assertion about novelty of un-clipped post-step algorithm or sign-overshoot mechanism."
+  ],
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Review of the exact polar spectral-decay classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The signed SVD basis persists because the correction is a polar factor of a scalar multiple of the current matrix. For each nonzero spectral coefficient, exact iteration reduces to \(r\mapsto|sr-\tau|\), which is a strict contraction with positive fixed radius. The unique chains of positive preimages of zero are computed exactly, proving completeness of the exceptional set. Eventual sign behavior distinguishes a matrix two-cycle from a fixed point, and soft thresholding follows a different recursion. The embedded verifier returned `CHECKS_OK 156222` for its supplementary finite checks. Risk: practical approximate polar and floating-point thresholding are outside the proof.
+## correctness
 
-## Originality
-PASS with priority qualification. The motivating October 2026 work supplies the un-clipped post-step polar update and remarks on subthreshold crossing, but its inspected Section 4 and Appendix A do not give the complete long-time rank classification, isolated gradient resonance, and exact zero-preimage formula. Classical subgradient cycling, genuine proximal SVT, and known polar-gradient or SVT rank-staircase analyses are not independent novelty claims here. The distinctions are iteration identity, clipping versus nonclipping, rank-loss exception set, and matrix asymptotic limit. Risk: stronger older results on constant-step signed spectral shrinkage could subsume this specialization.
+PASS
 
-## Value
-PASS. Persistent full rank and limiting equal singular values are directly relevant to interpreting a numerical regularizer intended to concentrate matrix spectra. The exact resonance set quantifies how rarely rank can drop in exact arithmetic, and the step-size transition separates a two-cycle, complete termination, and a spurious positive-rank fixed point. This provides a concrete benchmark for selecting true proximal clipping or assessing finite-horizon versus asymptotic claims. The value is in the algorithm-specific matrix classification, not the elementary scalar contraction alone.
+Diagonalize W0 in signed fixed singular bases. For q=1−ηa≠0 and τ=ηλ>0, coefficients evolve x⁺=q x−τ sgn(qx) unless x=0; radii evolve by strict contraction h(r)=|s r−τ| with s=|q|∈(0,1), fixed c=τ/(1+s). Preimages of zero are exactly R_j=τ(s^(−j)−1)/(1−s), since once the backward target exceeds τ only the high-radius inverse branch remains. Zero is absorbing. All other radii approach c; eventually q>0 flips coefficient signs and hence a matrix two-cycle, while q<0 preserves signs and converges to a partial-isometry scalar multiple. At q=0 all radii zero after one step. Effective rank, Frobenius/nuclear norms and positive objective gap follow. Proximal clipped map is max(sr−τ,0), so terminates. Independent hand-derived scalar recursion, q=±1/2 example and checked exact-rational verification script support boundary signs; no numerical tolerance interpreted as true rank.
 
-The scope is centered isotropic quadratic loss, constant gradient step, and exact minimum-norm polar factor. No claim is made about adaptive optimizers, noisy gradients, or approximate Newton--Schulz implementations. The 2026 originating paper, earlier soft-thresholding literature, published related numerical findings, and sign-method cycling examples are the closest comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS narrowly for exact complete repeated-iterate matrix rank/loss and resonance classification, not for the known scalar subgradient chattering or the originally published update. Compared primary 2026 spectral-weight-decay post-step operation, genuine proximal polar singular-value thresholding, and related different fixed-step/cycling algorithms.
+
+## value
+
+PASS
+
+The recent un-clipped post-gradient spectral method advertises low-rank structure, yet the theorem proves generic nonzero full-rank spectral equalization, explicit exceptional rank-drop hypersurfaces, a step-size-zeroing resonance, and distinct matrix fixed/two-cycle regimes. This algorithm-specific exact classification materially informs whether the update behaves like genuine singular-value thresholding; the scalar contraction itself is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
