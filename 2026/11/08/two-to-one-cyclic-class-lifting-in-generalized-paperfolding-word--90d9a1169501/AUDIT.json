@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The unique alternating parity track supplies a residue-mod-four certificate for every length n>=8 divisible by four. Rotations preserve this phase modulo four; interleaving lifts are well-defined, target conjugacy cannot merge separate source classes because the even track is alternating and the odd track is not, and each source factor yields exactly two distinct occurring target rotations. The complete proof treats arbitrary instruction sequences and the boundary n=8. Two distinct finite-word generation routines and 216 finite checks passed; the infinite theorem is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014/2017 Cassaigne article covers only the 8*2^j full-orbit ray.",
+        "Allouche 1992 proves p(n)=4n; Allouche–Bousquet-Mélou 1994 abstract describes canonical factor positions."
+      ],
+      "reasoning": "Neither a factor-count theorem nor the full-orbit dyadic special case implies the size profile for n=12 or n=20. The inaccessible 1994 full article is a residual priority risk, not positively ruled out.",
+      "searches": [
+        "paperfolding word cyclic conjugacy orbit class sizes every length divisible by four factor complexity",
+        "\"paperfolding\" \"conjugacy\" factors rotation",
+        "Canonical positions for the factors in paperfolding sequences pdf"
+      ]
+    },
+    "checked_sources": [
+      "Cassaigne–Fici–Sciortino–Zamboni, Cyclic Complexity of Words, arXiv:1402.5843, Section 5.2 and Proposition 20; full research article text inspected",
+      "Allouche, The Number of Factors in a Paperfolding Sequence, DOI:10.1017/S0004972700011655; abstract and factor-complexity statement inspected",
+      "Allouche and Bousquet-Mélou, Canonical Positions for the Factors in Paperfolding Sequences, DOI:10.1016/0304-3975(94)90028-0; abstract-level comparison only",
+      "Krawchuk and Rampersad, Cyclic Complexity of Some Infinite Words and Generalizations, Integers 18A A12 (2018); introduction and relevant scope inspected",
+      "OEIS A337120 factor-complexity table; counts rather than rotation-class sizes",
+      "Semantic comparison of indexed mathematical findings on paperfolding cyclic complexity, class inflation, and exact class-size spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related indexed mathematical claim 96c4f247-9d45-4b04-9674-4430ca83b23d addresses a uniform binary sparse-marker substitution, not nonuniform paperfolding instructions.",
+        "A related indexed mathematical claim b7561366-21a6-40bc-a245-341673cc7b9c addresses the different Thue-Morse sequence.",
+        "Published Proposition 20 gives full orbits at 8*2^j only, unlike mixed-size classes at n=12."
+      ],
+      "reasoning": "The preceding papers and other indexed claims cannot be substituted into the general paperfolding Toeplitz recursion to produce this theorem. Related lifting arguments are methodologically relevant but do not yield its quantifiers and mixed-size profile without new proof.",
+      "searches": [
+        "Conjugacy-class inflation for sparse-marker Toeplitz fixed points, substitution 0->01 and 1->00, cyclic orbit size scaling",
+        "Thue-Morse conjugacy class inflation dyadic orbit size spectrum full distribution",
+        "Cyclic Complexity of Words Proposition 20 paperfolding",
+        "prior title/claim comparisons: cyclic-class inflation in other binary words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cassaigne et al. Proposition 20 at lengths 8*2^j, not every n divisible by 4",
+        "Krawchuk–Rampersad (2018) paper focused on Fibonacci and Thue-Morse rather than paperfolding"
+      ],
+      "reasoning": "The equivalent phrasing as 2-adic preservation of restricted cyclic-class profiles, not just class totals, was compared against the article claim and searched explicitly. No equivalent general profile theorem was identified.",
+      "searches": [
+        "regular paperfolding word cyclic complexity c(2n)=c(n) circular conjugacy factor classes",
+        "\"paperfolding\" \"cyclic complexity\" \"n\" \"2n\"",
+        "\"paperfolding\" \"doubling\" \"conjugacy classes\" factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A337120 enumerates all factors, not restricted rotation classes.",
+        "Independent finite checks obtain c(12)=16 and c(24)=16, but the main new statement concerns all admissible lengths and individual class sizes."
+      ],
+      "reasoning": "Existing public factor-count tables do not determine cyclic classes; a finite numerical coincidence at selected lengths is not the all-length size-preserving bijection.",
+      "searches": [
+        "A337120 paperfolding factor complexity Allouche",
+        "paperfolding cyclic complexity scaling class size doubling n 4 mod 8",
+        "\"paperfolding\" \"cyclic complexity\" power of 2"
+      ]
+    },
+    "rationale": "Primary cyclic-complexity work proves only full orbits along the dyadic powers 8,16,32,...; the new arbitrary-instruction class-size transfer holds for every n>=8 divisible by 4, including n=12,20, and class profiles that are not full. Ordinary factor complexity and canonical position counts do not directly determine restricted cyclic orbit profiles. Accessible mathematical claims checked for overlap contain no implication covering the paperfolding transfer; historical-priority uncertainty remains.",
+    "residual_risks": [
+      "A possible earlier presentation of the exact transfer as an unstated consequence of canonical-position results has not been excluded by full-text inspection.",
+      "Semantic finding searches are not exhaustive; unindexed independent discoveries remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves full cyclic classes at lengths 8 times powers of two, via a closely related parity-and-interleaving induction. It does not state the full restricted class-size transfer at all lengths divisible by four, where mixed-size classes occur.",
+        "evidence": [
+          "Proposition 20 restricts lengths to 4 times powers 2^(j+1), with every class full.",
+          "The new statement covers n=12 and n=20, where restricted class sizes vary and the full-orbit premise is false.",
+          "The article uses an interleaving lift in its proof, but only under an inductive full-orbit hypothesis at powers of two; the new proof handles arbitrary mixed partial orbits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+        "material_read": "Full author-hosted article at https://arxiv.org/html/1402.5843v5, especially Section 5.2, Lemma 19 and the proof of Proposition 20",
+        "method": "read statement and proof at the relevant section, contrasted quantifiers and class-size conclusions",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "same object and cyclic-complexity invariant"
+      },
+      {
+        "assessment": "The total count of 4n factors for n at least 7 does not determine their number of cyclic classes or restricted class-size spectrum.",
+        "evidence": [
+          "Theorem as stated in Cambridge Core abstract says p(n)=4n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+        "material_read": "Abstract and factor-complexity result via Cambridge Core and OEIS; no claim to have read the full article",
+        "method": "scientific implication comparison",
+        "title": "The Number of Factors in a Paperfolding Sequence",
+        "trigger": "same paperfolding factor domain and exact number of factors"
+      },
+      {
+        "assessment": "Canonical factor-occurrence positions are different from restricted rotation-class spectra. Cannot exclude a hidden stronger result or deduction without the full article.",
+        "evidence": [
+          "Public abstract describes a set of 4k canonical positions indexing factors for each length k at least 7."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(94)90028-0",
+        "material_read": "Title and abstract/description only; full text unavailable at checked open-access locations",
+        "method": "abstract-level implication comparison only",
+        "title": "Canonical Positions for the Factors in Paperfolding Sequences",
+        "trigger": "same factors, potential indirect classification by canonical occurrence positions"
+      },
+      {
+        "assessment": "Addresses Fibonacci and Thue-Morse and generalized cyclic-complexity notions; no paperfolding orbit-inflation theorem located.",
+        "evidence": [
+          "Abstract explicitly identifies Fibonacci and Thue-Morse as the studied words."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+        "material_read": "Abstract, introduction, sections on Thue-Morse and Fibonacci, and full-document text search for paperfolding",
+        "method": "primary-PDF scope search and visual first-page inspection",
+        "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+        "trigger": "later focused cyclic-complexity primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "90d9a116-9501-4db8-8f52-673a66e77fcc",
+  "value": {
+    "rationale": "A full restricted orbit-size distribution, not merely a total factor count, transfers exactly under dyadic decimation at all sufficiently large multiples of four for uncountably many paperfolding words. This gives a structural solution on infinitely many lengths including mixed-orbit cases beyond published power-of-two full-orbit results, and yields same-word stabilization for regular paperfolding.",
+    "status": "PASS"
+  }
+}
