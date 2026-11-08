@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The clock-transform mode satisfies a scalar constant-coefficient ODE; differentiation in the switching rate produces a strictly negative forced response because the Green kernel and the original mode time derivative are strictly positive. Uniform-start heat content has nonnegative spectral coefficients with a positive ground-state weight. This proves strict first-order stochastic ordering for all bounded connected domains in scope and every positive time. The coupled backward interval equations reduce to a positive Dirichlet resolvent with increasing mass parameter; this establishes exact mean formula and strict pointwise mean monotonicity. The analytical proof covers zero/infinite switching boundaries by limits. Numerics provide independent spot checks but do not certify infinite assertions.
+PASS
 
-## Originality — PASS on examined evidence; residual priority risk
+The two-state Feynman–Kac clock transform has factor f_gamma solving f''+2 gamma f'-(lambda h)^2 f=0 with f(0)=1,f'(0)=0. Its time derivative is positive for t>0; differentiation in gamma gives a forced ODE with strictly negative source -2f' and positive Green kernel, hence partial_gamma f<0. For uniform initial spatial position, Dirichlet–Neumann heat content is the positive-weight sum |integral phi_j|^2/|Omega| times positive clock modes, with positive ground-state weight; this gives strict first-order absorption-time stochastic ordering for each t>0 and bounded connected regular domain. On a fully absorbing interval, subtracting state-averaged coupled backward equations gives the scalar positive Dirichlet resolvent and the exact hyperbolic-cosine mean formula, strictly decreasing at fixed interior x. Frozen gamma=0 and homogenized gamma->infinity limits match; no claim of full stochastic order from a fixed nonuniform start. Source checks use direct formula algebra, not finite-difference tests as universal proof.
 
-The model and spectral subordination are established prior work, notably Chubynsky–Slater (2014) and Grebenkov (2018), and are not claimed as novel. Grebenkov's full Sections 1 and 3 include precisely the governing integrated-diffusivity and arbitrary-domain first-passage formulas. The stronger *strict comparative theorem* follows only after a switching-rate derivative and positivity argument not found in the examined text. The fixed-position interval mean result adds an independently proved comparison. Jain–Sebastian (2016) is highly relevant on bounded-domain survival: only its abstract could be inspected, creating a genuine historical-priority risk, but the accessible material does not settle the specific strict two-state comparative theorem. No search result constitutes uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Heterogeneous-media transport studies emphasize changes in first-passage distributions, but individual start points can yield mixed-sign spectral weights. A uniform spatial ensemble reveals an exact, distribution-level, all-time comparison without restricting the confining geometry; this is stronger than a mean-only or asymptotic claim. The independent interval theorem provides an operational fixed-position mean consequence. These structural results distinguish time-changing environmental disorder from both its frozen and homogenized counterparts.
+Grebenkov's general switching-diffusion clock transform and arbitrary-domain spectral machinery are prior, but their mere formula is not yet the quantified strict switching-rate ordering proved here. Jain–Sebastian 2016 is a highly relevant bounded rearranging-environment survival paper, but only abstract was obtainable; authorized institutional full-text retrieval returned vpn_disconnected. This is a substantial residual priority risk, not a discovered coverage theorem.
 
-## Scope and remaining limits
+## value
 
-Strict full-distribution order is limited to stationary symmetric switching and the spatially uniform start. Pointwise arbitrary-start distributional order is not established. A highly relevant closed-access 2016 paper was not read in full, and independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform-in-time first-order stochastic order simultaneously for broad absorbing/reflection geometries, plus fixed-location mean monotonicity with exact interval formula, provides a testable sharp physical rate comparison not implied by knowing isolated mean coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

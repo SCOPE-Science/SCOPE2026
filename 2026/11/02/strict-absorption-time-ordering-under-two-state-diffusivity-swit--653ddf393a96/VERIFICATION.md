@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and evidentiary limits
+# Independent mathematical audit
 
-Run `python switching_exit_checks.py` with NumPy and SciPy. The code independently builds the finite-state tilted generator and evaluates its matrix exponential instead of substituting the closed form into both sides. It also solves the backward coupled boundary-value problem by finite differences. The 144 exponential checks had maximum error \(2.69\times10^{-15}\); the six finite-difference checks had maximum error \(1.45\times10^{-6}\); and the 24 rate-ordered mode samples passed. These are numerical checks, not exhaustive verification of the theorem.
+## correctness
 
-The mathematical proof is in `RESULT.md`: a strictly positive causal Green kernel certifies negativity of the switching-rate derivative of each clock mode, nonnegative spectral heat-content weights certify the stated uniform-start stochastic ordering, and a scalar Dirichlet resolvent comparison certifies the fixed-position interval mean order. No external or independent validation has been performed. The closely related Jain–Sebastian 2016 full text could not be accessed.
+PASS
+
+The two-state Feynman–Kac clock transform has factor f_gamma solving f''+2 gamma f'-(lambda h)^2 f=0 with f(0)=1,f'(0)=0. Its time derivative is positive for t>0; differentiation in gamma gives a forced ODE with strictly negative source -2f' and positive Green kernel, hence partial_gamma f<0. For uniform initial spatial position, Dirichlet–Neumann heat content is the positive-weight sum |integral phi_j|^2/|Omega| times positive clock modes, with positive ground-state weight; this gives strict first-order absorption-time stochastic ordering for each t>0 and bounded connected regular domain. On a fully absorbing interval, subtracting state-averaged coupled backward equations gives the scalar positive Dirichlet resolvent and the exact hyperbolic-cosine mean formula, strictly decreasing at fixed interior x. Frozen gamma=0 and homogenized gamma->infinity limits match; no claim of full stochastic order from a fixed nonuniform start. Source checks use direct formula algebra, not finite-difference tests as universal proof.
+
+## originality
+
+PASS
+
+Grebenkov's general switching-diffusion clock transform and arbitrary-domain spectral machinery are prior, but their mere formula is not yet the quantified strict switching-rate ordering proved here. Jain–Sebastian 2016 is a highly relevant bounded rearranging-environment survival paper, but only abstract was obtainable; authorized institutional full-text retrieval returned vpn_disconnected. This is a substantial residual priority risk, not a discovered coverage theorem.
+
+## value
+
+PASS
+
+Uniform-in-time first-order stochastic order simultaneously for broad absorbing/reflection geometries, plus fixed-location mean monotonicity with exact interval formula, provides a testable sharp physical rate comparison not implied by knowing isolated mean coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
