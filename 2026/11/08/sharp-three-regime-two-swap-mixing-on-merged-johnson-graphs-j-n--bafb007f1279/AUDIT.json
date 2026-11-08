@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Automorphism averaging is valid for the operator norm objective; Johnson A1^2 identity and inclusion filtration give exact three nontrivial eigenmodes. Rational dual weights and primal equalities prove sharp branches 6..9 and 10..12, while the first-mode bound proves n>=13, with explicit polynomial inequalities for unused modes. Every nonnegative-entry optimizer inherits edge/diagonal zero constraints from its unique invariant average. Standalone exact replay passed 995 parameter checks and five complete adjacency-square reconstructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. §3.3.4 computes exact nearest-neighbor Johnson FMMC, where only distance-one edges are allowed.",
+        "DeVille §4.5 presents a numerical Johnson-size example J(18,8) and a qualitative eventual distance-dominance observation rather than an all-parameter proof for J(n,3)."
+      ],
+      "reasoning": "A theorem for all graphs solvable by SDP/LP does not already state an explicit minimizer for this two-orbit Johnson family; neither inspected antecedent supplies the exact n=10 and n=13 thresholds or the universal support rigidity. Its broader methods are credited and substantively used.",
+      "searches": [
+        "Boyd et al. arXiv:0709.0955 §3.3.4 Johnson graphs",
+        "DeVille arXiv:1708.02294 §4.5 Johnson graphs and §3.2 multi-step random walks",
+        "Published mathematical-record semantic query: Fastest mixing Johnson scheme two-swap adjacency distance two, Johnson graphs J(n,k), generalized Johnson graph random walk eigenvalues nontrivial SLEM optimal Markov chain"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1, §§2,3.3.4",
+      "arxiv:1708.02294, §§3.2,4.5",
+      "doi:10.1016/j.ejc.2004.01.012 indexed sections",
+      "doi:10.1137/0518016 abstract",
+      "Existing mathematical claims on hypercube, Hamming and Kneser networks, implication comparisons",
+      "Published mathematical-record searches for two-swap merged Johnson fastest mixing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing results for binary hypercubes and q-ary Hamming spaces optimize product-state chains, not fixed-cardinality three-subset chains.",
+        "An existing result on RK4 positivity for Kneser graphs concerns timestep admissibility rather than Markov-chain mixing optimization.",
+        "DeVille obtains a generic LP and qualitative Johnson observations, not explicit rational solution for all n."
+      ],
+      "reasoning": "The solved exact three-branch rational SLEM and optimizer, its thresholds, and all-optimum support rigidity do not follow merely from the previously stated nearest-neighbor solution, graph spectral recurrence, general LP formulation, or the different Hamming/Kneser results. Their methods enable the proof but do not dominate the stated parameter-specific result.",
+      "searches": [
+        "Published mathematical-record semantic query: Optimal reversible mixing on 3-subsets with swaps of one or two elements, Johnson scheme distance-two adjacency, support rigidity one-swap transitions vanish.",
+        "Earlier theorem comparison terms: johnson; merged; two-swap; Hamming; fastest-mixing; three-subset",
+        "DeVille arXiv:1708.02294 §3.2 formula and §4.5 discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DeVille §3.2 defines distance-at-most-two reversible Markov design by an LP; §4.5 describes Johnson optimal mixing observations, but gives no all-n three-subset phase formula.",
+        "An earlier result concerns a Boolean hypercube two-hop walk on an unrestricted product state space, not a fixed-size slice."
+      ],
+      "reasoning": "The same optimization can be expressed as a multi-distance Markov LP and as a merged-Johnson SLEM minimax. General LP formulation does not entail the solved symbolic optimizer or threshold integers. Hamming-product states differ from fixed-cardinality Johnson states; a 2-swap of 3-subsets is Boolean Hamming distance four and is not covered by a Hamming-two-hop optimum.",
+      "searches": [
+        "Published mathematical-record semantic query: Fastest symmetric Markov chain on Johnson graph J(n,3) allowing transitions replacing one or two elements of a three-subset, never to disjoint triples. Exact spectral optimum in n, mixing rates, transition from one-element swaps to two-element-only moves around n=10 and n=13.",
+        "Web query: \"J(n,3)\" \"two\" \"optimal\" \"Markov\" \"spectral\"",
+        "DeVille arXiv:1708.02294 §§3.2,4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical records returned nearby exchange-process and graph-spectrum studies, but no matching three-subset optimal-weight table.",
+        "DeVille Figure 2 is for J(18,8), not the J(n,3) series."
+      ],
+      "reasoning": "No matching exact rate, weight table or numerical census for J(n,3) was located. Absence in an index alone is not novelty proof; the full-text implication checks are the substantive basis.",
+      "searches": [
+        "Published mathematical-record semantic query: Exact three-regime SLEM optimal two-swap Markov chain on merged Johnson graph J(n,3) with distance 1 or 2 moves; thresholds n=10 (delete distance-one swaps) and n=13 (delete holds); Chebyshev dual certificate.",
+        "Web query: \"merged Johnson\" \"fastest mixing\"",
+        "DeVille Figure 2 J(18,8) distance-cutoff numerical table"
+      ]
+    },
+    "rationale": "Full-text comparisons with 2007 Johnson nearest-neighbor FMMC and 2017 multi-distance LP/numerical Johnson study show the current exact n=6..infinity three-regime solution, sharp thresholds 10 and 13 and all-optimum support rigidity were not stated or logically supplied; Searches of published mathematical records and comparisons with existing theorems provided no matching stronger coverage. The paper defining merged Johnson graphs was partially accessible only. Publication-priority uncertainty remains.",
+    "residual_risks": [
+      "DeVille 2017 supplies the exact general LP, hence this is a special symbolic solution of an established optimization framework, not a new framework.",
+      "Full text of the merged-Johnson automorphism article and the original urn-model article was not inspected; neither accessible portion provides a decisive conflicting claim.",
+      "Unindexed specialist exact solutions or subsequent references may exist; search absence cannot establish priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Solves distance-one Johnson walks; not distance-one-or-two merged support",
+        "evidence": [
+          "§3.3.4 defines adjacency only for triples differing by one element, and gives a one-parameter optimal formula",
+          "arXiv v1 is dated 2007-09-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "39-page open-access PDF, introduction, symmetry reduction §2, §3.3.4 Johnson graph calculation on page 14; visual inspection of page 14",
+        "method": "Full PDF available, targeted section text and screenshot verified",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Closest foundational optimization result for Johnson graphs"
+      },
+      {
+        "assessment": "Strongest inspected overlap, supplying the same general LP and eventual long-jump phenomenon, but no exact all-size J(n,3) three-phase theorem",
+        "evidence": [
+          "§3.2 expresses distance-limited Markov mixing as a linear program",
+          "§4.5 describes numerical Johnson examples and empirical eventual preference for long jumps, without the n=10 and n=13 thresholds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.02294",
+        "material_read": "27-page open-access PDF: §§3.2 and 4.5, Johnson subsection pp.19–20, definitions, displayed LP, and numerical summary; PDF screenshots of pp.13 and 20",
+        "method": "Full PDF available, cited ranges read in text and visually",
+        "title": "The generalized distance spectrum of a graph and applications",
+        "trigger": "Very close multi-distance Markov LP with explicit Johnson graphs numerical comparisons"
+      },
+      {
+        "assessment": "Describes merged Johnson graphs and group actions; accessible material focuses on embeddings, not optimized Markov chains",
+        "evidence": [
+          "Explicit definition J(n,m)_I with I a set of Johnson distances",
+          "Study claims automorphism and regular-embedding classification"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2004.01.012",
+        "material_read": "Abstract, introduction, and graph-definition passages accessible via indexed full-text excerpts; publisher full PDF was not retrieved",
+        "method": "Retrieved web indexed article text; publisher redirect unavailable",
+        "title": "Automorphisms and regular embeddings of merged Johnson graphs",
+        "trigger": "Exact graph family and possible broader graph-theoretic coverage"
+      },
+      {
+        "assessment": "Classical fixed nearest-neighbor urn exchange and asymptotic mixing rather than this explicitly optimized one-or-two-swap chain",
+        "evidence": [
+          "Describes one chosen ball exchanged between two urns each step and uses dual Hahn spectra"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0518016",
+        "material_read": "Abstract and bibliographic account; full primary article not retrieved",
+        "method": "Abstract-level inspection, no whole-document coverage assertion",
+        "title": "Time to Reach Stationarity in the Bernoulli–Laplace Diffusion Model",
+        "trigger": "Possible classical two-urn spectral transfer that could dominate a two-swap claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bafb007f-1279-4548-bba5-2143a09395ce",
+  "value": {
+    "rationale": "The natural three-item exchange chain on merged Johnson graphs receives an all-size closed-form spectral optimum and two sharp support transitions: single replacement ceases at n=10 and holding ceases at n=13. The first transition is forced for all unrestricted optimizers, not only a symmetric ansatz. Exact finite-size transition laws add substantive design content beyond merely solving individual LP samples.",
+    "status": "PASS"
+  }
+}
