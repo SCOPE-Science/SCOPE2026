@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or later and no third-party dependencies. The program reads `certificates/diamond_tree.json` from the adjacent directory and validates every internal query and all 16 leaf witnesses in the complete depth-four tree for the diamond graph. It independently enumerates all 18 acyclic orientations of the diamond, checks exact adaptive and static dimensions there, then tests the predicted one-level excess for six theta-subdivision examples. Finally, it exhaustively evaluates all labeled simple graphs on four and five vertices, using independent cycle detection, graphic rank computation, orientation enumeration, and the exact Littlestone recursion. All results are deterministic.
+## correctness
 
-The observed standard output is in `verification_output.txt`. Its final line is `ACYCLIC_ORIENTATION_CACTUS_ALL_CHECKS_PASS`. The 1,088-graph small-order census tests rather than proves the unrestricted classification. The all-graph argument appears in the mathematical proof, particularly the two product/extension lemmas and the theta-subdivision construction. No Lean proof, external peer-review evidence, or independent audit is claimed.
+PASS
+
+Forest orientations extend by topological order, directed cycle labelling blocks shattering; hence VC is graphic rank. For cactus, free bridge directions and independent cycle blocks factor as product concept classes, each cycle lacking exactly its two coherent orientations and having Ldim length-1. A depth-4 diamond witness tree is in actual certificate/diamond_tree.json; independent full acyclic-orientation Littlestone recurrence on 18 diamond hypotheses gives Ldim4, and on 46 K2,3 orientations gives Ldim5. Subdivision encodes the old edge plus a free edge bit while preserving acyclicity, increasing Ldim and rank by one. Every noncactus contains theta and can attach a spanning forest freely; product/projection lower bound adds rank of attached forest. The universal conclusion is analytical, not extrapolated from small graphs.
+
+## originality
+
+PASS
+
+Best-of-knowledge new cactus iff criterion and universal theta obstruction for adaptive (Littlestone) shattering, while Kozma–Moran static VC-rank equality is explicitly established prior work. General COM sample compression is not an Ldim equality result.
+
+## value
+
+PASS
+
+A natural sharp structural graph boundary distinguishing static and online edge orientation learning, with minimal diamond obstruction, triangle-free K2,3 witness and unbounded disjoint-union gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
