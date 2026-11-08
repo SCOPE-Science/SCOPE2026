@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Proof checks all positive integers n>=3 and 1<=k<=n: exact direct-voter score identity, attained cyclic adjacency optimum, complete greedy marginal sequence conditional on maximal-independent-set size, every such size attainable, exact tie score spectrum, and sharp ratio including equality cases. A standalone exhaustive all-tie and all-optimum verifier checked n=3..15 with 9766 reachable-state assessments; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lassota and Sornat (2026), arXiv:2607.28575, Section 5.1 and Theorem 10, polynomial winner determination for candidate approval degree at most two.",
+        "Masařík, Pierczyński and Skowron (2023), arXiv:2307.06077, definitions and PAV proportionality discussion."
+      ],
+      "reasoning": "An algorithm computing an optimum on a larger incidence class does not imply that every greedy tie branch has a particular objective or the 11/12 guarantee. General PAV definitions and proportionality axioms also do not imply the exact cycle greedy spectrum.",
+      "searches": [
+        "\"PAV greedy algorithm two approval voters 2-regular graph approximation ratio\"",
+        "\"GreedyPAV\" \"maximum degree 2\"",
+        "Algorithms for Structured Elections under Thiele Voting Rules arxiv:2607.28575 theorem candidates approved at most two voters",
+        "arxiv:2307.06077 proportionality PAV structured"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2305.01769",
+      "https://arxiv.org/abs/2307.06077",
+      "https://arxiv.org/abs/2607.28575",
+      "https://mathworld.wolfram.com/IndependentDominationNumber.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.3 of Janeczko–Faliszewski (2023) is a hardness construction for counting tied winners, not the cyclic greedy score theorem.",
+        "Theorem 10 of Lassota–Sornat (2026) addresses an optimal winner algorithm for a broader class, not the behavior of the greedy heuristic.",
+        "The minimum maximal-independent-set size \\(\\lceil n/3\rceil\\) on cycles is classical; the new object is an equality of all achievable sequential-PAV welfare values."
+      ],
+      "reasoning": "There is construction-level overlap and a shared combinatorial lemma, which are acknowledged. The inspected general algorithmic and counting results do not logically imply the asserted entire greedy score spectrum and sharp approximation ratio without the new tie-path/gap analysis.",
+      "searches": [
+        "arxiv:2305.01769v1 graph-edge endpoint voters Greedy Thiele Theorem 4.3",
+        "arxiv:2607.28575 two-approver Thiele polynomial optimization",
+        "published cycle independent domination number minimal maximal independent set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janeczko and Faliszewski (2023), arXiv:2305.01769v1, §§2,4 and Theorem 4.3, uses graph-edge candidates and endpoint voters, and studies counting tied outcomes.",
+        "Independent domination on cycles is a classical graph invariant: MathWorld, Independent Domination Number."
+      ],
+      "reasoning": "The graph-edge/endpoint-voter model and independent domination building block were not treated as novel. The claimed equivalence is to all possible greedy harmonic-PAV score values on cycles, not merely to maximal independent set size. Inspected sources and searches did not supply this explicit tie-branch objective spectrum or sharp score ratio.",
+      "searches": [
+        "\"sequential PAV\" \"cycle\" \"11/12\"",
+        "\"greedy PAV\" \"maximal matching\" approximation cycle",
+        "\"Thiele\" \"cycles\" \"greedy\" approximation ratio",
+        "sequential PAV approximation factor on cycles every voter approves two neighboring candidates, critical committee size half"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record retrieval produced neighboring voting-theory claims on tournament winners, no-show paradoxes, and cycle graph cover-free families; their objects and assertions differ.",
+        "Direct all-tie-path and all-size-optimum finite checker independently verifies all derived spectra for n=3,...,15."
+      ],
+      "reasoning": "No exact indexed table or formula matching these cycle-incidence greedy PAV scores was identified. Finite recomputation corroborates the formulas but is not evidence of originality by itself.",
+      "searches": [
+        "sharp 11/12 worst-case greedy proportional approval voting versus PAV on cyclic voter-candidate incidence elections; cycle edges candidates, endpoints voters; maximal independent dominating sets",
+        "exact greedy Thiele cycle graph edge candidate optimum PAV 11/12",
+        "\"sequential proportional approval voting\" \"11/12\""
+      ]
+    },
+    "rationale": "Primary full-text compares to Janeczko–Faliszewski graph-edge tied Thiele construction and broader two-approver Thiele optimum algorithm of Lassota–Sornat, plus general PAV theory and known independent domination. Neither counting ties nor finding an optimum bounds all sequential greedy tie outcomes. No exact full spectrum or sharp 11/12 cycle guarantee found in the actual queried literature and mathematical records. Unindexed equivalent graph reformulations remain a credible limitation.",
+    "residual_risks": [
+      "Possible unindexed equivalent theorem for greedy independent-set completion on cycles interpreted as harmonic-PAV welfare.",
+      "Searches cannot prove global priority or uniqueness; human literature review remains warranted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST; graph incidence construction and initial greedy matching-phase notion are prior art. No exact cyclic all-tie welfare spectrum or 11/12 approximation theorem found in studied sections.",
+        "evidence": [
+          "Janeczko–Faliszewski (2023), arXiv:2305.01769v1, Theorem 4.3 and surrounding proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+        "material_read": "ArXiv v1 PDF full text, particularly definitions of Greedy Thiele in Section 2 and graph-edge reduction Theorem 4.3 in Section 4.",
+        "method": "Read source full text and inspected the PDF page imagery for central definitions and reduction.",
+        "title": "Ties in Multiwinner Approval Voting",
+        "trigger": "Uses precisely graph-edge candidates and vertex voters, and studies Greedy Thiele ties."
+      },
+      {
+        "assessment": "Broader domain for exact optimization, but does not assert a bound on greedy suboptimality or characterize all greedy scores.",
+        "evidence": [
+          "Lassota–Sornat (2026), arXiv:2607.28575, Theorem 10."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.28575",
+        "material_read": "Open full HTML article, including Theorem 10 in Section 5.1 on polynomial optimum Thiele winner determination.",
+        "method": "Read source HTML and compared the object optimized to greedy sequential tie-resolution outcomes.",
+        "title": "Algorithms for Structured Elections under Thiele Voting Rules",
+        "trigger": "A theorem for candidates with at most two approvers encompasses the present incidence degree."
+      },
+      {
+        "assessment": "No dominating cycle-specific all-tie greedy welfare statement identified.",
+        "evidence": [
+          "Masařík–Pierczyński–Skowron (2023), arXiv:2307.06077, Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06077",
+        "material_read": "Full HTML main discussion, focusing on Section 4 with definition and properties of PAV.",
+        "method": "Read source HTML and compared results to exact sequential greedy welfare spectrum.",
+        "title": "A Generalised Theory of Proportionality in Collective Decision Making",
+        "trigger": "General harmonic PAV definitions and proportionality results potentially encompass sparse incidence instances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdb2caa9-52c0-4d4d-8028-401ad8d29df0",
+  "value": {
+    "rationale": "A canonical sparse cycle election, two approvals per voter, exposes an exact full score spectrum under all sequential PAV tie resolutions and a globally sharp uniform 11/12 performance guarantee, substantially stronger and more informative than generic submodular approximation. Infinite equality families and a gap-based structural characterization explain when and why tie-breaking loses welfare.",
+    "status": "PASS"
+  }
+}
