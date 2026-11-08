@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The normalizations in RESULT.md are fixed by the probability Gaussian measure and the normalized monomial basis. The exact spectrum uses a beta density with shapes \(k+1\) and \(n-k+1\), which has total shape \(n+2\) and binomial count parameter \(n+1\). This one-unit offset is essential. The independent interval-copy identity was checked by exact rational enumeration for small degrees, not inferred from asymptotic numerical agreement.
+# Independent mathematical audit
 
-Run `python3 checks.py`. The implementation uses the Python standard library, including exact fractions for finite checks and a stable modal recursion for higher-degree binomial probabilities. It verifies the exact trace, the beta–binomial identity, the interval symmetry-difference expectation, and a selection of finite-width and large-width numerical limits; those checks cannot substitute for the proof of convergence in RESULT.md.
+## correctness
 
-The analytic proof verifies both the finite-\(c\) normal interval limit and the separate infinite-\(c\) regime. It treats arbitrarily chosen sequences of endpoints satisfying the written hypotheses, not only the centered parameterization used in the numerical examples. There is no claim of an explicit finite-degree error rate. No external independent audit or proof certification has been performed.
+PASS
+
+The homogeneous degree-n Bargmann–Fock compression has eigenvalue Beta(k+1,n-k+1) mass on [a,b], with total beta shape n+2 and binomial tail parameter m=n+1. Under common-uniform monotone coupling B_a≤B_b, the random index interval I=[B_a,B_b) has P(k∈I)=λ_k, proving exactly V=1/2 E|I_1△I_2| for independent copies. For sqrt(m)(b-a)→c finite at interior t, the rescaled two interval starts converge to independent σ-normal locations while their lengths converge to c in L². The symmetric-difference length is continuous and endpoint differences have uniform L² bounds, giving E[min(c,σ|Z_1-Z_2|)] and its erfc integral H_t(c). For c→∞, overlap probability tends to one as lengths grow faster than fluctuations; the endpoint difference CLT yields H_t(∞)=2σ/√π. H prime erfc and H double-prime negative follow directly. Independent finite exact binomial trace calculations at m=7,20,100,250 verified normalization and defects; no finite check substitutes for CLT or uniform integrability.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary comparisons: The critical transition requires new covariance/overlap arguments rather than a direct substitution into fixed-radii results. The exact mathematical assumptions/implications, not titles or absence of search matches alone, determine this decision.
+
+## value
+
+PASS
+
+A projective latitude band has two quantum interfaces whose fluctuations become coupled precisely at width O(n^-1/2). The explicit strictly concave H_t(c) quantifies their nonadditivity and connects vanished width to the twice-single-boundary constant. The finite exact coupled-binomial symmetric-difference identity is useful beyond the limiting regime; this is an analytically motivated spectral concentration problem, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
