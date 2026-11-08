@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cross-arc Poisson integral is reduced to an exact one-dimensional expression. Its second derivative is strictly negative; the symmetry point uniquely maximizes it. Parseval with explicitly computed odd coefficients gives the dilogarithmic value, and integration of the odd-series derivative gives the sharp logarithmic boundary coefficient. The global quadratic gap follows from the minimum of the Poisson kernel, and its constant is forced by the local Taylor coefficient. The `verify.py` script provides sample numerical consistency checks only, not proof.
+PASS
 
-## Originality — PASS under inspected evidence
+For a two-jump trace F=2 1_[0,ell]-1, exact cross-arc integral gives E=4ell-(4/pi)int_0^ell(ell-t)K_lambda(t)dt (lambda=rho^N), hence E''=-(4/pi)K_lambda(ell)<0, unique ell=pi. The kernel minimum K_lambda(pi) yields a sharp quadratic deficit (2/pi)(1-lambda)/(1+lambda)(ell-pi)^2. Fourier odd harmonics of half-wave give E(pi)=2pi-(8/pi)(Li_2(lambda)-Li_2(-lambda)); S'(lambda)=atanh(lambda)/lambda yields (8/pi)(1-lambda) log(1/(1-lambda)) as lambda approaches 1, and (1-rho^N)~N(1-rho) under N(1-rho)->0. Independent Poisson-integral vs Fourier comparisons passed 20 cases; all-parameter proof analytical.
 
-The primary 2026 Chen–Chen–Hamada–Li paper already proves the periodic Poisson rescaling and a coarse one-sided lower estimate for its sign-wave defect; these are credited. It does **not** state the all-radius closed form, sharp leading boundary constant, or unequal-duty-cycle optimizing profile in the inspected sections. Searches of equivalent semigroup, heat-content and dilogarithm formulations and published-finding corpus mathematical records identified no logical covering statement. An older exact formula may nevertheless exist, and some related historical texts were inspected only in abstract/summary form; historical priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-The exact constant sharpens a concrete estimate used in the source's proof and the all-radius duty-cycle maximizer solves a natural binary-boundary design question. The stability coefficient explains the exact loss under unequal arc occupation and is sharp; the result is scoped to periodic two-jump cells and does not claim a new general Hardy–Littlewood equivalence theorem.
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: Full Chen et al (arXiv:2610.31132) and relevant heat-content literature could not be inspected sufficiently to exclude implicit exact evaluations; Oxford access reported vpn_disconnected. Scope excludes arbitrary traces.
 
-## Limitations
+## value
 
-No arbitrary multi-jump or complex-amplitude optimizer is classified. Historical implicit coverage remains a residual risk; there has been no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign wave used in a recent Hardy--Littlewood argument previously carried a lower bound. Here its exact leading constant, all-radius defect and optimal duty cycle with sharp quantitative stability are natural, reusable boundary regularization facts. It does not claim arbitrary multi-jump optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
