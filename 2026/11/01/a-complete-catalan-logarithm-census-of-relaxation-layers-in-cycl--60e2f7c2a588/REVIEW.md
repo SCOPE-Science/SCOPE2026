@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local preimage condition for a blocked pair is established in Fukś (1997), Proposition 1, and transformed by particle-hole reflection. The proof shows why its light cone does not alias on the relevant finite ring: for minority count \(m\) and every nontrivial time \(t\le m-1\), the window has length \(2t+2\le n\). A first-return argument identifies the obstruction with a primitive positive Dyck block of semilength at least \(t+2\). Noncrossing matching gives a unique cyclic decomposition into such blocks and singleton unmatched zeros. Marked-cycle counting yields the formal logarithm with factor \(n\), including rotationally symmetric words. A separate full-orbit enumerator and exact rational coefficient calculator agree for every labelled binary state at sizes \(2\)–\(15\). No computation is offered as an infinite proof.
+PASS
 
-## Originality — PASS (bounded)
+Rule184 transports each occupied site clockwise only to a vacant next site; for k<=n/2, periodicity is equivalent to absence of cyclic 11 and any remaining occupied pair at time t corresponds to a strictly positive preimage prefix of length 2t+2. Because 2(t+1)<=2m<=n in relevant t<=m-1, the backward cone has no repeated sites. First return of the excursion to height zero yields a primitive positive Dyck block of semilength >=t+2, and conversely every such block creates a later jam. Cyclic noncrossing bracket matching uniquely decomposes each word into singleton zeros and primitive Dyck blocks, with coefficients C_(j-1); a cycle of r atoms contributes n/r times its ordered atom generating function, including rotational stabilizers. Therefore the finite logarithm gives every mass-specific labelled R(t); particle-hole duality handles k>n/2, and at k=0 or n the first-entry T=0 sector count equals 1. The maximal new block semilength m yields exactly nC_(m-1). Independent bitmask Rule184 simulation and exact rational cyclic atom counts agree for n=2..12, 183 (n,k,t) CDF comparisons. A finite census does not prove arbitrary n; the local-preimage plus unique circular matching argument does.
 
-The accepted new claim is the **entire joint ring-length, particle-mass, first-entry-time coefficient formula**, not the previously established maximum time or \(nC_{m-1}\) last-layer count. An accessible earlier local-preimage classification (Fukś, 1997) and infinite-volume mean-flow enumeration (Fukś, 1999) supply antecedent tools but do not directly give the multi-window system-wide exact cumulative distribution. Earlier known finite-ring last-layer results are expressly excluded from novelty. A 2026 first-passage paper calculates tagged-car rather than whole-ring entry statistics and was available at abstract level only. One published symbolic-dynamics record analyzes primitive Dyck entropy but not, on the available summary, a mass-and-time-resolved Rule-184 basin census. This remains a bounded literature assessment, not a uniqueness certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statistic \(T\) is the system-wide relaxation time to free traffic, a natural dynamical observable at each conserved particle mass. The formula counts **all** transient layers exactly across all finite rings, instead of only whether a configuration eventually becomes periodic or how long the worst configuration takes. It combines cyclic matching and formal-logarithm enumeration in a reproducible closed expression and distinguishes global relaxation from one-particle stopping-time statistics. The theorem includes nontrivial intermediate layers, e.g. \((n,k)=(8,4)\) has \(2,12,16,40\) configurations at the four depths.
+Fukś (1997) already supplies Rule184 ballot preimages and stabilization-time bound; these key lemmas are explicitly credited, and the nC_(m−1) extremal layer is prior. Fukś (1999) supplies Bernoulli/infinite-volume block probabilities, different from labelled fixed n,k complete first-entry census. Biham et al (2026) analyze first and last stopping of ONE particle under iid initial density, rather than global first-periodic entry on a labelled finite ring; primary abstract and unavailability of full text leave a real overlap risk. The exact simultaneous all-time Catalan logarithm is not located in compared sources or Resultary, but equivalence under cyclic Dyck renewal language remains possible.
 
-## Related sources and limits
+## value
 
-The most directly relevant inspected primary source is arXiv:comp-gas/9703001, especially its Proposition 1 ballot-preimage condition and Proposition 2 bound. arXiv:math/9904182 supplies related infinite-volume preimage counts. The full text of arXiv:2605.19023 and a published primitive-Dyck entropy record were not successfully retrieved, which leaves an originality risk. The finite verifier reaches \(n=15\), while the theorem is proved for all \(n\ge2\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deterministic traffic model is a canonical cellular automaton with a natural relaxation observable. A complete finite-ring, fixed-density distribution for each transient layer is strictly stronger than a stabilization upper bound or extreme layer alone, and the primitive-Dyck atom logarithm is a reusable exact transfer/renewal counting identity. It is not an arbitrary one-off enumerated N.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
