@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof reduces the finite Markov chain to two scalar harmonic recurrences and verifies explicit formulae at every admissible state. Independent symbolic checks simplify the transition identities, boundary values, rational closed form, strong-bias square identity, and degree-scaled limit to zero. A separate exact-rational absorbing-chain solver checks 28 full transient matrices (7 star sizes, 4 incentive levels), not merely trajectories. Run `python verification/star_check.py` with Python 3.10+ and SymPy installed. Computations support the stated algebra but do not replace the arbitrary-size argument. Only self-review is recorded; independent assessment is not performed.
+## correctness
+
+PASS
+
+For m≥2 loopless star and one updater-local bias r≥1, the (hub-status, A-leaf count) Markov chain has 2m transient states. Verified exact u_k and v_k harmonic functions satisfy both recurrences and boundaries symbolically; uniform single seed gives F_m=(mr+1)(mr+m+3r−1)/[(m+1)^2(r+1)(m+2r−1)]. Leaf-only bias changes no update; martingale/coupling yields hub superiority for r>1. r→∞ produces m(m+3)/[2(m+1)^2]=9/16−(m−3)^2/[16(m+1)^2] and r_m/m→theta gives theta/(1+2theta).
+
+## originality
+
+PASS
+
+Original positional voter paper establishes receiver-local model, monotonicity and optimization complexity but not the derived exact all-star hub fixation, strong-bias 9/16 ceiling or degree-scaled asymptotics in inspected full text; related global voter and positional Moran processes use different transitions.
+
+## value
+
+PASS
+
+A natural targeted-incentive optimization on star networks with a sharp universal 9/16 ceiling and degree-scaled population transition, not merely a simulation or parametrization; distinguishes positional voter from Moran and global bias.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
