@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or later and no external dependencies. The actual tested command returned:
+## correctness
 
-```
-VERIFY_OK 6600 finite_check_groups sharp_census {5: (162, 162), 6: (2520, 2530)}
-```
+PASS
 
-The first number in each census pair is the number of controllable minimum actuator sets; the second is the number of odd-unicyclic complementary edge sets before the exceptional exclusion. The script constructs the Laplacian of the line graph directly and evaluates its three known PBH eigenvalue ranks over the finite field of prime order `1000003`. It compares these results to independently computed unsigned-incidence ranks and to a graph-component test. Direct Kalman-matrix ranks are also replayed for the explicit small-order optimizers and the exceptional pair of triangles.
+Unsigned incidence C on K_n satisfies CC^T=(n−2)I+11^T and Lap(J)=(2n−2)I−C^TC, with eigenmultiplicities 1,n−1,N−n. PBH gives minimum |U|>=N−n. For |U|=N−n, F=E(K_n) minus U has n edges and must give nonsingular unsigned C_F for largest eigenspace; each connected component must therefore contain an odd cycle and, by edge count, is odd-unicyclic. Second eigenvalue n is obstructed iff the complement U supports a zero-sum alternating a. The U edge density excludes bipartite connected graphs except n=6 and U=K_{3,3}, whose complement is two triangles; disconnected U gives one isolate and a triangle-bearing component with zero constrained a. Explicit star-plus-{2,3} complement proves attainment but U is not zero forcing. Rooted-tree EGF T=ze^T with odd-cycle factor (artanh T−T)/2 and exponential formula gives exact A_n, subtracting 10 for n=6. Independent finite-field PBH enumeration exhaustively checked all 252 n=5 and all 5005 n=6 candidate complements, yielding (162,2520) controllable vs (162,2530) odd-unicyclic candidates. All-size statement follows from the spectral and combinatorial proof, not finite enumeration.
 
-The \(n=5\) and \(n=6\) complementary-edge-set searches are exhaustive. For \(n=7\) and \(n=8\), only deterministic samples are checked; the all-dimensional classification instead follows from the symbolic incidence/PBH and extremal-density proof in `RESULT.md`. The generating-function coefficients are checked by rational truncated-series arithmetic for orders five through eight. These computations are checks, not independent verification or an exhaustive search over every larger order.
+## originality
+
+PASS
+
+The scalar minimum follows already from classical maximum eigenvalue multiplicity, and the odd-cycle nonsingular signless-incidence lemma is classical; neither is claimed novel. The new statement classifies every sharp coordinate-actuator placement for this fixed triangular graph Laplacian, identifies the unique six-label obstruction, counts them exactly and constructs a non-zero-forcing optimum. Zero forcing literature concerns all weights/qualitative classes and is not an equivalent fixed-Laplacian criterion; no located prior triangular-graph statement implies the complete classification.
+
+## value
+
+PASS
+
+A sharp complete leader/actuator placement classification for a standard strongly regular line-graph family is a motivated controllability invariant. The solitary K3,3 exception and explicit non-zero-forcing optimal set delimit fixed-parameter controllability versus robust zero forcing and provide exact enumerative statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
