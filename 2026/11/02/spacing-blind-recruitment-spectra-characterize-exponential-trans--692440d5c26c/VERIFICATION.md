@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact analytic arguments are in RESULT.md. To reproduce the independent arithmetic checks, execute `python3 verify.py` from the directory containing this file and the script. No network connection or third-party Python packages are required.
+# Independent mathematical audit
 
-The script calculates every principal-minor sum by exact `fractions.Fraction` Gaussian elimination, comparing it to the elementary-symmetric spectral identity. It uses two site layouts at each size two through six, nonuniform rational weights and a decay rate making point-to-point exponential transfers rational. It then independently constructs the two-stage two-site matrix at seven separations, verifies the determinant formula by exact fractions, and compares its spectral-root formula and discrete maximum. Expected result: `PASS: 54 exact-rational principal-minor/determinant checks`, followed by confirmation of the discrete antipodal maximum.
+## correctness
 
-The all-layout, all-positive-parameter isospectrality, converse characterization, and unique continuous antipodal optimum rely on their proofs, not on these finite checks. Limitations: the center-sampled linear transfer model and two specified travel-distance distributions, not measured marine transport, finite-area reserves or externally certified ecological predictions.
+PASS
+
+For k1(d)=c exp(-alpha d) on clockwise circular distance, conjugation by diag(exp(-alpha x_i)) removes site coordinates, leaving lower-ones/upper-q matrix with all k-principal minors (1-q)^(k-1), giving the full characteristic polynomial with weighted elementary symmetric functions. Two-site spectral invariance fixes k(d)k(L-d)=Q. The 3-site determinant imposes constancy of S+Q^3/S; continuity on the connected positive gap simplex forces S constant, and differentiating log k(a)+log k(b)+log k(L-a-b) yields constant derivative on (0,L). Diagonal k(0) may differ without affecting the converse because it is position independent. For Erlang-2, wrapped density equals b e^(-alpha d)(d+a), qa(a+L)=a² gives det M2=-b²q w1w2 d(L-d)<0, and the positive Perron root is strictly maximized uniquely at d=L/2. Independently used exact rational matrices at three distinct 3-site layouts to check the full 3 characteristic coefficients and verified the Erlang determinant identity at five rational spacings; these checks corroborate the proved continuum and arbitrary-n claims.
+
+## originality
+
+PASS
+
+The metapopulation dispersal and Perron threshold literature establishes motivation and general network spectral criteria, but does not supply the exact circular wrapped one-way exponential similarity, its strong 2/3-site converse, or two-stage anti-spacing design optimum. Semiseparable matrix theory is genuinely related and may provide an implicit alternative derivation; its relevant 2003 full text remained inaccessible, recorded as risk.
+
+## value
+
+PASS
+
+A natural exact characterization of memoryless transport by spectral insensitivity under all 2/3-site configurations, together with a sharp counter-regime where two-stage dispersal selects the antipodal optimum, is mathematically structural and ecologically interpretable within stated point-site model limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
