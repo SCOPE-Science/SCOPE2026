@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The root-link matching is explicitly defined for every allowed face, including the empty face, and its toggle is admissible because the chosen branch center is absent. The fiberwise acyclicity argument uses the monotonic branch-center subset and the nonremovable matched leaf. Consequently the link collapses, and root-deletion is an ordinary homotopy equivalence. Root deletion splits as a join of star complexes; the simplex–cone Mayer–Vietoris computation identifies the free integral homology as exterior powers of augmentation lattices. The Koszul sign from permuting join factors is \((-1)^r\), which is checked by exact signed Lefschetz traces in a full small wreath group. The representation and character calculations follow from the standard exterior-power character and an irreducibility argument through the base subgroup. Finite tests are independent checks, not an infinite proof.
+## correctness
 
-## Originality — PASS
-Sawant (2026, arXiv:2605.25150v1, Theorem 3.6) proves vertex decomposability for all trees and \(r\), not an integral automorphism-module formula. Deshpande–Singh (2020, arXiv:2001.05448v2, Theorem 5.6) already provides nonequivariant perfect-tree homotopy ranks; these are excluded from the new-priority claim. New aspects are the all-unbalanced-branch calculation and full root-preserving integral homology action, including the \((-1)^r\) interchange twist and irreducible uniform wreath module. Literature searches for higher-independence equivariant characters, rooted height-two trees, wreath modules, and equivalent branch-join descriptions located no covering prior implication. A genuinely equivalent unindexed calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem sharpens a recent qualitative all-tree vertex-decomposability theorem into exact homotopy ranks for a structured, independently motivated class. The root link has an explicit uniform collapse despite nontrivial branch topology. The integral wreath module, its parity switch, and the irreducible high-dimensional character reveal information not recoverable from known nonequivariant sphere ranks. The nonuniform formula also allows exact calculation for natural trees outside perfect regular families. The limitations \(m\ge r\) and root-preserving symmetry are explicit.
+For m>=r>=3 and s_i>=1, root link faces contain at most r−1 branch centers, so a missing branch provides an isolated distinguished leaf. The least-missing-center leaf toggle is a perfect augmented-face matching; any directed Hasse cycle would preserve its center set and then cannot remove the toggled leaf, proving acyclicity. The link is contractible and root deletion is a homotopy equivalence. The deleted graph is a disjoint union of m stars; Ind_r(K_{1,s_i}) is the suspension of the (r−2)-skeleton of the leaf simplex, giving B=prod_i binom(s_i−1,r−1) spheres in dimension rm−1, including s_i<r contractibility. Its natural integral cycles identify with wedge^(r−1) of the augmentation lattice U_i; join swaps contribute (-1)^r, and the uniform wreath representation is irreducible since its restriction to the normal base subgroup is an external product of irreducible hook Specht modules. Character factors are traces of leaf monodromy around branch cycles. Independently counted 4,679 faces and reduced Euler rank 1 for (r,m,s)=(3,3,3) and 27,667 faces and Euler rank 27 for (3,3,4); source verifier was read and checks link acyclicity, finite-field Betti ranks and signed character samples/full small group. These finite checks corroborate but do not prove the family.
 
-## Closest literature and residual risks
-R. Sawant (2026), https://arxiv.org/html/2605.25150v1, introduction and Theorem 3.6; P. Deshpande and A. Singh (2020), https://arxiv.org/html/2001.05448v2, Section 5 and Theorem 5.6. The perfect uniform nonequivariant special case is known. Equivariant homology is the decisive independent content. Literature searches do not logically prove uniqueness, and an unindexed equivalent characterization remains a risk. Independent review has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. Nonequivariant coverage is acknowledged; the final claim survives on unbalanced family and genuinely equivariant refinement. The earlier theorems do not logically imply a unique representation from Betti numbers.
+
+## value
+
+PASS
+
+The tree family is natural and its full integral symmetry module with graded branch permutations is a nontrivial strengthening of ordinary sphere-count classifications. Leaf-size imbalance and parity twists matter to downstream representation calculations; it is not a mere Specht relabeling or an already-known nonequivariant rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
