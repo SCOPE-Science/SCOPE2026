@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universe of \(883\) rank-three positroids is exhausted by decorated permutations and Grassmann necklaces. The binary test is logically equivalent to representability over \(\mathbb F_2\), hence to toricity by McNeill and Quail–Rombach. Dimension follows from matroid connected components, and geometric smoothness is determined at every coordinate fixed point by Billey–Weaver's exact tangent-space theorem. The independent enumeration of all \(1395\) binary three-planes yields precisely the same \(703\) binary-positroid supports and the same classification for **every** support. `python3 verify.py` returns `VERIFY_OK` from the supplied files. This is a finite exhaustive proof once the established parameter bijections are applied, not inference from sampling.
+PASS
 
-## Originality — PASS, with residual historical risk
+PASS. The claim is a complete finite classification of labeled rank-3 positroid supports in Gr_C(3,6), not isomorphism classes. Decorated permutations and cyclic Grassmann-necklace Gale tests give 883 supports; regular iff binary by the cited positroid theorems, and a basis-normalized F2 representation has every off-pivot entry uniquely fixed by exchange minors. Independent from the package primary route, enumerated all 1395 three-dimensional F2 row spaces in RREF and tested their full 20-subset basis supports against all six cyclic Gale inequalities. Obtained exactly 703 distinct binary positroid supports. Independently calculated the matroid components via exchanges and Johnson-graph basis degree: distribution by (dimension,smooth) is (0,T):20,(1,T):90,(2,T):180,(3,T):95,(3,F):120,(4,T):6,(4,F):144,(5,F):48. Thus 391 smooth and 312 singular toric, 180 nonregular. This is exhaustive by proven finite parametrization; geometric interpretation relies on cited toricity and fixed-point smoothness theorems.
 
-McNeill's 2026 paper proves a global toricity characterization, not the stated rank-three count. Quail–Rombach's binary characterization likewise does not evaluate the census. Billey–Weaver enumerate all smooth positroids (in particular \(440\) for rank three on six labels) but not smooth versus singular **within the toric subfamily**; their Johnson-graph rule supplies an indispensable computational tool. The overall \(883\) positroid count is already published (OEIS A046802) and is not claimed new. The result is not the rank-two dimension enumerator or the toric Richardson enumeration in a different geometric setting. Exact-phrase and equivalent-support searches of published literature and indexed research returned no complete matching table. An unindexed or differently presented earlier table remains a priority risk; the claimed originality does not extend to the input theorems or the old smooth total.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first symmetric rank-three case is a natural benchmark beyond the previously classified rank-two family. The theorem provides a complete geometric rather than title-based stratification of all regular rank-three positroids in \(\operatorname{Gr}(3,6)\), simultaneously by dimension and singularity, and identifies a sharp new phenomenon: there are \(48\) toric fivefolds and none is smooth, while six toric fourfolds are smooth. This concrete exceptional geometry is not determined by a mere total count and is a useful calibration case for broader positroid-toric classification work. It does not claim a general-rank theorem.
+PASS with substantial primary-access qualification. Prior literature establishes overall 883 positroid total, Billey–Weaver overall 440 smooth rank-three positroids, regular/binary/graphic positroid characterization and toric equivalence; these are not claimed novel. The assessed addition is the entire joint toric dimension/smoothness table, including 48 singular fivefolds and six smooth toric fourfolds. The inspected primary statements do not numerically supply this intersection, but McNeill full text was not accessible, so overlapping embedded tables remain a priority risk.
 
-## Unresolved limitations
+## value
 
-Historical priority remains provisional. The complete classification applies only to labeled embedded varieties on six elements. The smoothness criterion and toricity criterion are published inputs. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. First symmetric rank-three positroid case beyond familiar rank-two families is a mathematically natural complete geometric classification. The joint exact dimension/smoothness split, 48 necessarily singular top-dimensional toric strata and six exceptional smooth toric fourfolds are nontrivial exact facts useful in positroid geometry and as checkable benchmarks, not merely rediscovery of known 883 or 440 totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
