@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object and conventions are explicit, including the all-zero probe. The proof computes the exact nonzero-probe projection residual, its nontrivial spectral eigenvalue, the two missing-leading outcomes, and their independent binomial masses. The ordering of all support levels is strict because \(a>b>0\). Differentiation of the binomial CDF gives an exact polynomial with one sign change, hence a unique optimum for each nontrivial success band. Root convergence plus binomial-to-Poisson convergence establishes the fixed-band asymptotic. Independent finite matrix computations from `verify.py` passed 384994 checks. Numerical checks are not presented as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For A=diag(a,b,...,b), m>=2,a>b>0 and single iid sparse-sign probe, let B indicate active spike and K~Bin(m,p). When B=1,K=j, projection residual has squared spectral norm b^2+delta_j and squared Frobenius mb^2+delta_j with delta_j=b^2 j(a^2-b^2)/(a^2+b^2j); B=0 produces distinct missed-spike and all-zero atoms. The probability of tolerances between adjacent j-levels is p Pr[Bin(m,p)<=k]; derivative sign has one change in t=p/(1-p), proving unique maximizer with special p_{m,0}=1/(m+1) and p_{m,m-1}=(m+1)^(-1/m). Fixed-k optimizer Poisson convergence follows from uniform polynomial limits. Independently formed all 27 sparse-sign outcomes at m=2,a=3,b=1 and checked residual singular/Frobenius norms against support formulas and zero atom. This is one-column exact arithmetic, not universal isotropic-sketch optimality.
 
-The closest directly motivating literature is Saibaba–Międlar, arXiv:2308.05814v1 (2023), Theorem 3.3, the sparse-Rademacher discussion, Appendix B.1, and Appendix C; the actual full 37-page text was searched and its relevant PDF pages inspected. It provides general sample-size/error bounds and experiments, not the all-threshold one-probe law or the optimizer. Halko–Martinsson–Tropp, arXiv:0909.4061, gives general range-finding machinery. Available prior results about Rademacher expected loss with nonzero coordinates or Gaussian covariance optimization do not imply a sparse-zero-atom, threshold-probability optimum. A dedicated earlier special-case calculation, if located, could still subsume this claim. This comparison does not certify publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-A distribution with fewer nonzero entries can strictly outperform dense signs for a stringent *success probability*, although general sparse-sketch results emphasize larger sample requirements as sparsity increases. The result identifies exactly where that reversal occurs, for **both** spectral and Frobenius losses, and quantifies its dimension-dependent cost in repeated one-probe trials. This is a complete naturally parameterized benchmarking classification, not an arbitrary numerical slice. Its practical relevance is restricted to the rank-one single-spike model, coordinate-aligned probes, and this specific tail objective; it does not claim general sparse-sketch superiority.
+The sparse Rademacher sketch family and randomized range-finder error estimates are established by Saibaba–Międlar and Halko–Martinsson–Tropp, but the inspected general large-sample inequalities do not specify the exact discrete joint error law of a single one-spike sketch or its target-tolerance optimizer. Related expectation comparisons do not imply this conditional tail probability. Priority to an existing one-probe toy example remains possible.
 
-## Evidence and residual risk
+## value
 
-Primary evidence: https://arxiv.org/pdf/2308.05814 (37 pages, relevant main theorem and appendices), https://arxiv.org/abs/0909.4061 (range-finding algorithm and general error results), and reproducible `verify.py`. General deterministic projection identities, Descartes' rule, and the Poisson limit are background mathematical tools. Key residual priority risk: a specialized existing one-vector sparse Rademacher calculation not found among the inspected literature or records; failure to find it is not proof of uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural simplest anisotropic range-finder model supplies a sharp design frontier: sparsity beats a dense probe at strict high-accuracy thresholds, while dense sampling dominates at its own error. The atom at zero and Poisson rare-event scaling quantify restart costs and qualify generic expected-error heuristics; a precise nontrivial benchmark for randomized linear algebra despite its restricted singular basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

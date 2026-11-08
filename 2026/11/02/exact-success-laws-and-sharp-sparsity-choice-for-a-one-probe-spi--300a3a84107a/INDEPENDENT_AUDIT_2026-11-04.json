@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:04:48.307257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=diag(a,b,...,b), m>=2,a>b>0 and single iid sparse-sign probe, let B indicate active spike and K~Bin(m,p). When B=1,K=j, projection residual has squared spectral norm b^2+delta_j and squared Frobenius mb^2+delta_j with delta_j=b^2 j(a^2-b^2)/(a^2+b^2j); B=0 produces distinct missed-spike and all-zero atoms. The probability of tolerances between adjacent j-levels is p Pr[Bin(m,p)<=k]; derivative sign has one change in t=p/(1-p), proving unique maximizer with special p_{m,0}=1/(m+1) and p_{m,m-1}=(m+1)^(-1/m). Fixed-k optimizer Poisson convergence follows from uniform polynomial limits. Independently formed all 27 sparse-sign outcomes at m=2,a=3,b=1 and checked residual singular/Frobenius norms against support formulas and zero atom. This is one-column exact arithmetic, not universal isotropic-sketch optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saibaba–Międlar treat general sparse sub-Gaussian oversampled approximations and probabilistic bounds.",
+          "Halko–Martinsson–Tropp derive general randomized range finder identities and bounds, not a complete sparse one-column discrete law."
+        ],
+        "reasoning": "Expected-error or sufficient-sample upper bounds do not imply a sharp optimizer for every lower-tail tolerance with an all-zero event.",
+        "searches": [
+          "arxiv:2308.05814v1 Theorem 3.3 Appendix B.1 C",
+          "arxiv:0909.4061",
+          "Resultary: sparse Rademacher one probe rank one spiked diagonal matrix exact success probability optimal sparsity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.05814, full-text sparse Rademacher/Thm 3.3 sections",
+        "arXiv:0909.4061, foundational range-finder scope",
+        "Resultary search on one-probe spike sparse Rademacher",
+        "Frozen RESULT.md and verify.py exact laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target success P(S<=u) differs from mean approximation error; the zero-probe mass is (1-p)^(m+1).",
+          "General theorems permit arbitrary matrix/probe models but provide error bounds rather than an identity for this finite set of events."
+        ],
+        "reasoning": "Specializing a general inequality does not recover the exact atoms, derivative sign polynomial or rare-event optimizing density.",
+        "searches": [
+          "arxiv:2308.05814v1",
+          "arxiv:0909.4061",
+          "Resultary: sparse Rademacher one probe rank one spiked diagonal matrix exact success probability optimal sparsity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is B=1 and K<=k, reducing success to p times a binomial lower tail, which is an elementary binomial identity but not the same as a published full spike-tail optimum.",
+          "Resultary one-spike Haar-random section result e99f37d3b7ae uses different Haar sampling and beta distributions."
+        ],
+        "reasoning": "One-column sparse Bernoulli/Binomial reformulation checked; searched materials do not assert the finite-parameter maximizer for this sketch.",
+        "searches": [
+          "Resultary: sparse Rademacher one probe rank one spiked diagonal matrix exact success probability optimal sparsity",
+          "sparse Bernoulli probe single spike rank-one approximation distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The support contains m+1 distinct spike-hit levels plus two missed-spike outcomes, all explicitly evaluated; no matching distribution table found in inspected sources."
+        ],
+        "reasoning": "No accessible exact target-wise binomial-design table identified; negative retrieval is not novelty proof.",
+        "searches": [
+          "Resultary: sparse Rademacher one probe rank one spiked diagonal matrix exact success probability optimal sparsity",
+          "one probe spiked diagonal sparse sign exact success mass"
+        ]
+      },
+      "rationale": "The sparse Rademacher sketch family and randomized range-finder error estimates are established by Saibaba–Międlar and Halko–Martinsson–Tropp, but the inspected general large-sample inequalities do not specify the exact discrete joint error law of a single one-spike sketch or its target-tolerance optimizer. Related expectation comparisons do not imply this conditional tail probability. Priority to an existing one-probe toy example remains possible.",
+      "residual_risks": [
+        "Unindexed exact one-probe diagonal-spike calculation could predate this work.",
+        "No claim for arbitrary orthogonal singular basis, multiple probes beyond independent restart, or minimax overall sketch design."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the claimed sharp one-spike one-probe law",
+          "evidence": "General sub-Gaussian oversampling requirements, expectation/error bounds; no exact one-column binomial threshold phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+          "material_read": "Full HTML introduction, sparse Rademacher definition, Theorem 3.3 and Appendix C relevant sections",
+          "method": "arXiv HTML full text, relevant sections read",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "sparse Rademacher probe model explicitly matching distribution"
+        },
+        {
+          "assessment": "Not decisive for whole-document novelty; background only",
+          "evidence": "General randomized range-finder estimates are prior method; specialized one-spike sparsity optimizer not established from material inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+          "material_read": "Abstract and general deterministic/error-bound summaries",
+          "method": "arXiv landing/abstract and theorem-scope inspection",
+          "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+          "trigger": "original randomized range-finder framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural simplest anisotropic range-finder model supplies a sharp design frontier: sparsity beats a dense probe at strict high-accuracy thresholds, while dense sampling dominates at its own error. The atom at zero and Poisson rare-event scaling quantify restart costs and qualify generic expected-error heuristics; a precise nontrivial benchmark for randomized linear algebra despite its restricted singular basis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2308.05814, full-text sparse Rademacher/Thm 3.3 sections",
+    "arXiv:0909.4061, foundational range-finder scope",
+    "Resultary search on one-probe spike sparse Rademacher",
+    "Frozen RESULT.md and verify.py exact laws",
+    "Git tree 8ccce5034389dc0d35460e1600eb5653f1ce9322 @ 2c8d98134d9930cd11887f086cc209007a54248d",
+    "Independent calculation audit08_checks_20261104.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "m>=2,a>b>0, one sketch column, iid coordinates in diagonal basis, squared errors; no arbitrary singular-vector rotation.",
+    "Unindexed exact one-probe diagonal-spike calculation could predate this work.",
+    "No claim for arbitrary orthogonal singular basis, multiple probes beyond independent restart, or minimax overall sketch design."
+  ],
+  "schema_version": 1
+}
