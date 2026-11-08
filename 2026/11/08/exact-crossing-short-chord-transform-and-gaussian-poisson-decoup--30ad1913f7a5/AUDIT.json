@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2 and 0<=k<=n, a marked set of k nonincident adjacent matching edges is noncrossing and deletion is a bijection to a residual uniform matching, proving the mixed binomial identity. Cycle matching counts give the coefficient. Binomial inversion establishes the entire joint law. Exact crossing mean/variance plus the first two marked moments yield covariance and correlation. For fixed k, residual-size normalized crossing counts satisfy the known CLT, while weights w_n,k<=2/k! and tend to 1/k!, so dominated convergence proves the independent joint limit. A 385-assertion exact finite verifier passed; finite enumeration is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy bivariate variable marks number of components, not total simple chords jointly with crossings.",
+        "Acan concerns intersection-graph degree and structure.",
+        "Paguyo controls the two marginals separately and does not derive a joint theorem.",
+        "Pilaud–Rué marks vertices, total chords and crossings and analyzes the fixed-crossing regime; no indicator for consecutive matched endpoints, so its generating function is a crossing marginal for our perfect-matching class."
+      ],
+      "reasoning": "The marginal normal CLT and Poisson approximation do not logically imply their joint independence or the exact nonzero covariance. Component-count distribution cannot be substituted for the exact simple-chord count in finite diagrams. No inspected theorem contains or implies the full finite polynomial transform.",
+      "searches": [
+        "web: Flajolet Noy analytic combinatorics chord diagrams crossings components bivariate generating function 2000 pdf",
+        "web: simple chords crossings generating function random chord diagram",
+        "arxiv:2104.01134 Sections 1–4; arxiv:1501.01489 Sections 1–6; INRIA RR3914 Sections 1–2",
+        "Riordan 1975 DOI:10.2307/2005477 original eight-page article",
+        "arxiv:1307.6440 Theorem 1.1 and Sections 2.1, 2.4, Proposition 2.15"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1501.01489 (full open-access primary manuscript, relevant sections)",
+      "INRIA RR3914 Flajolet–Noy (original author-hosted manuscript)",
+      "arxiv:2104.01134 (full open-access primary manuscript, relevant theorem sections)",
+      "Riordan 1975 DOI 10.2307/2005477 (original paper, PDF text read; image request timed out)",
+      "arxiv:1307.6440 (original full-text; targeted Sections 1–2 and theorem/figure PDF pages)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A one-prescribed-chord conditional crossing-degree formula concerns a single marked chord rather than all jointly occurring boundary chords.",
+        "The degenerate D=0 case of an individual short chord is common to both arguments, but summing over arbitrary mutually nonincident short-chord subsets is new content here.",
+        "The new transform yields full bivariate coefficients and a joint normal–Poisson limit absent from inspected primary works.",
+        "Riordan explicitly defines T_n by crossing count, gives a univariate moment formula and auxiliary indecomposable-diagram polynomials; the auxiliary S_n(x) is not the random number of simple chords.",
+        "The Pilaud–Rué perfect-matching generating function M(x,z) is univariate in our fixed-size ensemble, and fixed-k asymptotics cannot supply the general \\(t\\)-marked short-chord joint law."
+      ],
+      "reasoning": "A special case for one specified boundary chord does not imply the distribution of how many such chords simultaneously occur, nor the k-th factorial mixed moments for every k. The published marginal CLT and Poisson laws are strictly weaker than the joint factorization. The classical Touchard–Riordan crossing polynomial alone does not mark short chords.",
+      "searches": [
+        "arxiv:1501.01489",
+        "INRIA RR3914, March 2000",
+        "arxiv:2104.01134",
+        "published-finding corpus: Touchard Riordan crossing polynomial weighted by adjacent pairs short chords matchings on cycle",
+        "Riordan 1975 DOI:10.2307/2005477 (original full-text marginal result)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate is equivalently an integer factorial-binomial identity for marked boundary edges: sum_D binom(S(D),k) z^{X(D)}=M_{n,k}T_{n-k}(z).",
+        "No retrieved same-statistic bivariate identity or coefficient table matched this formulation."
+      ],
+      "reasoning": "Compared exact objects (circular perfect matchings), both statistics and all-n parameter ranges, including bivariate coefficient extraction and marked-edge deletion, not merely titles. Retrieved nearest papers treated only crossing marginals, isolated components or one prescribed chord.",
+      "searches": [
+        "published-finding corpus: Uniform random chord diagram exact bivariate probability generating function of simple chords and crossing count using deletion of fixed adjacent matched pairs, mixed factorial moments",
+        "web: bivariate generating function number of simple chords and crossings chord diagrams",
+        "web: joint distribution crossing number and simple chords random chord diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact Pearson coefficient predicted is -sqrt(5/(n+3)); no matching retrieved indexed table, database or public published-finding corpus row.",
+        "Finite joint coefficients independently reproduced by integer enumeration through six chords."
+      ],
+      "reasoning": "Searches sought the formula and the equivalent bivariate coefficient construction. Lack of a match is not a novelty proof, hence residual priority uncertainty is recorded.",
+      "searches": [
+        "web: crossings simple chords correlation chord diagram",
+        "web: sqrt(5/(n+3)) chord diagram",
+        "web: number of crossings adjacent matched pairs chord diagrams",
+        "published-finding corpus: Random chord diagram exact correlation minus square root five over n plus three between number of crossings and number of boundary short simple chords, joint transform crossing polynomials"
+      ]
+    },
+    "rationale": "Exact bivariate deletion transform and resulting correlation/joint independence are different statements from the inspected univariate crossing, simple-chord, degree and component results. The directly relevant 2021 manuscript has separate marginal estimates; their conjunction is not a joint independence theorem. Targeted published-finding corpus and web searches did not find coverage, although historical implicit derivation remains a residual risk.",
+    "residual_risks": [
+      "An older or less-indexed joint statistic enumeration may contain the polynomial transform implicitly or explicitly; searches cannot certify global novelty.",
+      "The 1975 Riordan original article text was inspected, but its PDF page-image fetch failed and the extracted formulas are imperfect; no same-statistic bivariate theorem was identifiable. Earlier Touchard original sources were not inspected in full.",
+      "No independent mathematical or priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary classification 60C05, same objects; degree of one chord, k-core, components and growth, not the exact joint enumerator of total crossings and all short chords.",
+        "evidence": [
+          "arxiv v1 first posted 2015-01-07",
+          "First page states primary 60C05 and secondary 60F05",
+          "The Section 3 simple-chord discussion concerns monolithic intersection-graph structure, not joint crossing coefficients"
+        ],
+        "identifier_or_url": "arxiv:1501.01489; https://arxiv.org/pdf/1501.01489",
+        "material_read": "Original open-access PDF: title, abstract, introduction, stated MSC, Sections 2, 3, 5 and 6, comparison with previously proved crossing marginal laws; other sections checked by headings/search.",
+        "method": "Primary PDF text and page images; comparison of theorem objects, statistics and implications.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same uniform chord model; first publicly dated motivating source; primary MSC ownership."
+      },
+      {
+        "assessment": "The bivariate series marks size and component count, while the crossing calculation is separate; gives the crossing mean, variance and CLT used here, not (1).",
+        "evidence": [
+          "March 2000 INRIA report",
+          "Its component bivariate generating function is I(z,w)=1+w C(z I(z,w)^2)",
+          "Its crossing moments and CLT are marginal, not a simple-chord/crossing joint transform"
+        ],
+        "identifier_or_url": "INRIA RR3914; https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Original available 2000 manuscript: introduction, components section and formulas, crossing-moment and central-limit section, with PDF page inspection.",
+        "method": "Primary author-hosted preprint PDF and page images; identify variables marked by its bivariate generating functions.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational marginal crossings and component enumeration; possibility of stronger joint generating function."
+      },
+      {
+        "assessment": "Proves separate univariate normal and Poisson approximations, but does not state or imply the exact two-variable transform or joint independence. Separate marginal laws logically do not establish joint convergence.",
+        "evidence": [
+          "Version first submitted 2021-04-02, used only as later supporting literature",
+          "Section 2 uses crossings; Section 3 uses simple chords, and Section 4 lists separate extensions",
+          "Lemma 2.2 reproduces the exact marginal crossing variance"
+        ],
+        "identifier_or_url": "arxiv:2104.01134; https://arxiv.org/pdf/2104.01134",
+        "material_read": "Original open-access PDF: introduction and Sections 2, 3 and 4, including Theorems 1.1–1.3, Lemma 2.2, Section 3.1, 3.2 and final remarks; page images.",
+        "method": "Full relevant primary PDF sections, theorem statements and proof inspections rather than abstract alone.",
+        "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+        "trigger": "Most directly relevant paper explicitly studies both crossings and short chords; potential stronger coverage."
+      },
+      {
+        "assessment": "Defines a univariate crossing polynomial T_n and derives formulas for its coefficients and evaluations. Its S_n(x) is an indecomposable-diagram auxiliary polynomial, not the simple-chord count S_n defined here; no displayed two-statistic marking or joint short-chord/crossing polynomial.",
+        "evidence": [
+          "Introduction lines 9–27 sets the problem as enumeration solely by crossing count.",
+          "Article lines 125–127 give mean n(n−1)/6 and variance n(n−1)(n+3)/45.",
+          "Sections 2–3 (lines 128–620) develop Touchard formula, coefficient arrays and imaginary evaluations rather than a boundary-adjacency count."
+        ],
+        "identifier_or_url": "Riordan 1975, Mathematics of Computation 29:215-222, DOI 10.2307/2005477; https://electronicsandbooks.com/edt/manual/Magazine/M/Mathematics%20of%20Computation/1960-2002/pdf/1975_v029_n129/2005477.pdf",
+        "material_read": "Primary article PDF searchable text, Sections 1–3 through enumerators, moments, the Touchard formula and imaginary arguments; remaining formula sections and references also inspected. Direct page-image fetch timed out, and PDF mathematical OCR is imperfect.",
+        "method": "Original eight-page article PDF textual extraction, formula/theorem and scope comparison; checked references and coefficient tables. Page-image request unsuccessful.",
+        "title": "The Distribution of Crossings of Chords Joining Pairs of 2n Points on a Circle",
+        "trigger": "Foundational Touchard–Riordan marginal enumerator might implicitly dominate a full bivariate crossing/simple-chord law."
+      },
+      {
+        "assessment": "The matchings family marks number of endpoints and crossings, not count of matched consecutive endpoints. Theorem 1.1 and Proposition 2.15 concern fixed crossing count; no simple-chord/crossing bivariate coefficient identity, and the asymptotic regime has fixed crossings rather than typical order-n-squared crossings.",
+        "evidence": [
+          "First pages define multivariate C(x,y,z) with variables vertices, total number of chords, total crossings; simple-chord number is absent.",
+          "Perfect matching family M(x,z) at introductory lines 245–256 explicitly marks vertices and crossings only.",
+          "Proposition 2.15 enumerates perfect matchings at fixed k crossings in the limit, not short-chord counts at unrestricted k."
+        ],
+        "identifier_or_url": "arxiv:1307.6440; https://arxiv.org/pdf/1307.6440",
+        "material_read": "Original 51-page preprint: introduction and parameter definitions, Sections 2.1 and 2.4 on core perfect matchings and fixed-crossing generating functions, Proposition 2.15, and contents of Section 3; PDF pages and targeted text inspection.",
+        "method": "ArXiv original full-text targeted theorem/method comparison and rendered PDF pages 1 and 5.",
+        "title": "Analytic Combinatorics of Chord and Hyperchord Diagrams with k Crossings",
+        "trigger": "The title and Theorem 1.1 plausibly cover exact joint chord-diagram enumerators under unrestricted crossing count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30ad1913-f7a5-4e94-9ed2-2574f7b46735",
+  "value": {
+    "rationale": "Both total crossing complexity and number of simple isolated chords are canonical statistics of a uniform random chord diagram. The all-n polynomial transform yields an entire natural joint distribution from classical crossing enumerators, not an artificial slice or mere numerical refinement. It exposes an exact negative correlation -sqrt(5/(n+3)) and joint Gaussian–Poisson independence despite finite dependence, offering a clear structural distinction between local isolated components and global crossing fluctuations.",
+    "status": "PASS"
+  }
+}
