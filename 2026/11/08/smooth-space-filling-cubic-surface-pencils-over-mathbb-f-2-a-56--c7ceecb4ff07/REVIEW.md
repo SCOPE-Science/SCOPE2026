@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The six-dimensional vanishing space and alternating-matrix smoothness condition are proved via the projective-point ideal and the Frobenius gradient. Exact independent arithmetic checkers count 28 smooth members, 56 pencils, one \(\mathrm{PGL}_4(\mathbb F_2)\)-orbit, five common rational lines per pencil, and two geometric conjugate transversals. The proof that the latter have generic multiplicity at least two uses dependent Jacobian rows and the local complete-intersection property. The degree-nine budget excludes all additional components, including components defined over extensions beyond \(\mathbb F_4\). The maximality is the elementary quadratic-form obstruction in dimension three. The verifier programs run without outside packages.
+
+## Originality — PASS, with substantial residual priority risk
+The closest known sources are Asgarli--Ghioca (arXiv:2203.07169, smooth ground-field pencils), Asgarli--Duan--Lai (arXiv:2207.11981, alternating description of smooth Frobenius nonclassical hypersurfaces), Havlicek--Riesinger (arXiv:1705.07276, external Klein lines and regular spreads), and Swinnerton--Dyer (2010, the same seven-line incidence configuration in a cubic-surface construction). These sources give strong ingredients: neither the classical spread relation nor the seven-line incidence pattern is new. On material inspected, none states that precisely 56 smooth *filling cubic-surface pencils* exist, that they constitute one projective orbit with stabilizer 360 and cannot lie inside all-smooth nets, or that every base intersection has the exact doubled-transversal fundamental cycle. The last cycle can be reached by short additional arguments once the classical configuration and a matching pencil are identified; historical priority of the combined classification is not certified by search alone. No claim of unique absolute priority is made.
+
+## Mathematical value — PASS
+The classification resolves a naturally extremal finite-field linear-system problem in the smallest projective three-space: rather than just constructing individual smooth filling surfaces, it determines all pencils and their maximality. The fact that the scheme base is necessarily nonreduced along two conjugate lines, despite three smooth rational pencil members, identifies a geometric boundary invisible in rational point counts and makes the exact finite classification structurally interpretable. The contribution is narrower than a general theorem for arbitrary fields, and the seven-line picture is already classical; the value rests on completeness of the smooth-pencil classification and the multiplicity-sensitive geometric interpretation, not on novelty of the spread geometry alone.
+
+## Sources and limitations
+The precise section-level comparisons are in RESULT.md and AUDIT.json. A potential older small-field enumeration or a derivation from the cited Klein correspondence remains an uneliminated priority risk. The geometry of the full infinitesimal ribbon structure is not determined. No independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
