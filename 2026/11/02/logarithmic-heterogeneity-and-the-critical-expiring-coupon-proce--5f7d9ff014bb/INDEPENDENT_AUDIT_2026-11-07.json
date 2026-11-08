@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poissonize coupon draws into independent rate r_(n,i)=1+θ_(n,i)/logn clocks summing exactly n. Their initial first-arrival rare points shifted by logn have intensity κe^(−s), while interarrival gaps exceeding L_n=logn+c form independent asymptotic Poisson births at s≥c of intensity κe^(−c), with unit-exponential residual lifetimes. Bounded θ, convergent κ and rare per-type marks make triangular rare-event limits work on compact intervals; the superposition arrival clock and a vanishing near-threshold gap bound transfer J1 limits to fixed M_n draws. The limit at c is Pois λ and afterwards stationary immigration–death. Its first zero is continuous at almost every limiting integer-valued jump path; before c the CDF is exp(−κe^(−s)), after c it is the stationary-start chain hitting CDF. The standard zero resolvent yields Laplace e^(−λ)/(q∫₀¹ y^(q−1)e^(−λ(1−y))dy) and E H_c=c−E1(λ)+Ei(λ)−γ−logλ. Independent generator calculations verified hitting-time recurrences for λ=0.2,1,2.4; no finite simulation can certify functional convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long treats the uniform critical one-time mass and flux.",
+          "Attrill–Garoni have a different Gumbel+queue construction; Resultary nonuniform reset collector has catastrophic resets, not deterministic per-type expiration."
+        ],
+        "reasoning": "These broader-sounding coupon collector models do not directly cover deterministic expiration with logarithmic-scale nonuniform triangular weights and full J1 limit.",
+        "searches": [
+          "Long The Expiring Coupon Collector arxiv:2604.26298 section 8.3",
+          "Attrill Garoni The clumsy coupon collector arxiv:2605.14206 Theorem 4.10",
+          "Resultary balanced nonuniform reset coupon rates 2026/9/17"
+        ]
+      },
+      "checked_sources": [
+        "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws: https://arxiv.org/pdf/2604.26298",
+        "The clumsy coupon collector's problem: https://arxiv.org/pdf/2605.14206",
+        "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties: https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing uniform κ=1 stationary process may motivate replacing the rate, but nonuniform triangular convergence and independence of initial/gap point processes require a new proof.",
+          "Clumsy update has different first-hitting decomposition."
+        ],
+        "reasoning": "The profile parameter κ comes from summing e^(−θ_i) rare tails; this calculation and functional transfer are not formal consequences of uniform asymptotics alone.",
+        "searches": [
+          "Long arxiv:2604.26298 critical occupancy/flux",
+          "Attrill–Garoni arxiv:2605.14206 Theorem 4.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform expiring-window model is equivalent to fixed-length sliding surjection; clumsy coupon collector is a reset/update model not deterministic last-M sliding expiry."
+        ],
+        "reasoning": "Parameter κ is an exponentially tilted empirical profile for near-uniform coupons and changes the whole immigration–death path; the clumsy-reset queue is not an equivalent formulation.",
+        "searches": [
+          "Resultary: nonuniform expiring coupon collector sliding window logarithmic heterogeneity immigration death",
+          "Long arxiv:2604.26298",
+          "Attrill Garoni arxiv:2605.14206"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known tabulation gives uniform stationary entry intensity e^(−c)e^(−e^(−c)), special case κ=1.",
+          "No exact table of κ-dependent functional first-hitting distributions was found in inspected material."
+        ],
+        "reasoning": "A uniform fixed-parameter table is not the general κ universality law; absence in index is only limited evidence.",
+        "searches": [
+          "Resultary: nonuniform expiring coupon collector sliding window logarithmic heterogeneity immigration death",
+          "Long 2026 critical window occupancy table/entry flux"
+        ]
+      },
+      "rationale": "Earlier exact uniform sliding-window missing-count/hitting dynamics and critical one-time flux are explicit antecedents. Long 2026 treats uniform critical one-time mass and stationary flux, Attrill–Garoni treat a different clumsy-update queue. Current new component is the complete functional and hitting law for bounded near-uniform triangular probabilities with relative perturbations 1/logn and universal κ=avg e^(−θ), showing strict Jensen heterogeneity penalty. General marked Poisson extreme process theorems could subsume the proof machinery, and unlocated scan-statistics results pose priority risk, but no inspected direct dominance.",
+      "residual_risks": [
+        "A more general published Poisson gap process/heterogeneous scan statistic theorem might imply this parameterization without an explicit coupon-collector title.",
+        "Only bounded fixed-c mean-zero logarithmic profiles with convergent κ are proved; no finite-n expectation convergence or quantitative error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNIFORM_SPECIAL_CASE",
+          "evidence": "Critical one-time absence and entry flux found; no θ-profile J1 functional conclusion in materially inspected relevant section.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.26298",
+          "material_read": "Primary full PDF, especially critical-window occupancy and stationary flux Section 8.3 and relevant calculation pages",
+          "method": "OA PDF text with primary page screenshot",
+          "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+          "trigger": "Same deterministic expiration collector, main prior model"
+        },
+        {
+          "assessment": "DIFFERENT_EXPIRATION_MECHANISM",
+          "evidence": "Gumbel plus independent queue hitting for clumsy updates rather than near-uniform deterministic sliding windows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14206",
+          "material_read": "Primary full text Theorem 4.10 and nearby definition of clumsy update, relevant pages",
+          "method": "OA primary PDF and screenshot",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "M/M/infinity critical queue analogy and Gumbel hitting law"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLTEXT_COMPARISON",
+          "evidence": "Fixed global reset probability differs from sliding-window expiry; summary alone cannot support whole-source not-covering assertion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+          "material_read": "Search-returned title and summary only; complete file not read",
+          "method": "Resultary semantic search only",
+          "title": "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties",
+          "trigger": "Closest semantic database hit with nonuniform coupon profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perturbation order 1/logn is a natural sensitivity threshold at which vanishing sampling distortions create order-one changes to rare missing-coupon intensities. Universal profile compression to κ and complete critical-window first-completion laws supply substantive finite-lifetime coverage information beyond a single mean or a trivial asymptotic substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A more general published Poisson gap process/heterogeneous scan statistic theorem might imply this parameterization without an explicit coupon-collector title.",
+    "Only bounded fixed-c mean-zero logarithmic profiles with convergent κ are proved; no finite-n expectation convergence or quantitative error."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The logarithmically tilted rates \(r_{n,i}=1+\theta_{n,i}/\log n\) sum exactly to \(n\). Their late-first-arrival intensities sum to \(\kappa e^{-s}\), and their rare long-gap birth intensities converge to \(\kappa e^{-c}\) with unit-exponential residual lifetimes. Each coupon makes at most one relevant rare-gap mark on a bounded start horizon, allowing a direct independent triangular-array Poisson limit. The superposition clock and the near-threshold-gap estimate transfer this to fixed draw-count windows, and integer-valued path convergence gives the first-hitting law. The hitting-time renewal/resolvent calculation gives the limiting Laplace transform and mean. Jensen's inequality proves the exact weak-heterogeneity penalty \(\kappa\ge1\). The checker passes 60 exact and numerical assertions; asymptotic statements rely on the analytic argument.
+PASS
 
-## Originality
+Poissonize coupon draws into independent rate r_(n,i)=1+θ_(n,i)/logn clocks summing exactly n. Their initial first-arrival rare points shifted by logn have intensity κe^(−s), while interarrival gaps exceeding L_n=logn+c form independent asymptotic Poisson births at s≥c of intensity κe^(−c), with unit-exponential residual lifetimes. Bounded θ, convergent κ and rare per-type marks make triangular rare-event limits work on compact intervals; the superposition arrival clock and a vanishing near-threshold gap bound transfer J1 limits to fixed M_n draws. The limit at c is Pois λ and afterwards stationary immigration–death. Its first zero is continuous at almost every limiting integer-valued jump path; before c the CDF is exp(−κe^(−s)), after c it is the stationary-start chain hitting CDF. The standard zero resolvent yields Laplace e^(−λ)/(q∫₀¹ y^(q−1)e^(−λ(1−y))dy) and E H_c=c−E1(λ)+Ei(λ)−γ−logλ. Independent generator calculations verified hitting-time recurrences for λ=0.2,1,2.4; no finite simulation can certify functional convergence.
 
-PASS, with residual priority uncertainty. Earlier uniform expiring-window process results already identify a stationary immigration–death chain and its first-hitting law; those are not claimed anew. The present theorem instead treats arbitrarily bounded, triangular nonuniform weights differing from uniformity at the critical relative scale \(1/\log n\), and proves dependence of the *entire* dynamic and first-completion laws on the exponential profile statistic \(\kappa=\lim n^{-1}\sum_i e^{-\theta_{n,i}}\). Long's motivating paper gives uniform critical one-time occupancy and stationary flux, and Attrill–Garoni analyze a different clumsy-reset model. Published record searches found related heterogeneity in reset coupon collectors, but no statement implying the nonuniform deterministic-expiration limit. General Poisson-extreme and nonuniform coupon-collector literature remains a priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The order \(1/\log n\) is the sharp natural scale at which tiny changes in type frequencies become order-one multiplicative changes in critical missing-type intensities. The theorem identifies the one-parameter universality statistic and proves a strict Jensen penalty even though the sampling probabilities themselves converge uniformly to \(1/n\) in relative error. This resolves a motivated sensitivity question for finite-lifetime coverage and supplies its process and completion-time consequences.
+Earlier exact uniform sliding-window missing-count/hitting dynamics and critical one-time flux are explicit antecedents. Long 2026 treats uniform critical one-time mass and stationary flux, Attrill–Garoni treat a different clumsy-update queue. Current new component is the complete functional and hitting law for bounded near-uniform triangular probabilities with relative perturbations 1/logn and universal κ=avg e^(−θ), showing strict Jensen heterogeneity penalty. General marked Poisson extreme process theorems could subsume the proof machinery, and unlocated scan-statistics results pose priority risk, but no inspected direct dominance.
 
-## Scope and risks
+## value
 
-Only uniformly bounded, mean-zero logarithmic profiles with a convergent exponential mean; fixed finite \(c\) and deterministic expiration. No finite-\(n\) mean convergence, quantitative error, or general nonuniform result. No independent historical-priority or mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The perturbation order 1/logn is a natural sensitivity threshold at which vanishing sampling distortions create order-one changes to rare missing-coupon intensities. Universal profile compression to κ and complete critical-window first-completion laws supply substantive finite-lifetime coverage information beyond a single mean or a trivial asymptotic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
