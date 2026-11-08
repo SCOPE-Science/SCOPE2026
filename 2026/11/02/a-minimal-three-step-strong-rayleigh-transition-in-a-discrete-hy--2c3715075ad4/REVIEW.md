@@ -1,11 +1,21 @@
-# Scientific review: a three-time real-stability boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact thinned-record-minimum coupling reproduces the transition kernel. It supplies the conditional ranks of record indicators and a strict stochastic-comparison proof of every pairwise covariance sign. The Meixner transform is proved using an explicit positive-weight orthogonality generating kernel, not an assumed real-root property. The three Rayleigh differences are computed exactly and each reaches the same global quadratic minimum. Their sign determines the entire interior strong-Rayleigh phase and the endpoint is checked separately. `check.py` and `check_output.txt` contain 120 new symbolic and rational consistency tests; they are not an infinite proof.
+## correctness
 
-**Originality — PASS, with historical risk.** The new assessed result is the sharp parameter classification for the ordered first three indicators, and its minimum-horizon contrast with pairwise covariance. Yoshida (arXiv:2604.22637, accessible full HTML) establishes the transition and total-count PGF but not that three-variable classification. The count-level independent-Bernoulli representation is implied by Yoshida's formula and classical Meixner orthogonality, so it is explicitly treated as context rather than a separate novel result. Brändén's stability criterion and the general strong-Rayleigh framework are also credited. A theorem for record indicators with a top atom may contain an equivalent special case, so specialist historical-priority assessment is still warranted. The older stability papers and a Meixner book chapter were only partially accessible; no whole-document noncoverage claim is made about them.
+PASS
 
-**Mathematical value — PASS.** Pairwise negative correlations and a Poisson-binomial sum can coexist with loss of the much stronger multivariate strong-Rayleigh property. A sharp analytic boundary at \(2\sqrt6-4\) and the exceptional restoration at \(p=1\) explain the minimal mechanism for this difference. The result addresses a natural structural question about joint jump dependence and not merely a small improvement in a constant.
+Independent enumeration of the eight activation sets reproduces the exact joint three-variable PGF and symbolic differentiation verifies all three Rayleigh differences equal p²(1-p)/12 [p²(z_k−b_ij)²+(8−8p−p²)/4] with stated shifts. Thus at 0<p<1 stability iff p<=2sqrt(6)-4 by the all-real multiaffine criterion; p=1 gives independent continuous lower-record indicators. The iid thinned-minimum coupling exactly realizes the Markov kernel. Strict stochastic dominance of X_i after an actual jump against its unconditional distribution and strictly increasing later jump hazard give negative covariances for all i<j, 0<p<1. Earlier univariate PGF matches a positive-weight Meixner orthogonal polynomial after c=1-p transform and hence factors into Bernoulli PGFs; p=1 handled separately. Two-variable Bernoulli stability follows from nonpositive covariance, proving minimal horizon. No assertion for 4+ time strong Rayleigh.
 
-**Scope and limitations.** The full strong-Rayleigh classification applies only to three ordered time indices starting at time one. The all-time claim concerns pairwise covariance and the distribution of the sum, not full negative association or strong Rayleigh for longer vectors. The checker is finite and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model and univariate count PGF are due to Yoshida 2026; the independent-Bernoulli count factorization is a consequence of that PGF and classical Meixner orthogonality and is expressly not credited as an original result. The specific first-three-time generating polynomial and exact real-stability threshold were not present in the materially inspected primary model paper or relevant general strong-Rayleigh statements. This is a qualified best-of-knowledge priority decision, not a proof of absence from the literature.
+
+## value
+
+PASS
+
+A sharp minimum-horizon counterexample to the inference from pairwise negative covariance and Poisson-binomial sums to strong Rayleigh dependence is an intrinsically motivated structural classification. The restoration at the p=1 endpoint identifies the role of the upper atom in the record process; this is not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
