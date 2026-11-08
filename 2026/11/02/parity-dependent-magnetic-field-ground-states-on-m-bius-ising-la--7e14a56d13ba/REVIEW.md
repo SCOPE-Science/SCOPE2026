@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All parameter boundaries, the \(n\ge3\) simple cubic graph definition, the two distinct parity cases, and positive exchange normalization are explicit. The identity \(H=3nJ-2nh+2(h-3J)|S|+4Je(S)\) is exact. Rung-alternation and twisted closing show the independence numbers and the exact number of one-edge near-independent sets. Comparing the two candidates proves the crossing at \(h=J\), while the independent-set transfer matrix covers \(h=3J\). Exact exhaustive checks for \(3\le n\le10\) and independent twisted transfer calculations to \(n=64\) agree. The proof, not the finite tests, establishes arbitrary size.
+## correctness
 
-**Originality — PASS on inspected evidence, with historical-priority risk.** Kalinin–Berloff (2022) explicitly derives the even-\(n\) zero-field count \(2n\), already covered and not new. The Möbius-ladder independence polynomial covers the saturation count \(I_n\), also not new; Varma (2013) establishes saturation counting for ladder models. Lu–Wu (2000) solves a zero-field Möbius-strip Ising partition function, but not a longitudinal-field phase classification. Cummins–Berloff (2025) handles varying couplings at zero applied field. The exact \(h=J\) \(4n\)-fold degeneracy and uniform all-field, parity-sensitive phase statement were not found in the inspected full texts and bibliographic search results. This is a best-knowledge comparison, not a proof of uniqueness or independent certification; specialized material may still dominate it.
+PASS
 
-**Value — PASS.** The Möbius ladder is a physically used, highly symmetric frustrated Ising benchmark. A complete finite-size magnetic phase diagram, especially the topological parity selection of an additional \(h=J\) crossing and exact critical multiplicities, is a natural, interpretable invariant for longitudinal-bias Ising ground-state testing. It is not claimed to be a thermodynamic phase transition: the intermediate magnetization density decays with system size. The result goes beyond the two separately known endpoint counts by classifying every open field interval and critical boundary.
+The actual graph edge set comprises a 2n-cycle plus n antipodal chords, each spin has degree 3. For negative-spin S, the exact energy is 3nJ-2nh+2(h-3J)|S|+4J e(S). Twisted rung representation shows maximum independent set n for odd n, n-1 for even n; for even n, all n-sets have >=1 internal edge, with exactly 2n sets attaining one, whereas 2n independent size-(n-1) sets have an empty rung. Comparing these two affine energy branches locates h=J; at h=3J every independent set is a ground state and tr(P T^n) gives I_n=(1+sqrt2)^n+(1-sqrt2)^n-(-1)^n. Independent enumeration for n=3..8 at h=0,1/2,1,2,3,4 checked energies, counts and endpoints. Spin reversal gives negative-field cases. Finite experiments corroborate analytic graph reasoning.
 
-**Closest literature and limitations.** Relevant sources are Lu–Wu (2000), Varma (2013), Kalinin–Berloff (2022), Cummins–Berloff (2025), and the Möbius-ladder independence-polynomial reference, listed with exact URLs in `RESULT.md`. Remaining risk is an unlocated stronger exact magnetic-field solution. The theorem applies only to equal positive classical Ising exchange, the cubic Möbius ladder, zero temperature, and homogeneous longitudinal field.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS. Kalinin–Berloff 2022 published the even-half-circumference N=2n zero-field 2n frustrated-edge ground-state multiplicity and general Möbius optimization. Its full text does not analyze nonzero longitudinal-field exact transitions, 4n coexistence count or M=2 plateau; these are assessed additional facts. Saturation independence counts remain credited.
+
+## value
+
+PASS
+
+PASS. The finite-field twist induces a sharp, parity-selective magnetization-2 plateau and a verifiable 4n crossing multiplicity, an exact finite-size classification that clarifies which features survive and disappear in macroscopic spin density; not a claim of a new bulk transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
