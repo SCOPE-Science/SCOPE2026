@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For each n>=4, the centered Rayleigh vector gives a global SLEM lower bound and a strictly positive hub-holding penalty. Equality in the minimum Rayleigh quotient fixes every incident edge. Exact 3-by-3 quotient factorization gives eigenvalues 1,t,-lambda, and the remaining invariant block is (1-p)I-L_W. Its full real spectrum lies in [-t,t] exactly for the printed Laplacian window. Uniform internal weights yield zero transverse eigenvalues, establishing attainment. The proof treats reducible kernels, arbitrary nonnegative internal weights and all boundary cases. Standalone symbolic polynomial identities and 68 reproducibility assertions ran successfully; finite tests are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Parrilo, Xiao, SIAM Journal on Optimization 20 (2009), pp. 805-807 and 815-817, https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "The 2009 graph K_n-K_n joins two equal n-vertex cliques by a bridge and uses symmetry blocks. Its displayed formula is for equal positive clique sizes, not K_n attached to a singleton.",
+        "The general SDP covers the problem algorithmically but does not supply a uniform evaluated formula or a characterization of all non-invariant optimizers."
+      ],
+      "reasoning": "A bridge between two equal-sized cliques is not the one-pendant clique family for n>=4. The 2009 formula is not a stronger result whose stated parameter range includes a singleton side. The present theorem identifies rigid incident edge probabilities for arbitrary internal-clique anisotropy, not only an invariant optimizer.",
+      "searches": [
+        "fastest mixing Markov chain exact complete graph K_n plus one pendant leaf all optimal matrices",
+        "fastest mixing Markov chain lollipop graph complete graph with pendant vertex exact expression",
+        "fastest mixing random walk clique with leaf closed form spectral gap",
+        "turn134848view1 §§4.3,5.4.4"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), pp. 674-675 Figure 1(b) and Table 1 and pp. 677-679 dual certificate, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao, SIAM Journal on Optimization 20 (2009), pp. 805-807 and 815-817, https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Roch, Bounding Fastest Mixing, arXiv:math/0409429v1 (2004), pp. 3-5, https://arxiv.org/pdf/math/0409429",
+      "Publicly indexed mathematical searches for clique-plus-leaf aliases, closed formula, and the exact four-state example; these searches were not exhaustive."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), pp. 674-675 Figure 1(b) and Table 1 and pp. 677-679 dual certificate, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao, SIAM Journal on Optimization 20 (2009), pp. 805-807 and 815-817, https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "Roch, Bounding Fastest Mixing, arXiv:math/0409429v1 (2004), pp. 3-5, https://arxiv.org/pdf/math/0409429",
+        "The proof uses the n-dependent centered Rayleigh vector, derives equalities fixing q and p independently of W, and then diagonalizes the full non-invariant transverse block, yielding a necessary-and-sufficient spectral interval."
+      ],
+      "reasoning": "The four-state dual vector in Boyd et al. is suggestive, but not by itself a theorem in n; its generalization, attained bound, and full equality analysis are proven here. Roch studies one-sided lambda_2 and supplies bounds, not the full two-sided optimizer face. The pair of strict interval constraints on the internal Laplacian is not implied by a tabulated single optimizer. The 2009 equal-clique formula does not entail a singleton-side classification by a specialization within its stated domain.",
+      "searches": [
+        "closed form fastest mixing Markov chain K_n with one leaf pendant lollipop L_{n,1}, optimum (4n-5)/(5n-4)",
+        "fastest mixing Markov chain exact complete graph K_n plus one pendant leaf all optimal matrices",
+        "fastest mixing pendant clique graph all optimal Markov matrices forced hub probabilities",
+        "fastest mixing complete graph one pendant node",
+        "turn134848view1 §§4.3,5.4.4",
+        "turn134848view2 §2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), pp. 674-675 Figure 1(b) and Table 1 and pp. 677-679 dual certificate, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "The prior rank-one four-state certificate uses (5,1,-3,-3); the newly proved n-dependent vector (2n-1,n-2,-3,...,-3) reduces to it only for n=3.",
+        "The equality of graph gap maximization and a one-sided eigenvalue bound is used, but the negative eigenvalue and transverse eigenspace must also be checked to certify two-sided SLEM."
+      ],
+      "reasoning": "Aliases checked include paw graph, pendant clique, complete-clique lollipop L_{n,1}, a core clique plus one leaf, and two-sided fastest Markov mixing. The four-state value is explicitly known. The n>=4 forced-edge and full optimizer-face assertions are not logical restatements of the n=3 result or the general SDP equivalence; the proof supplies a parameter-dependent extremizer and a separate transverse spectral interval.",
+      "searches": [
+        "closed form fastest mixing Markov chain K_n with one leaf pendant lollipop L_{n,1}, optimum (4n-5)/(5n-4)",
+        "fastest mixing paw graph complete graph attached one leaf edge probabilities 3/(5n-4) 2n-1",
+        "Boyd Diaconis Xiao 2004 Figure 1(b) four node paw graph 7/11 generalization",
+        "fastest mixing Markov chain lollipop graph complete graph with pendant vertex exact expression",
+        "fastest mixing pendant clique Markov chain SLEM formula",
+        "turn134848view0 §4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), pp. 674-675 Figure 1(b) and Table 1 and pp. 677-679 dual certificate, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "The 2004 Table 1 graph (b) is precisely K_3 plus one attached leaf, with SLEM 7/11 and weights 5/11 and 3/11. Pages 674-675 show alternate internal 2x2 blocks and explicitly note nonuniqueness."
+      ],
+      "reasoning": "The exact n=3 case is COVERED and deliberately excluded from the accepted n>=4 domain. None of the inspected primary table entries evaluate K_n plus one leaf for n>=4, the full optimizer set, or the quantitative hub holding penalty. Retrieval is not a proof that another table does not exist.",
+      "searches": [
+        "Boyd Diaconis Xiao 2004 Figure 1(b) four node paw graph 7/11 generalization",
+        "clique lollipop one pendant leaf SLEM 4n-5 over 5n-4",
+        "fastest mixing paw graph 7/11 general family clique bridge",
+        "turn134848view0 pp. 674-675, 677-679"
+      ]
+    },
+    "rationale": "The 2004 Boyd et al. work exactly covers n=3, so the new theorem starts at n>=4. The original 2004 four-state dual witness naturally suggests a generalization but does not assert the infinite family or non-invariant optimizer spectral polytope. Direct comparison of that original article and the 2009 equal-clique-bridge theorem found no stated stronger result including the claim; Publicly indexed mathematical records were searched on object, aliases, parameters and implication. Possible unindexed literature is a residual risk and independent verification is absent.",
+    "residual_risks": [
+      "Unindexed exact treatments of clique-and-leaf chains, or an unequal two-clique bridge with a singleton side, may overlap the statement.",
+      "The 2004 four-state example makes the n-dependent formula a plausible generalization; value resides in the all-n optimizer-face and rigorous structural assertions rather than the four-state value.",
+      "An earlier technical report of the focal 2004 paper is known at month precision (February 2003); its exact first public date is not established.",
+      "Database retrieval is neither exhaustive nor proof of uniqueness of a result in the literature. Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS n=3 and nonuniqueness there; inspected material does not state n>=4 formula or the entire optimizer-face spectral criterion.",
+        "evidence": [
+          "Graph (b) is a 3-clique and one leaf; its SLEM 7/11, bridge 5/11 and two hub edges 3/11 agree exactly.",
+          "The n=3 certificate vector (5,1,-3,-3) is printed in the primal-dual discussion."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Pages 667, 673-675, 677-679, including Table 1 and the explicit rank-one dual certificate for Figure 1(b).",
+        "method": "Primary open-access PDF: parsed relevant full-text sections and visually inspected the table/graph page and first page.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Exactly matching four-state pendant clique in Figure 1(b), Table 1; candidate that could subsume new formula."
+      },
+      {
+        "assessment": "Exact result applies to K_n-K_n equal-sized-clique bridges, not to K_n plus a singleton for arbitrary n>=4. It supplies methods but no stated specialization that covers this claim.",
+        "evidence": [
+          "Section 4.3 defines two copies of K_n, bridge edge, and three edge orbits.",
+          "Section 5.4.4 prints explicit formulas for n>=2 in that symmetric equal-clique topology."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Sections 1, 4.3 (pp. 805-807), and 5.4.4 (pp. 815-817) including formula and graph definition.",
+        "method": "Primary open-access PDF: searched and read the relevant original sections, visually inspected its title page.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "General symmetry reductions and exact bridged-clique formula potentially dominating the candidate."
+      },
+      {
+        "assessment": "General bounds and a one-sided second-eigenvalue objective; no inspected exact K_n+single-leaf full-SLEM optimizer classification.",
+        "evidence": [
+          "Section 2.1 explicitly distinguishes its lambda_2 objective from Boyd et al. two-sided SLEM.",
+          "ArXiv version v1 is timestamped September 22, 2004."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0409429",
+        "material_read": "Pages 1 and 4-5, including the Section 2.1 objective and its distinction from two-sided SLEM, plus the introduction.",
+        "method": "ArXiv v1 primary PDF with date-stamped title page, read original formulation and related-results discussion.",
+        "title": "Bounding Fastest Mixing",
+        "trigger": "Prior general variational bounds on graph-local mixing potentially implying new spectral bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30d4b04d-1192-4d5e-a213-15919e6b9f70",
+  "value": {
+    "rationale": "The result converts an SDP over a dense graph with one rare leaf into a closed formula and an exact, not merely symmetric, optimizer-face characterization for all n>=4. It shows forced bridge/hub probabilities, precise free internal design weights, an explicit per-unit hub-holding penalty and constant limiting optimal spectral mixing despite the clique size diverging. These structural design and rigidity results are not the old four-state tabulation.",
+    "status": "PASS"
+  }
+}
