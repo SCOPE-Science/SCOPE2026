@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification and logical scope
+# Independent mathematical audit
 
-Run `python3 VERIFY_EXACT.py`. The program uses only standard Python library exact fractions, not floating-point comparisons.
+## correctness
 
-The exhaustive check enumerates every set partition for paths of orders one through nine and cycles of orders three through nine; it computes induced-subgraph shortest paths directly for each coalition and compares the maximum welfare and number of maximizers with the theorem. It includes all disconnected coalition sets, not merely interval partitions.
+PASS
 
-Separate checks enumerate all contiguous path compositions by exact dynamic programming through order one hundred and all cyclic-cut patterns through order sixteen. Both check optimum values and counts. All assertions passed when the packaged code was executed.
+Under normalized induced-coalition distance welfare, each proper connected coalition in Cn is a path arc with welfare F(k)=2(H_k-1). Splitting a disconnected coalition weakly increases welfare, and any singleton admits a strictly improving adjacent merge. For k>=5, F(k)-F(k-3)<=47/30<F(3), so only arcs of lengths 2,3,4 maximize proper partitions. With n=2a+3b+4c, the block welfare is 5n/9-(2a+c)/18; residue arithmetic enumerates exactly the minimizing block multisets. The cycle grand coalition contributes Qn=2H_floor((n-1)/2)+(2/n) 1_(n even), and Q_6=W_6=10/3 with W_n>Q_n for n>=7; n<=5 grand strictly best. Cut placements yield N_6=4 and for n>=7 counts 3,n,n(q+1)/2 in the mod-3 classes. Independently exhaustive *unrestricted* set partition enumeration of cycles n=3..8 agrees; no connected-partition shortcut in this independent check.
 
-These finite checks are not a proof for arbitrary numbers of vertices. The universal result follows from the strict path-length splitting inequality, the proper-cycle edge-cut reduction, the explicit grand-coalition formula, and the exact counting argument in `RESULT.md`. No independently audited or externally certified verification is asserted.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+The simplest connected graph family outside trees exhibits a sharp six-vertex grand-coalition crossover and exact counts of all maximizing labeled set partitions. The known path/tree block-size theorem does not itself compare the cycle grand coalition or count cyclic placements; precise optimizer multiplicities matter for uniqueness and welfare degeneracy questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
