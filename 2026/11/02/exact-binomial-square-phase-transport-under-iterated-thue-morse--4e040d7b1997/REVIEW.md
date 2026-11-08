@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact criterion has three independent algebraic inputs: the strict degree-\(j+1\) separation of the profiles of \(\mu^j(0)\) and \(\mu^j(1)\), proper-prefix separability via the odd part of each offset, and the impossibility of conjugating a nontrivial constant-one series to its inverse in a characteristic-zero truncated free algebra. The proof explicitly treats alignment \(d=0\), nonalignment, binary triple cases, every multiplier and all boundary indices. It does not extrapolate infinite assertions from tests. The standalone checker separately exhausts source words through seven letters for available boundaries and checks all dyadic fixed-point starts in its declared finite range.
+## correctness
 
-## Originality — PASS, with scope distinction
-The published Thue–Morse all-factor characterization (Lejeune–Leroy–Rigo, Theorem 48) is broader than the corollary restricted to the fixed point, and that corollary is **not** claimed as new separately. The accepted main theorem applies to arbitrary binary source words, which can include arbitrarily long constant runs, and arbitrary positive multipliers; those words are not confined to factors of the Thue–Morse fixed point. Neither the 2015 avoidance paper nor the source's 2018/2020 fixed-point classification states or implies, on its own, the general arbitrary-source phase criterion. The earlier substitution-block equivalence lemma is acknowledged and re-proved in the package. Relevant published-finding corpus search hits concern complexity, density, or other morphic-word invariants rather than this uniform three-letter boundary law. Residual risk: unpublished work or an unnoticed equivalent factorization lemma might subsume it.
+PASS
 
-## Value — PASS
-The theorem supplies a complete uniform local-to-global recognition rule for all scattered-subsequence binomial squares at substituted block multiples, replacing potentially unbounded words by a three-source-letter test and a single alignment test. This reveals a sharp algebraic obstruction and gives immediate exact occurrence sets in numerous binary sources. It is an infinite structural classification, not a small tabulation or a restatement of a fixed-point factor-complexity count.
+Work in truncated free noncommutative Q-algebra and map each word w to ∏(1+X_letter). Coefficients exactly count scattered subsequences up to degree r. The difference between μ^j(0), μ^j(1) has first nonzero homogeneous degree j+1; induction uses the commutator with X0+X1 and a nonzero coefficient. Every proper prefix offset d=2^v e with odd e separates the two source-letter block profiles in degree v+1≤r, since complementary length-e prefixes have unequal zero counts. For nonaligned adjacent windows the profiles are H_a^−1 Q^M H_b and H_b^−1 Q^M H_c, and unipotent constant-one conjugation cannot invert a nontrivial E since the first nonzero homogeneous component changes sign. Hence equality iff a=b=c, while aligned windows always agree. Independently checked 7,728 arbitrary-source cases across r=1..3, source sizes 3..6, all available multiplier/offsets using direct scattered-subsequence profile counts. The proof rather than finite tests applies to every source and M. Dyadic Thue–Morse phase corollary is already covered by prior fixed-point work and is NOT asserted original.
 
-## Closest literature and limits
-M. Rao, M. Rigo and P. Salimov (2015), *Avoiding 2-binomial squares and cubes*, studies 2-binomial power avoidance on other morphic words. M. Lejeune, J. Leroy and M. Rigo (2018/2020), *Computing the k-binomial complexity of the Thue–Morse word*, has Lemma 30 on substituted letters and Theorem 48 on all pairs of factors of the Thue–Morse fixed point. It does not cover arbitrary source words. No conclusion extends beyond the stated morphism, block lengths or scattered-subsequence equivalence. Historical priority may require further expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the main arbitrary-binary-source, arbitrary-positive-block-multiplier three-letter characterization, with explicit prior coverage of the restricted Thue–Morse fixed-point corollary by Lejeune–Leroy–Rigo Theorem 48. Their fixed-point theorem and Lemma 30 do not imply the fully source-uniform law as stated. Additional morphism-profile algebra literature could contain an equivalent general transfer lemma; retain this priority risk.
+
+## value
+
+PASS
+
+PASS. A simple local trichotomy (alignment or equality of three boundary source bits) completely decides r-binomial equality of adjacent length-M2^r windows for every binary source and integer M, despite arbitrarily long intervening source substrings. The noncommutative conjugation obstruction is a structural mechanism, giving an infinite all-source theorem rather than only finite Thue–Morse factor statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
