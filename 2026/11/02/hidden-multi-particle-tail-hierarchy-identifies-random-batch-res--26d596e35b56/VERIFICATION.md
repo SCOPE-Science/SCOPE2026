@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof uses the unique two-sided marked Poisson stationary construction, the age process generator for square-free products, exchangeability, classical symmetric stable tails with the specified Fourier convention, dominated convergence using all finite joint age-product moments, and triangular binomial inversion. The analytic arguments cover every fixed finite \(N\ge2\), every \(0<\alpha<2\), and every nonempty random-batch law without numerical discretization.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the containing directory. The script has no nonstandard dependencies. The actual saved script passed **696 exact rational and numerical consistency checks**: complete subset enumeration of hit probabilities, exact reconstruction across several deterministic and random size laws for particle numbers up to nine, factorial moment recursion, envelope and endpoint formulas, and the Cauchy-flight limit with a fully shared Poisson clock. These checks do not establish the asymptotic theorem independently and cannot substitute for its proof.
+## correctness
 
-All source comparisons are limited to the explicitly described accessed content; full literature priority and independent experimental or mathematical verification are not claimed. No independent audit has been performed.
+PASS
+
+For fixed finite N>=2, 0<alpha<2 independent symmetric stable flights, r>0 Poisson resetting, i.i.d. nonempty batch size M and uniform chosen subset, stationarity is built from two-sided marked Poisson resets and is unique by coordinatewise coupling after first resets. Generator on product of ages A_i gives M_j=j M_{j-1}/lambda_j and E prod A_i=j!/prod lambda_l. Conditional independence and the uniform stable-tail envelope, dominated by C prod A_i (integrable), give the simultaneous asymptotic for all fixed positive t_i. Adjacent normalized tail-factor ratios give lambda_j/r because lambda_N=r, and binomial inversion recovers every p_m. Union bounds give 1<=H_j<=j! with strict endpoint characterization. Independently rational-tested 49 nonempty deterministic/mixed batch laws N=2..8 and their inverse transforms. No Brownian alpha=2 or empty batch identification is claimed.
+
+## originality
+
+PASS
+
+The relevant Brownian fixed-size batch-resetting paper has the resetting mechanism, correlation evolution and pair marginals, but explicitly proposes random batch sizes as an extension; it does not supply alpha-stable multivariate rare-event tail constants or identification of an unknown arbitrary batch-size distribution. Classical stable marginal tails and Poisson common-shock formulas are treated as inputs. An unindexed common-shock inverse theorem could imply pieces; no decisive prior coverage found.
+
+## value
+
+PASS
+
+The entire hierarchy of joint stationary extremes recovers a hidden, arbitrary finite batch-reset distribution independent of r, D and alpha, a natural inverse parameter identifiability problem in multi-particle resetting. The exact factors and extremal cases are mathematically informative even though upper-order joint extremes can be statistically rare.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

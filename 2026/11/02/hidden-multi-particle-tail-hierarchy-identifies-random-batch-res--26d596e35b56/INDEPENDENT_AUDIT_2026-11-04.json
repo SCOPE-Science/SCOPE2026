@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:01:59.893594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed finite N>=2, 0<alpha<2 independent symmetric stable flights, r>0 Poisson resetting, i.i.d. nonempty batch size M and uniform chosen subset, stationarity is built from two-sided marked Poisson resets and is unique by coordinatewise coupling after first resets. Generator on product of ages A_i gives M_j=j M_{j-1}/lambda_j and E prod A_i=j!/prod lambda_l. Conditional independence and the uniform stable-tail envelope, dominated by C prod A_i (integrable), give the simultaneous asymptotic for all fixed positive t_i. Adjacent normalized tail-factor ratios give lambda_j/r because lambda_N=r, and binomial inversion recovers every p_m. Union bounds give 1<=H_j<=j! with strict endpoint characterization. Independently rational-tested 49 nonempty deterministic/mixed batch laws N=2..8 and their inverse transforms. No Brownian alpha=2 or empty batch identification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Mauro et al. arXiv:2601.20077 treat fixed-size batch resetting of Brownian particles, not general p_m with alpha-stable heavy tails.",
+          "arXiv:2509.06658 treats fully simultaneous Brownian reset with non-Poisson waiting times."
+        ],
+        "reasoning": "A model with more general waiting times but only simultaneous common resets does not contain uniform random subsets and their full hit-rate hierarchy as a direct specialization.",
+        "searches": [
+          "Resultary: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution",
+          "de Mauro–Majumdar–Schehr arXiv:2601.20077v3 full paper",
+          "de Mauro–Biroli–Majumdar–Schehr arXiv:2509.06658"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md 3d9d860bc3de16fa9e3c80dba44118e9f8a198ba",
+        "SCOPE2026 frozen verify.py 52de767251566f6a0136a6fb49a9ccb99a3f7f82",
+        "de Mauro–Majumdar–Schehr arXiv:2601.20077v3",
+        "Resultary semantic query: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Brownian multi-particle paper contains a proposed random-batch extension rather than a proved pm inversion.",
+          "Classical symmetric stable tail asymptotic gives single-coordinate x^{-alpha} only; dependence of ages must be calculated jointly."
+        ],
+        "reasoning": "Neither the Brownian correlation recursion nor scalar stable-tail formula alone implies the cross-particle product moment j!/prod lambda and exact observed tail amplification inversion.",
+        "searches": [
+          "Resultary: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution",
+          "de Mauro–Majumdar–Schehr arXiv:2601.20077v3 full paper",
+          "de Mauro–Biroli–Majumdar–Schehr arXiv:2509.06658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A random-batch law can be parameterized by Poisson common-hit rates lambda_j; triangular binomial inversion is classical.",
+          "The new observables H_j, however, are calculated from stable-flight extreme tails, not supplied by generic common-shock inversion alone."
+        ],
+        "reasoning": "Checked a common-shock/thinned-Poisson alias and fixed-size Brownian reset results. The combination of exact stable-tail age products and inverse identification is the final claim; known algebraic inversion alone does not cover it.",
+        "searches": [
+          "Resultary: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution",
+          "de Mauro–Majumdar–Schehr arXiv:2601.20077v3 full paper",
+          "de Mauro–Biroli–Majumdar–Schehr arXiv:2509.06658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior finite table in the inspected papers provides the arbitrary-N exact pm recovery from (H2,...,HN)."
+        ],
+        "reasoning": "This is a functional parameter-identification theorem for every finite N, not matching a row in a known numerical table.",
+        "searches": [
+          "Resultary: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution",
+          "de Mauro–Majumdar–Schehr arXiv:2601.20077v3 full paper",
+          "de Mauro–Biroli–Majumdar–Schehr arXiv:2509.06658"
+        ]
+      },
+      "rationale": "The relevant Brownian fixed-size batch-resetting paper has the resetting mechanism, correlation evolution and pair marginals, but explicitly proposes random batch sizes as an extension; it does not supply alpha-stable multivariate rare-event tail constants or identification of an unknown arbitrary batch-size distribution. Classical stable marginal tails and Poisson common-shock formulas are treated as inputs. An unindexed common-shock inverse theorem could imply pieces; no decisive prior coverage found.",
+      "residual_risks": [
+        "Prior general multivariate shock inversion could contain an implicit equivalent formulation, though the stable-flight observable realization was not located.",
+        "Extremely high order empirical exceedances are rare; the theorem gives no finite-sample estimation guarantees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR COVERAGE; the variable-size stable-tail inverse theorem is not stated",
+          "evidence": [
+            "Brownian fixed M; random variable M explicitly proposed as future extension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.20077",
+          "material_read": "Full publicly accessible 26-page PDF, including model definition, pair correlations, conclusions and explicit random-batch future-work paragraph",
+          "method": "Opened arXiv PDF, examined page images and extracted text throughout",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Same fixed-size Poisson batch-reset architecture"
+        },
+        {
+          "assessment": "NOT DECISIVELY EXCLUDING all possible broader implications; retained as risk",
+          "evidence": [
+            "Model has globally simultaneous events, unlike random independent uniform subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Accessible introduction/abstract and research comparison; not the complete source full text",
+          "method": "arXiv metadata and visible excerpts",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting",
+          "trigger": "More general inter-event times might dominate reset law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire hierarchy of joint stationary extremes recovers a hidden, arbitrary finite batch-reset distribution independent of r, D and alpha, a natural inverse parameter identifiability problem in multi-particle resetting. The exact factors and extremal cases are mathematically informative even though upper-order joint extremes can be statistically rare.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 frozen RESULT.md 3d9d860bc3de16fa9e3c80dba44118e9f8a198ba",
+    "SCOPE2026 frozen verify.py 52de767251566f6a0136a6fb49a9ccb99a3f7f82",
+    "de Mauro–Majumdar–Schehr arXiv:2601.20077v3",
+    "Resultary semantic query: joint simultaneous tail stationary stable Lévy flights random batch resetting Poisson particles infer reset size distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Prior general multivariate shock inversion could contain an implicit equivalent formulation, though the stable-flight observable realization was not located.",
+    "Extremely high order empirical exceedances are rare; the theorem gives no finite-sample estimation guarantees."
+  ],
+  "schema_version": 1
+}

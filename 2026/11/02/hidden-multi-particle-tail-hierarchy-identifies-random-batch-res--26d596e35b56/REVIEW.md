@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The invariant law is constructed with two-sided marked Poisson resets and coordinatewise coupling; the stationary age generator gives the closed exact age-product recursion. A uniform stable-tail bound validates dominated convergence for all fixed numbers of simultaneous exceedances. Adjacent amplitude ratios yield the hit-rate ratios, and binomial inversion uniquely recovers the nonempty random-batch size distribution. An independent joint-survival simplex calculation and 696 finite exact/numerical checks support the identities, without replacing the infinite-limit proof.
+## correctness
 
-**Originality: PASS (qualified best knowledge).** De Mauro, Majumdar, and Schehr (arXiv:2601.20077) study fixed-size Brownian batches and two-particle correlations; their conclusion names random batch sizes as a further direction. De Mauro and coauthors (arXiv:2509.06658) study all-at-once Brownian resetting with general renewal intervals; Żbik and Dybiec (arXiv:2311.16014) study single-particle Lévy first passage. The evaluated all-order heavy-tail enhancement and complete random-size law inversion are not statements of these inspected works. Related published mathematical records on renewal ages, reset coupon collectors and different Lévy-noise systems are not implication matches. An unlocated general common-shock result remains possible.
+PASS
 
-**Value: PASS.** Stable flights have no finite variance when the index is below two, so covariance is unavailable as the dependence statistic used for the Brownian model. The normalized rare simultaneous-extreme factors remain finite and quantify common resetting on a sharp interval from \(1\) to \(j!\); together they give exact inverse identification of the reset-batch distribution. This is an intrinsic stochastic-mechanics observable and a motivated random-batch extension, not a routine change of variables.
+For fixed finite N>=2, 0<alpha<2 independent symmetric stable flights, r>0 Poisson resetting, i.i.d. nonempty batch size M and uniform chosen subset, stationarity is built from two-sided marked Poisson resets and is unique by coordinatewise coupling after first resets. Generator on product of ages A_i gives M_j=j M_{j-1}/lambda_j and E prod A_i=j!/prod lambda_l. Conditional independence and the uniform stable-tail envelope, dominated by C prod A_i (integrable), give the simultaneous asymptotic for all fixed positive t_i. Adjacent normalized tail-factor ratios give lambda_j/r because lambda_N=r, and binomial inversion recovers every p_m. Union bounds give 1<=H_j<=j! with strict endpoint characterization. Independently rational-tested 49 nonempty deterministic/mixed batch laws N=2..8 and their inverse transforms. No Brownian alpha=2 or empty batch identification is claimed.
 
-**Limitations.** Fixed finite particle number, independent symmetric strictly stable drivers, homogeneous Poisson clock, positive nonempty random batch sizes and uniform conditional subsets. No infinite-particle limit, Gaussian index-two result, nonuniform selection theorem, finite-sample statistical performance bound or externally validated priority is claimed. The critical nonstandard steps are in the proof and can be reproduced using the companion script.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant Brownian fixed-size batch-resetting paper has the resetting mechanism, correlation evolution and pair marginals, but explicitly proposes random batch sizes as an extension; it does not supply alpha-stable multivariate rare-event tail constants or identification of an unknown arbitrary batch-size distribution. Classical stable marginal tails and Poisson common-shock formulas are treated as inputs. An unindexed common-shock inverse theorem could imply pieces; no decisive prior coverage found.
+
+## value
+
+PASS
+
+The entire hierarchy of joint stationary extremes recovers a hidden, arbitrary finite batch-reset distribution independent of r, D and alpha, a natural inverse parameter identifiability problem in multi-particle resetting. The exact factors and extremal cases are mathematically informative even though upper-order joint extremes can be statistically rare.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
