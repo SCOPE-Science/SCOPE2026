@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\), the closed-neighborhood activity inequalities follow by counting the \\(2n\\) external votes plus self. Allowed flips cannot decrease cut size. The cut is multi-affine in the three part occupancies and has exact maximum \\(2n^2\\), with all maximizers two unanimously opposite parts and one free part. From every state an explicit allowed path of at most \\(2n\\) flips reaches this set. Six pair-labelled hypercube faces meet cyclically and are connected; uniform reversibility follows from neutral flips. Six corner configurations are counted twice, giving exactly \\(6(2^n-1)\\). Two boundary configurations of each face have \\(n\\) outgoing switches apiece, yielding conditional escape probability \\(2/(3\\cdot2^n)\\); the stationary domination argument proves \\(t_{\\mathrm{mix}}(1/4)>\\lfloor3\\cdot2^n/4\\rfloor\\). Independent direct SCC enumeration for \\(1\\le n\\le4\\) and constructive/exact-boundary enumeration for \\(1\\le n\\le6\\) pass. Finite checks support but are not substituted for the all-\\(n\\) proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1011.5119v1, sections 3.2, 3.3 and 4.1: general energy and specific clique, path, cycle and tree arguments, but no tripartite attractor graph theorem.",
+        "DOI:10.4230/LIPIcs.ISAAC.2019.43, Sections 2 and 3: strict improvement and stabilization times; full text search gives no use of tripartite or mixing."
+      ],
+      "reasoning": "A generic monotone potential only says energy cannot rise and does not imply that every state reaches the global optimum, that all optimum states are connected, or any mixing bound. The 2019 time bounds stop at stable states and cannot imply the post-entrance spectral bottleneck.",
+      "searches": [
+        "tripartite graphs maximum cut reconfiguration single-vertex flips with neutral ties and metastable minority dynamics",
+        "\"complete tripartite\" \"ground state\" \"single spin flip\" dynamics",
+        "\"complete tripartite\" \"zero temperature\" \"mixing time\" Ising",
+        "Stochastic Minority on Graphs arbitrary bipartite graphs clique trees cycles recurrent classes",
+        "Stabilization Time in Minority Processes 2019 Papp Wattenhofer complete tripartite"
+      ]
+    },
+    "checked_sources": [
+      "Rouquier–Regnault–Thierry, Stochastic Minority on Graphs, arXiv:1011.5119v1; https://ar5iv.labs.arxiv.org/html/1011.5119, sections 2, 3 and 4, including model, energy, nonbipartite and clique analyses.",
+      "Papp–Wattenhofer, Stabilization Time in Minority Processes, arXiv:1907.02131v1; https://drops.dagstuhl.de/storage/00lipics/lipics-vol149-isaac2019/LIPIcs.ISAAC.2019.43/LIPIcs.ISAAC.2019.43.pdf, Introduction, Related Work, Definitions (pp. 1-5), text-search of remaining content for tripartite and mixing.",
+      "Cao–Yang, The Fashion Game: Network Extension of Matching Pennies, Theor. Comput. Sci. 540–541 (2014) 169–181; abstract and published-paper metadata (https://www.researchgate.net/publication/280601245_The_fashion_game_Network_extension_of_Matching_Pennies).",
+      "Scientific semantic record searches for asynchronous minority complete tripartite attractors, maximal-cut state-space reconfiguration, and zero-temperature antiferromagnetic Glauber mixing."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1011.5119v1, Proposition 1 / Lemma 1: the non-increasing energy identity holds generally; no global optimality or mixing theorem for all graphs is stated.",
+        "Papp–Wattenhofer 2019, Definitions p. 4: switchability requires strictly fewer color conflicts; our zero-neighbor-field transitions are equality moves.",
+        "Related prior mathematical statements concern friendship-graph rare hub switching, cocktail-party parity gaps, and synchronous tripartite or multipartite majority dynamics. Their assumptions and conclusions differ from this asynchronous tripartite minority chain."
+      ],
+      "reasoning": "The new claim is neither a special case of the inspected family-specific theorems (graphs differ) nor a corollary of the general energy method (which lacks the six-hypercube connectivity and conditional flux). Synchronous majority results on tripartite graphs involve different transition kernels; a friendship-graph mixing lower bound does not cover \\(K_{n,n,n}\\).",
+      "searches": [
+        "asynchronous stochastic closed-neighborhood minority on balanced complete tripartite graphs K_{n,n,n} unique max-cut recurrent class 6(2^n-1) exponentially slow mixing",
+        "zero-temperature antiferromagnetic Glauber dynamics complete tripartite graph uniform stationary maximum cuts bottleneck exponential mixing hypercube",
+        "tripartite graphs maximum cut reconfiguration single-vertex flips with neutral ties and metastable minority dynamics",
+        "Stochastic Minority on Graphs 2010 full asynchronous energy cliques bipartite",
+        "Fashion Game anti coordination complete tripartite recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1011.5119v1, model definitions: closed-neighborhood minority, with neutral flips in even-degree vertices.",
+        "Papp–Wattenhofer 2019, Related Work pp. 2-3: closed-neighborhood variants are explicitly distinguished from their strictly decreasing-conflict model."
+      ],
+      "reasoning": "Equivalent terminology includes zero-temperature antiferromagnetic single-spin dynamics with deterministic flip on zero local field, neutral Max-Cut flip graphs, and anti-coordination updates. The 2010 paper specifies this model but not the \\(K_{n,n,n}\\) state-space geometry; strict-improvement dynamics forbids the neutral hypercube traversal and is not equivalent.",
+      "searches": [
+        "asynchronous stochastic closed-neighborhood minority on balanced complete tripartite graphs K_{n,n,n} unique max-cut recurrent class 6(2^n-1) exponentially slow mixing",
+        "zero-temperature antiferromagnetic Glauber dynamics complete tripartite graph uniform stationary maximum cuts bottleneck exponential mixing hypercube",
+        "\"K_{n,n,n}\" \"Glauber\" dynamics antiferromagnetic",
+        "zero-temperature antiferromagnetic Glauber dynamics complete tripartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record hits included complete-tripartite excitation, tripartite majority two-cycle, and multipartite parity automaton results, none stating single-site stochastic minority on \\(K_{n,n,n}\\).",
+        "Direct topical web queries returned the original 2010 Minority paper and model-different 2019 stabilization paper rather than an exact \\(K_{n,n,n}\\) state-space/mixing census.",
+        "A final semantic exact-claim search returned no covering research record; its strongest ranked matches concern other complete-multipartite graph invariants, not the claimed stochastic minority transition graph."
+      ],
+      "reasoning": "No exact table or database identity was found in the inspected results; this negative search is only limited evidence and is not treated as proof that the count is new.",
+      "searches": [
+        "asynchronous stochastic closed-neighborhood minority on balanced complete tripartite graphs K_{n,n,n} unique max-cut recurrent class 6(2^n-1) exponentially slow mixing",
+        "\"minority\" dynamics \"complete tripartite\" asynchronous recurrent",
+        "\"K_{n,n,n}\" \"Glauber\" dynamics antiferromagnetic",
+        "\"complete tripartite\" \"minority dynamics\" attractors",
+        "\"max-cut\" \"complete tripartite\" \"Glauber\" stationary",
+        "\"local max-cut\" \"complete tripartite\" zero temperature Glauber",
+        "complete tripartite minority attractor 6(2^n-1) hypercube mixing",
+        "balanced complete tripartite K n n n closed-neighborhood asynchronous minority unique recurrent communicating class six hypercubes 6(2^n-1) max cut stationary flow 2/(3*2^n) exponential mixing"
+      ]
+    },
+    "rationale": "The inspected foundational 2010 primary text supplies the stochastic rule and general monotone potential, not the six-hypercube recurrent geometry, exact labelled count or conditional escape flux for balanced tripartite graphs. The inspected 2019 primary work requires strict conflict-reducing switches and studies stabilization duration, so neutral motion and mixing within a nonabsorbing class are outside its model. The closest accessible scientific-record hits and existing related claims have different graphs or updating rules. Explicit proof steps add a motivated, non-implied graph-family invariant. This is a best-knowledge originality assessment, not a proof of historical uniqueness.",
+    "residual_risks": [
+      "An unindexed earlier treatment of single-spin zero-field-flip dynamics on balanced complete tripartite antiferromagnets could contain equivalent six-face geometry or exponential mixing.",
+      "The 2014 game-theory paper was not inspected in full, although its accessible premise is a different update model.",
+      "Similarity-ranked scientific record search and search-engine coverage are not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the update law and general non-increasing energy; its particular attractor analyses do not state this \\(K_{n,n,n}\\) six-hypercube or mixing result.",
+        "evidence": [
+          "Definitions 1–7 and energy Lemma 1; Theorem 4.1 for cliques; Theorem 4.2 for cycles/paths; concluding topology dependence."
+        ],
+        "identifier_or_url": "arXiv:1011.5119v1; https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Section 2 definitions, Section 3 energy and bipartite/nonbipartite mechanisms, Section 4 clique/path/cycle results, conclusion and references.",
+        "method": "Accessible full-text HTML, direct inspection and searching of the document for tripartite and relevant modeled graph families.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Original primary definition and strongest plausible foundational coverage for closed-neighborhood fully asynchronous minority."
+      },
+      {
+        "assessment": "Switches are strictly conflict-reducing; its results concern pre-stabilization steps, not neutral recurrent-class mixing. No tripartite or mixing result located.",
+        "evidence": [
+          "PDF pp. 2–3 distinguishes closed-neighborhood minority; §3.2 explicitly requires strictly less numerous new color."
+        ],
+        "identifier_or_url": "arXiv:1907.02131v1; DOI:10.4230/LIPIcs.ISAAC.2019.43",
+        "material_read": "Published PDF pages 1–5 including model, related work, switching definition; full-text keyword search for tripartite, mixing, complete.",
+        "method": "Publisher PDF parsed text and visual page inspection, plus document term searches.",
+        "title": "Stabilization Time in Minority Processes",
+        "trigger": "General minority dynamics with potential stronger time bound or absorbing classification."
+      },
+      {
+        "assessment": "Studies mixed conformist/rebel games, not an accessible exact tripartite minority recurrent chain classification; incompleteness remains a residual risk.",
+        "evidence": [
+          "Abstract describes coordination/anti-coordination network extension of Matching Pennies."
+        ],
+        "identifier_or_url": "Theor. Comput. Sci. 540–541 (2014), 169–181",
+        "material_read": "Published-paper abstract and metadata, not the complete text.",
+        "method": "Search result and journal citation comparison.",
+        "title": "The Fashion Game: Network Extension of Matching Pennies",
+        "trigger": "Potentially stronger game-theoretic anti-coordination formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dc50c3c-2857-4c67-a766-7037a0a6ecf7",
+  "value": {
+    "rationale": "The model is a natural dense \\(2n\\)-regular antiferromagnetic network. The complete recurrent class classification is a nontrivial structural invariant: six high-dimensional hypercubes glued at corners, rather than frozen maximal cuts. The exact stationary flux quantitatively separates frequent local flips (limiting probability \\(1/3\\)) from exponentially slow global mixing despite a unique recurrent class and uniformly short directed paths to it. This is a mathematically motivated metastability effect on a graph family unrelated to earlier sparse hub bottlenecks.",
+    "status": "PASS"
+  }
+}
