@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every odd prime power and every prescribed diagonal, the proof completes a square after a nonzero pivot, counts the resulting nondegenerate binary quadratic forms, handles the one-or-zero-pivot cases separately, and derives the singular fibers by summation. No assumption on primeness or on the nonzero determinant is omitted. Separate direct enumeration confirms 17,820 determinant fibers in four prime fields and one quadratic extension, over 1,911,396 matrices in total. Finite verification is supporting evidence, not a proof of infinitely many fields.
+## correctness
 
-**Originality — PASS (best-knowledge, with explicit historical risk).** The most closely related 2026 diagonal-count theorem concerns the full general linear group rather than symmetric matrices and does not fix determinant. The 2011 determinant-twisted formula likewise covers unrestricted invertible matrices, not this fixed-diagonal symmetric family. Brent–McKay counts determinant divisibility of uniformly sampled symmetric matrices without fixed diagonal, so it does not imply conditional fibers. Mathematical-record searches and accessible earlier research claims found no matching conditional-fiber law. A 1955 paper of Hodges on symmetric-matrix exponential sums is highly relevant but its complete text was not accessible; it is a material unresolved historical-priority risk, not evidence of uniqueness.
+PASS
 
-**Value — PASS.** This is a natural complete, exact classification of a three-variable determinant fiber central to finite-field quadratic-form and matrix-counting questions. It strengthens the undifferentiated nonsingularity counts to a fully resolved conditional distribution, with a striking support-only singular law and a four-character arithmetic correction for nonzero determinants. It supplies the first nontrivial symmetric matrix dimension, not an arbitrary finite table or isolated numeric evaluation. Higher dimensions and characteristic two remain open within this result.
+For symmetric matrix with prescribed diagonal (a,b,c), determinant is abc+2xyz-az^2-by^2-cx^2. If at least two diagonal entries nonzero, take a,b!=0, d=ab-x^2 and w=z-xy/a to obtain det=dc-(d/a)y^2-aw^2. For d!=0 a nondegenerate binary quadratic form contributes q-chi(-d) solutions for unequal target and q+(q-1)chi(-d) at target zero, using standard quadratic character identity sum_t chi(t^2-D)=-1. If d=0, det=-aw^2 contributes q(1+chi(-delta/a)). Summing x and the special d=delta/c yields the boxed formula for k=2,3. For k=1, det=x(2yz-cx) gives (q-1)^2+q(1+chi(-delta/c)); for k=0, det=2xyz has (q-1)^2 nonzero fibers. Subtract summed nonzero fiber counts from q^3 to get zero counts for k=0,1,2,3 respectively 3q²-3q+1, 2q²-2q+1, q²-q+1, q²+1. Independently direct-enumerated all diagonals and all off-diagonal triples over F3,F5,F7 and checked each fiber, plus read the frozen verifier for q11/F9. Finite checks corroborate the exact character-sum proof for every odd prime power.
 
-The 2026 Gorodetsky paper, Li–Hu (2011), Brent–McKay (1988/2010), Hodges (1955, metadata only), and Kim (1997) are compared in the accompanying audit, including explicit residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Results on general GL_n matrices with specified diagonal count non-symmetric invertible matrices, so do not imply determinant-by-determinant conditional fibers for symmetric 3x3 matrices. Existing symmetric determinant divisibility counts average over diagonal parameters and likewise cannot recover these conditional quadratic-character formulas. Hodges's 1955 symmetric-matrix exponential-sum paper is a genuine potential broad-priority source; open-access/arXiv attempts failed and authorized institutional access returned VPN disconnected. Its abstract/metadata do not resolve whether the specialized conditional theorem is implicit. Best-of-knowledge qualified PASS with explicit priority risk rather than treating inaccessible source as proof or automatic failure.
+
+## value
+
+PASS
+
+An explicit exact determinant law with fixed diagonal is a natural distribution for low-rank finite-field symmetric matrices. The striking singular-fiber dependence only on k, versus nonzero-fiber square-class sensitivity, gives a complete algebraic classification useful for random matrix and quadratic-form enumeration, not an arbitrary small numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
