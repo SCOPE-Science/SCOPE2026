@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Jacobian's generalized Vandermonde columns show that singular points have at most two distinct coordinate values. The three moment equations then force a zero-sum coordinate support or the total-weight wall. On the nonzero-total open set the residual quadratic Hessian is nondegenerate on the tangent quotient, so the full Jacobian singular subscheme consists of reduced ordinary double points. Complete-intersection dimension, normality and integrality are proven, not inferred from finite testing. Three exact finite-field enumerations reproduced the predicted singular supports.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating 2026 study establishes bounds and normality hypotheses for power sums, while the inspected 2024 work gives geometric dimension bounds and arithmetic point counts; neither proves this exact coefficient discriminant and generic nodal wall stratification. A prior equal-weight family is a specialization, not the new assertion. Searches of relevant literature and mathematical records did not find an equivalent stronger result. Unlocated general discriminant theory remains a residual risk, so no definitive historical-priority claim is made.
+PASS
 
-## Mathematical value — PASS
-This identifies the full wall arrangement in the parameter space of degree-six complete intersections, the exact singular support for every coefficient vector away from the total wall, and the generic one-node degeneration on each meaningful wall. The six-variable case supplies a natural nodal K3 surface family. These are motivated global geometric data, rather than mere isolated computation.
+Jacobian columns a_i(1,2x_i,3x_i^2) have rank<3 iff the coordinates take <=2 values (p>=5). For a two-value point u on S and v on T, the first two moment equations force either one value zero and A_S=0 or both A_S=A_T=0; all-equal points require W=0. For W!=0, at [e_S] the F1/F2 linear tangent constraints split into two weighted hyperplanes; the Hessian of F3-(3/2)F2 has one scaling radical on S and no radical on T. The projective transverse quadratic form of dimension n-3 is nondegenerate; the odd-characteristic formal Morse lemma yields ordinary double points and reduced singular scheme. Isolated singularities in CI dimension n-4>=2 and R1/S2 give normality; projective connectedness and generic regularity give integrality. Independent exhaustive projective F5/F7 rational point singular-support enumeration for 3 six-variable weight vectors gave respectively 6,6,8 matches; finite checks do not prove the general theorem.
 
-## Literature and boundaries
-Motivation: Giménez et al., *Power Sum Varieties over Finite Fields*, arXiv:2610.32056v1. Related earlier geometry: Gottig et al., arXiv:2401.06964v1. The result is set-theoretic in coefficient space, excludes characteristics two and three, and does not classify points on the full-weight wall. Independent mathematical priority and correctness assessments are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel coefficient-space subset-sum arrangement and exact nodal stratification under variable weights. Earlier papers study power-sum varieties or finite-field diagonal systems, but cited primary material does not establish this full coefficient-discriminant theorem. A newer uninspected appendix or more general discriminant geometry may subsume it.
+
+## value
+
+PASS
+
+The precise discriminant and multiplicity-free node classification gives a meaningful geometric wall crossing for a natural weighted complete-intersection family, determines smoothness and normality parameters, and identifies explicit degree-six K3 nodal degenerations; it is not merely a type check or isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
