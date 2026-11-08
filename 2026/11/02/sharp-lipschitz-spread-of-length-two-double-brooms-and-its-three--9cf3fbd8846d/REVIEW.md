@@ -1,19 +1,21 @@
-# Review of the length-two double-broom spread classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independent edge increments parameterize the anchored real Lipschitz ball as a cube, and its centered quadratic variance is positive definite, so all maximizers saturate all edges. The critical nonstandard reflection lemma strictly dominates a folded central path: reflecting one full end branch across the middle vertex changes every cross-pair squared difference by \(4(1-x)(1-y)\ge0\), with a strict inequality for the end hubs. After reducing to a monotone spine, two exact integer quadratic arcs yield the closed formula, all maximizing leaf multiplicities and the parity term. Direct symbolic comparisons cover the within-branch and four crossover balancing cases. Ordinary differentiation yields both asymptotic branches and their nonmatching second derivatives. Reproducible exact rational tests independently support the proof but do not establish the quantified theorem.
+PASS
 
-## Originality — PASS with residual risk
+After anchoring a vertex, independent tree-edge increments describe the cube. The centered variance quadratic is positive definite on increments: strict coordinate convexity forces every maximizing edge increment to be ±1, not merely some extreme optimum. A folded spine 0,1,0 can be reflected on one end; cross-pair squared distances change by 4(1-x)(1-y)>=0 and the two end hubs strictly increase, ruling out all folded maxima. For straight spine 0,1,2, with left +1 count k and right 3 count l, numerator N(S+5+8l)-(3-m+n+2(k+l))² is explicit. At fixed j=k+l, larger l is always better; its two concave quadratic arcs peak at the junction under H<=3L+3, otherwise at the nearest integer(s), giving the parity defect and every equality case. The four possible balancing crossovers have strictly positive explicit increments. Differentiation yields C1 but not C2 at ratio three. Independently exhausted all leaf-edge signs for 2<=m,n<=6, including folded patterns; no infinite inference was drawn from this finite test.
 
-The 1998 foundational spread paper and 2009 random-graph paper do not give this double-broom formula. Yancey's 2017 full paper treats broad structural tree and hair results but no diameter-four two-end-broom classification. The closest explicit published-finding corpus record was fully read: the bistar symmetric-edge-polytope inradius theorem is **equivalent to spread on diameter-three double stars** and fully covers that earlier two-hub problem, but not the present diameter-four graph. Inserting a sampled middle vertex changes both the metric and sharp optimization, with a new reflection argument, a 3:1 rather than 2:1 threshold, and parity governed by the total leaf count. Targeted searches for this diameter-four variant found no implication or exact table, but unindexed literature remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-Graph spread is a natural sharp Lipschitz–Poincaré invariant controlling finite-metric Cartesian-product concentration. The new infinite family is a significant natural next metric beyond diameter-three double stars, and its reflection rigidity is a structural mechanism, not merely a formula substitution. The full optimizer set, strict fixed-size balancing and sharp \(C^1\) but non-\(C^2\) limiting phase are mathematically motivated quantitative refinements. They do not claim a general formula for all trees or weighted instances.
+Foundational graph spread and generic integral-extremizer results are prior art; the sharp diameter-three adjacent-hub bistar inradius theorem is equivalent to a different spread problem and already covers that shorter family. The diameter-four sampled-spine problem has different vertex count, an additional turning-point possibility, 3:1 instead of 2:1 transition and a new parity term. Relevant graph-spread tree sources and semantic published-record search revealed no direct implication of this full exact profile. Best-knowledge originality is qualified by possible unindexed diameter-four tree or polar-polytope formulas.
 
-## Scientific limits
+## value
 
-The statement is specific to the three-vertex spine and unit lengths. Exact tests are finite, and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graph spread is a standard sharp Lipschitz–Poincaré invariant of finite metric spaces. A complete two-parameter exact calculation for the next natural tree after adjacent-hub double stars, including rigidity, balancing and a phase transition, is mathematically motivated and nontrivial beyond generic integral-extremizer deductions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
