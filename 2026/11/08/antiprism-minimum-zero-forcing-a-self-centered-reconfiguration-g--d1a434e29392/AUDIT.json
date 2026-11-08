@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Degree-four lower bound forces every minimum set to be a closed neighborhood with precisely one missing neighbor. This yields exactly the 3m cyclic sets after normalization. Direct forcing-front induction proves propagation times n-2 and n-1. Four-set intersection determines the complete 9m-edge reconfiguration adjacency table. A 1-Lipschitz center-coordinate map yields eccentricity at least n for all states; consecutive 3-anchor intervals on the A-cycle yield the matching upper bound. Distinct Python and C++ source programs independently reproduce finite enumerations and BFS results.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2009.00220 Proposition 2.2 gives the zero forcing graph of cycles, Section 4 treats prescribed paths, cliques, cycles and cubes, but not the square-cycle family.",
+        "arXiv:1801.08910 Section 4 counts all sets for standard cycles and wheels; no antiprism formula surfaced in the inspected primary text.",
+        "arXiv:1410.4191 gives general propagation-time definitions and bounds, not the three-class antiprism time polynomial."
+      ],
+      "reasoning": "General zero-forcing degree bounds and reconfiguration connectivity theorems do not imply exact state counts, all adjacencies and a uniform eccentricity on a nonregular state graph. The broader claims inspected concern different graph families or weaker invariants.",
+      "searches": [
+        "zero forcing cycle powers minimal forcing sets characterization 2k",
+        "zero forcing antiprism graph C(2n;1,2) count",
+        "antiprism graph zero forcing number propagation time 2015",
+        "Reconfiguration graphs of zero forcing sets arxiv:2009.00220 Sections 2-5",
+        "The zero forcing polynomial of a graph arxiv:1801.08910 Sections 3-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.4191v1, primary PDF and first public date 2014-10-15",
+      "arxiv:1801.08910v1, primary PDF and first public date 2018-01-26",
+      "arxiv:2009.00220v1, primary PDF and first public date 2020-09-01",
+      "MathWorld: Antiprism Graph, graph identification",
+      "2024 quartic circulant graphs of prime order: even 2n vertex orders are excluded from its prime-order hypothesis"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1410.4191 defines minimum and maximum propagation times, but a definition plus a lower bound cannot determine the exact two supported values for antiprisms.",
+        "arXiv:2009.00220 defines token jumping between minimum sets and proves \\(\\mathcal Z(C_m)\\cong C_m\\); changing the base graph to C_m^2 is not an implication of that proposition.",
+        "arXiv:1801.08910 Proposition 6 treats \\(Z(C_m;z)\\), which differs from the minimum-set propagation polynomial on \\(C_m^2\\)."
+      ],
+      "reasoning": "The proved claim is neither a corollary of the cycle reconfiguration graph theorem nor a special case of any inspected complete formula: the state space itself changes when squaring the cycle, and the new eccentricity statement requires a separate cyclic center-coordinate argument.",
+      "searches": [
+        "Propagation time for zero forcing on a graph arxiv:1410.4191",
+        "Reconfiguration graphs of zero forcing sets arxiv:2009.00220",
+        "The zero forcing polynomial of a graph arxiv:1801.08910",
+        "zero forcing antiprism cycle square minimum forcing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld Antiprism Graph identifies n-antiprism with the cycle-square \\(C_{2n}^{2}\\), https://mathworld.wolfram.com/AntiprismGraph.html",
+        "Geneson, Haas, Hogben, arXiv:2009.00220, Section 2.1 Proposition 2.2 treats the ordinary cycle but not its square."
+      ],
+      "reasoning": "The graph was checked under its polyhedral, circulant, cycle-power and reconfiguration aliases; neither the cycle theorem nor published definitions imply the new complete three-family state classification.",
+      "searches": [
+        "antiprism zero forcing propagation",
+        "square of a cycle zero forcing sets",
+        "minimum zero forcing sets graph C2n(1,2) antiprism",
+        "zero forcing graph Cn square antiprism 3n sets reconfiguration 9n edges",
+        "zero forcing reconfiguration graph for antiprism graphs square cycle circulant C_2n(1,2); minimum four-vertex zero forcing sets and exact diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Antiprism Graph provides standard graph identity and precomputed graph properties, not the stated minimum-set token-jump graph.",
+        "arXiv:1801.08910 contains full zero-forcing polynomials for other graph classes, not this exact minimum coefficient and time spectrum in the inspected sections."
+      ],
+      "reasoning": "The exact \\(6n\\)/\\(18n\\) state/edge counts, degree split, eccentricity and propagation-time enumerator were searched both as numerical patterns and under graph aliases; no identical indexed tabulation was found. This is bounded negative evidence only.",
+      "searches": [
+        "antiprism graph zero forcing number 4 minimum zero forcing configurations",
+        "zero forcing polynomial powers of cycles C_n^2 minimum zero forcing sets count",
+        "minimum zero forcing set graph of square of cycle C_m^2 token jumping 3m vertices 9m edges",
+        "antiprism graph zero forcing sets graph C_n squared minimum 4 propagation time",
+        "antiprism graph C(2n;1,2) 6n minimum sets"
+      ]
+    },
+    "rationale": "The exact \\(6n\\) minimum sets, two-point propagation-time distribution and nonregular but self-centered \\(6n\\)-state token-jumping graph were not established by the materially inspected sections of the closest primary references: Hogben et al. (2014), Boyer et al. (2018), and Geneson-Haas-Hogben (2020). Direct comparisons distinguish a cycle from its square, arbitrary zero-forcing counts from the optimum coefficient, and general token-jumping definitions from an explicit complete antiprism reconfiguration metric. Search and access are not a guarantee of priority.",
+    "residual_risks": [
+      "An unpublished, unindexed or differently named exact enumeration may exist; absence from search is not a priority certificate.",
+      "The later 2020 and 2018 literature is useful supporting context but is outside the archive age cut; the verified archival research anchor is the 2014-10-15 first posting.",
+      "Full historical literature cannot be exhaustively ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant framework for two-times classification; no antiprism-family exact result in the material read.",
+        "evidence": "arXiv:1410.4191v1 posted 2014-10-15; Definitions 1.1, 1.3, 1.7 and Remark 1.8, pages 1-3.",
+        "identifier_or_url": "https://arxiv.org/pdf/1410.4191",
+        "material_read": "PDF front page, introduction and definitions, minimum/maximum propagation times, and indexed full-document searches for antiprism/circulant/power of.",
+        "method": "Primary PDF text and inspected first-page rendering; targeted internal text search.",
+        "title": "Propagation time for zero forcing on a graph",
+        "trigger": "Earliest archival motivation for propagation-time spectra."
+      },
+      {
+        "assessment": "Counts zero forcing sets in different familiar graph families, not the new cycle-square optimum family or its time spectrum.",
+        "evidence": "arXiv:1801.08910v1, Definition 1, Proposition 6 and Section 4.1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+        "material_read": "PDF front page, sections 1, 3 and 4 including formulas for paths/cycles and wheels; indexed searches for antiprism and circulant.",
+        "method": "Primary PDF text and inspected page-1 rendering; bounded section and term inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Strongest plausible polynomial/counting coverage."
+      },
+      {
+        "assessment": "The direct cycle result concerns the cycle, not its square; the inspected graph-class results do not give the antiprism reconfiguration graph.",
+        "evidence": "arXiv:2009.00220v1, Definition in introduction; Proposition 2.2, Section 4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+        "material_read": "PDF front page, sections 1, 2.1, 3-4, and indexed searches for cycle, antiprism, circulant and square.",
+        "method": "Primary PDF text with visual check of page 1 and section/term comparisons.",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Exact same token-jumping definition and plausible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1a434e2-9392-462d-9263-e552f8133527",
+  "value": {
+    "rationale": "The square of an even cycle is the canonical polyhedral antiprism family. The theorem characterizes not only the minimum zero-forcing budget but every optimal placement, its propagation speed, and exact one-token reconfiguration geometry. It provides an infinite, bounded-degree, connected and nonregular self-centered reconfiguration family with linear diameter, showing a structural feature that neither mere counting nor generic bounds supply; both rapid propagation and mobility among optimal placements matter in zero-forcing network control.",
+    "status": "PASS"
+  }
+}
