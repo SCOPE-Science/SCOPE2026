@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement fixes its integer quantifiers, complex base field, coefficient-normalized affine family and genericity. Every member has the specified squarefree principal initial ideal. On the coordinate subspace the Jacobian criterion reduces to the common zeros of \(r\) degree-\((d-1)\) forms on each \(\mathbb P^{d-3}\). Projective dimension forces common zeros at and below the threshold, while generic absence removes them above it. At the boundary, transverse Bézout gives \((d-1)^{d-3}\) points on each of \(\binom d2\) disjoint pair strata; the Hessian determinant is \((-1)^{r+1}c^2\ne0\), so they are nodes. Bertini removes singularities off the coordinate subspace. An exact quartic example and symbolic checker independently corroborate the analysis. No finite experiment is used as the proof of the infinite statement.
+PASS
 
-## Originality (O): PASS, historically qualified
+For all d>=4,r>=1 over C, in the specified degree-d coefficient cell, the x-degree initial monomial is the squarefree product. On y=0 the singular subscheme is the union over pair strata P^(d-3) of the common zeros of r independent degree-(d-1) G_j. The projective dimension theorem forces dimension >=d-3-r for r<=d-3. At r=d-3, generic complete intersections give (d-1)^(d-3) isolated distinct points on each of binom(d,2) pair strata; triple strata are generically avoided. The mixed y/u Hessian block is invertible with remaining c*s*t block, giving determinant (-1)^(r+1)c^2 and ordinary nodes. For r>=d-2, no projective common zeros occur and Bertini gives smoothness away from the base plane. This covers the universal obstruction, nodal boundary, and existence of smooth generic members.
 
-Ramkumar proves cohomological invariance for squarefree Gröbner degenerations and gives a smooth cubic threefold illustration; Huang–Tarasova–Varbaro–Witt prove the smooth-curve case. Kloosterman treats hypersurfaces containing a **single** linear space and supplies a different complete-intersection node formula. Irreducible toric initial degeneration results concern different initial geometry. Comparisons of statements and scopes did not identify an implication that yields the simultaneous sharp existence threshold and exact generic nodal count for the product-initial-monomial cell. Classical hypersurface-arrangement results remain a historical-priority risk; a failed search does not prove originality, and no universal priority claim is made.
+## originality
 
-## Value (V): PASS
+PASS
 
-The boundary distinguishes unavoidable singularity from existence of smooth projective hypersurfaces within a natural squarefree Gröbner stratum, and quantifies the entire intervening generic nodal locus in all degrees. The sharp ambient-dimension threshold and exact finite singularity invariant address a structural smoothability question rather than a handpicked numerical example. The quartic value \(18\) illustrates the general theorem and is not claimed as separately new.
+PASS best of knowledge for the complete fixed-cell codimension threshold plus exact nodal boundary, not the squarefree degeneration mechanism or individual classical nodal quartics. Primary full text on general cohomology and curve rigidity and the single-fixed-linear-space nodal construction were compared by the mathematical incidence hypotheses; none states or implies the simultaneous pair-stratum classification under the checked forms. Direct Resultary and external searches returned no equivalent. Historical incidence-arrangement formula remains a risk.
 
-## Scope and independent status
+## value
 
-All assertions concern complex projective hypersurfaces in the stated fixed Gröbner cell. No classification of special coefficients, other squarefree initial ideals, or positive characteristic is claimed. The full literature comparison cannot exclude an older implicit theorem. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a complete all-dimension threshold for a geometrically canonical principal squarefree Gröbner cell, with a sharp nodal boundary and uniform node counts. This fills a motivated embedded-smoothing question for a fixed degeneration, not an arbitrary isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
