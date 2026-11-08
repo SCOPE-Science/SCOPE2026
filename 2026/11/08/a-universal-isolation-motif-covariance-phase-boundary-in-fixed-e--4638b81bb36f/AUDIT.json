@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The conditional distribution of G(n,m) after marking an isolated vertex is exactly G(n-1,m); connected induced copies cannot use that vertex. This yields a hypergeometric mixed-moment ratio; finite-factor monotonicity and zero boundary give at most one sign reversal. Inclusion–exclusion gives the n>=2k-2 onset; fixed-product asymptotics give p*=(2h-k)/(k(k-2)). Complete motifs and G(n,p) boundaries are treated separately. Independently enumerated exact covariances for all n<=6 across seven connected motifs agree, and 5,483 exact checker assertions passed. Finite checks are not taken as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sah–Sawhney Section 4.2 (equations (4.5), Theorem 4.4) develops induced subgraph factors and local limit theorems in G(n,m), with critical densities from graph-factor coefficient roots, but does not identify the exact mixed covariance with the total number of isolated vertices.",
+        "Reinert–Röllin arXiv:0912.3425 Section 5 explicitly studies edges, 2-stars and triangles in independent-edge G(n,p), not the fixed-edge induced-H/isolation pair.",
+        "A related exact one-switch law for tree COMPONENT counts requires zero exterior edges; the present induced motif may have arbitrary exterior incident edges and extends to connected non-trees."
+      ],
+      "reasoning": "A general local-limit theorem for a single induced-motif count does not determine its covariance with isolation, particularly in the exponentially rare isolation regime. A tree-component count is a different random variable, and the earlier identity cannot be substituted into an induced-motif count. General hypergeometric moment methods could yield a derivation, which remains a residual priority risk.",
+      "searches": [
+        "The covariance between induced copies of connected graph H (including noncomplete graphs) and number of isolated vertices in G(n,m) is governed solely by k and h and has asymptotic sign threshold (2h-k)/(k(k-2))",
+        "subgraph counts fixed-edge random graphs normal approximation covariance 2010",
+        "\"G(n,m)\" \"subgraph count\" \"isolated\" covariance",
+        "Sah–Sawhney 2022 DOI 10.1112/jlms.12523 Sections 4.1, 4.2, and abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0906.0720",
+      "https://arxiv.org/abs/0912.3425",
+      "https://doi.org/10.1112/jlms.12523",
+      "https://doi.org/10.1016/j.dam.2009.11.012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The tree-component formula counts connected components that are trees; such copies must have all external edges absent, whereas an induced tree is defined only by its internal edges. Their conditional hypergeometric event probabilities and edge supports differ.",
+        "The induced triangle–open-triad formula concerns covariance of two 3-vertex motif counts and does not include total isolated vertices.",
+        "The examined published works prove distributional approximations or directed-path correlations, not the normalized exact identity, monotone sign ratio, or universal asymptotic density for connected induced H."
+      ],
+      "reasoning": "Neither the tree-component one-switch law nor normal limits for H counts logically entail the exact induced-H/isolation covariance. The current argument is a direct conditional deletion calculation and proves the new classification; possible derivability from broader unlocated moment formulas is disclosed.",
+      "searches": [
+        "Covariance of isolated vertices and tree components in a fixed-edge random graph; one-switch sign classification",
+        "Covariance of induced triangle and open-triad counts in G(n,m)",
+        "Covariance in G(n,m) between the number of isolated vertices and number of tree components of size k: one positive-to-negative sign switch",
+        "Sah–Sawhney 2022 Sections 4.1–4.2; Reinert–Röllin 2009 Section 5; Alm–Janson–Linusson 2009 Sections 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alm–Janson–Linusson arXiv:0906.0720 (Sections 2–3) treats covariances of directed reachability in random orientations, not induced motif counts and isolated vertex totals.",
+        "The exact formula conditions on one isolated vertex in the uniform fixed-edge model, and includes non-complete connected induced graphs; no searched result stated this mixed count identity."
+      ],
+      "reasoning": "Aliases included induced copies, motif counts, tree counts, vertex isolation, fixed-size graphs, and conditional one-vertex deletion. No inspected statement has the same random variables and quantifiers; failure of search is not a proof of priority.",
+      "searches": [
+        "In uniform fixed-edge random graph G(n,m), covariance between isolated vertex count and induced motif/subgraph count, signs and hypergeometric thresholds",
+        "Fixed-edge random graphs induced H counts and isolated vertices, covariance conditional isolate ratio falling factorial, shape-independence at same vertex count and edge count",
+        "\"G(n,m)\" \"isolated vertices\" \"subgraph\" \"covariance\" induced",
+        "\"isolated vertex count\" \"induced subgraph count\" random graph covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The search outputs did not identify an exact tabulation of these two statistics or a table of the universal phase density.",
+        "The standalone verifier does enumerate finite samples, but it is independent evidence, not a literature database and not an infinite proof."
+      ],
+      "reasoning": "There is no known exact database entry in the checked results covering the all-k,h,n,m statement; an unlocated historical table remains possible.",
+      "searches": [
+        "For fixed edge count Erdős Rényi graph, positive covariance of induced k-vertex tree counts with isolated vertices for edge density below 1/k and negative above",
+        "\"G(n,m)\" \"triangle\" \"isolated vertices\" covariance",
+        "joint distribution isolated vertices and subgraph counts Erdős Rényi fixed edges"
+      ]
+    },
+    "rationale": "Searched published mathematical records, recoverable prior scientific claims, exact-moment aliases, and primary literature. The closest same-model prior computation involves tree COMPONENT counts, whereas the new count is induced copies with unrestricted exterior edges and all connected motif edge densities. Sah–Sawhney proves local limits, Reinert–Röllin gives independent-edge covariance matrices, and Alm–Janson–Linusson handles oriented connectivity events. No inspected result implies the exact shape-independent mixed covariance and one-switch/dense thresholds. This is a best-knowledge judgment, not external priority certification.",
+    "residual_risks": [
+      "An older exact multivariate generating-function or hypergeometric overlap identity for G(n,m) might implicitly imply the covariance without the same terminology.",
+      "The tree-component one-switch classification is closely related but not logically dominating; it warrants careful priority scrutiny for conceptual proximity.",
+      "The exact sign phase at constant edge density concerns exponentially rare isolated vertices; it is not a macroscopic covariance or critical-window theorem.",
+      "Historical priority and the mathematical proof have not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: variables are oriented reachability indicators for marked vertices, not isolated-vertex and induced graph motif counts. Lemma 3.2 concerns forbidden directed edges, not our all-m exact mixed moment.",
+        "evidence": [
+          "Theorem 2.2 has threshold around 0.799 in oriented path correlations; Lemma 3.2 evaluates forbidden directed-edge probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0906.0720",
+        "material_read": "Full-text HTML, introduction, Theorem 2.2 and Lemma 3.2 with proof (Sections 2–3)",
+        "method": "Read arXiv hosted HTML sections and exact hypergeometric comparison",
+        "title": "Correlations for paths in random orientations of G(n,p) and G(n,m)",
+        "trigger": "Fixed-edge random graph correlation results, possible implication of sign changes"
+      },
+      {
+        "assessment": "NOT_COVERING: independent-edge G(n,p), with edge, 2-star, triangle counts; no isolation count, fixed-m model, or induced motif family.",
+        "evidence": [
+          "Section 5 states its vector is number of edges, two-stars, triangles, and gives covariance matrix (5.1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0912.3425",
+        "material_read": "Full-text HTML, introduction, Section 5 and Section 5.1 covariance matrix",
+        "method": "Read arXiv hosted HTML section with explicit 3-by-3 covariance matrix",
+        "title": "U-statistics and random subgraph counts: Multivariate normal approximation via exchangeable pairs and embedding",
+        "trigger": "Potential broader multivariate covariance result for subgraph counts"
+      },
+      {
+        "assessment": "NOT_COVERING for the present exact mixed-moment claim: single-statistic local limit and anticoncentration estimates do not fix the covariance with total isolated vertices. Potential source of general methods, but no equivalent or stronger exact sign theorem in inspected results.",
+        "evidence": [
+          "Section 4.2 expands induced copy counts with graph factors and proves local limit theorem under restrictions on edge density."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12523",
+        "material_read": "Open-access HTML abstract, introduction, Sections 4.1 and 4.2 including Theorems 4.2 and 4.4",
+        "method": "Read open access publisher HTML and checked graph-factor formulas and exceptional density statements",
+        "title": "Local limit theorems for subgraph counts",
+        "trigger": "Broader modern theory of induced subgraph counts in G(n,m), possible dominating coverage"
+      },
+      {
+        "assessment": "NOT DECISIVELY COMPARABLE from the available material: concerns variance of uninduced H counts in G(n,p), not the fixed-edge induced H versus isolated vertex pair; material access is incomplete.",
+        "evidence": [
+          "Introduction describes an overlay polynomial and variance of copies of a fixed graph in the independent-edge model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2009.11.012",
+        "material_read": "Accessible article introduction, Section 2.1 excerpt and abstract; not a complete full-text read",
+        "method": "Read accessible ScienceDirect text surfaced by scholarly search; direct full page request unavailable",
+        "title": "Variance of the subgraph count for sparse Erdős–Rényi graphs",
+        "trigger": "Possible general overlap polynomial covering exact subgraph moment identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4638b81b-b36f-453d-af61-a466b4211e90",
+  "value": {
+    "rationale": "The connected induced motif/isolation pair probes clustering under a fixed edge budget. This theorem classifies all connected motif types simultaneously through k and h, proves a strict single-transition law and a uniform finite sample onset, and derives the universal induced-tree asymptotic threshold p=1/k. The independent-edge model has the opposite all-negative sign and exposes the structural effect of conditioning on the edge budget. This is more than an ad hoc parameter slice or a table entry.",
+    "status": "PASS"
+  }
+}
