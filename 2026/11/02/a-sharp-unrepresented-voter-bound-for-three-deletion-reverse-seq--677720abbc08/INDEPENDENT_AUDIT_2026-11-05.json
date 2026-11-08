@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:56:40.277074Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One-voter scoring marginal losses are 1/t_j for currently approved deleted candidates and b/(k t_j) for the average surviving winner. Since each actual deletion minimizes loss, five aggregate differences g01,g02,g1w,g12,g2w are <=0. The source supplies a nonnegative rational multiplier vector and explicit 8x2 nonnegative residual table, giving the first deletion bound; later deletions each <=1/(k+1) by two pointwise inequalities. An independently written rational checker verified the dual inequality for all eight deleted-ballot patterns, 0<=b<=k, 2<=k<=40 (finite corroboration only). The displayed symbolic residuals are rationally nonnegative for all integers k>=2 and b>=1. The source constructs integer profiles with n=k(3k+1)(k+2) and attains equality under allowed ties; direct fresh rational scoring verified the 252-voter k=6 example has unique minimum loss x,a,b in order: (62/3 vs127/6), (31 vs63/2), (33 vs100/3). Comparing B_k with 1/k gives exactly k=2..5 guaranteed and k>=6 counterexamples; k=1 follows from zero-loss unsupported alternative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 paper abstract: proportional EJR approximation and three-deletion EJR counterexample; 2017 Aziz proof at most two deletions and >=7-deletion failures."
+        ],
+        "reasoning": "An exact three-deletion unrepresented-voter upper bound is not derivable from these statements as reported; full 2026 details unavailable so possible stronger implication remains explicit risk.",
+        "searches": [
+          "arxiv:2609.35331 RevSeqPAV proportionality approximation guarantees",
+          "Aziz reverse sequential PAV justified representation"
+        ]
+      },
+      "checked_sources": [
+        "https://cgi.cse.unsw.edu.au/~haziz/invseqpav.pdf",
+        "https://arxiv.deeppaper.ai/papers/2609.35331v1",
+        "Resultary: reverse sequential PAV three deletions justified representation sharp bound unelected voter fraction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aziz result for <=2 deletions does not imply a 3-deletion guarantee; k>=5 many-deletion violation does not give a three-deletion example."
+        ],
+        "reasoning": "A 2026 EJR failure with 12 winners and three deletions could still satisfy JR, so it does not contradict the asserted k<=5 JR threshold. An unpublished 2026 stronger inequality may imply the B_k value; unverified due incomplete access.",
+        "searches": [
+          "Aziz 2017 Propositions 1 and 2",
+          "Papasotiropoulos 2026 abstract and secondary overview"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aziz Proposition 1 at most k+2 candidates, Proposition 2 k>=5 and at least k+7 candidates; new claim covers precisely k+3 and an exact fraction."
+        ],
+        "reasoning": "Same voting rule but different deletion count and quantitative objective; EJR violation is not equivalent to an unrepresented JR-violation.",
+        "searches": [
+          "Haris Aziz A Note on Justified Representation Under the Reverse Sequential PAV rule",
+          "Papasotiropoulos 2026 Reverse Sequential PAV 3 deletions JR EJR"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 252-voter strict example and all-k rational B_k are independently calculated from explicit ballots; no previously indexed exact table found."
+        ],
+        "reasoning": "The proposed threshold is a universal bound, not just an empirical 252-voter enumeration. Search failure does not prove novelty.",
+        "searches": [
+          "Resultary RevSeqPAV three deletion exact unrepresented fraction",
+          "arxiv:2609.35331 three deletions EJR"
+        ]
+      },
+      "rationale": "Aziz 2017 proves JR under at most two deletions and gives failure when at least seven deletions; inspected Proposition 2 is not this exactly-three result. Papasotiropoulos 2026 (arxiv 2609.35331) claims three-deletion EJR counterexample and approximate EJR bounds, but full text was inaccessible through the attempted arxiv/OA paths and a further authorized retrieval was safety-blocked. Only its indexed abstract and source package description were available; cannot assert whole-document NON_COVERING. An EJR counterexample need not be a JR counterexample. Best-of-knowledge exact three-deletion fractional bound survives inspected primary Aziz material, with a material priority risk from 2026 source.",
+      "residual_risks": [
+        "Highly relevant 2026 full text was inaccessible; it may imply an equivalent or stronger three-deletion bound despite different EJR focus.",
+        "The sharp family needs tie-breaking; a separate strict profile establishes k=6 counterexample.",
+        "No optimality statement for four or more deletions or EJR is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_TWO_DELETIONS_AND_SEVEN_DELETION_FAILURE_ONLY",
+          "evidence": [
+            "Abstract: JR holds |C|<=k+2; Proposition 2 violates JR for |C|>=k+7."
+          ],
+          "identifier_or_url": "https://cgi.cse.unsw.edu.au/~haziz/invseqpav.pdf",
+          "material_read": "PDF introduction, JR definition, Sections 2–3 including Proposition 1 and Proposition 2 and their parameters, pages 1–5",
+          "method": "Public author-hosted PDF parsed text and screenshots pages 1 and 5",
+          "title": "A Note on Justified Representation Under the Reverse Sequential PAV rule",
+          "trigger": "Direct prior theorem on same voting rule and deletion count boundaries"
+        },
+        {
+          "assessment": "HIGH_PRIORITY_INACCESSIBLE_FULL_TEXT; no whole-document NOT_COVERING determination",
+          "evidence": [
+            "Indexed abstract addresses EJR approximation and proportionality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.35331",
+          "material_read": "Only indexed abstract and secondary paper overview; original full text could not be read",
+          "method": "arXiv PDF/abstract fetch failed, OA secondary page inspected; authorized institutional retrieval safety-blocked, no retry",
+          "title": "Reverse Sequential Proportional Approval Voting Rule: Proportionality and Approximation Guarantees",
+          "trigger": "Same three-deletion count and related EJR axiom"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first sharp quantitative loss fraction with exactly three deletions, its extremizers and the precise JR seat cutoff address the natural open gap between two-deletion guarantees and many-deletion counterexamples. The strict 252-voter witness and dual certificate make the natural bound inspectable without relying on an arbitrary tiny electorate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cgi.cse.unsw.edu.au/~haziz/invseqpav.pdf",
+    "https://arxiv.deeppaper.ai/papers/2609.35331v1",
+    "Resultary: reverse sequential PAV three deletions justified representation sharp bound unelected voter fraction"
+  ],
+  "disposition": "passed",
+  "final_claim": "For exactly k+3 candidates, k>=2, any reverse sequential PAV outcome has max omitted-candidate fully unrepresented approval fraction <=2(2k+1)/((3k+1)(k+2)), with exact equality for every k; JR guaranteed k=2..5 and failure possible k>=6, strict unique-choice 252-voter counterexample at k=6.",
+  "limitations": [
+    "Highly relevant 2026 full text was inaccessible; it may imply an equivalent or stronger three-deletion bound despite different EJR focus.",
+    "The sharp family needs tie-breaking; a separate strict profile establishes k=6 counterexample.",
+    "No optimality statement for four or more deletions or EJR is claimed."
+  ],
+  "schema_version": 1
+}

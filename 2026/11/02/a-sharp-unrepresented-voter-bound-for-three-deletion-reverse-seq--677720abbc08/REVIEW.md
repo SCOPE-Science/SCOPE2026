@@ -1,20 +1,21 @@
-# Scientific review of a sharp three-deletion representation bound
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed deletion history and a voter with deleted-candidate incidence mask and \(b\) winning approvals, the marginal loss of an approved candidate is the reciprocal of the current number of approved remaining candidates. Five nonpositive aggregate loss differences follow by comparing each deleted candidate with available alternatives and the average of the eventual winners. A five-multiplier, nonnegative dual inequality upper-bounds the indicator of approval of the first deleted candidate without representation; the stated eight-mask table expresses the residual, multiplied by \((3k+1)(k+2)\), as nonnegative rational expressions valid for every integer \(k\ge2\) and every \(0\le b\le k\). Separate two-gap inequalities bound representation failure among voters approving either later deletion by \(1/(k+1)\). The sharp family achieves the first bound exactly. The strict 252-voter case has verified positive margins at all three removals. These algebraic statements prove the universal claim; finite checks do not replace them.
+PASS
 
-## Originality — PASS, subject to literature coverage
+One-voter scoring marginal losses are 1/t_j for currently approved deleted candidates and b/(k t_j) for the average surviving winner. Since each actual deletion minimizes loss, five aggregate differences g01,g02,g1w,g12,g2w are <=0. The source supplies a nonnegative rational multiplier vector and explicit 8x2 nonnegative residual table, giving the first deletion bound; later deletions each <=1/(k+1) by two pointwise inequalities. An independently written rational checker verified the dual inequality for all eight deleted-ballot patterns, 0<=b<=k, 2<=k<=40 (finite corroboration only). The displayed symbolic residuals are rationally nonnegative for all integers k>=2 and b>=1. The source constructs integer profiles with n=k(3k+1)(k+2) and attains equality under allowed ties; direct fresh rational scoring verified the 252-voter k=6 example has unique minimum loss x,a,b in order: (62/3 vs127/6), (31 vs63/2), (33 vs100/3). Comparing B_k with 1/k gives exactly k=2..5 guaranteed and k>=6 counterexamples; k=1 follows from zero-loss unsupported alternative.
 
-Aziz's 2017 *A Note on Justified Representation Under the Reverse Sequential PAV Rule* establishes JR when at most two candidates are deleted and gives a distinct JR counterexample requiring at least seven deletions in its construction. Papasotiropoulos, *Reverse Sequential Proportional Approval Voting Rule: Proportionality and Approximation Guarantees* (arXiv:2609.35331v1, first public September 28, 2026), proves EJR for at most two deletions, exhibits a three-deletion EJR failure for twelve winners, and proves a general approximate-EJR bound. The latter yields a looser bound for wholly unrepresented voters than the present sharp three-deletion fraction. An EJR counterexample does not imply a JR counterexample. The first sharp three-deletion unrepresented-voter fraction, five-seat universal JR range, and strict six-seat JR counterexample are not stated or logically implied by the inspected sources. Targeted public-literature and indexed research-record searches did not reveal an equivalent theorem. This is a qualified scientific comparison, not a claim to exhaustive priority or independent validation.
+## originality
 
-## Value — PASS
+PASS
 
-The quantity \(\max_{c
-otin W}U(c,W)/n\) measures the worst possible completely unrepresented cohesive group, directly controlling JR. Its exact extremum is a natural fairness invariant in the smallest deletion budget not already covered by the strong two-deletion theorem. The closed formula identifies a sharp transition between guarantees and failure at six seats, accompanied by a small strict counterexample. It is therefore substantially more informative than an isolated negative instance or a routine reparameterization.
+Aziz 2017 proves JR under at most two deletions and gives failure when at least seven deletions; inspected Proposition 2 is not this exactly-three result. Papasotiropoulos 2026 (arxiv 2609.35331) claims three-deletion EJR counterexample and approximate EJR bounds, but full text was inaccessible through the attempted arxiv/OA paths and a further authorized retrieval was safety-blocked. Only its indexed abstract and source package description were available; cannot assert whole-document NON_COVERING. An EJR counterexample need not be a JR counterexample. Best-of-knowledge exact three-deletion fractional bound survives inspected primary Aziz material, with a material priority risk from 2026 source.
 
-## Closest literature, boundaries and remaining risks
+## value
 
-The closest primary comparisons are the September 28, 2026 paper at https://arxiv.org/html/2609.35331v1 and Aziz's working paper at https://cgi.cse.unsw.edu.au/~haziz/invseqpav.pdf. The claim does not classify the entire approval-profile space, establish an EJR threshold, or control other numbers of deletions. An unindexed or inaccessible equivalent earlier result remains a possible publication-priority risk. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first sharp quantitative loss fraction with exactly three deletions, its extremizers and the precise JR seat cutoff address the natural open gap between two-deletion guarantees and many-deletion counterexamples. The strict 252-voter witness and dual certificate make the natural bound inspectable without relying on an arbitrary tiny electorate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

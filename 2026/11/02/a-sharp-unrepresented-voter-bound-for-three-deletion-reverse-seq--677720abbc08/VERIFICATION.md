@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` in the same extracted directory as `RESULT.md`, using a standard Python 3 runtime; no external packages are needed. The verifier uses exact rational arithmetic and independently recomputes individual ballot gaps, complete symmetric extremal-profile marginal losses, and the strict 252-voter example.
+## correctness
 
-The finite verification output is:
+PASS
 
-```text
-VERIFY_OK exact_dual_ballot_cases= 79632 sharp_family_population_cases= 59 strict_252_voter_deletion_scores= [(0, Fraction(62, 3), Fraction(127, 6)), (1, Fraction(31, 1), Fraction(63, 2)), (2, Fraction(33, 1), Fraction(100, 3))]
-```
+One-voter scoring marginal losses are 1/t_j for currently approved deleted candidates and b/(k t_j) for the average surviving winner. Since each actual deletion minimizes loss, five aggregate differences g01,g02,g1w,g12,g2w are <=0. The source supplies a nonnegative rational multiplier vector and explicit 8x2 nonnegative residual table, giving the first deletion bound; later deletions each <=1/(k+1) by two pointwise inequalities. An independently written rational checker verified the dual inequality for all eight deleted-ballot patterns, 0<=b<=k, 2<=k<=40 (finite corroboration only). The displayed symbolic residuals are rationally nonnegative for all integers k>=2 and b>=1. The source constructs integer profiles with n=k(3k+1)(k+2) and attains equality under allowed ties; direct fresh rational scoring verified the 252-voter k=6 example has unique minimum loss x,a,b in order: (62/3 vs127/6), (31 vs63/2), (33 vs100/3). Comparing B_k with 1/k gives exactly k=2..5 guaranteed and k>=6 counterexamples; k=1 follows from zero-loss unsupported alternative.
 
-The pointwise residual formulas in `RESULT.md` can additionally be checked by symbolic substitution and rational simplification for each of eight candidate-approval masks, separately for zero and positive winner-approval counts; all sixteen identities were so checked. The resulting closed rational identities, together with the stated nonnegative coefficients and aggregate deletion inequalities, constitute the proof for unbounded integer seat counts. Testing finite ranges is neither an exhaustive proof of an infinite claim nor independent scientific certification.
+## originality
 
-The original full scientific source was inspected for its definitions, the two-deletion and three-deletion results, and its approximate-EJR theorem. Literature-search nonappearance is not proof of originality in all possible sources.
+PASS
+
+Aziz 2017 proves JR under at most two deletions and gives failure when at least seven deletions; inspected Proposition 2 is not this exactly-three result. Papasotiropoulos 2026 (arxiv 2609.35331) claims three-deletion EJR counterexample and approximate EJR bounds, but full text was inaccessible through the attempted arxiv/OA paths and a further authorized retrieval was safety-blocked. Only its indexed abstract and source package description were available; cannot assert whole-document NON_COVERING. An EJR counterexample need not be a JR counterexample. Best-of-knowledge exact three-deletion fractional bound survives inspected primary Aziz material, with a material priority risk from 2026 source.
+
+## value
+
+PASS
+
+The first sharp quantitative loss fraction with exactly three deletions, its extremizers and the precise JR seat cutoff address the natural open gap between two-deletion guarantees and many-deletion counterexamples. The strict 252-voter witness and dual certificate make the natural bound inspectable without relying on an arbitrary tiny electorate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
