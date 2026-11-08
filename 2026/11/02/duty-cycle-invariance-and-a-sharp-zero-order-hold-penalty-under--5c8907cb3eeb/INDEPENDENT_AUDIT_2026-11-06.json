@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:43:43.043297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For bounded periodic scalar a,b with inf |b|>0 and positive noise sigma, variation of constants conditional on the sampled state gives R(K)=(G+int_S v)^2+sigma² int_S v² for v=e^(A(tau)-A(s)) b(s)K(s). Splitting v into its constant mean and L²-orthogonal residual uniquely minimizes R at v=-G/(ell+sigma²), giving R_*=G²sigma²/(ell+sigma²) and an admissible shape independent of S placement. Independent increments imply E X_(k tau)²=R^k X0²; bounded within-period moments yield full-time stability iff R<1. Constant-coefficient ZOH square-completion yields ell_ZOH=(2/a)tanh(a tau/2), strict ell_ZOH<tau and ratio (a tau/2)coth(a tau/2). Independent computation at a=tau=1,sigma²=.15 yields shaped 0.963789926<1 versus ZOH 1.031765975>1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Chen arXiv:2609.30438 abstract",
+          "Kabamba 1987 doi:10.1109/TAC.1987.1104711 general sampled holds",
+          "Wang–Fridman 2024 doi:10.1137/22M1538247"
+        ],
+        "reasoning": "Cheng and Chen’s 2026 sampled linear systems with control-linear noise has a more general Riccati criterion and therefore already covers the unrestricted scalar existence question at abstract level. Its full text was inaccessible; it could include a derivation of constrained-window synthesis and cannot be categorically excluded. Kabamba 1987 studies generalized holds in deterministic setting, Wang–Fridman 2024 stochastic PDE LMIs.",
+        "searches": [
+          "Resultary semantic query: Scalar stochastic sampled data control multiplicative actuator noise measurable duty cycle hold waveform noise stability frontier generalized hold",
+          "arXiv:2609.30438",
+          "arXiv:2105.07152",
+          "doi:10.1109/TAC.1987.1104711",
+          "doi:10.1137/22M1538247",
+          "web: Feedback Stabilization for Sampled Linear Systems with Control-linear Noise 2609.30438 full pdf preprint 2026"
+        ]
+      },
+      "checked_sources": [
+        "Git source RESULT.md and check.py at assigned tree",
+        "arXiv:2609.30438 abstract and OA alternatives",
+        "arXiv:2105.07152 overview",
+        "doi:10.1109/TAC.1987.1104711 metadata",
+        "doi:10.1137/22M1538247 abstract",
+        "Resultary semantic results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md section Proof, displayed square-completion identity and ZOH I²/J",
+          "Cheng–Chen abstract only; not used for whole-document NOT_COVERING"
+        ],
+        "reasoning": "A general infinite-horizon Riccati criterion is not itself the explicit optimum with K(s)=0 on an arbitrary prescribed measurable S and time-varying periodic a,b. The exact support-length reduction and shape/ZOH strict comparison follow by an additional L² optimization; historical stronger formulations remain an explicit risk because the closest paper was inaccessible in full.",
+        "searches": [
+          "Resultary semantic query: Scalar stochastic sampled data control multiplicative actuator noise measurable duty cycle hold waveform noise stability frontier generalized hold",
+          "arXiv:2609.30438",
+          "arXiv:2105.07152",
+          "doi:10.1109/TAC.1987.1104711",
+          "doi:10.1137/22M1538247",
+          "web: Feedback Stabilization for Sampled Linear Systems with Control-linear Noise 2609.30438 full pdf preprint 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md Itô isometry plus Hilbert-space orthogonal square",
+          "Cheng–Chen arXiv:2609.30438 abstract: Riccati fixed point necessary/sufficient feedback stabilization"
+        ],
+        "reasoning": "Equivalently this is minimization of a rank-one quadratic functional on L²(S) with multiplicative Brownian actuator noise, subject to a support mask; classical scalar Riccati sampled-feedback stabilizability is only the unmasked existence question. The exact support-length-only invariance is the additional statement.",
+        "searches": [
+          "Resultary semantic query: Scalar stochastic sampled data control multiplicative actuator noise measurable duty cycle hold waveform noise stability frontier generalized hold",
+          "arXiv:2609.30438",
+          "arXiv:2105.07152",
+          "doi:10.1109/TAC.1987.1104711",
+          "doi:10.1137/22M1538247",
+          "web: Feedback Stabilization for Sampled Linear Systems with Control-linear Noise 2609.30438 full pdf preprint 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: Exact stationary covariance and stability factorization for constant-template STORM (different algorithm)",
+          "Resultary: Exact cycle stability frontier for scalar SAM (not sampled actuator noise)"
+        ],
+        "reasoning": "Search of mathematical record corpus produced related stochastic control moments and sampled optimizers but no exact placement-invariant noise/duty-duration table or ZOH sigma-margin ratio. Search failure cannot certify priority.",
+        "searches": [
+          "Resultary semantic query: Scalar stochastic sampled data control multiplicative actuator noise measurable duty cycle hold waveform noise stability frontier generalized hold",
+          "arXiv:2609.30438",
+          "arXiv:2105.07152",
+          "doi:10.1109/TAC.1987.1104711",
+          "doi:10.1137/22M1538247",
+          "web: Feedback Stabilization for Sampled Linear Systems with Control-linear Noise 2609.30438 full pdf preprint 2026"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.",
+      "residual_risks": [
+        "Full 2026 Cheng–Chen paper was unavailable after preprint/OA and institutionally authorized retrieval attempt; it may already include a mathematically equivalent restricted-support special case.",
+        "Older generalized-hold literature was only inspected at abstract level; exact design assumptions (unbounded gain, scalar Itô, fixed waveform) are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved full-text comparison; abstract does cover general sampled-feedback Riccati criterion but does not mention duty support masks, arbitrary placement, or sharp ZOH ratio. No assertion about uninspected sections.",
+          "evidence": "ArXiv abstract states necessary/sufficient mean-square sampled feedback stabilizability via Riccati-type fixed point.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.30438",
+          "material_read": "Full abstract, bibliographic page and open mirror summaries only; attempted arXiv PDF/HTML, lawful open access, then authorized institutional retrieval; complete paper not obtained",
+          "method": "arXiv/alphaXiv abstract and repository OA checks; Oxford retrieval failed without extracted pages",
+          "title": "Feedback Stabilization for Sampled Linear Systems with Control-linear Noise",
+          "trigger": "Identical sampled-state control-linear Brownian actuator noise, strongest plausible prior coverage"
+        },
+        {
+          "assessment": "Lyapunov stabilization results, not demonstrated to imply arbitrary on-set exact noisy actuator optimizer; cannot categorically exclude uninspected detail",
+          "evidence": "2021 stochastic sampled stabilization, different sufficient methodology.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.07152",
+          "material_read": "Abstract and result overview only, not complete article",
+          "method": "Open bibliographic result and source metadata",
+          "title": "On stochastic stabilization of sampled systems",
+          "trigger": "Same broad stochastic sample-and-hold control domain"
+        },
+        {
+          "assessment": "Different deterministic generalized hold problem; uninspected older full text retained as historical priority risk",
+          "evidence": "1987 sampled-data generalized holds / noise rejection.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.1987.1104711",
+          "material_read": "Abstract/metadata only, not full paper",
+          "method": "DOI bibliographic search",
+          "title": "Control of Linear Systems Using Generalized Sampled-Data Hold Functions",
+          "trigger": "Most plausible older hold-shaping and performance framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a motivated actuator allocation and sampled-feedback feasibility problem: precise necessary/sufficient noisy activation duration for arbitrary measurable on-sets with no gain constraint, and a strict quantifiable implementation penalty when waveform shaping is forbidden. It identifies robust-looking placement invariance under explicitly limited assumptions rather than a routine bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar control-linear Brownian noise, regular exact sampling, deterministic period-repeated L² waveform, measurable S, b bounded away from zero, no peak input bound; not matrix/control-jitter/observation-noise generality.",
+    "Full 2026 Cheng–Chen paper was unavailable after preprint/OA and institutionally authorized retrieval attempt; it may already include a mathematically equivalent restricted-support special case.",
+    "Older generalized-hold literature was only inspected at abstract level; exact design assumptions (unbounded gain, scalar Itô, fixed waveform) are essential."
+  ],
+  "schema_version": 1
+}

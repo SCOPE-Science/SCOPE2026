@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** Variation of constants and the Itô isometry give the exact period multiplier. A Hilbert-space complete square proves the lower bound and the unique admissible waveform, including exact support constraints and full continuous-time mean-square stability. Elementary exponential integral identities prove the optimal constant-hold gain and the strict hyperbolic-cotangent shaping advantage. The independent numerical verification script reproduced 23,700 consistency checks; the proof is analytic and does not extrapolate from finite trials.
+## correctness
 
-**Originality (PASS under best-knowledge comparison).** Cheng and Chen (arXiv:2609.30438v1) already prove a broad Riccati sampled-feedback criterion; this prior coverage of unconstrained scalar existence is explicitly acknowledged. The distinct statement optimizes under arbitrary prescribed measurable actuation windows with periodic time-varying coefficients and establishes active-set placement invariance plus an exact ZOH noise-margin penalty. Checked general stochastic sample-and-hold, PDE generalized-hold and communications-channel SNR sources neither explicitly contain nor directly supply the full constrained statement. Publisher abstracts for older papers are not substitutes for their full texts; older equivalent results may exist.
+PASS
 
-**Mathematical value (PASS).** An exact length-only condition separates feasible from infeasible intermittent actuation under input-dependent Brownian noise. The strict shape-versus-ZOH comparison quantifies an implementation restriction, including concrete parameters where one controller class stabilizes and the other cannot. This is a motivated sampling/actuator design threshold, not a generalization to arbitrary stochastic plants.
+For bounded periodic scalar a,b with inf |b|>0 and positive noise sigma, variation of constants conditional on the sampled state gives R(K)=(G+int_S v)^2+sigma² int_S v² for v=e^(A(tau)-A(s)) b(s)K(s). Splitting v into its constant mean and L²-orthogonal residual uniquely minimizes R at v=-G/(ell+sigma²), giving R_*=G²sigma²/(ell+sigma²) and an admissible shape independent of S placement. Independent increments imply E X_(k tau)²=R^k X0²; bounded within-period moments yield full-time stability iff R<1. Constant-coefficient ZOH square-completion yields ell_ZOH=(2/a)tanh(a tau/2), strict ell_ZOH<tau and ratio (a tau/2)coth(a tau/2). Independent computation at a=tau=1,sigma²=.15 yields shaped 0.963789926<1 versus ZOH 1.031765975>1.
 
-**Closest literature and limitations.** Cheng and Chen (2026), arXiv:2609.30438, main sampled-state control-linear-noise Riccati criterion; Osinenko and Yaremenko (2021), arXiv:2105.07152, stochastic sample-and-hold Lyapunov results; Wang and Fridman (2024), doi:10.1137/22M1538247, stochastic-PDE generalized-hold sufficient LMIs; Kabamba (1987), doi:10.1109/TAC.1987.1104711, generalized hold synthesis; Rojas et al. (2018), doi:10.23919/ACC.2018.8431714, communication SNR-constrained holds. The last three were compared at abstract/metadata level only; priority beyond the inspected record remains uncertain. Claims require scalar dynamics, exact regular sampling, a nonzero actuator coefficient, and unrestricted \(L^2\) preprogrammed hold amplitude.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+This solves a motivated actuator allocation and sampled-feedback feasibility problem: precise necessary/sufficient noisy activation duration for arbitrary measurable on-sets with no gain constraint, and a strict quantifiable implementation penalty when waveform shaping is forbidden. It identifies robust-looking placement invariance under explicitly limited assumptions rather than a routine bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
