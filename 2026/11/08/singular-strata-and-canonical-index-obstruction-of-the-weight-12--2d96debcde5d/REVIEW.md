@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Example 3.8 of the cited paper supplies the prime ideal and the cone decomposition. Direct substitutions derive five affine charts, which cover the projective threefold. Hypersurface gradients give the exact line singularities and the two transverse \(A_1\)/\(A_3\) forms; the other charts give rank-one matrix cones over the smooth cubic scroll. The class-group computation \(\operatorname{Pic}(\mathbb F_1)/\mathbb Z[C_0+2F]\) shows that the canonical class is non-torsion at precisely the two isolated points. `VERIFY.py` rechecks the algebraic substitutions and toric orbit rank census, but is not substituted for the geometric proof.
+
+**Originality — PASS, subject to historical priority risk.** The motivating primary full text gives the equations, dimension, normality and nonsmoothness, but the inspected relevant results and searches do not provide the complete reduced singular locus, local types or non-\(\mathbb Q\)-Gorenstein locus. Searches for the same equations, the singular-locus classification, toric weight-twelve aliases, and indexed mathematical findings returned no equivalent; related results for unrelated toric constructions do not imply this precise statement. The input equations make the answer computable, but the classification is not itself recorded in the source inspected. An earlier implicit computation remains possible.
+
+**Value — PASS.** The weight-12 base is the first nonsmooth motivic MZV relation base in the paper's table, so identifying its entire singular geometry is a natural missing geometric invariant. Its two distinct ADE transverse types, their meeting-point local form, isolated scroll-cone vertices, and sharp \(\mathbb Q\)-Gorenstein obstruction characterize the geometry relevant to resolution and canonical-divisor investigations. This is a complete classification for the naturally singled-out first singular case, not an arbitrary coordinate slice.
+
+**Limits.** The singular locus is reduced/set-theoretic; no claim is made about the scheme-theoretic Jacobian locus or other weights. The proof depends on the published prime equations and projective-cone description. Historical novelty and correctness have not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
