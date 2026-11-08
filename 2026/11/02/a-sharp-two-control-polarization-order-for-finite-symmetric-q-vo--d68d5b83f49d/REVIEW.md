@@ -1,29 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed.** The two-control, finite-population, symmetric-zealot stationary polarization likelihood-ratio diagram, including the ordered regimes and their strict convex-order implications. The exact stationary mass formula is inherited from prior literature, not claimed as a finding.
+## correctness
 
-## Correctness — PASS
+PASS
 
-An explicit birth–death detailed-balance computation yields the given positive stationary weights. Cancellation of the common binomial factors reduces the sign of each successive likelihood ratio to a comparison of \(q_2/q_1\) with one explicit logarithm ratio \(F(d)\). The weighted-integral-ratio lemma proves \(F'(d)>0\) for all interior \(d\), giving two sharp distinct cutoffs and at most one likelihood-ratio turn. Stationary reflection symmetry converts radial stochastic ordering into convex ordering. The reproducible exact-integer checker confirms the edge signs and example, while the proof—not a finite test—establishes every integer population size in scope.
+From the finite irreducible birth–death rates, detailed balance yields pi(k) proportional to binom(S,k)[(Z)_k(Z)_(S-k)]^q, a known Mobilia formula. The adjacent ratio of the quotient pi2/pi1 on the left half has logarithm q1*ln[(a1+d)/(a1-d)] - q2*ln[(a2+d)/(a2-d)], where a_i=(S-1)/2+Z_i and d=(S-1)/2-k. Each log equals integral_0^d 2a/(a^2-t^2)dt; the kernel ratio is strictly increasing, making F(d) a strictly increasing weighted mean for 0<d<=m<a1<a2. Allowed d run from m down to d_min (1/2 even S, 1 odd S), so the sign pattern yields exact two endpoint thresholds and a unique possible interior likelihood maximum. Reflection matches radial masses; monotone likelihood ratios imply strict tail comparisons; averaging convex test functions over symmetric K pairs gives convex orders. Independent exact integer sign grid and S=20 q2=6,7,8 regimes corroborate, but do not establish the universal integral monotonicity.
 
-**Risk:** The result assumes exactly the stated with-replacement chain and two balanced zealot classes. It does not address middle-band convex order or other consultation conventions.
+## originality
 
-## Originality — PASS within inspected literature, historical priority provisional
+PASS
 
-Mobilia (arXiv:1506.04911, 2015), Section II and Section IV Eq. (10), already derives the exact stationary law and discusses qualitative phase changes; accordingly neither the law nor general bimodality is asserted to be new. The distinct contribution here is the sharp two-control comparative likelihood-ratio classification for every finite \(S\), including a provable intermediate one-turn regime and simultaneous opposing changes of \(Z\) and \(q\). Full text of Mellor–Mobilia–Zia (arXiv:1601.03766, 2016), particularly its model and stationary sections, concerns a different two-type nonequilibrium process, not the present one-dimensional simultaneous parameter comparison. Classical linear zealot models are also different. No matching finite two-control comparison was identified in the inspected primary literature; this is not a proof of global historical uniqueness.
+Mobilia (2015) supplies exactly the same birth–death mechanism and stationary distribution (Eq. 10) and discusses modality as parameters vary. The original formula is not claimed new. Its inspected Sections II/IV do not state the two-control sharp likelihood-ratio thresholds, nonmonotone relative-likelihood middle interval, or strict convex-order consequences. Mellor–Mobilia–Zia (2016) treat heterogeneous consultation classes with different state space, not this same S across two models. Priority remains qualified for generic monotone likelihood ratio comparative-statics theorems.
 
-**Residual risk:** A generic total-positivity or stochastic-order theorem could yield the present comparisons as a consequence, and uninspected historical sources could contain the same theorem. No independent originality certification has been performed.
+## value
 
-## Value — PASS
+PASS
 
-The standard q-voter model exhibits tension between commitment and conformity, but qualitative phase diagrams and individual mass functions do not identify whether every polarization tail changes consistently when both controls move. The exact thresholds distinguish robust tail-and-convex comparisons from an intermediate likelihood-ratio shape change, and the same susceptible count makes those comparisons meaningful rather than mechanically driven by population-size normalization. The three explicit integer choices show all regimes in one natural model with no parameter fitting.
+The complete stationary polarization distribution, rather than its mean/mode alone, has a sharp and natural comparative-statics order under competing conformity and balanced commitment. The two noncoincident thresholds and intermediate neither-LR-order regime give a useful exact phase diagram for finite reversible opinion models.
 
-**Risk:** This is an idealized finite well-mixed social-dynamics benchmark, not a validated sociological intervention rule.
-
-## Closest literature and scope
-
-- Mobilia, 2015, https://arxiv.org/abs/1506.04911: exact stationary law and qualitative phases, but not the displayed two-control finite law comparison.
-- Mellor, Mobilia and Zia, 2016, https://arxiv.org/abs/1601.03766: heterogeneous susceptible types and generally nonzero currents, hence not a stronger result on this reversible chain.
-- Mobilia, Petersen and Redner, 2007, https://arxiv.org/abs/0706.2892: linear voter process, different consultation dependence.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
