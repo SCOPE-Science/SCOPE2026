@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The result has a full mathematical proof in `RESULT.md`. Use `python artifacts/check.py`; this requires Python >=3.9 and SymPy. The checker independently simulates every initial configuration on the \(2\)-row ladders from \(n=2\) to \(n=9\), for 349,520 configurations in total. It cross-checks the eventual cascade with the three obstruction types and with a separate dynamic transfer count. It then computes the rational symbolic matrix inverse and checks equality with the claimed bivariate generating function as an exact identity. It verifies the minimal seed formulas through \(n=25\) and derives the pole coefficient algebraically.
+## correctness
 
-The full program returned `VERIFY_OK` in the packaged environment. Finite cases support but cannot replace proofs for all \(n\); the symbolic check and proof are the evidence for the global identity, while coefficientwise Laurent extraction and a dominant-pole argument establish the infinite families and asymptotics. Independent audit has not been performed.
+PASS
+
+The complement of a successful seed set contains no stable nonadopter set. In width-two ladders an obstructing component either has a full adjacent-rung square, a full endpoint rung or a vacant path connecting both ends. Recording rung-vacancy mask and left-connected mask gives seven legal states; direct rational matrix inversion yields the stated generating function. Coefficientwise dominant y-exponent extraction yields sharp minimum seeds and their multiplicities, and the unique dominant z-pole at y=1 yields the asymptotic. Independently simulated exact two-neighbor process for n=2..8, checked n=9 count and verified rational transfer generating function coefficients n=1..10.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives statement-level comparison of accessible relevant source material, published Resultary semantic hits, and original proof ingredients; risks below retain uncertainty.
+
+## value
+
+PASS
+
+Provides an exact entire finite-size cascade reliability distribution, optimal seed budget multiplicities and asymptotic for a canonical width-two graph family; a natural self-contained combinatorial census beyond generic transfer-matrix feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
