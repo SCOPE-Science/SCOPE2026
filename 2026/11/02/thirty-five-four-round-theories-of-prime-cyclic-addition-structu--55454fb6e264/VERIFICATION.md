@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem concerns complete rank-four first-order types of relational prime-order cyclic groups. `verify_rank4_cyclic.py` is a standalone Python 3.9+ standard-library checker. It computes orbit-normalized exact types at ranks zero through four; finite arithmetic covers every prime at most 193 (and separately 197 and 211). Its rational-form generator constructs 19 fourth-move candidate forms, 60 hyperplane normals, 46 special third-coordinate functions, and 93 exceptional normalized two-coordinate ratios, and factors their exact cross-determinants. The exceptional-prime set is all primes through 131 together with 157 and 191. These are precisely the primes requiring individual finite checks; none exceeds 191.
+# Independent mathematical audit
 
-An orbit-free implementation, using every ordered tuple rather than scaling orbits, confirms the low-prime results for primes 2, 3, 5, 7, 11 and 13. The numerical boundary computation was carried out in bounded batches, and the rational arrangement and representative cases 137, 157, 191, 193 were replayed from the included verifier. The full one-command run may exceed restricted tool timeouts; it is intended to be run in an unrestricted local shell. Distinct type codes are mathematical distinguishing certificates through the recursive type theorem; the package does not explicitly print a first-order separating sentence for every pair.
+## correctness
 
-The infinite result does not follow from sampling: for primes at least 193, the 93 normalized exceptional ratios remain distinct and each relevant generic extension exists. This gives a direct Duplicator strategy for four rounds. The novelty comparison is qualified because the conclusion conflicts with a published lower-bound claim whose argument reduces all winning strategies to a closed binder. Independent assessment of that conflict is outstanding.
+PASS
+
+Exact nested rank-four first-order types use atomic equality/0/R diagrams and sets of one-point extension types, preserving arbitrary Boolean nesting and quantifier alternation; scaling is an automorphism. For a triple the only nongeneric fourth-move values belong to 19 rational linear forms. The rational arrangement has 60 primitive collision hyperplanes, 46 special-coordinate functions and 93 exceptional slopes. Their pairwise rational cross-determinants have prime divisors exactly all primes at most 131 and 157,191; denominator primes are small. For p>=193, exceptional slopes and generic choices stabilize, giving a four-round Duplicator strategy. Finite type recursion distinguishes each of 34 exceptional primes; targeted independent type computations confirm rank-four roots 137=193 and 157!=193, 191!=193. The source full finite program checks each prime through 193; our independent check did not replay all 47 cases, so that finite all-prime step relies on inspected executable algorithm, not our targeted spot tests. Relational language is essential; no result for a function symbol or composites.
+
+## originality
+
+PASS
+
+No located primary rank-four 35-class table. Gomaa 2007, Theorem 3.3, claims a lower bound m>=n+1 when 2^n<p<2^(n+1), apparently contrary to this explicit p=157 vs193 rank-four separation (n=7); the contradiction is acknowledged and not silently treated as supporting evidence. The thesis proof isolates a fixed binder form and does not visibly cover arbitrary alternating extension patterns. Exact type recursion and the arithmetic arrangement provide an independent reason for the contrary conclusion; however the conflicting published assertion is a high-priority residual scientific risk and not an established correction to Gomaa in general.
+
+## value
+
+PASS
+
+An exact rank-four elementary-equivalence partition of an infinite natural family with rare exceptional characteristics, and a sharp least representative maximum 191, is a motivated finite-model-theory invariant beyond a routine bound increment. The explicit contradiction with a published lower-bound formulation warrants follow-up.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
