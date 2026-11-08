@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every 0<c<=d<1 and 2c^2+d<1, the signed Gram matrix has eigenvalues 1+d and the eigenvalues of [[1,sqrt(2)c],[sqrt(2)c,1-d]], so it is SPD. Exact pair-block minimization leaves a rank-one H-orthogonal residual with Gram G. The maximum eigenvalue of a positive linear combination of three rank-one projections is convex in omission probabilities and invariant under leaf exchange. Symmetrization reduces minimax to p=(a,(1-a)/2,(1-a)/2). The antisymmetric leaf eigenvalue decreases linearly; the larger symmetric-block eigenvalue crosses it uniquely at a=d(1+d)/(2c^2+d^2+3d) and is strictly increasing thereafter by its positive derivative and convexity. Uniform volume sampling follows from equal inverse-Hessian diagonals; the exact strict gap and limiting ratio are analytic identities. The packaged script confirms the algebra and samples 193536 finite cases, without claiming finite testing proves the continuum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rodomanov-Kropotov Eq. (3.5) is a general expression for expected inverse principal-block curvature under determinant-based sampling, not a minimax comparison across omission laws.",
+        "Gower-Richtarik gives general randomized block spectral rates parametrized by distribution; its theory can be used to formulate the optimization but does not solve this signed family."
+      ],
+      "reasoning": "The present formulas are not claimed as new generic spectral frameworks. They optimize a concrete signed-three-vector E-spectral objective with a complete admissible two-parameter domain and compare against the specific determinant law. General formulas do not imply the optimized weights without the nontrivial branch-crossing and monotonicity argument.",
+      "searches": [
+        "arxiv:1904.04587, Lemmas 3.1-3.7, Theorem 3.10 and Section 6",
+        "arxiv:1506.03296, Introduction and general spectral-rate theorem",
+        "web: \"block coordinate descent\" \"star\" \"optimal sampling\" \"largest eigenvalue\""
+      ]
+    },
+    "checked_sources": [
+      "Rodomanov and Kropotov, A Randomized Coordinate Descent Method with Volume Sampling, arXiv:1904.04587 (2019)",
+      "Gower and Richtarik, Randomized Iterative Methods for Linear Systems, arXiv:1506.03296 (2015)",
+      "Related prior mathematical claim, opaque ID e118fcf8-fe26-4446-9cab-ac751657eead"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier claim gives optimal p proportional to signed-G inverse times ones only when signed G is entrywise nonnegative; it also treats a different star-Hessian comparison.",
+        "The present G has offdiagonal pattern (+,+,-), whose cycle product is negative, so no signed G is entrywise nonnegative.",
+        "General block expected-error eigenvalue results characterize the objective but do not yield the stated parameter-dependent minimax law."
+      ],
+      "reasoning": "No inspected prior claim logically entails this complete frustrated-family optimum through its stated hypotheses. The current proof independently solves the eigenvalue minimax and strict determinant-sampling gap. The possibility of an unindexed earlier equivalent specialist design solution remains open.",
+      "searches": [
+        "arxiv:1904.04587 Eq. (3.5), Lemma 3.3, Section 5",
+        "arxiv:1506.03296 Table 1 and Theorem 4.6",
+        "own prior claim ID e118fcf8-fe26-4446-9cab-ac751657eead"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sharp one-step retention is lambda_max(P^(1/2) G P^(1/2)), equivalent to the largest eigenvalue of a mixture of rank-one projections; the result is not a generic gradient-norm guarantee.",
+        "Relevant prior opaque ID e118fcf8-fe26-4446-9cab-ac751657eead has a sign-nonnegative sufficient condition; the current negative cycle prevents that equivalence."
+      ],
+      "reasoning": "Checked inverse-Gram normalization, omitted-coordinate duality and sign conjugation. A diagonal sign switch preserves the product of three off-diagonal signs, which equals -c^2 d, so this family cannot be reduced to the earlier signed-nonnegative criterion.",
+      "searches": [
+        "published-finding corpus: Signed frustrated three-coordinate inverse Gram negative leaf correlation exact optimal leave-one-out block coordinate minimax omission probabilities spectral radius volume sampling versus uniform",
+        "web: \"leave-one-out\" \"coordinate descent\" \"optimal sampling\"",
+        "web: \"coordinate descent\" \"omission\" \"star\" \"minimax\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved mathematical record or primary literature table supplied the exact weights d(1+d):c^2+d:c^2+d or the comparison factor 1+(d^2-c^2)/(3(c^2+d)).",
+        "Closest record was opaque ID e118fcf8-fe26-4446-9cab-ac751657eead, with a different signability hypothesis."
+      ],
+      "reasoning": "The novelty assessment is based on statement-level comparison of retrieved records and inspected sources, not a claim that a failed text query proves absence. E-optimal design references are a residual precedence risk.",
+      "searches": [
+        "published-finding corpus: Block coordinate descent exact one-step worst-case contraction optimized omission probabilities star inverse Hessian correlation threshold",
+        "published-finding corpus: Signed frustrated three-coordinate inverse Gram negative leaf correlation exact optimal leave-one-out block coordinate minimax omission probabilities spectral radius volume sampling versus uniform",
+        "web: \"star covariance\" \"minimize maximum eigenvalue\" probability design"
+      ]
+    },
+    "rationale": "The result is a signed-frustrated three-coordinate exact minimax classification in the c<=d cone. The 2019 volume-sampling paper gives expected inverse principal minor formulas, not optimization among all fixed pair probabilities. The 2015 general randomized iteration theory supplies spectral rates but no signed-triangle minimax formula. The closest previous claim covers sign-conjugate nonnegative Gram matrices, whereas the present product of the three offdiagonal signs is negative. Searches did not locate a dominating exact result; the risk of an earlier equivalent E-optimal-design calculation is explicit.",
+    "residual_risks": [
+      "The full literature of E-optimal signed-vector design could contain an equivalent special case not indexed by the searches.",
+      "The related prior opaque claim was inspected through its recoverable claim statement only, not through a full independent mathematical audit.",
+      "One primary page screenshot returned a server error, although primary text was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines method and general expected descent; no signed-frustrated three-coordinate minimax probability calculation in inspected mathematical material",
+        "evidence": [
+          "Equation (3.5) describes an expectation under volume sampling",
+          "Section 2 describes determinant probabilities",
+          "Section 7 discusses sampling alternatives as further work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.04587",
+        "material_read": "Full text sections on algorithm definition, sufficient decrease, expectation identity (pp. 3-8), main convergence claims, experiments and conclusions (pp. 19-24)",
+        "method": "Inspected arXiv text by page/line and attempted page screenshots",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Exactly the determinant-based coordinate-pair sampling method under comparison"
+      },
+      {
+        "assessment": "General framework includes block sampling; no exact signed-triangle optimizer or gap in inspected material",
+        "evidence": [
+          "Table 1 provides the general rate through lambda_min of an expected sketch matrix",
+          "Sections 1-2 permit arbitrary random sketches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1506.03296",
+        "material_read": "Introduction, six viewpoints, Table 1 and general rate expressions; associated source description",
+        "method": "Read arXiv full document text with page-level inspection and screenshot of page 4",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "General arbitrary-sampling spectral rate framework potentially dominating the new one-step claim"
+      },
+      {
+        "assessment": "General sufficient formula assumes a sign-conjugated entrywise nonnegative inverse Gram; not applicable to a frustrated negative triangle",
+        "evidence": [
+          "Earlier statement explicitly imposes signed entrywise nonnegativity and positivity of inverse times ones",
+          "New sign cycle product is -c^2d<0"
+        ],
+        "identifier_or_url": "e118fcf8-fe26-4446-9cab-ac751657eead",
+        "material_read": "Accessible claim statement (not a full independent manuscript)",
+        "method": "Compared exact domain, sign conditions and conclusion from accessible ledger claim",
+        "title": "Related exact omission-sampling claim",
+        "trigger": "Same residual projection geometry and minimax optimization might subsume the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa6191d1-adb5-4da5-8cab-919cc1e01dae",
+  "value": {
+    "rationale": "The family has a natural antagonistic two-leaf correlation and positively coupled hub; it lies outside the signable regime where existing optimal-sampling formulas are available. In this family volume sampling uses uniformly distributed omission despite nonuniform worst-case error geometry. The full c<=d SPD regime has an explicit globally optimal law, a strict equality boundary at c=d and a sharp 4/3 asymptotic retention gap (3/2 for guaranteed decrement). This is a substantive quantitative sampling-design limitation rather than a single arbitrary parameter example. It makes no claim about multi-step or runtime gains.",
+    "status": "PASS"
+  }
+}
