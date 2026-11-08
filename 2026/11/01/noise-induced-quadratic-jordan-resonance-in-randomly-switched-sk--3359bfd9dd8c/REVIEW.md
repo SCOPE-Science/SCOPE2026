@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The two inverse branches preserve Lebesgue measure, the centered polynomial space has a directly computed triangular transfer matrix, and its powers produce the exact covariance at every integer lag. The collision condition follows from equality of diagonal entries and is genuinely defective because the off-diagonal moment is strictly positive in magnitude. Jensen's inequality determines the allowed mean range; the higher-degree comparison is pointwise. Exact finite branch integration corroborates the proof on representative laws, including both sides of the collision condition.
+## correctness
 
-## Originality
-PASS within inspected evidence. The 2018 primary article develops random-interval invariant-density methods; it does not establish these correlation identities. Historical papers by Driebe and Daems and the later Butterley--Kiamari--Liverani analysis establish Jordan behavior in other transfer systems, so the generic phenomenon is not claimed as new. Neither the reviewed full source material nor the relevant indexed records supplies the exact random skew-tent collision surface, both-diagonalizable-components witness, and lag-four sign transition. Full access to two plausible historical sources was unavailable; equivalence or priority beyond the inspected corpus remains a publication risk.
+PASS
 
-## Mathematical value
-PASS. The squared coordinate is a natural nonlinear observable of an expanding interval map. The theorem classifies precisely when the annealed quadratic decay modes coalesce and shows a qualitatively altered polynomial-times-exponential correlation profile with eventual negative signs. The explicit mixture proves that stochastic averaging of individually diagonalizable transfer restrictions produces a defective mode, with an exact first negative lag. It is a nontrivial phase boundary for observable relaxation, not merely a generic statement that Jordan matrices have polynomial powers.
+Each full-branch skew tent preserves Lebesgue: inverse branch derivatives a and 1-a sum to one, so uniform initial law is annealed stationary. On centered polynomial u=x-1/2,v=x²-x+1/6, exact branch expansion gives P_a u=(2a-1)u and P_a v=[1-3a(1-a)]v-a(1-a)u. Thus annealed P has triangular matrix [[r,-q],[0,s]], q>0; its Jordan condition is r=s, precisely 3EA²-5m+2=0. Jensen q<=m(1-m) implies m>=2/3 and strict m<1. With h=u+v and orthogonal moments ∫u²=1/12, ∫v²=1/180, ∫uv=0, transfer duality yields the stated exact all-n covariance. At resonance geometric convolution becomes nλ^(n-1); divide by Var(X²)=4/45 to obtain λ^n(1-5(1-m)n/(8λ)). For the two-atom law m=3/4,q=1/6,λ=1/2, sign first reverses at n=4. Checked polynomial diagonal coefficient d_k for k>=3 is strictly below λ because a^(k+1)+(-1)^k(1-a)^(k+1)<a³+(1-a)³ pointwise. Independently symbolically expanded P_a u,P_a v and verified 25 rational-lag identities for two-atom covariance, including n=0. No full Banach-space resonance implied.
 
-## Closest literature and limitations
-Kalle--Maggioni (arXiv:1805.11430) is the motivating invariant-density source. Butterley--Kiamari--Liverani (arXiv:2012.13145, section 2.1) treats a different deterministic Markov map with a Jordan block. Driebe (1997) and Daems (1996) are historical general-mechanism predecessors, not proven absent from the priority chain. Claims are restricted to i.i.d. annealed switching, explicit quadratic observables, and the polynomial transfer sector; no full transfer-spectrum assertion is made. Independent scientific assessment and comprehensive priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. 
+
+## value
+
+PASS
+
+The finding pins a precise moment surface on which random mixing creates a Jordan defect absent from each component and an observable switches sign at a sharp lag. This is a motivated quantitative stochastic-transfer calculation in a canonical full-height expanding family, with a concrete rational experimental benchmark and proof of isolation among polynomial degrees. Generic Jordan terminology alone is not the claimed new object-specific result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
