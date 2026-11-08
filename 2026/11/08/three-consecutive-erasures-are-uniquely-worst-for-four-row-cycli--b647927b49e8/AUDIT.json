@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Fourier orthogonality gives the exact Gram reduction; adjacent three-column Gram top eigenvalue is beta_N. For N>=10 an analytic sidelobe bound and strict Perron comparison shows uniqueness. For N=7,8,9 exact rational interval bounds exhaust all nonconsecutive masks and prove spectral separation. Vandermonde independence gives positive retained bounds. The extracted standalone checker actually passed; only its exact rational finite certificate is needed for the small cases, while finite floating checks are corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Two-character arbitrary erasure formulas apply to two-row kernels, so do not imply the four-row eigenvalue.",
+        "Clustered-node Fourier-Vandermonde estimates quantify singular values under separation hypotheses but are not sharp comparisons over all three-point masks, especially N=7,8,9."
+      ],
+      "reasoning": "A stronger result would need to compare all three-column four-row spectral norms uniformly in N. No inspected relevant theorem has that implication. General Vandermonde conditioning bounds and uniform subframe stability do not specify the attained exact constant or equality cases.",
+      "searches": [
+        "Four consecutive Fourier rows cyclic frame three missing coefficients sharp worst case consecutive erasures dimension four",
+        "Four-row harmonic Parseval frame three-erasure Gram eigenvalue largest consecutive positions Vandermonde",
+        "arXiv:1909.01927",
+        "doi:10.1016/j.laa.2018.05.025"
+      ]
+    },
+    "checked_sources": [
+      "Marshall--Waldron arXiv:1611.07121, relevant sections",
+      "Batenkov--Diederichs--Goldman--Yomdin arXiv:1909.01927, main spectral estimates",
+      "Cheng--Lv--Sun DOI:10.1016/j.laa.2018.05.025, abstract only",
+      "Dirckx--Huybrechs--Ongenae arXiv:2208.12583, abstract only",
+      "Published mathematical results: Published mathematical record e1e03f96b6f0: two-character cyclic harmonic frame erasures, Published mathematical record bb8a5601ae6d: singular minors for four-row pattern {0,1,2,4}, Published mathematical record 6fefdbed98ba: four-frequency cyclic Fourier projection norm, Published mathematical record 29fa16b8c55a: positive Fourier sampling at three consecutive sites, Published mathematical record bb69c4d14769: four-frequency determinant optimum",
+      "Relevant previously known three-row erasure bound compared by mathematical implication; no four-row implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An existing three-row three-erasure theorem is not a four-row theorem: its Gram kernel has three Fourier terms, while this statement requires four terms and signed fourth-order sidelobes.",
+        "Published literature on Fourier submatrix SVD supplies methods and numerics, not a verified exact unique worst-mask theorem."
+      ],
+      "reasoning": "The fourth Fourier row changes signed correlations and requires distinct N=7,8,9 certificates. Results for single or two-row frames cannot imply the four-row exact constant via interlacing; their sharp maxima may occur for different configurations. Access limitation to one SVD source is a residual bibliographic risk, not evidence of novelty.",
+      "searches": [
+        "Consecutive four Fourier rows 0 1 2 3 on Z_N, three erased samples, exact retained minimum frame bound and unique contiguous worst masks",
+        "four-by-three Vandermonde equispaced roots of unity maximum spectral norm over all 3-column selections, worst contiguous clusters",
+        "three-erasure robustness of four-dimensional cyclic harmonic frame with U3 Chebyshev Dirichlet kernel, sharp eigenvalue",
+        "arXiv:1611.07121v1",
+        "arXiv:1909.01927",
+        "arXiv:2208.12583"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim is equivalent to maximizing the top eigenvalue of the normalized three-column four-row Fourier/Vandermonde Gram matrix among all three-subsets.",
+        "Marshall--Waldron count harmonic-frame equivalence classes; Batenkov et al. estimate singular values of clustered Vandermonde matrices without identifying this sharp three-mask maximum."
+      ],
+      "reasoning": "Searched equivalent top singular-value, Gram spectral radius, frame-bound, and erasure formulations; neither the original source results nor nearest matched records assert this all-N equality classification.",
+      "searches": [
+        "Consecutive four Fourier rows 0 1 2 3 on Z_N, three erased samples, exact retained minimum frame bound and unique contiguous worst masks",
+        "four-by-three Vandermonde equispaced roots of unity maximum spectral norm over all 3-column selections, worst contiguous clusters",
+        "three-erasure robustness of four-dimensional cyclic harmonic frame with U3 Chebyshev Dirichlet kernel, sharp eigenvalue",
+        "arXiv:1611.07121v1",
+        "arXiv:1909.01927"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published database entry optimizes two-row Fourier frames under arbitrary erasures.",
+        "Another classifies singular maximal minors for nonconsecutive four-row frequencies {0,1,2,4}; another determines an endpoint Fourier projection norm on cyclic groups."
+      ],
+      "reasoning": "These are different row dimensions, row masks, and invariants. The new exact N-dependent three-erasure spectral bound and its unique cyclic-mask count were not found in the matched records or available own-ledger claims.",
+      "searches": [
+        "Consecutive four Fourier rows 0 1 2 3 on Z_N, three erased samples, exact retained minimum frame bound and unique contiguous worst masks",
+        "three point circular concentration four Fourier frequencies extremal eigenvalue clustering",
+        "Published mathematical record e1e03f96b6f0: two-character cyclic harmonic frame erasures",
+        "Published mathematical record bb8a5601ae6d: singular minors for four-row pattern {0,1,2,4}",
+        "Published mathematical record 6fefdbed98ba: four-frequency cyclic Fourier projection norm"
+      ]
+    },
+    "rationale": "Exact four-row three-erasure spectral-radius formula with all-order unique cyclic extremizers was not implied by matched source statements. The two-row theorem and the stored three-row erasure theorem use different Gram kernels; Vandermonde cluster estimates are not the sharp finite classification. One relevant full text was unavailable, so historical priority remains provisional.",
+    "residual_risks": [
+      "An earlier equivalent special-case Fourier-matrix singular-value result may exist under alternate notation or outside indexed sources.",
+      "The full text of Dirckx--Huybrechs--Ongenae could not be examined despite lawful access attempts.",
+      "The Cheng--Lv--Sun full article was not accessible; assessment relied on its accessible abstract."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the present frame family, but its theorems count classes and equivalences rather than erasure spectral extrema",
+        "evidence": "arXiv:1611.07121v1 (2016-11-22), published DOI:10.1016/j.acha.2018.02.004; explicitly primary MSC 42C15.",
+        "identifier_or_url": "https://arxiv.org/abs/1611.07121",
+        "material_read": "Abstract, introduction, harmonic character construction, the main theorem, and enumerative result sections",
+        "method": "Read available original article online and publisher open text",
+        "title": "On the number of harmonic frames",
+        "trigger": "Foundational cyclic harmonic-frame construction and classification"
+      },
+      {
+        "assessment": "Supplies broad clustered-node spectral estimates; no exact optimization over three distinct points on every finite cyclic grid",
+        "evidence": "arXiv:1909.01927 (2019-09-04), DOI:10.1016/j.laa.2020.08.034.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.01927",
+        "material_read": "Full-text introduction and main theorems/estimates for clustered-node singular values",
+        "method": "Examined open preprint PDF, its assumptions, stated results, and relevant main sections",
+        "title": "The spectral properties of Vandermonde matrices with clustered nodes",
+        "trigger": "Potential dominating sharp clustered-submatrix singular-value result"
+      },
+      {
+        "assessment": "Uniformity of subframe bounds is not the exact worst spatial mask for fixed 4-row cyclic Fourier frames; cannot exclude a hidden special case",
+        "evidence": "DOI:10.1016/j.laa.2018.05.025.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.025",
+        "material_read": "Accessible abstract and bibliographic summary; full mathematical text not inspected",
+        "method": "Reviewed available summary of hypotheses and scope",
+        "title": "Frames of uniform subframe bounds with applications to erasures",
+        "trigger": "Broader erasure/frame-bound theorem"
+      },
+      {
+        "assessment": "Comparison limited. Reported thrust is computation of SVD rather than an exact all-placements extremal erasure theorem; an unexamined special result is still possible",
+        "evidence": "arXiv:2208.12583; DOI:10.1007/s10915-023-02171-z.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.12583",
+        "material_read": "Abstract, bibliographic information and paper descriptions only; full text inaccessible",
+        "method": "Attempted lawful preprint and open-access routes; no full text was obtained or read",
+        "title": "On the Computation of the SVD of Fourier Submatrices",
+        "trigger": "Closely related Fourier submatrix singular-value computation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b647927b-49e8-41f5-bf39-0dc7ac6f68b4",
+  "value": {
+    "rationale": "The exact sharp adversarial three-erasure stability of the canonical four-character cyclic frame, including unique mask geometry and all orders N>=7, is a naturally motivated spectral invariant for robust Fourier measurements. The fourth-row oscillatory kernel and exceptional finite orders make this nontrivial and not a cosmetic change to two- or three-row formulas.",
+    "status": "PASS"
+  }
+}
