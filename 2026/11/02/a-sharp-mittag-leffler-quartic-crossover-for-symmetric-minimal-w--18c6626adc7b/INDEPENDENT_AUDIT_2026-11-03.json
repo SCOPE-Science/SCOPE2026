@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:02:08.306821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on movement count K_n=m, T_n is exactly m^(-1/2) times a fair-sign sum. The package gives an exponential tilt with rate I(y)=y²/2+y^4/12+O(y^6), tilted uniform Berry–Esseen with controlled lattice error, and relative normal-tail comparison showing r_m(x)->exp(-d^4/12) whenever x/m^(1/4)->d finite. A real Theorem 1 by Juškevičius–Šileikis supplies uniform absolute-martingale-to-Gaussian-tail factor 2e³/9; symmetry transfers this to one-sided tails, including small m. Combined with cited a.s. positive W_p movement clock convergence, bounded convergence proves the random mixture, sequential uniformity and both tails. Independent binomial evaluations at m=10^3,...,10^6 corroborate but do not prove the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Liu–Lu 2026 introduction treats fixed-size cumulant corrections including fourth order",
+          "Liang 2026 abstract identifies the minimal walk and normal approximation; exact critical symmetric mixture not present in material read",
+          "General log-scale MDP for random sums is weaker than a relative-to-normal tail formula"
+        ],
+        "reasoning": "The known fixed-n and logarithmic results cannot, without a separate argument controlling the nonconcentrating K_n and small-clock tails, determine the stated ratio. Full Liang theorem text is inaccessible, leaving explicit risk of stronger coverage.",
+        "searches": [
+          "Liang 2026 minimal random walk random step sizes self normalized moderate deviations arxiv 2610.29156",
+          "Liu Liu Lu arxiv 2610.29078 higher order Cramer Petrov dependence",
+          "Eichelsbacher Lowe 2017 moderate deviations random sums"
+        ]
+      },
+      "checked_sources": [
+        "Liang, arXiv:2610.29156v1 (abstract only; full text inaccessible)",
+        "Liu–Liu–Lu, arXiv:2610.29078v1 PDF introduction",
+        "Juškevičius–Šileikis, arXiv:2610.31449v1 Theorem 1 full PDF page 1",
+        "Eichelsbacher–Löwe, arXiv:1705.03837 (topic/source description)",
+        "Resultary semantic published-finding query on Mittag–Leffler quartic minimal-walk tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martingale comparison provides only a uniform bound, not an asymptotic equality",
+          "Fixed sample tilt expansion yields e^(-d^4/12) but has no random clock; clock convergence alone has no relative integrable bound without comparison"
+        ],
+        "reasoning": "The claimed limit requires combination of an existing quartic expansion with clock convergence and a universal relative-tail envelope; none of these component inputs alone implies the mixture. General random-sum expansions may imply it and are residual risk.",
+        "searches": [
+          "Juškevičius Šileikis arxiv 2610.31449 Theorem 1 Gaussian comparison",
+          "Liang 2610.29156 minimal walk relative tail q=0",
+          "Petrov Rademacher fourth order correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearest results are other random-walk concentration and moderate-deviation phenomena, not this quartic nonconcentrating clock mixture",
+          "Fixed m Rademacher relative-tail correction e^(-x^4/(12m)) is classical, explicitly excluded from originality"
+        ],
+        "reasoning": "Same statistic can be reformulated as S_{K_n}/sqrt(K_n) with independent signs, so random-sum moderate deviations are the main equivalence risk. Retrieved records did not establish the exact E e^(-c^4/(12W_p)) law.",
+        "searches": [
+          "Resultary: minimal random walk random step sizes symmetric Rademacher self-normalized moderate deviations Mittag Leffler quartic critical scale n p/4",
+          "minimal random walk random index Cramer Petrov Rademacher Mittag Leffler mixing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published table or formula surfaced in targeted published finding results",
+          "Known W_p moments r!/Gamma(1+pr) alone do not identify the conditional normal-tail quotient"
+        ],
+        "reasoning": "This is an asymptotic law rather than a finite table; checked for exact expression in published finding search. No hit is not proof of absence.",
+        "searches": [
+          "Resultary Mittag Leffler quartic symmetric minimal random walk critical tails",
+          "Rademacher stopped random sum self normalized n p quarter exact profile"
+        ]
+      },
+      "rationale": "Fixed-sample sign-sum Cramér–Petrov quartic behavior and Gaussian martingale domination are known inputs, and the exact minimal-walk model was published immediately beforehand. The asserted novelty is the mixed, nonconcentrating Mittag–Leffler critical profile plus uniform polynomial-relative range for the symmetric positive two-point step law. Best-of-knowledge PASS is qualified by unavailable full text of the closely related minimal-walk paper and general random-index tail theorems.",
+      "residual_risks": [
+        "Closest Liang 2026 article could not be inspected in full; do not infer whole-document NOT_COVERING from its abstract.",
+        "An older general random-index Cramér expansion may imply this very special mixed profile after standard conditioning.",
+        "The positivity and normalization of the Mittag–Leffler movement limit are externally cited rather than reproved in the package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 bounds absolute martingale terminal tails by (2e^3/9) times Gaussian absolute tail; applies to Rademacher sums and is an input, not a new discovery",
+          "evidence": "Theorem 1 on page 1 states P(||M_n||>=x) <= (2e^3/9)P(|Z_n|>=x)",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31449",
+          "material_read": "Primary full-text PDF first page including Theorem 1, mathematically inspected with page image",
+          "method": "Visual PDF text and theorem inspection",
+          "title": "Concentration inequalities for vector-valued martingales",
+          "trigger": "Needed uniform relative Gaussian tail envelope across small random movement clocks"
+        },
+        {
+          "assessment": "Higher-order tails and quartic correction are known; not a random minimal-walk clock mixture theorem",
+          "evidence": "Introduction eqs (1.2)–(1.3), discussion of skewness and n^(1/4) range",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29078",
+          "material_read": "Introduction and Cramér–Petrov discussion in primary full-text PDF, including page 2 displayed equation (1.3)",
+          "method": "PDF text and page-image inspection",
+          "title": "Refined Cramér-type moderate deviations by Stein’s method under dependence",
+          "trigger": "Fixed-sample quartic correction is acknowledged as prior"
+        },
+        {
+          "assessment": "Potentially important closest source; its summarized logarithmic sufficient regime and nonsymmetric counterexample do not themselves establish or refute exact symmetric quartic mixture; full comparison remains material risk",
+          "evidence": "Public abstract and supplied cited theorem labels 2.5, 2.6 and Lemma 3.1; theorem text not independently checked",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29156",
+          "material_read": "Accessible public abstract and description; arXiv HTML/PDF and other lawful OA full-text attempts unsuccessful; authorized institutional retrieval was safety blocked",
+          "method": "Primary abstract only; NOT whole-paper inspection",
+          "title": "Normal approximation and self-normalized moderate deviations for the minimal random walk with random step sizes",
+          "trigger": "Exact same minimal random walk clock and random-step normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between logarithmic guarantees and the sharp polynomial relative-normal range is substantive for a nonconcentrating random-clock model. The explicit Mittag–Leffler mixture at the transition gives a non-Gaussian correction to Gaussian tail inference and a natural, quantitatively sharp boundary in stochastic approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liang, arXiv:2610.29156v1 (abstract only; full text inaccessible)",
+    "Liu–Liu–Lu, arXiv:2610.29078v1 PDF introduction",
+    "Juškevičius–Šileikis, arXiv:2610.31449v1 Theorem 1 full PDF page 1",
+    "Eichelsbacher–Löwe, arXiv:1705.03837 (topic/source description)",
+    "Resultary semantic published-finding query on Mittag–Leffler quartic minimal-walk tails"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed p in (0,1), delta in (0,1), symmetric two-point positive step sizes, q=0 minimal walk and centered noise T_n only; no result for full position or x/n^(p/4)->infinity.",
+    "Positive Mittag–Leffler limit and universal comparison are imported established results; absolute originality against random-index theorems remains qualified.",
+    "Closest Liang 2026 article could not be inspected in full; do not infer whole-document NOT_COVERING from its abstract.",
+    "An older general random-index Cramér expansion may imply this very special mixed profile after standard conditioning.",
+    "The positivity and normalization of the Mittag–Leffler movement limit are externally cited rather than reproved in the package."
+  ],
+  "schema_version": 1
+}
