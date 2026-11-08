@@ -1,19 +1,21 @@
-# Scientific review — sharp phase law for two-patch culling
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The model, positive parameter domain, order of jumps, and one-period return map are explicit in `RESULT.md`. Matrix-exponential algebra establishes the exact trace defect \(B\sinh(\kappa\delta)\sinh(\kappa(T-\delta))\) and invariant determinant. Strict positivity and the positive determinant yield two distinct positive Floquet eigenvalues; trace monotonicity at fixed determinant and hyperbolic reflection prove the unique minimizing and maximizing phases. The threshold law \(H=1+\Delta\) follows for \(\Delta<1\). The exact rational half-period example independently proves genuine phase-induced stability reversal. Replaying `check.py` gave 9,005 successful finite assertions; this code is supplemental to, not a replacement for, the analytic proof. Degenerate zero migration or absent culling is outside the strict claim.
+PASS
 
-## Originality: PASS within inspected evidence, with residual priority risk
+Write G=τI+K with K²=κ²I, κ=sqrt(((a-d)/2)²+bc)>0. Consequently e^{Gt}=e^{τt}(coshκt I+(sinhκt/κ)K). Expanding D1=I-(1-s1)P1, D2=I-(1-s2)P2 in tr(e^{G(T-δ)}D2e^{Gδ}D1) and cycling yields Hδ=H0+B sinhκδ sinhκ(T-δ), B=(1-s1)(1-s2)bc e^{τT}/κ²>0. The determinant Δ=s1s2 exp((a+d)T)>0 is phase-independent. Positive monodromy entries imply positive distinct eigenvalues, so Perron root rises strictly with Hδ. Hyperbolic-product symmetry uniquely fixes the extrema. The threshold for Δ<1 is H=1+Δ, and Δ≥1 excludes decay. Independently computed e^{Gt} for 160 randomly generated matrices and verified exact rational example q=97/100, tr(0)=97/80, tr(T/2)=3977/3200, det=9409/40000, and opposite signs versus 1+det. This is a complete symbolic proof, not sampling inference.
 
-Terry (2010) treats independent culls for a delayed, stage-structured two-patch pest population. Georgescu, Dimitriu and Sinclair (2010) develop a simultaneous two-patch impulse and Floquet framework for an SI pest model. The full texts of both works were inspected; neither contained the exact universal phase trace identity and stability interval for the claimed constant-generator local-cull setting. Browne, Smith and Bourouiba (2014, Theorem 5) prove a local synchrony optimum for a different pulse-vaccination SIR model under identical-patch/no-infected-movement assumptions, with numerical phase effects in broader settings. Their full text was inspected and does not imply the present all-asymmetric direct-cull constant matrix trace identity. Ives and Settle (1997) and Byers and Castle (2005) establish qualitative synchrony and pest dispersal ideas, including simulation evidence for stronger synchronized control; these are acknowledged as already known. Ranked searches of published mathematical results  showed no directly covering theorem. The 2005 and 1997 full articles were not available, and an unknown stronger general positive-matrix result remains a historical-priority risk; search absence is not novelty proof.
+## originality
 
-## Value: PASS
+PASS
 
-This classification provides a sharp all-parameter finite-form intervention-timing law for two exchanging patches and an exact culling-phase threshold at which pest eradication becomes pest growth without changing overall spray strength or frequency. That is a substantive, interpretable consequence for a classical spatial pest-management model, not a parameter substitution or bare illustrative computation. The result does not make empirical, nonlinear eradication, or economic-cost claims.
+The qualitative benefit of synchronized pest treatment is known, as are Floquet methods for periodic impulses and synchrony results in certain SIR pulse vaccination models. The specific claim is the global all-parameter trace identity and exact phase ordering in a constant irreducible two-dimensional Metzler dispersal system with independently pulsed survival diagonals, including unequal growth/exchange/cull strengths. The examined relevant two-patch SI work and vaccination results use different state and pulse structures and do not imply this sharp formula.
 
-## Limits of verification
+## value
 
-Analytical arguments were checked directly; numerical and rational evidence were reproduced from the standalone package. The scientific review is not independent and cannot certify complete historical priority. The proof controls a constant-coefficient, two-patch linearization only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In coupled populations the timing of fixed-strength controls can change the sign of the leading invasion multiplier. The explicit universal timing extrema, exact stability phase window and rationally auditable reversal example solve a natural intervention-timing question rather than a narrow arbitrary calculation, while making no empirical or nonlinear eradication assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

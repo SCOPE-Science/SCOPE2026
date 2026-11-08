@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write G=τI+K with K²=κ²I, κ=sqrt(((a-d)/2)²+bc)>0. Consequently e^{Gt}=e^{τt}(coshκt I+(sinhκt/κ)K). Expanding D1=I-(1-s1)P1, D2=I-(1-s2)P2 in tr(e^{G(T-δ)}D2e^{Gδ}D1) and cycling yields Hδ=H0+B sinhκδ sinhκ(T-δ), B=(1-s1)(1-s2)bc e^{τT}/κ²>0. The determinant Δ=s1s2 exp((a+d)T)>0 is phase-independent. Positive monodromy entries imply positive distinct eigenvalues, so Perron root rises strictly with Hδ. Hyperbolic-product symmetry uniquely fixes the extrema. The threshold for Δ<1 is H=1+Δ, and Δ≥1 excludes decay. Independently computed e^{Gt} for 160 randomly generated matrices and verified exact rational example q=97/100, tr(0)=97/80, tr(T/2)=3977/3200, det=9409/40000, and opposite signs versus 1+det. This is a complete symbolic proof, not sampling inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Terry uses juvenile/adult structure and delay; Georgescu uses an SI integrated pest model and concurrent spraying matrix; Browne obtains local synchrony optimum under symmetric/no-infected-migration assumptions."
+        ],
+        "reasoning": "Neither the local symmetric result nor a simultaneous-control Floquet existence calculation implies the exact all-asymmetric trace identity and global phase order.",
+        "searches": [
+          "Terry 2010 two-patch adult culling",
+          "Georgescu et al. 2010 full mathematical article",
+          "Browne et al. 2014 Theorem 5",
+          "two patch impulses independent culling staggered phase Floquet Perron multiplier synchrony theorem"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, check.py and pinned Git identities",
+        "Georgescu–Dimitriu–Sinclair 2010 primary full text",
+        "Terry 2010 primary abstract/model",
+        "Browne et al. 2014/2015 preprint/theorem context",
+        "Byers and Castle 2005 abstract",
+        "Resultary semantic query: two patch impulses independent culling staggered phase Floquet Perron multiplier synchrony theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known work motivates phase effects and Floquet analysis, but its pulse map is not e^{G(T-δ)}D2e^{Gδ}D1 for a constant G with arbitrary a,d and b,c>0."
+        ],
+        "reasoning": "Existing qualitative synchronized-treatment benefits do not imply the unique maximizer at T/2 or its exact κ-hyperbolic correction in this fixed direct-cull model.",
+        "searches": [
+          "Georgescu et al. 2010 paper full text",
+          "Browne et al. 2014 local synchrony theorem",
+          "Terry 2010 structured culling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem is a Perron/Floquet product inequality for e^{G(T-δ)}D2e^{Gδ}D1.",
+          "Browne et al. study vaccination pulses changing susceptible trajectories, not fixed linear diagonal multiplication on the infected-state semigroup."
+        ],
+        "reasoning": "These timing formulations share a phase variable, but distinct state dimensions and response structures prevent automatic reduction of the result to the existing SIR synchrony theorem.",
+        "searches": [
+          "two patch impulses independent culling staggered phase Floquet Perron multiplier synchrony theorem",
+          "Georgescu–Dimitriu–Sinclair 2010 Floquet two patch impulse",
+          "Browne–Smith–Bourouiba arXiv:1309.0265"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact phase data in the new claim: H0=97/80,Hhalf=3977/3200,Δ=9409/40000, threshold signs -909/40000 and +607/80000.",
+          "Prior ecological simulation comparisons of timing do not tabulate this exact fixed-generator all-parameter two-state identity."
+        ],
+        "reasoning": "A missing exact matching table is not itself novelty evidence; the mathematical distinction is the explicit global analytic bound and threshold classification.",
+        "searches": [
+          "two patch impulses independent culling staggered phase Floquet Perron multiplier synchrony theorem",
+          "Byers–Castle 2005 synchrony versus asynchronous pest control"
+        ]
+      },
+      "rationale": "The qualitative benefit of synchronized pest treatment is known, as are Floquet methods for periodic impulses and synchrony results in certain SIR pulse vaccination models. The specific claim is the global all-parameter trace identity and exact phase ordering in a constant irreducible two-dimensional Metzler dispersal system with independently pulsed survival diagonals, including unequal growth/exchange/cull strengths. The examined relevant two-patch SI work and vaccination results use different state and pulse structures and do not imply this sharp formula.",
+      "residual_risks": [
+        "A broader previously published 2x2 positive-matrix pulse rearrangement inequality could imply the trace ordering in one step.",
+        "Ives–Settle 1997 and Byers–Castle 2005 full articles were not available for theorem-by-theorem negative comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deals with SI model and spraying via simultaneous matrix, not the direct asynchronous 2x2 local multiplicative pulse trace identity.",
+          "evidence": [
+            "Georgescu, Dimitriu and Sinclair (2010), J. Biological Systems 18, 535–569, DOI 10.1142/S0218339010003561"
+          ],
+          "identifier_or_url": "https://math.etti.tuiasi.ro/pg/papers/JBS10.pdf",
+          "material_read": "Accessible full primary text: model equations, impulsive control mechanism, Floquet and threshold sections, theorem statements.",
+          "method": "Read primary PDF with page screenshots and relevant sections",
+          "title": "Impulsive control of an integrated pest management model with dispersal between patches",
+          "trigger": "Same pests, dispersal and impulsive Floquet framework"
+        },
+        {
+          "assessment": "Stage-structured delayed model and biologically richer dynamics; no universal claim here that its full document lacks some related matrix inequality.",
+          "evidence": [
+            "Terry (2010), J. Math. Biology 61, 843–875"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-009-0325-0",
+          "material_read": "Available primary abstract, model description and relevant theorem context; full text not independently re-read in this run.",
+          "method": "Primary bibliographic/abstract material, prior contextual detailed report",
+          "title": "Impulsive culling of a structured population on two patches",
+          "trigger": "Same two-patch independently pulsed culling"
+        },
+        {
+          "assessment": "Local synchrony optimum in different SIR vaccination structure and specific symmetry assumptions.",
+          "evidence": [
+            "Browne, Smith and Bourouiba (2014/2015), Theorem 5; arXiv:1309.0265"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.0265",
+          "material_read": "Available primary description and Theorem 5 statement from source comparison; complete paper not independently re-read here.",
+          "method": "Preprint and relevant theorem context",
+          "title": "From regional pulse vaccination to global disease eradication",
+          "trigger": "Same optimization of pulse phase in a two-region periodic model"
+        },
+        {
+          "assessment": "Already reports qualitative synchrony benefit in simulated dispersing pests; not evidence of all-parameter constant-matrix trace law.",
+          "evidence": [
+            "Byers and Castle (2005), J. Economic Entomology 98, 1763–1773"
+          ],
+          "identifier_or_url": "https://doi.org/10.1603/0022-0493-98.6.1763",
+          "material_read": "Primary abstract only, full source not read.",
+          "method": "Publisher bibliographic/abstract",
+          "title": "Areawide models comparing synchronous versus asynchronous treatments for control of dispersing insect pests",
+          "trigger": "Closest same application and qualitative timing message"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In coupled populations the timing of fixed-strength controls can change the sign of the leading invasion multiplier. The explicit universal timing extrema, exact stability phase window and rationally auditable reversal example solve a natural intervention-timing question rather than a narrow arbitrary calculation, while making no empirical or nonlinear eradication assertion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, check.py and pinned Git identities",
+    "Georgescu–Dimitriu–Sinclair 2010 primary full text",
+    "Terry 2010 primary abstract/model",
+    "Browne et al. 2014/2015 preprint/theorem context",
+    "Byers and Castle 2005 abstract",
+    "Resultary semantic query: two patch impulses independent culling staggered phase Floquet Perron multiplier synchrony theorem"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all irreducible two-patch Metzler growth matrices and two positive fixed local survival fractions, the Floquet multiplier is uniquely minimized by simultaneous pulses and maximized by half-period staggered pulses, with exact trace law, threshold phases and a rational stability-switch example.",
+  "limitations": [
+    "Constant-coefficient two-dimensional irreducible Metzler linearization; one diagonal cull per patch per T, s_i in (0,1).",
+    "Local linear stability only, not global nonlinear pest elimination or field-control effectiveness."
+  ],
+  "residual_risks": [
+    "A broader previously published 2x2 positive-matrix pulse rearrangement inequality could imply the trace ordering in one step.",
+    "Ives–Settle 1997 and Byers–Castle 2005 full articles were not available for theorem-by-theorem negative comparison."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Deals with SI model and spraying via simultaneous matrix, not the direct asynchronous 2x2 local multiplicative pulse trace identity.",
+      "evidence": [
+        "Georgescu, Dimitriu and Sinclair (2010), J. Biological Systems 18, 535–569, DOI 10.1142/S0218339010003561"
+      ],
+      "identifier_or_url": "https://math.etti.tuiasi.ro/pg/papers/JBS10.pdf",
+      "material_read": "Accessible full primary text: model equations, impulsive control mechanism, Floquet and threshold sections, theorem statements.",
+      "method": "Read primary PDF with page screenshots and relevant sections",
+      "title": "Impulsive control of an integrated pest management model with dispersal between patches",
+      "trigger": "Same pests, dispersal and impulsive Floquet framework"
+    },
+    {
+      "assessment": "Stage-structured delayed model and biologically richer dynamics; no universal claim here that its full document lacks some related matrix inequality.",
+      "evidence": [
+        "Terry (2010), J. Math. Biology 61, 843–875"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s00285-009-0325-0",
+      "material_read": "Available primary abstract, model description and relevant theorem context; full text not independently re-read in this run.",
+      "method": "Primary bibliographic/abstract material, prior contextual detailed report",
+      "title": "Impulsive culling of a structured population on two patches",
+      "trigger": "Same two-patch independently pulsed culling"
+    },
+    {
+      "assessment": "Local synchrony optimum in different SIR vaccination structure and specific symmetry assumptions.",
+      "evidence": [
+        "Browne, Smith and Bourouiba (2014/2015), Theorem 5; arXiv:1309.0265"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1309.0265",
+      "material_read": "Available primary description and Theorem 5 statement from source comparison; complete paper not independently re-read here.",
+      "method": "Preprint and relevant theorem context",
+      "title": "From regional pulse vaccination to global disease eradication",
+      "trigger": "Same optimization of pulse phase in a two-region periodic model"
+    },
+    {
+      "assessment": "Already reports qualitative synchrony benefit in simulated dispersing pests; not evidence of all-parameter constant-matrix trace law.",
+      "evidence": [
+        "Byers and Castle (2005), J. Economic Entomology 98, 1763–1773"
+      ],
+      "identifier_or_url": "https://doi.org/10.1603/0022-0493-98.6.1763",
+      "material_read": "Primary abstract only, full source not read.",
+      "method": "Publisher bibliographic/abstract",
+      "title": "Areawide models comparing synchronous versus asynchronous treatments for control of dispersing insect pests",
+      "trigger": "Closest same application and qualitative timing message"
+    }
+  ]
+}
