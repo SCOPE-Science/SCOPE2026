@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "m>=2, n=2m",
+        "split coordinate pairing fixed, not coordinate-invariant degree band",
+        "conditional uniform probability on Q=0",
+        "m=2 zero eigenvalue and m>=3 positive definiteness"
+      ],
+      "proof_sources": [
+        "RESULT.md, exact harmonic decomposition, signed swap, nullity and extremal-root proof (blob 16341509538c501fa26808632bf35c7213d80b5c)",
+        "artifacts/verify.py script inspected, blob 2159827df4dbed56e5d169622bb58e1c109d810b",
+        "Independent full binary-point Gram enumeration and eigenvalue comparisons m=2,3,4"
+      ],
+      "rationale": "Quadratic Gauss sum gives |X_m|=2^(2m-1)+2^(m-1) and conditional Gram DGD=(2^m I+PW)/(2^m+1), with P the pair swap and W the Hamming-ball Krawtchouk (-1)^|A∩B| matrix. The symmetric-group rank0/1/2 decomposition yields a 3x3 trivial-sector cubic p_n, a 2x2 standard-sector quadratic with s±, and +4 pair-harmonic sector. P signs give the displayed multiplicities; the m=2 nullity-one and m>=3 injectivity also follow by testing Boolean monomials on Q(x)=0. Sylvester criterion and evaluation p_n(-s_-) establish sharp extremes. Independently formed direct full Walsh Gram matrices from all X_m, obtaining agreement of all eigenvalues for m=2,3,4 at <=1.56e-15 and expected boundary nullity. This does not extrapolate finite checks to general m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bent-function and Clifford Cayley graph methods describe full Walsh transform and strongly regular graphs.",
+          "Quadratic-band Hamming-shell spectrum concerns a constant-weight shell, not the binary quadratic-zero set."
+        ],
+        "reasoning": "Bigger ambient classes studied with different operators do not supply the specific compression spectrum.",
+        "searches": [
+          "bent function Cayley graphs split quadratic binary Walsh degree two Reed Muller sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95",
+          "arxiv:1504.02827"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95",
+        "arxiv:1504.02827"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published first-band result has a 1+n dimensional Gram matrix and excludes degree-two characters.",
+          "Current nontrivial P*W decomposition yields Johnson pair-harmonic modes and cubic which do not occur in first-band formula."
+        ],
+        "reasoning": "No immediate implication of the complete degree-two multiplicity and condition-number formula from prior first-band or Cayley graph findings.",
+        "searches": [
+          "quadratic Walsh character sampling split hyperbolic binary quadric degree two Gram spectrum full rank",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "arxiv:1504.02827"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sampling problem is restriction of the Reed–Muller order-2 character band to a hyperbolic quadratic zero set, equivalently a bandlimited Gram diagonalization.",
+          "Prior published quadric theorem explicitly concerns only constant+linear Walsh characters."
+        ],
+        "reasoning": "First-degree sampling cannot imply all degree-two eigenvalues or the m=2 rank boundary.",
+        "searches": [
+          "quadratic Walsh character sampling split hyperbolic binary quadric degree two Gram spectrum full rank",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "arxiv:1504.02827"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first-band quadric theorem includes matched-pair graph eigenvalues but matrix dimension is n+1, not 1+n+choose(n,2).",
+          "No exact degree-two split-quadric spectral table present in the retrieved records."
+        ],
+        "reasoning": "Different band size and different index set make the older table non-dominating.",
+        "searches": [
+          "quadratic Walsh character sampling split hyperbolic binary quadric degree two Gram spectrum full rank",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison, not conclusive historical priority. No immediate implication of the complete degree-two multiplicity and condition-number formula from prior first-band or Cayley graph findings.",
+      "residual_risks": [
+        "Association-scheme or punctured Reed–Muller literature may express an equivalent degree-two restricted spectrum under a different basis; full historical coverage cannot be guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First-band only; explicitly excludes higher degrees",
+          "evidence": [
+            "n+1 dimensional operator and matched-pair graph eigenvalues"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "material_read": "Full RESULT.md: definition of degree-one band, transfer to signed graph, four-coordinate census and paired spectrum",
+          "method": "GitHub published blob read",
+          "title": "Dual symplectic graphs govern first-Walsh-band sampling on binary quadrics",
+          "trigger": "Same binary quadratic zero set and conditional Walsh sampling"
+        },
+        {
+          "assessment": "Cayley/strongly regular graphs rather than degree-two restricted Walsh Gram operator",
+          "evidence": [
+            "No 1+n+choose(n,2) band spectrum in inspected material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02827",
+          "material_read": "Open-access arXiv full-text selections: main graph construction and quadratic function sections",
+          "method": "arXiv full-text material inspection",
+          "title": "Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory",
+          "trigger": "Generic bent quadratic Walsh spectrum"
+        },
+        {
+          "assessment": "Domain is Hamming shell, not quadratic zero-set",
+          "evidence": [
+            "published summary specifies shell-equation nullspace and n-square resonance"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95",
+          "material_read": "Resultary summary only",
+          "method": "semantic search record",
+          "title": "Square-dimension spectral resonances for quadratic-band Walsh concentration on Hamming shells",
+          "trigger": "Same Walsh bandwidth, possible equivalent scheme result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact harmonic decomposition, signed swap, nullity and extremal-root proof (blob 16341509538c501fa26808632bf35c7213d80b5c)",
+        "Published first-band result has a 1+n dimensional Gram matrix and excludes degree-two characters."
+      ],
+      "rationale": "Sharp spectrum and uniform conditioning for a natural bandlimited inverse problem on a classical split quadratic variety, with a nontrivial rank transition at four variables. Complete all-dimensional classification and equality modes exceed a generic bent-transform identity.",
+      "residual_risks": [
+        "Does not describe arbitrary linear changes of coordinates or Walsh degrees >=3."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>=2, n=2m",
+    "split coordinate pairing fixed, not coordinate-invariant degree band",
+    "conditional uniform probability on Q=0",
+    "m=2 zero eigenvalue and m>=3 positive definiteness",
+    "Association-scheme or punctured Reed–Muller literature may express an equivalent degree-two restricted spectrum under a different basis; full historical coverage cannot be guaranteed.",
+    "Does not describe arbitrary linear changes of coordinates or Walsh degrees >=3."
+  ],
+  "schema_version": 1
+}

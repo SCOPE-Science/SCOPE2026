@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the quadratic Walsh sampling spectrum
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` with NumPy and SymPy installed. The checker independently enumerates all split-quadric sample points for parameters \(m=2,3,4,5\) and recomputes the Walsh evaluation matrix and every Gram entry exactly after clearing integer denominators. It separately computes the predicted spectral multisets and compares them with direct matrix eigenvalues, checks exact ranks, and verifies the cubic-characteristic-polynomial, Sylvester-determinant, and polynomial-division identities symbolically.
+## correctness
 
-The recorded successful run reported 5,110 exact Gram entries, 126 spectral values, four polynomial identities across finite parameter values, and four rank checks. The symbolic and analytic proof in `RESULT.md` establishes the universal theorem; this program corroborates specific dimensions only. No outside audit or independently performed certification is claimed.
+PASS
+
+Quadratic Gauss sum gives |X_m|=2^(2m-1)+2^(m-1) and conditional Gram DGD=(2^m I+PW)/(2^m+1), with P the pair swap and W the Hamming-ball Krawtchouk (-1)^|A∩B| matrix. The symmetric-group rank0/1/2 decomposition yields a 3x3 trivial-sector cubic p_n, a 2x2 standard-sector quadratic with s±, and +4 pair-harmonic sector. P signs give the displayed multiplicities; the m=2 nullity-one and m>=3 injectivity also follow by testing Boolean monomials on Q(x)=0. Sylvester criterion and evaluation p_n(-s_-) establish sharp extremes. Independently formed direct full Walsh Gram matrices from all X_m, obtaining agreement of all eigenvalues for m=2,3,4 at <=1.56e-15 and expected boundary nullity. This does not extrapolate finite checks to general m.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison, not conclusive historical priority. No immediate implication of the complete degree-two multiplicity and condition-number formula from prior first-band or Cayley graph findings.
+
+## value
+
+PASS
+
+Sharp spectrum and uniform conditioning for a natural bandlimited inverse problem on a classical split quadratic variety, with a nontrivial rank transition at four variables. Complete all-dimensional classification and equality modes exceed a generic bent-transform identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
