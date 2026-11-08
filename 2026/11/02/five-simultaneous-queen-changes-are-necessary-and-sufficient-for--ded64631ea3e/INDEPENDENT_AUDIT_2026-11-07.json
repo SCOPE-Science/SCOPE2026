@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:57:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each valid placement has exactly one queen per row and column, so is a permutation with pairwise distinct i+p_i and i-p_i. Exhausting all 8!=40320 permutations yields 92 states; pairwise Hamming distances exhaust 4186 unordered pairs. Independently rebuilt both threshold graphs and exact-five graph; all-source BFS returned G4=168 edges, components [84,2,2,2,2], G5=464 edges and pair distances 464,2002,1704,16 and eccentricities 68 at 3,24 at 4; exact-five=296 edges and pair distances 296,1178,1968,720,24 and eccentricities 68 at 4,24 at 5. These are complete finite-state proofs for the defined 8x8 board, not a statement for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1303.1879 and arXiv:1402.4880 enumerate nonattacking placements via inside-out geometry",
+          "arXiv:0808.4003 count solutions by randomized transpositions"
+        ],
+        "reasoning": "General solution counting and permutation-space mixing do not imply exact connectivity in the induced 92-state feasible-only Hamming graph; these are different edge sets.",
+        "searches": [
+          "N queens solution space connectivity legal queen reposition Markov chain 8 queens",
+          "q queens problem square board inside-out polytope enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0808.4003",
+        "https://arxiv.org/abs/1303.1879",
+        "https://www.combinatorics.org/files/v26i4p45/08x08_5Qi.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang–Ma 2008 considers random swap search including attacking states",
+          "Chaiken et al. 2013–2014 count placement solutions, not the induced metric"
+        ],
+        "reasoning": "The asserted exact threshold cannot be deduced from general counts or a chain on a larger state space without checking feasible adjacency; independently performed such exhaustive check.",
+        "searches": [
+          "Zhang Ma Counting Solutions for N queens Latin square problems Monte Carlo permutations",
+          "Chaiken Hanusa Zaslavsky q-Queens I and II square board"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:0808.4003 swaps over unrestricted permutations including infeasible states",
+          "Q1 full solution-state and shortest-path enumeration in assigned RESULT.md"
+        ],
+        "reasoning": "A Hamming-neighbor graph restricted to fully feasible configurations differs from local-search transpositions through possibly attacking arrangements; no located source states the five-change threshold or distance profile.",
+        "searches": [
+          "eight queens solution reconfiguration minimum simultaneous moved queens graph connected Hamming distance feasible placements 8 queens",
+          "eight queens puzzle swap transform solution configurations without attacking intermediate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent graph exhausts 4186 unordered pairs and reconstructs two distance polynomials",
+          "classical 92 solutions and 12 symmetry orbits predating claim"
+        ],
+        "reasoning": "The known solution count is not the claimed graph invariant, and no located reference supplied the present component and shortest-path tables; failed discovery is not priority proof.",
+        "searches": [
+          "8 queens 92 solutions mobility distance table 464 2002 1704 16",
+          "graph of eight queens solutions Hamming distance components"
+        ]
+      },
+      "rationale": "The 92-state enumeration itself is classical; the assessed claim is the minimal feasibility-preserving simultaneous reconfiguration threshold and full exact graph metrics. The available original queens enumeration and Monte Carlo papers do not imply a feasibility-preserving step graph or these distances, and searches of chess reconfiguration/exchange terminology did not reveal an equivalent table. Unindexed historical reconfiguration work remains a priority risk.",
+      "residual_risks": [
+        "Unindexed solution-reconfiguration or chess-placement-mobility literature could contain equivalent graph metrics.",
+        "The claim is only for the standard eight-queen board and simultaneous endpoint-valid changes, not legal sequential queen moves or all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different chain permits diagonal conflicts and targets solution counts",
+          "evidence": "arXiv:0808.4003 abstract, 2008/2009",
+          "identifier_or_url": "https://arxiv.org/abs/0808.4003",
+          "material_read": "Abstract and methodological summary, not verified full article",
+          "method": "publisher/arXiv metadata and source record comparison",
+          "title": "Counting Solutions for the N-queens and Latin Square Problems by Efficient Monte Carlo Simulations",
+          "trigger": "Related swaps and solution counts"
+        },
+        {
+          "assessment": "Enumerative inside-out framework, not the feasibility-preserving shortest-path graph",
+          "evidence": "arXiv:1303.1879; arXiv:1402.4880",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1879",
+          "material_read": "Public abstracts and theorem descriptions; no full paper reading",
+          "method": "arXiv metadata/abstract reading",
+          "title": "A q-Queens Problem. I. General Theory and II. The Square Board",
+          "trigger": "Possible dominating fixed-board enumeration"
+        },
+        {
+          "assessment": "Dominating five-queen placements are a different object from 92 nonattacking eight-queen solutions",
+          "evidence": "Electronic Journal of Combinatorics 26(4), 2019",
+          "identifier_or_url": "https://www.combinatorics.org/files/v26i4p45/08x08_5Qi.html",
+          "material_read": "Accessible appendix introductory descriptions and board configurations",
+          "method": "public journal appendix HTML",
+          "title": "Domination of the rectangular queens graph",
+          "trigger": "Same chessboard queen placement terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classical eight-queens feasible configuration space is a natural finite reconfiguration object, and sharp k-step connectivity, exceptional components, exact shortest paths and an exactly-five restriction answer a meaningful constrained-mobility question. These quantities are not obtained merely by knowing 92 solutions or their dihedral orbit count; the finite census is exact and complete rather than an arbitrary sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the complete 92-solution eight-queens state space, the graph connecting feasible placements differing on at most five occupied squares is connected, whereas the four-change graph has components 84,2,2,2,2; G5 diameter four and exact-five graph diameter five with all stated shortest-path enumerators.",
+  "limitations": [
+    "Unindexed solution-reconfiguration or chess-placement-mobility literature could contain equivalent graph metrics.",
+    "The claim is only for the standard eight-queen board and simultaneous endpoint-valid changes, not legal sequential queen moves or all n."
+  ],
+  "schema_version": 1
+}

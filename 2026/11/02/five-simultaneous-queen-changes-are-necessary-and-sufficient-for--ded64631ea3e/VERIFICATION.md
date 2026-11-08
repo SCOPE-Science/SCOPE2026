@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The supplied programs require Python 3 and only its standard library. From the directory containing the extracted files run `python3 verify_permutations.py certificate.json` and then `python3 verify_bitboards.py certificate.json`.
+## correctness
 
-The permutation checker examines all \(40320\) candidates and all \(4186\) unordered pairs of the resulting \(92\) valid configurations, recomputes the entire threshold-four and threshold-five adjacency tables, performs complete traversals and all-source breadth-first searches, checks the symmetry orbit, and reconstructs the exactly-five-exchange graph. The bitboard checker independently generates \(92\) placements through diagonal masks, uses population counts of board-symmetric differences for the exchange rule, separately constructs and traverses the required graphs, recomputes distance statistics, and crosschecks the shipped certificate neighbor sets.
+PASS
 
-Replayed checks yielded `PERMUTATION_EXHAUSTIVE_PASS` and `BITBOARD_INDEPENDENT_PASS`. The computed values are \(168\) threshold-four edges with component orders \(84,2,2,2,2\), \(464\) threshold-five edges with radius \(3\) and diameter \(4\), and \(296\) exactly-five-change edges with radius \(4\) and diameter \(5\). The full threshold-five unordered-pair distance profile is \((464,2002,1704,16)\).
+Each valid placement has exactly one queen per row and column, so is a permutation with pairwise distinct i+p_i and i-p_i. Exhausting all 8!=40320 permutations yields 92 states; pairwise Hamming distances exhaust 4186 unordered pairs. Independently rebuilt both threshold graphs and exact-five graph; all-source BFS returned G4=168 edges, components [84,2,2,2,2], G5=464 edges and pair distances 464,2002,1704,16 and eccentricities 68 at 3,24 at 4; exact-five=296 edges and pair distances 296,1178,1968,720,24 and eccentricities 68 at 4,24 at 5. These are complete finite-state proofs for the defined 8x8 board, not a statement for all n.
 
-This is a complete finite calculation, not a general-board proof. Two programs give a useful crosscheck but are not independent scholarly validation. The external audit status remains not performed.
+## originality
+
+PASS
+
+The 92-state enumeration itself is classical; the assessed claim is the minimal feasibility-preserving simultaneous reconfiguration threshold and full exact graph metrics. The available original queens enumeration and Monte Carlo papers do not imply a feasibility-preserving step graph or these distances, and searches of chess reconfiguration/exchange terminology did not reveal an equivalent table. Unindexed historical reconfiguration work remains a priority risk.
+
+## value
+
+PASS
+
+The classical eight-queens feasible configuration space is a natural finite reconfiguration object, and sharp k-step connectivity, exceptional components, exact shortest paths and an exactly-five restriction answer a meaningful constrained-mobility question. These quantities are not obtained merely by knowing 92 solutions or their dihedral orbit count; the finite census is exact and complete rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
