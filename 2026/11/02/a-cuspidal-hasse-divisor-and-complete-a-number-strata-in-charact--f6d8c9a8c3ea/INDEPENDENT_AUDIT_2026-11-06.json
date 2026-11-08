@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:55:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hyperelliptic Cartier matrix H_ij=[x^(7i-j)]f^3, i,j=1..5, was independently reconstructed. Polynomial arithmetic modulo 7 verifies det(H)=-9ab^3(2c^5+b(a^2-b)(a^2+b)^2) and decisive minor -3b^3c^4. Smoothness implies b!=0. For c!=0 rank>=4; for c=0 the five sparse entries are independent except at a^2+b=0, giving rank3. F is Eisenstein at b, coprime to a; F_c=3c^4, and at b=-a^2!=0,c=0 the transverse germ has unit*u^2+2c^5, hence A4. The two components meet transversely where a=F=0. Independent symbolic reconstruction verified the determinant and minor; the package GF7 checker exhausts 343 finite-field triples, though finite checking cannot prove the geometric k-point assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1902.05992, abstract and introduction explicitly fix x^(2g+1)+a*x^(g+1)+b*x"
+        ],
+        "reasoning": "Novoselov’s general genus-2-to-7 discussion is restricted to x^(2g+1)+a*x^(g+1)+b*x (c=0 here), so it covers at most a parameter slice, not the full c-dependent Hasse divisor or transverse A4 cusps. General Cartier theory supplies the method but not this factorization.",
+        "searches": [
+          "Resultary semantic query: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp; primary sources: arXiv:1902.05992, abstract and introduction explicitly fix x^(2g+1)+a*x^(g+1)+b*x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Hasse RESULT.md, verify_symbolic.py and verify_primefield.py (actual blobs)",
+        "arXiv:1902.05992",
+        "arXiv:1703.03516",
+        "Resultary semantic search: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Novoselov arXiv:1902.05992 Sections 1-2",
+          "Frozen RESULT.md exact 5x5 matrix"
+        ],
+        "reasoning": "The specialization c=0 of the family is contained in Novoselov’s setting, but no statement limited to that plane implies a surface Hasse component F=0, the full smooth a-number partition, or A4 cusp along b=-a^2,c=0. The polynomial determinant and singular derivative comparison is the missing implication.",
+        "searches": [
+          "Resultary semantic query: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp; primary sources: Novoselov arXiv:1902.05992 Sections 1-2, Frozen RESULT.md exact 5x5 matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Novoselov arXiv:1902.05992 Section 2 Cartier matrix",
+          "Frei arXiv:1703.03516 hyperelliptic a-number context"
+        ],
+        "reasoning": "The a-number equals g minus Cartier rank, and Hasse–Witt versus Cartier–Manin matrices are dual/transposed up to Frobenius; these are standard equivalences, not new. The claim concerns determinant components, singularities and rank strata for an explicit four-term family.",
+        "searches": [
+          "Resultary semantic query: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp; primary sources: Novoselov arXiv:1902.05992 Section 2 Cartier matrix, Frei arXiv:1703.03516 hyperelliptic a-number context"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:1902.05992 tables for g up to 7",
+          "Resultary semantic search: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp"
+        ],
+        "reasoning": "Published genus-small hyperelliptic Cartier and Frobenius tables for the three-monomial family were sought. They cannot tabulate nonzero c in this four-term family; an unindexed table of the exact four-monomial family remains a genuine residual risk.",
+        "searches": [
+          "Resultary semantic query: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp; primary sources: arXiv:1902.05992 tables for g up to 7, Resultary semantic search: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final result is retained after direct scope/implication comparisons and meaningful reading, with identified prior machinery and explicit inaccessible-source risks. No failed search is treated as a novelty proof.",
+      "residual_risks": [
+        "A specialized earlier four-monomial Cartier determinant or singularity calculation may be unindexed.",
+        "The coefficient-marked surface is not a statement about moduli-space distinct isomorphism classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same underlying Cartier methodology and c=0 specialization, but cannot imply the c!=0 determinant surface and cuspidal singularities",
+          "evidence": [
+            "arXiv:1902.05992 p.1 fixes 3-monomial equation; sections 1-2 discuss its Cartier matrix"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.05992",
+          "material_read": "22-page PDF: title, abstract, introduction, Section 1 decomposition and Section 2 Cartier scope inspected",
+          "method": "web parsed PDF and page-1 screenshot",
+          "title": "Counting points on hyperelliptic curves of type y^2=x^(2g+1)+a*x^(g+1)+bx",
+          "trigger": "Closest exact genus-five three-monomial precursor"
+        },
+        {
+          "assessment": "Contextual broad work, no verified exact four-term char7 cusp statement",
+          "evidence": [
+            "arXiv:1703.03516 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.03516",
+          "material_read": "Bibliographic abstract and theorem description, not full paper",
+          "method": "arxiv indexed metadata",
+          "title": "The a-number of hyperelliptic curves",
+          "trigger": "Broader a-number theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This family-specific Hasse divisor has two components, one with an explicitly located cuspidal locus encoding exactly the a-number-2 jump. The exact stratification and local A4 geometry are meaningful natural invariants for families of hyperelliptic Jacobians, not a routine statement of the generic Cartier coefficient formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Hasse RESULT.md, verify_symbolic.py and verify_primefield.py (actual blobs)",
+    "arXiv:1902.05992",
+    "arXiv:1703.03516",
+    "Resultary semantic search: genus five hyperelliptic characteristic seven a-number Hasse Witt x11+a x6+c x3+b x Cartier determinant strata cusp"
+  ],
+  "disposition": "passed",
+  "final_claim": "In characteristic seven the genus-five family y^2=x^11+a x^6+c x^3+b x has a complete 0/1/2 a-number partition on the smooth coefficient locus, and nonordinary Cartier determinant divisor V(a) union V(F), with an A4-cuspidal singular curve where a-number is 2.",
+  "limitations": [
+    "Only smooth degree-11 marked models over algebraically closed k with char 7; not p-rank, Newton polygons or isomorphism types.",
+    "Independent exact symbolic coefficient/jet identities plus repository finite GF7 census; no finite test used to infer geometric integrality."
+  ],
+  "residual_risks": [
+    "A specialized earlier four-monomial Cartier determinant or singularity calculation may be unindexed.",
+    "The coefficient-marked surface is not a statement about moduli-space distinct isomorphism classes."
+  ],
+  "schema_version": 1
+}
