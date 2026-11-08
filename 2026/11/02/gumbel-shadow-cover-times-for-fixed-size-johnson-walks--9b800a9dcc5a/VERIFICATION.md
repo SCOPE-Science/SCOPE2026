@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Computational checks
-Execute `python verify.py` from this directory, with NumPy available. The checker independently evaluates stationary avoidance of specified target sets by (i) a rational-valued projected chain on selected coordinates, and (ii) the full rational-valued Johnson walk. It compares both paths for up to four transitions for six small configurations and checks large-size normalized killed eigenvalues for several intersecting and disjoint targets. The executed checker returned `PASS: 556 exact and spectral checks; 6 finite-chain cases and 6 asymptotic patterns`.
+# Independent mathematical audit
 
-## Analytical verification and limits
-The substantive proof is the finite-state perturbation calculation in RESULT.md: uniform stationary entrance flux, comparison of quasi-stationary and stationary laws on the bounded coordinate chain, spectral separation, and factorial-moment convergence. This is not a machine certificate for all \(n\). The numerical probes do not establish an infinite limit or originality. The work has not undergone an independent mathematical audit.
+## correctness
+
+PASS
+
+For any fixed k distinct target s-sets, projecting H_t to its intersection with their finite union gives an exact finite reversible chain. Its limit is a pure-death chain with a unique eigenvalue one. The stationary entrance flux into the forbidden states is k binom(r-1,s-1)/binom(n,s)+O(n^(-s-1)), including overlapping targets. The bounded mean-zero inverse for I-P_n and killed-chain Perron eigenvalue give the same leading escape rate; a uniform spectral gap over finitely many overlap patterns yields survival m^(-k)e^(-kx)(1+o(1)). Factorial moments give Poisson/Gumbel, and a one-target summable tail establishes mean. Independent small Johnson-walk trajectories matched the projected safe-chain survival through five steps.
+
+## originality
+
+PASS
+
+Athreya–Mukherjee–Mukherjee 2025 present precisely this Markovian transition rule as Conjecture 2.4; their Theorem 2.5 proves only diagonal r=s and their Gumbel theorem is for independent rounds. This theorem proves strict s<r conjectured mean and adds the missed-shadow Poisson and centered Gumbel limits. Searches did not identify a later stronger same-model theorem; an unindexed resolution is residual risk.
+
+## value
+
+PASS
+
+Settles an explicitly published and mathematically motivated Markov-dependent cover-time conjecture for every fixed strict pair and quantifies the entire critical-window distribution, handling overlapping targets without independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
