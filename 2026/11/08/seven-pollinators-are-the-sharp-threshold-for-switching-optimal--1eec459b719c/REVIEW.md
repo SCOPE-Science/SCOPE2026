@@ -1,0 +1,15 @@
+# Scientific review
+
+**Correctness — PASS.** Hall's theorem reduces the simultaneous one-pollinator-per-plant feasibility event to seven explicit inequalities. Integer counting gives an exact Bernstein-basis reliability polynomial for each network. A complete enumeration of every nonempty pollinator-neighborhood multiset with at most seven pollinators establishes uniform coefficientwise-dominant additions below seven and classifies all 24 exceptions at seven. The exceptional gains are exact small vectors, and their factorizations yield the unique \(1/2\) or \(2/3\) switch. Direct assignment enumeration checks the exhibited witness independently of Hall.
+
+**Originality — PASS on the inspected record; historical priority not independently certified.** Earlier pollination-robustness studies motivate failures and rewiring but do not formulate capacity-limited simultaneous service via a plant-covering matching. The closest full-text mathematical work on left-perfect matchings studies random construction degree distributions, not the best one-link augmentation of an already fixed graph under independent right-vertex loss. A full-text robust-matching augmentation treatment uses adversarial single-edge removal, not stochastic pollinator loss. Existing network node-reliability works focus on connectivity. Related literature may contain an equivalent reliability identity or classification under alternative terminology, so historical-priority risk remains. No full-text claim is inferred from an abstract alone.
+
+**Value — PASS.** A fixed budget of one new mutually compatible interaction is a natural small conservation-network design idealization, and simultaneous service with finite-capacity providers differs materially from independent plant coverage. The sharp seven-pollinator threshold and complete exceptional-guild classification show precisely when a recommendation can reverse as survival probability changes, rather than merely enumerating a random small graph. The model is theoretical and not an empirical management prescription.
+
+## Closest sources and residual scope
+
+Dietzfelbinger–Rink (arXiv:1203.1506, 2012): optimal random incidence degree distributions, not fixed-network augmentation. Hommelsheim–Mühlenthaler–Schaudt (arXiv:1805.01299; STACS 2019): adversarial edge failure and minimum multi-link cost, not reliability ranking under right-vertex failures. Kaiser-Bunbury et al. (Ecology Letters, 2010): ecological re-wiring under extinction, not the capacity-limited full-service threshold. Sha–Steiglitz (Networks, 1993): failure-time matching repair, not selecting a single pre-failure incidence. Olesen et al. (PNAS, 2007): ecological background. Related specialized reliability literature remains a priority risk.
+
+Scientific limitation: only three plants, one added link, identical independent pollinator survival and unit service capacity. The cutoff is complete only for up to seven pollinators. Source-access limitations and an absent independent audit are not concealed.
+
+Self-review: passed. Independent audit: not yet performed.
