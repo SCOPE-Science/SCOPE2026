@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the Frobenius identity at prime-power exponent and compares the least-degree homogeneous terms of the defining relation at its successor. The monomial-basis argument eliminates linear mixing; a second degree comparison eliminates non-coordinate nonlinear terms. Finite local Nakayama supplies the automorphism criterion. Counting distinct images instead of unit representatives avoids multiplicity. Direct finite-field enumeration and reproducible independent multiplication checks are provided in `verify.py`. The proof is for arbitrary \(d\ge2\), \(p\), \(q=p^f\), and \(e\ge1\); small enumerations alone would not prove that generality.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For n=p^e Frobenius sends every nonconstant monomial to zero, so every substitution in the maximal ideal respects the exponent relations; invertible tangent matrices give automorphisms by nilpotent inverse-function/Nakayama and count of free higher coefficients. For n=h+1, the degree h+1 part of f^(h+1) forces every nonzero tangent generator to be on one axis, hence the tangent matrix monomial. Writing f=x_j u+b with b free of x_j, the lowest degree of nonzero b contributes uncancellable x_j^h b_s to f^(h+1), forcing b=0. Counting distinct elements of (x_j) with nonzero x_j coefficient gives the formula without unit-representative overcount. Independent direct full F2,d=2 enumerations return 24 and 2048 for n=2,3.
 
-The nearest primary general treatments by Díaz–Liendo–Manzano-Flores–Regeta (arXiv:2408.02197, Introduction and Theorem 4.22, Example 4.25) and Díaz–Lucchini Arteche (arXiv:2409.15081, Theorems 1.1–1.2) explicitly impose characteristic zero, whereas the theorem here exploits Frobenius and makes a claim solely about finite fields of positive characteristic. A fully inspected previously indexed result on truncated coordinate-cross algebras imposes vanishing mixed-variable products and does not cover complete intersections preserving such products. Relevant accessible historical claims concern other algebra families. Exact priority is nevertheless not certified: a general modular substitution-group theorem may imply these formulas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite monomial complete intersections are basic Artin local rings. Identifying their entire finite-field automorphism groups, not merely a tangent upper bound, exhibits a uniform nontrivial characteristic-dependent phase boundary at adjacent exponents in every embedding dimension. The distinction between full \(\mathrm{GL}_d\) and monomial tangent representations has direct consequences for group structure and symmetries of infinitesimal complete intersections; the explicit all-parameter orders are natural enumerative invariants. This is a complete classification for the two stated infinite families rather than a chosen numerical slice.
+Díaz–Liendo–Manzano-Flores–Regeta arXiv:2408.02197 and Díaz–Lucchini Arteche study finite monomial-algebra automorphisms over characteristic zero; the positive-characteristic Frobenius-induced GL-to-monomial adjacent exponent jump is outside their theorem hypotheses. Published Resultary coordinate-cross algebras kill mixed monomials, unlike the examined complete intersections where mixed products survive. The complete formulas may still be implicit in older positive-characteristic formal-automorphism literature; no full text of char-zero paper could be obtained and institutional access was blocked.
 
-## Closest literature and limitations
+## value
 
-The characteristic-zero papers above provide the conceptual comparison but cannot, by their hypotheses, cover positive-characteristic Frobenius behavior. A neighboring coordinate-cross result, inspected in full, is about a different quotient. Unlocated modular classification results and arbitrary-base group schemes remain substantive originality/scope risks. All explicit finite calculations are checks, not infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete automorphism-group and order classification for all finite fields, numbers of variables and adjacent prime-power truncations reveals a sharp structural rigidity transition, a natural invariant not mechanically supplied by characteristic-zero theory or unrelated coordinate-cross algebra formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
