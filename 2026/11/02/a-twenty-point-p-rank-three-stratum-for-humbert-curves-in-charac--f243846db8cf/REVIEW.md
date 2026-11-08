@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The prime-to-five elliptic-factor isogeny reduces the Hasse--Witt question to five genus-one Legendre tests. Their supersingular condition in characteristic five is \(\lambda^2-\lambda+1=0\). Any two four-point tests share a normalized three-point subset; the last two points must be the two simple roots, establishing two transverse intersections. Checking the remaining three tests rules out triple intersections. The resulting incidence count proves all rank and rational-parameter formulas. Exact \(\mathbb F_{25}\) enumeration independently checks all finite intersection counts. Geometric/infinite claims are proved separately.
+## correctness
 
-**Originality: PASS (qualified).** Carvacho--Hidalgo--Quispe and Auffarth--Lucchini Arteche--Rojas cover Jacobian decomposition, which is used as a premise rather than claimed as new. Hidalgo treats generalized Fermat curves and a characteristic-three case, not the complete characteristic-five Humbert stratification. The bounded published-source and mathematical-record comparisons uncovered no statement determining the five characteristic-five equianharmonic divisors together with their 20 crossings and the all-extension profile. Historical priority may still be affected by alternate language in literature on five-point configurations.
+PASS
 
-**Value: PASS.** The complete genus-five family stratification rules out three smaller p-ranks and resolves the shape, transversality, rationality, and exact point counts of the minimal-rank locus. This is a natural special-characteristic question for a classical family with five elliptic factors, not an arbitrary finite slice.
+The genus is five by Riemann-Hurwitz for the 16-fold (C2)^4 cover with five order-two inertia groups. Five distinct genus-one character summands exhaust H^0(C,Omega), and the character averaging correspondence is of 2-power degree, hence prime to 5 and preserves p-divisible groups and p-rank/a-number. The Legendre Hasse coefficient for characteristic 5 is lambda^2-lambda+1; each pair of four-point-subset equations reduces to independent equianharmonic roots alpha,beta in F25 with alpha+beta=alpha beta=1. The third equalities fail, and the simple roots make each pair transverse. Inclusion/exclusion yields 20 double points, 10q-70 single-divisor points, q²-15q+56 ordinary points for even m; odd m all ordinary. Independent distinct F25 arithmetic enumerated 506 ordered parameter pairs: (r0,r1,r2)=(306,180,20), each divisor 44 points, each of 10 pairs two points, no triples, ten Frobenius two-cycles. Finite computation corroborates, not the source of arbitrary-m proof.
 
-**Closest literature and limitations.** Generalized Fermat Jacobian decompositions are known, and the characteristic-five Legendre Hasse polynomial is standard. Results are about ordered branch-parameter points, not coarse isomorphism classes. The historical Edge source was available only as an extract; a possible equivalent older calculation is the main residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quotient splitting and Legendre supersingularity criterion are standard and expressly not original. The remaining characteristic-five 20-point transverse boundary, universal no-triples statement, exact F_{5^m} count and Frobenius orbit are stronger than the Jacobian decompositions inspected; no relevant published-result record returned an exact same-object p-rank census. This is bounded best-of-knowledge acceptance, with possible historical omission.
+
+## value
+
+PASS
+
+A complete p-rank and a-number stratification of a natural genus-five family, with finite-field point counts and geometric intersection/orbit structure, provides an exact moduli arithmetic invariant rather than recomputing quotient genus or a toy finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
