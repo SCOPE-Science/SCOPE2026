@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:03:21.190245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S(n)=prod(j!,1<=j<=n), Legendre excludes precisely odd valuation with odd-unit 7 modulo 8 when the 2-adic valuation is even. Pairing binary digit sums shows that odd n are excluded exactly when n=5 mod 8; for n=2m, the obstruction is even s_2(m) and f(m)=7 mod 8. The factorial odd-unit recurrences f(2t)=f(t)O(t), f(2t+1)=f(t)O(t)(2t+1) derive the local binary parities A(m),B(m). The explicit 32-state deterministic bit automaton carries (m mod4,s_2(m) mod2,f(m) mod8), has constant row/column sum 2, a primitive Perron 2 eigenvalue and verified annihilating polynomial with remaining nonzero roots on |z|=sqrt(2); the dyadic-cylinder decomposition gives E(X)=3X/16+O(sqrt X). Cayley-Hamilton applied to diag(M^8,256,16) proves E(2^(8j+5))=3*2^(8j+1)+2^(4j) for every j >=0 from 34 exact initial equalities, not from extrapolation. Independently recomputed the odd-unit/valuation test for n=0..599 (first obstructions 5,10,13,20,21,24,29,37,45,48,53,61), the annihilator and small cylinder counts. These are corroborations of the unrestricted symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burns 2022 general joint-state methods cover a comparable density and O(sqrt X), a comparison explicitly conceded in RESULT.md",
+          "The exact claimed E(2^(8j+5)) has an extra positive 2^(4j) term and is obtained from the package-specific 32-state transfer operator"
+        ],
+        "reasoning": "Earlier bounds explain the order of magnitude and therefore are not novel by themselves; they do not imply this exact sharp coefficient or explicit superfactorial criterion without a new computation.",
+        "searches": [
+          "arXiv:2203.16469 binary automatic factorial sums three squares asymptotic",
+          "superfactorial three-square sequences transfer matrix"
+        ]
+      },
+      "checked_sources": [
+        "superfactorial product of factorials three squares Legendre binary automatic sequence dyadic discrepancy powers of two",
+        "\"Factorials and Legendre’s three-square theorem\" Burns",
+        "\"Factorials and Legendre’s three-square theorem: II\" Burns",
+        "superfactorial three squares binary automatic sequence exact density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burns 2022 implies familiar asymptotic-scale phenomena only; Aliyev Crux 48(10) computes 2-adic valuations of superfactorials, not three-square obstruction parity and odd part together",
+          "32-state result produces both an all-n predicate and an infinite exact discrepant subsequence"
+        ],
+        "reasoning": "The prior valuation identity is a needed ingredient, not a logically sufficient three-square test because it omits the odd-part modulo eight. The precise submitted fluctuation is not a direct corollary of the checked prior claims.",
+        "searches": [
+          "Burns 2021 arxiv:2101.01567",
+          "Burns 2022 arxiv:2203.16469",
+          "Y Aliyev superfactorials valuation Crux Mathematicorum 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R. Burns, arXiv:2101.01567 treats n!, not product_{j<=n}j!",
+          "R. Burns, arXiv:2203.16469 derives factorial obstruction counts and a sqrt-error term, not the stated S(n) exact dyadic identity"
+        ],
+        "reasoning": "Replacing n! by superfactorial changes the 2-adic valuation and odd part. Neither source statement directly is the submitted exact S(n) formula.",
+        "searches": [
+          "\"superfactorial\" \"three squares\" automatic",
+          "Burns Factorials Legendre three-square theorem 2021 2022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000178 lists superfactorials, without the claimed obstruction theorem",
+          "Independent first 600 indices verify the new digital criterion against 2-adic valuation"
+        ],
+        "reasoning": "Listing numerical S(n) does not enumerate or prove its complete three-square obstruction distribution. No exact prior table or all-length classification was found; absence of a table is not novelty proof.",
+        "searches": [
+          "OEIS A000178 superfactorials three squares",
+          "superfactorial factorial product three-square table"
+        ]
+      },
+      "rationale": "Burns 2021 and 2022 prove three-square properties of ordinary factorials and a 1/8-density/sqrt-error law. The submitted superfactorial criterion follows a different cumulative factorial product, and its exact all-j dyadic fluctuation is not supplied by the inspected theorems. The source acknowledges that Burns covers the broad density/error mechanism, so novelty is specifically the superfactorial obstruction and sharp exact dyadic identity.",
+      "residual_risks": [
+        "Any earlier unindexed superfactorial three-square automatic-sequence computation may give the same exact dyadic identity",
+        "The earlier factorial transfer-matrix method predicts the order of the error; only the superfactorial-specific predicate and exact fluctuations are treated as new"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Establishes 1/8-type factorial count and sqrt-error; not a theorem on cumulative S(n) nor E(2^(8j+5))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.16469",
+          "material_read": "Abstract, introduction, exact counting and asymptotic theorem/proof sections including their factorial-only quantifiers",
+          "method": "Lawful arXiv full-text PDF; read relevant theorem and argument sections",
+          "title": "Factorials and Legendre’s three-square theorem: II",
+          "trigger": "Same three-square criterion, exact dyadic counts and error exponent"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING",
+          "evidence": [
+            "Subject n!, not S(n); 2-adic components differ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.01567",
+          "material_read": "Main result and binary factorial valuation/odd-part discussion",
+          "method": "Lawful arXiv full-text inspection",
+          "title": "Factorials and Legendre’s three-square theorem",
+          "trigger": "Same Legendre criterion applied to factorials"
+        },
+        {
+          "assessment": "RELATED_UNCERTAIN",
+          "evidence": [
+            "Valuation identity is relevant background; whole-document noncoverage not asserted."
+          ],
+          "identifier_or_url": "https://cms.math.ca/wp-content/uploads/2023/01/Wholeissue_48_10.pdf",
+          "material_read": "Reference and accessible relevant article descriptions; full paper not relied on for negative coverage",
+          "method": "Bibliographic comparison",
+          "title": "The number of 2s in prime factorization of superfactorials and Vandermonde determinants",
+          "trigger": "Actual superfactorial valuation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three-square representability of superfactorials is a natural intersection of 2-adic arithmetic and automatic counting. The explicit forbidden-index predicate and sharp all-j dyadic fluctuation distinguish a meaningful new exact invariant rather than re-proving an ordinary factorial density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "superfactorial product of factorials three squares Legendre binary automatic sequence dyadic discrepancy powers of two",
+    "\"Factorials and Legendre’s three-square theorem\" Burns",
+    "\"Factorials and Legendre’s three-square theorem: II\" Burns",
+    "superfactorial three squares binary automatic sequence exact density"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific novelty is best-of-knowledge only; residual priority and source-access risks remain explicit.",
+    "Publication withheld because public-bound metadata retains private operational provenance; no GitHub edits or import-ready sanitized files."
+  ],
+  "residual_risks": [
+    "Any earlier unindexed superfactorial three-square automatic-sequence computation may give the same exact dyadic identity",
+    "The earlier factorial transfer-matrix method predicts the order of the error; only the superfactorial-specific predicate and exact fluctuations are treated as new"
+  ],
+  "schema_version": 1
+}
