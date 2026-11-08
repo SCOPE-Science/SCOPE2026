@@ -1,0 +1,15 @@
+# Scientific review of the Nauru edge-colouring reconfiguration result
+
+## Correctness — PASS
+The state space is exhaustively generated in two independent ways. A perfect matching determines the zero-colour edges and a collection of complementary even cycles; alternating choices generate all and only legal named colourings (120 matchings, 504 solutions). A separate direct edge-constraint solver independently gives 504. Both traverse every legal two-colour cycle and obtain 1,674 edges, two components of sizes 144 and 360, and identical all-pairs shortest-distance distributions. Explicit permutations preserve every underlying graph edge, generate a 144-element group and act freely and transitively on the 144-state component; its six neighbour elements square to the identity. All claims are exact finite enumerations with reproducible checks, rather than statistical estimates.
+
+## Originality — PASS, qualified
+Eppstein's 2007 primary description of the Nauru graph covers the base graph, the star-graph model and its order-144 automorphism group, but not an action on edge-colouring Kempe states. The full 2012 belcastro–Haas preprint develops equivalence classes and constructions for cubic graphs, not this full metric and Cayley splitting. The full 2021 Goedgebeur–Östergård preprint gives aggregate equivalence-class tables and an equivalence-class search algorithm; it may already determine the two-class scalar for this graph and that scalar is expressly excluded from the novelty claim. Neither inspected article states the 144/360 labelled metric distinction, ten/fourteen-cycle criterion, or regular group action. Search for alternate wordings, colour-permutation quotients, individual perfect-matching flips and the generalized Petersen graph alias found no dominating published claim. Historical priority nevertheless remains qualified because the Watkins (1969) full text and the census's associated full dataset were unavailable.
+
+## Value — PASS
+The two connected components have different intrinsic kinds of geometry: one is a homogeneous bipartite Cayley graph with a six-involution generating set and uniform distance spheres, the other has multiple degrees, odd cycles and larger shortest-path diameter. The explicit ten-cycle criterion classifies reachability without performing a search. This is a natural complete finite classification at the chromatic-index threshold of a classical cubic symmetric nonplanar graph, and supplies an exact benchmark for edge-colouring switching algorithms beyond a bare count of equivalence classes. The specific metric and Cayley characterization are not immediate textbook deductions from the known graph's symmetry or the aggregate cubic-graph census.
+
+## Sources and residual risk
+Full-text material inspected: Eppstein (2007), arXiv:1209.1730 and arXiv:2105.01363. Watkins (1969) is a plausible but uninspected predecessor; the full released 2021 computational dataset was not evaluated. These gaps prevent asserting exhaustive historical priority, not verifying the current finite computation.
+
+Self-review: passed. Independent audit: not yet performed.
