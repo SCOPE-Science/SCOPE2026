@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The birth generator is specified at every state, including the absorbing boundary, and the two-generator commutator is derived explicitly. The exact double-Duhamel identity, positivity and monotone-function preservation of the pure-birth semigroups yield every finite-time adjacent exchange. Bubble sorting applies those exchanges to any finite campaign multiset. Strict terminal thresholds follow from positive prefix reachability and positive suffix nonjump probability. The first-adopter tie is an exact survival law, not a numerical observation. Reproducibility: `CHECK.py` checks 1,503 exact commutator entries, the exact two-person example, and 43,774 finite numerical stochastic-order inequalities. **Risk:** these finite checks are diagnostics; the stated all-population conclusion depends on the analytical proof, which is supplied.
+## correctness
 
-## Originality (PASS within inspected evidence)
-The model is explicitly credited to Niu's 2002 stochastic Bass study. The relevant 2024 time-varying-Bass paper establishes network-size monotonicity and infinite-population convergence; it does not state a same-multiset finite-population phase ordering. The 2025 optimal-promotions study optimizes discounted profits and effort levels, not all terminal probability tails under arbitrary rearrangement of fixed phases. Earlier Horsky–Simon work concerns profit-maximizing advertising schedules. The strict simultaneous dominance and invariant one-adopter tail are not consequences of those stated results without the new noncommuting-generator comparison. **Residual risk:** older marketing and stochastic-control articles, including technical material not available in full, could contain equivalent stochastic-rearrangement results; priority remains provisional pending independent historical review.
+PASS
 
-## Value (PASS)
-The finding gives a usable, sharp, parameter-only scheduling rule that simultaneously optimizes all adoption-count thresholds and all increasing terminal utility functions, rather than merely expected adoption. It isolates the minimal two-adopter effect, ties the order advantage to a signed generator commutator, and identifies a non-improvable exception at the first threshold. Applications are to mathematically specified exogenous campaign ordering, not real-world revenue optimization.
+For N>=2, p_i>0, q_i>=0, t_i>0, the finite pure-birth generators have commutator [Q_A,Q_B]f(k)=(N-k)(N-k-1)(p_A q_B-p_B q_A)(f(k+2)-f(k+1))/(N-1). Direct expansion verifies the sign. Each birth semigroup preserves increasing observables; double-Duhamel finite-time identity and adjacent swaps imply all-tail first-order stochastic order under nonincreasing p/q, including q=0 as infinity. Positive jump paths and positive no-jump suffix make tails j>=2 strict for a two-phase strict inversion from zero, while P(K=0)=exp(-N sum p_i t_i) forces j=1 equality. Independently recomputed N=2 law AB=(1,3,60)/64 and BA=(1,6,57)/64, with exact commutator entry -6,+6.
 
-## Scope and limitations
-The coefficients and durations must be predetermined, intrinsic adoption strictly positive, and imitation nonnegative. No claims of optimal spending, feedback marketing, adoption reversal, heterogeneous contact networks or empirical validation are included. The relevant 2006 piecewise-demand paper was inspected in accessible author-posted full text; several other early marketing treatments were assessable only from available abstracts/portions; that is explicitly a residual scientific-priority risk, not an assertion of whole-document non-coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete terminal-distribution stochastic rearrangement law is not furnished by the stochastic Bass model or existing optimization of campaign spending. The innovation/imitation score is a nontrivial exact commutator invariant rather than mere intuitive early advertising.
+
+## value
+
+PASS
+
+Exact FOSD for every terminal threshold determines all increasing decision objectives at once, much stronger than a mean-adopter comparison. The invariant first-adopter threshold and strict two-plus thresholds identify a useful boundary for finite stochastic diffusion scheduling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
