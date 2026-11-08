@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Full proof reconstructs explicit SPD family and exact ortho-symplectic basis, algebraic LS estimator and its eigenvalues, equivalence between indefinite reduced Hessian and real unstable Hamiltonian eigenvalues, properly normalized bivariate Gaussian regression density, angular arcsine integration, and dominated convergence/Laplace endpoint asymptotics. The checker runs successfully on package paths as supplementary evidence, not as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balabanov–Nouy Part I Proposition 4.1 controls sketched Galerkin solution quasi-optimality under assumed stability constants, and Part II Proposition 3.3 gives embedding conditions for minimal-residual approximation. Neither controls the exact probability of indefinite symmetrized sketched Hamiltonian Hessian under this Gaussian model.",
+        "Herkert et al. 2024 give rcSVD basis approximation and hyperparameter bounds rather than a least-squares sketched reduced Hessian.",
+        "Source [1] Lemma 2 sufficient embedding condition for positive reduced Hessian does not imply an unconditional exact probability of its failure."
+      ],
+      "reasoning": "We compared actual hypotheses and conclusions: conditional error bounds do not imply an exact unconditional instability probability or either asymptotic constant. General Gaussian regression law supplies one proof ingredient, but not an inspected theorem whose conclusion is this Hamiltonian stability threshold.",
+      "searches": [
+        "quadratic Hamiltonian symplectic model reduction sketched reduced Hessian stability loss of positive definiteness counterexample perturbation bound",
+        "random Gaussian least squares reconstruction symmetrized rank one residual SPD loss probability degrees of freedom",
+        "arXiv:1803.02602 Part I Section 4 Galerkin guarantee",
+        "arXiv:1910.14378 Part II Section 3 minimal-residual guarantee",
+        "arXiv:2405.10465 Sections 3-6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.39893v1",
+      "https://arxiv.org/html/2405.10465v1",
+      "https://www.researchgate.net/publication/369063952_Randomized_Symplectic_Model_Order_Reduction_for_Hamiltonian_Systems",
+      "https://anthony-nouy.github.io/publications/1803.02602.pdf",
+      "https://anthony-nouy.github.io/publications/1910.14378.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] concludes Hamiltonian structure from symmetry, not spectral stability; its positive-definiteness control assumes a sufficiently accurate subspace embedding.",
+        "The new theorem exhibits a strictly SPD full Hessian with a positive probability of loss of SPD when the embedding succeeds only outside the sufficient range; this is compatible with [1].",
+        "[3] randomized rcSVD and rSVD-like decompositions concern symplectic basis construction, not random operator assembly."
+      ],
+      "reasoning": "Positive probability of dynamical instability does not contradict canonical Hamiltonian conservation; energy is indefinite on the failing event. The published sufficient condition cannot be inverted to yield the exact probability of the complement. No inspected stronger statement directly entails the claim.",
+      "searches": [
+        "arXiv:2610.39893v1 Section 4.1 Eq.(18),(19); Lemma 2 Eq.(20)-(22); Section 4.3",
+        "arXiv:2303.04036v1 Sections 2-5",
+        "arXiv 2610.39893 Gaussian sketch least-squares symmetrized Hamiltonian reduced Hessian Student t exact probability indefinite unstable oscillator sharp sketch-size exponent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The relevant equivalences are smallest eigenvalue of symmetrized LS Hessian below zero, negative determinant of the reduced 2-by-2 Hessian, positive real eigenvalue of its Hamiltonian generator, and a Student-type Gaussian OLS radial tail with an arcsine angular mixture.",
+        "Source [1] defines symmetrized LS but gives sufficient norm/embedding bounds, not this exact crossing distribution.",
+        "Closest Gaussian mirror published-finding corpus record concerns signs of mirror features under OLS perturbation; neither its object nor its statement implies an indefinite Hamiltonian cone-crossing probability."
+      ],
+      "reasoning": "We identified and explicitly proved the determinant/stability and Student-ratio formulations. No inspected source gives the exact equivalent probability or the sharp two asymptotic regimes. Classical radial/angle ingredients are acknowledged.",
+      "searches": [
+        "sketched reduced Hamiltonian least squares symmetric Hessian random sketch symplectic model reduction positive definiteness sampling phase space 2026",
+        "Gaussian sketched reduced Hamiltonian Hessian symmetrized least squares positive definiteness exact probability Student t loss stability sketch dimensions",
+        "arXiv 2610.39893 Gaussian sketch least-squares symmetrized Hamiltonian reduced Hessian Student t exact probability indefinite unstable oscillator sharp sketch-size exponent",
+        "arXiv:2610.39893v1 Sections 4.1-4.3",
+        "published-finding corpus closest: 2026/10/4/SCOPE-exact-perturbation-angle-law-and-finite-dimensional-positive-sig--466bc404f228"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus returns are Gaussian statistical or positivity results for different algorithms and objects, not a table of the integral or its sharp large-sketch prefactor.",
+        "No exact chance of unstable reduced Hamiltonian or a numeric probability table is reported in the inspected main paper Sections 4-5."
+      ],
+      "reasoning": "The numerical values in the result are reproducible evaluations of a newly derived integral, not known-table recomputation by a claimed novelty search. Search non-return is not a uniqueness proof.",
+      "searches": [
+        "Gaussian sketched reduced Hamiltonian Hessian symmetrized least squares positive definiteness exact probability Student t loss stability sketch dimensions",
+        "randomized symplectic model reduction sketched Hessian exact indefinite event Gaussian projection spectral stability 2026",
+        "arXiv 2610.39893 Gaussian sketch least-squares symmetrized Hamiltonian reduced Hessian Student t exact probability indefinite unstable oscillator sharp sketch-size exponent",
+        "published-finding corpus published semantic hits for Gaussian regression and SPD instability",
+        "arxiv:2610.39893 exact sketched reduced Hessian failure probability"
+      ]
+    },
+    "rationale": "The source supplies symmetrized LS Hamiltonian assembly and sufficient subspace-embedding preservation conditions; inspected earlier literature supplies randomized basis and quasi-optimality theory, not this exact positive failure probability and sharp coupling/sketch-width asymptotics for a stable SPD oscillator. Classical Wishart and arcsine ingredients are credited. A broader exact Gaussian regression cone-crossing theorem could affect priority; publication uniqueness is not certified.",
+    "residual_risks": [
+      "A potentially broader historical result on exact SPD-cone crossing for symmetrized Gaussian regression could imply the specialized probability, despite no such coverage in inspected literature.",
+      "The derivation is limited to independent Gaussian sketches and a two-mode oscillator, not CountSketch or adaptive basis/sketch dependence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces target algorithm and sufficient SPD perturbation condition, but no exact Gaussian probability of unstable reduced trajectories",
+        "evidence": [
+          "https://arxiv.org/html/2610.39893v1, Sections 4.1-4.3, Lemma 2, equations (18)-(22)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39893v1",
+        "material_read": "Complete HTML sections 1-6 and Appendix; focused Section 4.1 equations (18)-(19), Lemma 2 and Section 4.3, numerical experiments Section 5",
+        "method": "Primary full HTML text, direct equations/hypotheses and conclusions compared",
+        "title": "Randomized Symplectic Model Reduction: One-Pass Basis Construction and Sketched Hamiltonian Assembly",
+        "trigger": "Identical algorithm and SPD-preservation risk"
+      },
+      {
+        "assessment": "Basis-generation projection and rcSVD errors, no target sketched Hessian assembly probability",
+        "evidence": [
+          "https://arxiv.org/html/2405.10465v1, Sections 3-6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.10465v1",
+        "material_read": "Full HTML headings, abstract, Sections 2-6 with rcSVD quasi-optimality and numerical comparisons",
+        "method": "Primary full HTML section and theorem comparison",
+        "title": "Error Analysis of Randomized Symplectic Model Order Reduction for Hamiltonian Systems",
+        "trigger": "Same research group and randomized symplectic methods"
+      },
+      {
+        "assessment": "Only rcSVD and randomized SVD-like basis construction; no sketched Hessian probability",
+        "evidence": [
+          "https://www.researchgate.net/publication/369063952_Randomized_Symplectic_Model_Order_Reduction_for_Hamiltonian_Systems, Section 5"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/369063952_Randomized_Symplectic_Model_Order_Reduction_for_Hamiltonian_Systems",
+        "material_read": "Author-uploaded complete article text on ResearchGate, including introductory formulation, algorithms, numerical results and Conclusion Section 5",
+        "method": "Accessible full article text, cross-check against arXiv abstract",
+        "title": "Randomized Symplectic Model Order Reduction for Hamiltonian Systems",
+        "trigger": "Original randomized symplectic basis construction"
+      },
+      {
+        "assessment": "A priori conditional quasi-optimality of sketched Galerkin projection, not a Hamiltonian Hessian instability distribution",
+        "evidence": [
+          "https://anthony-nouy.github.io/publications/1803.02602.pdf, Section 4, Proposition 4.1"
+        ],
+        "identifier_or_url": "https://anthony-nouy.github.io/publications/1803.02602.pdf",
+        "material_read": "Author-hosted manuscript abstract, introduction, Section 4 sketch/Galerkin construction and Proposition 4.1, discussion and numerical comparison",
+        "method": "Primary PDF text with page screenshot and theorem text inspection",
+        "title": "Randomized Linear Algebra for Model Reduction. Part I: Galerkin Methods and Error Estimation",
+        "trigger": "Foundational sketched reduced-model framework used by target source"
+      },
+      {
+        "assessment": "Sketched minres quasi-optimality and conditions; no exact sign crossing for canonical symplectic reduced Hessian",
+        "evidence": [
+          "https://anthony-nouy.github.io/publications/1910.14378.pdf, Section 3, Propositions 3.2-3.3"
+        ],
+        "identifier_or_url": "https://anthony-nouy.github.io/publications/1910.14378.pdf",
+        "material_read": "Author-hosted manuscript abstract, Section 1.1, Section 3 and Propositions 3.2-3.3, numerical experiments",
+        "method": "Primary PDF text with page screenshot and equations/hypotheses comparison",
+        "title": "Randomized Linear Algebra for Model Reduction. Part II: Minimal Residual Methods and Dictionary-Based Approximation",
+        "trigger": "Related sketched least-squares and numerical-stability guarantees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c92fdaf6-7f86-4857-b9c6-fd6f5f158d84",
+  "value": {
+    "rationale": "Exact finite-sketch instability probability and two sharp asymptotic laws calibrate a qualitative dynamical risk for a newly proposed Hamiltonian assembly procedure; preservation of skew canonical form and energy is distinguished from preservation of positive energy and bounded motion. The family is sparse, positive definite for every coupling and supports arbitrary weak coupling and compressive dimensions. This is an interpretable stability benchmark beyond a routine numerical test.",
+    "status": "PASS"
+  }
+}
