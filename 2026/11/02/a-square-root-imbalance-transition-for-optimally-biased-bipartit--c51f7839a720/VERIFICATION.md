@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 standard library. The checker uses exact fractions to compare independently convolved geometric stage distributions against finite-horizon dynamic programming that optimizes each controlled decision. It covers \(1\le a,b\le5\), \(\varepsilon\in\{0,1/3,1/2,2/3,1\}\), and all horizons through 22, with 6250 exact rational assertions.
+## correctness
 
-The all-size stochastic ordering and square-root-window limit are proved in `RESULT.md` using a monotone visited-count coupling, independent geometric stages, Riemann sums, Lyapunov normal convergence, uniform integrability and Chebyshev's inequality. Enumeration cannot verify these infinite-domain statements. The test files are standalone, but no independent audit has been performed.
+PASS
+
+Each part visit with j unseen has optimal discovery probability q_{m,j}=ε+(1−ε)j/m; monotone coupling keeps greedy discovery counts ahead of any competing history-dependent policy, proving stochastic rather than expectation-only dominance. Strict alternation gives independent geometric completion stage sums and exact max representation with initial-vertex clock offset. For fixed ε>0 third moments are uniformly bounded, Riemann-sum means mIε and variances mVε and Lyapunov CLT yield independent shifted normals; max continuous mapping, UI, and Chebyshev complete last-part and expected-time assertions. Independently implemented exact rational dynamic programming over choices corroborated policy and distribution on small (a,b,ε,t) cases.
+
+## originality
+
+PASS
+
+Haslegrave–Sauerwald–Sylvester establish the ε-biased control model and general hitting/cover-time estimates, but not the exact alternating independent-stage law or square-root terminal-part crossover. Georgakopoulos et al two-choice walk gives discovery 1−(1−j/m)² rather than ε+(1−ε)j/m. Ross–Wu generalized optimal coupon assignment may subsume a greedy lemma but accessible abstract does not establish the special bipartite cover-time law and CLT; this material uncertainty is recorded, not claimed whole-paper negative. Resultary complete multipartite optimization records concern other graph invariants.
+
+## value
+
+PASS
+
+An exact optimal-policy theorem for every history-dependent strategy, distribution for all finite sizes and ε endpoints, and a sharp sqrt-size imbalance scale determining which part finishes last under fixed positive control. Useful benchmark for stochastic cover-time control and coupon collection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

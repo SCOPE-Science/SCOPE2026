@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The optimality claim follows from a common-uniform coupling of visited-count processes at each alternating part arrival. The full cover-time law follows from independent geometric waiting times for successive discoveries on the two parts; parity supplies the final offset. With fixed positive control probability, these waiting times have uniformly bounded moments, and triangular-array normal limits, uniform integrability and Chebyshev bounds establish the distributional, expectation and last-part limits. The standalone exact rational checker passed 6250 finite assertions, supplementary to the analytic proof. Boundary conditions include one initially visited vertex and the forced first arrival in the opposite part.
+PASS
 
-## Originality — PASS, qualified
+Each part visit with j unseen has optimal discovery probability q_{m,j}=ε+(1−ε)j/m; monotone coupling keeps greedy discovery counts ahead of any competing history-dependent policy, proving stochastic rather than expectation-only dominance. Strict alternation gives independent geometric completion stage sums and exact max representation with initial-vertex clock offset. For fixed ε>0 third moments are uniformly bounded, Riemann-sum means mIε and variances mVε and Lyapunov CLT yield independent shifted normals; max continuous mapping, UI, and Chebyshev complete last-part and expected-time assertions. Independently implemented exact rational dynamic programming over choices corroborated policy and distribution on small (a,b,ε,t) cases.
 
-Haslegrave, Sauerwald and Sylvester (arXiv:2006.02475) establish the controlled walk, general cover-time inequalities and algorithmic results but not the exact bipartite factorization or square-root imbalance terminal law in the inspected primary text. The conference predecessor (doi:10.4230/LIPIcs.ITCS.2020.76) and the two-choice paper (arXiv:1911.05170) likewise do not state this result; the two-choice transition kernel is mathematically different. Broad coupon-assignment theory is a potential source of the greedy-policy subclaim, which is not claimed separately as an independent foundational novelty. Ross and Wu (2013) was identifiable only through abstract-level material; fuller historical priority assessment remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The exact finite-sample representation converts a difficult-looking history-dependent controlled cover problem into two independent completion clocks. The resulting sharp imbalance window and explicit expected-time correction quantify when control changes which part is likely to be visited last. This is a natural statistic for network exploration and distinguishes controlled motion from uncontrolled bipartite coupon collecting; neither an arbitrary finite parameter slice nor an isolated textbook normal approximation is the claimed contribution.
+Haslegrave–Sauerwald–Sylvester establish the ε-biased control model and general hitting/cover-time estimates, but not the exact alternating independent-stage law or square-root terminal-part crossover. Georgakopoulos et al two-choice walk gives discovery 1−(1−j/m)² rather than ε+(1−ε)j/m. Ross–Wu generalized optimal coupon assignment may subsume a greedy lemma but accessible abstract does not establish the special bipartite cover-time law and CLT; this material uncertainty is recorded, not claimed whole-paper negative. Resultary complete multipartite optimization records concern other graph invariants.
 
-## Scope and residual risks
+## value
 
-Fixed positive control probability, full graph completeness, independent decisions and a starting vertex in the first part are essential to the proof. Varying control probabilities and more general graphs require new analysis. An inaccessible general stochastic-assignment source may bear on policy optimality, though its abstract does not imply the joint distributional theorem. Definitive historical priority and independent mathematical verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact optimal-policy theorem for every history-dependent strategy, distribution for all finite sizes and ε endpoints, and a sharp sqrt-size imbalance scale determining which part finishes last under fixed positive control. Useful benchmark for stochastic cover-time control and coupon collection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
