@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:16:51.873402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Herschel graph is explicitly reconstructed from three core vertices, two poles and six degree-three pair/pole vertices (18 edges); bipartition 5+6 forces path endpoints into degree-three part, with exactly two unused edges at each endpoint. The code enumerates all spanning simple paths via canonical reversal, generates precisely the stated Pósa endpoint rotations and performs BFS from all 222 paths. An independently implemented DFS plus backbite BFS regenerated 222 paths, 444 undirected edges, 4-regularity, connectivity, exact histogram (444,1152,2436,4326,6348,6189,3078,546,12), eccentricity multiplicities 198 at 8 and 24 at 9, and 12 disjoint diameter-9 pairs. Exhaustion is finite and exact rather than a timeout or sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazazi 2026 arXiv abstract: squared spanning path yields connectivity.",
+          "Herschel graph bipartite, hence no triangles; a square of any path with >=3 vertices contains a triangle."
+        ],
+        "reasoning": "The general sufficient theorem is inapplicable; even general connectivity alone would not imply radius, diameter or distance histogram.",
+        "searches": [
+          "Kazazi 2026 arxiv 2610.05068 Hamiltonian path backbite connectivity theorem",
+          "Hamiltonian path reconfiguration general sufficient spanning squared path"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.05068",
+        "https://arxiv.org/abs/cond-mat/0508094",
+        "https://mathworld.wolfram.com/HerschelGraph.html",
+        "Resultary: 2026/10/11/SCOPE-the-herschel-graph-independence-complex-and-its-complete-vertex--e6d752a4b77d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The historical backbite reference uses different square lattice graph instances; the sufficient general squared-path criterion fails on bipartite Herschel."
+        ],
+        "reasoning": "Neither prior implication forces connectedness here, much less the 12 extremal matching pairs and exact counts.",
+        "searches": [
+          "Oberdorf Ferguson Jacobsen Kondev 2005 backbite move square lattice",
+          "Kazazi 2610.05068 spanning squared paths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oberdorf et al. 2005 define backbite for compact polymer Hamiltonian paths.",
+          "Kazazi 2026 examines connectivity of Hamiltonian-path reconfiguration graphs."
+        ],
+        "reasoning": "Backbite and Pósa rotation are equivalent move descriptions, but no equivalent Herschel metric table appeared in the inspected source statements.",
+        "searches": [
+          "backbite rotation graph Hamiltonian paths Herschel graph diameter 9 222 paths",
+          "Herschel Posa rotation graph Hamiltonian paths 222 444"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-the-herschel-graph-independence-complex-and-its-complete-vertex--e6d752a4b77d is about independence complex, not path rotations."
+        ],
+        "reasoning": "Standard 11-vertex Herschel graph tables list adjacency and graph invariants, not all 24,531 unordered Hamiltonian path-to-path backbite distances.",
+        "searches": [
+          "backbite rotation graph Hamiltonian paths Herschel graph diameter 9 222 paths",
+          "Resultary Herschel graph independence complex exact vertex deletion"
+        ]
+      },
+      "rationale": "The original Pósa backbite move and connectivity criteria are established; Herschel graph combinatorics are known. Kazazi 2026 sufficient condition requires a spanning squared path, which would force a triangle and is impossible in this bipartite graph. The other retrieved Herschel-specific Resultary item concerns its independence complex, not its spanning-path reconfiguration graph. The exact 222-state all-pairs metric is not implied by the checked general claims.",
+      "residual_risks": [
+        "Kazazi full text could not be obtained; related abstract insufficient for whole-document noncoverage.",
+        "An unindexed Herschel-specific backbite table might duplicate the finite invariants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INAPPLICABLE_CONDITION",
+          "evidence": "Spanning squared-path sufficient condition requires a triangle, impossible for Herschel. Other full-paper results remain a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05068",
+          "material_read": "ArXiv abstract and sufficient condition; complete PDF request unsuccessful",
+          "method": "ArXiv abstract/full PDF attempt",
+          "title": "Connectivity of the Reconfiguration Graph of Hamiltonian Paths",
+          "trigger": "Possible dominating general reconfiguration theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_WITH_ACCESS_RISK",
+          "evidence": "Studies square-lattice compact-polymer backbite moves; no Herschel metric confirmed from abstract alone.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0508094",
+          "material_read": "Title, abstract, and bibliographic/move-scope summary; full primary text not read",
+          "method": "ArXiv abstract/bibliographic description",
+          "title": "Secondary Structures in Long Compact Polymers",
+          "trigger": "Foundational backbite move"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete finite reconfiguration metric for the smallest non-Hamiltonian polyhedral graph answers a natural boundary question for endpoint rotations, including a sharp nine-move requirement and an exceptional antipodal matching. Finite here is essential: the full natural state graph is classified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the labelled eleven-vertex Herschel graph and endpoint backbite moves; no general Hamiltonian-path reconfiguration result or mixing bound.",
+    "Kazazi full text could not be obtained; related abstract insufficient for whole-document noncoverage.",
+    "An unindexed Herschel-specific backbite table might duplicate the finite invariants."
+  ],
+  "schema_version": 1
+}

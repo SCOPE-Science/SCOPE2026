@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-The graph is defined explicitly in `RESULT.md`. The complete standalone standard-library Python programs `verify_dfs.py` and `verify_edges.py` each rebuild that graph from an independently expressed adjacency rule. Execute:
+## correctness
 
-```sh
-python verify_dfs.py
-python verify_edges.py
-```
+PASS
 
-The depth-first program enumerates all unoriented spanning paths and their endpoint backbites, then runs breadth-first searches from every state. It asserts the entire distance histogram and checks an explicit pair at distance nine with distance-sphere sizes \((1,4,12,28,45,55,49,21,6,1)\).
+The Herschel graph is explicitly reconstructed from three core vertices, two poles and six degree-three pair/pole vertices (18 edges); bipartition 5+6 forces path endpoints into degree-three part, with exactly two unused edges at each endpoint. The code enumerates all spanning simple paths via canonical reversal, generates precisely the stated Pósa endpoint rotations and performs BFS from all 222 paths. An independently implemented DFS plus backbite BFS regenerated 222 paths, 444 undirected edges, 4-regularity, connectivity, exact histogram (444,1152,2436,4326,6348,6189,3078,546,12), eccentricity multiplicities 198 at 8 and 24 at 9, and 12 disjoint diameter-9 pairs. Exhaustion is finite and exact rather than a timeout or sample.
 
-The edge-subset program checks all \(43758\) ten-edge subsets for a connected spanning path, reconstructs legal exchanges via edge differences, repeats all-pairs shortest distances, and verifies endpoint counts using a separate dynamic-programming recurrence.
+## originality
 
-Expected success messages include `DFS_222_UNDIRECTED_HAMILTONIAN_PATHS_PASS`, `EDGE_SUBSETS_43758_EXHAUSTIVE_222_PATHS_PASS`, and `ALTERNATE_DISTANCE_HISTOGRAM_RADIUS8_DIAMETER9_PASS`. Every reported numerical assertion is checked in executable code; a computation failure invalidates the affected evidence rather than providing a negative mathematical result.
+PASS
 
-The proof is exact for the stated finite eleven-vertex graph only. No independent human audit or external validation is represented by this document.
+The original Pósa backbite move and connectivity criteria are established; Herschel graph combinatorics are known. Kazazi 2026 sufficient condition requires a spanning squared path, which would force a triangle and is impossible in this bipartite graph. The other retrieved Herschel-specific Resultary item concerns its independence complex, not its spanning-path reconfiguration graph. The exact 222-state all-pairs metric is not implied by the checked general claims.
+
+## value
+
+PASS
+
+A complete finite reconfiguration metric for the smallest non-Hamiltonian polyhedral graph answers a natural boundary question for endpoint rotations, including a sharp nine-move requirement and an exceptional antipodal matching. Finite here is essential: the full natural state graph is classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
