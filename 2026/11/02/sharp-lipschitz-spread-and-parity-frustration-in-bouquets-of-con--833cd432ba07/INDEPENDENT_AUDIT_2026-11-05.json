@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:03:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=4,r>=2, rooted congruent cycle bouquets have N=1+r(q-1). The nonstandard one-cycle lemma bounds sum(g-mean)^2<=b_q-a_q²/q (distance profile sharp) via the permutation-extreme cycle argument of Yancey Section 2.3; the objective is strictly convex and permutation invariant, justifying the adaptation from log-mgf to quadratic variance. With root set zero and S_i=sum petal values, global variance J=sum Q_i-(sum S_i)^2/N; separate strict convexity of the bounding quadratic on [-a_q,a_q]^r forces S_i=±a_q and balanced signs. This proves exact spread r*b_q/N -1_{r odd}a_q²/N² and ALL maximizers ±root distance on each petal. Exact a_q,b_q show even-to-odd decrease and odd-to-even increase. Independently enumerated rooted cycle Lipschitz-polytope extreme points q=4..7 and their bouquet combinations r=2..4, matching predicted variance and parity; finite tests only corroborate all-integer proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yancey supplies single-cycle extremal structure; Addario-Berry and collaborators focus graph spread and random graph bounds; q=3 clique bouquets differ from q>=4 noncomplete cycles."
+        ],
+        "reasoning": "A priori any general 1-sum spread theorem could subsume the claim, but no such theorem was found in searched/inspected relevant material.",
+        "searches": [
+          "Addario-Berry Janson McDiarmid On the spread of random graphs 2009",
+          "Yancey Probabilistic and Geometrical Applications to Graph Theory Section 2.3",
+          "published graph spread clique bouquet comparison"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1705.09725",
+        "https://arxiv.org/abs/0902.1156",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-lipschitz-spread-and-parity-frustration-in-bouquets-of-con--833cd432ba07/RESULT.md",
+        "Resultary: spread variance 1 Lipschitz function cactus graph bouquet cycles parity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-cycle sharp centered variance is base input; global variance adds -(sum S_i)^2/N, which forces balancing signs across cycles.",
+          "Directly summing independent cycle variances does not imply the coupled-root parity term or strictly alternating variation; new global box quadratic optimization supplies it."
+        ],
+        "reasoning": "The prior one-cycle result supplies only the local bound; the shared-root mean and parity sign balancing are additional multi-petal arguments.",
+        "searches": [
+          "Yancey arXiv:1705.09725 Theorem 2.9 and permutation decomposition",
+          "Addario Berry Janson McDiarmid arXiv:0902.1156",
+          "prior clique bouquet spread results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent problem is maximal uniform-vertex variance of a real 1-Lipschitz function on wedge of r congruent cycles.",
+          "No inspected primary formulation includes multi-cycle parity correction from shared-root mean coupling."
+        ],
+        "reasoning": "A potential general wedge gluing invariant has not been verified; the cycles share a root, so the global centered variance is not a sum of independent centered variances.",
+        "searches": [
+          "Resultary spread variance 1 Lipschitz function cactus graph bouquet cycles parity",
+          "one point union cactus graph spread extremizers",
+          "Yancey 2017 cycle concentration Lipschitz polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits are numerical index of Lipschitz-free spaces, cactus transportation constants and reciprocal girth, all different observables."
+        ],
+        "reasoning": "Finite integer q,r could admit tables, but assessed analytic all-q,r formula plus extremizer classification is not a known table recomputation.",
+        "searches": [
+          "Resultary graph Lipschitz spread bouquet parity table",
+          "graph spread cactus cycle union exact values"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the one-point sum of r congruent noncomplete cycles, optimizer rigidity and alternating variance law; the sharp one-cycle profile is prior in Yancey's permutation-extreme structural analysis, and clique bouquets with q=3 are excluded. Search of published related cactus, cycle, graph-spread items found no matching 1-sum formula. A general one-point graph gluing theorem may still imply it, so priority remains qualified.",
+      "residual_risks": [
+        "Cycle centered variance lemma is adapted from Yancey’s structural exclusion for a different strictly convex symmetric functional; exact adaptation depends on using the documented permutation argument, not merely citing a logarithmic-mgf inequality as equal to variance.",
+        "An unindexed broader graph 1-sum/gluing spread theorem could dominate the exact bouquet formula.",
+        "Only congruent q>=4 simple unit cycles and uniform masses considered; no heterogeneous cactus classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports cycle profile dominance; does not state multi-petal shared-root spread",
+          "evidence": [
+            "Source log-MGF optimizer argument uses strict convexity and permutation symmetry; centered quadratic has same properties."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09725",
+          "material_read": "Section 2.3 especially Theorem 2.9 and preceding permutation-extreme cycle argument (roughly pages 20–22); checked primary PDF rendering",
+          "method": "primary PDF text and screenshot of theorem/argument",
+          "title": "Probabilistic and Geometrical Applications to Graph Theory",
+          "trigger": "nonstandard one-cycle extremal lemma premise"
+        },
+        {
+          "assessment": "Foundation but not exact congruent cycle bouquets",
+          "evidence": [
+            "Random graph spread estimates and graph variance problem are prior; bouquet parity law is different."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+          "material_read": "Abstract and relevant general definition/background sections in available description",
+          "method": "arXiv primary summary and indexed material",
+          "title": "On the spread of random graphs",
+          "trigger": "foundational graph-spread setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimal graph Lipschitz variance under a natural gluing operation exhibits parity frustration and nonmonotone alternating attachment when adding a cycle. The full structure of extremizers and sharp finite-family law are useful graph geometric facts beyond the base cycle lemma and not routine substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1705.09725",
+    "https://arxiv.org/abs/0902.1156",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-lipschitz-spread-and-parity-frustration-in-bouquets-of-con--833cd432ba07/RESULT.md",
+    "Resultary: spread variance 1 Lipschitz function cactus graph bouquet cycles parity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Cycle centered variance lemma is adapted from Yancey’s structural exclusion for a different strictly convex symmetric functional; exact adaptation depends on using the documented permutation argument, not merely citing a logarithmic-mgf inequality as equal to variance.",
+    "An unindexed broader graph 1-sum/gluing spread theorem could dominate the exact bouquet formula.",
+    "Only congruent q>=4 simple unit cycles and uniform masses considered; no heterogeneous cactus classification."
+  ],
+  "residual_risks": [
+    "Cycle centered variance lemma is adapted from Yancey’s structural exclusion for a different strictly convex symmetric functional; exact adaptation depends on using the documented permutation argument, not merely citing a logarithmic-mgf inequality as equal to variance.",
+    "An unindexed broader graph 1-sum/gluing spread theorem could dominate the exact bouquet formula.",
+    "Only congruent q>=4 simple unit cycles and uniform masses considered; no heterogeneous cactus classification."
+  ],
+  "schema_version": 1
+}
