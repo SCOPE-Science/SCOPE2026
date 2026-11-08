@@ -1,19 +1,21 @@
-# Scientific review of the cubic-ladder twist law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** In a two-cycle on a connected graph, the two firing sets must be complementary, since the Laplacian kernel on a connected graph consists of constants. Each prescribed first-round firing set has exactly the product of its cross-cut degrees possible chip configurations. This reduces orbit counting to an exact width-two transfer, with the Möbius closure obtained by one row swap. The invariant-block characteristic polynomials are rebuilt and checked symbolically, and direct independent vertex-level enumeration and dynamics reproduce all sampled counts. All claims apply to every integer rung count at least three; finite tests are corroborative rather than an infinite proof.
+PASS
 
-## Originality
+For a primitive two-cycle, phase firing cuts are complementary and each cut contributes product of cross-cut degrees. The 16-state width-two transfer uses local two-row rim cut weights. Its untwisted trace counts prism cuts; row-swap twisted trace counts Möbius cuts. The source displays exact plus/minus J block characteristic factors, leading to the given U,V,W recurrences, and the negative dominant root of W yields alternating signs. Independent full graph cut enumeration gives (N_P,N_M)=(757,909) for n=3, (10440,9794) for n=4 and (118681,121409) for n=5, supporting parity and normalization. Independent symbolic 16×16 transfer construction, row-exchange commutation and exact plus/minus characteristic polynomial factorization were replayed and matched the source, in addition to full graph cut counts n=3,4,5; finite enumerations are corroborative, the transfer proof establishes all n.
 
-**PASS, with residual historical priority risk.** The exact general graph cut-degree summation is acknowledged as pre-existing and is not the novelty claim. The material result is the explicit *evaluated* pair of rung recurrences and the parity-reversing comparison under the topological twist, which require a nontrivial decomposition of the weighted column-transfer operator. The closest examined sources concern allowed firing patterns, complete-graph period phenomena or ladder critical densities, rather than an all-size primitive two-cycle orbit census on both cubic closures. Search coverage cannot exclude an unindexed equivalent result.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The circular/Möbius pair is a natural boundary-condition experiment for a spatially local dynamical system. The precise sign reversal at each parity, joint exponential growth constant, and exponentially smaller relative twist correction give interpretable spectral information that a generic finite cut sum does not expose. The result is not a small numerical improvement, arbitrary parameter slice or mere restatement of a universal enumeration formula.
+Qualified PASS only for the evaluated prism/Möbius simultaneous exact trace identities, recurrence and strict parity-reversing boundary comparison; not the general all-graphs cut-degree formula or generic transfer method. Known complete-graph and ladder sandpile work do not directly count these labelled cubic closures.
 
-## Literature and limitations
+## value
 
-Jiang–Scully–Zhang (arXiv:1211.6786) develop universal firing-pattern restrictions, but do not supply these graph-family orbit totals. Levine (arXiv:0811.2800) treats a complete graph, not cubic ladders. Fey–Levine–Wilson (DOI:10.1103/PhysRevE.82.031121) study finite-ladder sandpile critical density and stationarity, not this orbit count. The prior general cut-degree identity is broader in domain, but not equivalent to the explicit spectral/parity-twist conclusion. Other periodicities and attraction basins are outside scope. Independent mathematical assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact orbit populations on two natural cubic ladder closures and a strict alternating effect of boundary twist are a mathematically motivated spectral transfer comparison; not a claim of new general two-cycle counting theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
