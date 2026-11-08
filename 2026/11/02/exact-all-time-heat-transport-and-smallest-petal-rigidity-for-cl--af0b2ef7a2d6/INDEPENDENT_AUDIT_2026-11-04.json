@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:09:45.373154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unweighted one-hub G=K1 join disjoint clique blades K_{d_i}, k=sum d_i, s=min d_i, combinatorial L=D-A and H_t=e^-tL, the complete eigenspace decomposition has eigenvalues 0,k+1,1,d_i+1. With a=e^-t,b_i=e^-(d_i+1)t,c=e^-(k+1)t, signed heat-row difference has single definite positive mass at hub/other blades and deficits in the selected blade by monotonicity of (1-e^-xt)/x. Explicit optimal couplings and 1-Lipschitz dual potentials yield exact W1: within blade b_i, across blades 2a, hub to blade c+2(k-d_i)(a-c)/k. Edge W1 duality yields sharp Lip(H_t)=c+2(k-s)(a-c)/k. Calculus proves strict contraction for all t>0 iff k<=2s+1 when m>=2, else one positive-time peak; for m=1 formula collapses to e^-(k+1)t. Independent numerical matrix exponential and Kantorovich dual linear programs checked all pairs and relevant edge norms on profiles (1),(1,2),(2,3),(3,3),(1,1,4),(2,2,2) and t=0,.4,1.6, with no mismatches. Arbitrary integer profiles/all real t follow analytically, not by extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.8 gives K-curvature bound/exponential contraction equivalences on general graphs, not the exact two-exponential norm.",
+          "Petals and books analyzes normalized Laplacian spectral gaps, a different operator and invariant."
+        ],
+        "reasoning": "Generic contraction inequalities and normalized spectral gaps cannot recover the precise all-time W1 pair classes of the unnormalized semigroup.",
+        "searches": [
+          "Münch–Wojciechowski arXiv:1712.00875 Theorem 3.8",
+          "Jost Mulas Zhang DOI:10.1002/jgt.22999",
+          "clique bouquet heat kernel Wasserstein transport lipschitz norm star petal all time"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob bac29cc699eb403d35820001e0bebbb07bf59833",
+        "arXiv:math/0701886",
+        "arXiv:1712.00875",
+        "DOI:10.1002/jgt.22999",
+        "arXiv:1103.4037",
+        "Resultary semantic query: clique bouquet heat kernel Wasserstein transport lipschitz norm star petal all time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The infinitesimal contraction threshold happens to match k<=2s+1 but does not determine transport for every t.",
+          "Star s=1 case does not force equality after other blades gain clique edges, nor provide pairwise W1 for arbitrary s."
+        ],
+        "reasoning": "Full time dependence and smallest-blade rigidity require the current spectral decomposition, sign analysis, transport couplings and dual potentials.",
+        "searches": [
+          "earlier same-family edge-total-variation infinitesimal threshold",
+          "known k-leaf star heat Lip norm",
+          "Ollivier arXiv:math/0701886"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kantorovich duality equates edge W1 transport to the Lip semigroup norm but does not calculate bouquet transport.",
+          "Published-result semantic search did not retrieve the three exact clique-bouquet pair formulas."
+        ],
+        "reasoning": "All-time W1, Lipschitz contraction, heat-kernel curvature and windmill/friendship graph names were compared with exact generator convention; no same solved profile was established.",
+        "searches": [
+          "clique bouquet heat kernel Wasserstein transport lipschitz norm star petal all time",
+          "Ollivier arXiv:math/0701886 Kantorovich-Lipschitz duality",
+          "Münch–Wojciechowski arXiv:1712.00875 semigroup curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned general W1 and other Lip constants, not a bouquet W1 table.",
+          "Earlier known exact K1,k star norm covers only s=1."
+        ],
+        "reasoning": "No checked database table provided these heterogeneous blade-size all-time rows; a specific unindexed computation remains a risk.",
+        "searches": [
+          "clique bouquet heat kernel Wasserstein transport lipschitz norm star petal all time",
+          "windmill friendship graph continuous time heat Wasserstein 1 exact transport"
+        ]
+      },
+      "rationale": "Ollivier and Münch–Wojciechowski supply general Wasserstein/Lipschitz duality and curvature bounds; the previously known star case and infinitesimal clique-bouquet threshold are acknowledged. Neither implies the full three-orbit W1 equalities or identical full-time norm after repartitioning every nonminimal clique. Jost–Mulas–Zhang treat normalized spectral gaps on petal/book graphs, not the present combinatorial all-time W1; specialized unpublished graph transport calculations remain possible.",
+      "residual_risks": [
+        "A specialized windmill/friendship heat-kernel Wasserstein calculation may have escaped indexing.",
+        "The original curvature papers were inspected at theorem-scope level rather than fully reread during this execution.",
+        "Only unweighted one-hub clique bouquets, combinatorial Laplacian and W1 are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different normalized eigenvalue-gap statistic; not a W1 heat transport formula",
+          "evidence": "Main subject is spectral gap from 1 for normalized Laplacian, not W1(e^-t(D-A)) on heterogeneous bouquet.",
+          "identifier_or_url": "DOI:10.1002/jgt.22999",
+          "material_read": "Primary Wiley open-access article full-text HTML, abstract, definitions and main spectral-gap theorem statements",
+          "method": "read open full-text article and compared its normalized-Laplacian operator with combinatorial heat flow",
+          "title": "Petals and books: The largest Laplacian spectral gap from 1",
+          "trigger": "same petal graph topology potentially dominating classification"
+        },
+        {
+          "assessment": "General curvature/semigroup equivalence, no exact bouquet all-pair transport identity located",
+          "evidence": "Theorem 3.8 concerns K-dependent exponential Lipschitz bounds on general graphs.",
+          "identifier_or_url": "arXiv:1712.00875",
+          "material_read": "Original article theorem descriptions and relevant cited Theorem 3.8, inspected in accessible source/search text rather than complete PDF in this run",
+          "method": "theorem-statement and source text comparison",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "same semigroup and Lip-W1 comparison on graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact all-time heat-metric transport profile of a natural block-graph family and smallest-petal-only rigidity under nontrivial internal edge changes are mathematically motivated structural invariants, including a sharp contraction-vs-amplification transition useful in Markov semigroup curvature and metric mixing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob bac29cc699eb403d35820001e0bebbb07bf59833",
+    "arXiv:math/0701886",
+    "arXiv:1712.00875",
+    "DOI:10.1002/jgt.22999",
+    "arXiv:1103.4037",
+    "Resultary semantic query: clique bouquet heat kernel Wasserstein transport lipschitz norm star petal all time"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized windmill/friendship heat-kernel Wasserstein calculation may have escaped indexing.",
+    "The original curvature papers were inspected at theorem-scope level rather than fully reread during this execution.",
+    "Only unweighted one-hub clique bouquets, combinatorial Laplacian and W1 are covered.",
+    "Publication withheld: public metadata has operational provenance; minimal plan status not_ready; no GitHub writes."
+  ],
+  "schema_version": 1
+}
