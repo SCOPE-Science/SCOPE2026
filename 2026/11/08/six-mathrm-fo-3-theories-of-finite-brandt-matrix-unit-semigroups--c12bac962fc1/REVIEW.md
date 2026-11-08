@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The invariant is complete for the ternary multiplication relation: nonzero products and zeros depend only on the equality partition of the row/column endpoints, and a three-variable move requires at most two new indices beyond the four on stationary pairs. Both complete finite orbit refinement (255 patterns) and an independently written full concrete-state enumeration give the exact same rank partition \(1,2,3,5,6\). This establishes five adjacent finite separations; the unlimited tail uses the independent mathematical back-and-forth argument.
+
+**Originality — PASS, with qualified priority.** The nearest prior scientific statement on the same matrix-unit family determines *quantifier rank three* only and merges all sizes at least five. It does not imply an unrestricted *three-variable* classification; the new rank-four separator splits size five from six and the all-rank theorem shows exactly where this process stops. Dawar–Holm provide the general game tool, Stronkowski–Trotta study relational semigroup graphs in a distinct axiomatization setting, and Gould–Quinn-Gregson establish Brandt automorphism structure rather than a sharp finite-variable cutoff. Dedicated semigroup/matrix-unit and semantic research-record searches found no directly equivalent classification; priority beyond accessible texts is not claimed.
+
+**Mathematical value — PASS.** The natural family of Brandt inverse semigroups has an exact unbounded-depth three-variable theory spectrum, with a sharp six-index (37-element) saturation point. The result identifies a rank-three versus rank-four boundary invisible to earlier bounded-rank work and isolates why a matrix unit's two index endpoints permit a nontrivial saturation threshold. This is a complete classification and exact rank profile, not a mere isolated finite computation.
+
+The claim is limited to trivial-group Brandt semigroups, the named-zero ternary-relational language, and counting-free three-variable first-order logic. A shorter explicit rank-four separating formula and a broader classification across variable widths are not established. Independent review and exhaustive historical-priority validation are not performed.
+
+Self-review: passed. Independent audit: not yet performed.
