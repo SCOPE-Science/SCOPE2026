@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:14:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md four-step deterministic/Haar proof",
+        "Ivanov arXiv:2607.12072 Theorem 1.1 equality case, also 2018 planar theorem",
+        "Independent QR Haar frame minors and published symbolic Beta moment identity; inspected frozen check.py"
+      ],
+      "rationale": "Cauchy–Binet gives sum_{i<j} p_ij²=1 for absolute 2x2 Plücker minors. If p_ij>=sqrt(2/3), the other projected generators in W=[w_i,w_j] coordinates satisfy det(I+H)=p^-2<=3/2, hence tr H<=1/2 and each l1 coordinate <=1, forcing projected hull to be the pair parallelogram and area=2p_ij. Only one pair can be this large. Ivanov sharp area bound 2, with equality precisely at coordinate 2-planes, and compactness of K_n={max p<=sqrt(2/3)} make positive delta_n=min(2-max_K area, 2(1-sqrt(2/3))) rigorous, although unevaluated. Haar p_ij=R|<v,a>|; independent squared Beta variables (1,(n-2)/2) and (1/2,(n-2)/2) yield moments k!(n-2)!/(n+k-2)! and hence p_ij~Beta(1,n-2). Disjoint cap events give the exact polynomial; iid extreme-value limit and expected deficit follow via tail integration and exponentially controlled complement. Independently simulated QR Haar frames in n=3,4,6, with observed one-minor tails and E[p] matching predictions; these support but do not prove all n.",
+      "residual_risks": [
+        "The positive cutoff delta_n is implicit via a compact maximum, not optimized or numerically evaluated.",
+        "No full area CDF below the small upper endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanov gives area<=2 and equality only coordinate planes for all projected dimensions, but not distribution near equality.",
+          "Böröczky–Henk random projection work computes expected face counts and their asymptotic regimes, not 2D area probability tails."
+        ],
+        "reasoning": "Stronger deterministic maximal-volume theorem does not imply exact random near-max probabilities absent the minor-event equivalence. Random projection title and same cross-polytope do not mean the same invariant.",
+        "searches": [
+          "Resultary: cross-polytope random planar projection area extreme upper tail Plucker minors beta distribution Grassmannian Ivanov",
+          "Ivanov 2026 Theorem 1.1",
+          "Böröczky–Henk 1997 Random Projections of Regular Polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query Resultary: cross-polytope random planar projection area extreme upper tail Plucker minors beta distribution Grassmannian Ivanov",
+        "Ivanov arXiv:1808.09165 (2018) and arXiv:2607.12072 (2026)",
+        "Böröczky–Henk Random Projections of Regular Polytopes 1997/1999"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximum and its equality set alone imply only convergence of near-optimal configurations, not the exact polynomial measure.",
+          "Expected face number does not determine area distribution or extreme-value rate."
+        ],
+        "reasoning": "One must prove a finite-width stability region of parallelogram projections and identify the Haar Plücker marginal; neither is a corollary of the inspected prior theorems without additional argument.",
+        "searches": [
+          "Resultary: cross-polytope random planar projection area extreme upper tail Plucker minors beta distribution Grassmannian Ivanov",
+          "Ivanov 2018/2026 projection maxima",
+          "Böröczky–Henk full text relevant theorem/discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event of area >=2-eps is exactly a disjoint union of large Plücker-coordinate events near maximum, requiring a new containment step.",
+          "Haar one-coordinate minors have classical Beta(1,n-2) marginal, not alone the full projected-area tail."
+        ],
+        "reasoning": "Searched Plücker minors, random Grassmannian two-plane projections, cross-polytope shadows and extreme tail; did not find the same area-event reduction or exact law in compared published claims.",
+        "searches": [
+          "Resultary: cross-polytope random planar projection area extreme upper tail Plucker minors beta distribution Grassmannian Ivanov",
+          "Ivanov arXiv:1808.09165",
+          "Ivanov arXiv:2607.12072"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary table concerns a Haar central hyperplane section diameter rather than planar projection area.",
+          "Specific known maximal planar area 2 is acknowledged; no checked table contains C(n,2)/2^(n-2) exact random upper-tail coefficient."
+        ],
+        "reasoning": "Checked exact tables and probabilistic geometric quantities under section/projection dual terms; no exact matching area-tail table, subject to unindexed sources.",
+        "searches": [
+          "Resultary: cross-polytope random planar projection area extreme upper tail Plucker minors beta distribution Grassmannian Ivanov",
+          "Resultary 2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9",
+          "Ivanov 2018, 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel exact near-max Haar-area distribution for all ambient dimensions, not novelty of the extremal area bound or Beta minor marginal. Ivanov 2018 and 2026 prove deterministic maximal area and equality; Böröczky–Henk treats expected face counts of random regular-polytope projections, not the upper-tail area law; the closest Resultary cross-polytope record concerns random hyperplane *sections* and their diameter. Filliman 1988 is relevant older extremal literature not inspected in full and remains a bounded priority risk.",
+      "residual_risks": [
+        "Filliman 1988 full text not inspected; possible prior implications remain.",
+        "Implicit delta_n not evaluated; this affects interval explicitness, not existence or exact power law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING Haar upper-tail; supplies area maximum 2/equality only coordinate planes",
+          "evidence": "General bound 2^k/k! and equality only orthonormal nonzero generator basis.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.12072",
+          "material_read": "Full mathematical main statement and equality argument described by source; explicit Theorem 1.1 equality, projection k=2 specialization",
+          "method": "Read the accessible primary full result/proof text and compare actual mathematical statements; located relevant theorems and stated scope.",
+          "title": "The maximal volume of projections of the cross-polytope",
+          "trigger": "Same object and sharp maximizer theorem"
+        },
+        {
+          "assessment": "NOT_COVERING probability tail",
+          "evidence": "Already establishes planar extremal geometry, but does not give Haar probability event reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.09165",
+          "material_read": "Full inspected planar extremal statement, local maxima discussion and theorem scope",
+          "method": "Read the accessible primary full result/proof text and compare actual mathematical statements; located relevant theorems and stated scope.",
+          "title": "On the volume of projections of the cross-polytope",
+          "trigger": "Older planar projection extremality"
+        },
+        {
+          "assessment": "NOT_COVERING random planar area upper-tail",
+          "evidence": "Focus on projected f-vectors under Haar random projection, not projected area near maximum.",
+          "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Primary preprint abstract, main theorem, section 3 and conclusion concerning expected face numbers",
+          "method": "Primary full PDF text sections examined; previously inspected original PDF screenshot.",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "Same random projections of regular polytopes"
+        },
+        {
+          "assessment": "NOT_ADJUDICATED beyond bibliographic scope",
+          "evidence": "Potential historical priority or implicit stronger result cannot be ruled out.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02787224",
+          "material_read": "Bibliographic citation only, no full primary text available in this run",
+          "method": "Bibliographic lookup; no full-text access asserted.",
+          "title": "The largest projections of regular polytopes",
+          "trigger": "Older potentially relevant maximal projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ivanov sharp projected area bound (underlying natural extremal observable)",
+        "All-dimensional exact tail and independent-draw Weibull deduction"
+      ],
+      "rationale": "A natural tail probability near the *sharp* planar projection area bound is not answered by knowing the maximal area. The theorem yields an exactly polynomial nontrivial tail with explicit all-dimensional exponent, coefficient, and iid Weibull/mean consequences. The result is a substantive stochastic refinement of the known cross-polytope extremum.",
+      "residual_risks": [
+        "No bulk distribution; positive but implicit interval may be tiny in high dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The positive cutoff delta_n is implicit via a compact maximum, not optimized or numerically evaluated.",
+    "No full area CDF below the small upper endpoint.",
+    "Filliman 1988 full text not inspected; possible prior implications remain.",
+    "Implicit delta_n not evaluated; this affects interval explicitness, not existence or exact power law.",
+    "No bulk distribution; positive but implicit interval may be tiny in high dimensions.",
+    "No live GitHub edits, scientific repair files or publication operations were performed. Publication not_ready is a privacy/metadata transport block, not a scientific FAIL.",
+    "Continuity cursor never certifies proof or original publication."
+  ],
+  "schema_version": 1
+}
