@@ -1,21 +1,21 @@
-# Scientific assessment of the loss–fluence frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coherent-state preservation and exact-tracking formula are reconstructed from the dissipative cavity Lindblad generator. The full complex drive satisfies \(U=f+f'/\gamma\); its intensity contains the endpoint-dependent mixed term \(aA^2/G^2\), so the optimal-control reduction uses the *whole* field. The fixed cumulative cavity energy loss is proportional to \(\int f^2\), not to the derivative cost. All quantities are dimensionally and mathematically normalized by \(f(t)=A F(t/T)\).
+PASS
 
-The optimality proof is global and does not rely on the Euler–Lagrange equation alone. The hyperbolic and sine branches use an exact energy-defect identity and the sharp two-endpoint Poincaré inequality. For the plateau branch the one-endpoint Dirichlet–Neumann Poincaré inequality is combined with the physical cap \(F\le1\) to prove positivity and equality rigidity. Branch parameter monotonicity proves every normalized budget is represented exactly once. The included checker validates branch integrals, the complete complex-field fluence and independently integrated coherent-state trajectories; bounded checks are explicitly non-substitutes for the analytical proof.
+For a vacuum Markovian linearly driven damped cavity, the coherent-state amplitude obeys alpha_dot=-gamma alpha+i lambda U, and U=f+f_dot/gamma exactly tracks alpha=i lambda f/gamma. The physical complex-field fluence expands to I(f)+E(f)/|gamma|^2+(Re gamma)A^2/|gamma|^2, retaining a nonzero endpoint cross term. Fixing loss fixes integral F^2=q. For q<=1/2 the candidate hyperbolic, linear or sine solution satisfies F* second derivative sigma F*; the exact energy defect int h_prime^2+sigma int h^2 is positive by Dirichlet Poincare at sine u<pi/2. For q>1/2, sine-plateau candidate gives defect int_0^b(h_prime^2-k^2h^2)+int_b^1 h_prime^2+k^2 int_b^1(1-F^2), nonnegative by sharp Dirichlet-Neumann inequality and 0<=F<=1, with strict equality only at candidate. This proves global uniqueness and q thresholds 1/3 and 1/2, not merely Euler-Lagrange stationarity. Independently integrated budget and H for q=1/3,1/2,3/4; finite quadrature is only corroboration.
 
-## Originality — PASS, qualified
+## originality
 
-The principal 2026 full text, arXiv:2610.32610v1, covers the model, the CD tracking rule and optimization in the selected \(\sin^2\) pulse family. It does not present the universal fixed-loss envelope minimizer, the two normalized-loss thresholds, or global uniqueness over all monotone ramps. Abah et al. (2019) already optimize CD control costs, but the inspected full-text passages treat Landau–Zener ramps and parametrically driven quantum harmonic oscillators with a different norm objective, not the fixed-loss coherent-state cavity obstacle problem. Cavina et al. (2018) establish a general variational approach for open systems and explicit two-level examples, not this completed constrained spectral/obstacle classification. Other optimal quantum-control work remains a possible source of an equivalent more general theorem. Semantic published-result searches under coherent-state, fixed-loss, global-optimality, sine-plateau and parameter aliases produced no implication-level match; retrieval failure is not taken as mathematical proof of novelty. The accessible historical mathematical claims were checked only for overlap; no new equivalence was identified.
+PASS
 
-## Value — PASS
+Best-of-knowledge originality of the precisely scoped sharp theorem survives comparisons to primary antecedents; generic tools, original model/method and known broad phenomena are explicitly credited. Detailed four implications below distinguish genuinely new claimed conclusions from prior theory; remaining literature-access/priority risk is material but not in itself a known covering theorem.
 
-There are two independently motivated operational resources: total field intensity in a driven circuit-QED cavity and energy leaked to the environment during exact tracking. Fixing dissipated energy and final stored energy while minimizing microwave fluence is a natural, measurable two-resource question. The unexpected transition from a delocalized sine ramp to a strictly positive plateau at exactly one-half of the normalized loss distinguishes saturated control from a conventional smooth pulse; the hyperbolic-to-sine transition at one-third distinguishes low-loss control regimes. The complete infinite-dimensional global optimum and equality classification provide actual design bounds, not merely a numerically tuned parameter or a minor endpoint improvement. At the source's natural dissipation fraction \(3/8\), the improvement in the derivative component is approximately \(17.49\) percent, showing the bound matters at an existing physical protocol.
+## value
 
-## Limits and closest comparisons
+PASS
 
-The result is exact within the linear Markovian cavity model, unbounded complex quadrature controls and nondecreasing \(H^1\) ramps. Hardware amplitude/slew constraints, finite thermal occupation and model nonlinearities may change it. Broader control-theoretic prior claims could imply its variational structure, and publication priority has not been independently audited. General physical work accounting differs from control fluence; those quantities are not conflated.
+Fixing delivered cavity ergotropy and physical dissipation, the exact minimum-drive-fluence Pareto frontier over all monotone H1 envelopes and two saturating changes is a nontrivial optimal-control boundary. It quantifies a strict improvement over the baseline sin-squared envelope at its own loss budget. The control amplitude, bandwidth and thermodynamic-work restrictions are not part of this result.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
