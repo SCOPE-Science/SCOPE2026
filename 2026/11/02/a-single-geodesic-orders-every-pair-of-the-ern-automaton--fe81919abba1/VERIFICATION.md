@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python verification/verify.py` in the package root, using Python 3 standard library only. The checker reconstructs pair images independently from the definition, compares the proposed ranks with a reverse-BFS computation for orders 2 through 35, checks all local transitions through order 80, and verifies the complete common master path and all suffixes through order 80. The actual output is embedded in `verification/verify_output.txt`. There were 433,740 finite assertions and a `VERIFY_OK` result.
+## correctness
 
-## Scope and limits
+PASS
 
-These are finite, independently implemented computations. The infinite theorem is supplied by the symbolic rank-decrease and rank-counting arguments in RESULT.md. They do not constitute exhaustive publication-priority verification, independent mathematical audit, or a statement about all automata.
+For n>=2 and a cyclic shift plus b(n-1)=0, H(i,j)=nd-i for 2(j-i)<n and (n+1)(n-(j-i))-n-i otherwise. Direct boundary casework at j=n-1 shows no transition lowers H by more than one and exactly one letter lowers it by one, including the n=2 degenerate boundary. Rank intervals for d and n-d partition 1..n(n-1)/2, so each rank occurs once. The unique maximal pair follows a rank-decreasing Hamiltonian path, giving one master word with all optimal suffixes. Independent reverse BFS was recomputed on all 2300 pairs through n=24; all agree. The general n result follows from the rank-descent proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Gusev transition data may make the odd-case theorem derivable, a substantial residual O risk; neither inspected paper states the whole both-parity theorem. The exact maximal value itself is explicitly excluded from claimed novelty.
+
+## value
+
+PASS
+
+This completely classifies shortest merging trajectories for each named pair in a fundamental synchronizing automaton, beyond the already known maximum pair length. A rigid distinct distance spectrum and one master suffix supply exact reproducible extremal examples and structural information, useful in synchronization/automata research. This is not a generic BFS table or merely the known upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

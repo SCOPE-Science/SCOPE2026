@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 and a cyclic shift plus b(n-1)=0, H(i,j)=nd-i for 2(j-i)<n and (n+1)(n-(j-i))-n-i otherwise. Direct boundary casework at j=n-1 shows no transition lowers H by more than one and exactly one letter lowers it by one, including the n=2 degenerate boundary. Rank intervals for d and n-d partition 1..n(n-1)/2, so each rank occurs once. The unique maximal pair follows a rank-decreasing Hamiltonian path, giving one master word with all optimal suffixes. Independent reverse BFS was recomputed on all 2300 pairs through n=24; all agree. The general n result follows from the rank-descent proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard upper bound n(n-1)/2 for one pair is known and attained by Černý automata.",
+          "Gusev gives odd-order transition graph, whereas even-order and all-rank uniqueness are not established in source sections inspected."
+        ],
+        "reasoning": "The maximum is entirely covered; only the all-pair spectrum, geodesic rigidity and common word are evaluated as potential new results.",
+        "searches": [
+          "Černý automaton shortest pair merging word unique geodesic pair automaton spectrum",
+          "Szykuła Synchronizing Automata: Open Problems arxiv:2608.24245 Section 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Assigned source RESULT.md and verification/verify.py",
+        "Independent reverse BFS n=2..24",
+        "Gusev arxiv:1404.6731 primary PDF Section 3",
+        "Szykuła arxiv:2608.24245",
+        "Resultary Černý automaton shortest pair merging word unique geodesic pair automaton spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gusev Section 3 Theorems 3–4 study expected random-input pair synchronization using the already known odd pair transition graph.",
+          "The rank intervals prove that every pair has a distinct shortest length and a unique descending letter, including even n."
+        ],
+        "reasoning": "Gusev transition data may make the odd-case theorem derivable, a substantial residual O risk; neither inspected paper states the whole both-parity theorem. The exact maximal value itself is explicitly excluded from claimed novelty.",
+        "searches": [
+          "Černý automaton shortest pair merging word unique geodesic pair automaton spectrum",
+          "Gusev arxiv:1404.6731 Section 3",
+          "Szykuła arxiv:2608.24245"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gusev 2014 Section 3 Lemma 1 explicitly presents an equivalent pair automaton for odd orders and computes expected random-input synchronization times.",
+          "The new formulation is a deterministic all-pair shortest-path rank-Hamiltonian claim for both parities."
+        ],
+        "reasoning": "Odd-order graph representation is materially prior, but a stochastic expectation or transition graph is not the same proved geodesic metric; deriving unique paths needs exact rank arguments.",
+        "searches": [
+          "Černý automaton shortest pair merging word unique geodesic pair automaton spectrum",
+          "Gusev Synchronizing automata with random inputs arxiv:1404.6731 Lemma 1 Figure 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 published early deficiency profile treats image-size compression, not prescribed two-state merging distance.",
+          "No semantically returned database exact table implied the all-pair unique suffix theorem."
+        ],
+        "reasoning": "Image deficiency and synchronizing a specific pair are different objectives; negative search does not certify novelty.",
+        "searches": [
+          "Černý automaton shortest pair merging word unique geodesic pair automaton spectrum",
+          "Resultary Exact early deficiency profile of the Černý automata",
+          "Resultary Exact initial rank compression of D double-prime automata"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Gusev transition data may make the odd-case theorem derivable, a substantial residual O risk; neither inspected paper states the whole both-parity theorem. The exact maximal value itself is explicitly excluded from claimed novelty.",
+      "residual_risks": [
+        "Gusev already gives the full odd-pair automaton graph: odd-case shortest distances may be an implicit easy derivation; priority over mathematical statements remains qualified.",
+        "Uninspected related dissertations and literature may include geodesic all-pair tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Odd-order pair automaton and random expected merging are prior; inspected material does not state deterministic both-parity unique rank spectrum.",
+          "evidence": [
+            "Section 3 Lemma 1; Figure 3 on PDF p.6; Theorems 3 and 4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+          "material_read": "Primary PDF Section 3 pages 4–9, including Lemma 1, Figure 3 and Theorems 3–4, with rendered figure inspected.",
+          "method": "Direct primary PDF text and page-image inspection",
+          "title": "Synchronizing automata with random inputs",
+          "trigger": "Most relevant explicit Černý pair automaton analysis"
+        },
+        {
+          "assessment": "Known sharp bound and Černý attainment are prior and disclaimed.",
+          "evidence": [
+            "Section 2.4, upper bound n(n-1)/2 for prescribed pair"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+          "material_read": "Primary survey summary and relevant Section 2.4 description; full manuscript not independently reread end-to-end in this run.",
+          "method": "Source-level statement and mathematical quantifier comparison",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Known maximum pair merging length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This completely classifies shortest merging trajectories for each named pair in a fundamental synchronizing automaton, beyond the already known maximum pair length. A rigid distinct distance spectrum and one master suffix supply exact reproducible extremal examples and structural information, useful in synchronization/automata research. This is not a generic BFS table or merely the known upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Gusev already gives the full odd-pair automaton graph: odd-case shortest distances may be an implicit easy derivation; priority over mathematical statements remains qualified.",
+    "Uninspected related dissertations and literature may include geodesic all-pair tables.",
+    "Finite verification supplements analytic proof but does not independently certify all infinite parameter values.",
+    "No external expert/formal attestation and no historical priority certification.",
+    "Complete privacy-safe publication changes were not staged."
+  ],
+  "schema_version": 1
+}
