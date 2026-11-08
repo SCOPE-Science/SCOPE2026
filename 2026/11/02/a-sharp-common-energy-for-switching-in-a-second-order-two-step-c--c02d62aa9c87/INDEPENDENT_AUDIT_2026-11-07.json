@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:48:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly specified 2-stage 2-step scheme with scalar frozen decay x in [0,4], stages give companion A(t) with t=T2(1-x/2)=1-2x+x^2/2, A(t)=[[3(1+t)/5,-t/5],[1,0]]. P=[[1,-1/3],[-1/3,1/5]] has determinant 4/45>0. Direct matrix algebra gives A(-1)^T P A(-1)=P/5 and P-A(1)^T P A(1)=(4/25)[[1,-1],[-1,1]], and convexity of squared P norm in A(t) gives the uniform factor 1-x(4-x)/5. Endpoint spectral radius squared 1/5 forces coefficient <=1/5; equality and A(1) fixed vector (1,1) force Q proportional to P. Quadratic Jury conditions make frozen strict Schur interval (-2,1), while D22=(5-t^2)/25 and det D=32(1-t)(t+2)/1125 show SAME P nonexpansive for -2<=t<=1. Summed x(4-x)=infinity implies energy->0. Smooth-order-two Taylor expansion does not assert discontinuous-rate convergence order or noncommuting operator stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those results analyze variable-step implicit BDF or other one-leg methods, not this explicit A(t) family."
+        ],
+        "reasoning": "Other method and companion matrix means the generic stability theorem does not imply a sharp exact rational P for the specific integrator.",
+        "searches": [
+          "Li–Liao arXiv:2201.00527 variable step BDF",
+          "Dahlquist–Liniger–Nevanlinna DOI:10.1137/0720076"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.16267",
+        "https://arxiv.org/abs/2201.00527",
+        "Resultary: second order stabilized two step Chebyshev Runge Kutta companion arbitrary switching common quadratic Lyapunov sharp energy",
+        "Moisa–Faleichik arXiv:2303.16267",
+        "Li–Liao arXiv:2201.00527 variable step BDF",
+        "Dahlquist–Liniger–Nevanlinna DOI:10.1137/0720076",
+        "Resultary common quadratic Lyapunov switched two-step Chebyshev query",
+        "Moisa–Faleichik source polynomial parameters",
+        "Moisa–Faleichik arXiv:2303.16267 Section 2–4",
+        "Li–Liao arXiv:2201.00527"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moisa–Faleichik give second-order scheme and individual frozen spectra; common P property is stronger and proven here by endpoint Loewner inequalities and convexity."
+        ],
+        "reasoning": "Known scalar frozen stability and generic variable-step estimates cannot imply the sharp coefficient, uniqueness or same-energy property under arbitrary switching in this A(t) family.",
+        "searches": [
+          "Moisa–Faleichik arXiv:2303.16267 Section 2–4",
+          "Li–Liao arXiv:2201.00527"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moisa–Faleichik cover second-order Chebyshev-based two-step RK template, frozen scalar Schur stability and damping; not the displayed P or sharp switching factor in inspected text."
+        ],
+        "reasoning": "Frozen eigenvalue stability is not equivalent to arbitrary products sharing a quadratic Lyapunov function.",
+        "searches": [
+          "Resultary: second order stabilized two step Chebyshev Runge Kutta companion arbitrary switching common quadratic Lyapunov sharp energy",
+          "Moisa–Faleichik arXiv:2303.16267"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved nearby general recurrences but no same 2x2 P, factor 1/5 and Schur interval; source paper has stability polynomials but no same matrix table found in inspected sections."
+        ],
+        "reasoning": "No same exact certificate located; non-detection alone is not a novelty proof.",
+        "searches": [
+          "Resultary common quadratic Lyapunov switched two-step Chebyshev query",
+          "Moisa–Faleichik source polynomial parameters"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: Moisa–Faleichik formulate these stabilized two-step methods and frozen scalar stability, but the inspected source does not give this sharp, unique common switching quadratic. Different variable-step BDF estimates are not implications.",
+      "residual_risks": [
+        "Potential unpublished stronger common-Lyapunov classification for this particular A(t) family remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines scheme family and frozen interval; no present common-switching theorem in relevant source",
+          "evidence": "Main stabilized characteristic polynomial and scalar stability sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.16267",
+          "material_read": "Primary complete PDF text, Sections 2–4 and explicit stability schemes; proof pages visually inspected",
+          "method": "Full PDF text and page screenshot",
+          "title": "Second order stabilized two-step Runge-Kutta methods (Moisa and Faleichik)",
+          "trigger": "Same numerical-integrator source and polynomial template"
+        },
+        {
+          "assessment": "Different BDF order/stencil and implicit method; no whole-article noncoverage asserted",
+          "evidence": "BDF2/BDF3 variable-step stability objective.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "Abstract and theorem description in accessible metadata; not full mathematical PDF",
+          "method": "Abstract/metadata only",
+          "title": "Stability of variable-step BDF2 and BDF3 methods (Li and Liao)",
+          "trigger": "Broader variable-coefficient multistep stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single sharp and unique explicit quadratic Lyapunov certificate guarantees arbitrary switching stability, which scalar frozen root-stability alone cannot guarantee. The full Schur interval and exact energy loss sharpen a natural low-stage stabilized integrator instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Arbitrary switching is only for exact scalar frozen decay; not variable timestep or matrix/nonlinear PDE scheme.",
+    "Potential unpublished stronger common-Lyapunov classification for this particular A(t) family remains possible.",
+    "Unchanged confidential public metadata/audit field prevents automatic publication; this is a transport/privacy blocker, not a scientific C/O/V failure.",
+    "This scientific review is neither expert attestation nor Lean verification and makes no invented certification claim."
+  ],
+  "schema_version": 1
+}

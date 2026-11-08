@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stage coefficients are an exact admissible order-two instance of the explicit two-step family. A local Taylor calculation proves second order for smooth right-hand sides. The frozen-rate companion reduction is exact. The positive-definite rational matrix is independently checked at both extremal Chebyshev parameters, yielding an all-sequence common Lyapunov inequality by convexity. Spectral-radius and determinant arguments establish sharpness and uniqueness. The companion Schur interval is fully classified by quadratic Jury inequalities. Reproducible rational checks support, but do not replace, these proofs.
+## correctness
 
-**Originality — PASS, qualified.** Moisa and Faleichik supply the method family, its scalar frozen-coefficient stability construction, and stage formulas; that foundational material is not claimed as new. Their relevant full-text sections do not state the specific sharp simultaneous quadratic switching inequality, its uniqueness, or the exact no-switching-penalty interval. Li and Liao prove different variable-step BDF stability theorems using convolution kernels and an elliptic norm; those do not imply the present explicit method's recurrence-specific certificate. Search comparisons included full-statement equivalents, common-Lyapunov formulations, variable-coefficient two-step methods, and prior published numerical analysis. Residual risk: the same rational member and its energy could exist in specialized general-linear-method or matrix-inequality literature beyond the retrieved sources.
+PASS
 
-**Value — PASS.** Scalar frozen stability alone does not generally guarantee stability under adversarial switching in two-step recurrences; the finding gives a single exact energy guarantee valid under unrestricted order and frequency of switching, and a sharp optimal coefficient among every quadratic metric. The certificate supplies a practical stability budget for variable sampled decay rates and an exact structural benchmark for stabilized multistep methods. It is not a routine numerical tabulation or a tiny perturbative improvement.
+For exactly specified 2-stage 2-step scheme with scalar frozen decay x in [0,4], stages give companion A(t) with t=T2(1-x/2)=1-2x+x^2/2, A(t)=[[3(1+t)/5,-t/5],[1,0]]. P=[[1,-1/3],[-1/3,1/5]] has determinant 4/45>0. Direct matrix algebra gives A(-1)^T P A(-1)=P/5 and P-A(1)^T P A(1)=(4/25)[[1,-1],[-1,1]], and convexity of squared P norm in A(t) gives the uniform factor 1-x(4-x)/5. Endpoint spectral radius squared 1/5 forces coefficient <=1/5; equality and A(1) fixed vector (1,1) force Q proportional to P. Quadratic Jury conditions make frozen strict Schur interval (-2,1), while D22=(5-t^2)/25 and det D=32(1-t)(t+2)/1125 show SAME P nonexpansive for -2<=t<=1. Summed x(4-x)=infinity implies energy->0. Smooth-order-two Taylor expansion does not assert discontinuous-rate convergence order or noncommuting operator stability.
 
-**Scope and limitations.** Scalar decay rates are held fixed within each pair of stage evaluations; the scheme's convergence order under discontinuous coefficients, nonnormal matrix cases, variable step sizes, and arbitrary nonlinear problems are not established. Originality is best-knowledge and not a claim of independently established publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: Moisa–Faleichik formulate these stabilized two-step methods and frozen scalar stability, but the inspected source does not give this sharp, unique common switching quadratic. Different variable-step BDF estimates are not implications.
+
+## value
+
+PASS
+
+A single sharp and unique explicit quadratic Lyapunov certificate guarantees arbitrary switching stability, which scalar frozen root-stability alone cannot guarantee. The full Schur interval and exact energy loss sharpen a natural low-stage stabilized integrator instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
