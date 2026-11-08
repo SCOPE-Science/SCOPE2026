@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Conditional on the marked vertices being noncyclic and on a fixed cyclic set of size \(k\), the forest is uniform: each forest has exactly \(k!\) completions to a mapping. Every forest of \(m\) nonroots is represented by a parent vector with its root arrows collapsed; its exact multiplicity is \(k^{r}\). The finite parent-type coefficient census enumerates **all** possibilities for each \(m=2,3,4,5\) without simulation. Direct complete-mapping enumeration independently checks small orders. Integer polynomial identities in \(k\) then cover every positive \(k\) in the claimed domain. The four sign regions follow from explicit polynomial values and positive coefficient/derivative bounds. Limit: no assertion for \(m\ge6\) or broader mapping laws.
+PASS
 
-## Originality: PASS, with priority risk
+Conditional on the cyclic set, all directed forests with those k roots are equiprobable because their k! cyclic permutations are equinumerous. Collapse each root arrow to one symbol; each admissible parent vector with r root arrows contributes k^r. Enumerating all (m+1)^m parent vectors with explicit cycle rejection yields exact polynomials W_m=k(k+m)^(m−1), A_m=ka_m and B_m=kb_m for m=2..5. Cov=(b_m(k)(k+m)^(m−1)−a_m(k)²)/(k+m)^(2m−2), giving P2=−1; P3=k²−2k−19; P4=3k⁴+46k³+192k²+24k−836; P5=5k⁶+168k⁵+2217k⁴+14072k³+40503k²+25728k−64261. Sign P3 changes between 5 and 6; P4 between 1 and 2; P5 positive for all k>=1; P2 negative throughout. m≥2 and k≥1 are enforced, and n<=5 has no positive instance. Independent exact parent-vector implementation checked 16 polynomial assertions and reproduced m=5 W/A/B coefficient rows; polynomial symbolic enumeration proves every integer k in scope, unlike finite k sampling.
 
-The named prior sources give uniform-forest counts, component-size laws and/or asymptotic mapping heights, but the inspected material did not contain this two-marked conditional covariance sign classification. The closest general frameworks are Pitman (1996) and Hansen–Jaworski (2008); the former's enumeration alone does not provide the displayed joint moment polynomials, and the accessible material for the latter treats one-vertex local variables. A general multivariate local law may implicitly yield the result, so worldwide historical priority is not certified. Research-record and prior research records comparisons checked semantically equivalent conditioning, two-marked heights and stronger forest laws; no directly covering stored claim was found.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-These small-transient-population formulas are the minimal finite near-permutation regime in which the dependence sign can be fully traced through its first transition: two noncyclic vertices are always negatively dependent, whereas three have a sharp root-count threshold and additional populations become positive at six total vertices. The result distinguishes common-ancestry amplification from competition under a genuinely structural conditioning. Its exact sign boundary and smallest-order witness are not a routine restatement of the Cayley forest count; its scope is intentionally confined to a meaningful first transition rather than unsupported extrapolation.
+Uniform rooted-forest counting and conditional random-mapping/forest equivalence are classical, particularly Pitman and Berlinkov. The new claim is a complete pairwise marked-depth covariance polynomial and sign transition for each m=2..5, not the well-known count W_m. Accessible Pitman Sec 2.1 and Berlinkov tree-height asymptotic results do not state this two-marked exact sign diagram. Hansen–Jaworski is a closer potential general-multivariate source; accessible summaries are insufficient for entire noncoverage. Best-of-knowledge PASS with explicit risk that a broader forest generating function implies these polynomial special cases.
 
-## Limitations and priority comparisons
+## value
 
-The independence of the cyclic permutation and the forest, and the fixed-root counting identity, are classical. Pitman's forest counting and Berlinkov's forest reduction are explicitly cited. The 2008 local-properties study is a residual priority risk because full-text coverage of every local-moment corollary was not established; the available paper summary does not assert a joint marked-height sign theorem. Reproducibility checks do not replace independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first positive covariance at n=6 and opposite sign boundaries for the smallest four noncyclic populations identify a natural first dependence transition in random mappings near permutations. Exact symbolic finite-structure census for all root counts k provides a complete meaningful classification on this motivated near-permutation domain, not arbitrary numerical tables or an unjustified all-m claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:56:32.194803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the cyclic set, all directed forests with those k roots are equiprobable because their k! cyclic permutations are equinumerous. Collapse each root arrow to one symbol; each admissible parent vector with r root arrows contributes k^r. Enumerating all (m+1)^m parent vectors with explicit cycle rejection yields exact polynomials W_m=k(k+m)^(m−1), A_m=ka_m and B_m=kb_m for m=2..5. Cov=(b_m(k)(k+m)^(m−1)−a_m(k)²)/(k+m)^(2m−2), giving P2=−1; P3=k²−2k−19; P4=3k⁴+46k³+192k²+24k−836; P5=5k⁶+168k⁵+2217k⁴+14072k³+40503k²+25728k−64261. Sign P3 changes between 5 and 6; P4 between 1 and 2; P5 positive for all k>=1; P2 negative throughout. m≥2 and k≥1 are enforced, and n<=5 has no positive instance. Independent exact parent-vector implementation checked 16 polynomial assertions and reproduced m=5 W/A/B coefficient rows; polynomial symbolic enumeration proves every integer k in scope, unlike finite k sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hansen–Jaworski 2008 accessible description concerns one-vertex local mapping statistics including predecessor/successor properties, potentially rich multivariate generating functions.",
+          "Chuprunov–Fazekas 2009 studies component block counts and strong laws, not explicit marked-depth covariance sign diagrams."
+        ],
+        "reasoning": "An exact multivariate random-forest generating-function theorem might imply these finite m identities after specialization; no decisive covering implication established from the material read.",
+        "searches": [
+          "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance",
+          "Hansen Jaworski local properties random mappings exchangeable indegrees predecessors successors conditional two vertices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 01a3736de228b281e1e4baa4cd7a43fcefe04bf3",
+        "Frozen verify.py 5fed3acba12d368659a18386aa40be8b5eb557fb",
+        "Pitman Tech Report 457 §2.1",
+        "Berlinkov arXiv:1504.04532",
+        "Hansen/Jaworski DOI:10.1239/aap/1208358892",
+        "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known W_m=k(k+m)^(m−1) controls total mass only, whereas covariance needs separate A_m and B_m polynomials and their cancellation.",
+          "Explicit boundary: m=3 sign switches k=5→6, m=4 k=1→2; root-count formula alone does not determine this."
+        ],
+        "reasoning": "No inspected classical forest count or high-tree theorem implies the displayed sign diagram without additional moment extraction; an uninspected stronger two-marked depth formula is a residual priority risk.",
+        "searches": [
+          "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance",
+          "Pitman forest rooted count and joint path-depth moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman, Coalescent Random Forests Sec 2.1 counts forests with prescribed roots via k(k+m)^(m−1).",
+          "Berlinkov arXiv:1504.04532 maps uniform mapping conditional cyclic set to rooted forests and studies tree-height asymptotics."
+        ],
+        "reasoning": "Equating conditional mapping to uniform forest is prior knowledge; exact covariance of two marked transient depths is a different observable not given by forest counts alone.",
+        "searches": [
+          "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance",
+          "Pitman Coalescent Random Forests two marked tree heights",
+          "Berlinkov Highest Trees of Random Mappings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md gives four explicit integer-polynomial covariance numerators; independent full parent-vector coefficient enumeration matches.",
+          "Published Resultary closest random-tree depth/degree regressions concern a different random tree law."
+        ],
+        "reasoning": "No external exact table of conditional two-tail depth covariance numerators was identified; source tables are genuine symbolic exhaustive enumerations for each fixed m, not numerical regression.",
+        "searches": [
+          "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance",
+          "small noncyclic random mapping depth covariance polynomial tables m2 m3 m4 m5"
+        ]
+      },
+      "rationale": "Uniform rooted-forest counting and conditional random-mapping/forest equivalence are classical, particularly Pitman and Berlinkov. The new claim is a complete pairwise marked-depth covariance polynomial and sign transition for each m=2..5, not the well-known count W_m. Accessible Pitman Sec 2.1 and Berlinkov tree-height asymptotic results do not state this two-marked exact sign diagram. Hansen–Jaworski is a closer potential general-multivariate source; accessible summaries are insufficient for entire noncoverage. Best-of-knowledge PASS with explicit risk that a broader forest generating function implies these polynomial special cases.",
+      "residual_risks": [
+        "An earlier explicit joint-depth multivariate forest generating function could imply the finite-polynomial tables.",
+        "Hansen–Jaworski 2008 full text was not inspected; priority risk remains.",
+        "No general m≥6 or unconditioned covariance statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "rooted-forest count established but inspected portion does not state the conditional two-marked-depth sign phase diagram",
+          "evidence": "Pitman Berkeley Tech Report 457 (1996), §2.1",
+          "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/457",
+          "material_read": "full accessible technical report, especially Section 2.1 and root-enumeration equation (6)",
+          "method": "Berkeley primary full PDF, including screenshot inspection",
+          "title": "Coalescent Random Forests",
+          "trigger": "fixed-root forest representation and potential stronger multivariate law"
+        },
+        {
+          "assessment": "asymptotics for highest trees, not an examined pairwise depth formula",
+          "evidence": "Berlinkov arXiv:1504.04532v1",
+          "identifier_or_url": "https://arxiv.org/abs/1504.04532",
+          "material_read": "abstract and described forest reduction, not full detailed proof of all height distributions",
+          "method": "arXiv source and publication scope",
+          "title": "Highest Trees of Random Mappings",
+          "trigger": "same conditioned mapping–forest model"
+        },
+        {
+          "assessment": "inadequate for whole-document NOT_COVERING; important residual risk",
+          "evidence": "Hansen–Jaworski Advances in Applied Probability 40 (2008), 183–205",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+          "material_read": "abstract and accessible overview; complete paper not read",
+          "method": "publisher abstract",
+          "title": "Local Properties of Random Mappings with Exchangeable In-Degrees",
+          "trigger": "potential general marked local-variable formula"
+        },
+        {
+          "assessment": "component counts/strong laws differ from two marked depths",
+          "evidence": "Chuprunov–Fazekas 2009",
+          "identifier_or_url": "https://doi.org/10.1007/s10474-009-8150-x",
+          "material_read": "citation, abstract and topic only",
+          "method": "primary bibliographic overview",
+          "title": "Strong laws of large numbers for random forests",
+          "trigger": "rooted forest block-size prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first positive covariance at n=6 and opposite sign boundaries for the smallest four noncyclic populations identify a natural first dependence transition in random mappings near permutations. Exact symbolic finite-structure census for all root counts k provides a complete meaningful classification on this motivated near-permutation domain, not arbitrary numerical tables or an unjustified all-m claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 01a3736de228b281e1e4baa4cd7a43fcefe04bf3",
+    "Frozen verify.py 5fed3acba12d368659a18386aa40be8b5eb557fb",
+    "Pitman Tech Report 457 §2.1",
+    "Berlinkov arXiv:1504.04532",
+    "Hansen/Jaworski DOI:10.1239/aap/1208358892",
+    "Resultary: random mapping two marked depths conditioned cyclic roots finite covariance"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier explicit joint-depth multivariate forest generating function could imply the finite-polynomial tables.",
+    "Hansen–Jaworski 2008 full text was not inspected; priority risk remains.",
+    "No general m≥6 or unconditioned covariance statement."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "m=2,3,4,5 only, k any positive integer, marked vertices explicitly conditioned noncyclic, uniform mappings including fixed-point cycles."
+}
