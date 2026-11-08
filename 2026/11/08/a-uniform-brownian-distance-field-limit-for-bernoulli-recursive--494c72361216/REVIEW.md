@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The finite Bernoulli attachment recursion is exactly \(X_k=1\) on an adjacent-parent step and \(X_k=1-X_{k-1}\) on a second-predecessor step, so height increments are bounded and nonnegative. Centering by \(1/(1+q)\) turns this into an explicit bounded martingale with predictable quadratic variation tending to \(pq/(1+q)\) per time unit. This proves the height functional CLT with variance \(pq/(1+q)^3\), without an independence assumption on the height increments. The latest successful adjacent-parent choice is a common ancestor witness for all later vertices; the longest failure run, bounded almost surely by \(O(\log n)\), gives a simultaneous \(O(\log n)\) error for *every* pairwise distance. The uniform Brownian field and measured interval limit follow from these proved facts. Diameter fluctuation is the terminal height fluctuation, while the pairwise-mean variance is the explicitly evaluated squared \(L^2\)-norm of \(2t(1-t)\). The supplied checker independently verifies finite identities for all attachment sequences through vertex index 13 and exact rational height moments, and includes clearly marked seeded Monte Carlo sanity checks. No finite experiment is used to prove an infinite statement.
+
+## Originality — PASS (best-knowledge assessment)
+
+The closest primary work is Tang--Wang--Wu (arXiv:2607.02916, 2026), which introduces the exact model, proves one-endedness and infinite collisions, and characterizes trunk and branch lengths. Its longest-run and branch results are acknowledged as background, not repackaged as novel. Its statements and Sections 2--3 do not give the *joint second-order distance field*, Brownian overlap covariance, measured interval limit, or exact diameter and mean-pair fluctuation variances. Iksanov--Kabluchko (arXiv:1801.04606) analyzes level counts in uniform-parent recursive trees, which have logarithmic rather than linear heights. Berzunza Ojeda--Janson (arXiv:2009.00572) studies conditioned simply generated trees at square-root distance scaling, whose limit is a Brownian continuum random tree rather than a deterministic interval. Mailler--Uribe Bravo (arXiv:1810.02735) concerns tree encodings of preferential relocation models with different parent distributions and observables. Scientific title/claim/alias/parameter searches found no stronger directly implying statement. Residual historical-priority uncertainty concerns a possible general metric invariance principle for bounded-backstep attachment that was not located; an absence of matches is not a uniqueness proof.
+
+## Value — PASS
+
+This is a natural geometric question left open by a paper that characterizes the topology and collision behavior of the same random tree. The result identifies the entire metric-measure scaling limit and its *second-order fluctuations simultaneously for all birth-time pairs*, including the nontrivial overlap covariance, rather than only a routine height mean. It quantifies two global graph-distance statistics with different, exact Gaussian variances, explaining how bounded-distance side branches disappear under linear and square-root scaling. These provide a full quantitative geometry for subsequent hitting-time or metric-process analysis, without asserting a downstream theorem not proved here.
+
+## Closest literature and limitations
+
+Relevant primary texts: https://arxiv.org/abs/2607.02916 ; https://arxiv.org/abs/1801.04606 ; https://arxiv.org/abs/2009.00572 ; https://arxiv.org/abs/1810.02735 . The theorem requires fixed \(0<p<1\). It does not treat varying attachment probabilities, quenched walk limits or convergence rates. Formal independent verification and definitive historical-priority assessment remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
