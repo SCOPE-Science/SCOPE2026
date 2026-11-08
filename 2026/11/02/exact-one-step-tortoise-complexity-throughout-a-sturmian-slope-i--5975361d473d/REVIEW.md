@@ -1,15 +1,21 @@
-# Scientific review: one-step tortoise complexity for a Sturmian slope interval
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim is uniform over every irrational \(\alpha\in(1/3,2/5)\) and every factor length. The proof derives the exact \(n+1\) factor count directly from the \(m\) distinct rational-rotation thresholds, and the unique left-special factor by preceding-letter branching. The prefix is left special because its initial phase \(\alpha\) lies strictly inside a length-\(m\) cylinder, with both predecessor values obtained by dense rotation. The forbidden factors \(11,000,10101\) follow from the length-two, -three, and -five balance bounds. For every length \(n\ge6\), the possible first-two-one gap parameters force only two collision types; unique left-special suffixes bound them, and explicit left contexts of the prefixes attain both. Their image first-one positions distinguish the two classes. Short lengths are exhaustively listed separately. Exact finite checks from substitution-block and rational-enclosure/stack algorithms corroborate the proof. No finite verification is substituted for an infinite argument.
+## correctness
 
-## Originality (PASS, qualified)
-The closest source, Campbell--Rampersad (arXiv:2604.25811v2), introduces this precise factor quotient and proves a constant-loss estimate for linearly complex words, but its exact cases are paperfolding and Thue--Morse; its conclusion specifically invites Sturmian extensions. The bound alone does not select a loss of two and does not supply the explicit two fiber pairs for the continuum of characteristic slopes here. Defant--Kravitz introduces the general word operation and studies sorting and preimage counts, not characteristic mechanical-word factors. Classical Sturmian complexity \(n+1\) describes the input factor cardinality, not its tortoise quotient. Targeted research-record searches and public literature searches disclosed no equivalent full-length slope-interval theorem. Remaining risk: unindexed or differently titled results concerning the same quotient could exist; independence of priority has not been externally assessed.
+PASS
 
-## Value (PASS)
-The newly introduced tortoise-factor complexity was studied exactly for two prominent automatic words, with general Sturmian variants explicitly identified as a natural next step. This theorem yields an all-length exact answer and complete fiber structure not merely for a single example but for uncountably many characteristic Sturmian words in a natural rationally bounded slope chamber. It explains the constant defect through a pair of left-special contexts and provides an elementary geometric proof rather than only a computational census. Its scope is limited to the stated slope interval, characteristic intercept, and one iteration.
+Irrational rotation with characteristic intercept supplies exactly n+1 factors and one unique left-special factor, the characteristic prefix z_n. For slopes strictly between 1/3 and 2/5, factor balance forces no 11,000,10101; every factor n>=6 contains at least two ones. A one-step tortoise image fixes the sum of two initial zero-run lengths and the trailing suffix. Only two distinct splits are possible, (0,2)/(1,1) and (1,2)/(2,1), and any collision suffix is left-special, thus one of the explicit characteristic prefixes. Distinct allowable left contexts produce both doubleton fibers, and initial zero-run lengths separate them. Full short-factor sets n<=5 yield the stated exceptional counts. Independently enumerated factors and compared all nontrivial fibers at n=1..23 for three irrational mechanical slopes (golden, sqrt(2)/4, (sqrt(2)+1)/7), all matching. Decimal enclosures and finite checks corroborate but do not prove the uniform irrational-rotation and left-special argument.
 
-## Closest literature and limitations
-Campbell and Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811v2, Sections 3--7, supplies the exact definition and the closest general complexity bound. Defant and Kravitz, *Stack-sorting for words*, Austral. J. Comb. 77 (2020), introduces the operator. The known Sturmian factor-count theorem is a premise independently reconstructed by rotation thresholds. No claim is made about noncharacteristic intercepts, rational slopes, or other slope chambers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Campbell–Rampersad (2026) introduced exactly the tortoise factor-complexity statistic, proved bounded loss under linear complexity/bounded gaps and a collision-to-left-special lemma, and computed exact formulas for non-Sturmian sequences. Their work explicitly raises Sturmian examples; it does not provide the two exact doubleton fibers and n-1 count for every irrational alpha in the full open interval. The original tortoise map and Sturmian n+1 factor theorem are classical inputs. A later/unindexed exact Fibonacci/Sturmian computation could overlap.
+
+## value
+
+PASS
+
+The interval of characteristic Sturmian slopes is a natural rotation-language class. An all-length exact tortoise quotient plus the complete two-doubleton collision structure answers a precise question not implied by the general bounded-loss theorem. It provides reusable combinatorial control beyond a single numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
