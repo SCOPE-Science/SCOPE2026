@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` from this directory using a standard Python 3 installation. The program uses only the standard library. It constructs the exact rational hat-kernel rows from the analytic Gram-inverse formula for dimensions \(2\) through \(10\), tests 1,394,017 kernel entries for nonnegative sign products and checks all row sums, then evaluates every Hamming orbit through dimension \(100\) and confirms that the stated closed form is the exact maximum. In dimensions \(2\) through \(10\), 63 endpoint rows also attain the exact constant.
+## correctness
 
-Separate exact symbolic linear-algebra calculations in dimensions \(2\) through \(6\) directly compared the hat matrix \(F(F^{\mathsf T}F)^{-1}F^{\mathsf T}\) against the formula and checked idempotence; all passed. The expected exact values for dimensions \(2,3,4\) are \(1\), \(7/4\), and \(21/11\). The attached checker reproduces the principal combinatorial and row-norm checks.
+PASS
 
-Finite tests do not prove the all-dimensional theorem. The universal sign argument, binomial sign identity, zero-shell bound, and endpoint localization are established in RESULT.md. No independent scientific validation has been performed.
+Verified the design Gram G=2^d I_{d+1}-11^T has inverse M^{-1}(I+11^T/(M-d-1)), so the pinned symmetric hat kernel is exact. Used the signed full-cube Walsh row, parity zero-shell and Hamming orbit expressions to rederive the absolute row sums. For even d the row gap factorization has strict endpoint maximizers k=1,d except d=2, where the projection is the 3-by-3 identity; for odd d bound zero-shell |sum_{i in S}z_i| by min(k,d+1-k), also sharp only at endpoints. Row signs attain norm; row sum one implies negative coefficient mass=(norm-1)/2. Stirling gives √(2/π)d^{3/2}2^{-d} deletion gap. Independently enumerated 86,367 exact rational Gram-kernel entries over d=2..8 plus orbit maxima, confirming the algebra, not substituting for the infinite-dimensional binomial inequalities.
+
+## originality
+
+PASS
+
+Full-cube Walsh projector norms and the usual missing-factorial-design variance efficiencies are related but have neither the punctured-cube conditional design nor exact L∞ hat-matrix norm and extremal signed data. The 1979 missing-points factorial paper is plausible but inaccessible beyond abstract, with authorized institutional retrieval blocked by disconnected VPN; disclose genuine priority risk, not a reason for false FAIL. Best-of-knowledge novelty of exact punctured design formula remains.
+
+## value
+
+PASS
+
+Deleting a single factorial-run observation is the natural smallest missing-data perturbation. Exact worst-case affine regression amplification, sign/evaluation extremizer classification, and positivity loss in every dimension answer a motivated numerical stability invariant and reveal a nonobvious strict penalty for d>=3 with sharp asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

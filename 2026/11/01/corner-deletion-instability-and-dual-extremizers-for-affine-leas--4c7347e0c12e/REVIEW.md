@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Sherman--Morrison kernel identity reduces every case to signed binomial sums. The correction preserves all nonzero kernel signs; an exact binomial sign identity and a sharp zero-shell bound give the global row maximum at Hamming distances \(1\) and \(d\). Explicit sign inputs attain the result; rational matrix and orbit checks corroborate the proof. The all-dimension claim is analytical, not inferred from numerical cases.
+## correctness
 
-## Originality
-PASS with documented priority risk. Full-cube Fourier-space projection results in Nayar (2013) and Defant et al. (2023) do not give the conditional, nonproduct Gram perturbation caused by deleting one corner. The 2010 kernel-projection theory applies to different spaces. John's 1979 factorial missing-run abstract concerns variance efficiency, not sharp maximum absolute hat rows; its full text was unavailable and remains an originality risk. A direct-covering exact constant was not located in the accessible sources.
+PASS
 
-## Mathematical value
-PASS. One missing factorial observation is a motivated stability question; a single erasure can strictly worsen worst-case uniform approximation for every \(d\ge3\), despite leaving affine rank unchanged. The exact exponentially small penalty, sharp positivity defect, and two extremizer orbits quantify its robustness rather than merely supplying a computational lookup.
+Verified the design Gram G=2^d I_{d+1}-11^T has inverse M^{-1}(I+11^T/(M-d-1)), so the pinned symmetric hat kernel is exact. Used the signed full-cube Walsh row, parity zero-shell and Hamming orbit expressions to rederive the absolute row sums. For even d the row gap factorization has strict endpoint maximizers k=1,d except d=2, where the projection is the 3-by-3 identity; for odd d bound zero-shell |sum_{i in S}z_i| by min(k,d+1-k), also sharp only at endpoints. Row signs attain norm; row sum one implies negative coefficient mass=(norm-1)/2. Stirling gives √(2/π)d^{3/2}2^{-d} deletion gap. Independently enumerated 86,367 exact rational Gram-kernel entries over d=2..8 plus orbit maxima, confirming the algebra, not substituting for the infinite-dimensional binomial inequalities.
 
-## Scientific boundaries
-Finite, uniformly sampled one-corner-deleted cubes; real affine projections only. No claim for nonuniform sampling, multiple erasures, higher degrees, or uniquely minimum-norm projections. The historical 1979 source was read at abstract level only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full-cube Walsh projector norms and the usual missing-factorial-design variance efficiencies are related but have neither the punctured-cube conditional design nor exact L∞ hat-matrix norm and extremal signed data. The 1979 missing-points factorial paper is plausible but inaccessible beyond abstract, with authorized institutional retrieval blocked by disconnected VPN; disclose genuine priority risk, not a reason for false FAIL. Best-of-knowledge novelty of exact punctured design formula remains.
+
+## value
+
+PASS
+
+Deleting a single factorial-run observation is the natural smallest missing-data perturbation. Exact worst-case affine regression amplification, sign/evaluation extremizer classification, and positivity loss in every dimension answer a motivated numerical stability invariant and reveal a nonobvious strict penalty for d>=3 with sharp asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
