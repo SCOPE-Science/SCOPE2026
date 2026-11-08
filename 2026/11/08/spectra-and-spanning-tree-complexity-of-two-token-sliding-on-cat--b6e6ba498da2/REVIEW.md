@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Direct-product adjacency forces every independent set of size at least two into one row or column; the fixed-size token rule makes all sizes at least three immobile. The two-token edge relation is exactly row/column incidence, giving the explicit \(B_m\otimes B_n^{\mathsf T}\) block; complete-graph incidence singular values prove the full spectrum. A full-rank incidence argument proves connectedness; Kirchhoff's theorem applied to all Laplacian factors proves the exact spanning-tree formula, including multiplicities and small boundaries. Independent enumerations and exact cofactor checks in `verify.py` corroborate the proof.
+
+**Originality — PASS, provisional priority.** Avis–Hoang (arXiv:2203.16861) defines and analyzes the exact token-sliding reconfiguration model, but its full-text structural/realizability results do not determine this categorical-product-host spectrum or tree complexity. Reyes–Dalfó–Fiol (arXiv:2310.16929) treats larger unrestricted token graphs, so its spectra cannot be identified with these induced independent-only token-sliding state graphs. Hoang (arXiv:2606.03765) addresses realizable targets and Cartesian products of targets, not categorical-product hosts. Focused searches of related spectral, graph-product and reconfiguration results did not reveal a dominating theorem or tabulated exact formula. Residual risk: the incidence-tensor identity may have appeared elsewhere under an alternative name, in which case its spectral and tree consequences could be prior corollaries.
+
+**Value — PASS.** Token mobility changes qualitatively from connected at two tokens to entirely frozen at three, on a natural infinite graph family. Beyond that elementary cutoff, the full spectrum and spanning-tree complexity provide a structural and enumerative characterization of the nontrivial two-token transition graph; this is more informative than a scalar connectivity statement or an arbitrary finite computation.
+
+The results are parameter-uniform, but no independent mathematical validation has been carried out. The finite verification cases supplement, not establish, the infinite proof. Publication priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.
