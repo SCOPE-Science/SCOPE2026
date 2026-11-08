@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the determinant-pencil Fourier criterion
 
-The standalone `mutual_annihilation_check.py` can be executed with Python 3, without third-party packages, by running `python3 mutual_annihilation_check.py` beside this file. It uses exact finite-field arithmetic throughout.
+# Independent mathematical audit
 
-Observed outputs from the code in this package:
+## correctness
 
-```text
-EXACT_FIELD_OK 2 nullity 126 rank 130 brute_frequencies 256
-EXACT_FIELD_OK 3 nullity 3072 rank 3489 brute_frequencies 6561
-EXACT_FIELD_OK 4 nullity 29700 rank 35836 brute_frequencies 213
-EXACT_FIELD_OK 5 nullity 161280 rank 229345 brute_frequencies 0
-ALL_EXACT_MUTUAL_ANNIHILATION_CHECKS_OK
-```
+PASS
 
-For the prime fields of orders two and three, every actual Fourier coefficient is computed by summing the character over all mutually annihilating pairs, independently of the projective line count; these are compared to the derived formula. For the four-element field, 213 deterministic frequencies are directly evaluated with the additive character induced by the field trace. For all four field sizes, every frequency pair is enumerated for the determinant-pencil formula and its zero count is checked against the closed polynomial. The field of order five is checked through this exact formula and count, not by direct raw Fourier sums.
+For nonzero rank-one X, all allowable Y=t adjX; two zero-coordinate spaces and mixed rank-one pairs partition Z, giving cardinality 3q⁴−2q². Additive character orthogonality evaluates the rank-one transform S(C)=(q^{4−rank C}−2q²+1)/(q−1), i.e. (q−1)(q+1)², q²−q−1, −(q+1) in ranks 0,1,2. Substitution gives F=q²[q²1_{A=0}+q²1_{B=0}−1+N1+(q+1)N0]; vanishes exactly for nonzero A,B with N0=0,N1=1. Each pencil corresponds to a line in P³, rank-one matrix loci form Segre hyperbolic quadric with (q+1)² points, (q+1)²q²/2 proper secants, (q+1)²(q−1) nongenerator tangents, and 2(q+1) generators. Ordered endpoint counts and (q−1)² lifts give the formula; generators contribute only at q=2 as 36 extra zeros. Independent exhaustive determinant-pencil criterion totals: q2=126, q3=3072, q5=161280.
 
-These tests do not certify all prime powers. The proof in `RESULT.md` provides the universal argument. The counting argument and analytic claim have not received independent mathematical validation.
+## originality
+
+PASS
+
+Older same-variety point counts and canonical-form classifications do not state or directly imply the full additive frequency-zero law and q=2 correction. The rank-one character sum and projective quadric technique are acknowledged antecedents; best-of-knowledge novelty concerns their complete Fourier-null assembly.
+
+## value
+
+PASS
+
+The bidirectional zero-product variety is natural in nodal-algebra representations and matrix geometry; its complete convolution nullity is a previously nontrivial Fourier invariant, with a sharp exceptional binary field and asymptotic 3/q zero fraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
