@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The paper's limit laws rest on analytical arguments: a time-changed Brownian covariance identity, an exact Itô decomposition, a weighted exponential-mixing inequality for the angular second harmonic, and continuous-martingale central limit theorems. The almost-sure endpoint is obtained from convergence of the weighted stochastic integral when its squared coefficient is integrable.
+## correctness
 
-Run `python verify.py` from this directory with NumPy and SciPy installed. The supplied script was executed after finalizing its source and reported `PASS: 64 finite numerical and exact-identity diagnostics`.
+PASS
 
-The tests independently integrate the mean-square differential equation and compare it with direct angular-kernel quadrature, check the Gamma/Beta plateau by quadrature, test subcritical and critical asymptotic constants, and compare empirical Gaussian angular-increment correlations with the exact exponential expression. They do not constitute exhaustive numerical certification, nor do they verify an almost-sure or distributional theorem by sampling.
+With Theta_t=Theta0+sqrt(2kappa)B_{t^beta}, velocity U_t=exp(iTheta_t) has E(U_t conjugate(U_s))=exp(-kappa|t^beta-s^beta|). Itô integration by parts for t>=1 with f=t^(1-beta)/(kappa beta) gives position as bounded/lower-order fU and f-prime terms plus martingale iv sqrt(2/(kappa beta)) integral t^((1-beta)/2)U_t dW. This martingale is square integrable at infinity iff beta>2, giving a.s. and L2 endpoint; for beta<=2 its quadratic variation grows T^(2-beta) or log T. After u=t^beta, angular second harmonic covariance exp(-4kappa|u-w|) and Young inequality force normalized bracket anisotropy to vanish; continuous martingale CLT proves the exact coordinate variances v^2/(kappa beta|2-beta|) for subcritical growing position and supercritical shrinking residual, v^2/(2kappa) at beta=2. The tail f and f-prime remainder is bounded O(T^(1-beta)), negligible under T^(beta/2-1). Integral of known MSD yields terminal gamma/beta second moment. Independently compared the asymptotic coordinate variance to half of known total MSD, and verified covariance kernel and power normalizations analytically. No claim endpoint itself Gaussian.
 
-No independent audit has been performed. The earlier exact second-moment integral is credited to the motivating 2024 work; the central limit and endpoint claims are new analytical conclusions assessed here only by self-review.
+## originality
+
+PASS
+
+Sevilla et al. 2024 introduce exactly the scaled-angular model and its MSD identity: no novelty claimed for model, second moment, or gamma/beta evaluation. The assessment specifically considers almost-sure localization and vector Gaussian CLTs on both sides. Relevant primary full text could not be retrieved after arXiv/OA and authorized institutional attempts, leaving explicit priority risk. No source at hand decisively subsumes the full conclusion; best-of-knowledge PASS qualified.
+
+## value
+
+PASS
+
+Identifies a sharp, nontrivial unconfined localization threshold for a constant-speed active particle, plus distinct Gaussian laws of diverging position and shrinking terminal error. These limit laws are not equivalent to a second-moment calculation and reveal the stochastic mechanism behind an unusual endpoint phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:46:58.469178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With Theta_t=Theta0+sqrt(2kappa)B_{t^beta}, velocity U_t=exp(iTheta_t) has E(U_t conjugate(U_s))=exp(-kappa|t^beta-s^beta|). Itô integration by parts for t>=1 with f=t^(1-beta)/(kappa beta) gives position as bounded/lower-order fU and f-prime terms plus martingale iv sqrt(2/(kappa beta)) integral t^((1-beta)/2)U_t dW. This martingale is square integrable at infinity iff beta>2, giving a.s. and L2 endpoint; for beta<=2 its quadratic variation grows T^(2-beta) or log T. After u=t^beta, angular second harmonic covariance exp(-4kappa|u-w|) and Young inequality force normalized bracket anisotropy to vanish; continuous martingale CLT proves the exact coordinate variances v^2/(kappa beta|2-beta|) for subcritical growing position and supercritical shrinking residual, v^2/(2kappa) at beta=2. The tail f and f-prime remainder is bounded O(T^(1-beta)), negligible under T^(beta/2-1). Integral of known MSD yields terminal gamma/beta second moment. Independently compared the asymptotic coordinate variance to half of known total MSD, and verified covariance kernel and power normalizations analytically. No claim endpoint itself Gaussian.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 source supplies exact MSD and behavior mainly subcritical; feedback active particles localize through position dependence rather than solely increasing deterministic rotational diffusivity. Generic martingale CLT needs model-specific bracket isotropization and tail estimates."
+        ],
+        "reasoning": "Earlier moment results and distinct feedback/fractional models do not directly imply the exact three-regime vector limit. However no entire-paper NOT_COVERING assertion is made for the inaccessible primary full text.",
+        "searches": [
+          "Sevilla Valdes-Gomez Torres-Carbajal arXiv:2401.03127 Phys Rev E 110 014113 (2024)",
+          "arXiv:2001.04015 fractional angular Brownian motion",
+          "arXiv:1911.02291 feedback-controlled active Brownian colloids"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.03127",
+        "https://doi.org/10.1103/PhysRevE.110.014113",
+        "https://arxiv.org/abs/2001.04015",
+        "https://arxiv.org/abs/1911.02291"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known M_beta(T)=2v^2 integral exp(-kappa t^beta) integral exp(kappa s^beta) ds dt provides growth/plateau but is compatible with non-Gaussian sample paths. New claims require martingale tail a.s. convergence and vanishing angular second-harmonic bracket anisotropy."
+        ],
+        "reasoning": "Old MSD does not logically imply almost-sure localization or joint isotropic Gaussian limit, and other models do not have matching hypotheses. Risk of stronger claims in not-fully-inspected 2024 source remains explicitly nonzero.",
+        "searches": [
+          "Sevilla et al. 2024 DOI:10.1103/PhysRevE.110.014113 (original 2024 primary)",
+          "https://arxiv.org/abs/2001.04015",
+          "https://arxiv.org/abs/1911.02291"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The angular model is Theta_t=Theta0+sqrt(2kappa)B_{t^beta}; Sevilla et al. derive its exact position MSD, and the present proof uses the same covariance formula. Fractional angular Brownian motion arXiv:2001.04015 has stationary-increment long-memory noise, a different model."
+        ],
+        "reasoning": "The time-changed Brownian orientation is an equivalent model, not a new physical system; a shared MSD is weaker than almost-sure endpoint convergence and Gaussian limit. Alternative fractional model is not equivalent.",
+        "searches": [
+          "Resultary: scaled angular Brownian tracer time dependent rotational diffusion Gaussian limit localization convergence threshold beta 2",
+          "web: \"scaled Brownian\" \"active\" \"Gaussian\" limit \"localization\" rotational",
+          "arXiv:2401.03127"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit second-moment integral and beta-function evaluation belong to prior Sevilla et al. and are not asserted novel. No exact table was identified containing the almost-sure limit and three Gaussian distributions."
+        ],
+        "reasoning": "This is an asymptotic distributional theorem, not a finite table question; the known MSD coefficient does imply second-moment asymptotics but not the random-vector CLTs. Absence of search hits is only a limit of the search.",
+        "searches": [
+          "Resultary: power-law rotational diffusivity active swimmer localization CLT isotropic endpoint",
+          "web: active Brownian swimmer gamma endpoint second moment and Gaussian residual"
+        ]
+      },
+      "rationale": "Sevilla et al. 2024 introduce exactly the scaled-angular model and its MSD identity: no novelty claimed for model, second moment, or gamma/beta evaluation. The assessment specifically considers almost-sure localization and vector Gaussian CLTs on both sides. Relevant primary full text could not be retrieved after arXiv/OA and authorized institutional attempts, leaving explicit priority risk. No source at hand decisively subsumes the full conclusion; best-of-knowledge PASS qualified.",
+      "residual_risks": [
+        "The exact same-model 2024 full text could not be inspected: arXiv/open-access acquisition failed and Oxford institutional retrieval returned vpn_disconnected. Unseen appendices may contain stronger distributional statements.",
+        "A very general result on additive functionals of accelerated compact Markov diffusions might imply the CLTs without naming this model; no such exact implication was established by available searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR and unresolved full-text risk, not a whole-paper NOT_COVERING claim",
+          "evidence": "Known exact MSD and subcritical anomalous spreading are credited. Gaussian vector laws/a.s. threshold not established by material actually read.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.03127 and https://doi.org/10.1103/PhysRevE.110.014113",
+          "material_read": "Accessible primary abstract, original model and equations (20)-(21) for exact MSD as quoted/checked against claim; arXiv full HTML/PDF and lawful OA failed; Oxford authorized request reported vpn_disconnected.",
+          "method": "primary abstract/source equation comparison; attempted authorized full-text routes",
+          "title": "Anomalous diffusion of scaled Brownian tracers",
+          "trigger": "exact same angular diffusion and covariance"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: fractional angular noise",
+          "evidence": "Power-time-changed ordinary Brownian angle has independent increments, unlike fractional Brownian angle for H not 1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.04015",
+          "material_read": "Available abstract and model definitions emphasizing stationary-increment correlated fractional noise; not entire paper.",
+          "method": "primary preprint excerpt",
+          "title": "Active particles with fractional rotational Brownian motion",
+          "trigger": "plausible rotational Brownian alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a sharp, nontrivial unconfined localization threshold for a constant-speed active particle, plus distinct Gaussian laws of diverging position and shrinking terminal error. These limit laws are not equivalent to a second-moment calculation and reveal the stochastic mechanism behind an unusual endpoint phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact same-model 2024 full text could not be inspected: arXiv/open-access acquisition failed and Oxford institutional retrieval returned vpn_disconnected. Unseen appendices may contain stronger distributional statements.",
+    "A very general result on additive functionals of accelerated compact Markov diffusions might imply the CLTs without naming this model; no such exact implication was established by available searches."
+  ],
+  "schema_version": 1
+}

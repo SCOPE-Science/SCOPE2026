@@ -1,23 +1,21 @@
-# Scientific review: Gaussian spreading–localization trichotomy for scaled-angular Brownian swimmers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The angular process is a deterministic time change of one-dimensional Brownian motion. The exact two-time complex-velocity correlation reproduces the previously known mean-square displacement. Itô integration by parts produces a weighted martingale plus explicitly bounded remainders. The oscillatory quadratic-covariation defect has an \(L^2\) bound by an exponential convolution and Young's inequality, for all \(\beta>0\). The continuous-martingale central limit theorem therefore has the stated coordinate variances. For \(\beta>2\), the martingale has finite quadratic variation, giving an almost-sure and \(L^2\) endpoint, while a truncated-tail martingale argument yields the isotropic Gaussian terminal-error law. For \(\beta\le2\), nondegenerate Gaussian rescaling excludes convergence in probability to any finite location. The Gamma/Beta moment integral converges precisely above the threshold.
+PASS
 
-The standalone verifier passed 64 finite tests of the moment identity, plateau constant, angular covariance and asymptotic coefficients. Those finite checks are supporting diagnostics, not substitutes for the analytic proofs.
+With Theta_t=Theta0+sqrt(2kappa)B_{t^beta}, velocity U_t=exp(iTheta_t) has E(U_t conjugate(U_s))=exp(-kappa|t^beta-s^beta|). Itô integration by parts for t>=1 with f=t^(1-beta)/(kappa beta) gives position as bounded/lower-order fU and f-prime terms plus martingale iv sqrt(2/(kappa beta)) integral t^((1-beta)/2)U_t dW. This martingale is square integrable at infinity iff beta>2, giving a.s. and L2 endpoint; for beta<=2 its quadratic variation grows T^(2-beta) or log T. After u=t^beta, angular second harmonic covariance exp(-4kappa|u-w|) and Young inequality force normalized bracket anisotropy to vanish; continuous martingale CLT proves the exact coordinate variances v^2/(kappa beta|2-beta|) for subcritical growing position and supercritical shrinking residual, v^2/(2kappa) at beta=2. The tail f and f-prime remainder is bounded O(T^(1-beta)), negligible under T^(beta/2-1). Integral of known MSD yields terminal gamma/beta second moment. Independently compared the asymptotic coordinate variance to half of known total MSD, and verified covariance kernel and power normalizations analytically. No claim endpoint itself Gaussian.
 
-## Originality — PASS, qualified
+## originality
 
-The exact mean-square integral and its immediately implied asymptotic consequences belong to Sevilla, Valdés-Gómez and Torres-Carbajal (2024) and are credited. The distinctive theorem is the complete distributional trichotomy, especially almost-sure localization for \(\beta>2\) and the Gaussian *residual-position* law. The motivating paper's inspected model, mean-square, and kurtosis sections discuss power-law spreading and finite-time statistics, with explicit numerical study primarily at \(0<\beta<2\), not an almost-sure terminal-position theorem. The 2020 fractional-angular-Brownian model has stationary-increment correlated angular noise, rather than the required nonstationary independent increments. The 2019 feedback-localization study uses spatially controlled rotational dynamics, not the monotone deterministic power-law angular clock. Closest public research records found concerned unrelated diffusive-simplex, Jacobi-diffusion or oscillator models; their statements do not imply the claim.
+PASS
 
-Residual risk: a general previously published martingale/inhomogeneous-additive-functional theorem may give these exact asymptotics as an unstated special case. Source coverage and the literature search do not constitute independent proof of publication priority.
+Sevilla et al. 2024 introduce exactly the scaled-angular model and its MSD identity: no novelty claimed for model, second moment, or gamma/beta evaluation. The assessment specifically considers almost-sure localization and vector Gaussian CLTs on both sides. Relevant primary full text could not be retrieved after arXiv/OA and authorized institutional attempts, leaving explicit priority risk. No source at hand decisively subsumes the full conclusion; best-of-knowledge PASS qualified.
 
-## Mathematical value — PASS
+## value
 
-The theorem settles a physically motivated question left outside the studied exponent range of an established anomalous-transport model: when accelerating angular fluctuations cause a constant-speed, unconfined particle to stop spreading. The threshold separates power-law Gaussian spreading, logarithmic Gaussian spreading, and almost-sure spatial localization. The counterintuitive localized regime also has an exact isotropic Gaussian law for how its random endpoint is approached. These are structural probabilistic statements not obtainable from checking a finite moment alone and provide concrete benchmarks for stochastic active-matter models.
+PASS
 
-## Scope and limitations
+Identifies a sharp, nontrivial unconfined localization threshold for a constant-speed active particle, plus distinct Gaussian laws of diverging position and shrinking terminal error. These limit laws are not equivalent to a second-moment calculation and reveal the stochastic mechanism behind an unusual endpoint phenomenon.
 
-There is no translational thermal noise, trap, position feedback or resetting. Initial orientation can be fixed or independent of driving Brownian motion. The endpoint itself is not asserted Gaussian. The exact second-moment integral is inherited from prior work. No independent validation, publication-priority certification, or empirical inference guarantee is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
