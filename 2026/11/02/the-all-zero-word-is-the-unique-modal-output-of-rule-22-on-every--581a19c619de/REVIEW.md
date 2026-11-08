@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-state matrices enumerate every indexed cyclic predecessor via trace. For a word with at least one one, cyclic trace and the coordinatewise max envelope imply the uniform bound u_n; the update of the envelope is checked algebraically. The all-zero block has characteristic recurrence t_n, and t_n-u_n is strictly positive by three positive seeds and the same recurrence. Independent exact Python and C++ programs recheck all families of claims at finite orders. Infinite quantifiers follow from induction, not test coverage.
+## correctness
 
-**Originality — PASS, qualified.** Compared actual statement and implication to Erica Jen (1989) §§4, 5.4: a general recursion for finite, noncyclic blocks and asymptotic growth, but no indexed-ring unique mode proof or exact finite cyclic maximum. Gravner–Griffeath (2010, full PDF relevant sections) study finite-seed dynamics. Martínez et al. (2019, full PDF de Bruijn/Garden of Eden sections) study patterns, no exact global modal fiber. Research-record searches and prior finite-ring work, including a restricted Rule-22 output class avoiding 00, do not supply the maximum over every output. Residual risk: unpublished or unindexed calculations and deductions from older general formulas.
+PASS
 
-**Value — PASS.** The exact unique mode and its full integer fiber sequence describe a global property of the one-step output probability distribution on every finite periodic ring, a standard finite-volume model for a nonlinear cellular automaton. Unlike a single example or table, the result gives the complete all-order extremal structure, a universal separation bound and a short structural certificate based on a nonlinear envelope. It is mathematically meaningful even though it does not classify all fibers.
+The four pair-state matrices A0,A1 count every indexed cyclic input with fixed one-step Rule22 output by trace product; cyclic rotation allows any nonzero output to end in A1. The coordinatewise envelope of arbitrary A0/A1 row-products reaches (1,1,1,1) after two steps from each unit row and follows (a,a,b,c)->(b,b,c,a+c), bounding every nonzero fiber by u_n=2a_{n-1}+b_{n-1}. The zero-output trace gives P_n(0^n)=1+tr(B^n)=1+t_n with t_0=3,t_1=t_2=1 and t_n=t_{n-1}+t_{n-3}. Both u and t satisfy same recurrence, differences at n=3,4,5 are 1,2,2, so remain >0 for every n>=3. Independently enumerated all inputs for rings n=3..12, maximum fibers 5,6,7,11,16,22,32,47,68,99, unique at zero. The all-length result follows from matrix induction, not this finite census.
 
-The closest predecessor study is Erica Jen (1989), which gives broad recurrence machinery and maximal-probability growth but not this strict exact finite-ring result. The leading Rule-22 finite-seed paper appeared online in 2010; subsequent de Bruijn studies do not establish the all-output maximum. Unindexed historical priority remains a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jen (1989) gives finite open-block Rule22 predecessor recurrences and maximal growth, not the claimed exact unique all-zero maximal fiber over every indexed periodic ring n>=3; finite-seed Exactly 1 dynamics and de Bruijn studies address other issues. An older combinatorial specialization of general preimage machinery could imply this recurrence, but exact cyclic strict mode was not found in the inspected primary sections.
+
+## value
+
+PASS
+
+The modal output is the exact maximum of a natural finite-volume deterministic CA push-forward distribution, not a random selected pattern. A strict all-n transfer-matrix envelope and explicit predecessor counts make it useful despite leaving the full fiber distribution open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
