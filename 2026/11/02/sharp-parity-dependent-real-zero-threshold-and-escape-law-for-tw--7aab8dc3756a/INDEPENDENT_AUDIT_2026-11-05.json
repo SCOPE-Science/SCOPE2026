@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:04:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under probabilists Hermite normalization, He_n(x)+b He_(n-2)(x)=(-1)^m 2^m m! x^delta [L_m^{delta-1/2}(x²/2)-(b/(2m))L_(m-1)^{delta-1/2}(x²/2)] for n=2m+delta. Interlacing ensures at least m-1 positive simple Laguerre zeros. The quotient B_m(s)=2m L_m(-s)/L_(m-1)(-s) has strictly positive derivative and nonpositive second derivative by the positive-residue continued fraction; B_m(0)=n-1 even or n odd. Hence for b>threshold exactly one negative Laguerre zero gives precisely two imaginary Hermite zeros; at equality zero multiplicity 2+delta; below all simple real. Inverting B_m gives convex y²(b), increasing slope from 1/(n-1) even or 3/n odd to 1 and sharp global bounds c_n(b-b_c)<=y²<=b-b_c, with equality n=2,3 and strict n>=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li-Gutman 2000 all gaps |b|<=n-1, Durán 2025 fixed-combination asymptotics; neither states necessary-and-sufficient b_c for n odd."
+        ],
+        "reasoning": "Broad classes do not dominate a quantitative finite-degree threshold unless their theorem can be specialized to a matching bound; the checked statements cannot.",
+        "searches": [
+          "Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape",
+          "Duran zeros linear combinations orthogonal Hermite Laguerre 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://imi.pmf.kg.ac.rs/kjm/pub/12616764800831_kjom2206.pdf",
+        "https://arxiv.org/pdf/2505.15330",
+        "https://arxiv.org/pdf/2507.22425",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-parity-dependent-real-zero-threshold-and-escape-law-for-tw--7aab8dc3756a/RESULT.md",
+        "Resultary semantic search: Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient |b|<=n-1 statement cannot derive real-rootedness for odd n between n-1 and n, nor two imaginary zeros and global sharp escape for b>n."
+        ],
+        "reasoning": "The residue-sign quotient and endpoint derivative supply the missing implications.",
+        "searches": [
+          "Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape",
+          "Li Gutman 2000 Hermite beta-polynomials all real |b|<=n-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hermite-Laguerre identity converts the imaginary Hermite pair into one negative zero of L_m^alpha - dL_(m-1)^alpha."
+        ],
+        "reasoning": "This equivalent Jacobi-matrix/rational ratio formulation is classical; the exact n- and parity-dependent boundary and inverse convex escape were not located in the inspected sources.",
+        "searches": [
+          "Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape",
+          "Laguerre consecutive polynomial linear combination one negative zero Hermite two gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical recurrence and Hermite-Laguerre transformations are tabulated, but no inspected exact threshold/slope table gives the complete claim."
+        ],
+        "reasoning": "This is an all-degree analytic classification, not a recomputation of a finite roots table.",
+        "searches": [
+          "Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape",
+          "Hermite polynomial real roots He_n+bHe_n-2 threshold b=n-1/n numerical"
+        ]
+      },
+      "rationale": "Prior Li-Gutman bound |b|<=n-1 is a sufficient real-zero region, not the sharp parity-dependent threshold and complete beyond-threshold escape law. General later Durán combination results do not directly assert this exact finite n two-gap classification in probabilists normalization.",
+      "residual_risks": [
+        "Existing specialized consecutive-Laguerre zero-ratio results could imply the formulas under a different normalization.",
+        "The full 2025 Laguerre paper was not audited closely enough to rule out every equivalent implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient bound and broader gaps, but no sharp odd n threshold or imaginary escape law.",
+          "evidence": "The exact equality n odd at b=n lies outside the sufficient n-1 bound.",
+          "identifier_or_url": "https://imi.pmf.kg.ac.rs/kjm/pub/12616764800831_kjom2206.pdf",
+          "material_read": "The stated sufficient real-root criterion and definition in public PDF",
+          "method": "Full primary PDF text, theorem and image inspection",
+          "title": "Elementary Proof of the Reality of the Zeros of beta-Polynomials of Complete Graphs",
+          "trigger": "Same Hermite polynomial combinations and b<=n-1 bound"
+        },
+        {
+          "assessment": "General eventual zeros for fixed combinations, not the all finite-degree sharp b threshold/escape convexity.",
+          "evidence": "Taking n and b co-varying at the critical n-scale is outside a fixed-coefficient eventual regime.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.15330",
+          "material_read": "Theorem 1.2 and main finite-combination results in public manuscript",
+          "method": "Public full-text PDF and page-image inspection",
+          "title": "Zeros of linear combinations of Hermite polynomials",
+          "trigger": "Modern closest family of Hermite coefficient mixing and zero distributions"
+        },
+        {
+          "assessment": "Possible overlap remains a risk; no full-text noncoverage inference.",
+          "evidence": "Consecutive Laguerre ratio is a known mathematical technique.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.22425",
+          "material_read": "Public abstract and cited theorem overview only",
+          "method": "Public abstract reading; full theorem comparisons not claimed",
+          "title": "Zeros of linear combinations of Laguerre polynomials",
+          "trigger": "Potential Laguerre-ratio implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural two-index-gap perturbation of a classical orthogonal polynomial has a complete all-real/one-imaginary-pair phase transition and sharp quantitative escape bounds. Distinguishes parity by zero multiplicity and slope, a meaningful exact spectral/root geometry invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://imi.pmf.kg.ac.rs/kjm/pub/12616764800831_kjom2206.pdf",
+    "https://arxiv.org/pdf/2505.15330",
+    "https://arxiv.org/pdf/2507.22425",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-parity-dependent-real-zero-threshold-and-escape-law-for-tw--7aab8dc3756a/RESULT.md",
+    "Resultary semantic search: Hermite He_n(x)+b He_(n-2)(x) real zeros even odd threshold imaginary escape"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only b real, n>=2, second-gap Hermite pair, no n-uniform asymptotic error."
+  ],
+  "residual_risks": [
+    "Existing specialized consecutive-Laguerre zero-ratio results could imply the formulas under a different normalization.",
+    "The full 2025 Laguerre paper was not audited closely enough to rule out every equivalent implication."
+  ],
+  "schema_version": 1
+}
