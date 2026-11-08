@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact unit-row Kaczmarz contraction identity reduces the problem to a diagonal majorant semidefinite program. The two explicit primal matrices have positive-semidefinite reversal blocks, while the collinear and planar correlation matrices give matching dual values. Complementary slackness recovers every diagonal majorant coordinate from a unit dual vector, establishing uniqueness for all \(t>0\), including \(t=1/3\). The explicit example and implicit-function argument confirm that the assumptions are realizable. The bundled verifier corroborates the certificates and actual one-step contraction numerically. The uniform proof is algebraic and does not rely on finite enumeration.
+PASS
 
-## Originality
+Reconstructed exact identity E||e+||²= eᵀ(I-Aᵀdiag(p)A)e and equivalence diag(p)≽λ(AAᵀ)^-1 for 4×4 invertible A. Reduction to min trace diagonal PSD majorant of C and dual max trace(CX), X PSD diag 1, valid by Slater. For t≤1/3 provided q and X=all-ones and reversal blocks B+=(1,-1;-1,1), B-=(1-2t,-1;-1,3) with determinant 2-6t≥0. For t≥1/3 planar correlation Xij=cos((i-j)θ), cosθ=sqrt((t+1)/(4t)), q pair values 2twc/2wc, dual slack reversal blocks determinant 0 and nonnegative diagonal. Exact complementary slackness and dual equality; uniqueness follows from SX=0 and diagonal entries of X. Independently checked symbolic PSD certificates, matching primal/dual and five rational t including boundary and high t; inspected verify_signed_cycle.py. Existence of normalized rows given by IFT for small w, explicit t=1 example. Distinguishes one-step minimax from long horizon.
 
-**PASS, qualified.** Needell–Srebro–Ward establish the weighted Kaczmarz framework, and Agaskar–Wang–Lu investigate general row-probability optimization and exact mean-square behavior. Laurent–Mascarin–Telen characterize the underlying cycle elliptope geometrically, but do not present this Kaczmarz one-step signed-inverse-Gram allocation and its exact universal breakpoint in their examined statements. A previously identified inverse-positive coordinate-sampling theorem is inapplicable: a negative sign around the four-cycle cannot be removed by row sign switching. The complete text of Agaskar–Wang–Lu was inaccessible, so specialized prior coverage is a genuine residual risk rather than disproved novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result turns a four-variable semidefinite sampling problem into a closed optimal probability rule for a family of normalized linear systems with one frustrated conditional-correlation cycle. It characterizes a universal \(1/3\) transition in the rank of an optimal dual certificate, gives exact contraction and uniqueness, and distinguishes effects invisible in sign-balanced inverse-Gram sampling. The family is motivated by Kaczmarz importance-sampling design, not an arbitrary numerical instance.
+Best-of-knowledge qualified PASS after comparing mathematical implications, high-relevance primary material and related Resultary records; no decisive prior domination identified. Residual risks explicit.
 
-## Limits and literature
+## value
 
-The problem is one-step fixed-distribution minimax squared-error contraction, not an exact multistep error exponent. The diagonal entries are constrained by actual unit-row Gram realizability, for which the text gives an existence proof. Existing general SDP and elliptope formulations remain credited. An inaccessible specialized source is identified transparently, and independent audit is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the exact optimal row sampling distribution in a nontrivial, motivated signed-frustrated inverse Gram regime, with a sharp universal rank-change threshold and uniqueness. This is useful when designing static randomized Kaczmarz steps, not merely generic SDP duality or a numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

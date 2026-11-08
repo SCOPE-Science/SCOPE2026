@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:44:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact identity E||e+||²= eᵀ(I-Aᵀdiag(p)A)e and equivalence diag(p)≽λ(AAᵀ)^-1 for 4×4 invertible A. Reduction to min trace diagonal PSD majorant of C and dual max trace(CX), X PSD diag 1, valid by Slater. For t≤1/3 provided q and X=all-ones and reversal blocks B+=(1,-1;-1,1), B-=(1-2t,-1;-1,3) with determinant 2-6t≥0. For t≥1/3 planar correlation Xij=cos((i-j)θ), cosθ=sqrt((t+1)/(4t)), q pair values 2twc/2wc, dual slack reversal blocks determinant 0 and nonnegative diagonal. Exact complementary slackness and dual equality; uniqueness follows from SX=0 and diagonal entries of X. Independently checked symbolic PSD certificates, matching primal/dual and five rational t including boundary and high t; inspected verify_signed_cycle.py. Existence of normalized rows given by IFT for small w, explicit t=1 example. Distinguishes one-step minimax from long horizon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agaskar–Wang–Lu full primary analyzes exact MSE and distribution optimization for evolving multi-step error via different Kronecker-type operators; does not explicitly derive one-step signed inverse-Gram four-cycle threshold in inspected six-page text."
+        ],
+        "reasoning": "General convex optimization and graph-elliptope results subsume the existence of an SDP, but not known to imply the particular closed-form phase law without solving this instance.",
+        "searches": [
+          "Agaskar Wang Lu 2014 full OA primary paper",
+          "Needell Srebro Ward arXiv:1310.5715",
+          "Laurent Mascarin Telen arXiv:2605.02484"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_signed_cycle.py at frozen source tree 78a71b1eb9467e75574b2f0d601281186f447da5",
+        "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+        "https://arxiv.org/abs/1310.5715",
+        "https://arxiv.org/abs/2605.02484"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General weighted randomized Kaczmarz and SDP duality do not automatically force c=sqrt((t+1)/(4t)) or t=1/3 nor prove uniqueness; explicit primal/dual certificates add specialization."
+        ],
+        "reasoning": "General max-cut cycle elliptope formulas might imply this as a corollary under reparameterization; no specific dominating formula verified, keep risk.",
+        "searches": [
+          "Agaskar Wang Lu 2014 full text",
+          "Needell Srebro Ward 2013 arXiv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-step fixed-probability minimax Kaczmarz is diagonal PSD majorization dual to the elliptope; signed inverse-Gram four-cycle is a weighted frustrated Max-Cut/correlation SDP."
+        ],
+        "reasoning": "Searched both Kaczmarz and elliptope cycle aliases, not just signed Gram wording. General SDP theory does not give this explicit normalized ratio solution by itself.",
+        "searches": [
+          "Resultary semantic: randomized Kaczmarz optimal row selection inverse Gram signed cycle SDP correlation elliptope phase transition 1/3",
+          "Agaskar–Wang–Lu 2014 Exact MSE analysis and optimal sampling probabilities",
+          "Nagy Laurent Varvitsiotis 2014 low-rank elliptope SDP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The piecewise q formula t≤1/3 vs t≥1/3 and exact uniqueness across threshold not found in compared source."
+        ],
+        "reasoning": "This is a continuous optimization formula rather than a finite database, so an exact database comparison means seeking special-case closed form or catalogued signed-cycle elliptope optimum; none identified.",
+        "searches": [
+          "Resultary semantic: randomized Kaczmarz optimal row selection inverse Gram signed cycle SDP correlation elliptope phase transition 1/3",
+          "Agaskar–Wang–Lu GlobalSIP 2014 full PDF",
+          "graph elliptope boundary Laurent Mascarin Telen 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS after comparing mathematical implications, high-relevance primary material and related Resultary records; no decisive prior domination identified. Residual risks explicit.",
+      "residual_risks": [
+        "Older or new general weighted cycle-elliptope optimizer formula could dominate explicit t=1/3 transition.",
+        "One-step minimax contraction is not the multi-step mean-squared-error optimal sampler; scope must not be widened.",
+        "Full newer elliptope boundary article not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies general exact multi-step MSE; no explicit inverse-Gram frustrated four-cycle one-step threshold found",
+          "evidence": "Comparison of Kronecker/state covariance optimization vs diagonal majorant SDP.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Complete six-page lawful Harvard open-access primary PDF, sections 2–4 including optimal probability SDP and illustrative derivations, with PDF screenshot checked",
+          "method": "primary full PDF reading plus page screenshot",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Highly relevant same stochastic algorithm and sampling optimization"
+        },
+        {
+          "assessment": "General sampling bounds, not this exact four-row signed-cycle certificate",
+          "evidence": "Needell–Srebro–Ward weighted sampling theory.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.5715",
+          "material_read": "Abstract/overview and comparisons from cited result, not complete full text",
+          "method": "abstract",
+          "title": "Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz algorithm",
+          "trigger": "Background sampling theory"
+        },
+        {
+          "assessment": "Elliptope structural results may contain an equivalent weighted four-cycle optimum",
+          "evidence": "Residual risk on general elliptope theory.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.02484",
+          "material_read": "Abstract/metadata and context, full article not inspected",
+          "method": "abstract",
+          "title": "The Algebraic Boundary of Graph Elliptopes",
+          "trigger": "Potential stronger exact cycle correlation SDP formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the exact optimal row sampling distribution in a nontrivial, motivated signed-frustrated inverse Gram regime, with a sharp universal rank-change threshold and uniqueness. This is useful when designing static randomized Kaczmarz steps, not merely generic SDP duality or a numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify_signed_cycle.py at frozen source tree 78a71b1eb9467e75574b2f0d601281186f447da5",
+    "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+    "https://arxiv.org/abs/1310.5715",
+    "https://arxiv.org/abs/2605.02484"
+  ],
+  "disposition": "passed",
+  "final_claim": "For normalized invertible four-row systems whose inverse Gram has signed cycle C12=C23=C34=w>0,C14=-tw, the unique optimal fixed sampling for sharp one-step worst expected squared-error contraction has an explicit formula, phase transition at t=1/3 between rank-one and planar correlation dual certificates, and optimal contraction 1-1/T.",
+  "limitations": "Square invertible unit-row 4x4, fixed independent probabilities, specified inverse-Gram signed cycle; no general multi-step optimality or rectangular extension. Actual public METADATA.json contains scope_run_id; full privacy-neutral guarded metadata sanitization and semantic inspection were not finished; no import allowed.",
+  "residual_risks": [
+    "Older or new general weighted cycle-elliptope optimizer formula could dominate explicit t=1/3 transition.",
+    "One-step minimax contraction is not the multi-step mean-squared-error optimal sampler; scope must not be widened.",
+    "Full newer elliptope boundary article not inspected."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Studies general exact multi-step MSE; no explicit inverse-Gram frustrated four-cycle one-step threshold found",
+      "evidence": "Comparison of Kronecker/state covariance optimization vs diagonal majorant SDP.",
+      "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+      "material_read": "Complete six-page lawful Harvard open-access primary PDF, sections 2–4 including optimal probability SDP and illustrative derivations, with PDF screenshot checked",
+      "method": "primary full PDF reading plus page screenshot",
+      "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+      "trigger": "Highly relevant same stochastic algorithm and sampling optimization"
+    },
+    {
+      "assessment": "General sampling bounds, not this exact four-row signed-cycle certificate",
+      "evidence": "Needell–Srebro–Ward weighted sampling theory.",
+      "identifier_or_url": "https://arxiv.org/abs/1310.5715",
+      "material_read": "Abstract/overview and comparisons from cited result, not complete full text",
+      "method": "abstract",
+      "title": "Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz algorithm",
+      "trigger": "Background sampling theory"
+    },
+    {
+      "assessment": "Elliptope structural results may contain an equivalent weighted four-cycle optimum",
+      "evidence": "Residual risk on general elliptope theory.",
+      "identifier_or_url": "https://arxiv.org/abs/2605.02484",
+      "material_read": "Abstract/metadata and context, full article not inspected",
+      "method": "abstract",
+      "title": "The Algebraic Boundary of Graph Elliptopes",
+      "trigger": "Potential stronger exact cycle correlation SDP formulas"
+    }
+  ]
+}
