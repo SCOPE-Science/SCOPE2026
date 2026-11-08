@@ -1,0 +1,11 @@
+# Review of the palindrome-center variance theorem
+
+**Correctness — PASS.** The two-center reflection-matching union cannot contain an alternating cycle, because composing two different reflections translates integer positions by a nonzero constant. Therefore each pair of center-radius events imposes independent equality constraints. The tail-event characterization proves pairwise independence of the center counts. Elementary finite geometric summations and center multiplicities then prove the exact variance generating function for every alphabet size and word length. The included standard-library checker confirms the forest property in 24,668 finite cases, brute-force variance in 27 cases, and exact generating-function coefficients in 474 cases. The analytical argument—not enumeration—is the all-parameter proof.
+
+**Originality — PASS, qualified.** Rubinchik–Shur (arXiv:1505.08043) treats the expected number of *distinct* palindromic factors, not pairwise independence of center radii or the exact second moment of all occurrences. Leung–Choi–Xia–Chen (2005) has the closest overlap-probability framework but uses reverse-complement DNA palindromes of specified lengths and Poisson approximations. Anisiu–Anisiu–Kása (2006) treats distinct-factor palindrome complexity. Published-record comparisons for aliases such as palindrome occurrences, second moments, center independence and rational generating functions found no direct covering theorem. Generic pattern-count moment results might imply some formula after specialization and were not all accessible: priority remains qualified, not certified.
+
+**Value — PASS.** The result supplies a strong and somewhat unexpected statistical structural property—pairwise but not joint independence of overlapping palindrome-center scans—and solves an exact all-length, all-alphabet variance problem. Occurrence-count variance is a natural null-model calibration for palindrome clustering, distinct from familiar distinct-factor complexity and not an arbitrary parameter slice.
+
+The theorem does not extend to nonuniform sources, cyclic words or counts of distinct palindrome factors. The finite checker does not independently certify the all-length proof; no independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
