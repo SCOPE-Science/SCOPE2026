@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:11:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read pinned RESULT.md, C++ checker, GF9 verifier and section-count proof; reconstructed four-stratum multiplier and line discriminant.",
+        "Independently exhaustively evaluated all q=5 frequency labels using integer geometry; 15360 exact zero frequencies, matching formula; a separate GF9 checker was read but not executed.",
+        "q=5 exhaustion is finite corroboration; general q proof depends on exact Witt hyperplane table, q>=5 inequalities and square-class count."
+      ],
+      "rationale": "Decompose X=tI+U,Y=sI+V with traceless U,V and split ternary norm Q(u,v,w)=u²+vw. The anticommutator equation is tV+sU=0 and ts+<U,V>=0; four disjoint scalar strata yield integer Fourier multiplier (1). For nonzero normal H, Q=1 plane-section counts are exactly 2q,q,2q−1,q−1,q+1 by its isotropic/square/nonsquare norm and height. For q>=5 this excludes zeros except two orientations of N12=2,N1+N2=2q+1; the affine-line discriminant gives χ(c²+2abc+Q(R)a²)=1 or swapped. Counting q²−1 isotropic nonzero P, q(q−1)²/2 nonsquare R, nonzero a, and (q−1)/2 admissible other scalars yields q(q²−1)(q−1)^4/2 exact Fourier zeros and convolution nullity. Independent exhaustive q=5 integer-geometric test checked 390625 frequency labels and 15360 zeros. The q=3 cutoff is essential; q=9 extension test code inspected but not independently run.",
+      "residual_risks": [
+        "Broader finite-field matrix association-scheme or exponential-sum identities may encode equivalent zero counts.",
+        "No full multiplicity table for nonzero eigenvalues; q=3 and characteristic two excluded.",
+        "Independent q=5 exhaustion does not independently verify q=7 or arbitrary extension fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Y. Huang, Counting on the variety of modules over the quantum plane, arXiv:2110.15570 yields generating function for |K_{ζ,n}(F_q)|; X. Chen, W. Wang, Anti-commuting varieties, arXiv:1805.00378 studies irreducible components of complex variety."
+        ],
+        "reasoning": "Point-count generating function controls only the Fourier coefficient at zero frequency, not the nontrivial frequency-dependent null set. Complex component classification does not fix finite-field additive spectra.",
+        "searches": [
+          "arXiv:2110.15570 Theorem 1.1, 1.2 generating functions",
+          "arXiv:1805.00378 components and GIT quotient",
+          "arXiv:0804.4505 extension estimates"
+        ]
+      },
+      "checked_sources": [
+        "Y. Huang, Counting on the variety of modules over the quantum plane, arXiv:2110.15570",
+        "X. Chen, W. Wang, Anti-commuting varieties, arXiv:1805.00378",
+        "A. Iosevich, D. Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505v1",
+        "Resultary semantic matrix anticommutation Fourier kernel query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Y. Huang, Counting on the variety of modules over the quantum plane, arXiv:2110.15570 traces total point count; present formula (1) depends on arbitrary (A,B)."
+        ],
+        "reasoning": "Counting at A=B=0 does not determine the number of nonzero-frequency zeros: an indicator is not determined by its total cardinality. The prior statements therefore do not imply the kernel rank.",
+        "searches": [
+          "Huang arXiv:2110.15570 Theorem 1.1 versus Fourier-zero formula (1)",
+          "Chen Wang arXiv:1805.00378 geometry versus finite-field full Fourier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X. Chen, W. Wang, Anti-commuting varieties, arXiv:1805.00378 defines same anticommuting locus over C; Y. Huang, Counting on the variety of modules over the quantum plane, arXiv:2110.15570 deals with AB=ζBA, including ζ=-1, as point count."
+        ],
+        "reasoning": "Searched anti-commuting, anticommutator, ζ-commuting, quantum-plane matrix-pair character sums, convolution zeros. The origin fiber is the same but full dual-frequency zero locus is a different problem.",
+        "searches": [
+          "Resultary semantic: anticommuting matrix 2 by 2 Fourier null convolution kernel rank quadratic frequency",
+          "web: additive Fourier transform AB+BA=0 finite field matrix pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected published exact nullity table for this convolution object; q=5 full independent exhaust 15360 and q=7 claimed 217728 are finite examples."
+        ],
+        "reasoning": "A table of total anti-commuting pairs or irreducible components is not a table of Fourier zeros; exact numerical examples do not substitute for all-q formula.",
+        "searches": [
+          "Resultary semantic: Fourier zeros anticommuting matrix variety finite field rank q",
+          "web: q=5 15360 anticommute convolution nullity"
+        ]
+      },
+      "rationale": "The inspected matrix-variety literature supplies irreducible components or total point counts of AB=ζBA (not frequency-dependent Fourier zeros); finite-field quadratic surface estimates are too general in a different direction, and no theorem determining this exact convolution-kernel nullity was identified. Priority risk remains from character-sum/association-scheme equivalents.",
+      "residual_risks": [
+        "Broader finite-field matrix association-scheme or exponential-sum identities may encode equivalent zero counts.",
+        "No full multiplicity table for nonzero eigenvalues; q=3 and characteristic two excluded.",
+        "Independent q=5 exhaustion does not independently verify q=7 or arbitrary extension fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ZERO_FREQUENCY_ONLY",
+          "evidence": [
+            "Generating function enumerates solution pairs for AB=ζBA but not Fourier coefficients indexed by (A,B)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15570",
+          "material_read": "Full arXiv parsed article, introduction and main Theorems 1.1–1.2",
+          "method": "arXiv full text read",
+          "title": "Counting on the variety of modules over the quantum plane",
+          "trigger": "same matrix equation AB=-BA, finite fields"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Complex geometric components and dimensions are not the dual Fourier-zero set over F_q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.00378",
+          "material_read": "Full parsed manuscript including irreducible components, quotient, main theorems",
+          "method": "arXiv full text read",
+          "title": "Anti-commuting varieties",
+          "trigger": "exact same algebraic anti-commuting locus"
+        },
+        {
+          "assessment": "INGREDIENT_NOT_THEOREM",
+          "evidence": [
+            "Finite field quadratic-surface estimates do not determine anticommuting-matrix convolution nullity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0804.4505v1",
+          "material_read": "Full article, Theorem 1 and quadratic surface Fourier estimate arguments",
+          "method": "arXiv full HTML read",
+          "title": "Extension theorems for Fourier transform associated with nondegenerate quadratic surfaces",
+          "trigger": "quadratic Gauss/section theorem could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact rank/nullity of natural convolution operator is motivated before computation.",
+        "The q>=5 restriction has a structural geometric reason (small-field cancellations), not an arbitrary computational cutoff."
+      ],
+      "rationale": "The complete Fourier zero locus of a natural eight-dimensional anti-commuting matrix-pair indicator and exact convolution nullity are core discrete harmonic-analysis invariants. The isotropic–nonsquare line-intersection geometry and genuine q=3 boundary are not available from mere point counts.",
+      "residual_risks": [
+        "Broader finite-field matrix association-scheme or exponential-sum identities may encode equivalent zero counts.",
+        "No full multiplicity table for nonzero eigenvalues; q=3 and characteristic two excluded.",
+        "Independent q=5 exhaustion does not independently verify q=7 or arbitrary extension fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Y. Huang, Counting on the variety of modules over the quantum plane, arXiv:2110.15570",
+    "X. Chen, W. Wang, Anti-commuting varieties, arXiv:1805.00378",
+    "A. Iosevich, D. Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505v1",
+    "Resultary semantic matrix anticommutation Fourier kernel query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All odd prime powers q>=5 only; q=3 has extra zeros, characteristic two or higher n not covered.",
+    "Character-sum proof general; finite check performed only q=5 exhaustively."
+  ],
+  "residual_risks": [
+    "Broader finite-field matrix association-scheme or exponential-sum identities may encode equivalent zero counts.",
+    "No full multiplicity table for nonzero eigenvalues; q=3 and characteristic two excluded.",
+    "Independent q=5 exhaustion does not independently verify q=7 or arbitrary extension fields."
+  ],
+  "schema_version": 1
+}
