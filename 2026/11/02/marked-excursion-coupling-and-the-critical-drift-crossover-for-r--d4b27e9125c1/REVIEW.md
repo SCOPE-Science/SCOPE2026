@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional reflection of completed excursions is valid even with drift because each return excursion has equally many upward and downward steps. Terminal-excursion sign bias cancels under the sign-transition bijection. First-return Catalan enumeration yields the bivariate generating function. The triangular-array Laplace exponent, inverse-clock convergence, independent mark invariance principle, and random time change yield the functional limit. Two independently constructed exact rational checkers reproduce 4,644 and 922 assertions. The numerical checks alone do not prove the limiting theorem.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 marginal approximation paper explicitly proposes joint consideration of returns and sign changes. The inspected 2013 half-normal work supplies only marginal distributions. Older local-time generating-function and general marked-renewal literature form potential antecedents, but available primary material does not directly state the bias-uniform conditional binomial law and critical-drift joint crossover. Novelty is provisional rather than certified.
+PASS
 
-**Mathematical value — PASS.** The new law explains the dependence of a sign-change count on the full local-time trajectory, not just its marginal law, and quantifies the non-Gaussian random-time-change fluctuations at the order \(n^{1/4}\) under the sharp \(n^{-1/2}\) drift window. These are intrinsic statistics and natural parameter boundaries, not arbitrary numerical cases.
+Reflecting a completed +/- excursion preserves its p^up q^down weight because its up and down counts agree. Conditional on absolute path, the completed excursion signs are fair and independent; for any terminal sign the bijection between excursion signs and crossing flags yields iid Bernoulli(1/2) marks. The exact first-return generating function F_p(z)=1-sqrt(1-4pqz) and renewal survival Q=(1-F)/(1-z) prove the bivariate formula. In the critical drift window the clock Laplace exponent sqrt(a^2+2lambda) follows from sqrt(n)(1-F_{p_n}(exp(-2lambda/n))) and the inverse local-time normalization agrees at a=0; Donsker for independent fair marks and continuous composition yields W_{L^(a)}. Exact enumeration of bounded paths confirms the conditional law, not the functional limit.
 
-**Closest literature / risks.** Siripraparat–Jongpreechaharn (2026); Döbler (2013); de Vos–Vervaat (1988). The last source was inspected only at abstract level and cannot be labeled not covering throughout. Abstract general marked-renewal methods may subsume parts of the proof; the model-specific exact coupling and drift-window identification remain the scope of the novelty assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority for the precise new statement, not for its acknowledged classical proof components; actual prior mathematical implications evaluated and inaccessible plausible antecedents retained as risks.
+
+## value
+
+PASS
+
+An explicit exact joint law of zero returns and sign crossings under bias, conditioned on more information than mere return count, and a distinct second-order n^(1/4) Gaussian-in-local-time crossover give new joint information beyond the already-studied scalar half-normal approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
