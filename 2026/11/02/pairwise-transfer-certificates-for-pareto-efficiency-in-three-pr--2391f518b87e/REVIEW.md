@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The zero-sum triple identity \(\|z\|_1=2\|z\|_\infty\) converts all agents' non-worsening constraints into one coordinate box. Every strict improvement of an agent moves that agent's one or two active coordinates favorably; when two are active their signs are opposite, and when one is active the sum-zero global direction supplies an opposite mover. A sufficiently small elementary transfer remains in the common box and strictly improves the witness. Direct exact rational calculations verify the four-project obstruction. The included verifier checks 49,927 rational cases, and an additional LP comparison checked 12,736; neither finite check replaces the proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Freeman et al. (arXiv:1905.00457) prove Pareto properties of specific mechanisms and utilitarian optimization. Elkind et al. (arXiv:2307.15586) compare aggregation-rule axioms, including Pareto efficiency and range-respect, without the arbitrary-outcome three-project pairwise certificate. The relevant portioning and budget-aggregation searches and nearby mathematical-record results did not identify equivalent or stronger coverage. A general convex-analysis reformulation or unindexed specialist theorem remains a risk; lack of a search hit alone is not proof of novelty.
+PASS
 
-**Value — PASS.** This solves the natural problem of auditing the Pareto efficiency of an arbitrary proposed three-project division without solving a multiagent global optimization problem, with a linear-in-agent exact test and a sharp, substantive four-project failure. The obstruction identifies how coordinated reallocations can be needed even though all elementary transfers are opposed.
+For any n>=1 and x,p^(i) in the normalized 3-simplex, zero-sum triple residuals have L1=2 Linfty. Weak Pareto improvements are exactly the intersection of the simplex with the coordinate box L_j=max(0,max_i(p_ij-r_i)), U_j=min(1,min_i(p_ij+r_i)), r_i=||x-p^i||_infty. If any y strictly improves agent i, the at-most-two active residual coordinates move strictly toward p^i; select their donor/receiver (or one active and an opposite-sign coordinate) and take epsilon sufficiently small. The elementary transfer stays in the same box, strictly decreases i's radius and never worsens anyone. Reverse implication is immediate. Scanning 6 ordered project pairs and n active sets yields O(n) arithmetic operations. Independently re-evaluated the rational four-project counterexample: 5 ideals with x=(1/4)^4 and y=(6/25,13/50,13/50,6/25) give cost [3/10,1/5 x4] to [7/25,1/5 x4], yet each of 12 single directed transfers has a blocking agent. The frozen verify.py tests 49,927 rational grid situations; this finite test is corroboration, not the universal proof. Boundaries r_i=0 and x on simplex facets are handled by the closed box and small-epsilon choice.
 
-Closest literature: Freeman et al. (2019), *Truthful Aggregation of Budget Proposals*; Elkind et al. (2023), *Settling the Score: Portioning with Cardinal Preferences*. The claim is restricted to normalized \(\ell_1\) budgets; no general-dimension or strategic guarantee is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Against Freeman–Pennock–Peters–Vaughan and Elkind–Greger–Lederer–Suksompong–Teh on L1 portioning, the evaluated iff certificate for arbitrary given three-project x and sharp 4-project obstruction are not stated in the inspected mechanism-based Pareto results. Existing sufficient Pareto guarantees for specific aggregation mechanisms are logically weaker than an iff test for every outcome. Best-of-knowledge, not proof of global priority.
+
+## value
+
+PASS
+
+A linear-in-agent exact local Pareto-efficiency certificate for an arbitrary proposed three-project budget is a natural social-choice decision problem. The explicit four-project failure proves a genuine sharp dimension boundary, rather than parameter renaming or textbook sufficient condition; an O(n) test can be used independently of selection-mechanism design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and no external dependencies. The program uses exact `fractions.Fraction` arithmetic, checks 49,927 three-project rational profile/outcome cases through denominator five by comparing six local transfers with an independently derived global feasibility threshold, constructs a valid strictly improving transfer whenever predicted, and verifies the four-project counterexample. Its printed `PASS` line is a finite test report, not a proof of the infinitely many real-input cases.
+## correctness
 
-In a separate check, a SciPy linear program for a global weak-improvement polytope independently matched the transfer condition for 12,736 profile/outcome cases through grid denominator four. This optional separate check is not needed to execute the supplied script or establish the theorem.
+PASS
 
-The proof's decisive non-computational ingredients are the exact three-coordinate zero-sum norm identity, the one-or-two active-coordinate classification, and selection of a box-feasible elementary transfer that moves every active coordinate of a strictly improved agent toward its report. At four projects these conditions no longer force a dominating elementary transfer. No independent external audit has been performed.
+For any n>=1 and x,p^(i) in the normalized 3-simplex, zero-sum triple residuals have L1=2 Linfty. Weak Pareto improvements are exactly the intersection of the simplex with the coordinate box L_j=max(0,max_i(p_ij-r_i)), U_j=min(1,min_i(p_ij+r_i)), r_i=||x-p^i||_infty. If any y strictly improves agent i, the at-most-two active residual coordinates move strictly toward p^i; select their donor/receiver (or one active and an opposite-sign coordinate) and take epsilon sufficiently small. The elementary transfer stays in the same box, strictly decreases i's radius and never worsens anyone. Reverse implication is immediate. Scanning 6 ordered project pairs and n active sets yields O(n) arithmetic operations. Independently re-evaluated the rational four-project counterexample: 5 ideals with x=(1/4)^4 and y=(6/25,13/50,13/50,6/25) give cost [3/10,1/5 x4] to [7/25,1/5 x4], yet each of 12 single directed transfers has a blocking agent. The frozen verify.py tests 49,927 rational grid situations; this finite test is corroboration, not the universal proof. Boundaries r_i=0 and x on simplex facets are handled by the closed box and small-epsilon choice.
+
+## originality
+
+PASS
+
+Against Freeman–Pennock–Peters–Vaughan and Elkind–Greger–Lederer–Suksompong–Teh on L1 portioning, the evaluated iff certificate for arbitrary given three-project x and sharp 4-project obstruction are not stated in the inspected mechanism-based Pareto results. Existing sufficient Pareto guarantees for specific aggregation mechanisms are logically weaker than an iff test for every outcome. Best-of-knowledge, not proof of global priority.
+
+## value
+
+PASS
+
+A linear-in-agent exact local Pareto-efficiency certificate for an arbitrary proposed three-project budget is a natural social-choice decision problem. The explicit four-project failure proves a genuine sharp dimension boundary, rather than parameter renaming or textbook sufficient condition; an O(n) test can be used independently of selection-mechanism design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
