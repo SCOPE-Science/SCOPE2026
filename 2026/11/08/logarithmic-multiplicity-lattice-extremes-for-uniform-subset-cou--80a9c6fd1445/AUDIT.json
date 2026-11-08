@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The unique beta root follows from strictly increasing Bernoulli rate beyond the mean. Uniform Stirling and geometric lower-tail expansion give a log N saddle with prefactor (log N)^(-1/2), verifying the negative half-log-log shift. The one-round exact inclusion probability (d)_a(N-d)_(h-a)/(N)_h gives multiplicative O(log N/N) joint-history comparisons; factorial moments yield Poisson defects. Conditional binomial coupling yields nonpositive covariance of pair defects, proving an early-tail bound, and the binomial boundary recurrence supplies geometric late tails. Uniform integrability proves additive moment laws. The separate standard-library checker passed 3326 assertions, including exact finite transition checks and numerical saddlepoint diagnostics; finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Castro and Marinho, arXiv:2610.33199v1, Theorem 2.3, one coupon per round and continuous Gumbel scaling.",
+        "Berend and Sher, arXiv:2605.06953v1, Theorem 2.2, proportionally large batch, one occurrence per type.",
+        "Doumas and Spektor, arXiv:2607.01463, Theorem 1, one-copy group coverage and alternative retention."
+      ],
+      "reasoning": "Neither the single-draw growing-m theorem nor the batch one-copy theorem covers the joint growing-m and positive-fraction-without-replacement setting; their normalizations are incompatible with the asserted constant-round lattice window. A broader dependent occupancy theorem remains a priority risk.",
+      "searches": [
+        "arXiv 2610.33199 Castro Marinho cutoff profile many collections group drawing without replacement large batches logarithmic multiplicity",
+        "2026 Berend Sher arXiv 2605.06953 macroscopic group coupon collector multiple copies binomial lower tail",
+        "group coupon collector samples k distinct without replacement each round many copies asymptotic Gumbel 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.33199",
+      "https://arxiv.org/abs/2605.06953",
+      "https://doi.org/10.1017/jpr.2021.15",
+      "https://doi.org/10.1017/jpr.2023.6",
+      "https://arxiv.org/abs/2607.01463",
+      "https://doi.org/10.1007/s11009-020-09811-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schilling–Henze explicitly requires fixed c; Betken–Thäle (2023) studies never-drawn coupon counts.",
+        "Castro–Marinho has one coupon per draw; Berend–Sher treats completion after one sample of each type.",
+        "The new proof requires a uniform O(log N/N) multiplicative likelihood comparison of joint coupon histories plus a binomial large-deviation saddle."
+      ],
+      "reasoning": "Prior theorems neither match the parameter scaling nor dominate it without a new joint-dependence argument. The new claim is not a corollary of a fixed-quota result by merely substituting c=ceil(alpha log N).",
+      "searches": [
+        "group drawings m log n coupons Gumbel multiplicity",
+        "batch coupon collector m log n without replacement extreme",
+        "two poisson limit theorems coupon collector group drawings Schilling Henze 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schilling and Henze, J. Appl. Prob. 58 (2021), DOI 10.1017/jpr.2021.15, state fixed c in accessible abstract.",
+        "Earlier fixed-quota subset collection theorem has c independent of N.",
+        "New threshold m_N=ceil(alpha log N) tends to infinity and entails beta relative-entropy saddle rather than the fixed-c time center."
+      ],
+      "reasoning": "A fixed-c theorem has no uniformity in c as c diverges and cannot directly imply the present large-deviation and discrete-phase formulas. Equality of keywords group drawing and multicoverage does not establish equivalent assertions.",
+      "searches": [
+        "uniform group coupon collector logarithmic multiplicity lattice Gumbel",
+        "fixed-positive-fraction uniform subset draws logarithmic number of required hits and discrete Gumbel centered with log log correction",
+        "Schilling Henze two Poisson limit theorems coupon collector group drawings c fixed multiplicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searches surfaced Shioda (2021), a different class/type acquisition-quota model, and the fixed-multiplicity group-drawing literature.",
+        "No tabulated specific beta(alpha,p), r(alpha,p), and half-log-log centering for this regime was located in inspected accessible sources."
+      ],
+      "reasoning": "An exact finite waiting-time formula or general quota representation would not by itself assert the asymptotic lattice limit and additive moment corrections. The inaccessible full quota text is a residual risk, not ruled out by a snippet.",
+      "searches": [
+        "sampling without replacement multicollection coupon group batches many collections large deviation log multiplicity extreme max of correlated binomial hitting times",
+        "coupon collector group drawing repeated copies each group asymptotic lattice Gumbel",
+        "Coupon Subset Collection Problem with Quotas Shigeo Shioda 2021"
+      ]
+    },
+    "rationale": "The precise growing multiplicity m_N=ceil(alpha log N) with positive fraction uniform batch draws, beta relative-entropy location, half-log-log displacement, phase-dependent discrete extreme law and two constant-order moment corrections was not covered in inspected sources or retrieved matching research records. Closest separate results vary multiplicity for singleton draws or retain macroscopic batches with fixed multiplicity; no direct implication. Priority risk of broader unlocated results and inaccessible quota literature expressly remains.",
+    "residual_risks": [
+      "Schilling and Henze (2021) full publisher text inaccessible; only abstract/main-scope descriptions could be read, so no whole-document noncoverage claim.",
+      "Shioda (2021) full quota-paper text inaccessible; its broader formulations could conceal a relevant consequence.",
+      "Older general random group-allocation or dependent-binomial maxima results not exhaustively checked.",
+      "A general theorem plus an unstated substitution might cover the claim, though no decisive implication was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One coupon per round; continuous Gumbel window; does not directly state proportional-size group draws",
+        "evidence": "arXiv:2610.33199v1, Sections 1, 2.3, 4",
+        "identifier_or_url": "https://arxiv.org/html/2610.33199v1",
+        "material_read": "Introduction, Theorem 2.3, Poissonization and main-proof sections concerning Gamma maxima",
+        "method": "Open primary HTML and compare stochastic sampling and centering",
+        "title": "Cutoff profile for the coupon collector with many collections",
+        "trigger": "Growing coupon multiplicity in October 2026"
+      },
+      {
+        "assessment": "Macroscopic-group result covers one copy per type, not growing multiplicity",
+        "evidence": "arXiv:2605.06953v1, Sections 1–3",
+        "identifier_or_url": "https://arxiv.org/html/2605.06953v1",
+        "material_read": "Introduction, Theorems 2.1–2.3 and proof section for proportional group drawing",
+        "method": "Read primary full-text HTML, compare required coverage multiplicity",
+        "title": "Asymptotic Results for Uniform Group Drawing in the Coupon Collector’s Problem",
+        "trigger": "Same batch-without-replacement sampling and macroscopic batch size"
+      },
+      {
+        "assessment": "Accessible abstract explicitly fixes c; no whole-text noncoverage claim",
+        "evidence": "J. Appl. Prob. 58 (2021) 966–977; publisher abstract",
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2021.15",
+        "material_read": "Publisher abstract, metadata, reference list; full article inaccessible",
+        "method": "Publisher primary page and searches for lawful open text",
+        "title": "Two poisson limit theorems for the coupon collector’s problem with group drawings",
+        "trigger": "Same group sampling with multiple-copy terminal defect Poisson limits"
+      },
+      {
+        "assessment": "Zero-occurrence counts, not logarithmically growing multiplicity",
+        "evidence": "J. Appl. Prob. 60 (2023) 1352–1366, Theorems 1–2",
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2023.6",
+        "material_read": "Publisher primary full HTML abstract, results and proof setup",
+        "method": "Compare observable (never-drawn types), batch assumptions, and theorems",
+        "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+        "trigger": "Poisson approximation in group drawings"
+      },
+      {
+        "assessment": "One-copy completion with different model variants; no growing-m statement",
+        "evidence": "arXiv:2607.01463, Sections 1–2",
+        "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+        "material_read": "Primary accessible article text, introduction, model definitions, Theorem 1 and asymptotic summary",
+        "method": "Compare coverage thresholds and retained-type rules",
+        "title": "Two Multi--Draw Coupon Collector models with different retention rules",
+        "trigger": "Exact subset drawing and multiple retention rules"
+      },
+      {
+        "assessment": "Defines acquiring coupon classes via distinct-type quotas, not the present repeat-count threshold as stated; unresolved whole-text priority risk",
+        "evidence": "Shioda, Methodol. Comput. Appl. Probab. 23 (2021) 1203–1235",
+        "identifier_or_url": "https://doi.org/10.1007/s11009-020-09811-z",
+        "material_read": "Accessible abstract only; publisher full text restricted",
+        "method": "Abstract and bibliography comparison",
+        "title": "Coupon Subset Collection Problem with Quotas",
+        "trigger": "Quota terminology may conceal a general coverage extreme theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80a9c6fd-1445-4c5a-97d2-93cd0e191554",
+  "value": {
+    "rationale": "The logarithmically diverging target multiplicity is naturally motivated by repeated pooled coverage and differs qualitatively from fixed multiplicity: a binary relative-entropy saddle controls late deficiencies. The half-log-log correction diverges relative to an O(1) terminal window, and the parameter-dependent lattice ratio and additive moment formulas quantify systematic centering error and final-round variability. The theorem covers every positive alpha and every interior limiting batch fraction, not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
