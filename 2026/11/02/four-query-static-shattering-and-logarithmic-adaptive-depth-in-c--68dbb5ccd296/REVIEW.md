@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition chooses exactly two distinct cut gaps, giving \(\binom n2\) concepts. For any five fixed pair-queries, separating incident chord endpoints yields a five-chord perfect matching on ten ordered endpoints. Every original two-cut labeling survives the separation. Exactly 945 matchings and all 45 cut pairs per matching are enumerated, with at most 30 (never 32) response signatures; independent parity and direct-membership implementations agree for every matching. Four listed queries on seven vertices realize all 16 patterns, proving the static equality for all larger orders. A threshold subfamily yields the all-order logarithmic adaptive lower bound; hypothesis-counting gives the upper. The five-vertex complete adaptive depth-three certificate plus exhaustive small static checks establishes the first strict gap. No inference from finite tests to an untested infinite assertion is made.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Literature comparisons used exact statement and implication checks: arXiv:2007.03668 supplies generic Boolean-class closure bounds, not the exact two-cut family; arXiv:2310.04812 develops broader query-learning uses of Littlestone dimension, not a classification of circular two-block pair queries; arXiv:2010.11157 studies cyclic sieving of related noncrossing structures rather than VC/Littlestone shattering. A published research record on generic chord 1-types concerns counting insertion types of one chord, whereas the present result counts labels of *five fixed vertex-pair queries* induced by two circular cuts; summary-only access prevents a stronger exclusion. An earlier result about refinement-closed families is inapplicable because exactly-two-block families are not refinement closed. Searches for circle chords, XOR of cuts, cyclic splits and static/adaptive shattering uncovered no demonstrated implication of the exact four-query theorem. Unchecked older or differently named formulations remain possible.
+PASS
 
-## Mathematical value — PASS
-Fixed-complexity circular two-cluster partitions are a natural partition-learning model. Determining that pair-separation VC dimension saturates at four despite adaptively unbounded complexity identifies a structural boundary of static shattering and a genuine separation theorem, not just a small finite table. The 30-of-32 five-chord obstruction supplies a concrete universal combinatorial certificate, while the five-vertex gap is a sharp first transition. Exact values beyond sixteen vertices are not asserted.
+A partition is an unordered pair of cyclic gap cuts, giving binomial(n,2) hypotheses and each query as the XOR of membership of its two cut positions in the intervening arc. Endpoint splitting reduces any five queried chords (even with shared endpoints) to five disjointly matched pairs among ten cyclic positions, without deleting any originally realizable patterns. Independently enumerated all 945 perfect matchings and all 45 cut-pairs; maximum distinct response signatures is 30<32 and exact histogram 16:42,19:120,21:186,22:50,23:45,24:220,25:70,26:40,27:150,30:22. Verified the four queries (0,2),(0,4),(1,3),(1,5) at n=7 give all sixteen patterns. Fixing one cut yields a threshold family on n-1 states and a depth floor(log2(n-1)) binary-search tree; number of hypotheses yields the upper bound. Inspected packaged verify.py which also exhaustively computes small VC/online dimensions and the n=5 depth-three witness. The all-n proof is structural reduction plus finite complete obstruction, not extrapolation of n<=16 data.
 
-## Sources and limitations
-The background sources are arXiv:2007.03668, arXiv:2010.11157 and arXiv:2310.04812. The theorem's correctness rests on the proof and attached executable enumerations, not on these sources. Global literature priority and an independent rerun of the finite obstruction are open review risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+A natural online-learning class of circular two-arc bipartitions has bounded static VC dimension but unbounded logarithmic Littlestone complexity; the first gap and optimal four-query witness are concrete structural learning invariants. This distinguishes adaptive and nonadaptive identification for geometrically simple concept classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
