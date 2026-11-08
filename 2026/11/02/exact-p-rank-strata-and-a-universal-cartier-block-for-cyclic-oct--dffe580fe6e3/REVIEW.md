@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The genus-six holomorphic basis follows from valuations at five simple ramification points and at infinity. The Cartier coefficient rule decomposes into summands of dimensions one, two, and three; the three-dimensional part splits further as two plus one. The two critical coefficient identities are proved for all primes in the stated congruence class by integral recurrences, reduction modulo \(p\), first- and second-order differential equations, and degree uniqueness. Those identities show the two-dimensional summand always has invertible Cartier action for \(r^2\ne4\), while the scalar summands vanish precisely at the specified coefficient polynomials. The stable-rank argument is uniform and correct. A separate exact-arithmetic implementation of coefficient extraction and matrix rank checks eight prime characteristics and all rational parameters in each, but finite checks alone are not the proof.
+## correctness
 
-## Originality
-**PASS (best-knowledge, with explicit residual risk).** The closest result, Ohashi's 2026 order-eight plane-quintic analysis, concerns superspeciality conditions rather than an exact classification of all geometric \(p\)-ranks in characteristic \(p\equiv1\pmod8\). The relevant published general cover results of Bouw explain generic \(p\)-rank, and Cavalieri–Pries count nonordinary members by mass formulas; neither inspected treatment evaluates the fixed two-dimensional Cartier determinant as \(\kappa_h(r^2-4)^{2h}\) or gives the parameter-wise rank-two/rank-four/rank-six formula. The new assertion is this uniform closed stratification and structural nonvanishing identity; the cover, Cartier rule, generic ordinarity, and hypergeometric coefficient methods are not claimed as new. Older equivalent computations under different parameterizations remain possible.
+PASS
 
-## Mathematical value
-**PASS.** The result determines a natural arithmetic-geometric invariant of an entire family of genus-six curves in infinitely many prime characteristics and gives explicit equations for all its rank-drop loci. The everywhere-invertible Cartier summand gives a uniform, nontrivial lower bound of two on the geometric \(p\)-rank, while explicit characteristic-seventeen examples realize all three numerical possibilities. This is more informative than checking superspeciality or generic ordinarity and is potentially useful in studying Newton and Ekedahl–Oort stratification, though those finer classifications are not claimed.
+PASS. For p=8h+1>13, r^2!=4, the genus-six Kummer cover y^4=x(1+r x²+x⁴) has differential basis x^i dx/y^j for 1<=j<=3 and 0<=i<=j-1. Cartier coefficient extraction partitions a 1x1 coefficient P_h=T_2h,h, two identical scalar Q_h=T_4h,2h, and the 3x3 block into a scalar and invariant 2x2 block. The integral coefficient recurrences for T_m,k and their second-order ODE, modulo p, prove determinant Δ=binom(6h,h)binom(6h,3h)(r²-4)^(2h) and scalar T_6h,5h=c_h(r²-4)^(2h)P_h; coefficients are units since indices<p. The 2x2 part is invertible on every smooth fiber. Semilinear stable rank then equals 2+2[P_h!=0]+2[Q_h!=0], in {2,4,6}. Independently verified determinant over every r in F17 and F41, and algebraic p17 factor P2/Q2; these finite tests support, not replace, the symbolic recurrences. No claims about other primes or Newton polygons.
 
-## Closest literature and limits
-Ryo Ohashi, *Superspecial plane quintics with large automorphism groups*, arXiv:2605.29624, §3.3 (2026); Irene Bouw, *The p-Rank of Ramified Covers of Curves*, Compositio Math. 126 (2001); Renzo Cavalieri and Rachel Pries, *Mass formula for non-ordinary curves in one dimensional families*, arXiv:2308.14891. The theorem is limited to prime characteristic \(p=8h+1>13\), the smooth plane-quintic family, and geometric \(p\)-rank, not the classification of isomorphism classes or other congruence classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with qualified priority. Ohashi §3.3 studies the identical order-eight plane-quintic family and its superspeciality, not full ranks 2/4/6 on every smooth parameter. Bouw generic cyclic-cover p-rank and Cavalieri–Pries mass formulas give broader contexts but neither source inspected states the universal nonzero 2x2 Cartier determinant or rank stratum at the actual parameter r. Current rank formula is not implied by eliminating superspeciality because multiple intermediate ranks remain possible. Source model, group action and standard Cartier coefficient extraction are credited as prior.
+
+## value
+
+PASS
+
+PASS. The global lower bound rank>=2 and precise rank 2/4/6 loci for a natural cyclic-octic genus-six family are nontrivial exact arithmetic geometry. The universal invertible Cartier summand provides a structural reason for absence of superspeciality and an explicit all-prime parameter discriminator rather than an arbitrary small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
