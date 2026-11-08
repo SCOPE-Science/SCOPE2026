@@ -1,0 +1,11 @@
+# Scientific review of the short-cycle second-cumulant identity
+
+**Correctness — PASS.** The graph sampling convention, labeled edge multiplicities, and the boundaries \(n=2,3\) are explicit. Deterministic conditional triangle increment means ensure martingale-difference orthogonality; the conditional second moment uses exactly the double-edge count. Birthwise collision indicators are independent, and cross-covariances vanish off the diagonal by conditional expectation. The zeta limit is obtained by absolutely convergent sums, while the strict negative variance correction has a finite rational sign certificate and a rigorous tail bound. A full independent exhaustive state-space implementation checked all graph histories through six vertices, with 153 passed assertions. It supports but does not replace the infinite proof.
+
+**Originality — PASS, provisional.** The closest primary result is Björklund–Holmgren–Janson–Lo's Poisson approximation and their explicit three-cycle *mean*. Section 7 bounds approximation errors but does not state the finite covariance matrix or order-one covariance/variance residues. Burghart uses the same recursive graph to investigate ancestry and descendants, not these local-cycle cumulants. Searches across actual mathematical records, paper keywords, aliases, and broader Poisson theorems did not reveal coverage of the precise statement. A differently expressed second-moment computation remains a priority risk; search absence alone is not proof of novelty.
+
+**Mathematical value — PASS.** The two shortest cycle counts are the basic non-tree local motifs of the model. A previously proven asymptotically independent Poisson law hides persistent negative absolute covariance: the exact finite second-cumulant matrix reveals that structure and the sharp quantitative underdispersion of triangle counts. This is a natural complete second-order computation relevant to moment-sensitive refinements of Poisson approximation, not a relabeling of the existing mean or a gratuitous numerical example.
+
+**Limits.** Fixed outdegree two, with-replacement labeled arcs; no higher cumulant theorem, no full mod-Poisson expansion, and no assertion of independent validation. The primary comparison may not exhaust all historical literature.
+
+Self-review: passed. Independent audit: not yet performed.
