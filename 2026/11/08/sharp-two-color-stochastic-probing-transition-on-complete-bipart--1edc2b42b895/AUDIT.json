@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Block-invert mu I+L to three off-diagonal weights; invoke the established variance identity; derive the exact weighted cut; use strict (1,-1) lattice second difference 2(2-alpha-beta)>0 to force a boundary maximizer; use color complement symmetry, strict concavity, and factorization F_L(x)-mn=(m-x)(alpha x-n) to obtain all minimizers and exact phase. Independent exact rational matrix inversion and 10,067 finite assertions passed. Infinite scope is analytic, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2308.07722 allows arbitrary partitions in the variance formula but optimizes sample counts only after a partition is given.",
+        "arxiv:1302.4018 constructs hierarchical lattice colorings.",
+        "2019 extension abstract discusses distance graph coloring; full text could not be excluded."
+      ],
+      "reasoning": "A general fixed-partition identity covers the variance calculation as an ingredient, not the quantified minimization over every partition. Lattice hierarchy and graph-distance constructions are not stronger all-partitions optimality results for this inverse on Kmn.",
+      "searches": [
+        "arxiv:2308.07722 full Section 3.2 fixed partition stochastic probing",
+        "arxiv:1302.4018 hierarchical probing graph-distance coloring",
+        "DOI:10.1137/18M1176427 extending hierarchical probing",
+        "optimal 2-color partition for inverse Laplacian trace stochastic probing complete bipartite graph, hub leaves",
+        "when is standard bipartite coloring suboptimal for stochastic trace probing on star graph shifted Laplacian resolvent"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.07722v1 (primary full PDF, relevant Sections 1-3 and page image)",
+      "arxiv:1302.4018v1 (primary PDF relevant introductory and graph-coloring passages, page image)",
+      "doi:10.1137/18M1176427 (publisher abstract, incomplete full-text comparison)",
+      "Semantic literature/index searches on exact star/biclique variance, MaxCut and graph-probing aliases (8 concrete queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Rademacher variance identity alone does not imply a minimizing partition or inequality alpha(m-1)>n without the inverse and integer MaxCut analysis.",
+        "Hierarchical toroidal lattice probing does not include general Kmn resolvent optima.",
+        "The indexed closest complete-bipartite entries concern hitting domination and majority coloring, distinct objectives.",
+        "Graph-coloring variance behavior on different graph families is not a dominating all-parameter classification for complete bipartite resolvents."
+      ],
+      "reasoning": "The comparison addresses logical coverage rather than title similarity. Inspected works supply variance for fixed colorings or lattice-oriented constructions, but not the complete shifted-biclique optimality classification. Full-text coverage of the 2019 extension remains a residual risk.",
+      "searches": [
+        "arxiv:2308.07722 Theorem 3.3 and Lemma 3.5",
+        "arxiv:1302.4018 Sections 1-2 hierarchical coloring",
+        "complete bipartite graph indexed hitting domination result",
+        "complete multipartite graph indexed majority coloring result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Every-coloring optimization is equivalent to a weighted MaxCut with three edge weights: alpha for within left, beta for within right, 1 for cross. Direct algebra identifies these weights.",
+        "arxiv:2308.07722 Theorem 3.3 supplies fixed-color variance but not complete-bipartite MaxCut solution."
+      ],
+      "reasoning": "The equivalence is proved explicitly; broader generic weighted-MaxCut tools do not by themselves state the exact optimum and sharp regularization transition. No identical exact source was located in the queries; that is not conclusive novelty proof.",
+      "searches": [
+        "optimal stochastic graph probing partition complete bipartite inverse shifted Laplacian maximum weighted cut, star graph leaf splits",
+        "optimal 2-color partition for inverse Laplacian trace stochastic probing complete bipartite graph, hub leaves",
+        "when is standard bipartite coloring suboptimal for stochastic trace probing on star graph shifted Laplacian resolvent",
+        "complete bipartite Laplacian inverse graph coloring stochastic trace estimation optimal variance exact integers",
+        "deterministic graph coloring vs optimal stochastic probing variance for inverse graph Laplacian star",
+        "arxiv:2308.07722 theorem 3.3 Rademacher stochastic probing variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact complete-bipartite trace-probing optimizer table or parameter threshold found among accessible matched sources and semantic findings."
+      ],
+      "reasoning": "The claim is an infinite family, so a database table would need a dominating closed formula; no such table was found. Source-index absence is only negative search evidence, not a uniqueness certificate.",
+      "searches": [
+        "complete bipartite Laplacian inverse graph coloring stochastic trace estimation optimal variance exact integers",
+        "deterministic graph coloring vs optimal stochastic probing variance for inverse graph Laplacian star",
+        "stochastic probing trace estimator graph Laplacian shifted inverse resolvent two-color partition variance-optimal star",
+        "Stochastic trace probing for K_mn complete bipartite shifted Laplacian optimal coloring threshold",
+        "graph coloring stochastic trace estimator optimal variance weighted maximum cut inverse Laplacian",
+        "complete bipartite weighted maximum cut exact star shifted Laplacian inverse"
+      ]
+    },
+    "rationale": "The variance formula for a fixed coloring is credited to arxiv:2308.07722; the putative new statement solves its globally optimal two-class partition specifically on K_{m,n} shifted-Laplacian inverses and proves a sharp violation of ordinary graph coloring. The compared primary papers did not state or imply this classification. Specialist weighted-MaxCut precedence remains a limitation.",
+    "residual_risks": [
+      "An equivalent classification may already occur in specialized weighted-MaxCut or graph-based stochastic trace estimation literature.",
+      "The 2019 extended hierarchical-probing article could not be inspected beyond its accessible abstract; it remains a weak plausible overlap risk, not a known dominating theorem.",
+      "The optimization assumes exactly one independent Rademacher probe per nonempty class and counts only quadratic-form calls."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.3 proves the general fixed-partition Rademacher formula used in the present proof. It does not optimize assignments for complete bipartite inverse Laplacians; Section 3.2 instead optimizes sample numbers with partition fixed.",
+        "evidence": [
+          "arxiv:2308.07722v1 page 7 Theorem 3.3 formula (3.6); page 8 Lemma 3.5 and text around equations (3.8)-(3.9); opening pages graph-distance coloring and paper outline"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+        "material_read": "Introduction and Section 2 on distance coloring; Section 3.1 and 3.2 including Theorem 3.3, Lemma 3.5, variance and sample-count optimization; relevant subsequent variance bounds, searched full text for complete bipartite/star/partition optimum.",
+        "method": "Primary arXiv PDF with text search, theorem passages and direct page image of the variance theorem",
+        "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "trigger": "Identical probing estimator and known variance formula, plausible stronger coverage"
+      },
+      {
+        "assessment": "Constructs hierarchical distance colorings, particularly for tori and lattice graphs; it does not resolve all two-color partitions of the shifted complete-bipartite resolvent at one probe per class.",
+        "evidence": [
+          "arxiv:1302.4018v1 pages 1-3, introduction and graph-coloring constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.4018",
+        "material_read": "Title, abstract, Introduction Sections 1 and 1.1 on lattice inverse, distance-k coloring, hierarchical coloring and variance reduction, source PDF page image.",
+        "method": "Primary arXiv full-text PDF relevant passages and first-page image",
+        "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+        "trigger": "Foundational graph-coloring probing method potentially dominating color choice"
+      },
+      {
+        "assessment": "Abstract describes graph distance coloring and inverse variance reduction, not the explicit bipartite weighted-MaxCut optimizer. Full-paper exclusion is NOT claimed.",
+        "evidence": [
+          "SIAM J. Sci. Comput. DOI:10.1137/18M1176427 public abstract; author draft https://www.cs.wm.edu/~andreas/publications/extended_HP.pdf inaccessible in the literature reader"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1176427",
+        "material_read": "Publisher abstract and bibliographic description only; the complete author-hosted article was not available for review.",
+        "method": "Publisher abstract plus attempted author-hosted public PDF",
+        "title": "Extending hierarchical probing for computing the trace of matrix inverses",
+        "trigger": "General graph extension of hierarchical probing could subsume a two-color graph design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1edc2b42-b895-43a6-b5f8-803d85715f5d",
+  "value": {
+    "rationale": "This all-parameter classification exhibits a concrete mathematically motivated failure of ordinary proper graph coloring at fixed two quadratic forms: on \\(K_{10,1}\\) and \\(\\mu=1\\), an irregular split reduces stochastic trace-estimator variance from \\(5/16\\) to \\(1/4\\). It identifies when minimizing short-range inverse interactions loses to balancing long-range within-side interactions; neither a tiny parameter slice nor a routine restatement of a fixed-partition variance identity.",
+    "status": "PASS"
+  }
+}
