@@ -1,15 +1,21 @@
-# Scientific review: finite cyclic five-point Turán mass
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is every cyclic modulus \(N\ge9\), with complex positive-definite functions normalized at the origin and counting-measure mass. The reduction to real-even coefficients follows by taking the real part, not by assuming every original complex optimizer is real. The explicit continuous witness factors as a positive quadratic times a squared linear factor and vanishes only at the two pentagonal angles. Fourier nonnegativity proves the exact divisibility criterion. For the asymptotic classification, the two active constraints give an invertible matrix and a candidate approaching the double-zero witness; positive curvature near the zeros and strict positivity elsewhere prove sampled feasibility. Two strictly positive dual multipliers prove global optimality and uniqueness within the real-even class. The two-contact Taylor expansion proves the two residue-dependent coefficients with the stated remainder. A standalone, standard-library implementation of finite linear-program vertex enumeration and contact checks passed 5190 deterministic assertions. Finite computation is corroboration rather than an infinite proof.
+## correctness
 
-## Originality — PASS (bounded historical review)
-The continuous five-point support optimum \(\sqrt5\) is explicitly **known**, established in Example 3 of Kolountzakis–Révész, *Turán's extremal problem for positive definite functions on groups* (arXiv:math/0312218, 2003). It is cited as a lemma and not presented as new. The same authors' arXiv:math/0302193 (2003) explains finite-grid Carathéodory–Fejér problems but optimizes a single coefficient, not the sum of two supported coefficients. The new statement concerns finite moduli, exact locking at multiples of five, eventual two-contact uniqueness, and an explicit second-order coefficient splitting by residue. The closest inspected mathematical research result for \(\{0,\pm1,\pm3\}\) does not imply this theorem by a uniform group automorphism. The other examined finite-grid and two-dimensional Turán results have different constraints. Residual risk: a prior general discrete-extremal theorem or overlooked older exact specialization could dominate this result; bounded searching is not proof of novelty.
+PASS
 
-## Value — PASS
-A discrete-versus-continuous extremal problem is explicitly motivated by the cited Turán and finite-grid Carathéodory–Fejér literature. The strict if-and-only-if divisibility law and the two distinct sharp \(N^{-2}\) constants quantify a real arithmetic meshing defect, while dual contact positivity identifies the exact mechanism underlying stable optimizers. This is a natural whole-parameter infinite-family statement, not a single arbitrary finite calculation or a restatement of the continuous known optimum.
+For N>=9 the five residue support points are distinct, and positive definiteness on Z/N is exactly discrete nonnegativity of 1+2a cos(theta_j)+2b cos(4theta_j) after real-even symmetrization. The explicit continuous feasible witness at a0=2(sqrt5−1)/5,b0=(sqrt5−1)/10 has polynomial factor (cos(theta)+cos(pi/5))^2 times a strictly positive quadratic, and therefore has only double zeros at ±4pi/5. When 5 divides N these nodes are sampled, yielding the bound 1+2(a+b)<=sqrt5; otherwise all sampled values are strictly positive and small scaling raises the objective above sqrt5. For fixed r=N mod5 nonzero and large N, consecutive grid nodes around 4pi/5 determine a unique (a_N,b_N); nonzero determinant, strictly positive curvature near double zero, and positivity away from zeros prove feasibility. Positive dual multipliers on these two active constraints prove global optimality and uniqueness among real-even optimizers. Expansion in h=2pi/N, u={2N/5}, gives excess 8pi²u(1−u)/(cos(pi/5)N²)+O(N^-3), hence the 48/25 and 32/25 residue coefficients. Source gives no unproved explicit onset for this asymptotic. Independently enumerated finite 2D LP Fourier-constraint vertex intersections for sixteen moduli N=9..31 including multiples and nonmultiples of five; direct all-grid checks matched the nearest-contact candidate and exact lock/excess cases.
 
-## Scope and limitations
-The eventual contact description has no explicit finite onset in the proof. The theorem does not classify all complex-valued equality functions, does not give a closed formula at every small nonmultiple of five, and has not received independent mathematical validation. Full source inspection covered the relevant primary sections of arXiv:math/0312218 and arXiv:math/0302193; non-accessible or unlocated generic prior finite-grid work remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The continuous integer-group five-point support optimum sqrt5 is ALREADY explicitly derived by Kolountzakis–Révész (2003 Example 3, support {0,±1,±4}); it is merely a premise, not the novelty. Their earlier discrete Carathéodory–Fejér framework optimizes a single harmonic coefficient, not the total supported mass a+b. The assessed new finite-cyclic contribution is exact divisibility locking, eventual two-contact real-even uniqueness and two residue-dependent 1/N² corrections.
+
+## value
+
+PASS
+
+Discrete-versus-continuous positive-definite extremal problems are explicitly motivated in classical Turán/Carathéodory–Fejér work. The theorem determines precisely when a finite cyclic sample locks the known pentagonal optimum, shows strict excess otherwise, and quantifies two different arithmetic mesh-error constants with an optimizer uniqueness mechanism. These sharp all-residue statements are not a trivial restatement of the classical continuous value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

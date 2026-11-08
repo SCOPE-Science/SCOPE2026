@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:56:43.777623Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=9 the five residue support points are distinct, and positive definiteness on Z/N is exactly discrete nonnegativity of 1+2a cos(theta_j)+2b cos(4theta_j) after real-even symmetrization. The explicit continuous feasible witness at a0=2(sqrt5−1)/5,b0=(sqrt5−1)/10 has polynomial factor (cos(theta)+cos(pi/5))^2 times a strictly positive quadratic, and therefore has only double zeros at ±4pi/5. When 5 divides N these nodes are sampled, yielding the bound 1+2(a+b)<=sqrt5; otherwise all sampled values are strictly positive and small scaling raises the objective above sqrt5. For fixed r=N mod5 nonzero and large N, consecutive grid nodes around 4pi/5 determine a unique (a_N,b_N); nonzero determinant, strictly positive curvature near double zero, and positivity away from zeros prove feasibility. Positive dual multipliers on these two active constraints prove global optimality and uniqueness among real-even optimizers. Expansion in h=2pi/N, u={2N/5}, gives excess 8pi²u(1−u)/(cos(pi/5)N²)+O(N^-3), hence the 48/25 and 32/25 residue coefficients. Source gives no unproved explicit onset for this asymptotic. Independently enumerated finite 2D LP Fourier-constraint vertex intersections for sixteen moduli N=9..31 including multiples and nonmultiples of five; direct all-grid checks matched the nearest-contact candidate and exact lock/excess cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both authors discuss finite-grid extremal trigonometric polynomials and discrete versus continuous positivity; general structural framework is prior.",
+          "No assessed theorem in their inspected Examples/Problem4 gives the unique active grid pair or the specific arithmetic split 48pi²/(25c),32pi²/(25c)."
+        ],
+        "reasoning": "General sampled-grid positivity yields a finite LP for each N but not automatically its uniform large-N solution, strict 5-divisibility iff, or second-order residue constants.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0302193",
+          "https://arxiv.org/pdf/math/0312218",
+          "finite cyclic group Turan constant positive definite functions support {0, ±1, ±4} pentagon modulo 5 correction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0312218",
+        "https://arxiv.org/pdf/math/0302193",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-turan-mass-for-the-five-point-support-0-1-3-on-cyclic-grou--47b20e0dc8f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3 of math/0312218 gives the continuous optimum and witness; already credited.",
+          "math/0302193 has a finite-grid positivity framework with a different single-coefficient objective; no direct theorem there implies this finite total-mass asymptotic."
+        ],
+        "reasoning": "The new result is a quantified finite-grid obstruction to equality with the old continuous optimum. The proof must add the two-contact duality and local Taylor analysis; it is not solely a restated classical example.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0312218",
+          "https://arxiv.org/pdf/math/0302193",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-turan-mass-for-the-five-point-support-0-1-3-on-cyclic-grou--47b20e0dc8f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolountzakis–Révész Example 3 establishes continuous 5-point optimum 1+sec(pi/5)=sqrt5 for integer support {0,±1,±4}.",
+          "Their earlier discrete Carathéodory–Fejér Problem 4 maximizes the first Fourier coefficient lambda, unlike total mass 1+2(a+b)."
+        ],
+        "reasoning": "Compared equivalent positive-type Fourier polynomial formulations and normalized counting objective, not just parameter matching. Shared continuous extremum is old; finite congruence/residue corrections are distinct.",
+        "searches": [
+          "finite cyclic group Turan constant positive definite functions support {0, ±1, ±4} pentagon modulo 5 correction",
+          "https://arxiv.org/pdf/math/0312218",
+          "https://arxiv.org/pdf/math/0302193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published exact Turán five-point problem uses {0,±1,±3}, with arithmetic mod 6 rather than this {0,±1,±4} mod 5 setting.",
+          "A group automorphism preserving the normalized first frequency does not generally take the unordered 1:3 harmonic pair to 1:4 for all moduli."
+        ],
+        "reasoning": "The nearby table is not exact coverage after naive substitution. Bounded result search does not prove the absence of another more general modulus/grid table.",
+        "searches": [
+          "finite cyclic group Turan constant positive definite functions support {0, ±1, ±4} pentagon modulo 5 correction",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-turan-mass-for-the-five-point-support-0-1-3-on-cyclic-grou--47b20e0dc8f6",
+          "Turan exact finite support 0 +-1 +-4 cyclic modulo5 correction N^-2"
+        ]
+      },
+      "rationale": "The continuous integer-group five-point support optimum sqrt5 is ALREADY explicitly derived by Kolountzakis–Révész (2003 Example 3, support {0,±1,±4}); it is merely a premise, not the novelty. Their earlier discrete Carathéodory–Fejér framework optimizes a single harmonic coefficient, not the total supported mass a+b. The assessed new finite-cyclic contribution is exact divisibility locking, eventual two-contact real-even uniqueness and two residue-dependent 1/N² corrections.",
+      "residual_risks": [
+        "An older general finite-grid Turán theorem could imply the claimed residue expansion despite not showing the same support explicitly.",
+        "Complex optimizer uniqueness is NOT claimed; only eventual unique real-even optimizer.",
+        "The proof is asymptotic for two-contact optimum and does not give an explicit finite N0 or complete closed form for every small N."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE continuous prior coverage explicitly credited; does NOT supply finite cyclic modulus congruence/second-order corrections",
+          "evidence": "Example 3: support {0,±1,±N} on Z, for N even formula 1+sec(pi/(N+1)); N=4 yields sqrt5",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218",
+          "material_read": "Full lawful arXiv PDF sections 3.2–3.4 and Example 3 at printed pages 12–13, screenshot verified; derivation of 1+sec(pi/(2n+1)) for even parameter n",
+          "method": "Open-access arXiv full-text PDF and page screenshot",
+          "title": "Turán's Extremal Problem for Positive Definite Functions on Groups",
+          "trigger": "Identical 5-point integer support and same sum of Fourier coefficients"
+        },
+        {
+          "assessment": "Same positivity-on-grid machinery, but objective lambda is first coefficient, not full five-point mass",
+          "evidence": "Problems 3 and 4, pp 3–4; the optimization is max 2*Fourier coefficient at first harmonic",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193",
+          "material_read": "Full open arXiv PDF introduction, §§1–2 including Problems 3–4 and finite Φ_m(H) definitions, sampled Fourier positivity and objective read",
+          "method": "Open-access arXiv PDF text",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Discrete trigonometric coefficient optimization may dominate through equivalence"
+        },
+        {
+          "assessment": "Distinct support harmonic pair, modulo-six rather than modulo-five classification",
+          "evidence": "Resultary reports mod6 explicit coefficient and two-contact regimes for ±3",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-turan-mass-for-the-five-point-support-0-1-3-on-cyclic-grou--47b20e0dc8f6",
+          "material_read": "Full semantic summary only; paper body not read",
+          "method": "Resultary semantic search",
+          "title": "Exact Turán mass for five-point support 0,±1,±3 on cyclic groups",
+          "trigger": "Closest published nearby finite-cyclic support with residue regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Discrete-versus-continuous positive-definite extremal problems are explicitly motivated in classical Turán/Carathéodory–Fejér work. The theorem determines precisely when a finite cyclic sample locks the known pentagonal optimum, shows strict excess otherwise, and quantifies two different arithmetic mesh-error constants with an optimizer uniqueness mechanism. These sharp all-residue statements are not a trivial restatement of the classical continuous value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N>=9, distinct support points and counting-measure normalization on Z/N.",
+    "No uniqueness over complex-valued positive-definite optimizers or explicit small-N optimal coefficient formula.",
+    "Residue correction is asymptotic with O(N^-3), not asserted exact for all finite N."
+  ],
+  "schema_version": 1
+}
