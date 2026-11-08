@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:13:38.374438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the key harmonic lattice lemma. Log-height tiles of width beta h_m and height log(alpha), with node at beta n h_m+i h_m, stay within delta*h_m with delta=beta+log(alpha). Harmonic disk derivative identity gives |grad u|²<=8/(pi R^4)*int_B |u|², radius h_m/4. Disk containment, tile weighted area <=exp(s+1) beta log(alpha) h_m^(s+2), and disc overlap <=3/(beta log(alpha)) produce contraction factor [6144/pi]exp(s+1)(3/2)^s delta². At delta<=exp(-s)/200 this <=0.133 <1 for s>=0. F_f is holomorphic in weighted A_{2p+1}, injective real-L² Cauchy wavelet transform. Separate real and imaginary magnitude channels force Re(F_f²-F_g²)=0 at nodes. Weighted point evaluation gives F_f²-F_g² in A_{4p+2}; its real part is weighted L²(y^(4p)) harmonic, so global zero, then imaginary holomorphic constant vanishes by Bergman integrability. Integral domain factorization forces F_f=±F_g, hence f=±g. Independently evaluated contraction constants and geometry; finite checks are ancillary to universal analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alaifari et al. Theorem 3.3: three real wavelet channels, beta log(alpha) density; paper raises two-window sufficiency question.",
+          "A two-window linear frame is not equivalent to phaseless two-window injectivity."
+        ],
+        "reasoning": "The prior three-channel theorem does not imply omission of one channel; no inspected broader two-channel all-L² result.",
+        "searches": [
+          "Alaifari Bartolucci Wellershoff Theorem 3.3 arXiv:2302.08129",
+          "Resultary semantic search: two real Poisson wavelets Hilbert transform sampled sign retrieval without bandlimiting Bergman harmonic uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "Alaifari et al. arXiv:2302.08129 (Introduction and Theorem 3.3)",
+        "Alaifari et al. arXiv:2009.05029",
+        "Chen SSRN:6088707 (abstract only; different window count)",
+        "Resultary semantic search: two real Poisson wavelets Hilbert transform sampled sign retrieval without bandlimiting Bergman harmonic uniqueness",
+        "Actual assigned RESULT.md and checks/proof_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The introduction of the 2023 work asks whether one or two wavelets suffice, and proves a three-wavelet theorem; it cannot logically imply the two-channel conclusion.",
+          "Bandlimited theorem assumes an extra spectral restriction."
+        ],
+        "reasoning": "No stronger prior result identified that deductively covers the all-real-L² two-channel claim.",
+        "searches": [
+          "arXiv:2302.08129 Introduction and Theorem 3.3",
+          "arXiv:2009.05029",
+          "Resultary semantic search: two real Poisson wavelets Hilbert transform sampled sign retrieval without bandlimiting Bergman harmonic uniqueness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same Cauchy/Poisson wavelet ingredients and hyperbolic sampling lattice as Alaifari et al.; the published positive theorem uses three separate windows, not the present two.",
+          "Earlier bandlimited sign retrieval does not include all real L² signals."
+        ],
+        "reasoning": "Distinguished two separate real magnitude channels from complex magnitude and from three-channel or bandlimited statements.",
+        "searches": [
+          "Resultary semantic search: two real Poisson wavelets Hilbert transform sampled sign retrieval without bandlimiting Bergman harmonic uniqueness",
+          "arXiv:2302.08129 two Poisson real Hilbert wavelets sign retrieval",
+          "arXiv:2009.05029 wavelet phase retrieval bandlimited"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is infinite-dimensional injectivity with a universal density inequality, not a finite tabular invariant.",
+          "Resultary hits concerned different finite STFT or function-space properties, not this two-wavelet theorem."
+        ],
+        "reasoning": "No exact theorem table applicable; this classification of a sampling regime is not a known lookup.",
+        "searches": [
+          "Resultary semantic search: two real Poisson wavelets Hilbert transform sampled sign retrieval without bandlimiting Bergman harmonic uniqueness",
+          "Poisson Hilbert wavelet phaseless sampling discrete without bandlimit"
+        ]
+      },
+      "rationale": "Primary Alaifari–Bartolucci–Wellershoff 2023/2024 theorem obtains sampled real L² sign retrieval from THREE wavelet magnitude channels and explicitly raises sufficiency of two. Here a new harmonic real-part uniqueness argument yields TWO channels under much stricter density, a genuinely different conclusion. Qualified historical priority given unknown new work after 2024.",
+      "residual_risks": [
+        "The no-bandlimit two-window result may have appeared in recent/unindexed literature not accessible in this bounded search.",
+        "Only injectivity under conservative density is proved; numerical stability and constructive reconstruction remain open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Three channels and explicit two-channel question; present stronger density hypothesis permits separate proof with two channels.",
+          "evidence": [
+            "Introduction asks if one or two wavelets suffice; Theorem 3.3 uses three; two-wavelet frame != phaseless retrieval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08129",
+          "material_read": "Introduction question on number of required wavelets and main Theorem 3.3 with three analyzing wavelets; inspected relevant PDF page and screenshot.",
+          "method": "Read primary full-text sections relevant to proposed theorem.",
+          "title": "Unique wavelet sign retrieval from samples without bandlimiting",
+          "trigger": "Same Poisson/Hilbert wavelet family and discrete grid, potential direct coverage"
+        },
+        {
+          "assessment": "Bandlimit assumption prevents direct coverage of universal real L² statement.",
+          "evidence": [
+            "Bandlimited hypothesis essential to scope of cited work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.05029",
+          "material_read": "Accessible title, abstract and hypotheses; no whole-paper noncoverage claimed.",
+          "method": "Read available source summary.",
+          "title": "Phase retrieval of bandlimited functions for the wavelet transform",
+          "trigger": "Possible earlier two-wavelet recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Directly resolves a stated two-wavelet sufficiency question for real L² without a bandlimit, with explicit conservative discrete sampling bound and a novel harmonic uniqueness mechanism. It is mathematical injectivity, not a stable reconstruction algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real-valued L² only; no complex phase retrieval, no single-channel result, no stability or reconstruction.",
+    "Explicit sufficient lattice density intentionally highly conservative."
+  ],
+  "schema_version": 1
+}

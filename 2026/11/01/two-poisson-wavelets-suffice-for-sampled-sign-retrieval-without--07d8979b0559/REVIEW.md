@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The key nonstandard step is proved, not assumed: a harmonic function in \(L^2(\mathbb H,y^s\,dA)\), \(s\ge0\), vanishing on the hyperbolic nodes is zero when \(\beta+\log\alpha\le e^{-s}/200\). The half-plane tiles, harmonic gradient estimate, disk-overlap count, and weighted summation yield contraction at most \(6144e/(40000\pi)<0.134\). The Cauchy-wavelet/Bergman map, real/imaginary wavelet identities and pointwise Bergman bounds then imply that the holomorphic difference of squared transforms vanishes. Holomorphic factorization and injectivity finish the proof. Supplementary code checks numerical constants but does not prove quantified claims. Risks: a normalization error in the wavelet-to-Bergman identification would be material; the exact identifications were compared with the primary open-access article, including its equation (2.2) and Proposition 2.3.
+## correctness
 
-## Originality
-PASS, provisional historical priority. The focal 2023/2024 Alaifari–Bartolucci–Wellershoff work gives three real windows on a hyperbolic lattice and explicitly raises two-window sufficiency as an open question. Its linear two-window frame property is weaker than sign retrieval and cannot imply this assertion. The present proof uses a different harmonic real-part sampling mechanism and a much stricter explicit lattice bound. The 2020/2023 wavelet result assumes bandlimiting, while the available abstract of Chen's 2026 multi-window result concerns eight waves and complex signals with connectivity. Relevant research-index and literature searches did not identify coverage. Risks: an older general harmonic sampling theorem could supply the technical lemma indirectly, or a specialized two-wavelet result could be unindexed; absence from a search is not a priority certificate.
+PASS
 
-## Mathematical value
-PASS. The theorem answers a specific window-count question raised in a recent primary article: two concrete real wavelets suffice for universal sign retrieval of real \(L^2\) signals with no bandlimit condition. The explicit density requirement is conservative and considerably stronger than the earlier three-window condition, but the reduction in the number of measurement channels and the self-contained weighted-harmonic uniqueness mechanism are substantive. Optimality, reconstruction algorithms and quantitative noise stability remain open here.
+Independently checked the key harmonic lattice lemma. Log-height tiles of width beta h_m and height log(alpha), with node at beta n h_m+i h_m, stay within delta*h_m with delta=beta+log(alpha). Harmonic disk derivative identity gives |grad u|²<=8/(pi R^4)*int_B |u|², radius h_m/4. Disk containment, tile weighted area <=exp(s+1) beta log(alpha) h_m^(s+2), and disc overlap <=3/(beta log(alpha)) produce contraction factor [6144/pi]exp(s+1)(3/2)^s delta². At delta<=exp(-s)/200 this <=0.133 <1 for s>=0. F_f is holomorphic in weighted A_{2p+1}, injective real-L² Cauchy wavelet transform. Separate real and imaginary magnitude channels force Re(F_f²-F_g²)=0 at nodes. Weighted point evaluation gives F_f²-F_g² in A_{4p+2}; its real part is weighted L²(y^(4p)) harmonic, so global zero, then imaginary holomorphic constant vanishes by Bergman integrability. Integral domain factorization forces F_f=±F_g, hence f=±g. Independently evaluated contraction constants and geometry; finite checks are ancillary to universal analytic proof.
 
-## Closest literature and limitations
-The exact relation to the earlier three-wavelet theorem, the restricted bandlimited result, and the distinct eight-window complex-signal theorem is detailed in `RESULT.md`. The proof does not show one-window sign retrieval or complex-signal phase retrieval. All evaluations and the completeness of the literature search remain subject to independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Alaifari–Bartolucci–Wellershoff 2023/2024 theorem obtains sampled real L² sign retrieval from THREE wavelet magnitude channels and explicitly raises sufficiency of two. Here a new harmonic real-part uniqueness argument yields TWO channels under much stricter density, a genuinely different conclusion. Qualified historical priority given unknown new work after 2024.
+
+## value
+
+PASS
+
+Directly resolves a stated two-wavelet sufficiency question for real L² without a bandlimit, with explicit conservative discrete sampling bound and a novel harmonic uniqueness mechanism. It is mathematical injectivity, not a stable reconstruction algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
