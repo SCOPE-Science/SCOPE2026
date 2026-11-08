@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification of intrinsic cone center theorem
+# Independent mathematical audit
 
-The complete continuum claim is proved analytically in `RESULT.md`. In particular, the developed-geodesic argument bounds all winding paths; the farthest target lies at the apex or antipodal rim; all center-radii transitions and equality cases follow by convexity; and the sharp radius/diameter ratio follows from a four-branch explicit formula.
+## correctness
 
-## Executed finite checks
+PASS
 
-Running `python3 verify_cone_center.py` from the accompanying files succeeds with:
+For 0<t<1 developing azimuthal separation delta in [0,pi] gives chord d²=r²+s²−2rs cos(t delta); competitors with angular winding >=pi have length >=r+s by radial angular crossing, and local chords do not exit the rim disk. Maximizing over theta and radial s gives eccentricity max{r,sqrt(r²+L²−2rL cos(pi t))}; elementary constrained minimization has three regimes with sharp t=1/4,1/2. Normalized lateral area has s-density 2s/L² and angular delta uniform [0,pi], giving Fréchet quadratic with minimizer r_F=(2L/3) sin(pi t)/(pi t). Monotone sin2beta/(2beta) and tan(beta)/beta yield exactly two coincidence roots, product radial convexity yields diameter, and branch monotonicity sharp sqrt(3)/2 ratio at t=1/3. Independent calculations checked 99 cone shapes and both root numerical solutions 0.2030336599850761, 0.30793382365126515; finite grids are not continuum proofs.
 
-```
-Isolated center-coincidence cone ratios: 0.2030336599850761 0.30793382365128746
-PASS: 2,857,130 counted finite checks; 66 cone ratios; 0 numerical failures
-Maximum target-grid discrepancy: 0.0
-Sharp ratio attained at t=1/3: 0.8660254037844386
-```
+## originality
 
-The script also quadratures the original squared-distance integral and compares it with the derived Fréchet quadratic at sampled source radii and cone opening parameters. Its grids contain 301 source radii per shape, 32 slant targets and 33 angle targets in repeated trials, plus 9,999 further shape parameters for the sharp upper ratio. The root calculations use deterministic bisection. All assertions passed.
+PASS
 
-## Scientific scope and unverified limits
+Developing a cone and integrating its distance are classical; claimed new work is their joint global all-shapes center-set classification and exact meeting/metric-ratio transitions. Published planar polygon centers and finite-site terrain facility location do not imply the same whole-cone intrinsic objective.
 
-The finite tests do not prove universal geodesic minimality, extrema, uniqueness of both coincidence roots, or historical priority; these are supplied by the analytic proof and source comparison respectively. No independent audit has been performed. The cone's base disk is excluded; a different intrinsic metric would require a new proof.
+## value
+
+PASS
+
+Chebyshev and area-Fréchet centers are two canonical intrinsic metric-center functionals on a natural one-parameter compact conical surface. A complete optimizer-set classification, circle-to-apex topology change, exactly two center coincidences and sharp metric radius/diameter law are mathematically motivated global invariants, not just a routine local cone unfolding or one integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

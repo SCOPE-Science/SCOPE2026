@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:14:24.399390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<t<1 developing azimuthal separation delta in [0,pi] gives chord d²=r²+s²−2rs cos(t delta); competitors with angular winding >=pi have length >=r+s by radial angular crossing, and local chords do not exit the rim disk. Maximizing over theta and radial s gives eccentricity max{r,sqrt(r²+L²−2rL cos(pi t))}; elementary constrained minimization has three regimes with sharp t=1/4,1/2. Normalized lateral area has s-density 2s/L² and angular delta uniform [0,pi], giving Fréchet quadratic with minimizer r_F=(2L/3) sin(pi t)/(pi t). Monotone sin2beta/(2beta) and tan(beta)/beta yield exactly two coincidence roots, product radial convexity yields diameter, and branch monotonicity sharp sqrt(3)/2 ratio at t=1/3. Independent calculations checked 99 cone shapes and both root numerical solutions 0.2030336599850761, 0.30793382365126515; finite grids are not continuum proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahn et al. study the geodesic center of simple planar polygons; Aronov et al. study finite prescribed site sets on polyhedral terrains."
+        ],
+        "reasoning": "Neither setting by itself computes all lateral-cone center circles, Fréchet minimizers and two coinciding opening angles; the surfaces and objective distributions differ.",
+        "searches": [
+          "intrinsic geodesic Chebyshev minimax Fréchet mean center lateral circular cone surface diameter",
+          "Ahn et al. arXiv:1501.00561",
+          "Aronov et al. Facility Location on Terrains 2001"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1501.00561",
+        "https://demonstrations.wolfram.com/ConeGeodesics/",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/intrinsic-minimax-and-least-squares-centers-of-a-finite-circular--6a43f31f95ed",
+        "https://ics-archive.science.uu.nl/research/techreps/repo/CS-2001/2001-56.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior developability establishes a pairwise distance method, but does not immediately give global minimax/Fréchet optimizer sets, unique regime boundaries and center coincidence root count."
+        ],
+        "reasoning": "The main mathematical work is complete global optimization and integration. These implications require additional analysis beyond the cited local geometry/general facility algorithms.",
+        "searches": [
+          "Slavík Cone Geodesics 2010",
+          "Ahn et al. 2015",
+          "Aronov et al. 2001",
+          "intrinsic geodesic Chebyshev minimax Fréchet mean center lateral circular cone surface diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cone development is locally Euclidean; the same problem can be phrased as a full target continuum minimax/area-average one-center facility-location problem on a sector quotient."
+        ],
+        "reasoning": "Unfolding and exact chord distance are classical, but optimizing worst-case distance over all targets and squared average over area gives further piecewise global loci.",
+        "searches": [
+          "intrinsic geodesic Chebyshev minimax Fréchet mean center lateral circular cone surface diameter",
+          "cone geodesic center minimax intrinsic Chebyshev radius Fréchet mean",
+          "Slavík 2010 Cone Geodesics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed cone-named records concern convex-body John ellipsoids or graph-cone polytopes under ambient Euclidean distance rather than intrinsic surface geodesic centers."
+        ],
+        "reasoning": "No exact table of the two critical cone-opening center coincidences found; unrelated cone-polytopal radius tables do not cover intrinsic lateral-surface optimization.",
+        "searches": [
+          "intrinsic geodesic Chebyshev minimax Fréchet mean center lateral circular cone surface diameter",
+          "Resultary: SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+          "Resultary: SCOPE-a-sharp-apex-screening-transition-for-the-circumradius-of-graph--a4388ee8bd83"
+        ]
+      },
+      "rationale": "Developing a cone and integrating its distance are classical; claimed new work is their joint global all-shapes center-set classification and exact meeting/metric-ratio transitions. Published planar polygon centers and finite-site terrain facility location do not imply the same whole-cone intrinsic objective.",
+      "residual_risks": [
+        "An earlier specialized geometric facility-location analysis of a finite circular cone may contain equivalent center formulas under alternative terminology.",
+        "The short published expositions and some full historical sources were not all inspected, so priority is best knowledge.",
+        "Result excludes base disk; adding it alters all intrinsic paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Simple planar polygon intrinsic domain, different from cone sector quotient, no cone-specific optimizer classification",
+          "evidence": [
+            "Ahn–Barba–Bose–de Carufel–Korman–Oh (2015)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00561",
+          "material_read": "Accessible arXiv abstract/introduction and main result; not full paper read",
+          "method": "ArXiv parsed abstract/introduction",
+          "title": "A linear-time algorithm for the geodesic center of a simple polygon",
+          "trigger": "Broad geodesic-center result might dominate cone metric center"
+        },
+        {
+          "assessment": "Finite prescribed sites on surfaces, not the whole-cone worst-case/area-average center-set classification",
+          "evidence": [
+            "Aronov–van Kreveld–van Oostrum–Varadarajan (2001)"
+          ],
+          "identifier_or_url": "https://ics-archive.science.uu.nl/research/techreps/repo/CS-2001/2001-56.pdf",
+          "material_read": "Technical report metadata/description, source context; complete PDF not obtained",
+          "method": "Paper metadata and summary",
+          "title": "Facility Location on Terrains",
+          "trigger": "Finite-site facility location could contain geodesic minimax center"
+        },
+        {
+          "assessment": "Geodesic visualization not a minimax/Fréchet center classification",
+          "evidence": [
+            "Antonín Slavík (2010)"
+          ],
+          "identifier_or_url": "https://demonstrations.wolfram.com/ConeGeodesics/",
+          "material_read": "Public demonstration description and cone geodesic discussion",
+          "method": "Accessible descriptive text",
+          "title": "Cone Geodesics",
+          "trigger": "Exact same surface development, possible classical formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Chebyshev and area-Fréchet centers are two canonical intrinsic metric-center functionals on a natural one-parameter compact conical surface. A complete optimizer-set classification, circle-to-apex topology change, exactly two center coincidences and sharp metric radius/diameter law are mathematically motivated global invariants, not just a routine local cone unfolding or one integral.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only lateral surface of nondegenerate finite right circular cone, apex and rim included, base disk excluded, 0<t<1.",
+    "Uniform intrinsic lateral-area Fréchet objective uses squared distance.",
+    "An earlier specialized geometric facility-location analysis of a finite circular cone may contain equivalent center formulas under alternative terminology.",
+    "The short published expositions and some full historical sources were not all inspected, so priority is best knowledge.",
+    "Result excludes base disk; adding it alters all intrinsic paths."
+  ],
+  "schema_version": 1
+}
