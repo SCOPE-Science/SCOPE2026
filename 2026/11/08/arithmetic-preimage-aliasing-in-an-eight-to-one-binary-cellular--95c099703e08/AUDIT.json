@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Direct de Bruijn closed-walk bijection and integer-computed charpolys for two 16x16 matrices and their product prove all-N traces. The dependency-free verifier rebuilds and checks coefficient arrays exactly, plus independently brute-forces short rings and N=16 period witnesses. No finite enumeration is promoted into a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mariot et al. (2017), Section 3/Lemma 6, give a general algorithm computing spatial periods and multiplicities for all surjective CA; their concrete examples are rule 106 and rule 150.",
+        "The published-finding corpus finite-volume clock-factor record concerns reversible traveling affine cellular automata rather than this nonlinear open eight-to-one rule."
+      ],
+      "reasoning": "The 2017 algorithm applies here as a general framework, but does not imply a stated explicit three-output divisibility classification without the additional case computation. No credit for algorithmic generality is claimed. The affine-clock work concerns a different dynamical invariant and local-rule class.",
+      "searches": [
+        "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+        "published-finding corpus: one sided permutive cellular automata periodic output lifts period sixteen 8-to-1 monodromy finite rings",
+        "published-finding corpus ID 2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.33131",
+      "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+      "2026/10/11/SCOPE-finite-volume-clock-factor-aliasing-in-traveling-affine-cellular--0f64ca58c3b3",
+      "2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be",
+      "2026/10/11/SCOPE-sharp-finite-boundary-versus-full-shift-reversibility-for-nonlin--d44fcfa8c455"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.10 of Haugland et al. is a bi-infinite degree eight result, which does not force all eight preimages to share any chosen finite spatial period.",
+        "Mariot et al. Lemma 6 relates period multiplicity to closure-graph cycles; it does not evaluate this rule or determine its sharp period sixteen.",
+        "The published-finding corpus quadratic-rule result is about invertibility of other rules on odd and twice-odd rings."
+      ],
+      "reasoning": "Global eight-to-one implies a maximum of eight for finite cyclic fibers, not their presence or primitive periods. A general algorithm gives computability, not the evaluated arithmetic eigenvalue identities. The new exact formulas are therefore not direct stated corollaries of the inspected published claims.",
+      "searches": [
+        "https://arxiv.org/html/2610.33131v1 (Theorem 3.10 and Appendix B)",
+        "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf (Section 3/Lemma 6)",
+        "published-finding corpus ID 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haugland et al. (2026) Appendix B lists local rule with global degree eight, but no cyclic alternating-output preimage classification.",
+        "Mariot et al. (2017) Section 3 defines the u-closure-graph framework for spatial preimage periods."
+      ],
+      "reasoning": "Alternative terms include spatial preimage period, period-lift multiplicity, u-closure graph cycles and cyclic predecessor counts. The source algorithm is an equivalent method for computing these invariants generally, but the inspected texts do not supply the rule-specific exact modulo-six/modulo-sixteen laws.",
+      "searches": [
+        "published-finding corpus: nonbipermutive locally eventually onto 8-to-1 cellular automaton alternating output primitive 16-ring preimage cycle",
+        "web: \"Locally eventually onto cellular automata\" alternating periodic preimage",
+        "https://arxiv.org/html/2610.33131v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 rule table gives LEO status, n=8, k=5, kappa=4, lambda=2; no ring-output inverse count.",
+        "Searchable published-finding corpus nearest quadratic five-site classification gives invertibility counts for a class of different local rules."
+      ],
+      "reasoning": "The paper table classifies general global rule properties, not counts of finite periodic preimages of three particular outputs. No exact external table of the formulas was located; lack of search results does not prove absence.",
+      "searches": [
+        "published-finding corpus: cellular automaton x1+x4+x2(x3+1)x5 eight-to-one finite ring all-zero all-one alternating preimages",
+        "web: \"x_1+x_4+x_2(x_3+1)x_5\" \"periodic\" \"preimage\"",
+        "https://arxiv.org/html/2610.33131v1 Appendix B"
+      ]
+    },
+    "rationale": "Primary source (arXiv:2610.33131v1 Appendix B) introduces the eight-to-one rule but not the cyclic predecessor arithmetic. Mariot et al. (2017) owns the general u-closure method and is explicitly credited; it predates the actual example. published-finding corpus searches for local-rule aliases and period-lifting equivalences showed related affine and quadratic records, not the same rule-specific count theorem. This is a provisional originality assessment subject to specialized-table risk.",
+    "residual_risks": [
+      "Unknown specialized prior computations or rule-equivalent tables may contain the exact same three target inverse counts.",
+      "The general preimage-period method was published in 2017, limiting novelty to the explicit arithmetic evaluation, not a new technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rule and degree already known, cyclic inverse counts and alternating-period threshold not stated.",
+        "evidence": "Appendix B five-site entry x1+x4+x2(x3+1)x5 has n=8 and LEO; Theorem 3.10 addresses bi-infinite degree.",
+        "identifier_or_url": "https://arxiv.org/html/2610.33131v1",
+        "material_read": "Abstract, introduction, graph-theoretic degree theorem 3.10, Appendix B full tables and immediately adjoining discussion",
+        "method": "Open-access HTML full-text reading, direct rule transcription and comparison of asserted quantities",
+        "title": "Locally eventually onto cellular automata",
+        "trigger": "Exact five-site rule and claimed eight-to-one LEO property"
+      },
+      {
+        "assessment": "General period/multiplicity algorithm pre-exists; current result retains only a concrete exact finite-ring arithmetic evaluation for the later 2026 rule.",
+        "evidence": "Section 3 Lemma 6 gives number of preimages of least period hp as h times number of cycles in u-closure graph; examples use elementary rules 106 and 150.",
+        "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+        "material_read": "Full postprint accessible; read abstract/introduction, de Bruijn setup, Section 3 including Lemma 6 and u-closure method, later section scope",
+        "method": "Open-access author postprint textual and page-image inspection",
+        "title": "Computing the periods of preimages in surjective cellular automata",
+        "trigger": "General theory may subsume period-lifting work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95c09970-3e08-49dd-a411-ff520343d6a1",
+  "value": {
+    "rationale": "The exact inverse-fiber count as a function of finite ring size is a natural invariant of the recently established non-bipermutive LEO cellular automaton. The sharp alternating target lift from spatial period 2 to period 16, with no preimage on shorter cyclic rings and exactly eight on every multiple of sixteen, exposes a genuine finite-volume arithmetic obstruction not implied by bi-infinite eight-to-one behavior. Complementary homogeneous-output mod-six counts distinguish natural target classes. It is neither a generic algorithm nor arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
