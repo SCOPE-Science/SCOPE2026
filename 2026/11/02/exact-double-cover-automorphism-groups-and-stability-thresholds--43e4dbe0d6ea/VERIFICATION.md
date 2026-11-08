@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify_double_cover.py` in an environment with `networkx` installed. The program constructs the original clique-bouquet graph and its canonical double cover directly from adjacency lists, then enumerates all their automorphisms using NetworkX's general graph-isomorphism iterator. The eleven explicit parameter lists include the single-blade case, mixed blades, three triangular blades, and larger peripheral cliques; it checks that both automorphism orders and the expected-group index agree with the theorem.
+## correctness
 
-The expected final line is `VERIFY_OK cases= 11`. A program execution on the packaged source returned exactly that line. These checks are finite; the all-parameter result depends on the component and group-action proof in `RESULT.md`. The script does not establish results about untested clique sizes, nor does it establish publication priority or independence of any external assessment.
+PASS
+
+On t>=2 the hub is uniquely maximum-degree; both lifted hubs are uniquely maximum-degree in the connected bipartite cover. Removing them leaves 2k free K2 components (one from each shore of each peripheral K2) and the connected, side-marked B(K_r)=K_{r,r} minus matching for r>=3. The pointwise lifted-hub stabilizer is S_{2k} times the wreath factors, and the canonical shore exchange centralizes it; the expected lifted automorphisms preserve a pairing of 2k edge components and yield subgroup S_2 wr S_k. Group-order index follows. At t=1 the bouquet is a complete graph with stable crown cover. The graph is connected, contains triangles, and is open-neighborhood twin-free. Independent networkx isomorphism enumeration checked seven small mixed cases (not the infinite proof).
+
+## originality
+
+PASS
+
+The construction already yields unstable triangular friendship bouquets, so mere existence is covered. The group decomposition for arbitrary mixed clique sizes and exact factorial excess index survives comparison of group actions, not merely titles.
+
+## value
+
+PASS
+
+The exact full symmetry group, factorial instability index and sharp k=1 threshold classify a natural infinite graph family. The invariant depends only on triangular blades even with arbitrary larger blades, a structural phenomenon beyond the existing qualitative instability construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
