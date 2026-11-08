@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact six-mode triangular Fourier recursion follows from the eigenmeasure of the tilted angular generator and determines the sixth long-time cumulant. Rational symbolic reconstruction gives the reported polynomial and denominator. Its descending coefficients have exactly two sign changes; exact rational endpoint inequalities locate two roots, hence they are the only positive roots and are simple. The spectral-gap justification, Gaussian-noise invariance, normalization, and physical scaling are explicit in `RESULT.md`. The numerical finite Fourier-matrix comparisons test, but are not substitutes for, the analytic proof.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** The 2024 source establishes the model and its renewal/scattering-function framework and reports explicit displacement moments through fourth order, not the sixth-order long-time sign phase classification. The 2020 orientation-resetting paper addresses lower moments and asymptotic distributions. The 2024 passive anisotropic-diffusion paper concerns another propulsion mechanism. The abstract of the 2018 general resetting additive-functional theory indicates a potentially stronger generating-function framework, but no inspected claim provides the explicit degree-15 numerator with a global two-root certificate. The sixth cumulant could be implicitly extractable from a more general transform: this is a residual publication-priority risk, not a mathematical independence claim.
+PASS
 
-**Mathematical value — PASS.** The two thresholds classify a physically motivated higher-order displacement fluctuation with a reentrant sign regime not visible from the previously analyzed second and fourth moments. The result is global in reset rate and independent of translational Brownian noise, giving an interpretable high-order diagnostic of orientation-memory control. Its value lies in the exact all-parameter classification, not in a routine finite truncation.
+The angular generator on the circle has a simple isolated zero eigenvalue at zero tilt; Feynman–Kac gives an analytic scaled cumulant eigenvalue phi. Its left Fourier moments satisfy (q+n²+phi)a_n=q+(z/2)(a_{n-1}+a_{n+1}), phi=z a_1. For coefficient of z^6, only n+j<=6 appear, so the rational recurrence is an exact perturbative coefficient and not a Fourier truncation. Reconstructed rational numerator P and positive denominator, independently substituted five rational q and verified Descartes gives two positive roots counted with multiplicity; exact sign brackets on (1/4,13/50) and (29/20,3/2) force two distinct simple roots. Gaussian translation only contributes D_T k² and therefore no sixth cumulant.
 
-**Closest literature and limitations.** Baouche et al., arXiv:2405.06769v1, supplies the same dynamics and existing low-order formulas. Kumar et al., arXiv:2008.03294v1, supplies earlier reset protocols. Chaki et al., arXiv:2406.17550v1, supplies a distinct passive anisotropic setting. Den Hollander et al., arXiv:1801.09909, provides broader additive-functional theory but its full text was not inspected for a possible equivalent formula. The result covers long-time single-particle longitudinal sixth cumulants for independent Poisson orientation resetting; no finite-time, non-Poisson, noisy estimation, or transverse sign claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The orientation-only reset model, renewal transform, and first-to-fourth moments are already in Baouche–Franosch–Meiners–Kurzthaler (2024); Kumar–Sadekar–Basu (2020) also treats orientation resetting. Neither inspected exact model result establishes the degree-15 sixth coefficient and exactly-two-positive-root global sign theorem. The broad intermediate-scattering transform could in principle be differentiated, but formal differentiability does not itself prove exact two-threshold classification. Qualified.
+
+## value
+
+PASS
+
+The sixth cumulant is a natural non-Gaussian long-time observable of this active model; its reentrant sign transition is not predictable from previously published variance/skewness/kurtosis, and the exact two-root result supplies complete reset-rate classification with robustness to independent Gaussian translation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
