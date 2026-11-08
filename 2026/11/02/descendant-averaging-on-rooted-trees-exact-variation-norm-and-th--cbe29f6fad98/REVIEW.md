@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-indicator basis is an exact \(\ell^1\) coordinate system modulo constants. Averaging a subtree indicator produces three explicitly enumerable types of edge differences; telescoping proves its exact variation and norm attainment. The path criterion follows from the strict positivity of an off-path branching contribution. The upper asymptotic bound is a logarithmic telescoping inequality, while a balanced-leaf-sibling chain supplies the matching lower bound. These conclusions are analytical; exhaustive finite rational tests are corroboration, not infinite certification.
+## correctness
 
-## Originality — PASS with limits
-Relevant full-text theorem statements and proof sections of Vasil'eva's 2013 and 2015 tree-Hardy studies concern ancestor-sum operators in vertex \(\ell^p\) norms. Their results do not imply the exact descendant-average operator norm in edge total variation. Evans–Harris–Pick treat weighted Hardy/Poincaré inequalities, but their full text was not obtained. Mishne and collaborators use hierarchical folder averaging; the precise connection to vertex-based descendant averaging is noted as a risk because its full text was unavailable. No equivalent claim was located in the accessible published mathematical search records or recoverable comparison claims. This does not establish absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The structural path-only classification is a complete and nontrivial boundary for the variation stability of a canonical positive averaging operator. The sharp \(1/e\) size-normalized amplification coefficient shows that positivity alone offers no dimension-free bound in edge variation, and the construction identifies its mechanism: repeated averaging across branches along a spine. This is an explicit invariant with potential use in assessing stability of hierarchical signal aggregation, not a parameter-renaming or arbitrary small case.
+Writing f=f(root)1+Σ_{v!=root}(f(v)-f(parent v))1_{T_v} identifies edge variation with ℓ1 increment coordinates, hence norm equals largest column V(A1_{T_v}). For t=s_v, g on strict ancestors a is t/s_a; path telescopes 1-t/N while each off-path branch edge contributes t/s_a, giving exact formula. Any nonpath contains degree>=3, producing an ancestor contribution larger than 1/N for a suitable child, whereas paths yield columns ≤1. If S_i denotes sizes along ancestor chain, (b_i-1)<=S_i-S_{i+1}-1 and Σ(S_i-S_{i+1})/S_i<=log(N/t), so norm≤1+N/e. Distributing N−t−sqrt(N) leaves evenly over sqrt(N) ancestor spine vertices ending in t≈N/e subtree yields ≥N/e−O(sqrt N), proving the limit. Independently computed 119 rational direct subtree indicator columns and confirmed formula; read verifier source. No claim of exact finite-N maximum.
 
-## Closest literature and limitations
-The closest direct operators are tree summation maps and hierarchical folder-average transforms. Existing cited estimates in \(\ell^p\) differ from the claimed edge-seminorm norm; the inaccessible full texts remain the main originality uncertainty. The theorem does not cover arbitrary weighted trees, non-descendant aggregation, or any infinite-tree norm bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+Natural averaging operator preserves positivity/constants yet can amplify edge variation linearly; exact seminorm, path-only contractivity and 1/e sharp coefficient form a motivated structural/extremal theorem useful for hierarchical smoothing and BV analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

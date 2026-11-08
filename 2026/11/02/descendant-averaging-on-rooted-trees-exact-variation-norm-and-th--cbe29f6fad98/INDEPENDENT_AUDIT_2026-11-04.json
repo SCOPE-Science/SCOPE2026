@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:40:01.180794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/descendant-averaging-on-rooted-trees-exact-variation-norm-and-th--cbe29f6fad98/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/descendant-averaging-on-rooted-trees-exact-variation-norm-and-th--cbe29f6fad98/verify_tree_subtree_bv.py"
+      ],
+      "rationale": "Writing f=f(root)1+Σ_{v!=root}(f(v)-f(parent v))1_{T_v} identifies edge variation with ℓ1 increment coordinates, hence norm equals largest column V(A1_{T_v}). For t=s_v, g on strict ancestors a is t/s_a; path telescopes 1-t/N while each off-path branch edge contributes t/s_a, giving exact formula. Any nonpath contains degree>=3, producing an ancestor contribution larger than 1/N for a suitable child, whereas paths yield columns ≤1. If S_i denotes sizes along ancestor chain, (b_i-1)<=S_i-S_{i+1}-1 and Σ(S_i-S_{i+1})/S_i<=log(N/t), so norm≤1+N/e. Distributing N−t−sqrt(N) leaves evenly over sqrt(N) ancestor spine vertices ending in t≈N/e subtree yields ≥N/e−O(sqrt N), proving the limit. Independently computed 119 rational direct subtree indicator columns and confirmed formula; read verifier source. No claim of exact finite-N maximum.",
+      "residual_risks": [
+        "Finite checker does not establish an infinite or arbitrary-size theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior tree Hardy results yield norm estimates for weighted vertex-sequence summation and tree transforms average leaf folders, not the same graph-edge seminorm of vertex-subtree Cesaro averaging."
+        ],
+        "reasoning": "A broad weighted Hardy theorem could be specialized after nontrivial transformations, but no exact quoted theorem was found already supplying path-only classification and coefficient 1/e.",
+        "searches": [
+          "Vasil’eva full 2013 paper arXiv:1311.0375",
+          "Evans Harris Pick 1995 weighted Hardy/Poincare",
+          "Mishne et al arXiv:1708.05768 data-driven tree transforms",
+          "Resultary related tree-variation findings"
+        ]
+      },
+      "checked_sources": [
+        "Vasil’eva arXiv:1311.0375 full primary preprint",
+        "Vasil’eva arXiv:1509.06974 citation",
+        "Evans et al 1995 reference",
+        "Mishne et al 2017 abstract",
+        "Resultary tree BV comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ancestor Hardy summation acts on other input/output norms; neither directly gives the t/s_a off-path contribution, nonexpansivity iff path or coefficient 1/e for the same original-tree edge variation."
+        ],
+        "reasoning": "The column-reduction is elementary but proof plus exact global sharpness needs the new structural and optimization steps; general upper norm estimates are insufficient.",
+        "searches": [
+          "Vasil’eva 2013 primary full text theorems and setup",
+          "Mishne et al 2017 abstract and hierarchical averaging description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An ℓ1-incidence coordinate decomposition converts BV variation into column sums; standard weighted tree Hardy operators usually map vertex ℓp data with separate weights, not descendant averages as a constant-preserving operator measured on original tree edges."
+        ],
+        "reasoning": "Compared opposite ancestor/descendant orientation, quotient-by-constants and variation norm; no immediate identification with the published ℓp norms.",
+        "searches": [
+          "Resultary semantic: rooted tree descendant averaging edge total variation norm N/e",
+          "Vasil’eva arXiv:1311.0375 and arXiv:1509.06974",
+          "tree Hardy/Cesaro operators, variation on tree edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Result concerns every finite rooted tree and a sharp asymptotic over all N, not a finite graph-table enumeration."
+        ],
+        "reasoning": "A finite table cannot subsume the operator identity; no known exact universal table located.",
+        "searches": [
+          "Resultary semantic search descendant averaging tree BV",
+          "arXiv:1311.0375 exact operator norms"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.",
+      "residual_risks": [
+        "Hierarchical transform or weighted Hardy specialist source could contain equivalent exact column argument",
+        "Mishne follow-up full text not read",
+        "Unindexed earlier tree-BV norm identity remains possible"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted ancestor-vertex ℓp summation estimates, not the specific descendant averaging BV seminorm exact identity in cited theorem statements",
+          "evidence": "Operator setup and weighted ℓp norms differ from edge-total-variation quotient.",
+          "identifier_or_url": "arXiv:1311.0375",
+          "material_read": "Full accessible 25-page primary preprint including operator definitions/estimative theorems; first PDF page visually examined",
+          "method": "Full-text primary PDF comparison plus screenshot",
+          "title": "Estimates for norms of two-weighted summation operators on a tree under some conditions on weights",
+          "trigger": "Most direct possible general tree Hardy-operator coverage"
+        },
+        {
+          "assessment": "Leaf data transformed through partition folders rather than each original vertex averaged on descendant tree with edge seminorm",
+          "evidence": "Implicit prior coverage remains risk without full follow-up.",
+          "identifier_or_url": "arXiv:1708.05768",
+          "material_read": "Abstract/description of transform; full relevant follow-up not obtained",
+          "method": "Abstract/metadata comparison",
+          "title": "Data-Driven Tree Transforms and Metrics",
+          "trigger": "Related hierarchical folder averaging and transform stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Vasil’eva arXiv:1311.0375 full primary preprint",
+        "Vasil’eva arXiv:1509.06974 citation",
+        "Evans et al 1995 reference",
+        "Mishne et al 2017 abstract",
+        "Resultary tree BV comparison"
+      ],
+      "rationale": "Natural averaging operator preserves positivity/constants yet can amplify edge variation linearly; exact seminorm, path-only contractivity and 1/e sharp coefficient form a motivated structural/extremal theorem useful for hierarchical smoothing and BV analysis.",
+      "residual_risks": [
+        "Precise future uses beyond the motivated invariant are not guaranteed"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vasil’eva arXiv:1311.0375 full primary preprint",
+    "Vasil’eva arXiv:1509.06974 citation",
+    "Evans et al 1995 reference",
+    "Mishne et al 2017 abstract",
+    "Resultary tree BV comparison"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any finite rooted N>=2 tree, inclusive descendant averaging A on real vertex signals has edge-total-variation operator norm max_{v != root}[1 + s_v(Σ_{strict ancestors a of v}(b_a-1)/s_a - 1/N)], attained by subtree indicators; nonexpansive exactly on unrooted paths; optimized K_N/N -> 1/e.",
+  "limitations": [
+    "Only finite unweighted rooted trees, counting vertices, unit-weight original-tree edge total variation; no exact K_N for finite N"
+  ],
+  "residual_risks": [
+    "Hierarchical transform or weighted Hardy specialist source could contain equivalent exact column argument",
+    "Mishne follow-up full text not read",
+    "Unindexed earlier tree-BV norm identity remains possible"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Weighted ancestor-vertex ℓp summation estimates, not the specific descendant averaging BV seminorm exact identity in cited theorem statements",
+      "evidence": "Operator setup and weighted ℓp norms differ from edge-total-variation quotient.",
+      "identifier_or_url": "arXiv:1311.0375",
+      "material_read": "Full accessible 25-page primary preprint including operator definitions/estimative theorems; first PDF page visually examined",
+      "method": "Full-text primary PDF comparison plus screenshot",
+      "title": "Estimates for norms of two-weighted summation operators on a tree under some conditions on weights",
+      "trigger": "Most direct possible general tree Hardy-operator coverage"
+    },
+    {
+      "assessment": "Leaf data transformed through partition folders rather than each original vertex averaged on descendant tree with edge seminorm",
+      "evidence": "Implicit prior coverage remains risk without full follow-up.",
+      "identifier_or_url": "arXiv:1708.05768",
+      "material_read": "Abstract/description of transform; full relevant follow-up not obtained",
+      "method": "Abstract/metadata comparison",
+      "title": "Data-Driven Tree Transforms and Metrics",
+      "trigger": "Related hierarchical folder averaging and transform stability"
+    }
+  ]
+}
