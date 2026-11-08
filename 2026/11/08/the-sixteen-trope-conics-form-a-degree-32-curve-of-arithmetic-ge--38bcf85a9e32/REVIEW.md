@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The sixteen smooth conics, sixteen nodes and six incidences at each node are established in the cited classical configuration. The doubled plane section makes each trope plane tangent to the node's smooth quadratic tangent cone. Distinct trope planes give six distinct tangent points on the conic. The restriction-evaluation ranks at these six points are exactly \(1,3,5,6\), forcing local normalization delta \(9\). The normalization sequence gives \(p_a=129\). A separate Cartier-divisor intersection argument gives square \(256\) and the same genus. The finite verifier checks linear-algebra arithmetic only; the universal assertion rests on proof.
+
+**Originality — PASS with priority risk.** This is not a discovery of the 16 conics or their node–trope incidence, which Böhning–Graf von Bothmer explicitly acknowledge as classical. The checked 2017 preprint/2018 full-text Section 4 and Dolgachev's 2024 Kummer discussion do not assert the specific local spatial delta or the arithmetic genus of their **reduced union**. Prior mathematical-record and accessible-ledger searches found no direct coverage. An older classical genus/intersection computation remains possible; no independence or exhaustive priority is claimed.
+
+**Value — PASS.** The union is a canonical curve attached to every Jacobian Kummer quartic. Its genus and local delta measure how the six branches meeting at each surface node differ from an ordinary planar sextuple point; a planar singularity would have delta \(15\), while the actual spatial one has delta \(9\). The exact local-to-global compatibility and Cartier intersection calculation are structurally motivated invariants of this classical conic configuration, not an arbitrary numerical slice. The modest scope is acknowledged.
+
+**Sources and limits.** arXiv:1704.01807v1 (Section 4, Definitions 4.10–4.11), Dolgachev 2024 Kummer type paper, and the explicit local algebra/calculation in `RESULT.md` and `verify_genus.py`. The 16_6 geometry is borrowed, not claimed original. No classification of analytic germs, global syzygies or arbitrary characteristic is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
