@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:08:46.538817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the deterministic linear one-absorption-compartment periodic model with positive first-order rates a,b, positive weights w1,w2 and period T, periodic impulse profile G has integral over a period 1 and mean (w1+w2)/T. Expanding squared deviation yields phase variation 2w1w2[H(δ)-H(T/2)] where periodic autocorrelation sums the explicit difference of exponential tails. Re-derived R(s)=a²b²/[2(a+b)(b-a)]*(e^-a|s|/a - e^-b|s|/b) and periodic geometric-series identity. Penalty equals w1w2a²b²/[(a+b)(b-a)]*(F_a(d)-F_b(d)), F_r=(cosh(rd)-1)/(r sinh(rT/2)); integral F_r(d)=∫_0^d sinh(ry)/sinh(rT/2)dy decreases strictly in r for 0<y<T/2 because x*coth x increases. Hence unique anti-phase minimum for all distinct or coincident positive rates, including unequal doses; local quadratic coefficient positive. Independent numerical exact-formula penalty checks for a=1,b=4,T=1,w=(1,2) at d=.25,.5 gave 0.0487428383554 and 0.1163095966182; actual checker.py source separately integrates concentration with Simpson quadrature for rate/phase grids, including a=b. Quadrature diagnostic not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grover-Benet examines accumulation and peak/trough fluctuation in periodic dosing.",
+          "Evans studies target AUC/time profiles by fixed-point dosing, not explicit fixed-weight two-phase quadratic optimization in accessible descriptions."
+        ],
+        "reasoning": "General linear system superposition and periodicity enable, but do not immediately state, the exact positivity inequality for all positive rate pairs.",
+        "searches": [
+          "Grover Benet 2011 intermittent drug dosing operational multiple-dosing half lives",
+          "Evans 2011 optimal oral drug dosing contraction mapping"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search periodic oral two-dose Bateman anti-phase",
+        "Plusquellec 1999 abstract and DOI",
+        "Sahin-Benet/Grover-Benet primary bibliographic information",
+        "Original RESULT.md and checked checker.py quadrature source",
+        "Independent exponential correlation derivation and numeric penalty values"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean AUC independence of phase is routine but does not determine integrated variance.",
+          "The sign depends on rate monotonicity of sinh(ry)/sinh(rL), yielding nontrivial global optimality including equal-rate limit."
+        ],
+        "reasoning": "Linearity plus the response formula is only groundwork; the claim requires explicit autocorrelation and a strict kernel inequality.",
+        "searches": [
+          "classic Bateman two-exponential impulse model",
+          "periodic convolution and correlation identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest 1999 paper studies periodic nonuniform exposure but abstract does not state squared-deviation minimization; full comparison remains inaccessible.",
+          "Half-life/peak-trough metrics are not identical to integrated squared mean deviation."
+        ],
+        "reasoning": "Same repeated-dose model alone is not coverage of this precise continuous phase-penalty function and strict optimality; inaccessible plausible 1999 paper remains explicit risk.",
+        "searches": [
+          "two periodic oral doses absorption elimination anti phase optimize integrated squared fluctuation steady state Bateman",
+          "Plusquellec De Biasi Souhait 1999 steady-state periodic non-uniform dosing",
+          "Sahin Benet 2008 operational multiple-dosing half-life"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent derived penalty agrees with tested numeric values and strict positive away from half-period.",
+          "Resultary semantic search returned periodic numerical/optimization results not same Bateman two-dose squared fluctuation."
+        ],
+        "reasoning": "No exact prior quadratic phase formula identified in accessible sources. Inaccessible plausible 1999 primary requires continued historical caution.",
+        "searches": [
+          "two periodic oral doses absorption elimination anti phase optimize integrated squared fluctuation steady state Bateman",
+          "1999 DOI 10.1016/S0939-6411(99)00017-X integrated variance two doses antiphasic",
+          "Resultary periodic dose fluctuation"
+        ]
+      },
+      "rationale": "Classical periodic Bateman absorption/elimination, AUC exposure normalization, and multiple-dosing half-life are established. Relevant Plusquellec-De Biasi-Souhait 1999 primary article expressly addresses nonuniform repeated administration, but only abstract could be obtained; it is a material unresolved full-text priority risk, not evidence of noncoverage. Sahin-Benet 2008 and Grover-Benet 2011 focus operational half-life, peaks/troughs and simulations rather than this specifically squared integrated mean fluctuation formula in available descriptions. The exact two-dose phase penalty and global strict anti-phase theorem are best-knowledge additions.",
+      "residual_risks": [
+        "Plusquellec et al. 1999 same-theme full text unavailable; institutional Oxford retrieval vpn_disconnected. Historical equivalence cannot be excluded.",
+        "Applies to deterministic linear one-compartment oral absorption and L2 fluctuation ONLY; no patient-level optimal regimen or peak/trough optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_PRIORITY_RISK_FULL_TEXT_UNAVAILABLE",
+          "evidence": "Abstract relates to steady state after periodic nonuniform doses but does not settle whether squared-integral anti-phase formula was treated.",
+          "identifier_or_url": "https://doi.org/10.1016/S0939-6411(99)00017-X",
+          "material_read": "Bibliographic record and abstract only; full text not obtained; lawful OA/author copy search and authorized institutional retrieval attempted",
+          "method": "Web primary abstract/metadata, arXiv/OA attempt; authorized Oxford tool returned vpn_disconnected",
+          "title": "Concentration at steady-state after periodic and non-uniform administration of drug",
+          "trigger": "Closest nonuniform periodic drug administration"
+        },
+        {
+          "assessment": "SAME_MODEL_DIFFERENT_TARGET",
+          "evidence": "Explains repeated-dose half-life/accumulation instead of a stated exact two-impulse L2 phase functional.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3581066/",
+          "material_read": "Available abstract/bibliographic model descriptions only in current run; archived lawful full-text identified, not independently materially read",
+          "method": "Public abstract and repository reference",
+          "title": "The Operational Multiple Dosing Half-life: A Key to Defining Drug Accumulation in Patients and to Designing Extended Release Dosage Forms",
+          "trigger": "Oral first-order kinetics and fluctuations"
+        },
+        {
+          "assessment": "RELATED_NOT_VERIFIED_EXACT",
+          "evidence": "Clinical/operational half-life and peak/trough simulation; entire text was not compared.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677834/",
+          "material_read": "Abstract and summaries only in current run",
+          "method": "Public indexing/abstract",
+          "title": "Intermittent Drug Dosing Intervals Guided by the Operational Multiple Dosing Half Lives for Predictable Plasma Accumulation and Fluctuation",
+          "trigger": "Relevant fluctuation and interval optimization"
+        },
+        {
+          "assessment": "RELATED_BUT_ACCESS_LIMITED",
+          "evidence": "Target attainment via contraction mapping in accessible description; possible uninspected relevant details preserved.",
+          "identifier_or_url": "https://doi.org/10.1016/j.bspc.2010.06.006",
+          "material_read": "Abstract and bibliography only; full accepted manuscript retrieval not successful",
+          "method": "Web source search",
+          "title": "Optimal oral drug dosing via application of the contraction mapping theorem",
+          "trigger": "May discuss general optimal oral dose timing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural precise analytic design question for stable periodic linear filters: optimal relative phase minimizing steady-state L2 deviations, including unequal weights and coalescing rate limit. The exact cost and curvature support sensitivity analysis, without making medical recommendations. Neither a generic instruction to stagger doses nor a routine mean AUC identity equals this exact global inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic search periodic oral two-dose Bateman anti-phase",
+    "Plusquellec 1999 abstract and DOI",
+    "Sahin-Benet/Grover-Benet primary bibliographic information",
+    "Original RESULT.md and checked checker.py quadrature source",
+    "Independent exponential correlation derivation and numeric penalty values"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No clinical recommendation; does not optimize peaks, safety, efficacy, nonlinear or patient-varying pharmacokinetics."
+  ],
+  "residual_risks": [
+    "Plusquellec et al. 1999 same-theme full text unavailable; institutional Oxford retrieval vpn_disconnected. Historical equivalence cannot be excluded.",
+    "Applies to deterministic linear one-compartment oral absorption and L2 fluctuation ONLY; no patient-level optimal regimen or peak/trough optimality."
+  ],
+  "schema_version": 1
+}
