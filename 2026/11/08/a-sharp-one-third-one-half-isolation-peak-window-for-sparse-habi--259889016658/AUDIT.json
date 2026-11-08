@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact expectation by indicators; the handshaking identity bounds leaf count; strict signs at q=1/2 and 2/3; strict concavity for q>=1/2 from bounded degree-d second derivative, plus sign positivity below 1/2. This proves the unique all-order maximum and both equality cases. Stars, paths, chorded cycles and dense clique-with-leaf are analyzed exactly; checker independently enumerates finite survival outcomes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diskin & Krivelevich 2023, doi:10.1002/rsa.21141, main theorem and Lemma 5.4: asymptotic isolated-k-tree counts on high-degree pseudo-random percolated graphs.",
+        "Callaway et al. 2000, arxiv:cond-mat/0007300, cluster generating functions for random graphs with general degree laws."
+      ],
+      "reasoning": "These broad generating-function and asymptotic theorems cover models and some singleton statistics, but do not state or logically provide by specialization a universal optimum constrained by m<=n for every finite graph. Their high-degree/pseudorandom assumptions are inapplicable to arbitrary trees and unicyclic graphs.",
+      "searches": [
+        "For every finite tree, the expected number of isolated surviving vertices in independent site percolation has a unique maximum at retention probability strictly between one third and one half, asymptotically sharp for paths and stars",
+        "Web: site percolation expected isolated vertices maximized retention probability degree distribution forest network",
+        "doi:10.1002/rsa.21141 (isolated components Lemma 5.4)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/0007300",
+      "https://doi.org/10.1006/jema.2000.0373",
+      "https://doi.org/10.1086/599292",
+      "https://doi.org/10.1002/rsa.21141",
+      "https://doi.org/10.1002/net.22215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown, Kolokolnikov & Kooij 2024, doi:10.1002/net.22215, Section 3.1: isolated-vertex heuristics under bond failure; here site failure is used and an exact all-graph optimizer bound is proved.",
+        "Bunn, Urban & Keitt 2000, doi:10.1006/jema.2000.0373, node/edge landscape connectivity applications.",
+        "Gastner et al. 2009, doi:10.1086/599292, gradient vegetation percolation and fractal hull boundaries."
+      ],
+      "reasoning": "The primary papers motivate site failures and fragmentation but optimize other quantities or use other models. Bond-failure isolation, full connectivity, or size of largest clusters do not imply the exact optimizer of surviving singleton count for arbitrary sparse graphs. The universal statement could be rediscovered from the known generating function, but requires the new curvature/edge-budget argument.",
+      "searches": [
+        "doi:10.1002/net.22215 (full text section 3 isolated-vertex reliability approximation)",
+        "doi:10.1006/jema.2000.0373 (ecological network modelling)",
+        "doi:10.1086/599292 (gradient percolation)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Callaway et al. 2000, arxiv:cond-mat/0007300, equations (1)-(6): degree-distribution/site-percolation generating functions, compatible with the singleton expectation.",
+        "Brown et al. 2024, doi:10.1002/net.22215, Section 3.1: the apparently equivalent isolated-vertex degree heuristic concerns bond deletions, not random site survival."
+      ],
+      "reasoning": "The search tests degree-polynomial aliases and isolation-count interpretations. Existing formulas yield the objective but not the handshaking-based universal edge-budget interval or dense nonunimodality failure. Novelty is not inferred merely from wording; known formula is explicitly excluded from the contribution.",
+      "searches": [
+        "Any graph with no isolated vertices and at most as many edges as vertices has unique peak expected isolated occupied vertices in site percolation, between one-third and one-half survival probability",
+        "site percolation isolated vertex expectation degree polynomial mean degree at most two unimodal sharp universal interval",
+        "Web: graph vertex reliability isolated vertices expected number unimodal percolation unique peak",
+        "arxiv:cond-mat/0007300 (primary generating functions)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected sources provide no named table of the sparse-network isolated-survivor peak, and the all-size result is an analytic theorem rather than finite classification.",
+        "Diskin and Krivelevich 2023, doi:10.1002/rsa.21141, classify asymptotic isolated components in pseudorandom percolated graphs rather than an exact finite-network peak.",
+        "The finite checker verifies 914 tree-degree multisets but is not taken as novelty evidence."
+      ],
+      "reasoning": "No matching prior exact table, finite census, or stored claim implying the all-order theorem was identified. The conclusion is analytic and not a mere recomputation of a named tabulated invariant; database partitioning cannot establish uniqueness.",
+      "searches": [
+        "chorded cycle shifts maximum isolated survivors below one third; clique with leaf yields two local maxima",
+        "Web: isolated occupied vertices site percolation tree expected count 1/3 1/2"
+      ]
+    },
+    "rationale": "The elementary per-vertex expectation is a classical degree-polynomial consequence; the new substantive sharp result is the finite edge-budget universal unique maximum in [1/3,1/2], equality classification and sharp failures. Inspected site-percolation, landscape-connectivity, random-graph and bond-reliability literature does not establish this implication; residual priority uncertainty is recorded.",
+    "residual_risks": [
+      "A historical degree-sequence polynomial or expected-isolation theorem under different terminology could imply the precise universal result; independent priority audit is not complete.",
+      "No claim about node-heterogeneous probabilities, correlated survival, or bond failures; these assumptions materially change the polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General random-graph cluster-generating framework already covers conceptual singleton formula; does not assert sharp peak window for every finite m<=n graph",
+        "evidence": [
+          "arXiv first post 2000-07-18, eqs. (1),(5),(6), and following discussion of cluster sizes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0007300",
+        "material_read": "Full arXiv HTML text including equations (1)–(9), cluster distribution, and conclusions; original 4-page PDF viewed at first and later pages",
+        "method": "Read original preprint text and page screenshots",
+        "title": "Network robustness and fragility: Percolation on random graphs",
+        "trigger": "Same site-percolation model and degree generating functions"
+      },
+      {
+        "assessment": "Ecological graph framework and habitat connectivity applications, not expected singleton count peak theorem",
+        "evidence": [
+          "Journal of Environmental Management 59 (2000), pp. 265–278, abstract and methods"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jema.2000.0373",
+        "material_read": "Full lawful PDF including title, modelling sections, node-removal study and conclusions; page 1 screenshot and textual sections",
+        "method": "Read open institutional PDF and inspected image",
+        "title": "Landscape connectivity: A conservation application of graph theory",
+        "trigger": "Direct habitat patch-graph and removal motivation"
+      },
+      {
+        "assessment": "Different observables (fractal hull/transition), spatially graded lattice rather than general finite degree-constrained graphs",
+        "evidence": [
+          "The American Naturalist (first published 2009-05-08), sections Introduction, model description and Discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/599292",
+        "material_read": "Open full HTML article introduction, gradient random-map site-occupancy model, methods, discussion",
+        "method": "Read online primary full text",
+        "title": "Transition from Connected to Fragmented Vegetation across an Environmental Gradient: Scaling Laws in Ecotone Geometry",
+        "trigger": "Independent occupancy/percolation fragmentation of vegetation"
+      },
+      {
+        "assessment": "Asymptotic high-degree pseudo-random regimes, no sharp finite edge-budget maximum window",
+        "evidence": [
+          "Random Structures & Algorithms 63 (2023), Theorem descriptions and Lemma 5.4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21141",
+        "material_read": "Open full HTML primary article: abstract, main theorems and Section 5, Lemma 5.4 and proof",
+        "method": "Read full-text sections targeting isolated tree components",
+        "title": "Site percolation on pseudo-random graphs",
+        "trigger": "Primary site-percolation isolated small components and possible dominating theorem"
+      },
+      {
+        "assessment": "Bond-edge failure, graph reliability approximation and probability of no isolates; not the exact singleton expectation or optimum for node failures",
+        "evidence": [
+          "Networks 84 (2024), Section 3.1 and Section 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/net.22215",
+        "material_read": "Full open HTML article, Sections 1–6, specifically Section 3.1 eqs. (3.13),(3.14) and final open questions",
+        "method": "Read primary article with targeted isolation search and all-terminal reliability model",
+        "title": "New approximations for network reliability",
+        "trigger": "Strongest matching isolated-vertex language and degree-sequence heuristics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25988901-6658-481d-b0a8-b15e896405c3",
+  "value": {
+    "rationale": "Expected surviving singleton patches quantify local habitat fragmentation. The theorem identifies a universal survival-rate window for all sparse ecological networks, classifies exact extremizers and demonstrates sharp failures under one-extra-edge/dense connections, which constrains how fragmentation peaks may be compared across networks. The claim is structural, not a routine reparameterization of an existing reliability formula.",
+    "status": "PASS"
+  }
+}
