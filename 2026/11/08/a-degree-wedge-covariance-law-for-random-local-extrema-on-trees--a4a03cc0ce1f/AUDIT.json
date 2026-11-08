@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All-tree identity derived from complete self, edge, distance-two and disjoint neighborhood cases; beta integrals and factorial identities are explicit. Path/star specializations and minimum positive tree size follow by finite motif counts. Standalone checker passed 3086 exact assertions, independently enumerating rankings for all unlabeled tree shapes through seven vertices and paths/stars through eight.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baldi–Rinott–Stein (1989), accessible pages 727–732, derives marginal expectations/variance examples and normal approximation, not a mixed second moment.",
+        "Clark (2005), doi:10.1155/IJMMS.2005.3867, defines extrema of fixed-label root paths in a random labeled tree, not iid random rankings on one fixed tree."
+      ],
+      "reasoning": "Marginal variance or count results cannot determine an opposite-extrema cross covariance. Sampling tree topology or orienting edges independently changes the probability space.",
+      "searches": [
+        "random graph local maxima minima covariance vertex neighborhoods 1989",
+        "random labeling tree local minima maxima joint moments fixed tree degrees covariance",
+        "Local extrema in random trees Lane Clark 2005"
+      ]
+    },
+    "checked_sources": [
+      "https://papers.nips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+      "https://arxiv.org/abs/math/0603122",
+      "https://doi.org/10.1155/IJMMS.2005.3867",
+      "https://statistics.stanford.edu/technical-reports/normal-approximation-number-local-maxima-random-function-graph",
+      "https://doi.org/10.2307/3214327"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At order five, random-ranking path covariance is 1/60, whereas the independent-edge-orientation path law gives 1/16; the latter does not imply the former.",
+        "Kitaev (2006) enumerates peaks or valleys in permutations on a linear order; his inspected formulas do not encode an arbitrary tree degree/wedge profile."
+      ],
+      "reasoning": "The proposed theorem determines a genuinely different mixed moment for all fixed trees, with degree-sensitive positive distance-one and negative distance-two pair kernels. Its path corollary alone is not asserted to be an unknown stand-alone enumerative identity.",
+      "searches": [
+        "local maxima and minima in a uniformly random vertex labeling of a fixed tree: exact covariance formula over degrees and distance-two wedges, sign changes between path and star",
+        "source sink covariance extrema random tree edge orientations vertex labeling max min counts",
+        "random total order orientation tree source sink degree adjacent length two covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 1989 accessible Baldi–Rinott–Stein proceedings describes local minima of independent random functions, not joint minima–maxima moments: https://papers.nips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "An independent-edge-orientation law has no length-two covariance term; the random-ranking law here has the nonzero term proportional to F(a,b)/(a+b+1)."
+      ],
+      "reasoning": "Graph sources and sinks become local maxima and minima after orienting each edge by a global vertex order; the global-order ensemble is not the uniformly independent orientation ensemble, even on a tree. In particular, distance-two indicators under a global ranking share a label.",
+      "searches": [
+        "random acyclic orientation by random vertex order number sources sinks covariance tree",
+        "random orientation of graph induced by uniform random vertex permutation local minima maxima covariance",
+        "peak trough covariance uniformly random vertex ranking fixed tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kitaev, arXiv:math/0603122, Section 2.2 and its peak/valley enumerator section report marginal, one-line permutation statistics, not an all-fixed-tree covariance table."
+      ],
+      "reasoning": "No exact matching degree-decorated edge/wedge covariance table was retrieved. This is not treated as a proof of novelty; older equivalent tables could exist.",
+      "searches": [
+        "\"8n-37\" \"peaks\" \"valleys\" covariance permutation",
+        "\"covariance\" \"peaks\" \"valleys\" \"permutation\" random",
+        "random permutation graph peaks valleys covariance graph wedges common neighbors"
+      ]
+    },
+    "rationale": "The all-fixed-tree joint extrema covariance kernel, its exact distance-two ratio, and its graph-structure sign phenomenon were not implied by the inspected marginal extrema or independent-edge-orientation results. A longer old chapter remains inaccessible and is explicitly a priority risk.",
+    "residual_risks": [
+      "An extended 1989 chapter on local extrema in random functions could contain an equivalent joint-moment calculation; it was not fully accessible.",
+      "Historical joint peak–valley generating functions could imply the path specialization; no independent novelty is asserted for that specialization.",
+      "Database and web searches cannot establish absolute priority, and other random-label graph results may subsume a special case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal minimum-count expectation, variance in examples, normal approximation; no mixed maximum–minimum covariance identity in that text",
+        "evidence": [
+          "Section 2 pp. 728–729",
+          "Section 3 pp. 729–730"
+        ],
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "material_read": "Full 1989 conference text, pages 727–732; inspected theorem and examples directly, including page image",
+        "method": "Accessible full text and visual page inspection",
+        "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+        "trigger": "Exact same iid vertex-label random graph model"
+      },
+      {
+        "assessment": "Marginal peak/valley enumeration for sequences; no claim covering the arbitrary fixed-tree mixed covariance",
+        "evidence": [
+          "Section 2.2 definitions",
+          "Corollary 23 distribution discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0603122",
+        "material_read": "Full arXiv manuscript with special attention to sections 2.2 and 3.1; inspected PDF page image",
+        "method": "Accessible arXiv full-text and PDF page inspection",
+        "title": "Introduction to Partially Ordered Patterns",
+        "trigger": "Classical peak and valley statistics of permutations"
+      },
+      {
+        "assessment": "Random tree topology with fixed numeric labels and root-path extrema; not the same probability space as fixed tree iid vertex labels; uninspected portions remain risk",
+        "evidence": [
+          "Definition of M_r(T),m_r(T) along rooted paths",
+          "Theorems announced as marginal expectations and variances"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/IJMMS.2005.3867",
+        "material_read": "Accessible author-uploaded article text including abstract, introduction, definitions and excerpts of moment-computation section; publisher full PDF link not accessible",
+        "method": "Accessible author-uploaded text, publication page and publisher metadata",
+        "title": "Local Extrema in Random Trees",
+        "trigger": "Tree-local extrema and exact second moments"
+      },
+      {
+        "assessment": "Not classified as noncovering on partial text; unresolved historical-priority risk",
+        "evidence": [
+          "1989 book chapter pp. 59–81 citation",
+          "1988 Stanford technical report metadata"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/B978-0-12-058470-3.50012-4",
+        "material_read": "Bibliographic references and accessible related proceedings paper only; chapter full text unavailable",
+        "method": "arXiv and open-access source lookup; full chapter text not available",
+        "title": "A Normal Approximation for the Number of Local Maxima of a Random Function on a Graph",
+        "trigger": "Longer primary treatment of exactly the random-function-on-graph model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4a03cc0-ce1f-41fe-a2ee-8c216a00274b",
+  "value": {
+    "rationale": "An exact mixed extrema covariance for every fixed tree gives a structural, degree-decorated edge-and-wedge kernel with the striking positive/negative sign switch between distance one and distance two. The result addresses joint uncertainty of random energy landscape minima and maxima; it is not an isolated finite enumeration or a parameter renaming.",
+    "status": "PASS"
+  }
+}
