@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Finite verification and reproducibility
+# Independent mathematical audit
 
-`verify_bruteforce.py` is self-contained Python 3 code. Execute:
+## correctness
 
-```sh
-python3 verify_bruteforce.py
-```
+PASS
 
-The checker enumerates all minimum-cardinality dominating configurations from board-square combinations using the actual rook adjacency relation, builds the jump graph by testing replacements, and checks order, size, degree distribution, and (for small square cases) all eccentricities. The recorded terminal marker was `ROOK_BRUTEFORCE_PASS`, together with `RECTANGLE_PASS` markers for \((2,3),(2,4),(3,4),(3,5)\). Recorded square counts \((|V|,|E|,\mathrm{radius},\mathrm{diameter})\) were \((6,12,2,2)\), \((48,234,3,3)\), \((488,3936,4,5)\), and \((6130,72100,5,7)\).
+For 2<=m<=n, minimum domination requires covering every row or every column; when m<n only one rook per row is possible, giving a Hamming exchange graph. For m=n, configurations are the union of row functions and column functions with permutation overlap; counting near-permutation cross edges gives the stated three-degree classes and exact edge count. A permutation placement has eccentricity <=n; disjoint Hamming targets give radius >=n. For cross-layer A_f,B_g, expected matched overlap of random permutation bridges is 2; if no bridge attains >=3, all 2x2 additive differences vanish, forcing both functions constant for n>=3. Direct bridge for constant functions gives distance <=2n-3, and row/column support changes give >=2n-3 for a full-column/full-row pair. The n=2 Johnson graph is handled separately. Independently enumerated all min dominating subsets and full exchange BFS for n=2,3,4: (vertices,edges,diameter)=(6,12,2),(48,234,3),(488,3936,5), and exact predicted degree strata; finite enumeration only corroborates all n theorem.
 
-`verify_structural.cpp` is independent C++17 with no third-party dependencies. Execute:
+## originality
 
-```sh
-c++ -O2 -std=c++17 verify_structural.cpp -o verify_structural
-./verify_structural
-```
+PASS
 
-It constructs minimum placements from independent row-function and column-function encodings, deduplicates their bit masks, forms exact jump adjacencies and breadth-first distances, and tests every orbit under row/column permutations and transpose. Its recorded terminal marker was `ROOK_STRUCTURAL_PASS`. For sizes \(2,3,4,5,6\) its computed vertex counts were \(6,48,488,6130,92592\), and edge counts \(12,234,3936,72100,1507680\). The respective observed radii and diameters were \((2,2),(3,3),(4,5),(5,7),(6,9)\).
+Best-of-knowledge PASS for evaluated jump minimum-domination graph degree distribution and radius/diameter transition. Mertens explicitly already gives minimum domination counts, which are not new. Existing gamma-graph survey and add/delete reconfiguration results do not yield the exact rook jump metric in inspected material.
 
-These executions substantiate finite instances only. The proof in `RESULT.md`, including the permutation assignment argument and sharp extremal lower bound, is what covers every allowed board size. No separate external mathematical audit or proof-assistant certification is claimed.
+## value
+
+PASS
+
+A natural jump-reconfiguration graph exhibits a sharp aspect-ratio transition: a single rectangular Hamming layer versus two overlapping Hamming layers with new degree strata and unexpectedly exact 2n-3 diameter. The proof captures a genuine constraint absent from unconstrained subset exchanges; useful to domination reconfiguration and token-jumping geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:07:46.551932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2<=m<=n, minimum domination requires covering every row or every column; when m<n only one rook per row is possible, giving a Hamming exchange graph. For m=n, configurations are the union of row functions and column functions with permutation overlap; counting near-permutation cross edges gives the stated three-degree classes and exact edge count. A permutation placement has eccentricity <=n; disjoint Hamming targets give radius >=n. For cross-layer A_f,B_g, expected matched overlap of random permutation bridges is 2; if no bridge attains >=3, all 2x2 additive differences vanish, forcing both functions constant for n>=3. Direct bridge for constant functions gives distance <=2n-3, and row/column support changes give >=2n-3 for a full-column/full-row pair. The n=2 Johnson graph is handled separately. Independently enumerated all min dominating subsets and full exchange BFS for n=2,3,4: (vertices,edges,diameter)=(6,12,2),(48,234,3),(488,3936,5), and exact predicted degree strata; finite enumeration only corroborates all n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suzuki–Mouawad–Nishimura study add/delete domination reconfiguration with spare tokens. General jump gamma-graph existence/product work does not evaluate rook-specific cross-layer matching shortcuts."
+        ],
+        "reasoning": "A more general framework establishes existence or complexity, not precise degree multiplicities and metric formula for this family.",
+        "searches": [
+          "arXiv:1401.5714 Reconfiguration of Dominating Sets",
+          "arXiv:2003.05956 survey",
+          "Lakshmanan–Vijayakumar 2010"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 70f1a144611c2a49759c09ac2343a2abcec3ce9a",
+        "verify_bruteforce.py blob a51ca42083be57b2a03b5559dbec31ff2ab8b0cf",
+        "verify_structural.cpp blob 45d59d682b5bd19795f9bcc424aaece9c7741193",
+        "arXiv:2401.00716 Mertens full PDF",
+        "arXiv:2003.05956 survey",
+        "arXiv:1401.5714 reconfiguration",
+        "Resultary query: Resultary semantic query: rook graphs minimum domination reconfiguration jump gamma graph radius diameter degree square boards"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting all minimum dominating placements gives |V| but does not determine adjacency, radius, or cross-layer diameter; proving 2n-3 requires the nonconstant matching-overlap lemma plus special constant-case bridge."
+        ],
+        "reasoning": "Prior domination polynomials and generic reconfiguration definitions do not algebraically imply the evaluated degree and diameter stratification.",
+        "searches": [
+          "arXiv:2401.00716 Theorem 4 and equation (3)",
+          "arXiv:2003.05956 domination graph definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact graph is the jump γ-graph / minimum-size token-jumping reconfiguration graph of K_m square K_n. Unlike token-sliding or add/delete TAR models, a jump replaces one arbitrary square and keeps size exactly γ."
+        ],
+        "reasoning": "Translated under γ-graph, token-jumping, one-rook reassignment and pair of Hamming layers. No same distance formula found in inspected sources.",
+        "searches": [
+          "Resultary semantic query: rook graphs minimum domination reconfiguration jump gamma graph radius diameter degree square boards",
+          "arXiv:2003.05956 domination reconfiguration survey",
+          "Lakshmanan–Vijayakumar The gamma graph of a graph (2010)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mertens (3) supplies the known count 2n^n-n! of size-n dominating sets and the domination polynomial; counts alone do not give edges, three degree strata, radius or diameter of the jump exchange graph."
+        ],
+        "reasoning": "Explicitly reject novelty of the vertex count; the new invariant is reconfiguration edge/metric geometry. No exact equivalent exchange-graph table found.",
+        "searches": [
+          "arXiv:2401.00716 Mertens equation (3) and tables",
+          "OEIS A368831 rook domination polynomial coefficients",
+          "Resultary semantic query: rook graphs minimum domination reconfiguration jump gamma graph radius diameter degree square boards"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for evaluated jump minimum-domination graph degree distribution and radius/diameter transition. Mertens explicitly already gives minimum domination counts, which are not new. Existing gamma-graph survey and add/delete reconfiguration results do not yield the exact rook jump metric in inspected material.",
+      "residual_risks": [
+        "Specialized historical γ-graphs of Cartesian products or rook placements could contain the same metric profile under a different name.",
+        "Independent BFS was only on n=2,3,4; universal diameter depends on the symbolic matching-overlap argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known minimum size and 2n^n-n! square count; does not investigate minimum token-jump exchange metric",
+          "evidence": [
+            "Equation (3) gives 2n^n-n! for square boards, so this count must be credited as prior work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.00716",
+          "material_read": "Full 10-page arXiv PDF text, especially proof and equation (3), Theorem 4 and examples/tables",
+          "method": "arXiv PDF text inspection and page screenshot",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Exact same rook graph and minimum dominating sets"
+        },
+        {
+          "assessment": "Distinguishes jump from TAR and slide, not a full evaluated rook theorem in inspected material",
+          "evidence": [
+            "Different move rules are genuinely different graph distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.05956",
+          "material_read": "Full primary HTML survey, §1 definition and §4.3 jump γ-graph and §4.4 slide γ-graph discussion",
+          "method": "Read arXiv searchable full HTML, including §4.3 statements and cited known diameter bounds",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Defines jump gamma-graphs and alternative move models"
+        },
+        {
+          "assessment": "Add/delete with intermediate cardinality is not size-fixed jump; cannot claim entire source noncoverage",
+          "evidence": [
+            "Theorem is not automatically portable between different reconfiguration moves."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+          "material_read": "Title, abstract and model summary; full text not inspected",
+          "method": "Source lookup and abstract comparison",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Broader domination reconfiguration may imply special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural jump-reconfiguration graph exhibits a sharp aspect-ratio transition: a single rectangular Hamming layer versus two overlapping Hamming layers with new degree strata and unexpectedly exact 2n-3 diameter. The proof captures a genuine constraint absent from unconstrained subset exchanges; useful to domination reconfiguration and token-jumping geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob 70f1a144611c2a49759c09ac2343a2abcec3ce9a",
+    "verify_bruteforce.py blob a51ca42083be57b2a03b5559dbec31ff2ab8b0cf",
+    "verify_structural.cpp blob 45d59d682b5bd19795f9bcc424aaece9c7741193",
+    "arXiv:2401.00716 Mertens full PDF",
+    "arXiv:2003.05956 survey",
+    "arXiv:1401.5714 reconfiguration",
+    "Resultary query: Resultary semantic query: rook graphs minimum domination reconfiguration jump gamma graph radius diameter degree square boards"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only min-size one-for-one arbitrary-square jumps; not token sliding/TAR.",
+    "The n=2 exception is explicitly Johnson J(4,2).",
+    "Known minimum-placement count credited to Mertens; novelty concerns exchange graph."
+  ],
+  "schema_version": 1
+}

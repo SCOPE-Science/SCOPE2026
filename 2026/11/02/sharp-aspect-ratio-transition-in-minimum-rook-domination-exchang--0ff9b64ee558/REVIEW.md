@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A minimum dominating placement either covers all rows or all columns. The two function encodings are exhaustive, and their overlap consists exactly of permutation matrices. Local jump analysis gives each degree stratum and, via the degree sum, the edge formula. The radius proof compares each placement with a disjoint placement in the same Hamming layer. For diameter, the weighted-permutation argument proves a \(2n-3\) upper bound outside the constant-function case, and an explicit cross-layer bridge handles that case; distinct-row/column counts establish the matching lower bound. The exceptional two-by-two board is treated separately. Exact finite verification was performed using separate combinatorial-set and bit-mask constructions through square size six (with smaller rectangular checks). Risks: a logical gap in a global lemma would not be resolved by finite tests, hence the complete argument is supplied for manual inspection.
+## correctness
 
-## Originality — PASS (qualified)
-Relevant published work supplies the jump-\(\gamma\)-graph model, general graph-reconfiguration results, and the already-known minimum rook-domination counts. Mertens explicitly states the square count \(2n^n-n!\); this is not claimed as novel. The inspected original texts do not derive the exact radius, sharp diameter \(2n-3\), cross-layer transition geometry, or three-tier degrees for the jump graph of square rook boards. Suzuki–Mouawad–Nishimura use an add/delete model; Lakshmanan–Vijayakumar study general realizability, cographs and products. The jump-graph formulation is equivalent to reconfiguring minimum edge-dominating sets of the complete bipartite graph, a terminology included in literature searches. Risks: an equivalent result may exist in unindexed earlier chessboard, edge-domination or \(\gamma\)-graph sources. Lack of search hits is not proof of priority.
+PASS
 
-## Value — PASS
-The rook board is a canonical product/line graph with a classical exact domination count. Its **minimum-domination exchange graph** is a distinct, natural mathematical object: it has a sharp rectangular-to-square metric transition, explicit high-degree exceptional configurations, and an exact extremal reconfiguration cost. The cross-sector bound is not an automatic consequence of the known enumeration; its proof requires a weighted permutation argument and a separate extremal shortcut. This provides an all-parameter structural classification useful for understanding how one-for-one placement changes preserve complete domination. The result does not claim a general theorem for arbitrary graphs or a paper-sized application.
+For 2<=m<=n, minimum domination requires covering every row or every column; when m<n only one rook per row is possible, giving a Hamming exchange graph. For m=n, configurations are the union of row functions and column functions with permutation overlap; counting near-permutation cross edges gives the stated three-degree classes and exact edge count. A permutation placement has eccentricity <=n; disjoint Hamming targets give radius >=n. For cross-layer A_f,B_g, expected matched overlap of random permutation bridges is 2; if no bridge attains >=3, all 2x2 additive differences vanish, forcing both functions constant for n>=3. Direct bridge for constant functions gives distance <=2n-3, and row/column support changes give >=2n-3 for a full-column/full-row pair. The n=2 Johnson graph is handled separately. Independently enumerated all min dominating subsets and full exchange BFS for n=2,3,4: (vertices,edges,diameter)=(6,12,2),(48,234,3),(488,3936,5), and exact predicted degree strata; finite enumeration only corroborates all n theorem.
 
-## Sources and limitations
-Sources materially compared: Suzuki–Mouawad–Nishimura (2014), arXiv:1401.5714; Lakshmanan–Vijayakumar (2010), *The gamma graph of a graph*; Mynhardt–Nasserasr (2020), arXiv:2003.05956; Mertens (2024), arXiv:2401.00716; Chen–Ho (2008), *The rook problem on saw-toothed chessboards*. Earlier results establish the model and counts, not the specific claimed metrics. An earlier exact result under alternate terminology remains the principal originality risk. The analysis concerns jump moves only. No independent scholarly audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for evaluated jump minimum-domination graph degree distribution and radius/diameter transition. Mertens explicitly already gives minimum domination counts, which are not new. Existing gamma-graph survey and add/delete reconfiguration results do not yield the exact rook jump metric in inspected material.
+
+## value
+
+PASS
+
+A natural jump-reconfiguration graph exhibits a sharp aspect-ratio transition: a single rectangular Hamming layer versus two overlapping Hamming layers with new degree strata and unexpectedly exact 2n-3 diameter. The proof captures a genuine constraint absent from unconstrained subset exchanges; useful to domination reconfiguration and token-jumping geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
