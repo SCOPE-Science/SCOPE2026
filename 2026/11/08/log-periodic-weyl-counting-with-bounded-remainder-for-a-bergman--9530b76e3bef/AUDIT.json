@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The weighted Bergman monomial basis gives exact beta/gamma diagonal eigenvalues, and the gamma recurrence converts the commutator into a one-step weighted shift. The expansion of each weight is tau*n^(-1)*|1+b*exp(-i*tau*log n)|+O(n^(-2)). Since b<1/(1+tau), the limiting threshold map t-tau*|1+b*exp(-i(theta+tau*log t))| is strictly increasing on its possible root interval; outside the interval the sign is fixed. This gives a unique root and O(1) lattice counting discrepancy uniformly in the phase. Periodic harmonic averaging plus Ky Fan comparison yields the exact logarithmic singular trace. The included finite checker passed 450 diagnostics but is not used to infer infinite results.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Engliš–Guo–Zhang discuss Dixmier traces of smooth-symbol commutators/products, with boundary smoothness not possessed by the oscillating radial symbol here.",
+        "Li–Wang characterize compact Toeplitz operators by boundary Berezin vanishing, with no theorem on the singular counting of a commutator."
+      ],
+      "reasoning": "A published characterization of compactness of an individual radial Toeplitz operator does not imply a sharp counting law for its commutator with coordinate multiplication. Smooth-boundary-symbol commutator trace laws do not directly apply when the symbol has no continuous boundary extension. More general weighted-shift asymptotic theories remain a priority risk.",
+      "searches": [
+        "\"weighted Bergman commutator (1-r^2) imaginary exponent weak Schatten cutoff\"",
+        "\"Bergman Toeplitz commutators oscillating radial symbols logarithmic spectral counting 1/s\"",
+        "arxiv:0707.2025, introduction; arxiv:2608.23733, Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.23733",
+      "https://arxiv.org/abs/2603.10879",
+      "https://arxiv.org/abs/2503.23649",
+      "https://arxiv.org/abs/0707.2025",
+      "https://arxiv.org/abs/0710.0797"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 radial weighted Bergman compactness theorem covers Toeplitz operators with bounded symbols, not their exact commutator singular-value counting.",
+        "The 2026 Berezin liminf counterexample provides imaginary-power eigenvalue oscillation but no threshold-root counting or trace average for an adjacent-difference commutator.",
+        "The 2025 radial-measure theorem yields a Lipschitz bound in log-degree, which implies an order-one-over-degree upper bound but neither the sharp nonconvergent Weyl phase nor the lower envelope.",
+        "Prior smooth-symbol Dixmier trace formulas have incompatible symbol regularity hypotheses."
+      ],
+      "reasoning": "The claim is not merely compactness or the scalar moment identity; it is the uniformly sharp count N(s)=H(tau log(1/s))/s+O(1), the exact distinct extrema, and simultaneous logarithmic trace. Each inspected prior statement is either qualitatively weaker or concerns a different symbol/operator class. General spectral asymptotic literature may still imply a special case, so priority risk remains.",
+      "searches": [
+        "arxiv:2608.23733",
+        "arxiv:2603.10879",
+        "arxiv:2503.23649",
+        "arxiv:0707.2025",
+        "arxiv:0710.0797",
+        "\"Dixmier traces Bergman Toeplitz commutators log periodic radial symbols\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Looi derives oscillatory radial scalar eigenvalues but does not present the commutator singular-counting threshold.",
+        "Maximenko–Pacheco prove logarithmic-Lipschitz regularity of radial eigensequences, not this exact two-frequency threshold-root profile."
+      ],
+      "reasoning": "Writing the commutator in the monomial basis as an adjacent eigenvalue difference is a standard equivalent formulation. Neither the scalar eigenvalue expansion nor a general logarithmic Lipschitz bound determines the nonconstant counting-function profile with a uniform bounded remainder; this calculation requires the fixed-point monotonicity argument. No matching equivalent formulation was found in the inspected sources.",
+      "searches": [
+        "\"Bergman Toeplitz commutators oscillating radial symbols logarithmic spectral counting 1/s\"",
+        "\"Dixmier traces Bergman Toeplitz commutators log periodic radial symbols\"",
+        "arxiv:2603.10879, Section 3",
+        "arxiv:2503.23649, Sections 7-8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source comparisons describe structural classes, smooth trace formulas or scalar radial eigenvalue regularity; no exact table for the specified Mellin-normalized two-frequency operator or its critical counting profile was found."
+      ],
+      "reasoning": "This is a continuous-parameter operator family, not a finite tabulated constant. Neither a lookup of the scalar gamma moments nor a listed Schatten cutoff is equivalent to the exact log-periodic counting profile and its bounded remainder. A failed search is not treated as a novelty proof.",
+      "searches": [
+        "\"Bergman Toeplitz radial power imaginary log symbol commutator shift weak trace class Dixmier trace Gamma\"",
+        "\"commutator radial Toeplitz with multiplication z Bergman Schatten 1, Dixmier trace logarithmic oscillation\"",
+        "arxiv:0710.0797, radial Toeplitz eigensequences"
+      ]
+    },
+    "rationale": "No inspected published statement was found to imply the exact phase-dependent N(s) with bounded remainder, its two distinct sharp envelopes and the simultaneous weight-independent Dixmier trace for the specified two-frequency radial commutator. Known scalar Mellin moments and radial log-Lipschitz bounds are credited rather than claimed. Priority risk from general oscillatory weighted-shift spectral counting remains.",
+    "residual_risks": [
+      "More general results on log-periodically modulated weighted-shift singular values may imply the precise counting law under an alternative framework.",
+      "The full range of recent unpublished/preprint literature could contain the same phase-root theorem.",
+      "The inspected general Dixmier-trace paper was read at the abstract/introduction level; broader later hypotheses could require additional independent comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1.1 is an iff compactness test for a single Toeplitz operator; no commutator result was located in the full-text search.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.23733",
+        "material_read": "Full-text HTML: abstract, Section 1 and Theorems 1.1/Proposition 1.2; paper-wide text search for commutator.",
+        "method": "Read public arXiv HTML and compared operator, hypotheses and quantified conclusion.",
+        "title": "Compact Toeplitz operators on radial weighted Bergman spaces",
+        "trigger": "Direct 2026 motivating work with matching standard weighted Bergman space and primary MSC 47B35."
+      },
+      {
+        "assessment": "PARTIAL_MACHINERY_NOT_COVERING",
+        "evidence": "The Bergman calculation gives oscillatory diagonal eigenvalues; it does not give a two-mode adjacent-difference counting profile or weak trace residue.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.10879",
+        "material_read": "Full-text HTML: Sections 1 and 3, particularly Lemma 3.1, Theorem 3.2, Proposition 3.3; text search for commutator.",
+        "method": "Compared scalar radial moment method and asymptotic conclusions with the proposed weighted-shift counting problem.",
+        "title": "The Berezin liminf criterion fails for radial Toeplitz operators",
+        "trigger": "Uses imaginary powers of Bergman boundary distance and complex gamma attenuation."
+      },
+      {
+        "assessment": "WEAKER_IMPLICATION",
+        "evidence": "Theorem 7.3 bounds differences using logarithmic distance; it does not assert an oscillatory bounded-remainder counting function.",
+        "identifier_or_url": "https://arxiv.org/abs/2503.23649",
+        "material_read": "Full-text HTML: introduction, radial diagonal formula, Sections 7–8 including Theorem 7.3 and Corollary 8.2; full-text commutator search.",
+        "method": "Compared logarithmic-Lipschitz eigensequence control against the claim of precise two-frequency singular asymptotics.",
+        "title": "Toeplitz operators in Bergman space induced by radial measures",
+        "trigger": "Relevant broader scalar radial spectral-sequence regularity result."
+      },
+      {
+        "assessment": "HYPOTHESES_DO_NOT_MATCH",
+        "evidence": "The cited formulas address smooth boundary symbol classes and products; the radial Mellin boundary phase used here has no boundary limit.",
+        "identifier_or_url": "https://arxiv.org/abs/0707.2025",
+        "material_read": "Full-text HTML abstract and introduction, including assumptions describing smooth-symbol commutators and their Dixmier traces.",
+        "method": "Checked type of commutator, symbol regularity and target trace.",
+        "title": "Toeplitz and Hankel operators and Dixmier traces on the unit ball of C^n",
+        "trigger": "Closest published general statement concerning Dixmier traces of Bergman Toeplitz commutators."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work characterizes limits and approximability of radial Toeplitz operators, not an explicit critical singular-counting profile.",
+        "identifier_or_url": "https://arxiv.org/abs/0710.0797",
+        "material_read": "Public full-text HTML introduction, radial eigenvalue formula and related sequence-space discussion; commutator text search.",
+        "method": "Compared qualitative radial eigensequence characterization to quantitative commutator singular values.",
+        "title": "The eigenvalues of limits of radial Toeplitz operators",
+        "trigger": "Classical general characterization of radial Toeplitz eigenvalue sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9530b76e-3bef-4aba-81a3-46ea0d5bca8a",
+  "value": {
+    "rationale": "This naturally normalized two-Mellin-mode family gives a complete explicit critical singular counting law with a phase-dependent nonconstant Weyl coefficient and bounded integer discrepancy, while its Dixmier trace is still canonical and an elliptic-integral quantity. It quantitatively separates pointwise Weyl asymptotics from logarithmic spectral regularization throughout an open modulation range, rather than merely deducing compactness from first differences.",
+    "status": "PASS"
+  }
+}
