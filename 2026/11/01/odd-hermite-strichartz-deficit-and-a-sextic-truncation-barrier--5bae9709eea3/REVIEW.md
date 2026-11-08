@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement fixes the Laplacian normalization, time/space measures, Hermite normalization, complex coefficient domains, and precise local asymptotics. The lens identity has Jacobian factor one-half. Five exact Gaussian moments yield the entire two-mode norm; its monotone derivative gives the sharp maximum and global fourth-order deficit. Exact additional Gaussian moments and constant temporal Fourier coefficients give the unique three-mode quartic square and the nonzero sextic coefficient. The package checker reproduces these identities symbolically, and separate numerical quadrature confirmed selected small-parameter values. The finite symbolic calculation proves these finite-dimensional identities, not an infinite odd-data theorem.
+PASS
 
-## Originality
+For the finite complex span of normalized h1,h3, the exact lens transform reduces the mixed L_t^8 L_x^4 functional to the temporal constant term of the squared fourth spatial moment. Gaussian Hermite moments A,B,C,D,E were reconstructed independently in exact SymPy algebra; the resulting polynomial is 3(12288-11520s^2+8960s^3-2525s^4)/262144, derivative -15s(505s^2-1344s+1152)/65536. The quadratic has negative discriminant, proving the unique maximizing line and coefficient monotonicity on 0<=s<=1. Independent exact three-Hermite moment and Fourier extraction for real lambda reproduced the quartic factor -81|lambda-sqrt(30)/6|^2/512 and sextic coefficient -525/4096 at lambda0. The frozen CHECK.py, read as source not trusted as a certificate, explicitly works with formal complex lambda and conjugate ell; its exact coefficient assertions match the full complex formula. Remainders follow from the analytic rational, even expression. The result is restricted to the displayed finite band/curve, not a global odd-data sharp theorem.
 
-**PASS relative to inspected primary results and indexed mathematical records, with explicit residual risk.** Gonçalves's 2017 general Hermite representation supplies the method but neither states the optimized two-mode polynomial nor the uniquely cancelled fourth-order/positive sixth-order normal form. Gonçalves and Zagier's 2021 parity-specific result is for the different \(L^6\) Strichartz norm; their discussion of the mixed \(L_t^8L_x^4\) operator leaves a parity question open. Suzuki's October 22, 2026 theorem is for even data. Gonçalves–Negro–Oliveira e Silva's September 2026 paper studies Gaussian-centered stability, not this odd family. Targeted mathematical-record searches returned no equivalent coefficients. The general 2017 identity could be taken as implicitly containing them after explicit computation, and incompletely indexed finite-band calculations may exist. No claim of global uniqueness in all literature is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first two odd Hermite functions are the canonical lowest spectral truncation of a parity-constrained sharp mixed Strichartz problem whose full sharp constant remains unsettled. The exact sharp stability profile is a natural test case for the odd Gaussian-derivative candidate. The additional calculation explains why its quadratic loss vanishes along a dilation tangent, identifies the unique second-order Hermite correction, and quantifies the first unavoidable sixth-order loss in that three-mode model. The calculation is a finite truncation result with a concrete connection to a motivating open spectral question, not a claim of global parity sharpness.
+The mixed (8,4) odd-Hermite finite-band exact polynomial, sharp two-mode stability, optimized h5 quartic cancellation and its residual sextic loss are compared to the published general lens-transform method, an odd-data (6,6) result, even-data (8,4) sharpening and Gaussian-centered stability. No inspected source states the same optimized odd finite-band coefficients; this is a best-of-knowledge assessment rather than novelty from a failed search.
 
-## Closest sources and limitations
+## value
 
-Primary full-text comparisons: Suzuki, arXiv:2610.31543v1; Gonçalves–Negro–Oliveira e Silva, arXiv:2609.11644v1; Gonçalves–Zagier, DOI 10.4171/RMI/1322; Gonçalves, arXiv:1702.08510. The general Hermite identity and the finite scope limit originality and interpretation. The local sixth-order result addresses only the explicitly normalized curve and no global three-mode extremizer classification. The review was performed on the presented claim and code, without independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two natural first odd Hermite directions and first transverse h5 correction test sharp parity-restricted mixed-norm Strichartz behavior at a symmetry-degenerate critical mode. The quantitative sharp stability and unavoidable sextic loss along the specified symmetry-adjusted truncation are substantive local structure, not a generic Taylor-substitution exercise. It does not solve global odd sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
