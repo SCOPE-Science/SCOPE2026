@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T17:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Laplacian character eigenvalues 3(W-w_i) (double per kernel line) and resistance r_i=(2/9)sum_{j != i}(W-w_j)^-1; nonconstant powered-distance eigenvalues 3r_i^p-sum_j r_j^p double. Independently constructed and inverted the exact 9-by-9 regularized Laplacian for conductances (1,1,0,0) and (1,2,3,4), checking all 72 off-diagonal resistance entries each; other three rational Gram-gap instances matched. For min conductance t, set a_j=w_j-t and q_min=1/(W-t). The identity sum_{j<k}a_ja_k/[(S-a_j)(S-a_k)]=1-2a1a2a3/[(a1+a2)(a1+a3)(a2+a3)]<=1 (with boundary cases) bounds cross terms and implies min Gram eigenvalue >=14 q_min^2/81, equality precisely 2 active directions. Strict decreasing normalized positive resistance powers give unique finite threshold p>2 when k=1,2; for k>=3 all p finite are strict; doubled Fourier sectors yield endpoint rank. Universal conclusion rests on exact algebra not sampled networks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao--Luo--Liu Discrete Appl Math 159 (2011) 2050--2057 advertises resistance distances and Kirchhoff indices on Cayley graphs, but full text unavailable.",
+          "Sanchez arXiv:1108.0451 provides general finite negative-type determinant methods."
+        ],
+        "reasoning": "General resistance formulas cover the first Fourier ingredient but do not, from material read, give a sharp all-four-weight p-negative-type interval or equality eigenspaces. The inaccessible Gao paper is a substantial residual risk rather than asserted NOT_COVERING.",
+        "searches": [
+          "Resultary: four-direction F3 squared nine vertex Cayley torus effective resistance metric strict negative type generalized roundness critical exponent Euclidean embedding",
+          "web: site:arxiv.org Resistance distances and the Kirchhoff index in Cayley graphs Gao Luo Liu pdf"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.dam.2011.06.027",
+        "DOI:10.1002/qua.21068",
+        "arXiv:0906.2535",
+        "arXiv:1108.0451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Cayley resistance formula can yield q_i/r_i after specialization.",
+          "Generic finite-metric negative type criterion reduces to a spectral sign computation but does not state the claimed sharp bound 14/[81(W-w_min)^2] or exact thresholds."
+        ],
+        "reasoning": "A researcher could derive the result using prior methods, but it is not a logical corollary without establishing the special cross-term inequality, weight equality class, and exponent monotonicity. Full comparison of Gao is pending.",
+        "searches": [
+          "Resultary: four-direction F3 squared nine vertex Cayley torus effective resistance metric strict negative type generalized roundness critical exponent Euclidean embedding",
+          "web: Gao Luo Liu 2011 resistance distances Kirchhoff index Cayley graphs pdf full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laplacian pseudoinverse resistance formula is standard for abelian Cayley networks.",
+          "Square-root resistance is always Hilbertian (Jorgensen--Pearse arXiv:0906.2535), distinct from Euclidean resistance R itself."
+        ],
+        "reasoning": "The p=1 powered-resistance metric and p=2 squared-resistance Schoenberg Gram are different conditions; automatic square-root resistance embedding does not give the latter.",
+        "searches": [
+          "Resultary: four-direction F3 squared nine vertex Cayley torus effective resistance metric strict negative type generalized roundness critical exponent Euclidean embedding",
+          "web: Resistance distances and Kirchhoff index in Cayley graphs Gao Luo Liu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results concern Fourier minors, torus topology and unrelated nine-vertex invariants, not powered effective resistance.",
+          "Exact computed Cartesian torus distances are 4/9 twice and 5/9 twice; p endpoint log2/log(5/4)."
+        ],
+        "reasoning": "No matching compiled p-negative-type table was identified in the checked results; absence is not proof of novelty, and published ordinary resistance tables do not supply all-real-weight spectral coercivity.",
+        "searches": [
+          "Resultary: four-direction F3 squared nine vertex Cayley torus effective resistance metric strict negative type generalized roundness critical exponent Euclidean embedding",
+          "Resultary corpus search on F3 squared torus resistance p-negative type"
+        ]
+      },
+      "rationale": "Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.",
+      "residual_risks": [
+        "A highly relevant 2011 general Cayley-resistance paper was not fully accessible; authorized institutional route returned vpn_disconnected. Its implications cannot be ruled out definitively.",
+        "Generality limited to translation-invariant conductances on F_3^2; unindexed spectral methods could reproduce the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE FULL TEXT, no noncoverage judgment; any implicit complete result remains unresolved priority risk",
+          "evidence": "Gao, Luo, Liu (2011), Discrete Applied Mathematics 159:2050-2057, discusses general Cayley graph resistance and Kirchhoff index.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2011.06.027",
+          "material_read": "DOI/bibliographic metadata, journal/abstract references; no article text",
+          "method": "Searched same-paper arXiv and lawful OA; OA index PDF link resolved to DOI; authorized institutional full-text request returned vpn_disconnected",
+          "title": "Resistance distances and the Kirchhoff index in Cayley graphs",
+          "trigger": "Potentially dominating general Cayley-resistance theorem"
+        },
+        {
+          "assessment": "Covers circulant graph resistance; the F_3^2 four-direction noncyclic family and power spectrum are not stated in inspected abstract",
+          "evidence": "Zhang--Yang 2007 computes resistance formulas for circulants, not an all-weights four-line negative-type criterion.",
+          "identifier_or_url": "DOI:10.1002/qua.21068",
+          "material_read": "Publisher abstract and identified graph families",
+          "method": "Direct abstract/source listing inspection",
+          "title": "Resistance distance and Kirchhoff index in circulant graphs",
+          "trigger": "Earlier potentially equivalent spectral method"
+        },
+        {
+          "assessment": "General algorithmic criterion; no explicit all-real-conductance nine-vertex Cayley threshold identified",
+          "evidence": "General p-negative-type conditions specialize only after independent Fourier resistance and inequality analysis.",
+          "identifier_or_url": "arXiv:1108.0451 https://arxiv.org/abs/1108.0451",
+          "material_read": "Original mathematical full-text relevant sections on determinant/strict negative type and K_{n,m}",
+          "method": "Read original full-text theorem statements and compare special objects",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Generic potentially dominating method for powered finite metrics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four line directions exhaust a natural connected noncyclic order-nine Cayley electrical family; sharp coercivity for every anisotropic weight and complete generalized-roundness/embedding-rank diagram are genuine structural invariants, not merely one computed graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No arbitrary non-translation-invariant networks or other Cayley groups.",
+    "No unsupported inference of general all-graph squared-resistance Hilbert embedding."
+  ],
+  "schema_version": 1
+}

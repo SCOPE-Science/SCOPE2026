@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Fourier diagonalization gives Laplacian eigenvalues \(3(W-w_i)\), exactly four resistance values, and the entire powered-distance spectrum with multiplicity two in each nontrivial line-character sector. The main nonstandard inequality is reduced to the explicit three-variable identity \(\sum_{i<j}a_ia_j/[(S-a_i)(S-a_j)]=1-2a_1a_2a_3/[(a_1+a_2)(a_1+a_3)(a_2+a_3)]\le1\), with boundary cases treated separately. This yields the sharp Gram lower bound and its exact equality class. Monotonicity of three or two normalized resistance powers establishes the unique finite threshold when appropriate; no finite experiment is used as an all-parameter proof. The standalone exact-fraction verifier reconstructs resistances independently for 16 weighted networks.
+## correctness
 
-**Originality: PASS with identified risk.** Directly comparable literature supplies general Fourier resistance formulas (Gao–Luo–Liu), a cyclic subfamily (Zhang–Yang), square-root resistance Hilbert embeddings (Jorgensen–Pearse), and general negative-type criteria (Li–Weston; Sánchez). The specific four-direction squared-resistance coercivity, sharp equality case and complete endpoint-mode classification were not found in the material actually checked. The Gao–Luo–Liu paper was only available by abstract/metadata and could contain an equivalent unstated corollary; this remains a live publication-priority risk. The result is not characterized as the first calculation of abelian Cayley resistance formulas.
+PASS
 
-**Mathematical value: PASS.** The group \(\mathbb F_3^2\) is the smallest noncyclic odd-order translation group. All of its connected symmetric Cayley electrical networks admit a four-conductance description, so the theorem is a natural complete parametric classification, not an arbitrary numeric slice. It shows that the stronger Euclidean property of electrical resistance survives arbitrary anisotropy, quantifies the optimal coercivity across the full connected cone, and identifies when the endpoint generalized-roundness space loses two versus four dimensions. The exact two-direction torus exponent is a concrete invariant of the standard nine-vertex product graph, distinct from its shortest-path analogue.
+Reconstructed Laplacian character eigenvalues 3(W-w_i) (double per kernel line) and resistance r_i=(2/9)sum_{j != i}(W-w_j)^-1; nonconstant powered-distance eigenvalues 3r_i^p-sum_j r_j^p double. Independently constructed and inverted the exact 9-by-9 regularized Laplacian for conductances (1,1,0,0) and (1,2,3,4), checking all 72 off-diagonal resistance entries each; other three rational Gram-gap instances matched. For min conductance t, set a_j=w_j-t and q_min=1/(W-t). The identity sum_{j<k}a_ja_k/[(S-a_j)(S-a_k)]=1-2a1a2a3/[(a1+a2)(a1+a3)(a2+a3)]<=1 (with boundary cases) bounds cross terms and implies min Gram eigenvalue >=14 q_min^2/81, equality precisely 2 active directions. Strict decreasing normalized positive resistance powers give unique finite threshold p>2 when k=1,2; for k>=3 all p finite are strict; doubled Fourier sectors yield endpoint rank. Universal conclusion rests on exact algebra not sampled networks.
 
-**Scope and residual risks.** Only translation-invariant direction weights on nine vertices are covered. The source most directly concerned with abelian Cayley resistance distances could not be fully compared; it is not assumed noncovering. The argument does not claim a general result for all abelian Cayley graphs, and its source comparison is not independent peer review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared precise mathematical statements with their strongest identified precursors and published mathematical finding searches. Originality is best-of-knowledge with explicitly named inaccessible/unindexed priority risks, not certification.
+
+## value
+
+PASS
+
+The four line directions exhaust a natural connected noncyclic order-nine Cayley electrical family; sharp coercivity for every anisotropic weight and complete generalized-roundness/embedding-rank diagram are genuine structural invariants, not merely one computed graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
