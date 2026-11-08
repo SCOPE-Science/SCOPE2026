@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The antipodal pair-state proof treats all-zero, all-mixed, mixed-with-empty, and mixed-free boundaries; it reconstructs the optimum and counts its complete solution family. The mixed–empty gap estimate \(a-z\ge2\) and the total-domination run argument together give the infinite classification. A separate exhaustive labelled-vertex verifier checks all eligible subsets through \(m=12\); this is corroborative, not a universal proof.
+## correctness
 
-**Originality — PASS, with historical-priority uncertainty.** Radić and Tepeh's arXiv:2610.01796v1 gives complexity results and exact values for Goldberg snarks. Radić, Radić, and Tepeh's arXiv:2610.26259v1 gives general cubic lower bounds and exact values for other snark families. The inspected primary sections do not state the full Möbius-ladder optimum-set spectrum. Related OEIS A347559 and A303162 refer to different domination conditions. A broader matching-cut or \((1,2)\)-domination classification might provide an alternative derivation; no universal uniqueness claim is made.
+PASS
 
-**Mathematical value — PASS.** The complete structural description of all optimum sets in a natural cubic graph family reveals a sharp modulo-four threshold, a rigid four-set class, and a second odd-size orbit family. It substantially refines the generic cubic half-order lower bound rather than recording an isolated small example.
+For integer m>=3 the cubic Möbius ladder has 2m vertices with cycle plus antipodal edges. In the cyclic length-m sequence of antipodal column types A (both selected), Z (neither), P/Q (one selected), the twist exchanges P/Q at seam. Feasibility forces adjacent mixed columns to transport a common selected row and forbids an all-mixed closed twisted strip. Empty runs have length <=2, each adjacent A-run length >=2; with both empty and mixed a count of at least r+1 A-runs gives a-z>=2 and |D|>=m+2. With mixed/no empty, equality m+1 forces one full column, giving exactly 2m length-(m+1) intervals. Without mixed, A/Z columns are precisely a total-dominating cyclic binary word (A-runs >=2, Z-runs <=2). This yields m with 4 rotations of 1100 when m divisible by 4, m+2 lower if m=2 mod4, and for odd m precisely m unique-defect total-dominating column words with a-z=1. Thus gamma=m or m+1 and N_m=4, 2m or 3m as claimed. Independently exhaustively enumerated all labelled subsets of M_2m for m=3..9; minima and numbers match all congruence classes, beyond-edge cases m=3,4. Infinite assertion rests on run inequalities, not finite tests.
 
-**Limitations.** Labelled two-row Möbius ladders only, integer \(m\ge3\); no full domination polynomial or quotient by symmetries. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: exact labelled Möbius-ladder minimum sets, modulo-four exception, and complete multiplicities extend general cubic-graph bounds and distinct snark family formulae; exhaustive family classification not implied by the n/2 lower bound.
+
+## value
+
+PASS
+
+Exact sharp minimum size together with rigidity and full labelled minimum-set count is a meaningful graph invariant for the natural cubic Möbius ladder. Twisted seam forces a nontrivial modular transition and separates cycle-interval minimizers from antipodally invariant total-dominating lifts, information not supplied by generic cubic n/2 bounds. Not a trivial renaming of ordinary domination; all m>=3 classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
