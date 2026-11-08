@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:13:14.161908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, B=2^n, A=7B, m=A+1 and S=<A2^i+1>, the residues mod m are represented by w(t)=At+m*lambda(t) for 0<=t<=A, where lambda minimizes number of Mersenne coins (2^j-1). Nonnegative combination normalization plus lambda(t)<=t handles all multiples of m. The Apéry gap p(t)=w(t)-m is pseudo-Frobenius if each nonwrapping added coin c_j satisfies lambda(t+c_j)<=lambda(t); wrapping additions are automatically in S. Binary digit sum gives exact lambda(B-d)=d, lambda(A-d)=d (5<=d<=n+2), lambda(t1)=lambda(t2)=n+2 with t1=4B-n-2, t2=6B-n-2. Constructive coin decompositions bound all suffix values after t1 by n+2. Also lambda(A)=4,lambda(A-1)=5 and small suffix upper bounds, proving all displayed indices. Distinct residues give exactly n+2 explicit PF elements and type>=n+2, not exact type. Independent Dijkstra/coin checks verified n=3,4,5,6 and all proposed gaps, not an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Srivastava–Thakkar derive embedding/Frobenius and special Proth formulas; their pseudo-Frobenius result covers k of form 2^r+1, not k=7.",
+          "Liu et al. arXiv v4 addresses generalized semigroup Frobenius/genus and distinct Apéry cases."
+        ],
+        "reasoning": "A formula for Frobenius number, embedding dimension or genus does not imply membership of n+2 additional pseudo-Frobenius gaps; likewise the special k=2^r+1 theorem does not apply to k=7.",
+        "searches": [
+          "arxiv:2306.03459 Sections 3-5",
+          "arxiv:2311.12462 Theorem 7",
+          "doi:10.1007/s00233-025-10518-1"
+        ]
+      },
+      "checked_sources": [
+        "2026-11-02 frozen RESULT.md and verify.py",
+        "arxiv:2306.03459v4",
+        "arxiv:2311.12462",
+        "doi:10.1007/s00233-025-10518-1 (abstract/journal metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier special-Proth theorem assumes k=2^r+1 whereas 7 is binary 111 and not 2^r+1.",
+          "The new all-generator wrap/nonwrap argument proves precise PF membership for t1,t2,A,A-1,A-d, not merely a maximum gap."
+        ],
+        "reasoning": "The present statement is not implied by prior k-subfamily results without additional coin-count lemmas; an unavailable later full journal revision remains bibliographic risk.",
+        "searches": [
+          "arxiv:2311.12462 Theorem 7",
+          "arxiv:2306.03459v4 Section 5",
+          "Proth numerical semigroup 7 times powers of 2 plus one pseudo Frobenius gaps type lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Xin–Ye–Yin arxiv:2306.03459 proves pseudo-Frobenius formulas for different positive-offset/Mersenne-related families and Proth subfamilies k=2^r+1.",
+          "The present semigroup uses k=7, not a power of two plus one."
+        ],
+        "reasoning": "Coin-change/Apéry representations are equivalent languages; previous methods may adapt, but the inspected explicit formulae have parameter hypotheses not met by k=7.",
+        "searches": [
+          "Proth numerical semigroup 7 times powers of 2 plus one pseudo Frobenius gaps type lower bound",
+          "arxiv:2306.03459 Proth numerical semigroup pseudo Frobenius k=7",
+          "arxiv:2311.12462 Proth semigroup generators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small n=3..6 are independently recomputed in the bundled checks; no published exact k=7 pseudo-Frobenius table implying the uniform n+2 family was identified."
+        ],
+        "reasoning": "An unlisted table would be relevant if it supplied uniform symbolic membership; a few finite values cannot cover the infinite statement. No novelty is inferred from search absence alone.",
+        "searches": [
+          "pseudo Frobenius set Proth 7 2^n + 1 numerical semigroup n+2 type table",
+          "Proth numerical semigroup 7 times powers of 2 plus one pseudo Frobenius gaps type lower bound"
+        ]
+      },
+      "rationale": "Earlier Proth Frobenius, genus and special k=2^r+1 pseudo-Frobenius analyses do not establish these k=7 negative-offset gaps. The exact infinite family is a qualified best-of-knowledge new inclusion, not a complete type classification; the later journal text remains a possible coverage risk.",
+      "residual_risks": [
+        "An unindexed equivalent theorem or indirect consequence could alter the qualified historical priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the k=7 negative-offset PF subset in the inspected theorem hypotheses.",
+          "evidence": [
+            "Explicit PF theorems use other positive-offset or special k=2^r+1 parameter classes."
+          ],
+          "identifier_or_url": "arxiv:2306.03459v4",
+          "material_read": "Primary updated open-access arXiv manuscript: definitions and Sections 3–5, including PF and Proth parameter hypotheses.",
+          "method": "full open-access arXiv text / PDF",
+          "title": "A Combinatorial Model of Numerical Semigroup",
+          "trigger": "Same Apéry/coin method and related explicit PF sets"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_COVERING k=7 PF subset.",
+          "evidence": [
+            "Theorem 7 special 2^r+1 Proth family excludes k=7."
+          ],
+          "identifier_or_url": "arxiv:2311.12462",
+          "material_read": "Primary full open-access arXiv paper: Proth definitions, Frobenius and special pseudo-Frobenius theorem including Theorem 7.",
+          "method": "full open-access arXiv paper",
+          "title": "The Frobenius Problem for the Proth Numbers",
+          "trigger": "Same generator family and Proth invariant"
+        },
+        {
+          "assessment": "RESIDUAL_RISK: final journal-only additions not fully compared.",
+          "evidence": [
+            "Reported major invariants Frobenius and genus do not directly settle this PF subset; future journal revision may contain extra material."
+          ],
+          "identifier_or_url": "doi:10.1007/s00233-025-10518-1",
+          "material_read": "Abstract and bibliographic entry; separate updated lawful arXiv manuscript inspected where overlapping.",
+          "method": "publisher bibliographic metadata and arXiv open manuscript",
+          "title": "On the Frobenius number and genus of a collection of semigroups generalizing repunit numerical semigroups",
+          "trigger": "Later version could dominate earlier arXiv"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first three-one-bit Proth generator family is a natural instance where the Apéry order can be attacked by binary expansions. A growing n+2 explicit lower bound and two separated gap branches plus a top cluster give structural type information not mechanically determined from Frobenius or genus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=3 only; type>=n+2, no exact type classification or sharpness asserted.",
+    "Dijkstra at finite n does not prove universal coin-count inequalities.",
+    "Potential unrecognized coverage in final 2025 journal text."
+  ]
+}

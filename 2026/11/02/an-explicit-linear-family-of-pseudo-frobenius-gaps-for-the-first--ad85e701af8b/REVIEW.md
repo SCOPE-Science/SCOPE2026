@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Apéry coordinate proof uses only nonnegative coin totals and checks the wrap/nonwrap cases separately. A binary digit-sum obstruction proves exact minimum coin counts at the displayed indices; a constructive suffix bound covers every generator, not only a finite prefix. The proof is uniform for all integers \(n\ge3\), and an independent shortest-path implementation checks \(n=3,\dots,9\). Finite checks are diagnostic, not the infinite proof.
+## correctness
 
-## Originality — PASS within checked material
-Primary literature on Proth semigroups determines embedding dimension and Frobenius invariants; the closest accessible 2023 generalized-semigroup manuscript establishes pseudo-Frobenius sets for distinct Mersenne/Thabit-type positive-offset parameter families. The claim here concerns explicit pseudo-Frobenius elements in the different negative-offset Proth \(k=7\) family. Searches across mathematical records and previously accessible claims found no covering formula. A later, only partially accessible Frobenius/genus generalization and unindexed work remain potential bibliographic risks.
+PASS
 
-## Value — PASS
-This is an infinite, explicitly witnessed lower bound on semigroup type in the first nontrivial three-one-bit Proth family. It exposes two widely separated pseudo-Frobenius gaps and a linearly growing contiguous cluster, which are not determined by the Frobenius number alone; it supplies nontrivial structural information beyond a small-instance computation. Exact type and complete pseudo-Frobenius classification are not established.
+For n>=3, B=2^n, A=7B, m=A+1 and S=<A2^i+1>, the residues mod m are represented by w(t)=At+m*lambda(t) for 0<=t<=A, where lambda minimizes number of Mersenne coins (2^j-1). Nonnegative combination normalization plus lambda(t)<=t handles all multiples of m. The Apéry gap p(t)=w(t)-m is pseudo-Frobenius if each nonwrapping added coin c_j satisfies lambda(t+c_j)<=lambda(t); wrapping additions are automatically in S. Binary digit sum gives exact lambda(B-d)=d, lambda(A-d)=d (5<=d<=n+2), lambda(t1)=lambda(t2)=n+2 with t1=4B-n-2, t2=6B-n-2. Constructive coin decompositions bound all suffix values after t1 by n+2. Also lambda(A)=4,lambda(A-1)=5 and small suffix upper bounds, proving all displayed indices. Distinct residues give exactly n+2 explicit PF elements and type>=n+2, not exact type. Independent Dijkstra/coin checks verified n=3,4,5,6 and all proposed gaps, not an all-n proof.
 
-Closest sources: arXiv:2306.03459 (2023); arXiv:2311.12462 (2023); DOI:10.1007/s00233-025-10518-1 (2025, incomplete full-text access). No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Proth Frobenius, genus and special k=2^r+1 pseudo-Frobenius analyses do not establish these k=7 negative-offset gaps. The exact infinite family is a qualified best-of-knowledge new inclusion, not a complete type classification; the later journal text remains a possible coverage risk.
+
+## value
+
+PASS
+
+The first three-one-bit Proth generator family is a natural instance where the Apéry order can be attacked by binary expansions. A growing n+2 explicit lower bound and two separated gap branches plus a top cluster give structural type information not mechanically determined from Frobenius or genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
