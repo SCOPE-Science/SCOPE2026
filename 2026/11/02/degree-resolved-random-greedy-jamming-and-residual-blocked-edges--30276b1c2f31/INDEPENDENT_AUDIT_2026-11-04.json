@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:08:10.814794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rooted Cayley tree EGF T=ze^T and arrival-time conditioning yield dF/dt=ze^{T-F} and F=log(1+tT). Marking only edges incident to the distinguished root produces A(z,q)=z e^{qT} int_0^1(1+tT)^(-q)dt. Differentiation gives H=T log(1+T)-log^2(1+T)/2. Since accepted vertices form an independent set, B_n=n-1-sum_{accepted}degree exactly. Singular transfer at T=1 gives leading (1-log2)n/2 and constant -9/16+log2/8, while fixed-degree coefficient transfer and two-root local convergence yield the empirical law. Independently enumerated all Prüfer trees and all priority permutations for n=2..6, reproducing E B4=3/16, B5=8/25, B6=305/648 and finite joint degree counts; infinite concentration rests on decreasing-time path bound/local limit, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury arXiv:math/0503519 gives general deposition equations and Bethe-lattice correlation techniques.",
+          "Contat arXiv:2103.03800 is stronger for scalar greedy independent-set cardinality fluctuations."
+        ],
+        "reasoning": "Those frameworks supply tools, but the inspected concrete statements do not provide the exact Cayley-averaged root-degree EGF or n^0 residual-edge correction; some asymptotic corollaries may be directly extractable.",
+        "searches": [
+          "Resultary semantic: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected",
+          "SCOPE frozen-repository GitHub code search: greedy independent Cayley trees degree",
+          "arXiv:math/0503519",
+          "arXiv:2103.03800"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md (blob 990f428f360884dc4252fc827f534cfe8e96dd07), metadata, checker description",
+        "https://arxiv.org/abs/2103.03800",
+        "https://arxiv.org/abs/1907.07216",
+        "https://arxiv.org/abs/math/0503519",
+        "https://arxiv.org/abs/0711.4061",
+        "Resultary query: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known accepted density 1/2 does not determine degree sum among accepted vertices.",
+          "B_n=(n-1)-sum_{v in I_n}D_v and differentiated bivariate formula compute that missing joint statistic."
+        ],
+        "reasoning": "The scalar count distribution has no direct implication for E B_n absent additional degree conditioning. A local limit may imply first-order mean, not automatically the n^0 correction.",
+        "searches": [
+          "Resultary semantic: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected",
+          "SCOPE frozen-repository GitHub code search: greedy independent Cayley trees degree",
+          "arXiv:1907.07216",
+          "arXiv:2103.03800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contat arXiv:2103.03800 uses greedy Cayley tree acceptance cardinality; it does not mark root degree in its distribution.",
+          "Krivelevich et al arXiv:1907.07216 uses size-biased local Poisson Galton–Watson limits."
+        ],
+        "reasoning": "A scalar occupancy EGF and a limiting local density cannot in general reconstruct the joint degree-acceptance generating series. The degree-resolved specialization is a different observable; limiting degree profile may overlap established branching ODEs.",
+        "searches": [
+          "Resultary semantic: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected",
+          "SCOPE frozen-repository GitHub code search: greedy independent Cayley trees degree",
+          "arXiv:2103.03800",
+          "arXiv:1907.07216"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Contat gives distribution tables/identities for total accepted-set size; no table of residual blocked edges by tree size.",
+          "Independent E B_n exact fractions for n=4,5,6 compared with claimed coefficient extraction."
+        ],
+        "reasoning": "No exact degree-marked Cayley tree table covering the finite formula found in published indexed sources; finite agreement is corroboration not priority proof.",
+        "searches": [
+          "Resultary semantic: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected",
+          "SCOPE frozen-repository GitHub code search: greedy independent Cayley trees degree",
+          "arXiv:2103.03800"
+        ]
+      },
+      "rationale": "Contat 2021 determines the exact total accepted-cardinality distribution but loses degree-weighted and edge-neighbor statistics. Krivelevich–Mészáros–Michaeli–Shikhelman 2019 has local-limit greedy density 1/2 and likely implies some limiting degree fractions, which are NOT treated as a standalone new general law. The distinct contribution is the all-finite-n marked-degree EGF with residual blocked-edge coefficient and finite-size correction. General Penrose–Sudbury parking equations could specialize implicitly; this remains a historical risk.",
+      "residual_risks": [
+        "An exact marked finite Cayley-tree EGF may be implicit in a general adsorption/parking recursive theorem not located in the primary sources examined.",
+        "Asymptotic empirical concentration assumes standard two-root local convergence; independently checked only finite n<=6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_PRIOR_NOT_JOINT",
+          "evidence": "Exact cardinality distribution and greedy accepted-density do not determine the marked root-degree bivariate EGF.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.03800",
+          "material_read": "Introduction, principal exact scalar law, relevant enumerative propositions and asymptotic comparisons in 18-page preprint",
+          "method": "Primary arXiv full text/PDF, relevant theorem and surrounding proof read with page text and visual PDF page check",
+          "title": "Surprising identities for the greedy independent set on Cayley trees",
+          "trigger": "Same uniform labeled Cayley tree and random greedy independent set"
+        },
+        {
+          "assessment": "PRIOR_LIMIT_FRAMEWORK",
+          "evidence": "The 1/2 density and local-limit machinery are prior work; exact finite Cayley-tree degree-marking not present in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "Main theorem and §6.3 size-biased Poisson local-tree calculation, relevant lines and examples in 31-page PDF",
+          "method": "Primary arXiv full text/PDF, relevant theorem and surrounding proof read with page text and visual PDF page check",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Closest general local-limit and greedy occupancy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a uniform labeled tree, the residual edges joining two rejected vertices are a natural structural statistic distinct from the accepted set cardinality. An exact bivariate law answers joint acceptance/degree questions at every size, and its finite-size correction distinguishes local blocking from ordinary occupancy. This is not merely recomputing the known density 1/2.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md (blob 990f428f360884dc4252fc827f534cfe8e96dd07), metadata, checker description",
+    "https://arxiv.org/abs/2103.03800",
+    "https://arxiv.org/abs/1907.07216",
+    "https://arxiv.org/abs/math/0503519",
+    "https://arxiv.org/abs/0711.4061",
+    "Resultary query: random greedy independent set uniform Cayley tree degree resolved acceptance number edges with both ends rejected"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact marked finite Cayley-tree EGF may be implicit in a general adsorption/parking recursive theorem not located in the primary sources examined.",
+    "Asymptotic empirical concentration assumes standard two-root local convergence; independently checked only finite n<=6."
+  ],
+  "schema_version": 1
+}
