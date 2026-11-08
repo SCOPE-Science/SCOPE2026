@@ -1,0 +1,15 @@
+# Scientific review: five-tone Gaussian spectrogram zero bifurcations
+
+## Correctness — PASS
+An exact Gaussian integral gives the transform as a nowhere-vanishing factor times \(1+2e^{-\alpha}\cosh z+2e^{-4\alpha}\cosh(2z)\). Setting \(y=2\cosh z\) yields a quadratic with discriminant \((r-2)(r^2-2r-4)\); the only positive-parameter discriminant zeros are \(r=2\) and \(r=1+\sqrt5\). The polynomial cannot have \(y=\pm2\) as a root because \(Q_r(2)>0\) and \(Q_r(-2)\ge5/16\). This excludes hidden multiplicity or preimage-collision boundaries. The reciprocal quartic has no zero or infinite roots, so precisely four STFT zeros occur per period, with multiplicities classified in RESULT.md. `CHECK.py` independently tests integral normalization, roots, collisions and algebra. All-parameter correctness follows from the written proof rather than the finite test cases.
+
+## Originality — PASS, with material-access risk
+Claim-level searches for equal five-tone Gaussian STFT zeros, reciprocal-quartic discriminants, two collision scales, golden-ratio thresholds, Bargmann zeros and spectral interference found no exact statement or stronger specialized coverage in the accessible material or the checked mathematical records. Chand–Nolen–Wu's 2026 abstract and metadata concern a *two-component* Gaussian STFT model, but their complete 76-page paper was not accessible; absence from an abstract is not proof of absence from the article. Abreu's 2022 open full text treats randomized Gaussian spectrogram zeros and critical-point statistics, not five-harmonic deterministic zeros. Balazs et al. address generic phase-derivative singularities at STFT zeros, rather than the two parameter thresholds. The generic Bargmann-polynomial method is prior art; the two explicit sharp thresholds and all five regimes are the concrete new assertion. An earlier specialized spectral-interference treatment might cover it; publication priority remains uncertain.
+
+## Value — PASS
+Five consecutive harmonics form a canonical coherent extension of the two-component interference model. The result completely identifies when phase-space cancellation zeros move from the central-frequency axis to a two-coordinate off-axis configuration and finally to a common alternating-time line. The two exact gaps, explicit double-zero collision points and four-zero conservation give natural benchmarks for phase-singularity and reassignment studies, without claiming any improved reconstruction theorem. This is a complete parameter classification of a physically and mathematically natural transform, not an arbitrary finite table.
+
+## Scientific limitations
+The pure-tone input is bounded, not \(L^2\); the windowed integral still converges absolutely. Only equal-amplitude five-tone inputs and Gaussian windows are covered. No statement is made about spectrogram ridges, robustness under noise, or generic multi-tone signals. The principal 2026 source could not be fully inspected; independent publication-priority verification is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
