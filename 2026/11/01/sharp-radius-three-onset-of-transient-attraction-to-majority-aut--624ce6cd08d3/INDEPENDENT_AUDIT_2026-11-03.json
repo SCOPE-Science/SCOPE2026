@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:40:56.263042Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronous strict majority on n>=2r+1 distinct sites, the 2022 Nakar–Ron complete periodic-word templates for r=1,2 are 01 at r=1 and 0011,001101,001011 at r=2 (01 at r=2 is fixed). Independently constructed complete phase-window directed graphs for each target give a single recurrent simple cycle of 2,4,6,6 phase states, proving unique preimages for all repeated target lengths. At r=3, direct 7-site majority checks give F(Y)=Z,F(Z)=Y,F(P)=Y for Y=0011001110,Z=1000111001,P=1001011001. The independent graph for target Y has one cyclic SCC with 17 vertices and 18 edges, two phase-zero states (41,49), and exact 10-step return matrix [[1,1],[1,1]], so trace(M^m)=2^m. Direct enumeration of all 2^10 and 2^20 states gave exactly 2 and 4 predecessors, confirming but not replacing infinite transfer result. Complement and 5-site rotation give equal count for Z. Only the companion is periodic, so 2(2^m-1) transient one-step entrances. Both r<=2 exclusion and r=3 witness establish sharp radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier work handles all r but studies structures of periodic configurations, not exact counts of one-step inverse images.",
+          "The present theorem computes 2^m preimages and proves radius-three sharpness."
+        ],
+        "reasoning": "More general periodic-pattern theorems do not imply an explicit preimage transfer spectral matrix and exact counts without additional argument.",
+        "searches": [
+          "Nakar Ron 2022 temporal periodic configurations radius one two three",
+          "Liu Chen 2002 radius two majority attractors"
+        ]
+      },
+      "checked_sources": [
+        "P. Tosic and G. Agha, Characterizing Configuration Spaces of Simple Threshold Cellular Automata, ACRI 2004, Lemma 5 p.8, https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf.",
+        "Y. Nakar and D. Ron, The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity, arXiv:2205.08972v4, §1.4 p.6, https://arxiv.org/pdf/2205.08972.",
+        "R.-F. Liu and C.-C. Chen, Analytic Proof of the Attractors of a Class of Cellular Automaton, arXiv:nlin/0209005 (bibliographic scope)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact P,Y,Z counterexample has all necessary states and transitions under the published majority rule.",
+          "Published lemma asserts absence and cannot imply 2^m positive entrances."
+        ],
+        "reasoning": "The new finding contradicts, rather than follows as a corollary from, the strongest relevant earlier general statement; the r<=2 part uses its own certificate over published templates.",
+        "searches": [
+          "Tosic Agha Lemma 5 printed page eight",
+          "Nakar Ron periodic templates page six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tosic–Agha Lemma 5 makes the opposite universal assertion, contradicted by P -> Y and Y <-> Z.",
+          "Nakar–Ron classifies temporal periodic words."
+        ],
+        "reasoning": "A claim of no incoming transients cannot cover a positive incoming witness; the earlier periodic classification does not count nonperiodic predecessors.",
+        "searches": [
+          "one dimensional majority cellular automata radius three non-periodic transient predecessor primitive period two orbit",
+          "Tosic Agha 2004 Lemma 5 incoming transients majority",
+          "Nakar Ron arXiv:2205.08972 §1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified existing exact sequence/table for 2^m on repeated ten-cell oscillator.",
+          "Direct state count and transfer trace independently reproduce first terms and general formula."
+        ],
+        "reasoning": "No matching table was located; finite checks do not prove historical novelty or all-m correctness.",
+        "searches": [
+          "majority CA 0011001110 1000111001 preimages",
+          "Resultary semantic search: one dimensional majority cellular automata radius three non-periodic transient predecessor primitive period two orbit"
+        ]
+      },
+      "rationale": "The Tosic–Agha 2004 Lemma 5 explicitly asserts no incoming transient into any threshold-automaton cycle, which the exhibited ten-cell majority counterexample refutes. The 2022 Nakar–Ron classification covers periodic templates, not their exact nonperiodic preimage counts. The novel bounded radius threshold and exact exponential one-shell multiplicity are meaningful departures, not a renaming of the periodic-word classification.",
+      "residual_risks": [
+        "Finite certificate depends on the correctly modeled cyclic phase-window graph and full Nakar–Ron r<=2 periodic-template classification; these were independently checked as specified.",
+        "Unindexed radius-three predecessor enumerations could predate this construction; no historical priority warranty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lemma 5 states any threshold CA with proper cycles has no incoming transients; directly contradicted by P -> Y with Y <-> Z for r=3 finite ring.",
+          "evidence": "Lemma 5, printed page 8, explicitly says no cycle state has incoming transients.",
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Opened full 10-page author-hosted PDF, read Lemma 5 and surrounding discussion (printed p.8), inspected screenshots of neighboring pages.",
+          "method": "primary full-text PDF inspection and screenshot",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Explicit universal no-incoming-transients lemma challenged by concrete majority witness"
+        },
+        {
+          "assessment": "Periodic templates r=1: (01)*; r=2: (0011)*,(001101)*,(001011)* as primitive and (01)* fixed. No corresponding complete predecessor-count result stated in read sections.",
+          "evidence": "Theorem 1 and §1.4, printed page 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+          "material_read": "Opened full 31-page PDF, read Theorem 1 and §1.4 on printed page 6 and related introductory text; screenshot reviewed.",
+          "method": "primary full-text PDF source, selected material read",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+          "trigger": "Complete small-radius catalogue needed for lower-radius exclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A constructive correction to a published universal dynamical assertion together with a sharp interaction-radius threshold and exponential entrance count gives a natural exact dynamical basin statistic. It is a substantive structural counterexample and classification, not a tiny isolated simulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite certificate depends on the correctly modeled cyclic phase-window graph and full Nakar–Ron r<=2 periodic-template classification; these were independently checked as specified.",
+    "Unindexed radius-three predecessor enumerations could predate this construction; no historical priority warranty."
+  ],
+  "schema_version": 1
+}

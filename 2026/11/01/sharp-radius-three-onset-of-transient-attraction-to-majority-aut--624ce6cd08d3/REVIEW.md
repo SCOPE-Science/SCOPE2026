@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The elementary ten-bit majority identities were reconstructed and directly checked; the all-length exponential predecessor count follows from a bijection between incoming cyclic configurations and closed phase-window graph walks. Its unique recurrent component has 17 vertices and 18 edges; the exact ten-step phase-zero return matrix has all four entries one, so the closed-walk trace is \(2^m\) for every positive integer \(m\). A standard-library program exhaustively builds the graphs and confirms the finite matrix certificates. The radius-one/two exclusion is conditional on the complete periodic-word classification explicitly attributed to Nakar–Ron and verified by their full text; given those forms, the independent predecessor-graph computation proves the exclusion for every admissible size.
+## correctness
 
-## Originality
-PASS, with residual historical risk. Nakar–Ron (2022, page 6) explicitly contains the periodic word templates, so these are not claimed as new. Liu–Chen (2002/2003, Section 4) studies radius-two attractor patterns but does not give the exact radius-three inverse-image law. Most importantly, Tosic–Agha (2004, Lemma 5, author-hosted full text) states the opposite universal no-incoming-transients property: the radius-three witness is a concrete counterexample, not its corollary. published-finding corpus searches for the exact ten-bit words, radius-three inverse-image exponential multiplicity, alias phrases about repelling/isolated two-cycles, and published related work found no equivalent theorem. The precise possible risk is an uncatalogued precursor computation or other correction of the 2004 lemma.
+PASS
 
-## Value
-PASS. The exact minimum interaction radius at which oscillations become accessible from outside their cycles is a motivated dynamical boundary. The result gives explicit exponentially many incoming transient states on a natural increasing sequence of rings, and it corrects a published universal structural assertion. It is not solely a finite enumeration or a restatement of already classified periodic patterns.
+For synchronous strict majority on n>=2r+1 distinct sites, the 2022 Nakar–Ron complete periodic-word templates for r=1,2 are 01 at r=1 and 0011,001101,001011 at r=2 (01 at r=2 is fixed). Independently constructed complete phase-window directed graphs for each target give a single recurrent simple cycle of 2,4,6,6 phase states, proving unique preimages for all repeated target lengths. At r=3, direct 7-site majority checks give F(Y)=Z,F(Z)=Y,F(P)=Y for Y=0011001110,Z=1000111001,P=1001011001. The independent graph for target Y has one cyclic SCC with 17 vertices and 18 edges, two phase-zero states (41,49), and exact 10-step return matrix [[1,1],[1,1]], so trace(M^m)=2^m. Direct enumeration of all 2^10 and 2^20 states gave exactly 2 and 4 predecessors, confirming but not replacing infinite transfer result. Complement and 5-site rotation give equal count for Z. Only the companion is periodic, so 2(2^m-1) transient one-step entrances. Both r<=2 exclusion and r=3 witness establish sharp radius.
 
-## Scope and closest literature
-Primary comparison: Tosic–Agha (2004), Lemma 5, pages 7–8, covers the same synchronous threshold mechanism but asserts no transient incoming states. Nakar–Ron (2022), Section 1.4, covers periodic configurations but not the claimed one-step inverse-image count. Liu–Chen (2002/2003), Section 4, analyzes infinite-radius-two attractors; its scope excludes this radius-three preimage multiplicity. Aledo–Martínez–Valverde (2015) is a general survey. All source inspections are characterized in `AUDIT.json`. The exact ten-bit result does not count the entire attraction basin at deeper transient times.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Tosic–Agha 2004 Lemma 5 explicitly asserts no incoming transient into any threshold-automaton cycle, which the exhibited ten-cell majority counterexample refutes. The 2022 Nakar–Ron classification covers periodic templates, not their exact nonperiodic preimage counts. The novel bounded radius threshold and exact exponential one-shell multiplicity are meaningful departures, not a renaming of the periodic-word classification.
+
+## value
+
+PASS
+
+A constructive correction to a published universal dynamical assertion together with a sharp interaction-radius threshold and exponential entrance count gives a natural exact dynamical basin statistic. It is a substantive structural counterexample and classification, not a tiny isolated simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

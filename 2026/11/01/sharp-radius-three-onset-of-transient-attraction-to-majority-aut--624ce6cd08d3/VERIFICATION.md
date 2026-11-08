@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python3 VERIFY.py` (Python 3.8+, standard library). A successful run ends with `RADIUS_THRESHOLD_CERTIFICATE_OK` and checks every one of the finite-state edges in the claimed radius-one, radius-two and radius-three transfer graphs. The critical radius-three target has one 17-vertex, 18-edge cyclic strongly connected component, phase-zero vertex identifiers 41 and 49, and ten-step core return matrix `[[1,1],[1,1]]`. The ring-level simulation covers the explicit lengths listed in `RESULT.md`; infinite-family proofs additionally require the transfer-graph correspondence and the trace argument stated there. `VERIFY_OUTPUT.txt` is a record of the actual run, not a substitute for the code and finite-state proof.
+# Independent mathematical audit
 
-The source-specific published claims were compared at statement and implication level. The experiment does not establish claims about arbitrary initial configurations outside the specified one-step inverse images. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For synchronous strict majority on n>=2r+1 distinct sites, the 2022 Nakar–Ron complete periodic-word templates for r=1,2 are 01 at r=1 and 0011,001101,001011 at r=2 (01 at r=2 is fixed). Independently constructed complete phase-window directed graphs for each target give a single recurrent simple cycle of 2,4,6,6 phase states, proving unique preimages for all repeated target lengths. At r=3, direct 7-site majority checks give F(Y)=Z,F(Z)=Y,F(P)=Y for Y=0011001110,Z=1000111001,P=1001011001. The independent graph for target Y has one cyclic SCC with 17 vertices and 18 edges, two phase-zero states (41,49), and exact 10-step return matrix [[1,1],[1,1]], so trace(M^m)=2^m. Direct enumeration of all 2^10 and 2^20 states gave exactly 2 and 4 predecessors, confirming but not replacing infinite transfer result. Complement and 5-site rotation give equal count for Z. Only the companion is periodic, so 2(2^m-1) transient one-step entrances. Both r<=2 exclusion and r=3 witness establish sharp radius.
+
+## originality
+
+PASS
+
+The Tosic–Agha 2004 Lemma 5 explicitly asserts no incoming transient into any threshold-automaton cycle, which the exhibited ten-cell majority counterexample refutes. The 2022 Nakar–Ron classification covers periodic templates, not their exact nonperiodic preimage counts. The novel bounded radius threshold and exact exponential one-shell multiplicity are meaningful departures, not a renaming of the periodic-word classification.
+
+## value
+
+PASS
+
+A constructive correction to a published universal dynamical assertion together with a sharp interaction-radius threshold and exponential entrance count gives a natural exact dynamical basin statistic. It is a substantive structural counterexample and classification, not a tiny isolated simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
