@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Complete trace coordinates (u,r) follow from only-marker commutations. A gap analysis gives necessary and sufficient marker bounds e(u)<=r<=m+1 for proper words and e_circ(u)<=r<=m for cyclic proper words, with u-empty and m=1 boundaries handled. Weighted path transitions give h(h-1+z)^(m-1); weighted closed-walk eigenvalues give (h-1+z)^m+(h-1)(z-1)^m. Exact finite geometric sums yield both formal rational generating functions; a^*b^* intersections prove both closures nonregular. The standalone checker agreed by original-word enumeration, gap enumeration and coefficient recurrences for h=2,3,4, and additional h<=7 cases. Finite checks do not establish the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2512.00314, Abstract and Section 3 establish #P completeness; Section 5 provides FPRAS/FPAUS, not a family-wide exact closed form.",
+        "doi:10.4230/LIPIcs.CONCUR.2019.40 describes derivatives of trace closures and nonregularity, not exact enumeration of this path/cycle language."
+      ],
+      "reasoning": "General algorithms for counting or approximating arbitrary trace classes do not imply the displayed closed-form series without specialization and additional computation. General nonregularity examples cover the possibility, not this explicit gap characterization. Computational tractability was not misrepresented as novelty.",
+      "searches": [
+        "Counting and Sampling Traces in Regular Languages de Colnet Meel Mathur 2026 exact trace count proper words",
+        "regular languages trace enumeration independent central letter cyclic proper word",
+        "\"Mazurkiewicz traces\" \"adjacent distinct\" enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.00314",
+      "doi:10.1145/3776723",
+      "doi:10.4230/LIPIcs.CONCUR.2019.40",
+      "arxiv:1908.03551"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2512.00314 Section 5.2 Example 5.3 (page 18) takes I={(a,b),(b,a),(b,c),(c,b)} but has accepted example words abcc and bacc, violating adjacent-distinct condition; it does not compute the present counts.",
+        "Maarand and Uustalu 2019 Sections 3–4 develop language derivatives and trace-closure regularity; they do not present this pair of exact enumerators."
+      ],
+      "reasoning": "The independence relation in the first source exactly matches h=2 and warrants comparison, but sharing it does not yield the theorem: the accepted language and measured invariant differ. A general regularity characterization neither entails both explicit functions nor the tailored two-letter closure intersections. Earlier implicit calculations remain a risk.",
+      "searches": [
+        "arxiv:2512.00314 Example 5.3 independent events a,b,c canonical words",
+        "Reordering Derivatives of Trace Closures of Regular Languages 2019 star-connected",
+        "proper words traces star independence graph chromatic trace monoid rational enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2512.00314 Sections 1–3 and 5: trace quotient of non-trace-closed regular languages is defined, but only general complexity/approximation is established; no path/cycle proper-word formula.",
+        "Theorem in RESULT.md identifies traces with (nonmarker projection, marker count) and derives an exact two-variable gap characterization."
+      ],
+      "reasoning": "Equivalent normal-form, quotient-language, or lattice-path formulations would cover the theorem only if they calculate both exact rational functions for every h. No such statement was located among inspected full-text passages or the named search results; the gap/transfer derivation provides a direct proof.",
+      "searches": [
+        "Mazurkiewicz traces regular language all adjacent symbols distinct, star independence graph one globally commuting marker, exact rational length generating function and cyclic proper coloring, explicit formula",
+        "trace monoid proper-coloring paths cycles central commuting action exact trace quotient enumeration",
+        "\"trace\" \"adjacent equal letters\" \"commutation\" enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed literature results were about ordinary graph proper-coloring counts or unrelated trace examples; no matching q-ary length-indexed path-and-cycle trace table or ordinary generating function was identified.",
+        "The proof gives all coefficients for arbitrary h and n, not a reproduction of a finite table."
+      ],
+      "reasoning": "A search of exact trace-count and coloring formulations revealed no published table with the identical trace quotient and cyclic boundary convention. This is negative search evidence, not a proof of absolute novelty.",
+      "searches": [
+        "Count traces hitting words with no consecutive equal letters over alphabet q where one letter commutes with every other, exclusion of immediate repeats, cyclic case",
+        "Mazurkiewicz trace count square-free words star independence",
+        "trace closures of proper colorings with star independence graph nonregular yet rational growth series"
+      ]
+    },
+    "rationale": "Neither inspected primary trace-counting paper supplies the all-parameter pair of rational functions; the 2026 paper studies general exact complexity and approximation and uses the same independence graph with a different accepted language. The 2019 paper establishes derivative frameworks and general nonregularity, not these formulas. Published-index search yielded no matching precise claim; prior implicit specialization remains possible.",
+    "residual_risks": [
+      "The exact formulas may be implicit in an earlier specialist trace-monoid or combinatorics-of-colorings source not surfaced by the inspected searches.",
+      "The same independence graph appears in the 2026 source but with another accepted language; an unstated reduction elsewhere could potentially recover a specialization.",
+      "No external independent mathematical verification or definitive priority determination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general complexity/FPRAS/FPAUS results and same-graph example do not specify either proper-word trace-counting series",
+        "evidence": "PDF Abstract, pp. 1–7, Example 5.3 p.18, conclusion p.27; DOI 10.1145/3776723",
+        "identifier_or_url": "https://arxiv.org/pdf/2512.00314",
+        "material_read": "Abstract, Introduction, Sections 2–3, Section 5.2 Example 5.3 and concluding Section 6; remainder text searched for proper and adjacent patterns",
+        "method": "Read available full-text PDF passages and inspected rendered page 3; compared the formal problem and example with the new statements",
+        "title": "Counting and Sampling Traces in Regular Languages",
+        "trigger": "Same trace-counting observable and in Example 5.3 the identical three-letter independence relation"
+      },
+      {
+        "assessment": "Establishes general regularity framework and possible nonregular trace closures, but no path/cycle proper-word trace series",
+        "evidence": "CONCUR 2019 Article 40, DOI 10.4230/LIPIcs.CONCUR.2019.40, Sections 3–4",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol140-concur2019/LIPIcs.CONCUR.2019.40/LIPIcs.CONCUR.2019.40.pdf",
+        "material_read": "Abstract, Introduction, Sections 2–3 and star-connected language theorem in Section 4",
+        "method": "Read public PDF text and rendered page 4; compared derivatives and nonregularity against enumerator claims",
+        "title": "Reordering Derivatives of Trace Closures of Regular Languages",
+        "trigger": "Potential stronger general theory of nonregular trace closures"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d192409c-7002-4b5b-b706-8d30aa5f7902",
+  "value": {
+    "rationale": "This is an infinite exact count for a natural local constraint (adjacent unequal symbols) and its cyclic-boundary counterpart under partial commutation, serving as explicit benchmarks for trace-aware state-space reduction. Distinct all-alphabet rational enumerators are established while the corresponding trace closures are nonregular; it is more than a finite census, a trivial alphabet substitution, or a general algorithm restatement.",
+    "status": "PASS"
+  }
+}
