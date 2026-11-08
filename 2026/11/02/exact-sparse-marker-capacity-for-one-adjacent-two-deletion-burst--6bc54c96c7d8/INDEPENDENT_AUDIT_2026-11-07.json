@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:12:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 31de10ba5cb688667b5ab9d5cd37a1770bac3f69",
+        "source verifier blob fcb4dd02015fb61318fdc638b372fd1168d4eb56",
+        "actual Git tree 6875aca2f04198725dcb7c5d1853806cdb2a041a",
+        "independent reconstruction: Independently constructed literal deletion output sets and exact maximum independent sets for ALL weight-two input pairs at n=2 through 9. Derived optima 1,1,2,3,3,4,5,6, exactly matching formula. Source verify_burst2.py code and its larger reported checks inspected, but not used as a proof of all lengths."
+      ],
+      "rationale": "Input is weight-two binary words length n≥2 and exactly two consecutive deletions. Nonadjacent ones (i,j), gap≥2, map bijectively to marker edge {i,j−2} on m=n−2 vertices (loops allowed). Each such word produces weight-one outputs at both endpoints, so selected marker edges are vertex-disjoint; loops at positions distance two share a weight-two output. Loop bound is alpha_m=ceil(ceil(m/2)/2)+ceil(floor(m/2)/2); with l loops,e ordinary edges, l+2e≤m, hence l+e≤f(m)=3 floor(m/4)+min(m mod4,2). At most one adjacent-ones word, because adjacent parents all have zero output. Interior adjacent consumes two markers; a boundary adjacent consumes one and leaves f(m−1) nonadjacent slots, giving upper 1+f(m−1)=floor(3(n−1)/4). A closed 4-periodic family with boundary adjacent (0,1), two local loops plus a disjoint ordinary edge per marker block and at most two tail loops achieves the bound, with no shared weight-one or translated-by-two weight-two outputs. n=2 singleton. The proof explicitly handles the exact-burst, not arbitrary two-deletion channel.",
+      "residual_risks": [
+        "Exactly two consecutive deleted positions, constant weight-two input, zero-error disjoint output balls.",
+        "No result for arbitrary two deletions or higher weights, nor an all-optima census.",
+        "An implicit equivalent specialized burst deletion bound in older unindexed coding literature cannot be excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. nonbinary at-most-t burst deletion constructions; Schoeny et al. general binary bounds; Cullina et al. weight partitioned unrestricted deletions"
+        ],
+        "reasoning": "Even if covering larger alphabets or arbitrary weight, those constructions/bounds do not directly determine the sharp maximum restricted to binary weight-two and exactly one burst of length two. Stronger channel capacity upper bounds would need a matching specialized construction, not located.",
+        "searches": [
+          "deletion burst length two binary constant weight two code optimal packing size floor three quarters sparse marker",
+          "arXiv:1602.06820",
+          "arXiv:2210.11818",
+          "arXiv:1211.4056"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1602.06820",
+        "https://arxiv.org/abs/1211.4056",
+        "https://arxiv.org/abs/2210.11818",
+        "Resultary query: deletion burst length two binary constant weight two code optimal packing size floor three quarters sparse marker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General syndrome constructions and arbitrary two-deletion deletion spheres are different; source upper bound depends on loops separated by two in marker graph and exact endpoint adjustment"
+        ],
+        "reasoning": "The marker independence number and boundary-adjacent correction are substantive special combinatorial work, not automatic substitution into the cited general code size bounds.",
+        "searches": [
+          "Schoeny et al. burst correction bounds",
+          "Cullina et al. weight-partition construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schoeny et al., arXiv:1602.06820, general burst deletion codes; Cullina et al., arXiv:1211.4056, weight partitioning for arbitrary deletion channel"
+        ],
+        "reasoning": "The restricted exactly-adjacent deletion channel differs from arbitrary two deletions and from at-most-two burst models; in this case marker graph collisions and optimal packing are an exact finite-graph formulation, but cited general schemes do not state its solved value.",
+        "searches": [
+          "deletion burst length two binary constant weight two code optimal packing size floor three quarters sparse marker",
+          "constant composition weight two adjacent deletion burst codes as marker graph matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found Resultary 3,1 burst finite lengths and two-arbitrary-deletion sphere variance; their channels and quantities differ"
+        ],
+        "reasoning": "No located exact constant-weight-two adjacent-two-deletion packing table or all-n 3(n−1)/4 formula. Incomplete search is not novelty proof.",
+        "searches": [
+          "deletion burst length two binary constant weight two code optimal packing size floor three quarters sparse marker",
+          "Resultary exact binary 3 1 burst code sizes through length 8",
+          "Resultary exact variance two-deletion sphere size"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.",
+      "residual_risks": [
+        "An implicit equivalent specialized burst deletion bound in older unindexed coding literature cannot be excluded.",
+        "No exhaustive global literature priority or expert certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BURST_BOUNDS_NOT_SPECIAL_EXACT_WEIGHT2",
+          "evidence": [
+            "General burst code bounds, no located sharp weight-two exact adjacent length-two packing formula."
+          ],
+          "identifier_or_url": "arXiv:1602.06820v2",
+          "material_read": "Full accessible 19-page arXiv PDF; coding model, principal burst bounds and construction sections",
+          "method": "Read PDF text and visually checked first page and theorem context",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Highly relevant exact/at-most burst channel correction paper"
+        },
+        {
+          "assessment": "ARBITRARY_DELETION_MODEL_DIFFERENT",
+          "evidence": [
+            "Arbitrary deletion positions yield a different, stronger channel; no identified exact adjacent-burst sparse weight-two optimum."
+          ],
+          "identifier_or_url": "arXiv:1211.4056",
+          "material_read": "Full accessible 17-page PDF; weight partition sections and deletion model",
+          "method": "Read full PDF and first-page screenshot plus method statements",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Strong potential domination via constant weight codes"
+        },
+        {
+          "assessment": "AT_MOST_T_CONSTRUCTIONS_NOT_ALL_N_SHARP",
+          "evidence": [
+            "Nonbinary at-most-t constructive coding is not this exact-two-channel constant-weight packing determination."
+          ],
+          "identifier_or_url": "arXiv:2210.11818",
+          "material_read": "Full accessible 21-page PDF; abstract, definitions, constructions and bounds",
+          "method": "Read source PDF text and first-page screenshot",
+          "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+          "trigger": "More general alphabets/variable burst length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1602.06820",
+        "https://arxiv.org/abs/1211.4056",
+        "https://arxiv.org/abs/2210.11818"
+      ],
+      "rationale": "A natural constant-composition synchronization channel has an exact all-length zero-error packing number, with a genuinely structural marker matching and congruence-four construction. This is useful when sparse event markers, not arbitrary binary inputs, are constrained; it does not depend on a paper-sized larger theorem.",
+      "residual_risks": [
+        "Correctness, novelty and reproducing code alone are not treated as value; motivation is the natural object and specific new exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly two consecutive deleted positions, constant weight-two input, zero-error disjoint output balls.",
+    "No result for arbitrary two deletions or higher weights, nor an all-optima census.",
+    "An implicit equivalent specialized burst deletion bound in older unindexed coding literature cannot be excluded."
+  ]
+}

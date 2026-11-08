@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof determines the exact error-output sets for weight-two codewords under **exactly two consecutive** deleted coordinates. The marker transformation sends nonadjacent parents to edges/loops on \(n-2\) vertices, where each selected edge consumes all of its marker vertices in weight-one output space. Loops at distance two share a weight-two output. This gives the maximum number \(\alpha_m\) of permitted loops and the sharp \(f(m)\) bound. At most one adjacent parent can be selected, and a boundary adjacent parent achieves the strongest bound. The closed-form construction occupies disjoint markers, avoids the only remaining weight-two collision (translation by two), and is independently replayed from raw deletion balls. Endpoint cases \(n=2,3\) and modulo-four residues have been checked. The finite verifier is supporting evidence, not a substitute for the infinite proof.
+PASS
 
-## Originality — PASS (with limitations)
+Input is weight-two binary words length n≥2 and exactly two consecutive deletions. Nonadjacent ones (i,j), gap≥2, map bijectively to marker edge {i,j−2} on m=n−2 vertices (loops allowed). Each such word produces weight-one outputs at both endpoints, so selected marker edges are vertex-disjoint; loops at positions distance two share a weight-two output. Loop bound is alpha_m=ceil(ceil(m/2)/2)+ceil(floor(m/2)/2); with l loops,e ordinary edges, l+2e≤m, hence l+e≤f(m)=3 floor(m/4)+min(m mod4,2). At most one adjacent-ones word, because adjacent parents all have zero output. Interior adjacent consumes two markers; a boundary adjacent consumes one and leaves f(m−1) nonadjacent slots, giving upper 1+f(m−1)=floor(3(n−1)/4). A closed 4-periodic family with boundary adjacent (0,1), two local loops plus a disjoint ordinary edge per marker block and at most two tail loops achieves the bound, with no shared weight-one or translated-by-two weight-two outputs. n=2 singleton. The proof explicitly handles the exact-burst, not arbitrary two-deletion channel.
 
-Actual searches for constant-weight burst-2 deletion codes and the sharp coefficient were compared with published results and accessible historical mathematical claims. The closest arXiv papers on general consecutive-burst coding [1,2] do not give the fixed-weight-two exact optimum. The closest constant-weight graph method [3] treats **unrestricted deletion locations**, so its theorems do not directly imply this capacity. Previously published finite results for other burst channels and covering-code syndrome sizes likewise are not the stated invariant. A hidden earlier specialization remains a residual bibliographic risk; the searches do not prove absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves a natural sparse-marker exact-burst synchronization-code capacity problem for every block length and gives an explicit optimal family rather than an isolated small case. The graph reduction exhibits why the rate of growth is \(3/4\) codeword per additional source coordinate, with a four-coordinate periodic construction. The exact formula is neither a generic sphere-packing estimate nor a routine substitution into an unrestricted-channel bound.
+Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.
 
-## Scientific limits and relationships
+## value
 
-The theorem does not extend the exact result to arbitrary two-deletion positions, variable-length bursts or other weights. No external independent scientific validation is asserted. Literature comparison focused on [1]–[3], the published related coding records identified in the audit, and their claim implications.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural constant-composition synchronization channel has an exact all-length zero-error packing number, with a genuinely structural marker matching and congruence-four construction. This is useful when sparse event markers, not arbitrary binary inputs, are constrained; it does not depend on a paper-sized larger theorem.
 
-## References
-
-[1] Wang et al., *Non-binary Codes for Correcting a Burst of at Most t Deletions*, arXiv:2210.11818 (2022).
-
-[2] Schoeny et al., *Codes Correcting a Burst of Deletions or Insertions*, arXiv:1602.06820 (2016).
-
-[3] Cullina et al., *Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings*, arXiv:1211.4056 (2012).
+The dated certificate retains the supplied scientific assessment, sources and limitations.
