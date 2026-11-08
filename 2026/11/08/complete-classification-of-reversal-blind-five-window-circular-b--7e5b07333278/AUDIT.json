@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exactly eight of the 32 binary five-bit words are palindromes, leaving 20 reversal classes, hence no distinct-class circular walk exceeds length 20. In the 16-state order-four de Bruijn graph, a valid circular identifier is exactly a closed walk whose edge reversal-class mask has no repeated bit. The deterministic graph-first recursion tests both extensions at every state and all 16 roots up to depth 20; the proved bijection between closed walks and circular words establishes exhaustiveness. It expands 3242 nodes and yields exactly 20 rotation classes with frequencies 2,4,4,4,2,4 at lengths 6,7,8,9,10,12. A separate enumeration of every indexed binary word at all lengths 5..20 agrees exactly. All within-length pairs of observation masks overlap, proving codebook size at most 1, attained precisely at those six lengths. Scripts, exact census, and instructions are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 article optimizes disjoint cycles with ordered windows and separately considers ordinary closed walks when position identification is unnecessary.",
+        "The 2016 paper seeks shortest linear covers of all reversal classes, allowing repeats.",
+        "The orientable-sequence definition expressly excludes palindromic windows, but this claim allows them."
+      ],
+      "reasoning": "These papers cover related but different observation or extremal tasks and their theorems do not dominate the claimed complete cyclic position-only classification. The uninspected 1993 complete text creates residual risk but no established implication.",
+      "searches": [
+        "arxiv:1502.02199 full text Sections 2 and 4.5",
+        "arxiv:1608.08480 full text Sections 1–5",
+        "publication:Orientable-Sequences-1993 bibliographic portal",
+        "doi:10.1007/s00236-026-00528-z definition of orientable sequence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.02199",
+      "arxiv:1608.08480",
+      "publication:Orientable-Sequences-1993",
+      "doi:10.1007/s00236-026-00528-z",
+      "own-ledger:f24a65e3-d9e3-44e7-a87f-1e2262607968",
+      "own-ledger:d2dd86a4-1c28-4c8f-af90-bae220549291"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ordered-window capacity can exceed 1 for the same five-bit read length, while reversal-blind capacity is at most 1; no numeric substitution gives this.",
+        "Unoriented linear covering allows repeat classes, the logical opposite of the at-most-once cyclic condition.",
+        "Strict orientable binary order-five sequences have period at most 6 when palindromes are excluded, while the present admissible word has length 12 with palindromes."
+      ],
+      "reasoning": "Neither prior assertion implies the exact 20-word list or zero/one capacity. The existence of a separate inversion of objective and observation type is not by itself a novelty proof, hence the full-priority caveat remains.",
+      "searches": [
+        "arxiv:1502.02199 Definition 1/Proposition 1/§4.5",
+        "arxiv:1608.08480 Definition uB and Theorem 4.3",
+        "publication:Orientable-Sequences-1993"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A circular word corresponds to a closed de Bruijn walk with distinct labels under the reversal involution; its admissibility is not ordinary directed-vertex simplicity.",
+        "The length-12 word 000100110111 has four palindromic five-windows, distinguishing it from strict orientable sequences."
+      ],
+      "reasoning": "Equivalent de Bruijn-walk and reversal-orbit formulations were explicitly tested in the actual finite search. Neither ordered k-cycle packing nor strict palindrome-free orientability is equivalent to the position-only quotient.",
+      "searches": [
+        "reversal-blind five-window circular marker distinct reversal classes",
+        "arxiv:1502.02199 §2 de Bruijn k-cycles",
+        "arxiv:1608.08480 §§1–2 reversal classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest available internal prior claim f24a65e3-d9e3-44e7-a87f-1e2262607968 concerns ordered window families and gives a different capacity.",
+        "Another prior claim d2dd86a4-1c28-4c8f-af90-bae220549291 counts shortest circular *covers* of all reversal classes, not no-repeat closed walks.",
+        "No matching twenty-necklace table or unoriented position-only capacity result appeared in these actual searches."
+      ],
+      "reasoning": "The search compared the set of windows, allowed repetition, palindromic treatment and exact codebook criterion, not merely titles or the number five. Absence of a search match is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: maximum binary circular length with distinct 5-blocks up to reversal allowing palindrome windows non-directional identifiers 12",
+        "published-finding corpus: binary order-five reversal class distinct substrings circular word length 12 11 impossible",
+        "published-finding corpus: maximum reversible circular binary identifier capacity five-window",
+        "own available current-week ledger claims for reversal, orientable, identifier, five-window"
+      ]
+    },
+    "rationale": "The novelty assessed is the complete cyclic reversal-class-simple five-window word classification and the position-only unoriented codebook capacity, not ordered-window identification or covering all reversal classes. The 2015 robot paper uses ordered reads and, in its alternative §4.5 model, relaxes position rather than read direction. The 2016 unoriented-de-Bruijn paper solves a linear covering problem, not disjoint closed walks. Classical orientable sequences forbid palindromes to determine reading direction; the length-12 witness here uses palindromic windows. A relevant 1993 full text remained unavailable, creating historical-priority risk, but the accessible definition rules out direct coverage of the palindrome-permitting claim.",
+    "residual_risks": [
+      "1993 early orientable-sequences proceedings full text was unavailable; precise historical priority cannot be certified.",
+      "Some public algorithm/data tables could be undiscovered by the targeted searches.",
+      "The direct and graph-based computations are separately implemented but are not externally independently validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": [
+          "Definition 1 and Proposition 1 use ordered five-windows to determine both identity and orientation.",
+          "Section 4.5 permits repeated ordered windows when orientation/position requirements change, not the reversal-equivalence position-only model."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+        "material_read": "Full 16-page PDF available; inspected definition, ordered window/cycle equivalence, Sections 3 and 4 including §4.5, conclusion and scope of theorems",
+        "method": "arXiv OA PDF extraction and visual page inspection",
+        "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles for Robot Identification and Tracking",
+        "trigger": "Same binary five-window robot identification object and k-cycle optimization"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": [
+          "The stated objective is a shortest linear word covering every reversal class.",
+          "Repeated classes are allowed in the nonoptimal constructions, unlike the at-most-once closed-walk condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+        "material_read": "13-page OA PDF; inspected introduction and definitions, de Bruijn graph model, central existence result and suboptimal construction sections",
+        "method": "arXiv OA PDF extraction and visual page inspection",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Same reversal-orbit equivalence on finite words"
+      },
+      {
+        "assessment": "POTENTIALLY_RELATED_FULL_TEXT_UNAVAILABLE",
+        "evidence": [
+          "The classical orientable condition excludes palindromes so as to determine direction, as described in later published works.",
+          "Complete 1993 theorem statements were not independently inspected."
+        ],
+        "identifier_or_url": "https://pure.royalholloway.ac.uk/en/publications/orientable-sequences/",
+        "material_read": "Bibliographic record with author, proceedings, year and pages; full 19-page text not accessible",
+        "method": "Public institutional bibliographic record and arXiv/lawful OA full-text search; institutional-download request was blocked",
+        "title": "Orientable Sequences",
+        "trigger": "Early 1993 position-location and orientation-sensitive sequence tradition"
+      },
+      {
+        "assessment": "RELATED_STRICTER_DIRECTION_MODEL",
+        "evidence": [
+          "Definition expressly excludes length-window palindromes, whereas this theorem allows exactly one instance of a palindrome class."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00236-026-00528-z",
+        "material_read": "Online introduction and Definitions 2.3–2.5 explaining palindrome exclusion and orientation inference",
+        "method": "Open full-text web reading",
+        "title": "New orientable sequences",
+        "trigger": "Modern potentially stronger exact orientable-sequence statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e5b0733-3278-4696-bac1-c1759f5130e9",
+  "value": {
+    "rationale": "The object models a five-symbol circular marker viewed without a trusted reading direction, when only the identity of the observed arc position matters. It is motivated by the difference between orientation-sensitive robot identifiers and reversal-class-based optical reads. The answer is the complete exact possible-circumference set and the entire twenty-word list, plus the sharp maximum possible circumference 12 and the exact codebook capacity for every k>=5. These establish a nontrivial capacity collapse relative to the ordered model and provide a full finite design boundary. The five-symbol read length is the literature’s concrete robot-marking example and not an arbitrary thin slice.",
+    "status": "PASS"
+  }
+}
