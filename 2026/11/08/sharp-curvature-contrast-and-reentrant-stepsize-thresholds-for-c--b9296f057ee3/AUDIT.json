@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Multiplication of exact 2x2 heavy-ball matrices produces determinant beta^2 and trace (1+beta-z)(1+beta-rz)-2beta. With both frozen components Schur stable, all but one Jury inequalities are automatic, leaving the displayed positive quadratic H. Its vertex enters the admissible domain exactly at r=3; optimizing H in interior versus at an excluded endpoint produces the two exact contrast branches meeting at beta=2-sqrt(3). The sign of H at the step ceiling classifies two-interval reentrance; exact roots determine both windows. A rational example has exact matrix and eigenvalues with a negative multiplier of modulus greater than one. The checker verifies symbolic identities and selected samples; infinite parameter claims are proved algebraically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.09912, Introduction equations (1)–(3): one fixed f in the class of L-smooth strongly convex functions; no time-alternating sample objective is assumed.",
+        "arxiv:2206.07553, Introduction equation (Minibatch-HBM), main-results and proof section: independently drawn minibatches across steps and large-batch convergence guarantees.",
+        "arxiv:2301.05799, HB equation and main Lyapunov results: fixed quadratic objective."
+      ],
+      "reasoning": "Even a broad worst-case theorem for one fixed smooth objective does not by itself provide an exact necessary-and-sufficient parameter boundary for a two-oracle time-dependent recurrence. The large-batch independent-noise guarantees do not cover deterministic alternating batches. No stronger implication of the exact threshold was found in the inspected relevant sections.",
+      "searches": [
+        "\"heavy ball\" \"switching\" \"quadratic\" stability",
+        "arxiv:2610.09912 fixed strongly convex objective spectral rate theorem",
+        "arxiv:2206.07553 theorem 4 minibatch independent sampling"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1811.01777",
+      "arxiv:2111.05430",
+      "arxiv:2206.07553",
+      "arxiv:2301.05799",
+      "arxiv:2610.09912",
+      "Published research summary: Three blocks create a sharp momentum stability barrier for cyclic alternating minimization",
+      "Published research summary: Sharp energy-norm stability for two-periodic recurrences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact theorem concerns one scalar coordinate with two different loss curvatures in alternating time, and optimizes over a strict common frozen-stability stepsize interval.",
+        "The 2018 multi-block theorem is about m coordinate blocks and a common f; the 2021 AHB theorem fixes one A; the 2022 minibatch theorem assumes iid draws; the 2026 fixed-objective class is not a schedule of different objectives.",
+        "The indexed three-block momentum result studies exact cyclic alternating minimization with two versus three blocks, not the product A(rz)A(z) of two scalar gradient-heavy-ball matrices."
+      ],
+      "reasoning": "The settings are not interchangeable under title similarity: a convergence claim conditional on a single fixed gradient, a sufficiently large independent batch or coordinate-block minimization does not imply a sharp destabilization contrast of a deterministic component-gradient cycle. No inspected stronger result provides the final iff reentrance and contrast formulas.",
+      "searches": [
+        "arxiv:1811.01777 Theorems 3–4 cyclic coordinate blocks",
+        "arxiv:2111.05430 Theorem 2.3 average heavy-ball fixed Hessian",
+        "arxiv:2206.07553 Theorem 4 independent minibatch",
+        "arxiv:2610.09912 main convergence criterion fixed f",
+        "2026/10/4 three blocks create a sharp momentum stability barrier for cyclic alternating minimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1811.01777, section Cyclic coordinate descent, equation (23): changes coordinate blocks of one fixed objective, rather than the component curvature applied to one scalar variable.",
+        "arxiv:2111.05430, Algorithms 1–2 and equations (7)–(9): one fixed symmetric Hessian and Cesaro output.",
+        "The relevant classical equivalence is a period-two 2-by-2 Floquet monodromy tested by Jury conditions, which is used explicitly in the new proof."
+      ],
+      "reasoning": "The names cyclic momentum and period-two stability are not enough to imply the specific optimizing parameter theorem; checked settings either change coordinate blocks of one objective or use a single Hessian. The Floquet reduction is the starting point rather than a novelty claim.",
+      "searches": [
+        "\"heavy-ball\" \"alternating\" \"curvature\" instability",
+        "\"heavy ball\" \"periodic\" \"strongly convex\" divergence",
+        "period-two damped oscillator discrete recurrence x[k+1]=(1+beta-eta lambda alternating)x[k]-beta x[k-1] matrix product Schur",
+        "arxiv:1811.01777 cyclic coordinate descent Heavy-ball algorithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic research results included three-block cyclic alternating minimization, loopless SVRG on heterogeneous quadratics, and first-order two-periodic recurrence stability; their displayed statements use different operators.",
+        "The inspected primary theorem collections contain no table or exact formula for the contrast barrier (1+beta)^2/(2beta) versus the interior-vertex branch, or the iff reentrance region."
+      ],
+      "reasoning": "Search results are evidence of a bounded lookup, not proof of uniqueness. The closest items were compared by recurrence and quantifier: coordinate-block minimization, estimator variance and first-order scalar recurrences do not directly cover second-order alternating component-gradient HB. A hidden exact literature table is a residual risk.",
+      "searches": [
+        "sharp condition number threshold heavy ball momentum alternating gradient curvature oscillation parametric divergence",
+        "reentrant disjoint learning rate windows periodic incremental heavy-ball method beta alternating two curvatures",
+        "deterministic two-sample cyclic stochastic heavy ball momentum scalar strongly convex quadratics period-two curvature exact stability ratio beta threshold",
+        "\"incremental heavy ball\" alternating two component loss divergence"
+      ]
+    },
+    "rationale": "The exact piecewise momentum-dependent curvature-contrast barrier and the iff condition for two disconnected stable-step windows were not identified in the examined primary descriptions of constant-Hessian HB, independent-minibatch HB, cyclic coordinate-block HB, or fixed-objective worst-case HB. Classical Jury/Floquet algebra is prior mathematics; the assessed additional statement optimizes the two-curvature period-two stability condition over the entire frozen-stable stepsize domain, including the critical vertex/endpoint transition and neutral boundaries. This is a qualified bounded novelty conclusion.",
+    "residual_risks": [
+      "Classical damped Hill/Floquet theory or unindexed work on cyclic incremental heavy-ball may already contain an equivalent optimized parameter phase diagram.",
+      "A separate published theorem with a different normalization or dual control formulation may imply this result; the searches were bounded.",
+      "Independent literature and mathematical audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different cyclic algorithm and different coordinate-vs-sample-curvature object; not a direct implication",
+        "evidence": [
+          "Equation (23) changes coordinate block index on a fixed global f",
+          "Theorem 4 proves constrained step-size linear convergence for that block scheme"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.01777",
+        "material_read": "Abstract, Introduction, cyclic coordinate-descent scheme (23), Lemmas 3–4, Theorems 3–4, stochastic coordinate theorems and end sections",
+        "method": "Accessible arXiv full-text HTML extraction and section-level comparison",
+        "title": "Non-ergodic Convergence Analysis of Heavy-Ball Algorithms",
+        "trigger": "Potential coverage by cyclic heavy-ball updates"
+      },
+      {
+        "assessment": "Analyzes one fixed objective and fixed Hessian, not an alternating sample-gradient Floquet matrix",
+        "evidence": [
+          "Algorithm 2 averages HB iterates",
+          "Equations (7)–(9) use powers of one fixed matrix T"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05430",
+        "material_read": "Introduction, Algorithms 1–2 and 4, equations (7)–(9), section 2 quadratic results, section 3 theorems and stated restrictions",
+        "method": "Accessible arXiv full-text HTML extraction and theorem-equation comparison",
+        "title": "Averaged Heavy-Ball Method",
+        "trigger": "Same classical momentum recurrence and potential averaging coverage"
+      },
+      {
+        "assessment": "Independent draw and sufficient batch-size bounds, not deterministic two-periodic two-sample instability threshold",
+        "evidence": [
+          "Introduction defines iid minibatches with replacement",
+          "Main convergence theorem requires sufficiently large minibatch",
+          "Proof uses independence of draws"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+        "material_read": "Introduction, minibatch update and sample-independence assumptions, main statements, constant-Hessian diagonalization, proof and numerical experiments",
+        "method": "Accessible arXiv full-text HTML extraction, sampled-index and theorem comparison",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Closest sampled-momentum primary paper"
+      },
+      {
+        "assessment": "Fixed objective and Lyapunov rate, not variable component curvature",
+        "evidence": [
+          "HB equation uses one gradient f",
+          "Main guarantee is on convex fixed quadratics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.05799",
+        "material_read": "Introduction, HB update and fixed-quadratic setting, stated Lyapunov theorem",
+        "method": "Accessible arXiv full-text HTML extraction",
+        "title": "An Accelerated Lyapunov Function for Polyak's Heavy-Ball on Convex Quadratics",
+        "trigger": "Possibly stronger quadratic HB convergence/invariants"
+      },
+      {
+        "assessment": "Theorems concern a single fixed smooth strongly convex function and arbitrary fixed parameters, not deterministic alternation between two sample objectives",
+        "evidence": [
+          "Problem setting explicitly fixes f in F_mu,L",
+          "Fixed-f spectral interpolation and cyclic trajectory results do not state the time-dependent two-oracle contrast formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09912",
+        "material_read": "Abstract, introduction, problem setting equations (1)–(3), described spectral characterization and theorem scope",
+        "method": "Accessible arXiv full-text HTML extraction and scope comparison",
+        "title": "Two Answers on Heavy-Ball Dynamics",
+        "trigger": "Contemporary broad worst-case HB result might dominate a narrower formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9296f05-7ee3-4e62-a8b3-004b0cdae91d",
+  "value": {
+    "rationale": "This is a complete and sharp stability phase diagram of a natural two-sample cyclic incremental momentum algorithm, not just a perturbative or isolated unstable example. The momentum threshold beta=2-sqrt(3) separates regimes with and without possible disconnected safe learning-rate windows; a fully explicit strongly convex sample pair reverses the intuition that smaller steps within the individually safe interval must be safer. The exact factor and threshold support momentum tuning and robust scheduling benchmarks without requiring an unjustified nonlinear extension.",
+    "status": "PASS"
+  }
+}
