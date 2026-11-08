@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The admissible-center lens reduces the all-dimensional problem to a two-dimensional meridian: the farthest center can be chosen in the meridian plane. Circle tangency yields the exact two-arc profile, slice integration yields the volume, and strict hull inclusion yields invertibility. The terminal coefficient follows by a first-order beta-integral for the hull volume and a second-order expansion of the terminal radius. Numerical checks are supporting evidence only.
+## correctness
 
-**Originality: PASS, provisional.** The 2026 source supplies the illumination-body definition and a small-volume asymptotic, not the entire finite-volume calibration or the maximal-increment quadratic limit. A known planar ball-plus-point formula is excluded from the contribution. Bezdek's earlier spindle volume comparisons do not imply the exact profile. Search records did not reveal a dominating all-dimensional theorem. Older unindexed spindle calculations remain a priority risk.
+PASS
 
-**Value: PASS.** Full finite-increment inversion and a sharp terminal beta-function law answer a natural calibration question for a newly introduced ball-convex geometric functional, for every dimension at least three. This is more than an evaluation at a single parameter. The result does not generalize to non-spherical inputs.
+Admissible covering radius-R centers form lens B(0,R−r)∩B(se1,R). For an arbitrary transverse point, extremal centers reflect into its meridian plane without changing lens membership, reducing all n-dimensional hull sections to planar tangent-circle arcs. Derived the stated two-piece cross-section radius: original r-circle for z≤−r cosα and shifted R-circle above it until sα, integrated via Cavalieri to obtain Vn(α). Convex hull inclusion yields strict volume monotonicity. At α→0, s0−sα=[(R−r)(2R−r)/(2R)]α²+O(α⁴); differentiating under the integral gives Vn(0)−Vn(α)=Tn α+o(α), Tn=(R−r)(n−1)κ_{n−1}R^(n−1)B(1/2,n/2)>0. Elimination produces both sharp terminal limits. Independently checked n=3, R=2,r=1 numerical quadrature and T3=π²(R−r)R²; finite checks corroborate but do not prove the theorem.
 
-Independent external mathematical validation has not occurred. Scientific priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the available Oliva–Werner–Yalikun summary establishes radius-R illumination bodies and initial/small-increment theory, while the present complete finite ball input profile and sharp terminal quadratic asymptotic were not demonstrated as consequences of any accessed theorem. Full relevant primary article remained inaccessible (including Oxford VPN blocker); priority risk expressly retained rather than treated as automatic failure.
+
+## value
+
+PASS
+
+This is an exact all-increment radial profile and a sharp terminal exponent for the simplest canonical input of a newly defined geometric body, connecting meridian spindle geometry and dimension-dependent volume asymptotics. It is independently useful even without extending to arbitrary convex bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
