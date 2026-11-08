@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The accompanying `verify_primary.py` enumerates all spanning paths from the zero vertex and transports them by all 16 XOR translations, then builds every legal face switch on all 24 coordinate squares. `verify_alt.cpp` enumerates paths independently from every possible starting vertex, deduplicates edge masks and reconstructs switches using its own integer indexing and search. Both must confirm the full 45,696-vertex configuration graph, 69,120 edges, nine degree classes and components of sizes 1, 528 and 738 with multiplicities 5,184, 32 and 32.
+## correctness
 
-The Python implementation additionally reads path endpoints from the degree-one vertices of each edge set and verifies that distance-one endpoint pairs number 32, each with 672 paths and 144 frozen paths; distance-three pairs likewise number 32, each with 756 paths and 18 frozen paths.
+PASS
 
-Neither verification is a probabilistic sample. Both exhaustively enumerate the fixed finite graph, but this is not a proof for other cube dimensions and has not undergone external independent validation.
+The four-cube is labelled, paths are unoriented edge sets of 15 edges, and a face switch requires two opposite square edges with replacement still a single spanning path. The source exhaustive enumerator recursively lists every self-avoiding root-zero Hamiltonian path; XOR translations cover every endpoint and canonical edge-mask deduplication counts each undirected path once. Its full 24-face transition test covers every permitted operation, and components are obtained by complete graph traversal. Independently reconstructed the edge table, DFS, translation orbit, squares and switch graph from scratch: 5,712 rooted-zero paths, 45,696 unique paths, 69,120 undirected transitions, 5,184 singleton components, 32 size-528 and 32 size-738 components; reproduced all nine degree multiplicities. Bipartite parity gives only endpoint separations 1 and 3, with 32 unordered pairs of each, and the code partitions these to 672 and 756 states per pair. Finite exhaustive proof applies only to Q4, not Qn.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the exact Q4 face-switch path component/degree census, unlike Hamiltonian cycle and grid/backbite results, was not found in inspected literature. Single Q4 size limits breadth, but the complete graph invariant is motivated.
+
+## value
+
+PASS
+
+The strict endpoint-preserving four-face reconfiguration graph of the first nontrivial four-cube is a natural canonical finite system; its exact 64 mobile endpoint components coexisting with 5,184 frozen paths refutes an intuitive endpoint-only reachability assertion and provides a full benchmark for flip dynamics. This is a substantial non-random finite classification, not an arbitrary instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

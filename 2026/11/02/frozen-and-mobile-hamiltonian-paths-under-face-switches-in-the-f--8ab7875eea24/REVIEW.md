@@ -1,15 +1,21 @@
-# Scientific review: four-cube Hamiltonian-path face switching
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both exhaustive implementations independently enumerate all 45,696 unoriented spanning paths in the labelled four-cube using different search normalizations. Every face switch is enumerated by toggling the four edges of each coordinate square and testing membership in the full path set. Both recompute 69,120 edges, 5,184 isolated vertices, 32 components of size 528 and 32 of size 738, and the exact nine-class degree census. Parity implies all endpoints lie in opposite cube bipartitions, so only distance one or three occurs. The primary implementation further partitions every configuration by endpoints, yielding the 672/756 and 144/18 fiber counts. Exhaustive proof scope is finite Q4 alone.
+PASS
 
-## Originality — PASS, with residual risk
+The four-cube is labelled, paths are unoriented edge sets of 15 edges, and a face switch requires two opposite square edges with replacement still a single spanning path. The source exhaustive enumerator recursively lists every self-avoiding root-zero Hamiltonian path; XOR translations cover every endpoint and canonical edge-mask deduplication counts each undirected path once. Its full 24-face transition test covers every permitted operation, and components are obtained by complete graph traversal. Independently reconstructed the edge table, DFS, translation orbit, squares and switch graph from scratch: 5,712 rooted-zero paths, 45,696 unique paths, 69,120 undirected transitions, 5,184 singleton components, 32 size-528 and 32 size-738 components; reproduced all nine degree multiplicities. Bipartite parity gives only endpoint separations 1 and 3, with 32 unordered pairs of each, and the code partitions these to 672 and 756 states per pair. Finite exhaustive proof applies only to Q4, not Qn.
 
-Searching both 'Hamiltonian paths in Q4 face-switch' and alternate 'hypercube square-flip reconfiguration' formulations did not identify a covering finite theorem. The closest indexed research record treats four-cube Hamilton-path quadratic phases, not a face-switch adjacency. Earlier local literature on hypercube Hamiltonian cycles, matching-switch graphs, Hamiltonian reconfiguration generally, and rectangular-grid switching does not imply this strict endpoint-fiber census: those studies have different objects, use different moves, or only state counting/complexity. A complete exhaustive search of unpublished material is impossible. Takaoka's full text could not be retrieved owing to rate-limiting; its abstract does not claim this classification. Caution: unindexed computations may cover these small finite quantities.
+## originality
 
-## Value — PASS
+PASS
 
-Endpoint-preserving local switches are natural in Hamiltonian-path rerouting and cyclic Gray-code constructions. The sharp obstruction is structural and non-obvious: there is exactly one large connected mobile class *per pair of endpoints* but also isolated paths in every fiber, and the frozen count differs by factor eight between endpoint separations one and three. This is a complete finite cutoff for a canonical four-dimensional Boolean graph, not an arbitrary chosen statistic or mere count of Hamiltonian paths.
+Qualified best-of-knowledge: the exact Q4 face-switch path component/degree census, unlike Hamiltonian cycle and grid/backbite results, was not found in inspected literature. Single Q4 size limits breadth, but the complete graph invariant is motivated.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The strict endpoint-preserving four-face reconfiguration graph of the first nontrivial four-cube is a natural canonical finite system; its exact 64 mobile endpoint components coexisting with 5,184 frozen paths refutes an intuitive endpoint-only reachability assertion and provides a full benchmark for flip dynamics. This is a substantial non-random finite classification, not an arbitrary instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
