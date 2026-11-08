@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact path component decomposition into independent truncated runs yields the full variance polynomial. For every a<c, the raw difference has coefficient signs negative, then nonnegative, then nonpositive; division by 1-p converts to cumulative coefficients with exactly one sign change. Descartes gives at most one positive root; the small-p leading coefficient and strictly convex near-p=1 square-sum establish existence and strict direction, hence simplicity. Expected outbreak ordering follows from paired geometric powers. Independent complete edge-state moment calculations matched 75 polynomials and the finite sign certificate was verified for 2,870 pairs, with no finite enumeration used as proof of the general statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharkey et al., doi:10.1007/s11538-013-9923-5, prove pair-based exact dynamics for Markovian tree SIR time series, not a percolation path variance-order comparison.",
+        "Lančić et al., arXiv:0912.0630, study epidemic-range/size phase diagrams and m-ary trees; the relevant sections do not assert all-pairs path source variance crossings.",
+        "Broad exact moment machinery alone could be specialized to compute the two variances, but does not imply uniqueness of their crossover without the sign-variation theorem."
+      ],
+      "reasoning": "Broader epidemic models and moment-recurrence theorems were compared at the level of implications. The candidate quantifies a stronger algebraic property (exactly one zero in every pairwise difference) not forced by having formulas or numerical distributions.",
+      "searches": [
+        "tree graph SIR epidemic path distribution epidemic size variance source location bond percolation",
+        "epidemic final size variance path network initial infected vertex position percolation cluster",
+        "Sharkey Kiss Wilkinson Simon Exact Equations SIR epidemics tree graphs full text PMC"
+      ]
+    },
+    "checked_sources": [
+      "C. Moore and M. E. J. Newman, arXiv:cond-mat/0001393 (2000-01-26), full preprint",
+      "A. Lančić et al., arXiv:0912.0630 (2009-12-03), full preprint text",
+      "M. Šikić et al., arXiv:1110.2558 (2011-10-12), full preprint text",
+      "K. J. Sharkey et al., doi:10.1007/s11538-013-9923-5 (2013-12-18), open access full article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Šikić et al., arXiv:1110.2558, derive a parameter-dependent comparison of mean outbreak impacts in a different star-chain graph and do not provide a path-variance uniqueness theorem.",
+        "Lančić et al., arXiv:0912.0630, show simulated variance regimes and an m-ary-tree model, but do not state the pairwise finite-path crossover result.",
+        "Related previous finite-path results with uniformly random seed describe between-indicator covariance, a distinct conditionalization and statistic; complete-bipartite source variance reversal is for a distinct graph family."
+      ],
+      "reasoning": "Mean ranking reversal cannot imply variance ranking reversal, nor can a single example imply one crossing for every pair of seed positions and every path order. General cluster generating functions imply computability but not the all-parameter root-count bound. The current proof supplies a dedicated three-region coefficient-sign argument.",
+      "searches": [
+        "Epidemic centrality - is there an underestimated epidemic impact of network peripheral nodes? arxiv 1110.2558",
+        "Phase diagram of epidemic spreading unimodal vs bimodal probability distributions arxiv 0912.0630",
+        "for each pair of seed positions along a finite path the outbreak size variance order reverses exactly once as bond occupation p increases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The independent left/right truncated-geometric run model is an exact equivalent formulation, proved by edge-disjointness.",
+        "Moore and Newman, arXiv:cond-mat/0001393, treat local cluster generating functions and outbreak distributions, but not every prescribed source on a finite path.",
+        "No inspected equivalent formulation included the single variance crossing for arbitrary two prescribed seed positions."
+      ],
+      "reasoning": "Equality of path cluster size and two independent edge runs is explicitly acknowledged; the new contribution is not this equality but its exact full pairwise one-crossing variance consequence. Search results and the inspected primary sources do not establish a matching statement, even after translating vertex positions to truncated-geometric arm lengths.",
+      "searches": [
+        "percolation path rooted component variance polynomial single crossing for more central versus more peripheral vertex",
+        "variance of sum of independent truncated geometrically distributed run lengths on a path polynomial Descartes sign",
+        "finite path bond percolation cluster size variance root vertex source outbreak variance 1D exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite path variance polynomial is elementary and independently derived; no inspected table provided all location-pair crossing counts or exact crossover polynomials.",
+        "The six-vertex example was computed directly from the universal polynomial identity rather than reproduced from a known database."
+      ],
+      "reasoning": "The claimed object is a universal algebraic ordering property, not an isolated polynomial coefficient or table entry. No matching exact crossing table or sequence appeared in the inspected sources or searches; lack of an indexed match does not itself prove nonpublication.",
+      "searches": [
+        "rooted percolation cluster path vertex variance seed placement maximum",
+        "random percolation path vertex position variance finite linear chain outbreak cluster size",
+        "outbreak variance source position finite chain all pair unique thresholds geometric truncation"
+      ]
+    },
+    "rationale": "The complete pairwise and exactly-once variance-order transition was not found in the actual scholarly searches, ranked research records, or directly read related primary materials. The exact model identity is classical, but a three-region polynomial coefficient theorem supplies a distinct new all-positions statement. Past work on uniform-source path covariances, complete-bipartite variance reversals, and mean-impact reversal was compared by logical implication and does not cover the result. Historical priority remains provisional.",
+    "residual_risks": [
+      "An older source may have described exact variance crossing for two truncated-geometric sums in probabilistic rather than epidemiological terms.",
+      "Search coverage, especially historical print literature and nonindexed tables, is not exhaustive.",
+      "Novelty has not been independently established by a specialist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new pairwise theorem: random-site and large-system cluster distributions and small-world shortcuts, not fixed-source finite-path variance comparisons",
+        "evidence": "The paper defines P(n) for a uniformly sampled site and treats large-size local clusters; does not make the fixed-pair exact one-zero claim.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0001393",
+        "material_read": "Public arXiv full PDF, introduction and local-cluster derivations including bond-percolation section and conclusions (13 pages; textual extraction and page images)",
+        "method": "Read publicly available primary manuscript with its section formulas and scope",
+        "title": "Exact solution of site and bond percolation on small-world networks",
+        "trigger": "Classical 1D bond-percolation outbreak cluster calculations, mean and variance"
+      },
+      {
+        "assessment": "NOT_COVERING: simulated dispersion and m-ary tree branching process, no fixed-seed all-pair path variance algebra",
+        "evidence": "Section II shows standard-deviation simulations and Section III investigates epidemic range on m-ary trees; source location effects noted as future work.",
+        "identifier_or_url": "https://arxiv.org/abs/0912.0630",
+        "material_read": "Public arXiv manuscript full-text sections II on variance/phase diagrams and III on m-ary trees",
+        "method": "Read full-text HTML rendition of primary preprint",
+        "title": "Phase diagram of epidemic spreading—unimodal vs. bimodal probability distributions",
+        "trigger": "Older epidemiological work explicitly examining spread-size standard deviations and tree-like contact networks"
+      },
+      {
+        "assessment": "NOT_COVERING: mean-impact ranking on a three-hub tree differs from path final-size variance and its universal one-crossing quantifier",
+        "evidence": "Analytic section explicitly compares E(Y1) and E(Y2); no variance formula or all-pair crossing statement.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.2558",
+        "material_read": "Full HTML text, introduction, source-dependent analytic example, mean-impact formulas, phase diagram and discussion",
+        "method": "Read primary preprint full-text HTML; searched its text for variance and studied analytical example",
+        "title": "Epidemic centrality—is there an underestimated epidemic impact of network peripheral nodes?",
+        "trigger": "Most plausible prior source-ranking reversal result"
+      },
+      {
+        "assessment": "NOT_COVERING: exact dynamic expectations for Markovian tree SIR, not single-seed final percolation component variance pairwise zero counts",
+        "evidence": "Main theorem concerns exact pair-based closure yielding expected infectious time series; the model also allows dependence across transmissions from one infected vertex.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "Open-access full-text article, introduction, main theorem, three-node equations and general closure proof sections",
+        "method": "Read primary HTML scientific equations and explanatory sections",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "Potential dominating exact-on-trees probability-equation framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "baeb0675-150a-4d4a-aec6-a5f2f98d0baa",
+  "value": {
+    "rationale": "The result gives a complete pairwise ordering phase diagram for outbreak-size uncertainty on the natural finite linear contact network, contrasting mean burden (always larger nearer the center) with variance (which always switches ranking exactly once). It is not an arbitrary finite numerical example: it holds simultaneously for every network length and every two nonreflection-equivalent seed positions, and its polynomial sign technique explains the mechanism. It can inform comparisons of seed-location risk metrics while illustrating limits of ranking by mean alone.",
+    "status": "PASS"
+  }
+}
