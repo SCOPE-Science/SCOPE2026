@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact original N×N Gabor matrix Fourier orthogonality yields p disjoint 2×2 Gram operator blocks with correct wrap-around swap. The rate-four complex Wishart survival law is exact. For adjacent indicators a conditional Gaussian decomposition gives O(epsilon^2(1+|log epsilon|)) joint small-eigenvalue bound; other blocks are independent beyond cyclic nearest neighbors. The standard dependency-graph Chen–Stein inequality gives total variation O_t(log p/p) at epsilon=t/p and the independent nonadjacent subfamily bounds the tails sufficiently to justify all r>0 moments. Direct saved-package full-matrix and statistical checks were run, but numerical simulations are not the infinity proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salanevich (2019) treats random time-frequency matrices and upper/lower singular-value bounds under different randomization; the structured full-modulation case has no matching rate-four hard-edge law.",
+        "Salanevich and Strachan (2025) treat robustness and probabilistic frame bounds, not Poisson limits at square critical sampling."
+      ],
+      "reasoning": "Qualitative singular-value concentration and volume central limits do not imply the precise rare near-singularity count or its fixed-t error. The inspected stronger-looking results impose different regimes or conclusions.",
+      "searches": [
+        "Log-determinant central limit Gaussian cyclic 2p Gabor two translations p even modulations",
+        "Gaussian square Gabor matrix 2p with modulation subgroup 2Z min eigenvalue exponential limit",
+        "arXiv:1902.01062 Theorems 2.2-2.3 and Section 3",
+        "arXiv:2509.01325 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.16139 Theorem 1.1 Sections 3 and 5",
+      "arXiv:2509.01325 Sections 4-6",
+      "arXiv:1902.01062 Theorem 2.3 and Section 3",
+      "arXiv:1310.2467 abstract",
+      "doi:10.1214/aop/1176991491"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The finite-Gabor block-equivalence result explains how to obtain 2x2 fibers, but gives no distribution for their dependent minimum.",
+        "The same Gaussian Gabor model has a previously studied log determinant (volume) and Gaussian CLT; those do not bound the smallest eigenvalue sharply.",
+        "arXiv:1902.01062 focuses random frame index selection and alternative random windows, and gives non-sharp high-probability inequalities."
+      ],
+      "reasoning": "Deriving the claim needs an exact hard-edge block law, a rare-event adjacent pair estimate and a locally-dependent Poisson approximation. These are not implied by the stated antecedents.",
+      "searches": [
+        "Poisson hard-edge law correlated Gaussian cyclic Gabor basis two adjacent time translations even modulation frequencies minimum lower frame bound",
+        "Log-determinant central limit Gaussian cyclic 2p Gabor two translations p even modulations",
+        "Gaussian square Gabor matrix 2p with modulation subgroup 2Z min eigenvalue exponential limit",
+        "Random block-equivalent Gabor frame Gaussian asymptotic condition number square frames",
+        "arXiv:2605.16139 Theorem 1.1",
+        "arXiv:2509.01325 Section 4-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The object is an extremal singular value of a single random square Gabor matrix, equivalently the minimum of p cyclically one-dependent 2x2 Gaussian Gram eigenvalues.",
+        "arXiv:2605.16139 gives subgroup block equivalence, without random extreme limits."
+      ],
+      "reasoning": "The identical mathematical object arises by both time-frequency frame and sliding Wishart formulations. No matching theorem with the rate-four limit or dependency-graph error was identified in searched sources.",
+      "searches": [
+        "Poisson hard-edge law correlated Gaussian cyclic Gabor basis two adjacent time translations even modulation frequencies minimum lower frame bound",
+        "Smallest singular value random Gabor block 2 by 2 complex Wishart adjacent correlated blocks Poisson distribution",
+        "complex Gaussian 2x2 Wishart minimum over overlapping cyclic Gram matrices",
+        "arXiv:2605.16139 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical complex Wishart formulas give the exact one-block survival e^{-4epsilon}.",
+        "The dependency structure overlaps adjacent fibers, and the new claim takes a minimum of p correlated blocks."
+      ],
+      "reasoning": "An exact formula for a single random 2x2 Gram block is strictly weaker than the p-dependent cyclic extreme-value limit. The found mathematical-record matches concern other Gabor dimensions/windows and do not tabulate the claimed dependent-block law.",
+      "searches": [
+        "Overlapping complex 2 by 2 Wishart Gram minimum eigenvalue dependent Poisson rare-event counts",
+        "Critical random finite cyclic Gabor frame, independent complex Gaussian window, two adjacent translations and subgroup even modulations; asymptotic smallest eigenvalue exponential law",
+        "arXiv:1310.2467",
+        "complex Wishart square smallest eigenvalue density 2 by 2"
+      ]
+    },
+    "rationale": "Inspected the closest subgroup finite-Gabor structural theorem (arXiv:2605.16139, Theorem 1.1 and Section 5), two random finite-Gabor studies (arXiv:1902.01062 Section 2-3 and arXiv:2509.01325 Section 4-6), and relevant Wishart/Poisson theory. None of the inspected claims yields the sharp rate-four minimum law with the dependent cyclic block count and positive-moment convergence. A known log-volume theorem on the exact same model is distinct and insufficient for the minimum. Residual risk remains for independently indexed overlapping-Gram extreme-value results.",
+    "residual_risks": [
+      "A separately indexed theorem on extremes of correlated two-by-two sliding complex Gaussian Gram matrices could imply the law.",
+      "The accessible manuscript arXiv:2605.16139 was revised after its first public posting; earliest public date is attached to its original v1.",
+      "Publication priority has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives deterministic block equivalence and frame criteria; does not analyze independent Gaussian windows, dependent block minima, Poisson limits or all positive moments.",
+        "evidence": [
+          "arXiv:2605.16139, Theorem 1.1; Sections 3 and 5"
+        ],
+        "identifier_or_url": "arXiv:2605.16139v1; https://arxiv.org/pdf/2605.16139",
+        "material_read": "Theorem 1.1, introductory setup, finite Gabor notation and block decomposition in Sections 3 and 5 of accessible revised manuscript",
+        "method": "Primary PDF page text and relevant page images",
+        "title": "Block-equivalent finite Gabor frames",
+        "trigger": "Exact two-translation and modulation-subgroup block reduction"
+      },
+      {
+        "assessment": "Estimates frame bounds and robustness in different finite Gabor ensembles; no rate-four Poisson hard-edge law for a square overlapping 2x2 Gram block cycle.",
+        "evidence": [
+          "arXiv:2509.01325, Sections 4-6"
+        ],
+        "identifier_or_url": "arXiv:2509.01325v1; https://arxiv.org/pdf/2509.01325",
+        "material_read": "Introductory results and random-frame-bounds parts of Sections 4-6 and supporting definitions",
+        "method": "Primary PDF sections and page images",
+        "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+        "trigger": "Closest random finite-Gabor frame-bounds results"
+      },
+      {
+        "assessment": "Random subframe selection and Steinhaus windows give different frame-bound statements; does not imply a correlated Gaussian hard-edge Poisson limit.",
+        "evidence": [
+          "arXiv:1902.01062, Theorem 2.3, Proposition 3.1"
+        ],
+        "identifier_or_url": "arXiv:1902.01062v1; https://arxiv.org/pdf/1902.01062",
+        "material_read": "Theorem 2.3 and Section 3 discussion of structured frame sets and bounds",
+        "method": "Primary PDF text and page image (PDF page six)",
+        "title": "Extreme Singular Values of Random Time-Frequency Structured Matrices",
+        "trigger": "Existing probabilistic lower singular-value results for random Gabor matrices"
+      },
+      {
+        "assessment": "No claim of no coverage for unread full text; general Wishart calculations encompass one block, not obviously the overlapping cyclic Poisson law.",
+        "evidence": [
+          "arXiv:1310.2467 abstract"
+        ],
+        "identifier_or_url": "arXiv:1310.2467; https://arxiv.org/abs/1310.2467",
+        "material_read": "Title and abstract only",
+        "method": "Abstract metadata; not a full-text inspection",
+        "title": "Distribution of the smallest eigenvalue in complex and real correlated Wishart ensembles",
+        "trigger": "Single-block hard-edge distributions may be classical"
+      },
+      {
+        "assessment": "General probabilistic tool, does not itself supply the model-specific adjacent-pair bound or rate.",
+        "evidence": [
+          "Arratia–Goldstein–Gordon (1989), two-moment Poisson bound"
+        ],
+        "identifier_or_url": "doi:10.1214/aop/1176991491",
+        "material_read": "Bibliographic record and theorem-level statement",
+        "method": "Primary theorem citation / standard application",
+        "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+        "trigger": "The dependency-graph two-moment inequality used in proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5414bc3b-775a-4e9a-9038-e402a1e39abf",
+  "value": {
+    "rationale": "The least eigenvalue of a square random Gabor frame operator is the exact lower frame constant controlling inverse stability and worst-case noise amplification. A sharp dimension-scaled rate-four law, quantitative Poisson count despite overlapping Gaussian fibers, and convergence of all positive moments address reconstruction stability not characterized by block-existence or log-volume literature. Its specialized Gaussian geometry and absence of universality claims are acknowledged.",
+    "status": "PASS"
+  }
+}
