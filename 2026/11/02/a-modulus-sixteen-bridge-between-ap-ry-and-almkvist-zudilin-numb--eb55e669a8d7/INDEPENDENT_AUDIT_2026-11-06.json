@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:17:43.216537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=0, Apéry A(n)=Σ binom(n,k)^2binom(n+k,k)^2 and signed AZ B(n)=Σ_{k<=n/3}(-3)^(n−3k)binom(n,3k)binom(n+k,k)binom(2k,k)binom(3k,k). Legendre ν2(binomial(2k,k))=s2(k) and Lucas yield the known A(n)≡1+4β(n) mod16. Chan–Zudilin exact alternate AZ expansion has kth multiplier (4k)!/(k!)^4 with ν2=3s2(k), so only k=0 and 2^j survive mod16. For k=2^j the factor mod16 is 8, and Lucas gives B(n)≡1+4n+8H(n), where H(n) parity of sum bits (n+3·2^j)_(j+2). Binary carry algebra gives 2H(n)≡n+β(n) mod4, so B(n)≡1+4β(n)+8n≡A(n)+8n mod16. Arbitrary candidate period d has even multiple a=2^r(2^s−1), choose n=2^k far higher: β(n)=2, β(n+a)=4, residues differ 8, ruling out eventual periodicity. Independent direct binomial-definition checks for n=0..14 passed; original verify.py independently compares two B formulas n<=256 and binary carry n<100000, but these bounded checks do not establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chan–Zudilin Theorem 2.2 provides broad generating function transformations and Corollary 4.3 a second binomial expansion.",
+          "Sun Eq. (5.2) reproduces the AZ expansion, Liu studies separate binomial transforms."
+        ],
+        "reasoning": "Exact generating functions encompass more structural relations but do not by themselves supply or simplify the stated mod16 same-index difference; all such premises are explicitly credited.",
+        "searches": [
+          "doi:10.1112/S0025579309000436",
+          "arxiv:1302.1715",
+          "arxiv:2406.18059"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1112/S0025579309000436",
+        "arxiv:1302.1715",
+        "arxiv:1310.8635",
+        "arxiv:1508.00297",
+        "arxiv:2406.18059",
+        "2026/9/19/SCOPE-boundary-parity-reduction-modular-laplacian--329faea3aeba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published exact AZ second representation plus A(n) binary run formula are sufficient premises to compute the bridge after valuation analysis.",
+          "The new binary identity H(n)≡(n+β(n))/2 mod2 is needed to turn two different filtrations into a simple congruence."
+        ],
+        "reasoning": "Prior theorems enable a proof but do not state the simple cross-sequence equality or B mod16 nonperiodicity; do not relabel their underlying expansions as new.",
+        "searches": [
+          "doi:10.1112/S0025579309000436",
+          "arxiv:1310.8635",
+          "arxiv:1508.00297"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi Theorems 3.28–3.29 give A(n) modulo16 binary block formula and nonperiodicity, already known.",
+          "Malik–Straub Theorem 5.3 gives AZ mod8 periodicity; signed normalization matters."
+        ],
+        "reasoning": "The new statement compares B(n) to A(n) at the same n with difference 8n mod16, neither covered by A-alone formula nor B-alone mod8 periodicity.",
+        "searches": [
+          "Apery Almkvist Zudilin modulo sixteen congruence B(n)-A(n) 8n binary blocks",
+          "arxiv:1310.8635",
+          "arxiv:1508.00297"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published mod16 Apéry table and mod8 AZ behavior are established.",
+          "Resultary query yielded unrelated modular records, not same-index B−A=8n mod16."
+        ],
+        "reasoning": "No source examined supplies this coefficientwise mod16 bridge. A negative index search does not establish absolute novelty.",
+        "searches": [
+          "Apery Almkvist Zudilin modulo sixteen congruence B(n)-A(n) 8n binary blocks",
+          "arxiv:1310.8635",
+          "arxiv:1508.00297"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the precise claim; general ingredients and prior examples credited. Full-text gaps and implication risks listed explicitly.",
+      "residual_risks": [
+        "An equivalent coefficientwise mod16 relation might be buried in earlier automatic-sequence/congruence literature.",
+        "Result depends on signed B normalization; unsigned Z has an extra (−1)^n factor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "second B expansion is entirely prior; no same-index mod16 bridge in inspected section",
+          "evidence": "Chan–Zudilin 2010 Corollary 4.3",
+          "identifier_or_url": "doi:10.1112/S0025579309000436",
+          "material_read": "complete lawful open PDF at https://mrc.sdu.edu.cn/ziliao/60.pdf; Theorem 2.2, Corollary 4.3",
+          "method": "full primary PDF, relevant theorem sections read",
+          "title": "New representations for Apéry-like sequences",
+          "trigger": "exact alternative AZ binomial sum and broad transforms"
+        },
+        {
+          "assessment": "A mod16 and nonperiodicity known; not B−A coefficientwise claim",
+          "evidence": "Theorems 3.28–3.29",
+          "identifier_or_url": "arxiv:1310.8635",
+          "material_read": "complete accessible primary PDF, Theorems 3.28–3.29",
+          "method": "full PDF and theorem pages inspected",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "previously known Apéry binary runs congruence"
+        },
+        {
+          "assessment": "mod8 law rather than mod16 bridge",
+          "evidence": "Theorem 5.3",
+          "identifier_or_url": "arxiv:1508.00297",
+          "material_read": "accessible complete PDF, Theorem 5.3",
+          "method": "full preprint relevant theorem inspected",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "AZ mod8 periodicity prior"
+        },
+        {
+          "assessment": "known alternative expansion, not claimed novel",
+          "evidence": "Eq. (5.2)",
+          "identifier_or_url": "arxiv:1302.1715",
+          "material_read": "complete accessible preprint, definition (1.3), equation (5.2)",
+          "method": "full primary PDF and relevant formula read",
+          "title": "Congruences for Domb and Almkvist-Zudilin numbers",
+          "trigger": "same AZ representation and modular congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This explicit cross-sequence arithmetic bridge is a natural unknown relation between two much-studied Apéry-like sequences; the coefficientwise modulus16 result identifies a sharp transition in AZ residue dynamics from known mod8 periodicity to non-eventual periodicity. It is not just a rephrasing of either one-sequence congruence; it uses valuations and a nontrivial binary-carry identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1112/S0025579309000436",
+    "arxiv:1302.1715",
+    "arxiv:1310.8635",
+    "arxiv:1508.00297",
+    "arxiv:2406.18059",
+    "2026/9/19/SCOPE-boundary-parity-reduction-modular-laplacian--329faea3aeba"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only these definitions for signed AZ and Apéry, indices n>=0 and modulus16; not a classification modulo higher powers.",
+    "An equivalent coefficientwise mod16 relation might be buried in earlier automatic-sequence/congruence literature.",
+    "Result depends on signed B normalization; unsigned Z has an extra (−1)^n factor."
+  ],
+  "schema_version": 1
+}
