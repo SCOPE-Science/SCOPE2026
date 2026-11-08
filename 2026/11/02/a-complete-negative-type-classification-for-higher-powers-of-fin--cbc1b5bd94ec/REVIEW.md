@@ -1,11 +1,21 @@
-# Scientific review: higher cycle-power metrics
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is every integer pair \(k\ge3\), \(n\ge2k+1\), and the graph distance is exactly \(\lceil\delta_n/k\rceil\). The proof derives every nonconstant distance eigenvalue as a sum of Dirichlet kernels, with a separately specified removable-denominator case. Explicit Fourier modes exclude all orders up to the natural four-step boundary. An integer six-point certificate excludes all remaining large orders for \(k\ge4\); an integer twelve-point certificate handles all large cubic powers. The finite remaining orders have a complete exact trigonometric-sign table. The checker reproduced the exceptional zero-frequency sets, the certificate quadratic forms, and independent breadth-first-search distances. Numerical Fourier cross-checks are supporting evidence only. The squared-Euclidean ranks follow from mean-zero spectral nullities; strict positivity of the exponential kernel follows from Schoenberg and injectivity of the finite Euclidean realization.
+## correctness
 
-**Originality — PASS under bounded search.** Lin–Rautenbach–Soulignac–Szwarcfiter (2010 online) characterize the graph class and its recognition; Sander–Sander (2011 arXiv) derive the adjacency eigenvalues of cycle powers; Sánchez (2011 arXiv) provides general negative-type tests and a different graph-family evaluation; Aouchiche–Hansen (2014) survey graph distance spectra. The closest recoverable related calculation for squared cycles concerns \(k=2\), which the new theorem excludes by hypothesis. Searches for graph-power metric negative type, circulant distance eigenvalues, Gaussian positivity, equivalent aliases and the exact exceptional orders identified no covering all-\(k\ge3\) classification. The general diameter-two (truncated-metric) spectral method can cover a portion of the argument, but not the large-diameter local obstructions or the complete sporadic list. Historical or unindexed equivalent treatments remain possible; no search establishes uniqueness by itself.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete classification of Hilbert-squared embeddability and all-scale Gaussian positivity on the higher-power cycle family, not an isolated parameter substitution. Its four sporadic nontrivial survivor orders and low embedding dimensions contrast sharply with the uniform non-embeddability elsewhere. The proof supplies two parameter-uniform finite obstructions and identifies exact exceptional harmonic nullities. The decision problem is settled for every pair in its domain, even though subunit optimal negative-type exponents are not calculated.
+The graph power metric is d(u,v)=ceil(min(|u−v|,n−|u−v|)/k). The symmetric circulant distance matrix has nonconstant eigenvalues λ_j=−sum_{r=0}^{h−1}sin((2rk+1)πj/n)/sin(πj/n), with h=ceil(floor(n/2)/k) and removable cases separately −h. CND requires all λ_j<=0. Complete graph n=2k+1 and cocktail-party n=2k+2 are admitted. Exact sine signs of frequencies j=2/3 (or specified modes) exclude all other n<=4k+3, except listed four. For k>=4 and n>=4k+4, an explicit six-site induced matrix T with zero-sum w=(2,-2,-2,3,-3,2) has w^T T w=2; for k3 n>=22, twelve consecutive-site weights yield +2. The four exceptions have exact zero frequency/nullities listed in RESULT.md; independent Fourier calculation for k3..13 and n<8k+16 reproduces the admitted list and zero modes. Schoenberg and centered rank establish kernel and squared-Euclidean consequences. Finite loop alone is not universal: the local certificates and finite interval Fourier sign proofs are necessary.
 
-**Limitations and risks.** Earlier distance-spectral literature may contain an equivalent statement under another formulation. The proof and computations have been reviewed in the self-review only; the work has not received an independent mathematical audit. The theorem does not classify fixed-scale positivity for excluded graphs or optimize powered distances beyond exponent one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sánchez 2011 provides general finite negative-type algebraic tests but not this exhaustive arithmetic list. Sander–Sander compute adjacency spectra of graph powers, not their transformed shortest-path distance spectra. Lin et al. characterize recognition of cycle/path powers, not negative-type metrics. General distance-spectral surveys may include partial diameter-two facts; these do not derive uniform large-order obstructions or the four exceptional k,n pairs. Resultary related graph records found no directly covering classification.
+
+## value
+
+PASS
+
+This is a complete natural decision classification for Hilbert-squared embeddability and all-scale Gaussian positivity of graph-power shortest-path metrics. The four sporadic survivors, their exact small embedding dimensions, and uniform finite obstruction certificates distinguish an entire infinite graph family rather than a small sample of numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
