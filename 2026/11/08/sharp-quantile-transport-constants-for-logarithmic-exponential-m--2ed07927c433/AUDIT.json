@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact independent-sample CDF is \\(F_n(y)=(1-\\exp(-\\exp y))^n\\), with quantile \\(Q_n(u)=\\log[-\\log(1-u^{1/n})]\\). Differentiation gives \\(Q_n\\prime(u)=h((-\\log u)/n)/(u(-\\log u))\\). With \\(t=\\exp(-x)\\) and \\(a=-\\log(1-t)\\), strict elementary logarithmic inequalities imply both \\(h\\prime(x)>0\\) and \\((h(x)/x)\\prime<0\\), hence \\(n/m<Q_m\\prime(u)/Q_n\\prime(u)<1\\) for every \\(u\\in(0,1)\\). The limits \\(h(x)\\sim x\\) as \\(x\\to\\infty\\) and \\(h(x)\\sim1/\\log(1/x)\\) as \\(x\\downarrow0\\) prove sharp endpoint constants. Integration yields strict interquantile bounds; a uniform-quantile coupling gives all positive-order distance inequalities and the variance bounds; the integrated-quantile criterion gives centered convex order. All needed log moments exist. The standalone finite checker passed 9,264 diagnostics; the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kochar (2012), Section 4.2 gives a DFR-based order-statistic dispersive comparison, but the parent log-exponential distribution has hazard \\(\\exp(y)\\), strictly increasing, so the DFR assumption does not apply.",
+        "Jeon, Kochar and Park (2006), DOI 10.1007/s00362-005-0285-4, states consequences of dispersive order but not the sharp two-sided constants in the accessible abstract."
+      ],
+      "reasoning": "Generic dispersive-order implications turn a verified ordering into variance and moment inequalities, not vice versa; they do not automatically establish this ordering or the sharp lower factor n/m. The observed cited DFR condition is inapplicable to the log-exponential parent law. Other possible broader ordering theorems remain a nonzero priority risk.",
+      "searches": [
+        "\"order statistics\" \"logarithms\" \"dispersive order\" exponentials",
+        "\"maximum\" \"exponential\" \"dispersive order\" n m",
+        "Exact sharp bilipschitz monotone quantile transport for log maximum of m vs n exponential random variables: derivative between n/m and 1, endpoint sharp, dispersive order, independent copy spacing domination",
+        "Maximum exponential order statistics convex order after centering or dispersive order logarithm sample maxima",
+        "Kochar Stochastic Comparisons of Order Statistics and Spacings Section 4.2 (2012)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.11129v1 (full HTML)",
+      "doi:10.1016/j.spl.2026.110790 (abstract and bibliographic record only)",
+      "doi:10.1007/s00362-005-0285-4 (abstract)",
+      "doi:10.5402/2012/839473 (relevant HTML sections)",
+      "published mathematical-record index; closest IDs 2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8 and 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Doumas derives \\(a_n=\\operatorname{Var}(Y_n)\\) and states scalar monotonicity as a conjecture, not a quantile theorem.",
+        "Giam: strict variance monotonicity has been proved and is acknowledged as covered.",
+        "Dispersive-order definition compares all quantile widths; its consequences imply variance order, whereas variance order alone does not imply it."
+      ],
+      "reasoning": "New quantile theorem implies the prior variance inequality, not conversely. The sharp lower factor \\(n/m\\) adds information not recoverable from the scalar coefficient. Giam full text was inaccessible and could in principle contain an implicit stronger argument.",
+      "searches": [
+        "Doumas arXiv:2603.11129v1 Section 2 and Remark 1",
+        "Giam SSRN 6447308 abstract and DOI 10.1016/j.spl.2026.110790",
+        "Kochar (2012) Section 2.2 and 4.2",
+        "published-finding corpus: Logarithm of the maximum of n independent exponentials decreases in the dispersive order as n grows; all interquantile ranges strictly contract, centered convex order, coefficient of coupon collector variance strictly decreasing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The variable \\(-Y_n\\) has the distribution of the minimum of \\(n\\) iid standard Gumbel variables, by direct evaluation of its CDF; this formulation was searched.",
+        "Doumas arXiv:2603.11129v1 Section 2 gives the log-exponential-max representation.",
+        "Closest published indexed finding on exponential sampling concerns a harmonic covariance of range and sample variance, not logarithmic maximum quantile transport: 2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8."
+      ],
+      "reasoning": "The theorem was searched under both log maximum of exponentials and minimum of Gumbels, including stochastic dispersion, quantile derivative, convex order and transport. No matching explicit sharp interquantile transport claim was found. A search miss does not prove novelty.",
+      "searches": [
+        "\"log maximum\" exponential \"dispersive order\"",
+        "\"logarithm of sample maximum\" \"dispersive\" exponential",
+        "\"minimum of independent Gumbel random variables\" dispersive ordering",
+        "\"Gumbel\" \"dispersive\" \"minimum\"",
+        "Logarithm of the maximum of n independent exponentials decreases in the dispersive order as n grows; all interquantile ranges strictly contract, centered convex order, coefficient of coupon collector variance strictly decreasing",
+        "Dispersive stochastic ordering log maxima exponential samples quantile derivative",
+        "Exact sharp bilipschitz monotone quantile transport for log maximum of m vs n exponential random variables: derivative between n/m and 1, endpoint sharp, dispersive order, independent copy spacing domination",
+        "Maximum exponential order statistics convex order after centering or dispersive order logarithm sample maxima",
+        "Sharp quantile transport of logarithmic maximum of exponential sample, for m>n derivative strictly between n/m and 1, both constants optimal, all interquantile spacings and centered convex order; Giam 2026 monotone variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Doumas (2026), equation (15) identifies \\(a_n=\\operatorname{Var}(Y_n)\\).",
+        "Giam (2026), DOI 10.1016/j.spl.2026.110790, published abstract explicitly proves strict decrease of \\(a_n\\)."
+      ],
+      "reasoning": "The scalar variance sequence is definitively pre-existing and not the finding. No identified exact table or database presents every quantile interval and optimal Lipschitz constants for all \\(n<m\\); finite tables do not imply the continuum theorem.",
+      "searches": [
+        "arxiv 2603.11129 full text alternating binomial logarithmic sums",
+        "Kia Keng Giam decreasing nature a_n 2026 variance",
+        "published-finding corpus: Coupon collector variance alternating binomial sums a_n monotonic n, Kia Keng Giam 2026, Doumas logarithm maximum exponential quantiles",
+        "published-finding corpus: Conjecture coupon collector player count strict decreasing variance Giam 2026, strict interquantile contraction, log exponential maxima",
+        "Sharp quantile transport of logarithmic maximum of exponential sample, for m>n derivative strictly between n/m and 1, both constants optimal, all interquantile spacings and centered convex order; Giam 2026 monotone variance"
+      ]
+    },
+    "rationale": "The accepted claim is sharp, global, two-sided quantile-transport contraction, not scalar coupon-collector variance monotonicity, already proved by Giam (2026). Doumas derives the exact variance identity but not dispersive ordering. Giam's indexed abstract establishes scalar monotonicity only, which does not imply quantile inequalities or optimal derivative factors. Stochastic-order reviews give definitions and generic comparison tools but no inspected specialization with the same sharp bounds. Unavailable Giam full text leaves a specific residual priority risk.",
+    "residual_risks": [
+      "Giam 2026 complete article not accessible for direct material comparison; it could contain an unstated quantile-transport formulation or implication.",
+      "Classical broader stochastic-order results may subsume the inequality without matching terminology; no definitive historical priority guarantee.",
+      "The claim makes no finite-coupon uniform-in-n conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes variance identity and a conjecture, not quantile-transport contraction. First public v1 2026-03-11.",
+        "evidence": [
+          "Equation (15) variance representation; Remark 1 explicitly asks for monotone decrease; page header MSC 60G70."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.11129v1",
+        "material_read": "Full accessible four-page mathematical text: Introduction, entire probabilistic proof, Remark 1 and References",
+        "method": "Read HTML full text and independently compared equation (15), Remark 1 and definitions",
+        "title": "An inequality involving alternating binomial sums",
+        "trigger": "Exact log-exponential-maximum representation and explicit variance monotonicity conjecture"
+      },
+      {
+        "assessment": "Scalar monotonicity is already known. Available abstract does not assert global quantile or derivative bounds; full-text comparison remains open.",
+        "evidence": [
+          "Giam 2026 published abstract: strict decrease of a_n; SSRN 6447308 record; keywords Harris inequality and covariance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110790",
+        "material_read": "Published indexed abstract and bibliographic/preprint record only; full article not accessible",
+        "method": "Checked journal/SSRN/indexed abstract and references; attempted lawful full-text routes, unavailable",
+        "title": "Decreasing nature of a sequence related to the Coupon Collector's problem",
+        "trigger": "Directly settles scalar variance conjecture and could also contain a stronger comparison"
+      },
+      {
+        "assessment": "Provides background definitions and generic consequences, no explicit same-family sharp transport claim in accessible portion.",
+        "evidence": [
+          "The abstract states quantile-width definition and implication of dispersive ordering for pairwise spreads and variance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00362-005-0285-4",
+        "material_read": "Accessible abstract defining dispersive order and listing variance implications",
+        "method": "Read public article abstract",
+        "title": "Dispersive ordering—Some applications and examples",
+        "trigger": "Potential broader stochastic comparison theorem"
+      },
+      {
+        "assessment": "Its DFR-based order-statistic dispersive result does not directly cover the parent law here, whose hazard \\(\\exp(y)\\) increases; no matching sharp slope bound found in inspected sections.",
+        "evidence": [
+          "Section 2.2 definition of dispersive order; Section 4.2 comparison under decreasing failure-rate assumption."
+        ],
+        "identifier_or_url": "https://doi.org/10.5402/2012/839473",
+        "material_read": "Relevant Sections 2.2 and 4.2 and displayed hypotheses; not full paper",
+        "method": "Read accessible HTML extracted article sections",
+        "title": "Stochastic Comparisons of Order Statistics and Spacings: A Review",
+        "trigger": "Potential stronger order-statistic comparison covering sample-size changes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ed07927-c433-47d6-aeed-1158df248605",
+  "value": {
+    "rationale": "All quantile widths, not merely variance, are natural measures of uncertainty for minima of independent coupon-collector completion limits. Exact best global transport Lipschitz constants \\(n/m\\) and \\(1\\) describe genuine asymmetric tail sensitivity, while pairwise spread domination and centered convex order control entire classes of uncertainty functionals. These statements are mathematically stronger than the covered scalar decrease and are useful without a separate downstream theorem.",
+    "status": "PASS"
+  }
+}
