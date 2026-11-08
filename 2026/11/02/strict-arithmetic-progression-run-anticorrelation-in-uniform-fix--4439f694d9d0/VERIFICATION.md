@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-A standalone Python 3 exact verifier is provided as `verify_ap_runs.py`. Run from the artifact directory:
+## correctness
 
-```
-python verify_ap_runs.py --max-n 13
-```
+PASS
 
-Observed output on the packaged copy: `PASS: 806 exact assertions (n through 13).`
+For a fixed ell-AP and adjacent occupied pair, union sizes ell+2-j give hypergeometric probabilities p_(ell+2-j). The pair-overlap counts are N2=(ell-1)(n-ell+1), N1=2ell T-2q-2N2 and N0=(n-1)T-N1-N2, because only consecutive step-one APs contain a full adjacent pair and interval endpoints appear in q APs each. This yields the exact covariance. Dividing by p_ell gives quadratic F(k), with F(n)=0; F(k)/(n-k) is affine. Its endpoints at k=ell,n-1 are ((ell-1)D)/(n(n-ell)) and (2E)/(n(n-ell)); integer decomposition n=(ell-1)q+r proves D,E>0 for n>=ell+2. n=ell+1 separate calculation gives 2(ell-1)/(ell+1)^2. R=k-Y gives reversed sign. For k=ell=3, n>=5, the R=1,2,3 conditional AP means are 1,0,positive, invalidating stronger regression monotonicity. Independently enumerated all fixed subsets for 56 (n,ell,k) triples with 4<=n<=9, exact-rational agreement and positivity. Finite checks corroborate analytic all-n proof.
 
-The verifier enumerates complete fixed-cardinality sample spaces for \(4\le n\le13\), computes the arithmetic-progression count and occupied adjacency count for every sample, and independently constructs every progression/adjacent-pair intersection. It verifies the covariance against the complete hypergeometric overlap sum and the endpoint-interpolated expression. It checks integer identities for the positive endpoint coefficients, signs, and the three-run nonmonotone conditional-regression example.
+## originality
 
-For the **all-size** conclusion, inspect the proof in RESULT.md: exactly three overlap classes determine the covariance; after removing the positive progression-inclusion probability, the remaining function of sample size is a quadratic with root at full occupancy; dividing by the missing-vertex count gives an affine function whose two endpoint values are explicitly positive. The singular \(n=\ell+1\) case is counted separately. No finite program run by itself proves these claims for arbitrarily large parameters. The model is not extended to arbitrary hypergraphs, cyclic progressions, nonuniform weights or stochastic domination. No independent audit has been performed.
+PASS
+
+Earlier random-AP literature largely concerns Bernoulli sampling, AP/AP covariance, marginal tails and extreme lengths; these do not imply the fixed-cardinality AP vs occupied-run universal strict sign. Fixed-composition run-transition covariance concerns another statistic. General hypergeometric overlap formulas are acknowledged.
+
+## value
+
+PASS
+
+The strict dependence sign holds for all admissible n,ell,k, and the explicit counterexample shows its sharp logical limit (no conditional regression order). Such universal mixed-statistic covariance laws are motivated in random-pattern theory and random runs tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

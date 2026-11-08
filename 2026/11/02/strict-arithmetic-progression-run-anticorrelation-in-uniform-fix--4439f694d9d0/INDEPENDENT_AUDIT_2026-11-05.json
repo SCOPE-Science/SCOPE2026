@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed ell-AP and adjacent occupied pair, union sizes ell+2-j give hypergeometric probabilities p_(ell+2-j). The pair-overlap counts are N2=(ell-1)(n-ell+1), N1=2ell T-2q-2N2 and N0=(n-1)T-N1-N2, because only consecutive step-one APs contain a full adjacent pair and interval endpoints appear in q APs each. This yields the exact covariance. Dividing by p_ell gives quadratic F(k), with F(n)=0; F(k)/(n-k) is affine. Its endpoints at k=ell,n-1 are ((ell-1)D)/(n(n-ell)) and (2E)/(n(n-ell)); integer decomposition n=(ell-1)q+r proves D,E>0 for n>=ell+2. n=ell+1 separate calculation gives 2(ell-1)/(ell+1)^2. R=k-Y gives reversed sign. For k=ell=3, n>=5, the R=1,2,3 conditional AP means are 1,0,positive, invalidating stronger regression monotonicity. Independently enumerated all fixed subsets for 56 (n,ell,k) triples with 4<=n<=9, exact-rational agreement and positivity. Finite checks corroborate analytic all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior papers respectively analyze extreme longest AP/run lengths, bivariate AP counts in Bernoulli random sets, and AP tail deviations."
+        ],
+        "reasoning": "None of the compared theorems gives strict covariance AP count versus occupied runs under uniform fixed-cardinality sampling; different model and statistic are mathematically material.",
+        "searches": [
+          "arxiv:0707.3888",
+          "arxiv:1902.04176",
+          "arxiv:1910.12835",
+          "arxiv:2012.09280"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen Git blob adfe5732e845ca1acfdbe3e55a0b44c77ec76439",
+        "verify_ap_runs.py frozen blob a2d45b1925c51c8d0ebdebb40e833dda9ec6b6cd",
+        "arxiv:0707.3888",
+        "arxiv:1902.04176",
+        "arxiv:1910.12835",
+        "arxiv:2012.09280",
+        "arithmetic progression counts covariance adjacent occupied pairs runs uniform k subset negative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barhoumi–Andréani/Koch/Liu count APs of two lengths under iid Bernoulli inclusion, not their mixed covariance with runs in fixed-k sets."
+        ],
+        "reasoning": "Their covariance results do not imply the all-k negative run association; the combinatorial overlap calculation and positivity decomposition are necessary.",
+        "searches": [
+          "arxiv:1902.04176 Sections 1–2",
+          "arxiv:0707.3888 abstract",
+          "Resultary: exact dependence phases of fixed-composition run transitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The overlap expression is the general hypergeometric covariance of indicator sums. Resultary run-transition finding studies adjacent/disjoint transition indicators only."
+        ],
+        "reasoning": "Indicator overlap formulas are equivalent computational tools, but the AP-specific counts and strict all-parameter sign are additional.",
+        "searches": [
+          "arithmetic progression counts covariance adjacent occupied pairs runs uniform k subset negative",
+          "arxiv:1902.04176",
+          "Resultary: exact dependence phases of fixed-composition run transitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem is a signed parametric rational covariance and sharp regression counterexample, not a fixed numerical table."
+        ],
+        "reasoning": "No exact matching database was located; a failed targeted search is only bounded evidence.",
+        "searches": [
+          "arithmetic progression counts covariance adjacent occupied pairs runs uniform k subset negative",
+          "Resultary: exact dependence phases of fixed-composition run transitions"
+        ]
+      },
+      "rationale": "Earlier random-AP literature largely concerns Bernoulli sampling, AP/AP covariance, marginal tails and extreme lengths; these do not imply the fixed-cardinality AP vs occupied-run universal strict sign. Fixed-composition run-transition covariance concerns another statistic. General hypergeometric overlap formulas are acknowledged.",
+      "residual_risks": [
+        "A wider hypergraph moment identity may give AP/run covariance by specialization, without shared wording.",
+        "Covariance is not full stochastic ordering or monotone conditional regression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING on claim vs prior implication",
+          "evidence": "Two AP counts of length >=3 in iid Bernoulli random sets, not adjacent-pair/run counts under hypergeometric fixed-size sampling.",
+          "identifier_or_url": "https://arxiv.org/html/1902.04176v1",
+          "material_read": "Full primary HTML introduction and Sections 1–2 (model and joint fluctuation statements)",
+          "method": "OA arXiv full-text HTML",
+          "title": "Bivariate fluctuations for the number of arithmetic progressions in random sets",
+          "trigger": "Closest AP count bivariate covariance study"
+        },
+        {
+          "assessment": "DISTINCT focus",
+          "evidence": "Longest arithmetic progression/run extreme distributions, not covariance of their counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.3888",
+          "material_read": "Primary abstract and stated extreme-value scope",
+          "method": "arXiv abstract",
+          "title": "Maximal Arithmetic Progressions in Random Subsets",
+          "trigger": "Potential extremal AP–run relationship"
+        },
+        {
+          "assessment": "DISTINCT estimates",
+          "evidence": "Univariate AP tail bounds do not determine run cross-covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.12835",
+          "material_read": "ArXiv abstract, setup and theorem scope",
+          "method": "OA arXiv abstract",
+          "title": "Deviation probabilities for arithmetic progressions and other regular discrete structures",
+          "trigger": "Fixed-size random AP count estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict dependence sign holds for all admissible n,ell,k, and the explicit counterexample shows its sharp logical limit (no conditional regression order). Such universal mixed-statistic covariance laws are motivated in random-pattern theory and random runs tests.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen Git blob adfe5732e845ca1acfdbe3e55a0b44c77ec76439",
+    "verify_ap_runs.py frozen blob a2d45b1925c51c8d0ebdebb40e833dda9ec6b6cd",
+    "arxiv:0707.3888",
+    "arxiv:1902.04176",
+    "arxiv:1910.12835",
+    "arxiv:2012.09280",
+    "arithmetic progression counts covariance adjacent occupied pairs runs uniform k subset negative"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform fixed-k random subsets of [n] with 3<=ell<=k<=n-1, arithmetic-progression count X_ell strictly positively covaries with adjacent occupied pairs Y and strictly negatively with runs R=k-Y; exact hypergeometric overlap formula and sharp nonmonotone conditional-regression example.",
+  "limitations": [
+    "Uniform fixed-cardinality samples, ordinary non-cyclic positive-difference APs, and occupied runs only.",
+    "Covariance zero when k<ell or k=n; sample size boundary n=ell+1 handled separately.",
+    "A wider hypergraph moment identity may give AP/run covariance by specialization, without shared wording.",
+    "Covariance is not full stochastic ordering or monotone conditional regression."
+  ],
+  "schema_version": 1
+}
