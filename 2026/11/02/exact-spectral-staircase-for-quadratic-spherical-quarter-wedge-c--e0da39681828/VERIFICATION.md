@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the mathematical result
+# Independent mathematical audit
 
-The claim is an all-dimensional theorem for the complex harmonic band \(V_{\le2}\) on the normalized sphere \(S^{d-1}\), for every integer \(d\ge3\). Its proof derives the exact Dirichlet moment identity, verifies that every polynomial in the band belongs to exactly one of the declared symmetry sectors, and determines all generalized eigenvalues from explicit Gram matrices. The determinant and trace identities at \(\lambda=1/4\) are genuine symbolic identities in \(d\), the absolute first moment, and the absolute mixed moment. Inserting \(\nu_d=2/(\pi d)\) and the strict gamma-ratio inequality yields the interval classification.
+## correctness
 
-The checker programs use no manuscript data files or external certificates. In a working Python environment with the requirements installed, run:
+PASS
 
-```
-python symbolic_checker.py
-python checker.py
-```
+The normalized spherical Dirichlet moment recurrence M_{a+2,b}=(a+1)M_{a,b}/(d+a+b) fixes every Gram entry, including transverse-coordinate squares. The band of dimension d(d+3)/2 splits orthogonally under O(d−2) and x1↔x2 into scalar-symmetric dimension 4, scalar-antisymmetric dimension 2, (d−2) vector pairs plus (d−2) antisymmetric vectors, and traceless transverse quadratics of dimension d(d−3)/2; their dimensions sum correctly for d>=3. Exact determinant/inertia at lambda=1/4 yields two scalar above/two below, one in each vector pair, one antisymmetric-scalar on either side; trace and the explicit p_d=(1+sqrt(d)u)(1+sqrt(d)v) trial Rayleigh quotient >3/4 isolate a single simple top root. Gamma log-convexity yields eta²>1/16, so the upper transverse-vector root >1/2, while other non-top roots <1/2; all spectrum is strictly in (0,1) by polynomial unique continuation. Independently constructed unreduced Gram matrices for dimensions 3..11 (not just supplied reduced blocks) gave the precise four interval counts and simple top root on every tested d. These finite checks support, not replace, the all-dimension moment/inertia proof.
 
-`symbolic_checker.py` verifies nine exact identities from the moment recurrence, including the determinants, traces, and block normalization. The observed output is `SYMBOLIC_IDENTITIES_PASS 9`. `checker.py` builds a distinct full monomial basis and unreduced generalized Gram matrix for each \(3\le d\le12\), comparing every eigenvalue against the symmetry reduction, checking positivity, trace, spectral threshold counts, and the strict top bound. The observed output is `QUADRANT_CHECKS_PASS 515`. The checker is deterministic, with numerical comparison tolerance \(10^{-10}\); it does not by itself certify exact inequalities in infinitely many dimensions.
+## originality
 
-The all-dimensional proof relies on ordinary gamma-log-convexity, spherical moment integrals, exact finite-dimensional linear algebra, and polynomial unique continuation. There is no assertion of automated formal verification, independent mathematical audit, noise robustness, higher-degree results, or complete priority certification.
+PASS
+
+Best-knowledge PASS for the exact all-dimension two-perpendicular-cut *quadratic-band* spectral staircase and optimizer, not the general Slepian concentration eigenproblem or the one-hemisphere pairing. Primary Simons–Dahlen–Wieczorek develops general spherical-region Slepian theory; no exact all-dimension quarter-wedge block/inertia classification was identified. General cap algorithms may compute each d, but do not directly imply the listed symbolic multiplicity staircase without the proof. Risk: a specialized reflection-group concentration decomposition may already contain it.
+
+## value
+
+PASS
+
+A natural second-degree spherical Slepian problem yields a nontrivial protected quarter-energy eigenspace, exact half-energy count and unique best mode in arbitrary dimension. The multiplicity staircase reduces a growing matrix to fixed-size blocks, relevant for localization and sampling. It is an exact structural spectral theorem rather than routine numerical matrix diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
