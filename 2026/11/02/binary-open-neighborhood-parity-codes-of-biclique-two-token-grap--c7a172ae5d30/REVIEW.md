@@ -1,15 +1,21 @@
-# Review: binary parity codes of biclique two-token graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives a complete binary incidence-block reduction, including the one-dimensional constant-vector ambiguity only when both bipartition sizes are even. Fourier character orthogonality calculates each edge-degree parity enumerator and the mixed-word enumerator with the correct multiplicity denominator. The factors are independent because the adjacency operator is off-diagonal. The minimum supports are classified by row/column parity and Eulerian subgraphs. Direct GF(2) elimination and exhaustive kernel words for six finite instances independently reproduce all coefficients, including the nontrivial \(m=n=2\) boundary. Finite enumeration is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Relevant recent ordinary-domination results for two-token bicliques (arXiv:2610.28936 and arXiv:2610.31557) do not imply the GF(2) adjacency parity-code weight distribution. The closest inspected nullspace study, arXiv:2610.31475, concerns *closed*-neighborhood parity on rectangular grids. The classical Fourier projection is credited as a standard technique; the image rank, exact complete-biclique-token enumerator and support classification are the claims at issue. The first token-paper's full text was not available, and differently named older codes remain a priority risk. Search nonappearance is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The result completely determines a natural parity-code polynomial on a two-parameter graph family, with a sharp even–even rank defect, exact minimum support size and counts, and two independently factorable combinatorial subsystems. The theorem is not merely an instance table or a trivial consequence of the ordinary domination number.
+The two-token adjacency operator for K_{m,n} splits into mixed and pure blocks, [0 T;T^T 0]. The degree-parity image of complete graphs is the even-sum subspace, and the kernel of the pair-to-matrix map has dimension δ=1 exactly when both parts are even, giving rank(A)=2(m+n-2-δ). Independent GF(2) adjacency elimination for six (m,n) pairs and direct low-weight kernel enumeration matched the predicted rank and minimum supports. Character orthogonality factors the full weight enumerator into the explicit X_(m,n)(E_m E_n+δ O_m O_n), with min nonzero support 2 for m=2 and 3 for m>=3; the proof is all m,n>=2.
 
-## Limitations
-Only binary open-neighborhood parity on two-token complete-bipartite graphs is established; neither closed-neighborhood kernels nor higher tokens are covered. No independent audit or definitive priority determination has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
+
+## value
+
+PASS
+
+This is an exact complete weight-enumerator and rank classification for the natural adjacency code of a widely studied token graph, not merely a minimum-distance anecdote. It identifies a parity-induced even-even rank defect and support exceptions at (2,2) and (3,3), useful for checking binary graph codes and parity dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

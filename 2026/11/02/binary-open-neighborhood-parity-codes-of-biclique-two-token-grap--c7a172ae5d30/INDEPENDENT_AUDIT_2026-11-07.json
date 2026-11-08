@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:12:36.830419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-token adjacency operator for K_{m,n} splits into mixed and pure blocks, [0 T;T^T 0]. The degree-parity image of complete graphs is the even-sum subspace, and the kernel of the pair-to-matrix map has dimension δ=1 exactly when both parts are even, giving rank(A)=2(m+n-2-δ). Independent GF(2) adjacency elimination for six (m,n) pairs and direct low-weight kernel enumeration matched the predicted rank and minimum supports. Character orthogonality factors the full weight enumerator into the explicit X_(m,n)(E_m E_n+δ O_m O_n), with min nonzero support 2 for m=2 and 3 for m>=3; the proof is all m,n>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chinman et al. arXiv:2610.28936, token-graph domination of complete bipartite graphs.",
+          "Acosta Troncoso et al. arXiv:2610.31557, another Kmn two-token domination theorem."
+        ],
+        "reasoning": "The two prior works address domination sets, even while studying the same underlying token adjacency, and their domination theorems do not yield the full GF(2) nullspace, support enumerator or parity rank.",
+        "searches": [
+          "binary adjacency nullspace parity kernel two token graph complete bipartite Kmn rank code weight enumerator",
+          "Check token graph general theorems and rank/nullity bounds."
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.31557 on same token graph domination",
+        "arxiv:2610.28936 another Kmn token domination paper",
+        "arxiv:2610.31475 closed-neighborhood grids",
+        "Resultary semantic query: binary adjacency nullspace parity kernel two token graph complete bipartite Kmn rank code weight enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Acosta Troncoso et al. classify dominating sets of F2(Kmn), using the same pure/mixed vertex partition.",
+          "The submitted theorem gives dim ker A and every coefficient of ∑_{x∈ker A}z^wt(x) over GF(2)."
+        ],
+        "reasoning": "The existence/size of dominating sets imposes nonlinear neighbor-coverage constraints and does not determine linear mod-2 orthogonality; same graph is insufficient for logical coverage.",
+        "searches": [
+          "binary adjacency nullspace parity kernel two token graph complete bipartite Kmn rank code weight enumerator",
+          "Compare the same graph papers at the level of implied invariants."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearest two-point sink configuration homology of K_{m,n} concerns topology and particle-swap representations, not the GF(2) adjacency kernel.",
+          "Klostermeyer arXiv:2610.31475 investigates closed-neighborhood parity for rectangular grids, not this open-neighborhood operator."
+        ],
+        "reasoning": "The closed-neighborhood Lights-Out kernel is ker(A+I), not ker(A); neither graph nor operator matches. Two-point sink configuration homology does not imply token-graph adjacency ranks or weight distributions.",
+        "searches": [
+          "binary adjacency nullspace parity kernel two token graph complete bipartite Kmn rank code weight enumerator",
+          "Search for alternate binary coding, Lights-Out and adjacency-nullspace formulations of the two-token biclique."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Token-graph domination counts are not GF(2) adjacency code weight counts.",
+          "Actual checked examples (2,2) have seven weight-two configurations; (3,3) have C(3,3)+C(3,3)+6=8 weight-three configurations."
+        ],
+        "reasoning": "Known graph adjacency or domination tables cannot be relabelled as an exact binary kernel enumerator. Character-sum factorization for all m,n is not implied by a small computational table.",
+        "searches": [
+          "binary adjacency nullspace parity kernel two token graph complete bipartite Kmn rank code weight enumerator",
+          "Look for weight enumerators or low-weight parity-kernel tables for this exact graph."
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.",
+      "residual_risks": [
+        "An older binary adjacency code or token-graph nullity weight enumerator under coding-theoretic terminology may coincide.",
+        "Open rather than closed neighborhoods are essential; hypotheses require m,n>=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides adjacency geometry and domination number, not the linear parity kernel weight enumerator",
+          "evidence": [
+            "Dominating-set lemmas and main domination theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31557",
+          "material_read": "Primary open full text: token definitions, mixed/pure partition, domination constructions and main theorem",
+          "method": "Read lawful article text including relevant structural sections",
+          "title": "The domination number of the 2-token graph of the complete bipartite graph",
+          "trigger": "Exactly same F2(Kmn) graph"
+        },
+        {
+          "assessment": "Operator A+I and graph different; cannot imply current exact formula from compared statements",
+          "evidence": [
+            "Title, abstract and grid closed-neighborhood hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31475",
+          "material_read": "Abstract and stated scope: closed neighborhoods in grid graphs",
+          "method": "Read available abstract/scope; no full-text noncoverage claimed",
+          "title": "Prime Nullspace Matrices and Even Dominating Sets",
+          "trigger": "Potential parity-kernel equivalence in different language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact complete weight-enumerator and rank classification for the natural adjacency code of a widely studied token graph, not merely a minimum-distance anecdote. It identifies a parity-induced even-even rank defect and support exceptions at (2,2) and (3,3), useful for checking binary graph codes and parity dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only two-token graphs of complete bipartite graphs, m,n>=2, open-neighborhood parity over GF(2).",
+    "Finite graph matrix computations support but do not replace general character-sum proof."
+  ]
+}

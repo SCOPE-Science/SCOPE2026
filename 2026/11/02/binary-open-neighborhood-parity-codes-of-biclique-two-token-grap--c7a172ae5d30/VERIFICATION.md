@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` in a Python 3 environment. It builds the token graph from the original swap rule, uses GF(2) Gaussian elimination independent of the symbolic proof, and exhaustively compares every parity kernel word against the explicit polynomial for \((m,n)=(2,2),(2,3),(2,4),(3,3),(3,4),(4,4)\). These cases contain respectively 16, 16, 512, 128, 2048 and 262144 binary kernel words. It also checks the total dimension formula for all \(2\le m\le n\le10\). A successful run ends in `VERIFY_OK`.
+## correctness
 
-The exact all-parameter result comes from the incidence-block proof and character orthogonality. Neither bounded brute-force enumeration nor the existence of a working script establishes absolute priority, independent audit or an extension to arbitrary graph families.
+PASS
+
+The two-token adjacency operator for K_{m,n} splits into mixed and pure blocks, [0 T;T^T 0]. The degree-parity image of complete graphs is the even-sum subspace, and the kernel of the pair-to-matrix map has dimension δ=1 exactly when both parts are even, giving rank(A)=2(m+n-2-δ). Independent GF(2) adjacency elimination for six (m,n) pairs and direct low-weight kernel enumeration matched the predicted rank and minimum supports. Character orthogonality factors the full weight enumerator into the explicit X_(m,n)(E_m E_n+δ O_m O_n), with min nonzero support 2 for m=2 and 3 for m>=3; the proof is all m,n>=2.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
+
+## value
+
+PASS
+
+This is an exact complete weight-enumerator and rank classification for the natural adjacency code of a widely studied token graph, not merely a minimum-distance anecdote. It identifies a parity-induced even-even rank defect and support exceptions at (2,2) and (3,3), useful for checking binary graph codes and parity dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
