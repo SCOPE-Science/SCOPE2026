@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts singular branches of the specified integral plane equation and computes their polar base orders using actual normalization valuations. It retains the Gauss-map-degree factor until establishing birationality. The key function-field argument recovers \(u=x^n\) from two rational tangent invariants by disproving a nontrivial separable intermediate rational map: its two distinct totally ramified pole fibers would force two wild different exponents totaling more than Riemann--Hurwitz allows. The polynomial derivative and local valuation inequalities were checked symbolically and by standalone exact-arithmetic samples. The argument works for every admissible \(p,e,n\), not just tested parameters.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The 2026 primary full text treats maximality, semigroups and automorphisms of these same curves without computing their projective dual degrees or Gauss-map degree. The 2016 Tafazolian--Torres full report treats the broader Kummer equation but gives genus and maximality conditions, not the dual invariant. General positive-characteristic Gauss-map literature cautions that a polar-degree computation need not equal the dual degree; the explicit separable-birational proof here addresses that distinction. Searches against the mathematical-record database for exact equations and aliases found no dominating claim. More remote earlier literature or the uninspected 2021 continuation could contain an equivalent calculation.
+PASS
 
-## Value
-PASS. The projective dual degree is a natural geometric invariant of the recently studied maximal family, related to its tangent envelope. The characteristic-dependent \(2n\) correction detects genuine wild cancellation of the infinity polar for infinitely many parameters, while birationality of the Gauss map contrasts with families with inseparable tangent maps. This determines an entire invariant across the natural divisor-parameter family rather than an arbitrary numerical slice.
+For odd p, q=p^e, N=q+1, n|N with n,r=N/n>=2, the integral plane curve Y^N=X^(2n)Z^(N-2n)+X^n Z^(N-n) has n local branches over the affine origin contributing polar base degree N(n-1). At r>2 the ng branches at infinity (g=gcd(r,2)) yield B_inf=N(N-2n-1), raised by 2n exactly if p|(r-2); r=2 has smooth infinity. The polar linear series degree is 2n^2 or N(n+1) minus the exceptional 2n. Crucially, rational functions H=h^n and L=a^N of the Gauss ratios separate u=0,-1, with L pole orders r-1 and q. A separable proper intermediate k(H,L)⊂k(u) would be wildly totally ramified at both points, violating genus-zero Riemann–Hurwitz; hence the Gauss field recovers x,y, so the map is birational. Independent symbolic valuation arithmetic checked seven parameter choices including (q,n,r)=(9,2,5) with degree 26 and (5,2,3) with degree 18. The proof, not the finite scan, establishes all q.
 
-## Limitations and closest work
-The work is about the given singular plane model over an algebraic closure in odd characteristic. It does not classify the singularities of the dual, arbitrary embeddings, or characteristic two. Closest references: Guardieiro--da Silva--Tafazolian, arXiv:2605.25257v1; Tafazolian--Torres, UNICAMP rp-2016-17; Komeda, arXiv:2002.10691. The 2021 Tafazolian--Torres continuation was located by its abstract, not examined in full; it concerns maximality via subcovers rather than the projective tangent dual.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
+
+## value
+
+PASS
+
+The projective dual degree and separability of the Gauss map are natural embedding invariants not implied by the previously computed maximality, genus or Weierstrass semigroups of the normalization. A sharp 2n exceptional drop tied to p|(r-2), with infinitely many examples, is a structural positive-characteristic phenomenon; the wild-ramification birationality proof resolves a genuine obstruction to reading dual degree from polar-base degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

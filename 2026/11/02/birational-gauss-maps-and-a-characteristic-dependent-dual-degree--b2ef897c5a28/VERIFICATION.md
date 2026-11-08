@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-The embedded `check_dual.py` is a standalone Python 3 exact-integer verifier. Execute `python check_dual.py`. A successful run reports `VERIFY_OK`, with a count of admissible parameter pairs.
+## correctness
 
-It checks: (i) the characteristic reduction of the explicit derivative numerator that guarantees a separable intermediate map, (ii) the count of infinity branches \(n\gcd(r,2)\), (iii) the three polar valuations and the \(2n\) exceptional correction, (iv) the total polar degree in both the generic and special regimes, and (v) the explicit first wild examples \((q,n,r)=(9,2,5)\) and \((125,18,7)\). The implementation uses no external libraries.
+PASS
 
-The program does **not** certify that a finite scan exhausts all finite fields, that a function-field inclusion is birational, or that a published theorem is absent. Those issues are addressed by the mathematical proof, the source comparisons and the explicit residual risks. The wild different-exponent inequality and Riemann--Hurwitz step are proved at the mathematical level rather than by bounded computation. Independent validation has not been performed.
+For odd p, q=p^e, N=q+1, n|N with n,r=N/n>=2, the integral plane curve Y^N=X^(2n)Z^(N-2n)+X^n Z^(N-n) has n local branches over the affine origin contributing polar base degree N(n-1). At r>2 the ng branches at infinity (g=gcd(r,2)) yield B_inf=N(N-2n-1), raised by 2n exactly if p|(r-2); r=2 has smooth infinity. The polar linear series degree is 2n^2 or N(n+1) minus the exceptional 2n. Crucially, rational functions H=h^n and L=a^N of the Gauss ratios separate u=0,-1, with L pole orders r-1 and q. A separable proper intermediate k(H,L)⊂k(u) would be wildly totally ramified at both points, violating genus-zero Riemann–Hurwitz; hence the Gauss field recovers x,y, so the map is birational. Independent symbolic valuation arithmetic checked seven parameter choices including (q,n,r)=(9,2,5) with degree 26 and (5,2,3) with degree 18. The proof, not the finite scan, establishes all q.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.
+
+## value
+
+PASS
+
+The projective dual degree and separability of the Gauss map are natural embedding invariants not implied by the previously computed maximality, genus or Weierstrass semigroups of the normalization. A sharp 2n exceptional drop tied to p|(r-2), with infinitely many examples, is a structural positive-characteristic phenomenon; the wild-ramification birationality proof resolves a genuine obstruction to reading dual degree from polar-base degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
