@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:41:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/sharp-perimeter-deficit-for-spherical-convex-hulls-in-an-orthogo--05464f509539/RESULT.md",
+        "2026/11/01/sharp-perimeter-deficit-for-spherical-convex-hulls-in-an-orthogo--05464f509539/verify.py",
+        "2026/11/01/sharp-perimeter-deficit-for-spherical-convex-hulls-in-an-orthogo--05464f509539/VERIFICATION.md"
+      ],
+      "rationale": "For unit S^2 and W={x>=0,y>=0}, normalized area sampling has z uniform[-1,1] and longitude phi uniform[0,pi/2]. Crofton's formula gives per(K)=2pi Pr(unoriented random great circle hits K); the great-circle misses the finite spherical hull exactly when all independent sample points lie on one side. Symmetry yields deficit 2pi-E[L_n]=integral_{z=-1}^1 integral_{theta=0}^{2pi} p(z,theta)^n dtheta dz. A Gaussian sign orthant calculation with correlations u_1,u_2 yields p=1/2+[arcsin(u_1)+arcsin(u_2)]/pi, with u=(sqrt(1-z^2)cos theta,sqrt(1-z^2)sin theta,z). At fixed z, the inverse-sine sum maximizes at equal positive transverse components, so p<=1-arcsin(z^2)/pi<=exp(-z^2/pi). At z=t/sqrt(n), for 0<theta<pi/2, n log p tends to -t^2/(pi sin 2theta); for other longitude p(0,theta)<1. Gaussian domination permits dominated convergence, giving sqrt(n)(2pi-E[L_n]) -> pi integral_0^(pi/2) sqrt(sin 2theta)dtheta =pi/2 B(3/4,1/2). Independently evaluated the exact integral by numerical quadrature for n=100 and 1000, obtaining scaled deficits about 3.8772 and 3.77557 approaching 3.764068559; quadrature alone is corroborative, not proof.",
+      "residual_risks": [
+        "Only the first-order expected geodesic-perimeter deficit is proved; no distributional limit or explicit next term.",
+        "Sampling is uniform in spherical surface area, not planar or volumetric measure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General spherical Crofton identities yield a starting integral identity, not evaluation of this wedge-specific boundary layer or exact beta constant.",
+          "The 2015 halfsphere theorems do not specialize via a geometric parameter substitution to the orthogonal two-hemisphere lune."
+        ],
+        "reasoning": "Crofton is a general method and halfsphere sampling is a related family, but neither gives a numerical wedge perimeter constant by direct specialization.",
+        "searches": [
+          "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+          "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+          "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+          "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+        "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+        "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+        "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width",
+        "arXiv:2203.07916v1; DOI:10.1007/s00208-023-02704-9",
+        "arXiv:1505.04672v1",
+        "Resultary:2026/10/11/SCOPE-sharp-finite-sample-normalization-of-halfsphere-polytope-facet-d--50c3a133051f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wedge expected number of edges ~4/3 log n does not determine intrinsic perimeter; one is combinatorial, the other metric.",
+          "A halfsphere Crofton formula is an analytic tool rather than a source of the orthogonal-wedge exact p(z,theta) integral and its degenerate normal asymptotic."
+        ],
+        "reasoning": "The prior logarithmic edge-count law and hemisphere mean-width identities do not imply the beta-function coefficient from the wedge's one-dimensional boundary normal stratum.",
+        "searches": [
+          "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+          "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+          "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+          "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Besau et al arXiv:2203.07916 same orthogonal wedge sampling but expected facet counts logarithmic, not expected geodesic perimeter.",
+          "Bárány et al arXiv:1505.04672 Crofton and halfsphere area/mean width, different domain from W={x,y>=0}."
+        ],
+        "reasoning": "Spherical convex hulls on a wedge are the same random objects as Besau et al, but expected number of sides and expected geodesic perimeter are distinct observables.",
+        "searches": [
+          "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+          "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+          "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+          "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search found sharp finite-sample halfsphere facet deficits and unrelated geometric hull laws, not the orthogonal-wedge exact perimeter table.",
+          "No checked published table lists the claimed n^-1/2 wedge perimeter constant pi/2 B(3/4,1/2); nonhit does not prove novelty."
+        ],
+        "reasoning": "Indexed halfsphere facet tables concern different spherical domains and observables; no checked exact wedge perimeter table found.",
+        "searches": [
+          "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+          "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+          "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+          "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width"
+        ]
+      },
+      "rationale": "Besau et al arXiv:2203.07916 study the same orthogonal spherical-wedge random-hull model, but their stated two-dimensional main theorem is E[number of edges]~(4/3)log n, not the expected intrinsic perimeter. Bárány-Hug-Reitzner-Schneider arXiv:1505.04672 establish spherical Crofton/mean-width methods for the hemisphere model, which is not the intersecting two-hemisphere wedge and has different supporting-normal degeneracy. The exact n-sample wedge integral and n^-1/2 beta-function perimeter coefficient are not direct restatements of either known theorem. The use of Crofton/Gaussian orthant identities is credited rather than claimed as new; older unpublished random-hull calculations remain residual risk.",
+      "residual_risks": [
+        "Older integral-geometric or random spherical polygon literature could have an equivalent integral or constant outside accessed primary sources.",
+        "The closest papers' relevant sections were inspected, but historical priority is not guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published log n expected edge-count result covers model but not new metric perimeter deficit in inspected material",
+          "evidence": [
+            "https://arxiv.org/abs/2203.07916",
+            "https://doi.org/10.1007/s00208-023-02704-9"
+          ],
+          "identifier_or_url": "arXiv:2203.07916v1; DOI:10.1007/s00208-023-02704-9",
+          "material_read": "Accessible full HTML introduction, main theorem, relevant supporting sections and parameter definitions",
+          "method": "Read primary mathematical paper and compare expected edge count with expected geodesic perimeter",
+          "title": "Spherical convex hull of random points on a wedge",
+          "trigger": "Exactly the same orthogonal-wedge random hull model"
+        },
+        {
+          "assessment": "Provides Crofton technique on hemisphere, not orthogonal-wedge n^-1/2 perimeter coefficient",
+          "evidence": [
+            "https://arxiv.org/abs/1505.04672"
+          ],
+          "identifier_or_url": "arXiv:1505.04672v1",
+          "material_read": "Available primary PDF and relevant theorem/Crofton material, including page image around page 7",
+          "method": "Read PDF mathematical text and inspected page image",
+          "title": "Random points in halfspheres",
+          "trigger": "Spherical Crofton/mean-width and random hull surface-area precedent"
+        },
+        {
+          "assessment": "Facets of halfsphere polytopes rather than geodesic perimeter of wedge hulls",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-finite-sample-normalization-of-halfsphere-polytope-facet-d--50c3a133051f"
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-sharp-finite-sample-normalization-of-halfsphere-polytope-facet-d--50c3a133051f",
+          "material_read": "Resultary published summary only, not full file",
+          "method": "Published record search/summary reading",
+          "title": "Sharp finite-sample normalization of halfsphere-polytope facet deficits",
+          "trigger": "Similar spherical sampling and finite-sample deficits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/sharp-perimeter-deficit-for-spherical-convex-hulls-in-an-orthogo--05464f509539/RESULT.md",
+        "Resultary: random spherical convex hull orthogonal wedge lune expected perimeter deficit",
+        "Resultary: spherical wedge random polygon expected geodesic perimeter deficit n inverse square root",
+        "arXiv:2203.07916 spherical convex hull random points wedge expected number edges perimeter",
+        "arXiv:1505.04672 random points halfspheres spherical perimeter Crofton mean width"
+      ],
+      "rationale": "An already-studied natural random spherical-wedge polygon has a sharp geometric deficit law distinct from its known edge-count asymptotic. The exact finite-sample Crofton integral and evaluated beta constant are usable precise invariants and reveal the supporting-normal boundary layer, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "Exact first-order result for the orthogonal spherical lune, not higher dimensions or arbitrary wedge angles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the first-order expected geodesic-perimeter deficit is proved; no distributional limit or explicit next term.",
+    "Sampling is uniform in spherical surface area, not planar or volumetric measure.",
+    "Older integral-geometric or random spherical polygon literature could have an equivalent integral or constant outside accessed primary sources.",
+    "The closest papers' relevant sections were inspected, but historical priority is not guaranteed.",
+    "Exact first-order result for the orthogonal spherical lune, not higher dimensions or arbitrary wedge angles."
+  ],
+  "schema_version": 1
+}
