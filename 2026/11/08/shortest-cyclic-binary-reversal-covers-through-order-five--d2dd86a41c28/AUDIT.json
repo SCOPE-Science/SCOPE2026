@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Every reversal-complete circular word has a cyclic 0^n factor. Rooting there is exhaustive. The exact suffix-mask/suffix-state recurrence counts all rooted completions and rules out every shorter length for n=1,2,3,4,5. An independently implemented direct factor-set enumeration confirms minimal lengths 2,4,8,14,26, necklace counts 1,1,2,8,128 and complement/reversal orbit counts 1,1,1,3,36; all optimal order-four and order-five cycles are listed. The published proofs describe the finite recurrence and its closure rule, including every boundary case. The two included checkers were executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burris et al., arXiv:1608.08480, §5 gives Eulerization constructions and an upper bound for shortest linear unoriented words; §3 supplies example tours.",
+        "Fici et al., arXiv:1511.08431, §§3–5 prove greedy algorithm properties, compression ratio and complexity, not an exact census of shortest closed cyclic words."
+      ],
+      "reasoning": "The paper constructions may provide length upper bounds and general algorithms, but no theorem therein implies 8 or 128 optimal cyclic rotation classes. An arbitrary exact general algorithm is not an explicit evaluation or classification of this specialized instance.",
+      "searches": [
+        "unoriented de Bruijn cyclic shortest length order 4 5 6 14 26 48",
+        "unoriented universal cycles shortest coverage reversal necklaces binary de bruijn",
+        "unoriented de Bruijn sequences binary k 2 n 4 shortest length number enumeration 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1511.08431",
+      "https://arxiv.org/abs/1608.08480",
+      "https://debruijnsequence.org/db/orientable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1608.08480, §5, lines describing a length-14 example for the binary order-four linear problem and length-bound Eulerization; no exact shortest-cycle necklace counts.",
+        "arXiv:1511.08431, introductory definitions and theorems on greedy compression and NP-completeness concern linear strings, not closed cycles."
+      ],
+      "reasoning": "The linear length-14 example at order four supplies a cyclic upper bound after wraparound, but neither source supplies a matching cyclic lower bound and the complete rotation-class enumeration. The finite cyclic census is not a restatement of either article, although its concepts and tools are classical.",
+      "searches": [
+        "arxiv:1608.08480 An Unoriented Variation on de Bruijn Sequences full text sections 1 3 4 5",
+        "arxiv:1511.08431 On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals full text sections 1 through 5",
+        "reverse de Bruijn utilize reverse peptide synthesis coverage cyclic binary n4 n5 number of sequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burris, Motta and Shipman, arXiv:1608.08480, §§1,3–5: reversal-universal de Bruijn words are defined and Eulerized as linear sequences.",
+        "Fici et al., arXiv:1511.08431, §§1–2: shortest common superstring with reversals covers either a string or its reversal in a linear output."
+      ],
+      "reasoning": "The circular model is the closed-walk variant of a shortest common superstring with reversals for all binary n-words. Closing the walk changes the constraints and the minimum-length proof, and identifying rotations changes multiplicity. Definitions and general existence theory alone do not compute the claimed exact circular counts.",
+      "searches": [
+        "Unoriented binary de Bruijn sequences under reversal, shortest cyclic superstring covering one representative of each reversed length n word; exact minimum n=4,5,6 and optimal Eulerization",
+        "shortest circular word each substring reversal class unoriented de bruijn cycle optimal length binary",
+        "bidirectional superstring cover every substring or its reverse circular smallest 4 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-source searches exposed the 2016 source and general shortest-superstring literature but no matching binary cyclic table.",
+        "The closest similarly worded public records concerned unrelated string-attractor or coding enumeration, not this reversal-universal cyclic objective."
+      ],
+      "reasoning": "No exact table of optimal cyclic lengths and numbers of necklaces for binary orders four and five was found. Absence in indexed search is not an absolute novelty certificate; unindexed tables remain a priority risk.",
+      "searches": [
+        "Binary circular reverse-complete words for every length four and five substring up to reflection. Minimum lengths 14 and 26, number of necklaces 8 and 128.",
+        "All optimal cyclic bidirectional superstrings of binary fourgrams fivegrams shortest lengths 14 26 enumeration 8 128",
+        "\"unoriented\" \"128\" \"26\" \"binary\" \"de Bruijn\"",
+        "\"unoriented de Bruijn\" \"necklaces\" \"128\""
+      ]
+    },
+    "rationale": "The closest 2016 unoriented de Bruijn paper treats linear sequences and parity/Eulerization, including order-four and order-five examples, without determining the cyclic optimal-necklace counts. The 2015 shortest-common-superstring-with-reversals paper gives approximation/complexity statements for linear words. Published primary texts and targeted searches do not supply the exact five-order cyclic census. Remaining risk is an unindexed exact enumeration.",
+    "residual_risks": [
+      "Unindexed enumerations, software tables or unpublished cyclic reversal-cover counts could already contain these exact numbers.",
+      "Related orientable sequences solve a different packing task, but specialized reverse-covering implementations may exist outside the examined literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Very close foundational source, establishes linear unoriented setting and small examples, but does not enumerate all shortest cyclic words or count their rotation/symmetry orbits",
+        "evidence": [
+          "arXiv:1608.08480, §§1–5, especially Proposition 3.1, Theorem 4.3 and §5 examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+        "material_read": "The accessible full-text sections 1–5, including optimality theorem, Eulerization conditions and order-four/order-five examples",
+        "method": "Read public arXiv full-text rendering, comparing precise coverage definition and the distinction between linear endpoints and cyclic closure",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Identical reversal-equivalence objects and explicit small-order constructions"
+      },
+      {
+        "assessment": "General linear-input variant and algorithms do not include the finite circular reversal-class census",
+        "evidence": [
+          "arXiv:1511.08431, §§1–5, especially SCS-R definition, Theorems 4 and 7 and Proposition 8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+        "material_read": "Accessible full-text sections 1–5 and the definitions of SCS-R, the linear-time algorithm, compression theorem and NP-completeness theorem",
+        "method": "Read arXiv full-text rendering and compared its linear superstring objective with the cyclic finite enumeration",
+        "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+        "trigger": "Possible stronger general shortest-superstring-with-reversal result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2dd86a4-1c28-4c8f-af90-bae220549291",
+  "value": {
+    "rationale": "Exact shortest cyclic reversal covers are a natural length-limited universal-cycle invariant. Orders four and five are the first two nontrivial cases beyond the obstruction threshold in the classical unoriented de Bruijn problem, not arbitrary sliced parameters. Exact minima and complete classification of every minimizing rotation and symmetry orbit are mathematically informative boundary facts rather than isolated recomputation of a known table. No general all-order theorem is claimed or needed for this finite classification.",
+    "status": "PASS"
+  }
+}
