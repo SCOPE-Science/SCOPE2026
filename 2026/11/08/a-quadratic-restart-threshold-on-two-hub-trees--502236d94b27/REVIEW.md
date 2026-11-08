@@ -1,0 +1,15 @@
+# Scientific review: A quadratic restart threshold on two-hub trees
+
+## Correctness (C): PASS
+Exact continuous-time first-step equations imply \(A=S\), \(H=S-1\) and \(J-S=b(r+2)/[1+(b+1)r(r+2)]\), then the all-parameter formula in RESULT.md. The second derivative is strictly positive for \(a,b\ge1\) and \(r\ge0\); the derivative at zero gives the claimed quadratic threshold, while its positive limit at infinity gives global uniqueness. The limiting optimum for fixed \(a\) is proved by bracketing the unique derivative zero. The bundled standard-library checker passed 100 independent rational full-state generator calculations, but these finite tests are supporting evidence, not a universal proof. No numerical optimization is used to claim an exact phase boundary.
+
+## Originality (O): PASS, qualified
+The strongest relevant source is Riascos et al., arXiv:1910.13568, which supplies general network reset formulas, discusses continuous time in an appendix and gives regular-Cayley-tree examples. Reuveni's 2016 general exponential-restart formula likewise gives a route to calculate a result after specifying the original passage-time transform. Neither inspected result states the present exact asymmetric two-hub formula, global convexity, quadratic positive-restart boundary or bounded-optimum large-trap limit. Riascos et al., arXiv:2110.15437, give a discrete-time reset-advantage criterion where reset steps consume time; Michelitsch et al., arXiv:2409.08394, likewise concern a discrete-time renewal process. Targeted source, alias and implication searches did not surface exact prior coverage, and accessible prior records describing other two-hub models concern different stochastic processes. The broad renewal principle is prior work, not claimed here. Specific risk: an unlocated published specialization of the general formula could cover the exact tree family; independent historical-priority review remains necessary.
+
+## Value (V): PASS
+The source and target always lie two edges apart, yet the remote trap branching can make restarting strictly advantageous, with a sharp quadratic \(a\)-versus-\(b\) threshold and a globally unique rate. A stronger structural feature is that for fixed local branching the best reset time stays bounded when the unreset mean diverges; this captures the geometry-induced tradeoff between escaping remote traps and repeatedly undoing useful progress. The precise phase boundary is motivated by this natural graph-search question, not an arbitrary finite invariant.
+
+## Boundaries and external verification
+All statements assume a rate-one uniform-neighbor continuous-time walk, independent instantaneous Poisson restart to a distinguished source leaf and one absorbing target leaf. The result is not a claim about a discrete-time walk, a general graph, or every starting/target position. Originality checks cannot establish global historical uniqueness. No independent mathematical audit has yet been performed.
+
+Self-review: passed. Independent audit: not yet performed.
