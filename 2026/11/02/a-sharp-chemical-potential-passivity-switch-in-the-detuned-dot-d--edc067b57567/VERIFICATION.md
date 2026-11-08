@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify.py` using Python with NumPy and SciPy installed. The program constructs the full four-state GKLS superoperator from the detuned three-site Hamiltonian, injection and extraction jumps, and local dephasing; it obtains a trace-one stationary density matrix by linear solve, checks Hermiticity, positivity, trace and residual, and computes passive work using all density-matrix eigenvalues.
+## correctness
 
-At the specified numerical parameters the verifier checks the limiting population ratios and their normalization, both chemical-potential branches, the exact equality at the boundary, the one-sided slope, and convergence of normalized energy and ergotropy between detunings 300 and 900. It varies contact, dephasing, chemical potential and positive temperature independently, and tests the near-saturation limit. The executed program produced `PASS: 231 deterministic analytic, normalization, positivity, and GKLS checks`.
+PASS
 
-The parameter-universal stationary limits and the nonanalytic limiting threshold are established by the analytical population-balance and passive-spectrum proof in `RESULT.md`, not by finite-dimensional numerical sampling. The checker has no claim to verify untested parameter values or independently certify publication priority.
+For fixed positive gamma,Gamma,Omega,temperature and finite μ, strict reservoir jump support yields unique fixed-Delta stationary state. As Delta→∞ low energy-state reservoir balances give p_g=a p0,p_e=b p0, while local dephasing exchange at order Delta^-2 gives p_d=(p_g+p_e)/2; coherences are O(Delta^-2), reservoir detuned leakage smaller. Thus populations ∝(1,a,b,(a+b)/2). Passive-state sorting assigns the largest energy to min(1,b)/Z, yielding a kink at b=1, μ=ε+Ω. Fraction tanh h below, 1−exp(−(μ−ε)/θ)/cosh h above, with sequential μ→∞ limit. Independently assembled full 4x4 Lindblad Liouvillian and solved stationary density at ten settings; energy/ergotropy coefficients matched within bounded-detuning precision.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. The exact same Hamiltonian/reservoir/dephasing model is prior work. The lower branch and limiting near-unity regime are qualitatively known; the claimed addition is complete fixed-μ two-branch threshold, including vacuum/antibonding passivity exchange. Because original full paper inaccessible in this run, exact noncoverage is not asserted; duplicate derivation remains a substantial risk.
+
+## value
+
+PASS
+
+A complete passivity-ordering phase boundary in exactly the previously studied three-dot battery resolves behavior beyond the source paper's restricted chemical-potential window, including continuous but nondifferentiable ergotropic fraction and large-μ limit. This is a motivated exact stationary-state classification, not a general thermodynamic efficiency claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
