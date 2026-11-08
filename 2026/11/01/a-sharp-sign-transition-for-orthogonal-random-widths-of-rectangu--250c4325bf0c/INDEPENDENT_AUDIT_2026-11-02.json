@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:11:38.074910Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "Independent symbolic spherical/circle beta integrals recovered diagonal 2/(3π), off-diagonal 8/(3π²) and threshold tau 0.3482010619334286.",
+        "Actual verify_orthogonal_widths.py fully read; its sphere quadrature corroborates but is not an infinite-parameter proof.",
+        "Compared complete closest published orthotope RESULT.md mathematical statements rather than only search snippets."
+      ],
+      "rationale": "For a 3D orthotope W(u)=Σa_i|u_i|. Haar U has each marginal uniform[-1,1], E W(U)=S/2. Given U, Haar V in U-perpendicular circle satisfies E(|V_j||U)=(2/π)sqrt(1-U_j²). The independent diagonal moment computes E|U_jV_j|=(2/π)∫_0^1 t sqrt(1−t²)dt=2/(3π), while for i≠j circle conditioning gives (4/π²)(1/2)∫_{−1}^1(1−t²)dt=8/(3π²). The mixed width moment follows by bilinearity. Subtract S²/4 to obtain A Q+B(S²−Q). A<0<B, A−B<0; solve root tau=−B/(A−B)=0.348201061933... . At fixed S, Q>=S²/3 uniquely for equal a,b,c and Q<S² for positive lengths with rod approach. The exact cube sign is >0 by π<22/7, while rod covariance tends A S²<0. Continuous positive lengths realize the whole interval. Independent SymPy checked both Haar integrals and tau expression.",
+      "risks": [
+        "Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Width-brightness source computes Cov(W(U),B(U)) at a SINGLE shared normal and optimizes aspect ratio in d dimensions.",
+          "Projection perimeter source computes integrated 2-plane shadow perimeter moments, not the fixed 90-degree angle pair kernel.",
+          "Abas abstracts develop marginal width/brightness moment, inverse theory and folded Gaussian coordinates; primary 92-page body unavailable."
+        ],
+        "reasoning": "These mathematically adjacent stronger families do not state or directly numerically imply the right-angle width-width covariance without resolving angular dependence; an uninspected general polarization theorem could dominate.",
+        "searches": [
+          "Resultary same-normal width-brightness 2026/10/11/...ef50d44d3e36 full RESULT.md",
+          "Resultary planar-shadow perimeter moments ...5f6a2c7bb90c full RESULT.md",
+          "Abas arXiv:2609.26202 summary"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1110.0671",
+        "https://arxiv.org/abs/1511.08479",
+        "https://arxiv.org/abs/2608.03305",
+        "https://arxiv.org/abs/2609.26202",
+        "Resultary 2026/10/11/...ef50d44d3e36",
+        "Resultary 2026/10/11/...5f6a2c7bb90c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orthogonal pair covariance uses E|U_i V_j| with U⊥V, distinct from same-normal E|U_iU_j| and plane-integrated E sqrt(U_i²+V_i²) sqrt(...).",
+          "Neither other observable deterministically recovers this finite angular kernel by an identity quoted in its theorem."
+        ],
+        "reasoning": "The new exact orthogonal-frame sign phase diagram does not follow by mere parameter substitution from inspected prior claims; possible unpublished/inaccessible angular correlation treatment remains a risk.",
+        "searches": [
+          "Resultary full width-brightness & projection-perimeter proof comparison",
+          "Finch single-direction cube second moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch evaluates E W^2 for a single uniform direction on the cube.",
+          "Kabluchko et al consider one-direction cube projection moments, not a paired perpendicular orientation."
+        ],
+        "reasoning": "A one-direction distribution cannot determine this two-direction coupling without angle-conditioned information; the covariance sign threshold is a different statement.",
+        "searches": [
+          "Finch arXiv:1110.0671 complete relevant cube-width section",
+          "Kabluchko et al arXiv:1511.08479 random width results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-angle box pair covariance table found in returned published results.",
+          "Box-width paper abstract addresses one uniform direction and all scalar cumulants; it does not supply an orthogonal-pair joint table as stated."
+        ],
+        "reasoning": "No table matching Q/S² tau found, but a failed search cannot certify novelty.",
+        "searches": [
+          "Resultary orthogonal two-frame width query 14-hit",
+          "arXiv:2608.03305 rectangular box width distributions"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: Abas 2026 92-page primary full text not available despite OA and Oxford attempt; angular-pair covariance may be implicit in general cosine-transform results.; Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies.",
+      "residual_risks": [
+        "Abas 2026 92-page primary full text not available despite OA and Oxford attempt; angular-pair covariance may be implicit in general cosine-transform results.",
+        "Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING specific two perpendicular widths",
+          "evidence": "Uses same U for width W(U) and brightness B(U), not orthonormal pair (U,V).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-aspect-ratio-phase-diagram-for-width-brightness-covariance--ef50d44d3e36",
+          "material_read": "Entire published RESULT.md read: theorem, assumptions, joint moment proof, extrema and references.",
+          "method": "direct original published Git blob reading",
+          "title": "Sharp aspect-ratio phase diagram for width–brightness covariance of orthotopes",
+          "trigger": "closest covariance with same box, shape-sign phase diagram"
+        },
+        {
+          "assessment": "NOT_COVERING fixed right-angle two-width statistic",
+          "evidence": "Measures perimeter 2Σa_i||proj_S e_i|| and averages over planes; does not resolve a pair of widths along orthogonal directions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-haar-random-planar-projection-perimeter-moments-of-all-orthotope--5f6a2c7bb90c",
+          "material_read": "Entire published RESULT.md read, including hypergeometric mixed kernel for 2-plane shadows.",
+          "method": "direct original published Git blob reading",
+          "title": "Haar-random planar projection perimeter moments of all orthotopes",
+          "trigger": "related joint second moment of projected segments"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE cube marginal moments only",
+          "evidence": "Published cube mean squared width 1+4/π is not the joint covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671",
+          "material_read": "10-page primary OA PDF accessed; first/regular cube-moment sections inspected and p7 screenshot checked.",
+          "method": "PDF text and screenshot of primary",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "cubic single-direction moments"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Potential polar moment/cosine-transform identities could imply an angular covariance; priority risk unresolved but no positive coverage evidence.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26202",
+          "material_read": "Bibliographic abstract and 92-page paper scope examined. arXiv full PDF and Zenodo OA failed; authorized Oxford retrieval returned vpn_disconnected job 9beb2c13f9e19f2b2f41bfcb2953783b. No full-text conclusions drawn.",
+          "method": "OA attempts followed by Oxford authorized access attempt",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "plausible stronger width moment and reconstruction theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "Natural exact threshold, structural law, or finite classification in explicitly defined scientific objects; independent of novelty/reproducibility alone.",
+      "rationale": "Two orthogonal measurement directions in the same randomly rotated frame are a natural coupled stereological observable; the signed dependence changes sharply between cube-like and elongated boxes. The exact one-variable shape statistic and sharp nonattained lower bound are not recoverable from one-direction marginals and provide a complete natural three-dimensional classification.",
+      "residual_risks": [
+        "Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Abas 2026 92-page primary full text not available despite OA and Oxford attempt; angular-pair covariance may be implicit in general cosine-transform results.",
+    "Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies."
+  ],
+  "schema_version": 1
+}

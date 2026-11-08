@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The support-function width identity is exact for three orthogonal generating segments. The conditional circular law yields both diagonal and off-diagonal orthonormal-frame absolute-coordinate mixed moments by explicit beta integrals. Covariance, its unique zero at the normalized squared-length threshold, and both sharp fixed-perimeter extrema follow algebraically. The strict cube sign follows from the exact \(\pi<22/7\) bound; the rod limit gives negative covariance. The independent checker evaluates the original conditional sphere integral and symbolic identities. Its finite checks are not substituted for proof.
+## correctness
 
-## Originality
-**PASS at best knowledge, residual historical risk.** Finch (2011) and Kabluchko–Litvak–Zaporozhets (2015) compute one-direction width statistics but do not analyze two mutually perpendicular random directions. Closest inspected publicly available work treats same-direction width and brightness, integrated projected-plane perimeter moments, or planar shadow area-perimeter covariance. Different random couplings and observables mean those formulas do not, without additional work, imply this right-angle covariance law or sharp sign phase diagram. Targeted published-claim and mathematical literature searches did not identify an equivalent result. These searches cannot establish worldwide historical priority, and additional stereology may contain related paired-width moments.
+PASS
 
-## Mathematical value
-**PASS.** Measuring orthogonal widths in a single randomized frame is a natural two-view stereological observable, distinct from two independent views. The complete cubic shape classification exhibits genuine positive versus negative dependence and a sharp affine-shape statistic at zero covariance; the unique maximizer and sharp nonattained lower value calibrate the full range. This is not just a special numerical box example and cannot be reconstructed from one-direction width marginals alone. It does not claim general convex-body validity or independent validation.
+For a 3D orthotope W(u)=Σa_i|u_i|. Haar U has each marginal uniform[-1,1], E W(U)=S/2. Given U, Haar V in U-perpendicular circle satisfies E(|V_j||U)=(2/π)sqrt(1-U_j²). The independent diagonal moment computes E|U_jV_j|=(2/π)∫_0^1 t sqrt(1−t²)dt=2/(3π), while for i≠j circle conditioning gives (4/π²)(1/2)∫_{−1}^1(1−t²)dt=8/(3π²). The mixed width moment follows by bilinearity. Subtract S²/4 to obtain A Q+B(S²−Q). A<0<B, A−B<0; solve root tau=−B/(A−B)=0.348201061933... . At fixed S, Q>=S²/3 uniquely for equal a,b,c and Q<S² for positive lengths with rod approach. The exact cube sign is >0 by π<22/7, while rod covariance tends A S²<0. Continuous positive lengths realize the whole interval. Independent SymPy checked both Haar integrals and tau expression.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: Abas 2026 92-page primary full text not available despite OA and Oxford attempt; angular-pair covariance may be implicit in general cosine-transform results.; Only 3D orthotopes and orthonormal Haar pair, not full joint distribution or all convex bodies.
+
+## value
+
+PASS
+
+Two orthogonal measurement directions in the same randomly rotated frame are a natural coupled stereological observable; the signed dependence changes sharply between cube-like and elongated boxes. The exact one-variable shape statistic and sharp nonattained lower bound are not recoverable from one-direction marginals and provide a complete natural three-dimensional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
