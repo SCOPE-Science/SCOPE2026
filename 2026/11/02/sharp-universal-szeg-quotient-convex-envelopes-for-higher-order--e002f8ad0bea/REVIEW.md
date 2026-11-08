@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The iterated Schwarz lemma gives the exact radial modulus bound. The Möbius image of the resulting modulus disk has explicitly calculated center and radius. An arithmetic–geometric mean inequality places every such disk in the proposed convex interpolant. The monomial test map traverses every fixed-radius boundary circle and approaches the entire limiting circle, proving the all-direction sharpness and the equality of closed convex hulls. Tangency, area, and perimeter follow by elementary planar geometry. The unilateral-shift decomposition separately proves the numerical-range comparison. The included standalone checker tests representative computations; infinitude follows from the proof.
+PASS
 
-## Originality
+From iterated Schwarz f=z^m g, |g|<=1, at |z|²=s the quotient is in a disk with center q=1/(1+s+...+s^m), radius q*s^((m+1)/2). AM–GM on the m terms s,...,s^m gives radius <= (1-q)/m, the Minkowski interpolation radius between {1} and target disk center/radius 1/(m+1). f=z^m sweeps the entire fixed-radius boundary and as s->1 approaches the full target circle, whereas at z=0 equals 1. Support is max(cos(theta),(1+cos(theta))/(m+1)). Tangency geometry gives exact stated formulas; the m>=2 restriction is essential for the full boundary sweep. Reconstructed algebra and checked independent rational AM–GM and tangency identities; finite checks do not prove all m.
 
-PASS relative to inspected evidence. Bourdon, Le, and Thompson (arXiv:2610.17634, especially Proposition 3.7 and Sections 2–4) establish circular fibers for a rational family and general qualitative Berezin-range properties, but not this degree-parameterized universal convex envelope over all higher-order-zero disk maps or its exact support and area. Cowen–Felder (arXiv:2109.12095) and Augustine–Garayev–Shankar (arXiv:2302.12547) analyze other convexity classes, not the claimed optimal family. The known Schwarz lemma and shift numerical range are explicitly treated as prior ingredients. An earlier unindexed equivalent envelope is the remaining originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural reproducing-kernel quantity receives the strongest possible complex-plane convex constraint under an exact jet condition. Unlike the previously known scalar radius-one estimate, the new bound gives all support directions, the universal optimal extremal map, a sharp degree-dependent angular threshold, and two global shape invariants. The shrinking area despite a fixed full numerical-range disk precisely quantifies the geometric information lost by restricting to normalized reproducing kernels. Scope remains restricted to the Hardy Szegő quotient and higher-order zeros.
+Bourdon–Le–Thompson generalizes the composition Berezin formula and discusses circular fibers, but accessible mathematical statements do not establish the ALL-symbol prescribed-zero optimal support hull and simultaneous monomial extremality for every m. Cowen–Felder and Augustine–Garayev–Shankar inspect different symbol families; scalar unit disk bound weaker. The closest 2026 primary full text could not be accessed via arXiv/OA or authorized institutional channel; this significant coverage risk remains explicit. Best-of-knowledge PASS, not worldwide priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp natural universal geometric bound for Szegő composition Berezin quotients under an order-of-zero constraint, with one extremizer saturating infinitely many support directions and exact area/perimeter. It substantially refines the unrestricted unit-disk bound and is not a routine reparameterization of Schwarz lemma; the nontrivial step is uniform disk interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
