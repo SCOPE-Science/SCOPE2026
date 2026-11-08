@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:57:37.338166Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 8cefa40b5a69d0d6994149dcd2c9ccbb90b871bf",
+        "verify.py 435ad28ea6db0553a33a8907483eef3fbc96433f inspected",
+        "Independent analytic and numerical identity checks in scope_independent_checks_20261105.py"
+      ],
+      "rationale": "For edge lengths a>=b and acute δ, projected widths Aθ=a|sinθ|,Bθ=b|sin(θ-δ)|, and area C=ab sinδ. Conditional width-weighted Crofton orientation and trapezoidal transverse chord profile yield the exact survival integral over angles. Cavalieri gives μ=πC/[2(a+b)]. For x<=h=b sinδ all directions remain active, and evaluating ∫|sinθ sin(θ-δ)|dθ=J(δ) gives κ=J(δ)/[(a+b)sinδ]. The first exclusion occurs at transverse maximum A=a, with a positive local plateau a-b cosδ; one or two maximizers create the claimed sqrt(u) cusp. The inverse α=a/(a+b), q=J(δ) is unique because J strictly decreases from π/2 to 1. At δ=π/2, J(π/2-ε)=1+ε²/2+O(ε^4), giving sharp Hölder exponent 1/2. Independent analytic/numerical invariant checks were executed on square, rectangle, rhombus, oblique cases. The proof, not quadrature, covers all shapes.",
+      "residual_risks": [
+        "The ideal exact law-level cutoff is sensitive to finite sampling; no estimator or stability bound for noisy h is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gasparyan–Ohanyan 2014 seven-case full forward chord distribution",
+          "Martirosyan 2023 full forward quadrilateral chord formulas",
+          "Nagel 1993 orientation-dependent polygon chord characterization",
+          "J. Gates, Recognition of triangles and quadrilaterals by chord length distribution, J. Appl. Prob. 19 (1982), 873–879, DOI 10.2307/3213843"
+        ],
+        "reasoning": "Full forward distributions are stronger as data, but do not automatically settle sufficiency of just μ,κ,h or its exact image in the positive octant. Nagel’s characterization uses directional observations, absent in the unlabeled invariant-line triple here. Gates (1982) uses the full function derivative as data, which does not immediately imply that just three scalars suffice.",
+        "searches": [
+          "Resultary semantic search: isotropic random line chord distribution parallelogram inverse reconstruction mean zero density first cusp"
+        ]
+      },
+      "checked_sources": [
+        "Gasparyan–Ohanyan, Covariogram of a parallelogram, J. Contemp. Math. Anal. 49 (2014), DOI 10.3103/S1068362314040050",
+        "Martirosyan, Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral, J. Contemp. Math. Anal. 58 (2023), DOI 10.3103/S1068362323060055",
+        "J. Gates, Recognition of triangles and quadrilaterals by chord length distribution, J. Appl. Prob. 19 (1982), 873–879, DOI 10.2307/3213843",
+        "Gasparyan–Ohanyan 2014 seven-case full forward chord distribution",
+        "Martirosyan 2023 full forward quadrilateral chord formulas",
+        "Nagel 1993 orientation-dependent polygon chord characterization",
+        "J. Gates, Recognition of triangles and quadrilaterals by chord length distribution, J. Appl. Prob. 19 (1982), 873–879, DOI 10.2307/3213843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gasparyan–Ohanyan 2014 covariogram formulas for all parallelograms",
+          "Nagel 1993 orientation-dependent distributions characterize polygons",
+          "Gates (1982) proves reconstruction of quadrilaterals from the derivative of the entire chord-density; a strictly richer input than only μ, κ, h."
+        ],
+        "reasoning": "The statement that the entire directional chord function determines the shape does not imply that three unlabeled scalar statistics determine it. The submitted proof supplies the missing strict J monotonicity, exact feasible region and sharp cutoff cusp. Gates 1982 asserts recognition from a full function rather than the three finite summary statistics, so the exact reduction remains the submitted extra statement, with a substantial historical overlap risk.",
+        "searches": [
+          "Resultary semantic search: isotropic random line chord distribution parallelogram inverse reconstruction mean zero density first cusp"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gasparyan–Ohanyan, Covariogram of a parallelogram, J. Contemp. Math. Anal. 49 (2014), DOI 10.3103/S1068362314040050",
+          "Martirosyan, Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral, J. Contemp. Math. Anal. 58 (2023), DOI 10.3103/S1068362323060055",
+          "J. Gates, Recognition of triangles and quadrilaterals by chord length distribution, J. Appl. Prob. 19 (1982), 873–879, DOI 10.2307/3213843"
+        ],
+        "reasoning": "The earlier formulas are for forward direction-dependent or integrated chord distributions. From the materially inspected original articles, no three-statistic inverse/feasibility theorem or first cutoff cusp inversion was stated. The known full distribution contains these observables implicitly, so earlier analytic formulas are significant antecedents and priority risk, not disjoint research. Gates (1982) recognizes quadrilaterals from the entire chord-density derivative; the accessible abstract gives no three-summary sufficiency claim, but is a significant possible ancestor.",
+        "searches": [
+          "Resultary semantic search: isotropic random line chord distribution parallelogram inverse reconstruction mean zero density first cusp"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2014 seven-case forward parallelogram chord law",
+          "Submitted exact μ,κ,h inverse and square-root threshold"
+        ],
+        "reasoning": "A forward table can be integrated to recover the triple but does not itself provide this inverse map and conditioning result. An equivalent derivation may have been overlooked; this is documented as a priority risk.",
+        "searches": [
+          "Resultary semantic search: isotropic random line chord distribution parallelogram inverse reconstruction mean zero density first cusp"
+        ]
+      },
+      "rationale": "Forward parallelogram covariograms and direction-dependent chord laws are known; the exact triple-to-congruence inverse, feasible signature range and sharp cusp/rectangle conditioning are distinct derived statements with a specific new reconstruction argument.",
+      "residual_risks": [
+        "Resultary semantic search not comprehensive; lack of a matching result is not novelty proof.",
+        "Only exact invariant-line chord law for nondegenerate Euclidean parallelograms; no estimator under sampling noise and no other quadrilateral classes.",
+        "The potentially closest full article, Gates (1982), was inaccessible via OA/arXiv and Oxford VPN was disconnected; an equivalent inverse derivation cannot be ruled out and requires subsequent priority review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong forward prior; no explicit three-statistic congruence inverse/feasible-domain/cusp result identified, residual overlap significant",
+          "evidence": "The article gives covariogram and seven-case chord-length formulas, not stated inverse recovery from only μ,κ,h.",
+          "identifier_or_url": "https://doi.org/10.3103/S1068362314040050",
+          "material_read": "Author-uploaded full 2014 paper accessed; introduction, formula sections 2–4, geometric cases and forward distribution material read",
+          "method": "Authorized open author full-text view; original formulas examined",
+          "title": "Covariogram of a parallelogram",
+          "trigger": "Exact same class of parallelograms and full chord-length distributions, likely strongest coverage"
+        },
+        {
+          "assessment": "Forward orientation-dependent laws for general quadrilaterals, not this undirected three-statistic inverse",
+          "evidence": "Theorems concern fixed directional chord distribution rather than width-biased invariant-line inverse reconstruction.",
+          "identifier_or_url": "https://doi.org/10.3103/S1068362323060055",
+          "material_read": "Full open article, introductory scope and main sections 1–4 inspected",
+          "method": "OA full text/PDF and publisher page",
+          "title": "Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral",
+          "trigger": "Potential stronger full quadrilateral chord formula encompassing parallelograms"
+        },
+        {
+          "assessment": "Entire chord-density derivative reconstructs quadrilaterals; not enough available text to exclude equivalent three-statistic result or corollary, strong residual priority risk",
+          "evidence": "1982 abstract states quadrilateral recognition from derivative of chord-length density, not three scalar statistics; full text was not read.",
+          "identifier_or_url": "https://doi.org/10.2307/3213843",
+          "material_read": "Full published abstract and bibliographic/citation context only; full article inaccessible",
+          "method": "Cambridge publisher abstract, other OA/arXiv search, and authorized Oxford institutional request; Oxford returned vpn_disconnected",
+          "title": "Recognition of triangles and quadrilaterals by chord length distribution",
+          "trigger": "Highly relevant early inverse recognition theorem for exactly quadrilaterals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned verified RESULT.md blob 8cefa40b5a69d0d6994149dcd2c9ccbb90b871bf",
+        "Gasparyan–Ohanyan, Covariogram of a parallelogram, J. Contemp. Math. Anal. 49 (2014), DOI 10.3103/S1068362314040050",
+        "Martirosyan, Orientation-Dependent Chord Length Distribution in a Convex Quadrilateral, J. Contemp. Math. Anal. 58 (2023), DOI 10.3103/S1068362323060055",
+        "J. Gates, Recognition of triangles and quadrilaterals by chord length distribution, J. Appl. Prob. 19 (1982), 873–879, DOI 10.2307/3213843"
+      ],
+      "rationale": "A natural inverse-geometric summary recovers an entire three-parameter shape class from three direct scalar chord-law measurements, with complete feasibility and quantifiable rectangle instability. Not just another forward integral or a known table value.",
+      "residual_risks": [
+        "The known full forward distribution implies the three statistics can be computed, so priority relative to unpublished inverse corollaries remains uncertain.",
+        "Gates (1982) is a substantive antecedent on inverse quadrilateral recognition, though its stated data are the full chord-density derivative, not three scalars."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For invariant-motion-measure isotropic line chords of a nondegenerate Euclidean parallelogram, the mean chord μ, initial survival slope κ, and first nonaffine cutoff h determine the congruence class; feasible α=2μ/(πh) in [1/2,1), q=κh/(1-α) in [1,π/2), with a sharp square-root cusp at h and square-root inverse-angle singularity at rectangles.",
+  "limitations": [
+    "Only exact invariant-line chord law for nondegenerate Euclidean parallelograms; no estimator under sampling noise and no other quadrilateral classes.",
+    "The potentially closest full article, Gates (1982), was inaccessible via OA/arXiv and Oxford VPN was disconnected; an equivalent inverse derivation cannot be ruled out and requires subsequent priority review."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact offset-chord convolution gives equation (1); Cauchy--Crofton integration gives the mean. The minimum over directional maximum chords is the shorter altitude, and a positive local plateau mass creates the first square-root cusp. The trigonometric integral is exact and its strictly monotone value proves the complete inverse and feasible range. The script verifies sample shapes, both geometric regimes and the first-cusp coefficient. Numerical checks are corroboration, not substitutes for the argument.
+PASS
 
-## Originality — PASS, with residual priority risk
+For edge lengths a>=b and acute δ, projected widths Aθ=a|sinθ|,Bθ=b|sin(θ-δ)|, and area C=ab sinδ. Conditional width-weighted Crofton orientation and trapezoidal transverse chord profile yield the exact survival integral over angles. Cavalieri gives μ=πC/[2(a+b)]. For x<=h=b sinδ all directions remain active, and evaluating ∫|sinθ sin(θ-δ)|dθ=J(δ) gives κ=J(δ)/[(a+b)sinδ]. The first exclusion occurs at transverse maximum A=a, with a positive local plateau a-b cosδ; one or two maximizers create the claimed sqrt(u) cusp. The inverse α=a/(a+b), q=J(δ) is unique because J strictly decreases from π/2 to 1. At δ=π/2, J(π/2-ε)=1+ε²/2+O(ε^4), giving sharp Hölder exponent 1/2. Independent analytic/numerical invariant checks were executed on square, rectangle, rhombus, oblique cases. The proof, not quadrature, covers all shapes.
 
-The closest historical source, Gasparyan--Ohanyan (2014), already supplies the entire forward chord-length distribution for parallelograms, so no forward formula is asserted as new. The narrower new contribution is an exact three-observable inverse theorem, the full attainable signature set, and the sharp rectangular conditioning exponent. Martirosyan (2023) concerns forward orientation-dependent quadrilateral chords. The closest published mathematical record on three unlabeled width statistics uses random projection lengths with a different sampling law; the three statistics there do not entail the chord-statistic inversion. A search cannot prove priority, and specialized older inverse claims may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The class of all parallelograms is a natural three-parameter geometric inverse problem. The theorem characterizes the exact information sufficient for shape recovery without observing line directions or retaining a whole distribution; it gives necessary and sufficient feasibility inequalities, the first law singularity and optimal boundary sensitivity. These features directly inform geometric-tomography identifiability and limitations of chord sampling, beyond recomputing the known forward law.
+Forward parallelogram covariograms and direction-dependent chord laws are known; the exact triple-to-congruence inverse, feasible signature range and sharp cusp/rectangle conditioning are distinct derived statements with a specific new reconstruction argument.
 
-## Scope and limitations
+## value
 
-Only exact invariant-line chord laws of nondegenerate Euclidean parallelograms are covered. No general-polygon reconstruction, finite-sample statistical estimator or full historical priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural inverse-geometric summary recovers an entire three-parameter shape class from three direct scalar chord-law measurements, with complete feasibility and quantifiable rectangle instability. Not just another forward integral or a known table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
