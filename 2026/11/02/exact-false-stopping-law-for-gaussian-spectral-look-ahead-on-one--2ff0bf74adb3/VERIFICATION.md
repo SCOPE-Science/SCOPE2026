@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The full proof is in `RESULT.md`; the supplied `verify.py` is a standalone finite diagnostic using Python 3, NumPy and SciPy. Executing `python verify.py` on the embedded file yielded `PASS: 1133 deterministic and seeded numerical checks` and `Example false-stop probability: 0.989767987748`.
+## correctness
 
-The script tests the QR-based spectral norm against the rank-one projected-eigenvalue identity and independently checks the one-coordinate Haar scaling identity; it uses normal random matrices of seven sizes and three power counts. It evaluates beta CDF probabilities across increasing column widths, compares seeded independent chi-square-event frequencies with the closed CDF, and checks the explicit finite example and phase-trend signs.
+PASS
 
-The general proof uses the exact identity for the rank-one compression, the deterministic scaled-subspace projection formula, and Gaussian Haar invariance. The asymptotic assertions use chi-square concentration. Neither finite numerical tests nor a probabilistic fit is an infinite-dimensional proof.
+PASS. For E=diag(1,d I_N), 1<=b<=N, q>=0, Gaussian independent Ω, the nonstationary spectral norm of Q^T E squared is d²+(1-d²)||P_range(Y)e1||² by rank-one eigenvalues. The singular-axis scaling D=diag(1,d^(2q+1)I_N) sends a Haar b-plane with S=||P_R e1||² to projection S/(S+d^(4q+2)(1-S)); exact Haar law S=Z/(Z+V), Z~chi²_b, V~chi²_(N+1-b) independent, yields the stated beta CDF including 0 at τ<=d and 1 at τ>=1, with full-block b=N+1 giving L=1. Chi-square LLNs give fixed-width critical alpha=1/(4q+2), chi-square critical law Z/(Z+1) and growing-width ratio beta=b/(N d^(4q+2)). Equality of threshold and limiting value is explicitly unclassified. The claim is for the indicator, not an entire randomized low-rank algorithm.
 
-No external independent audit was performed. Bibliographic priority, extensions beyond the one-spike/flat-tail real Gaussian family, and finite-precision robustness remain unverified.
+## originality
+
+PASS
+
+PASS, best-of-knowledge and qualified. The Haar projection beta law and one-spike singular geometry are classical, and published random-ellipsoid section-radius work shares the ingredient. The present final claim is the exact beta transfer through the powered look-ahead spectral estimator plus its conditional stopping probability and width/power phase transition; none of the material actually read establishes that complete statement. The source introducing the same stopping estimator (Smith–Do–Chen 2026) remains a material full-text-access limitation, and a hidden equivalent special-case formula is possible; not claimed as proven priority.
+
+## value
+
+PASS
+
+PASS. Exact, finite-sample calibration of a naturally used spectral stop test is useful independently of general error bounds. The 0.9897679877478459 false-stop example with a separated spike demonstrates why a small tail singular value alone is insufficient when tail multiplicity is large. The sharp power/sketch-size transition quantifies the remedy. A one-spike flat-tail restriction is mathematically motivated, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
