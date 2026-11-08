@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The Gaussian integral gives the exact two ambiguity factors; differentiating the radial squared singular value shows its only possible interior minimum. One strictly increasing boundary branch and one strictly decreasing interior branch have exactly one crossing for every \(T>2\). The complete endpoint cases and large-radius asymptotics follow algebraically. `CHECK.py` additionally checks independent numerical Gaussian integrals, symbolic identities, direct maximization, and limiting values. The stated norm is explicitly restricted to pointwise transformed-intensity inversion, not global signal recovery.
+
+**Originality — PASS relative to inspected work.** Alaifari–Yang (arXiv:2410.05486, Section 2.2 and Section 3) establish Hermite ambiguity coverage and its reconstruction use, but do not optimize a continuous allocation between the zeroth and first Hermite channels or classify the precise \(T=2\) transition. Bertolini et al. (arXiv:2605.20527, Introduction and Theorems 1.3–1.5) study a different local \(L^2\)-stability concept. Bartusel (arXiv:2605.31507) treats finite-dimensional support-based phase-retrieval guarantees. Records about optimally weighted **cyclic** STFT measurements do not imply this continuous radial two-Hermite result. Residual risk: another work may already contain the elementary but exact minimax optimization under different terminology.
+
+**Value — PASS.** This solves the minimum two-Hermite measurement-budget design problem with an exact phase boundary and a non-negligible effect: at \(T=4\) the squared inversion margin improves by more than sixfold, and the improvement factor grows quadratically with disk radius. The benchmark quantifies how to distribute acquisitions between two standard windows while controlling a natural, sharp worst-case noise amplifier.
+
+Self-review: passed. Independent audit: not yet performed.

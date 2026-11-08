@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each unit-normalized Hermite window the exact Gaussian ambiguity factor is proved. The weighted squared-channel singular value is \\(F_w(s)\\). Its derivative has zero or two stationary radii; one is a strict local minimum. For \\(T>2\\) the boundary margin strictly increases while the interior margin strictly decreases, and their endpoint inequalities force a unique crossing. The implicit equation, all threshold cases and asymptotic are algebraic consequences. Independent quadrature, symbolic and scalar optimization checks passed; these finite tests do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In https://arxiv.org/abs/2410.05486, the Hermite architecture uses unions of individual stability regions and numerical choices of window degrees; it has no theorem fixing optimal relative channel weights over all disks.",
+        "Theorem 1.5 of https://arxiv.org/abs/2605.20527 concerns local signal-space stability of Hermite-window STFTs at a fixed signal and does not furnish exact pointwise two-window spectral margins."
+      ],
+      "reasoning": "Generic Hermite-window coverage and local phase-retrieval stability are not stronger claims that logically imply the exact weight optimizer without solving this separate maximin problem. No checked theorem bounds the studied design with the same normalization and parameter range.",
+      "searches": [
+        "optimal mixing zero first Hermite Gaussian ambiguity energy disk minimax",
+        "Hermite windows optimal weight ambiguity phase retrieval disk minimax",
+        "Multi-window approaches for direct and stable STFT phase retrieval Alaifari Yang Hermite h0 h1 ambiguity radial disk optimum budget fraction weight minmax"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.20527",
+      "https://arxiv.org/abs/2410.05486",
+      "https://arxiv.org/abs/2605.31507"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bertolini et al. give local L² stability at canonical polynomial elements; the present worst-case inverse concerns arbitrary errors in Fourier-transformed intensity pairs, so neither stability theorem subsumes the other.",
+        "Alaifari–Yang give the Laguerre polynomial formula and multiscale coverage, but do not state the nonlinear-in-radius allocation w_T or its sharp unique crossing.",
+        "Bartusel concerns a finite cyclic ambiguity-support criterion, not continuous radial Hermite ambiguity inversion."
+      ],
+      "reasoning": "The new equations derive using a known Gaussian-Laguerre factor as input, but the parametric maximin theorem and extremizer classification are not a restatement of any inspected earlier theorem. Scope and quantifiers were compared instead of keywords alone.",
+      "searches": [
+        "L2-stability STFT phase retrieval Bertolini de Dios Pont Pineau Taylor Ramos optimal two Hermite windows",
+        "Alaifari Yang multi-window Hermite weights numerical optimization ambiguity",
+        "Uncertainty Principles as a Tool for STFT Phase Retrieval Hermite Gaussian window weighting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source https://arxiv.org/abs/2410.05486 states the radial Hermite ambiguity identity and uses unweighted window coverage; the optimal weighted infimum as a function of disk radius is not stated in its inspected Sections 2.2, 3 or examples.",
+        "The source https://arxiv.org/abs/2605.20527 proves local signal-space STFT phase-retrieval stability for Gaussian and Hermite windows, not diskwise weighted inverse multiplication norms."
+      ],
+      "reasoning": "Weighted least-squares ambiguity inversion is the direct equivalent formulation of the claim. Its sharp smallest singular value is explicitly optimized here. The available qualitative multiwindow approach contains the ingredients but does not already assert the exact optimized margin or its transitions.",
+      "searches": [
+        "weighted Hermite Gaussian ambiguity functions Laguerre polynomial phase retrieval stability",
+        "Gaussian first Hermite optimal ambiguity radial coverage two window",
+        "minimize over Hermite Gaussian mixture weights maximum noise amplification on time frequency disk phase transition radius squared two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned no exact tabulation of the function Γ(T), optimal allocation w_T or the critical value T=2.",
+        "A published result on exact local conditioning for two-tap cyclic STFT windows optimizes the coefficients of a single finite window at a flat signal, not the continuous two-Hermite acquisition budget over a disk."
+      ],
+      "reasoning": "The retrieved numerical window-degree examples and the cyclic two-tap optimizer concern different invariants. No exact database entry for the proposed infinite-radius parameter family was located; absence from retrieval alone is not treated as proof of novelty.",
+      "searches": [
+        "optimal radial coverage weighted Hermite Gaussian ambiguity functions Laguerre polynomial phase retrieval stability",
+        "two-window Hermite phase retrieval optimal stability Gaussian first Hermite weighted minimax",
+        "optimal weight first Hermite and Gaussian windows disk STFT phase retrieval two-channel"
+      ]
+    },
+    "rationale": "The exact diskwise maximin weight, its threshold T=2, the entire optimizer set at threshold, and the unique transcendental equioscillation branch above threshold were not identified in inspected full-text primary Hermite STFT studies or indexed published results. Prior publications supply the Laguerre ambiguity identity and qualitative multiwindow strategy, not this sharp optimized two-channel statement. This is a best-evidence comparison, not an assertion of worldwide priority.",
+    "residual_risks": [
+      "An earlier paper may have optimized the same two-Hermite radial weighted coverage under a different term.",
+      "The known Laguerre formulas make a short proof possible; scientific value is the complete sharp budget law and its quantified noise margin, not the pre-existing ambiguity identity.",
+      "The comparison is best-evidence and has not received independent priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact weighted two-channel pointwise diskwise minimax design.",
+        "evidence": "The paper defines local L² distance of signals to phase orbits and derives constants for fixed Hermite window and signal, not allocation-dependent squared-channel ambiguity inversion.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.20527",
+        "material_read": "Introduction; ambiguity identity; Theorems 1.3–1.5 and accompanying interpretation; Section 3.1 discussion of Hermite extension.",
+        "method": "Full-text lawful open-access HTML rendering of the public preprint",
+        "title": "L²-Stability for STFT phase retrieval",
+        "trigger": "Recent work establishing local stability for Hermite-window STFTs"
+      },
+      {
+        "assessment": "CLOSEST_INPUT_NOT_COVERING the exact radius-dependent maximin allocation.",
+        "evidence": "Section 2.2 presents ℓ-th Hermite radial ambiguity and unions of sets of sufficiently large individual ambiguity; uses degree selection, not optimal relative channel power weights.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.05486",
+        "material_read": "Sections 1, 2.2 (Laguerre ambiguity identities), 3 (stability estimates), experimental comparisons, conclusions.",
+        "method": "Lawful preprint full-text HTML rendering at an open repository and author-hosted full-text page",
+        "title": "Multi-window approaches for direct and stable STFT phase retrieval",
+        "trigger": "Closest same-object source: multiple Hermite windows and ambiguity coverage"
+      },
+      {
+        "assessment": "DISTINCT_FINITE_SCOPE; not a direct competing continuous Hermite claim.",
+        "evidence": "Focuses on finite cyclic support conditions and uncertainty principle, rather than continuous radial Gaussian-Hermite weighted inverse norms.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.31507",
+        "material_read": "Introduction and stated two-window and single-window finite-dimensional criteria.",
+        "method": "Open-access arXiv HTML text",
+        "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+        "trigger": "Recent two-window ambiguity-recovery context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c587ddc9-b341-4be1-8b39-27f793d17c90",
+  "value": {
+    "rationale": "Equal-total-budget allocation among the smallest pair of standard Hermite windows is a natural experimentally adjustable conditioning parameter for ambiguity inversion. The theorem gives the exact worst-case design at every disk size and shows a genuine radius transition at \\(T=2\\). At \\(T=4\\) the optimized squared margin 0.1126870701 is more than six times the Gaussian-only margin 0.0183156389, and the factor grows as (T-1)^2, so the effect is structural rather than a tiny numerical gain.",
+    "status": "PASS"
+  }
+}
