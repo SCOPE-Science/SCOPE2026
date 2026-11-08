@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the exact quantum Hamiltonian, initial state, Poisson event rate, sign-dependent measurement and reset rule, site-zero tie, and observable. The propagator is the known Bessel-squared distribution. Its half-line sum is a finite nonnegative Bessel combination, whose large-time tail proves a unique positive Laplace root. Reflection symmetry and conditioning on the first reset give an exact *scalar* renewal equation. Exponentially tilting at the root yields a nonarithmetic probability-density renewal kernel of finite mean; the key renewal theorem gives the exact nonzero prefactor. Bessel-square ordering gives strict distance ordering; the small-time and large-time expansions rigorously yield the strong- and weak-reset asymptotics. All five boundaries and the complementary rather than total weak-rate interpretation are checked. The 85 finite diagnostics corroborate the calculation and do not replace an infinite-time proof.
+## correctness
 
-## Originality — PASS, subject to independent priority verification
-Acharya–Gupta (arXiv:2308.14040, Secs. III–IV, formulas for the occupation law and reset matrix) already supply the physical model and general Laplace/occupation expressions; Perfetto et al. (arXiv:2106.13761) already supply a broad two-state conditional renewal structure. Neither examined text provides the named signed-site relaxation root, its positive sharp amplitude, strict distance ordering, or the distinct high- and low-rate scale coefficients. Rose et al. (arXiv:1806.01298) concern unconditional fixed-state resetting; Carollo et al. (arXiv:2310.06981) concern order probabilities of trajectories. The general transforms in the original source may permit derivation after further analysis; the contribution is the *worked out theorem*, not a claim that renewal theory or implicit Laplace formulas are new. Search absence cannot establish global novelty. Related general renewal results and uninspected specialized work remain residual publication-priority risks.
+PASS
 
-## Mathematical value — PASS
-This solves a motivated observable directly related to how long the initial right/left bias remains after conditional resets. The unique relaxation rate and *strict* dependence on the physical site separation give a natural quantitative phase-memory scale absent from stationary profiles. The high-rate law identifies a nontrivial \(2R-1\) suppression exponent and explicit central-binomial coefficient, while weak-rate behavior reveals an exponentially small auxiliary pole. No downstream theorem or paper-sized result is claimed. The result is restricted to one observable and a specified model rather than extrapolated to a generic spectral theorem.
+For the continuous-time tight-binding walk from +R, summing the Bessel occupation probabilities yields the finite nonnegative kernel c_R(t)=J0^2+2 sum_{j=1}^{R-1} Jj^2+JR^2 and 1-c_R(t)=JR^2+2 sum_{j>R} Jj^2. The conditional reset sign leads to scalar renewal F=e^{-lambda t}c+lambda(e^{-lambda .}c)*F. For fixed R, c~2R/(pi gamma t), so positive C_R(q) diverges at q downarrow0 and lambda C_R(lambda)<1, yielding unique q in (0,lambda). Exponential tilting gives a nonlattice probability renewal kernel with finite mean; key renewal theorem gives sharp A=1/(lambda^2 int t exp(-qt)c(t)dt) and positive gap lambda-q. Since c_{R+1}-c_R=JR^2+J_{R+1}^2>0, q grows and gap decreases in R. Small-t Bessel expansion and large-t logarithmic Laplace asymptotic give respectively the stated binomial strong-reset power and weak-reset lambda log(gamma/q)->pi gamma/(2R). Independent Bessel quadrature for R=1,2,3 at lambda=gamma=1 reproduced q=(.65354089123,.91552188219,.97483404609) and prefactors (1.14595260285,1.11201786909,1.05398549492).
 
-## Scope and residual risks
-The key renewal theorem is a classical tool; finite tests are corroborative. A broad conditional-reset spectral theorem could imply the root characterization by specialization, and the source's full Laplace expression may conceal related consequences. The relevant comparisons were material full-text examinations but not an exhaustive bibliographic or independent priority certification. Finite-site computations are not infinite-lattice certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acharya–Gupta fully inspected source studies the SAME conditional two-site reset tight-binding dynamics, general site occupations and stationary distribution; these are definitively prior. The primary text does not explicitly establish the unique positive sign-memory exponent and prefactor, strict distance monotonicity for all R, or both sharp asymptotic constants. Its general transforms may permit derivation of the new result, creating a significant qualified priority risk, but merely being derivable after nontrivial renewal/Bessel analysis does not itself make the precise theorem previously stated. Perfetto supplies general conditional renewal machinery, Rose spectral shift for unconditional resets: neither inspected statement directly dominates this sign-sector law.
+
+## value
+
+PASS
+
+For a physically natural reset-distance parameter, the theorem determines the exact slow memory mode and its amplitude rather than just numerical relaxation, proves a strict monotone rate hierarchy, and identifies both strong-reset Zeno power and exponentially small complementary root under weak resetting. These are reusable exact invariants for the specified conditional quantum renewal process; not a routine normalization or merely a finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

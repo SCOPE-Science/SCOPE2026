@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:52:32.856495Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+        "arXiv:2106.13761; Perfetto et al., Designing non-equilibrium states of quantum matter through stochastic resetting",
+        "arXiv:1806.01298; Rose et al., Spectral properties of simple classical and quantum reset processes",
+        "arXiv:2310.06981; Carollo et al., generalized reset-trajectory ordering",
+        "Pinned Git RESULT.md blob 8c2dd136adc5fc50bd4dcf8de02248fdfd65bca4"
+      ],
+      "rationale": "For the continuous-time tight-binding walk from +R, summing the Bessel occupation probabilities yields the finite nonnegative kernel c_R(t)=J0^2+2 sum_{j=1}^{R-1} Jj^2+JR^2 and 1-c_R(t)=JR^2+2 sum_{j>R} Jj^2. The conditional reset sign leads to scalar renewal F=e^{-lambda t}c+lambda(e^{-lambda .}c)*F. For fixed R, c~2R/(pi gamma t), so positive C_R(q) diverges at q downarrow0 and lambda C_R(lambda)<1, yielding unique q in (0,lambda). Exponential tilting gives a nonlattice probability renewal kernel with finite mean; key renewal theorem gives sharp A=1/(lambda^2 int t exp(-qt)c(t)dt) and positive gap lambda-q. Since c_{R+1}-c_R=JR^2+J_{R+1}^2>0, q grows and gap decreases in R. Small-t Bessel expansion and large-t logarithmic Laplace asymptotic give respectively the stated binomial strong-reset power and weak-reset lambda log(gamma/q)->pi gamma/(2R). Independent Bessel quadrature for R=1,2,3 at lambda=gamma=1 reproduced q=(.65354089123,.91552188219,.97483404609) and prefactors (1.14595260285,1.11201786909,1.05398549492).",
+      "residual_risks": [
+        "Proof uses standard nonarithmetic key renewal theorem and fixed-order Bessel asymptotics, not a full semigroup spectral gap.",
+        "Numerical Laplace quadrature had an integration-subdivision warning at long tails; the analytic proof is independent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+          "arXiv:2106.13761",
+          "arXiv:1806.01298"
+        ],
+        "reasoning": "Earlier general conditional reset framework proves renewal structure and stationarity; unconditional reset has different uniform spectral shift. The strict R-ordering and constants for this observable are not asserted in the inspected primary treatment.",
+        "searches": [
+          "conditional quantum resets tight binding chain sign imbalance relaxation distance Zeno Bessel renewal"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+        "arXiv:2106.13761; Perfetto et al., Designing non-equilibrium states of quantum matter through stochastic resetting",
+        "arXiv:1806.01298; Rose et al., Spectral properties of simple classical and quantum reset processes",
+        "arXiv:2310.06981; Carollo et al., generalized reset-trajectory ordering",
+        "Pinned Git RESULT.md blob 8c2dd136adc5fc50bd4dcf8de02248fdfd65bca4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+          "arXiv:2106.13761"
+        ],
+        "reasoning": "General Laplace occupations contain the same information in principle, but obtaining sharp exponential prefactor, all-R monotonicity, and two opposite reset-rate limits is a substantive analysis, not a stated direct corollary. Retain potential implicit equivalence as residual risk.",
+        "searches": [
+          "conditional quantum resets tight binding chain sign imbalance relaxation distance Zeno Bessel renewal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices"
+        ],
+        "reasoning": "The claimed sign observable is the antisymmetric sum of the general site occupations. Renewal kernel is a special projection of earlier general Laplace formulas, but explicit unique root q_R and prefactor require additional singularity/key-renewal arguments.",
+        "searches": [
+          "conditional quantum resets tight binding chain sign imbalance relaxation distance Zeno Bessel renewal",
+          "Acharya Gupta conditional reset tight binding occupation sign memory decay eigenmode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices"
+        ],
+        "reasoning": "Source reports occupations/relaxation profiles but does not tabulate this root/prefactor for arbitrary R in read sections; no exact table dominates the all-R theorem. No-hit evidence is not a priority proof.",
+        "searches": [
+          "conditional quantum resets tight binding chain sign imbalance relaxation distance Zeno Bessel renewal",
+          "reset site separation Zeno memory Bessel q_R lambda quantum"
+        ]
+      },
+      "rationale": "Acharya–Gupta fully inspected source studies the SAME conditional two-site reset tight-binding dynamics, general site occupations and stationary distribution; these are definitively prior. The primary text does not explicitly establish the unique positive sign-memory exponent and prefactor, strict distance monotonicity for all R, or both sharp asymptotic constants. Its general transforms may permit derivation of the new result, creating a significant qualified priority risk, but merely being derivable after nontrivial renewal/Bessel analysis does not itself make the precise theorem previously stated. Perfetto supplies general conditional renewal machinery, Rose spectral shift for unconditional resets: neither inspected statement directly dominates this sign-sector law.",
+      "residual_risks": [
+        "A hidden pole-residue analysis of Acharya–Gupta could already imply same exponent under equivalent notation; best-of-knowledge only.",
+        "Perfetto/Carollo full original treatments not completely inspected for an implicit sign-mode result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The dynamics, renewal representation and stationarity are prior; explicit claimed sharp sign-memory rate law absent from inspected statements, but may be latent in transform.",
+          "evidence": "Sections IV.1 and IV.3 give analytic site-occupation/Laplace formulas for the same conditional model, not the unique q_R equation plus strict R dependence and two asymptotic laws.",
+          "identifier_or_url": "https://arxiv.org/html/2308.14040v2",
+          "material_read": "Full arXiv HTML Sections I-VI and appendix derivations of conditional reset occupation probabilities and stationary limits",
+          "method": "Complete open primary HTML technical reading",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Identical Hamiltonian and state-dependent ±R resets"
+        },
+        {
+          "assessment": "Background general renewal method; cannot claim whole work not covering.",
+          "evidence": "Broad conditional many-body resetting does not in its accessible summary specify tight-binding Bessel sign decay.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.13761",
+          "material_read": "Bibliographic summary and abstract, full mathematical text not read",
+          "method": "Primary index/abstract lookup",
+          "title": "Designing non-equilibrium states of quantum matter through stochastic resetting",
+          "trigger": "General two-state conditional-reset renewal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+        "arXiv:2106.13761; Perfetto et al., Designing non-equilibrium states of quantum matter through stochastic resetting",
+        "arXiv:1806.01298; Rose et al., Spectral properties of simple classical and quantum reset processes",
+        "arXiv:2310.06981; Carollo et al., generalized reset-trajectory ordering",
+        "Pinned Git RESULT.md blob 8c2dd136adc5fc50bd4dcf8de02248fdfd65bca4"
+      ],
+      "rationale": "For a physically natural reset-distance parameter, the theorem determines the exact slow memory mode and its amplitude rather than just numerical relaxation, proves a strict monotone rate hierarchy, and identifies both strong-reset Zeno power and exponentially small complementary root under weak resetting. These are reusable exact invariants for the specified conditional quantum renewal process; not a routine normalization or merely a finite simulation.",
+      "residual_risks": [
+        "Applies only to one sign observable, infinite homogeneous chain, symmetric conditional two-site Poisson resets; cannot be promoted to entire state mixing rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md blob 8c2dd136adc5fc50bd4dcf8de02248fdfd65bca4",
+    "arXiv:1806.01298; Rose et al., Spectral properties of simple classical and quantum reset processes",
+    "arXiv:2106.13761; Perfetto et al., Designing non-equilibrium states of quantum matter through stochastic resetting",
+    "arXiv:2308.14040v2; Acharya–Gupta, Tight-binding model subject to conditional resets at random times (2023), Sections II–VI and appendices",
+    "arXiv:2310.06981; Carollo et al., generalized reset-trajectory ordering"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strictly sign imbalance F_R, not all matrix coefficients or universal quantum master-equation gap.",
+    "Finite numerical root comparisons are checks, not the proof of weak/strong asymptotics."
+  ],
+  "residual_risks": [
+    "Proof uses standard nonarithmetic key renewal theorem and fixed-order Bessel asymptotics, not a full semigroup spectral gap.",
+    "Numerical Laplace quadrature had an integration-subdivision warning at long tails; the analytic proof is independent.",
+    "A hidden pole-residue analysis of Acharya–Gupta could already imply same exponent under equivalent notation; best-of-knowledge only.",
+    "Perfetto/Carollo full original treatments not completely inspected for an implicit sign-mode result.",
+    "Applies only to one sign observable, infinite homogeneous chain, symmetric conditional two-site Poisson resets; cannot be promoted to entire state mixing rate."
+  ],
+  "schema_version": 1
+}
