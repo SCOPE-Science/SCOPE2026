@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The conditional hub hazard is exact because, before first hub elimination and with k>=4 rim vertices, hub degree=h+k-1 strictly exceeds rim degree=h+2. A rim pivot adds exactly one chord and retains clique–cycle shape; the first hub pivot adds k(k-3)/2 rim clique edges, after which all remaining vertices are a clique. This yields the finite distribution. Beta-binomial exact moments prove q=1, uniform asymptotics of p_k and survival prove q=2,3,4+ rates and tail; exact graph-state recurrence and permutations passed 491 independent finite checks. No enumeration is used as a proof of infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fahrbach et al. arXiv:1804.04239: candidate lists from exponential perturbations and an approximate degree oracle, with high-probability approximate-minimum-degree guarantees.",
+        "Cummings et al. arXiv:1907.12119: exact minimum-degree ordering runtime and SETH bounds, not distribution of imperfect q-candidate orderings.",
+        "Chen et al. arXiv:2011.07769: randomized Schur-complement edge sampling and empirical order comparisons, not exact uniform q-vertex candidate selection."
+      ],
+      "reasoning": "General fill-graph definitions and efficient algorithms for minimum-degree orderings do not imply the exact distribution for a fixed uniform q-candidate rule. Its worst-case gap, expectation and limiting distribution must still be derived. The RCHOL randomized object is an edge-sparsified update and should not be conflated with a randomized ordering.",
+      "searches": [
+        "random sampling approximate minimum degree ordering fill graph sampled vertices Cholesky 2020",
+        "minimum degree heuristic power of two choices random sample vertices elimination fill in graphs",
+        "arxiv:1804.04239",
+        "arxiv:1907.12119",
+        "arxiv:2011.07769"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1804.04239",
+      "https://arxiv.org/pdf/1907.12119",
+      "https://arxiv.org/abs/2011.07769",
+      "https://arxiv.org/abs/1711.08446",
+      "https://doi.org/10.1137/S0895479896302692"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of Cummings et al. concerns O(nm)-time exact minimum-degree computation, without the randomness described here.",
+        "Fahrbach et al. Section 5 candidate generation uses decayed exponentials and degree-estimator sketches, so it is not uniform without replacement among all remaining vertices.",
+        "RCHOL Sections 3.3 and 4.1 use AMD or nested dissection and report empirical fill ratios; they do not analyze the present pivot rule."
+      ],
+      "reasoning": "The older results justify the objects and the importance of fill reduction, but none gives a theorem from which the exact stopping hazard and the four different expectation scalings follow as a direct corollary. Full specialist publication precedence cannot be excluded.",
+      "searches": [
+        "arxiv:1804.04239 candidate sampling section 3 and section 5",
+        "arxiv:1907.12119 §2 fill graphs and theorems 1.1–1.3",
+        "arxiv:2011.07769 §§1.1–1.2,3.3,4.1",
+        "Rothberg Eisenstat node selection strategies bottom-up sparse ordering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1907.12119 §2 treats fill as clique-completion in the neighborhood of an eliminated vertex; the present q=1 rule is a uniform permutation and has beta-binomial first-hub rank.",
+        "Published mathematics index nearest wheel hit: The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes; a different wheel invariant."
+      ],
+      "reasoning": "The random-order case can be rephrased using first-hub permutation ranks, and the q>1 case as a discrete stopping hazard, but the compared literature does not supply the resulting fill distribution, power-of-choice hierarchy or heavy-tail threshold.",
+      "searches": [
+        "random elimination ordering wheel graph expected fill edges sparse Cholesky factorization 2021",
+        "wheel graph fill in random elimination order distribution sparse Cholesky",
+        "sampled greedy pivot selection with q random candidate vertices degree heuristic expected fill-in chordal completion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected accessible claim register contains no claim involving symbolic fill-in or wheel elimination; its Cholesky-titled entries concern matrix approximation or local correlation pivots.",
+        "Published mathematical findings database nearest hits include wheel symmetric edge polytope ellipsoids and multistage adaptive randomized pivoting; neither defines or tabulates symbolic Cholesky fill for this graph/selection law."
+      ],
+      "reasoning": "Search and direct claim comparison disclosed no matching table or stronger exact result. The published-index partition is not assumed complete, and unsearched external material remains a precedence risk.",
+      "searches": [
+        "power of two choices sampled minimum degree vertex elimination ordering K_h join C_m wheel Cholesky fill quadratic linear logarithmic bounded transitions",
+        "sampled greedy pivot selection with q random candidate vertices degree heuristic expected fill-in chordal completion",
+        "random vertex elimination sparse matrix multi-apex wheel expected fill distribution",
+        "accessible claim register: elimination, fill-in, cholesky, pivot, minimum degree, wheel, sampled greedy, candidate"
+      ]
+    },
+    "rationale": "A finite all-parameter stopping law and four sharp fill regimes are not implied by the inspected primary studies of exact/approximate minimum-degree algorithms, adaptive degree sketches, and Schur-complement edge sampling. Similarity searches in a published mathematical findings database and the accessible local claim register returned no implication-equivalent formula; absence of a hit is not treated as proof of universal novelty.",
+    "residual_risks": [
+      "A specialist paper on randomized limited-choice minimum-degree selection or elimination of graph joins may contain an equivalent full asymptotic classification.",
+      "The Rothberg–Eisenstat publisher full text was not inspected; its abstract alone does not settle a broader comparison.",
+      "published-finding corpus and other searchable publication indices are not complete novelty certificates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_SELECTION_RULE",
+        "evidence": "Candidates from exponential perturbations, degree-estimator sketches and approximate-minimum guarantees, not uniformly sampling exactly q vertices at every pivot.",
+        "identifier_or_url": "https://arxiv.org/abs/1804.04239",
+        "material_read": "Full-text introduction, candidate-generation discussion in Sections 3 and 5, definitions and comparative guarantees",
+        "method": "Accessible arXiv parsed full-text sections and targeted searches",
+        "title": "Graph Sketching Against Adaptive Adversaries Applied to the Minimum Degree Algorithm",
+        "trigger": "Sampled candidate lists and randomization of degree evaluation might imply the rule"
+      },
+      {
+        "assessment": "NOT_IMPLYING_FIXED_Q_DISTRIBUTION",
+        "evidence": "Minimum-degree ordering runtime, fill-graph neighborhood clique completion and complexity lower bounds; no fixed-q candidate selection statistics or wheel law.",
+        "identifier_or_url": "https://arxiv.org/pdf/1907.12119",
+        "material_read": "Pages 2–4 including introduction, main theorems, Section 2 fill-graph formalism; document-wide wheel search",
+        "method": "ArXiv open-access PDF text with visual page inspections",
+        "title": "A Fast Minimum Degree Algorithm and Matching Lower Bound",
+        "trigger": "General exact elimination structure and potentially dominating min-degree algorithms"
+      },
+      {
+        "assessment": "DIFFERENT_RANDOMIZATION",
+        "evidence": "RCHOL samples replacement edges of Schur complement cliques, with AMD/ND orderings, not uniform q-degree candidate pivot choices.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.07769",
+        "material_read": "Accessible full-text Sections 1, 2.1, 3.3 and 4.1; algorithm and table of reordering strategies",
+        "method": "ArXiv parsed full text, section navigation and term search",
+        "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+        "trigger": "Randomized elimination, Cholesky and fill comparisons potentially cover result"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_DISTRIBUTION",
+        "evidence": "Near-linear-time approximate min-degree and degree-restricted ordering computation; not a finite q pivot-sampling process.",
+        "identifier_or_url": "https://arxiv.org/abs/1711.08446",
+        "material_read": "Full-text introduction and theorem statements, definitions, keyword search for wheel",
+        "method": "ArXiv parsed full text with targeted term search",
+        "title": "On Computing Min-Degree Elimination Orderings",
+        "trigger": "Earlier approximate degree-selection methods and possible general implications"
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RISK",
+        "evidence": "Discusses minimum local fill versus minimum degree and approximation heuristics; full exposition was not inspected.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895479896302692",
+        "material_read": "Abstract and citation details only",
+        "method": "Publisher abstract search result",
+        "title": "Node Selection Strategies for Bottom-Up Sparse Matrix Ordering",
+        "trigger": "Classic work on alternative node selection could dominate the new heuristic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17e9486c-adbf-4fd3-ab5b-b4749039ab33",
+  "value": {
+    "rationale": "The join of a small clique and large cycle is a controlled sparse-Cholesky ordering benchmark. Exact fill count directly informs factor sparsity; the new finite law separates optimal, quadratic, linear, logarithmic and bounded excess risk as candidate count increases. Limiting q=2,3 laws have infinite mean despite finite-sample expectations, explaining rare catastrophic fill outcomes that typical experiments miss. This is an all-size natural invariant and a sharp structural power-of-choice classification, not a routine rephrasing of existing fill graph definitions.",
+    "status": "PASS"
+  }
+}
