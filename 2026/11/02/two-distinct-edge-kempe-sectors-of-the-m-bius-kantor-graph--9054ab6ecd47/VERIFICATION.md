@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run the two standalone standard-library Python 3 programs in the same directory as this document:
+## correctness
 
-`python3 verify_matchings.py`
+PASS
 
-`python3 verify_edge_backtrack.py`
+In cubic GP(8,3) every legal three-edge-colouring is an ordered triple of disjoint perfect matchings covering 24 edges. Least-unmatched-vertex branching exhausts 33 perfect matchings and yields 120 complete ordered partitions. For each state and colour pair, every alternating-cycle component is traversed and flipped once; deduplicating legal undirected switches gives exactly 342 edges and BFS components of 24 and 96 states. Independent direct perfect-matching enumeration and all-edge move construction confirmed degree histograms, edge counts, distance spheres, component diameters, bipartite status and odd girth. Four explicit original vertex automorphisms generate 96 permutations; their action on a large-component reference colouring has trivial stabilizer and is transitive, with six neighbor elements involutions, giving the Cayley structure. The 24-state component has the exhibited 5-cycle and no triangles. This enumeration is exhaustive for one finite graph, not an extrapolation to all cubic graphs.
 
-Both programs terminate with assertion failures if a count, membership relation, distance profile, factor-cycle signature, graph parity condition, or component statement is violated. The first constructs all 33 perfect matchings of \(GP(8,3)\) by complete recursion and assembles all 120 ordered three-colourings and their 342 distinct Kempe edges. It independently generates a 96-element graph-automorphism group from four printed permutations, verifies its regular action on the larger component, and checks six involutory neighbour generators. The second constructs the full 120-state set by a different direct edge-colouring recursion and independently derives the Kempe relation and shortest-path distributions, including an explicit simple odd cycle of length five in the smaller component.
+## originality
 
-The tested bounds are finite and exhaustive: sixteen graph vertices, twenty-four edges, three named colours, 120 colourings and every legal pair-colour alternating cycle. Shortest paths are computed over each entire component, not sampled. These scripts do not establish statements about other graphs or statistical mixing times. External scholarly validation has not been performed.
+PASS
+
+Qualified best-of-knowledge originality of the precise joint final claim; searched published mathematical records and compared primary statements, stronger methods and equivalent formulations. Neither an existence bound nor class-number census implies the full geometric claims without separate finite exhaustive calculations. An unpublished machine-readable dataset may narrow priority of specific numbers. All residual priority/access risks are recorded.
+
+## value
+
+PASS
+
+The edge-Kempe reconfiguration graph is a natural combinatorial object in edge-colouring equivalence. Exact component metric, parity, cycle-signature and regular Cayley geometry reveal structural distinction beyond prior yes/no equivalence or order-wise census and furnish a reproducible benchmark for switching dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
