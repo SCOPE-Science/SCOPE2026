@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) follows by disjointly enumerating all one-coordinate competitors, two-coordinate competitors at adjacent positions and at nonadjacent positions; the latter are counted by discordant pairs of derivative bits. Equations (2)–(3) partition derivatives by their initial symbol and number of alternating runs, using exact positive-composition binomial coefficients. Handshaking and a sharp penalty bound establish edge and extremal values. Both embedded standard-library verifiers passed: independent channel-ball intersection n<=9 and all-coefficient analytic/computational histograms n<=18. Boundary n=1,2 and double-counting were checked separately. No finite experiment is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharov–Roth (2013), Theorem 2.1 and Lemma 2.10 pair-path correspondence; Sections II–III",
+        "Cullina–Kiyavash (2014) general channel local-degree method"
+      ],
+      "reasoning": "These works give machinery for aggregate pair counts and input/output local degree, which could yield edge totals with specialization. They do not state or imply, without additional source-marked counts and algebra, the binomial distribution by vertex degree or its maximizing derivatives. The current novelty claim is explicitly these finer invariants.",
+      "searches": [
+        "complete exact degree distribution one grain error confusability graph binary length n, vertex degree N+k(N-k+1)-t_1-number derivative transitions",
+        "Sharov Roth grain correcting codes confusability pair enumeration implies edge count or vertex degree spectrum"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1012.1895",
+      "https://arxiv.org/abs/1302.6154",
+      "https://arxiv.org/pdf/1307.7087",
+      "https://ronny.cswp.cs.technion.ac.il/wp-content/uploads/sites/54/2016/05/grains.pdf",
+      "https://arxiv.org/abs/1405.1464",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-length-six-single-grain-codes--ebd4811262bf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrys–Yaakobi–Dolecek: two isomorphic first-bit components, not their internal degrees",
+        "Sharov–Roth: ordered-pair path correspondence and asymptotic confusability rates",
+        "Mazumdar–Barg–Kashyap: clique cover / correcting-code rates"
+      ],
+      "reasoning": "Known one-grain ball size and first-bit splitting are strict weaker information: degree depends additionally on the derivative bit changes b and leading derivative bit t1. General pair-path frameworks are broad algorithmic tools but their cited conclusions do not determine the full degree distribution without new reasoning. The appended proof supplies such reasoning.",
+      "searches": [
+        "single grain-error channel max confusability degree vertex graph, exact 1-neighborhood size",
+        "grain coding conflict graph all-length exact degree enumerator and extremal words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mazumdar–Barg–Kashyap graph G(n,t) and Kashyap–Zémor derivative definitions",
+        "Gabrys–Yaakobi–Dolecek Lemma 4",
+        "Sharov–Roth pair-path graph"
+      ],
+      "reasoning": "Input-output ball cardinality is 1+k whereas the input-confusability degree is N+k(N-k+1)-t1-b. Same vertex degree cannot be inferred from k alone, e.g. derivatives with same k but varying b. Pairwise path counting is a general approach, not an explicitly published complete degree polynomial.",
+      "searches": [
+        "grain-error correcting codes exact confusability graph edge count all binary lengths one grain",
+        "grain error channel single grain exact inverse-degree distribution cyclic one overwrite",
+        "binary grain error channel single grain confusable pairs graph exact degree or edge count",
+        "single-grain correcting codes graph on length n binary words confusability degree distribution edge count maximum neighbors derivative transitions",
+        "grain-error confusability graph exact formula degree d(x)= n-1 + ones differences plus distant opposite pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus grain-code optimum at n=6 versus complete graph histogram",
+        "Web OEIS A112996 superficially contains the finite edge-count numbers in an unrelated permutation-partition diagonal"
+      ],
+      "reasoning": "A coincident finite sequence in an unrelated enumerative table has no grain-channel identification, and fixed-length optimal-code tables do not encode degrees. No source with the full vertex degree polynomial was located; this is not a proof of uniqueness.",
+      "searches": [
+        "one grain overwrite channel induced graph number edges n(n+2)2^n and maximum degree",
+        "single grain one error binary code confusability graph degree histogram maximum degree floor n^2/4+n-2 edge count 2^(n-3)(n-1)(n+2)",
+        "\"grain\" \"confusability graph\" degree distribution edge count",
+        "\"2, 10, 36, 112, 320\" grain graph"
+      ]
+    },
+    "rationale": "The exact all-length vertex-degree polynomial and exact extremizer characterization are not supplied by the inspected grain-channel papers, which give channel definition, input-output sphere sizes, asymptotic pair rates, code bounds and small optima. Sharov–Roth has strong general pair-count coverage; aggregate edge count is a possible corollary of that existing apparatus, not presented as independent originality. This assertion remains qualified by incomplete historical indexing.",
+    "residual_risks": [
+      "Sharov–Roth path transfer machinery counts (or bounds) ordered confusable pairs; a suitable additional marking may in principle yield this histogram, so conceptual prior-method overlap is significant even though the displayed theorem is not the same statement.",
+      "Primary published and index coverage is not exhaustive; earlier unindexed grain-graph degree tables or equivalent computations could predate the calculation.",
+      "No independent expert audit has been performed; finite experiments verify bounded lengths only, with the all-length claim dependent on the supplied combinatorial proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same confusability graph and develops bounds; no complete vertex-degree law or histogram was found in inspected relevant sections. Its graph formulation is prerequisite rather than the claimed degree distribution.",
+        "evidence": [
+          "arXiv PDF pp.1–4; especially lines 94–136 and 574–690; graph G(n,t) and clique partitions rather than local degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1012.1895",
+        "material_read": "Abstract, channel definition in Section I, code construction Section II, graph definition and clique-partition results of Section III, zero-error appendix context. Original public preprint header gives 2010-12-08.",
+        "method": "Authoritative preprint PDF text and page-image reading",
+        "title": "Coding for High-Density Recording on a 1-D Granular Magnetic Medium",
+        "trigger": "origin of exact channel model and confusability graph"
+      },
+      {
+        "assessment": "The existing output-ball cardinality depends only on run count; it does not determine the number of other inputs sharing at least one output and therefore cannot imply the degree distribution (1)–(3) without an additional pair analysis.",
+        "evidence": [
+          "Section 2: channel operators, t-confusability, derivative weight and output ball."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.6154",
+        "material_read": "Section 2 exact model and derivative definitions, summary of Sections 3–5, and length/run-based sphere bound discussion.",
+        "method": "Public full-text arXiv HTML",
+        "title": "Upper Bounds on the Size of Grain-Correcting Codes",
+        "trigger": "strong plausible source for derivative formulas and degree-based bounds"
+      },
+      {
+        "assessment": "Lemma 4 proves the two first-bit components are isomorphic; no vertex-by-vertex degree formula, degree enumerator, or maximum-degree classification appears in its inspected relevant results.",
+        "evidence": [
+          "PDF pp.1–4, especially Lemma 4 graph definition and first-bit isomorphism at text lines 392–410."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.7087",
+        "material_read": "Channel and derivative preliminaries, Lemmas 3–4 and the graph splitting proof, computational-bounds section.",
+        "method": "Public arXiv full-text PDF and rendered page images",
+        "title": "Correcting Grain-Errors in Magnetic Media",
+        "trigger": "same channel, confusability graph, and code bounds"
+      },
+      {
+        "assessment": "The general weighted-path method can aggregate confusable ordered pairs and may imply the total edge count. It does not report or directly specialize to the individual-source degree law or full degree distribution as a one-variable-in-degree polynomial; new claim is the latter, not priority for aggregate edge counts alone.",
+        "evidence": [
+          "PDF pp.1, 5–7, 10–12; Theorem 2.1, Lemma 2.10 pair paths and Eq. 21–22 output-ball sizes."
+        ],
+        "identifier_or_url": "https://ronny.cswp.cs.technion.ac.il/wp-content/uploads/sites/54/2016/05/grains.pdf",
+        "material_read": "Abstract and aims; Sections II-A/B/C graphs, pair-path correspondence and asymptotic pair counts; Section III sphere-size and code upper bounds; discussion of small tables.",
+        "method": "Public author-hosted full-text PDF text; image-render attempt failed at remote host but mathematical text was accessible",
+        "title": "Bounds and Constructions for Granular Media Coding",
+        "trigger": "strongest plausible broader enumeration of ordered confusable pairs in the same channel"
+      },
+      {
+        "assessment": "Studies input-output bipartite local degree and general packing bounds; distinguishes these from a complete input-confusability-graph degree histogram. Does not dominate the new full-degree invariant.",
+        "evidence": [
+          "arXiv 1405.1464, local-degree method and grain-channel specializations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.1464",
+        "material_read": "Abstract and channel-specific Sections III and IV, including local-degree bound setup and confusability graph comparison.",
+        "method": "Public HTML full text",
+        "title": "Generalized Sphere-Packing and Sphere-Covering Bounds on the Size of Codes for Combinatorial Channels",
+        "trigger": "general hypergraph confusability graph analysis and single-grain applications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff23909c-4911-47b4-8b91-b814010ab412",
+  "value": {
+    "rationale": "The degree spectrum is a canonical all-length local-confusability invariant for an established magnetic-storage error channel; it quantifies unequal competition among source words, beyond the known output-ball sizes. The explicit binomial law yields all vertex degree classes and multiplicities, gives the exact most-confusable source designs, and supplies an exact graph testbed for zero-error coding and degree-sensitive bounds. It is a complete classification of a natural infinite graph family, not an arbitrary finite slice or a routine substitution; no optimal code size is asserted.",
+    "status": "PASS"
+  }
+}
