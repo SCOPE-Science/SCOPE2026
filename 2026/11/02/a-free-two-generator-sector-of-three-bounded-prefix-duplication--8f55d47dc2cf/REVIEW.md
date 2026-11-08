@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The target domain, length bound, exact prefix requirement, and one-sided rewriting rule are explicit. A length-one step leaves the prefix-`01` sector forever; the remaining two operations are to prepend `01` or `010`. The positions of successive `1` symbols uniquely decode these blocks before the specified suffix, proving uniqueness of **every** derivation and the exact step count. The geometric series gives the full length–distance enumerator. Same-parity Fibonacci words have the needed suffix relation, initial `010`, and gaps of two or three between successive `1` symbols. The bound-four witnesses are explicit. Forward and reverse independent finite verifiers passed 1,750 general targets, 63 Fibonacci pairs and two boundary examples; the infinite conclusion is deductive, not extrapolated from the tests.
+PASS
 
-## Originality (O): PASS with residual priority risk
+Starting from 010, a length-one duplication introduces an absorbing 00 prefix. Any final 01-prefix path therefore uses only length-two 01 or length-three 010 prepends; both preserve 010. The successive gap lengths 2 or 3 between new 1 symbols before the fixed suffix uniquely decode all blocks and derivations, so every path has one step per new 1 and the exact (1-uz^2-uz^3)^(-1) series. The Fibonacci suffix recursion and avoidance of 000,11 establish the same-parity corollary. The two bound-four witnesses are valid. Independent full prefix-duplication enumerations for four seeds confirm finite cases, not the infinite proof.
 
-The closest paper is Cabrera Salamanca–Smith (arXiv:2607.20405v1, 22 July 2026), inspected in full HTML. It establishes generation of same-parity Fibonacci words, but not all-seed path uniqueness or the regular-language and generating-function identity. Its companion repository's README and entire `derive.cpp` were inspected: they claim an optimized shortest derivation algorithm for Fibonacci inputs, **already addressing the computational shortest-path special case**, but do not characterize all arbitrary-seed paths or establish the universal closed enumerator. The 2014 general-distance and bounded-duplication works provide algorithms and regular-closure results, not an identified exact free two-generator sector from accessible material. The bounded paper's PDF and full general-distance text remained partly inaccessible, so residual priority risk is real. Related published mathematical-record and historical-claim searches found no direct equivalent; negative search results alone do not establish originality.
+## originality
 
-## Value (V): PASS
+PASS
 
-A newly motivated operation receives a complete regular-language classification and an exact distance-refined growth series for every seed in a natural invariant prefix class, with a sharp boundary at the next allowed duplication length. The exact simultaneous Fibonacci-pair formula and uniqueness result provide a structural explanation beyond the recent construction, rather than a small unmotivated numerical improvement.
+The full all-seed regular sector and all-path uniqueness are not stated in the inspected companion implementation or the public abstract of Cabrera Salamanca–Smith. That companion README and derive.cpp do already claim an optimized shortest derivation for Fibonacci words; shortest-Fibonacci computation alone is not new. General prefix/suffix-duplication papers give closure and algorithms, but an inaccessible full text leaves an explicit risk of an implicit sector classification.
 
-## Limitations
+## value
 
-No assertion is made for targets beginning `00`, suffix duplications, arbitrary prefix bounds, or mixed-parity Fibonacci pairs. Published algorithms may already compute individual Fibonacci shortest paths. Full access to all historically relevant material and independent mathematical validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Characterizing the entire naturally preserved 01-prefix sector and its length-distance enumerator explains a current bounded-duplication Fibonacci construction, as well as a sharp change at prefix length four. This is a structural result, not merely a new numeral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
