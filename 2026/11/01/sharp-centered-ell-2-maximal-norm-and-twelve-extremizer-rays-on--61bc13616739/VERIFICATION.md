@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python verify_c6.py` from the directory containing this document. The checker uses Python 3 standard-library integer and rational arithmetic only, and regenerates every ball, matrix, exact spectral test and active-selection comparison from the mathematical definitions. It requires no hidden data, downloaded resources or packages.
+## correctness
 
-The completed checker produced:
+PASS
 
-`CERTIFICATE_OK selections=4096 strict=4084 exceptional=12 characteristic_quintic=exact root_isolation=exact eigenvector=exact active_selection_tests=18`
+For each nonnegative input choose one of four radii independently at six vertices, reducing ∥M∥² to max_{r∈{0,1,2,3}^6} λmax(A_r^TA_r). Full 4096 exact selection set tested with integer fraction-free Sylvester on 13653 I−10 B_r^TB_r: 4084 strictly PD, 12 exceptional dihedral images of (0,1,2,3,0,1). For exceptional Q, char det(zI−Q/900)=zP(z)/24300; P shifted above cutoff has one Descartes sign change and rational isolating interval. Polynomial eigenvector components satisfy Qv=900λ*v exactly modulo P, strictly positive and 18 chosen-ball inequalities; PF simplicity and 12-element orbit classify equality. Independent integer Bareiss, sympy char/eigenpoly and 4096 scipy eig tests reproduce all counts.
 
-Specifically, its 4096 cases exhaust all four centered-ball choices at each of six vertices. All 4084 strict cases satisfy the exact positive-definiteness test, and the other 12 equal the one dihedral orbit. The exceptional Gram characteristic polynomial, unique isolated root above the gap threshold, positive eigenvector identity, and 18 strict active-ball differences are checked algebraically using exact rational bounds. The script is an executable finite mathematical certificate; its output log alone is not an independent proof without the checked source and mathematical reduction in `RESULT.md`.
+## originality
 
-Limits: only the unweighted six-cycle, counting measure and centered graph-ball operator on real \(\ell^2\) are certified. The mathematical priority assessment is qualified, and independent scientific auditing has not been performed.
+PASS
+
+General sharp graph maximal results, complete/star graph ℓ², and graph variation bounds do not compute C6 strong centered ℓ². Previously recorded four-/five-cycle cases are different local ball geometry; no directly covering exact C6 spectral/certificate table found. Originality qualified because an unindexed C6 enumeration may exist.
+
+## value
+
+PASS
+
+The smallest cycle with diameter three has four distinct graph-ball radii and an exact nontrivial algebraic ∥M∥₂ plus complete 12-ray rigidity. This is a natural exact invariant of a canonical graph, with a nontrivial finite spectral classification useful for comparative graph maximal problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

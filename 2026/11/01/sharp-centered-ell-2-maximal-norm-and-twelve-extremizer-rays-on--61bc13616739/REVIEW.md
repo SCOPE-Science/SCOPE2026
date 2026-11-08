@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every selection of a maximizing radius at the six vertices is represented by one of \(4^6=4096\) explicit nonnegative averaging matrices. The packaged exact-integer Sylvester computation bounds 4084 such matrices strictly below \(1517/1000\) in squared spectral norm, and the other 12 form precisely one dihedral orbit. The exceptional characteristic quintic is derived by exact integer matrix arithmetic; an isolating rational interval, polynomial eigenvector identity modulo the quintic, positivity estimates, and 18 strict averaging inequalities prove sharpness and identify the 12 distinct extremizing rays. The upper bound applies to all real inputs by nonnegative linearization. This is a complete finite certificate, not a probabilistic experiment. Evidence: `RESULT.md`, `verify_c6.py`, and the certificate marker recorded in `VERIFICATION.md`.
+PASS
 
-## Originality — PASS, qualified
+For each nonnegative input choose one of four radii independently at six vertices, reducing ∥M∥² to max_{r∈{0,1,2,3}^6} λmax(A_r^TA_r). Full 4096 exact selection set tested with integer fraction-free Sylvester on 13653 I−10 B_r^TB_r: 4084 strictly PD, 12 exceptional dihedral images of (0,1,2,3,0,1). For exceptional Q, char det(zI−Q/900)=zP(z)/24300; P shifted above cutoff has one Descartes sign change and rational isolating interval. Polynomial eigenvector components satisfy Qv=900λ*v exactly modulo P, strictly positive and 18 chosen-ball inequalities; PF simplicity and 12-element orbit classify equality. Independent integer Bareiss, sympy char/eigenpoly and 4096 scipy eig tests reproduce all counts.
 
-The nearest graph-maximal papers are Soria–Tradacete (arXiv:1410.6204), González-Riquelme–Madrid (arXiv:2005.03146), and González-Riquelme–Kovač–Madrid (arXiv:2603.12462). Their relevant results address \(\ell^p\) in a different exponent regime, strong \(\ell^2\) on complete graphs and stars, or graph-total-variation inequalities, respectively. Neither their inspected statements nor the consulted mathematical-record searches show an exact centered strong \(\ell^2\) formula or complete equality classification on \(C_6\). Related four- and five-cycle constants and six-cycle variation inequalities do not logically determine the present strong Hilbert norm. See `AUDIT.json` for searches and comparisons. An unindexed identical calculation remains a genuine priority risk; search absence is not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The six-cycle is the smallest cycle with diameter three and therefore the first to have four distinct centered averaging-ball radii. Its sharp norm is not a parameter substitution from the four- and five-cycle cases: the optimizer has a quintic spectral constant, uses all four radii across its selected rows, and has a nontrivial 12-ray dihedral equality classification. This supplies a natural, reproducible, exact invariant and a baseline for studying parity and growing-diameter phenomena in graph maximal inequalities. No larger-cycle theorem or publication-scale generality is claimed.
+General sharp graph maximal results, complete/star graph ℓ², and graph variation bounds do not compute C6 strong centered ℓ². Previously recorded four-/five-cycle cases are different local ball geometry; no directly covering exact C6 spectral/certificate table found. Originality qualified because an unindexed C6 enumeration may exist.
 
-## Limits and closest literature
+## value
 
-The result assumes unit edges, counting measure, centered balls, and real \(\ell^2\). The exact finite certificate covers this one graph, not arbitrary cycle lengths. The original 2014 graph-maximal framework and later sharp complete/star norms are the closest mathematical antecedents; the 2026 paper treats variation rather than the same Hilbert operator norm. Independent review and absolute publication-priority confirmation are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest cycle with diameter three has four distinct graph-ball radii and an exact nontrivial algebraic ∥M∥₂ plus complete 12-ray rigidity. This is a natural exact invariant of a canonical graph, with a nontrivial finite spectral classification useful for comparative graph maximal problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
