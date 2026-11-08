@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md equation (1) and equation (2), with coefficient expansion",
+      "check.py output: counts 1/1/2/3/6/11, nonidentical pairs 0/2/7/21/64/182; bounds n<=6 all one; n=7 179 one and three two",
+      "check.py independent 64-mask enumeration of both witness variances and WITNESS_Q identity; ALL_CHECKS_PASS"
+    ],
+    "rationale": "For each fixed tree and root, the unique open-path indicators give an exact first moment and pairwise second moment with union-path exponent (d(s,u)+d(s,v)+d(u,v))/2. Independent edge-mask enumeration reproduces both witness variance polynomials. Full Prüfer-sequence generation through seven vertices and canonical unrooted-tree encoding return 1,1,2,3,6,11 types at sizes 2..7. Every nonidentical source comparison through six vertices has at most one sign change after the p=z/(1+z) transformation, ruling out two roots by Descartes. Exactly three comparisons at size seven have two sign changes, constituting two marked-tree isomorphism classes. The two exact witness factors each change sign on (0,1/2) and (1/2,1), proving exactly two simple crossings by Descartes and IVT. The code generates the entire finite search space without downloaded tables or floating-point tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miller 2008, source text Sections 2-3: constraints on transmissibility distributions and large-network epidemic fractions, without ranking any two fixed tree seed variances",
+        "Bucur-Holme 2020, PLOS article Methods and Results: exact mean outbreak size for fixed SIR beta values and network centrality prediction, not exact independent bond-percolation variances",
+        "Moore-Newman 2000, full HTML equations 12-13 and 20-26: site/bond small-world ensemble moments and thresholds, with a random seed rather than arbitrary fixed tree positions"
+      ],
+      "reasoning": "More general-sounding network epidemic analyses do not dominate the narrow sharp claim unless they actually establish or imply two variance crossings and all tree cutoffs. Their stated conclusions use other graph classes, moments, comparison dimensions, or epidemic processes; the cited text gives no such implication.",
+      "searches": [
+        "exact polynomial variance rooted component size percolation on finite trees source source",
+        "root percolation cluster size variance finite rooted tree exact formula",
+        "finite tree percolation cluster component size variance as polynomial p vertex location crossing",
+        "Bounding the Size and Probability of Epidemics on Networks Joel Miller 2008",
+        "Beyond ranking nodes Predicting epidemic outbreak sizes by network centralities Bucur Holme 2020"
+      ]
+    },
+    "checked_sources": [
+      "Moore and Newman 2000, arXiv:cond-mat/0001393v1, https://arxiv.org/html/cond-mat/0001393v1",
+      "Miller 2008, arXiv:0803.0999, https://arxiv.org/abs/0803.0999",
+      "Bucur and Holme 2020, https://doi.org/10.1371/journal.pcbi.1008052",
+      "published-finding corpus source IDs 2026/9/9/SCOPE058; 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174; 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743",
+      "Previously indexed scientific claims: baeb0675-150a-4d4a-aec6-a5f2f98d0baa; e3ee2dfe-82d8-47c8-b4c2-0aec192b6fc0; eb7781f3-575f-4f81-94a7-f9c3c34a2612"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously indexed theorem baeb0675-150a-4d4a-aec6-a5f2f98d0baa: exactly one variance crossing for more central versus more peripheral roots on paths P_n, explicitly does not extend to general networks",
+        "Previously indexed theorem e3ee2dfe-82d8-47c8-b4c2-0aec192b6fc0: K_{2,b} source variances with a single asymptotic ranking inversion, on graphs containing cycles",
+        "Previously indexed theorem eb7781f3-575f-4f81-94a7-f9c3c34a2612: uniform source in 6-vertex cubic graph rather than two prescribed vertices in a tree",
+        "Bucur-Holme DOI 10.1371/journal.pcbi.1008052: Markovian SIR mean source influence, not the variance statistic or two-crossover classification"
+      ],
+      "reasoning": "A theorem covering path pairs cannot imply the existence or minimal size of double crossings on branching trees. A result about single crossing on cyclic bipartite networks, or comparing graph-averaged rather than source-conditioned variances, has a different domain/quantifier and no implication to this sharp tree result.",
+      "searches": [
+        "tree bond percolation outbreak variance two reversals as transmission probability changes across seed vertices seven vertex minimal",
+        "epidemic final cluster size variance seed location ranking changes multiple times tree at bond occupation p",
+        "previous mathematical claim IDs baeb0675-150a-4d4a-aec6-a5f2f98d0baa, e3ee2dfe-82d8-47c8-b4c2-0aec192b6fc0, eb7781f3-575f-4f81-94a7-f9c3c34a2612"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moore-Newman 2000 arXiv:cond-mat/0001393v1 full HTML: random-root small-world cluster distribution and first two moments, not prescribed vertex-pair tree crossover",
+        "Miller 2008 arXiv:0803.0999 HTML: epidemic percolation representation and bounds for transmission heterogeneity, not discrete root-pair second moment rank reversals",
+        "published-finding corpus 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns component-count/triangle covariance, not rooted component-size variance"
+      ],
+      "reasoning": "The claimed statistic is the coefficientwise exact variance of the fixed-root component size as one scalar p varies. Mean seed influence, percolation thresholds, outbreak sizes on a random-root small-world ensemble, and graph-global component-count covariance are not equivalent to a within-tree pairwise variance polynomial; none supplies the sharp seven-vertex cutoff.",
+      "searches": [
+        "tree bond percolation outbreak variance two reversals as transmission probability changes across seed vertices seven vertex minimal",
+        "epidemic final cluster size variance seed location ranking changes multiple times tree at bond occupation p",
+        "exact polynomial variance rooted component size percolation on finite trees source source",
+        "percolation cluster size variance multiple intersections source vertices finite trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743 addresses ranking of distinct reproduction numbers, not seed-variance crossings",
+        "published-finding corpus 2026/9/9/SCOPE058 addresses bunkbed percolation induction, not epidemic root variances",
+        "Bucur-Holme 2020 describes exhaustive nonisomorphic graph tables for expected Markovian SIR sizes, not these variance reversal counts"
+      ],
+      "reasoning": "The actual indexed searches did not return an exact table of seven-vertex tree source-pair variance crossing counts. Lack of a retrieved table does not prove absence; the audit only distinguishes the inspected tables and records from the requested finite result.",
+      "searches": [
+        "two crossing source vertices percolation variance rooted component seven vertices tree",
+        "two rank reversals outbreak size variance transmission probability 7 vertex tree",
+        "tree vertex cluster variance two sign changes 0<p<1",
+        "published small finite trees epidemic root variance two crossing exact graph table"
+      ]
+    },
+    "rationale": "The inspected percolation literature establishes general outbreak moments, transmission heterogeneity bounds, and graph-dependent expected SIR size, but no first finite tree order with two *root-specific variance* rankings reversals. Relevant published and previously indexed results were compared by implication, not keyword overlap. A previous result on all paths gives exactly one crossing but does not cover branching trees. No reviewed source or closely retrieved index item implies the 7-vertex minimality and two marked pair classes. This is a best-evidence novelty judgement with the stated historical-search risk.",
+    "residual_risks": [
+      "Indexed search is incomplete; older finite-tree percolation moment tables or unpublished work could already contain the exact two-crossover boundary.",
+      "The sampled literature includes Markovian SIR studies: bond-percolation independent-edge claims should not be conflated with that different stochastic process.",
+      "The novelty assessment is not an external independent historical priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish finite prescribed-root variance crossing counts on all trees",
+        "evidence": [
+          "2000-01-26 v1 date from https://arxiv.org/abs/cond-mat/0001393",
+          "HTML full text explicitly defines P(n) for a uniformly randomly chosen site; derives large-system small-world distribution/moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0001393v1",
+        "material_read": "Available full HTML text: model description, random-source cluster probabilities, generating functions, site moments equations 12-13, and bond-percolation section equations 20-26",
+        "method": "Read original arXiv HTML, not abstract only; checked graph class, seed selection, and moments",
+        "title": "Exact solution of site and bond percolation on small-world networks",
+        "trigger": "Same bond-percolation model and outbreak-size variance observable"
+      },
+      {
+        "assessment": "Dominates neither root-conditioned variance crossover statements nor seven-vertex small-tree minimality",
+        "evidence": [
+          "Source differentiates in/out transmissibilities, establishes outbreak probability/attack-rate bounds, and generally considers sequences of large networks",
+          "2008-03-06 first preprint date from arXiv"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0803.0999",
+        "material_read": "Available long-form arXiv HTML exposition: Introduction, epidemic percolation construction in Section 2, and comparison bounds in Section 3",
+        "method": "Read original source text, including its network assumptions and mathematical objectives",
+        "title": "Bounding the Size and Probability of Epidemics on Networks",
+        "trigger": "Single-seed epidemic percolation and general-network statements could dominate a finite-tree special case"
+      },
+      {
+        "assessment": "It computes expected outbreak size for Markovian SIR at sampled infection rates, not root-conditioned bond-percolation variances or their real-polynomial crossings",
+        "evidence": [
+          "PLOS source Methods explains beta infection/recovery process, N=6..10 graph enumeration, and Omega as expected size",
+          "Reported data use nine beta values and prediction of expected Omega, not all-p variance crossing roots"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1008052",
+        "material_read": "Publisher open-access HTML abstract, introduction, Methods (exact Markovian SIR expected outbreak size), enumeration of graphs, and Results objectives",
+        "method": "Read publisher full-article HTML sections and checked variance references in the text",
+        "title": "Beyond ranking nodes: Predicting epidemic outbreak sizes by network centralities",
+        "trigger": "Exhaustive exact seed-level computations on small graphs might already include this finite graph classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b64466b-f53a-4d13-a712-3ac3cb96a274",
+  "value": {
+    "evidence": [
+      "Sharp seven-vertex obstruction, all smaller trees excluded by exact enumeration",
+      "Two algebraically exact witness factors showing three alternating sign intervals",
+      "Complete first-layer classification of source-pair-marked trees"
+    ],
+    "rationale": "The exact first order of two reversals is a natural sharp obstruction to treating seed-specific outbreak uncertainty rankings on branching trees as single-crossing, as happens on paths. The two marked-tree classes identify minimal branching motifs permitting re-entrant variance order. This is a motivated structural boundary for epidemic uncertainty comparisons, not an arbitrary sample or tiny numerical gain. The claim does not assert an empirical disease forecast or a large-network theorem.",
+    "status": "PASS"
+  }
+}
