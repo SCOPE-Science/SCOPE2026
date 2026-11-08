@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The explicitly specified two-qubit generator evolves the Bell reset state to an X-state with known exponentially decaying populations and coherence. Poisson regenerative averaging yields exact rational entries. Pauli correlations diagonalize to u,-u,v; the CHSH criterion reduces to two inequalities. The quintic has coefficient signs +,+,-,-,-,- for all b≥1 and one positive root; monotonicity of v above sqrt(2) gives a unique witness switch; a rescaled polynomial gives the 2/3 exponent. X-state concurrence follows from Wootters spin-flip eigenvalues. Included standalone checker passed 491 independent numerical/exact-rational and symbolic assertions. The analytical proof, not sampling, covers all quantified parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.06981v2, Sec. III Eq. (9), establishes a completely general reset generator, hence covers the dynamical setup at the framework level.",
+        "arXiv:2610.40638 uses unitary Ising evolution with discrete-time resets and a depolarizing-channel comparison, rather than amplitude damping plus dephasing.",
+        "Horodecki et al. (1995) covers optimization of CHSH for any specified two-qubit density matrix."
+      ],
+      "reasoning": "The common generator and CHSH optimization theory are strong general ingredients, explicitly credited. Neither alone supplies the unique root, mechanism-switch threshold, or two-thirds scaling; the full derived classification is not a stated corollary of the inspected sources. A general-channel algebraic specialization may still make the theorem implicitly derivable, so priority certainty is not claimed.",
+      "searches": [
+        "published-finding corpus: Poisson quantum resetting to Bell state under local amplitude damping and pure dephasing: stationary concurrence entanglement threshold reset rate",
+        "published-finding corpus: two-qubit Markovian amplitude damping phase noise plus reset-to-Bell state exact CHSH crossover rate strong dephasing scaling 2/3",
+        "web: two qubits stochastic Poisson resetting Bell state damping dephasing stationary Bell nonlocality CHSH",
+        "arXiv:2310.06981v2 Sec. III Eq. (9)",
+        "arXiv:2610.40638 Sec. VI"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.07485 (relevant full-text equations and worked model)",
+      "arXiv:2310.06981v2 (open-system reset generator and trajectory statistics)",
+      "arXiv:2410.11497 (discrete-time two-qubit reset and entanglement)",
+      "arXiv:2610.40638 (new Bell reset/noise comparison)",
+      "Horodecki 1995 (abstract/theorem only)",
+      "Wootters 1998 (abstract/theorem only)",
+      "published-finding corpus semantic queries listed in audit",
+      "Previous directly relevant theorem claims (two-spin unitary renewal resetting and pair-conversion resetting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kulkarni–Majumdar (2023) analyze closed coupled spins reset to a product state with concurrence.",
+        "Carollo–Lesanovsky–Garrahan (2023) derive the general open reset Lindblad generator and quantum-jump ordering laws.",
+        "Wald et al. (2024) and Murauer et al. (2026) use discrete-time unitary qubit resets and analyze entanglement/correlations under different noise.",
+        "Horodecki (1995) criterion and Wootters (1998) concurrence formula are prior standard theorems adopted here."
+      ],
+      "reasoning": "The general stationary reset resolvent and Horodecki optimization imply an algorithm for calculating a CHSH value. They do not, without additional specialized algebra and a nontrivial global sign/root/asymptotic argument, entail the displayed complete phase diagram. There is no claim that the stationary state or CHSH criterion by themselves are new. An unlocated earlier treatment could establish the exact result, so originality is qualified.",
+      "searches": [
+        "arXiv:2307.07485 Sections II–III",
+        "arXiv:2310.06981v2 Sections II–III and VI",
+        "arXiv:2410.11497 Sections 2–3",
+        "arXiv:2610.40638 Sections I and VI",
+        "published-finding corpus: two-qubit Markovian amplitude damping phase noise plus reset-to-Bell state exact CHSH crossover rate strong dephasing scaling 2/3",
+        "published-finding corpus: Stationary CHSH violation Bell state reset to Phi plus two qubit local amplitude damping and Pauli Z dephasing critical r/gamma threshold 1+sqrt(2) witness switch",
+        "published-finding corpus: CHSH threshold asymptotic r scales as pure dephasing rate two thirds in globally Poisson reset Bell pair",
+        "published-finding corpus: Bell nonlocality recovery from Poisson entangled-state reinitialization under zero-temperature amplitude damping dephasing unique threshold quintic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The CHSH singular-value criterion is equivalently u²+max(u²,v²)>1 for the exact X-state; direct prior CHSH reset boundary was not found in these searches.",
+        "arXiv:2310.06981v2 gives a general Lindblad reset formulation, not an equivalent Bell-pair model with the sharp piecewise threshold."
+      ],
+      "reasoning": "Equivalent X-state or Horodecki formulations would cover the claimed theorem only if they establish the parameter-dependent root classification, witness switch and strong-dephasing asymptotic. The general two-qubit CHSH criterion alone is inherited, but the final global phase statement was not identified.",
+      "searches": [
+        "published-finding corpus: stochastic Poisson resetting Bell pair stationary Bell CHSH nonlocality threshold amplitude damping dephasing quantum channel",
+        "published-finding corpus: renewal averaged Bell pair amplitude damping phase damping Horodecki CHSH threshold unique transition",
+        "web: \"resetting\" \"CHSH\" \"amplitude damping\" \"Bell\" steady state",
+        "web: \"resetting\" \"Bell nonlocality\" \"dephasing\" concurrence threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus ID published-finding corpus 2026/10/4/SCOPE-exact-mixed-state-death-birth-ordering-for-a-two-cavity-amplitud--5c789fff85ad treats non-reset Bell damping entanglement death/birth, not stationary CHSH under Poisson reset.",
+        "A previously documented pair-conversion theorem (opaque ID 1e0867d1-d987-4d89-a863-6e0ef3524c6d) has a Hamiltonian coupling and reset to a diagonal separable state, not the specified Bell-pair loss/CHSH setting.",
+        "A previously documented coherent two-spin renewal-reset theorem (opaque ID 9a26edde-5420-4825-be05-67537d2c6850) classifies concurrence under unitary coupling, not Bell nonlocality and independent amplitude damping."
+      ],
+      "reasoning": "Actual searchable records contain related reset and two-qubit entanglement models but no matching exact table for the continuous-rate CHSH switch function. This supports best-knowledge distinction; the database coverage and source coverage do not prove uniqueness.",
+      "searches": [
+        "published-finding corpus: steady-state entanglement threshold for two qubits subjected to incoherent thermal baths and stochastic resetting to Bell state",
+        "published-finding corpus: quantum resetting entanglement two qubits local dephasing concurrence stationary phase diagram",
+        "published-finding corpus: stochastic Poisson resetting Bell pair stationary Bell CHSH nonlocality threshold amplitude damping dephasing quantum channel",
+        "Previous theorem claims searched for the aliases CHSH, Bell, nonlocality, amplitude damping, dephasing and concurrence"
+      ]
+    },
+    "rationale": "Close 2023–2026 resetting literature and prior methods are explicitly credited; no directly covering statement of the specific global stationary-Bell CHSH phase diagram, unique singular-value-pair switch and strong-dephasing exponent was identified in actual searches or the available previous scientific statements. This is a qualified new specialization, not a claim to invent Lindblad resetting or the Horodecki criterion. General-channel implicit derivability and unpublished exact treatments remain residual risks.",
+    "residual_risks": [
+      "General Lindblad reset and CHSH singular-value formulas may implicitly contain a derivation in unpublished or unlocated prior work.",
+      "The closest 2026 Bell-reset hardware theory uses a different noise model but may motivate an unsearched related manuscript.",
+      "Horodecki and Wootters primary full texts were not inspected; only standard named theorems and bibliographic material were used.",
+      "Semantic research-record search and accessible prior scientific statements have finite coverage, not a proof of worldwide publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closed interacting two-spin system reset to a product state; does not address independent dissipative channels, Bell initial reset, CHSH threshold, witness branch switch or strong-dephasing scaling",
+        "evidence": [
+          "arXiv:2307.07485, Sec. II equations 7–8 (renewal integral) and Sec. III equations 21–22 (interacting spins)",
+          "Source analyzes entropy, fidelity, and concurrence; no CHSH diagnostic in inspected relevant sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+        "material_read": "Original accessible parsed manuscript, abstract, Sec. II reset stationary integral and concurrence definitions; Sec. III model, Hamiltonian, initial state and worked spin results",
+        "method": "arXiv full-text HTML parsed at https://arxiv.org/abs/2307.07485; relevant equations and arguments inspected",
+        "title": "Generating Entanglement by Quantum Resetting",
+        "trigger": "Two-spin quantum Poisson resetting, stationary concurrence; closest direct entanglement resetting precedent"
+      },
+      {
+        "assessment": "Equation (9) contains the general reset generator needed in this model and is explicitly credited. The paper does not classify CHSH violation for a Bell pair with damping/dephasing, its optimal singular-value branch or power law. Implicit derivability is a residual risk.",
+        "evidence": [
+          "arXiv:2310.06981v2, Sec. III Eq. (9): L_tilde[rho]=L[rho]+Gamma(psi0-rho)",
+          "Sec. VI analyzes ordering laws for continuous/discrete trajectory observables, not optimized Bell witnesses"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.06981v2",
+        "material_read": "Full-text accessible HTML, Sections II and III including equation (9) general Poisson reset Lindblad generator, plus Sections V–VI on ordered quantum trajectory observable statistics",
+        "method": "arXiv HTML source read at https://arxiv.org/html/2310.06981v2",
+        "title": "Universal and nonuniversal probability laws in Markovian open quantum dynamics subject to generalized reset processes",
+        "trigger": "General open Lindblad generator with state reset; most plausible stronger theoretical framework"
+      },
+      {
+        "assessment": "Discrete-time unitary resets and concurrence/local quantum uncertainty; the continuous Lindblad damping/dephasing CHSH problem and its thresholds are outside the analyzed models.",
+        "evidence": [
+          "arXiv:2410.11497 Sec. 2.3, Sec. 3.1–3.2; explicit gate-unitary model and quantum correlations, with no local amplitude-damping/reset CHSH phase diagram"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.11497",
+        "material_read": "Original accessible parsed full text, Secs. 2–3, including weak-reset resonances and entangling two-qubit unitary examples, and model conclusion",
+        "method": "arXiv accessible text/HTML at https://arxiv.org/abs/2410.11497",
+        "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+        "trigger": "Close two-qubit resetting and quantum-correlation comparison"
+      },
+      {
+        "assessment": "Discrete-time transverse-field Ising evolution, a simulated depolarizing noise channel and entropy/concurrence measurements; not the exact stationary continuous-amplitude-damping CHSH phase classification, though high topical proximity merits residual priority risk.",
+        "evidence": [
+          "arXiv:2610.40638 Sec. VI Eq. (54) local depolarizing maps, Eq. (55) discrete reset map, and discussion of concurrence vs entropy; CHSH not calculated"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40638",
+        "material_read": "Accessible original full-text introductory model and Eqs. (54)–(55) of Sec. VI noise comparison plus results/discussion",
+        "method": "arXiv accessible text/HTML at https://arxiv.org/abs/2610.40638",
+        "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+        "trigger": "New directly relevant two-qubit Bell reset and decoherence sensitivity paper; tested for prior stronger coverage"
+      },
+      {
+        "assessment": "General CHSH singular-value theorem is inherited as an essential lemma, not original; source cannot itself specify the reset-dependent phase boundary without solving a different dynamics.",
+        "evidence": [
+          "Horodecki et al. (1995) theorem: necessary and sufficient CHSH violation by arbitrary mixed two-qubit states"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0375-9601(95)00214-N",
+        "material_read": "Abstract and bibliographic theorem statement only; full primary text not accessed",
+        "method": "bibliographic abstract from OSTI/ETDEWEB",
+        "title": "Violating Bell inequality by mixed spin-1/2 states: necessary and sufficient condition",
+        "trigger": "Potential general statement implying any two-qubit CHSH condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d77b157-19bb-41af-b4b0-26f46c95d095",
+  "value": {
+    "rationale": "For a natural two-qubit resource-maintenance experiment, the exact reset intensity needed for unfiltered Bell nonlocality is a motivated quantity distinct from concurrence. The result gives an exhaustive positive-rate phase diagram, identifies a sharp switch in which pair of Pauli singular values controls CHSH recovery, and proves a nontrivial 2/3 recovery-rate scaling at strong dephasing compared with the 1/2 entanglement scaling. It is not a mere renamed algebraic formula or arbitrary parameter slice; no experimental performance claims are made.",
+    "status": "PASS"
+  }
+}
