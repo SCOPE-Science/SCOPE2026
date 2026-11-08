@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Gaussian integration gives Ah0=e^{-s/2}, Ah1=e^{-s/2}(1-s), and the scalar-to-two-channel multiplier has squared gain f_a(s)=e^{-s}(1+a(s^2-2s)). Its derivative is e^{-s}[-1+a(2-(s-2)^2)]. For T<2 the Gaussian dominates pointwise and uniquely optimizes; at T=2 exactly a in [0,1/2] optimizes. For T>2 the boundary branch E_T increases strictly with a while the interior-minimum branch L decreases strictly after a=1/2, with opposite endpoint inequalities, so they cross uniquely. The crossing yields the root equation and exact optimal constant. Taylor expansion near a=1 proves both large-T asymptotics. The actual check.py was run and returned TWO_HERMITE_AMBIGUITY_CHECKS_PASS 17175; the proof does not rely on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grohs, Liehr and Rathmair, arXiv:2207.10620, Introduction and Theorems 1.2-1.5: lattice uniqueness for four windows formed from Gaussian and first-Hermite components, not continuous noise-optimal two-channel inversion.",
+        "Alaifari and Yang, arXiv:2410.05486, Sec. 3.2 Lemma 3.9: a distinct error estimate for piecewise ambiguity reconstruction with disjoint stability regions."
+      ],
+      "reasoning": "The lattice uniqueness theorems and the multiwindow recovery error estimates cover broader signal classes in different senses but do not supply a bound, much less the sharp fixed-budget optimum, for this specifically prewhitened radial multiplier. The statement is not a corollary of their injectivity alone.",
+      "searches": [
+        "joint ambiguity reconstruction weighted multi-window STFT spectrogram inverse noise",
+        "Alaifari Yang 2410.05486 adaptive weighted least squares Hermite phase retrieval minimax exposure",
+        "arxiv:2207.10620 (public full text inspected)"
+      ]
+    },
+    "checked_sources": [
+      "Alaifari and Yang, arxiv:2410.05486 (first posted 2024-10-07), relevant primary full-text sections and algorithms.",
+      "Grohs, Liehr, Rathmair, arxiv:2207.10620 (first posted 2022-07-21), relevant primary full-text theorem statements.",
+      "Cakrak and Loughlin (1998), Multiple Window Non-Linear Time-Varying Spectral Analysis, accessible PDF text, incomplete visual inspection.",
+      "Alaifari and Yang, DOI:10.1137/24M1701332 (2025 journal version metadata and abstract).",
+      "Zhou and Wang (2022), Solving multiple windowed STFT phase retrieval problems in phase and amplitude respectively, accessible abstract/full-article outline (discrete reconstruction setting)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alaifari–Yang Eq. (8) directly implies the two specialized radial ambiguity factors used as premises, but the inspected Algorithm 2 divides ambiguity space into disjoint regions, whereas the present claim computes a globally joint weighted singular value.",
+        "Grohs–Liehr–Rathmair Theorem 1.2 is conditional on finite-vector phase retrieval and a lattice density condition, with no parameter T or exposure-weighted lower singular value.",
+        "Cakrak–Loughlin uses target-Wigner least squares, not uniform worst-case noise amplification over a fixed disk."
+      ],
+      "reasoning": "The source formula plus elementary calculus makes the new result provable; it does not make it an already-stated or automatically quantitatively implied sharp experiment-design theorem. Conversely the new theorem does not improve their nonlinear phase retrieval guarantees. A same-object exposure-minimax paper not yet identified would dominate the present originality claim.",
+      "searches": [
+        "Alaifari Yang 2410.05486 adaptive weighted least squares Hermite phase retrieval minimax exposure",
+        "arxiv:2207.10620 (public full text inspected)",
+        "https://dihana.cps.unizar.es/proceedings/ICASSP/1998/pdf/author/ic982036.pdf (accessible PDF text inspected)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alaifari and Yang, arXiv:2410.05486, Sec. 2.2 Eq. (8), Algorithm 2 and Sec. 3.2: Hermite-Laguerre ambiguity functions, disjoint annular recovery regions and a threshold-based noise bound.",
+        "Cakrak and Loughlin, ICASSP 1998, accessible abstract and Sections 1-2: optimized weighted spectrogram average is fitted to a reference Wigner spectrum via least squares."
+      ],
+      "reasoning": "The first source establishes the Laguerre multipliers but its reconstruction splits the domain among windows rather than globally allocating fixed exposure precision to the joint two-component multiplier. The 1998 weights optimize target-spectrum fit, not the disk infimum of a whitened ambiguity multiplication singular value. Algebraic equivalence of the window functions does not establish equivalence of these minimax objectives.",
+      "searches": [
+        "Hermite h0 h1 radial ambiguity coverage sharp minimax weight threshold two radius 2 e^-s (1-s)^2",
+        "Hermite STFT ambiguity function optimal allocation weights zero-free radial disk minimax Gaussian first Hermite 2024",
+        "multiwindow STFT phase retrieval ambiguity least squares sum squares denominator multiple windows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly inspected 2024 full arXiv manuscript does not include an exact table of exposure-optimal first two Hermite windows versus aperture radius in the sections and algorithms relevant to that choice.",
+        "The identified prior published results concern disjoint-region cover, lattice injectivity, or Wigner-spectrum fitting; no verified exact disk-wise two-window weight table was recovered."
+      ],
+      "reasoning": "This is an exact continuous minimax profile, not a finite enumeration. The searches identified no established database or table already specifying the sharp threshold at radius-squared 2 and its unique larger-radius branch. Non-retrieval by search alone cannot establish exhaustive novelty.",
+      "searches": [
+        "two Hermite windows h0 h1 optimal ambiguity function weighting radial coverage stable Gabor phase retrieval minimum modulus disk",
+        "sharp Hermite ambiguity two-window coverage radius optimal frame stability",
+        "optimal measurement weight allocation two Hermite windows ambiguity disk"
+      ]
+    },
+    "rationale": "The full relevant 2024 Hermite multiwindow paper gives the underlying Laguerre multipliers and a region-partitioned inversion stability argument but no jointly exposure-weighted two-channel disk maximin or complete T-dependent optimizer. The 2022 lattice uniqueness and 1998 Wigner-target least-squares weighting do not imply that sharp statement under their different assumptions. Searches of semantic research records, directly relevant prior owned claim descriptions and external literature did not recover an equivalent; historical priority remains provisional.",
+    "residual_risks": [
+      "An exact two-Hermite exposure-minimax profile may be implicit in older time-frequency or experimental-design literature not retrieved.",
+      "Only partial text of the 1998 conference paper was examined; full visual inspection was unavailable. The assessed Wigner-target objective is distinct.",
+      "The proof uses classical scalar minimax balancing; its mathematical novelty is the exact applied ambiguity-multiplier classification rather than a new optimization principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Premise and motivation covered; no observed joint two-window, fixed-budget, disk minimax exposure theorem.",
+        "evidence": "Eq. (8) uses e^{-s/2}L_n(s); Algorithm 2 assigns disjoint regions; Lemma 3.9 controls threshold-based noise, not the optimal two-component multiplier margin.",
+        "identifier_or_url": "arxiv:2410.05486; https://arxiv.org/abs/2410.05486",
+        "material_read": "Abstract, introduction, Sec. 2.2 Hermite ambiguity identity and Algorithm 2, Sec. 3.2 Lemma 3.9, and the described experimental sections.",
+        "method": "Public full-text HTML rendering of the arXiv manuscript, read by section and formula.",
+        "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+        "trigger": "Same Hermite ambiguity kernels and the closest continuous multi-window direct-inversion stability framework."
+      },
+      {
+        "assessment": "Lattice phase-retrieval uniqueness does not imply the present continuous multiplier singular-value design.",
+        "evidence": "Theorem 1.2 relates finite-dimensional phase retrieval to uniqueness from a four-window lattice, whereas the new result chooses two prewhitened multiplier channels over a continuum disk.",
+        "identifier_or_url": "arxiv:2207.10620; https://arxiv.org/abs/2207.10620",
+        "material_read": "Full-text introduction, Statements 1.2 to 1.5 and the construction of h0/h1-generated windows.",
+        "method": "Public full-text HTML rendering of the arXiv manuscript, direct examination of theorem statements and assumptions.",
+        "title": "Multi-window STFT phase retrieval: lattice uniqueness",
+        "trigger": "Its windows are Gaussian/first-Hermite linear combinations, so a possible same-window implication had to be ruled out."
+      },
+      {
+        "assessment": "Available material fits a reference Wigner spectral estimate rather than worst-radius ambiguity multiplier; incomplete full visual inspection is a residual uncertainty.",
+        "evidence": "The paper solves min ||P-Sd||^2 for a reference Wigner distribution P, versus max min_{0<=s<=T} e^{-s}(1+a(s^2-2s)) here.",
+        "identifier_or_url": "https://dihana.cps.unizar.es/proceedings/ICASSP/1998/pdf/author/ic982036.pdf",
+        "material_read": "Accessible abstract, introduction and the Hermite-spectrogram weighted least-squares objective; full document visual inspection was unavailable.",
+        "method": "Comparison of available primary-source text describing the reference-target least-squares weights.",
+        "title": "Multiple Window Non-Linear Time-Varying Spectral Analysis",
+        "trigger": "Older optimized Hermite-spectrogram weighting could contain stronger design principles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "500d1692-a1d3-40a5-92c5-1b7a90e4d07b",
+  "value": {
+    "rationale": "The source literature motivates covering ambiguity zeros and balancing noise in multiwindow phase retrieval. For two fixed inexpensive windows, exposure is an experimentally meaningful resource. The exact profile discovers a threshold interval of nonunique allocations, a unique first-Hermite-majority optimum above it, two active worst-case radii, and a sharp polynomial improvement in squared lower margin at large aperture. This answers the exact natural noise-whitened design question, not an arbitrary parameter table; no full nonlinear recovery theorem is claimed.",
+    "status": "PASS"
+  }
+}
