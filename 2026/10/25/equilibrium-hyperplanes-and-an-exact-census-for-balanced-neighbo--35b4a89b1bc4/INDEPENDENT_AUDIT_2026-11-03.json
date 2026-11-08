@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:38:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers h,m>=2, let d=(h−1)m, s=2R−d, a_i=s−2r_i, and x=r_i−r_j. The signed opposite-color half-peak utility after a red i/blue j cross-part swap yields |a_j−2|<|a_i| and |a_i+2|<|a_j| with a_j=a_i+2x. Their squared strict inequalities force x>=2 and −x−1<a_i<1−x; since a_i is integral, a_i=−x and hence s=r_i+r_j; conversely these values satisfy both strict inequalities. Within-part exchange changes neither part count nor neighborhoods; same-color exchange cannot strictly benefit both. The potential sum r_i² falls by 2(x−1)>=2, proving finite improvement and floor(hm²/2) step bound. For h=3, E_ij is r_i+r_j+2r_k=2m and |r_i−r_j|>=2; Vandermonde gives |E_ij|=A_m−B_m, two-event intersections J_m, and triple intersection is empty, proving N_m=2^(3m)−3(A_m−B_m−J_m). U~Bin(2m,1/2) and V~Bin(m,1/2) independent give mean 2m, variance 3m/2 and lattice span 1; local CLT P(U+2V=2m)=1/sqrt(3πm)+O(m^-1). All diagonal and double-event exclusions have probability O(m^-1), implying P(not equilibrium)=sqrt(3/(πm))+O(m^-1). Independent canonical-profile direct-neighborhood experiments verified (h,m)=(3,2),(3,3),(3,4),(3,5),(4,2),(5,2); separate count values N_m=52,458,3196,28568. The finite tests corroborate rather than prove universal parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò et al. prove finite improvement for a broad almost-regular family but a different closed-neighborhood utility, and do not give tripartite equilibrium enumeration.",
+          "Kreisel et al. use monotone same-type utility; Li et al. use diversity-presence, count and type-variety objectives; none implies the peak-half strict-mutual criterion."
+        ],
+        "reasoning": "Tested whether broad almost-regular convergence and diversity-game bounds subsume the claim. General convergence alone cannot imply the exact game-specific hyperplane, binomial count or random-color asymptotic. The inspected general results also use different payoff functions and cannot be specialized without changing incentives.",
+        "searches": [
+          "complete multipartite graph Schelling swap games single-peaked utilities equilibrium characterization half preferred",
+          "finite improvement potential symmetric tolerance single peaked games open neighborhood exhaustive equilibrium count",
+          "Schelling swap single-peaked two-color on complete bipartite graph every coloring equilibrium when agents count themselves closed neighborhoods",
+          "arXiv:2204.12599 Theorem 1",
+          "arXiv:2105.06561 model and hardness statements",
+          "arXiv:2502.13375 abstract and model"
+        ]
+      },
+      "checked_sources": [
+        "Bilò, Bilò, Lenzner, Molitor, arXiv:2204.12599, 2022, model §1, Theorem 1 and result table.",
+        "Kreisel, Boehmer, Froese, Niedermeier, arXiv:2105.06561, 2021, monotone utility and robustness.",
+        "Friedrich, Lenzner, Molitor, Seifert, arXiv:2302.12107, 2023, full short extended abstract only; full paper not read.",
+        "Li, Narayanan, Opatrny, Xu, arXiv:2502.13375, 2025, model and central statements.",
+        "Resultary semantic searches 2026-11-03 UTC: exact census equilibria balanced-neighbor swap Schelling complete tripartite equal parts open neighborhood half mixture; complete multipartite graph Schelling swap games single-peaked utilities equilibrium characterization half preferred; finite improvement potential symmetric tolerance single peaked games open neighborhood exhaustive equilibrium count; Schelling swap single-peaked two-color on complete bipartite graph every coloring equilibrium when agents count themselves closed neighborhoods; equilibrium census open-neighborhood single-peaked half preference complete multipartite networks; graph game mutual swaps half-and-half balanced neighbors all equal parts hyperplane binomial count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claim is iff r_i−r_j>=2 and r_i+r_j=2R−(h−1)m, plus exact N_m and P(unstable)~sqrt(3/(πm)).",
+          "Closest 2022 theorem guarantees finite-improvement in an agent-inclusive game; 2023 jump paper requires vacancies; 2025 diversity-seeking paper does not peak at q=1/2."
+        ],
+        "reasoning": "The equilibrium hyperplanes depend on strict improvement of two agents under a distinct open-neighborhood payoff. Even if abstract existence/FIP may extend, nothing inspected implies the complete family of pair events E_ij and the tripartite binomial overlap J_m. This is a positive best-of-knowledge comparison, not argument by search silence.",
+        "searches": [
+          "arXiv:2204.12599 Section 1 and Theorem 1",
+          "arXiv:2105.06561 introductory definitions and results",
+          "arXiv:2302.12107 extended abstract",
+          "arXiv:2502.13375 abstract/definitions",
+          "exact census equilibria balanced-neighbor swap Schelling complete tripartite equal parts open neighborhood half mixture",
+          "complete multipartite graph Schelling swap games single-peaked utilities equilibrium characterization half preferred"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model requires open neighborhood of size (h−1)m; signed deviation a_i=2R−(h−1)m−2r_i.",
+          "Bilò et al. use self-inclusive N[v], with a different denominator and after-swap payoff; exact open-neighborhood inequality is not a relabeling of its finite-improvement statement."
+        ],
+        "reasoning": "Checked both own-type and opposite-type fraction reparametrizations (same symmetric abs-distance for two colors). The crucial distinction is self inclusion: the cited model counts self, while here the relocating agents each observe only vertices outside their part. Consequently a theorem for N[v] has no automatic implication for the open-neighbor integer hyperplanes. No equivalent indexed published SCOPE game count was found; no uniqueness guarantee is inferred.",
+        "searches": [
+          "exact census equilibria balanced-neighbor swap Schelling complete tripartite equal parts open neighborhood half mixture",
+          "complete multipartite graph Schelling swap games single-peaked utilities equilibrium characterization half preferred",
+          "equilibrium census open-neighborhood single-peaked half preference complete multipartite networks",
+          "arXiv:2204.12599 §1 utility definition and full-text keyword multipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned mathematical items such as majority C-colorings and k-conversion sets on complete multipartite graphs, but those compute graph-coloring or diffusion invariants, not equilibria of a bilateral peak-half swap game.",
+          "The 2022 single-peaked paper table reports FIP/welfare/existence, not N_m or sqrt(3/(πm))."
+        ],
+        "reasoning": "No identified indexed exact table computes labeled binary placement equilibria for this open-neighborhood utility. Because search is bounded, this does not itself establish novelty; primary statement comparison supplies the substantive reason.",
+        "searches": [
+          "exact census equilibria balanced-neighbor swap Schelling complete tripartite equal parts open neighborhood half mixture",
+          "equilibrium census open-neighborhood single-peaked half preference complete multipartite networks",
+          "graph game mutual swaps half-and-half balanced neighbors all equal parts hyperplane binomial count",
+          "Resultary semantic search 2026-11-03 (6 queries above)",
+          "arXiv:2204.12599 comparison results table"
+        ]
+      },
+      "rationale": "Fresh statement-level comparisons to the closest full-text single-peaked swap source (agent-inclusive N[v]), monotone similarity games, vacant-node jump games and different diversity utilities identify no theorem implying the open-neighborhood strict swap hyperplane and full three-part labeled-coloring census. Search was bounded and residual priority risks remain explicit.",
+      "residual_risks": [
+        "A historically older or unindexed theorem for OPEN-neighborhood symmetric peak-half swaps could imply the same criterion or a more general census despite its different title.",
+        "The full version of arXiv:2302.12107 was not inspected; only its accessible complete extended abstract, whose vacancy/jump move rules differ from this model.",
+        "Resultary searches and paper searches are bounded; absence of an exact indexed match is not proof of global novelty.",
+        "The lattice local CLT and inclusion-exclusion are standard; originality attaches to their exact game-theoretic combination, not those principles in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the agent-inclusive closed neighborhood N[v] and peak preference Lambda. Its finite-improvement theorem for almost-regular graphs does not give the open-neighborhood pairwise integer resonance or labeled-coloring tripartite census; different payoff may reverse permitted swaps.",
+          "evidence": [
+            "Section 1 uses own-type fraction |N[v] intersection C_i|/|N[v]|, which includes the focal vertex.",
+            "Theorem 1 gives finite improvement on almost-regular graphs for Lambda <= 1/2, without the exact open-neighborhood tripartite count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12599",
+          "material_read": "Accessible 17-page preprint; its introductory graph/utility definition, Theorem 1 and almost-regular finite-improvement discussion, related-work and result summary table; full-text search for multipartite and neighborhood.",
+          "method": "Primary arXiv PDF text and page-image inspection (page 1 and Theorem 1 page); checked defined payoff and quantifiers.",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "Closest primary single-peaked bilateral-swap model, possible generalized stability or equilibrium census"
+        },
+        {
+          "assessment": "Uses monotone same-type similarity utility, and studies computational hardness/robustness, rather than a symmetric half-peaked opposite-type fraction. Its theorems do not imply the stated open-neighborhood count.",
+          "evidence": [
+            "Game utility is based on nondecreasing same-type preference, unlike u(q)=-|2q-1|.",
+            "Main results concern existence and robustness, not an explicit three-part hyperplane and binomial count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.06561",
+          "material_read": "Accessible 37-page preprint; introduction, model definitions including utility, contributions and result table, with searches for game topology and preferences. Not all proof appendices inspected.",
+          "method": "Primary PDF text reading and page-image inspection; statement/assumption comparison.",
+          "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+          "trigger": "Potential broad equilibrium classification or hardness theorem for related graph games"
+        },
+        {
+          "assessment": "The model has vacant vertices and unilateral jumps, unlike fully occupied bilateral swap; the move graph and equilibrium concept differ. Full-paper historical overlap remains a limited access risk.",
+          "evidence": [
+            "Extended abstract explicitly defines profitable jumps into vacant nodes.",
+            "No exact full-occupancy complete-tripartite swap census is given in the accessible extended abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+          "material_read": "Complete three-page publicly accessible Southampton extended abstract; arXiv full-paper PDF was attempted but not available for full reading.",
+          "method": "Lawful publicly accessible extended abstract inspected, not full-paper inspection.",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "Shares the single-peaked utility but might yield a stronger equilibrium result."
+        },
+        {
+          "assessment": "Binary difference-presence, difference-count and variety-of-types diversity utilities are not the symmetric distance-to-50-percent objective. The published general PoA/bounds do not imply the exact census.",
+          "evidence": [
+            "Abstract defines binary indicator of an other-type neighbor, count of neighbors of a different type and number of different types.",
+            "Contributions investigate global diversity measures and prices of anarchy rather than peak-at-half strict swap criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.13375",
+          "material_read": "Full 29-page PDF accessible; title/abstract, introduction, model/utility definitions and central result summaries inspected, along with first-page image; not every proof appendix read.",
+          "method": "Primary PDF text and page-image inspection, direct objective-function comparison.",
+          "title": "Diversity-seeking swap games in networks",
+          "trigger": "Another current swap Schelling paper with diversity-seeking neighbors and possibly general graph bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete structural if-and-only-if classification of bilateral improvements on a natural, dense complete multipartite family, plus an exact labeled three-part equilibrium enumeration with quantified inverse-sqrt instability frequency. The contrast between enormous absolute numbers of unstable configurations and their vanishing random-color proportion is a meaningful mathematical feature beyond a generic FIP or tiny numerical check. Equal-part and symmetry assumptions are motivated by game payoffs and network communities, not arbitrary slices. Further questions about fixed-composition or heterogeneous parts remain open; no paper-sized downstream theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bilò, Bilò, Lenzner, Molitor, arXiv:2204.12599, 2022, model §1, Theorem 1 and result table.",
+    "Kreisel, Boehmer, Froese, Niedermeier, arXiv:2105.06561, 2021, monotone utility and robustness.",
+    "Friedrich, Lenzner, Molitor, Seifert, arXiv:2302.12107, 2023, full short extended abstract only; full paper not read.",
+    "Li, Narayanan, Opatrny, Xu, arXiv:2502.13375, 2025, model and central statements.",
+    "Resultary semantic searches 2026-11-03 UTC: exact census equilibria balanced-neighbor swap Schelling complete tripartite equal parts open neighborhood half mixture; complete multipartite graph Schelling swap games single-peaked utilities equilibrium characterization half preferred; finite improvement potential symmetric tolerance single peaked games open neighborhood exhaustive equilibrium count; Schelling swap single-peaked two-color on complete bipartite graph every coloring equilibrium when agents count themselves closed neighborhoods; equilibrium census open-neighborhood single-peaked half preference complete multipartite networks; graph game mutual swaps half-and-half balanced neighbors all equal parts hyperplane binomial count"
+  ],
+  "disposition": "passed",
+  "final_claim": "On K_{m,...,m}, h,m>=2, a bilateral strictly profitable red-i/blue-j swap occurs iff r_i−r_j>=2 and r_i+r_j=2R−(h−1)m; potential sum r_i² decreases by >=2. For h=3, N_m=2^(3m)−3(A_m−B_m−J_m) and under iid fair colors the non-equilibrium probability is sqrt(3/(πm))+O(m^-1), with A_m,B_m,J_m defined in the frozen RESULT.md.",
+  "limitations": [
+    "Open-neighborhood utilities only, equal parts m>=2, h>=2, fully occupied, two colors, symmetric peak 1/2 and strictly mutually profitable exchanges.",
+    "Exact census and iid random-color asymptotic apply only to three parts; there is no fixed-total-red conditional asymptotic claim.",
+    "Proof uses standard lattice local central limit theorem for the infinite m regime; independent computation covers finite profiles only and is not an exhaustive all-size proof.",
+    "The bounded literature survey, incomplete access to one full jump paper, and unindexed results mean originality is best-of-knowledge not certified global priority.",
+    "The seven frozen Git blob names/tree SHA match the assigned tree, but public-intended source JSONs still include an operational scope_run_id field. Publication requires sanitized exact replacements."
+  ],
+  "residual_risks": [
+    "A historically older or unindexed theorem for OPEN-neighborhood symmetric peak-half swaps could imply the same criterion or a more general census despite its different title.",
+    "The full version of arXiv:2302.12107 was not inspected; only its accessible complete extended abstract, whose vacancy/jump move rules differ from this model.",
+    "Resultary searches and paper searches are bounded; absence of an exact indexed match is not proof of global novelty.",
+    "The lattice local CLT and inclusion-exclusion are standard; originality attaches to their exact game-theoretic combination, not those principles in isolation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Defines the agent-inclusive closed neighborhood N[v] and peak preference Lambda. Its finite-improvement theorem for almost-regular graphs does not give the open-neighborhood pairwise integer resonance or labeled-coloring tripartite census; different payoff may reverse permitted swaps.",
+      "evidence": [
+        "Section 1 uses own-type fraction |N[v] intersection C_i|/|N[v]|, which includes the focal vertex.",
+        "Theorem 1 gives finite improvement on almost-regular graphs for Lambda <= 1/2, without the exact open-neighborhood tripartite count."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2204.12599",
+      "material_read": "Accessible 17-page preprint; its introductory graph/utility definition, Theorem 1 and almost-regular finite-improvement discussion, related-work and result summary table; full-text search for multipartite and neighborhood.",
+      "method": "Primary arXiv PDF text and page-image inspection (page 1 and Theorem 1 page); checked defined payoff and quantifiers.",
+      "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+      "trigger": "Closest primary single-peaked bilateral-swap model, possible generalized stability or equilibrium census"
+    },
+    {
+      "assessment": "Uses monotone same-type similarity utility, and studies computational hardness/robustness, rather than a symmetric half-peaked opposite-type fraction. Its theorems do not imply the stated open-neighborhood count.",
+      "evidence": [
+        "Game utility is based on nondecreasing same-type preference, unlike u(q)=-|2q-1|.",
+        "Main results concern existence and robustness, not an explicit three-part hyperplane and binomial count."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2105.06561",
+      "material_read": "Accessible 37-page preprint; introduction, model definitions including utility, contributions and result table, with searches for game topology and preferences. Not all proof appendices inspected.",
+      "method": "Primary PDF text reading and page-image inspection; statement/assumption comparison.",
+      "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+      "trigger": "Potential broad equilibrium classification or hardness theorem for related graph games"
+    },
+    {
+      "assessment": "The model has vacant vertices and unilateral jumps, unlike fully occupied bilateral swap; the move graph and equilibrium concept differ. Full-paper historical overlap remains a limited access risk.",
+      "evidence": [
+        "Extended abstract explicitly defines profitable jumps into vacant nodes.",
+        "No exact full-occupancy complete-tripartite swap census is given in the accessible extended abstract."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+      "material_read": "Complete three-page publicly accessible Southampton extended abstract; arXiv full-paper PDF was attempted but not available for full reading.",
+      "method": "Lawful publicly accessible extended abstract inspected, not full-paper inspection.",
+      "title": "Single-Peaked Jump Schelling Games",
+      "trigger": "Shares the single-peaked utility but might yield a stronger equilibrium result."
+    },
+    {
+      "assessment": "Binary difference-presence, difference-count and variety-of-types diversity utilities are not the symmetric distance-to-50-percent objective. The published general PoA/bounds do not imply the exact census.",
+      "evidence": [
+        "Abstract defines binary indicator of an other-type neighbor, count of neighbors of a different type and number of different types.",
+        "Contributions investigate global diversity measures and prices of anarchy rather than peak-at-half strict swap criterion."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2502.13375",
+      "material_read": "Full 29-page PDF accessible; title/abstract, introduction, model/utility definitions and central result summaries inspected, along with first-page image; not every proof appendix read.",
+      "method": "Primary PDF text and page-image inspection, direct objective-function comparison.",
+      "title": "Diversity-seeking swap games in networks",
+      "trigger": "Another current swap Schelling paper with diversity-seeking neighbors and possibly general graph bounds."
+    }
+  ]
+}
