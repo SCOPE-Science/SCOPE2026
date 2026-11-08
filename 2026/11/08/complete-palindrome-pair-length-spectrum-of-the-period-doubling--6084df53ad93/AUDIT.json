@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Correct all-length claim: cyclic reversal is equivalent to a two-palindrome decomposition; δ^j has a common palindromic prefix and preserves reversal-conjugacy; aligned factor rotation gives positive families. An odd rotation cannot match δ(v) with δ(v^R) if v contains 1, preserving the bad length-seven obstruction. The independently established factor-complexity recurrence and the cited exact published palindromic-periodicity count restrict all other lengths. Direct enumeration verifies all conclusions through length 192 without being used to infer infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2015 Proposition 9 supplies certain palindromic-prefix construction lengths for a different infinite word, but not the claimed exact period-doubling classification.",
+        "2024 Theorem 14 enumerates a superset of palindrome pairs, but not the count of actual palindrome-pair factors or their universal length spectrum."
+      ],
+      "reasoning": "The conjunction of an external upper-bound enumerator with independently proved period-doubling substitution lemmas yields the exact classification; no inspected larger statement implies those lemmas or this result by restriction.",
+      "searches": [
+        "uniform substitution common palindrome prefix each letter palindrome pair factors lift aperiodic fixed points period doubling 3 5",
+        "Fici Shallit Simpson 2024 palindromic periodicities period-doubling factors 7 times powers of two non-palindrome pairs conjugacy reversal",
+        "arxiv:1509.05396v1",
+        "arxiv:2407.10564v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1509.05396v1, original property-PP article",
+      "arxiv:2407.10564v2, full original periodicity enumerator",
+      "doi:10.4230/LIPIcs.CPM.2025.11, published periodicity theorem",
+      "oeis:A275202, factor-complexity recurrence and proof"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=7·2^j the published palindromic-periodicity count equals full factor complexity, yet δ^j(0111010) is a non-palindrome-pair factor.",
+        "For 3·2^j and 5·2^j every factor is shown symmetric by palindromic-prefix substitution, which is not a conclusion of the published enumerator."
+      ],
+      "reasoning": "The exact closed length spectrum neither follows from the primary 2015 property PP paper nor from the 2024/2025 broader enumeration without novel positive and negative lemmas. It incorporates existing results truthfully instead of recasting them as novel.",
+      "searches": [
+        "Borchert Rampersad palindrome pairs period doubling word universal lengths finite cyclic rotation common palindromic substitution",
+        "binary period doubling word all factors symmetric palindromic pairs property PP exact length spectrum",
+        "arxiv:1509.05396v1",
+        "arxiv:2407.10564v2",
+        "doi:10.4230/LIPIcs.CPM.2025.11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Palindrome pair equals a cyclically reversal-symmetric word (Fici--Shallit--Simpson 2024, Sec.2); exact search compared both expressions.",
+        "Published palindromic periodicity is broader than a palindrome pair; explicit non-symmetric palindromic periodicities are given."
+      ],
+      "reasoning": "The assertion concerns all contiguous factors being symmetric words. The broader palindromic-periodicity count does not establish the equivalence, since its fourth equality family 7·2^j is excluded by a new morphic obstruction.",
+      "searches": [
+        "period doubling word every factor of length 3 times power of two 5 times power of two product of two palindromes palindrome pairs",
+        "period doubling infinite word exact lengths where every factor is a palindrome pair symmetric concatenation of two palindromes 1 3 5 times a power of two",
+        "binary period doubling word all factors symmetric palindromic pairs property PP exact length spectrum",
+        "arxiv:2407.10564v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A275202 records all distinct period-doubling factor counts, not the symmetric-subset length spectrum.",
+        "The 2024-25 palindromic-periodicity table records the bigger subset and has an extra equality family 7·2^j."
+      ],
+      "reasoning": "No located exact table indexes precisely which n have every factor a palindrome pair. The paper and sequence table report different invariants; numerical coincidence for the first positive families cannot replace the missing symmetry proof.",
+      "searches": [
+        "period doubling word every factor of length 3 times power of two 5 times power of two product of two palindromes palindrome pairs",
+        "exact palindrome pair lengths period doubling factor all factors symmetric products of two palindromes",
+        "period doubling infinite word exact lengths where every factor is a palindrome pair symmetric concatenation of two palindromes 1 3 5 times a power of two",
+        "oeis:A275202"
+      ]
+    },
+    "rationale": "Direct implication comparison against full primary 2015 palindrome-pair paper and 2024/2025 exact palindromic-periodicity paper. Distinguishing palindrome pairs from their broader periodicity superset is decisive: the prior count alone leaves a fourth length family and lacks positive symmetric factorization in the other two non-dyadic families. Targeted indexed searches and deduplication did not expose the exact statement; residual historical priority risk remains.",
+    "residual_risks": [
+      "Unindexed earlier theorem may already give an equivalent characterization.",
+      "The published palindromic-periodicity enumerator proof uses Walnut automata; that published all-length premise was inspected but not independently recomputed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves Sturmian property PP, a different palindrome-prefix construction and Thue-Morse negative result, not an exact period-doubling length spectrum.",
+        "evidence": [
+          "Borchert--Rampersad (2015), Proposition 9, proof about lengths |p_i|+1",
+          "Borchert--Rampersad (2015), Theorem 10 and Proposition 11 concern Thue--Morse, not period doubling"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+        "material_read": "Pages 1-5, including the statements and proofs of Proposition 9 and Theorem 10, and the relevant claim language of Sections 3-4",
+        "method": "Full-text PDF with page-image inspection",
+        "title": "Words with Many Palindrome Pair Factors",
+        "trigger": "Primary 2015 property-PP result and closest palindrome-pair theorem"
+      },
+      {
+        "assessment": "RELATED, NOT_IMPLYING: counts the strictly broader set of palindromic periodicities; equality of the counts is necessary but not sufficient to infer palindrome-pair status, particularly at 7*2^j.",
+        "evidence": [
+          "Fici--Shallit--Simpson (2024) p.2 definition distinguishes palindromic periodicities from palindrome pairs",
+          "Theorem 14 (pp.10-11) exact piecewise count, with Walnut proof",
+          "No classification of universally palindrome-pair lengths in Section 5.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.10564",
+        "material_read": "Pages 1-3 and 9-11, including Section 2 symmetric-word criterion and Section 5.1 full exact enumerator proof/automaton method",
+        "method": "Open-access original full-text PDF with page-image inspection",
+        "title": "Some Remarks on Palindromic Periodicities",
+        "trigger": "Potential dominating exact count for period doubling and difference in the definition"
+      },
+      {
+        "assessment": "RELATED, NOT_IMPLYING: same broader enumerator, which permits 7*2^j as possible PP lengths but does not prove them PP.",
+        "evidence": [
+          "Fici--Shallit--Simpson (2025) Theorem 13 four-interval formula",
+          "Published definition of palindromic periodicity includes words which are not palindrome pairs"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.11/LIPIcs.CPM.2025.11.html",
+        "material_read": "Sections 4 and 5.1, including Definition and Theorem 13 and comparison to 2024 arXiv version",
+        "method": "Complete openly accessible publisher HTML",
+        "title": "On Palindromic Periodicities",
+        "trigger": "Published 2025 form of exact broader palindromic-periodicity counting theorem"
+      },
+      {
+        "assessment": "BACKGROUND, NOT_COVERING: factor counts alone say nothing about which factors are palindrome pairs.",
+        "evidence": [
+          "A275202 formula a(2n)=2a(n), a(2n-1)=a(n-1)+a(n)",
+          "Entry lists Balchin--Rust (2017) as factor-complexity source"
+        ],
+        "identifier_or_url": "https://oeis.org/A275202",
+        "material_read": "Full sequence entry, formula, parity recurrence and detailed proof, references",
+        "method": "HTML text entry; recurrence independently rederived and checked",
+        "title": "OEIS A275202, Subword complexity of period doubling sequence",
+        "trigger": "Exact factor complexity needed for necessary length restrictions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6084df53-ad93-4708-9161-93a2dcb252f4",
+  "value": {
+    "rationale": "Provides an exact infinite arithmetic classification of a natural property-PP length spectrum for a canonical aperiodic automatic word, not a small special computation. Resolves the gap between all factors being palindromic periodicities and actual palindrome pairs, with an explicit infinite sequence of separating witnesses. Useful for structurally distinguishing two standard palindromic factor invariants.",
+    "status": "PASS"
+  }
+}
