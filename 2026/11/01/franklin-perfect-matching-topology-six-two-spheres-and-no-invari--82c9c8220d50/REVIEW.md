@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses an explicitly defined graph and extendibility complex. The standalone `verify_franklin_pmc.py` exhaustively enumerates all 17 perfect matchings, builds all 761 nonempty faces, performs 321 checked elementary collapses and 56 further pairs, and topologically sorts all 761 nodes and 2610 directed incidences of the complete matched Hasse graph. Exactly one critical vertex and six critical triangles remain; Forman's discrete Morse theorem supplies the wedge of six two-spheres. A disjoint exhaustive all-subsets implementation in `verify_franklin_chain.py` reproduces the face count, the 330 nonextendible ordinary matchings and mod-two ranks. Exact signed simplicial Lefschetz traces for all 48 exhaustively enumerated automorphisms yield the trace multiset and zero invariant dimension. No computational inference from finite samples to an infinite family is used.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest located same-graph result concerns the larger ordinary matching complex and its deletion/link profiles; it does not imply the homotopy or symmetry of the proper extendible-matching subcomplex. Bayer et al. (arXiv:2209.02803) treat planar honeycomb patches, Chandrakar and Singh (arXiv:2407.05809) treat polygonal line tilings and two-row grids, and Agarwal and Basak (arXiv:2608.30601) treat a different Möbius-ladder family. Targeted searches included Franklin, crossed-prism, Knödel and toroidal-honeycomb aliases, counts and representation signatures. Residual risk: an unindexed prior computation could exist, and lack of an indexed hit is not itself evidence of uniqueness.
+PASS
 
-## Value — PASS
-Franklin is a canonical vertex-transitive cubic bipartite graph associated with the exceptional Klein-bottle six-color embedding. The perfect-matching complex is the natural extendibility subcomplex of the already studied ordinary matching complex. Its integral homotopy changes from the ordinary complex's twelve three-spheres to six two-spheres, and the entire automorphism group has no fixed rational second-homology vector. The exact homotopy-plus-character distinction is a substantive topological invariant of this symmetric graph, not an arbitrary unlabeled calculation. No general graph-family theorem or equivariant sphere splitting is claimed.
+Franklin cubic graph 12-cycle with alternating +/-5 chords has 18 edges and exactly 17 perfect matchings. The perfect-matching-extendible face complex has 762 faces including empty, f=(1,18,117,264,243,102,17). Independent exhaustive subset enumeration gave reduced F2 Betti [0,0,6,0,0,0]. Source two-stage matched Hasse incidence proof uses 321 elementary collapses plus 56 coreduction pairs, all 377 pair orientations acyclic on 761 nonempty faces, leaving one 0-cell and six 2-cells; that is the FULL integral homotopy wedge of six S2, not inferred merely from modular Betti ranks. Independent reconstruction yielded all 48 graph automorphisms and signed fixed-simplex Lefschetz traces distribution {6:1,2:12,0:20,-2:15}, averaging to zero H2 invariants. Nonplanarity, group action and no equivariant wedge claim respected.
 
-## Scientific limits and closest source
-Closest same-graph statement: *Edge-orbit matching-complex splitting for the Franklin graph*, published research record at the exact URL in `RESULT.md`, concerning ordinary matchings. Other sources and verified scope exclusions are listed in `AUDIT.json` and `RESULT.md`. The finite proof is complete for Franklin only; other graph families, nonrational representations and independent external review are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new contribution is the specified exact mathematical fact and not any already known nonequivariant/underlying special case; see each implication comparison and full-material primary inspections. The inspected candidates do not imply the new claim as stated. Historical priority is provisional and risks are explicit.
+
+## value
+
+PASS
+
+The Franklin graph is a canonical named cubic bipartite graph and perfect-matching EXTENDIBILITY is mathematically distinct from the ordinary matching complex. A full integral sphere-wedge description plus the automorphism fixed-vector obstruction are natural finite homotopy/representation invariants; the contrast with the known 12 three-spheres on the ordinary matching complex is a motivated, independently useful boundary, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
