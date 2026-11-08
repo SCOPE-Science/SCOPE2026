@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact invariant law, bounded periodic harmonic correction and jump-bracket computation establish the diffusion coefficient for every positive bounded periodic pair of rates, while the martingale functional CLT and isometry establish distributional and variance limits. The swap inequality and dominated approximation give attained sharp rearrangement bounds. The standalone independent finite-grid check passed 217 exact/finite tests, including rational generator identities and finite Markov-chain correctors. Those experiments supplement but do not replace the infinite-domain proof.
+## correctness
 
-**Originality — PASS, qualified.** Angelani (2023) investigates irreversible capture and specifically leaves activation and periodic traps as extensions. Hillen (2003) includes inhomogeneous stopping with constant reactivation but proves a parabolic outer-scale approximation, not an arbitrary-period exact transport law with separately variable capture and release. Lutscher–Hillen (2021) has no resting compartment. Taylor-King et al. (2015) and Berezhkovskii–Bezrukov (2011) give homogeneous or different general models. A search of published mathematical records and accessible prior statements found no equivalent two-average exact periodic diffusivity with sharp alignment design. Classical rearrangement by itself is not claimed as novel. An unindexed broader operator homogenization result could still cover part of this contribution; the exact fixed-period law and paired heterogeneous release requirement distinguish the checked sources.
+PASS
 
-**Mathematical value — PASS.** The result fully solves effective diffusion in a naturally motivated three-state active-transport model for arbitrary periodic capture/release profiles, including discontinuous zones. Its surprising independence from spatial order at fixed joint profile statistics and its attained optimal design rule for separately prescribed rate histograms are physically interpretable and give a strict \(4/3\) demonstration.
+The displayed stationary densities pi_+=pi_-=1/[2L(1+R)], pi0=gamma/[L delta(1+R)] solve all forward balance equations. The periodic harmonic coordinate F_s=x+h+s*g, with g=v/(alpha+G), h'=(gamma-G)/(alpha+G), has zero generator; its jump bracket averages to 2*v^2/[(alpha+G)(1+R)] under ergodicity. Bounded corrector and bounded-jump martingale CLT transfer the diffusive limit and asymptotic variance to X_t. The Monge swap (gamma1-gamma2)*(1/delta1-1/delta2)<=0 proves comonotone minimization of R and countermonotone maximization, extended by bounded approximation. Independently checked algebra and two-zone ratio 4/3; mesh-based script was inspected but its claimed test count is not proof of the continuum result.
 
-**Boundaries and evidence.** Assumes bounded strictly positive periodic rates, constant speed and fair orientation renewal. The numerical checker is finite, and no independent expert validation has been performed. The literature claim is best-knowledge, not exhaustive priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed-period double-heterogeneity coefficient and rearrangement optimum are not stated in inspected model papers: Hillen 2003 spatial capture/resting phase uses constant release and parabolic scaling, Angelani 2023 irreversible traps, and other transport papers address differing state dynamics. Broader homogenization theory may implicitly cover it.
+
+## value
+
+PASS
+
+Sharp design rule for spatially rearranging identical capture/release histograms and exact diffusivity without period-to-zero approximation; measurable positive-rate transport models benefit from the two-statistic collapse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

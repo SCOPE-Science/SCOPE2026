@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The stationary densities are checked by direct substitution into the forward transport equations. The periodic corrector \(F_s(x)=x+h(x)+sg\) has zero generator because \(h'(x)=(\gamma(x)-G)/(\alpha+G)\). Its bounded jumps yield exact bracket rate \(2v^2/[(\alpha+G)(1+R)]\) after stationary averaging. The usual bounded-jump martingale invariance principle gives the displacement CLT; martingale isometry and bounded error give the asymptotic second moment. An elementary two-pair exchange proves the rearrangement ordering before bounded approximation.
+## correctness
 
-The standalone `check_transport.py` was executed successfully with 217 exact-rational and finite numerical assertions. A discretized periodic velocity-jump Markov chain, independent of the displayed continuum corrector, yielded progressively smaller absolute errors on three test environments as cell mesh was refined from 12 to 24 to 48 points per zone. The paired two-zone calculation independently reproduced the exact \(4/3\) diffusion ratio. Finite tests are corroborative and not a proof of the unbounded-time theorem. The source literature comparison is a qualified self-review originality assessment, not independent publication-priority certification.
+PASS
+
+The displayed stationary densities pi_+=pi_-=1/[2L(1+R)], pi0=gamma/[L delta(1+R)] solve all forward balance equations. The periodic harmonic coordinate F_s=x+h+s*g, with g=v/(alpha+G), h'=(gamma-G)/(alpha+G), has zero generator; its jump bracket averages to 2*v^2/[(alpha+G)(1+R)] under ergodicity. Bounded corrector and bounded-jump martingale CLT transfer the diffusive limit and asymptotic variance to X_t. The Monge swap (gamma1-gamma2)*(1/delta1-1/delta2)<=0 proves comonotone minimization of R and countermonotone maximization, extended by bounded approximation. Independently checked algebra and two-zone ratio 4/3; mesh-based script was inspected but its claimed test count is not proof of the continuum result.
+
+## originality
+
+PASS
+
+The exact fixed-period double-heterogeneity coefficient and rearrangement optimum are not stated in inspected model papers: Hillen 2003 spatial capture/resting phase uses constant release and parabolic scaling, Angelani 2023 irreversible traps, and other transport papers address differing state dynamics. Broader homogenization theory may implicitly cover it.
+
+## value
+
+PASS
+
+Sharp design rule for spatially rearranging identical capture/release histograms and exact diffusivity without period-to-zero approximation; measurable positive-rate transport models benefit from the two-statistic collapse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:17:55.951658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed stationary densities pi_+=pi_-=1/[2L(1+R)], pi0=gamma/[L delta(1+R)] solve all forward balance equations. The periodic harmonic coordinate F_s=x+h+s*g, with g=v/(alpha+G), h'=(gamma-G)/(alpha+G), has zero generator; its jump bracket averages to 2*v^2/[(alpha+G)(1+R)] under ergodicity. Bounded corrector and bounded-jump martingale CLT transfer the diffusive limit and asymptotic variance to X_t. The Monge swap (gamma1-gamma2)*(1/delta1-1/delta2)<=0 proves comonotone minimization of R and countermonotone maximization, extended by bounded approximation. Independently checked algebra and two-zone ratio 4/3; mesh-based script was inspected but its claimed test count is not proof of the continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hillen, Transport equations with resting phases, Eur J Appl Math 14 (2003) 613-636",
+          "Lutscher-Hillen 2021, Correlated random walks in heterogeneous landscapes"
+        ],
+        "reasoning": "Hillen gives asymptotic diffusion for special rest kinetics; Lutscher-Hillen works with moving correlated walkers without an independent site-dependent zero-velocity pool. Neither located theorem dominates this two-rate exact martingale formula.",
+        "searches": [
+          "run and tumble diffusion with resting trapping periodic position dependent capture release rate exact effective diffusivity rearrangement",
+          "Hillen transport equations with resting phases 2003 periodic heterogeneous capture release exact diffusion"
+        ]
+      },
+      "checked_sources": [
+        "Hillen 2003 EJAM14 613-636",
+        "Angelani arXiv:2303.03078",
+        "Lutscher and Hillen 2021 AIMS Mathematics 6,8920-8948",
+        "Taylor-King et al 2015 BMB 77",
+        "Berezhkovskii and Bezrukov 2011 J Electroanal Chem 660,352-355"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hillen 2003 constant release spatial capture and parabolic limit",
+          "Reversible heterogeneous fixed-period exact corrector x+h+s*g"
+        ],
+        "reasoning": "Deriving the new closed form requires solving the precise three-compartment stationary balance and harmonic-coordinate Poisson problem; available cited prior formulas with different assumptions cannot be substituted as direct implications.",
+        "searches": [
+          "run and tumble diffusion with resting trapping periodic position dependent capture release rate exact effective diffusivity rearrangement",
+          "Hillen transport equations with resting phases 2003 periodic heterogeneous capture release exact diffusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hillen 2003 transport equations with resting phases",
+          "Taylor-King et al 2015 velocity-jump resting states"
+        ],
+        "reasoning": "Model equivalent to a three-velocity Markov velocity-jump process with position-dependent switching and immobilization; prior homogeneous time-change formulas do not immediately include both variable gamma and delta at fixed L.",
+        "searches": [
+          "run and tumble diffusion with resting trapping periodic position dependent capture release rate exact effective diffusivity rearrangement",
+          "Hillen transport equations with resting phases 2003 periodic heterogeneous capture release exact diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Angelani 2023 trapping examples and finite/infinite system discussions",
+          "Taylor-King et al 2015 movement/rest duration moments"
+        ],
+        "reasoning": "This is a general continuous-parameter law, not a finite table; no same-profile exact gamma/delta coupling table was located. Finite numerical examples in packages are diagnostics, not novelty evidence.",
+        "searches": [
+          "run and tumble diffusion with resting trapping periodic position dependent capture release rate exact effective diffusivity rearrangement",
+          "Hillen transport equations with resting phases 2003 periodic heterogeneous capture release exact diffusion"
+        ]
+      },
+      "rationale": "The exact fixed-period double-heterogeneity coefficient and rearrangement optimum are not stated in inspected model papers: Hillen 2003 spatial capture/resting phase uses constant release and parabolic scaling, Angelani 2023 irreversible traps, and other transport papers address differing state dynamics. Broader homogenization theory may implicitly cover it.",
+      "residual_risks": [
+        "General additive-functional martingale homogenization for heterogeneous three-state velocity-jump models might already specialize to exact expression.",
+        "Full Taylor-King and Lutscher-Hillen text not all materially inspected; avoid whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Resting phase relevant but release specified constant; no displayed exact two-variable-rate finite-period coefficient",
+          "evidence": "Hillen 2003 EJAM14 613-636",
+          "identifier_or_url": "https://www.math.ualberta.ca/~thillen/paper/hillenejam.pdf",
+          "material_read": "Main governing equations, resting-phase assumptions, parabolic scaling sections",
+          "method": "Open primary PDF and inspect model and diffusion argument",
+          "title": "Transport equations with resting phases",
+          "trigger": "Same walking/resting process with spatial rates"
+        },
+        {
+          "assessment": "Irreversible trapping rather than reversible fair-direction release",
+          "evidence": "Angelani 2023 arXiv:2303.03078",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.03078",
+          "material_read": "Model definition, trapping assumptions, introductory and trapping results",
+          "method": "Open arXiv full PDF, examine physically relevant sections",
+          "title": "Run-and-tumble motion in trapping environments",
+          "trigger": "Trap transport preceding reversible capture model"
+        },
+        {
+          "assessment": "Cannot assert no implicit general diffusion lemma in unread sections",
+          "evidence": "Taylor-King et al 2015 Bull Math Biol 77",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-015-0083-7",
+          "material_read": "Bibliographic abstract/context available; full text not materially read",
+          "method": "Search/abstract-level comparison",
+          "title": "From Birds to Bacteria: Generalised Velocity Jump Processes with Resting States",
+          "trigger": "Resting mobile/immobile stochastic transport"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp design rule for spatially rearranging identical capture/release histograms and exact diffusivity without period-to-zero approximation; measurable positive-rate transport models benefit from the two-statistic collapse.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive bounded away from zero rates; symmetric reactivation; no spatial Brownian diffusion or directional memory."
+  ],
+  "schema_version": 1
+}
