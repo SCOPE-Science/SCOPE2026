@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:09:45.775788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual frozen RESULT.md proof, source verification documentation, exact Git tree, independent bounded verification"
+      ],
+      "rationale": "For f=X⁴+aX³+bX²+cX+d, the derivative coefficient structure yields total derivative-squarefree locus T=q²(q−1) in char 2 (a=0,c≠0) and q³(q−1) in odd characteristic (cubic derivative squarefree for p>3, b≠0 for p=3). In odd p a multiple root of f on the derivative-squarefree locus is exactly double. Prescribing a rational double root r makes f=(X−r)²g, g monic quadratic; checking f' separability contributes (q−1)² per r for p>3 and q(q−1) for p=3. Subtract double-counted q(q−1)/2 split double-root quartics; degree-2 gcd also includes (q²−q)/2 irreducible quadratic squares. These exhaustive cases yield precisely M1=q(q−1)(q−2) for p>3 or q(q−1)² for p=3, M2=q(q−1), and M0=T−M1−M2. In char2 M0=T, others 0. Since P(f squarefree)=1−1/q on all q⁴ monic quartics, and P(f_prime squarefree)=T/q⁴, arithmetic gives covariance 0 for p3 and (q−1)/q³ otherwise. An independent direct polynomial Euclidean-GCD enumerator checked q=2,3,4,5,7,9,11 incl extensions (7 field orders); matches all formulas. The unbounded prime-power theorem follows from counting, not sample extrapolation.",
+      "residual_risks": [
+        "The zero-derivative exclusion and nonzero-constant squarefreeness convention are essential; no claim for degree>4 or distinct critical values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almousa–Wood primary theorem counts root-multiplicity partitions of polynomial itself. It does not impose or parameterize squarefreeness of its derivative in inspected text.",
+          "Ragot 1999 FFA title plausibly broader multiplicity enumeration; full paper not obtained, so its implications remain risk, not an automatic failure."
+        ],
+        "reasoning": "A plain multiplicity-partition census does not entail the derivative-squarefree locus, because both derivative critical-root collisions and original polynomial multiple roots enter.",
+        "searches": [
+          "Almousa Wood arxiv:1210.0472 polynomial given root multiplicities",
+          "Ragot 1999 Counting polynomials with zeros of given multiplicities finite fields",
+          "finite field polynomial squarefree derivative critical points distribution quartic"
+        ]
+      },
+      "checked_sources": [
+        "All seven frozen Git tree entries including RESULT.md, AUDIT.json, REVIEW.md, META, SLOGAN and VERIFICATION",
+        "Full Almousa–Wood arXiv 1210.0472 primary PDF; Ragot 1999 available bibliographic summary",
+        "Resultary searches for derivative squarefree quartic discriminants and characteristic three",
+        "independent_five_checks.py: finite-field arithmetic and polynomial gcd for q=2,3,4,5,7,9,11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under f squarefree, derivative can have repeated roots (e.g. monic quartics over F5 with different critical discriminants), so the f-multiplicity partition does not determine derivative-squarefree.",
+          "In char3 the derivative is X³+2bX+c and b≠0 alone enforces derivative separability, inducing the independence not implied by standard marginal probabilities."
+        ],
+        "reasoning": "The joint characteristic-three cancellation and all gcd strata require additional incidence computation beyond the inspected multiplicity-only theorems. Inaccessible broader source may change priority and is named explicitly.",
+        "searches": [
+          "Almousa Wood 2012 Theorem 1 multiplicity partition vs squarefree derivative",
+          "Ragot 1999 finite field root multiplicity generalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two squarefreeness indicators can be described by nonvanishing of discriminants Disc(f), Disc(f_prime) except char2 derivative constants; gcd degree stratifies repeated roots.",
+          "Almousa–Wood root multiplicity partitions alone do not decide derivative separability: distinct simple-root quartics can have repeated critical points."
+        ],
+        "reasoning": "Potential equivalent two-discriminant incidence or Morse-polynomial counts require checking equal constraints, not just matching quartic degree. No covering result established.",
+        "searches": [
+          "Resultary finite field quartic derivative squarefree gcd degree distribution",
+          "finite field quartic discriminant f and derivative discriminant joint count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct small q counts from independent verifier match formulas; no known external table claiming this same joint distribution located.",
+          "Classic monic-squarefree count q^4-q^3 is a marginal input, not this joint table."
+        ],
+        "reasoning": "A known table of pairs of discriminants or critical-root configuration counts could imply M_j; searched records did not establish same table.",
+        "searches": [
+          "Resultary quartic derivative squarefree characteristic 3 independence",
+          "polynomial derivative squarefree quartic finite field count table q=3 5 7"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the joint *derivative-squarefree and repeated-root gcd strata* and surprising characteristic-three independence law, not ordinary squarefree polynomial counts. Almousa–Wood 2012 counts multiplicity partitions of f alone; those do not fix f' squarefreeness (even among squarefree quartics). Ragot 1999 general root-multiplicity literature is plausible but full primary text not accessible; a stronger discriminant-incidence formula might imply this joint distribution. No decisive coverage found.",
+      "residual_risks": [
+        "Uninspected Ragot 1999 or other discriminant incidence result could imply joint count despite different title.",
+        "The zero-derivative exclusion and nonzero-constant squarefreeness convention are essential; no claim for degree>4 or distinct critical values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish the derivative-discriminant condition from the statement alone; no direct covering implication.",
+          "evidence": "Classifies multiplicities of roots of f, without conditioning on separability of f_prime.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.0472",
+          "material_read": "Full accessible seven-page arXiv PDF, theorem statements, multiplicity-partition enumeration and examples examined; no derivative-squarefree condition in searchable text.",
+          "method": "primary arXiv PDF and inspected pages",
+          "title": "Counting polynomials over finite fields with given root multiplicities",
+          "trigger": "closest primary complete fixed-degree root-multiplicity counts, possible domination"
+        },
+        {
+          "assessment": "Cannot decide full implications, a priority risk; not a reason to fabricate FAIL.",
+          "evidence": "General finite-field multiplicity patterns are relevant but no read theorem establishes a joint derivative-squarefree count.",
+          "identifier_or_url": "https://doi.org/10.1006/ffta.1999.0244",
+          "material_read": "abstract/citation and scope only, full paper inaccessible",
+          "method": "bibliographic primary citation",
+          "title": "Counting polynomials with zeros of given multiplicities in finite fields",
+          "trigger": "historical broader multiplicity enumerator could cover quartic joint stratum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "All seven frozen Git tree entries including RESULT.md, AUDIT.json, REVIEW.md, META, SLOGAN and VERIFICATION",
+        "Full Almousa–Wood arXiv 1210.0472 primary PDF; Ragot 1999 available bibliographic summary",
+        "Resultary searches for derivative squarefree quartic discriminants and characteristic three"
+      ],
+      "rationale": "A natural arithmetic stratification of quartic critical and repeated-root geometry exhibits sharp characteristic-dependent formulas and an exact zero-covariance transition specifically at p=3. This captures a nontrivial interaction between two common separability properties, beyond textbook marginal squarefree counts. The result is complete across all finite fields in this natural fixed-degree family, though no higher-degree claim is made.",
+      "residual_risks": [
+        "Uninspected Ragot 1999 or other discriminant incidence result could imply joint count despite different title.",
+        "The zero-derivative exclusion and nonzero-constant squarefreeness convention are essential; no claim for degree>4 or distinct critical values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected Ragot 1999 or other discriminant incidence result could imply joint count despite different title.",
+    "The zero-derivative exclusion and nonzero-constant squarefreeness convention are essential; no claim for degree>4 or distinct critical values.",
+    "No GitHub write, new theorem statement, or mechanical publication certificate was asserted."
+  ],
+  "schema_version": 1
+}
