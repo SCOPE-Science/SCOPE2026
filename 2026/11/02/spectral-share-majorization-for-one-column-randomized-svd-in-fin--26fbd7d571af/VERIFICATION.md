@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic. It uses exact Hilbert--Schmidt projection identities, finite transposition invariance of an exchangeable distribution, weighted-mean ordering, and absolutely convergent double sums in the infinite case. All positive denominators are almost surely nonzero under the stated \(X_j>0\) assumption.
+## correctness
 
-Run `python3 verify.py` with Python 3. The checker uses exact rational enumeration for 2–6 modes, including degenerate eigenvalues, dependent exchangeable amplitudes, and the explicit three-mode instance. It reports 1,984 iid assignments and further dependent and equality checks. These computations are consistency tests only; no finite checker establishes the theorem over arbitrary distributions or infinitely many modes.
+PASS
 
-Scientific limitations are recorded in RESULT.md. No independent mathematical audit has been performed.
+For trace-class λ sorted descending let T=Σλ_j X_j, p_j=λ_jX_j/T, r_j=E X_j/T. Exchanging Xi,Xj gives r_j−r_i=(λi−λj)/2 E[(Xi−Xj)^2/(T Tswap)]≥0 for i<j; symmetrization also orders E p_i nonincreasing. Weighted-average comparison of increasing r_j shows each initial normalized cumulative weight Σ_{j≤k}λ_jr_j ≤ Σ_{j≤k}λ_j/S. The exact residual identity follows from HS projection and the absolutely summable pairwise symmetrized difference, with all expectations well-defined because p_j≤1 and Σλ_j=S<∞. In infinite dimension the output sketch exists in L² despite cylindrical input; there is no unlicensed claim of an ℋ-valued isotropic Gaussian. Independent rational finite examples with 3–5 modes verified the swap identity, prefix inequalities and residual gap.
+
+## originality
+
+PASS
+
+Best-knowledge PASS with a material implicit-majorization risk. Standard randomized SVD bounds analyze expected total approximation error and concentration or high-probability bounds, not an exactly ordered expected energy share at every singular cutoff for exchangeable arbitrary amplitudes and a countable Hilbert–Schmidt spectrum. Very relevant 2026 primary preprint full text could not be obtained independently.
+
+## value
+
+PASS
+
+A simultaneously sharp all-prefix comparison (not merely one approximation-error estimate) reveals why exchangeable amplitude randomness flattens spectral energy, and provides an exact excess-risk mechanism useful for randomized numerical linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

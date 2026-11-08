@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sample is well-defined in mean square because the operator is Hilbert--Schmidt and the isotropic coordinates have unit variance. The projected-energy trace formula is exact. Exchangeability gives a valid two-coordinate swap identity, making \(r_i=\mathbb E(X_i/T)\) nondecreasing as singular values decrease; its weighted-average consequence proves all spectral prefix inequalities. A second symmetrization establishes that the expected shares are decreasing. The exact residual difference is a sum of nonnegative pair terms. For infinite rank, every interchange is justified by a finite absolute upper bound, not by experiments. The supplied checker directly verifies 1,984 enumerated iid assignments and additional dependent/equality examples, with rational arithmetic.
+PASS
 
-## Originality — PASS, with residual priority risk
+For trace-class λ sorted descending let T=Σλ_j X_j, p_j=λ_jX_j/T, r_j=E X_j/T. Exchanging Xi,Xj gives r_j−r_i=(λi−λj)/2 E[(Xi−Xj)^2/(T Tswap)]≥0 for i<j; symmetrization also orders E p_i nonincreasing. Weighted-average comparison of increasing r_j shows each initial normalized cumulative weight Σ_{j≤k}λ_jr_j ≤ Σ_{j≤k}λ_j/S. The exact residual identity follows from HS projection and the absolutely summable pairwise symmetrized difference, with all expectations well-defined because p_j≤1 and Σλ_j=S<∞. In infinite dimension the output sketch exists in L² despite cylindrical input; there is no unlicensed claim of an ℋ-valued isotropic Gaussian. Independent rational finite examples with 3–5 modes verified the swap identity, prefix inequalities and residual gap.
 
-The earlier two-coordinate Rademacher residual identity is acknowledged and does not itself assert the all-cutoff majorization relation or the convergence of the global pair sum for arbitrary positive exchangeable amplitudes in infinite rank. The motivating primary 2026 full text defines cylindrical sketches and supplies sub-Gaussian tail bounds, not an exact spectral-share theorem. Classical and later randomized SVD surveys and general-distribution analyses use different controls (sample covariance and overall error bounds). Searches for weighted normalized-share majorization found no decisive exact equivalent, but a general preexisting theorem on exchangeable normalized weights could still imply part of the claim. The comparison is based on mathematical implication, not on title differences.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem answers a natural distribution-selection question simultaneously at every spectral cutoff rather than only for one scalar residual. It identifies a deterministic sketch that is optimal for all monotone spectral rewards in this model, quantifies the cost of amplitude randomness for all mode pairs, and remains valid when the input isotropic sketch is only cylindrical and the output is Hilbert--Schmidt. The three-mode exact witness demonstrates that the result has content beyond the two-dimensional special case. The scope deliberately excludes several practical randomized SVD regimes.
+Best-knowledge PASS with a material implicit-majorization risk. Standard randomized SVD bounds analyze expected total approximation error and concentration or high-probability bounds, not an exactly ordered expected energy share at every singular cutoff for exchangeable arbitrary amplitudes and a countable Hilbert–Schmidt spectrum. Very relevant 2026 primary preprint full text could not be obtained independently.
 
-## Closest literature and limits
+## value
 
-Lynch-Davies and Webb, arXiv:2610.31333v1, Theorem 3.15 and Section 4; Saibaba and Międlar, arXiv:2308.05814; Halko, Martinsson and Tropp, arXiv:0909.4061; Diouane et al., arXiv:2206.08793. An older normalized-weight comparison theorem, not found in the inspected material, remains a possible historical-priority risk. The result is a one-column, singular-basis, expected-squared-error statement and does not assert performance for arbitrary orientations or multiple sketch columns.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A simultaneously sharp all-prefix comparison (not merely one approximation-error estimate) reveals why exchangeable amplitude randomness flattens spectral energy, and provides an exact excess-risk mechanism useful for randomized numerical linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
