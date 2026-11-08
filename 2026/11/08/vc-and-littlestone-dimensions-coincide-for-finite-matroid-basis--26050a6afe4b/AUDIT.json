@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Basis extension proves the complete VC support characterization. Edmonds matroid intersection gives d=min_A(2r(A)+|E-A|-r(E)). For a nonloop/noncoloop e, the restricted rank objectives are F_M(X)-1 for deletion and F_M(X+e)-1 for contraction. Their minima partition all subsets of E, yielding d=1+min(d deletion,d contraction). The Littlestone split recurrence then proves equality inductively; loops and coloops are constant coordinates. Selected binary, uniform, partition and graphic examples and a nonmatroid contrast were independently recomputed using the embedded checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Edmonds matroid-intersection theorem supplies the common independence optimum but contains no online mistake-tree statement in its standard form.",
+        "Mofidi Theorem 3.3(1) covers the graphic static case only."
+      ],
+      "reasoning": "Existing min--max rank and graphic VC results alone do not state the full adaptive-dimension equality. The finding provides a specific rank-minor induction proving the adaptive step.",
+      "searches": [
+        "web: \"matroid\" \"VC dimension\" \"basis\" \"online\" learning",
+        "published-finding corpus: min-max matroid intersection rank formula for online shattering of matroid bases"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.04805v1 Theorem 3.10, pages 1, 8, related discussion",
+      "Mofidi 2022 DOI:10.22108/TOC.2021.127880.1832 Theorem 3.3, pages 5-7 and other main theorem statements",
+      "published-finding corpus semantic queries for matroid-basis incidence and aliases",
+      "Accessible 2026-11 private research ledger ledger claims (latest available generation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mofidi proves that for connected G, a graph-edge set is VC-shattered by spanning trees iff it is acyclic and removal leaves G connected.",
+        "Guingona et al. establish VCdim=Ldim=d-1 for nontrivial linear-combination zero-set families."
+      ],
+      "reasoning": "The new universal result specializes to Mofidi’s graphic VC setting while determining the extra online invariant; their graph statement does not imply the online recurrence. The zero-set theorem has different hypotheses and neither covers arbitrary nonrepresentable matroid bases.",
+      "searches": [
+        "web PDF Mofidi 2022 Theorem 3.3(1) pages 5-6",
+        "web PDF Guingona et al. 2021 Theorem 3.10 page 8",
+        "published-finding corpus: Littlestone dimension spanning trees complete bipartite K_{2,n} spanning tree incidence online shattering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Matroid basis incidence has deletion/contraction versions M\\e and M/e. Closest Guingona et al. arXiv:2109.04805 Theorem 3.10 concerns zero sets of linear combinations, not matroid bases."
+      ],
+      "reasoning": "The equal-dimensional zero-set class does not quantify over abstract matroids, and no change of variables equating every matroid base class to that zero-set class was found.",
+      "searches": [
+        "published-finding corpus: For every matroid M, VC dimension equals Littlestone dimension for concept class of bases; both equal maximum common independent set of M and dual M*",
+        "web: \"Littlestone dimension\" \"matroid bases\"",
+        "web: \"thicket dimension\" matroid bases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest records concerned matroid polytope geometry, e.g. a 2026-10-11 matroid independence-polytope minimum-sphere study, not incidence shattering."
+      ],
+      "reasoning": "No retrieved table or database result supplied the universal equality. A negative database search cannot establish that none exists.",
+      "searches": [
+        "published-finding corpus: matroid bases VC Littlestone equal maximum size of intersection of independent and coindependent sets",
+        "web: \"matroid bases\" \"Shelah\" \"2-rank\" shatter"
+      ]
+    },
+    "rationale": "The inspected 2022 graphic-hypergraph theorem proves the graphic VC support condition but does not give online dimension. The inspected 2021 zero-set theorem proves equality for a different concept class of linear-combination zero sets. No matching arbitrary matroid-basis online equality was recovered in targeted web, published-finding corpus or accessible own-ledger searches; this is evidence-limited, not a uniqueness guarantee.",
+    "residual_risks": [
+      "Matroid-basis equality may appear under another term in learning theory or matroid literature.",
+      "The oriented-matroid compression manuscript was only partially read and is not directly equivalent on the material inspected.",
+      "Previous-month complete own-ledger claims were not accessible in this round; historical novelty is not exhaustively established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STATIC_GRAPHIC_COVERAGE; ONLINE_MATROID_NOT_COVERED",
+        "evidence": [
+          "Theorem 3.3(1) characterizes graphic VC supports as acyclic non-cut sets.",
+          "No Littlestone theorem or terminology found in full searchable text; full paper is focused on VC and covering/separation."
+        ],
+        "identifier_or_url": "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+        "material_read": "Full text located; Theorem 3.3 and its proof pages 5-7, other theorem statements and abstract, searches for Littlestone throughout PDF",
+        "method": "Rendered PDF page screenshots and extracted page text",
+        "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+        "trigger": "Exact spanning-tree-basis shattering overlap"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTS_NOT_COVERING",
+        "evidence": [
+          "Theorem 3.10 gives equality for zero sets of nontrivial linear combinations of d independent functions, parameter d−1.",
+          "Theorem statement does not concern abstract matroid bases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+        "material_read": "Full text available; introduction and main theorem on pages 0-1 and 7-8, sections on constructions and applications examined in parsed text",
+        "method": "Rendered PDF screenshots and extracted text",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Closest mathematically adjacent general VC/Littlestone coincidence theorem"
+      },
+      {
+        "assessment": "DIFFERENT_CONCEPT_CLASS_PARTIAL_READ",
+        "evidence": [
+          "Statement concerns proper labeled compression for topes of oriented-matroid complexes.",
+          "Littlestone equality for ordinary matroid basis incidence not established from the material read."
+        ],
+        "identifier_or_url": "https://pageperso.lis-lab.fr/~kolja.knauer/COMpression_bis_repetita_bis.pdf",
+        "material_read": "Abstract and introduction lines 0-187 only; PDF screenshot redirect failed",
+        "method": "Searchable PDF excerpt",
+        "title": "Labeled sample compression schemes for complexes of oriented matroids",
+        "trigger": "Possible alternate matroid-family learning theory coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26050a6a-fe4b-413d-a0f5-0f254c7a26e0",
+  "value": {
+    "rationale": "A single theorem characterizes all shattered supports and computes the adaptive rank for every finite matroid from a classical min--max formula, including nonrepresentable cases. The pointwise deletion/contraction recurrence provides a structural online proof, and the dimension equality transfers polynomial-time matroid-intersection evaluation to online mistake-tree depth. This is an explanatory classification, not an arbitrary small instance.",
+    "status": "PASS"
+  }
+}
