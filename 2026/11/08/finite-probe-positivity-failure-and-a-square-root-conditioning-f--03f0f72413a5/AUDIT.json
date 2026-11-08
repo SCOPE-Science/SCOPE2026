@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed SPD matrix and one-step Lanczos with alpha=1,beta=1/2; exact Schur inverse gives sigma_u=4/3 and omega=1/kappa. Source trace correction is 1/3, so exact two-node Gaussian P-SLQ yields independent chi-square sums minus one. The two-exponential convolution, Gaussian CLT/LLN and Chebyshev prove finite law and iff scaling; analytic continuity covers irreducible perturbations. Standalone verifier passed rational/numerical tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen–Karambal–Hennig Theorem 20 gives bias and variance for positive trace estimation, not a uniform finite-sample nonnegative residual variance",
+        "Chen–Trogdon–Ubaru (2022) analyzes random matrix-free quadrature and 1/sqrt(N) concentration",
+        "Saibaba–Alexanderian–Ipsen (2016) studies low-rank trace/logdet error"
+      ],
+      "reasoning": "Those theorems can bound trace approximation but do not assert the exact residual covariance sign event, equality probability for two probes, or the necessary-and-sufficient joint regime. None dominates the packaged statement as stated.",
+      "searches": [
+        "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra Fifen Karambal Hennig 2609.10080 variance omega",
+        "Projected stochastic Lanczos quadrature gaussian probe P-SLQ lower tail negative covariance spectral condition number",
+        "Gaussian trace estimator subtract known low rank variance positive definiteness sample complexity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10080",
+      "https://arxiv.org/abs/2204.01941",
+      "https://arxiv.org/abs/1605.04893",
+      "https://arxiv.org/abs/2010.09649",
+      "https://arxiv.org/abs/1405.7112"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source paper: omega is an exactly positive population complement quantity, but its Monte Carlo implementation uses estimated tr(S^{-1}) minus an exact boundary variance",
+        "Ordinary positive-matrix stochastic trace estimators produce nonnegative values, but subtracting an external fixed positive variance can produce negative residuals",
+        "Classical Gaussian and chi-square limit theory supplies the final probabilistic computation once the algebraic cancellation is proved"
+      ],
+      "reasoning": "The resulting negative sign probability is not an instance of the source positivity theorem, which applies to exact deterministic omega, nor a mere restatement of stochastic-trace variance. The source formula plus classical probability enables derivation, but the specialized sharp conditioning frontier and irreducible persistence are not stated or logically asserted by the inspected prior results.",
+      "searches": [
+        "stochastic Lanczos covariance sampler finite-sample positive definiteness rank-one coupling negative isotropic residual",
+        "\"Stochastic Lanczos Quadrature for Computational Uncertainty\" \"negative\" \"omega\" trace",
+        "\"negative\" \"isotropic\" \"Hutchinson\" \"covariance\" trace estimator",
+        "arxiv:2609.10080 equations (33),(86), Algorithm 1",
+        "arxiv:2204.01941 Section 1.1",
+        "arxiv:1605.04893 Section 1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching P-SLQ negative-bulk theorem identified in returned research-index summaries",
+        "2026 source equations (33), (86) and Algorithm 1 explicitly specify a random trace estimate minus sigma_u but contain no exact sign distribution"
+      ],
+      "reasoning": "A generic chi-square lower tail is not itself the same as the algorithm-specific covariance law: the Schur-trace and boundary cancellations must be computed for the true updated covariance, and the final negative scalar creates an indefinite matrix.",
+      "searches": [
+        "projected stochastic Lanczos quadrature P-SLQ estimated isotropic bulk omega negative variance finite Gaussian probes Sherman Morrison",
+        "trace-corrected covariance estimator negative eigenvalues from Gaussian stochastic trace estimator subtraction chi-square sample complexity condition number",
+        "\"Projected Stochastic Lanczos Quadrature\" negative omega variance covariance sample",
+        "stochastic Lanczos quadrature positive definite covariance trace correction negative variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned index hits concern unrelated CG, spectral positivity, Gaussian limits, and matrix conditioning; no exact chi-square table for this covariance subtraction was returned",
+        "The p_2 formula is derived directly by convolution of two exponential variables"
+      ],
+      "reasoning": "No catalogued finite-dimensional computation or table with this exact P-SLQ covariance event was found. Absence from a searched index is not proof of novelty.",
+      "searches": [
+        "2026 numerical linear algebra stochastic trace estimation randomized sketches Gaussian operator noise stability 65F 65C 65L convergence exact threshold",
+        "Gaussian trace estimator subtract known boundary variance nonpositive bulk χ² phase transition sqrt sample size condition ratio",
+        "Gaussian stochastic trace estimate minus exact boundary Schur complement variance 2026"
+      ]
+    },
+    "rationale": "Direct inspection of the defining 2026 P-SLQ method and of prior stochastic quadrature/trace estimation, published-finding corpus semantic searches, and own accessible claims showed no covering algorithm-specific negative-bulk distribution or its sharp joint probe/conditioning transition; classical chi-square CLT is a component, not the final Schur-subtracted statement. Historical priority remains at risk.",
+    "residual_risks": [
+      "Classical nonnegative trace estimation plus known independent chi-square distribution may have been previously applied to a similar covariance-subtraction step under different nomenclature.",
+      "Search-index coverage is incomplete, and the result has no independent expert validation.",
+      "The 2026 source may be revised after its inspected version and independent follow-up might overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the subtractive trace estimator and proves convergence; inspected claims do not contain the finite-probe negative-bulk chi-square law or the sqrt-N/conditioning critical probability",
+        "evidence": [
+          "equation (33): omega=(tr(S_perp^{-1})-sigma_u)/(d-m-1)",
+          "equations (68)-(69): Gaussian projected quadratic-form mean",
+          "equation (86) and Algorithm 1: estimated corrected trace minus sigma_u, then sqrt(omega)",
+          "Theorem 20: bias/variance/consistency, not finite-sample positivity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10080",
+        "material_read": "Full accessible arXiv HTML, including Sections 1–5, especially equations (17)–(33), (63)–(69), (83)–(87), Theorem 20 and Algorithm 1, plus sampled Section 6 discussion",
+        "method": "direct HTML text inspection and line comparison of mathematical formulas",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Exact source definition of stochastic complement covariance and its estimated variance"
+      },
+      {
+        "assessment": "Analyzes stochastic spectral-sum and quadrature approximation; it gives the Gaussian-trace primitive but does not introduce the Schur-subtracted covariance estimator used here",
+        "evidence": [
+          "Section 1.1 explains isotropic trace estimators and 1/sqrt(N) standard-deviation behavior",
+          "Its numerical and theoretical target is spectral measure and trace approximation rather than covariance sign after a deterministic subtraction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.01941",
+        "material_read": "Accessible HTML introduction and prototypical algorithm and searched relevant covariance terminology",
+        "method": "HTML inspection of spectral-sum estimator and scope",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Could stronger general stochastic quadrature statements imply the risk law"
+      },
+      {
+        "assessment": "Addresses trace and logdet approximation and random-subspace error, without defining the 2026 Schur correction and its residual-variance subtraction",
+        "evidence": [
+          "Section 1.2 main contributions: low-rank randomized trace/logdet estimators",
+          "Published trace error bounds and application to Bayesian design are not statements about P-SLQ positive covariance realization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.04893",
+        "material_read": "Accessible HTML abstract, introduction, estimator contributions, and trace/covariance-related sections sampled by text search",
+        "method": "HTML inspection of source object and result scope",
+        "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+        "trigger": "Earlier primary randomized trace-estimation theory with concentration bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03f0f724-13a5-4c0d-a408-4f395802a944",
+  "value": {
+    "rationale": "The random scalar is an eigenvalue of the full reported Gaussian covariance, so its negative probability makes real sampling undefined. The exact 2-probe risk can approach 1-1/e, and the iff N/kappa^2 condition is a substantive budget-conditioning obstruction that survives irreducible perturbations and isolates stochastic trace error from quadrature and boundary error; this is natural to the published covariance-sampling method.",
+    "status": "PASS"
+  }
+}
