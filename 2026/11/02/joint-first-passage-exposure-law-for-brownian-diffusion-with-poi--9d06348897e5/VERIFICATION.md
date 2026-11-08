@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The included standalone `check_joint.py` uses NumPy, SciPy, SymPy, and mpmath. Execute with `python check_joint.py`. The following checks were actually performed against that file:
+## correctness
 
-1. Four symbolic derivative identities, including the conditional subordinator's first two cumulant coefficients.
-2. Five independently discretized two-region, three-argument backward equations using a sparse finite-difference solver. The relative discrepancies from the continuum transform were 0.00235326, 0.00141635, 0.00080848, 0.00159589, and 0.0000646653.
-3. Two published marginal transform identities in each of those five parameter cases (completion-time and residence-time transforms), with the local-time marginal also visible algebraically in the analytic derivation.
-4. Three high-precision Lévy integral comparisons and three correlation-identity calculations.
+PASS
 
-Finite-grid checks are not continuum proofs; consistency of symbolic expressions and numerical tests does not establish originality. The full continuum argument is provided in RESULT.md and is the basis for the correctness assessment. The public record does not assert that any independent audit has occurred.
+Feynman–Kac with resetting yields piecewise ODE Df″−(r+s+v 1_{x>a})f+rf(a)=0, f(0)=1 and bounded infinity. Occupation-density delta potential imposes interface jump D(f′(a+)−f′(a−))=u f(a). Explicit cosh/sinh left solution and decaying right solution give the quoted trivariate Laplace transform for all s,u,v≥0, not just marginals. At s=0 it equals [1+A(u+Φ(v))]⁻¹ with A=sinh(a√(r/D))/√(Dr), Φ(v)=√D v/√(r+v); its Lévy density is positive and integrable, hence independent Exp-time stopped subordinator. Differentiating gives conditional moments and exact increasing correlation. Independent exact algebra checked correlation at nine parameter combinations; inspected finite-difference program tests PDE consistency. Local time normalization explicitly occupation-density, not semimartingale local time.
+
+## originality
+
+PASS
+
+Singh–Pal 2022 supplies separately evaluated first-passage, local-time, and residence-time marginal transforms, which do not determine their joint coupling. Colantoni et al. 2025 have the same inverse-local-time Lévy exponent in a reflected nonabsorbing model; that kernel is credited, not claimed new. Best-of-knowledge, not a guarantee of global historical priority.
+
+## value
+
+PASS
+
+Joint stopped-search exposures and their correlation are important dependencies hidden by known marginals. Exact transform and strict reset-rate monotonicity are a natural quantitative refinement, not a formula obtained by simply multiplying marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
