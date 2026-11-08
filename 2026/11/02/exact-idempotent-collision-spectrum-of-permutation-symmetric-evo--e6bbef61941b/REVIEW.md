@@ -1,19 +1,21 @@
-# Self-review: Exact idempotent-collision spectrum of permutation-symmetric evolution algebras
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The equations have been reconstructed with the determinant hypothesis, precise field, and normalization. Every idempotent has at most two coordinate values. The ratio quadratic \(kt^2-rt+n-k=0\), reciprocal/complement identification and the \(t=1\) exception exhaust all cases. The singular values \(r=0,-n\) are excluded where required. All-dimensional proof and binomial sharpness are given in `RESULT.md`. Independent finite corroboration: exact rational cases at \(r=n\) across nine dimensions, 42 representative numerical cases, and two exact Gröbner eliminations in dimension three. The finite checks alone are not a proof.
+PASS
 
-## Originality (PASS, qualified)
+Every idempotent coordinate solves a common quadratic aX²−X+bS=0, yielding at most two distinct coordinate values. For nonconstant vectors, u+v=1/a and ratio t=u/v solves k t²−r t+(n−k)=0; t=0,−1 excluded under hypotheses. Each nonconstant idempotent is represented exactly twice by complementary subsets. Repeated roots occur only on discriminant strata and t=1 is excluded at r=n, providing exact case counts and minima from binomial layer inequalities. Independently enumerated all quadratic roots and checked defining equations for n=3,4,5 across generic, symmetry and discriminant values. Numeric sample checks do not replace complex-variable algebraic proof.
 
-The October 2026 survey establishes the upper bound \(2^n\) and poses Conjecture 6, while noting unsuccessful symmetric three-dimensional attempts. The historically accessible finite-field complete-graph idempotent census gives an exact count for the fixed matrix \(J-I\), and already uses the two-coordinate reduction. Neither source proves the parameter-dependent complex discriminant strata, their binomial deficits, or the sharp family-wide minimum. The October 2026 triply transitive automorphism-preprint classification concerns algebra automorphism permutation images, not enumerating idempotent elements. Searches in bibliographic and mathematical-record sources considered all relevant equivalent descriptions. A possible older equivalent homogeneous-algebra result remains a residual priority risk; absolute priority is not certified.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This family is the maximally permutation-symmetric two-parameter family of perfect complex evolution algebras. Its idempotent problem is motivated by a specific recent open-problem discussion. The theorem determines exactly where the geometric count drops below its generic value, by how much, and the strict sharp minimum for every dimension. It excludes a unique nonzero idempotent in this family without making a claim for all perfect evolution algebras.
+Survey by Kaygorodov–Martín González–Viruel establishes common fixed-point framework and Bézout upper bound 2^n, and studies other symmetric families; a previously counted complete-graph evolution algebra is a single fixed r over finite fields. Neither inspected text supplies the all-n complex distinct-point collision formula along aI+bJ.
 
-## Scientific limitations
+## value
 
-Characteristic zero and full permutation symmetry are essential to the stated theorem. It does not compute geometric multiplicities, positive-characteristic point counts, or solve Conjecture 6 globally. The verifier is finite, includes numerical fingerprints, and is not a substitute for the proof. Relevant older sources were not all exhaustively inspected. No independent audit is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact collision discriminants and sharp minimum distinguish geometric idempotent cardinality from scheme length for a natural highly symmetric perfect nonassociative-algebra family, giving a useful controlled case for general idempotent-count open questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

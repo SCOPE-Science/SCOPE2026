@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-Execute `python3 verify.py` in an environment with Python 3 and SymPy. No other input is needed. The checker constructs exact rational-coordinate idempotents at the special ratio for nine dimensions, verifies the defining quadratic equations with rational arithmetic, and checks the closed count. It independently enumerates and tests candidates at 42 numerical parameter instances spanning generic, discriminant-collision and special ratios for dimensions 3 through 8; near-zero floating-point discriminants are snapped to zero solely in these finite tests. Finally, two SymPy Gröbner bases for dimension three verify the elimination factors at generic and exceptional ratios.
+# Independent mathematical audit
 
-Expected output begins:
-```
-VERIFY_OK exact_r_equals_n_cases= 9 numeric_parameter_cases= 42 groebner_cases=2
-```
+## correctness
 
-The numerical fingerprints do not prove mathematical equality of arbitrary algebraic numbers. The all-dimensional theorem and all its complex-field quantifiers are established by the symbolic proof in `RESULT.md`, not by sample enumeration. Finite computations serve as independent consistency checks. No independent external audit has been performed.
+PASS
+
+Every idempotent coordinate solves a common quadratic aX²−X+bS=0, yielding at most two distinct coordinate values. For nonconstant vectors, u+v=1/a and ratio t=u/v solves k t²−r t+(n−k)=0; t=0,−1 excluded under hypotheses. Each nonconstant idempotent is represented exactly twice by complementary subsets. Repeated roots occur only on discriminant strata and t=1 is excluded at r=n, providing exact case counts and minima from binomial layer inequalities. Independently enumerated all quadratic roots and checked defining equations for n=3,4,5 across generic, symmetry and discriminant values. Numeric sample checks do not replace complex-variable algebraic proof.
+
+## originality
+
+PASS
+
+Survey by Kaygorodov–Martín González–Viruel establishes common fixed-point framework and Bézout upper bound 2^n, and studies other symmetric families; a previously counted complete-graph evolution algebra is a single fixed r over finite fields. Neither inspected text supplies the all-n complex distinct-point collision formula along aI+bJ.
+
+## value
+
+PASS
+
+The exact collision discriminants and sharp minimum distinguish geometric idempotent cardinality from scheme length for a natural highly symmetric perfect nonassociative-algebra family, giving a useful controlled case for general idempotent-count open questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
