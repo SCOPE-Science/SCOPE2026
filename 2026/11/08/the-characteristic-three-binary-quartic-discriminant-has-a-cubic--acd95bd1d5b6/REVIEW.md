@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The finding states equality of **ideal sheaves** for the complete projective singular scheme of the characteristic-three binary-quartic discriminant, with the defining equation explicitly retained because its degree is zero modulo the characteristic. In the chart \(a=1\), a polynomial coordinate change produces \(\Delta=v(v-c^2)^2-c^3u^2\). Differentiation and a colon-ideal calculation prove the exact equality \(J=(c,v)^3\cap(u,v-c^2)\). The projective statement follows from the action of \(\mathrm{GL}_2\) and base change. The smoothness and degrees of the two components follow from the Segre-quadric equations and an injective quadratic-Veronese projection. `verify.py` and `verify-output.txt` document an exact replay of the critical affine identities. Potential risk: the gluing is a mathematical argument rather than a computer certification; the statement is explicitly about sheaves, avoiding irrelevant-ideal saturation claims.
+
+## Originality — PASS, with residual historical risk
+The closest directly relevant work is D'Andrea–Chipalkatti (2006), Proposition 4.1, which provides the *characteristic-zero* primary decomposition and multiplicities. Its Remark 6.8 explicitly limits field extension to characteristic zero. Chipalkatti (2001), Theorem 5.4, gives reduced coincident-root singular support over \(\mathbb C\). The new claim is the exact *characteristic-three* ideal-sheaf decomposition, where the triple-root locus becomes a quadric and the corresponding infinitesimal component becomes its **third ordinary power**. This cannot be deduced by reduction of the characteristic-zero decomposition, where the triple-root surface has different degree and multiplicity. Search coverage is not a proof of priority; modular invariant-theory sources not discovered or not inspected remain a residual risk.
+
+## Mathematical value — PASS
+The classical discriminant has two natural singular strata indexed by root partitions \((3,1)\) and \((2,2)\). Precisely describing their intersection and nonreduced structure in bad characteristic addresses an intrinsic deformation-theoretic invariant, not a freely chosen small example. The surprising exchange \(\deg T:6\to2\), generic length \(2\to6\), with unchanged total singular-cycle degree \(16\), is a meaningful structural boundary for characteristic-zero results. The theorem does not claim a general classification of all degrees or a normalization theorem.
+
+Self-review: passed. Independent audit: not yet performed.
