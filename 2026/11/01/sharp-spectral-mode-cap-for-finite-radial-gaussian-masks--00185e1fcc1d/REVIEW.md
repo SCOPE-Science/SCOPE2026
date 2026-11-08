@@ -1,15 +1,21 @@
-# Scientific review: sharp spectral mode cap
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite union of \(K\) strictly separated bounded squared-radius intervals, rotational invariance gives the exact monomial moments. Adjacent differences reduce to a nonzero exponential polynomial with at most \(2K\) terms; the self-contained Rolle induction gives at most \(2K-1\) real zeros, hence at most that many sign reversals and at most \(K\) strict eigenvalue peaks. For each \(K\), the separated-ring induction keeps earlier strict peaks and adds one at an arbitrarily large degree, with the new contribution asymptotic to \(e^{-M}M^M/(8M)\) on one side and \(-3e^{-M}M^{M+1}/(8M)\) on the other. The proof handles a possible central disk and boundary mode explicitly. The included finite numerical tests are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS under the inspected record
-The closest finite-union paper, Halvdansson, arXiv:2502.11805v1, Proposition 2.3, calculates rearranged plunge asymptotics rather than this finite-scale natural-degree modal-count bound with sharp attainment. Daubechies provides the diagonalization; Knutsen provides the one-ring mode ordering, and neither presents the global sharp \(K\)-band complexity theorem. Yu and Karlin's general total-positivity machinery is acknowledged as pre-existing and likely yields a related variation-diminishing upper bound. The new claim is **the sharp finite-band spectral statement including realization for every \(K\)**, not the existence of the Poisson integral nor a generic total-positivity principle. Targeted literature and database searches yielded no statement covering both the bound and sharpness. Residual risk: stronger implicit coverage in classical mixture theory or unindexed work, and the uninspected Karlin monograph.
+PASS
 
-## Value — PASS
-A single Gaussian annulus has one natural Hermite spectral peak; multi-annulus masks need not be unimodal. The result gives the optimal global topological cap on the number of spectral peaks for every finite component count, plus simultaneous extremal realization. The cap is independent of radii, widths, and scale. It is a structural spectral invariant for an established family in time-frequency concentration, not a chosen numerical slice or a mere normalization calculation. No claim is made about sorted eigenvalues.
+Monomial diagonalization follows by polar integration. Integration of d(t^{n+1}e^{-t}) yields (n+1)!(lambda_{n+1}-lambda_n)=F(n+1) with 2K distinct endpoint exponentials (or fewer if a_1=0). The Rolle induction for real exponential polynomials bounds their zero count by 2K-1; adjacent sign reversals force separate zeros, and alternating peak/gap signs give <=K strict maxima including the one-sided n=0 case. For every K the separated intervals [M_j,M_j+1/2] have positive F(M_j) and negative F(M_j+1), and newly appended large M preserves old strict maxima; expansions 1/(8M) and -3/(8M), compared to O(B^{M+1}), prove the induction, realizing K modes and 2K-1 changes. Finitely many 90-digit examples are illustrative only, not evidence for all K.
 
-## Limits and available evidence
-The infinite theorem is analytic. The checker confirms four examples and discrete moment/difference identities but does not establish generality. Main primary source sections read: Halvdansson 2025 Proposition 2.3 and its proof, Knutsen 2020 Sections 2.3 and 3.1, Daubechies 1988 Sections I and IV, and Yu 2011 Theorem 3 and variation-diminishing lemma. Some historical mixture-theory literature is not exhaustively accessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general exponential variation bound is classical and is NOT claimed new. Knutsen works out one ring and Halvdansson treats rearranged finite-annulus spectra, while the specific simultaneous sharp bound and all-K realization in natural monomial order is not found in inspected close works or Resultary. Best-of-knowledge only; older total-positivity sharpness constructions might cover it.
+
+## value
+
+PASS
+
+A sharp component-count bound with attainable 2K−1 oscillations for a natural radial spectral concentration operator supplies structural spectral-complexity information independent of asymptotic eigenvalue rearrangements. Attainability for arbitrarily many annuli is a motivated, nonroutine construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
