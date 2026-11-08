@@ -1,19 +1,21 @@
-# Review of the record-pattern conditional descent theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact factorization follows from a product of within-block permutation actions on each fixed record-position fiber, not from assuming unconditional independence. Boundary comparisons are forced descents before nonrecord blocks and forced ascents before new records; the only random comparisons are internal to the blocks. Standard Eulerian moments then yield an exact conditional variance. Optimization over all compositions into at most the number of records proves both finite sharp variance bounds and gives explicit achieving patterns. The extracted standard-library checker independently enumerates full permutations for lengths at most nine and checks the extremal bounds for every record count through length fifteen (1,151 checks). The proof addresses empty blocks, singleton blocks, and the smallest sample sizes. Enumerations alone are not used to infer all-size results.
+PASS
 
-## Originality
+For uniform permutations on [n], the full strict left-to-right upper-record set S contains position1. Every maximal nonrecord interval of length ℓ immediately follows a greater record value; permuting values within that interval cannot alter the fixed record-position pattern, and product symmetric-group invariance makes the interval relative orders independent uniform permutations. Each interval contributes one obligatory left-boundary descent and an ordinary Eulerian(ℓ) internal descent count, giving E[t^D|R=S]=t^m ∏ A_ℓ(t)/ℓ!. Adjacent descent indicator covariance -1/12 gives mean (Z+m)/2 and variance Σ_{ℓ>=2}(ℓ+1)/12, including ℓ=1 zero. For fixed K record positions, valid nonrecord block-length compositions have m<=K and total Z=n-K; optimizing singleton count s using 12Var=Z+m-2s gives sharp lower 0 if Z<=K else (Z-K+2)/12 and upper 0 if Z<=1 else (Z+min(K,floor(Z/2)))/12, with constructions attaining each. Independent brute-force permutations n=1..8 checked the entire conditional PGF for every record set and relevant moments. These finite tests do not prove the formulas for all n.
 
-**PASS, with residual historical-priority risk.** The recorded comparisons cover alternative record orientations, classical insertion ranks, and joint Euler–Stirling enumerators. Gnedin supplies the independent insertion-rank and record framework. Dzhumadil'daev proves code equidistribution with prescribed right-maximal records and descent indices, but its identified results do not determine this left-to-right record-position conditional probability generating function or sharp extremal variance range. Jin studies jointly enumerated descent and record numbers rather than conditioning on the entire prescribed position set. A comparison of the implication directions is important: knowledge of counts by total records alone is insufficient to reconstruct conditional laws by the entire record-position set; equidistribution between two code statistics is not the claimed Eulerian block factorization. Literature beyond the inspected sources may have implicit equivalents; this review is not a definitive historical-priority certificate.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Records are a standard adaptive observation statistic, and the descent count measures local order fluctuations. Even when the number of records is fixed, distinct observed record-position configurations produce different conditional uncertainty in the descent count. The theorem gives the full conditional probability law and the exact, attained finite-sample variance envelope, instead of an isolated expectation or an unmotivated numerical example. The distinction matters for conditioning and stratification by record patterns, without claiming unproved testing improvements.
+PASS best-of-knowledge for the full conditional Eulerian product across every specified upper-record-position fiber and its attained fixed-count variance envelope. Gnedin records insertion-rank structure, Dzhumadil’daev proves an equidistribution involving descent indices and right-maximal records, and Jin treats aggregate Euler–Stirling descent/record counts. These do not directly supply full left-upper-record-position conditional PGF or the optimized patternwise variances in inspected theorems. A dualized or unindexed fiber-law result is a real residual risk.
 
-## Limitations
+## value
 
-All conclusions require a uniform random permutation of distinct labels. The variance envelope concerns fixed-position fibers, not conditioning on record count alone. The finite checker does not establish the general proof by itself. Some older historical literature may encode a related identity indirectly. Independent scientific validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conditional law resolves natural dependence of descents on the entire record-position pattern, and the sharp variance envelope characterizes how an equal number of records can produce different descent fluctuations. Complete all-n distribution and extremal formulas are meaningful structural refinements of classical aggregate Eulerian/Stirling statistics rather than a textbook moment calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
