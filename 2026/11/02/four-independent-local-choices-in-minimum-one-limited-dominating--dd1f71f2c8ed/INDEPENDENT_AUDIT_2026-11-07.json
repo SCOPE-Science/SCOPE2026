@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:47:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the word-labelled S(n,3) with n>=3 and the stated one-limited domination predicate, partition into disjoint S(2,3) nine-vertex blocks. A terminal triangle cannot have exactly one chosen vertex (it would have two omitted neighbors); if no triangle is empty, there are at least six chosen. If one triangle is empty, its two intertriangle-linked omitted vertices require chosen endpoints in the two other triangles, and their one-outside-neighbor budget forces those whole triangles chosen, again >=6. Thus global |D|>=6*3^(n-2)=2*3^(n-1). In S(3,3), two balanced 18-vertex configurations come from the two six-cycle perfect matchings of non-diagonal terminal triangles, each omitting all three outer corners. Two unbalanced 18-vertex configurations omit all terminal triangles with b=a+s mod3, s=1 or2; other triangles are full, including outer corners. Each is a valid minimum set. Inter-block edges meet only corners; balanced corners are absent but internally dominated, unbalanced corners are selected in full triangles and can tolerate one omitted cross neighbor. Any of four states may therefore be chosen independently for each of the 3^(n-3) S(3,3) blocks, giving distinct minimum sets and M_n>=4^(3^(n-3)), entropy liminf log M_n/3^n >= log4/27. Bound is not asserted exact. Independent literal graph-edge enumeration verified four states and all 64 n=4 products; the unrestricted proof uses the corner argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Božović preprint covers the same word graph and limited domination, with exact gamma_1.",
+          "OEIS A306189 is minimum domination count in the vertex-amalgamated Sierpiński GASKET with ordinary domination, not the current word S(n,3) and one-limited predicate."
+        ],
+        "reasoning": "A stronger graph-class theorem or dimer recursion could cover the balanced subset, but exact lower bound from four boundary-compatible states does not follow from a theorem merely about minimum size or a different domination invariant.",
+        "searches": [
+          "On k-limited domination complexity and Sierpinski graphs 2610.01584",
+          "dimer coverings Tower of Hanoi graph 2019 entropy",
+          "Sierpinski gasket minimum dominating sets OEIS A306189"
+        ]
+      },
+      "checked_sources": [
+        "Božović (2026), arXiv:2610.01584v1, theorem for 1-limited domination on S(n,3)",
+        "Li–Chang (2019), DOI 10.1142/S0217979219500437 (abstract/first page only)",
+        "Teufl–Wagner perfect matchings in self-similar graphs (different graph)",
+        "OEIS A306189 (ordinary Sierpiński gasket domination count)",
+        "Resultary semantic search for Sierpiński limited domination multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known gamma_1(S(n,3))=2*3^(n-1) is necessary to call the constructed states minimum, but is not sufficient to count 4^(3^(n-3)) different sets.",
+          "The two directed-cycle unbalanced configurations violate exactly-two-selected-per-terminal-triangle and therefore cannot be exhausted by an argument restricted to balanced matching states."
+        ],
+        "reasoning": "The final claim genuinely strengthens the previous minimum-cardinality theorem in a different direction. Even if classical matching recursion describes the balanced portion, it does not on inspected evidence cover the full nonbalanced block product.",
+        "searches": [
+          "arXiv:2610.01584v1 Sierpinski graph one limited domination exact minimum",
+          "Li Chang 2019 dimer Tower of Hanoi abstract",
+          "Teufl Wagner perfect matching enumeration Sierpinski gasket"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Božović 2026 Theorem for k-limited domination gives the optimal cardinality of 1-limited dominating sets in S(n,3) and one constructive family.",
+          "Li–Chang 2019 count dimer coverings of Tower of Hanoi graphs, not explicitly minimum 1-limited dominating vertex subsets."
+        ],
+        "reasoning": "Prior minimization of |D| is not new; counting at least 4 independent *distinct optimal configurations per block* is a different enumerative assertion. The dimer model can explain balanced perfect-matchings but no examined statement implies the two unbalanced local states.",
+        "searches": [
+          "Resultary search: one limited dominating sets ternary Sierpinski graphs four local states entropy number minimum solutions",
+          "arXiv:2610.01584v1",
+          "DOI:10.1142/S0217979219500437"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only directly indexed same graph result inspected gives cardinality, not a multiplicity table.",
+          "Our exhaustive 27-vertex local-state check and complete 64-word n=4 product check are fresh confirmations, not imported tables."
+        ],
+        "reasoning": "This is a lower bound valid all n rather than an exact known table of minimum sets; direct literature and Resultary search supplied no identical bound. Lack of a search hit alone is not proof of novelty.",
+        "searches": [
+          "Resultary search: one limited dominating sets ternary Sierpinski graphs four local states entropy number minimum solutions",
+          "Li Chang Tower Hanoi dimer 1950043",
+          "Bozovic 1 limited Sierpinski count minimum solutions"
+        ]
+      },
+      "rationale": "Qualified PASS for the new labelled multiplicity lower bound and four-state product including nonbalanced choices. Božović (2026) establishes the MINIMUM CARDINALITY in exactly the same word-labelled Sierpiński graph, and that is credited; a matching/dimer literature study of Hanoi graphs has a different invariant and could overlap the balanced construction, not shown to supply nonbalanced 1-limited domination counts. Inaccessible 2019 full text is named residual risk.",
+      "residual_risks": [
+        "2019 Hanoi dimer paper full text inaccessible via institutional vpn_disconnected; potential overlap with balanced matching component cannot be ruled out.",
+        "Only an exponential lower bound, not complete exact enumeration of all optimal sets; n>=3 ternary word graphs only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_CARDINALITY_PRIOR",
+          "evidence": "Exact minimum size and a construction already known; no four-state multiplicity/positive lower entropy reported in inspected relevant section.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01584v1",
+          "material_read": "Full accessible arXiv HTML: definitions, Section 5 and Theorem 10 on Sierpiński minimum limited domination",
+          "method": "arXiv primary open-access reading",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "Same graph and identical one-limited domination optimization"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PARTIAL_OVERLAP",
+          "evidence": "Counts close-packed dimer matchings and entropies on Hanoi graph, not visibly one-limited domination; full text unavailable, cannot assert entire paper noncovering.",
+          "identifier_or_url": "https://doi.org/10.1142/S0217979219500437",
+          "material_read": "Published abstract and first-page preview; no complete article text",
+          "method": "Publisher preview / lawful OA search; authorized Oxford institution returned vpn_disconnected",
+          "title": "Dimer coverings on the Tower of Hanoi graph",
+          "trigger": "Possible matching recursion that might subsume balanced states"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_CONSTRUCTION",
+          "evidence": "Vertex-amalgamated Sierpiński gasket is different from word-labelled recursive S(n,3).",
+          "identifier_or_url": "https://math.sun.ac.za/swagner/perfmatch.pdf",
+          "material_read": "Accessible paper identification and its graph-model definitions compared",
+          "method": "Open author-hosted preprint reading",
+          "title": "Exact and asymptotic enumeration of perfect matchings in self-similar graphs",
+          "trigger": "Possible equivalence of Sierpinski matching counts"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_AND_DOMINATION",
+          "evidence": "Counts ordinary minimum dominating sets of gasket graphs, not one-limited sets of word-labelled graphs.",
+          "identifier_or_url": "https://oeis.org/A306189",
+          "material_read": "OEIS title, definition and short entry description",
+          "method": "Open mathematical sequence database entry",
+          "title": "Number of minimum dominating sets in the n-Sierpinski gasket graph",
+          "trigger": "Possibly known table of minimum-set multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count of minimum solutions and positive exponential density of independent choices are natural graph-enumerative invariants, beyond the already known minimum cardinality. Two qualitatively different boundary-compatible configurations create a meaningful entropy lower bound and show balanced-only pictures miss many optimizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literature already proves gamma_1(S(n,3)); novelty is multiplicity bound and gluable boundary states.",
+    "Missing full text of Li–Chang 2019 Hanoi dimer source, not treated as proof of novelty or automatic failure."
+  ],
+  "schema_version": 1
+}
