@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exact Riesz representer is obtained by solving \(-G''=\delta_x-\mu/M\) with the weighted mean constraint. Integration of the circle resistance kernel gives the squared point-evaluation norm; two explicit strict concave quadratic arcs locate every norming point. A nonnegative algebraic factorization proves the global design optimum and the full deficit identity. The standalone exact-rational checker reconstructs \(2765\) derivative-dual norms by direct integration and verifies \(125\) profiles, without being used as a proof of the continuum statement.
+
+**Originality — PASS with residual risk.** The 2012 circle-polarization theorem of Hardin–Kendall–Saff proves an equal-spacing result for a broad class of unweighted potential objectives; that already covers some *placement intuition* and is not claimed as new. The theorem reviewed here is instead a normalized Sobolev evaluation problem with a weighted-mean constraint and an extra pair-energy term, and includes full unequal-mass constants, strict quantitative stability, norming-point classification, and equality functions. Buttazzo–Ruffini–Velichkov's graph Dirichlet shape functionals and Exner's point-interaction spectral objective are not stronger statements for this exact operator. The targeted published-record comparisons did not identify an equivalent weighted two-atom result. Unindexed reproducing-kernel or optimal-recovery literature could nevertheless contain an equivalent closed formula.
+
+**Value — PASS.** Designing weighted interpolation/normalization anchors so as to control the worst pointwise error amplification is a natural Sobolev stability problem. The result provides a complete exact answer for two movable atoms with a fixed mass budget, including sharp quantitative penalties for both distinct experimental design defects and a full extremizer classification. It is a structural exact design law, not a finite numerical table or an arbitrary narrow cutoff.
+
+**Boundaries.** This only addresses the real first-derivative periodic energy on the unit circle with constant arclength density and two positive atoms; no claims for general graphs, additional atoms, or higher derivatives are made.
+
+Self-review: passed. Independent audit: not yet performed.
