@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The standard-library script `python3 verify_dgz_degree7.py` was executed from its actual package path. It returned `DGZ_DEGREE_SEVEN_EXACT_BOUNDS_PASS`, printing all six integer group orders, genera, Hasse–Weil ceilings, and strictly positive margins. This checks only the arithmetic inequalities, not the published group-action premises.
+# Independent mathematical audit
 
-The optional independent C++17 program `verify_dgz_f3_seven.cpp` was compiled and executed from its actual package path. It returned `DGZ_F3_SEVENTH_EXTENSION_ENUMERATION_PASS`: zero affine points and zero points at infinity over the degree-seven extension of the ternary field. It also checks the chosen quotient ring has the field property by multiplicative exponent tests. This is a finite corroboration for q=3, not a proof for the other five q.
+## correctness
 
-The proof in RESULT.md establishes the universal orbit-packet argument from the published geometric premises. Lagrange's theorem and Hasse–Weil, not the finite computation, give the six exact point-free cases. The published premises were compared against their original full-text statements and relevant proofs. Priority risk and the absence of an independent scientific audit remain explicit.
+PASS
+
+PASS: Reconstructed primary DGZ orbit facts: G=PGL3(q) acts over Fq, nonfree points are confined to q²- and q³-rational short orbits, no Fq points, genus g=q(q-1)(q³-2q-2)/2+1. For a q^7 point, coprimality of 7 with 2,3 rules out short orbits. q-Frobenius commutes with G: if a free G-orbit is Frobenius-stable, Frobenius translates by a unique h with h^7=1; 7∤|G| forces h=1 and an impossible Fq point. Thus seven distinct full G-orbits must occur. Independent exact big-integer Hasse–Weil ceilings show 7|G| exceeds q^7+1+2g q^(7/2) for all six prime powers, yielding contradiction. Computations establish finite inequalities, published primary geometry supplies premises.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Giulietti–Korchmáros–Timpanella establish normalization, genus, short orbits and degrees 1–3; Borges–Korchmáros–Speziali 2022 Section 7 proves degrees 4–6 (not degree 7). Their single-free-orbit lower bound is too small for these six q, whereas the coprime Frobenius seven-orbit packet is essential. No exact N7=0 for these six located in the actual semantic/primary searches.
+
+## value
+
+PASS
+
+PASS: A sharp new finite-degree emptiness application for six natural DGZ curves extending the known degree-one–six computations, with a reusable automorphism-orbit/Frobenius obstruction. No claim of all q or complete zeta function; exact finite-size boundary still mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
