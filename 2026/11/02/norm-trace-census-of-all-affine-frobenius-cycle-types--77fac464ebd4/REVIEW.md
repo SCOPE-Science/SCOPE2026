@@ -1,11 +1,21 @@
-# Review of the norm–trace affine Frobenius census
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is a complete exhaustive classification: multiplicative Hilbert 90 counts fixed points in the nontrivial-norm branch; multiplicative and additive Hilbert 90 classify the norm-one branch; Möbius inversion gives every cycle count. Orders distinguish all types, and surjective norm and trace maps count exactly how many coefficient pairs have each type. A separate standard-library verifier exhaustively checked 28,076 coefficient pairs in fifteen finite-field parameter cases. The general theorem is not inferred from those finite checks.
+## correctness
 
-**Originality — PASS, with qualification.** Mullen–Muratović-Ribić–Wang (arXiv:1503.07487, Section 3) give matrix-based period computations, not an explicit norm–trace coefficient census. Ugolini (arXiv:2008.07337, Section 4) studies the same affine maps in binary characteristic, so those cases have substantial existing treatment. Bian–Chen–Zheng (arXiv:2610.11574, Theorem 3.2) give general linearized cycle structures, which imply the affine-fixed-point cases after conjugation but do not enumerate all affine translations or explicitly treat their nonfixed branch. Gerike–Kyureghyan (DOI:10.1007/s10623-020-00721-2) examine a different trace-map family. The combined exact all-characteristic coefficient distribution and type count were not identified as prior results. Broader equivalences or old specialized work remain possible.
+PASS
 
-**Value — PASS.** A complete graph-isomorphism classification of a natural two-parameter family of permutation polynomials is a useful arithmetic invariant, not an arbitrary finite slice. The formulas give exact orbit lengths, graph types, and type frequencies in coefficient space for every extension degree, and distinguish the normally overlooked no-fixed-point affine branch. This makes the output applicable to selecting semilinear permutation polynomials with prescribed cycle profiles and to enumerating their functional graphs without brute force.
+For f(x)=a sigma(x)+b, sigma Frobenius p^r with fixed F_Q and h=m/gcd(m,r), the semilinear linear part L obeys L^h=A id with A=relative norm(a). If A ne 1 then L-I is invertible and translation conjugates f to L; multiplicative Hilbert 90 makes the n-iterate fixed-point count 1+(Q^{gcd(n,h)}-1)1_{ord(A)|n/gcd(n,h)}. If A=1, Hilbert 90 yields L conjugate to sigma and f conjugate to sigma+c; additive Hilbert 90 gives fixed counts Q^d (trace(c)=0) or Q^d 1_{p|n/d} (trace(c) ne 0). Möbius inversion extracts all cycles and orders ht,h,ph distinguish classes, including p dividing h. Norm fibers of size (q-1)/(Q-1), trace fibers q/Q and totient counts prove M_t=q phi(t)(q-1)/(Q-1), M0=(q-1)q/((Q-1)Q) and M*= (q-1)q(Q-1)/((Q-1)Q); total q(q-1) and tau(Q-1)+1 distinct types. Independently implemented F4 and F9 finite-field arithmetic, all coefficient-pair permutations for r=1,2, compared cycle types and type counts to norm and trace classification. Standard Hilbert 90 is an invoked established theorem; finite cases are corroboration, not general proof.
 
-The result makes no claim about arbitrary linearized polynomials or conjugacy within a restricted transformation group. No independent expert validation or independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General linearized permutation cycle formulas and Ugolini characteristic-two affine dynamics cover substantial cycle-length aspects, and via homogenization a broader general linearized-map theorem might cover the individual affine spectra. The surviving contribution is the all-prime complete norm/trace coefficient-pair multiplicity census and exact type number. Qualified PASS with explicit strong-prior risk from Bian–Chen–Zheng 2026, whose full text was inaccessible.
+
+## value
+
+PASS
+
+A finite-field dynamical system with natural norm/trace invariants obtains a complete coefficient-space classification, not merely a formula for a given map. The number of distinct symmetric-group cycle types and multiplicity of each type are explicit for every characteristic and extension. These exact strata can be reused in finite dynamical and permutation-polynomial enumeration even though many individual cycle computations are covered by general linearized-map theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
