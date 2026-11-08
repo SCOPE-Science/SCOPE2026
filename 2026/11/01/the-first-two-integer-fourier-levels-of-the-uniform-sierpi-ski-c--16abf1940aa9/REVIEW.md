@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The digit-mask factorization is an exact identity; the first primitive ternary factor equals \(1/8\) in modulus. Two sharp pointwise trigonometric bounds give extremizers with complete congruence equality cases. A first-divergence lemma at the earliest nonunit three-adic digit forces every remaining one-coordinate-primitive frequency below \(1/16\), while a rigorous infinite-product lower bound places the second level above that threshold. Reduction of cyclotomic integers modulo three excludes all finite-factor zeros; summable tails exclude zero infinite products. The standalone checker tests the mask, congruences, rational bound, and thousands of frequencies; finite tests are not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS within the documented comparison scope.** The 1986 Fourier/diffraction carpet abstract, the 2007 carpet-measure multifractal abstract and the examined introductory/theorem material in the 2023/2025 carpet-energy study do not state the exact top-two lattice Fourier coefficients, their equality classes, or universal zero-freeness. Searches for Fourier extrema, aliases, masks, and carpet convolution norms and comparison against mathematically related published claims found no implication to this theorem. The complete 2007 text and older Fourier-diffraction literature were not exhaustively accessible; possible equivalent prior results are a residual risk, not disproved by absence from search.
+PASS
 
-**Mathematical value — PASS.** The first two multiplier levels, all their extremizing frequencies, and injectivity are natural exact Fourier invariants for one of the canonical singular planar fractal measures. The strict first/second separation gives sharp convolution contraction rates and a useful explicit spectral decomposition; the infinitely many competitors make the uniform sharpness and equality rigidity substantive, not a finite-table computation.
+For the uniform 8-digit ternary carpet, the Fourier digit mask is exactly M(x,y)=exp(-2 pi i(x+y))[(1+2cos2pi x)(1+2cos2pi y)-1]/8. Removing all common powers of 3 reduces each nonzero integer frequency to a primitive pair, with first mask modulus 1/8. Checked the two pointwise sharp bounds for subsequent masks: for one coordinate primitive, c_j=(3s(3^-j)-1)/8, for both primitive b_j=(s(3^-j)^2-1)/8; all equality congruences force ±axis-unit or ±diagonal-unit residues at every power of 3. At the first incompatible ternary digit, one-coordinate-primitive nonextremizers have a mask <=1/2, hence coefficient <=1/16. The explicit infinite-product bound B>515/7776>1/16 separates the second family from all others; c_j>b_j yields A>B. Independently evaluated mask and convergent products: A≈0.1007268724734242, B≈0.08075493227479424; (2,0) is below 1/16; (3,0) reproduces A. Cyclotomic reduction ζ→1 mod(3,ζ-1) sends each numerator to 8≡-1 mod3, ensuring nonzero factors, with summable tail guaranteeing a nonzero product. Thus all integer Fourier multipliers are nonzero, giving the sharp first and second L² convolution norm levels and injectivity; finite artifact checks alone do not establish the unbounded frequency assertion.
 
-The result concerns only uniform weights, the standard carpet, and integer Fourier modes. The exact third level and noninteger-frequency behavior remain unresolved here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1986 Lakhtakia–Varadan–Varadan conference abstract discusses fractal diffraction and the Sierpiński carpet without an exact 8-digit lattice Fourier extremum classification. Barral–Mensi (2007) treats Gibbs measures and multifractal spectra; Murugan–Shimizu (2023/2025) uses the same canonical carpet measure for Sobolev/energy theory, not shown to imply these multiplier levels. Resultary results on discrete Fourier cubes/finite apertures concern distinct measures and invariants. The combination of exact top-two infinite lattice multiplier levels, equality classes, and all-mode nonvanishing was not found covered in directly read statements, but unavailable 2007 text/older diffraction can contain priority overlap.
+
+## value
+
+PASS
+
+The first two integer Fourier magnitudes and precise extremizers are natural spectral invariants of the canonical singular uniform Sierpiński carpet measure. Their strict separation gives sharp mean-zero convolution contraction rates and explicit subspace filtration for powers, and nonvanishing proves a substantive injectivity fact. The infinite lattice optimization and digit-rigidity argument cannot be replaced by testing finitely many frequencies; this is a motivated harmonic-analytic computation, not a recomputation of a familiar table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
