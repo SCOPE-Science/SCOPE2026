@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:01:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every canonical four-spine tuple (a,b,c,d), a,d≥2,b,c≥1, sum N≤200 and (a,b,c,d) lex≤(d,c,b,a), the color transfer weights w_s(j;z)=z^j(Σ_{h≠j}z^h)^{s−1} give exact P_T(z)=ps4(X_T) using 4-state recurrence. Modulo 2^64 reduction commutes with operations; equality of full polynomials would force identical pairs of residues at z=2,3. The pinned verify.cpp enumerates every canonical tuple and uses equality-aware hash map (not hash-only testing), zero collisions and total 31,060,953 types. Independently implemented a different backward-transfer exact mod-2^64 C++17 exhaustive checker across N=6..200; all 31,060,953 canonical classes counted and no identical residue pairs per N. No claim beyond N≤200. Burnside formula total (62,117,055+4,851)/2=31,060,953 independently agrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bingham et al. Conjectures 6.1 and 6.2, §6"
+        ],
+        "reasoning": "Conjecture 6.2 is not a theorem; their computational evidence is through N=25 for all caterpillars and some five-spine cases at larger selected orders. Their stronger t-chromatic specialization conjecture does not prove ordinary ps4 injectivity at N=200.",
+        "searches": [
+          "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+          "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+          "Stanley 1995 chromatic symmetric functions caterpillars",
+          "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+        "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+        "Stanley 1995 chromatic symmetric functions caterpillars",
+        "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bingham et al. Conj. 6.2 and checks; current RESULT.md recurrence and certificate"
+        ],
+        "reasoning": "A conjecture cannot cover the proven finite theorem; checks ≤25 are strictly weaker than checks through 200. Symbolic ps4 equality would imply equality of both exact residue evaluations, so a collision-free residue map establishes the scoped polynomial separation.",
+        "searches": [
+          "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+          "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+          "Stanley 1995 chromatic symmetric functions caterpillars",
+          "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bingham et al. arXiv:2610.31785v1 §6; current transfer recurrence"
+        ],
+        "reasoning": "Proper four-color weight enumerator is ps4(X_T), not ps4 of the t-chromatic refinement. Two residue evaluations are only a finite sufficient separator; neither polynomial equality for other spines nor all-order reconstruction is asserted.",
+        "searches": [
+          "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+          "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+          "Stanley 1995 chromatic symmetric functions caterpillars",
+          "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bingham et al. §6 exact stated test limits; independent C++ output N<=200 count=31,060,953 collisions=0"
+        ],
+        "reasoning": "The 2026 primary article reports earlier finite tests but no 31,060,953-class four-spine N≤200 table/certificate. The independent full N≤200 deterministic checker is actual evidence, not an inference from a missing database hit.",
+        "searches": [
+          "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+          "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+          "Stanley 1995 chromatic symmetric functions caterpillars",
+          "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64"
+        ]
+      },
+      "rationale": "Bingham et al. 2026 Conjecture 6.2 explicitly proposes ps4(X_T) separates all caterpillars; their Section 6 checked all caterpillars through 25 vertices and selective five-spine cases through 50. The complete four-spine N≤200 finite census with a two-residue deterministic separator is a strictly larger different finite domain not covered by inspected published checks. No claim of infinite separation.",
+      "residual_risks": [
+        "Full result is a computational finite certificate with compiler/hardware dependence; independent second implementation reduces but does not eliminate this risk.",
+        "No conclusion for N>200 or spine lengths other than four. Historical priority remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit conjecture and N≤25 test for all caterpillars; does not already prove the N≤200 four-spine finite theorem",
+          "evidence": [
+            "Conjecture 6.2 states ordinary ps4(X_T) caterpillar separation; §6 reports tests through 25 plus selected other spine families at later orders."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31785v1",
+          "material_read": "Full primary PDF, especially introduction, Section 3, Section 6, Conjectures 6.1–6.2 and finite experimental coverage",
+          "method": "Read primary PDF and visually inspect relevant page; compare order limits, spine conditions and specialization type",
+          "title": "Principal specializations of the t-chromatic symmetric function",
+          "trigger": "Exact ordinary fourth-specialization conjecture and previous finite checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Substantial independently replayable 31-million-class finite extension of a recent explicit conjecture, on a natural fixed-spine family, with a compact deterministic modular fingerprint. Computer assistance does not make this meaningless; exact finite cutoff and corroborated full census are mathematically useful independent of an unfinished all-order conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: caterpillar chromatic symmetric fourth principal specialization four spine up to 200 modular residue collision",
+    "Bingham Celano Commins Orellana Pan Simone arXiv:2610.31785v1 Conjecture 6.2",
+    "Stanley 1995 chromatic symmetric functions caterpillars",
+    "same-result 4 spine ps4 specializes z=2 z=3 mod 2^64",
+    "https://arxiv.org/pdf/2610.31785v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full result is a computational finite certificate with compiler/hardware dependence; independent second implementation reduces but does not eliminate this risk.",
+    "No conclusion for N>200 or spine lengths other than four. Historical priority remains qualified."
+  ],
+  "residual_risks": [
+    "Full result is a computational finite certificate with compiler/hardware dependence; independent second implementation reduces but does not eliminate this risk.",
+    "No conclusion for N>200 or spine lengths other than four. Historical priority remains qualified."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Explicit conjecture and N≤25 test for all caterpillars; does not already prove the N≤200 four-spine finite theorem",
+      "evidence": [
+        "Conjecture 6.2 states ordinary ps4(X_T) caterpillar separation; §6 reports tests through 25 plus selected other spine families at later orders."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2610.31785v1",
+      "material_read": "Full primary PDF, especially introduction, Section 3, Section 6, Conjectures 6.1–6.2 and finite experimental coverage",
+      "method": "Read primary PDF and visually inspect relevant page; compare order limits, spine conditions and specialization type",
+      "title": "Principal specializations of the t-chromatic symmetric function",
+      "trigger": "Exact ordinary fourth-specialization conjecture and previous finite checks"
+    }
+  ]
+}
