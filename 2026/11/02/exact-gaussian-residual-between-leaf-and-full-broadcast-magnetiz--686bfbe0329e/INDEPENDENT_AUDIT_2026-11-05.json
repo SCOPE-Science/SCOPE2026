@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:14:43.563485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On the recursive tree, direct single-step delta relations give ΔZ=(ζ/(1+t)-1_{parent leaf})B_parent and drift -Z/n, so (n-1)Z_n is a martingale. The second-moment recursion with E L_n=n/2 yields E Z_n²=n(3-t²)/(6(1+t)²), n>=3. An independent exact-rational exhaustive enumeration of all parent choices and edge signs for n=3..6 and seven t values including -3/4,0,1 reproduces mean zero and variance. L_n/n ->1/2 in L2 by independent parent choices; predictable quadratic variation of scaled martingale ->sigma_t², deterministic Lindeberg bound, giving Gaussian CLT. For t>1/2, X_n/mu_n L2 martingale converges; stable CLT conditional on fixed-time histories yields independence of asymptotic residual and W_t. Boundary t=-1 excluded, t=1 permitted; n=2 variance formula not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desmarais et al. cover broader preferential-attachment models and normal limits in other regimes; their leading superdiffusive regime has the same W.",
+          "Janson 2004 generic multitype urn limit theorem is an important potential route to the residual CLT but has not been inspected in full."
+        ],
+        "reasoning": "Broader tree-growth coverage does not establish the finite-n variance formula; a general CLT could imply the second-order normal law under extra projection work, and must be retained as a priority risk rather than declared inapplicable.",
+        "searches": [
+          "doi:10.1002/rsa.21142 §2/§3/appendices",
+          "doi:10.1016/j.spa.2003.12.002 generalized Pólya urns"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1002/rsa.21142",
+        "https://arxiv.org/abs/2006.11787",
+        "https://doi.org/10.1016/j.spa.2003.12.002",
+        "Resultary semantic query 2 as recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shared leading random variable W_t is explicit in 2023 paper and is not claimed new.",
+          "Projected variance is obtained by exact conditional increment calculation, not a consequence of O_p(n^t) remainder bounds."
+        ],
+        "reasoning": "A general urn covariance matrix evaluated on the projection might recover asymptotic normality; the every-size exact identity requires direct model algebra and was not stated in inspected sources. No stronger covered theorem was established.",
+        "searches": [
+          "doi:10.1002/rsa.21142 Theorem 2.4(iv)",
+          "arxiv:2006.11787",
+          "doi:10.1016/j.spa.2003.12.002 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 Desmarais-Holmgren-Wagner theorems prove colored-leaf and full color-count leading amplitudes and their superdiffusive common mode.",
+          "Neither inspected theorem explicitly states Z_n=Y_n-tX_n/(1+t) and its exact variance for every n>=3."
+        ],
+        "reasoning": "The shared leading law is covered prior art. A residual projection is an urn eigenmode, and general urn theory could cover the Gaussian limit, but first-order convergence alone cannot imply the exact second moment or asymptotic independent correction.",
+        "searches": [
+          "random recursive trees broadcasting leaf full magnetization residual Gaussian central limit covariance",
+          "arxiv:2006.11787 recursive-tree broadcast",
+          "doi:10.1002/rsa.21142 Theorems 2.1,2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published records concern uncolored leaf counts, root degree and path length, not leaf-spin/all-spin residual distribution."
+        ],
+        "reasoning": "No exact table matching variance sigma² or joint Gaussian residual in search results; that absence cannot certify novelty.",
+        "searches": [
+          "random recursive trees broadcasting leaf full magnetization residual Gaussian central limit covariance",
+          "Resultary: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "Resultary: 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. The shared leading law is covered prior art. A residual projection is an urn eigenmode, and general urn theory could cover the Gaussian limit, but first-order convergence alone cannot imply the exact second moment or asymptotic independent correction.",
+      "residual_risks": [
+        "Complete applicability of Janson generalized urn theorem and of 2023 colored-leaf covariance appendix to exactly this second-order projection has not been independently resolved.",
+        "Stable joint convergence is for t>1/2 only; it must not be extrapolated to q>=1/4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known leading superdiffusive mode and proportionality covered; second-order finite projected identity and asymptotically independent residual not explicitly given.",
+          "evidence": [
+            "Theorems 2.1(iv), 2.4(iv) have same limit amplitude; Section 3 four-color urn proof."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21142",
+          "material_read": "Read open-access complete HTML, especially main Theorems 2.1 and 2.4, urn method, covariance appendix outline.",
+          "method": "Compared exact random variables, eigenmodes, limit scalings and covariance.",
+          "title": "Broadcasting-induced colorings of preferential attachment trees",
+          "trigger": "Exact same colored recursive-tree model and leading leaf/full laws"
+        },
+        {
+          "assessment": "Establishes broadcasting/leaf majority framework, not a precise all-n residual covariance stated in inspected material.",
+          "evidence": [
+            "Original leaf-majority and root-reconstruction formulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.11787",
+          "material_read": "Read arXiv accessible abstract and main result summaries; no full-text noncoverage asserted from this limited read.",
+          "method": "Comparison of model and leading reconstruction statements.",
+          "title": "Broadcasting on random recursive trees",
+          "trigger": "Original reconstruction and leaf-only majority problem"
+        },
+        {
+          "assessment": "May supply generic urn CLT under eigenprojection; not evidence that this special variance is a previously published theorem.",
+          "evidence": [
+            "Generalized Pólya urn functional limit theory."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2003.12.002",
+          "material_read": "Title/abstract-level scope, no full original theorem/proof inspection.",
+          "method": "Broad mathematical implication risk analysis.",
+          "title": "Functional limit theorems for multitype branching processes and generalized Pólya urns",
+          "trigger": "Potential broad CLT implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact all-n projected covariance and an asymptotically independent Gaussian residual clarify the noise left after the already-known superdiffusive common leaf/all-vertex signal. This is a useful second-order invariant for reconstruction on random recursive trees, with a nontrivial martingale projection rather than a mere renaming of leading laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform recursive attachments, binary independent edge-copying with fixed q in [0,1).",
+    "Independence of limiting Gaussian and W_t is only asserted for t>1/2; not finite-n independence.",
+    "Complete applicability of Janson generalized urn theorem and of 2023 colored-leaf covariance appendix to exactly this second-order projection has not been independently resolved.",
+    "Stable joint convergence is for t>1/2 only; it must not be extrapolated to q>=1/4."
+  ],
+  "schema_version": 1
+}

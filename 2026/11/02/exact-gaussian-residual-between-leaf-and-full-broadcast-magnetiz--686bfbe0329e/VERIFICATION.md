@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `checker.py` is executable using only Python's standard library. It exhaustively enumerates every recursive parent-choice list and every nonzero-probability broadcast-sign sequence for orders 2 through 7 at seven distinct rational transmission means. It uses `fractions.Fraction` throughout, tests probability normalization, all-spin mean, leaf-spin mean, centered residual, finite residual second moment, uncolored leaf count, and (for smaller orders) every next-step conditional first and second moment by direct branch enumeration. Replayed on the embedded source, it passes **5,622 exact rational assertions**.
+## correctness
 
-The infinite Gaussian limit is supported by a written martingale argument, the law of large numbers for leaf counts and deterministic limiting quadratic variation, not by the finite checker. In the regime \(t>1/2\), the full-spin martingale has summable square increments and its limit is independent of the stably converging residual Gaussian. At \(t=1/2\) no such independence assertion is made.
+PASS
 
-Independent mathematical auditing and definitive source-priority verification have not been performed.
+PASS: On the recursive tree, direct single-step delta relations give ΔZ=(ζ/(1+t)-1_{parent leaf})B_parent and drift -Z/n, so (n-1)Z_n is a martingale. The second-moment recursion with E L_n=n/2 yields E Z_n²=n(3-t²)/(6(1+t)²), n>=3. An independent exact-rational exhaustive enumeration of all parent choices and edge signs for n=3..6 and seven t values including -3/4,0,1 reproduces mean zero and variance. L_n/n ->1/2 in L2 by independent parent choices; predictable quadratic variation of scaled martingale ->sigma_t², deterministic Lindeberg bound, giving Gaussian CLT. For t>1/2, X_n/mu_n L2 martingale converges; stable CLT conditional on fixed-time histories yields independence of asymptotic residual and W_t. Boundary t=-1 excluded, t=1 permitted; n=2 variance formula not asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. The shared leading law is covered prior art. A residual projection is an urn eigenmode, and general urn theory could cover the Gaussian limit, but first-order convergence alone cannot imply the exact second moment or asymptotic independent correction.
+
+## value
+
+PASS
+
+PASS: Exact all-n projected covariance and an asymptotically independent Gaussian residual clarify the noise left after the already-known superdiffusive common leaf/all-vertex signal. This is a useful second-order invariant for reconstruction on random recursive trees, with a nontrivial martingale projection rather than a mere renaming of leading laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
