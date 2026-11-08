@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:58:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set u=Ab, w=b, alpha=u·w/||u||^2>0 and delta^2=||w||^2/||u||^2-alpha^2. With Gaussian sketch S independent of fixed b, orthogonal Gaussian components g,h yield R=Theta^(-1)=alpha+delta(g·h)/||g||^2 distributed as alpha+(delta/sqrt(s))T_s. For delta>0 its Student density is smooth and positive at 0, hence Theta=1/R has both sign tails f_R(0)/t, absolute moment cutoff p<1, and no signed first moment. The characteristic function has expansion 1+i m_PV t -pi f_R(0)|t|+o(|t|), so iid arithmetic means converge to nondegenerate Cauchy(m_PV,pi f_R(0)). Independently checked 2D exact SPD example A=diag(1,2), b=(1,1), alpha=3/5, delta=1/5, s=1, f_R(0)=1/(2*pi). Eigenvector delta=0 gives constant exceptional case. This concerns fixed finite s, not simultaneous s,N limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güttel–Liu–Nyman Section 5.3 equation (23) explicitly gives reciprocal harmonic Ritz as a sketched bilinear ratio and a positivity condition from sufficiently accurate embedding.",
+          "General embedding/convergence guarantees condition away from denominator-zero events; they do not provide the fixed-s unconditional Student and Cauchy limits."
+        ],
+        "reasoning": "The prior reciprocal identity is fully credited, and the probability distribution is a further Gaussian-specialization with an opposite unconditional effect.",
+        "searches": [
+          "Guttel Liu Nyman sketch and restart harmonic Ritz equation 23 Gaussian sketch positivity",
+          "Nakatsukasa Tropp randomized sketched Rayleigh Ritz eigenvalue subspace embedding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: one-step Gaussian sketched harmonic Ritz values reciprocal Student distribution heavy tail stable Cauchy average",
+        "Git RESULT.md blob a5812d35b52ed6576611d844f6d974df397cdf47",
+        "Git verify.py blob 0ce4392d87c2517f498c1f2b8cff07ee50c431d0",
+        "https://arxiv.org/abs/2607.10354",
+        "https://arxiv.org/abs/2111.00113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq (23) supplies the ratio representation but not, without extra Gaussian calculation, nonzero density at zero, symmetric order-one tails or N-copy Cauchy convergence.",
+          "Ordinary sketched Rayleigh-Ritz has finite absolute mean for s>=2, whereas the harmonic reciprocal estimator has no first moment for any finite s with delta>0."
+        ],
+        "reasoning": "The new claim is not covered by the prior positive embedding theorem; it gives the unconditional law at every finite dimension and the resulting estimator failure.",
+        "searches": [
+          "arXiv 2607.10354 Section 5.3 Eq 23 harmonic Ritz positivity",
+          "Gaussian sketched Rayleigh Ritz vs harmonic ratio Student degrees of freedom"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projected inverse harmonic scalar equals alpha+delta/sqrt(s) T_s under Gaussian orthogonal projections.",
+          "This exact inverse-Student identification and generic 1/x reciprocal heavy tail are classical probabilistic ingredients, not independently new distributions."
+        ],
+        "reasoning": "The issue is the original harmonic Ritz estimator and its averaging consequence; compare the precise target observable, not general random-ratio titles.",
+        "searches": [
+          "one step Gaussian sketch harmonic Ritz reciprocal Student t Cauchy heavy tail",
+          "random Rayleigh quotient ratio of correlated Gaussian inner products inverse student distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected numerical or formula table for this exact fixed-input estimator gives universal p=1 moment threshold with Cauchy location and scale."
+        ],
+        "reasoning": "The distribution formula is not an empirical finite table; the relevant prior benchmark is an analytic theorem, so search for exact statement rather than matching digits.",
+        "searches": [
+          "sketched harmonic Ritz Student t Gaussian Cauchy scale f_R(0) table",
+          "harmonic Ritz expected value divergent moment threshold s Gaussian"
+        ]
+      },
+      "rationale": "After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. The Gaussian consequence is not presented in the prior harmonic reciprocal analysis.",
+      "residual_risks": [
+        "Classical reciprocal normal/t distributions and stable domain-of-attraction theory give much of the proof once the estimator is recognized; priority of this exact numerical-linear-algebra specialization is not independently certified.",
+        "The result says nothing about constrained embedding events, adaptive sketches or multi-step methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the reciprocal identity and sufficient embedding accuracy; no unconditional Student-law moment threshold or N-average Cauchy theorem identified",
+          "evidence": [
+            "Güttel–Liu–Nyman 2026 Section 5.3 Eq. (23)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+          "material_read": "Full accessible arXiv HTML; read Section 2.2 and Section 5.3, especially harmonic reciprocal formula equation (23) and positive embedding hypotheses",
+          "method": "Full-text primary result inspection and formula comparison",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Exact same harmonic Ritz matrix-sketch construction"
+        },
+        {
+          "assessment": "Different ordinary projected Rayleigh–Ritz target; not a direct implication of harmonic reciprocal Cauchy limit",
+          "evidence": [
+            "Nakatsukasa–Tropp 2021/2024"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+          "material_read": "Available abstract and theorem-level characterization of sketched Rayleigh–Ritz, not complete primary technical text inspected in this audit",
+          "method": "Statement-level scope comparison",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Related random Rayleigh–Ritz sketching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise heavy-tail obstruction to averaging Gaussian-sketch harmonic Ritz values is a natural phenomenon in a broadly used numerical linear-algebra estimator. It distinguishes convergence under sufficient embedding events from unconditional finite-sketch moments and demonstrates that adding independent sketches without increasing sketch dimension cannot consistently average the harmonic estimator, despite the SPD underlying matrix.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary search: one-step Gaussian sketched harmonic Ritz values reciprocal Student distribution heavy tail stable Cauchy average",
+    "Git RESULT.md blob a5812d35b52ed6576611d844f6d974df397cdf47",
+    "Git verify.py blob 0ce4392d87c2517f498c1f2b8cff07ee50c431d0",
+    "https://arxiv.org/abs/2607.10354",
+    "https://arxiv.org/abs/2111.00113"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real Gaussian sketches with independent fixed SPD input and one-dimensional harmonic Ritz extraction.",
+    "Not arbitrary sketches, adaptive b, higher-dimensional Ritz values, or interchange of sketch-dimension and replication limits."
+  ],
+  "residual_risks": [
+    "Classical reciprocal normal/t distributions and stable domain-of-attraction theory give much of the proof once the estimator is recognized; priority of this exact numerical-linear-algebra specialization is not independently certified.",
+    "The result says nothing about constrained embedding events, adaptive sketches or multi-step methods."
+  ],
+  "schema_version": 1
+}

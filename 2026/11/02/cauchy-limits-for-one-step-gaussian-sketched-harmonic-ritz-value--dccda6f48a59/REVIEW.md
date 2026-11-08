@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the scalar first-step sketched harmonic Ritz quotient for a fixed real SPD matrix, a fixed non-eigenvector and iid real Gaussian sketches. Orthogonal Gaussian projections produce the exact translated/rescaled Student distribution for the reciprocal, with independent chi-square and normal factors. Its smooth positive density at the origin yields exactly the \(t^{-1}\) two-sided tail, separate divergent positive/negative means, and the sharp order-one moment boundary. Symmetric density-tail decomposition yields the small-characteristic-function expansion, which proves the nondegenerate Cauchy limit for averages. All boundary cases are explicit: a genuine eigenvector gives a constant positive quotient, while every finite sketch dimension is covered. A standalone extracted verifier executes 1,562 algebraic, numerical, probability and limit-law checks; this is corroboration, not a substitute for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Set u=Ab, w=b, alpha=u·w/||u||^2>0 and delta^2=||w||^2/||u||^2-alpha^2. With Gaussian sketch S independent of fixed b, orthogonal Gaussian components g,h yield R=Theta^(-1)=alpha+delta(g·h)/||g||^2 distributed as alpha+(delta/sqrt(s))T_s. For delta>0 its Student density is smooth and positive at 0, hence Theta=1/R has both sign tails f_R(0)/t, absolute moment cutoff p<1, and no signed first moment. The characteristic function has expansion 1+i m_PV t -pi f_R(0)|t|+o(|t|), so iid arithmetic means converge to nondegenerate Cauchy(m_PV,pi f_R(0)). Independently checked 2D exact SPD example A=diag(1,2), b=(1,1), alpha=3/5, delta=1/5, s=1, f_R(0)=1/(2*pi). Eigenvector delta=0 gives constant exceptional case. This concerns fixed finite s, not simultaneous s,N limits.
 
-The nearest primary article is Güttel--Liu--Nyman, arXiv:2607.10354v1, Section 5.3, equation (23), where the sketched reciprocal and a sufficient positivity condition are present. Those statements do not imply the claimed nonintegrable first moments and nondegenerate averaged Cauchy limit without additional distributional and heavy-tail analysis. Nakatsukasa--Tropp, arXiv:2111.00113, addresses the nonharmonic sketched Rayleigh--Ritz projection and embedding-based accuracy; Simoncini--Wang (2025) addresses sketched recurrence stabilization, not this scalar exact law. Classical Student and Cauchy attraction theory provide ingredients and are not claimed as new. Residual risk: an older specialized study of Gaussian ratios or sketched harmonic methods may already have explicitly stated this consequence. The result is offered as self-reviewed, not historically certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise reliability issue is substantive: no finite Gaussian sketch dimension gives a finite mean magnitude for a non-eigeninput harmonic Ritz scalar, and replication by naive averaging fails even when a negative Ritz event is rare. The explicit Pareto coefficient and Cauchy scale quantify the failure, while the ordinary Rayleigh--Ritz comparison isolates inversion of the sketched harmonic product as the mechanism. This informs the use of truncation, denominator safeguards, or conditional embedding requirements in harmonic sketch algorithms, without claiming any global-method breakdown.
+After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. The Gaussian consequence is not presented in the prior harmonic reciprocal analysis.
 
-## Scope and limitations
+## value
 
-Real SPD data; fixed non-eigenvector direction; finite integer Gaussian sketch width; independent exact-arithmetic runs; one harmonic Ritz scalar. No statement is made about other sketch distributions, adaptively selected vectors, higher-order Krylov reductions, finite precision, or convergence of complete restarted schemes. Numerical checks do not establish historical priority or an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise heavy-tail obstruction to averaging Gaussian-sketch harmonic Ritz values is a natural phenomenon in a broadly used numerical linear-algebra estimator. It distinguishes convergence under sufficient embedding events from unconditional finite-sketch moments and demonstrates that adding independent sketches without increasing sketch dimension cannot consistently average the harmonic estimator, despite the SPD underlying matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
