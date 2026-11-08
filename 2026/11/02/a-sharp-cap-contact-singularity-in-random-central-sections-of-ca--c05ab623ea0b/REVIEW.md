@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact point-to-segment squared-distance identity reduces each centered section to one explicitly integrable positive ordinate. The cap/cylinder partition occurs precisely when \(\tan\theta=a/r\); continuity and the two endpoint areas follow directly. Strict domain nesting establishes invertibility of the angle-to-area map, and the uniformity of the axial absolute normal coordinate gives the stated CDF. A rescaled beta integral establishes the nonzero \(5/2\) contact correction, with an integrable dominating function. A separate shape derivative at the axial plane proves the positive \(B_{a,r}\) coefficient and square-root upper tail. The independently integrated cross-sections and numerical asymptotic checks in `verify.py` passed, but they are supporting checks rather than substitutes for the proof.
+## correctness
 
-## Originality
-**PASS under the available literature and mathematical-record comparison; independent priority assessment remains open.** Kim–Yaskin–Zvavitch (arXiv:1512.07289v1) develop the unlabeled section-distribution framework but do not give this family-specific law, branch transition, or singular coefficients. Portal et al. (arXiv:1102.0608v1) study the Voronoi geometry of spherocylinders, using segment distances, without studying random centered section-area distributions. Baule et al. (Nature Communications 4:2194, 2013) address random packings; accessible metadata and abstract do not imply the present claim. Related capsule ellipsoid optimization and cylinder shadow studies concern different geometric statistics. Source-specific searches for capsule, spherocylinder, hemispherical-cap cylinders, stereology, random central planar section area, and the \(5/2\) contact exponent found no result subsuming the theorem. This non-identification is not an assertion that all historical stereology has been examined. The 2013 full article could not be read at its publisher page; this is a recorded residual priority risk, not evidence of noncoverage.
+PASS
 
-## Value
-**PASS.** The sharp reciprocal branch, a precise nonanalytic cap-contact threshold, and the universal square-root maximum-area tail together resolve a natural full distribution, not an arbitrary sample of numerical values. In the inverse-tomography setting of Kim–Yaskin–Zvavitch, the threshold probability \(p_*=1-r/\sqrt{a^2+r^2}\) determines the capsule aspect ratio without requiring orientation labels or a length-scale calibration. The contact singularity distinguishes the piecewise-smooth boundary geometry from an ellipsoid, while the endpoint tail quantifies the scarcity of nearly maximal axial sections. These are independently motivated structural facts.
+In plane basis with axial coordinate sx, squared distance to axis segment is c^2 x^2+y^2+(s|x|-a)_+^2, c=cos theta,s=sin theta. Integrating the positive ordinate gives exact ellipse branch A=pi r^2/c until theta*=atan(a/r), then cylindrical-plus-cap circular primitives; at theta=pi/2 stadium Amax=pi r^2+4ar. The squared axial-distance derivative w.r.t. s is -2s x^2 or -2a x, so section domains strictly nested and A(theta) strictly increasing, giving F=1-cos A^{-1}. At the cap contact, difference between virtual ellipse and actual area is a local square-root integral over shrinking width Delta~L^3(theta-theta*)/(ar); rescaling yields beta integral int u^2(1-u)^(-1/2) du=16/15, hence nonzero 5/2 coefficient. At c->0, shape derivative yields B=2a^3/(3r)+pi a^2+2ar and upper tail P(X>Amax-eps)~sqrt(eps/B). Recomputed high-precision independent cross-section quadrature for (a,r)=(1,1),(.2,1),(3,.7), corroborating asymptotic constant; finite quadrature does not prove continuum.
 
-## Limits and closest literature
-The claims cover \(a,r>0\), centered Haar planes, and dimension three. Exact inversion of the second CDF branch is implicit but unique. No offset or randomly translated plane distribution, higher-dimensional theorem, or historically exhaustive novelty certificate is claimed. Closest primary materials inspected were arXiv:1512.07289v1 (introduction and central-section theorems) and arXiv:1102.0608v1 (spherocylinder segment-distance and Voronoi setup); the Baule et al. 2013 article was accessible through abstract and metadata, not through the publisher full text. Earlier unindexed stereological computations are the principal residual priority concern.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General unlabeled central-section distributions predate this, and spherocylinder distance formulas are standard. The complete capsule family distribution, 5/2 cap-contact coefficient and inverse aspect-ratio statistic were not established in the materially inspected convex-body distribution theorems. Historical stereology/spherocylinder specialized formula remains plausible priority risk.
+
+## value
+
+PASS
+
+Exact natural Haar central-section distribution and nonanalytic cap contact encode capsule aspect ratio p*=1-r/sqrt(a^2+r^2) without orientation labels; sharp endpoint probability useful in stereology/tomography and identifies geometric smoothing effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

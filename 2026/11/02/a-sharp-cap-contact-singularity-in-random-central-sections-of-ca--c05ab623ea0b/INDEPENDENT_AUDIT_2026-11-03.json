@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:14:18.175258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In plane basis with axial coordinate sx, squared distance to axis segment is c^2 x^2+y^2+(s|x|-a)_+^2, c=cos theta,s=sin theta. Integrating the positive ordinate gives exact ellipse branch A=pi r^2/c until theta*=atan(a/r), then cylindrical-plus-cap circular primitives; at theta=pi/2 stadium Amax=pi r^2+4ar. The squared axial-distance derivative w.r.t. s is -2s x^2 or -2a x, so section domains strictly nested and A(theta) strictly increasing, giving F=1-cos A^{-1}. At the cap contact, difference between virtual ellipse and actual area is a local square-root integral over shrinking width Delta~L^3(theta-theta*)/(ar); rescaling yields beta integral int u^2(1-u)^(-1/2) du=16/15, hence nonzero 5/2 coefficient. At c->0, shape derivative yields B=2a^3/(3r)+pi a^2+2ar and upper tail P(X>Amax-eps)~sqrt(eps/B). Recomputed high-precision independent cross-section quadrature for (a,r)=(1,1),(.2,1),(3,.7), corroborating asymptotic constant; finite quadrature does not prove continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim et al nonuniqueness and comparison theorems for arbitrary bodies, not explicit capsule distribution.",
+          "Portal et al segment-distance Voronoi geometry is a distinct statistic; prisms have different boundary/contact geometry."
+        ],
+        "reasoning": "General convex tomography does not imply this explicit profile or contact coefficient by a stated theorem; cap-contact geometry differs from prism facet contact.",
+        "searches": [
+          "arxiv:1512.07289 Introduction and Section 4",
+          "arxiv:1102.0608 spherocylinder Voronoi geometry",
+          "Resultary polar axial facets smooth prisms"
+        ]
+      },
+      "checked_sources": [
+        "Kim-Yaskin-Zvavitch arxiv:1512.07289 primary PDF intro and Section 4",
+        "Resultary published prism intersection-body full RESULT.md",
+        "Portal arxiv:1102.0608 spherocylinder paper bibliographic material",
+        "Published semantic search capsule stereology contact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim-Yaskin-Zvavitch Theorem 1 concerns nonuniqueness of central-section area distributions, not capsule CDF or singularity.",
+          "Smooth prism polar facet has contact of order n/2, dimension 3 gives 3/2, not the capsule cap-contact 5/2 law."
+        ],
+        "reasoning": "General frameworks motivate observable; no mathematical implication to the exact 3D capsule area profile observed in inspected statements.",
+        "searches": [
+          "arxiv:1512.07289 Section 4",
+          "Resultary:2026/10/11/SCOPE-polar-axial-facets-and-sharp-contact-regularity-of-intersection--8b975c5e3727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al defines survival function S_K(z), which equals 1-F(z) (up to continuity convention).",
+          "Capsule/spherocylinder is Minkowski sum of axial segment and Euclidean ball."
+        ],
+        "reasoning": "Equivalent observable and geometry terminology checked; general distribution-function framework does not supply the requested capsule formula.",
+        "searches": [
+          "capsule spherocylinder central planar sections area distribution 5/2 contact singularity",
+          "arxiv:1512.07289 central section distribution sigma{u:area>=z}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest semantic hit is polar axial facets/contact regularity of intersection bodies of smooth prisms, full RESULT.md inspected and materially distinct.",
+          "No explicit cap-contact 5/2 table identified in searched corpus."
+        ],
+        "reasoning": "No found exact table; this is an unresolved priority caveat, not a novelty proof.",
+        "searches": [
+          "capsule spherocylinder central planar sections area distribution 5/2 contact singularity",
+          "Resultary central section capsule spherocylinder contact"
+        ]
+      },
+      "rationale": "General unlabeled central-section distributions predate this, and spherocylinder distance formulas are standard. The complete capsule family distribution, 5/2 cap-contact coefficient and inverse aspect-ratio statistic were not established in the materially inspected convex-body distribution theorems. Historical stereology/spherocylinder specialized formula remains plausible priority risk.",
+      "residual_risks": [
+        "Old unindexed stereological tables might already evaluate capsule central-section area law or endpoint asymptotics.",
+        "Requires a,r>0 and centered Haar planes; offset sampling and a=0 degeneracy excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Haar section-distribution framework, nonuniqueness and comparison results; no specific capsule profile in relevant theorem statements",
+          "evidence": [
+            "Def of S_K, introduction and Section 4 Theorem 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.07289",
+          "material_read": "Original 24-page PDF pp 1-3 definitions/introduction, Section 4 theorem region including Theorem 1 and consequences; p1 screenshot",
+          "method": "Original PDF text and screenshot",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Exactly the Haar section-distribution observable"
+        },
+        {
+          "assessment": "Prism B x [-h,h], polar axial rim regularity, unlike smooth capsule section distribution",
+          "evidence": [
+            "Contact power n/2 on intersection body prism facet, 3D 3/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-axial-facets-and-sharp-contact-regularity-of-intersection--8b975c5e3727/RESULT.md",
+          "material_read": "Full published RESULT.md including all steps/references",
+          "method": "Read GitHub repository full scientific text",
+          "title": "Polar axial facets and sharp contact regularity of intersection bodies of smooth prisms",
+          "trigger": "Possible stronger geometric contact law"
+        },
+        {
+          "assessment": "Segment-distance/Voronoi statistic, no validated whole-document exclusion",
+          "evidence": [
+            "arxiv:1102.0608 first version setup"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.0608",
+          "material_read": "Abstract and prior record main setup; full new reading not performed",
+          "method": "Public metadata and source relation check",
+          "title": "Jamming of hard rods I: From Onsager to Edwards",
+          "trigger": "Spherocylinder geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact natural Haar central-section distribution and nonanalytic cap contact encode capsule aspect ratio p*=1-r/sqrt(a^2+r^2) without orientation labels; sharp endpoint probability useful in stereology/tomography and identifies geometric smoothing effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Old unindexed stereological tables might already evaluate capsule central-section area law or endpoint asymptotics.",
+    "Requires a,r>0 and centered Haar planes; offset sampling and a=0 degeneracy excluded.",
+    "Publication not_ready until public metadata privacy and antecedent date are fixed with exact guarded full replacements."
+  ],
+  "schema_version": 1
+}
