@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:12:04.099131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct cycle-marking yields E[C_r K]=E[C_r](1+mu_{n-r}); deleting a cycle gives E C_r = theta*n!*A_{n-r}/(r*(n-r)!*A_n). The weighted derangement recurrence A_m=(m-1)(A_{m-1}+theta A_{m-2}), with B_m=theta A_m prime, gives mu_2=mu_3=1 and consecutive increments delta_m=(1-p_m)(1-delta_{m-1}); delta_m in (0,1), delta_m+delta_{m-1}<1. Thus 1+mu_{n-r}-mu_n decreases with admissible r and has positive r=2 and negative r=n endpoints for n>=4. Forbidden n-1 cycle has count zero. From F(z)=exp(-theta z)(1-z)^(-theta), log coefficient differentiation at fixed theta gives mu_m=theta log(m)-theta-theta psi(theta)+O(1/m); Riemann scale r=floor(alpha n), alpha in (0,1), yields n Cov(C_r,K)->theta/alpha*(1-alpha)^(theta-1)*(1+theta log(1-alpha)), unique zero at alpha=1-exp(-1/theta). Asymptotic coefficient use is locally uniform in theta. Verified separate direct permutation enumeration and exact rational checks for n<=7; this is corroboration, not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Silva–Jamshidpey–Tavaré calculate factorial moments/means for the same weighted fixed-point-free measure; Ford treats unrestricted permutation cycles."
+        ],
+        "reasoning": "The general Ewens moment formula dominates the raw moment assertion, explicitly excluded from novelty. It does not by itself state the monotone residual-cycle mean, sign switch and full signed n-scale profile.",
+        "searches": [
+          "arxiv:2006.04840 factorial moments and Feller coupling",
+          "arxiv:2211.13831 biased derangements",
+          "arxiv:2104.12019 unrestricted permutation cycles",
+          "Ewens derangements fixed point free random permutations covariance length r cycle count and total number of cycles changes sign at fraction 1-exp(-1/theta) monotone residual cycle mean"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2006.04840 primary equations 6,7,10",
+        "arxiv:2211.13831 biased derangement scope",
+        "arxiv:2104.12019 general cycle toolkit",
+        "Resultary semantic q: Ewens derangements fixed point free random permutations covariance length r cycle count and total number of cycles changes sign at fraction 1-exp(-1/theta) monotone residual cycle mean"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older factorial moment identities imply individual Cov(C_r,K), but supply no already-proved all-length one-transition structure or theta-dependent threshold."
+        ],
+        "reasoning": "One must prove mu_m monotonicity and asymptotic difference to get the classification. The claimed contribution is not an automatic corollary without this new argument; residual implicit coverage remains possible.",
+        "searches": [
+          "arxiv:2006.04840 equations (6),(7),(10)",
+          "Ewens derangements fixed point free random permutations covariance length r cycle count and total number of cycles changes sign at fraction 1-exp(-1/theta) monotone residual cycle mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle insertion and existing mixed factorial moments give the same finite mixed covariance; mu_{n-r} encodes the expected cycles in the residual derangement."
+        ],
+        "reasoning": "Existing factorial moments encode numerical covariance, not the proved global sign order and macroscopic location. A different form of the same sign theorem would cover it; none identified.",
+        "searches": [
+          "Ewens derangements fixed point free random permutations covariance length r cycle count and total number of cycles changes sign at fraction 1-exp(-1/theta) monotone residual cycle mean",
+          "arxiv:2006.04840 Section 2 equations (6),(7),(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest permutation count covariance is for inversion indicators; set-partition block switch uses another combinatorial species with Lambert-W scale."
+        ],
+        "reasoning": "No exact table for the asserted Ewens sign transition was found; nonappearance in an index is not a novelty proof.",
+        "searches": [
+          "Ewens derangements fixed point free random permutations covariance length r cycle count and total number of cycles changes sign at fraction 1-exp(-1/theta) monotone residual cycle mean",
+          "Resultary related 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+          "Resultary 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad"
+        ]
+      },
+      "rationale": "Earlier Ewens-derangement factorial moments already determine each finite covariance in principle. The independently assessed claim is not the raw covariance formula: it is the simultaneous all-r single-sign crossing, the theta-dependent macroscopic location and signed profile, which require residual mean monotonicity and coefficient asymptotics beyond simply identifying prior moment identities. Resultary published search found permutation inversion covariance, fixed-point-descent and analogous set-partition sign switch, but no covering Ewens-derangement theorem. Best knowledge; equivalent sign derivation might be implicit in prior literature.",
+      "residual_risks": [
+        "Prior factorial moments already imply individual covariance values; do not claim formula new.",
+        "A prior explicit or disguised residual-cycle mean sign theorem may be unindexed.",
+        "Fixed theta and alpha in (0,1) only; r=n-1 impossible, n<4 excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVARIANCE_RAW_FORMULA_COVERED; SIGN_PROFILE_NOT_DIRECTLY_COVERED",
+          "evidence": [
+            "Equations 6,7 provide exact cycle factorial moments, equation 10 expected total cycles; distinct universal sign theorem not identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "Primary accessible HTML mathematical Sections 1–2, cycle factorial moment identities equations 6/7 and expected total cycles equation 10; separately published source discussion",
+          "method": "Mathematical formulas and theorem implications compared",
+          "title": "Random derangements and the Ewens Sampling Formula / Feller Coupling for random derangements",
+          "trigger": "Identical Ewens derangement model and factorial moments"
+        },
+        {
+          "assessment": "NO_DECISIVE_COVERAGE_IDENTIFIED_FROM_READ_MATERIAL",
+          "evidence": [
+            "Biased derangement Markov representations and total cycle laws, no exact theta sign classification in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.13831",
+          "material_read": "Abstract and accessible indexed content on biased derangement chain and cycle count; earlier full-section reading summarized in frozen audit, not falsely attributed here",
+          "method": "Abstract and mathematical scope comparison",
+          "title": "Markov chains arising from biased random derangements",
+          "trigger": "Possible later general model"
+        },
+        {
+          "assessment": "DIFFERENT_CONDITIONING; unrestricted cycle models",
+          "evidence": [
+            "No conditioning against singleton cycles in the compared general unrestricted result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.12019",
+          "material_read": "Abstract and representative cycle-type moment theorem as identified in source package; not a full independent rereading",
+          "method": "Model and parameter comparison",
+          "title": "Cycle type of random permutations: A toolkit",
+          "trigger": "General result could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle-count/cycle-length dependence structure of a natural constrained Ewens measure is mathematically motivated, and its all-size monotone sign classification plus full macroscopic phase profile are reusable structural information; not an arbitrary finite slice or re-tabulation of known moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior factorial moments already imply individual covariance values; do not claim formula new.",
+    "A prior explicit or disguised residual-cycle mean sign theorem may be unindexed.",
+    "Fixed theta and alpha in (0,1) only; r=n-1 impossible, n<4 excluded."
+  ],
+  "schema_version": 1
+}
