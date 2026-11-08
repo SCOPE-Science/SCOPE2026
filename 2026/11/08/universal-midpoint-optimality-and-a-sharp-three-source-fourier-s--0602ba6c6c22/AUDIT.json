@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For normalized symmetric weights, the vectors of powers of the frequencies have Gram determinant mu2*(mu4-mu2^2)>0. Second and third exterior powers of the Fourier sampling matrix have leading orders delta*sqrt(mu2)*sqrt(6+2t^2) and delta^3*(1-t^2)*sqrt(mu2*Delta), respectively. Their quotient is the smallest singular value at quadratic order, and the largest tends to sqrt(3). Differentiating (1-t^2)/sqrt(6+2t^2) proves strict midpoint optimality. The integer-aperture fourth and second moments are exact polynomial sums. Checkable 186 high-precision assertions corroborate normalizations; the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 Theorem 3.2 and Corollary 3.6 give general cluster lower bounds: https://arxiv.org/pdf/1809.00658",
+        "2019 Theorems 2.2 and 2.3 give multi/single-cluster multiplicative and order bounds: https://arxiv.org/pdf/1909.01927"
+      ],
+      "reasoning": "These are broader in cluster size and layout, but they do not yield the sharp universal symmetric-apodization constant or shape maximizer as stated. Classical equispaced prolate asymptotics remain genuine prior coverage of a subcase.",
+      "searches": [
+        "Conditioning of partial nonuniform Fourier matrices with clustered nodes Batenkov Demanet Goldman Yomdin 2018",
+        "The spectral properties of Vandermonde matrices with clustered nodes Batenkov Diederichs Goldman Yomdin 2019"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1809.00658",
+      "https://arxiv.org/pdf/1909.01927",
+      "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+      "https://arxiv.org/abs/1809.00658",
+      "https://arxiv.org/abs/1909.01927"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 Kunis–Nagel paper explicitly focuses on pairwise collisions and linear inverse-gap growth: https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "The 2019 paper acknowledges exact equispaced prolate analysis and obtains cluster-order estimates: https://arxiv.org/pdf/1909.01927"
+      ],
+      "reasoning": "An equispaced three-point special case does not imply the comparison for every weighted symmetric aperture and interior shape, and exponents/order bounds do not fix constants. A possible derivation from general confluent Vandermonde expansions remains a historical-priority risk, not an established covering implication.",
+      "searches": [
+        "three point Fourier superresolution sharp leading singular constant weighted frequency sampling",
+        "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes Kunis Nagel 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 work identifies clustered Vandermonde spectral scales, but its Theorem 2.3 is stated as two-sided bounds C10 and C11 rather than a limit coefficient: https://arxiv.org/pdf/1909.01927"
+      ],
+      "reasoning": "The present exact coefficient is an equality for fixed finite weighted apertures and non-equispaced positions. Mere equivalence of delta-squared scaling is insufficient to imply the coefficient and optimizer.",
+      "searches": [
+        "three-node Fourier cluster singular coefficient moment variance optimal third node exact",
+        "three spike superresolution singular value equispaced nodes leading constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches located clustered singular-value bounds and finite Fourier minors, but no tabulated constant for weighted three-node off-grid clusters. No absence-of-results inference is used as proof."
+      ],
+      "reasoning": "No specific database table containing the coefficient was identified. The mathematical comparison is based on the relevant theorems, not solely on search absence.",
+      "searches": [
+        "Clustered three node partial Fourier matrix superresolution small separation equispaced nodes maximal minimum singular value",
+        "three-node Vandermonde minimum singular exact weight variance midpoint superresolution"
+      ]
+    },
+    "rationale": "The inspected 2018 clustering paper gives optimal scaling exponents; the 2019 spectral paper gives rate bounds up to unspecified constants, and the 2020 paper deals with two-node rather than three-node collisions. None of these inspected results states the exact weighted fourth-moment coefficient simultaneously for every intermediate node position or its weight-independent unique optimal midpoint. Earlier equispaced and prolate results are credited; an older implicit confluent-moment formula remains possible, so historical priority is provisional.",
+    "residual_risks": [
+      "Sharp coefficient may be derivable from an earlier confluent Vandermonde or classical prolate expansion even though it is not stated in the inspected near-collision theorems.",
+      "No assertion of novelty for the quadratic exponent or for equispaced prolate eigenvalue asymptotics.",
+      "No exact fixed-positive-separation optimizer or uniform growing-bandwidth limit is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides sharp power laws and bounds, not the exact moment variance or weighted geometry optimum",
+        "evidence": "Definition 2.1 and Theorem 3.2/Corollary 3.6 in https://arxiv.org/pdf/1809.00658",
+        "identifier_or_url": "https://arxiv.org/pdf/1809.00658",
+        "material_read": "Definitions of Vandermonde normalization, introduction, main cluster estimates and Corollary 3.6, remarks on sharpness, checked in the full open preprint text and a page image",
+        "method": "Open-access arXiv PDF text and visual page review",
+        "title": "Conditioning of partial nonuniform Fourier matrices with clustered nodes",
+        "trigger": "Same Fourier sampling operator and clustered three-source instability"
+      },
+      {
+        "assessment": "Gives bounds proportional to the expected powers, not the exact normalized three-point constant nor optimizer",
+        "evidence": "Theorem 2.3 inequalities with C10 and C11 in https://arxiv.org/pdf/1909.01927",
+        "identifier_or_url": "https://arxiv.org/pdf/1909.01927",
+        "material_read": "Introduction, related-work discussion, and Theorems 2.2 and 2.3 with hypotheses and constants in full preprint, plus visual page review",
+        "method": "Open-access arXiv PDF source text and page image",
+        "title": "The spectral properties of Vandermonde matrices with clustered nodes",
+        "trigger": "Claims full spectral description for single clusters that could dominate proposed result"
+      },
+      {
+        "assessment": "Addresses clusters of size two, not the three-source second-order limiting design",
+        "evidence": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "material_read": "Open-access article abstract, introduction, formal matrix setup and comparison to earlier work",
+        "method": "Publisher full-text HTML",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Potential stronger sharp-conditioning theorem for nearly coincident Fourier nodes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0602ba6c-6c22-4737-82fa-f0fca4858049",
+  "value": {
+    "rationale": "Three close point sources are a canonical difficult geometry in sparse Fourier superresolution. The exact fourth-minus-second moment factor calibrates the amplitude recovery loss under arbitrary symmetric frequency apodizations, while its unique midpoint geometry optimizer is independent of that apodization. This is a complete natural leading-order design classification, stronger than restating known delta-squared order estimates.",
+    "status": "PASS"
+  }
+}
