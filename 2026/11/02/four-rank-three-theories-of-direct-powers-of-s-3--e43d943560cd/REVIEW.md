@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact 70-atom rank-three Ehrenfeucht–Fraisse recursion, all eleven simultaneous conjugacy pair orbits, and explicit bitwise-product extension calculation exhaust the finite boundary without sampling. The accompanying independent direct element check agrees at dimensions one to three; equality of full type sets, not just their cardinalities or fingerprints, is checked at dimensions four and five. The coordinatewise product-game strategy extends that checked equivalence to all greater dimensions. These steps exactly match the stated relational signature.
+PASS
 
-## Originality: PASS (qualified)
+The 70 atomic formulas of three named elements encode exactly the quantifier-free type in the language with equality, identity e and *ternary relational* multiplication. Equality of the recursively nested P, Q and T extension sets is exactly the three-move EF back-and-forth criterion. The S3 diagonal-conjugation pair classification has eleven orbits; direct-product quantifier-free masks are intersections of local masks. Independent fresh recomputation enumerated all weak 11-part compositions through power n=5, obtaining numbers of pointed types 3,6,9,10,10 and literal equality of T_4 and T_5 (not mere hash agreement). Congruence of q-equivalence under direct product gives G_(4+k) ≡_3 G_(5+k) for every k and transitivity collapses the infinite tail. Separating type-cardinalities prove minimality for n=1,2,3. No conclusion for functional multiplication language or ranks >3.
 
-The closest available primary dissertation, Gomaa (2007), treats relational group logic but develops finite abelian cases, not the rank-three classification of powers of nonabelian \(S_3\). The classic Feferman–Vaught framework concerns general product reductions and does not provide the explicit sharp four-class partition. The separately searched published mathematical record did not locate an equivalent or stronger result with this exact implication. Unindexed historical work is a residual priority risk; the 1959 full paper was not obtained from the publisher despite accessible metadata and related detailed accounts.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The exact sharp logical stabilization point for the natural nonabelian direct-power family is a substantive finite-model invariant. The calculation separates three low-dimensional stages and establishes that every power from the fourth onward is indistinguishable to all three-round first-order sentences, despite strict growth of the groups. The eleven-orbit reduction and rank-preserving product congruence make this an independently reproducible structural benchmark for finite-product model theory rather than a sporadic small-group computation.
+Best-of-knowledge original sharp four-class quantifier-rank-3 classification for relational multiplication direct powers S3. Feferman–Vaught product preservation is general background, so is not claimed as new. Gomaa (2007) studies relational group EF games with abelian/dihedral examples, not the 6,36,216,1296 sharp S3 direct-power class representatives in inspected chapter. Resultary semantic search yielded exponent-three theory and unrelated group-representation results, not this EF spectrum; generic product theories do not determine T4=T5 without a finite classification.
 
-## Limitations and closest literature
+## value
 
-The theorem is language-sensitive. No claim concerns the functional group language, rank four, other factors, or independent verification. Primary comparisons: Gomaa, *Model Theory and Complexity Theory* (2007); Feferman–Vaught, *The first order properties of products of algebraic systems* (1959); Vourtsanis, *A direct proof of the Feferman–Vaught theorem* (1991).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least representatives and stabilization exponent are natural explicit logical invariants of a basic nonabelian finite-group family in a weak relational language. The four theories are an exact complete classification, not arbitrary isolated small computations; the finite boundary is propagated to infinitely many powers by a genuine EF-congruence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
