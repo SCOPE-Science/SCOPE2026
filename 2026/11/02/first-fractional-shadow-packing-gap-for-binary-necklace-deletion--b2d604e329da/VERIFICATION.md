@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and limits
+# Independent mathematical audit
 
-The checker `verify.py`, run alongside `certificates.json`, reconstructs all canonical rotation classes and deletion-shadow sets for binary lengths one through nine. It verifies all explicit integer codewords, disjointness of their shadows, each rational output-shadow dual inequality, and equality of integral and fractional optima through eight. For length nine it checks each of the 36 fractional-packing capacities, all 60 fractional-cover inequalities, their common exact value \(41/4\), all pairwise edges within the 19 certified conflict cliques, all 60 weighted clique-cover inequalities, and total weight \(59/6<10\). The resulting integer upper bound is nine, matching the code witness.
+## correctness
 
-Executed test: `python verify.py` returned `VERIFY_OK; integral profile=1,2,2,3,3,5,6,8,9; F(9)=41/4; clique_bound=59/6`.
+PASS
 
-The proof is finite and completely enumerates the domains it asserts. The checker is not a test of larger blocklengths, historical priority, practical DNA performance or independent external audit.
+Canonical minimal rotation yields exactly the rotation-class input/output universes, deletion shadows invariant under representative rotation. Independently reconstructed all binary necklace universes for n=1..9, including the empty output at n=1. Exact BigInt rational inequalities verified all nine feasible disjoint-shadow code witnesses, each output-shadow dual cover n<=8 matching code size, and at n=9 each of 36 fractional packing capacities plus all 60 fractional covering inequalities at common value 41/4. The provided nine-code has pairwise disjoint shadows; each of 19 specified conflict-graph sets is a genuine clique, and their nonnegative rational cover weights >=1 at every vertex with sum 59/6<10. Thus every integral independent set has <=9 elements, while supplied size-nine code is feasible; this is an exact finite proof with both LP sides, not a floating-point solver output. This separately rederived arithmetic from the fetched certificates.json, not just VERIFY_OK.
+
+## originality
+
+PASS
+
+Best-of-knowledge original for the precise quantified final claim after comparing same-object and broader primary literature; the prior components/techniques are explicitly credited and residual historical-priority risk is retained.
+
+## value
+
+PASS
+
+The necklace quotient is a natural unrooted circular synchronization/deletion channel, unlike ordinary linear-word deletion codes. The first explicit strict gap between natural shadow-capacity LP and real code size reveals a structural obstruction the fractional formulation misses; rational primal/dual and conflict-clique witnesses make the precise n=9 threshold reproducible and theoretically useful. An exact finite obstruction qualifies without a conjecture about all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
