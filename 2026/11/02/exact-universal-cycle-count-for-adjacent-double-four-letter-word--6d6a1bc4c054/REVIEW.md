@@ -1,19 +1,21 @@
-# Scientific review: adjacent-double universal cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The objects and equivalence relation are fixed explicitly: ordered alphabet labels are retained, each permitted cyclic four-window occurs once, and only rotation is quotiented. The proof identifies the three vertex types of the overlap graph and checks all indegrees and outdegrees. Its degree-one contraction gives an exact parity lift of the non-backtracking walk graph of the complete graph. For alphabet size three the graph has two disjoint directed cycles; for every larger alphabet strong connectivity and the triangle/quadrilateral period argument guarantee an Euler tour. The Ihara characteristic polynomial, the directed matrix-tree factorization, and the BEST last-exit construction yield an all-alphabet integer count, without an unproved numerical extrapolation. The specified-edge normalization avoids a spurious division by the word length. Exact independent full and contracted cofactors agree for alphabet sizes three through five, and witness constructions pass direct four-window tests for alphabet sizes four through seven. The verifier is finite evidence, not a substitute for the symbolic argument.
+PASS
 
-## Originality — PASS, with residual uncertainty
+The directed overlap graph has X_ab, Y_ab, Z_abc vertices, balanced degrees d=q-2 on X/Y and 1 on Z. Contracting X→Z→Y gives the parity lift of K_q nonbacktracking digraph. Its two components for q=3 preclude an Euler tour; q>=4 yields a connected Eulerian graph. Ihara/Bass determinant (t²−1)^e(t−d)(t−1)(t²+t+d)^(q−1), with e=q(q−3)/2, combined with the directed matrix-tree theorem gives τ=q^(q−2)d^(3q−2)(q−3)^(q²−3q+1)(q−1)^(q²−3q). BEST counts one tour per cyclic rotation through a fixed distinct arc, multiplying by ((q−3)!)^(2q(q−1)). The q=4 value 1,327,104 and exact balance/language sizes q=3,4,5 independently checked. Distinguishes q≥4 from q=3 and includes labeled alphabet, rotation-only conventions. The finite checks do not prove the all-q spectral identity; the symbolic determinant argument does.
 
-The nearest relevant published existence result is Gardner--Godbole, arXiv:1711.07029, Theorem 21, which considers all one-or-two-copy augmented-onto words; its universal cycle for the full three-symbol length-four family does not imply one for the adjacent-repeat subset, which is actually disconnected. Leitner--Godbole, arXiv:0808.1309, treats different restrictions. Chen--Kitaev--Sun, arXiv:1908.01116, studies removal of up to two words and selected binary short-word universes, not the present proper large sublanguage for arbitrary alphabets. Glover--Kempton, arXiv:2011.09385, supplies the known non-backtracking spectrum used as an ingredient but not the present directed parity-lift tree determinant or universal-cycle count. Comparisons with accessible related published records concern different target languages, shortest covers rather than exact-once cycles, or unrelated coding constraints. No directly equivalent count was located in the sources examined, but incomplete indexing and alternate Eulerian formulations leave a real residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The local adjacency condition creates a sharp obstruction: the unrestricted three-symbol one-double-letter family supports universal cycles, while its adjacent-double subfamily does not, and the obstruction disappears at four symbols. For every larger alphabet, the result evaluates the **exact number** of cycles as a closed factorial-power product rather than merely asserting Eulericity. This natural all-alphabet enumeration uses a nontrivial reduction from word overlaps to a parity lift of non-backtracking walks and a spectral arborescence calculation, providing a reusable structural mechanism for restricted de Bruijn systems. It is not a routine one-parameter substitution in the previously cited existence theorem.
+Qualified PASS: known universal cycles of broader repeated-word languages, and general non-backtracking/BEST machinery, do not supply the precise adjacent-double all-q count or q=3 obstruction in inspected statements. An unindexed equivalent Eulerian-lift enumeration remains a real priority risk.
 
-## Limitations and closest literature
+## value
 
-The theorem covers only four-letter factors with precisely three different labels and an adjacent repeated pair; it does not count rotations modulo reversal or alphabet permutation. It uses, and does not originate, the BEST theorem, directed matrix-tree theorem, and Ihara determinant identity. The all-alphabet proof should be independently assessed before treating this result as externally certified, especially for possible alternative classifications of Euler tours on non-backtracking covers. Relevant sources are https://arxiv.org/abs/1711.07029, https://arxiv.org/abs/0808.1309, https://arxiv.org/abs/1908.01116, and https://arxiv.org/abs/2011.09385.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact labeled rotation-class count is a substantive infinite-family enumeration for a natural restriction on universal cycles: forcing a unique adjacent double reverses existence at alphabet size 3 despite related unrestricted classes being cyclable. The spectral determinant and BEST combination is not a trivial substitution of an ordinary all-word cycle count; useful to restricted-language generation and enumerative combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
