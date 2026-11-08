@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The proof localizes the event to ||X||≤K theta ||Y||, justifies limit interchange with an integrable kth-moment domination, converts the singular limit by an exact right orthogonal rotation, and computes the condition-number sublevel volume via the determinant-to-trace criterion. The boundary is a proper null algebraic hypersurface for nonzero Y. The k=2,3 Gaussian constants have independent exact rational numerical checks; experiments do not replace the proof. No unproved infinite-time or all-dimensional extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2607.10354v1 (Section 4.1 Algorithm 4) tracks a sketched basis condition number and its restart threshold; its Theorem 5 concerns method convergence for Stieltjes functions, not a two-column false-acceptance law.",
+        "arxiv:2306.03592 (Introduction and conditioning inequality (3)) gives embedding-based bounds for norms and basis conditioning, not the probability of sublevel conditioning as two inputs coalesce.",
+        "arxiv:1306.4790 gives the smallest eigenvalue distribution for fully correlated *Gaussian* Wishart ensembles, not arbitrary bounded-density first-vector laws."
+      ],
+      "reasoning": "The earlier Gaussian correlated-Wishart methods could cover the Gaussian specialization by integration, but they do not dominate the new distribution-free law (and give no general finite-k radial-moment universality as stated). The new statement is deliberately restricted to independent real vectors and a two-column raw matrix, so it does not claim a stronger general algorithm guarantee.",
+      "searches": [
+        "Two-dimensional randomized Krylov basis condition number estimator sketched Arnoldi false acceptance probability",
+        "Randomized Arnoldi sketch underestimated condition number, probability of false acceptance, sharp power of near-collinearity",
+        "Sketch-and-Restart arxiv 2607.10354 Gaussian sketch basis condition number rare false safe probability theta small nearly collinear",
+        "random perturbation condition number probability small angle column near rank deficient",
+        "correlated Gaussian Wishart condition number exact distribution"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10354v1",
+      "arxiv:2306.03592",
+      "doi:10.1137/0609045",
+      "doi:10.1137/070698932",
+      "arxiv:1306.4790",
+      "Tao–Vu, arxiv:math/0703307 (general randomized perturbation invertibility, no stated exact sublevel asymptotic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2607.10354v1: Algorithm 4 uses the condition threshold but gives no false-acceptance probability; its analyzed theorem concerns convergence of restarted methods.",
+        "arxiv:2306.03592: equation (3) bounds true/sketched basis conditioning under an embedding event, without this exact rare-event constant.",
+        "Anderson–Wells and Wirtz–Guhr handle particular Gaussian families; the new result holds for all independent Y with finite k-th moment and all bounded origin-continuous densities for X."
+      ],
+      "reasoning": "The result cannot be deduced as a numerical special case or rephrased corollary of the identified threshold algorithms or discrete-sketch obstruction. Existing broad Gaussian Wishart formulas may imply Gaussian special cases, which are treated as illustrative; the asserted new contribution is the explicit and universal non-Gaussian leading coefficient. Residual unindexed equivalence risk is real.",
+      "searches": [
+        "Gaussian sketch estimated condition number of a nearly collinear two-column basis, relative condition number chi-square F law, adaptive Arnoldi stopping",
+        "Sketch-and-Restart arxiv 2607.10354 Gaussian sketch basis condition number rare false safe probability theta small nearly collinear",
+        "condition number threshold Gaussian sketch collapse density-at-origin radial moment",
+        "arxiv:2607.10354 algorithm 4 condition number threshold sparse sketch false acceptance",
+        "arxiv:2306.03592 condition number subspace embedding probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The limit is a small-angle condition-number sublevel probability for a pair of correlated columns; an equivalent formulation is a small-ball volume around the zero first sketch column.",
+        "arxiv:2607.10354v1 Section 4.1 gives a condition-number stopping test for a sketched basis but no small-angle sublevel probability or density-at-zero coefficient in the inspected introduction, algorithm, analysis and conclusions.",
+        "doi:10.1137/070698932 formulates an iid Gaussian-matrix condition-number distribution, not this near-singular correlated family or general first-vector density."
+      ],
+      "reasoning": "The theorem is equivalent under an invertible column change and fixed-scale dilation to an exact geometric volume calculation. Search covered this formulation and conditioning/near-dependence terminology. Classical iid Wishart eigenvalue laws cannot imply the arbitrary-density and arbitrary-independent-Y version without a separate small-noise argument; there remains a risk that such an argument has been published in other terminology.",
+      "searches": [
+        "Gaussian sketch estimated condition number of a nearly collinear two-column basis, relative condition number chi-square F law, adaptive Arnoldi stopping",
+        "Probability Gaussian sketch misses near rank-deficiency, condition number underestimation and small-angle asymptotic",
+        "Universal small-angle false acceptance probability of random sketches for nearly linearly dependent 2-column basis, spectral condition number threshold, density at zero kth moment",
+        "Distribution-free sharp asymptotics for random matrix condition number of columns X and X plus epsilon Y, probability bounded by fixed K",
+        "Gaussian near-parallel column matrices sketch condition number distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1137/0609045 includes exact condition-number distributions of independent Gaussian matrices, with different covariance structure.",
+        "doi:10.1137/070698932 gives the exact distribution for iid Gaussian matrices."
+      ],
+      "reasoning": "Neither a directly tabulated leading constant for the near-parallel Gaussian covariance family nor a general density-at-origin/radial-moment table was found in the consulted indices. Failure to find a table is not a proof of absence.",
+      "searches": [
+        "Gaussian near-parallel column matrices sketch condition number distribution",
+        "Small-noise universality of condition-number sublevel volume for a random two-column matrix with almost collinear columns",
+        "Gaussian dense sketch two normalized Krylov basis vectors near parallel polynomial small false-safe probability",
+        "sharp theta-to-k power law sketched conditioning correlated Gaussian columns for near-singular basis",
+        "condition number threshold Gaussian sketch collapse density-at-origin radial moment",
+        "site:arxiv.org two correlated Gaussian columns condition number acceptance small angle law"
+      ]
+    },
+    "rationale": "The independent-vector, bounded-density, density-at-zero and radial-moment universality with an explicit k-dimensional geometric volume is not a stated consequence of the inspected sketch-conditioned Arnoldi threshold algorithms or the scoped iid/correlated Gaussian Wishart distributions. Priority remains qualified by inaccessible full publisher texts and possible unindexed equivalent small-ball results.",
+    "residual_risks": [
+      "The full text of Anderson–Wells and Edelman was not obtained; the Gaussian specialization may be derivable or tabulated there and is not claimed independently novel.",
+      "An equivalent density-at-origin small-noise condition-number volume formula may exist under a different terminology or outside indexed literature.",
+      "The motivating algorithm uses dependent sketch evolution across iterations and, in experiments, structured sparse embeddings; this theorem is an independent two-column raw-conditioning model, not a full algorithmic failure probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper uses an observed condition threshold to stop construction but does not derive the conditional small-angle false-acceptance probability, let alone a distribution-free leading coefficient.",
+        "evidence": [
+          "arxiv:2607.10354v1, Algorithm 4, condition threshold step 14",
+          "arxiv:2607.10354v1, Section 5, Theorem 5",
+          "arxiv:2607.10354v1, Section 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+        "material_read": "HTML-rendered complete paper content: introduction, Section 2 background, Section 4.1 truncated Arnoldi Algorithm 4 steps 1–23, Section 5 convergence theorem, and Section 7 conclusions; reference date and history checked. Not a mathematical proof of absent results elsewhere.",
+        "method": "Read relevant full-text sections and checked condition-number, probability, and threshold occurrences against the theorem",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Direct motivating thresholded sketch basis conditioning and same original source date"
+      },
+      {
+        "assessment": "Provides conditioning preservation under subspace embedding and sketched selection heuristics, not the singular-direction false-safe sublevel law.",
+        "evidence": [
+          "arxiv:2306.03592, Introduction, equations (2) and (3)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.03592",
+        "material_read": "HTML full-text Introduction including embedding inequalities (2), (3), Algorithm overview; searched probability and conditioning.",
+        "method": "Read original online HTML scientific sections and compared hypotheses and observables",
+        "title": "A sketch-and-select Arnoldi process",
+        "trigger": "Prior randomized sketch basis conditioning and embedding comparison"
+      },
+      {
+        "assessment": "Strong source for iid Gaussian special case; does not by its stated scope cover arbitrary independent non-Gaussian column laws.",
+        "evidence": [
+          "Edelman 1988 SIAM J. Matrix Anal. Appl. 9, 543–560, publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0609045",
+        "material_read": "Publisher abstract, explicitly including real and complex iid Gaussian and exact 2-by-n condition-number distributions; full article not inspected.",
+        "method": "Read publisher abstract and scope",
+        "title": "Eigenvalues and Condition Numbers of Random Matrices",
+        "trigger": "Exact condition-number distribution as a possible stronger classical formula"
+      },
+      {
+        "assessment": "Assumes iid standard Gaussian matrix entries, unlike the near-parallel correlated family. Does not dominate distribution-free theorem.",
+        "evidence": [
+          "Anderson & Wells 2009 SIAM J. Matrix Anal. Appl. 31, 1125–1130, publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070698932",
+        "material_read": "Publisher abstract and record; entire article not inspected.",
+        "method": "Read publisher abstract and hypotheses",
+        "title": "The Exact Distribution of the Condition Number of a Gaussian Matrix",
+        "trigger": "Potential exact distribution for k-by-2 random matrices"
+      },
+      {
+        "assessment": "Could potentially yield Gaussian leading coefficients after combining eigenvalue information, but does not establish the theorem for arbitrary independent vectors. Historical overlap risk recorded.",
+        "evidence": [
+          "Wirtz & Guhr 2013, arXiv:1306.4790, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.4790",
+        "material_read": "Full arXiv abstract, journal reference, source chronology; full article not inspected.",
+        "method": "Read primary abstract with its Gaussian restrictions and small-eigenvalue observable",
+        "title": "Distribution of the Smallest Eigenvalue in the Correlated Wishart Model",
+        "trigger": "Potential stronger correlated Gaussian Wishart results covering Gaussian specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77ed0fda-f213-4b42-a487-abc1949a1e85",
+  "value": {
+    "rationale": "The threshold acceptance event is directly motivated by actual algorithmic use of sketched basis condition numbers. The theorem identifies its sharp false-safe probability exponent k, computable leading constant and precise non-Gaussian universality under natural moment and density assumptions. This is a structural rare-event law with a concrete reliability interpretation, beyond a routine algebraic restatement; it explicitly excludes structured-sketch or multi-step guarantees.",
+    "status": "PASS"
+  }
+}
