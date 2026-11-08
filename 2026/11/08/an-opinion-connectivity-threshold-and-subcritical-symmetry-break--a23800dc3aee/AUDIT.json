@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact ODE is admissible and smooth near the studied equilibrium. The two mode blocks have determinants 11/30 and 1/2-w, proving the full stability threshold. The simple center eigenvalue at w=1/2 has cubic coefficient 164/11 > 0, proving nonlinear instability. An invertible two-equation equilibrium reduction yields branch slope -246/11 < 0 and precisely two nearby unstable nonsynchronous equilibria for w just below 1/2. The standalone exact-arithmetic symbolic checker reconstructs all critical identities; no finite experiment substitutes for the analytic implications.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Samadi et al. (2026) give full Jacobian expressions (Section III) and only synchronous endemic stability (Theorem 2).",
+        "She et al. (2021) abstract: cooperative/antagonistic opinions with SIS but not quadratic higher-order infection.",
+        "Kiss et al. (2023) public abstract: higher-order SIS without the same opinion adaptation."
+      ],
+      "reasoning": "The earlier general Jacobian covers the *formula from which* a local stability test can be derived, but does not imply positivity of the three critical derivatives or select the actual 1/2 transition and branch direction without this new computation. Pairwise-only opinion models and epidemic-only higher-order models are not stronger results on the same coupled vector field.",
+      "searches": [
+        "higher order SIS disease opinion dynamics homogeneous equilibria full stability 2024 2025",
+        "SIS epidemic opinion coupling consensus local symmetry breaking higher order self infection model transversality",
+        "doi:10.1093/comnet/cnad044",
+        "arxiv:2102.12834"
+      ]
+    },
+    "checked_sources": [
+      "Samadi et al., arXiv:2608.31032, full HTML Sections II–V (material equations/theorems read)",
+      "She et al., arXiv:2102.12834, abstract only",
+      "Kiss et al., doi:10.1093/comnet/cnad044, repository abstract only",
+      "Golubitsky–Stewart–Schaeffer, doi:10.1007/978-1-4612-4574-2, publisher overview only",
+      "Ouifki–Banasiak, doi:10.1002/mma.6389, title/abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 states attraction relative to synchrony, not against antisynchronous perturbations; the present endemic state retains synchronous attraction even for w>1/2, where it is a full-state saddle.",
+        "The chosen model includes both quadratic within-community infection and opinion diffusion; the two earlier works each omit one of these ingredients."
+      ],
+      "reasoning": "A statement only about a forward-invariant synchronous plane cannot imply four-dimensional stability; explicit w>1/2 provides a counterexample to that implication. An equilibrium Hopf classification on a different three-community synchronous system does not entail the claimed two-patch antisymmetric real-eigenvalue bifurcation.",
+      "searches": [
+        "arxiv:2608.31032 Theorem 2 synchronous invariant set",
+        "On a Network SIS Epidemic Model with Cooperative and Antagonistic Opinion Dynamics",
+        "Insights from exact social contagion dynamics on networks with higher-order structures"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2 of arXiv:2608.31032 (Section IV-A) is expressly relative to a synchronous invariant set; its epidemic-opinion field and Jacobian contain the present specialization.",
+        "The established model equations imply that the synchronous block is constant while the antisynchronous block changes with opinion Laplacian weight.",
+        "Classic equivariant bifurcation theory (Golubitsky, Stewart and Schaeffer, DOI 10.1007/978-1-4612-4574-2) provides abstract methods but no evaluated SIS coefficients."
+      ],
+      "reasoning": "Equivalent forms would include a transverse eigenvalue crossing, an attracting-to-saddle transition under symmetric opinion-edge coupling, or a nondegenerate two-patch pitchfork for this precise higher-order SIS-opinion vector field. None of the material inspected states such a result. Generic symmetry-breaking theorems are not the calculation of the specialized cubic 164/11 and slope -246/11.",
+      "searches": [
+        "\"HOI-SIOS\" \"endemic\" \"transverse\" 2026",
+        "\"SIS\" \"opinion\" \"symmetry breaking\" endemic bifurcation higher order community",
+        "arxiv:2608.31032 equations (3)-(4) and Jacobian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source gives numerical synchronous prevalence near 0.5113 on a five-community example, not a two-community opinion-weight table or the stated rational coefficients.",
+        "The exact symbolic checker reproduces 1/2, -246/11 and 164/11 from (1); none is copied from a known database/table."
+      ],
+      "reasoning": "No exact table for this two-community model or threshold was encountered. Search nonappearance is only absence of a found covering table, not proof of global uniqueness.",
+      "searches": [
+        "\"HOI-SIOS\" \"endemic\" \"transverse\" 2026",
+        "Saba Samadi Caiza Gracy Pare 2608.31032 full synchronous stability bifurcation higher order opinions",
+        "two community SIS opinion model opinion coupling destabilizes endemic equilibrium higher order local transverse pitchfork"
+      ]
+    },
+    "rationale": "The motivating 2026 full-text model establishes endemic stability only within the synchronous invariant set, whereas the assessed claim identifies its exact two-community full-state loss at opinion-edge weight 1/2 and determines a nondegenerate subcritical asymmetric branch. The general full Jacobian in that source does not state the evaluated threshold or its critical cubic. Relevant older SIS-opinion work lacks this higher-order self-exposure; higher-order SIS literature without the coupled opinion rule and general pitchfork theory do not imply the numerical threshold. Actual database, own-history and literature comparisons found no covering claim, subject to specified access and indexing risks.",
+    "residual_risks": [
+      "Equivalently parametrized or unindexed prior work may contain the same specific two-community equilibrium calculation.",
+      "The earlier related SIS-opinion paper and higher-order SIS paper were compared on publicly available abstracts rather than complete technical appendices.",
+      "The proof establishes a local bifurcation in one rational-parameter subfamily, not a universal opinion-coupling threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact full-state two-community transverse threshold and nonlinear branch",
+        "evidence": "Section IV-A explicitly confines the endemic stability theorem to the synchronous invariant set. The text supplies the general Jacobian but no antisynchronous eigenblock at the stated rational parameters or center cubic.",
+        "identifier_or_url": "https://arxiv.org/html/2608.31032",
+        "material_read": "Primary full-text HTML, introduction, equations (1)-(4), Sections III and IV including Theorem 2, and Section V model example",
+        "method": "Read relevant primary HTML passages and compare equations, hypotheses, and scopes",
+        "title": "A Networked SIS Epidemic–Opinion Model with Higher-Order Interactions",
+        "trigger": "Same precise epidemic-opinion model, feedback, full Jacobian and synchronous result"
+      },
+      {
+        "assessment": "DIFFERENT_PAIRWISE_MODEL; unresolved full-text equivalence risk disclosed",
+        "evidence": "The abstract describes network SIS and cooperative/antagonistic opinions; it does not identify the published quadratic higher-order exposure of arXiv:2608.31032.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.12834",
+        "material_read": "Bibliographic record and abstract; full text not materially inspected",
+        "method": "Compared abstract model description with presence of quadratic source exposure",
+        "title": "On a Network SIS Epidemic Model with Cooperative and Antagonistic Opinion Dynamics",
+        "trigger": "Earlier epidemic-opinion model with signed networks"
+      },
+      {
+        "assessment": "DIFFERENT_EPIDEMIC_ONLY_MODEL; residual equivalence risk disclosed",
+        "evidence": "The public abstract discusses higher-order network SIS and global bifurcation patterns but no coupled dynamic opinion variable.",
+        "identifier_or_url": "https://nul.repository.guildhe.ac.uk/id/eprint/1505/",
+        "material_read": "Repository abstract and publication summary; not full proof",
+        "method": "Compared epidemic interaction mechanisms and absence of evolving coupled opinions",
+        "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+        "trigger": "Prior exact higher-order SIS bifurcation results"
+      },
+      {
+        "assessment": "GENERAL_METHODOLOGY_NOT_SPECIFIC_CLAIM",
+        "evidence": "The book covers symmetry-breaking steady-state bifurcations and equivariant normal forms in general; no network SIS-opinion coefficients are presented in the inspected material.",
+        "identifier_or_url": "https://link.springer.com/book/10.1007/978-1-4612-4574-2",
+        "material_read": "Publisher book overview and contents (not full chapters)",
+        "method": "Compared general Z2 symmetry method with model-specific exact computations",
+        "title": "Singularities and Groups in Bifurcation Theory, Volume II",
+        "trigger": "Broader general equivariant pitchfork theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a23800dc-3aee-4dec-9ec4-3efb9ccf3c81",
+  "value": {
+    "rationale": "The motivating epidemic-opinion paper leaves stability under unsynchronized perturbations unresolved while proving attraction only for synchronous initial data. This exact model demonstrates a sharp reversal: greater opinion connectivity destabilizes a locally attracting endemic equilibrium, and the nonlinear calculation identifies a subcritical rather than restoring symmetry-breaking transition. This is a motivated parameter boundary and a substantive counterexample to extending synchronous attraction to the full epidemic-opinion network; the result does not claim a universal effect.",
+    "status": "PASS"
+  }
+}
