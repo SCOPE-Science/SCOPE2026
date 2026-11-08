@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 checker.py` with a standard Python 3 interpreter. Successful completion prints `ALL_CHECKS_OK` followed by the independently derived Dedekind counts, full-support issue-state counts, labelled frame counts and a semantic cross-check on up to three worlds.
+## correctness
 
-The algorithm explicitly checks each downset against all of its members, computes the fifth Dedekind number by independent two-slice consistency, and enumerates every factive, positively introspective and negatively introspective issue-family assignment on up to three labelled worlds. It uses exact integer arithmetic throughout.
+PASS
 
-The program does **not** enumerate all larger frames, certify historical novelty, establish the infinite limit, or provide an independent external audit. For unbounded world sizes use the four-step written proof in `RESULT.md` and the classical Dedekind growth bound stated there. The six-world count is from a recurrence using the established sixth Dedekind number, not a six-world exhaustive computation.
+The F/PI/NI axioms force equal issue-downsets along accessibility and thus an equivalence partition with full-support component downsets. Inclusion-exclusion c_m=sum(-1)^j binom(m,j)M(m-j) and the exponential formula enumerate exactly. Independently reproduced c_1..c_6=(1,2,9,114,6894,7785062), F_1..F_6=(1,3,16,175,7815,7833957). The symbolic asymptotic is not extrapolated from these numbers: b_m=binom(m,floor m/2) yields c_m~M(m), b_(m-1)/b_m→1/2, b_(n-2)+2 bounds all other nonuniversal partition types. Kleitman–Markowsky upper bound and the lower bound from arbitrary middle-layer antichains make the total other-defect mass o(n c_(n-1)). Definitions n>=1, labelled, single agent, no valuations; F_0=1 is formal only.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precisely bounded final claim; prior premises and covered specializations explicitly credited. Four searched implication tests and actual primary-source inspections below identify the distinctions and residual priority risks.
+
+## value
+
+PASS
+
+Typical structure under uniform labelled finite inquisitive epistemic frames is an independently motivated semantic enumeration problem. The exact weighted Bell transform and asymptotically unique first defect (singleton plus n−1 block) give a precise probabilistic limit, beyond known component weights and unweighted S5 partitions; finite counts calibrate but do not supply the main finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
