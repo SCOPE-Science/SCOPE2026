@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the free symmetric Lamperti fraction with a ratio of independent positive stable variables, derives its Stieltjes transform, uses the independent Poisson regenerative decomposition, and obtains a unique real pole by strict monotonicity. A tilted non-arithmetic renewal theorem gives the true long-time scaled cumulant generating function (not merely a formal transform singularity). Its global analyticity, strict convexity and compact-domain exponential tightness yield the full large-deviation principle. The exact rational-power parameterization controls both endpoint values and the nonanalytic cusp coefficient. The independently implemented standard-library verifier passed 298 checks of analytic transform against quadrature, symmetry, curvature, Brownian specialization, strict convexity samples and endpoint scaling. Limits: finite checks cannot certify all parameters, and the proof assumes the symmetric self-similar continuum diffusion and full renewal at every reset.
+## correctness
 
-## Originality — PASS (qualified, best knowledge)
-The 2026 sluggish-diffusion work explicitly gives the free Lamperti occupation law, resetting double-Laplace transform, and long-time Gaussian core but no explicitly evaluated all-deviation rate or sharp \(\mu\)-dependent endpoint cusp in its inspected Section 6.1. The 2018 den Hollander–Majumdar–Meylahn–Touchette preprint was inspected in full in Sections II and IV: it derives the generic renewal transform and specifically the Brownian \(\mu=1/2\) occupation rate, which is excluded from the novelty claim. The 2015 general Markov-reset paper and 2020 run-and-tumble paper describe common renewal/LDP techniques, also credited. Targeted literature and research-database searches did not identify the exact nonconstant-diffusivity Lamperti pole parameterization together with its sluggish endpoint exponent and coefficient. A deeper generalization of the existing renewal theorems may imply these formulas; that is a residual priority risk, not a novelty proof based on search absence. No independent audit was performed.
+PASS
 
-## Value — PASS
-The motivating publication characterizes a Gaussian \(1/\sqrt{T}\) core, which does not determine occupation fractions close to zero or one. The present exact full rate and \(\varepsilon^\mu\) cusp quantify atypically one-sided trajectories at order-one deviations, revealing a continuously varying singular exponent fixed by spatially slowing diffusivity. This solves a natural missing tail question for a recent model; the exact coefficient distinguishes it from generic Brownian resetting and gives a directly interpretable rare-event scale. No downstream paper-sized theorem is claimed.
+PASS: The free positive occupation fraction is a ratio of two independent positive mu-stable variables, yielding E[(a(1-V)+bV)^(-1)]=(a^(mu-1)+b^(mu-1))/(a^mu+b^mu). Conditioning on the first independent Poisson reset gives M_k(t)=e^(-rt)g_k(t)+r(e^(-r.)g_k)*M_k and Laplace denominator 1-rG_k(r+s). The unique real pole has r+psi>max(0,k) because the Stieltjes function strictly decreases from infinity at the endpoint to zero. Exponential tilting of its finite-mean, nonlattice renewal kernel gives the growth exponent psi(k), analytic strictly convex by the positive tilted-excursion variance. Gärtner–Ellis plus compact support gives the full LDP with boundary limits by continuity from interior. The q=(r+psi-k)/(r+psi) substitution gives the displayed parametric formulas; expansion q->0 proves I(eps)=r-[r/mu](mu/(1-mu))^(1-mu)eps^mu+o(eps^mu). The mu=1/2 boundary recovers the known Brownian rate. Independent high-precision Stieltjes/pole/quadratic-core calculations checked mu=.25,.4,.5. These numerical checks do not replace the infinite-time renewal proof.
 
-## Source comparisons and limitations
-Source [1]: T. Dwamena Frimpong, L. Bresque, É. Roldán, arXiv:2610.21962v1 (2026), full accessible HTML Sections 1, 2, 3, 6.1, 8. Source [2]: F. den Hollander et al., arXiv:1801.09909 / EURANDOM report 2018-002, full PDF Sections II and IV. Source [3]: J. M. Meylahn et al., arXiv:1510.02431, abstract and bibliographic material. Source [4]: P. C. Bressloff, arXiv:2009.01968, abstract and summary. The original 2026 paper's free Lamperti law and double transform, 2015 generic resetting renewal method, and 2018 explicit Brownian LDP are not new. No claim is made for finite lattice spacing, non-Poisson resets, or non-self-similar occupation laws. The possibility of broad prior coverage beyond inspected text remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Frimpong–Bresque–Roldán (2026) provide the free sluggish Lamperti distribution, reset occupation transforms and long-time Gaussian core but not this full nonquadratic LDP/edge exponent in inspected Section 6.1 and conclusion. Den Hollander et al. (2018) prove a Brownian mu=1/2 occupation LDP and general resetting methods. The audit claims only the alpha>0 explicit rate and exact sluggish edge coefficient, not generic resetting theory. General positive-stable functional LDPs may imply a specialization, a material residual priority risk.
+
+## value
+
+PASS
+
+PASS: The exact non-Gaussian rate and fractional endpoint exponent quantify exponentially rare occupation imbalance in the recently studied sluggish reset model. They sharpen a Gaussian central-limit core to an entire constrained large-deviation law and precisely isolate a physically meaningful dynamical parameter mu; this is a motivated missing statistic, not a general theorem restated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

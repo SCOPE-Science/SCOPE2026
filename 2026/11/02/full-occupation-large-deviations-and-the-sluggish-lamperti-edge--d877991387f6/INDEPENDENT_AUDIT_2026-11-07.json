@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:54:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The free positive occupation fraction is a ratio of two independent positive mu-stable variables, yielding E[(a(1-V)+bV)^(-1)]=(a^(mu-1)+b^(mu-1))/(a^mu+b^mu). Conditioning on the first independent Poisson reset gives M_k(t)=e^(-rt)g_k(t)+r(e^(-r.)g_k)*M_k and Laplace denominator 1-rG_k(r+s). The unique real pole has r+psi>max(0,k) because the Stieltjes function strictly decreases from infinity at the endpoint to zero. Exponential tilting of its finite-mean, nonlattice renewal kernel gives the growth exponent psi(k), analytic strictly convex by the positive tilted-excursion variance. Gärtner–Ellis plus compact support gives the full LDP with boundary limits by continuity from interior. The q=(r+psi-k)/(r+psi) substitution gives the displayed parametric formulas; expansion q->0 proves I(eps)=r-[r/mu](mu/(1-mu))^(1-mu)eps^mu+o(eps^mu). The mu=1/2 boundary recovers the known Brownian rate. Independent high-precision Stieltjes/pole/quadratic-core calculations checked mu=.25,.4,.5. These numerical checks do not replace the infinite-time renewal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 Theorem II.1 is the general reset generating-function identity; its Section IV gives r[1-2sqrt(u(1-u))] for Brownian occupation.",
+          "2026 sluggish paper Section 6.1 gives Lamperti free ratio and Gaussian long-time behavior, not a stated full alpha>0 rate law."
+        ],
+        "reasoning": "Combining known ingredients makes the non-Brownian pole tractable, but computing its entire implicit Legendre law and fractional-power sharp edge requires an explicit mu-dependent evaluation; no directly dominating theorem with that formula was verified in the inspected full texts.",
+        "searches": [
+          "arXiv:1801.09909 Section II Theorems II.1–II.2 and Section IV",
+          "arXiv:1510.02431",
+          "arXiv:2610.21962 Section 6.1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 45891d5bbf03a5cda75fd6c0af294e494e224fa5",
+        "verify.py blob 8ad233c0d4586f94c5865b10f591db3abed4c2a8",
+        "arXiv:2610.21962 full accessible Section 6.1",
+        "arXiv:1801.09909 full preprint Theorem II.1 and Section IV",
+        "arXiv:1510.02431",
+        "arXiv:2009.01968"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Gaussian core gives only psi''(0)=(1-mu)/(2r), insufficient to recover nonlinear psi(k) or edge exponent.",
+          "Brownian exact rate exponent is 1/2; for alpha>0 the proved power is mu<1/2."
+        ],
+        "reasoning": "The prior general renewal denominator is an enabling tool rather than a full numerical evaluation for this free occupation law. The sharp fractional edge coefficient and entire rate depend on the stable ratio transform and are not consequences of matching central variances.",
+        "searches": [
+          "Frimpong Bresque Roldan 2026 Section 6.1",
+          "den Hollander et al. 2018 IV.17 and IV.18",
+          "Meylahn et al 2015 reset LD"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The free occupation law is equivalently S1/(S1+S2) for iid positive mu-stable variables and its Stieltjes transform is explicit.",
+          "The SCGF pole is equivalently the Perron/renewal root r E[(r+psi-kV)^(-1)]=1."
+        ],
+        "reasoning": "The alternative stable-ratio/renewal-reward formulation is checked explicitly; changed diffusion vocabulary would not establish originality if a general stable-renewal formula already gave the entire rate and edge coefficient.",
+        "searches": [
+          "sluggish diffusion occupation fraction reset Lamperti rate large deviations stable occupation",
+          "Lamperti stable occupation Poisson resetting Stieltjes large-deviation rate",
+          "arXiv:2610.21962 Section 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Brownian mu=1/2 formula is an already published special row, exactly recovered.",
+          "Resultary indexed results were disjoint stochastic diffusion/relaxation or renewal problems, with no matched full sluggish rate."
+        ],
+        "reasoning": "No exact alpha>0 table was located. A general table of Lamperti occupation under restart, if present, would cover this even without using the word sluggish; absence from one index is not a novelty guarantee.",
+        "searches": [
+          "sluggish diffusion occupation fraction reset Lamperti rate large deviations stable occupation",
+          "Brownian reset occupation rate r(1-2sqrt(u(1-u)))",
+          "Resultary sluggish reset occupation rate"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Frimpong–Bresque–Roldán (2026) provide the free sluggish Lamperti distribution, reset occupation transforms and long-time Gaussian core but not this full nonquadratic LDP/edge exponent in inspected Section 6.1 and conclusion. Den Hollander et al. (2018) prove a Brownian mu=1/2 occupation LDP and general resetting methods. The audit claims only the alpha>0 explicit rate and exact sluggish edge coefficient, not generic resetting theory. General positive-stable functional LDPs may imply a specialization, a material residual priority risk.",
+      "residual_risks": [
+        "A published general large-deviation theorem for restarted stable-ratio occupation rewards might imply the explicit mu-dependent pole and edge coefficient.",
+        "Assumption is the nonsticky self-similar continuum sluggish diffusion at the origin; finite lattice approximations are not uniform."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_INPUT_GAUSSIAN_NOT_FULL_RATE",
+          "evidence": "Provides free symmetric Lamperti occupation law, Poisson double Laplace description and long-time Gaussian core with variance (1-mu)/(2rT); no complete alpha>0 rate/edge formula in inspected sections.",
+          "identifier_or_url": "arXiv:2610.21962; https://www.paperpeel.com/paper/2610.21962",
+          "material_read": "Full accessible HTML article with Section 6.1, conclusions and occupation distribution discussion",
+          "method": "Readable full-text inspection of occupation and conclusions",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Same free sluggish diffusion and Poisson reset occupation observable"
+        },
+        {
+          "assessment": "BROWNIAN_SPECIALIZATION_AND_METHOD_ALREADY_KNOWN",
+          "evidence": "Section IV states exact Brownian r[1-2sqrt(u(1-u))] and reset transform G0(k,s)=1/sqrt(s(s-k)); paper explicitly focuses on Brownian examples.",
+          "identifier_or_url": "arXiv:1801.09909; https://www.eurandom.tue.nl/reports/2018/002-report.pdf",
+          "material_read": "Complete 21-page lawful preprint accessed; particularly Section II Theorems II.1–II.2 and Section IV Eqs IV.16–IV.18 and surrounding proof",
+          "method": "PDF text plus visual screenshot inspection",
+          "title": "Properties of additive functionals of Brownian motion with resetting",
+          "trigger": "Exact closely related Brownian reset occupation LDP and general method"
+        },
+        {
+          "assessment": "GENERAL_METHOD_PRIOR",
+          "evidence": "General reset-LDP methodology precedes the assessed mu-dependent evaluation; no full-document noncoverage claim.",
+          "identifier_or_url": "arXiv:1510.02431",
+          "material_read": "Accessible abstract and literature context; full text not material-read in this run",
+          "method": "Preprint abstract and cross-reference from Brownian full text",
+          "title": "Large deviations for Markov processes with resetting",
+          "trigger": "Generic resetting LDP machinery"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS",
+          "evidence": "Run-and-tumble dynamics have a different free sojourn transform; possible general structural analog only.",
+          "identifier_or_url": "arXiv:2009.01968",
+          "material_read": "Accessible abstract and source references; full text not material-read",
+          "method": "Bibliographic/abstract comparison",
+          "title": "Occupation time of a run-and-tumble particle with resetting",
+          "trigger": "Other kinetic reset occupation LDP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact non-Gaussian rate and fractional endpoint exponent quantify exponentially rare occupation imbalance in the recently studied sluggish reset model. They sharpen a Gaussian central-limit core to an entire constrained large-deviation law and precisely isolate a physically meaningful dynamical parameter mu; this is a motivated missing statistic, not a general theorem restated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a self-similar symmetric sluggish continuum diffusion with alpha>0 and complete Poisson resets, the occupation fraction has a full LDP with an explicit Lamperti-dependent pole equation, rate parameterization and sharp edge exponent mu=1/(alpha+2).",
+  "limitations": [
+    "The general proof uses key-renewal and Gärtner–Ellis theory, not finite numerical experiments.",
+    "Only complete memory-erasing Poisson resets in the specified continuum realization; no point-mass endpoint density or finite-time prefactor claim.",
+    "General renewal-reward rate prior-art risk remains, and public operational metadata not sanitized."
+  ],
+  "schema_version": 1
+}
