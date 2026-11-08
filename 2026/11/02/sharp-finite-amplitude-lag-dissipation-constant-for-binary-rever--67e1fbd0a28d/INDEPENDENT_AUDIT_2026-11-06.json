@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:01:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an irreducible two-state reversible generator with q=a/(a+b), s=a+b, h(x)=log[x/(1-x)], the flux expression is sigma_s(x)=s(x-q)[h(x)-h(q)]. Thus the squared indicator lag/entropy production is exactly F_q(x)/s=(x-q)/{s[h(x)-h(q)]}. Differentiation gives N_q=h(x)-h(q)-(x-q)h'(x), N_q'=-(x-q)h''(x); h'' changes sign only at x=1/2. For q<1/2, F is smaller than its q-limit to the left, strictly rises on (q,1/2], then has precisely one non-equilibrium maximum x_q in (1/2,1) before descending to zero at x=1; q>1/2 follows reflection, q=1/2 follows h'(x)>=4. At the unique root F=x_q(1-x_q); hence C=x_q(1-x_q)/s versus balanced C=1/(4s). With L=log((1-q)/q), y=(1-x_q)^-1 solves y-qy²/(y-1)-L-log(y-1)=0; bracketing y=L+log L+o(1) yields the reported rare-output expansions and C/tau_m~1/[q log(1/q)]. Independent bisection/grid/derivative calculations for q=.1,.01,.3,.5,.7 and rare q=1e-8 matched the root and values, but finite checks do not imply the global statement. Frozen result and verifier scripts were read.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Limmer arxiv:2608.23764v1 Eq. S23 and S43",
+          "Diaconis–Saloff-Coste (1996), DOI 10.1214/aoap/1034968224"
+        ],
+        "reasoning": "Inspect arbitrary-amplitude Markov entropy production bounds and binary-chain log-Sobolev estimates for dominating constants. The available arbitrary-amplitude guarantee is not sharp for the indicator quotient; equilibrium small-lag bound does not dominate the global q-biased optimizer.",
+        "searches": [
+          "sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant",
+          "Chen–Limmer arxiv:2608.23764v1 Eq. S23 and S43",
+          "Diaconis–Saloff-Coste (1996), DOI 10.1214/aoap/1034968224"
+        ]
+      },
+      "checked_sources": [
+        "Chen and Limmer (2026), Entropy Production Bounds the Accuracy of Computation in Markov Networks, arXiv:2608.23764v1; main text and supplementary Sections I–II (read)",
+        "Aldous and Fill, Reversible Markov Chains, Ch.8 §8.4.3 Example 8.28 (binary log-Sobolev related, not same quotient)",
+        "Resultary search: sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2608.23764v1 Supplementary material §I–II, Eq S23 and S43"
+        ],
+        "reasoning": "Compare the fully quantified finite-amplitude statement with small-lag leading-order and nonsharp all-amplitude statements. Small-lag bound provides tau_m=q(1-q)/s, but for q≠1/2 the new exact C is strictly larger. Therefore the cited small-lag statement cannot imply the claimed sharp global coefficient.",
+        "searches": [
+          "sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant",
+          "arxiv:2608.23764v1 Supplementary material §I–II, Eq S23 and S43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2608.23764v1 supplementary §I–II",
+          "Aldous–Fill Example 8.28"
+        ],
+        "reasoning": "Search lag-entropy inequalities as binary flux/current, log-odds secant and modified log-Sobolev constants; compare the exact supremum over all x to known equilibrium coefficient. The prior log-Sobolev constant compares different entropy/Dirichlet quantities; the source small-lag coefficient is only the q-limit of the optimized secant quotient, not the same global sharp value.",
+        "searches": [
+          "sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant",
+          "arxiv:2608.23764v1 supplementary §I–II",
+          "Aldous–Fill Example 8.28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant"
+        ],
+        "reasoning": "Resultary semantic search for sharp binary chain entropy-lag constants, rare-state behavior and exact equality states. No exactly corresponding binary finite-amplitude table among returned relevant results; search silence is not proof of novelty.",
+        "searches": [
+          "sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant",
+          "Resultary query: sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant"
+        ]
+      },
+      "rationale": "The global two-state finite-amplitude extremal coefficient and non-equilibrium equality state go beyond the cited near-equilibrium memory normalization and general nonsharp entropy bounds. Qualified best-of-knowledge only: classical two-state functional-inequality optimization might implicitly contain the same secant quotient.",
+      "residual_risks": [
+        "An older exact binary entropy-dissipation inequality may imply the same optimizing log-odds secant formula, not ruled out by the retrieved sources.",
+        "Only frozen binary reversible indicator outputs are covered; no many-state or driven-protocol conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected statements give a general nonsharp bound and a near-equilibrium coefficient, rather than the sharp biased two-state global maximization.",
+          "evidence": [
+            "supplementary Eq. S23; small-lag Eq. S43"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.23764v1",
+          "material_read": "Primary full HTML main and relevant supporting material I–II, including all-amplitude bound and small-lag coefficient",
+          "method": "public full-text HTML",
+          "title": "Entropy Production Bounds the Accuracy of Computation in Markov Networks",
+          "trigger": "same two-state observable entropy-production framework"
+        },
+        {
+          "assessment": "Related classical technique, not affirmative exact global coverage.",
+          "evidence": [
+            "Example 8.28"
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch8.S4.html",
+          "material_read": "Chapter 8 §8.4.3 binary two-state log-Sobolev normalization; no identical observable squared-lag ratio read",
+          "method": "public textbook section",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, Example 8.28",
+          "trigger": "possible binary log-Sobolev equivalent formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal coefficient tests the exact finite-amplitude accuracy versus entropy-production tradeoff for the simplest reversible computation channel; its strict deviation from the usual integrated-memory coefficient is quantitatively important for rare equilibrium states, not merely a normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chen and Limmer (2026), Entropy Production Bounds the Accuracy of Computation in Markov Networks, arXiv:2608.23764v1; main text and supplementary Sections I–II (read)",
+    "Aldous and Fill, Reversible Markov Chains, Ch.8 §8.4.3 Example 8.28 (binary log-Sobolev related, not same quotient)",
+    "Resultary search: sharp entropy production indicator lag finite amplitude binary reversible two state Markov networks log odds constant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only s>0, q∈(0,1), x∈(0,1) binary reversible frozen generator and indicator output; endpoint q=0/1 not claimed.",
+    "Global constant attained at non-equilibrium x_q only if q≠1/2; q=1/2 sharp only as x→q.",
+    "Finite independent numerical checks supplement but do not prove global quantifiers.",
+    "Frozen public AUDIT.json and METADATA.json contain operational scope_run_id in each package. Complete confidentiality-safe replacement UTF-8 bytes with exact source Git blob guards and SHA-256 content hashes were not staged; publication must be withheld."
+  ],
+  "residual_risks": [
+    "An older exact binary entropy-dissipation inequality may imply the same optimizing log-odds secant formula, not ruled out by the retrieved sources.",
+    "Only frozen binary reversible indicator outputs are covered; no many-state or driven-protocol conclusion."
+  ],
+  "schema_version": 1
+}

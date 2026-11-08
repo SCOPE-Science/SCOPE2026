@@ -1,21 +1,21 @@
-# Scientific assessment: sharp binary lag–dissipation constant
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive pair of transition rates and every interior instantaneous distribution, the entropy production is exactly \(s(x-q)[\operatorname{logit}(x)-\operatorname{logit}(q)]\). Dividing squared lag by this rate reduces the sharp constant to the maximum of a positive log-odds secant quotient. The derivative numerator and its sign are derived explicitly in the proof: when \(q<1/2\) the quotient increases to one unique root beyond \(1/2\) and decreases thereafter, with both endpoint limits zero. State reflection and the pointwise bound \(h'\ge4\) cover the other cases. The exact rare-output root equation yields the asserted \(L+\log L\) expansion by monotone bracketing. The standard two-state semigroup proves the memory normalization. The standalone checker performed 96,157 deterministic assertions, including optimizer equality and a dense parameter grid. Such finite checks do not certify the continuous domain: that is the role of the analytical proof.
+PASS
 
-## Originality — PASS (qualified, best-knowledge)
+For an irreducible two-state reversible generator with q=a/(a+b), s=a+b, h(x)=log[x/(1-x)], the flux expression is sigma_s(x)=s(x-q)[h(x)-h(q)]. Thus the squared indicator lag/entropy production is exactly F_q(x)/s=(x-q)/{s[h(x)-h(q)]}. Differentiation gives N_q=h(x)-h(q)-(x-q)h'(x), N_q'=-(x-q)h''(x); h'' changes sign only at x=1/2. For q<1/2, F is smaller than its q-limit to the left, strictly rises on (q,1/2], then has precisely one non-equilibrium maximum x_q in (1/2,1) before descending to zero at x=1; q>1/2 follows reflection, q=1/2 follows h'(x)>=4. At the unique root F=x_q(1-x_q); hence C=x_q(1-x_q)/s versus balanced C=1/(4s). With L=log((1-q)/q), y=(1-x_q)^-1 solves y-qy²/(y-1)-L-log(y-1)=0; bracketing y=L+log L+o(1) yields the reported rare-output expansions and C/tau_m~1/[q log(1/q)]. Independent bisection/grid/derivative calculations for q=.1,.01,.3,.5,.7 and rare q=1e-8 matched the root and values, but finite checks do not imply the global statement. Frozen result and verifier scripts were read.
 
-Chen and Limmer's 2026 paper gives the reversible-generator dissipation identity, the small-lag correlation-time bound, and an all-amplitude nonsharp log-Sobolev bound. Its main and supporting relevant derivations have been examined. Its small-lag coefficient agrees with the equilibrium limit here; it is **not asserted** to be a global coefficient in that source. The present claim instead optimizes the precise binary squared-lag/entropy-production ratio over all distributions, identifies a unique biased nontrivial equality state, and gives sharp rare-equilibrium asymptotics. The classical exact two-state logarithmic Sobolev time in Aldous–Fill uses an entropy-versus-Dirichlet quotient, not this observable quotient. Bibliographic examinations of further entropy-dissipation sources have not identified this exact three-part theorem. Full exhaustive priority is not established: the result might be a corollary of an unexamined general nonlinear two-point functional inequality.
+## originality
 
-## Value — PASS
+PASS
 
-The optimal finite-amplitude constant is a natural, experimentally interpretable thermodynamic performance parameter for a binary-output Markov network. It shows exactly how much the equilibrium autocorrelation coefficient underestimates possible large-deviation lag at fixed entropy-production rate. The unique equality distribution makes the bound attainably sharp for every biased equilibrium; the logarithmically corrected rare-output law gives an analytically nontrivial scale, rather than a numerically selected special case. This is a motivated structural refinement of the recent computational thermodynamics result, not a renaming of the author's existing small-lag inequality or a generic textbook comparison.
+The global two-state finite-amplitude extremal coefficient and non-equilibrium equality state go beyond the cited near-equilibrium memory normalization and general nonsharp entropy bounds. Qualified best-of-knowledge only: classical two-state functional-inequality optimization might implicitly contain the same secant quotient.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: Songela W. Chen and David T. Limmer, *Entropy Production Bounds the Accuracy of Computation in Markov Networks*, arXiv:2608.23764v1, main text equations (11)–(18), Supporting Material I–II. The source's exact modified log-Sobolev bound is general and nonsharp for the present objective; the susceptibility bound is a near-equilibrium statement. Classic exact two-state log-Sobolev optimization: Aldous and Fill, Chapter 8, Example 8.28; its optimized functional differs. Diaconis–Saloff-Coste (1996) and general entropy-dissipation literature remain possible sources of implicit broader coverage and are not claimed exhaustively excluded.
+PASS
 
-The theorem does not extend to arbitrary state spaces or input trajectories, and no independent mathematical or publication-priority audit has been performed.
+The optimal coefficient tests the exact finite-amplitude accuracy versus entropy-production tradeoff for the simplest reversible computation channel; its strict deviation from the usual integrated-memory coefficient is quantitatively important for rare equilibrium states, not merely a normalization check.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
