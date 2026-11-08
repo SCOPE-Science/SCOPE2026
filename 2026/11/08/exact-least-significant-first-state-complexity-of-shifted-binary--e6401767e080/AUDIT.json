@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each binary residue after e digits, the exact residual is F_(floor((c+r)/2^e),popcount((c+r) mod 2^e) mod m). A two-interval argument exhausts reachable parameters and the high-depth tail. Every parameter pair denotes a different function: unequal phases at the same offset differ immediately; for offsets a<a prime, evaluate at n=2^h-a prime, obtaining a digit-sum difference h-popcount(a prime-a-1)-1, not constant modulo m as h varies. These lemmas establish the infinite exact count and the power-of-two specialization. The standalone checker independently confirmed all 903 shift/modulus BFS and minimization cases, 2047 popcount extrema, 96 power-shift specializations and 30600 residual identities. Bounded computations are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic bound in arXiv:2512.10017v1: arbitrary shifted automatic words admit LSD-first carry transducer constructions and generic size estimates.",
+        "Theorem 20 gives <=10c/3 for ordinary shifted Thue–Morse in the opposite digit direction.",
+        "arXiv:2603.18858v1 treats the Fibonacci word with Zeckendorf numeration, not binary digit-sum words."
+      ],
+      "reasoning": "Broader general results guarantee recognizability and size bounds, but these bounds do not determine the exact minimal DFAO or reachability for all shift and modulus values. Fibonacci/Zeckendorf results use different objects and numeration.",
+      "searches": [
+        "Exact state complexity of generalized Thue Morse binary digit sum mod m under additive shifts c, LSD-first",
+        "arXiv:2512.10017v1 Theorems 10, 20",
+        "arXiv:2603.18858v1 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.10017v1, HTML full text with relevant claims",
+      "doi:10.1016/j.ic.2021.104710, relevant published paper passages",
+      "arXiv:2603.18858v1, HTML introduction and LSD sections",
+      "doi:10.37236/9068, freely accessible PDF introduction, Theorem 3, construction and proof conclusion",
+      "Semantic mathematical research index searches on generalized digit sums, shifts, 2-kernels and state complexity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Charlier–Cisternino–Massuir Theorem 3 counts DFA states for positive affine images uT+r, an object distinct from inverse input translation n -> t(n+c).",
+        "Moradi–Rampersad–Shallit Remark 19 explicitly distinguishes affine-image automata from DFAOs producing linearly indexed Thue–Morse terms.",
+        "The previous generic shift complexity bounds are compatible with many distinct exact values and do not imply these popcount-interval state families."
+      ],
+      "reasoning": "Affine images and inverse input translations are not equivalent operations on integer sets; the statement n+c in T concerns a left-shifted characteristic set, not uT+r with nonnegative r restricted as in that theorem. Known upper bounds, opposite-direction constructions, and special cases do not logically imply the complete explicit count.",
+      "searches": [
+        "Shifted generalized Thue-Morse word t_m(n+c) = binary digit sum s_2(n+c) modulo m exact number of 2-kernel states least significant digit first DFAO",
+        "Power of two translation shifts 2^k Thue Morse automatic sequence exactly 2k+3 states LSD input and m + sum min(m,j) generalized",
+        "doi:10.37236/9068 Theorem 3",
+        "arXiv:2512.10017v1 Remark 19 / Theorem 20"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary 2-kernel cardinality equals minimal LSD-first DFAO state count (arXiv:2512.10017v1, Sec. 4).",
+        "Theorem 20 in arXiv:2512.10017v1 treats an upper bound from MSD-first subword complexity, not exact LSD kernel enumeration.",
+        "Zantema–Bosma (2022) analyzes generic shifts and isolated examples, without the all-shift formula in its inspected relevant sections."
+      ],
+      "reasoning": "The claim was compared under kernel-count language, residual sequence equality, Myhill–Nerode DFAO language and automata shift-state complexity. These are equivalent formulations of the current quantity, but the examined earlier theorems do not supply the claimed finite state set.",
+      "searches": [
+        "Shifted generalized Thue-Morse word t_m(n+c) = binary digit sum s_2(n+c) modulo m exact number of 2-kernel states least significant digit first DFAO",
+        "Automatic sequence shifted digit-sum words minimal finite automata 2 kernel quotient remainder popcount interval formula",
+        "arXiv:2512.10017v1 Sec. 4.1 Theorem 20 and discussion of 2-kernel",
+        "doi:10.1016/j.ic.2021.104710 shift examples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known ordinary binary shift-one case has three states, matching m=2,c=1.",
+        "Published examples and generic bounds do not supply the unbounded family with m+sum_j min(m,j) states.",
+        "The indexed published results on Thue–Morse powers, valuations and string attractors concern other invariants, not the kernel cardinalities in this claim."
+      ],
+      "reasoning": "The included shift-one example is explicitly recognized as covered rather than a new isolated value. No matching all-parameter table was found in the inspected material; absence of search matches alone is not proof of novelty.",
+      "searches": [
+        "Power of two translation shifts 2^k Thue Morse automatic sequence exactly 2k+3 states LSD input and m + sum min(m,j) generalized",
+        "Generalized Thue Morse digit sum s₂(n+c) modulo m shifted sequence 2-kernel exact state count binary powers c=2^k triangular",
+        "doi:10.1016/j.ic.2021.104710 Thue–Morse shift by one",
+        "arXiv:2512.10017v1 examples"
+      ]
+    },
+    "rationale": "The relevant published results cover MSD-first upper bounds for shifted binary Thue–Morse, general LSD shift bounds, a single shift-one case, Zeckendorf/Fibonacci shifts and affine images of the Thue–Morse integer set. None of their inspected applicable statements proves the exact all-c/all-m LSD residual-state classification or its modulus-dependent power-shift law. Meaningful related statements and potential reductions were compared. Unindexed older work and alternative formulations of the shift problem remain priority risks.",
+    "residual_risks": [
+      "Historical priority remains uncertain where exact specializations may be unindexed or formulated in automata-theoretic notation rather than 2-kernel language.",
+      "This same-model review does not substitute for independent mathematical audit.",
+      "The theorem uses LSD-first padded-input convention; changing the numeral-input convention can change state complexity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact all-modulus LSD-first kernel count; its related bound is MSD-first and it supplies generic LSD constructions",
+        "evidence": [
+          "v1 dated December 10, 2025",
+          "Sec. 4: binary kernel count equals minimum LSD-first DFAO size",
+          "Sec. 4.1 Theorem 20: state-complexity upper bound 10c/3 from subword complexity",
+          "Remark 19 distinguishes affine-image language automata"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v1",
+        "material_read": "Introduction; Sec. 4 general LSD/MDS framework, Sec. 4.1 Thue–Morse Corollary 18, Remark 19 and Theorem 20 with proof",
+        "method": "inspected publicly available arXiv HTML full-text relevant claims and proof statements",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Exact shifted Thue–Morse state-complexity problem"
+      },
+      {
+        "assessment": "SPECIAL_CASE_AND_BOUNDS; does not state all-shift/all-modulus classification",
+        "evidence": [
+          "2022 Information and Computation article 104710",
+          "General shift size bounds; shift by one of ordinary Thue–Morse has three states"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ic.2021.104710",
+        "material_read": "Relevant discussion of shift-state bounds, LSD construction and ordinary Thue–Morse examples",
+        "method": "read accessible publisher/OA paper extracted text and relevant page image",
+        "title": "Complexity of Automatic Sequences",
+        "trigger": "Foundational shift-state bounds and known binary shift-one instance"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT_AND_NUMERATION; not a binary digit-sum statement",
+        "evidence": [
+          "v1 dated March 19, 2026",
+          "Fibonacci word shifts under LSD-first Zeckendorf representations",
+          "General carry transducer O(m log c) discussion for ordinary positional bases"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Abstract, introduction and LSD-first Zeckendorf formulation",
+        "method": "inspected arXiv HTML relevant section definitions and conclusions",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Contemporary exact shifted-sequence automaton complexity"
+      },
+      {
+        "assessment": "NOT_EQUIVALENT: counts automata for uT+r, not shifted output sequence t_m(n+c)",
+        "evidence": [
+          "Theorem 3: state complexity of uT+r depends on odd part and binary valuation of u, not on r",
+          "Theorem 3 constructs DFA recognizing affine image, not DFAO for inverse input addition",
+          "Published July 2, 2021"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i3p12/pdf/",
+        "material_read": "Full-text introduction and Theorem 3 with statement and construction outline; relevant proof conclusion",
+        "method": "inspected open PDF textual material and first-page image",
+        "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+        "trigger": "Plausible affine translation automaton result on Thue–Morse set"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e6401767-e080-443c-b078-3bd9b9dc98da",
+  "value": {
+    "rationale": "The natural family of generalized Thue–Morse digit-sum words has a complete exact descriptional-complexity invariant under every nonnegative translation and every alphabet modulus, including explicit minimal reachable states and transition functions. The power-of-two family displays a sharp transition between triangular and linear growth as the modulus varies, a structural result not obtained from generic existence bounds. It supplies an interpretable benchmark for automata minimization and k-kernel calculations, rather than an arbitrary finite cutoff or recomputation of known tables.",
+    "status": "PASS"
+  }
+}
