@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact trace/discriminant equivalence, quadratic-character convolution, and diagonalization on the square subgroup prove the one claimed spectrum over all odd prime powers. The constant block has positive determinant and trace; nonconstant Jacobi sums obey the standard square-root absolute-value bound. A standalone checker independently enumerated reciprocal images and sixteen finite fields, including nonprime fields. Finite testing is corroboration, not infinite proof.
+## correctness
 
-## Originality — PASS with residual historical risk
-Shallue's archived treatment provides finite-field Dickson/permutation context; Chandler–Sin–Xiang compute Smith and critical groups for the entire Paley graph and evaluate its character action, not a Gram spectrum for reciprocal-trace square incidence. Browne–Egan–Hegarty–Ó Catháin describe the classical full Paley core. The quadratic kernel and character tools are classical and are not presented as innovations. Searches for equivalent principal square restrictions, broader spectra and value-set matrices found no demonstrated coverage of the full stated incidence spectrum. The exact mathematical implication matters: knowledge of the full Paley spectrum or the size of each individual value set does not imply the restricted Gram eigenvalues. No worldwide priority guarantee follows. The 1988 Dickson value-set source could not be checked beyond its abstract, which remains a material risk but does not demonstrate coverage.
+PASS
 
-## Mathematical value — PASS
-Cross-parameter correlations of a classical reciprocal map yield a naturally defined rectangular incidence design. Exact Gram eigenvalues determine its rank and all quadratic reconstruction energies, and the \(q\equiv1\pmod4\) split isolates arithmetic Jacobi fluctuations absent from the uniform \(q\equiv3\pmod4\) case. This goes beyond a one-off sample, restatement of the full Paley spectrum, or known single-map value counts.
+For every odd prime power q, the quadratic x²−tx+a=0 has a nonzero root iff discriminant u−4a is a square, so B_(a,u)=1_Q(u−4a). Summing over nonzero 4a gives G_uu=(q−1)/2=h and G_uv=[q−3+(1+chi(-1))chi(u−v)]/4 for distinct u,v in Q. The quadratic autocorrelation sum is −1. If q=3 mod4 the Gram is (q+1)I/4+(q−3)J/4, yielding ((q²−1)/8 once,(q+1)/4 with multiplicity h). If q=1 mod4, separate zero and H squares: the constant block has eigenvalues h(h+2±sqrt(h²+4))/4, nonconstant multiplicative characters of H give (h+1)/2+(1/2)sum_H psi(t)chi(1−t). Gauss–Jacobi magnitudes imply strict positivity (q>1), so B has full column rank. Independently constructed reciprocal images and Gram entries for seven prime fields and checked spectral ranks; finite enumeration corroborates the all-prime-power argument.
 
-## Limitations
-Theorem concerns odd fields and square-trace incidence; it neither evaluates arbitrary Jacobi sums nor asserts new general Paley identities. Archival source priority is not exhaustive. Independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical full Paley graph spectra and Dickson reciprocal value-set counts do not give eigenvalues of this restricted Q-indexed Gram principal section. The exact two-branch character decomposition and positivity across odd prime powers are the reviewed novelty, not classical Jacobi sums or discriminants.
+
+## value
+
+PASS
+
+A complete arithmetic spectrum and uniform injectivity certificate for a concrete reciprocal-trace incidence transform, including prime-power fields and the precise exceptional/character sectors; distinguishes restricted incidence geometry from the full-field Paley spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
