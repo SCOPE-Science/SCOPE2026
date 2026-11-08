@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence-graph intersection array is explicitly cited and yields seven distance polynomials and adjacency eigenvalues by a finite recurrence. The simple bipartition eigenvalue is an alternating shell sum. A derivative bound shows a unique zero in the stated interval for every admissible order \(q\ge100\), while independent uniform bounds on all five other nonconstant spectral modes keep them strictly negative through that zero. Schoenberg's downward-closure theorem excludes a second admissible exponent above it. A controlled reciprocal-derivative expansion proves the two asymptotic coefficients. The one-dimensional equality space and Gram-rank computation give the precise embedding-dimension assertion. Exact polynomial and high-precision finite checks are supplemental, not a universal certificate.
+PASS
 
-## Originality — PASS, qualified
+A finite generalized hexagon order(q,q) has intersection array {q+1,q,q,q,q,q;1,1,1,1,1,q+1} and six distance matrices A_j=P_j(A). Independently derived P0..P6 by three-term recurrence with final divisor q+1. Sympy factored terminal identity tP6−qP5=−t(q−t²)(3q−t²)(q−t+1)(q+t+1)/(q+1), yielding adjacency spectrum +/- (q+1), 0, +/-sqrt(q), +/-sqrt(3q). At t=−(q+1) computed signed shell eigenvalues: 1, −(q+1), (q+1)q, −(q+1)q², (q+1)q³, −(q+1)q^4, q^5. They give exact F_q(p) as claimed. Its derivative at p=0 is q^5 log(6/5)−q^4 log(5/4)+...>0.179q^5 for q>=100; |F_q double prime|<7q^5 on [0,10q^-5] and F_q(10q^-5)>0 ensure unique crossing. All other five nonconstant eigenvalues remain <−0.96 under the source bounds |Lambda+1|<4000 q^-5/2<0.04, hence sole critical one-dimensional point-line contrast. Schoenberg monotonicity excludes reentrance. Taylor gives alpha_q=1/(q^5 log(6/5))+log(5/4)/(q^6 log²(6/5))+O(q^-7), and Gram ranks |X|−1 below and |X|−2 at root. Numeric/finite spectral checks are subordinate to these uniform bounds.
 
-The closest directly inspected source on the same graphs is van Dam–Jazaeri, arXiv:1808.01428v1, which treats generalized-hexagon incidence graphs and Cayley-property questions; its intersection arrays do not specify negative-type thresholds. Robertson, arXiv:2309.16070v1, covers general negative-type and Hilbert-embedding methods and explicit bipartite/Hamming examples, not these incidence graphs. Koolen–Abdullah–Gebremichel–Hayat, arXiv:2305.14636v1, use geometric-sum \(q\)-distance matrices, not entrywise powers of graph distances. Existing powered-distance calculations for generalized quadrangles or symmetric-design incidence graphs concern different distance spectra and do not imply the six-shell threshold. Search terms covered generalized hexagon, Levi graph, incidence graph, generalized roundness, powered distance matrix, and Hilbert snowflake. The exact diameter-six threshold, sharp fifth-power law, second term, and equality space were not identified as directly covered. Historical priority is not independently certified; an equivalent older association-scheme computation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite generalized hexagons are a canonical infinite family of distance-regular incidence geometries with large and rapidly growing vertex sets. The precise power at which their metrics cease to be Hilbert snowflakes is a natural metric-geometric invariant. The proved answer has the new sharp scale \(q^{-5}\) with explicit leading and next-order constants, uniformity across isomorphism types, and a spectral explanation for the unique critical obstruction. This is more informative than numerical inspection of small hexagons or an unspecified spectral criterion; no downstream theorem is asserted as necessary for its value.
+PASS qualified: established distance-regular and generalized-hexagon intersection data give the spectral machinery; existing generalized q-distance matrices use geometric sums of powers of q, not the entrywise metric snowflake powers d^p. Robertson gives general negative-type and Hilbert criteria, not this diameter-six threshold with fifth-power expansion. No exact same order-(q,q) generalized-hexagon formula found in Resultary; equivalent earlier association-scheme calculations remain possible.
 
-## Scope and remaining risks
+## value
 
-The uniform analytical theorem is proved for admissible orders \(q\ge100\), not all positive orders. The starting cutoff is a sufficient estimate, not claimed sharp. Numerical examples for smaller orders do not establish a universal extension. All computations are reproducible with the accompanying standard-library checker. Independent mathematical review and exhaustive historical-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first exponent at which a canonical generalized-polygon incidence metric ceases to embed in Hilbert space after snowflaking is a natural exact invariant. A sharp q^-5 law, two-term asymptotic and unique bipartition critical direction for every existing high-order generalized hexagon reveal a structural growth phenomenon not mechanically implied by general Schoenberg theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
