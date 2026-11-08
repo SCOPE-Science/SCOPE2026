@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For N>=2, prove the complete graph degree formula d_ij=4(N-1)-|i-j|-|i+j-(N-1)| and the even/odd closed evaluation of sum |i-j| |i+j-(N-1)| by centered coordinate grouping. The resulting exact edge and wedge polynomials combine with p_k=(N)_k/(N^2)_k for k=2,3,4, giving the displayed variance by the three overlap classes. The rational identity is checked separately for both parities; at each fixed N the Gibbs specific-heat identity and finite-state T->infinity convergence prove the strictly iterated limit. A standalone standard-library checker passed 491 exact equalities (including complete direct subset enumeration at N=2,3,4,5) but is supporting evidence, not the infinite proof. No uniform temperature assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A generic hypergeometric induced-edge variance formula on any finite graph reduces the task to edge and incident-edge counts; it is standard and explicitly used, not claimed new.",
+        "The primary paper arXiv:2605.10326 addresses simulation and the canonical mean but gives no explicit attack-graph wedge count.",
+        "The 2009 Zhang–Ma model at https://pmc.ncbi.nlm.nih.gov/articles/PMC2682695/ constrains one rook per row and column and uses a different energy, so it does not directly cover this ensemble."
+      ],
+      "reasoning": "An abstract general graph second-moment formula alone does not evaluate the geometry-specific parity-sensitive wedge incidence polynomial or the resulting coefficient. However, an unlocated broader identity for the entire queen graph degree sequence would be capable of implying the result and remains a residual priority risk. No such stronger coverage was identified in the inspected material.",
+      "searches": [
+        "Zong-Yue Liu Hai-Jun Liao Lei Wang 2026 N queens partition function heat capacity exact high temperature variance",
+        "queen graph random induced subgraph edge count hypergeometric variance high temperature specific heat",
+        "\"N queens\" \"high temperature\" \"specific heat\" analytic variance",
+        "\"queen graph\" \"variance\" \"number of edges\" random subset"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.10326",
+      "https://arxiv.org/pdf/2605.10326",
+      "https://arxiv.org/abs/2407.08830",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2682695/",
+      "2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+      "2026/10/4/SCOPE-exact-infinite-temperature-hessian-of-gibbs-mutual-information-a--421bbba7cbb3",
+      "2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+      "2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.10326 Eq. (5) proves first moment, whose knowledge cannot determine second moment without additional correlations.",
+        "arXiv:2407.08830 studies Monte Carlo N-queens counts and energy levels, not uniform fixed-occupancy covariance.",
+        "Zhang–Ma 2009 uses constrained permutations and diagonal multiplicity penalties, so its energy identities do not imply the given pairwise attack count variance.",
+        "Closest published-finding corpus records 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4 and 2026/10/4/SCOPE-exact-infinite-temperature-hessian-of-gibbs-mutual-information-a--421bbba7cbb3 concern different measures and observables."
+      ],
+      "reasoning": "The primary first-moment identity has no algebraic implication for the variance; a separate incident-edge count and four-site hypergeometric correlation calculation are necessary. Other physical models employ different ensembles or observables, and the closest semantic records do not specialize to the queen graph. The graph-level general method is acknowledged as standard; only its nontrivial square-board specialization is being evaluated.",
+      "searches": [
+        "exact infinite-temperature heat capacity coefficient 31/18 for canonical N-queens lattice gas arbitrary N occupation graph attack variance",
+        "Zong-Yue Liu Hai-Jun Liao Lei Wang 2026 N queens partition function heat capacity exact high temperature variance",
+        "2026 statistical mechanics N queens high T specific heat analytic coefficient finite size",
+        "\"N queens\" \"high temperature\" \"specific heat\" analytic variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu–Liao–Wang, https://arxiv.org/pdf/2605.10326, §§II–IV: same lattice-gas model; Eq. (5) gives the mean, and the specific-heat discussion evaluates variance numerically.",
+        "The fixed-cardinality random-subset formulation is exactly the queen-attack graph induced-edge count, rather than the one-per-row queens puzzle.",
+        "No checked published-finding corpus hit stated the queen-attack graph second-moment or its asymptotic coefficient."
+      ],
+      "reasoning": "The change from occupied-square configurations to a uniformly selected N-vertex subset of the queen-attack graph is an exact equivalence. The primary paper uses this same configuration space, but its analytic calculation stops at the energy mean; a numeric specific-heat curve does not imply the exact all-size variance. Direct variant and alias searches located no matching evaluated second moment.",
+      "searches": [
+        "exact infinite-temperature heat capacity coefficient 31/18 for canonical N-queens lattice gas arbitrary N occupation graph attack variance",
+        "random N site subset on N by N chess board attacking queen pairs variance fourth moments parity formula",
+        "variance of number of attacking queen pairs in uniformly sampled N squares from N by N board parity",
+        "\"N-queens\" energy variance attack pairs uniform distribution",
+        "\"queen graph\" \"variance\" \"number of edges\" random subset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits for occupancy, thermal Hessian and Fourier-polynomial variance have unrelated objects and no queen-lattice fluctuation table.",
+        "Liu–Liao–Wang Eq. (5) tabulates a mean energy; finite-temperature specific heat is represented numerically, not as an exact variance table.",
+        "Direct exact-constant and specific-heat searches did not locate a matching formula."
+      ],
+      "reasoning": "No consulted mathematical database, indexed record or physical table supplied the two parity formulas or 31/18. The lack of a matching database hit is not independent confirmation of novelty.",
+      "searches": [
+        "31/18 infinite temperature heat capacity canonical fixed particle N queens chessboard attacking pairs",
+        "2026 statistical mechanics N queens high T specific heat analytic coefficient finite size",
+        "\"31/18\" \"queens\" heat capacity"
+      ]
+    },
+    "rationale": "The full matching 2026 primary study derives the infinite-T mean and estimates specific heat numerically but supplies neither the exact second-moment polynomials nor the 31/18 coefficient. Polson–Sokolov counting and Zhang–Ma constrained-permutation sources do not imply the result. published-finding corpus, full-text and alias searches did not expose an equivalent or stronger evaluated queen-attack graph variance. Standard general graph covariance is admitted as known; the square-board parity-sensitive evaluation is the specific contribution, with unindexed wider-identity risk.",
+    "residual_risks": [
+      "A broader unindexed queen-attack-graph degree-square or random-subgraph edge-variance identity could imply the evaluated formulas despite no matching item in consulted sources.",
+      "Relevant non-indexed books and non-open-access technical appendices cannot be exhaustively ruled out; no independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the same unrestricted fixed-size configuration model and first moment, but does not present the parity-dependent exact variance or the analytic infinite-temperature heat-capacity coefficient. Its finite-temperature Cv is estimated numerically.",
+        "evidence": [
+          "arXiv:2605.10326v1 submitted 2026-05-11; Eq. (5) gives the analytic infinite-temperature mean.",
+          "Specific-heat discussion computes fluctuations from sampled energies and displays a temperature curve; no closed all-N fluctuation or 31/18 identity identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.10326",
+        "material_read": "Full nine-page preprint, especially model §II, infinite-temperature mean §III-B Eq. (5), specific heat §IV-C, entropy §V and conclusions §VII; figures and appendices checked for second-moment formula",
+        "method": "Read primary arXiv HTML and PDF text, inspected relevant PDF page images, and compared claimed variance with analytically derived quantities",
+        "title": "Statistical mechanics of the N-queens problem",
+        "trigger": "Exact original canonical model and numerical specific-heat curve; highest-priority possible overlap"
+      },
+      {
+        "assessment": "Rare-event counting and energy-level simulation, not the exact variance for uniformly chosen N squares or the high-temperature physical coefficient.",
+        "evidence": [
+          "arXiv:2407.08830 develops counting estimates; no queen-attack graph degree-square polynomial or temperature-normalized covariance theorem found in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08830",
+        "material_read": "Preprint introduction and main Monte Carlo/counting-method sections; relevant model and methods reviewed",
+        "method": "Read lawful arXiv full-text portions and inspect primary page images for energy definitions",
+        "title": "Counting N Queens",
+        "trigger": "Possible overlap through microcanonical energy-level counts and simulated sampling"
+      },
+      {
+        "assessment": "The permutation/rook-constrained state space and diagonal-conflict penalty differ from the unrestricted pairwise-attack Hamiltonian; therefore these formulas do not imply the result.",
+        "evidence": [
+          "The queen arrangement is constrained by row and column positions and modeled using an energy based on diagonal conflicts rather than all unordered attack edges among unrestricted N sites."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2682695/",
+        "material_read": "Full lawful open-access paper, including the constrained configuration ensemble and energy construction and results",
+        "method": "Examined the published open-access article and compared configuration space and Hamiltonian",
+        "title": "Counting solutions for the N-queens and Latin-square problems by Monte Carlo simulations",
+        "trigger": "Older statistical-mechanical queens-energy literature potentially implying the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a99e5fe-256a-46b3-9d39-6c00aa915927",
+  "value": {
+    "rationale": "The motivating physical source emphasizes the specific-heat curve and gives an exact high-temperature energy mean, but lacks the corresponding exact energy-fluctuation scale. This result provides the natural endpoint calibration Var(H_N)/N->31/18, the full finite-board even/odd correction and an explanation through nontrivial cancellation between shared-edge and disjoint-edge covariances (limits 5/3+67/6-100/9). It is a structurally motivated exact benchmark for physical simulations, not an arbitrary small-case table; it does not promise new finite-temperature behavior.",
+    "status": "PASS"
+  }
+}
