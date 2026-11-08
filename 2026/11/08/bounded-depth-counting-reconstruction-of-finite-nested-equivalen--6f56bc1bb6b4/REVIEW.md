@@ -1,0 +1,15 @@
+# Scientific review: finite nested equivalence hierarchies
+
+## Correctness — PASS
+A complete induction on the hierarchy depth reconstructs each nested class type from a finite table of color-counts. Each previous color determines its inner-block type, and division by the known positive block size converts point counts to block multiplicities. The top-root multiset then determines the entire structure. The proof also explicitly reconstructs automorphism-orbit paths and translates round colors into two-variable counting formulas. A deterministic program tested 5,400 independently generated colored hierarchies at four levels and checked the two-level rank witness. The computations corroborate but do not prove the theorem. The proof covers finite nonempty models with globally nested named equivalences and fixed unary signature only.
+
+## Originality — PASS (provisional priority)
+Focused searches considered 'nested equivalences', 'laminar partitions', 'ultrametric hierarchies', counting logic and color refinement, plus published research-record searches of the theorem's equivalent language and precise depth bound. No exact statement was found in examined records. Kiefer–Schweitzer–Selman (arXiv:1503.08792v1), Sections 2 and 5, classifies absolute identification among all relational structures. It does not state the relative hierarchical faithfulness/round bound; a six-element nested example admits a nontransitive counting-equivalent competitor, so their absolute criterion does not automatically imply this result. Atserias–Maneva analyzes general counting-logic/fractional-isomorphism correspondence rather than nested-hierarchy reconstruction. General 1-WL tree identification is closely related but a tree encoding is not already a two-variable interpretation into the named equivalence signature. Corollary or alternate terminology priority risks remain and require independent literature review.
+
+## Mathematical value — PASS
+The result gives a complete classification of counting indistinguishability for every finite chain of hierarchical partitions, including arbitrarily many points and arbitrary unary colors, and a uniform quantifier-depth bound controlled by the number of levels rather than the number of points. It also computes the orbit partition from counting colors and proves the bound optimal already for two levels. This is a structural reconstruction statement with a sharp logical boundary: crossing equivalences can lose isomorphism information, whereas nested ones cannot, relative to their natural model class. Its value is not a raw finite count or an isolated family example.
+
+## Scope and residual risks
+The logical identification result is relative, not absolute. General rank-optimality for more than two levels is not claimed. The historical literature may contain a result expressed in ultrametric, hierarchy, or tree-language form that implies the theorem; no uniqueness or publication priority is certified. Independent mathematical validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
