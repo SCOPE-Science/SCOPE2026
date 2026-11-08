@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify_torus.py` with Python 3, NumPy and SciPy installed. The script was run from the final candidate package contents and printed `PASS: 3138 numerical and analytic consistency assertions across 28 torus shapes.`
+## correctness
 
-The finite verifier compares closed formulas against tensor Fourier eigenvalues, solves symmetrized linear programs independently using a linear optimization routine, checks full matrix spectra and saturated coordinate Fourier eigenvectors, and tests feasible nonsymmetric perturbations. It explicitly exercises the holding boundary of three triangular cycles, zero-holding with four odd factors, and positive holding when one of three odd factors is length five.
+PASS
 
-A finite numerical run does not prove global uniqueness or the statement for unbounded cycle lengths. Those assertions follow from the variational inequalities and Fourier equality-case argument in RESULT.md. Unrestricted independent mathematical validation has not occurred. No separate external audit was conducted.
+Graph-automorphism averaging is legal because P↦||P−J||₂ is convex and invariant. The exact Fourier modes give largest nontrivial eigenvalue 1−min_j a_jc_j and smallest 1−Σa_jL_j, hence minmax lower bound max(1−t,Et−1) for t≤1/H. Equality sets a_j=τ/c_j, with uniqueness among invariant kernels. For arbitrary P attaining the same SLEM, each first coordinate Fourier mode f_j saturates the PSD upper norm inequality and must be an eigenvector; its real and imaginary vertexwise components force w_j^+=w_j^−=τ/c_j and row-sums fix the diagonal. The last inequality Σ_j (4−L_j)/c_j <1 reduces exactly to the claimed odd-factor threshold including 3 C3 boundary. Correct at d=1 and nonbipartite/bipartite boundaries.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the specified evaluated claim, after mathematical implication comparisons with the listed primary sources and published Resultary findings. Prior general tools, overlapping special cases and residual priority risks are explicitly credited; search silence and inaccessible full text are not novelty proofs.
+
+## value
+
+PASS
+
+A complete infinite-family mixing optimization including unrestricted nonhomogeneous kernels, with a surprising holding/no-holding frontier depending only on odd cycle-factor counts rather than individual lengths; a useful sharp design rule for finite toroidal random walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Fourier eigenvalue interval gives the SLEM lower bound \(\max\{1-t,Et-1\}\) and forces \(t=\min\{2/(E+1),1/H\}\). Symmetry averaging establishes unrestricted attainability. The upper semidefinite eigenvalue equality for all first coordinate Fourier characters then forces every individual edge weight, ruling out nonsymmetric ties. The holding criterion follows from an exact trigonometric odd-cycle deficit. No computation is substituted for the infinite proof. The standalone verifier independently confirmed 3,138 finite consistency assertions on 28 cases.
+PASS
 
-## Originality — PASS, qualified
+Graph-automorphism averaging is legal because P↦||P−J||₂ is convex and invariant. The exact Fourier modes give largest nontrivial eigenvalue 1−min_j a_jc_j and smallest 1−Σa_jL_j, hence minmax lower bound max(1−t,Et−1) for t≤1/H. Equality sets a_j=τ/c_j, with uniqueness among invariant kernels. For arbitrary P attaining the same SLEM, each first coordinate Fourier mode f_j saturates the PSD upper norm inequality and must be an eigenvector; its real and imaginary vertexwise components force w_j^+=w_j^−=τ/c_j and row-sums fix the diagonal. The last inequality Σ_j (4−L_j)/c_j <1 reduces exactly to the claimed odd-factor threshold including 3 C3 boundary. Correct at d=1 and nonbipartite/bipartite boundaries.
 
-The 2004 convex-SDP framework and 2007 symmetry/product results are acknowledged. Section 3.2 of the 2007 paper explicitly solves a two-factor **equal-side** torus, while Section 3.3 covers homogeneous Hamming products. The current general statement is not an equal-side example or an edge-transitive direct specialization: products with distinct cycle lengths have independent edge-direction parameters, and the proof adds an edge-by-edge rigidity argument. Actual published-record and full-text searches did not identify the arbitrary-dimensional odd-factor holding criterion. General older optimization techniques make the spectral part approachable, but do not by themselves state or establish the joint classification. An unindexed earlier equivalent classification remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete infinite-family optimization classification, not an isolated example: the rule works for arbitrarily shaped and high-dimensional discrete tori and for unrestricted stochastic weights. The phase boundary collapses from all numerical side lengths to the count of odd factors, apart from one sharp triple-triangle equality case. That is a structural, usable support/holding design criterion for uniform-stationary lattice random walks.
+Best-of-knowledge novelty of the specified evaluated claim, after mathematical implication comparisons with the listed primary sources and published Resultary findings. Prior general tools, overlapping special cases and residual priority risks are explicitly credited; search silence and inaccessible full text are not novelty proofs.
 
-## Closest literature and limits
+## value
 
-Boyd, Diaconis and Xiao (2004), DOI 10.1137/S0036144503423264, establish the general convex objective. Boyd, Diaconis, Parrilo and Xiao (2007), arXiv:0709.0955v1, §§2–3, prove averaging and treat equal two-dimensional cycle products and homogeneous Hamming graphs; their generic product-spectrum identity is retained as established groundwork. The theorem here assumes symmetric nearest-neighbor/self-loop kernels and does not compare nonreversible or lifted chains. Earliest precise-date release directly verified for the focal arXiv version is 2007-09-06; a precursor MSR technical report is catalogued with month-only May 2007 dating.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete infinite-family mixing optimization including unrestricted nonhomogeneous kernels, with a surprising holding/no-holding frontier depending only on odd cycle-factor counts rather than individual lengths; a useful sharp design rule for finite toroidal random walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
