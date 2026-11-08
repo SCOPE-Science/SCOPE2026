@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:39:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition quantifies all shortest paths with both endpoints inside S or outside S. In T_n of diameter two, both selected and unselected neighbors of each selected vertex must induce cliques, because any nonadjacent pair forms a forbidden geodesic through the selected vertex. For n>=5 the neighborhood K_(n-2) square K_2 has clique number n-2 and only the two side cliques attain it; their disjoint partition forces an entire root star. An extra selected root edge avoiding its center creates a forbidden length-two geodesic. Converse: a full star is a clique, and its complement of edges avoiding the center is geodesically convex. At n=4 the neighbor C4 forces every selected vertex to lie in a triangle component, yielding eight triangles; n=3 is complete and all subsets qualify. Independently enumerated all subsets at n=3..6 with shortest-path definition, matching all coefficients; the unlimited theorem rests on the structural argument. The comparison with ordinary gp uses the published n mod 3 theorem and credits it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghorbani et al Theorem 4.4 gives the ordinary gp number for L(K_n).",
+          "Di Stefano et al lower ordinary gp concerns smallest maximal ordinary GP sets, without convex-complement dual restriction."
+        ],
+        "reasoning": "General position numbers and lower ordinary GP do not determine complete dual enumeration or forbid every intermediate size.",
+        "searches": [
+          "dual general position polynomial triangular graphs L(K_n) all dual general position sets full stars graph",
+          "arxiv:1903.04286",
+          "arxiv:2306.09965"
+        ]
+      },
+      "checked_sources": [
+        "Tian and Klavzar arxiv:2402.17338 Theorem 3.1",
+        "Ghorbani et al arxiv:1903.04286 Theorem 4.4",
+        "Resultary/2026 complete multipartite dual GP RESULT.md full source tree, Sept 30 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known ordinary gp formula implies the stated gp-vs-dual difference only after proving the independent dual values.",
+          "The complete-multipartite theorem implies the n=4 boundary after the explicit isomorphism T4=K222."
+        ],
+        "reasoning": "The complete main all-n theorem is not a direct consequence of cited broad dual definitions or ordinary gp number; n=4 subset is explicitly prior-covered, so novelty should rest on n>=5.",
+        "searches": [
+          "arxiv:2402.17338",
+          "arxiv:1903.04286",
+          "Resultary/2026/2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tian-Klavzar Theorem 3.1: dual GP iff GP and the unselected complement is convex",
+          "In L(K_n), graph vertices are two-subsets, so selected/unselected neighbor clique obstruction is explicit."
+        ],
+        "reasoning": "The dual definition is equivalent to convex-complement GP; generic equivalence does not classify T_n. Checked the line graph/Johnson alias.",
+        "searches": [
+          "dual general position polynomial triangular graphs L(K_n) all dual general position sets full stars graph",
+          "arxiv:2402.17338",
+          "T_n=J(n,2)=L(K_n) dual general position convex complement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published complete-multipartite result gives P_d(K_{2,2,2};z)=1+(2z)^3 and T_4 is the octahedral K_{2,2,2}.",
+          "Published Resultary result is not for T_n with n>=5, since triangular graphs then are not complete multipartite."
+        ],
+        "reasoning": "n=4 count is ALREADY COVERED by the exact published polynomial. Nontrivial n>=5 rigidity is not a table lookup of this type.",
+        "searches": [
+          "Resultary query: dual general position polynomial triangular graphs L(K_n) all dual general position sets full stars graph",
+          "Resultary/2026:complete-multipartite-dual-general-position-sets"
+        ]
+      },
+      "rationale": "The new content is the n>=5 all-set star rigidity and enumerator. Prior Tian-Klavzar establishes the dual-set/convex-complement equivalence but not the all-order T_n classification. Prior Ghorbani et al gives ordinary gp(L(K_n)), not dual counts. Material originality qualification: published complete-multipartite dual-GP classification ALREADY covers n=4, since T_4 is isomorphic to K_(2,2,2); its formula 1+(2z)^3=1+8z^3. That special case is credited, not claimed independent novelty. No inspected source implies the n>=5 full-star result via a graph identification or stronger theorem.",
+      "residual_risks": [
+        "n=4 formula is not independently original: T4=K_(2,2,2), already covered by the published complete-multipartite theorem.",
+        "Unindexed dual general-position results on triangular/Johnson graphs might cover n>=5 under different terminology; no universal priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains dual/convexity characterization, but not the T_n all-set classification",
+          "evidence": [
+            "Theorem 3.1 dual sets equivalent to GP plus convex complement",
+            "Section 4 concerns graph products, not triangular-graph exact polynomial"
+          ],
+          "identifier_or_url": "arxiv:2402.17338; DOI 10.1007/s40840-024-01788-z",
+          "material_read": "Full accessible original HTML: introductory definitions, Section 3 Theorem 3.1 and neighboring results, Section 4 product statements, conclusions",
+          "method": "Primary publisher HTML theorem/section reading",
+          "title": "Variety of general position problems in graphs",
+          "trigger": "Original dual-general-position definitions and possible stronger theorem"
+        },
+        {
+          "assessment": "COVERS T4 eight triangles exactly; does not address T_n for n>=5",
+          "evidence": [
+            "For all parts of size 2 and q>=2, P_d=1+(2x)^q; q=3 gives T4 polynomial"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b",
+          "material_read": "Entire RESULT.md including explicit dual formula and its proof",
+          "method": "Read complete frozen published GitHub primary result",
+          "title": "Complete multipartite dual general-position sets and exact variant enumerators",
+          "trigger": "Published same invariant and exceptional T4=K222 case"
+        },
+        {
+          "assessment": "Covers ordinary gp number, not dual count",
+          "evidence": [
+            "Theorem 4.4: ordinary gp(L(K_n))=n if 3|n, else n-1"
+          ],
+          "identifier_or_url": "arxiv:1903.04286",
+          "material_read": "Result theorem 4.4 and its quoted ordinary gp(L(K_n)) formula inspected through accessible descriptions and primary citation",
+          "method": "Primary theorem statement and package cross-comparison, not represented as full-paper inspection",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Same graph family L(K_n), possible domination by ordinary gp"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural full generating polynomial and exact classification for Johnson/triangular graphs distinguishes dual GP sharply from ordinary GP: all nonempty sets are maximum for n>=5, with only n root-star witnesses and an exceptional n=4 boundary. This is structurally meaningful, not simply a maximum-size restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tian and Klavzar arxiv:2402.17338 Theorem 3.1",
+    "Ghorbani et al arxiv:1903.04286 Theorem 4.4",
+    "Resultary/2026 complete multipartite dual GP RESULT.md full source tree, Sept 30 2026"
+  ],
+  "disposition": "passed",
+  "final_claim": "For T_n=L(K_n) and all n>=3, the dual general-position cardinality polynomial is (1+z)^3 at n=3, 1+8z^3 at n=4, and 1+n z^(n-1) for n>=5; for n>=5 all nonempty sets are full root stars.",
+  "limitations": [
+    "n=4 formula is not independently original: T4=K_(2,2,2), already covered by the published complete-multipartite theorem.",
+    "Unindexed dual general-position results on triangular/Johnson graphs might cover n>=5 under different terminology; no universal priority guarantee.",
+    "Independent computations are finite and do not certify unbounded parameter statements; arguments in RESULT.md assessed as mathematical proof.",
+    "Scientific PASS does not imply ready-to-publish transport; public operational metadata requires sanitization."
+  ],
+  "residual_risks": [
+    "n=4 formula is not independently original: T4=K_(2,2,2), already covered by the published complete-multipartite theorem.",
+    "Unindexed dual general-position results on triangular/Johnson graphs might cover n>=5 under different terminology; no universal priority guarantee."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contains dual/convexity characterization, but not the T_n all-set classification",
+      "evidence": [
+        "Theorem 3.1 dual sets equivalent to GP plus convex complement",
+        "Section 4 concerns graph products, not triangular-graph exact polynomial"
+      ],
+      "identifier_or_url": "arxiv:2402.17338; DOI 10.1007/s40840-024-01788-z",
+      "material_read": "Full accessible original HTML: introductory definitions, Section 3 Theorem 3.1 and neighboring results, Section 4 product statements, conclusions",
+      "method": "Primary publisher HTML theorem/section reading",
+      "title": "Variety of general position problems in graphs",
+      "trigger": "Original dual-general-position definitions and possible stronger theorem"
+    },
+    {
+      "assessment": "COVERS T4 eight triangles exactly; does not address T_n for n>=5",
+      "evidence": [
+        "For all parts of size 2 and q>=2, P_d=1+(2x)^q; q=3 gives T4 polynomial"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b",
+      "material_read": "Entire RESULT.md including explicit dual formula and its proof",
+      "method": "Read complete frozen published GitHub primary result",
+      "title": "Complete multipartite dual general-position sets and exact variant enumerators",
+      "trigger": "Published same invariant and exceptional T4=K222 case"
+    },
+    {
+      "assessment": "Covers ordinary gp number, not dual count",
+      "evidence": [
+        "Theorem 4.4: ordinary gp(L(K_n))=n if 3|n, else n-1"
+      ],
+      "identifier_or_url": "arxiv:1903.04286",
+      "material_read": "Result theorem 4.4 and its quoted ordinary gp(L(K_n)) formula inspected through accessible descriptions and primary citation",
+      "method": "Primary theorem statement and package cross-comparison, not represented as full-paper inspection",
+      "title": "The general position problem on Kneser graphs and on some graph operations",
+      "trigger": "Same graph family L(K_n), possible domination by ordinary gp"
+    }
+  ]
+}

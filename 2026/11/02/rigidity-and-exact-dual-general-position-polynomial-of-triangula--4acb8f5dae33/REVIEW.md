@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim is the complete classification and polynomial of dual general-position sets in \(T_n=L(K_n)\), including the small-order exceptions and a credited comparison with ordinary general position. Rechecking the definition shows that for every selected vertex its selected and unselected neighborhoods must each form a clique: otherwise that selected vertex is internal on a forbidden shortest path of length two. Its neighborhood is \(K_{n-2}\square K_2\). When \(n\ge5\), two cliques partitioning all \(2(n-2)\) neighbors must be the two maximum side cliques; this forces a whole root star into the selected set. Any extra root edge creates a three-selected-vertex shortest path, proving rigidity. Full stars do satisfy the dual condition because their complementary root-edge family is convex. The case \(n=4\) reduces to triangle components in the octahedral graph, and \(n=3\) is complete. The proof covers every integer \(n\ge3\) without relying on the finite checker. The independently implemented distance-based exhaustive checker confirms all coefficients through \(n=7\) on 2,131,016 tested subsets. No unproved generalization is asserted.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual priority risk)
-Tian–Klavžar's primary full text (arXiv:2402.17338; Springer full HTML) introduces dual general position and proves its convex-complement criterion but gives no triangular-graph classification. Ghorbani et al.'s full arXiv HTML (1903.04286, Section 4.2) proves the **ordinary** general-position number of precisely this graph family; it does not impose the dual condition. Di Stefano et al.'s full arXiv HTML (2306.09965, Section 5) treats smallest maximal **ordinary** general-position sets, another distinct quantity. Dokyeesun et al.'s primary full arXiv HTML (2408.15951, Sections 4 and 5) treats strong and lexicographic products, not line graphs of complete graphs. Searches for Johnson/triangular/line-graph aliases, cardinality polynomials, and equivalent definitions in published records, mathematical web literature, and related recorded mathematical claims found no stronger equivalent statement. Two related earlier triangular-graph results study maximal ordinary general-position set enumeration and distance equalizers; neither entails dual position's convex-complement restriction. An unindexed equivalent result is still possible. These comparisons concern implications rather than merely title overlap.
+PASS
 
-## Mathematical value — PASS
-The dual variant was introduced because it differs sharply from hereditary ordinary general position; determining **all** sets rather than a scalar maximum is a natural motivated target. Here, the complete polynomial collapses to only two nonzero coefficients for every \(n\ge5\): there are no intermediate-sized nonempty sets, an unbounded absence that concretely exhibits nonheredity. The local two-clique partition gives a reusable structural obstruction. Combining the new dual classification with the independently credited published ordinary value answers a natural equality comparison on this canonical strongly regular family, with an exact period-three distinction. This is not merely a renamed scalar computation or a routine extension of a known all-set enumerator. The result is limited to this family; no broad generalization is claimed.
+The definition quantifies all shortest paths with both endpoints inside S or outside S. In T_n of diameter two, both selected and unselected neighbors of each selected vertex must induce cliques, because any nonadjacent pair forms a forbidden geodesic through the selected vertex. For n>=5 the neighborhood K_(n-2) square K_2 has clique number n-2 and only the two side cliques attain it; their disjoint partition forces an entire root star. An extra selected root edge avoiding its center creates a forbidden length-two geodesic. Converse: a full star is a clique, and its complement of edges avoiding the center is geodesically convex. At n=4 the neighbor C4 forces every selected vertex to lie in a triangle component, yielding eight triangles; n=3 is complete and all subsets qualify. Independently enumerated all subsets at n=3..6 with shortest-path definition, matching all coefficients; the unlimited theorem rests on the structural argument. The comparison with ordinary gp uses the published n mod 3 theorem and credits it.
 
-## Closest literature and limitations
-The definitions/convexity criterion (Tian–Klavžar 2024), ordinary triangular-graph maximum (Ghorbani et al. 2019), lower ordinary maximum (Di Stefano et al. 2023), and related product methods (Dokyeesun et al. 2024) are the closest actual comparisons. The finite verifier covers \(3\le n\le7\), not the infinite case; the proof handles every larger order. Absence of an equivalent record is evidence of no identified coverage, not proof of global priority. Independent mathematical assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content is the n>=5 all-set star rigidity and enumerator. Prior Tian-Klavzar establishes the dual-set/convex-complement equivalence but not the all-order T_n classification. Prior Ghorbani et al gives ordinary gp(L(K_n)), not dual counts. Material originality qualification: published complete-multipartite dual-GP classification ALREADY covers n=4, since T_4 is isomorphic to K_(2,2,2); its formula 1+(2z)^3=1+8z^3. That special case is credited, not claimed independent novelty. No inspected source implies the n>=5 full-star result via a graph identification or stronger theorem.
+
+## value
+
+PASS
+
+A natural full generating polynomial and exact classification for Johnson/triangular graphs distinguishes dual GP sharply from ordinary GP: all nonempty sets are maximum for n>=5, with only n root-star witnesses and an exceptional n=4 boundary. This is structurally meaningful, not simply a maximum-size restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
