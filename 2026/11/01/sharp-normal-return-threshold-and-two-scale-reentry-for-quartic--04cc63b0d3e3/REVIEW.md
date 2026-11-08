@@ -1,21 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The boundary equation factors exactly as \(t(1+A^2)H(t,A^2)\). The substitution \(v=At\) proves strict monotonicity of the return predicate in \(A\), while Descartes' rule limits the positive-root count to two. The exact Sylvester resultant and the one-sign-change certificate for \(P(7+Y)\) isolate the unique tangency parameter. The two explicit asymptotic expansions follow by independent implicit-function expansions, with the two simple positive crossings identified by uniqueness. The supplied checker reconstructs the core polynomial identities and supplements them with exact and numerical examples; the proof covers all real \(A>0\), beyond the finite tests.
+PASS
 
-## Originality
+At boundary point z=1 of Omega_A={|z^4+iA|<sqrt(1+A^2)}, the defining function gradient (8,8A) identifies gamma_A(t)=1+t(1+iA) as outward normal and curvature 1/sqrt(1+A^2)>0. Direct polynomial expansion factors phi(gamma)=t(1+A^2)H(t,A^2). When X=A^2<=7 all H coefficients are nonnegative; for X>7 Descartes' rule bounds positive roots by two. Substitution v=At makes H(v/A,A^2) a polynomial in 1/A with all positive-power coefficients positive and constant 8(1-v^2), proving strict monotonicity of the interior-return condition and a unique attained tangency threshold. Independently used SymPy to verify the exact Sylvester resultant = -262144(X-1)(X+1)^9 P(X), all 12 negative lower coefficients of P(7+Y), and P(134)<0<P(135). Thus exactly one X_*>7 discriminant root and A_*=sqrt(X_*); double tangency at equality and exactly two simple transverse crossings above follow from sign/Descartes. For large A the implicit-function expansions at v=1 and w=8^(1/5) with t=A^(-4/5)w give t_-=A^-1+31/16 A^-2+O(A^-3) and t_+=8^(1/5)A^(-4/5)-8^(-1/5)A^(-6/5)+O(A^(-8/5)). Finite algebra and sample-root evaluations corroborate; the monotonicity/root bound/IFT establish the continuous theorem.
 
-**PASS relative to inspected evidence.** The September 3, 2026 public construction provides the quartic at \(A=64\) and an interior point on its outward normal. The related October 26, 2026 Section 4.3 establishes conformal coordinates for a broader family of binomial lemniscates, but does not state the exact quartic parameter threshold, global fixed-ray two-root classification or distinct second-order crossing laws. Targeted exact-number, equivalent-formulation and polynomial-lemniscate searches found no decisive covering result. The later publication is contextual, not the earliest source motivating the question.
+## originality
 
-Unexamined portions of early formal code, inaccessible or unindexed classical lemniscate calculations, and the only-abstract inspection of a related August 2026 mean-value paper leave residual originality risk. Negative searches alone cannot guarantee novelty.
+PASS
 
-## Value
+The September 2026 Adamczewski quartic counterexample already has a normal return at A=64; the October 2026 Adamczewski-Colbrook work proves more general normal-return geometry and sufficient criteria for binomial lemniscates. The inspected Sections 3 and 4, especially Proposition 4.4, do not state the sharp fixed-quartic threshold A_*, complete two-crossing phase diagram, or explicit unequal-scale second-order expansions. These are narrower exact quantities for a motivated natural existing family, not a newly invented counterexample or a new universal mean-value bound. A classical unindexed discriminant calculation remains plausible priority risk.
 
-**PASS.** The original construction singles out this domain and ray geometrically; the sharp onset, algebraic certificate and two different asymptotic crossing scales replace a single witness by a natural complete phase diagram. The result gives no improved universal mean-value constant and asserts no classification for other normals or other polynomial families.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest sources are the September 2026 public quartic witness (one fixed parameter) and the October 2026 general geometric framework (general family, sufficient criterion, no fixed-ray sharp threshold in the inspected sections). The present classification is restricted to \(|z^4+iA|<\sqrt{1+A^2}\), with outward normal based at \(z=1\). The numerical checker is supplementary to the proof.
+The quartic A=64 example motivates an exact phase diagram for the same canonical normal ray; specifying the sharp threshold and double-root contact is a natural complete one-parameter classification. Distinct A^-1 and A^-4/5 crossing scales, with explicit corrections, give substantive geometric structure beyond a cheap existence witness.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

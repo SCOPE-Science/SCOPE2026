@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:41:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/sharp-normal-return-threshold-and-two-scale-reentry-for-quartic--04cc63b0d3e3/RESULT.md",
+        "2026/11/01/sharp-normal-return-threshold-and-two-scale-reentry-for-quartic--04cc63b0d3e3/CHECK.py",
+        "2026/11/01/sharp-normal-return-threshold-and-two-scale-reentry-for-quartic--04cc63b0d3e3/VERIFICATION.md"
+      ],
+      "rationale": "At boundary point z=1 of Omega_A={|z^4+iA|<sqrt(1+A^2)}, the defining function gradient (8,8A) identifies gamma_A(t)=1+t(1+iA) as outward normal and curvature 1/sqrt(1+A^2)>0. Direct polynomial expansion factors phi(gamma)=t(1+A^2)H(t,A^2). When X=A^2<=7 all H coefficients are nonnegative; for X>7 Descartes' rule bounds positive roots by two. Substitution v=At makes H(v/A,A^2) a polynomial in 1/A with all positive-power coefficients positive and constant 8(1-v^2), proving strict monotonicity of the interior-return condition and a unique attained tangency threshold. Independently used SymPy to verify the exact Sylvester resultant = -262144(X-1)(X+1)^9 P(X), all 12 negative lower coefficients of P(7+Y), and P(134)<0<P(135). Thus exactly one X_*>7 discriminant root and A_*=sqrt(X_*); double tangency at equality and exactly two simple transverse crossings above follow from sign/Descartes. For large A the implicit-function expansions at v=1 and w=8^(1/5) with t=A^(-4/5)w give t_-=A^-1+31/16 A^-2+O(A^-3) and t_+=8^(1/5)A^(-4/5)-8^(-1/5)A^(-6/5)+O(A^(-8/5)). Finite algebra and sample-root evaluations corroborate; the monotonicity/root bound/IFT establish the continuous theorem.",
+      "residual_risks": [
+        "The unique critical threshold is for this quartic family and the single outward normal at z=1 only.",
+        "A numerical root check cannot establish root counts; Descartes/sign arguments were examined independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamczewski-Colbrook Proposition 4.4 is a general sufficient normal-return criterion, but an existence criterion does not directly give the necessary-and-sufficient sharp threshold for the specific ray at z=1.",
+          "A global mean-value counterexample has no logical implication of the full quartic normal-ray crossing count at every A."
+        ],
+        "reasoning": "A sufficient normal-return criterion on a wider polynomial family does not automatically determine the sharp infimum, exactly two crossings for each supercritical value or their asymptotic coefficients.",
+        "searches": [
+          "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+          "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+          "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+          "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+          "arXiv:2608.27047 Smale mean value dual conjecture"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+        "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+        "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+        "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+        "arXiv:2608.27047 Smale mean value dual conjecture",
+        "arXiv:2610.36158v1",
+        "https://github.com/tadamcz/mean-value-problem",
+        "arXiv:2608.27047v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pre-existing A=64 return is merely a single supercritical witness and cannot determine the first return at A_*=11.6114..., the tangency multiplicity, or two asymptotic scales.",
+          "The general family criterion in arXiv:2610.36158 does not state two roots for each A>A_* or coefficient 31/16 and -8^(-1/5), so no implication from its inspected statement alone."
+        ],
+        "reasoning": "A single interior witness proves one parameter is above threshold, but cannot locate the unique tangency A_* or derive two different crossing scales.",
+        "searches": [
+          "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+          "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+          "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+          "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+          "arXiv:2608.27047 Smale mean value dual conjecture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "September Adamczewski 2026 public quartic at A=64 demonstrates existence but not the sharp transition over all A.",
+          "Adamczewski-Colbrook arXiv:2610.36158v1 Section 4.3 treats general binomial polynomial-lemniscate geometry; the exact degree-12 threshold polynomial and two-scale laws were not stated in examined sections."
+        ],
+        "reasoning": "The earlier normal return at A=64 and generic binomial-lemniscate constructions have the same ambient geometry but do not state the all-parameter fixed-ray threshold.",
+        "searches": [
+          "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+          "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+          "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+          "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+          "arXiv:2608.27047 Smale mean value dual conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search on quartic lemniscate normal returns and exact parameter phases returned no numerical/algebraic table matching P(X) or the A threshold.",
+          "Exact P(X) sign and root certificate reconstructed locally; no matching external tabulation identified in inspected sources."
+        ],
+        "reasoning": "No matching exact-degree-12 discriminant threshold table occurred in the bounded searches; absence is not a proof of novelty.",
+        "searches": [
+          "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+          "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+          "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+          "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+          "arXiv:2608.27047 Smale mean value dual conjecture"
+        ]
+      },
+      "rationale": "The September 2026 Adamczewski quartic counterexample already has a normal return at A=64; the October 2026 Adamczewski-Colbrook work proves more general normal-return geometry and sufficient criteria for binomial lemniscates. The inspected Sections 3 and 4, especially Proposition 4.4, do not state the sharp fixed-quartic threshold A_*, complete two-crossing phase diagram, or explicit unequal-scale second-order expansions. These are narrower exact quantities for a motivated natural existing family, not a newly invented counterexample or a new universal mean-value bound. A classical unindexed discriminant calculation remains plausible priority risk.",
+      "residual_risks": [
+        "Unindexed classical lemniscate discriminants might already give the sharp quartic fixed-ray threshold.",
+        "Original September code and August mean-value paper were not comprehensively inspected; priority therefore remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known sufficient normal-return framework and geometric motivation; no exact quartic fixed-ray threshold or two-scale law in inspected sections",
+          "evidence": [
+            "https://arxiv.org/html/2610.36158v1"
+          ],
+          "identifier_or_url": "arXiv:2610.36158v1",
+          "material_read": "Accessible full HTML, Sections 3 and 4, especially Section 4.3 and Proposition 4.4",
+          "method": "Read primary HTML mathematical text and compare scope/conclusion",
+          "title": "From boundary geometry to counterexamples in Smale's mean value problem",
+          "trigger": "Very high relevance: binomial lemniscates and geometric normal returns in a more general family"
+        },
+        {
+          "assessment": "Prior A=64 witness acknowledged; uninspected original subfiles leave historical priority risk",
+          "evidence": [
+            "https://github.com/tadamcz/mean-value-problem"
+          ],
+          "identifier_or_url": "https://github.com/tadamcz/mean-value-problem",
+          "material_read": "Publicly accessible research repository description and reported quartic witness; not a full line-by-line proof audit",
+          "method": "Contextual reading and comparison to all-A classification",
+          "title": "Smale's Mean Value Conjecture (K=1): disproof",
+          "trigger": "Original quartic A=64 normal-return witness"
+        },
+        {
+          "assessment": "Potentially relevant literature; no assertion about unpublished or unread portions",
+          "evidence": [
+            "https://arxiv.org/abs/2608.27047"
+          ],
+          "identifier_or_url": "arXiv:2608.27047v1",
+          "material_read": "Abstract/metadata only in this audit",
+          "method": "Abstract comparison, not a whole-document noncoverage claim",
+          "title": "Smale's Mean Value Conjecture and its Dual Conjecture for Complex Polynomials",
+          "trigger": "Same mean-value problem and possibly related polynomial geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/sharp-normal-return-threshold-and-two-scale-reentry-for-quartic--04cc63b0d3e3/RESULT.md",
+        "Resultary: quartic polynomial lemniscate outward normal return sharp threshold z^4+iA",
+        "Resultary: sharp quartic lemniscate normal ray return phase threshold",
+        "arXiv:2610.36158v1 Section 4.3 Proposition 4.4 normal reentry binomial lemniscate",
+        "Adamczewski mean-value-problem 2026 quartic 64i outward normal",
+        "arXiv:2608.27047 Smale mean value dual conjecture"
+      ],
+      "rationale": "The quartic A=64 example motivates an exact phase diagram for the same canonical normal ray; specifying the sharp threshold and double-root contact is a natural complete one-parameter classification. Distinct A^-1 and A^-4/5 crossing scales, with explicit corrections, give substantive geometric structure beyond a cheap existence witness.",
+      "residual_risks": [
+        "No claim to global threshold among all rays, to all polynomial degrees, or to a new universal Smale bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The unique critical threshold is for this quartic family and the single outward normal at z=1 only.",
+    "A numerical root check cannot establish root counts; Descartes/sign arguments were examined independently.",
+    "Unindexed classical lemniscate discriminants might already give the sharp quartic fixed-ray threshold.",
+    "Original September code and August mean-value paper were not comprehensively inspected; priority therefore remains qualified.",
+    "No claim to global threshold among all rays, to all polynomial degrees, or to a new universal Smale bound."
+  ],
+  "schema_version": 1
+}
