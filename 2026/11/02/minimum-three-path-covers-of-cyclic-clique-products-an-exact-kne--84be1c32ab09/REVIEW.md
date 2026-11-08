@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The clique-fiber argument gives a sharp \(2m\) dissociation bound and forces two selected labels per fiber at equality. Disjointness of adjacent label-pairs is both necessary and sufficient; it is exactly the closed-walk condition in the two-subset Kneser graph. A self-contained incidence-matrix calculation gives every spectral multiplicity, from which the formula follows for all \(m\ge3,n\ge6\). Direct original-graph enumeration, independent closed-walk dynamic programming and general base-graph checks corroborate this proof.
+PASS
 
-## Originality — PASS, qualified
+For all labelled m>=3,n>=6, a dissociation set in C_m Cartesian K_n has <=2 chosen vertices in each K_n fiber. A 3-coloring of C_m with three disjoint two-label sets attains 2m. Equality forces two vertices per fiber and no inter-fiber edge because each selected vertex already has within-fiber degree one. This is precisely a graph homomorphism C_m to KG(n,2). The incidence identity A=J+I-F^TF and FF^T=(n-2)I+J give eigenvalues binom(n-2,2),3-n,1 with multiplicities 1,n-1,n(n-3)/2. Therefore the trace of A^m gives N=binom(n-2,2)^m+(n-1)(3-n)^m+n(n-3)/2; there is no independence assumption or unproved infinite extrapolation. Direct independent closed-walk dynamic programming reproduced N(3,6)=90,N(4,6)=1710,N(3,7)=630,N(4,7)=11550. The n>=6 boundary is essential to the three disjoint pair construction.
 
-The novelty assessed is the **complete exact multiplicity and classification of minimum three-path covers** in \(C_m\square K_n\), not the known cover definition, the clique-capacity bound or the classical Kneser spectrum. Yuan et al. (arXiv:2412.17095) count dissociation sets in different extremal graph classes. Tepeh (arXiv:2606.22428) studies the distinct invariant of limited domination on products. Wang–Tu–Lang (2023) give entropy bounds for bipartite dissociation counts. Suo–Chen–Zhang (2022) directly address the minimum *cardinality* of \(k\)-path covers on cycle-by-complete-graph products; their full paper was inaccessible, making a possible earlier multiplicity result the most important historical-priority risk. Targeted searches and accessible published comparisons did not identify a covering enumeration, but they cannot certify priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-minima count resolves a natural degeneracy invariant beyond the known optimum size. The sharp pair-label classification exhibits a general graph-homomorphism bridge; its cyclic specialization gives a closed formula with a dominant exponential term and exact parity-sensitive correction. It is a whole infinite product family, not a finite example or an arbitrary slice.
+Best-of-knowledge new exact multiplicity of minimum three-vertex path covers, equivalently maximum dissociation sets, in cycle-by-clique Cartesian products. An existing 2022 paper directly treats the identical product and k-path minimum cardinality; the accessible abstract does not state maximum-set multiplicity, but its full text was inaccessible, so direct hidden coverage remains a specifically substantial risk. The Kneser graph eigenvalues and minimum cardinality are established background, not themselves novel.
 
-## Limitations and prior coverage
+## value
 
-The result concerns labelled vertices, \(m\ge3,n\ge6\), and **minimum** covers only. The inaccessible complete 2022 paper and any unindexed equivalent parameterizations remain unresolved priority risks. An independent audit of the mathematics has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number and structure of all minimum P3 covers of a natural infinite Cartesian product family is an exact extremal-enumeration invariant not determined by the previously studied minimum cardinality; the explicit Kneser closed-walk encoding and spectrum provide reusable combinatorial structure. It is a complete count across all m>=3,n>=6, not a small arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

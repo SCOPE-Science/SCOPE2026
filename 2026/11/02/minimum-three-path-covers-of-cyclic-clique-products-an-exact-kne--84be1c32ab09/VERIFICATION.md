@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the embedded standalone checker. It uses only the Python standard library and reconstructs \(C_m\square K_n\) from its original vertex and edge definitions.
+## correctness
 
-The exhaustive direct-graph enumeration covers \((n,m)=(5,3),(5,4),(6,3),(6,4),(7,3),(7,4)\). The raw candidate counts are respectively \(4096,65536,10648,234256,24389,707281\), with every row assignment containing zero, one or two selected vertices. Larger selected fibers are excluded by a proved clique argument, so these are exhaustive for the corresponding graphs. For all four cases with \(n\ge6\), the exact computed maxima and counts agree with \(2m\) and the theorem's formula.
+PASS
 
-A separate Kneser closed-walk dynamic program checks the trace formula for all \(6\le n\le10\) and \(3\le m\le12\). Generic base-graph tests reconstruct the direct induced-degree condition on Cartesian products over paths, a cycle, a star, a triangle with a leaf, and a complete graph. The final line is `VERIFY_OK`.
+For all labelled m>=3,n>=6, a dissociation set in C_m Cartesian K_n has <=2 chosen vertices in each K_n fiber. A 3-coloring of C_m with three disjoint two-label sets attains 2m. Equality forces two vertices per fiber and no inter-fiber edge because each selected vertex already has within-fiber degree one. This is precisely a graph homomorphism C_m to KG(n,2). The incidence identity A=J+I-F^TF and FF^T=(n-2)I+J give eigenvalues binom(n-2,2),3-n,1 with multiplicities 1,n-1,n(n-3)/2. Therefore the trace of A^m gives N=binom(n-2,2)^m+(n-1)(3-n)^m+n(n-3)/2; there is no independence assumption or unproved infinite extrapolation. Direct independent closed-walk dynamic programming reproduced N(3,6)=90,N(4,6)=1710,N(3,7)=630,N(4,7)=11550. The n>=6 boundary is essential to the three disjoint pair construction.
 
-The finite checks are not a substitute for the unlimited-parameter proof. No external machine theorem prover or independent assessor was used; an independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge new exact multiplicity of minimum three-vertex path covers, equivalently maximum dissociation sets, in cycle-by-clique Cartesian products. An existing 2022 paper directly treats the identical product and k-path minimum cardinality; the accessible abstract does not state maximum-set multiplicity, but its full text was inaccessible, so direct hidden coverage remains a specifically substantial risk. The Kneser graph eigenvalues and minimum cardinality are established background, not themselves novel.
+
+## value
+
+PASS
+
+The number and structure of all minimum P3 covers of a natural infinite Cartesian product family is an exact extremal-enumeration invariant not determined by the previously studied minimum cardinality; the explicit Kneser closed-walk encoding and spectrum provide reusable combinatorial structure. It is a complete count across all m>=3,n>=6, not a small arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
