@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:47:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact three-update map and induction",
+        "Hou–Toh arXiv:2610.08087v1 Algorithm 1/Proposition 2.4 context"
+      ],
+      "rationale": "PASS: For any positive marginals a,b on m,n>=2, rho>0, nonconstant column-only C_ij=c_j, feasible X^0=ab^T and Z^0=0, column normalization of rank-one X^k and column-constant multiplier makes Y^{k+1}=ab^T exactly. Dual contrasts evolve by subtracting s(c_j-c_l)(1-s)^{k-1}. Geometric summation gives Z^k_j-Z^k_l=-(c_j-c_l)(1-(1-s)^{k-1}); row normalization gives exact softmax X^k_ij=a_i b_j exp[-c_j(1-s)^{k-1}/rho]/sum b exp. If 0<s<2, summable increments show full multiplier convergence and first-order nonconstant softmax derivative gives exact asymptotic factor |1-s| for s≠1; s=1 reaches balanced coupling at X². At s=2, sign alternation gives distinct positive two-cycle; s>2 softmax polarizes to disjoint argmin/argmax-cost supports along alternating parity, dual contrasts diverge. Positivity and gauge normalizations hold at every finite k. Independent numerical replay of 25 checks corroborated; proof is exact algebra.",
+      "residual_risks": [
+        "Fixed-precision arithmetic is excluded, and the full softmax formula is specific to additive destination costs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General overrelaxed Sinkhorn and relaxation schemes can exhibit step-size boundaries at two, but act on different updates."
+        ],
+        "reasoning": "A spectral analogy does not by itself imply this algorithm has positive two-cycles at s=2 and polarizing distributions at s>2 with all rho>0.",
+        "searches": [
+          "Resultary query: Bregman ADMM logarithmic dual update optimal transport multiplier stepsize s greater 2 column additive cost",
+          "arXiv:1711.01851"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08087v1",
+        "arXiv:1711.01851",
+        "Resultary semantic published findings query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 asserts global convergence when 0<s<2 and sufficiently large rho, not impossibility beyond the endpoint; Proposition 2.4 supplies logarithmic multiplier identity."
+        ],
+        "reasoning": "A sufficient convergence range cannot prove sharpness. The assessed positive-orbit counterexample for all s>=2 and exact all-step formula supplies the missing converse.",
+        "searches": [
+          "Resultary query: Bregman ADMM logarithmic dual update optimal transport multiplier stepsize s greater 2 column additive cost",
+          "Hou–Toh arXiv:2610.08087v1, Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact row/column projections reduce this nonlinear 3-update method to scalar contrast factor 1-s on column-additive cost invariant manifold."
+        ],
+        "reasoning": "This is the same algorithm, not overrelaxed Sinkhorn or ordinary ADMM; the reduction gives an explicit orbit, which the motivating algorithm definition alone does not state.",
+        "searches": [
+          "Resultary query: Bregman ADMM logarithmic dual update optimal transport multiplier stepsize s greater 2 column additive cost",
+          "arXiv:2610.08087v1, Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned scalar PDHG, other ADMM critical damping and over-relaxation analyses, not this logarithmic-dual OT orbit."
+        ],
+        "reasoning": "No directly tabulated special-case trajectory was found; bounded published-record search does not prove novelty.",
+        "searches": [
+          "Resultary query: Bregman ADMM logarithmic dual update optimal transport multiplier stepsize s greater 2 column additive cost",
+          "Resultary semantic published findings index"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.",
+      "residual_risks": [
+        "The full 2026 Hou–Toh article, especially appendices, was not re-read in full; same-algorithm hidden special case may change priority.",
+        "ADMM classical s=2 instability could subsume the reduction with additional assumptions, though the exact trajectory is not quoted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_PARTIAL_COVERAGE",
+          "evidence": "Existing sufficient 0<s<2 convergence and Proposition 2.4; sharper converse/exact additive-cost orbit not established from inspected material.",
+          "identifier_or_url": "arXiv:2610.08087v1",
+          "material_read": "Abstract and accessible theorem/algorithm descriptions; result-file reproduction of recurrences checked; primary full text not fully obtained in this run",
+          "method": "arXiv metadata and indexed material plus exact algorithm recreation",
+          "title": "A Logarithmic-dual-update Bregman ADMM for Optimal Transport",
+          "trigger": "Exact same method/parameter s"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM",
+          "evidence": "Different overrelaxed scaling, not equivalent to dual-log update without proof.",
+          "identifier_or_url": "arXiv:1711.01851",
+          "material_read": "Abstract and method description; full text not read here",
+          "method": "preprint metadata",
+          "title": "Overrelaxed Sinkhorn-Knopp Algorithm for Regularized Optimal Transport",
+          "trigger": "Potential stronger relaxation limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hou–Toh arXiv:2610.08087v1 Theorem 3.1",
+        "Independent 25 BADMM finite replay checks"
+      ],
+      "rationale": "PASS: A genuine sharpness counterexample for a published sufficient step-size interval matters for guaranteed convergence of a natural transport splitting method. The cost is additive so objective degenerate, but this explicitly isolates an instability of dual-relaxation mechanism under exact positive feasible starts.",
+      "residual_risks": [
+        "No divergence theorem for arbitrary nonadditive costs is inferred; the universal impossibility statement is only existential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on the reconstructed mathematical proof, not finite regression counts.",
+    "Originality is a qualified best-of-knowledge assessment, not an exhaustive priority certification.",
+    "No public file updates issued."
+  ],
+  "schema_version": 1
+}

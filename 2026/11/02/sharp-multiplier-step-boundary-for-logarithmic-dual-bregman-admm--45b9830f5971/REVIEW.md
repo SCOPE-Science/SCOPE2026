@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope uses the exact positive row and column normalization definitions in Hou–Toh Algorithm 1, not the different overrelaxed Sinkhorn update. The product initial condition is strictly feasible, and a column-only cost preserves a row-rank-one invariant. Each of the three updates was independently derived from that invariant. A complete induction supplies the softmax and dual-contrast formulas for all finite iterations; no numerical test is used to generalize a finite run. The distinct positive two-cycle, asymptotically disjoint supports for supercritical relaxation, summable dual increments for subcritical relaxation, and nonzero leading softmax derivative establish all sharp boundaries. The local standalone verifier replays 8,849 finite independent matrix and contrast comparisons. Risk: the explicit result is confined to column-additive costs and does not classify general nonadditive transport objectives.
+## correctness
 
-## Originality — PASS
-The motivating full-text source, Hou and Toh, arXiv:2610.08087v1 (October 6, 2026), gives these algorithmic recurrences in Algorithm 1 and proves convergence under the sufficient condition \(0<s<2\) in Theorem 3.1. Proposition 2.4(ii) is explicitly credited for its columnwise multiplier reduction. Neither its theorem nor the inspected algorithm discussion establishes that the parameter interval is universally necessary or the exact full nonlinear trajectory of the column-additive witness. Thibault, Chizat, Dossal and Papadakis, arXiv:1711.01851, study a *different* overrelaxed Sinkhorn update; their abstract does not settle this BADMM orbit. Semantic comparison with related already-published two-state overrelaxed Sinkhorn thresholds and Bregman Douglas–Rachford local stability establishes no direct statement implication, but historical completeness is not claimed. Residual risk: an older specialized BADMM or matrix-scaling counterexample may contain an equivalent recurrence. The full original paper was materially read; older comparator access was limited to indexed abstracts and recoverable theorem summaries.
+PASS
 
-## Mathematical value — PASS
-The motivating general convergence theorem explicitly chooses \(s\in(0,2)\), leaving sharpness as a concrete numerical-analysis question. The result proves the interval cannot be enlarged *for all strictly positive feasible initializations* even by increasing the penalty without bound; its failure is a genuine primal disagreement, not just a dual gauge ambiguity or loss of differentiability. The exact trajectories distinguish finite termination, geometric convergence, positive period-two orbit, and boundary polarization, all within a simple natural transport class. The deliberately constant-on-feasible-set objective isolates an intrinsic multiplier-step instability. This is a motivated sharp boundary rather than an arbitrary parameter table. It does not predict typical performance on nonadditive costs.
+PASS: For any positive marginals a,b on m,n>=2, rho>0, nonconstant column-only C_ij=c_j, feasible X^0=ab^T and Z^0=0, column normalization of rank-one X^k and column-constant multiplier makes Y^{k+1}=ab^T exactly. Dual contrasts evolve by subtracting s(c_j-c_l)(1-s)^{k-1}. Geometric summation gives Z^k_j-Z^k_l=-(c_j-c_l)(1-(1-s)^{k-1}); row normalization gives exact softmax X^k_ij=a_i b_j exp[-c_j(1-s)^{k-1}/rho]/sum b exp. If 0<s<2, summable increments show full multiplier convergence and first-order nonconstant softmax derivative gives exact asymptotic factor |1-s| for s≠1; s=1 reaches balanced coupling at X². At s=2, sign alternation gives distinct positive two-cycle; s>2 softmax polarizes to disjoint argmin/argmax-cost supports along alternating parity, dual contrasts diverge. Positivity and gauge normalizations hold at every finite k. Independent numerical replay of 25 checks corroborated; proof is exact algebra.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.
+
+## value
+
+PASS
+
+PASS: A genuine sharpness counterexample for a published sufficient step-size interval matters for guaranteed convergence of a natural transport splitting method. The cost is additive so objective degenerate, but this explicitly isolates an instability of dual-relaxation mechanism under exact positive feasible starts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
