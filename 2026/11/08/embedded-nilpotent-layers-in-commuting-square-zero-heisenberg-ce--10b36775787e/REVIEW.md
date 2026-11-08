@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The centralizer is explicitly computed; matrix multiplication gives the entire defining ideal, not just its vanishing set. A multigraded monomial-equivalence basis proves the complete Hilbert series and every nilradical power, including all characteristics and zero/low-variable cases. A socle monomial supplies the embedded associated prime. Two finite verification routes use the actual defining relations and matrix multiplication, respectively; they corroborate but do not replace the proof.
+
+**Originality — PASS, with historical-priority risk.** Ngo (arXiv:1209.1659, Lemma 7.2.2 and Theorem 7.2.3) already gives the two-branch *reduced variety* and a dimension estimate; it does not compute the kernel of the equation ring's reduction map, its Hilbert series, or the filtration by nilradical powers. Levy (arXiv:math/0609180) studies restricted nilpotent commuting varieties and centralizers in characteristic two and does not provide the all-characteristic, all-tuple scheme structure presented here. Jelisiejew--Šivic (arXiv:2106.13137) study unrestricted commuting schemes; only its introduction and principal theorem were materially inspected, leaving a possible general-theorem implication as a residual risk. A general source on nonreduced centralizer representation schemes could subsume this specialization. The reduction to two affine components and its elementary point count are not presented as original.
+
+**Value — PASS.** This is a natural scheme of simultaneous restricted commuting operators inside a minimal nilpotent centralizer, a Lie- and module-theoretic test family. Reduced geometry misses the entire embedded component; the nilradical length grows exponentially and its nilpotence index grows with tuple length. The characteristic-free exact filtration provides scheme-theoretic invariants for deformation and intersection questions, rather than a single small-field count.
+
+The result concerns a deliberately specified nilpotent-centralizer **equation scheme**; it does not describe the thicker full-matrix centralizer scheme or prove independence from all earlier literature. Small-field computations are finite experiments, not infinite certification.
+
+Self-review: passed. Independent audit: not yet performed.
