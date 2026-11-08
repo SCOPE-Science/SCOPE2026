@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:10:41.737096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Frozen check_two_runs.py",
+        "Frozen crosscheck_two_runs.py",
+        "depth5_tree.json and depth9_tree.json (tree metadata only)"
+      ],
+      "rationale": "The family is precisely the binary masks with at most two positive runs, including empty word; run-boundary combinatorics gives |H_n|=Σ_{j=0}² C(n+1,2j), VCdim=min(n,4) by four-point realizability and the five-point alternating obstruction. A depth-d shattered online query tree exists if and only if some first coordinate i divides the present hypothesis set into two nonempty fibers both having depth-(d-1) shattered trees. The recursive predicate on finite hypothesis subsets is therefore an exact inductive characterization, with sound |S|<2^d pruning. Independently implemented bitmask recurrence exhaustively proved (Ldim n=1..14)=(1,2,3,4,4,5,5,6,6,7,7,8,8,9) with exact n14 |H|=1471 and 71028 reached memo states in the distinct run. n7 has 99 concepts and dimension five (strictly below log2-cardinality ceiling six); n14 dimension nine below ceiling ten. Source depth-5/depth-9 certificates were identified in the frozen Git tree; the independent complete recurrence verifies both lower and upper bounds without depending on their printed logs. No claim beyond n14 is made.",
+      "residual_risks": [
+        "The independent exact solver implements the same mathematical splitting recurrence in a different bitmask traversal; a complete unrelated formal proof was not attempted.",
+        "The certificate JSON files were identified via blob hashes, but the independent check relied on exhaustive recurrence, not separate replay of their original encoded bytes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2003.04509 Theorem 3/Prop 4.2; arXiv:2007.03668 main theorem",
+          "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020"
+        ],
+        "reasoning": "Closure bounds remain inequalities and cannot derive exact n=7 counting shortfall or all first 14 integer dimensions without additional specialization",
+        "searches": [
+          "Resultary search: Littlestone dimension unions of two intervals discrete n points online shattering finite thresholds",
+          "Web: Littlestone dimension unions of two intervals finite domain",
+          "arXiv:2003.04509",
+          "arXiv:2007.03668",
+          "arXiv:2310.04812",
+          "Web: online shattering binary words two runs cardinality threshold"
+        ]
+      },
+      "checked_sources": [
+        "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020",
+        "Ghazi, Golowich, Kumar and Manurangsi, Near-tight closure bounds for Littlestone and threshold dimensions, arXiv:2007.03668, ALT 2021",
+        "Chase, Freitag and Reyzin, Applications of Littlestone Dimension to Query Learning and to Compression, arXiv:2310.04812 (2023)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alon et al., Ghazi et al., Chase et al.",
+          "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020"
+        ],
+        "reasoning": "A loose general upper bound and an example of pairwise disjoint single intervals do not logically determine exact labeled two-run point-query trees for arbitrary n≤14",
+        "searches": [
+          "Resultary search: Littlestone dimension unions of two intervals discrete n points online shattering finite thresholds",
+          "Web: Littlestone dimension unions of two intervals finite domain",
+          "arXiv:2003.04509",
+          "arXiv:2007.03668",
+          "arXiv:2310.04812",
+          "Web: online shattering binary words two runs cardinality threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "two-run binary words, two-interval unions on n ordered points, twofold OR closure of single-interval concepts",
+          "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020"
+        ],
+        "reasoning": "Alon et al. and Ghazi et al. provide generic Boolean aggregation bounds, not the sharp finite table; Chase et al. disjoint-interval example is a different class",
+        "searches": [
+          "Resultary search: Littlestone dimension unions of two intervals discrete n points online shattering finite thresholds",
+          "Web: Littlestone dimension unions of two intervals finite domain",
+          "arXiv:2003.04509",
+          "arXiv:2007.03668",
+          "arXiv:2310.04812",
+          "Web: online shattering binary words two runs cardinality threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finite two-run Littlestone threshold search; Web two-interval online shattering finite table",
+          "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020"
+        ],
+        "reasoning": "No matching published integer Ldim table was recovered; potential older online-segmentation classifications remain risks",
+        "searches": [
+          "Resultary search: Littlestone dimension unions of two intervals discrete n points online shattering finite thresholds",
+          "Web: Littlestone dimension unions of two intervals finite domain",
+          "arXiv:2003.04509",
+          "arXiv:2007.03668",
+          "arXiv:2310.04812",
+          "Web: online shattering binary words two runs cardinality threshold"
+        ]
+      },
+      "rationale": "This is a finite-class enumeration in an established concept family; VC dimension four and the general root-splitting formula are standard. Alon–Beimel–Moran–Stemmer (2020) and Ghazi–Golowich–Kumar–Manurangsi (2020/21) analyze generic Boolean aggregation closure bounds and do not fix the exact finite two-interval Littlestone table or the first n7 counting shortfall. Chase–Freitag–Reyzin (2023) discuss a family of mutually disjoint intervals, not arbitrary unions of up to two intervals on a chain. An equivalent result under bounded-one-run/online segmentation terminology or a database table remains possible. Searches of published research records did not identify exact covering values.",
+      "residual_risks": [
+        "An unpublished/older finite table under bounded-alternations or ordered set systems could make some of the values known.",
+        "The independent exact solver implements the same mathematical splitting recurrence in a different bitmask traversal; a complete unrelated formal proof was not attempted.",
+        "The certificate JSON files were identified via blob hashes, but the independent check relied on exhaustive recurrence, not separate replay of their original encoded bytes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_TABLE",
+          "evidence": "Theorem statements bound the complexity of Boolean closure; they do not instantiate the exact binary two-run class for each n or identify its first cardinality shortfall.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04509",
+          "material_read": "Complete arXiv primary PDF, including the aggregation theorem and definitions",
+          "method": "Read PDF text and visually inspected theorem pages; compared generic closure bounds to finite exact Ldim enumeration",
+          "title": "Closure Properties for Private Classification and Online Prediction",
+          "trigger": "Broad theorem on the Littlestone dimension of Boolean combinations of classes"
+        },
+        {
+          "assessment": "GENERAL_CLOSURE_NOT_EXACT_SPECIALIZATION",
+          "evidence": "An asymptotic/O-notation composition bound cannot imply the specific 1..14 sharp dimensions or the n7 gap.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Complete accessible primary PDF, definitions and principal closure-bound statement",
+          "method": "Read full paper and visually checked PDF; tested whether any formula fixes the discrete n two-run class",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "Could dominate two-fold union-class dimension"
+        },
+        {
+          "assessment": "DIFFERENT_CONCEPT_FAMILY",
+          "evidence": "Pairwise disjoint interval hypotheses constitute a restricted family, whereas a union of two intervals may overlap other such concepts freely.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Available abstract/section summary describing pairwise disjoint intervals, not the entire full manuscript",
+          "method": "Matched concepts described with all two-interval unions",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "Relevant interval-class example in adaptive query learning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alon, Beimel, Moran and Stemmer, Closure Properties for Private Classification and Online Prediction, arXiv:2003.04509, COLT 2020",
+        "Frozen RESULT.md plus computed invariant"
+      ],
+      "rationale": "Unions of two intervals are a canonical hypothesis family of VC dimension four, and online shattering depends on query adaptivity rather than static labeling. Finding the sharp first split between VC and Ldim at n6 and between Ldim and a mere cardinality ceiling at n7 identifies nontrivial finite structural barriers. The complete sequence through n14, independently finite-certified with precise constructive/obstruction recurrence, is a natural benchmark that a future learner-theory researcher could directly need. Its finite scope is explicit; no artificial claim of asymptotic classification is made.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unpublished/older finite table under bounded-alternations or ordered set systems could make some of the values known.",
+    "The independent exact solver implements the same mathematical splitting recurrence in a different bitmask traversal; a complete unrelated formal proof was not attempted.",
+    "The certificate JSON files were identified via blob hashes, but the independent check relied on exhaustive recurrence, not separate replay of their original encoded bytes.",
+    "Completed scientific assessment is not published: publication plan is not_ready owing to public provenance and attribution metadata."
+  ],
+  "schema_version": 1
+}
