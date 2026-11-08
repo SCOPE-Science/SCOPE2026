@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob ba0662d4fad43ade5e41d7e3ce6254f9b727a818",
+        "Git verify.py blob 187dead7f1ac4741f9e9ee4a9a05f33b02cc9fdc",
+        "independent_checks_output.txt: QUADRATIC_MOBIUS_CASES 1399"
+      ],
+      "rationale": "Finite differencing of floor(n/d)^2 yields the divisor recurrence a(n)=-1-Σ_{1<d<n,d|n}a(d)(2n/d-1). Induction modulo 2 with the Möbius divisor identity gives a(n)≡μ(n) (mod 2) for every n. For squarefree n=∏p_i, in R=Q[z_i]/(z_i^2) the convolution generating series satisfies S=1-(A-1)/(2B-A), A=∏(1+z_i), B=∏(1+p_i z_i). Since B/A=exp(Σ(p_i-1)z_i), the Taylor expansion of 1/(2e^w-1) yields coefficients C_j=Σ_{ell>=1}ell^j/2^ell; coefficient extraction cancels the full-subset term and leaves exactly the sum over proper subsets. Positive moments force |a(n)|>1 for squarefree composite; nonsquarefree values are even, so a(n)=-1 iff prime. Independent integer recurrence and moment/prime checks through 1399 agree, but the proof is symbolic all-domain.",
+      "residual_risks": [
+        "The all-squarefree polynomial does not give full closed values at nonsquarefree n.",
+        "Earlier same-kernel dyadic inverse may yield alternative expression; its hypotheses should not be conflated with the arbitrary-squarefree formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper wording asserts a primality equivalence but its composite proof changes the admissible f, not a fixed kernel; constant f=1 yields a(4)=-1. The prior quadratic dyadic-zero layer concerns high powers of 2, not all squarefree n."
+        ],
+        "reasoning": "Even a valid general prime criterion would only cover the corollary, not explicit arbitrary squarefree moments. A same-kernel dyadic theorem cannot directly imply values on odd squarefree inputs.",
+        "searches": [
+          "https://arxiv.org/abs/2609.25628 Theorem 1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+          "quadratic generalized Möbius dyadic vanishing a(2^h m) high 2-adic layer"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25628",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+        "Resultary query: generalized Mobius quadratic floor square recurrence a(n) squarefree divisors moment polynomial primality -1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper introduces arbitrary f and its proof states merely not identically -1 across f on composite n; this is insufficient for fixed f(m)=m². The f≡1 counterexample documents the logical distinction."
+        ],
+        "reasoning": "The explicit C_j expansion and mod2 proof settle the fixed quadratic family without invoking the invalid universal fixed-kernel inference. Prior two-prime arithmetic is a special case, explicitly credited.",
+        "searches": [
+          "https://arxiv.org/abs/2609.25628 Theorem 1 proof",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original source gives the recurrence and values at primes and semiprimes; the target coefficient polynomial for arbitrary squarefree support uses C_j for all j."
+        ],
+        "reasoning": "A defining divisor convolution or its formal inverse implicitly determines a(n), but does not give an explicit prime-support moment formula or positivity; extraction in a nilpotent squarezero algebra is required.",
+        "searches": [
+          "generalized Mobius quadratic floor square recurrence a(n) squarefree divisors moment polynomial primality -1",
+          "https://arxiv.org/abs/2609.25628 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original examples cover p, p², pq (k<=2). An indexed semantic search did not locate a coefficient table for unrestricted k."
+        ],
+        "reasoning": "The new claimed object is a closed all-k formula, not previously published p,q cases or finite computed sequence terms.",
+        "searches": [
+          "generalized Mobius quadratic floor square recurrence a(n) squarefree divisors moment polynomial primality -1",
+          "https://arxiv.org/abs/2609.25628 small prime evaluations"
+        ]
+      },
+      "rationale": "Andrews–Kauffman–Sahoo introduce the same generalized recurrence and evaluate p² and pq, and a separately indexed finding shows that the claimed universal-primality wording cannot be interpreted as a fixed-kernel theorem for all f because f≡1 is a counterexample. The actual assessed novelty is the explicit arbitrary-squarefree moment polynomial and its magnitude/parity control for the fixed quadratic kernel, not general Möbius inversion, divisor recurrence, or a first-ever primality criterion. Prior specialized dyadic-zero results for the same kernel concern different input strata, retained as comparison risk.",
+      "residual_risks": [
+        "An unindexed explicit squarefree inverse extraction may already exist in arithmetic-function literature.",
+        "Broader wording of the original source about primality creates an ambiguity; this assessment concerns explicit moment-polynomial and fixed-kernel proof.",
+        "Previously discussed dyadic vanishing for the same recurrence was not fully inspected; it addresses a different domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides recurrence and small-support cases, but not the full squarefree moment polynomial. The composite proof varies f, an important caveat.",
+          "evidence": [
+            "Theorem 1 broad wording versus its composite proof; Proposition 1 divisor recurrence; p² and pq evaluations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25628",
+          "material_read": "Primary open arXiv full HTML text, definition, Proposition 1, Theorem 1 and its composite-direction proof, p² and pq computations",
+          "method": "Primary HTML result-and-proof reading; publisher-PDF route unnecessary",
+          "title": "A surprising generalization of the Möbius function",
+          "trigger": "Same original recurrence and broad primality statement"
+        },
+        {
+          "assessment": "Establishes counterexample f≡1 to universal fixed-kernel prime claim; distinct from f(m)=m².",
+          "evidence": [
+            "For admissible f≡1 the recurrence gives -1 at all n≥2, including n=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+          "material_read": "Published mathematical record abstract/complete finding summary, not independently recovered full proof",
+          "method": "Resultary summary and implication comparison",
+          "title": "A constant-function obstruction to a generalized Möbius primality criterion",
+          "trigger": "Direct response to overbroad primality conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.25628",
+        "Exact squarefree moment expansion and all-input parity proof"
+      ],
+      "rationale": "An explicit formula for all squarefree inputs of a newly studied nonlinear divisor recurrence is a natural complete arithmetic slice with nontrivial ordered-geometric moments. The all-input parity theorem and prime consequence clarify the kernel-specific behavior of a cited broad assertion; no claim of a competitive primality algorithm.",
+      "residual_risks": [
+        "No claimed speedup for testing primality, and no full nonsquarefree exact formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment; not a formal certificate or historical-priority guarantee.",
+    "Publication plan not_ready due verified existing public metadata provenance/privacy and unverified first_public_date; no source edits were prepared."
+  ],
+  "schema_version": 1
+}
