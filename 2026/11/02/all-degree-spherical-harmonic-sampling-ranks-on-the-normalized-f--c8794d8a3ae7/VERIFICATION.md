@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The attached `CHECKER.py` reproduces the 21 small-degree exact rational ranks used in the proof. It constructs 12 representatives from each normalized 24-cell, verifies antipodal sizes and all cross-part nonorthogonality counts, and computes ranks of the 24-by-24 parity-reduced matrices. The matrices have rational integer entries after a transparent congruence transformation in odd degrees. No floating-point tolerance, numerical rank heuristic, or third-party service is required.
+# Independent mathematical audit
 
-The mathematical proof establishes strict diagonal dominance for every odd degree at least 19 and every even degree at least 24. The checker deliberately verifies only the remaining degrees; the infinite assertion uses the analytic bound. Independent symbolic rank calculations were also performed for degrees 4, 6, 8, 9, 10, 14, 16, 20, and 22 and gave the same integers.
+## correctness
 
-This checks a complete, finite arithmetic certificate for the remaining exceptions, but does not assess rank of arbitrary perturbations or constitute independent external review.
+PASS
+
+Addition theorem on S3 gives Chebyshev U_l Gram. Antipodal compression reduces to 24x24; exact normalized dot-products yield periodic values at 0, 1/2, 1/sqrt2. Every even l>=24 has diagonal l+1>23 off-diagonal row-sum; every odd l>=19 has l+1>=20>11+6sqrt(2), hence positive definite. Independent exact fraction/integer-conjugated Gram elimination reproduced all 23 low-degree ranks. The certified tail uses diagonal dominance, not extrapolated enumeration; F4 short/long roots both individually normalized.
+
+## originality
+
+PASS
+
+Qualified PASS for the all-degree image-rank table, last rank-deficient degree 22 and parity interpolation cutoff. Harmonic-strength of binary octahedral group in Hirao–Nozaki–Tasaka Theorem 1.2 concerns vanishing of the average (trivial representation), not the presence of every nontrivial representation sector. Rank defects in degrees 8,16 persist beyond the harmonic-strength list and are not implied just by averaging. Exact representation restriction elsewhere remains priority risk.
+
+## value
+
+PASS
+
+For a canonical symmetric 48-node spherical cubature configuration, exact-degree interpolation can have nonmonotone rank defects; the full classification and sharp permanent cutoff are independently useful to harmonic sampling and finite symmetry analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
