@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T18:19:58.670404Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d2f1460cc9a6688f84559357911bbeb2ec742515; verify.py blob 457e98c009be22b4bf5a2e5b189021e4c2c82a19",
+        "Gnedin–Stark 2022 arXiv:2209.12781 Theorem 6 stationary log-clock convergence; independent quadrature checks for d=1,2,3,10,100"
+      ],
+      "rationale": "Finite Ewens singleton count chain has +1 probability theta/(theta+j), -1 probability k/(theta+j), and stay otherwise. On logarithmic time, Gnedin–Stark 2022 Theorem 6 gives a stationary immigration-death process; initial j<eps*n contributes <=eps, ensuring joint weak occupation-fraction limits, and bounded fractions imply covariance limits. Stationary reversibility and thinning from X(0)=0 yield Poisson(theta(1-e^-t)) at lag t, hence E[W0 Wd] equals e^-2theta theta^d/d! integral_0^1 e^(theta u)(1-u)^d du. I_d(0)=1/(d+1), I_d strictly increasing to infinity, and I_(d+1)<I_d yield unique increasing thresholds; Gaussian upper/lower Laplace bounds at theta=d+(1+-eta)sqrt(d log d) prove sharp first-order displacement. Independent SciPy integration/bisection gave theta1=1.793282132900761, theta2=3.383634282853483, theta3=4.881277491345546.",
+      "residual_risks": [
+        "n tends to infinity with fixed d and theta; large-d root limit is mathematically separate and no uniform n,d theorem is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paper section 9 correlates lifetimes of individual cycles, not empirical fraction of j with F_j=0 and F_j=d. Stationary queue formulas may entail an integral of the kind shown after calculation."
+        ],
+        "reasoning": "Potential broad Feynman–Kac or resolvent formula is method rather than the explicit ordered thresholds and their d+sqrt(d log d) boundary.",
+        "searches": [
+          "Gnedin Stark Random Permutations and Queues Section 9 covariance",
+          "exponentially discounted occupation M/M/infinity covariance sign parameter"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.12781v1",
+        "Stark 2024 QMUL accepted manuscript",
+        "Resultary Ewens Chinese restaurant fixed point occupation empirical proportions stationary immigration death covariance sign threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gnedin–Stark Theorem 6 implies the occupation weak limit, not the derived covariance threshold; its Theorem 1 says empirical fractions have a.s. liminf0,limsup1 and cannot converge a.s. to stationary masses. Current theorem only claims weak convergence and a covariance limit."
+        ],
+        "reasoning": "The covariance formula requires integrating a stationary two-time law; monotonic crossing and large-d Laplace asymptotics are separate consequences not established by the compared source theorem.",
+        "searches": [
+          "arXiv:2209.12781 v1 Sections 3,9,10",
+          "Stark Markov chains generating random permutations set partitions 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gnedin–Stark 2022 define fractions of fixed-point-state occupancy and prove the log-time limit. General M/M/infinity transition thinning gives the conditional law at lag t."
+        ],
+        "reasoning": "Comparing occupation indicators integrated against e^-t with original cycle-lifetime counts: different statistics; classical Markov kernel alone gives an integral but does not state sign-root asymptotics.",
+        "searches": [
+          "Ewens Chinese restaurant fixed point occupation empirical proportions stationary immigration death covariance sign threshold",
+          "arXiv:2209.12781 Theorem 6",
+          "stationary M/M infinity exponentially discounted occupation time covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic corpus returned unrelated occupancy richness and ecological covariance. Submitted d=1,2 thresholds checked independently at 1.7932821329 and 3.38363428285."
+        ],
+        "reasoning": "No same numerical roots or all-d exact table found in searched primary text; novelty claim is not merely absence of keyword match.",
+        "searches": [
+          "Ewens fixed points empirical Q_n,c covariance closed form threshold",
+          "Poisson immigration death queue discounted occupation integral I_d(theta)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact 0-versus-d empirical occupation covariance sign threshold and its d+sqrt(d log d) scale. Gnedin–Stark establish the process limit and empirical occupancy framework; the stationary immigration–death transition is classical, but the sign crossings and sharp large-d phase location were not given by inspected prior theorem statements.",
+      "residual_risks": [
+        "A queueing occupation resolvent paper under different terminology could contain the same sign crossing; the origin of the M/M/infinity transition is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS weak process convergence, does not state the 0-versus-d occupation covariance sign phase diagram",
+          "evidence": [
+            "Theorem 6 provides stationary immigration–death log-clock limit; Section 9 concerns different cycle-lifetime counts."
+          ],
+          "identifier_or_url": "arXiv:2209.12781v1",
+          "material_read": "Primary PDF definitions and Theorems 1 and 6 and Section 9 cycle lifetime correlations read",
+          "method": "Primary full text inspected at accessible sections of document; compared theorem statements and mathematical implications",
+          "title": "Random Permutations and Queues",
+          "trigger": "Same Ewens restaurant process and empirical singleton occupation"
+        },
+        {
+          "assessment": "No direct covariance sign thresholds in inspected introductory material; no whole-document negative inference",
+          "evidence": [
+            "Describes Markov chain construction including derangement/permutation generation rather than fixed-point-occupation sign thresholds."
+          ],
+          "identifier_or_url": "QMUL accepted manuscript 2024",
+          "material_read": "Accessible manuscript introduction, process definitions and objectives",
+          "method": "Primary full text inspected at accessible sections of document; compared theorem statements and mathematical implications",
+          "title": "Markov chains generating random permutations and set partitions",
+          "trigger": "Possible stronger permutation-chain occupancy work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gnedin–Stark arXiv:2209.12781 known occupation process",
+        "RESULT.md exact covariance, monotonicity and Laplace estimates"
+      ],
+      "rationale": "The empirical occupation fractions are natural observables for Ewens growth precisely because they fluctuate rather than converge almost surely. Their 0-versus-d covariance changing from negative to positive despite pointwise mutual exclusion is a motivated nontrivial phase phenomenon. A full ordered family of exact thresholds and the sqrt(d log d) displacement are specific reusable facts, not a routine finite sample or a restatement of the classical Poisson queue kernel.",
+      "residual_risks": [
+        "Not a finite-n covariance sign result or uniform joint d,n limit; dependence beyond the selected two occupations is not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n tends to infinity with fixed d and theta; large-d root limit is mathematically separate and no uniform n,d theorem is proved.",
+    "A queueing occupation resolvent paper under different terminology could contain the same sign crossing; the origin of the M/M/infinity transition is not new.",
+    "Not a finite-n covariance sign result or uniform joint d,n limit; dependence beyond the selected two occupations is not classified."
+  ],
+  "schema_version": 1
+}
