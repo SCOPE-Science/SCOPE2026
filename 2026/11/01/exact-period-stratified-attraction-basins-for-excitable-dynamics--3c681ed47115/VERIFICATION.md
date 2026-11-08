@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and validation
+# Independent mathematical audit
 
-The central infinite-family proof is a finite *symbolic-support* reduction, not a finite-size data extrapolation. There are exactly nine matched-pair color types and 511 nonempty supports. Updates of all pairs with a given type are identical and depend only on the two clique-excitation flags, which depend only on the support. Thus checking all 511 supports proves the statements for every population size \(n\ge2\).
+## correctness
 
-From the folder containing these files, run:
+PASS
 
-```sh
-python3 verify_support.py
-c++ -O2 -std=c++17 -Wall -Wextra -pedantic verify_direct.cpp -o verify_direct
-./verify_direct
-```
+For G_n=K_n square K_2 under synchronous 3-state threshold-one Greenberg--Hastings update, every matched pair has one of nine ordered types (a,b); its successor depends only on whether any left or right type contains state 1. Occupied-type support therefore determines all iterates for every n. The 511 nonempty supports are exhaustively checked with exact symbolic transition; F^16=F^4, least eventual periods 1,3,4, entry <=4, and the nine-row by-period support table. Inclusion-exclusion surjections U_j(n) produce B1=3*4^n+6*3^n-12*2^n+3, B3=9^n-9*4^n+18*2^n-9, B4=6*(4^n-3^n-2^n+1); four-step bound is sharp. Counting recurrent support classes and three-coloring criterion gives C4=2^n-2 (known) and stated C3. Independent nine-type support computation checked all 511 supports and direct vertexwise dynamics 7371 labelled states n=2,3,4; these corroborate a genuinely exhaustive finite 9-type reduction, not merely small-n extrapolation.
 
-`verify_support.py` checks \(F^{16}=F^4\), determines the minimal eventual period for every support, verifies the exact 9-row table, checks all periodic-support descriptions, and checks exact basin formulas and independent three-cycle configuration expressions for population sizes 2 through 12. The complete output is `support_output.txt`.
+## originality
 
-`verify_direct.cpp` updates each vertex by inspecting actual within-clique and matched-partner neighbors. It does **not** use the symbolic-support mapping to perform updates. It exhaustively checks all \(9^n\) configurations at each size \(n=2,3,4,5,6\), totaling 597,861 checked initial configurations. It checks exact period-stratified basins, least recurrent periods, sharp transient bounds and periodic configurations; output is `direct_output.txt`.
+PASS
 
-The exact symbolic support table plus surjection identity proves every all-size basin formula. The independent sitewise finite-size tests are consistency checks, not substitutes for a theorem. Neither an independent external audit nor formal proof-assistant certification is claimed.
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: Full comparison with all unindexed specific rook-graph GHCA basin tables remains incomplete; the 511-support reduction is proof-critical and relies on exact original pair update, which was independently reproduced. Period-four count is known rather than novel.
+
+## value
+
+PASS
+
+A complete all-initial-state attractor-period partition and sharp bounded transient on the canonical matched-clique excitable network, including an exact probability that period-three attraction tends exponentially to one. This is a natural dynamical census not obtainable from merely knowing periods or a prior four-cycle count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

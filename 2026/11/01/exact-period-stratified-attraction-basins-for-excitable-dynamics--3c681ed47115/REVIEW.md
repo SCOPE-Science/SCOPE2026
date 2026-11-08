@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pair-type update depends solely on a nonempty support of nine types, not their multiplicities. Exhaustive symbolic verification of all 511 supports proves \(F^{16}=F^4\), least eventual periods limited to \(1,3,4\), and the finite coefficient table. A surjection count converts the coefficients to exact full-state basin sizes for every \(n\ge2\). Recurrent-state counting independently yields all three orbit counts. An independent sitewise simulator exactly checked all labelled states for sizes two through six. Risks: the all-size claim relies on correct reproduction of the complete nine-type finite reduction; the direct small-size checks are corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS with explicit scope
+For G_n=K_n square K_2 under synchronous 3-state threshold-one Greenberg--Hastings update, every matched pair has one of nine ordered types (a,b); its successor depends only on whether any left or right type contains state 1. Occupied-type support therefore determines all iterates for every n. The 511 nonempty supports are exhaustively checked with exact symbolic transition; F^16=F^4, least eventual periods 1,3,4, entry <=4, and the nine-row by-period support table. Inclusion-exclusion surjections U_j(n) produce B1=3*4^n+6*3^n-12*2^n+3, B3=9^n-9*4^n+18*2^n-9, B4=6*(4^n-3^n-2^n+1); four-step bound is sharp. Counting recurrent support classes and three-coloring criterion gives C4=2^n-2 (known) and stated C3. Independent nine-type support computation checked all 511 supports and direct vertexwise dynamics 7371 labelled states n=2,3,4; these corroborate a genuinely exhaustive finite 9-type reduction, not merely small-n extrapolation.
 
-The earlier general rook-graph period-four theorem already implies the number \(2^n-2\) of period-four orbits, so no novelty is claimed for that subresult. Doba's 2018 finite-graph theorem establishes existence/nonexistence of persistent activity and common excitation-rate criteria, while Durrett and Griffeath (1993) study lattice-scale spirals. Neither inspected theorem states exact labelled attraction-basin counts by eventual period, a size-independent sharp entry time for these matched cliques, or this exact period-three census. Search-based noncoverage cannot establish historical uniqueness; unindexed or separately titled equivalent calculations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a canonical infinite family of clustered excitation networks, the theorem yields a complete all-starting-state invariant: the precise partition between extinction and two fundamentally distinct oscillatory rhythms. The uniform four-step transient bound is structurally stronger than finite-size experiments, and the period-three attraction concentration is an exact quantitative phenomenon rather than a renamed orbit count. The previously known period-four orbit count is explicitly treated as supporting context, not as the motivation for the new contribution.
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: Full comparison with all unindexed specific rook-graph GHCA basin tables remains incomplete; the 511-support reduction is proof-critical and relies on exact original pair update, which was independently reproduced. Period-four count is known rather than novel.
 
-## Closest sources and limitations
+## value
 
-Primary literature: Durrett–Griffeath, *Experimental Mathematics* (1993), 183–208, arXiv:patt-sol/9303002; Doba, *Complex Systems* **27** (2018), 101–126, DOI 10.25088/ComplexSystems.27.2.101. An earlier recorded rook-graph period-four result has identifier `2bb2b82d-5fac-4a5f-85a4-c319fd71a351`. The method requires finite symbolic support verification, provided in complete reproducible source. Other thresholds, graph factors, asynchronous rules, and individual nonfixed-orbit basins are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-initial-state attractor-period partition and sharp bounded transient on the canonical matched-clique excitable network, including an exact probability that period-three attraction tends exponentially to one. This is a natural dynamical census not obtainable from merely knowing periods or a prior four-cycle count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
