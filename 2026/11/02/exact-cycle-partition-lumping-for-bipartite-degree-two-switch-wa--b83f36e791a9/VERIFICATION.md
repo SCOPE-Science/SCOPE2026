@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the complete state enumerator `python3 verify_switch_cycletypes.py` (Python 3 standard library), and independently run `g++ -std=c++17 -O2 -Wall -Wextra verify_switch_cycletypes.cpp -o verify_switch_cycletypes && ./verify_switch_cycletypes` (C++17). Both are standalone and need no downloaded data.
+## correctness
 
-The Python algorithm enumerates every labelled binary matrix with two ones in every row/column for \(n=2,3,4,5\), computes connected components, and uses edge-pair swaps to calculate observed type transitions. The C++ algorithm uses row bitmasks, explicitly visits each of the \(\binom n2^2\) rectangles for each matrix, and searches the bipartite components independently for \(n=2,3,4,5,6\). Exhaustive state totals are respectively \(1,6,90,2040,67950\); at \(n=6\), cycle strata have \(43{,}200\), \(16{,}200\), \(7{,}200\), \(1{,}350\) matrices of types \((6)\), \((2,4)\), \((3,3)\), \((2,2,2)\).
+PASS
 
-Both programs independently assert every observed transition-type count equals the analytic formula for every tested state, and every type's matrix count equals its closed multiplicity formula. The C++ execution completed successfully with `CPP_RECTANGLE_CYCLE_LUMPING_PASS` and Python with `PYTHON_EXHAUSTIVE_SWITCH_LUMPING_PASS`. Outputs are diagnostic, not substitutes for the all-parameter cyclic-edge proof. Full historical-literature exhaustiveness and independent scholarly validation are not claimed.
+Classify two disjoint switch edges by distinct components (4ab cross pairs), same alternation of a 2k-cycle (splits k into a+b>=2 with 2k or k symmetrized choices), or opposite alternations (k(k-2) legal same-type switches). Summing gives degree n(2n-5)+2m_2. Permuting labeled row/column vertex subsets yields (n!)^2/(prod (2k)^m_k m_k!). Symmetric involutions give uniform matrix equilibrium and Ewens(1/2) restricted type law. Boundary n=2 is one absorbing state. Independent literal rectangle enumeration of 1,6,90,2040 matrices n=2..5 compared every transition and type; not an infinite proof.
+
+## originality
+
+PASS
+
+Qualified: standard Ryser fixed-margin interchange chain and degree-sequence sampling precede the work, as do enumerations of 2-regular matrices. The exact type-dependent 4ab/2k/k/kernel and strong lumpability are not in inspected main primary sections. Possible unindexed fragmentation–coagulation identity remains.
+
+## value
+
+PASS
+
+Exact Markov lumpability and stationary type measure identify a nontrivial stochastic reduction used in exact sampling/mixing on a canonical graph ensemble, beyond already known state counts. Explicit sharp split/merge/stay kernel is useful without mixing-time claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

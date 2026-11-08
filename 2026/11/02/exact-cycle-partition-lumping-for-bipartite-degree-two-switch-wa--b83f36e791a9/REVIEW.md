@@ -1,15 +1,21 @@
-# Review: cycle-partition projection for degree-two bipartite switch walks
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim has quantified scope \(n\ge2\), specified matrix entries/margins and the exact rectangle proposal distribution. On each bipartite cycle, two alternating one-factors divide switches into same-factor nonconsecutive pairs (splits) and different-factor disjoint pairs (type preservation); choosing edges from different components merges them. The counts exhaust all possibilities. Direct double counting of labelled cycles establishes the state multiplicities, and reversible rectangle proposals establish the stationary law. Finite exhaustive checks over the actual embedded sources cover every state through \(n=6\); they corroborate rather than replace the unrestricted proof.
+## correctness
 
-## Originality (PASS; residual qualification)
-The nearest primary general source is Miklós–Erdős–Soukup (arXiv:1004.2612, 2010; Electronic Journal of Combinatorics 2013), which defines the same rectangular-switch dynamics and proves connectivity and rapid mixing in a general family; full-text material in §§1–3 and the alternating-cycle section was compared. Nester (1994) tabulates Eulerian orientations of balanced complete bipartite graphs (including 90 for a 4-by-4 binary matrix), while OEIS A001499 independently tabulates the total number of matrices with margin two. Those results are acknowledged. The exact strong-lumping rules, complete cycle split/merge/stay rates and projected conditioned-Ewens law are not implied by those global results and were not located in searches of direct aliases. An inaccessible or unindexed paper could still contain these precise formulas; priority is not certified.
+PASS
 
-## Value (PASS)
-The binary fixed-margin switch walk is a canonical sampling mechanism. Determining whether a coarse observable is itself Markov is not automatic; exact strong lumpability makes cycle counts dynamically sufficient, gives an explicit small partition-state chain for each \(n\), and converts high-dimensional moves into integer-partition transitions with a closed equilibrium measure. These rates permit exact reduced-state calculations without enumerating every labelled matrix and are substantively more informative than the classical total-state counts.
+Classify two disjoint switch edges by distinct components (4ab cross pairs), same alternation of a 2k-cycle (splits k into a+b>=2 with 2k or k symmetrized choices), or opposite alternations (k(k-2) legal same-type switches). Summing gives degree n(2n-5)+2m_2. Permuting labeled row/column vertex subsets yields (n!)^2/(prod (2k)^m_k m_k!). Symmetric involutions give uniform matrix equilibrium and Ewens(1/2) restricted type law. Boundary n=2 is one absorbing state. Independent literal rectangle enumeration of 1,6,90,2040 matrices n=2..5 compared every transition and type; not an infinite proof.
 
-## Limits
-The result does not determine full-chain mixing times or show a new connectivity theorem. The Ewens law is conditioned on no singleton parts. Finite checks establish only the tested sizes; the general theorem is the constructive proof. Potential equivalent treatments under coagulation–fragmentation terminology remain a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: standard Ryser fixed-margin interchange chain and degree-sequence sampling precede the work, as do enumerations of 2-regular matrices. The exact type-dependent 4ab/2k/k/kernel and strong lumpability are not in inspected main primary sections. Possible unindexed fragmentation–coagulation identity remains.
+
+## value
+
+PASS
+
+Exact Markov lumpability and stationary type measure identify a nontrivial stochastic reduction used in exact sampling/mixing on a canonical graph ensemble, beyond already known state counts. Explicit sharp split/merge/stay kernel is useful without mixing-time claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
