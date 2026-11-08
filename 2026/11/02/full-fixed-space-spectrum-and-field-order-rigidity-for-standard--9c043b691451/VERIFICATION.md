@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the exact fixed-space spectrum
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory; no external dependencies or downloaded data are required. The checker independently enumerates valid generator images and verifies every defining bracket and invertibility condition before accumulating a histogram of actual nullities of \(\phi-I\). It compares the histogram with the theorem formula, rather than merely checking that a formula implementation agrees with itself.
+## correctness
 
-The checked field/algebra pairs are `(q,m)=(2,3),(2,4),(3,3),(3,4),(4,3),(5,3)` and several field-order existence boundaries. The nonprime field of order four is implemented directly as a polynomial quotient. Recorded results:
+PASS
 
-```
-PASS q= 2 m= 3 |Aut|= 32 |FPF|= 0 fixed-space: {1: 8, 2: 14, 3: 9, 4: 1}
-PASS q= 2 m= 4 |Aut|= 128 |FPF|= 0 fixed-space: {1: 32, 2: 56, 3: 22, 4: 17, 5: 1}
-PASS q= 3 m= 3 |Aut|= 972 |FPF|= 0 fixed-space: {1: 756, 2: 183, 3: 32, 4: 1}
-PASS q= 3 m= 4 |Aut|= 8748 |FPF|= 0 fixed-space: {1: 6075, 2: 2376, 3: 210, 4: 86, 5: 1}
-PASS q= 4 m= 3 |Aut|= 9216 |FPF|= 0 fixed-space: {1: 8768, 2: 372, 3: 75, 4: 1}
-PASS q= 5 m= 3 |Aut|= 50000 |FPF|= 12500 fixed-space: {0: 12500, 1: 35750, 2: 1605, 3: 144, 4: 1}
-VERIFY_OK: independent generator enumeration and field-order threshold
-```
+PASS: For m>=3 the codimension-one abelian ideal V is characteristic: all codimension-one ideals contain [g,g]=span(e1,...,e(m-1)), and a distinct ideal containing a nonzero t-component fails to be abelian because [t,e2]=e1. Thus automorphisms have t->at+v and B N=a N B. B(e_m), with nonzero top coefficient, determines B, yielding (q-1)^2 q^(2m-1) automorphisms. For a=1, valuation of f(u)-1 and membership of v in im(B-I) give H_m. For a of order r>1 (r coprime to the characteristic), multiplicative norm on 1+uF_q[u]/u^m and unique rth roots reduce f to a uniformly distributed invariant c(u^r); residue classes mod r give the M_L factors. The zero-nullity coefficient is q^(2m-1) sum_{r|q-1,r>1} phi(r)(q-1-min(m,r)), positive precisely when q-1 is composite or m<q-1. This excludes m=2 Heisenberg deliberately. Fresh direct generator-image/matrix-nullity enumeration checked full histograms (q,m)=(2,3),(2,4),(3,3),(3,4),(5,3); at (5,3) histogram 0..4 is (12500,35750,1605,144,1). Those cases corroborate, not prove, the all-field norm argument.
 
-The full general proof is provided in `RESULT.md`: intrinsic automorphism structure, finite characteristic-power unit normalization, uniform norm image, direct sum by residue classes, and exact valuations. Checking finitely many q and m does not substitute for the general argument, does not determine automorphism-conjugacy classes, and does not establish originality. No independent mathematical audit has yet been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Avetisyan 2018 Proposition 11 already provides the general almost-abelian Lie-automorphism structure; that part is not new. The audited finite-field cyclic-unit distribution, every nullity coefficient and arithmetic eventual fixed-point-free boundary were not found stated or implied by a comparable enumerating result in inspected sources. Distinguish existence over complex Lie algebras in Burde–Dekimpe 2026 and adjoint ranks (not automorphism fixed vectors) in published findings; cyclic-semilinear finite-field characteristic spectra remain a real priority risk.
+
+## value
+
+PASS
+
+PASS: An exact fixed-vector spectrum for an infinite family over arbitrary finite fields is a natural representation-theoretic invariant; it distinguishes no-fixed-vector automorphism existence across field arithmetic and stabilizes in dimension. This is more than recomputing the automorphism group order, and the finite-field fixed-space multiplicities are not obtainable by a mere label change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
