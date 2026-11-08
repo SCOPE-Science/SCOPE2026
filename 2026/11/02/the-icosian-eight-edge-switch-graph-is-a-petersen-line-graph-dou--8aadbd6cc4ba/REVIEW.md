@@ -1,19 +1,21 @@
-# Scientific review: the Icosian eight-edge switch graph
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite but complete structural classification for the dodecahedral graph \(GP(10,2)\). The proof defines the graph, the admissible single alternating-cycle operation, and the precise isomorphism. Every Hamiltonian cycle is enumerated by the exhaustive rooted-path recursion with a reversal-breaking inequality; a second exhaustive approach enumerates every perfect matching and tests the connectedness of its complementary two-factor. Both yield precisely thirty Hamiltonian cycles. Exact pairwise differences give sixty eight-edge switches and an all-source diameter of four. The involution quotient has fifteen vertices, ten triangles with explicitly checked incidence, and a concrete \(KG(5,2)\) vertex map in the certificate. The independently reconstructed quotient and lift validate the asserted Petersen double-cover structure. The absence of shorter even base cycles proves that \(8\) is sharp. All finite computations are exhaustive for the fixed domain; no infinite result is inferred.
+PASS
 
-## Originality — PASS, with recorded residual risk
+The source backtracking enumerates all oriented rooted length-20 Hamilton paths and divides only by reverse orientation. An independent complementary-perfect-matching census finds 36 matchings, precisely 30 with connected Hamiltonian complements, and reconstructs 60 eight-edge exchanges, 4-regular connectivity and diameter four. The base girth five and cubic Hamiltonian symmetric difference excludes alternating 4- and 6-cycles. Antipodal pairing gives fifteen quotient vertices and 30 edges; ten quotient triangles each belong to the correct incidence pattern, whose triangle-intersection graph is the ten-vertex cubic (10,3,0,1) Petersen graph. Edge lifts join opposite bipartite colors, proving the tensor-product identification. The entire finite search space is explicit and exhausted; it is not an infinite generalized Petersen claim.
 
-A. J. Schwenk (1989), DOI:10.1016/0095-8956(89)90064-6, already gives the Hamiltonian-cycle counts of all \(GP(n,2)\); the number thirty is not new. His full paper focuses on counts and edge-coloring, not pairwise exchange graphs. B. Hopkins (2004), DOI:10.1155/S0161171204307118, establishes that all dodecahedral Hamiltonian cycles lie in one spatial-symmetry class and describes their face-incidence pattern; his four-page full text does not determine short exchanges or the quotient graph. G. Sierksma (1998), DOI:10.1016/S0166-218X(97)00086-3, works on interchange graphs of tours in \(K_n\); his theorem is not a theorem about a fixed cubic dodecahedron subgraph. A. Takaoka (2018), DOI:10.3390/a11090140, studies switches replacing two edges, whereas the present single alternating eight-cycle changes four selected edges; in a girth-five graph the former operation has no edges. Searches using alternative terms (icosian tour transformations, Hamiltonian-cycle exchange/interchange graphs, antipodal quotients, Petersen line-graph double covers) found no implication of this exact identification. A finding in unindexed or old icosian/edge-coloring literature could remain overlooked; archival discovery is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Hamilton's Icosian game is a canonical, historically motivated finite Hamilton-cycle problem. The earlier literature counts its thirty tours but does not describe how to **move between** them while preserving a tour. The smallest legal connected move size, exact diameter, and especially the unexpectedly familiar \(K_2\times L(P)\) structure supply nontrivial local geometry, not a mere retabulation of the known count. Identifying the antipodal quotient explains why the Petersen graph arises and offers a concrete benchmark for constrained Hamilton-cycle reconfiguration. Its precise natural invariant is the shortest single alternating-cycle threshold, without claiming any general algorithmic breakthrough.
+The number of Hamilton cycles of GP(10,2) was already computed by Schwenk and symmetric tour classes by Hopkins. Those results do not determine adjacency by precisely one alternating eight-cycle, the antipodal quotient, or its canonical double-cover identification; no directly covering theorem was found in the Resultary or targeted primary literature comparisons.
 
-## Limitations
+## value
 
-The theorem concerns one fixed twenty-vertex graph. It is proved by finite exhaustive computation and a transparent graph-theoretic identification, not by an infinite construction. Independent scholarly audit has not been performed; the residual bibliographic risk is an equivalent account under older terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest connected flip graph of the classic icosian Hamilton-cycle system is a natural reconfiguration invariant. Identifying it intrinsically with a Petersen line-graph double cover gives more than a raw census: its symmetry, connectedness, and diameter become structural consequences and distinguish the specific local move rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
