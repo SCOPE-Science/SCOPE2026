@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns Euclidean nearest-point projection with \(\ell_\infty\) used only to measure its perturbation modulus. The polyhedral projection piecewise-linearity theorem reduces global bounds to induced maximum norms of orthogonal projections onto kernels of triangle-constraint submatrices. Rational row reduction of every one of the \(4096\) four-point subsets proves the exact upper bound \(8/5\), including degenerate and unrealizable sets, and the eight three-point subsets prove \(4/3\). Explicit strictly positive KKT witnesses attain both constants. A strict-triangle embedding establishes the all-larger-point lower bound. The included standard-library verifier recomputes every rational quantity; no finite experiment is substituted for the analytic embedding theorem.
+## correctness
 
-## Originality — PASS, with publication-priority risk
-The inspected 2004 and 2008 metric-nearness primary papers introduce the same triangle cone and Euclidean optimization but present existence and solution algorithms, not the sharp cross-norm stability map. The 2022 primal–dual algorithm paper discusses generalized Jacobians but not the specific complete four-point maximum and positive equality certificate. Searches for metric repair, semimetric cone, \(\ell_\infty\) sensitivity, Jacobian/face projections, and the exact constants did not locate an implication of the proposed statement. Related records concerning generic cone or disk projection do not subsume this six-dimensional, twelve-constraint computation. The July 2003 precursor has only a verified month, not a verified exact release day. Earlier specialist unpublished or unindexed calculations cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-Exact coordinatewise noise amplification is a natural stability invariant of least-squares distance repair, distinct from minimizing maximum repair error. The transition from \(4/3\) to \(8/5\) is the first nontrivial interaction between different triangle constraints; a concrete positive pair realizes it, and the same instability survives any number of additional points. These facts give a sharp natural finite cutoff and a structural robustness lower bound, without claiming the still-open all-size exact profile.
+Euclidean projection onto the finite polyhedral metric cone is piecewise affine; on a smooth active cell the Jacobian is the orthogonal projector H_B=I-B^T(BB^T)^dagger B, hence global ||.||infty Lipschitz bounded by max row sums over all 2^12 triangle-row subsets. Independently enumerated all 4096 row subsets with rational arithmetic, 466 distinct row spaces, rank maxima exactly (1,4/3,3/2,8/5,3/2,10/7,0). A separate 3-label calculation attains 4/3. For four labels, selected active constraints 3,8,11 and metric m=(2,2,1,2,1,3)/11 have nine strict complementary constraints; positive inputs z=m-0.01B^T1, z+0.0001v and v=(1,-1,1,-1,1,1) have exact primal/dual normal certificates; H_B v=(8,-3,4,-3,4,1)/5. Adding new labels at pairwise length1 keeps all new cross-triangle inequalities strictly feasible and leaves original multipliers, extending sharp lower bound n>=5. l-infinity objective nearness differs from l-infinity sensitivity of l2 minimizer. No equality of Ln for n>=5 claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Dhillon–Sra–Tropp and Brickell et al define/solve metric nearness using l_p *objective* norms. The submitted claim instead measures l-infinity input-output sensitivity of the unique Euclidean minimizer. The later generalized-Jacobian algorithm paper supplies projection calculus but no explicit 4-point row-space census and sharp bound. Resultary nearby planar cone/disk Lipschitz results are geometrically different. Equivalent small-metric perturbation literature remains possible.
+
+## value
+
+PASS
+
+Exact cross-norm stability of Euclidean metric repair is a useful small-scale natural invariant for four-point finite metric geometry, with a concrete worst-case face. It separates Euclidean nonexpansivity from coordinatewise amplification, not an arbitrary toy computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

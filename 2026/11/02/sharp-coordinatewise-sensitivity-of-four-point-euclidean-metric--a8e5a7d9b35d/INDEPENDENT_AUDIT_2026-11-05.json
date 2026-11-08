@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:06:57.474074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 560604eab344da5ef3357e33c1fa58c431566f6b",
+        "Frozen verify_metric_cone.py da1f7d1eed6c9695e7cc5ee9c28bfa9bb2a71d49 inspected",
+        "Independent exhaustive exact 4096/466 enumeration and exact rational KKT witness in independent_checks.log"
+      ],
+      "rationale": "Euclidean projection onto the finite polyhedral metric cone is piecewise affine; on a smooth active cell the Jacobian is the orthogonal projector H_B=I-B^T(BB^T)^dagger B, hence global ||.||infty Lipschitz bounded by max row sums over all 2^12 triangle-row subsets. Independently enumerated all 4096 row subsets with rational arithmetic, 466 distinct row spaces, rank maxima exactly (1,4/3,3/2,8/5,3/2,10/7,0). A separate 3-label calculation attains 4/3. For four labels, selected active constraints 3,8,11 and metric m=(2,2,1,2,1,3)/11 have nine strict complementary constraints; positive inputs z=m-0.01B^T1, z+0.0001v and v=(1,-1,1,-1,1,1) have exact primal/dual normal certificates; H_B v=(8,-3,4,-3,4,1)/5. Adding new labels at pairwise length1 keeps all new cross-triangle inequalities strictly feasible and leaves original multipliers, extending sharp lower bound n>=5. l-infinity objective nearness differs from l-infinity sensitivity of l2 minimizer. No equality of Ln for n>=5 claimed.",
+      "residual_risks": [
+        "Finite diagnostic checks corroborate but do not replace analytical all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General projection derivative calculus bounds by projectors but does not evaluate all metric triangle-face projectors; planar cones and disks differ from 6-dimensional four-point metric cone."
+        ],
+        "reasoning": "The broader theory reduces the calculation but does not directly imply the exact optimized value 8/5 or its attained KKT witness.",
+        "searches": [
+          "Tang Jiang Wang 2022 generalized Jacobian metric nearness",
+          "Resultary exact planar stability and nonexpansivity ell p projections"
+        ]
+      },
+      "checked_sources": [
+        "Dhillon Sra Tropp Triangle Fixing Algorithms for the Metric Nearness Problem (NIPS 2004), primary full PDF, especially Section 2 and Theorem 2.1",
+        "Brickell et al SIAM J Matrix Analysis Appl 2008 DOI 10.1137/060653391 (abstract and bibliographic details; full not independently read)",
+        "Tang Jiang Wang 2022 arXiv:2211.01245 primary PDF, relevant generalized Jacobian sections",
+        "Resultary query: Euclidean projection on metric triangle cone four points infinity Lipschitz constant 8/5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unique Euclidean nearness solution only gives well-defined Q_n, and Hilbert nonexpansivity gives ||Q_4(u)-Q_4(v)||infty<=sqrt(6)||u-v||infty, not sharp 8/5."
+        ],
+        "reasoning": "Neither optimization algorithm nor generalized Jacobian existence supplies exact 8/5 or the strictly positive attaining pairs.",
+        "searches": [
+          "Dhillon Sra Tropp Theorem 2.1 uniqueness metric nearness",
+          "Tang Jiang Wang generalized Jacobian Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2004 source Section 2 equations (2.2),(2.3) explicitly contrast l_p nearness objectives, while current function is fixed Euclidean projection measured in l_infinity distance between two outputs."
+        ],
+        "reasoning": "An l_infinity-nearest input projection and l_infinity operator norm of Euclidean projection are different nonlinear maps; no equivalence from cited theorem.",
+        "searches": [
+          "Dhillon Sra Tropp 2004 metric nearness l2 and linfinity objectives",
+          "metric nearness Euclidean projection sensitivity l infinity exact four points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 4096 triangle constraint-subset rational enumeration was independently completed here, and no prior exact row-space norm table for this object identified."
+        ],
+        "reasoning": "The finite answer is mathematically motivated by sharp sensitivity; not a known numerical table recomputation on examined evidence.",
+        "searches": [
+          "Brickell Dhillon Sra Tropp metric nearness Table Euclidean norms",
+          "four point metric cone 4096 row subsets 466 row spaces"
+        ]
+      },
+      "rationale": "Dhillon–Sra–Tropp and Brickell et al define/solve metric nearness using l_p *objective* norms. The submitted claim instead measures l-infinity input-output sensitivity of the unique Euclidean minimizer. The later generalized-Jacobian algorithm paper supplies projection calculus but no explicit 4-point row-space census and sharp bound. Resultary nearby planar cone/disk Lipschitz results are geometrically different. Equivalent small-metric perturbation literature remains possible.",
+      "residual_risks": [
+        "Specialized earlier four-point metric-projection sensitivity computations could already contain the 8/5 constant; the 2008 full SIAM article was not independently read completely.",
+        "Only L2,L3,L4 exact; no claim Ln=8/5 for n>=5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Discusses finding nearest metric in selected norms, not cross-norm Lipschitz constant of Euclidean projection.",
+          "evidence": [
+            "2004 paper Section 2 eqs (2.1)-(2.3) and Theorem 2.1"
+          ],
+          "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2004/file/4ebccfb3e317c7789f04f7a558df4537-Paper.pdf",
+          "material_read": "Full eight-page 2004 PDF accessible, read Sections 2–3, Theorem 2.1, l_p objective definitions; inspected PDF screenshot of page 2",
+          "method": "Primary NIPS PDF text and screenshot",
+          "title": "Triangle Fixing Algorithms for the Metric Nearness Problem",
+          "trigger": "Same exact polyhedral cone and Euclidean nearness problem"
+        },
+        {
+          "assessment": "Develops solver and generalized derivative tools, not exact 4-label l_inf sensitivity.",
+          "evidence": [
+            "arXiv:2211.01245"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.01245",
+          "material_read": "Original PDF abstract and generalized-Jacobian/method sections, technical screenshot of relevant page",
+          "method": "Primary 36-page PDF text and screenshot",
+          "title": "An Efficient Algorithm for the l_p-Norm-Based Metric Nearness Problem",
+          "trigger": "A direct potentially broader generalized-Jacobian treatment"
+        },
+        {
+          "assessment": "Cannot assert whole-document noncoverage; earlier perturbation calculations remain residual risk.",
+          "evidence": [
+            "SIAM J Matrix Anal Appl 30(1), 2008, DOI cited"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/060653391",
+          "material_read": "Published abstract and citation metadata only; full journal text not read in this run",
+          "method": "Publisher abstract",
+          "title": "The Metric Nearness Problem",
+          "trigger": "Earlier full metric-nearness treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 560604eab344da5ef3357e33c1fa58c431566f6b",
+        "Frozen verify_metric_cone.py da1f7d1eed6c9695e7cc5ee9c28bfa9bb2a71d49 inspected",
+        "Independent exhaustive exact 4096/466 enumeration and exact rational KKT witness in independent_checks.log",
+        "Dhillon Sra Tropp Triangle Fixing Algorithms for the Metric Nearness Problem (NIPS 2004), primary full PDF, especially Section 2 and Theorem 2.1",
+        "Brickell et al SIAM J Matrix Analysis Appl 2008 DOI 10.1137/060653391 (abstract and bibliographic details; full not independently read)",
+        "Tang Jiang Wang 2022 arXiv:2211.01245 primary PDF, relevant generalized Jacobian sections",
+        "Resultary query: Euclidean projection on metric triangle cone four points infinity Lipschitz constant 8/5"
+      ],
+      "rationale": "Exact cross-norm stability of Euclidean metric repair is a useful small-scale natural invariant for four-point finite metric geometry, with a concrete worst-case face. It separates Euclidean nonexpansivity from coordinatewise amplification, not an arbitrary toy computation.",
+      "residual_risks": [
+        "Mathematical significance is confined to the precisely stated natural invariant/parameter regime; no unproved downstream application is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized earlier four-point metric-projection sensitivity computations could already contain the 8/5 constant; the 2008 full SIAM article was not independently read completely.",
+    "Only L2,L3,L4 exact; no claim Ln=8/5 for n>=5."
+  ],
+  "schema_version": 1
+}
