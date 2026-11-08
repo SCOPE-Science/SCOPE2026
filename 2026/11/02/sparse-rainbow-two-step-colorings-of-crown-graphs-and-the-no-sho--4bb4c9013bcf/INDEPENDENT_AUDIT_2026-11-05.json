@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:57:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cr_n=K_{n,n} minus a perfect matching, distance-two pairs are precisely same-bipartition distinct-index pairs. At most one red-isolated vertex per side, so >=n-1 red edges; equality forces a matching omitting one vertex each. If omitted indices differ a same-side pair has no rainbow geodesic, hence both are same s. The n-1 matching corresponds to a permutation of [n]\\{s} with no fixed points (graph has missing diagonal); a two-cycle creates an unavailable pair of red intermediates, and conversely absence of 2-cycles makes all same-side pairs have an available red-blue two-step route. EGF for permutations with cycles length>=3 is exp(-z-z^2/2)/(1-z); n choices s gives n*a_{n-1}. At n=3 Cr_3 is C6; two alternating colorings, three red edges. Independently enumerated every subset of red edges through the first feasible cardinality for n=3,4,5, recovering min/count (3,2),(3,8),(4,30); evaluated the n=6..8 constructor and code scope separately. This is not full rainbow connection of diameter-three matched pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "High minimum-degree rainbow-connection and approximate all-pair guarantees do not determine a sharp secondary-color budget at the crown's just-below-Dirac degree.",
+          "Classical rainbow connection concerns existence of any rainbow path for every vertex pair, not enumerating resource-minimal 2-edge geodesics."
+        ],
+        "reasoning": "These earlier results neither force the lower n-1 distinct red incidents nor characterize the length>=3 permutation cycles of every optimizer.",
+        "searches": [
+          "Barát Boyadzhiyska Freschi arXiv:2609.11437v1",
+          "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles",
+          "Chartrand Johns McKeon Zhang 2008 rainbow connection"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py and Git tree b67db92e0d21b3e9c944d8d97080fd74a81046fe",
+        "Barát et al. arXiv:2609.11437v1 abstract and theorem domain",
+        "Crown Graph, MathWorld",
+        "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The near-Dirac theorem is inapplicable to exact all-pair two-color connectivity because Cr_n has diameter three and min degree n-1 on 2n vertices.",
+          "Each min-red feasible coloring is forced to be an almost perfect matching with no 1/2 cycles, not supplied by generic existence theorems."
+        ],
+        "reasoning": "The colored graph here is a weaker attainable distance-two condition and its sharp named-color count is a different, stronger enumeration statement about feasible optimal colorings.",
+        "searches": [
+          "Barát et al. arXiv:2609.11437v1",
+          "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles",
+          "Classical crown graph definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A crown has n-1 degree on 2n vertices, one below n required for the nearest exact super-Dirac 2-rainbow-connectivity theorem; its matching partners are at distance 3, precluding any 2-color rainbow full connectivity."
+        ],
+        "reasoning": "The new property is exactly rainbow-completeness for distance-two pairs, and counts red edges of a named color; it cannot be conflated with standard rc(Cr_n) or a different vertex odd coloring.",
+        "searches": [
+          "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles",
+          "Barát Boyadzhiyska Freschi arXiv:2609.11437v1",
+          "Crown Graph MathWorld"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary crown odd-coloring work is a vertex neighborhood parity invariant rather than distinguished red edge minimization.",
+          "The n=3..8 sequence 2,8,30,144,1120,9120 is a new analytic permutation-cycle count in this paper, not merely a preexisting OEIS lookup."
+        ],
+        "reasoning": "A potentially equivalent permutation restriction sequence alone would not establish it arises as the complete crown coloring extremizer set; searched for same-object reductions.",
+        "searches": [
+          "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles",
+          "Resultary: neighborhood-parity odd colorings of crown graphs",
+          "Crown graph rainbow connection searches"
+        ]
+      },
+      "rationale": "Existing rainbow connection results under Dirac-style minimum-degree conditions and crown-graph basics do not provide the named-red sparsity optimum and all-optimal-cycle-cover bijection; a binary separating matrix equivalence may have been missed.",
+      "residual_risks": [
+        "An earlier binary separating matrix or permutation-cover result might imply the same sharp optimum and counts under different terminology.",
+        "The high-density 2026 manuscript full text was not independently read here, so no whole-document noncoverage claim is made.",
+        "Only named two colors, precisely graph-distance-two pairs, and n>=3 crowns are classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published hypotheses do not directly imply proposed all-distance-two sparse-red optimum; no assertion about unread full text",
+          "evidence": "Exact all-pair 2-color rainbow connection requires graph diameter <=2, violated by Cr_n.",
+          "identifier_or_url": "arXiv:2609.11437v1",
+          "material_read": "Primary abstract and accessible statement of the minimum-degree hypotheses; full manuscript not completely inspected in this independent run",
+          "method": "Compared theorem domain to Cr_n degree n-1 and diameter three",
+          "title": "Rainbow connecting 2-colorings of super-Dirac graphs",
+          "trigger": "Nearest 2026 rainbow 2-color near-Dirac theorem"
+        },
+        {
+          "assessment": "Standard prior definition only, not extremal edge-color enumeration",
+          "evidence": "Cr_n is K_nn minus a perfect matching and has n distance-three matched pairs.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CrownGraph.html",
+          "material_read": "Graph definition and elementary structure",
+          "method": "Definition-level source check",
+          "title": "Crown Graph",
+          "trigger": "Standard graph model and diagonal deletion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural two-color routing-with-minimum-secondary-color-resource problem has a complete extremizer and enumeration theorem. The crown graph is near the Dirac density boundary yet has forced distance-three pairs; the permutation no-short-cycle structure gives more insight than a single minimum number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py and Git tree b67db92e0d21b3e9c944d8d97080fd74a81046fe",
+    "Barát et al. arXiv:2609.11437v1 abstract and theorem domain",
+    "Crown Graph, MathWorld",
+    "Resultary: crown graph rainbow geodesic two-edge colored sparsest red edges permutation no 2 cycles"
+  ],
+  "disposition": "passed",
+  "limitations": "An earlier binary separating matrix or permutation-cover result might imply the same sharp optimum and counts under different terminology.; The high-density 2026 manuscript full text was not independently read here, so no whole-document noncoverage claim is made.; Only named two colors, precisely graph-distance-two pairs, and n>=3 crowns are classified.",
+  "residual_risks": [
+    "An earlier binary separating matrix or permutation-cover result might imply the same sharp optimum and counts under different terminology.",
+    "The high-density 2026 manuscript full text was not independently read here, so no whole-document noncoverage claim is made.",
+    "Only named two colors, precisely graph-distance-two pairs, and n>=3 crowns are classified."
+  ],
+  "schema_version": 1
+}

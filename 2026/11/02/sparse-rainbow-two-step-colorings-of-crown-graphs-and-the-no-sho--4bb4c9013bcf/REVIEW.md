@@ -1,11 +1,21 @@
-## Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower bound counts the necessary nonisolated red vertices on each bipartition side. Equality forces a red matching and matching red-isolated indices. The graph-distance-two condition is then equivalent to forbidding fixed points and two-cycles in the induced permutation. The resulting count follows from the labelled permutation exponential formula. The six-cycle boundary is proved separately. Independent graph-based exhaustive computations confirm the minimum layer and all optimizers for orders three, four, and five, and test every proposed optimizer through order eight. No finite search is treated as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risks).** The relevant Barát–Boyadzhiyska–Freschi manuscript (arXiv:2609.11437v1, accessible full PDF) proves rainbow connection statements under high minimum-degree hypotheses and addresses asymptotic coverage, not sparse distinguished-color counts for the crown graph at one below the balanced degree threshold. Classical treatments of crown graphs and rainbow connection establish terminology, not this complete near-perfect-matching/long-cycle optimal-coloring classification. Searches for equivalent formulations in the available mathematical records and web literature yielded no dominating statement. An overlooked formulation as a binary separating matrix or permutation cover remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** Using as few edges as possible of a secondary color is a natural resource-minimization refinement of two-color rainbow routing. The crown graph has a forced family of unreachable pairs, so the strongest feasible two-color routing condition is all distance-two pairs. The solution is not merely an optimum: it determines every extremizer and produces a nontrivial cycle-length restriction and exact exponential enumeration, providing a reusable structural description.
+For Cr_n=K_{n,n} minus a perfect matching, distance-two pairs are precisely same-bipartition distinct-index pairs. At most one red-isolated vertex per side, so >=n-1 red edges; equality forces a matching omitting one vertex each. If omitted indices differ a same-side pair has no rainbow geodesic, hence both are same s. The n-1 matching corresponds to a permutation of [n]\{s} with no fixed points (graph has missing diagonal); a two-cycle creates an unavailable pair of red intermediates, and conversely absence of 2-cycles makes all same-side pairs have an available red-blue two-step route. EGF for permutations with cycles length>=3 is exp(-z-z^2/2)/(1-z); n choices s gives n*a_{n-1}. At n=3 Cr_3 is C6; two alternating colorings, three red edges. Independently enumerated every subset of red edges through the first feasible cardinality for n=3,4,5, recovering min/count (3,2),(3,8),(4,30); evaluated the n=6..8 constructor and code scope separately. This is not full rainbow connection of diameter-three matched pairs.
 
-**Source comparisons and limits.** The 2026 manuscript does not apply its main Dirac hypotheses to \(\operatorname{Cr}_n\), whose minimum degree is \(n-1\) on \(2n\) vertices, nor does its approximate theorem imply the red-cardinality optimum. The classic rainbow connection number is at least three here because of diameter three. This result concerns only two named colors and the distance-two pairs, not full rainbow connection. A comprehensive historical-priority search and independent mathematical audit are still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing rainbow connection results under Dirac-style minimum-degree conditions and crown-graph basics do not provide the named-red sparsity optimum and all-optimal-cycle-cover bijection; a binary separating matrix equivalence may have been missed.
+
+## value
+
+PASS
+
+A natural two-color routing-with-minimum-secondary-color-resource problem has a complete extremizer and enumeration theorem. The crown graph is near the Dirac density boundary yet has forced distance-three pairs; the permutation no-short-cycle structure gives more insight than a single minimum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
