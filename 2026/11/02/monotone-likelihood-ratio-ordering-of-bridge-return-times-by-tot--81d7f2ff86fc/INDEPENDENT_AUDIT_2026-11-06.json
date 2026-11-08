@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:54:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An unbiased bridge of 2n steps can be decomposed uniquely into k signed excursions. The unsigned excursion generating series F(z)=(1-sqrt(1-4z))/2 and Lagrange inversion give a_{m,j}=j/(2m-j)*binom(2m-j,m-j). Counting the first r and final k-r excursion lengths yields P(T_r=t|K=k)=a_{t,r}a_{n-t,k-r}/a_{n,k}; the fixed step probability p cancels on conditioning. Factorial ratios for k+1 versus k are proportional to (u-q)/(2u-q-1), u=n-t,q=k-r; its derivative in u equals (q-1)/(2u-q-1)^2, and the larger-k distribution additionally excludes the rightmost t. This proves nonincreasing likelihood ratio and strict first-order stochastic dominance at every admissible comparison. At q=1 the common-support ratio is constant and the new law is precisely a truncation; the removed atom and TV distance equal n(k-1)/(k(2n-k-1)). Independent exhaustive balanced-walk enumeration verified all laws, likelihood ratios and boundary for 2<=n<=7. Boundary r=k is deterministic T_r=n and is treated separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal first-return generating-function machinery computes a_{m,j} but is an enumeration identity, not a monotone-likelihood-ratio assertion.",
+          "The 2007 longest-excursion paper includes tied-down walks and Brownian bridges but its central statistic is the longest ranked excursions rather than chronological return times."
+        ],
+        "reasoning": "Broader contexts do not imply the conditional MLR hierarchy without comparing adjacent k in exact factorial ratio.",
+        "searches": [
+          "Resultary_Search: random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio",
+          "https://doi.org/10.1239/jap/1197908824",
+          "Feller An Introduction to Probability Theory Vol.1 Catalan first-return"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1239/jap/1197908824",
+        "https://www.seehuhn.de/blog/6.html",
+        "Feller 1968 Vol.1",
+        "Resultary query random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing generating functions give the number of sequences with k excursions and permit recovery of conditional probabilities.",
+          "New claim adds sign monotonicity of a_{n-t,k+1-r}/a_{n-t,k-r}, strict stochastic ordering, and q=1 truncation formula."
+        ],
+        "reasoning": "Enumerative input does not logically assert MLR without the exact adjacent-ratio calculation; a diligent reader can derive it, so residual priority is possible.",
+        "searches": [
+          "Resultary_Search: random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio",
+          "https://doi.org/10.1239/jap/1197908824",
+          "https://www.seehuhn.de/blog/6.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given K=k, chronological excursion lengths form a uniform weighted Catalan composition of total n, and T_r is the sum of the first r parts.",
+          "Lindell–Holst study lengths of longest excursions; Voss studies marginal count K."
+        ],
+        "reasoning": "The tail/partial-sum stochastic comparison is not equivalent to the ranked maximum excursion distribution or the unconditioned zero-visit count.",
+        "searches": [
+          "Resultary_Search: random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio",
+          "Lindell–Holst DOI:10.1239/jap/1197908824",
+          "Voss random walk bridges 2007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct all-balanced-path enumerations yield the claimed conditional return times through n=7; they were independently generated.",
+          "Published tables of longest excursions or counts of contacts are not tables of the conditional r-th chronological return location."
+        ],
+        "reasoning": "No exact prior table of the same conditional MLR ratio or TV mass was found; absence from indexes is not a novelty proof.",
+        "searches": [
+          "Resultary_Search: random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio",
+          "Lindell–Holst 2007 finite excursion tables"
+        ]
+      },
+      "rationale": "The chronological return-time family conditional on total zero visits forms a strict finite MLR/stochastic hierarchy. Existing main reference enumerates longest ranked excursion durations, which is a different statistic from chronological r-th return given K. Catalan excursion counting is classical. The precise finite MLR ratio plus exact exceptional truncation/TV appear not covered by the inspected primary sources, but an unindexed earlier composition-comparison lemma could imply it.",
+      "residual_risks": [
+        "MLR order may be a consequence of an older ordered-composition total-positivity theorem not located by bridge-specific search.",
+        "Strictness in likelihood ratio itself is not asserted when q=1 or common support singleton; strictly earlier first-order order still holds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No full theorem of conditional chronological r-th return MLR identified in inspected material.",
+          "evidence": "Main theorem studies the distribution of longest excursions and their ranking, not T_r conditional on K.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+          "material_read": "Lawful publisher PDF, opening pages, model, main results and analytic excursion generating functions; PDF pages were viewed.",
+          "method": "Read and visually inspected scholarly PDF and compared longest ranked versus chronological excursion partial sums.",
+          "title": "Distributions of the longest excursions in a tied down simple random walk and in a Brownian bridge",
+          "trigger": "Same tied-down random-walk bridges and excursion counts"
+        },
+        {
+          "assessment": "Marginal number-of-returns distribution does not imply ordered return-time comparison.",
+          "evidence": "The studied random variable is the count of zero visits rather than chronology of a given rank.",
+          "identifier_or_url": "https://www.seehuhn.de/blog/6.html",
+          "material_read": "Public 2007 article on bridge return counts, formulas and exposition.",
+          "method": "Read the article and compared marginal K to conditional T_r.",
+          "title": "Random walk bridges",
+          "trigger": "Total number of zero contacts in a finite simple bridge"
+        },
+        {
+          "assessment": "Classical combinatorial ingredient, not a covering claim of MLR.",
+          "evidence": "Catalan generating function F=z/(1-F) gives a_{m,j} by Lagrange inversion.",
+          "identifier_or_url": "Feller 1968 3rd edition",
+          "material_read": "Relevant Catalan first-return formulas as identified in source and standard mathematical identities; full volume not read.",
+          "method": "Reconstructed the Catalan inversion and recurrence independently.",
+          "title": "An Introduction to Probability Theory and Its Applications, Volume I",
+          "trigger": "Classical renewal/excursion and Catalan path-count background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditional chronological return times are basic path observables. The theorem provides an exact all-size, all-rank stochastic monotonicity hierarchy, stronger than expectation monotonicity, and identifies a sharp boundary where the comparison becomes literal truncation with exact TV distance. It answers a motivated relation between contact number and excursion chronology, not a numerical edge case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1239/jap/1197908824",
+    "https://www.seehuhn.de/blog/6.html",
+    "Feller 1968 Vol.1",
+    "Resultary query random walk bridge chronological rth return time conditional total number excursions monotone likelihood ratio"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Nearest-neighbor even-length bridges only, p in (0,1), conditional on endpoint zero.",
+    "No analogous claim for Brownian local times, longest excursion lengths, or non-nearest-neighbor increments."
+  ],
+  "residual_risks": [
+    "MLR order may be a consequence of an older ordered-composition total-positivity theorem not located by bridge-specific search.",
+    "Strictness in likelihood ratio itself is not asserted when q=1 or common support singleton; strictly earlier first-order order still holds."
+  ],
+  "schema_version": 1
+}
