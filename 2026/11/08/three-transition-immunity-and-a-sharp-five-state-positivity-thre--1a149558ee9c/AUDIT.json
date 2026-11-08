@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "An acyclic generator is upper triangular. The matrix-function divided-difference path expansion has nonnegative factors because f and its first three derivatives on the negative real axis are nonnegative; Hermite--Genocchi gives positivity for every path of <=3 edges, for every h. For arbitrary <=4-state generators, the first coefficients 1,1,1/2,0,-1/4 plus shortest-walk sign yield positive sufficiently small nonzero reachable entries, including the distance-three case with (Q^4)_ij<0. The five-state exact inverse has absorbing-column remainders B1,B2,B3 positive and B4=h^4P(h)/D(h)^4; P strictly increases from -4 to infinity. The actual package verify.py checked exact identities and 192 supplementary rational DAG samples; finite experiments not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna--Colaneri--Kirkland--Shorten (2012) preprint introduction and diagonal Padé theorems address general nonconservative Metzler linear systems and higher diagonal Padé barriers, https://mural.maynoothuniversity.ie/id/eprint/3761/ .",
+        "Itkin--Kazbek (2026), Section 3.4 and Appendix A.5, apply eventual-positivity arguments to conservative Fokker--Planck generators and recognize Metzler small-step failures, without a universal all-step acyclic depth-three statement.",
+        "Classical Bolley--Crouzeix order barrier says order greater than one cannot preserve positivity on all positive generators, and therefore does not imply the quantified restricted graph guarantee or exact five-state threshold."
+      ],
+      "reasoning": "The theorem is neither a corollary of a general all-generator positivity barrier (which is negative) nor a mere specialization of large-step eventual positivity. The proved all-step subset, dimension four universal local guarantee and exact smallest witness require a different combination of divided differences, shortest-path signs and concrete Jordan computations. Classical matrix-function coverage is a residual risk rather than presumed excluded.",
+      "searches": [
+        "Padé 0 2 negative coefficient z^4 Markov five state positive systems",
+        "Zappavigna Colaneri Kirkland Shorten 2012 essentially negative news about positive systems Padé (0 2) 5 dimensional nilpotent",
+        "subdiagonal Padé (0,2) matrix function divided difference complete monotonicity up to third derivative on negative real axis"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.22703v1 (Section 3.4, Appendix A.5 and full-source context)",
+      "https://mural.maynoothuniversity.ie/id/eprint/3761/ (public 2012 preprint; parts material-read)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (complete RESULT.md)",
+      "Bolley--Crouzeix 1978, cited theorem and bibliographic information, original not read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Itkin--Kazbek Theorem 6 only states eventual positivity for their class under large steps; Remark 4 allows Metzler small-step failures but does not identify the five-state minimality or any all-step safe DAG subclass. Section 3.4, Appendix A.5: https://arxiv.org/abs/2608.22703 .",
+        "The public [2/2] note establishes an eight-state threshold for a fourth-order diagonal function and explicitly states its different Maclaurin coefficients; no substitution of parameters in that formula produces [0/2] Padé.",
+        "2012 diagonal Padé general negative cases do not entail the all-step three-transition DAG guarantee nor the exact [0/2] conservative transition threshold."
+      ],
+      "reasoning": "No inspected theorem logically implies all three linked statements: all-step acyclic depth-three positivity, four-or-fewer-state local positivity for arbitrary generators, and the exact five-state [0/2] sign interval. A general impossibility theorem cannot imply a sharp minimal dimension, while a different Padé function has different Taylor coefficients and different transition signs. Historical priority remains potentially incomplete.",
+      "searches": [
+        "Padé 0 2 acyclic Markov generator path length three unconditional positivity five-state pure birth exact threshold",
+        "second order L-stable rational R(z)=1/(1-z+z²/2) positivity DAG five-state first negative transition probability",
+        "rational integrators CTMC discrete nonnegativity five state generator second order L-stable",
+        "Andrey Itkin Kazbek Diagonal Frog ADI Padé 0 2 2026 positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate is exactly a [0/2] Padé stability-map positivity theorem for acyclic Markov generators and a five-state conservative pure-birth chain.",
+        "The public eight-state [2/2] theorem has a different stability function (1+z/2+z²/12)/(1-z/2+z²/12) and minimal size eight, https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab .",
+        "Itkin--Kazbek Section 3.4 formula (8) has the identical [0/2] map, but the result (Theorem 6) is a large-step positivity window, not this graph-path-depth classification, https://arxiv.org/abs/2608.22703 ."
+      ],
+      "reasoning": "Checked Padé notation [0/2], Padé(0,2), rational-denominator spelling, Markov pure-birth and directed acyclic path aliases. Similarity of positivity language does not imply coverage because the stability function and the quantified generator class differ. A source with the same rational map gives only eventual large-step conclusions; the [2/2] note gives a different function and dimension.",
+      "searches": [
+        "Padé 0 2 acyclic Markov generator path length three unconditional positivity five-state pure birth exact threshold",
+        "subdiagonal Padé (0,2) matrix function divided difference complete monotonicity up to third derivative on negative real axis",
+        "second order L-stable rational R(z)=1/(1-z+z²/2) positivity DAG five-state first negative transition probability",
+        "\"Padé\" \"(0,2)\" \"acyclic\" positivity Markov",
+        "\"1-z+z^2/2\" \"five\" \"Markov\" positive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published numerical threshold is 0.596640561867... for the eight-state [2/2] witness, whereas the present [0/2] witness has the exact polynomial h⁴+8h³+12h²−4 and root 0.496605762665489... .",
+        "No matching [0/2] five-state threshold or acyclic-depth classification was surfaced in the actual published-record or literature searches."
+      ],
+      "reasoning": "This is an exact graph-structural theorem and exact algebraic root, not a known table lookup. An absent search hit does not prove absence; the record comparison is by stability function, number of states, and numerator polynomial, not just matching threshold digits.",
+      "searches": [
+        "Padé 0 2 acyclic Markov generator path length three unconditional positivity five-state pure birth exact threshold",
+        "Padé (0,2) rational exponential positivity minimal Markov chain dimension five small timestep pure birth",
+        "Padé [0/2] 1/(1-z+z²/2) negative coefficient fourth Markov generator finite chain positivity threshold",
+        "\"Padé\" \"(0,2)\" \"acyclic\" positivity Markov"
+      ]
+    },
+    "rationale": "The identical 2026 [0/2] source proves a different large-step eventual-positivity property and warns of possible Metzler failure without quantifying minimal dimension/path depth. The closest published exact conservative threshold is for the different [2/2] map. Older diagonal Padé and general order barriers do not imply these linked [0/2] conclusions. Actual source full-text portions, original statements, and published-record searches were compared by mathematical implication; the unindexed historical-priority risk is acknowledged.",
+    "residual_risks": [
+      "Classical or unindexed partial absolute-monotonicity/matrix-function results might already encode the three-derivative DAG criterion in another formulation.",
+      "The 2012 and 1978 older original full texts were not exhaustively inspected; bibliographic priority is not certified.",
+      "The result is not a general theorem for arbitrary cyclic generators at all step sizes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the present finite-state graph-depth and exact witness theorem; does cover map identity, motivation, conservation framework, and generic possibility of positivity loss.",
+        "evidence": [
+          "Theorem 6: r_02(gamma L)>0 for sufficiently large gamma.",
+          "Remark 4: Metzler does not ensure unconditional positivity.",
+          "Appendix A.5 proves large-step result by spectral projector and EM argument, not by path-depth derivatives."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22703",
+        "material_read": "Full lawful HTML source at arXiv v1 mirror: abstract, introduction and main result summary, Section 3.4 Theorem 6 and Remark 4, relevant experiments and Appendix A.5 proof.",
+        "method": "Compared exact f(z), quantified matrix/generator classes, one-sided large-step results, and note of Metzler positivity failure.",
+        "title": "Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker--Planck equation",
+        "trigger": "Identical [0/2] Padé rational map, first public 2026-08-24"
+      },
+      {
+        "assessment": "Relevant general obstruction, but passages inspected do not cover the present [0/2] theorem. Residual risk remains due to incomplete line-by-line inspection of the full paper.",
+        "evidence": [
+          "The preprint states explicitly in its introduction that its objective is diagonal Padé approximants and stability/positivity conditions.",
+          "The article discusses small-step loss for higher diagonal Padé, without the new five-state [0/2] formula in the material read."
+        ],
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+        "material_read": "Open 23-page preprint: abstract, introduction, definitions, diagonal Padé focus, theorems and introductory Section 4 discussion; visually inspected a relevant page. Not every page was read line by line.",
+        "method": "Compared diagonal Padé rational functions and nonconservative Metzler assumptions with current conservative [0/2] generator, exact root and graph-depth conclusions.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Older plausible general theory of positivity loss under Padé maps, with explicit examples."
+      },
+      {
+        "assessment": "NOT_COVERING. It concerns [2/2] fourth-order Padé with dimension eight and a bounded window, whereas [0/2] is second order, uses dimension five, and has an unbounded positive step window on the witness.",
+        "evidence": [
+          "[2/2] map (1+z/2+z²/12)/(1-z/2+z²/12), first negative coefficient at order seven; minimal state number eight.",
+          "Current [0/2] map first negative coefficient at order four and explicit five-state pure-birth threshold."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Complete publicly accessible RESULT.md, including theorem statements, proof, related work and references.",
+        "method": "Compared rational functions, series coefficients, minimal state count, exact root polynomial and stochasticity window, and the presence or absence of acyclic depth sufficiency.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest published conservative Markov small-step positivity threshold in research records."
+      },
+      {
+        "assessment": "General negative barrier does not by itself imply current restricted positive graph theorem or exact threshold. Full original-text priority remains a risk.",
+        "evidence": [
+          "Itkin--Kazbek Remark 4 cites the general order barrier when discussing Metzler failures."
+        ],
+        "identifier_or_url": "RAIRO Analyse Numérique 12 (1978), 237–245, Bolley and Crouzeix",
+        "material_read": "Bibliographic references and theorem description in the primary 2026 paper and the 2026 [2/2] note; original full text not inspected.",
+        "method": "Compared the known no-universal-order-two-positivity scope against the restricted sufficient class and exact minimal dimension.",
+        "title": "Conservation de la positivité lors de la discrétisation des problèmes d’évolution paraboliques",
+        "trigger": "General positive-rational-approximation impossibility barrier cited in primary literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a149558-ee9c-48be-94a2-3112cfe9494f",
+  "value": {
+    "rationale": "The exact order-two L-stable map is proposed in 2026 for numerical probability evolution where negative states are unacceptable. The theorem isolates a natural graph-topological safe class that works in any number of states at all positive steps, proves a minimum state count for small-step sign loss even under exact mass conservation, and gives the complete algebraic step window for the minimum witness. This provides a concrete integrity benchmark for path-limited conservative discretizations and clarifies why A/L-stability plus mass conservation do not imply nonnegative transition matrices. It is not merely a numerical table or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
