@@ -1,0 +1,18 @@
+# Self-review
+
+## Correctness: PASS
+The claim fixes the ambient hyperplane and the unscaled root lattice, defines both covering radii and each permutation simplex, and proves the full infinite-dimensional quantification for \(n\ge5\). The Voronoi cell equality is proved by root bisectors and the integer inequality \(\sum z_j^2\ge\sum|z_j|\). The projected-cube maximum yields the precise classical covering radius. For each permutation, the coordinate-order construction gives a specific Euclidean circumsphere through all simplex vertices, with exact radius \(\sqrt{k(N-k)/N}\). Taking the maximum gives the common-packet upper bound, while Xue's general comparison supplies the reverse bound. The Eulerian frequencies follow from ascents of inverse permutations. The proof distinguishes circumsphere from minimum-enclosing ball and does not extrapolate finite checks to an infinite assertion. The standalone checker passed 46,387 exact comparisons.
+
+## Originality: PASS, with historical-priority limits
+The primary motivating paper (Xue, arXiv:2610.39034v1) defines the invariant and proves general comparisons, but its inspected coordinate-lattice examples and Euclidean-separation theorem do not treat \(A_n\). Kim (arXiv:2304.10186v1) proves the projected-cube Voronoi description, a **necessary lower-bound ingredient**, but does not supply the common-frame simplex-fitting upper bound or Eulerian circumsphere spectrum. Classical tabulations already give the ordinary covering radius and must not be presented as new. A special rank-four packet equality and low-dimensional cases are already known and are expressly excluded from the novelty scope; the claim covers **every** rank \(n\ge5\) and the complete all-dimensional packet-spectrum mechanism. Searches of related work for equivalent parameterizations, broader root-lattice results, existing tables and logical implication found no stronger statement covering both new conclusions. A 2026 paper concerning three-dimensional triangulation coverings and an older root-system Voronoi paper were accessible only at abstract level; these remain historical-priority risks, and independent examination could change the originality assessment.
+
+## Mathematical value: PASS
+The common-frame invariant can exceed the ordinary Euclidean covering radius by an order of \(\sqrt n\) on some lattices, as Xue proves. Identifying a canonical infinite family with *exact equality in every dimension* and an explicitly optimal single lattice basis is therefore a meaningful structural classification, not a normalization of an isolated small example. The Eulerian distribution describes the geometry of all \(n!\) simplices in the same optimal packet and explains why the upper bound is attained at the balanced ascent classes. These are natural invariants of the root lattice and its triangulation. The result neither solves the general lattice problem nor classifies all optimal frames.
+
+## Sources and unresolved risks
+- F. Xue, *On \(\kappa\)-covering minima*, arXiv:2610.39034v1 (2026), Sections 1–3, 5–6 inspected in HTML.
+- M. Kim, *Algebraic Characterization of the Voronoi Cell Structure of the \(A_n\) Lattice*, arXiv:2304.10186v1 (2023), notably Lemma 10 and Sections 3, 5 and 7 inspected in HTML.
+- Standard root-lattice covering-radius tables reproduce \(\mu\) only; this is prior knowledge, not the new conclusion.
+- M. Koca and coauthors, arXiv:1804.05836 (2018), and Y. Lian–F. Xue, arXiv:2606.14584 (2026): only abstracts accessible; full-text implication comparisons remain incomplete.
+
+Self-review: passed. Independent audit: not yet performed.
