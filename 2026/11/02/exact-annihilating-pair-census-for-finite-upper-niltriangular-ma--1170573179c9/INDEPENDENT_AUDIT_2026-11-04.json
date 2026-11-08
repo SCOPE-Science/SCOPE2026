@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:43:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-annihilating-pair-census-for-finite-upper-niltriangular-ma--1170573179c9/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-annihilating-pair-census-for-finite-upper-niltriangular-ma--1170573179c9/verify.py"
+      ],
+      "rationale": "Write A_k=[A_{k-1} v;0 0], B_k=[B_{k-1} b;0 0]. Condition A_k B_k=0 is A_{k-1}B_{k-1}=0 and A_{k-1}b=0, with independent free v. For predecessor rank s there are q^{k-1-s} b choices; q^s v lie in the column space and q^{k-1}-q^s raise rank. This yields exactly C_{k,r}=q^{k-1}C_{k-1,r}+q^{k-r}(q^{k-1}-q^{r-1})C_{k-1,r-1}, with base n=1. Checked direct small-matrix multiplication and recurrence for (q,n)=(2,2),(3,2),(2,3),(3,3),(2,4), counts 4,9,48,405,1664; valid unrestricted argument works for any finite field, including nonprime orders. Circle equality is equivalent to AB=0 and |J_n|^2=q^{n(n-1)}.",
+      "residual_risks": [
+        "Ordered one-sided AB=0, not simultaneous AB=BA=0; no general non-niltriangular algebra census and no asymptotic probability estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang counts arbitrary matrices with two simultaneous products zero; Ekhad-Zeilberger count one matrix with A²=0; Yip treats rank of nilpotent triangular matrices; Mondal et al investigate different relative commuting conditions."
+        ],
+        "reasoning": "A general formula for annihilating ordered pairs of an arbitrary nilpotent algebra would dominate this family, but the inspected sources do not supply it.",
+        "searches": [
+          "arxiv:2110.15566",
+          "arxiv:math/9512224",
+          "Yip upper triangular nilpotent matrices rank distribution",
+          "arxiv:2609.16269"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2110.15566",
+        "https://arxiv.org/abs/2609.16269",
+        "https://arxiv.org/abs/math/9512224",
+        "Resultary semantic research matching same mathematical objects and claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The count of a subset satisfying AB=BA=0 cannot recover all AB=0 pairs by implication alone; single-matrix A²=0 is not a two-matrix count."
+        ],
+        "reasoning": "Distinct objects/constraints and lack of a reduction from prior closed statements preclude claiming coverage from terminology alone.",
+        "searches": [
+          "Huang 2021 full preprint arxiv:2110.15566",
+          "Mondal et al 2026 full preprint arxiv:2609.16269",
+          "Ekhad-Zeilberger arxiv:math/9512224"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nilpotent radical-brace identity A∘B=A+B+AB turns operation equality into the one-sided matrix equation AB=0; Huang studies the stronger simultaneous constraints AB=BA=0."
+        ],
+        "reasoning": "Compared unidirectional zero-product, brace operation equality, simultaneous mutual annihilation and rank distribution; their tuple counts are not interchangeable.",
+        "searches": [
+          "arxiv:2110.15566",
+          "arxiv:2609.16269",
+          "Resultary semantic: strictly upper triangular finite field matrices ordered pairs AB=0 annihilating pair census rank recurrence radical ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Z_2=q², Z_3=q^4(2q−1) and Z_4=q^7(q³+3q²−4q+1), not an existing mutually annihilating pair table."
+        ],
+        "reasoning": "No located exact all-n recurrence/table had the same one-sided problem and base algebra; that is a bounded search outcome only.",
+        "searches": [
+          "Resultary semantic: strictly upper triangular finite field matrices ordered pairs AB=0 annihilating pair census rank recurrence radical ring",
+          "web query: zero products strictly upper triangular matrix algebra finite field count"
+        ]
+      },
+      "rationale": "Simultaneous mutually annihilating matrix pairs and triangular square-zero single matrices are mathematically different equations. General relative commuting statistics for finite skew braces do not explicitly compute one-sided operation-equality pairs in J_n. The rank-extension recurrence is elementary but an exact unrestricted enumeration of a natural algebraic zero-product statistic; an older quiver/flag variety count remains a priority risk.",
+      "residual_risks": [
+        "Priority in general literature not exhaustively certified; "
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CONSTRAINT",
+          "evidence": [
+            "Simultaneous AB=BA=0 for unrestricted matrices differs from one-sided AB=0 restricted to niltriangular algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "Full accessible preprint including main enumeration setting",
+          "method": "open arXiv full text",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Closest annihilating matrix-pair source"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": [
+            "Relative commuting and brace-theoretic centralizer results do not supply the specific entire J_n one-sided zero-product polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16269",
+          "material_read": "Accessible full preprint, definitions and main theorems",
+          "method": "open arXiv full text",
+          "title": "Relative commuting probability and BFC-type results for finite skew braces",
+          "trigger": "Directly motivated finite-brace statistic"
+        },
+        {
+          "assessment": "DIFFERENT_EQUATION",
+          "evidence": [
+            "Single-matrix square-zero equation is not ordered AB=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/9512224",
+          "material_read": "Paper abstract and original stated single-matrix theorem",
+          "method": "open arXiv record",
+          "title": "An Explicit Formula for the Number of Solutions of X²=0 in Triangular Matrices over a Finite Field",
+          "trigger": "Analogous triangular polynomial counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2110.15566",
+        "https://arxiv.org/abs/2609.16269",
+        "https://arxiv.org/abs/math/9512224",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-annihilating-pair-census-for-finite-upper-niltriangular-ma--1170573179c9/RESULT.md"
+      ],
+      "rationale": "This gives an exact, characteristic-uniform recursive census for a natural noncommutative nilpotent algebra and a concrete finite-brace operation-equality probability. The rank-refinement resolves a whole family beyond small known special cases; no unproved application or broad novelty of rank-nullity is asserted.",
+      "residual_risks": [
+        "The underlying extension recursion is elementary and may be implicit in established incidence-algebra or quiver-representation enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-annihilating-pair-census-for-finite-upper-niltriangular-ma--1170573179c9/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-annihilating-pair-census-for-finite-upper-niltriangular-ma--1170573179c9/verify.py",
+    "https://arxiv.org/abs/2110.15566",
+    "https://arxiv.org/abs/2609.16269",
+    "https://arxiv.org/abs/math/9512224"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the strictly upper triangular finite-field algebra J_n, one-sided zero-product pairs AB=0 are counted by the given polynomial rank-stratified recurrence C_{k,r}; Z_n(q)=sum_r C_{n,r}(q) and the associated radical-brace addition and circle operations coincide on a uniform pair with probability Z_n(q)/q^{n(n-1)}.",
+  "limitations": [
+    "Ordered one-sided AB=0, not simultaneous AB=BA=0; no general non-niltriangular algebra census and no asymptotic probability estimate.",
+    "The underlying extension recursion is elementary and may be implicit in established incidence-algebra or quiver-representation enumeration."
+  ],
+  "residual_risks": [
+    "Ordered one-sided AB=0, not simultaneous AB=BA=0; no general non-niltriangular algebra census and no asymptotic probability estimate.",
+    "The underlying extension recursion is elementary and may be implicit in established incidence-algebra or quiver-representation enumeration.",
+    "Simultaneous mutually annihilating matrix pairs and triangular square-zero single matrices are mathematically different equations. General relative commuting statistics for finite skew braces do not explicitly compute one-sided operation-equality pairs in J_n. The rank-extension recurrence is elementary but an exact unrestricted enumeration of a natural algebraic zero-product statistic; an older quiver/flag variety count remains a priority risk."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_CONSTRAINT",
+      "evidence": [
+        "Simultaneous AB=BA=0 for unrestricted matrices differs from one-sided AB=0 restricted to niltriangular algebra."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+      "material_read": "Full accessible preprint including main enumeration setting",
+      "method": "open arXiv full text",
+      "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+      "trigger": "Closest annihilating matrix-pair source"
+    },
+    {
+      "assessment": "DIFFERENT_STATISTIC",
+      "evidence": [
+        "Relative commuting and brace-theoretic centralizer results do not supply the specific entire J_n one-sided zero-product polynomial."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.16269",
+      "material_read": "Accessible full preprint, definitions and main theorems",
+      "method": "open arXiv full text",
+      "title": "Relative commuting probability and BFC-type results for finite skew braces",
+      "trigger": "Directly motivated finite-brace statistic"
+    },
+    {
+      "assessment": "DIFFERENT_EQUATION",
+      "evidence": [
+        "Single-matrix square-zero equation is not ordered AB=0."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/math/9512224",
+      "material_read": "Paper abstract and original stated single-matrix theorem",
+      "method": "open arXiv record",
+      "title": "An Explicit Formula for the Number of Solutions of X²=0 in Triangular Matrices over a Finite Field",
+      "trigger": "Analogous triangular polynomial counts"
+    }
+  ]
+}
