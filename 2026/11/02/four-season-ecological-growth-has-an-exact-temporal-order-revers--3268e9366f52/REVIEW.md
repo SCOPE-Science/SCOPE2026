@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers are explicit: four strictly positive diagonal growth profiles, common symmetric dispersal \(0<m<1\), distinct ordered habitat-fitness ratios for the strict classification, with tie and half-mixing cases stated separately. Each seasonal step is \(M_mD_i\), and the time-ordered four-step monodromy differs from the displayed forward product by reversal, which is isospectral by transpose/cyclic trace symmetry. Every four-step determinant is the same, and a positive \(2\times2\) matrix has Perron root strictly increasing with its trace at fixed determinant. Three exact polynomial factorizations give all order comparisons. The determinant and characteristic polynomial at one establish the certified growth/decline example. Symbolic polynomial identities, finite permutations, 400 sets of exact-rational tests, and exact example arithmetic were rerun from the bundled checker. These finite checks are not substituted for the complete analytical proof.
+PASS
 
-## Originality — PASS under best-knowledge comparison, historical priority provisional
+For the two-patch matrix M_m D_i with common mixing m∈(0,1) and strictly ordered growth ratios a_i/b_i, all permutations reduce by cyclic/reversal trace symmetry to three dihedral orders. Product determinants equal (1−2m)^4∏a_i b_i and Perron root is strictly increasing with trace at fixed determinant. Independently expanded exact SymPy polynomial trace differences, obtaining m²(1−2m) times Δ14Δ23, −Δ12Δ34 and −Δ13Δ24, each two-Δ product positive for sorted ratios. Thus 1243>1234>1324 when m<1/2 and reversed when m>1/2, with equality at rank-one m=1/2. All ≤3 seasons are dihedrally equivalent. The given exact rational example yields characteristic polynomial at 1 of positive 641568143/12800000000 for 1243, versus negative −539411857/12800000000 and −13825436857/12800000000, and common determinant <1, so same profiles switch between growth and decline.
 
-The most relevant primary texts are Schreiber (2010), which treats the effects of environmental temporal correlation on growth and uses a perturbative/approximation analysis; Schreiber and Li (2010 preprint), whose periodic dispersal theory emphasizes evolutionary stability and a period-two theorem; Bansaye and Lambert (2011 preprint), whose explicit two-patch periodic environment has a two-step cycle and no exhaustive temporal-order classification; and Altenberg (2013 preprint), whose related spectral-radius ordering results include a half-mixing eigenvalue-sign phenomenon for a different expression, \(\rho(M_m^2D)\). None of the inspected theorem statements directly or through a stated stronger inequality ranks the three dihedral classes of four *different* seasonal growth profiles. Targeted mathematical literature and research-record queries on aliases and reductions and accessible same-slot existing claims found no equivalent finding. Search incompleteness and more general spectral rearrangement literature remain residual historical-priority risks. The present assessment is not a certification of priority.
+## originality
 
-## Value — PASS
+PASS
 
-A period of four is the first horizon where symmetric two-patch dispersal can produce a genuine temporal scheduling effect. The sharp criterion changes direction at the physically interpretable migration fraction \(m=1/2\); clustering seasons with similar habitat advantages is optimal below this threshold, while alternating them is optimal above it. The rational example makes the consequence substantive: the very same seasonal profiles lead to linear growth or decline solely because of the calendar order. Thus the exact order matters to seasonal restoration, source–sink persistence analysis and controlled seasonal scheduling under a fixed environment multiset, rather than merely offering a numerical perturbation of an existing theorem.
+Best-of-knowledge original exact complete dihedral ranking for the four prescribed positive two-patch seasonal profiles with sign reversal at half mixing and minimal four-season length. General reduction and spectral-radius/mixing monotonicity results are prior; no inspected primary implication yields the pairwise Δ products for four independently chosen seasonal diagonal matrices.
 
-## Limitations and priority boundaries
+## value
 
-No conclusion is asserted for arbitrary networks, asymmetric movement, density dependence, stochastic environmental sequences, or periods longer than four. A deterministic spectral growth criterion alone does not universally establish stochastic survival probabilities. General matrix rearrangement theorems not identified in the searches might subsume the four-step factorization. Closest primary literature is given in RESULT.md and documented with material inspected in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact four-season threshold is the first temporally meaningful length (all ≤3 orders coincide) and yields a complete phase diagram for a natural two-patch mixing model. The rational witness changes the growth/decline decision without changing any season or mixing parameter, a substantive structural effect rather than a routine spectral substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
