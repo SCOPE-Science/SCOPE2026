@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Extract `checker.py` and `verification_output.txt` from this package into the same directory and run `python3 checker.py`. Python standard library only; no network or external data required. The reported execution completed successfully with **3,214 exact-rational and numerical assertions**. The exact tests check repeated offspring pgf composition at rational values, geometric law normalization and tails, exact first/second factorial moments, and finite-product to Poisson comparison inequalities. Numerical tests check root solving and sample exceedance intensities for three parameter pairs at sizes 512–32768.
+## correctness
 
-The accompanying `verification_output.txt` preserves the displayed output of a completed replay. A small finite grid is not proof of a Poisson point process, an asymptotic Gamma mark, a universal error bound, or priority. The infinite conclusions follow from the explicit probability law, summable envelopes, Riemann-sum rare-event intensity and exact variance computation in `RESULT.md`.
+PASS
 
-No independent audit or outside verification is claimed.
+Reconstructed the exact iterated linear-fractional generating function f^t(s)=(t-(t-1)s)/(t+1-ts), giving P(Z_t>=h)=1/(t+1)*(t/(t+1))^(h-1). Independently verified PGF at a rational argument through 31 generations and evaluated cohort exceedance intensities for n=16000 (finite expected exceedances ~0.61; slow convergence to 1 is expected). For k~nu/lambda, rare-event sum Riemann limit is e^-x*u^alpha*exp(-u)/Gamma(alpha+1); polynomial envelope controls early cohort and exponential suppression late founders; triangular Bernoulli events have max probability o(1), sum squares o(1). These give a marked Poisson process with a continuous unique top point. E Z_t=1, Var(Z_t)=2t makes S_n variance O(n^(alpha+2)) and mean ~ c n^(alpha+1)/(alpha+1); alpha>0 ensures L2 concentration. Boundary t=0 clan handled separately; constant alpha=0 not claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
+
+## value
+
+PASS
+
+The founder-age Gamma localization and Gumbel size, independent in the limiting process, reveal which immigration cohorts generate extreme descendants despite total-population concentration. The exact largest-clan fraction makes a substantive genealogical distinction not supplied by aggregate immigration limit laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
