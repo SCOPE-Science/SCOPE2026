@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one trace-factor reduction is reversible and forces the two-sided eigenmatrix equations. Their scalar eigenvalue constraint gives exactly the square-zero and normalized-idempotent cases. Counting uses distinct image lines, a kernel/image flag and invertible quotient map for square-zero matrices, and complementary subspaces for idempotents. Direct finite-field checks independently evaluate the operator identity in five small configurations. Risks: finite computations by themselves do not establish the arbitrary-field result; that rests on the explicit proof. The asymptotic is a fixed-dimension statement.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** The 2014 archival polynomial Rota–Baxter paper does not address matrix rank-one operator counts. The later Gubarev source, inspected in its full HTML text at Sections 3.3 and 5.4, gives the associative Yang–Baxter correspondence, general constructions, and a known \(M_2\) equivalence classification, but not the rank-refined finite-field all-size count. The established two-dimensional results are treated as a boundary rather than as novel. Searches for decomposable tensors, equivalent formulations, stronger coverage, and finite-field tables located related but not dominating claims. Residual priority risk: an equivalent counting formula could appear in unindexed Yang–Baxter or operator-classification literature; the search is not exhaustive.
+PASS
 
-**Value — PASS.** Rank one is the smallest nonzero operator rank. The result gives a complete family-wide classification with two algebraically different image-subalgebra types, exact finite-field distributions, and a sharp generic asymptotic. This addresses a canonical natural operator identity on full simple associative algebras rather than an arbitrary finite slice; it complements known low-dimensional classifications and general construction frameworks.
+The rank-one linear map is trace(BX)A with a unique output line. Direct coefficient comparison of the Rota–Baxter identity yields A²=lambda A, BA=mu B, AB=(lambda-mu)B and mu(mu-lambda)=0 in any characteristic. For lambda=0, B is any nonzero map V/im A to ker A; rank-r square-zero A count is [n r]_q[n-r r]_q |GL_r|, divided by q-1 for output lines. For lambda!=0 the unique idempotent E on the output line has complementary eigenspaces, and B lies in one of the two disjoint nonzero off-diagonal blocks. Hence S_nq+I_nq counts each operator once, and R²=0 follows from tr(BA)=0. The q-degree of the rank-one square-zero term is n²-2, strictly above all other ranks for n>=3. Independent integer evaluation reproduces n=2,q=2:3+12 and n=3,q=2:315+336. Finite samples cannot establish the symbolic generality.
 
-**Prior-work boundary.** The low-dimensional equivalence classification, general nilpotency/construction statements, and associative Yang–Baxter correspondence are not new contributions. The classification is not of general higher-linear-rank Rota–Baxter operators.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. No located database or exact table for all n; published Resultary exterior algebra census is for a different 4-dimensional algebra
+
+## value
+
+PASS
+
+The all-n finite-field census of a natural operator identity distinguishes nil image products from nonnil image subalgebras, gives rank-refined exact counts and leading asymptotics; not merely a rephrased M_2 orbit list. An algebraist needs these precise quantities to compare matrix identities and finite-field moduli; no claim about higher-rank operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
