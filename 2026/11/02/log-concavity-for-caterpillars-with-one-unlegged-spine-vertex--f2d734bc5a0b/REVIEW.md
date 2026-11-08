@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is exact for all \(k\ge3\), one interior zero in the pendant-leaf multiplicities, and all remaining multiplicities positive. Local domination cases give the factorization, and the distinguished three-vertex-block polynomial is manifestly coefficient-positive. The only inequality potentially worsened by subtracting \(x^{a+c}\) reduces to the proved degree-six polynomial margin; bounding \(4ac\le(a+c)^2\) makes every surviving term positive. Standard convolution closure for nonnegative log-concave sequences proves the result for any number of other supported spine vertices. Reproducible checks exhaust 192 small graphs, independently apply a rooted-tree dynamic program to 18,045 parameter cases, and compare exact margins for 6,400 nearby degree-pair cases. These finite checks support, but do not replace, the universal proof.
+PASS
 
-## Originality — PASS, with priority qualifications
+For a caterpillar spine of k≥3 vertices, exactly one interior vertex j has zero pendant leaves, all others have ≥1. Each positive-leaf support block contributes U_t=x(1+x)^t+x^t. The bare vertex j can be chosen or unchosen; subtract exactly one forbidden term x^(a+c) (when j and both neighboring supports are absent), giving Q=(1+x)U_aU_c-x^(a+c). U_t is hole-free log-concave. Because the full product P=(1+x)U_aU_c is log-concave, decreasing only coefficient at degree s=a+c can threaten its Turán inequality only at degree s. The explicit integer polynomial for 144(q_s²-q_(s-1)q_(s+1)) has a positive lower bound using ac≤(a+c)²/4 for all positive a,c; thus Q log-concave. Convolution of such sequences preserves log-concavity. An independently implemented sympy coefficient check confirmed 64 a,c≤8 exact margin identities and all Q inequalities, but the symbolic bound supplies the unlimited proof.
 
-Du–Heilman–Panova's Theorem 3.3 covers positive leaf multiplicities and their Remark 3.4 expressly suggests the missing-leaf extension. The new theorem covers a genuinely excluded infinite family and supplies a nontrivial corrected block and strict quadratic-coefficient inequality. Şahin–Şahin's inspected 2018 caterpillar treatment gives enumeration formulas but not this unbounded-family log-concavity statement. Wang's short-legged spider theorem treats a structurally different class; Beaton–Schoonhoven address a weaker unimodality conclusion with a domination-number-gap bound. Searches for caterpillar, double-broom, subdivided bistar, legless spine and equivalent domination-coefficient inequalities in mathematical research records found no equivalent. Uncatalogued results and alternative terminology remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding settles exactly-one-missing-leg cases of a specifically posed 2026 conjecture, over arbitrary spine lengths and all positive pendant counts. This is more than a reparameterization of the all-supported product: the missing block introduces an adverse subtraction whose control requires a new uniform coefficient inequality. The exact factorization also provides explicit coefficients and a reusable local obstruction calculation for studying multiple gaps. The full legless conjecture remains open.
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
 
-## Limitations and closest literature
+## value
 
-This is not a statement about caterpillars with two or more unsupported spine vertices, and not about all trees. The 2018 and 2026 primary works on caterpillar domination were inspected at the relevant theorem/proof; a recent short-legged spider full text and the abstract of a nearly well-dominated tree theorem were also compared. Historical-priority searching is not exhaustive, and no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Motivated by an explicitly stated open extension of log-concavity from caterpillars with leaves on every spine vertex to those with missing leaf groups. The theorem settles the natural entire exactly-one-interior-gap subfamily for arbitrary spine length and positive leaf multiplicities, with a new correction-factor inequality rather than a trivial product substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
