@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No third-party libraries, network access, random seeds, or precomputed tables are needed. The script builds multiplication and addition tables for prime fields and quadratic extensions using an explicit nonsquare polynomial, computes every input value for each selected coefficient configuration, and compares exact integer totals with the rational formulas.
+## correctness
 
-Observed completion:
+PASS
 
-```text
-PASS field 7 cases 7 nonsquare 3
-PASS field 11 cases 11 nonsquare 2
-PASS field 13 cases 13 nonsquare 2
-PASS field 17 cases 17 nonsquare 3
-PASS field 19 cases 19 nonsquare 2
-PASS field 23 cases 23 nonsquare 5
-PASS field 29 cases 29 nonsquare 2
-PASS field 31 cases 31 nonsquare 3
-PASS field 49 cases 49 nonsquare 8
-PASS field 121 cases 3 nonsquare 12
-PASS all original leading-coefficient pairs over GF(7)
-PASS all original leading-coefficient pairs over GF(11)
-PASS interpolation subsets 7
-PASS interpolation subsets 11
-PASS interpolation subsets 13
-PASS interpolation subsets 17
-VERIFY_OK configurations= 372 input_evaluations= 13427430 subset_tests= 11418
-```
+For any finite field F_q of characteristic p>5 and all a,b, translation x→x−a/5 sends the two fixed top coefficients to B=b−2a²/5 while bijectively reparametrizing free c,d. Inclusion–exclusion over fibers of quintic degree <=5 reduces the mean image count to q−(q choose 2)/q + ((q choose 3)−K4(B)+K5(B))/q². Four equal evaluations correspond exactly to quadratic Q+s²=-2B; five additionally impose s=0 and Q=-2B. Distinct input constraints are removed by explicit partition-lattice Mobius weights; for p>5 all indicated quadratic forms are nonsingular, so standard Gauss representation formulas give exact B=0/nonzero squareclasses. The squareclass difference is (qχ(5)−χ(-15))/(3q²) !=0. Independent direct enumeration of ALL q² free coefficient pairs for EACH B over F7 and F11 checked each exact rational formula; e.g. F7 q²-scaled totals B=0:229, nonzero squares:225, nonsquares:227. Analytic proof, not finite checks, establishes all extension fields and p>5.
 
-The last four subset checks use a separate combination-based count of the four- and five-point interpolation constraints; they do not evaluate the quintic maps. The verifier also tests translation normalization by enumerating all original fixed leading-coefficient pairs over two fields. This finite test suite does not prove the statement for arbitrary prime powers. The general proof uses root factorization, partition Möbius inversion, nondegenerate quadratic-form representation counts and elementary character algebra.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Cesaratto–Matera–Pérez–Privitelli arXiv:1306.1744 gives generic inclusion–exclusion, and Matera–Pérez–Privitelli 1310.3293 primary PDF gives average first-moment asymptotic with O(q^1/2) and geometric interpolation methods; these do not evaluate the exact fixed d=5,s=2 character-split constant. Their explicit main estimate assumptions s<=d-4 exclude (5,2), while generic identities require the nontrivial four-/five-tuple quadratic-form evaluation performed here. Earlier specialized finite-field counting may contain equivalent exact formulas; no definitive full-text exclusion of all historical sources is claimed.
+
+## value
+
+PASS
+
+Natural boundary family of monic quintics with two fixed high coefficients and uniformly random lower coefficients; exact image size detects square/nonsquare invariant B and proves a nonzero arithmetic gap invisible to general big-O averages. This is an exact useful finite-field statistic, not a mere parameter renaming of asymptotic estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
