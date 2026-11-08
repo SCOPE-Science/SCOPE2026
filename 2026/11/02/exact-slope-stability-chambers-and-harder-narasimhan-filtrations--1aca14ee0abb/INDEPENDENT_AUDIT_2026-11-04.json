@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:09:45.775759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual frozen RESULT.md proof, source verification documentation, exact Git tree, independent bounded verification"
+      ],
+      "rationale": "The complete P^1 evaluation kernel is O(-1)^a, so factoring the tensor product evaluation in two orders produces the actual global sequences 0→O(-1,0)^{a(b+1)}→E→O(a,-1)^b→0 and 0→O(0,-1)^{b(a+1)}→E→O(-1,b)^a→0. On the two rays the factors have equal slopes and are semistable, hence the extensions semistable and not stable. Torres-López–Zamora Corollary 3.5 really covers Hirzebruch F_0 and says E is L-stable: its hypothesis -K·L=2(a+b)>=4 holds. Each proper subsheaf slope difference is linear in (alpha,beta), nonpositive at both bounding rays and negative at L, so it is strictly negative in the whole interior. In exterior chambers, exact decreasing-slope semistable factor extensions are the HN filtrations. Rank/c2 follow from the complete evaluation Chern character; solving strict inequalities for d yields the stated floor formula. Independent exact rational comparisons passed 63,504 parameter/polarization cases, not relied on for global stability.",
+      "residual_risks": [
+        "Depends on published L-stability input, not a newly proved independent stronger stability result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torres-López–Zamora Cor.3.5 proves only stability for A=L on Hirzebruch F_n, including F0; Proposition 3.3 applies with -K_X·L>=4.",
+          "Devey et al. toric instability results exclude P1×P1 in the pertinent general statement; Misra studies a Picard-rank >=3 instability criterion."
+        ],
+        "reasoning": "Neither central L-stability nor the cited toric instability statements entail a complete chamber and both explicit exterior HN filtrations without new derivation. Other general surface-theoretic HN classifications are a risk.",
+        "searches": [
+          "Torres-López Zamora arxiv:2008.11255 Corollary 3.5 F0",
+          "Devey Hering Jochemko Süß arxiv:2409.04666 toric syzygy instability",
+          "Misra arxiv:2602.06629 polarization syzygy instability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, AUDIT.json with Git SHA identities; 2026/11/02/...1aca14ee0abb",
+        "Torres-López–Zamora 2008.11255 Cor.3.5, Prop.3.3 full relevant primary text",
+        "Devey et al. 2409.04666 and Misra 2602.06629 scope comparisons",
+        "Resultary semantic search for syzygy stability chambers",
+        "independent_five_checks.py: 63,504 exact rational wall and HN slope tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 3.5 gives central stability, a required input; it does not supply explicit polarization dependence.",
+          "The actual HN extensions and two semistability wall equalities use tensor-product evaluation, which combined with central stability derive the full theorem."
+        ],
+        "reasoning": "Prior input is a strict premise, not a full mathematical implication in the cited statements; novelty attaches to the completed two-dimensional polarization classification.",
+        "searches": [
+          "arxiv:2008.11255 Proposition 3.3 Corollary 3.5",
+          "arxiv:2409.04666 nonzero Hirzebruch parameters P1xP1 exclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evaluation kernel M_L is also the Lazarsfeld–Mukai syzygy bundle; HN chamber can be phrased as maximal destabilizing O(-1,0)/O(0,-1) subbundles.",
+          "The two quotient descriptions and linear-slope proof in frozen RESULT.md are equivalent to the claimed wall diagram."
+        ],
+        "reasoning": "Earlier results using distinct terminology could coincide; inspected published records did not give this all-ratio equality and both exterior HN factors.",
+        "searches": [
+          "Resultary: Segre Veronese syzygy bundle P1xP1 Harder Narasimhan chamber",
+          "syzygy evaluation kernels product of projective lines variation of slope stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same (a,b,alpha/beta) wall table or exact HN list located; relevant Resultary semantic results were not in the same object family."
+        ],
+        "reasoning": "An older computed table could cover a special case; absence of a hit does not prove novelty.",
+        "searches": [
+          "Resultary published Segre-Veronese kernel slope chamber",
+          "P1xP1 syzygy stability chamber exact two walls table"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the *complete ample-polarization chamber, both exterior HN filtrations, Jordan–Hölder wall gradeds and sharp power onset*, not for central L-stability. The proof explicitly uses and credits the latter published theorem. A broader algebraic stability-chamber theorem or an older worked P1xP1 example could imply these formulas; no decisive covering claim was identified in examined sources.",
+      "residual_risks": [
+        "A more general older polarization-wall theorem for evaluation kernels may subsume the answer but was not fully located.",
+        "Depends on published L-stability input, not a newly proved independent stronger stability result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corollary 3.5 exactly supports L-stability, not the all-polarization claim.",
+          "evidence": "Cor.3.5 states on any nonsingular Hirzebruch F_n ample generated L gives M_L L-stable, via -L·K>=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.11255",
+          "material_read": "Primary paper HTML transcription: Proposition 3.3, Corollaries 3.4–3.5 with proof and hypotheses; full-paper section context.",
+          "method": "published original paper transcription",
+          "title": "Some Remarks on H-stability of Syzygy Bundles on Algebraic Surfaces",
+          "trigger": "exact central stability premise and possible stronger covering theorem"
+        },
+        {
+          "assessment": "No verified implication for complete F0 chamber; restriction noted.",
+          "evidence": "Same class of objects but the F0 exception prevents invoking their principal instability result as a complete answer.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04666",
+          "material_read": "arXiv abstract and pertinent theorem scope/exclusion of split quadric; full text not read exhaustively",
+          "method": "primary preprint summary and cited theorem comparison",
+          "title": "On the instability of syzygy bundles on toric surfaces",
+          "trigger": "plausibly broader toric polarization instability result"
+        },
+        {
+          "assessment": "Result about rank>=3 Picard does not settle rho=2 F0 chamber.",
+          "evidence": "The splitting product has rho=2, not the paper’s emphasized rho>=3 criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.06629",
+          "material_read": "arXiv abstract and Picard-number condition; full text not read",
+          "method": "primary preprint record",
+          "title": "On instability of Syzygy Bundles",
+          "trigger": "polarization variation aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, AUDIT.json with Git SHA identities; 2026/11/02/...1aca14ee0abb",
+        "Torres-López–Zamora 2008.11255 Cor.3.5, Prop.3.3 full relevant primary text",
+        "Devey et al. 2409.04666 and Misra 2602.06629 scope comparisons"
+      ],
+      "rationale": "The complete chamber is a natural moduli/stability invariant of evaluation kernels on the simplest product surface, and the two HN types and exact tensor-power transition matter when varying polarization. Interior stability alone would not determine the outer filtration or wall crossings; this is a structural all-(a,b) classification, not a routine relabeling of a single-polarization theorem.",
+      "residual_risks": [
+        "A more general older polarization-wall theorem for evaluation kernels may subsume the answer but was not fully located.",
+        "Depends on published L-stability input, not a newly proved independent stronger stability result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A more general older polarization-wall theorem for evaluation kernels may subsume the answer but was not fully located.",
+    "Depends on published L-stability input, not a newly proved independent stronger stability result.",
+    "No GitHub write, new theorem statement, or mechanical publication certificate was asserted."
+  ],
+  "schema_version": 1
+}
