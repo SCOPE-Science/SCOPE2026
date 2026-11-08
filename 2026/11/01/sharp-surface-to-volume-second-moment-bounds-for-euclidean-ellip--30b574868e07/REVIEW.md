@@ -1,15 +1,21 @@
-# Scientific review: ellipsoid surface and volume second moments
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The area Jacobian converts uniform Euclidean surface measure on an ellipsoid to a sphere distribution weighted by the inverse-axis norm. Gaussian linearization and the exact spherical \(|\langle z,u\rangle|\)-weighted second-moment identity yield the positive-definite covariance formula. A symmetric strictly convex log-Gaussian norm functional orders the auxiliary weights oppositely to the squared semiaxes, giving the sharp trace upper bound and the ball equality case; positivity gives the strict lower bound. A controlled flattening limit proves optimality of the lower scalar and Loewner constants. The standalone code verifies two independently derived deterministic integral representations, exact angular normalizations, and representative boundary cases. Numerical checks are corroboration rather than a proof in all dimensions.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** The motivating distance-comparison work of Lotnikov (arXiv:2608.14848) addresses general convex bodies, planar symmetric cases and higher-dimensional counterexamples, but its inspected statements do not give the all-dimensional ellipsoid covariance representation or sharp ratio. Tokmachev (arXiv:2607.08869) provides a convex-order comparison only under planar matching-centroid or special circumscribed-polytope assumptions; its abstract does not imply the higher-dimensional result, nor the sharp ellipsoidal constants. The published triangle second-moment gap is for another class; Rivin and Poelaert–Schniewind–Janssens treat ellipsoid surface areas and curvature, not this covariance/ratio classification. The relevant full sources, title-level alternatives, equivalent ratio formulations and published mathematical summaries were compared. One relevant 2026 full text was unavailable, leaving a documented historical risk; search absence is not treated as uniqueness proof.
+PASS
 
-## Mathematical value
-**PASS.** The surface and interior sampling problem is a natural quantitative special case of a recent boundary-versus-interior distance program, which has counterexamples for general high-dimensional convex bodies. The theorem distinguishes ellipsoids from those counterexamples, supplies dimension-optimal nontrivial constants, proves a strict matrix inequality, and classifies equality and degenerating sharpness cases. Its proof identifies a reusable Gaussian-mixture representation and an order-reversing axis-weight principle, rather than merely computing a single shape.
+For invertible A and Euclidean surface-area measure on ∂(AB²ᵈ), Jacobian is |det A| ||A⁻¹u|| (orthogonal/diagonal reduction), while volume covariance is A²/(d+2). The Gaussian identity ||A⁻¹u||=√(π/2) E_G |⟨A⁻¹G,u⟩| plus spherical |⟨z,u⟩|-weighted second moments yields Σ_surface=A(I+Q)A/(d+1), Q=E[ZZᵀ/||Z||]/E||Z||, Z=A⁻¹G. Matrix Q positive definite, diagonal q_i>0 sum1, hence strict Loewner lower bound. A symmetric strictly log-convex mean norm Φ(log 1/a_i) has gradient q_i and implies q_i oppositely ordered to a_i²; reverse Chebyshev gives ∑a_i²q_i≤(∑a_i²)/d, ball-only equality and sharp ratio upper (d+2)/d. Flat family axes (ε,1,…,1) has q_long≤ε and infimum (d+2)/(d+1), not attained. Independently integrated 100,000 angular points for planar ellipses axes (1,1),(.7,1),(.1,1),(.003,1): ratios ≈2,1.94030,1.38135,1.33342, consistent with d=2 sharp [4/3,2]. The analytic proof, not finite quadrature, supplies all-d assertions.
 
-## Scope and independent validation
-Applies only to squared Euclidean distances and full-dimensional ellipsoids sampled from Euclidean surface area and normalized volume. The strict lower constant is an infimum, not a minimum. Definitive historical priority and independent validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lotnikov 2026 original full-text concerns surface-vs-interior random point distance comparisons for general convex bodies and gives planar classes and higher-dimensional counterexamples, but inspected results do not include exact Euclidean ellipsoid surface-covariance or sharp all-dimensional second-moment ratios. Tokmachev 2026 planar same-centroid convex-order results imply weaker planar comparisons but do not cover all d≥3 ellipsoids, the optimal constants, or the Loewner bound. Classical Rivin and Poelaert–Schniewind–Janssens discuss ellipsoid areas/Jacobians, not the stated covariance classification. An old ellipsoid moment computation remains a potential priority risk.
+
+## value
+
+PASS
+
+The distinction between Euclidean boundary sampling and affine-pushforward sphere measure is natural and important in the current interior/boundary distance program. The exact dimension-uniform interval with sphere rigidity, flattening sharpness and positive-definite covariance comparison establishes a structurally useful canonical family result amid known general convex counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T00:10:23.024096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For invertible A and Euclidean surface-area measure on ∂(AB²ᵈ), Jacobian is |det A| ||A⁻¹u|| (orthogonal/diagonal reduction), while volume covariance is A²/(d+2). The Gaussian identity ||A⁻¹u||=√(π/2) E_G |⟨A⁻¹G,u⟩| plus spherical |⟨z,u⟩|-weighted second moments yields Σ_surface=A(I+Q)A/(d+1), Q=E[ZZᵀ/||Z||]/E||Z||, Z=A⁻¹G. Matrix Q positive definite, diagonal q_i>0 sum1, hence strict Loewner lower bound. A symmetric strictly log-convex mean norm Φ(log 1/a_i) has gradient q_i and implies q_i oppositely ordered to a_i²; reverse Chebyshev gives ∑a_i²q_i≤(∑a_i²)/d, ball-only equality and sharp ratio upper (d+2)/d. Flat family axes (ε,1,…,1) has q_long≤ε and infimum (d+2)/(d+1), not attained. Independently integrated 100,000 angular points for planar ellipses axes (1,1),(.7,1),(.1,1),(.003,1): ratios ≈2,1.94030,1.38135,1.33342, consistent with d=2 sharp [4/3,2]. The analytic proof, not finite quadrature, supplies all-d assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lotnikov 2608.14848 full text includes planar centrally symmetric cases and high-dim nonuniversal comparisons; Tokmachev 2607.08869 Theorem 1 planar matching-centroid and circumscribed classes."
+        ],
+        "reasoning": "Planar convex-order dominance implies a weak planar second-moment comparison but not exact ellipsoidal coefficient or dimension≥3. General high-dimensional results with counterexamples do not assert this positive all-dimensional ellipsoid family.",
+        "searches": [
+          "Lotnikov 2608.14848 boundary interior random distance high-dimensional symmetric convex bodies",
+          "Tokmachev 2607.08869 inequalities convex functions random boundary interior"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md tree 4555db1187ff016e71bf93b648bd8030be875978",
+        "verify.py blob 8da78d299199c80546b27224cc7aa184d7a5eb08",
+        "arXiv:2608.14848",
+        "arXiv:2607.08869",
+        "arXiv:math/0306085",
+        "arXiv:1104.5145",
+        "Resultary:2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tokmachev convex order would yield at most E||Y−Y′||²≥E||X−X′||² in planar applicable cases; theorem lower coefficient (d+2)/(d+1)>1 and upper ball equality require further calculations."
+        ],
+        "reasoning": "No inspected general distance comparison gives the Gaussian Q-matrix identity, opposite-order axis weights, or precise [inf,sup] constants by immediate specialization.",
+        "searches": [
+          "ellipsoid Euclidean boundary versus volume squared-distance ratio sharp ball equality",
+          "Tokmachev Lotnikov covariance surface boundary ellipsoid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E||Y−Y′||²/E||X−X′||²=tr Σ_surface/tr Σ_volume; Σ_surface=A(I+Q)A/(d+1)."
+        ],
+        "reasoning": "The normalized squared pair-distance ratio is exactly a surface-to-volume trace covariance quotient; matrix lower bound is strictly stronger than its scalar trace lower bound.",
+        "searches": [
+          "ellipsoid surface uniform squared-distance versus interior volume squared-distance covariance sharp ratio",
+          "surface area weighted sphere ellipsoid point covariance matrix Gaussian mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8 covers triangles, different geometry. Other indexed ellipsoid records cover John/Funk volumes and section radii, not Euclidean surface position covariance."
+        ],
+        "reasoning": "Exact triangle values and ellipsoid intrinsic surface tensor tables are not the two-point Euclidean-distance ratio for arbitrary ellipsoid semiaxes.",
+        "searches": [
+          "Resultary: ellipsoid surface uniform squared-distance versus interior volume squared-distance covariance sharp ratio",
+          "published triangle second moment boundary gap arbitrary Euclidean triangles"
+        ]
+      },
+      "rationale": "Lotnikov 2026 original full-text concerns surface-vs-interior random point distance comparisons for general convex bodies and gives planar classes and higher-dimensional counterexamples, but inspected results do not include exact Euclidean ellipsoid surface-covariance or sharp all-dimensional second-moment ratios. Tokmachev 2026 planar same-centroid convex-order results imply weaker planar comparisons but do not cover all d≥3 ellipsoids, the optimal constants, or the Loewner bound. Classical Rivin and Poelaert–Schniewind–Janssens discuss ellipsoid areas/Jacobians, not the stated covariance classification. An old ellipsoid moment computation remains a potential priority risk.",
+      "residual_risks": [
+        "An older ellipsoid boundary positional covariance/inertia calculation might encode the same sharp constants and should be monitored as historical-priority risk.",
+        "Finite two-dimensional angular integration does not certify the all-dimensional Gaussian convexity argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the sharp all-d ellipsoid covariance/ratio; broad motivation and partial planar coverage.",
+          "evidence": [
+            "Original provides broader classes/counterexamples but lacks the exact ellipsoid semiaxis Q expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14848",
+          "material_read": "Full arXiv HTML text, introduction and main results, including general second-moment identity and higher-dimensional counterexamples.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "Mean distance between points inside and on the boundary of a convex body",
+          "trigger": "Direct same sampling model/interior vs boundary distance; potential broader theorem."
+        },
+        {
+          "assessment": "PARTIALLY_APPLICABLE in d=2 for weak inequality, NOT_COVERING sharp d≥2 ellipsoid ratio or matrix bound.",
+          "evidence": [
+            "Main comparison hypotheses planar matching-centroid or specific polytopes, without ellipsoid sharp constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08869",
+          "material_read": "Entire available arXiv HTML article, Theorem 1, introductory hypotheses and comparison classes.",
+          "method": "Read arXiv HTML full text and searched within paper by scientific concepts/theorem statements",
+          "title": "Inequalities for convex functions of random points inside and on the boundary of convex bodies",
+          "trigger": "Potential convex-order theorem implying squared-distance comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between Euclidean boundary sampling and affine-pushforward sphere measure is natural and important in the current interior/boundary distance program. The exact dimension-uniform interval with sphere rigidity, flattening sharpness and positive-definite covariance comparison establishes a structurally useful canonical family result amid known general convex counterexamples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md tree 4555db1187ff016e71bf93b648bd8030be875978",
+    "verify.py blob 8da78d299199c80546b27224cc7aa184d7a5eb08",
+    "arXiv:2608.14848",
+    "arXiv:2607.08869",
+    "arXiv:math/0306085",
+    "arXiv:1104.5145",
+    "Resultary:2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only full-dimensional Euclidean ellipsoids, surface area rather than affine spherical pushforward, squared distances.",
+    "Lower constant is strict for all nondegenerate ellipsoids.",
+    "An older ellipsoid boundary positional covariance/inertia calculation might encode the same sharp constants and should be monitored as historical-priority risk.",
+    "Finite two-dimensional angular integration does not certify the all-dimensional Gaussian convexity argument.",
+    "No claim of exhaustive external certification or priority.",
+    "Unchanged source package contains operational provenance; publication not ready."
+  ],
+  "schema_version": 1
+}
