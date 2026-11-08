@@ -1,0 +1,11 @@
+# Review of the Radau IIA path–cycle positivity classification
+
+**Correctness — PASS.** The positivity classifications reduce to eleven explicit finite polynomial sign certificates. All sixty symmetry-reduced entries have exact integer numerator and denominator coefficients recorded in `CERTIFICATE.json`, and every coefficient is nonnegative with nonzero positive terms. `VERIFY.py` recomputes the exact rational functions and checks all coefficients. The complementary infinite cases follow from the rigorously reconstructed \(x^5/108\) term and the negative \(L^5\) entry for distance-five vertex pairs. The denominator is positive on the whole nonnegative Laplacian spectrum. No numerical rounding or finite sampling supplies an infinite conclusion.
+
+**Originality — PASS on inspected sources, with publication-priority limits.** The closest historical results are Bolley–Crouzeix (1978), which quantifies over *all* positivity-preserving generators, Lóczi–Ketcheson (2013), which analyzes rational absolute monotonicity, and Horváth–Song–Terlaky (2014), which derives polyhedral invariance step thresholds. These do not state the exact Radau IIA path cutoff five and cycle cutoff nine, nor imply the all-step positive exceptional cases via their stated theorems. The related known exact Gauss–Legendre cycle result uses a distinct stability function and yields a different threshold. Searches in relevant literature and mathematical research records returned no covering implication; this is not proof of priority, and specialists may know related unindexed boundary-specific results.
+
+**Value — PASS.** This is an exact parameter-uniform classification for two canonical discrete heat geometries (open and periodic boundaries), not an arbitrary small graph census. The two boundary thresholds differ sharply, and the spectral stability of a high-order implicit integrator does not prevent a negative physical transition even as the time step tends to zero on larger domains. The finite certificates settle the maximal all-step-safe network sizes, while the general diameter-five lemma explains the infinite exclusions.
+
+Limitations: unit weights, completed step only, no independent audit, and publication-priority uncertainty.
+
+Self-review: passed. Independent audit: not yet performed.
