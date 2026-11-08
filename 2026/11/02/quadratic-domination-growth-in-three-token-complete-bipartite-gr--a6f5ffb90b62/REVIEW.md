@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all integers \(2\le m\le n\) with \(n\ge4\), and only fixed \(m\) is used in the asymptotic conclusion. The lower bound projects selected one-\(A\)-token configurations to pairs in \(B\); any triangle of the missing-pair graph must be a selected all-\(B\) configuration. Deleting at most one edge per such triangle and applying Mantel yields \(\gamma\ge\binom n2-\lfloor n^2/4\rfloor\). The upper construction has disjoint families of the stated exact sizes. The proof checks all four possible numbers of \(A\)-tokens and the boundary \(m=2\); the same-half choice of a second \(B\)-vertex is available because \(n\ge4\). The finite verifier checks actual graph adjacency for 95 pairs, an exhaustive triangle-deletion inequality on 33,864 labelled graphs, and one exact small optimum. Finite tests corroborate but do not establish the unbounded theorem.
+## correctness
 
-## Originality — PASS, qualified
-Chinman et al., arXiv:2610.28936v1, study the same graph and parameter but give only degree/independence bounds at token number at least three; their Theorem 1.2 does not imply the sharp one-quarter coefficient for fixed \(m\). Fabila-Monroy and Gómez-Galicia, arXiv:2509.16448v1, derive a Mantel-based asymptotic for three-token *complete* graphs, a different token graph with a smaller coefficient. Acosta Troncoso, Caldera Caldera, and Rivera, arXiv:2610.31557, solve the two-token bipartite problem, not the current three-token one. The latter manuscript explicitly references work in progress on domination of complete-bipartite token graphs and Turán numbers; that unpublished work has not been compared and remains a material priority risk. Searches for the exact graph, aliases and asymptotic parameters in public research records found no public result covering the claim. Searches alone do not certify priority.
+PASS
 
-## Mathematical value — PASS
-The coefficient \(1/4\) replaces currently published bounds that leave both the leading coefficient and even the quadratic order unresolved from above for fixed \(m\). The result supplies a uniform finite lower bound, an explicit dominating family with only a fixed-\(m\) linear gap, and a natural extremal-graph explanation via triangles. This is a motivated structural improvement on the higher-token problem in the motivating work, not a table lookup or a mere symbolic restatement.
+The exact configurations and closed-neighborhood token-adjacency definition were reconstructed from RESULT.md. For any dominating set, one-A configurations select edges P on the B part; every triangle of the complementary graph Q has to occur as a selected all-B configuration. Deleting one Q edge per such triangle leaves a triangle-free graph, so Mantel yields |P|+|T|>=C(n,2)-floor(n²/4). The supplied four disjoint witness families use same-half B pairs with a0, all pairs of A-indices >=1 with any B vertex, {a0,a1,b} outside a fixed three-set R, and R itself; direct layer-by-layer adjacency verifies domination for all m>=2. The construction has the exact stated size, giving fixed-m squeezing. Independently enumerated 23 small (m,n) cases from graph adjacency; that test is not the infinite proof. No exact lower-order domination number is established.
 
-## Limitations and nearest literature
-The exact linear and constant terms of the domination number are not proved, and the limit does not cover growing \(m\). The proof does not establish novelty against unpublished related work, which may use the same Turán approach. The computational evidence checks only finite dimensions. See RESULT.md and AUDIT.json for explicit source comparisons and checked hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact 3-token complete-bipartite theorem and fixed-m coefficient 1/4 are not consequences of published weaker generic k-token bounds, two-token exact results, or three-token complete-graph extremal results. An explicitly referenced unpublished project on higher tokens and Turán numbers remains a concrete priority risk; best-of-knowledge PASS with that qualification.
+
+## value
+
+PASS
+
+Determining a sharp leading-order quadratic coefficient for ordinary domination on the first nontrivial three-token complete-bipartite family, with explicit O_m(n) error and a precise Mantel obstruction, resolves a natural asymptotic question beyond the known two-token case; it does not pretend to settle exact finite values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

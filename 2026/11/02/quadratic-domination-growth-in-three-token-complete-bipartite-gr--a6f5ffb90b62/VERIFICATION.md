@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and its standard library. This script directly generates each selected three-token configuration and all legal token adjacencies; it does not rely on a graph-library isomorphism or a precomputed solution table.
+## correctness
 
-Observed replay:
+PASS
 
-```
-ORIGINAL_THREE_TOKEN_GRAPH_DOMINATION_OK 95
-ALL_GRAPH_TRIANGLE_DELETION_AND_MANTEL_OK 33864
-EXHAUSTIVE_MINIMUM_K24_OK 20
-ASYMPTOTIC_BOUNDS_ARITHMETIC_OK
-VERIFY_OK
-```
+The exact configurations and closed-neighborhood token-adjacency definition were reconstructed from RESULT.md. For any dominating set, one-A configurations select edges P on the B part; every triangle of the complementary graph Q has to occur as a selected all-B configuration. Deleting one Q edge per such triangle leaves a triangle-free graph, so Mantel yields |P|+|T|>=C(n,2)-floor(n²/4). The supplied four disjoint witness families use same-half B pairs with a0, all pairs of A-indices >=1 with any B vertex, {a0,a1,b} outside a fixed three-set R, and R itself; direct layer-by-layer adjacency verifies domination for all m>=2. The construction has the exact stated size, giving fixed-m squeezing. Independently enumerated 23 small (m,n) cases from graph adjacency; that test is not the infinite proof. No exact lower-order domination number is established.
 
-The first test compares the explicit family with the original domination definition for every \(2\le m\le8\), \(\max\{m,4\}\le n\le18\). The second enumerates the 33,864 labelled simple graphs of orders three through six and verifies that removing at most one edge per original triangle leaves a triangle-free graph satisfying Mantel's edge bound. The third exhaustively excludes smaller dominating sets for \(F_3(K_{2,4})\) among its 20 three-token vertices. The last checks arithmetic consistency at further parameters.
+## originality
 
-These finite checks are not an infinite proof. The domain-wide lower bound and construction are established by the combinatorial arguments in RESULT.md; in particular no numerical result is used to infer the asymptotic conclusion. The exact linear correction, growing-\(m\) regime, and historical priority against unpublished work remain unresolved. Independent external audit was not performed.
+PASS
+
+Exact 3-token complete-bipartite theorem and fixed-m coefficient 1/4 are not consequences of published weaker generic k-token bounds, two-token exact results, or three-token complete-graph extremal results. An explicitly referenced unpublished project on higher tokens and Turán numbers remains a concrete priority risk; best-of-knowledge PASS with that qualification.
+
+## value
+
+PASS
+
+Determining a sharp leading-order quadratic coefficient for ordinary domination on the first nontrivial three-token complete-bipartite family, with explicit O_m(n) error and a precise Mantel obstruction, resolves a natural asymptotic question beyond the known two-token case; it does not pretend to settle exact finite values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
