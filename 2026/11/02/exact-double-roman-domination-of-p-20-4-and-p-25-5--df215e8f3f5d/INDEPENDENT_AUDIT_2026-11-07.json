@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:48:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-double-roman-domination-of-p-20-4-and-p-25-5--df215e8f3f5d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-double-roman-domination-of-p-20-4-and-p-25-5--df215e8f3f5d/petersen_exact.cpp",
+        "/mnt/data/scope_worker03_20261107T0038Z/petersen_output.txt",
+        "/mnt/data/scope_worker03_20261107T0038Z/independent_checks_output.txt"
+      ],
+      "rationale": "Definition requires every 0-labelled vertex to have a 3-neighbour or at least two 2-neighbours and every 1-labelled vertex to have a 2/3-neighbour. A weight-nonincreasing local replacement eliminates all labels 1. For P(5k,k), indexing outer and inner vertices by k columns and 5 positions makes all inner-zero constraints column-local. The table B(U,D) minimizes inner weights over all 243 five-state vectors for each of 243 outer and 243 demand vectors. With fixed outer vectors U_j, the exact minimum is sum_j(sum U_j+B(U_j,d_j)), with outer adjacency twists t-1 and t+1 at cyclic seams. Monotone lower bound sum_j L(U_j) prunes no feasible function of weight <= C. Independently reimplemented complete C++ exhaustive enumeration using the original graph predicate and rotated seam; for (k,C)=(4,33) visited exactly 1,912,264 surviving complete outer tuples and found 0 feasible, and (5,41) exactly 77,570,086 and found 0. Independent direct graph check of provided upper witnesses gives weights 34 and 42. Thus both equalities follow from finite exhaustive proof, not extrapolation.",
+      "residual_risks": [
+        "The theorem is only for k=4,5; no larger k values are inferred.",
+        "Exhaustive computational certificate depends on exact encoded protection and cyclic seam logic; independent reimplementation reproduced exact counts and verified upper labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Theorem 6: for k congruent 0,1,4 mod 5 only 8k <= gamma <= 8k+2; exact 8k for other residues."
+        ],
+        "reasoning": "The predecessor has broader k coverage but a weaker interval at k=4,5. Its restriction alone does not imply gamma=34 or 42.",
+        "searches": [
+          "Rupnik Poklukar Zerovnik P(5k,k) Theorem 6 general bounds 2022",
+          "double Roman domination generalized Petersen graph 2023 survey"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/math10010119",
+        "https://doi.org/10.3390/math11020351",
+        "Resultary query: Double Roman domination generalized Petersen graph P(20,4) P(25,5) exact minimum 34 42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower/upper inequality at k=4 is 32<=gamma<=34 and at k=5 is 40<=gamma<=42; both intervals admit other integers without the present finite lower-bound argument."
+        ],
+        "reasoning": "The exact inequalities here do not follow from prior stated bounds or displayed configurations; the independent exhaustive lower bounds are additional facts.",
+        "searches": [
+          "doi:10.3390/math10010119 Theorem 6 Table 6 Table 8",
+          "doi:10.3390/math11020351 survey"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rupnik Poklukar–Žerovnik 2022 Theorem 6 gives lower/upper interval 8k to 8k+2, and Tables 6 and 8 exhibit upper witnesses 42 and 34."
+        ],
+        "reasoning": "A translated exact covering/label-function formulation would need an exclusion of all weights <=33 and <=41; the source tables show feasibility only, not optimality. Related Resultary Roman-domination hits use different graph families or domination variants.",
+        "searches": [
+          "\"double Roman domination\" \"P(20,4)\" \"P(25,5)\"",
+          "Resultary: Double Roman domination generalized Petersen graph P(20,4) P(25,5) exact minimum 34 42"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Tables 6 and 8 provide labelled assignments of weight 42 and 34, which are upper bounds, not a table proving no lower assignments."
+        ],
+        "reasoning": "An exact-value database would dominate this claim, but inspected source table contains constructions only; an unindexed independently computed exact table remains a risk.",
+        "searches": [
+          "P(20,4) P(25,5) double Roman domination Table 6 Table 8 2022",
+          "Resultary same graph parameter exact gamma"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp lower bounds for the first two parameter choices left between 8k and 8k+2 by the 2022 generalized Petersen theorem; pre-existing upper constructions are explicitly acknowledged, not attributed as new.",
+      "residual_risks": [
+        "An earlier equivalent finite computation may be unindexed; negative semantic search does not prove novelty.",
+        "The published upper bound configurations already existed, so the lower-bound closure is the sole claimed new ingredient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers bounds and upper witnesses; does not prove sharp lower bounds for k=4,5",
+          "evidence": "Theorem 6 has 8k..8k+2 for applicable residues, Tables 6,8 include weights 42 and 34",
+          "identifier_or_url": "https://doi.org/10.3390/math10010119",
+          "material_read": "Definitions; Theorem 6 and proof context; Tables 6 and 8 and displayed configurations; concluding gap question",
+          "method": "Accessible full-text HTML / primary paper sections",
+          "title": "On the Double Roman Domination in Generalized Petersen Graphs P(5k,k)",
+          "trigger": "Same parameter and explicit earlier bounds"
+        },
+        {
+          "assessment": "Background, not an identified proof of both exact finite cases",
+          "evidence": "The published 2022 bounds are cited as source background",
+          "identifier_or_url": "https://doi.org/10.3390/math11020351",
+          "material_read": "Relevant generalized Petersen and double Roman domination discussion",
+          "method": "Accessible source material and result statements",
+          "title": "Double Roman Domination: A Survey",
+          "trigger": "Broader background and possible exact-value coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-double-roman-domination-of-p-20-4-and-p-25-5--df215e8f3f5d/RESULT.md",
+        "https://doi.org/10.3390/math10010119",
+        "https://doi.org/10.3390/math11020351"
+      ],
+      "rationale": "The cases k=4 and k=5 are the first two unresolved boundary instances expressly left by published 2022 bounds. Exact sharp lower bounds resolve two small but mathematically motivated extremal graph parameters, rather than computing arbitrary or known entries. The full finite negative certificate is repeatable and can support future work on the unresolved residue classes; no sweeping general claim is made.",
+      "residual_risks": [
+        "Finite two-case fact does not prove any general residue-class formula.",
+        "Mathematical value is closure of precisely two documented first gaps; not the novelty of the pre-existing upper witnesses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is only for k=4,5; no larger k values are inferred.",
+    "Exhaustive computational certificate depends on exact encoded protection and cyclic seam logic; independent reimplementation reproduced exact counts and verified upper labels.",
+    "An earlier equivalent finite computation may be unindexed; negative semantic search does not prove novelty.",
+    "The published upper bound configurations already existed, so the lower-bound closure is the sole claimed new ingredient.",
+    "Finite two-case fact does not prove any general residue-class formula.",
+    "Mathematical value is closure of precisely two documented first gaps; not the novelty of the pre-existing upper witnesses.",
+    "Scientific best-of-knowledge judgment, not formal proof certification or historical priority guarantee. Publication withheld."
+  ],
+  "schema_version": 1
+}

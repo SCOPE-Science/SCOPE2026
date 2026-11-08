@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
-The complete finite verifier is embedded as `petersen_exact.cpp`, to be compiled as C++17 with no nonstandard dependencies. Run:
+# Independent mathematical audit
 
-```sh
-c++ -O3 -std=c++17 -Wall -Wextra -pedantic petersen_exact.cpp -o petersen_exact
-./petersen_exact 4 33
-./petersen_exact 5 41
-```
+## correctness
 
-Results obtained on the attached exact source:
+PASS
 
-```
-LOWER_EXHAUSTIVE k=4 cap=33 explored_partial=5868128 complete_tuples=1912264 feasible_at_most_cap=0
-CERTIFIED_LOWER_BOUND 34
-WITNESS k=4 weight=34 VALID=true
-LOWER_EXHAUSTIVE k=5 cap=41 explored_partial=366823529 complete_tuples=77570086 feasible_at_most_cap=0
-CERTIFIED_LOWER_BOUND 42
-WITNESS k=5 weight=42 VALID=true
-```
+Definition requires every 0-labelled vertex to have a 3-neighbour or at least two 2-neighbours and every 1-labelled vertex to have a 2/3-neighbour. A weight-nonincreasing local replacement eliminates all labels 1. For P(5k,k), indexing outer and inner vertices by k columns and 5 positions makes all inner-zero constraints column-local. The table B(U,D) minimizes inner weights over all 243 five-state vectors for each of 243 outer and 243 demand vectors. With fixed outer vectors U_j, the exact minimum is sum_j(sum U_j+B(U_j,d_j)), with outer adjacency twists t-1 and t+1 at cyclic seams. Monotone lower bound sum_j L(U_j) prunes no feasible function of weight <= C. Independently reimplemented complete C++ exhaustive enumeration using the original graph predicate and rotated seam; for (k,C)=(4,33) visited exactly 1,912,264 surviving complete outer tuples and found 0 feasible, and (5,41) exactly 77,570,086 and found 0. Independent direct graph check of provided upper witnesses gives weights 34 and 42. Thus both equalities follow from finite exhaustive proof, not extrapolation.
 
-Each integer loop is complete for its defined finite domain. The checker lists the five-position labelings from \(\{0,2,3\}^5\), computes all exact minima over inner five-position labelings, and prunes only when the necessary lower bound exceeds the requested budget. The direct upper-bound verifier uses the original undirected Petersen adjacency, not the precomputed dynamic table. No numerical tolerance, randomized heuristic, third-party optimization library, or unstated certificate path is needed for this exhaustive proof. Independent audit is not represented or inferred.
+## originality
+
+PASS
+
+Best-of-knowledge original sharp lower bounds for the first two parameter choices left between 8k and 8k+2 by the 2022 generalized Petersen theorem; pre-existing upper constructions are explicitly acknowledged, not attributed as new.
+
+## value
+
+PASS
+
+The cases k=4 and k=5 are the first two unresolved boundary instances expressly left by published 2022 bounds. Exact sharp lower bounds resolve two small but mathematically motivated extremal graph parameters, rather than computing arbitrary or known entries. The full finite negative certificate is repeatable and can support future work on the unresolved residue classes; no sweeping general claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
