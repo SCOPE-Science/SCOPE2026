@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-The proof in `RESULT.md` uses the published finite spanning-tree formula for the Lipschitz-free \(p\)-norm and supplies the additional tree-shortcut and scalar minimization arguments. All parameters are explicit, and the result is finite-dimensional for each fixed number of sources.
+## correctness
 
-Run `python3 CHECKER.py` to enumerate every labelled spanning tree for 27 sample combinations of coefficients, exponent and hub radius; compare each exact finite-tree minimum with the proposed subset formula. The checker additionally verifies the radical threshold bracket and a genuinely partial-route example, totalling 29 comparisons. This finite computation cannot certify all \(p\), \(t\), dimensions, or masses.
+PASS
 
-The comparisons with the 2018/2020, 2023/2024 and 2026 primary papers used their public full texts. Related published records available only by title and scientific summary create residual novelty uncertainty. No independent mathematical audit or publication-priority certification has been performed.
+Use the proven Cúth–Raunig finite rooted-spanning-tree characterization of Lipschitz-free p-norms. For positive source mass at each a_i, detaching any source-to-source subtree and reattaching it to its grandparent changes that edge length from 1 to <=1 while strictly reducing the flow on the former parent edge. Thus some minimum has no source-to-source edges. A positively loaded hub parented by a source can similarly be reparented to b at unchanged length t, reducing the source-to-b flow; hence each source either goes directly to b or via h and h directly to b. This yields the exact subset minimum sum_{i outside S} c_i^p + t^p(sum_{i in S}c_i^p+(sum_{i in S}c_i)^p); continuity covers zero masses. On N, direct star gives sum c_i^p. For equal c_i=1, k-selected sources cost m-k+t^p(k+k^p), concave in k, so endpoints give min{m,t^p(m+m^p)} and the threshold m>(t^-p-1)^(-1/(1-p)). Series expansions at p=0, p=1 verify stated singular scales (special limit four at t=1/2). Independent Prüfer-tree enumeration for all spanning trees on two- and three-source test configurations, using positive masses, verified 9 parameter/mass comparisons against the subset formula. The universal result follows from the exact tree-exchange proof, not a finite test alone.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary-literature reading and Resultary queries. The explicitly identified prior statements and implication gaps are documented under the four checks. A failed search is not proof of priority, and inaccessible literature was not treated as automatic failure.
+
+## value
+
+PASS
+
+The positive cone of an equilateral metric with a symmetric one-point hub is a natural restricted model for non-isometric canonical embeddings of quasi-Banach Lipschitz-free spaces. The exact norm for all nonuniform positive molecules, sharp equal-mass cardinality threshold and genuinely selective optimal routing distinguish its geometry from mere sufficient upper bounds or general exponential spanning-tree algorithms. No global inverse-operator norm is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:09:42.227249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the proven Cúth–Raunig finite rooted-spanning-tree characterization of Lipschitz-free p-norms. For positive source mass at each a_i, detaching any source-to-source subtree and reattaching it to its grandparent changes that edge length from 1 to <=1 while strictly reducing the flow on the former parent edge. Thus some minimum has no source-to-source edges. A positively loaded hub parented by a source can similarly be reparented to b at unchanged length t, reducing the source-to-b flow; hence each source either goes directly to b or via h and h directly to b. This yields the exact subset minimum sum_{i outside S} c_i^p + t^p(sum_{i in S}c_i^p+(sum_{i in S}c_i)^p); continuity covers zero masses. On N, direct star gives sum c_i^p. For equal c_i=1, k-selected sources cost m-k+t^p(k+k^p), concave in k, so endpoints give min{m,t^p(m+m^p)} and the threshold m>(t^-p-1)^(-1/(1-p)). Series expansions at p=0, p=1 verify stated singular scales (special limit four at t=1/2). Independent Prüfer-tree enumeration for all spanning trees on two- and three-source test configurations, using positive masses, verified 9 parameter/mass comparisons against the subset formula. The universal result follows from the exact tree-exchange proof, not a finite test alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cúth–Raunig Theorem 2.2 indeed implies the special value after nontrivial finite tree minimization; Theorem 2.8 characterizes when positive direct routing remains isometric",
+          "Albiac et al Theorem 6.1 provides a non-isometric infinite-set inclusion with hub-to-base distance 1, distinct from equiradial case"
+        ],
+        "reasoning": "The prior universal spanning-tree theorem provides a starting algorithm, not the claimed globally simplified norm formula/optimizers/threshold in this symmetric finite family. Thus the result is a specialized corollary with substantive simplification rather than a new general free-space theorem.",
+        "searches": [
+          "Lipschitz free p spaces equilateral hub Steiner tree exact positive molecules distances",
+          "Cúth Raunig 2024 canonical embedding Theorem 2.2 2.8",
+          "Albiac Ansorena Cuth Doucha 2019 Lipschitz free p spaces Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.01265 Theorem 6.1 full PDF",
+        "arXiv:2311.02920 Theorems 2.2/2.8 full PDF",
+        "Resultary 2026 leaf-count extension record b03e5cc2b3f1",
+        "Frozen Git RESULT.md blob cfa38d0ce195300f999e3156925e2a4afdd8d4be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Albiac et al 2019 Theorem 6.1 constructs non-isometry with center-to-base 1, leaves-to-center 2^(-1/q)",
+          "Cúth–Raunig 2024 Theorem 2.2 is general tree cost; present exact subset minimum is its nontrivial special evaluation"
+        ],
+        "reasoning": "This theorem does not claim the phenomenon of non-isometry or the spanning-tree formula as original. The exact uniform-radius t center (including base) makes a distinct quantitative setting, with all positive coefficients and optimal subset classification.",
+        "searches": [
+          "Lipschitz free p spaces equilateral hub Steiner tree exact positive molecules distances",
+          "arxiv 1811.01265 Theorem 6.1 hub metric distances",
+          "arxiv 2311.02920 Theorem 2.2 spanning tree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cúth–Raunig arXiv:2311.02920 Theorem 2.2 all finite rooted spanning trees",
+          "Resultary 2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1"
+        ],
+        "reasoning": "The complete finite-tree algorithm already gives a general decision procedure, so computing a single finite instance would not be original. The new tree exchanges identify all optimal positive-cone routings for every m and c_i, and derive an explicit 2^m-subset formula and sharp transition; published leaf-count work targets universal extension factors with different metric basepoint distances.",
+        "searches": [
+          "Lipschitz free p spaces equilateral hub Steiner tree exact positive molecules distances",
+          "Lipschitz free p star one hub exact positive molecule norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary symmetric-star extension constant gives a different extremal quantity and different basepoint geometry",
+          "Primary 2024 Cúth–Raunig Corollary 2.7 covers just three-point cases; Theorem 2.8 qualitative positive-molecule criterion"
+        ],
+        "reasoning": "No exact all-mass equiradial one-hub subset table or cardinality threshold was identified. Special m=2 computations from Corollary 2.7 and old constructions are covered and not credited as independent novelty.",
+        "searches": [
+          "Lipschitz free p spaces equilateral hub Steiner tree exact positive molecules distances",
+          "equilateral metric star central hub exact free p norm subset routing thresholds",
+          "Resultary sharp leaf count transition one point p Banach extensions"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after primary-literature reading and Resultary queries. The explicitly identified prior statements and implication gaps are documented under the four checks. A failed search is not proof of priority, and inaccessible literature was not treated as automatic failure.",
+      "residual_risks": [
+        "The entire result is a nontrivial specialization of established finite spanning-tree optimization, not an independent general formula for signed molecules.",
+        "Related universal one-point extension and exact low-dimensional p-inclusion records were reviewed at summary level only; hidden overlap in a full text remains a limited priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-isometric embedding is prior-known; hub does not sit at equal t from base in construction and exact positive-cone routing formula is not present in relevant material",
+          "evidence": "Theorem 6.1 proof metric z-to-leaf=2^(-1/q), other distances=1 and one upper-bound molecule.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.01265",
+          "material_read": "Complete 31-page primary PDF, especially §6 Theorem 6.1 and §4 molecule theory",
+          "method": "Read primary PDF text, find Theorem 6.1 and inspect pages",
+          "title": "Lipschitz free p-spaces for 0<p<1",
+          "trigger": "Foundational non-isometric hub construction, Theorem 6.1"
+        },
+        {
+          "assessment": "Correct background and necessary algorithm, but does not explicitly solve this full symmetric one-hub positive cone threshold",
+          "evidence": "Theorem 2.2 finite rooted spanning trees; Theorem 2.8 direct-routing criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.02920",
+          "material_read": "Primary full 21-page PDF, Theorems 2.2 and 2.8, §2.2, surrounding proof",
+          "method": "Read full PDF text and inspected screenshot pages",
+          "title": "Canonical embedding of Lipschitz-free p-spaces",
+          "trigger": "Exact general finite-tree norm theorem and positive-cone criterion"
+        },
+        {
+          "assessment": "Different universal nonlinear Lipschitz extension factor, not the exact norm of one-sink molecules with equiradial base hub",
+          "evidence": "Resultary abstract says factor min{2,2(n-1)^(1/p)/n} for equilateral n-leaf extension",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1",
+          "material_read": "Resultary published title and precise abstract summary; full files not read",
+          "method": "Semantic published-record search",
+          "title": "Sharp leaf-count transitions in one-point p-Banach Lipschitz extensions",
+          "trigger": "Similar star geometry and cardinality transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive cone of an equilateral metric with a symmetric one-point hub is a natural restricted model for non-isometric canonical embeddings of quasi-Banach Lipschitz-free spaces. The exact norm for all nonuniform positive molecules, sharp equal-mass cardinality threshold and genuinely selective optimal routing distinguish its geometry from mere sufficient upper bounds or general exponential spanning-tree algorithms. No global inverse-operator norm is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1811.01265 Theorem 6.1 full PDF",
+    "arXiv:2311.02920 Theorems 2.2/2.8 full PDF",
+    "Resultary 2026 leaf-count extension record b03e5cc2b3f1",
+    "Frozen Git RESULT.md blob cfa38d0ce195300f999e3156925e2a4afdd8d4be"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The entire result is a nontrivial specialization of established finite spanning-tree optimization, not an independent general formula for signed molecules.",
+    "Related universal one-point extension and exact low-dimensional p-inclusion records were reviewed at summary level only; hidden overlap in a full text remains a limited priority risk.",
+    "Current publication plan is not_ready because full sanitizing metadata replacement bytes were not delivered."
+  ],
+  "schema_version": 1
+}

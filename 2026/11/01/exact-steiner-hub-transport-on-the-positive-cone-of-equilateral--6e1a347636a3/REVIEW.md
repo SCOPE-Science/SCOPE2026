@@ -1,15 +1,21 @@
-# Correctness, originality and mathematical value
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem assumes a real finite metric with one hub and strictly quasi-Banach exponent \(0<p<1\). The cited general finite-tree formula gives an attained, finite optimization. The proof's source-to-source edge shortcut and hub-parent shortcut strictly improve any inadmissible positive-flow tree, forcing precisely the two permitted types of routes. Every subset route is realized, establishing a matching upper and lower bound. At equal weights the scalar optimization is concave, so only the empty and full subsets can minimize. The threshold inequality and both endpoint expansions follow by algebra and Taylor's theorem. Exact comparisons against all labelled spanning trees in 27 finite test cases and two additional scalar checks passed; they are corroborative, not proofs beyond the tested cases.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-The 2018/2020 construction of Albiac–Ansorena–Cúth–Doucha already uses an infinite equilateral set and one added hub to demonstrate nonisometry, and yields a one-sided bound for finite-support vectors. The later Cúth–Raunig theorem already gives a general minimum over spanning trees. Neither inspected paper states the present *two-parameter exact positive-cone subset formula*, its sharp necessary-and-sufficient finite cardinality transition, or its selective unequal-mass extremizer. The 2026 Albiac–Ansorena work establishes isomorphic inclusion for arbitrary spaces, not the exact norm. Published mathematical summaries concerning universal equilateral-star Lipschitz extension factors and three-point inclusion constants were also compared. Those quantities do not, by themselves, imply the norm of every positive molecule. Their unavailable full texts leave residual priority risk; the result is not independently certified as new.
+PASS
 
-## Mathematical value — PASS
-The family is the canonical concrete failure-of-isometry test introduced by the early literature and remains relevant following the 2026 general embedding theorem. The result replaces a combinatorial tree minimum by a sharp closed transportation law on an entire positive cone, determines exactly which equal-mass support sizes first exhibit nonisometry, and reveals an exponential cardinality boundary near the Banach endpoint. The explicit unequal-mass witness proves partial source routing is essential. This is a natural finite-dimensional exact-invariant classification, not a rephrasing of the general inclusion theorem.
+Use the proven Cúth–Raunig finite rooted-spanning-tree characterization of Lipschitz-free p-norms. For positive source mass at each a_i, detaching any source-to-source subtree and reattaching it to its grandparent changes that edge length from 1 to <=1 while strictly reducing the flow on the former parent edge. Thus some minimum has no source-to-source edges. A positively loaded hub parented by a source can similarly be reparented to b at unchanged length t, reducing the source-to-b flow; hence each source either goes directly to b or via h and h directly to b. This yields the exact subset minimum sum_{i outside S} c_i^p + t^p(sum_{i in S}c_i^p+(sum_{i in S}c_i)^p); continuity covers zero masses. On N, direct star gives sum c_i^p. For equal c_i=1, k-selected sources cost m-k+t^p(k+k^p), concave in k, so endpoints give min{m,t^p(m+m^p)} and the threshold m>(t^-p-1)^(-1/(1-p)). Series expansions at p=0, p=1 verify stated singular scales (special limit four at t=1/2). Independent Prüfer-tree enumeration for all spanning trees on two- and three-source test configurations, using positive masses, verified 9 parameter/mass comparisons against the subset formula. The universal result follows from the exact tree-exchange proof, not a finite test alone.
 
-## Limits and references
-The result is restricted to real nonnegative one-sink masses and one equiradial hub; no general signed-cone formula or optimal full inverse embedding constant is asserted. The closest primary sources are arXiv:1811.01265v2 (Theorem 6.1), arXiv:2311.02920v1 (Theorems 2.2, 2.8), and arXiv:2603.28193v1 (Theorems 3.1, 3.5). Additional published mathematical summaries were assessed only to the extent accessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after primary-literature reading and Resultary queries. The explicitly identified prior statements and implication gaps are documented under the four checks. A failed search is not proof of priority, and inaccessible literature was not treated as automatic failure.
+
+## value
+
+PASS
+
+The positive cone of an equilateral metric with a symmetric one-point hub is a natural restricted model for non-isometric canonical embeddings of quasi-Banach Lipschitz-free spaces. The exact norm for all nonuniform positive molecules, sharp equal-mass cardinality threshold and genuinely selective optimal routing distinguish its geometry from mere sufficient upper bounds or general exponential spanning-tree algorithms. No global inverse-operator norm is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
