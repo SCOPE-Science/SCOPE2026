@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducing the finite checks
 
-Run `python3 verify.py` from the directory containing this file. No network access or third-party packages are required. The program constructs the Petersen graph directly as the disjointness graph of the two-element subsets of five points.
+# Independent mathematical audit
 
-It checks independently the count of length-five, length-seven, and length-nine graph homomorphisms using (a) actual DFS over closed walks and (b) the exact known Petersen adjacency spectrum. It builds the graph-Hom one-skeleton by all one-coordinate recolorings, computes all connected components, and then enumerates all higher product cells by exhaustive admissible insertion. Separately, it constructs a 50-state transfer matrix of nonempty neighborhood subsets and counts all cells again in each dimension, with complete agreement.
+## correctness
 
-The expected component-size spectra are 120 isolated maps in source length five; 24 components of 70 maps in length seven; and 24 components of 720 maps plus 360 isolated maps in length nine. Component-wise Euler characteristics are zero for all nontrivial components and one for the isolated maps. The program checks the action of all 120 point permutations on the 24 nontrivial components, the cyclic order-five stabilizers, and the interpretation of the 360 isolated maps as oriented based nine-cycles.
+PASS
 
-The geometric inference from component Euler characteristic to a point-or-circle homotopy type uses the external published theorem of Matsushita (Theorem 1.2 and Corollary 5.9, arXiv:2412.19144), not a numerical approximation. No independent human or external audit has been performed. Only the three stated finite source lengths are checked.
+For Petersen P=KG(5,2), adjacency is disjointness of two-subsets, degree 3 and square-free. Independent enumeration of all closed odd walks gives Hom(C5,P) 120 zero-cells, Hom(C7,P) 1680, Hom(C9,P) 17640, agreeing with trace formula 3^m+5+4(-2)^m. Changing one coordinate to a common neighbor gives connected-component distributions 120 singleton at m5; 24 components of size70 at m7; at m9 24 of size720 plus 360 singleton. A separate 50-state compatible-subset transfer enumerator independently reproduces complete CW f-vectors (120), (1680,2520,840), (17640,45360,44280,19440,3240), giving χ0 for each nontrivial component, with isolated maps χ1. Square-free graph-Hom theorem of Matsushita/Fujii–Kimura–Nozaki for nonbipartite source implies every component is contractible or S1, so χ0 components are circles. The S5 ground-set action on all circle components is transitive with stabilizer of order5 (checked by direct permutation enumeration), and a C5 action on integral H1 of a circle has trivial orientation sign, yielding Ind_{C5}^{S5} Z. Twenty nine-cycles ×2 orientations×9 start points give all 360 isolated maps; finite checks here are exhaustive for three stated lengths, not an all-odd theorem.
+
+## originality
+
+PASS
+
+Square-free-codomain general point-or-circle classification is credited; its theorem alone does not give the Petersen component sizes, 24-circle counts or exact integral induced S5 module. The Fujii–Kimura–Nozaki full preprint and Matsushita square-free theorem were compared, and a source text search found no Petersen exact 5/7/9 worked table; Resultary related Petersen topologies are different graph complexes. Best-of-knowledge PASS, not a new general square-free theorem.
+
+## value
+
+PASS
+
+Complete components, exact homotopy and induced integral symmetry of natural small source cycles into the canonical Petersen graph form a meaningful classification and explicit benchmark for graph-Hom reconfiguration/topology; no fictitious extension to all odd cycles is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

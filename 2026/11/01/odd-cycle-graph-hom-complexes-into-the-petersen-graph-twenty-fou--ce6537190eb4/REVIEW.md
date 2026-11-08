@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Petersen graph is explicitly \(\operatorname{KG}(5,2)\), so graph-Hom zero-cells are closed walks and higher cells are precisely the admissible products of nonempty coordinate sets. The replayed checker independently reproduces homomorphism counts by adjacency spectra and DFS; cell counts by singleton expansion and 50-state transfer enumeration; and all connected components via exhaustive one-coordinate recoloring edges. Component Euler characteristics are exactly 0 for the 24 nontrivial components in each longer case, and 1 for the isolated points. Matsushita's published point-or-circle theorem applies because the source cycles are odd and the codomain is square-free. The \(\mathfrak S_5\)-action is checked on all 120 permutations; the cyclic order-five stabilizer must act trivially on \(H_1(S^1;\mathbb Z)\). Risk: the proof depends on the cited general topological theorem and on finite checker correctness; a second cell enumeration supports the critical numerical steps, but independent external validation is absent.
+## correctness
 
-**Originality — PASS subject to residual source access risk.** Exact pairs, the alternative Kneser name, component distributions, and the induced integral homology representation were searched in indexed mathematical findings, accessible prior claims, and primary literature. Closest published coverage is Matsushita's Theorem 1.2/Corollary 5.9 (arXiv:2412.19144), which permits points and circles but does not give the computed 24/360 component census or its symmetry module. His accessible full text was inspected for the actual theorem and searchable examples. Fujii–Kimura–Nozaki (arXiv:2412.19039) establishes an algorithmic square-free-codomain result; only abstract material could be accessed, and a hidden example is an explicit residual risk. No direct covering statement was found; absence of search hits alone was not treated as a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The Petersen graph is the smallest cubic girth-five cage and a canonical square-free target; odd source cycles are a natural family in topological graph coloring and reconfiguration. The first three possible odd source lengths show three qualitatively distinct mapping-space structures: rigid girth-five maps, 24 circular families, and the emergence of 360 new isolated nine-cycle traversals alongside persistent circles. The integral induced symmetry module is a structural refinement beyond Betti ranks and point-versus-circle alternatives. The exact natural finite cutoff is motivated independently of its ease of computation, although no infinite-source classification is claimed.
+For Petersen P=KG(5,2), adjacency is disjointness of two-subsets, degree 3 and square-free. Independent enumeration of all closed odd walks gives Hom(C5,P) 120 zero-cells, Hom(C7,P) 1680, Hom(C9,P) 17640, agreeing with trace formula 3^m+5+4(-2)^m. Changing one coordinate to a common neighbor gives connected-component distributions 120 singleton at m5; 24 components of size70 at m7; at m9 24 of size720 plus 360 singleton. A separate 50-state compatible-subset transfer enumerator independently reproduces complete CW f-vectors (120), (1680,2520,840), (17640,45360,44280,19440,3240), giving χ0 for each nontrivial component, with isolated maps χ1. Square-free graph-Hom theorem of Matsushita/Fujii–Kimura–Nozaki for nonbipartite source implies every component is contractible or S1, so χ0 components are circles. The S5 ground-set action on all circle components is transitive with stabilizer of order5 (checked by direct permutation enumeration), and a C5 action on integral H1 of a circle has trivial orientation sign, yielding Ind_{C5}^{S5} Z. Twenty nine-cycles ×2 orientations×9 start points give all 360 isolated maps; finite checks here are exhaustive for three stated lengths, not an all-odd theorem.
 
-**Closest literature and limits.** T. Matsushita, *Hom complexes of graphs whose codomains are square-free*, arXiv:2412.19144 (2024); S. Fujii, K. Kimura, Y. Nozaki, *Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free*, arXiv:2412.19039 (2024). The full text of the latter remains unavailable to this comparison; equivalent unindexed work remains possible. The theorem applies only to \(m\in\{5,7,9\}\), and it is not an equivariant homotopy decomposition.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Square-free-codomain general point-or-circle classification is credited; its theorem alone does not give the Petersen component sizes, 24-circle counts or exact integral induced S5 module. The Fujii–Kimura–Nozaki full preprint and Matsushita square-free theorem were compared, and a source text search found no Petersen exact 5/7/9 worked table; Resultary related Petersen topologies are different graph complexes. Best-of-knowledge PASS, not a new general square-free theorem.
+
+## value
+
+PASS
+
+Complete components, exact homotopy and induced integral symmetry of natural small source cycles into the canonical Petersen graph form a meaningful classification and explicit benchmark for graph-Hom reconfiguration/topology; no fictitious extension to all odd cycles is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
