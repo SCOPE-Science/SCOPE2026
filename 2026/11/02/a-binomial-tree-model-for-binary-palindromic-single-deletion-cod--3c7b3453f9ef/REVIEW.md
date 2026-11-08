@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The deletion-alignment lemma treats the same-position deletion case separately and handles arbitrary indexed binary palindromes. The centered alternating-interval characterization is necessary and sufficient. It excludes all even-length conflicts, gives the explicit recursive two-copy-plus-bridge structure for odd length, and establishes a perfect matching and equal-size color classes. The independent-set counting recurrence has a verified base case and exact induction. The bundled verifier compares actual deletion shadows, predicted edges, and count formulas at half-lengths one through eight; direct small codebook enumeration gives a second finite cross-check. Computation is supplementary to the all-length proof.
+## correctness
 
-## Originality
-PASS, with bounded historical-priority risk. Sloane's 2002 full text provides the general deletion graph, but no palindrome-induced graph-isomorphism theorem; Levenshtein's 1965 citation defines the parent problem. OEIS A347289 establishes the binomial-tree product formula independently, so that expression itself must not be claimed as a new graph-enumeration theorem. The substantial statement not obtained from the cited prior sources is the exact identification of the palindrome-restricted deletion graph with the binomial tree (including the even-length edgeless boundary), which transfers the known count to a nontrivial synchronization-error code family. A potentially relevant ternary-code thesis was inaccessible and remains a residual risk. No independent priority certification has been performed.
+PASS
 
-## Value
-PASS. Palindromic codewords are a natural reversal-constrained coding family, and deletion correction is a standard synchronization-error requirement. The result determines an infinite family of constrained code optima, gives a complete graph structure rather than a finite table, and counts every labeled maximum codebook. The sharp parity contrast, induced binomial-tree isomorphism, and exact optimizer count provide meaningful structural information. It is not a claim about physical biological feasibility.
+For each m>=1 the first/last differing positions in equal-length palindromes are symmetric. Common one-deletion descendants force their centered differing interval to alternate with complementary phases, and deleting its opposite endpoints proves the converse. Even-length centers contain equal symbols so no nontrivial alternating interval exists. For odd length 2m-1 the halfword edge criterion is exactly a complementary alternating tail. Recursive separation by first bit produces two rooted copies joined by their alternating-root edge, a binomial tree with 2^m vertices. A last-bit perfect matching bounds independence by 2^(m-1); tree bipartition attains it. Rooted maximum-independent-set recurrence N_m=N_(m-1)^2-A_(m-1)^2, A_m=A_(m-1)(N_(m-1)-A_(m-1)), with N_1=2,A_1=1 yields N_m=(m+1)prod_{j=1}^{m-1}j^{2^(m-1-j)}. Independently constructed deletion shadows and alternating-tail predicted graph for m=1..6: every odd edge agrees; even graphs empty. Finite m checks corroborate the all-m proof.
 
-## Closest literature and limitations
-The direct foundations are Levenshtein (1965) and Sloane (2002); the conditional graph-enumeration formula is already recorded in OEIS A347289. The 2012 constant-weight coding paper concerns a different induced subgraph. Historical and indexing gaps remain, particularly inaccessible older thesis material. All sources were compared by the implications of their mathematical statements, not merely by title. The proof is binary-only and for one deletion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The abstract binomial-tree maximum independent-set product is already in OEIS A347289 and is not separately original. The nontrivial original assertion under best-of-knowledge comparison is the explicit isomorphism from one-deletion-confusability of binary palindromic words and the exact even/odd coding-optima interpretation, absent from the inspected unrestricted deletion-code literature.
+
+## value
+
+PASS
+
+Binary palindromic codewords are a natural constrained family under synchronization errors. The exact infinite confusability graph isomorphism, parity dichotomy in capacity and exact labeled optimizer count give genuinely motivated structural data, beyond an arbitrary low-length computation. This does not assert efficiency for unrestricted deletion codes or DNA applicability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

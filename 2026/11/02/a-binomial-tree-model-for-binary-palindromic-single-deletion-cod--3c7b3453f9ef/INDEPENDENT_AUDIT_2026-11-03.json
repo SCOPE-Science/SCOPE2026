@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:04:06.729787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each m>=1 the first/last differing positions in equal-length palindromes are symmetric. Common one-deletion descendants force their centered differing interval to alternate with complementary phases, and deleting its opposite endpoints proves the converse. Even-length centers contain equal symbols so no nontrivial alternating interval exists. For odd length 2m-1 the halfword edge criterion is exactly a complementary alternating tail. Recursive separation by first bit produces two rooted copies joined by their alternating-root edge, a binomial tree with 2^m vertices. A last-bit perfect matching bounds independence by 2^(m-1); tree bipartition attains it. Rooted maximum-independent-set recurrence N_m=N_(m-1)^2-A_(m-1)^2, A_m=A_(m-1)(N_(m-1)-A_(m-1)), with N_1=2,A_1=1 yields N_m=(m+1)prod_{j=1}^{m-1}j^{2^(m-1-j)}. Independently constructed deletion shadows and alternating-tail predicted graph for m=1..6: every odd edge agrees; even graphs empty. Finite m checks corroborate the all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sloane, On Single-Deletion-Correcting Codes (2002), general induced confusability graph",
+          "Resultary published exact length-six palindromic-duplication/deletion optimum concerns a different channel"
+        ],
+        "reasoning": "General graph coding framework is broader as a definition but does not logically imply the particular induced family tree isomorphism.",
+        "searches": [
+          "binary palindrome single deletion correction confusability induced graph binomial tree optimal codebooks",
+          "Sloane 2002 single deletion correcting binary codes graph"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0207197",
+        "OEIS:A347289",
+        "Resultary:2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known abstract binomial tree formula supplies count once the graph isomorphism is established",
+          "No inspected source maps the palindrome deletion channel to that tree"
+        ],
+        "reasoning": "The structural identification is a genuinely additional premise and not a reparametrization of existing abstract tree counting; the count itself is a corollary of known enumeration.",
+        "searches": [
+          "Sloane (2002) single-deletion codes",
+          "OEIS A347289"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloane 2002 Sections 1-2 treat deletion shadows and unrestricted binary words",
+          "Explicit palindromic centered alternating criterion and root bridge are not part of the inspected unrestricted model"
+        ],
+        "reasoning": "The same graph-theoretic language is used, but prior unrestricted deletion graphs do not have the claimed induced tree. Palindromic-duplication channels edit substrings and cannot be silently equated to palindromic transmitted words.",
+        "searches": [
+          "binary palindrome single deletion correction confusability induced graph binomial tree optimal codebooks",
+          "Levenshtein deletion-confusability palindrome alternating-centered suffix graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A347289 records abstract binomial-tree maximum-independent-set enumeration (m+1)*product"
+        ],
+        "reasoning": "The product sequence and binomial-tree count are already known and excluded from standalone novelty. Database does not identify the restricted palindrome deletion graph.",
+        "searches": [
+          "binary palindrome single deletion correction confusability induced graph binomial tree optimal codebooks",
+          "OEIS A347289 binomial tree maximum independent sets product"
+        ]
+      },
+      "rationale": "The abstract binomial-tree maximum independent-set product is already in OEIS A347289 and is not separately original. The nontrivial original assertion under best-of-knowledge comparison is the explicit isomorphism from one-deletion-confusability of binary palindromic words and the exact even/odd coding-optima interpretation, absent from the inspected unrestricted deletion-code literature.",
+      "residual_risks": [
+        "An older thesis on palindromes in extended ternary codes was not materially accessible; historical priority qualified. The finite shadow experiments are not exhaustive for all m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides graph-theoretic coding framework; no explicit palindrome-induced binomial tree in relevant sections",
+          "evidence": [
+            "Unrestricted code graphs do not specialize mechanically to this induced tree"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+          "material_read": "Sections 1,2,5,6 describing code model and confusability",
+          "method": "arXiv lawful open PDF inspected",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Direct one-deletion code predecessor"
+        },
+        {
+          "assessment": "Exact abstract product is covered; identification with palindrome-confusability not provided",
+          "evidence": [
+            "A347289 confirms prior product, requiring narrow novelty wording"
+          ],
+          "identifier_or_url": "https://oeis.org/A347289",
+          "material_read": "Sequence definition, formula, graph commentary",
+          "method": "OEIS entry inspected",
+          "title": "OEIS A347289 — binomial tree independent sets",
+          "trigger": "Exact optimizer-count collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Binary palindromic codewords are a natural constrained family under synchronization errors. The exact infinite confusability graph isomorphism, parity dichotomy in capacity and exact labeled optimizer count give genuinely motivated structural data, beyond an arbitrary low-length computation. This does not assert efficiency for unrestricted deletion codes or DNA applicability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0207197",
+    "OEIS:A347289",
+    "Resultary:2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b",
+    "Git frozen source tree: e99c3eb4f4109713ba743e3c67076027c5b227e7",
+    "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt and checker source inspected (actual tree SHA and blobs)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single deletion, binary ordinary reversal palindromes, indexed codebooks; no higher alphabet or multiple deletions.",
+    "Older potentially related thesis inaccessible.",
+    "No formal or expert certification.",
+    "Publication blocked by private identifiers in original public-bound metadata; this does not affect the completed scientific C/O/V finding."
+  ],
+  "schema_version": 1
+}

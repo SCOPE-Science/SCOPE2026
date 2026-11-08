@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The actual standalone program is `checks/verify.py`, which uses only Python 3 standard-library modules. Run it by executing `python3 checks/verify.py` from the package root. The observed terminal line was `VERIFY_OK`.
+## correctness
 
-The checker independently generates every binary palindrome and deletion descendant at half-lengths \(1\le m\le8\). It compares all pairs' shadow intersections to the predicted alternating-tail graph, verifies odd-graph tree connectedness and edge counts, computes optimal independent-set sizes and counts via a rooted-tree recursion, and checks against the closed formula. The even palindromes are verified to have no conflicting pair at all tested lengths. A direct codebook enumeration through \(m=4\) verifies all maximum-codebook counts without the tree dynamic program.
+PASS
 
-Recorded odd-length optimal code sizes for \(m=1,2,3,4,5,6,7,8\): `1, 2, 4, 8, 16, 32, 64, 128`.
+For each m>=1 the first/last differing positions in equal-length palindromes are symmetric. Common one-deletion descendants force their centered differing interval to alternate with complementary phases, and deleting its opposite endpoints proves the converse. Even-length centers contain equal symbols so no nontrivial alternating interval exists. For odd length 2m-1 the halfword edge criterion is exactly a complementary alternating tail. Recursive separation by first bit produces two rooted copies joined by their alternating-root edge, a binomial tree with 2^m vertices. A last-bit perfect matching bounds independence by 2^(m-1); tree bipartition attains it. Rooted maximum-independent-set recurrence N_m=N_(m-1)^2-A_(m-1)^2, A_m=A_(m-1)(N_(m-1)-A_(m-1)), with N_1=2,A_1=1 yields N_m=(m+1)prod_{j=1}^{m-1}j^{2^(m-1-j)}. Independently constructed deletion shadows and alternating-tail predicted graph for m=1..6: every odd edge agrees; even graphs empty. Finite m checks corroborate the all-m proof.
 
-Recorded corresponding maximum-codebook counts: `2, 3, 8, 60, 3456, 11612160, 132090377011200, 17175244766164688547348480000`.
+## originality
 
-These checks are finite and cannot establish an all-length claim by themselves. The all-length justification is the deletion-alignment lemma, the recursive graph isomorphism, the perfect-matching bound, the bipartition construction, and the optimizer-count induction in `RESULT.md`. The proof does not require a numerical optimizer, external package or third-party file.
+PASS
+
+The abstract binomial-tree maximum independent-set product is already in OEIS A347289 and is not separately original. The nontrivial original assertion under best-of-knowledge comparison is the explicit isomorphism from one-deletion-confusability of binary palindromic words and the exact even/odd coding-optima interpretation, absent from the inspected unrestricted deletion-code literature.
+
+## value
+
+PASS
+
+Binary palindromic codewords are a natural constrained family under synchronization errors. The exact infinite confusability graph isomorphism, parity dichotomy in capacity and exact labeled optimizer count give genuinely motivated structural data, beyond an arbitrary low-length computation. This does not assert efficiency for unrestricted deletion codes or DNA applicability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
