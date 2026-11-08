@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For any i<j<k, the impossible (+,-) labeling of q_ij and q_ik would give a 231 occurrence. For any support with at most one edge leaving each smaller index, right-to-left minimum/maximum insertion independently realizes every binary labeling while preserving 231 avoidance. This proves the partition-matroid formula for all n>=1. The 255-node explicit depth-eight tree for n=7 was checked on all 256 branches against all 429 231-avoiding permutations; cardinality excludes depth nine. Closure under direct sums of 231-avoiders, with trees concatenated on disjoint query blocks, proves Ldim>=8q for all q>=1, hence linear gap against exact VC=7q-1. All included scripts replayed using actual packaged paths; finite computation proves only the explicit seed, not the all-length theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona–Kolesnikov–Nierwinski–Soucy (2021), arxiv:2109.04805, Theorem 3.10 proves VCdim=Ldim for linear zero-set families, which is incompatible with this claim unless an extra representation theorem—none stated—were available.",
+        "Ghazi–Golowich–Kumar–Manurangsi (2021), PMLR 132, gives general dimension bounds for aggregated binary classes rather than exact inversion comparison dimensions."
+      ],
+      "reasoning": "The candidate class consists of 231-avoiding permutations evaluated on comparison pairs, with an explicit strict VC/Ldim separation. Published general learning-dimension bounds do not supply this exact coefficientwise classification or length-seven witness; the zero-set equality applies to a distinct class and cannot subsume a strict-gap example.",
+      "searches": [
+        "Littlestone dimension permutations avoiding pattern comparisons VC dimension Catalan",
+        "Littlestone and VC-dimension of families of zero sets arxiv 2109.04805",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions Ghazi 2021",
+        "VC dimension of Catalan permutations inversion sets descent sets adaptive comparisons 132 avoidance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1902.08809",
+      "arxiv:1908.04673",
+      "arxiv:2109.04805",
+      "arxiv:2112.01946",
+      "doi:10.1007/s004930070023",
+      "https://proceedings.mlr.press/v132/ghazi21a.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson–Wickes (2021), arxiv:2112.01946, Definitions 1.2–1.4 and Theorems 1.5–1.8 concern k-tuple permutations and fractional/full-order coverage, not arbitrary binary query supports.",
+        "Berendsohn–Kozma–Marx, arxiv:1908.04673, paper sections 1–3 focus on permutation-pattern algorithms and complexity; it uses avoidance as an object but not VC/Ldim.",
+        "Guingona et al. arxiv:2109.04805, Sections 2–3, treat zero sets of vector-space linear combinations."
+      ],
+      "reasoning": "One would need an additional theorem equating each earlier work’s query universe and hypothesis family with the present pair-comparison concepts before an implication could be drawn. No such theorem was found in inspected material. In particular the new depth-eight tree is a concrete counterpoint to zero-set equality, not a corollary.",
+      "searches": [
+        "\"Littlestone\" \"pattern avoiding permutations\" comparisons",
+        "\"shattering\" \"pattern-avoiding permutations\" inversion",
+        "Shattering k-sets with Permutations arxiv 2112.01946",
+        "Finding and Counting Permutations via CSPs Berendsohn Kozma Marx 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Raz (2000), DOI:10.1007/s004930070023, and Johnson–Wickes (2021), arxiv:2112.01946, define shattered subsets by all k! relative orderings, not shattered sets of independently labeled binary pair-comparison queries.",
+        "Kozma (2019), arxiv:1902.08809, treats pattern matching, not VC/Littlestone shattering."
+      ],
+      "reasoning": "An order-shattered set of k positions is a different object from a set of k independently labeled pair queries: neither the partition-matroid polynomial nor a depth-eight comparison tree follows from the reported k!-ordering results. Avoidance of 231 under reverse/inverse symmetries yields related variants, but no inspected source stated a dominating equivalent formula.",
+      "searches": [
+        "\"shattered\" \"231-avoiding\" permutations comparisons",
+        "\"VC dimension\" \"231-avoiding\" permutations",
+        "permutation pattern avoidance shattering set of inversion pairs partition matroid Stirling numbers",
+        "shattering comparisons in pattern avoidance 231 suffix extremal min max insertion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed records concern statistics of 123-avoiding permutations, covariance of inversion indicators for random permutations, and unrelated Catalan orbit enumeration; they provide neither this support polynomial nor the depth-eight online tree.",
+        "A prior finite total-order comparison calculation for at most six labels does not imply the seven-position restricted-class witness, and the exact Stirling support coefficients for all n are absent from that calculation."
+      ],
+      "reasoning": "The exact table checked is the Stirling-number support profile for all n and the depth-eight tree at n=7. Neither a comparable table nor an implication from the closest indexed finite counts was found; a failed lookup alone would not be proof of novelty.",
+      "searches": [
+        "shattered supports of binary pairwise position comparisons for 231-avoiding stack sortable permutations are a partition matroid with Stirling numbers of first kind coefficients",
+        "Littlestone dimension eight of 231-avoiding permutations of length seven comparison query and unbounded linear gap versus VC dimension",
+        "VC dimension of finite poset antichains monotone functions maximal independent sets combinatorial learning"
+      ]
+    },
+    "rationale": "The conjunction of an all-order partition-matroid shattering classification for binary position-pair queries on Av(231) and a certified length-seven online mistake tree producing a linear gap is not implied by the inspected published results on permutation pattern matching, k!-order shattering, or linear-zero-set dimensions. Exact semantic and reduction comparisons were performed; historical priority remains provisional.",
+    "residual_risks": [
+      "Equivalent results may exist under stack-sortable permutation, inverse-comparison, sylvester-class, or inversion-set formulations not found in searches.",
+      "The 2000 Raz full text was not accessible; its published definition differs, but priority may involve uninspected appendices or secondary results.",
+      "The online amplification is elementary once the finite depth-eight seed is known; the tree must remain part of the claim-to-evidence chain and deserves independent reproduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Defines containment/avoidance of 231 (Introduction); studies algorithms for finding patterns and not binary comparison learning dimensions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1902.08809v2",
+        "material_read": "Full accessible HTML introduction, definitions and described principal algorithmic results; arXiv history verified for 2019-02-23",
+        "method": "Primary preprint HTML examination",
+        "title": "Faster and simpler algorithms for finding large patterns in permutations",
+        "trigger": "Earliest verified related public paper; stack-sortability and 231 avoidance"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Describes Knuth stack-sortable 231-avoidance; theorem concerns pattern-matching complexity rather than shattering of position-pair queries."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-021-00812-z",
+        "material_read": "Open-access full-article HTML, Introduction and main algorithms/theorems overview, references",
+        "method": "Primary publisher open-access HTML",
+        "title": "Finding and Counting Permutations via CSPs",
+        "trigger": "Relevant public literature on pattern avoidance"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Theorem 3.10 concerns linearly independent functions and their linear-combination zero sets, giving equal VC and Littlestone dimensions, not this strict-gap permutation concept family."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Accessible full arXiv rendered text, Sections 1–3, Definition 2.2, Theorem 3.10 and overview of remaining results",
+        "method": "Primary arXiv HTML/text inspection",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Foundational exact VC and Littlestone calculations in the target scientific subject"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Defines permutation shattering by all k! orders of k positions and partial/fractional variants; lacks binary pair support VC polynomial or Littlestone tree."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.01946v2",
+        "material_read": "Open full-text HTML, Section 1.1 formal definitions, Definitions 1.2–1.4, Theorems 1.5–1.8 and later section objectives",
+        "method": "Primary lawful arXiv HTML inspection",
+        "title": "Shattering k-sets with Permutations",
+        "trigger": "Plausible overlapping title on permutations and shattering"
+      },
+      {
+        "assessment": "DIFFERENT_DEFINITION_WITH_ACCESS_RISK",
+        "evidence": [
+          "Abstract defines dimension via all k! relative orderings on k indices, not binary labelings of k queried pairs; full paper inspection remains incomplete."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s004930070023",
+        "material_read": "Institutional bibliographic record and complete accessible abstract; full publisher text not available from inspected links",
+        "method": "Primary institutional abstract and bibliographic definition",
+        "title": "VC-dimension of sets of permutations",
+        "trigger": "Directly plausible older title, different VC definition"
+      },
+      {
+        "assessment": "NOT_DECISIVE_GENERAL_BOUNDS",
+        "evidence": [
+          "Results concern closure bounds under arbitrary aggregation; no direct exact 231-avoiding comparison class."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Publisher OA article page, abstract and bibliographic theorem summary",
+        "method": "Official proceedings summary",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "General theorems potentially dominating local online rank"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88a936fc-a69a-4251-afc2-f06761170ace",
+  "value": {
+    "rationale": "The complete support enumerator identifies a natural Catalan-class comparison shattering complex with partition-matroid structure and unsigned Stirling coefficients in every degree, and the explicit online witness yields a linear, unbounded gap from VC dimension via a rigorous closure argument. This is a motivated qualitative adaptive/nonadaptive separation, not an arbitrary numerical slice or merely a familiar Catalan count. The finite seed has independent future utility for learning-dimension comparison and is fully reconstructible.",
+    "status": "PASS"
+  }
+}
