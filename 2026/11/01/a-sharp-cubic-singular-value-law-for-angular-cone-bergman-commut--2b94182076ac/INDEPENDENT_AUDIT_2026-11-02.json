@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The weighted-ball monomial norms give the exact orthonormal basis e_{k,l} and shift factor sqrt((k+1)/(k+l+alpha+3)). Angular mass |z1|²/(|z1|²+|z2|²) is Beta(k+1,l+1), yielding diagonal lambda_{k,l}=Pr(Bin(k+l+1,t)<=k). The binomial-tail difference is (1-t)BinMass(n+1,m), m=k+1, so [T,M_z1] is a weighted unilateral shift with pairwise orthogonal target vectors and exact singular weights. A local binomial CLT with m=(n+1)t+u sqrt n yields amplitude A=sqrt(1-t)/sqrt(2pi) times n^-1/2 e^-u²/[2t(1-t)], while log-concavity/Stirling gives global Gaussian domination. Counting the cells in r=eps² n, u gives (2/3)A³ integral e^{-3u²/(2sigma²)} du = sqrt(t)(1-t)²/(3 pi sqrt3); omission of n<delta eps^-2 and n>R eps^-2 is controlled by squared-mass sums and uniform sup bounds. Standard monotone inversion proves weak-Schatten and sorted s_j, and derivative of log coefficient proves t=1/5. Independently verified 462 exact small-n beta-binomial recursions and local n=3000 critical power sums for t=.2,.5,.8; inspected verify_spectrum.py, not treating such finite checks as the infinite proof. All parameters fixed in stated open ranges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engliš–Guo–Zhang smooth-boundary symbol theorem requires regularity absent for the characteristic function of the angular cone. Isralowitz commutator criteria do not exhibit this precise singular-sequence constant."
+        ],
+        "reasoning": "A smooth-symbol universal trace formula cannot be directly specialized to a jump indicator, and an ideal membership criterion is weaker than the exact eps^-3 counting constant.",
+        "searches": [
+          "Engliš–Guo–Zhang arXiv:0707.2025 commutator theorem",
+          "Isralowitz arXiv:1109.0864 Schatten commutators",
+          "Quiroga-Barranco arXiv:2106.01980"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify_spectrum.py and actual seven-blob Git tree",
+        "Quiroga-Barranco/Sánchez-Nungaray arXiv:2009.12448 (primary relevant full-text section)",
+        "Engliš–Guo–Zhang arXiv:0707.2025 (primary full-text commutator theorem and hypotheses)",
+        "Quiroga-Barranco arXiv:2106.01980 (abstract/formula context)",
+        "Isralowitz arXiv:1109.0864 (general Schatten context)",
+        "Resultary published spectral law corpus and public GitHub math phrase search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2020 torus moment-map paper provides diagonal spectral integrals; the 2007 weak-Dixmier theorem concerns smooth boundary functions and so fails on the jump symbol. The cone calculation adds beta-binomial differencing, local CLT and global uniform cutoff."
+        ],
+        "reasoning": "Neither known general diagonalization nor smooth boundary Poisson-commutator results automatically yields this discontinuous-symbol Weyl coefficient; an undiscovered general jump theorem remains possible.",
+        "searches": [
+          "Engliš–Guo–Zhang arXiv:0707.2025 smooth-symbol commutators",
+          "Quiroga-Barranco/Sánchez-Nungaray arXiv:2009.12448 spectral integrals",
+          "Resultary published spectral operators search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angular torus-invariant Toeplitz symbols diagonalize in monomial basis; the commutator is an adjacent difference of beta-tail eigenvalues. The exact singular multiset and counting law are additional statements not supplied by the previously inspected diagonal formulas."
+        ],
+        "reasoning": "Known torus Toeplitz eigenvalues are the input, but a separate binomial local-limit/lattice counting computation is required for this particular angular discontinuity and the cubic critical coefficient.",
+        "searches": [
+          "Quiroga-Barranco/Sánchez-Nungaray arXiv:2009.12448 Sec7",
+          "Quiroga-Barranco arXiv:2106.01980",
+          "Resultary:Bergman ball angular cone Toeplitz characteristic commutator singular values weak Schatten class cubic counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concerned unrelated polydisc quotient Dixmier residues, Cesàro operators, and other spectral laws; no same cone commutator singular-value table was found."
+        ],
+        "reasoning": "An infinite two-index exact binomial singular multiset and sharp aperture coefficient are not recoverable from any specific inspected table. Lack of a matching table is not definitive novelty evidence.",
+        "searches": [
+          "Resultary:Bergman ball angular cone Toeplitz characteristic commutator singular values weak Schatten class cubic counting",
+          "GitHub public math search:angular cone Bergman commutator singular values",
+          "Quiroga-Barranco arXiv:2009.12448"
+        ]
+      },
+      "rationale": "PASS with general jump-symbol theorem priority risk. Quiroga-Barranco–Sánchez-Nungaray (arXiv:2009.12448) and Quiroga-Barranco (arXiv:2106.01980) establish torus-invariant Toeplitz spectral decompositions, hence the diagonalization is known. Engliš–Guo–Zhang (arXiv:0707.2025) obtain boundary commutator weak-ideal/Dixmier-trace results for smooth functions, not this discontinuous cone characteristic symbol. The new stated fact is the complete exact beta-binomial commutator singular spectrum and explicit eps^-3 counting coefficient, including weight-independence and aperture optimization. Relevant sections of the above primary papers were inspected for implications; no governing jump-interface theorem with the same coefficient was found, though it may exist outside inspected literature.",
+      "residual_risks": [
+        "A general theorem for nonsmooth torus-invariant Toeplitz commutators with codimension-one jumps could subsume the exact asymptotic coefficient; this was not conclusively excluded.",
+        "The CLT and counting limit are pointwise for fixed alpha and t; uniform t->0 or t->1 is not asserted.",
+        "The numerical n=3000 power sums are finite corroboration, not direct evidence for the strict infinite count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes angular Toeplitz diagonal machinery but not the specialized cubic jump-commutator Weyl count in inspected results.",
+          "evidence": [
+            "Section 7 diagonalizes torus-invariant Toeplitz operators via angular/radial integral symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.12448",
+          "material_read": "Primary 42-page preprint, relevant Section 7 monomial spectral integral formulas and associated operator results; opening PDF screenshot.",
+          "method": "Primary full-text theorem comparison with singular-value commutator limit",
+          "title": "Moment maps of Abelian groups and commuting Toeplitz operators acting on the unit ball",
+          "trigger": "Same weighted complex ball and torus-invariant diagonal Toeplitz symbols"
+        },
+        {
+          "assessment": "Smooth boundary-symbol theorem does not apply directly to angular cone characteristic jumps; no claimed whole-article noncoverage.",
+          "evidence": [
+            "Commutator/Dixmier-trace formulas are for smooth boundary symbols and derivatives, whereas 1_{Omega_t} has a jump."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2025",
+          "material_read": "Primary PDF sections introducing smooth-symbol commutator asymptotics, Theorem 4.4 and regularity hypotheses; opening page screenshot.",
+          "method": "Read theorem hypotheses and compare with discontinuous indicator symbol",
+          "title": "Toeplitz and Hankel operators and Dixmier traces on the unit ball of C^n",
+          "trigger": "Possible stronger weak-Schatten commutator theorem covering the cone"
+        },
+        {
+          "assessment": "Related known torus/quasihomogeneous diagonal framework; priority of jump counting not settled by abstract alone.",
+          "evidence": [
+            "The paper treats torus-invariant and quasi-homogeneous Toeplitz symbols on the ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01980",
+          "material_read": "Abstract and cross-referenced formula context, not a full independent chapter-by-chapter reading in this execution.",
+          "method": "Preprint bibliographic comparison with actual exact weights",
+          "title": "Toeplitz operators, T^m-invariance and quasi-homogeneous symbols",
+          "trigger": "Possible stronger torus-invariant spectral formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A characteristic function with a codimension-one angular jump is a natural borderline Toeplitz symbol for which smooth-symbol commutator results do not directly apply. The complete singular-value multiset and sharp weak-Schatten exponent/coefficient, independent of the radial Bergman weight, resolve a specific natural spectral invariant and identify a sharp cone angle. Exactness and the jump geometry—not generic reproducibility—motivate the result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify_spectrum.py and actual seven-blob Git tree",
+    "Quiroga-Barranco/Sánchez-Nungaray arXiv:2009.12448 (primary relevant full-text section)",
+    "Engliš–Guo–Zhang arXiv:0707.2025 (primary full-text commutator theorem and hypotheses)",
+    "Quiroga-Barranco arXiv:2106.01980 (abstract/formula context)",
+    "Isralowitz arXiv:1109.0864 (general Schatten context)",
+    "Resultary published spectral law corpus and public GitHub math phrase search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every fixed alpha>-1 and 0<t<1 on weighted analytic Bergman A²_alpha(B²), the commutator of the angular-cone characteristic Toeplitz operator with multiplication by z1 has the exact beta-binomial orthogonal-shift singular multiset and sharp counting asymptotic eps³N(eps) -> sqrt(t)(1-t)²/(3 pi sqrt3), yielding Schatten S_p iff p>3 and a unique maximum coefficient at t=1/5.",
+  "limitations": [
+    "No GitHub write, external publisher update, attestation, or replacement to published files was performed.",
+    "Scientific verdicts are based on the written unbounded proofs and bounded independent checks, not solely the repository verification logs.",
+    "A general theorem for nonsmooth torus-invariant Toeplitz commutators with codimension-one jumps could subsume the exact asymptotic coefficient; this was not conclusively excluded.",
+    "The CLT and counting limit are pointwise for fixed alpha and t; uniform t->0 or t->1 is not asserted.",
+    "The numerical n=3000 power sums are finite corroboration, not direct evidence for the strict infinite count."
+  ],
+  "residual_risks": [
+    "A general theorem for nonsmooth torus-invariant Toeplitz commutators with codimension-one jumps could subsume the exact asymptotic coefficient; this was not conclusively excluded.",
+    "The CLT and counting limit are pointwise for fixed alpha and t; uniform t->0 or t->1 is not asserted.",
+    "The numerical n=3000 power sums are finite corroboration, not direct evidence for the strict infinite count."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact weighted-ball monomial norm formula, beta-binomial eigenvalue identity, and one-to-one weighted-shift representation determine the full singular multiset. The proof supplies both local Stirling asymptotics and a global binomial Gaussian majorant, so its spectral counting argument controls low and high degrees rather than extrapolating from a finite experiment. The critical weak-Schatten coefficient and angular optimization are consequences of the counted Weyl constant. The standalone checker completed 1,640 finite checks of independent rational and numerical identities. No finite test is presented as an infinite proof.
+PASS
 
-## Originality
+PASS. The weighted-ball monomial norms give the exact orthonormal basis e_{k,l} and shift factor sqrt((k+1)/(k+l+alpha+3)). Angular mass |z1|²/(|z1|²+|z2|²) is Beta(k+1,l+1), yielding diagonal lambda_{k,l}=Pr(Bin(k+l+1,t)<=k). The binomial-tail difference is (1-t)BinMass(n+1,m), m=k+1, so [T,M_z1] is a weighted unilateral shift with pairwise orthogonal target vectors and exact singular weights. A local binomial CLT with m=(n+1)t+u sqrt n yields amplitude A=sqrt(1-t)/sqrt(2pi) times n^-1/2 e^-u²/[2t(1-t)], while log-concavity/Stirling gives global Gaussian domination. Counting the cells in r=eps² n, u gives (2/3)A³ integral e^{-3u²/(2sigma²)} du = sqrt(t)(1-t)²/(3 pi sqrt3); omission of n<delta eps^-2 and n>R eps^-2 is controlled by squared-mass sums and uniform sup bounds. Standard monotone inversion proves weak-Schatten and sorted s_j, and derivative of log coefficient proves t=1/5. Independently verified 462 exact small-n beta-binomial recursions and local n=3000 critical power sums for t=.2,.5,.8; inspected verify_spectrum.py, not treating such finite checks as the infinite proof. All parameters fixed in stated open ranges.
 
-**PASS, with remaining literature-priority risk.** Quiroga-Barranco and Sánchez-Nungaray (2020) and Quiroga-Barranco (2021) provide the appropriate unit-ball Toeplitz spectral representations and monomial formulas. García and Vasilevski (2015) supply a two-dimensional quasi-homogeneous operator-algebra antecedent. The smooth-symbol commutator weak-ideal result of Engliš, Guo and Zhang (2007) does not cover the sharp angular jump. The inspected sources do not state the present full singular count, cubic coefficient, or angular optimizer. A possible general jump-symbol spectral theorem was not comprehensively ruled out, and Isralowitz's projection-commutator paper was inspected at abstract level only.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact count and critical \(S_p\) threshold quantify an intrinsic spectral interface effect on the complex ball, including its independence of the radial Bergman weight and unique optimal cone opening. The result distinguishes spectral behavior of discontinuous Toeplitz symbols from the smooth-symbol commutator regime.
+PASS with general jump-symbol theorem priority risk. Quiroga-Barranco–Sánchez-Nungaray (arXiv:2009.12448) and Quiroga-Barranco (arXiv:2106.01980) establish torus-invariant Toeplitz spectral decompositions, hence the diagonalization is known. Engliš–Guo–Zhang (arXiv:0707.2025) obtain boundary commutator weak-ideal/Dixmier-trace results for smooth functions, not this discontinuous cone characteristic symbol. The new stated fact is the complete exact beta-binomial commutator singular spectrum and explicit eps^-3 counting coefficient, including weight-independence and aperture optimization. Relevant sections of the above primary papers were inspected for implications; no governing jump-interface theorem with the same coefficient was found, though it may exist outside inspected literature.
 
-## Scope and limits
+## value
 
-The theorem assumes fixed \(lpha>-1\), fixed \(0<t<1\), the complex two-ball, and one coordinate multiplier. It makes no claim about other dimensions or general characteristic functions. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A characteristic function with a codimension-one angular jump is a natural borderline Toeplitz symbol for which smooth-symbol commutator results do not directly apply. The complete singular-value multiset and sharp weak-Schatten exponent/coefficient, independent of the radial Bergman weight, resolve a specific natural spectral invariant and identify a sharp cone angle. Exactness and the jump geometry—not generic reproducibility—motivate the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
