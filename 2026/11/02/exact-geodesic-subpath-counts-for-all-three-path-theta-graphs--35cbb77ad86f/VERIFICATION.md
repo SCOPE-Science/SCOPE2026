@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a folder containing this file and the supplied standalone `verify.py`. Python's standard library is sufficient.
+## correctness
 
-The verification program separately constructs each original labelled theta graph, counts shortest paths between every unordered vertex pair by BFS with integer path propagation, and compares the count with the closed formula. It checks all 364 unordered triples with arm lengths from 2 through 13 and 200 deterministic pseudorandom triples with each arm length from 2 through 70. It also checks the equal-arm corollary for 98 values and six examples. The observed successful run terminated with `VERIFY_OK`.
+PASS
 
-The universal result is supported by the written combinatorial proof. Finite tests are not an exhaustive verification of an infinite theorem; a matching program output does not establish historical originality or constitute independent mathematical audit.
+PASS: Verified graph order N=a+b+c-1 and one geodesic per unordered pair plus N length-zero baseline binom(N+1,2). Complete pair partition into pole pair, same-arm interiors and cross-arm interiors; for same-arm pairs compare direct segment with alternative path via poles, accounting for two shortest alternatives if a=b. For b/c arms four simple routes reduce to two affine minima in y; between-group ties and within-group duplicate minima counted separately without overcounting triple ties. This establishes the R,Q,H parity formula for every integer arm triple. Independent graph construction and BFS shortest-path multiplicity propagation matched formula for all 2<=a<=b<=c<=11 and equal-arm specialization; finite enumeration is corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.
+
+## value
+
+PASS
+
+PASS: Three-arm theta is a canonical minimal noncactus two-connected series-parallel graph, where overlapping cycles create genuine shortest-path competition absent from cactus decompositions. An exact non-iterative all-arm-length geodesic count, with parity/tie terms, is a natural invariant and useful benchmark for extending geodesic subpath theory beyond cacti.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

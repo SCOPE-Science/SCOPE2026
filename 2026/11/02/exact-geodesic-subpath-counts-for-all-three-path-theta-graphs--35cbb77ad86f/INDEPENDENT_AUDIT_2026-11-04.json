@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:52:59.764338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Verified graph order N=a+b+c-1 and one geodesic per unordered pair plus N length-zero baseline binom(N+1,2). Complete pair partition into pole pair, same-arm interiors and cross-arm interiors; for same-arm pairs compare direct segment with alternative path via poles, accounting for two shortest alternatives if a=b. For b/c arms four simple routes reduce to two affine minima in y; between-group ties and within-group duplicate minima counted separately without overcounting triple ties. This establishes the R,Q,H parity formula for every integer arm triple. Independent graph construction and BFS shortest-path multiplicity propagation matched formula for all 2<=a<=b<=c<=11 and equal-arm specialization; finite enumeration is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original gpn paper gives exact grids, hypercubes, sequential joins and extremal cactus graphs; theta cycles overlap, so cactus decomposition does not cover it.",
+          "Diameter-two gpn extremal inequality does not determine theta graphs with general arm lengths."
+        ],
+        "reasoning": "The general gpn upper bound is not an exact theta count, and cactus-only extremality does not imply this noncactus formula.",
+        "searches": [
+          "Knor et al arXiv:2604.04907 Section 2 general upper bound and Section cactus",
+          "Resultary diameter two gpn extremum d8fd04cc9d21"
+        ]
+      },
+      "checked_sources": [
+        "Knor, Sedlar, Skrekovski, Zhang, Counting geodesic paths in graphs, arXiv:2604.04907, full primary PDF Introduction and Sections 2 through cactus discussion, pp.1-25",
+        "Resultary exact algebraic gnarledness of three-path theta graphs (different invariant) 2026/10/11 ...cceb12dd2a0d",
+        "Resultary 2026/9/17 diameter two geodesic subpath extremum ...d8fd04cc9d21",
+        "Manuel, Bresar, Klavzar arXiv:2101.08042 geodesic-transversal problem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knor et al introduce gpn and derive exact families other than all theta; general upper bound not an equality for arbitrary theta.",
+          "Geodesic transversal computes hitting sets, not the number of geodesics."
+        ],
+        "reasoning": "The proposed exact closed form is not a specialization of the cited cactus formula, since three fundamental theta cycles share edges and theta is not a cactus.",
+        "searches": [
+          "arXiv:2604.04907 precise definition gpn and cactus theorems",
+          "arXiv:2101.08042 geodesic-transversal problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original gpn definition counts shortest paths and one singleton per vertex; precisely same invariant.",
+          "Resultary theta algebraic gnarledness measures a different cycle invariant rather than gpn."
+        ],
+        "reasoning": "The full theta geodesic count is not equivalent to a geodesic transversal count or an algebraic gnarledness formula; similar graph terminology alone does not imply same invariant.",
+        "searches": [
+          "geodesic subpath number theta graph three arm lengths exact formula",
+          "arXiv:2604.04907 count geodesic paths graphs cactus",
+          "Resultary theta geodesic subpath number; theta algebraic gnarledness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant existing exact table families are hypercubes/grids/sequential joins/cacti and deleted-matching bicliques, not theta(a,b,c)."
+        ],
+        "reasoning": "No matching exact theta family table was identified. Values for individual small theta graphs would not determine the universal parity expression.",
+        "searches": [
+          "theta graph lengths a b c exact number shortest paths table geodesic subpath",
+          "Resultary geodesic subpath biclique deleted matching ...525c4067322f"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty rests on a precise target mathematical statement not established or implied by inspected stronger primary results. Existing identical primitives, partial tables, scalar invariants and adjacent object classes are credited; an inaccessible or unindexed equivalent theorem remains a documented risk.",
+      "residual_risks": [
+        "An older geodesic-counting expression for theta graphs could imply this parity formula under a different name.",
+        "The original 2026 gpn paper covers a cactus result but this family is noncactus; its general graph bounds still apply, though are not exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact all-length theta formula in inspected family results; cactus conditions exclude theta",
+          "evidence": [
+            "PDF pp.1-3 definition gpn(G)=sum_{unordered pairs}gpn_G(u,v)+n; abstract names grids, hypercubes and cactus extremizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.04907",
+          "material_read": "Primary open PDF abstract, Introduction, general bounds, graph-family theorems and cactus-class discussion; relevant page screenshots examined",
+          "method": "Compared same invariant definition, graph families and hypotheses of structural results to arbitrary theta graph",
+          "title": "Counting geodesic paths in graphs",
+          "trigger": "Identical geodesic subpath statistic and potentially stronger theorem"
+        },
+        {
+          "assessment": "Different invariant, not an equivalent count",
+          "evidence": [
+            "Transversal asks to meet geodesics, whereas claimed gpn counts every path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042",
+          "material_read": "Abstract and stated objective only; not read full text in this run",
+          "method": "Compared transversal/hitting parameter with enumeration of all shortest paths",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Alternative geodesic object potentially conflated"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Three-arm theta is a canonical minimal noncactus two-connected series-parallel graph, where overlapping cycles create genuine shortest-path competition absent from cactus decompositions. An exact non-iterative all-arm-length geodesic count, with parity/tie terms, is a natural invariant and useful benchmark for extending geodesic subpath theory beyond cacti.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Knor, Sedlar, Skrekovski, Zhang, Counting geodesic paths in graphs, arXiv:2604.04907, full primary PDF Introduction and Sections 2 through cactus discussion, pp.1-25",
+    "Resultary exact algebraic gnarledness of three-path theta graphs (different invariant) 2026/10/11 ...cceb12dd2a0d",
+    "Resultary 2026/9/17 diameter two geodesic subpath extremum ...d8fd04cc9d21",
+    "Manuel, Bresar, Klavzar arXiv:2101.08042 geodesic-transversal problem"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all simple three-path theta graphs with arm lengths 2<=a<=b<=c, the geodesic subpath number counting each zero-length path equals the stated exact binomial baseline plus parity/tie corrections R,Q,H; in equal-arm case gpn(Theta(t,t,t))=binom(3t,2)+3t-1.",
+  "limitations": [
+    "Only exactly three internally disjoint arms, all >=2; no arbitrary series-parallel family or fixed-order extremal graph characterization."
+  ],
+  "residual_risks": [
+    "An older geodesic-counting expression for theta graphs could imply this parity formula under a different name.",
+    "The original 2026 gpn paper covers a cactus result but this family is noncactus; its general graph bounds still apply, though are not exact."
+  ],
+  "schema_version": 1
+}
