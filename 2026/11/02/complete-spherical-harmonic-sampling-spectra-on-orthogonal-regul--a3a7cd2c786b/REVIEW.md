@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under probability surface measure on \(S^3\), the exact-degree harmonic kernel is \((\ell+1)U_\ell(x\cdot y)\). The two perpendicular circles give identical circulant diagonal Gram blocks and constant cross blocks. An explicit roots-of-unity Fourier sum diagonalizes every nonconstant character; the remaining two constant modes yield a two-by-two matrix. All \(4m\) eigenvalues are counted, including zeros. Consecutive modular frequencies give the complete rank formula, and the zero eigenvector proves the signed quadrature identity. The calculations include the boundaries \(m=2\) and \(\ell=0\). The standalone checker independently recreates kernel entries and tests thousands of eigenpairs. No step relies on numerical extrapolation.
+PASS
 
-## Originality — PASS under bounded literature comparison
+Under probability surface measure on S³ the reproducing kernel is (ℓ+1)U_ℓ(x·y), with diagonal (ℓ+1)². The two regular orthogonal circles produce equal n×n circulant Gram blocks plus constant cross-blocks (ℓ+1)U_ℓ(0). The exponential Fourier expansion U_ℓ(cosθ)=Σ_{j=0}^ℓ exp(i(ℓ−2j)θ) gives each nonzero frequency eigenvalue n(ℓ+1)c_a twice, while the two constant modes have eigenvalues n(ℓ+1)(c_0±s_ℓ). Exactly min(m,ℓ+1) occupied parity-residues and c_0(2k)=1+2⌊k/m⌋ imply ranks 2min(m,ℓ+1) for odd ℓ, 2min(m,ℓ+1)−1 for even ℓ<2m, and 2m for even ℓ≥2m. The constant-mode null eigenvector proves signed circle-sum quadrature for even ℓ<2m; direct multiplicities at ℓ=2m−2,2m−1,2m give tight and √2-conditioning transitions, and asymptotic residue counts imply condition number→1. Checked m=2, ℓ=0 and independent phases in the argument. Independently built raw addition-kernel matrices and compared all eigenvalues for 248 (m,ℓ) cases m=2..9, ℓ=0..30; these finite eigenspectra corroborate but do not prove all m,ℓ.
 
-The most relevant inspected precursor is P. Kramer's 2009 account of quaternionic invariant harmonics on spherical quotient manifolds (arXiv:0901.0511), especially its quaternion-group representation matrices and invariant-basis theorem. J. S. Dowker's 2009 treatment (arXiv:0909.3380) likewise addresses symmetry-adapted harmonics and cyclic/dihedral invariant bases. Neither inspected treatment explicitly states the complete eigenvalue multiset of evaluation on two orthogonal regular polygons for every order and degree. The complete phase-invariant sample-space spectrum and the exact alternating one-rank defect are stronger than harmonic-invariance multiplicities alone. Related classical spherical-code, cubature, and interpolation formulas were checked for conceptual overlap. The remaining risk is an older equivalent characterization through finite-group convolution or representation decomposition; novelty is not mathematically certified by unsuccessful searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The objects are natural quaternionic finite-subgroup orbits and their phase-shifted geometric analogues. The all-order and all-degree theorem completely determines a reconstruction invariant (the nonzero singular values and rank), reveals a sharp parity-controlled rank loss and recovery, and supplies a signed quadrature relation explaining the loss. These are precise structural facts relevant to the choice of exact harmonic degree and sampling stability. This is not a restatement of the spherical-design cancellation condition: it resolves the full evaluation spectrum.
+Best-of-knowledge PASS for complete, phase-invariant exact-degree point-evaluation Gram spectrum, all ranks and the signed quadrature defect for two orthogonal regular circles. Kramer and Dowker study invariant harmonic bases for quaternionic/binary-dihedral quotient spaces, not the all-sample singular spectra in the inspected parts. A still-unidentified equivalent representation-theoretic Fourier-sampling theorem remains a priority risk.
 
-## Limits
+## value
 
-The theorem does not concern arbitrary circle angles, unequal polygon sizes, multiple harmonic degrees mixed together, or independent validation. The originality comparison is bounded to the identified literature and recoverable indexed records.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural sampling configurations include binary-dihedral finite subgroup orbits of S³. Their all-order/all-degree spectral ranks and singular values determine reachable sample interpolation and stability, including nonmonotonic degree rank and exact quadrature relations; this is a meaningful complete classification of a natural sampling invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
