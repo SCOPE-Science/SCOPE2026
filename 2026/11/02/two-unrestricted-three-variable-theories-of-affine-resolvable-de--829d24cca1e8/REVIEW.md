@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The parameter identities \(v=qk=q^{2}\mu\), \(r=t>q\), and the uniform third-colour support table are derived for arbitrary admissible designs. Positivity of every third-element relation class is verified in the proof; an unbounded three-pebble strategy follows. Explicit rank-three separation and sharp finite representative inequalities cover both directions. Finite enumeration of seven independently constructed examples checks all nine pair colours but does not prove the infinite result.
+## correctness
 
-## Originality: PASS, qualified
-The closest located design-classification articles concern automorphism transitivity or nonisomorphic affine-resolvable families and their ternary codes, not the three-variable incidence theory. Pebble-game methodology is well known, but the cross-parameter two-class equivalence was not found in inspected sources or queried research records. A general coherent-configuration theorem might subsume the result; incomplete primary full-text access and unsearched historical literature remain material priority risks.
+PASS
 
-## Value: PASS
-The result supplies an exact uniform first-order expressive-power boundary over a broad natural family of incidence designs, encompassing constructions with different block intersections, parameters, and even trivial automorphism groups. The sharp \(21\)-element representative and rank-three separating sentence make the boundary concrete; the theorem is not restricted to classical affine geometries.
+Under the exact hypotheses of a finite simple 2-(v,k,lambda) design with a resolution into t parallel classes of q blocks and a constant positive cross-class block intersection mu, counting gives k=qmu, v=q²mu, replication t, and t(k-1)=lambda(v-1), whence t>q. For the two-sorted incidence language, nine ordered-pair profiles refine every atomic two-position type: PP equal/different, BB equal/disjoint/intersect, and incident/nonincident PB/BP. The source proof enumerates all support types of an additional point/block relative to two anchors. The only emptiness changes occur with q=2 versus q>=3: outside two disjoint blocks has size (q-2)k, another parallel block exists exactly for q>=3, and q-2 further blocks avoid an outside point. Other counts lambda, t-lambda, mu, k-mu, etc. are strictly positive. The resulting support uniformity allows a three-pebble back-and-forth of arbitrary length for any pair of designs in the same q class. A three-variable rank-three sentence asserting two blocks cover all points distinguishes q=2 from q>=3; two-element atomic patterns agree at rank <=2. Lower bound on total vertices v+qt>=2q²+q is attained by AG(2,2) size 10 and AG(2,3) size 21. The proof uses only axioms, not finite sampled designs; no extension to arbitrary resolvable designs without uniform positive cross-intersections is claimed.
 
-## Sources and limits
-See the detailed citations and comparison in `RESULT.md`. Lam–Tonchev's classification full text was not accessible in this examination; its public bibliographic abstract was inspected. Key and Mackenzie-Fleming's lawful journal PDF was inspected for the precise affine-resolvable definition and code-rigidity subject. The result concerns sort-named incidence without counting and does not assert equivalence for richer languages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2-design classification results of Lam and Tonchev, rigidity of affine-resolvable designs by Key and Mackenzie-Fleming, and pairwise-transitive design theory concern isomorphism, automorphisms or coding. Standard pebble-game methods are prior, but the exact two unrestricted counting-free FO³ incidence theories with sharp size representatives appear distinct from those inspected statements. A broader coherent-configuration or Weisfeiler–Leman result could imply it; treat originality as qualified.
+
+## value
+
+PASS
+
+Nonisomorphic affine resolvable designs can nevertheless have identical arbitrarily deep three-variable incidence theories. The exact dichotomy q=2 versus q>=3 and minimal representatives give a natural logical invariant of a broad combinatorial-design family without requiring field coordinatization or automorphism transitivity. The sharp unbounded-depth classification is a structural theorem, not a renamed finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
