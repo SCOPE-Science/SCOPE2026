@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the rank-\(r\) projective-geometry matroid independence complex, acted on by the linear collineation group; coefficients are any abelian group with trivial action. Top facets form one transitive group orbit. The stabilizer of a projective basis includes a swap of two basis points, which reverses its orientation and forces each invariant top-chain coefficient into \(A[2]\). Conversely that coefficient defines a unique invariant orbit sum. Every independent codimension-one face has exactly \(q^{r-1}\) completions; thus the sum is a cycle precisely when \(q^{r-1}a=0\). The top chain group has no incoming differential. The parity conclusion is exact, with no omitted cases or dependence on lower homology. A standalone exhaustive enumerator independently checks the incidence formulas in seven small projective geometries, including genuine extension-field arithmetic for \(\mathbb F_4\). The general proof does not rely on those samples.
+## correctness
 
-## Originality — PASS, with residual risks
-Matroid-independence shellability is classical (Björner). The full-text study of modular homology on projective subspace lattices by Mnukhin–Siemons (2000) has a different chain object and explicitly works in the coprime-characteristic setting. Their 2001 shellable-complex treatment investigates generalized modular inclusion maps, and its character calculation has restrictions that do not classify \(2\)-torsion fixed **ordinary simplicial homology** under a projective linear group. Moci–Pezzoli (2020) establish general complex-valued equivariant matroid-homology comparisons; no finite-projective arbitrary-abelian-coefficient theorem is stated in the inspected introduction and applications. A Fano-specific integral representation calculation is a special case, not coverage of all \(r,q,A\). Search variants for projective bases, all-prime-power fixed cycles and mod-two collineation-invariants found no direct match. Unindexed equivalent statements or a derivation tucked into a broader representation result remain possible; search absence alone is not proof of novelty.
+PASS
 
-## Value — PASS, with scope limits
-This is a natural complete classification of fixed **top** homology across all finite Desarguesian projective geometries and all coefficient groups, not a selected small numerical increment. It isolates precisely the interaction between the field order and coefficient \(2\)-torsion: every rational and integral fixed space is zero, but a canonical fixed class appears after reduction modulo two for all even field orders. The explicit orbit-sum representative is usable as a symmetry-respecting cycle. It does not purport to determine the full homology module; the proof is short because a single transitive facet orbit reduces the classification to one exact incidence number.
+Direct uniform proof reconstructed, independent of experiments: PGL acts transitively on r-point projective bases, and the setwise facet stabilizer contains a 2-point swap acting by -1, so invariant top chains are uniquely parameterized by a∈A[2]. Every independent r−1 set spans a projective hyperplane and extends to exactly q^(r−1) bases; boundary of constant chain has coefficient q^(r−1)a. Thus it is a cycle exactly for even q, and with no higher chain group every invariant top cycle is a distinct homology class; the action on top homology is faithful to cycles even for nonflat arbitrary abelian A. Independently corroborated q=2,3,4 finite-field counts; not extrapolated to the theorem.
 
-## Residual risks and boundaries
-The first bibliographic reference is available as a book-chapter record, not as inspectable full text. A possible antecedent in unindexed finite-geometry representation literature could state the same orbit-sum criterion. No claim is made for semilinear enlargement, nontrivial coefficient actions, or non-Desarguesian planes. Cambridge University Press dates the print edition to 5 March 1992.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for uniform arbitrary-A modular fixed subgroup, with explicit difference from characteristic-zero matroid representation and projective subspace lattice theories. An inaccessible plausible original text is recorded as risk, not proof of noncoverage.
+
+## value
+
+PASS
+
+Uniform coefficient-sensitive all-rank projective matroid phenomenon explains a distinctive characteristic-two fixed-class jump and complete q-parity dichotomy for every abelian A, including non-finitely generated two-torsion. The short proof combines nontrivial orientation stabilizers and hyperplane incidence; it is a meaningful structural fixed-homology criterion beyond an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
