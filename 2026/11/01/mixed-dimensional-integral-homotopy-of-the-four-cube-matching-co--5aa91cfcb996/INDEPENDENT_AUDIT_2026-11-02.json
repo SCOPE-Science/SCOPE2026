@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:13:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py",
+        "mod2_crosscheck.py",
+        "METADATA.json"
+      ],
+      "rationale": "Enumerating all disjoint subsets of the 32 undirected cube edges yields exactly 41,025 faces including the empty face, with cardinality vector (1,32,400,2496,8256,14208,11648,3712,272). Two independently recreated sequential edge-toggle Morse matchings in increasing and decreasing pivot order have 20,408 and 20,435 pairs respectively, leave one 0-cell with (39 four-cells,168 five-cells) or (12 four-cells,141 five-cells), and reverse acyclic orientations on all 210,400 ordinary Hasse covers. Independent signed-gradient recursions (from the actual oriented simplex boundary, not logs) give 39x168 and 12x141 integer Morse matrices with 909 and 512 nonzero entries. Exact SymPy Smith normal forms yield 38 and 11 nonzero invariant factors, all equal to 1, giving H4=Z and H5=Z^130 with no torsion. With no cells in dimensions 1--3, homotopy classes of five-cell attachments to a wedge of S4 are classified by the integral degree matrix. Primitive Smith pivots split off contractible 4/5-cell pairs; the residual S4 and 130 S5 prove the full wedge statement.",
+      "residual_risks": [
+        "The finite certificate exhausts one specified graph; no proof for all hypercubes or general periodic grids.",
+        "Two different matchings and a mod-two crosscheck corroborate, but the integral conclusion rests on the independently re-evaluated exact signed Smith forms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engström supplies connectivity for independence complexes of claw-free graphs, not the exact Q4 integral homotopy.",
+          "Matsushita computes special two-row strip families, not C4 square C4; Q4 is nonouterplanar (32 edges on 16 vertices exceed 2n-3=29)."
+        ],
+        "reasoning": "General connectivity and narrower planar/outerplanar matching family results do not yield the two precise multiplicities or the integral zero-torsion classification.",
+        "searches": [
+          "Engström Independence complexes of claw-free graphs arXiv:math/0512420",
+          "Matsushita Matching complexes of small grids arXiv:1812.11000 full PDF",
+          "Jonsson Simplicial Complexes of Graphs 2007 matching chapter preview",
+          "Bayer Jelić Milutinović Vega Matching Complexes of Outerplanar Graphs arXiv:2411.04601"
+        ]
+      },
+      "checked_sources": [
+        "Matsushita arXiv:1812.11000 original PDF",
+        "Engström arXiv:math/0512420 general connectivity results",
+        "Jonsson 2007 matching chapter preview only",
+        "Resultary nearby planar grid, Q3, ordinary independence Q4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-row strip structural hypotheses exclude the 4x4 periodic torus.",
+          "The Q3 graph embeds in Q4 but no cited functorial wedge formula transfers its matching complex multiplicities under dimension increase."
+        ],
+        "reasoning": "Known general bounds and lower-dimensional/smaller-edge graph computations do not imply the exact integral homotopy of this full four-cube complex.",
+        "searches": [
+          "Matsushita arXiv:1812.11000 relevant original theorem/proof",
+          "Engström arXiv:math/0512420 general claw-free complex connectivity",
+          "Published Q3 matching and P4 Cartesian P4 results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q4 is graph-isomorphic to the periodic C4 Cartesian C4 grid and its matching complex is the independence complex of its line graph L(Q4).",
+          "The 4x4 *planar* Cartesian grid P4 Cartesian P4 has 24 edges and different adjacency, so its published wedge6 S4 wedge2 S5 is not equivalent."
+        ],
+        "reasoning": "Explicitly checked the periodic-vs-planar graph edges and the matching/line-graph independence equivalence; no graph isomorphism links the prior planar grid theorem to Q4.",
+        "searches": [
+          "Resultary ordinary matching complex of four dimensional hypercube Q4 toroidal C4 square C4, homotopy S4 wedge 130 S5",
+          "Matsushita Matching complexes of small grids arXiv:1812.11000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns a 24-edge planar grid matching complex, an ordinary independence complex of Q4, a Q3 matching complex and other distinct hypercube invariants; not 32-edge M(Q4).",
+          "The complete finite 41,025-face/130 S5 table was not found in these indexed sources."
+        ],
+        "reasoning": "No exact published table match identified; this is evidence of bounded search, not proof that no obscure computation exists.",
+        "searches": [
+          "Resultary ordinary matching complex of four dimensional hypercube Q4 toroidal C4 square C4, homotopy S4 wedge 130 S5",
+          "web matching complex hypercube Q4 ordinary toroidal 4x4 exact homotopy 130 spheres 2025 2026"
+        ]
+      },
+      "rationale": "The same 16-vertex graph is the *periodic* 4x4 square grid C4 square C4 and has 32 edges. Published exact planar P4 square P4 grid results concern 24 edges and differ. Engström gives claw-free independence connectivity, Matsushita two-row strip matchings, and Jonsson broad background; none inspected states or implies the integral 1+130 wedge. Full Jonsson matching chapter unavailable, so best-of-knowledge priority risk remains.",
+      "residual_risks": [
+        "Full chapter of Jonsson 2007 not inspected; an implicit or unindexed exact Q4 calculation may appear in established graph-complex references.",
+        "The numerical result is potentially a corollary of a stronger theorem on toroidal grid matching complexes not surfaced by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TWO_ROW_STRIP_NOT_PERIODIC_4_BY_4",
+          "evidence": [
+            "The treated strip families are distinct from periodic C4 Cartesian C4 (32 edges)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.11000",
+          "material_read": "Full original arXiv PDF: graph family definitions, main theorem and relevant proof; visually checked cover page",
+          "method": "arXiv original PDF full text and image",
+          "title": "Matching complexes of small grids",
+          "trigger": "Same grid matching functor; possible exact periodic-grid theorem"
+        },
+        {
+          "assessment": "CONNECTIVITY_ONLY_NOT_EXACT_WEDGE",
+          "evidence": [
+            "Claw-free connectivity constraints do not determine rank 130 or integral attaching maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0512420",
+          "material_read": "Available original paper abstract and theorem statement about claw-free independence connectivity",
+          "method": "public preprint theorem/abstract",
+          "title": "Independence complexes of claw-free graphs",
+          "trigger": "Matching complex = line graph independence; general stronger connectivity bound possible"
+        },
+        {
+          "assessment": "HIGH_RELEVANCE_FULL_CHAPTER_NOT_READ",
+          "evidence": [
+            "An implicit or tabulated Q4 matching-complex homotopy type cannot be excluded from inaccessible chapter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-75859-4",
+          "material_read": "Publisher book contents and limited chapter preview; full matching chapter inaccessible",
+          "method": "publisher metadata/preview",
+          "title": "Simplicial Complexes of Graphs",
+          "trigger": "Book matching chapter might contain hidden exact hypercube calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Matsushita arXiv:1812.11000 original PDF",
+        "Engström arXiv:math/0512420 general connectivity results",
+        "Jonsson 2007 matching chapter preview only",
+        "Resultary nearby planar grid, Q3, ordinary independence Q4"
+      ],
+      "rationale": "The matching complex of the four-cube is a canonical next case beyond the 3-cube, and the toroidal 4x4 interpretation makes its exact integral homotopy a reusable invariant for periodic-grid and matching-complex studies. Determining the *two different sphere dimensions*, their exact multiplicities and zero integral torsion requires nontrivial finite integral Morse data. It is a natural complete finite classification, not an arbitrary parameter slice or just a mod-two rank.",
+      "residual_risks": [
+        "The statement does not provide an n-parameter hypercube formula or representation decomposition; independent value is the exact Q4 benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite certificate exhausts one specified graph; no proof for all hypercubes or general periodic grids.",
+    "Two different matchings and a mod-two crosscheck corroborate, but the integral conclusion rests on the independently re-evaluated exact signed Smith forms.",
+    "Full chapter of Jonsson 2007 not inspected; an implicit or unindexed exact Q4 calculation may appear in established graph-complex references.",
+    "The numerical result is potentially a corollary of a stronger theorem on toroidal grid matching complexes not surfaced by the bounded search.",
+    "The statement does not provide an n-parameter hypercube formula or representation decomposition; independent value is the exact Q4 benchmark."
+  ],
+  "schema_version": 1
+}

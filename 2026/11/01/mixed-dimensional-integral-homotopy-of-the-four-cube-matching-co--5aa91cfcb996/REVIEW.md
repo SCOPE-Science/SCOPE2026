@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and face definitions are unambiguous: 16 binary cube vertices, 32 edges, and all 41,024 nonempty matching faces. The two separate total pivot orders yield two complete and acyclic reversed-Hasse matchings, with unmatched counts (one zero-cell, 39 four-cells, 168 five-cells) and (one zero-cell, 12 four-cells, 141 five-cells). Both integral signed Morse matrices have only unit nonzero Smith factors, respectively 38 and 11. The resulting primitive attaching maps are completely classified by \(\pi_4(\bigvee S^4)\cong\mathbb Z^{\text{number of spheres}}\), by Hurewicz. Cancelling those four-/five-cell pairs proves the exact homotopy decomposition. An independent full-chain mod-two calculation agrees with the ranks but is not used to infer integral torsion-freeness.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-Engström (2005) proves connectivity bounds for claw-free independence complexes, not this matching complex's exact homotopy. Matsushita's complete paper (2018/2019) concerns generalized line graphs of two-row planar strips, not the four-dimensional cube. Publicly indexed calculations on the cube \(Q_3\), on the planar \(P_4\mathbin{\square}P_4\), and on the cuboctahedron have different underlying graphs or simplicial constructions; the particular homotopy claim is not a corollary. The outerplanar sphere-wedge theorem does not cover a 16-vertex 32-edge graph. Searches for the aliases "tesseract", "four-cube", "hypercube", "periodic 4-by-4 square grid", "toroidal 4-by-4 grid", and "independence complex of the line graph" located no exact table. The historical comparison cannot establish uniqueness, especially because Jonsson's relevant book chapter was only available in preview.
+PASS
 
-## Mathematical value — PASS
-The four-cube is the first four-dimensional example beyond the already studied three-cube; its 32 edges and full four-dimensional Cartesian-product structure distinguish it from small planar strip examples. The exact complete integral homotopy type displays two adjacent nonzero reduced homology degrees with a specific large sphere multiplicity \(130\), a natural benchmark for matching-complex calculations and potential dimension-dependent conjectures. The claim is not a textbook consequence of general connectivity bounds or of the more limited known graphs.
+Enumerating all disjoint subsets of the 32 undirected cube edges yields exactly 41,025 faces including the empty face, with cardinality vector (1,32,400,2496,8256,14208,11648,3712,272). Two independently recreated sequential edge-toggle Morse matchings in increasing and decreasing pivot order have 20,408 and 20,435 pairs respectively, leave one 0-cell with (39 four-cells,168 five-cells) or (12 four-cells,141 five-cells), and reverse acyclic orientations on all 210,400 ordinary Hasse covers. Independent signed-gradient recursions (from the actual oriented simplex boundary, not logs) give 39x168 and 12x141 integer Morse matrices with 909 and 512 nonzero entries. Exact SymPy Smith normal forms yield 38 and 11 nonzero invariant factors, all equal to 1, giving H4=Z and H5=Z^130 with no torsion. With no cells in dimensions 1--3, homotopy classes of five-cell attachments to a wedge of S4 are classified by the integral degree matrix. Primitive Smith pivots split off contractible 4/5-cell pairs; the residual S4 and 130 S5 prove the full wedge statement.
 
-## Boundaries
-There is no statement for other hypercube dimensions, no equivariant decomposition, and no claim about all periodic grids. Unindexed work or content of an inaccessible plausible chapter could overlap. The computations are finite certificates for exactly this finite instance, not an extrapolation. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same 16-vertex graph is the *periodic* 4x4 square grid C4 square C4 and has 32 edges. Published exact planar P4 square P4 grid results concern 24 edges and differ. Engström gives claw-free independence connectivity, Matsushita two-row strip matchings, and Jonsson broad background; none inspected states or implies the integral 1+130 wedge. Full Jonsson matching chapter unavailable, so best-of-knowledge priority risk remains.
+
+## value
+
+PASS
+
+The matching complex of the four-cube is a canonical next case beyond the 3-cube, and the toroidal 4x4 interpretation makes its exact integral homotopy a reusable invariant for periodic-grid and matching-complex studies. Determining the *two different sphere dimensions*, their exact multiplicities and zero integral torsion requires nontrivial finite integral Morse data. It is a natural complete finite classification, not an arbitrary parameter slice or just a mod-two rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

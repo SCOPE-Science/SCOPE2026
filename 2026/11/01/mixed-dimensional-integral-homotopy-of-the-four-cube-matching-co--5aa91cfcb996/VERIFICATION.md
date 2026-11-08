@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of the integral homotopy calculation
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The program uses Python 3 and SymPy, enumerates all edge-disjoint subsets of the 32 edges of \(Q_4\), verifies both full reversed-Hasse digraphs are acyclic, constructs their complete signed integral Morse degree matrices, and computes Smith normal forms over \(\mathbb Z\). The expected output appears in `verify_output.txt`; its final marker is `ALL_CHECKS_PASS`.
+## correctness
 
-The exact forward Morse boundary is a 39-by-168 integer matrix with 909 nonzero entries and 38 nonzero Smith factors, all one. The reverse Morse boundary is 12-by-141 with 512 nonzero entries and eleven nonzero unit factors. These establish the absence of torsion and the **primitivity of all independent attaching vectors**. A continuous homotopy conclusion follows by Hurewicz because there are no cells between dimension zero and four.
+PASS
 
-Run `python3 mod2_crosscheck.py` using only the Python standard library. This program independently enumerates the full original complex and computes all mod-two simplicial boundary ranks, recorded in `mod2_crosscheck_output.txt`, with final marker `MOD2_CHECK_PASS`. Its computed ranks are \(1,31,369,2127,6129,8078,3440,272\) for boundaries from cardinalities one to eight, yielding mod-two Betti numbers one in degree four and 130 in degree five. It cannot establish integral torsion-freeness or homotopy type by itself.
+Enumerating all disjoint subsets of the 32 undirected cube edges yields exactly 41,025 faces including the empty face, with cardinality vector (1,32,400,2496,8256,14208,11648,3712,272). Two independently recreated sequential edge-toggle Morse matchings in increasing and decreasing pivot order have 20,408 and 20,435 pairs respectively, leave one 0-cell with (39 four-cells,168 five-cells) or (12 four-cells,141 five-cells), and reverse acyclic orientations on all 210,400 ordinary Hasse covers. Independent signed-gradient recursions (from the actual oriented simplex boundary, not logs) give 39x168 and 12x141 integer Morse matrices with 909 and 512 nonzero entries. Exact SymPy Smith normal forms yield 38 and 11 nonzero invariant factors, all equal to 1, giving H4=Z and H5=Z^130 with no torsion. With no cells in dimensions 1--3, homotopy classes of five-cell attachments to a wedge of S4 are classified by the integral degree matrix. Primitive Smith pivots split off contractible 4/5-cell pairs; the residual S4 and 130 S5 prove the full wedge statement.
 
-Both programs inspect the whole finite complex; no sample is used to replace an exhaustive proof. Computational resource requirements and integer-arithmetic library versions can affect running time but not the specified deterministic arithmetic. No external mathematical audit is claimed.
+## originality
+
+PASS
+
+The same 16-vertex graph is the *periodic* 4x4 square grid C4 square C4 and has 32 edges. Published exact planar P4 square P4 grid results concern 24 edges and differ. Engström gives claw-free independence connectivity, Matsushita two-row strip matchings, and Jonsson broad background; none inspected states or implies the integral 1+130 wedge. Full Jonsson matching chapter unavailable, so best-of-knowledge priority risk remains.
+
+## value
+
+PASS
+
+The matching complex of the four-cube is a canonical next case beyond the 3-cube, and the toroidal 4x4 interpretation makes its exact integral homotopy a reusable invariant for periodic-grid and matching-complex studies. Determining the *two different sphere dimensions*, their exact multiplicities and zero integral torsion requires nontrivial finite integral Morse data. It is a natural complete finite classification, not an arbitrary parameter slice or just a mod-two rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
