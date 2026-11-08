@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py .` (Python 3.10 or later; standard library only) beside `CHARACTER.csv` and the other included files.
+## correctness
 
-The program constructs the 16-vertex Cayley graph and verifies each of the 192 affine permutations preserves all distances, then proves no more automorphisms exist using the hexagonal vertex neighborhood. It enumerates all ordered endpoint-pair orbits (16+96+48+96 = 256), all length-four magnitude chains in one representative fiber of each orbit, the exact signed boundaries in degrees 3 and 4, and checks the chain identity. It independently builds exact rational pivot bases for those boundary matrices and checks the following representative dimension/rank data, in order of terminal vertex indices 0, 1, 2, 6:
+PASS
 
-- `(9,54,96;9,45;0)`
-- `(6,54,80;6,48;0)`
-- `(4,66,80;4,61;1)`
-- `(4,66,80;4,61;1)`.
+PASS: The Cayley model of Shrikhande on (Z/4)^2 with six symmetric generators has full automorphism group of 192 affine permutations (12 stabilizer matrices and 16 translations); its vertex link is a hexagon and the nine other two-step neighbors are distinguished, excluding extra automorphisms. The length-4 magnitude-chain differential deletes only interior collinear-in-distance vertices and preserves ordered endpoints. The 256 endpoint pairs form orbits of sizes 16,96,48,96. Exact independent rational boundary matrix ranks for representative endpoints 0,1,2,6 are respectively (rank∂3,rank∂4)=(9,45),(6,48),(4,61),(4,61) and ∂3∂4=0; only nonedge fibers 2 and 6 give a one-dimensional H3. Explicit closed nonboundaries transformed under stabilizers carry the nontrivial sign characters on orders 4 and 2; their induced 48+96-dimensional modules yield full Aut character distribution 144 once, 4 for 12 elements, −12 for 16 and 0 for 163, with average 0. Independent exact rational computation reproduced ranks, full automorphism group, local signs and all 192 character values. Prior known rank 144 is acknowledged as an input, not new.
 
-It checks explicit nonboundary closed chains `(0,4,13,2)` and `(0,3,10,6)`, then every element of both ordered-pair stabilizers, and finally every one of the 192 full-group traces against the embedded CSV. All rational computations use exact `fractions.Fraction`; no floating-point rank test occurs. The actual final run's output is recorded in `verification_output.txt` and concludes `VERIFY_OK`.
+## originality
 
-The proof does not use finite experiments to infer an infinite theorem; the claim concerns exactly this 16-vertex graph and this bidegree. The verifier does not establish any integral torsion, other bidegrees, or publication priority. Independent mathematical validation has not been performed.
+PASS
+
+PASS on available evidence: Gu’s published total Shrikhande MH_{3,4} dimension 144 and Hepworth–Willerton’s graph magnitude functoriality are prior work; neither states the full 192-element automorphism module, signed nonedge stabilizer fibers or vanishing rational invariants. The result refines a natural known graph invariant with new representation data; unindexed equivalent character calculations remain a residual risk.
+
+## value
+
+PASS
+
+PASS: Exact full rational module under the graph’s complete 192-element symmetry group, including two induced sign summands and zero invariants, is a structurally informative equivariant refinement that is not implied by the established scalar rank 144.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

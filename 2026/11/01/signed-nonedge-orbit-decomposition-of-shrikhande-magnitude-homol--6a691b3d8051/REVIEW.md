@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Cayley graph, its full order-192 automorphism group, all four ordered endpoint-pair orbits, every boundary column in their four representative length-four chain complexes, the rational ranks, and the boundary-square identities are reproduced by `VERIFY.py`. In the two nonzero homology fibers, explicit closed tuples are checked to remain nonzero modulo four-boundaries, and each stabilizer action is verified with exact rational row reduction. These data prove the two induced representations; enumeration over all group elements gives the full character. The proof uses exact finite rational algebra, not numerical approximations or an extrapolation from incomplete samples. Rational invariants only are claimed.
+PASS
 
-## Originality — PASS, with residual priority risk
+PASS: The Cayley model of Shrikhande on (Z/4)^2 with six symmetric generators has full automorphism group of 192 affine permutations (12 stabilizer matrices and 16 translations); its vertex link is a hexagon and the nine other two-step neighbors are distinguished, excluding extra automorphisms. The length-4 magnitude-chain differential deletes only interior collinear-in-distance vertices and preserves ordered endpoints. The 256 endpoint pairs form orbits of sizes 16,96,48,96. Exact independent rational boundary matrix ranks for representative endpoints 0,1,2,6 are respectively (rank∂3,rank∂4)=(9,45),(6,48),(4,61),(4,61) and ∂3∂4=0; only nonedge fibers 2 and 6 give a one-dimensional H3. Explicit closed nonboundaries transformed under stabilizers carry the nontrivial sign characters on orders 4 and 2; their induced 48+96-dimensional modules yield full Aut character distribution 144 once, 4 for 12 elements, −12 for 16 and 0 for 163, with average 0. Independent exact rational computation reproduced ranks, full automorphism group, local signs and all 192 character values. Prior known rank 144 is acknowledged as an input, not new.
 
-Hepworth–Willerton (arXiv:1505.04125, definitions and induced graph-map action) provide the underlying theory. Gu (arXiv:1809.07240, Appendix A, Proposition A.2 and Table 2) **already computed the Shrikhande total magnitude-homology rank 144** and its distinction from the rook graph; neither is a new finding. The new exact order-192 induced-module decomposition depends on nontrivial signs that are not implied by the rank. Relevant existing database records on the Shrikhande independence and Čech complexes address other functors; existing magnitude-homology records concern other graphs. No covering equivariant statement was found. A mathematically equivalent unindexed computation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The Shrikhande graph is a canonical strongly regular graph and a published test case distinguishing magnitude from magnitude homology. Determining how its full automorphism group acts on the known 144-dimensional group is a motivated structural refinement: nontrivial local sign characters, not bare orbit sizes, determine the module. The absence of symmetry-fixed rational classes is an additional exact invariant invisible to the previously known homology rank. This is confined to one natural bidegree but supplies the complete equivariant answer there.
+PASS on available evidence: Gu’s published total Shrikhande MH_{3,4} dimension 144 and Hepworth–Willerton’s graph magnitude functoriality are prior work; neither states the full 192-element automorphism module, signed nonedge stabilizer fibers or vanishing rational invariants. The result refines a natural known graph invariant with new representation data; unindexed equivalent character calculations remain a residual risk.
 
-## Limitations
+## value
 
-No integral module or torsion is established. The group-element character table does not claim an irreducible-module expansion, and no independent mathematical review or definitive proof of publication priority has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact full rational module under the graph’s complete 192-element symmetry group, including two induced sign summands and zero invariants, is a structurally informative equivariant refinement that is not implied by the established scalar rank 144.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
