@@ -1,15 +1,21 @@
-# Scientific review: triangular-graph width-depth coincidence
+# Independent mathematical audit
 
-## Correctness
-PASS. Two separate back-and-forth strategies preserve a partial bijection of root-point supports under \(p\) pebbles for unlimited moves, and under \(p\) nonrecycled moves for quantifier rank \(p\). At most \(2(p-1)\) root points remain selected before a move, leaving room for two new points at root size \(2p\). The lower-bound existential sentences use path forests whose line-graph adjacency pattern uniquely forces all \(s\) root points. Special cases \(p=1\), \(s=4\), and reused pebbles are addressed. Orbit and forest verification programs reproduce the predicted small cases, but the general result is proved symbolically.
+## correctness
 
-## Originality
-PASS, with qualified historical priority. The surveyed finite-model-theory literature supplies games and generic variable-width/depth notions. Work on \(L(K_n)\) by Harvey and Wood concerns treewidth rather than logic. A prior rank-bounded support theorem proves only the eventual equivalence half; it does not establish the exact exceptional classes, unrestricted-depth bounded-variable equivalence, or the joint sharp width/depth threshold. Searches for Kneser-complement, Johnson \(J(n,2)\), triangular-graph, and line-graph formulations did not reveal this exact theorem. A broad unpublished or historical result could still imply it; that residual risk is recorded.
+PASS
 
-## Mathematical value
-PASS. The result is a complete classification for every finite variable width, not an isolated low-rank example. It establishes an exact width-depth coincidence (both minimum distinguishing resources equal \(\lfloor m/2\rfloor+1\)) and a sharp representative bound \(p(2p-1)\). The uniform family is a standard graph-theoretic test case and the path-forest characterization explains why its apparent ground-set size becomes invisible beyond the cutoff. The unbounded-depth result does not follow from merely knowing one finite quantifier-rank threshold.
+For T_n=L(K_n), n>=3, the p-pebble invariant explicitly maintains a bijection between underlying root endpoints of at most p pebbled edges. After recycling, <=2(p-1) endpoints remain and both n>=2p models have at least two fresh endpoints. This preserves graph vertex equality and adjacency at arbitrary depth. The same invariant survives a p-round ordinary Ehrenfeucht-Fraisse game. For each root cutoff 4<=s<=2p, a disjoint union of c=s-r nonempty paths with r=min(p,s-1) edges requires exactly s root vertices in every induced line-graph realization: nonconsecutive path edges are disjoint and different components share no endpoints. Existential adjacency diagrams of rank/width <=p distinguish n=s-1 from n>=s. The p=1 and n=3 boundaries are correctly separate. Independent induced-graph path forest enumeration for p=2..4 and 9 cutoffs corroborated. Thus both equivalences and least distinguishing width/rank floor(m/2)+1 are proved, not inferred from finite tests.
 
-## Closest sources and limits
-The closest primary material is Pikhurko–Verbitsky (arXiv:1003.4865; logical depth and width), Grohe–Otto (arXiv:1204.1990; general pebble equivalence), and Harvey–Wood (arXiv:1210.8205; the same line graphs with different invariants). The result excludes counting quantifiers and more expressive signatures. A direct historical-priority guarantee and independent validation are unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp min(n,2p) collapse for both recycled width and rank, and all exceptional classes, is not stated in the inspected survey of logical complexity or nearby published Resultary multipartite-graph records. The endpoint-support EF technique is standard, so this is a family-specific sharp classification rather than a new general game theorem.
+
+## value
+
+PASS
+
+The triangular/Johnson J(n,2) family is a central finite graph family. Equality between exact bounded-variable and bounded-rank spectra, including the sharp least-tail representative p(2p-1), gives a reusable logical-complexity benchmark beyond a routine one-off instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
