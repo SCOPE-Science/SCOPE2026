@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The state recurrence is derived from Stern's defining identities and has exactly 24 nonzero residue pairs modulo five; the minimum/maximum recurrence follows from an exhaustive disjoint split into left and right binary subtrees. Exact 24-component identities at depths 1, 5, 16, and 28, reproduced by a standalone integer checker, imply the unrestricted affine-periodic law by induction. Independently generated Stern values check every prefix through \(2^{18}\), and direct counts verify the first explicit values beyond the historically sampled bounds. The logarithmic asymptotic follows by dyadic monotonicity. The finite equalities are critical proof certificates and have not been independently audited.
+
+**Originality — PASS, with priority risk.** Reznick's 2006 source explicitly discusses this exact five-residue difference but states no result for modulus five, despite proving bounded discrepancy modulo three and checking a finite range for modulus five. It contains the general modular-pair framework, not the max-plus periodicity identity or unbounded logarithmic law. Anders et al. concern parity of binary representations and nonperiodicity, while Lansing's thesis studies size distributions, not residue-one versus residue-four prefix imbalance. Actual literature and published-result searches found no equivalent, stronger or tabulated covering statement. Related lecture notes not fully accessible and later unindexed work remain possible priority risks.
+
+**Mathematical value — PASS.** The five-modulus question is specifically identified as unresolved in the principal archival source. The result gives all sharp dyadic prefix extrema, their exact 12-level drift, and the optimal logarithmic growth constant, resolving the structural distinction between modulus three's bounded discrepancy and modulus five's unbounded one. It is not a routine substitution into the original equidistribution theorem, which provides no such sharp extremal law.
+
+**Scientific limitations.** Only the two selected residue classes and dyadic-range extrema are classified. The certificate is finite and reproducible but not independently checked. Historical priority may depend on unlocated work; the result is not represented as independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
