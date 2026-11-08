@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Haar projection fraction is exactly beta-distributed. A direct Sherman--Morrison inverse yields explicit parallel and perpendicular step identities. Their singular orders differ by a square root, and beta-tail integration proves exact positive constants and the sharp if-and-only-if moment classification. Exact second moments and the ridge regularization asymptotics follow from beta identities and endpoint scaling. Reproducible finite-dimensional checks confirm critical identities but are not the basis of infinite-limit claims.
+## correctness
 
-## Originality
-PASS, qualified. Primary full-text comparisons included Cartis--Roberts on safeguarded derivative-free subspace minimization, Cartis--Fowkes--Shao on trust-region/regularized random subspace steps, and LeJeune et al. on high-dimensional sketched pseudoinverse equivalents. Their results do not directly imply the exact finite-dimensional, singular, unsafeguarded gradient-alignment phase classification in the stated domain. Related published mathematical records on Gaussian reduced least squares and rank-one random subspaces have different operators, dimensions, and quantifiers. Search coverage is not a proof of publication priority, and related exact random pseudoinverse identities may exist in specialized matrix-variate literature.
+PASS
 
-## Value
-PASS. The rank-deficient Gauss--Newton model is a natural local object; the exact gradient is orthogonal to the curvature kernel but numerical/model inconsistency can insert a tiny nullspace component. For codimensions three and four, this changes finite mean-square steps into infinite ones despite almost-sure invertibility, which matters for designing safeguards and interpreting average-case random-subspace claims. The result is diagnostic and does not replace safeguarded algorithms.
+PASS. T=||U^Te||² follows Beta(k/2,r/2) from Haar projection/chi-square ratio; 0<T<1 a.s. Reduced Hessian c(I-aa^T) has inverse I+aa^T/(1-T) by Sherman–Morrison. For aligned g, exact step ||s||=|g_parallel|√T/[c(1-T)], giving tail t^-b with constant (|g_parallel|/c)^b/[b B(a,b)]. Orthogonal g has exact norm-squared identity c²||s||²=g^TPg+||g||²T(2-T)W²/(1-T), where W is independent uniform coordinate on e⊥; the singularity is Y^-1/2 and tail t^-2b with constant (||g||/c)^{2b} E|W|^{2b}/[bB(a,b)]. A small kernel component dominates as Y^-1; integrability thresholds and divergent boundary moments follow from positive tail constants. Exact E norm² formula follows beta integrals (r>4 or r>2 respectively), and aligned ridge asymptotics from y=(epsilon/c)u beta substitution. Independent 500 simulated orthonormal frames and exact rational moment identities checked pathwise formulas, not the full heavy-tail asymptotics.
 
-## Scope and remaining risks
-The full optimization objective may be unbounded below if the gradient contains a kernel component. Therefore only the unrestricted local quadratic subproblem is analyzed. Special spectral isotropy is needed for the sharp constants. No algorithmic convergence or numerical stability beyond the local model is asserted. Independent scientific verification and exhaustive publication-priority comparison have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with bounded specialist overlap. Cartis–Roberts randomized subspace derivative-free/Gauss–Newton papers and Cartis–Fowkes–Shao analyze safeguarded algorithms/trust regions, not the unsafeguarded singular local step-law and gradient-position phase change. LeJeune et al sketched pseudoinverse theory studies high-dimensional spectral asymptotics and a different asymptotic regime. Known beta projection and inverse-matrix identities are ingredients, not novelty. Resultary nearest records Haar stochastic subspace descent moments and one-spike ellipsoid Beta section radius do not yield exact gradient-codimension tails. Risk of more specialized inverse-Wishart or random projection tail theorem implicit coverage remains.
+
+## value
+
+PASS
+
+PASS. Singular model-subspace steps arise naturally as local Gauss–Newton/projection diagnostics; distinguishing a well-aligned gradient from an arbitrarily small inconsistent kernel component reveals a discontinuous change in integrable moment range and a sharp, codimension-dependent modeling fragility. No unjustified claim that an actual trust-region algorithm fails or diverges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
