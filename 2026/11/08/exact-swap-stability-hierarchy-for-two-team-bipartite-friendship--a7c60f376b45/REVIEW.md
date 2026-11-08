@@ -1,0 +1,13 @@
+# Scientific assessment
+
+**Correctness — PASS.** The full gain table has been rederived from each agent's teammate counts, including strict versus weak inequalities and unavailable endpoint swaps. The welfare difference equals twice the sum of moving-agent gains, and strict quadratic concavity proves the global SSTU characterization. The binomial coefficient counts individually labeled assignments without rotation or team exchange. The extracted verifier independently checks every pairwise swap for 9,588 complete assignments across 155 positive-parameter settings up to ten agents. The proof, not finite testing, establishes the infinite result.
+
+**Originality — PASS (subject to stated publication-priority risk).** Searches were directed at the exact object (two named capacity-constrained teams, complete-bipartite binary valuations), the three exchange notions, their aliases, the welfare-optimal equivalence, occupancy intervals, exact assignment counts, and sharp first separations. The closest initiating source defines the three notions and gives broader bounds, but its accessible contribution statement does not give the all-equilibria classification or binomial census. The partially inaccessible technical sections of that same source remain a specific risk; no general novelty is inferred from lack of indexed hits. Indexed results on stable roommates and unrelated graph invariants do not imply the claim.
+
+**Value — PASS.** The question determines the complete solution sets of three standard exchange notions for a natural team-assignment network: exact counts, socially optimality and sharp minimum sizes of their separations. This is more than an existence observation, arbitrary small census, or restatement of the general price-of-anarchy bounds. The capacity imbalance is the structural parameter that distinguishes the notions, and the formulas apply to arbitrarily many agents.
+
+Closest literature: Bilò, Monaco and Moscardelli (2022), *Hedonic Games with Fixed-Size Coalitions*, https://doi.org/10.1609/aaai.v36i9.21156; Gairing and Savani (2019), *Computing Stable Outcomes in Symmetric Additively Separable Hedonic Games*, https://doi.org/10.1287/moor.2018.0960; Bullinger et al. (2025), *Single-Deviation Stability in Additively Separable Hedonic Games with Constrained Coalition Sizes*, https://arxiv.org/abs/2510.12641.
+
+Scientific limits: exactly two named teams, complete bipartite binary preferences, additive utilities, single cross-team swaps; unindexed equivalent literature is possible. Accessible sections of the primary paper were reviewed but its later technical body was not available for full-text exclusion. No independent external audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
