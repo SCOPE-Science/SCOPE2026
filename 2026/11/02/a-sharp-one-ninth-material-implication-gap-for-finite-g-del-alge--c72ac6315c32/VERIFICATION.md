@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The finite checker is `verify.py` (Python 3 standard library). Execute `python3 verify.py` in a directory containing that file. It enumerates all parent-before-child forest presentations with one through seven vertices; for every presentation, it computes the exact downset Heyting operations from principal downsets and independently predicts the implication-fixpoint counts with a rooted-forest recursion. It checks the strict equality criteria and both failure bounds. Additional families include rooted stars and chains.
+# Independent mathematical audit
 
-Observed run output:
+## correctness
 
-```
-FORESTS_OK points=1 increasing_representations=1
-FORESTS_OK points=2 increasing_representations=2
-FORESTS_OK points=3 increasing_representations=6
-FORESTS_OK points=4 increasing_representations=24
-FORESTS_OK points=5 increasing_representations=120
-FORESTS_OK points=6 increasing_representations=720
-FORESTS_OK points=7 increasing_representations=5040
-ALL_FOREST_COUNTS_PASS checked=5913 connected_nontrivial=873
-ROOTED_STAR_FORMULA_PASS leaves=1..7
-CHAIN_SHARPNESS_PASS vertices=2..12
-ALL_MATERIAL_GODEL_GAP_CHECKS_PASS
-```
+PASS
 
-These tests are finite sanity checks; they are not exhaustive over all finite sizes. The mathematical proof establishes the universal statements. No external formal verification or independent scientific audit has been performed.
+For H=J(P) with finite Gödel dual P a rooted forest, sigma(H)=#{(a,b):a→b=b} multiplies over components. Adding a least root to forest algebra B of size m gives |H|=m+1, sigma(H)=m+1+sigma(B), and failures Δ(H)=m²−sigma(B). Structural induction proves sigma(B)≤m(m+1)/2, equality for a chain: in the disconnected case strictness is (u−1)(v−1)>0. Connected tree gives Δ≥(h−1)(h−2)/2. Product satisfaction probabilities then show Δ≥h²/9 for every non-Boolean H with equality iff exactly one factor C3 and Boolean factors. Independent direct enumeration through 5 vertices supports the identities; proof covers all finite sizes.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Bumpus–Kocsis show no universal satisfiability gap for all finite Heyting algebras and specifically flag restricted Gödel algebras, while finite Gödel/forest duality is known. Their general no-gap theorem cannot imply this positive sharp subclass bound or equality case; the forest sigma inequality does. Possible other implication-count terminology remains residual risk.
+
+## value
+
+PASS
+
+Finite Gödel–Dummett algebras provide a standard meaningful subclass when unrestricted Heyting formulas have no gap. A sharp universal 1/9 quantitative law, complete equality classification and stronger exact connected-tree bound resolve a clearly motivated satisfiability problem with an inductive invariant, not small table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
