@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction of a fixed absolute azimuthal sector to a polynomial weighted Gram matrix is exact under spherical area measure. The exterior-power Cauchy–Binet argument reconstructs every spectral exponent and coefficient, and the jet quotient is precisely the endpoint Christoffel kernel for the shifted Jacobi weight. All normalizations, the special case \(L=0\), the unique maximum exponent, and the global condition-number constant were checked. The supplied standard-library program passed 832 exact-rational finite consistency assertions. The finite tests are corroboration, not a proof of universal quantifiers.
+PASS
 
-## Originality — PASS, qualified
+For each fixed nonnegative integer L the complex spherical band separates into abs(m) weighted polynomial blocks of dimension L-m+1 with (1-x^2)^m measure. Restriction to [-epsilon,epsilon] is an exact positive Gram operator. Exterior Cauchy–Binet with jet vectors gives e_{j+1}=epsilon^{(j+1)^2} det(A_j)det(U_j)(1+O_L(epsilon^2)); Taylor parity excludes order-one relative correction. Ratios of the ordered eigenvalue products give epsilon^{2j+1} times h_j D_{m,j,L}. The uniform moment quotient is the monic Legendre norm 2/(2j+1)(2^j/binom(2j,j))^2 and the jet quotient the squared endpoint Christoffel norm of y^{j-1/2}(1-y)^m Jacobi polynomials. Coefficients D are positive, and the (m,j)=(0,L) sector alone has exponent 2L+1 and coefficient (2^L/binom(2L,L))^2. Largest eigenvalue 2(max_m D_{m,0,L})epsilon gives sharp condition constant; remaining power multiplicities 2(L-j)+1. The L=0 case exactly lambda=epsilon. Direct independently written 85-digit weighted moment generalized-eigenspectrum tests at eps 0.08/0.04 for all m at L<=5 found the expected odd powers and coefficients (maximum relative finite-width discrepancy at eps=0.04 under 0.006893); an independent exact rational moment inversion checked 120 (L,m,j) for L<=7. Finite tests supplement, not replace, the arbitrary-fixed-L determinant proof.
 
-The closest full text is Simons–Dahlen, arXiv:math/0603271: it treats the same equatorial belt and complementary double cap, but its actual statements concern commuting matrices, finite-band numerical eigenvalues and geodetic inverse estimation, not the full fixed-band thin-belt asymptotic with exact Jacobi endpoint coefficients. Simons–Dahlen–Wieczorek, arXiv:math/0408424, develops general Slepian concentration and polar caps, with a high-bandwidth/shrinking-cap regime different from this fixed-bandwidth belt. Bates–Khalid–Kennedy, arXiv:1608.05479, addresses numerical algorithms for arbitrary regions. The 2021 Roddy–McEwen wavelet paper, arXiv:2106.02023, has a verified public date and motivates regional decomposition, but only its abstract and partial introductory excerpt were accessible: this leaves a genuine priority uncertainty. Relevant published hemisphere spectral results involve nonshrinking half-spheres and do not imply the new scale constants.
+## originality
 
-## Value — PASS
+PASS
 
-For satellite/sky data observed in a progressively narrower belt, the result quantifies the complete hierarchy of information loss in every azimuthal order, not just a trace or a largest eigenvalue. In particular the exact least-mode constant and \(\varepsilon^{-2L}\) condition-number law are directly pertinent to stable reconstruction and regularization. Its full arbitrary-fixed-\(L\) classification and factorial endpoint constants are substantial beyond evaluating a small finite matrix.
+Best-of-knowledge, explicitly qualified: literature establishes spherical concentration operators, finite equatorial-belt matrices and Slepian methods, but in materially inspected relevant texts no theorem directly states the all-fixed-degree odd-power eigenvalue hierarchy with exact Jacobi endpoint constants, uniquely weakest mode and sharp global conditioning. Gilbert–Slepian 1977 full text was inaccessible and could overlap via equivalent polynomial concentration; its abstract discusses a different large-degree regime. Negative searches are not novelty proofs.
 
-## Limits and risk
+## value
 
-There is no uniform-in-\(L\) claim, no finite-width exact diagonalization, and no independent audit. Older spherical Slepian material is rich, so concealed historical priority remains possible, especially in the inaccessible full 2021 source. All assumptions and claim boundaries appear in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Thin latitude-strip observation is a natural spherical-harmonic partial-data and geophysical inverse problem. The complete fixed-L hierarchy identifies how many modes lose epsilon, epsilon^3,...,epsilon^(2L+1) energy, provides positive explicit Jacobi coefficients, the unique least observable direction, and the sharp noise amplification/conditioning exponent with constant. Such quantitative stability data are needed to calibrate regularization and are not a routine one-line application of the known finite-aperture matrix or a small arbitrary slice. Claim is bounded to fixed L; no significance from claimed large-L uniformity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
