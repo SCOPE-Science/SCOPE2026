@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of tree-zonotope surface-area extrema
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or newer; no nonstandard packages are needed.
+## correctness
 
-The verification enumerates every Prüfer sequence of lengths one through five (orders three through seven), building all \(18{,}247\) labeled trees. For each it independently constructs an integer incidence Gram matrix and evaluates its determinant with the Bareiss algorithm; checks that the full determinant is the number of vertices; deletes each edge column in turn and checks that the Gram determinant is the product of the two resulting component sizes; compares the resulting surface area against both bounds; and checks equality only for stars or paths. It also samples several large integer values to check the explicit asymptotic ratio numerically. Observed terminal output: `ALL_TREE_ZONOTOPE_SURFACE_CHECKS_PASSED`.
+PASS
 
-This finite computation is not exhaustive for unbounded tree order and is not an independent proof. The proof for every admissible order is the forest minor argument and the strict branch-transfer inequality in RESULT.md; the asymptotic uses an elementary Riemann sum. There was no independent mathematical audit or external certification.
+An oriented tree incidence matrix B spans H and has full determinant det(B^T B)=n. Omitting edge e leaves two tree blocks with incidence Gram determinants s_e and n-s_e; the two parallel facets account for surface=2 sum sqrt{s_e(n-s_e)}. Each term >=sqrt(n-1) with equality only for leaf edges, giving star. Moving the smallest branch A to a leaf of second smallest B strictly increases each cut product on the path because a(n-2x-a)>0 from n>=1+a+b+c and a<=b<=c; no other cuts change, forcing path unique max. Independent complete Prüfer tree n=3..6 (1,440 labeled) reproduced exact integer Gram minors and numerical bounds. Riemann sum yields pi/8 sqrt(n).
+
+## originality
+
+PASS
+
+Best-of-knowledge positive originality for the full final claim after identifying all presently established subclaims; actual source-material inspections and possible dominating alternatives are recorded. Literature gaps are residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+A sharp shape classification inside a geometrically canonical family of full-dimensional parallelotopes with identical volume, first intrinsic volume and cube combinatorics; global tree branch structure creates an unbounded sqrt(n) boundary-measure separation. The graph cut formula gives usable exact geometric data not determined by the degree sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
