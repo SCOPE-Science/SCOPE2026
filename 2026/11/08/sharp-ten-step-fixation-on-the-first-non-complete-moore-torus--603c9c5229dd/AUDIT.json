@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact 16-site model with eight distinct modular neighbors and contact threshold four. The embedded C++17 integer-coded exhaustive deterministic graph traversal visits all 43046721 configurations without random sampling, flags any nontrivial directed cycle, and assigns resolved exact settling depth to every vertex: maximum ten, 99819 fixed. Independent row-triple enumeration agrees on 99819; the explicit witness changes at times 0 through 9 and freezes at 10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier finite-graph strict-majority theorem assumes 2 theta > degree, hence theta>=5 for degree eight and does not cover theta=4.",
+        "Muñoz–Nuño Section II expects theta>=4 to freeze but does not prove this in general."
+      ],
+      "reasoning": "The strict-majority hypothesis is false at the critical theta=4, and empirical random initial states cannot imply all-state fixation. Finite-graph general bound alone therefore does not subsume the reported exact 4x4 census.",
+      "searches": [
+        "exact smallest Moore lattice threshold 4 cyclic dominance automaton finite exhaustive 4x4 period orbit counts transient relaxation",
+        "Muñoz Nuño symmetry resolved periods cyclic dominance automaton critical threshold four finite size 4x4 fixed 99819",
+        "Muñoz Nuño arxiv 2610.37990 Section II V.13",
+        "Fisch Gravner Griffeath threshold range scaling 1991"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.37990v1 Sections II V.13 S3",
+      "Fisch-Gravner-Griffeath-1991 opening and model discussion",
+      "Matamala-Goles-1997 bibliographic abstract/mentions only",
+      "published published-finding corpus records 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7, 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4, 2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published source states more than 99.5 percent of sampled L=8 or L=9 runs freeze at theta>=4 and no oscillatory attractor was observed; the source does not examine all L=4 states.",
+        "Strict-majority finite-graph fixation covers theta>=5; theta=4 is its equality boundary."
+      ],
+      "reasoning": "The exact universal quantifier over all 3^16 states, fixed-state count and sharp maximal stopping time cannot be deduced from random sampled proportions, or from results about other rules.",
+      "searches": [
+        "cyclic successor automaton three colors Moore torus 4 by 4 threshold four all configurations freeze at most ten 99819 fixed",
+        "exact smallest Moore lattice threshold 4 cyclic dominance automaton finite exhaustive 4x4 period orbit counts transient relaxation",
+        "Muñoz Nuño symmetry resolved periods cyclic dominance automaton critical threshold four finite size 4x4 fixed 99819",
+        "arxiv 2610.37990v1 Sections II and V.13",
+        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published published-finding corpus hits 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 and 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 concern binary parity automata on multipartite/cube graphs, not a three-color cyclic threshold rule.",
+        "Muñoz–Nuño Section II specifies the same underlying update; Section V.13 records empirical threshold-four fixation, without universal finite certification."
+      ],
+      "reasoning": "The finding is equivalent to a complete functional-graph census of the 4x4 Moore three-color critical rule. Neither a parity automaton census nor sampled freezing gives a full state graph census or exact maximal settling time.",
+      "searches": [
+        "cyclic successor automaton three colors Moore torus 4 by 4 threshold four all configurations freeze at most ten 99819 fixed",
+        "exact smallest Moore lattice threshold 4 cyclic dominance automaton finite exhaustive 4x4 period orbit counts transient relaxation",
+        "arxiv 2610.37990v1 Section II V.13",
+        "four-by-four three-color cyclic cellular automaton threshold four exact enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Muñoz–Nuño supplementary S3 reports sampled threshold sweeps for L=8 and L=9, not exhaustive 4x4 counts.",
+        "published-finding corpus candidates concern distinct transition rules, no 43046721-state dataset or 99819 fixed-point enumeration."
+      ],
+      "reasoning": "No identical table was found in the inspected sources; absence in searches alone is not a priority proof.",
+      "searches": [
+        "cyclic successor automaton three colors Moore torus 4 by 4 threshold four all configurations freeze at most ten 99819 fixed",
+        "Muñoz Nuño symmetry resolved periods cyclic dominance automaton critical threshold four finite size 4x4 fixed 99819",
+        "cyclic cellular automaton 4x4 torus three colors theta 4 all fixed 10 transient 99819",
+        "arxiv 2610.37990v1 supplementary S3 threshold tables"
+      ]
+    },
+    "rationale": "The source defines the rule and reports only empirical threshold-four fixation; a known general strict-majority finite-graph result is inapplicable to theta=4. published-finding corpus searches found only distinct parity/affine automata, without matching 4x4 exact census. Specialized older priority remains a documented risk.",
+    "residual_risks": [
+      "Older specialized finite cyclic-automaton literature may contain this exact 4x4 computational census; Matamala–Goles 1997 complete text was inaccessible.",
+      "published-finding corpus semantic search does not prove priority or exhaustiveness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact L=4 full configuration census and maximum transient",
+        "evidence": "Section II specifies the rule and says theta>=4 expected to freeze; Section V.13 reports >99.5 percent sampled runs freeze, not exhaustive 4x4 results.",
+        "identifier_or_url": "https://arxiv.org/html/2610.37990v1",
+        "material_read": "Section II model and equations (1)-(2), V.13, Supplement S3 and discussion of comparisons with earlier work",
+        "method": "Read the accessible original arXiv full-text HTML, including detailed model and the threshold sweep",
+        "title": "Symmetry-resolved periods in a cyclic-dominance automaton: separating intrinsic from lattice-induced periodicity",
+        "trigger": "Exact same radius-one Moore three-color rule, threshold-four parameter sweep"
+      },
+      {
+        "assessment": "Provides classical rule and threshold context; no matching exact finite 4x4 numerical census in material inspected",
+        "evidence": "Original work treats threshold-range scaling and excitable cyclic-automaton regimes, not the stated 43,046,721-state exact enumeration.",
+        "identifier_or_url": "Fisch-Gravner-Griffeath-1991",
+        "material_read": "Accessible PDF opening pages and original model discussion; cited prior theoretical context",
+        "method": "PDF page text and opening-page visual inspection",
+        "title": "Threshold-range scaling of excitable cellular automata",
+        "trigger": "Original threshold model and fixation transition"
+      },
+      {
+        "assessment": "PRIORITY_RISK: insufficient full text for a decisive exclusion, but generic abstract does not state the exact threshold-four 4x4 census",
+        "evidence": "Muñoz–Nuño introduction cites Matamala–Goles for non-polynomial periods and graph-dependent bounds rather than the specific 4x4 census.",
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(97)84104-2",
+        "material_read": "Citations/available bibliographic material; complete paper inaccessible",
+        "method": "OA and arXiv attempts unavailable; institutional retrieval yielded VPN-disconnected status",
+        "title": "Dynamic Behavior of Cyclic Automata Networks",
+        "trigger": "Plausible general finite-graph cyclic-automaton periodicity theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "603c9c52-29dd-43d3-8637-e890e2cf3c68",
+  "value": {
+    "rationale": "The 4x4 square is the smallest genuinely spatial (non-complete) square torus with eight distinct Moore neighbors. At the threshold-four equality boundary, the 2026 source reports only high empirical fixation and the known strict-majority theorem is inapplicable. The exact all-state global fixation result, sharp ten-step cutoff and exact count of absorbing states are a natural complete finite classification and rigorous benchmark for the open broad-scale fixation problem; no broader dynamics are claimed.",
+    "status": "PASS"
+  }
+}
