@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The exact frontier of K_{2,b} has b edges until the opposite hub is reached; hazard j/b gives the bridge distribution. Once both hubs are reached the remaining parent choices are iid fair, proving the finite law. Product-tail expansion gives Rayleigh scaling; conditional characteristic functions yield an independent normal contribution. Exact UST enumeration and monotone coupling give the strict stochastic comparison. Independent rational frontier-state enumeration agrees for every b=1..9; all infinite statements have analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Devroye et al. give broad graph-class growth-tree height bounds, which do not determine a root-degree distribution.",
+        "Bhamidi et al. establish SPT degree laws in other network classes; their complete-graph and configuration-model statements do not specialize to a deterministic complete bipartite graph whose small side remains size two.",
+        "The quasipolynomial result counts unrooted spanning-tree isomorphism classes of fixed-side bicliques, not probabilities under uniform frontier-edge growth."
+      ],
+      "reasoning": "Broad result domains on tree height or degree distributions in qualitatively different graph ensembles do not imply the specified fixed-side root degree and mixed limit. A generic finite-state formula can in principle encode this finite distribution but is not a previously established closed form or scaling theorem; the literature comparison explicitly distinguishes such computational possibility from prior results.",
+      "searches": [
+        "Root degree distribution in first-passage percolation shortest path tree on complete bipartite graph K_{2,n} with exponential weights, Rayleigh Gaussian mixture asymptotic",
+        "first passage percolation shortest path tree complete multipartite exact degree distribution exponential",
+        "https://arxiv.org/pdf/1707.00083",
+        "https://arxiv.org/pdf/1310.5672"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1707.00083",
+      "https://arxiv.org/pdf/1707.00083",
+      "https://arxiv.org/abs/1310.5672",
+      "https://arxiv.org/pdf/1310.5672"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main theorems in Devroye et al. bound height of frontier-grown trees and related first-passage times, not the root-degree fluctuations.",
+        "The theorems and stated models of Bhamidi et al. concern different underlying graph sequences and observed degree distributions; there is no theorem for the growing K_{2,b} marked source.",
+        "Uniform spanning-tree root degree 1+Bin(b-1,1/2) is a distinct probability measure; the inequality and non-Gaussian limit do not follow from the UST binomial law."
+      ],
+      "reasoning": "Neither known height bounds, graph-ensemble SPT degrees, nor uniform-tree counting imply the full new mixed-binomial growth law or independent Rayleigh-plus-normal asymptotic. The exact comparison is demonstrated by a coupling developed for this specific growth mechanism.",
+      "searches": [
+        "https://arxiv.org/pdf/1707.00083",
+        "https://arxiv.org/pdf/1310.5672",
+        "Root degree distribution in first-passage percolation shortest path tree on complete bipartite graph K_{2,n} with exponential weights, Rayleigh Gaussian mixture asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 paper defines the uniform-frontier-edge process and its first-passage equivalence (Sec. 1, Sec. 3), and the claimed model is literally this process restricted to a biclique.",
+        "The 2015 shortest-path-tree degree paper studies degree distribution on complete graphs, configuration models and large-degree regular random graphs; it does not state a deterministic K_{2,b} root-degree law.",
+        "The exact new mixture conditions on the birthday-scale time to reach the second fixed-side vertex, creating a Rayleigh/Gaussian sum."
+      ],
+      "reasoning": "Aliases for the process include exponential first-passage infection tree, rooted shortest-path tree, Eden/Richardson frontier growth and randomly grown spanning tree. None of the inspected primary statements or returned close mathematical records gives the same fixed-root conditional-binomial law or its non-Gaussian scaling limit; the equivalence of the process to exponential FPP is attributed, not claimed novel.",
+      "searches": [
+        "Root degree distribution in first-passage percolation shortest path tree on complete bipartite graph K_{2,n} with exponential weights, Rayleigh Gaussian mixture asymptotic",
+        "Uniform frontier edge growing spanning tree complete bipartite K2n root degree limit law",
+        "Growing spanning tree by uniform boundary edge root degree in K_{2,n}, exact distribution and Rayleigh plus normal limit",
+        "Randomized Prim growth complete bipartite K_{2,n}: distribution root children and non Gaussian limit",
+        "shortest path tree complete bipartite exponential edge weights degree root K 2 n",
+        "https://arxiv.org/pdf/1707.00083",
+        "https://arxiv.org/pdf/1310.5672"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed complete-bipartite record concerns spanning-tree isomorphism-type counts, not frontier-growth probabilities.",
+        "Another close indexed record concerns root-degree regressions in uniform Cayley trees, not a frontier-grown biclique.",
+        "Exact independently computed rational root-degree laws at b=1..9 are reproducible from the supplied checker and no corresponding pre-existing table was identified."
+      ],
+      "reasoning": "There is no matching located exact degree table for the nonuniform growth law. The well-known uniform spanning-tree enumeration of K_{2,b} is explicitly background, and its root-degree law differs from the new law at b>=2. Failed index search alone does not prove novelty.",
+      "searches": [
+        "Uniform frontier edge growing spanning tree complete bipartite K2n root degree limit law",
+        "Growing spanning tree by uniform boundary edge root degree in K_{2,n}, exact distribution and Rayleigh plus normal limit",
+        "K_{2,n} first passage percolation tree degree"
+      ]
+    },
+    "rationale": "The primary 2017 work establishes the growth model but investigates tree heights; the 2015 degree-law work covers different graph classes. Mathematical-index and literature searches, including FPP/shortest-path aliases and fixed-side biclique parameters, located no equivalent or stronger coverage; this is best-knowledge originality, not proof of worldwide absence.",
+    "residual_risks": [
+      "Unindexed or differently described prior work on exponential first-passage trees of fixed-width complete multipartite graphs may contain an equivalent special case.",
+      "The 2015 full text was assessed through its model/theorem statements and targeted searches rather than line-by-line review of every appendix.",
+      "No independent literature or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the process definition and height bounds, but no matching fixed K_{2,b} root-degree mixture or Rayleigh–Gaussian limit was found in the inspected sections or targeted text search.",
+        "evidence": [
+          "arXiv:1707.00083, introduction and Section 3, PDF pp. 3 and 6; height theorems in pp. 3–4.",
+          "A bipartite subgraph is used in a more elaborate lower-bound construction (Sec. 9), not as an exact root-degree computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1707.00083",
+        "material_read": "Full-text PDF contents, introduction and stated results (pp. 1–3), growth/FPP correspondence (Sec. 3), main theorems and relevant full-text searches for bipartite and degree, including the construction with biclique layers.",
+        "method": "Direct reading of arXiv full-text HTML/PDF and PDF-page visual inspection, with full-text keyword search.",
+        "title": "Notes on Growing a Tree in a Graph",
+        "trigger": "Defines exactly the growth process; highest-priority potential overlap."
+      },
+      {
+        "assessment": "Studies degrees of shortest-path trees in the complete graph or random graph families, not fixed deterministic K_{2,b} root-degree fluctuations.",
+        "evidence": [
+          "arXiv:1310.5672, abstract, introduction and mathematical-model statement, pp. 1–5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.5672",
+        "material_read": "PDF abstract and introductory model/theorem descriptions on pp. 1–5, plus targeted full-text search for bipartite and K2; checked their complete-graph and configuration-model hypotheses.",
+        "method": "Direct arXiv PDF text and page-image inspection, targeted within-document search.",
+        "title": "Degree distribution of shortest path trees and bias of network sampling algorithms",
+        "trigger": "General SPT-degree literature may dominate the claimed degree law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46d550ee-df7e-4b92-b655-e31e04a424ad",
+  "value": {
+    "rationale": "The designated source degree is a natural observable in a canonical frontier-growth tree model; its exact distribution reveals a birthday-scale discovery phase. The √b-scaled root degree has a non-Gaussian Rayleigh-plus-normal limit in contrast to the Gaussian uniform-spanning-tree law; exact stochastic domination and an explicit √b expectation bias quantify the sampling mechanism. This is structural, not an arbitrary finite parameter increment.",
+    "status": "PASS"
+  }
+}
