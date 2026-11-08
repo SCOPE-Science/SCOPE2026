@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:56:26.052360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived the first and mixed raw moments from Catalan root decomposition: T=x+T², C=2TC+x², S=2TS+x(T²)′, M=2TM+2CS+x(2TC)′+2x², with T=(1-sqrt(1-4x))/2. The finite coefficient identities imply Cov(C_n,S_n)=n/(2n-3)*(n-1-n q_n/4), q_n=4^(n-1)/binom(2n-2,n-1). Independent enumeration of every plane binary tree for n2..8 gave covariance 0,0,-4/25,-20/49,-46/63,-406/363,-8744/5577, matching the formula; checked cherry variance from marker second derivative. Exact adjacent ratio q_(n+1)/q_n=2n/(2n-1) exceeds a_(n+1)/a_n=n²/(n²-1), a_n=4(n-1)/n, yielding negative covariance for all n≥4, not a finite extrapolation. Established uniform-model Sackin variance asymptotic (10/3-pi)n³ is explicitly cited external input; Catalan central binomial asymptotic then gives covariance ~-sqrt(pi)n^(3/2)/8 and sqrt(n) Corr→-sqrt(pi)/(2sqrt(10/3-pi)). Correlation undefined n2,3 because Var C_n=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blum–François–Janson calculate Sackin marginal variance and correlation with the Colless index, not a cherry–Sackin mixed moment.",
+          "Chang–Fuchs and Janson give fringe-pattern count results; the global Sackin functional needs a mixed cumulant not supplied by their quoted marginal results."
+        ],
+        "reasoning": "General moment/limit frameworks may yield a derivation when specialized, but the inspected main theorems alone do not specify this exact finite-n covariance or strict all-n sign; the external Sackin variance input is prior.",
+        "searches": [
+          "arXiv:math/0702415",
+          "Chang–Fuchs DOI:10.1007/s00285-009-0275-6",
+          "arXiv:1312.1211"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0702415",
+        "https://arxiv.org/abs/1312.1211",
+        "https://doi.org/10.1007/s00285-009-0275-6",
+        "https://doi.org/10.1016/j.tpb.2015.11.004",
+        "https://github.com/CharlesCNorton/unified-tree-theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Sackin variance constant (10/3-pi) is prior and used verbatim as an external premise; a covariance cannot be inferred from its variance alone.",
+          "Joint cherries/pitchforks moment laws and Gaussian fringe asymptotics do not specify exact mixed cherry/Sackin covariances."
+        ],
+        "reasoning": "The strict negative covariance for every n≥4 and correlation coefficient require a mixed moment identity, not a formal consequence of separate marginal theorems.",
+        "searches": [
+          "Blum–François–Janson Theorem 3 Remark 3",
+          "arXiv:1312.1211",
+          "DOI:10.1016/j.tpb.2015.11.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform rooted ordered full binary trees induce the same unlabeled shape law as uniform labeled rooted PDA trees because the mirror symmetry and label-orbit factors cancel.",
+          "Known Yule–Harding null-model mixed moments do not transfer to Catalan/PDA by relabeling."
+        ],
+        "reasoning": "Compared precise tree laws and statistic meanings; the submitted covariance is C_cherries with S_leaf-depth under uniform PDA/Catalan, not C_Colless with Sackin or Yule cherry moments.",
+        "searches": [
+          "cherry Sackin index covariance rooted plane binary Catalan trees exact negative asymptotic",
+          "Blum–François–Janson arXiv:math/0702415",
+          "Janson arXiv:1312.1211"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wu–Choi tabulate cherry/pitchfork dependence, not global leaf depth.",
+          "Norton formally marks multiple tree invariants, including related ones, but an explicitly evaluated cherry–Sackin covariance was not established from the material inspected."
+        ],
+        "reasoning": "A general multivariate generating series is a possible mechanism for reproducing the expression but not evidence of a stated preexisting exact table; residual uncertainty retained for unexamined appendices.",
+        "searches": [
+          "cherry Sackin index covariance rooted plane binary Catalan trees exact negative asymptotic",
+          "Wu–Choi 2015 joint cherry pitchfork counts",
+          "Norton 2025 tree invariant multivariate generating series"
+        ]
+      },
+      "rationale": "Blum–François–Janson provide the uniform Sackin variance and a different (Colless) correlation, while the relevant fringe-tree papers focus on marginal cherry or other subtree statistics. The exact mixed cherry–Sackin identity and universal negative sign were not located in the inspected primary results or topical mathematical-record search. Credit the cited variance constant and all Catalan fundamentals as prior; assessment is qualified.",
+      "residual_risks": [
+        "Norton’s 2025 multivariate tree-invariant framework may encode the same mixed derivative; its full computation and all appendices were not exhaustively ruled out.",
+        "Correlation asymptotic depends on externally proved uniform-model Sackin variance; no independent reproof of that theorem.",
+        "No claim for Yule–Harding or of stochastic independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes Var(Sackin)~(10/3-pi)n³ for the uniform tree law; its correlation is Colless–Sackin, not cherry–Sackin.",
+          "evidence": [
+            "Theorem 3 and Remark 3, asymptotic variance of Sackin and Colless notation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0702415",
+          "material_read": "Relevant full PDF mathematics: Theorem 3, Remark 3, definition distinguishing Colless from cherries",
+          "method": "arXiv primary preprint/PDF review",
+          "title": "The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance",
+          "trigger": "Essential cited Sackin variance asymptotic, possible overlap in correlation claims"
+        },
+        {
+          "assessment": "Cherry–pitchfork joint laws do not by themselves compute cherry–Sackin covariance; no claim of whole-document noncoverage.",
+          "evidence": [
+            "Public abstract identifies the two subtree counts and evolutionary models."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2015.11.004",
+          "material_read": "Published abstract and theorem synopsis concerning cherries and pitchforks; full text not claimed read",
+          "method": "Bibliographic/source-results comparison",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Same tree model and cherries, potential joint covariance source"
+        },
+        {
+          "assessment": "Provides general asymptotic tools; no inspected theorem gives this finite Catalan-tree covariance or all-n sign directly.",
+          "evidence": [
+            "Conditioned-Galton–Watson fringe-functional central limit theory."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.1211",
+          "material_read": "Relevant stated limit theorem scope and fringe-functionals summary",
+          "method": "arXiv primary theorem survey",
+          "title": "Asymptotic normality of fringe subtrees and additive functionals in conditioned Galton–Watson trees",
+          "trigger": "Possible general covariance machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cherry count is a standard local shape index and Sackin depth a standard global imbalance index, making their covariance and sharp decorrelation rate a natural quantitative test of redundant information in a phylogenetic null model. An exact sign boundary at n4 and the explicit asymptotic constant are meaningful beyond separately known marginal moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0702415",
+    "https://arxiv.org/abs/1312.1211",
+    "https://doi.org/10.1007/s00285-009-0275-6",
+    "https://doi.org/10.1016/j.tpb.2015.11.004",
+    "https://github.com/CharlesCNorton/unified-tree-theory"
+  ],
+  "disposition": "passed",
+  "limitations": "Rooted fully binary ordered uniform Catalan / unlabeled PDA shape law, n≥2 for covariance; correlation only n≥4. Uses published Sackin variance asymptotic; no stochastic ordering or Yule law conclusions.",
+  "residual_risks": [
+    "Norton’s 2025 multivariate tree-invariant framework may encode the same mixed derivative; its full computation and all appendices were not exhaustively ruled out.",
+    "Correlation asymptotic depends on externally proved uniform-model Sackin variance; no independent reproof of that theorem.",
+    "No claim for Yule–Harding or of stochastic independence."
+  ],
+  "schema_version": 1
+}
