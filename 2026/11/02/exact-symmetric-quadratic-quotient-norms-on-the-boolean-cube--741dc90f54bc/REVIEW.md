@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The lower bound comes from pairing every admissible representative against the degree-two polynomial shifted by its median. The explicit three-value representative matches its mean, all degree-one coefficients, and every degree-two coefficient, so no unverified duality or computer search is needed. The asymptotic uses a unique Gaussian absolute-value median, the central limit theorem, uniform fourth moments, and an elementary normal tail integral. Rational checker output independently compares the two finite witnesses. The argument is for real functions, all integer dimensions at least two.
+## correctness
 
-**Originality (PASS, qualified).** The 2023 Walsh-tail paper primarily estimates distances in \(L^1\); its duality discussion does not evaluate the specified \(L^\infty\) quotient norm. Earlier Rademacher mimicry treats degree one in \(L^1\). published-finding corpus neighbors on quadratic Walsh projection constants, fourth moments, and Hamming concentration likewise do not determine this *fixed quotient-class minimum*: none supplies a matching three-valued correction or the Gaussian-quartile coefficient. A differently formulated earlier norm calculation is a genuine residual risk; failed exact-term searches alone do not prove priority.
+PASS
 
-**Mathematical value (PASS).** This is a natural canonical element of a degree-truncated finite-dimensional Banach quotient, singled out by all coordinate-permutation symmetries. The exact minimization over exponentially many possible corrections collapses to a binomial median, giving a constructive all-dimensions solution and changing the optimal growth from the uncorrected quadratic \(\binom n2\) to a sharp linear \(1.166387\ldots n\). The Gaussian-quartile constant and explicit extremizers are useful benchmarks for sharper high-degree interpolation and quotient geometry. This is not a claim about general quadratic coefficient arrays.
+In actual RESULT.md, orthogonality fixes E[h]=0 and E[h Q_n]=binom(n,2) for every representative; the median minimizes E|Q_n-c|, giving a dual lower bound. A sign-of-Q-minus-median function with exact tie mass correction has mean zero, symmetry kills degree-one coefficients and equates all degree-two coefficients. Since E[hQ_n]=binom(n,2), each degree-two coefficient is exactly 1; it attains the bound. Median convergence follows CLT for S_n/sqrt(n); fourth-moment uniform integrability yields E|Q_n-m|/n -> 2a phi(a), yielding stated constant. Verified source checker.py logical exact Fraction implementation and separately brute-checked every Walsh coefficient of the optimizer for n=2..8 in independent_checks.py. Finite checks corroborate, not replace proof.
 
-**Closest literature and limitations.** Eskenazis–Zhang (arXiv:2311.09021, first version 2023-11-15) and Oleszkiewicz (2017); relevant published-finding corpus records are distinguished by extremal quantity rather than by titles. Only real scalar-valued functions and the canonical complete quadratic are treated. The first-order asymptotic has no claimed effective second term.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge originality is the exact real L-infinity distance for one quadratic Walsh quotient class and the Gaussian quartile constant, not the known Walsh-tail problem or Banach duality. Eskenazis–Zhang Theorem 4/Corollary 5 explicitly concern L1 approximation; their other remarks do not compute this quadratic L-infinity quotient class. Nearby Resultary findings concern fourth moments, projection norms, or spectral concentration, not this quotient optimization.
+
+## value
+
+PASS
+
+The full low-degree coefficient matching and exact minimal L-infinity representative are a natural extremal question in Walsh analysis and Banach quotient geometry. The median formula yields an explicit all-n answer with a nontrivial linear (versus n^2 original) scale, useful to future study of prescribed low-degree moments or optimal recovery; neither a trivial polynomial rewrite nor a renaming of an L1 norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
