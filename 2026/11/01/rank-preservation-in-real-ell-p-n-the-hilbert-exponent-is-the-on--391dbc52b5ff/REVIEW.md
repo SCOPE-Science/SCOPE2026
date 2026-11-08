@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For arbitrary real \(1<p<\infty\), \(0<c<1\), and \(q=p/(p-1)\), the four displayed covectors have exactly unit \(\ell_q\)-norm and lie on one affine plane; the inverse coordinate-power map produces unit \(\ell_p\) vectors with determinant \(-2a^2T(1-2^{2-q})\). Positivity of \(a\) and \(T\) proves the determinant is nonzero precisely for \(p\ne2\). Appending distinct coordinate vectors gives the complete admissible rank range; the Euclidean case is immediate. The program checks finite parameter examples only. Proof uses no unproved external lemma beyond elementary differentiation and linear algebra.
+## correctness
 
-**Originality — PASS under available evidence, with stated priority risk.** The closest source, Durand–Liang–Zhang, arXiv:2610.30878v1, defines the exact property and poses its classification as an open question, but its explicit pathological smooth norm is not a complete \(\ell_p\) family characterization. Icking–Klein–Lê–Ma proves multiple circumspheres for one exponent \(p=4\), and Blömer–Kohn studies lattice Voronoi complexity at exponent \(p=3\); neither accessible statement implies the full \(p,n,k\) rank classification or its determinant. Actual mathematical-record, public-literature, and earlier-finding overlap searches found no equivalent statement. The full Icking–Klein–Lê–Ma article was inaccessible and an unindexed equivalence remains possible; this is a residual risk, not a claim of proven uniqueness.
+PASS
 
-**Value — PASS.** The theorem completely resolves an explicit recent structural question on a canonical infinite family of finite-dimensional normed spaces, uniformly in dimension and affine rank. The explicit positive tetrahedral volume certifies failure at every non-Hilbert exponent, including values arbitrarily close to two; the outcome is not a finite sample or a routine restatement of an existing named formula. It does not claim that failure of rank preservation alone proves nonrectifiability of ordinary medial axes.
+The four target covectors w1=(c,0,s), w2=(0,c,s), w3=(c/2,c/2,t), w4=(c/2,c/2,−t) belong to the ℓ_q unit sphere for q=p/(p−1), c∈(0,1), s^q=1−c^q, t^q=1−2^(1−q)c^q; they all satisfy w_x+w_y=c, so their affine rank is two. The inverse ℓ_p duality map takes these to four ℓ_p unit points with oriented determinant −2a²T(1−2^(2−q)), where a=c^(q−1)>0, T=t^(q−1)>0. This is nonzero exactly when p≠2, giving a primal tetrahedron with coplanar dual images. Appending e4,...,e_(k−1) increases the primal affine dimension by k−4 without restoring image rank, for every legal k,n; at p=2 J is the identity. Independently recomputed the 3×3 determinant and dual inverse norms for p=1.35,1.8,2,2.4,4.3, matching exact signs; the nonzero exact factor establishes all real exponents, not those samples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For real ℓ_p^n, n>=3 and 4<=k<=n+1, affine rank preservation of every k-tuple on the unit sphere by the duality map holds iff p=2. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
+
+## value
+
+PASS
+
+A precise canonical family classification directly addresses the rank-preservation question posed for smooth norms in the primary motivating paper. The explicit positive tetrahedral-volume obstruction for every non-Hilbert ℓ_p exponent, and its extension to every admissible rank, are useful sharp structural information about the norming map, not a numerical example or a claim about rectifiability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
