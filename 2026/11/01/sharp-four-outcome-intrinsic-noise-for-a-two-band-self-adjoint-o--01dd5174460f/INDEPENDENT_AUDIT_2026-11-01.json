@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:58:14.261563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/sharp-four-outcome-intrinsic-noise-for-a-two-band-self-adjoint-o--01dd5174460f/RESULT.md",
+        "2026/11/01/sharp-four-outcome-intrinsic-noise-for-a-two-band-self-adjoint-o--01dd5174460f/check_quantization.py"
+      ],
+      "rationale": "PASS: For any finite support lambda_1<...<lambda_r spanning spec(T), N=sum_j(lambda_j I-T)P_j(lambda_j I-T) is positive without assuming effects commute. For each adjacent pair, q(x)=(x-lambda_i)(x-lambda_i+1) is nonnegative on every support atom; sum q(lambda_j)P_j>=0 implies N>=(T-lambda_i I)(lambda_i+1 I-T), so norm at least max of piecewise quadratic g_lambda on the spectrum. Continuous functional calculus cardinal hat effects P_j=w_j(T) attain exactly g_lambda(T), proving the fixed-support optimum even against arbitrary noncommuting POVMs. Because spec(T) reaches -1 and +1 and outcomes lie inside [-1,1], both extreme outcomes are forced; adding nodes cannot increase error. At four nodes -1,-s,s,1, solving s^2-a^2=(1-s)^2/4 yields s=(2 sqrt(1+3a^2)-1)/3 and E=(2-sqrt(1+3a^2))^2/9. Any support with error<=E has inner nodes -u<-a,v>a, each outer midpoint forces u,v>=s; endpoint -a then forces (u-a)(v+a)>=s^2-a^2=E, with equality only u=v=s. This proves optimality and uniqueness of outcome values, not POVM effects. Independently checked symbolic identity (1-s)^2/4=s^2-a^2.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mädler–Schmüdgen §5 gives exact finite-dimensional matrix-valued moment representations with atom count dependent on dimension.",
+          "Curto et al. Example5.10 exhibits nonexistence of exact finite-atomic representation for (I,T,T²) with infinite spectrum."
+        ],
+        "reasoning": "Neither result is a fixed budget 4 with exact first moment and minimized operator-norm second-moment excess for infinite spectrum, so no stronger coverage is established.",
+        "searches": [
+          "four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization",
+          "arXiv:2310.00957 matricial Tchakaloff theorem §5",
+          "Curto arXiv:2605.04392 Example 5.10"
+        ]
+      },
+      "checked_sources": [
+        "Curto et al. arXiv:2605.04392 §5 Example5.10",
+        "Mädler–Schmüdgen arXiv:2310.00957 §5",
+        "Massar arXiv:quant-ph/0703036 abstract/Section II references",
+        "Pietrzycki–Stochel Canadian J Math 75 (2023) Theorem1.1 context",
+        "Resultary query four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard Loewner positivity of N is prior; it does not determine the best 4-node design on disconnected spectra.",
+          "Fixed-support linear interpolation is known stochastic rounding, but support optimization needs endpoint and outer-midpoint equalization."
+        ],
+        "reasoning": "The two-band number is not implied by zero-noise rigidity or general finite-dimensional moment existence; the spectral gap and cardinality bound require a new minimax comparison.",
+        "searches": [
+          "Massar arXiv:quant-ph/0703036 §II",
+          "Pietrzycki Stochel 2023 Theorem1.1",
+          "Mädler Schmudgen arXiv:2310.00957 §5",
+          "four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Massar 2007 defines nonnegative intrinsic noise Σλ²P−T²; Pietrzycki–Stochel address exactly zero noise/rigidity.",
+          "The finite-support optimum is also the scalar adjacent-node worst variance of unbiased stochastic rounding, but with arbitrary noncommuting operator effects."
+        ],
+        "reasoning": "Matched the observable and noise under quantum/spectral/quantization terminology. Prior positivity and zero-noise characterizations do not compute the optimized positive four-node spectral-band minimax.",
+        "searches": [
+          "four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization",
+          "intrinsic noise operator POVM second moment excess Massar 2007",
+          "two moment characterization spectral measures Pietrzycki Stochel 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked exact quantizer table contained s=(2 sqrt(1+3a²)-1)/3 or the discontinuous spectral support interval constraint.",
+          "Classical uniform quantization at a=0 gives 1/9, a limiting special case not the gap-dependent theorem."
+        ],
+        "reasoning": "The exact gap-dependent law and unique optimal support are not a known-table recomputation in consulted records; priority risk remains for unindexed scalar minimax quantization.",
+        "searches": [
+          "four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization",
+          "four outcome unbiased quantization two bands optimal points sqrt(1+3a^2)"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncoverage after actual subject/statement/implication comparisons. Relevant known special cases and technical mechanisms credited; no proof of universal publication priority is claimed.",
+      "residual_risks": [
+        "An alternative classical minimax quantizer paper could already contain the exact two-interval four-node envelope.",
+        "The support restriction lambda_j in [-1,1] is essential; no claim made for nodes outside hull or nonoperator-norm losses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact representation obstruction, but no four-level best-positive-error law",
+          "evidence": [
+            "Example5.10 discusses diagonal self-adjoint T and impossibility of finite atomic exact moment representation"
+          ],
+          "identifier_or_url": "arXiv:2605.04392; doi:10.1007/s11785-024-01649-4",
+          "material_read": "Full arXiv PDF accessed; Section5 including Example5.10, abstract and relevant theorem context read",
+          "method": "PDF theorem/section text",
+          "title": "The Local Operator Moment Problem on R",
+          "trigger": "identical (I,T,T²) atomic operator moments and infinite spectrum"
+        },
+        {
+          "assessment": "Finite matrix dimensions and exact finitely atomic measures, not arbitrary infinite-dimensional T with fixed at-most-four outcomes",
+          "evidence": [
+            "§5 Theorem5.1 bound N <= (dim E)q² and related corollary"
+          ],
+          "identifier_or_url": "arXiv:2310.00957",
+          "material_read": "Full accessible arXiv PDF; §5 Theorem5.1 and its finite dimensional atom count, related Caratheodory discussion read",
+          "method": "PDF full relevant text",
+          "title": "On the Truncated Matricial Moment Problem. I",
+          "trigger": "could dominate via operator Tchakaloff finite support"
+        },
+        {
+          "assessment": "Prior intrinsic-noise definition/positivity, no demonstrated four-level optimum",
+          "evidence": [
+            "Intrinsic noise Σλ²P−(ΣλP)² is standard; no full-document negative claim made"
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0703036",
+          "material_read": "Abstract/bibliographic record and previously inspected Section-II equation references; full text not verified in this execution",
+          "method": "arXiv metadata and targeted equation comparison",
+          "title": "Uncertainty Relations for Positive Operator Valued Measures",
+          "trigger": "intrinsic noise quantity and noncommutative effects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Curto et al. arXiv:2605.04392 §5 Example5.10",
+        "Mädler–Schmüdgen arXiv:2310.00957 §5",
+        "Massar arXiv:quant-ph/0703036 abstract/Section II references",
+        "Pietrzycki–Stochel Canadian J Math 75 (2023) Theorem1.1 context",
+        "Resultary query four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization"
+      ],
+      "rationale": "PASS: The exact minimal intrinsic noise of a fixed small-outcome unbiased measurement with disconnected continuum spectral support is a naturally motivated quantitative replacement for the known infinite-spectrum exact-second-moment obstruction. The explicit nonzero gap law, unique optimal codebook and universal no-noncommuting-improvement theorem are mathematically meaningful rather than a rescaled numerical table.",
+      "residual_risks": [
+        "An alternative classical minimax quantizer paper could already contain the exact two-interval four-node envelope.",
+        "The support restriction lambda_j in [-1,1] is essential; no claim made for nodes outside hull or nonoperator-norm losses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Curto et al. arXiv:2605.04392 §5 Example5.10",
+    "Mädler–Schmüdgen arXiv:2310.00957 §5",
+    "Massar arXiv:quant-ph/0703036 abstract/Section II references",
+    "Pietrzycki–Stochel Canadian J Math 75 (2023) Theorem1.1 context",
+    "Resultary query four outcome unbiased POVM spectral bands optimal noise norm second moment finite quantization"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An alternative classical minimax quantizer paper could already contain the exact two-interval four-node envelope.",
+    "The support restriction lambda_j in [-1,1] is essential; no claim made for nodes outside hull or nonoperator-norm losses."
+  ],
+  "residual_risks": [
+    "An alternative classical minimax quantizer paper could already contain the exact two-interval four-node envelope.",
+    "The support restriction lambda_j in [-1,1] is essential; no claim made for nodes outside hull or nonoperator-norm losses."
+  ],
+  "schema_version": 1
+}
