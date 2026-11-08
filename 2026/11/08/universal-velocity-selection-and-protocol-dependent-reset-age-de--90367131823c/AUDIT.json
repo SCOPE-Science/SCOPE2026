@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: covariance identities, posterior Laplace bounds, Gaussian mgf and threshold extension",
+      "verify.py: exact covariance cross-checks and independent numerical integration; reproduced PASS"
+    ],
+    "rationale": "For every fixed strictly positive gamma, D_v and r and either specified Poisson full-reset scheme, independently derived exact Gaussian covariances imply a positive-definite conditional velocity law and the stationary age-mixture density. With t proportional to |x| the position variance is 2 kappa(t-d_j)+O(exp(-gamma t)); Gaussian Laplace bounds localize age with exponentially negligible remote contributions. The reference integral sqrt(pi/r)exp(-|x|sqrt(r/kappa)) has exact first two tilted age moments, proving both order-one offsets and the leading variance with o(1) errors. Its moment-generating function establishes the Gaussian age CLT, while uniform Gaussian regression on the saddle window gives the independent N(sqrt(kappa r),D_v/gamma) velocity law; exponential marginal tails supply the independent threshold overshoot. The proof distinguishes conditioned-on-density sampling from crossing-time sampling. The standalone checker passed its actual bounded tests but is not used to prove infinity-range claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Montero et al., arXiv:2312.13968: general renewal formula covers the zero-velocity reset as an implicit integral starting point; the paper targets crossing intensities and varying reset rate.",
+        "Singh, arXiv:2007.05576: joint stationary law in a random acceleration model without friction; its large-displacement scale differs from damped Brownian motion.",
+        "Gupta, arXiv:1812.07227: position-only resetting with continuously evolving velocity; no new independent velocity reset after each event."
+      ],
+      "reasoning": "The closest broad result is the general inertial joint renewal integral. It contains the ingredients for a derivation but no theorem or tabulated asymptotic for the stationary rare-position conditional age and velocity; extracting the explicit law requires localization at age proportional to displacement, a normalized Gaussian regression limit and second-order age moments. Changing the friction to zero in Singh changes the growth of position variance and does not dominate the damped theorem. Gupta has a different full-state resetting law.",
+      "searches": [
+        "\"integrated Ornstein Uhlenbeck\" stationary large deviations conditional momentum Poisson resetting",
+        "Effect of stochastic resettings on the counting of level crossings for inertial random processes Montero Palassini Masoliver arxiv",
+        "integrated Ornstein Uhlenbeck process resetting conditioned on large displacement joint age velocity Gaussian limiting distribution overshoot exponential",
+        "rare stationary displacement inertial Brownian reset age inverse Gaussian posterior shift zero Maxwell velocity"
+      ]
+    },
+    "checked_sources": [
+      "Franke and Sokolov, Physical Review E 113, 064125 (2026), DOI:10.1103/qyl8-6q9h",
+      "Gupta, arXiv:1812.07227",
+      "Singh, arXiv:2007.05576",
+      "Montero, Palassini and Masoliver, arXiv:2312.13968 / Physical Review E 110, 014116 (2024)",
+      "Relevant published research-record semantic searches on stationary inertial resetting and Gaussian rare-displacement conditioning",
+      "Accessible preceding same-topic mathematical claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Franke–Sokolov 2026 gives the same marginal tail rate and protocol-dependent prefactor, which do not determine the joint conditional velocity distribution or age offset.",
+        "Montero et al. 2024 give the complete-state renewal integral, which implies the new claim only after a separate moving-saddle analysis and evaluation of the reference-age first two moments.",
+        "Gupta 2018 and Singh 2020 share stationary-reset ideas but have different velocity reset or damping assumptions.",
+        "An earlier accessible mathematical claim has a small-position limit x→0, not x→∞."
+      ],
+      "reasoning": "The new statement includes an explicit nonzero selected velocity mean, asymptotic independence of velocity and the centered age, Gaussian age fluctuations, a distinct constant mean-age delay for two schemes, and independent exponential threshold overshoots. These conclusions are not the marginal tail or a special case of an already asserted theorem in inspected sources. The general renewal integral constitutes foundational prior work and is fully credited.",
+      "searches": [
+        "underdamped Brownian motion Poisson resetting extreme large position conditional velocity Gaussian shifted mean rare displacement velocity selection stationary tail saddlepoint",
+        "underdamped stochastic resetting Brownian joint stationary position velocity conditional large displacement reset age asymptotic selected Gaussian drift",
+        "\"integrated Ornstein-Uhlenbeck\" \"resetting\" \"conditional\" \"velocity\" large displacement",
+        "velocity distribution conditioned on large displacement stochastic resetting underdamped Brownian",
+        "Effect of stochastic resettings on the counting of level crossings for inertial random processes Montero Palassini Masoliver arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Franke–Sokolov (2026), DOI:10.1103/qyl8-6q9h: both reset protocols and marginal position tails are prior; no conditional velocity/age limit was identified in the full accessible paper.",
+        "Montero–Palassini–Masoliver (2023/2024), arXiv:2312.13968, Eqs. (13),(47): generic joint position–velocity renewal mixture; it does not state large-position conditional velocity or reset-age Gaussian limits."
+      ],
+      "reasoning": "Equivalent expressions using a stationary joint density, the age mixing integral, Gaussian regression, or renewal-reward conditioning were considered. They reproduce the starting integrals but do not directly supply the fixed-rate moving-saddle conditional law, the three-factor threshold limit or the order-one age correction. The exponential position-density tail alone fixes only the one-dimensional marginal.",
+      "searches": [
+        "\"integrated Ornstein-Uhlenbeck\" \"resetting\" \"conditional\" \"velocity\" large displacement",
+        "\"Brownian motion\" resetting \"velocity\" \"large displacement\" conditional",
+        "underdamped Brownian motion Poisson resetting extreme large position conditional velocity Gaussian shifted mean rare displacement velocity selection stationary tail saddlepoint",
+        "underdamped stochastic resetting Brownian joint stationary position velocity conditional large displacement reset age asymptotic selected Gaussian drift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published research entries concern alpha-Wiener mean-field pinning, random-sensor Ornstein–Uhlenbeck thresholds, and unrelated velocity balance laws; these have different observables and parameter regimes.",
+        "An accessible earlier mathematical analysis concerns the near-zero-position density crossover rather than the present far-position velocity/age conditional distribution."
+      ],
+      "reasoning": "No directly matching published table or claim was found in the actual record and literature searches. Finite search coverage is not proof of uniqueness; in particular an equivalent asymptotic could be hidden as an unlabelled corollary of a general theorem.",
+      "searches": [
+        "Franke Sokolov underdamped Brownian motion reset position velocity Maxwell 2026 large-displacement conditional velocity age asymptotics",
+        "Franke Sokolov Resetting of underdamped Brownian motion qyl8-6q9h large displacement velocity",
+        "\"resetting\" \"large position\" \"velocity distribution\" underdamped"
+      ]
+    },
+    "rationale": "The exact far-position conditional Gaussian velocity and age law, its independent exponential threshold overshoot, and the protocol-specific order-one age correction were compared by mathematical implication with full accessible treatments of the two reset schemes, velocity-preserving resetting, random acceleration under full resetting, and general inertial joint-renewal/crossing-intensity theory. The earlier literature establishes the covariance/renewal mixture and marginal tails, but does not state the moving-saddle conditional-limit constants. The new proof is a nontrivial conditional Laplace analysis, not a rebranding of the existing marginal tails. Priority remains qualified by possible implicit coverage under broader general conditional-limit results.",
+    "residual_risks": [
+      "A more general Gaussian-mixture conditional saddle-point theorem might imply the stated asymptotics without using the model-specific formulas; full worldwide coverage cannot be certified.",
+      "The general inertial stationary joint-density formula of Montero et al. is a broad foundational predecessor; priority is limited to the explicit moving-saddle conditional limits and protocol age offsets.",
+      "Search ranking and bibliographic metadata may miss earlier unpublished or weakly indexed conditional rare-event results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS model, renewal position density and marginal exponential tail; does not explicitly cover the conditional velocity/age rare-event theorem",
+        "evidence": [
+          "Franke–Sokolov 2026 Sections II–IV and conclusions, DOI:10.1103/qyl8-6q9h"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/qyl8-6q9h",
+        "material_read": "Full 11-page open-access PDF; model definitions, stationary position-density asymptotics, relaxation/kurtosis analysis, conclusion, source formula comparisons",
+        "method": "Open-access publisher PDF full text; inspected text and relevant page images",
+        "title": "Resetting of underdamped Brownian motion",
+        "trigger": "Exact matching stochastic model and two reset protocols"
+      },
+      {
+        "assessment": "Related position-only reset without velocity reset; concerns marginal position distribution rather than the present conditional joint law",
+        "evidence": [
+          "Gupta 2018/2019, arXiv:1812.07227, model and steady-state sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.07227",
+        "material_read": "Full arXiv HTML mathematical text, reset scheme, steady-position sections and Gaussian propagators",
+        "method": "Lawful arXiv full HTML text",
+        "title": "Stochastic resetting in underdamped Brownian motion",
+        "trigger": "Earlier model with integrated Ornstein–Uhlenbeck velocity and position resetting"
+      },
+      {
+        "assessment": "Covers exact joint distribution with absent damping; its acceleration-induced far-tail scale does not subsume the gamma-positive theorem",
+        "evidence": [
+          "Singh 2020, arXiv:2007.05576, equations (15)–(16), appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.05576v1",
+        "material_read": "Full HTML sections 2–3, conclusions and appendices on stationary position tails",
+        "method": "Lawful arXiv full HTML text",
+        "title": "Random acceleration process under stochastic resetting",
+        "trigger": "Prior full phase-space reset and joint stationary distribution"
+      },
+      {
+        "assessment": "General joint stationary renewal formula is directly prior and implies a starting representation; explicit conditional large-level velocity/age Gaussian laws and protocol age shift not located",
+        "evidence": [
+          "Montero–Palassini–Masoliver 2023/2024, arXiv:2312.13968, equations (13), (47), (49), Sections IV.2 and V"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.13968",
+        "material_read": "Full accessible mathematical text, particularly sections II–V, all relevant joint-renewal equations and inertial-Brownian crossing asymptotics",
+        "method": "Lawful arXiv full converted text",
+        "title": "The effect of stochastic resettings on the counting of level crossings for inertial random processes",
+        "trigger": "Broad stationary joint renewal formula and inertial Brownian crossing statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "90367131-823c-40e1-9ae8-6183ddceaab4",
+  "value": {
+    "evidence": [
+      "Franke–Sokolov 2026: physical motivation and reset protocols",
+      "RESULT.md: exact conditional age and velocity laws and proof"
+    ],
+    "rationale": "A large displacement in a nominally zero-mean stationary inertial particle selects a positive effective velocity, not a centered Maxwellian, and a reset age of order displacement with Gaussian square-root fluctuations. Two reset protocols have the same selected kinetic law but their mean conditional ages differ by exactly 1/(2 gamma); the threshold overshoot adds a measurable independent exponential coordinate. These are natural conditional observables tied to how extreme events are realized, unavailable from the already known marginal tail prefactors alone. The result directly informs interpretation of rare-displacement experiments and provides a scheme discriminator, rather than an arbitrary parameter exercise.",
+    "status": "PASS"
+  }
+}
