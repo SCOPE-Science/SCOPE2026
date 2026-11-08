@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All nonnegative vectors and every integer cycle size n>=3 are handled exactly by the nine-term Laurent expansion and cyclic reduction. Explicit positive-factor certificates and monotone cubic roots prove necessity/sufficiency for all h>=0, and Fourier eigenanalysis proves the strict spectral gap. 13,403 independent exact-rational finite checks corroborate algebra but are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Omle–Askar–Kovács (2022) studies heat positivity preservation and numerical schemes, but their inspected full text does not provide cycle-by-cycle standard RK4 cutoff.",
+        "Horváth (2005), §4 pp. 10–11, treats Dirichlet diffusion and different implicit or theta integrators.",
+        "The eight-state Padé Markov barrier is for Gauss–Legendre [2/2] Padé and pure-birth Markov chains, not the standard explicit RK4 and symmetric cycle generator."
+      ],
+      "reasoning": "Compared stronger-looking positivity theorems for whole classes of ODEs and parabolic equations. Their hypotheses or conclusions give general background and may provide sufficient bounds, but none inspected yields the sharp sequence including the five- and seven-node exceptions. An older universal formula specialized to this matrix could still subsume the statement; acknowledged as residual risk.",
+      "searches": [
+        "Systematic testing of explicit positivity preserving algorithms for the heat equation Omle Askar Kovacs 2022",
+        "Horvath 2005 positivity step size threshold Runge Kutta finite periodic heat cycle Markov",
+        "finite cycle graph heat equation Runge Kutta 4 nonnegative step exact polynomial threshold wrap around",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.28919/jmcs/7407",
+      "https://arxiv.org/abs/2005.06268",
+      "https://doi.org/10.1016/j.apnum.2004.08.026",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nüßlein–Ranocha–Ketcheson (2020) adapts RK weights and does not specialize classical RK4 cyclic heat matrices to all sizes.",
+        "The Fehlberg RK4(5) estimator resonance concerns an embedded pair for scalar linear growth, not heat-cycle nonnegative kernels.",
+        "The new formula uses coefficient wrap-around: at n=7, the distance-three term is a_3+a_4; at n>=8 it is a_3; for n=5 a_1+a_4 determines the threshold."
+      ],
+      "reasoning": "The exact statement is not a corollary of equal-order accuracy, absolute-monotonicity sufficient criteria or spectral stability. It requires a new explicit local stencil plus finite-group alias calculation, and establishes a strict separation between positivity and spectral stability from n>=5.",
+      "searches": [
+        "classical fourth-order Runge-Kutta cycle heat matrix entrywise nonnegative polynomial aliasing",
+        "classical fourth order RK4 periodic heat cycle graph sharp positivity n=3 4 5 6 7 ring nearest neighbour",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nonnegative circulant polynomial in shift is equivalent to nonnegative residue-class Laurent coefficient for every input basis impulse.",
+        "Horváth (2005), §§2–4 (entire pages 1–16 inspected), uses absolute monotonicity/positive cones, but no same periodic RK4 coefficient classification.",
+        "Published CN results evaluate rational resolvents, not RK4 degree-four polynomial."
+      ],
+      "reasoning": "Searched positivity-preserving semigroup/Markov/RK4 and Laurent alias formulations. The all-cycle statement requires exact residue aliasing at sizes 3–7, not implied by an arbitrary system’s generic sufficient threshold or by a different rational stability function.",
+      "searches": [
+        "RK4 fourth order Taylor polynomial cyclic discrete Laplacian offdiagonal convolution coefficients 4/7 1/2 n 5 periodic positivity",
+        "classical fourth-order Runge-Kutta cycle heat matrix entrywise nonnegative polynomial aliasing",
+        "explicit Runge Kutta fourth degree Taylor Markov transition positivity circulant ring stochastic matrix",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact period-size 3,4,5,6,7,>=8 standard RK4 positivity table appeared in returned research hits.",
+        "The closest full-text papers contained no such exact table in inspected results or appendices."
+      ],
+      "reasoning": "The novelty claim is not based solely on negative search hits; comparisons checked whether any located exact formula computes the same operator for every cycle. No such coverage was found, but unpublished or unindexed tables remain possible.",
+      "searches": [
+        "RK4 fourth order Taylor polynomial cyclic discrete Laplacian offdiagonal convolution coefficients 4/7 1/2 n 5 periodic positivity",
+        "Runge-Kutta 4 on cycle graphs finite heat positive exact threshold fifth seventh nodes",
+        "exact RK4 positivity CFL period n=3 n=4 n=5 n=6 n=7 heat ring",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "rationale": "Primary source full texts, including an older broad RK positivity theorem, were compared by operator and implication. The exhaustive finite-cycle classical RK4 cutoff with sharp 5- and 7-cycle aliasing exceptions was not covered in inspected statements; Results database similarity queries found related CN, Padé and Fehlberg studies but not this theorem. Novelty is provisional against specialist historical coverage, not deduced from search absence.",
+    "residual_risks": [
+      "Unindexed older positivity-step tables or graph-specific exact RK4 calculations could be stronger than or equivalent to this theorem.",
+      "General absolute-monotonicity literature could contain an implicit but nontrivial specialization giving some thresholds; this requires independent specialist priority review.",
+      "Other language or inaccessible periodical literature was not comprehensively exhaustively searched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_THIS_EXACT_CLAIM",
+        "evidence": [
+          "First public publisher date 2022-05-31.",
+          "Experiments discuss positivity for modified explicit heat integrators; no same exact classical RK4 cycle threshold statement or complete size classification in inspected full text."
+        ],
+        "identifier_or_url": "https://doi.org/10.28919/jmcs/7407",
+        "material_read": "Publisher publication date and full 21-page PDF, abstract, introduction, algorithm descriptions, numerical heat tests and searches for RK4 and periodic cycle.",
+        "method": "Primary open-access publisher PDF viewed and text inspected, including page screenshots.",
+        "title": "Systematic testing of explicit positivity preserving algorithms for the heat-equation",
+        "trigger": "Directly addresses explicit positivity-preserving heat integrators; source anchors the middle date."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_THIS_EXACT_CLAIM",
+        "evidence": [
+          "The method changes RK output weights to secure positivity, whereas the present claim fixes classical RK4.",
+          "No full finite-cycle threshold and wrap-around alias law appears in inspected statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+        "material_read": "Full open arXiv 21-page PDF; abstract, method and RK4 mentions, relevant tables and examples, including periodic reaction-diffusion.",
+        "method": "ArXiv full PDF text examined with page images and full-document term search.",
+        "title": "Positivity-Preserving Adaptive Runge-Kutta Methods",
+        "trigger": "Could potentially imply endpoint positivity of fixed-coefficient RK4."
+      },
+      {
+        "assessment": "GENERAL_THEORY_DOES_NOT_DIRECTLY_COVER_EXACT_CYCLE_STATEMENT",
+        "evidence": [
+          "Section 2–3 develops positivity thresholds and RK absolute-monotonicity framework.",
+          "Pages 10–11 consider Dirichlet heat discrete Laplacian and theta, Lobatto IIIC and Radau IIA, not standard RK4 on periodic cycles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "All 16 pages, including Definitions 1–15, Theorems 4, 8, 17 and Section 4 Dirichlet-heat illustration, with table and conclusion.",
+        "method": "Authorized scholarly full-text extraction examined page by page after open-access options were unavailable.",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Most plausible older stronger generic positivity theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0fa0ba72-5afe-453c-b0c2-cec397954280",
+  "value": {
+    "rationale": "Uniform periodic heat semidiscretizations and classical RK4 are natural numerical-analysis objects. The full exact threshold sequence reveals nonmonotonic small-grid wrap-around and a provable difference between spectral stability and solution nonnegativity; it is a sharp maximum-principle benchmark rather than an arbitrary parameter slice. Applies to every grid size, with exact finite exceptions and a uniform tail.",
+    "status": "PASS"
+  }
+}
