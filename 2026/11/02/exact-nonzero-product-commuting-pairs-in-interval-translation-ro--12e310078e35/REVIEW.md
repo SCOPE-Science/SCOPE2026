@@ -1,11 +1,21 @@
-# Review: exact nonzero-product commutation in interval-translation rook monoids
+# Independent mathematical audit
 
-**Correctness — PASS.** The partial-map composition criterion reduces nonzero commutation to equality of two pairs of interval endpoints. The proof partitions all nonzero-product pairs into disjoint shift-sign cases, forbids opposite signs by a strict endpoint contradiction, and gives unique integer parametrizations and exact binomial counts for the remaining cases. The mutually annihilating and zero-factor terms are independently derived for the aggregate count. The polynomial identities and \(n^{-1}\) asymptotic conditional probability follow by algebraic simplification. Direct enumeration using an explicit partial-map representation verifies the predicted four classes for every \(n\) from \(1\) to \(10\); these finite tests support but do not replace the general proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with limits.** The 2021 Fikioris–Fikioris text introduces the integer monoid and its product law; the inspected 2023 extension concerns a larger real-parameter monoid. Neither inspected full text provides the claimed nonzero-product commuting-pair count. An earlier calculation of mutually annihilating pairs and a \(3/10\) limit is covered, not reasserted as new. The new contribution is the exact complementary \(P_n\), its sign-wise classification, the full \(C_n\), and the nonleading asymptotic coefficients. A general centralizer paper on the larger symmetric inverse semigroup was accessible by abstract only, leaving indirect prior coverage possible. Database searches and exact-sequence searches supplied no decisive match, which alone cannot certify novelty.
+PASS
 
-**Mathematical value — PASS.** The new result closes a natural unfinished enumeration in a widely studied inverse monoid: it distinguishes whether commuting pairs actually compose nontrivially, proves a structural impossibility for oppositely directed maps, identifies the three surviving constructive classes, and determines the full commutativity degree at each size rather than merely its limit. Its finite-size correction is an exact, logically new invariant of this monoid. No claims are made about a stronger general semigroup or tuple theorem.
+PASS: From actual composition domains [a,b]∩[c−d,f−d] and [c,f]∩[a−e,b−e], equality of two nonempty product intervals is an iff endpoint criterion. Its sign-case partition is disjoint: both zero shifts give binom(n+1,2)^2−2binom(n+2,4), exactly one zero contributes four binom(n+3,5), both positive/negative give two binom(n+1,4), opposite signs impossible by inconsistent left endpoints. Each parametrization is bijective, so holds for all n≥2. Together with independent mutual-annihilation Z_n and zero-factor count 2N_n−1 it gives C_n and 3/10+3/(10n)+15/(8n²)+O(n^-3). Independent direct composition over all enumerated partial-map pairs for n≤8 checked 74,732 ordered pairs; finite tests corroborate rather than prove all n.
 
-**Risks and limits.** An equivalent combinatorial count may be hidden in prior inverse-semigroup centralizer theory. The centralizer literature could imply the result after a nontrivial restriction even if it never states these coefficients. The construction is over integer intervals, not an arbitrary inverse monoid. No independently conducted mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified. Fikioris–Fikioris establish the consecutive-diagonal interval-translation submonoid and triple product; prior mutually annihilating count and limiting 3/10 commutation probability are expressly credited. The result assessed is the exact complementary P_n count, shift-sign classification, and finite-size corrections. The inspected original full PDF and extension do not state this enumeration. Konieczny 2020 full inverse-semigroup centralizer theory (only abstract read) could indirectly imply a stronger count; this remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Exact commuting-pair enumeration is a natural finite semigroup invariant; the nonzero-product sector is structurally different from the already known annihilating sector. A complete polynomial and shift-sign obstruction plus explicit 1/n corrections are meaningful classification results rather than merely a one-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

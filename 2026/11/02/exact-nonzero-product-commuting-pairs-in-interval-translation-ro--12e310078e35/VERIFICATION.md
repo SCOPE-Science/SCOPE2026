@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete proof in `RESULT.md` applies to every integer \(n\ge2\). A separate exhaustive finite checker `verify.py` represents each partial map by its \(n\)-entry evaluation table with `-1` denoting the undefined value. It composes every ordered pair as actual partial functions and counts mutual annihilation, nonzero-product commutation, total commutation, and the four mutually exclusive shift-sign classes. The checker does **not** use the interval endpoint equations or the enumeration algorithm from the proof.
+## correctness
 
-Run `python3 verify.py` in the same directory as the extracted files. It requires Python 3 and only its standard library. Actual execution completed for every \(n=1,2,\ldots,10\), printed per-size results, and ended with `VERIFY_OK 10 exact direct-map enumerations; four nonzero-product shift classes`.
+PASS
 
-Exact sample data in order \((n,|M_n|,Z_n,P_n,C_n)\):
+PASS: From actual composition domains [a,b]∩[c−d,f−d] and [c,f]∩[a−e,b−e], equality of two nonempty product intervals is an iff endpoint criterion. Its sign-case partition is disjoint: both zero shifts give binom(n+1,2)^2−2binom(n+2,4), exactly one zero contributes four binom(n+3,5), both positive/negative give two binom(n+1,4), opposite signs impossible by inconsistent left endpoints. Each parametrization is bijective, so holds for all n≥2. Together with independent mutual-annihilation Z_n and zero-factor count 2N_n−1 it gives C_n and 3/10+3/(10n)+15/(8n²)+O(n^-3). Independent direct composition over all enumerated partial-map pairs for n≤8 checked 74,732 ordered pairs; finite tests corroborate rather than prove all n.
 
-```
-(1, 2, 0, 1, 4)
-(2, 6, 4, 11, 26)
-(3, 15, 44, 52, 125)
-(4, 31, 228, 164, 453)
-(5, 56, 812, 409, 1332)
-(6, 92, 2296, 875, 3354)
-(7, 141, 5544, 1680, 7505)
-(8, 205, 11928, 2976, 15313)
-(9, 286, 23496, 4953, 29020)
-(10, 386, 43164, 7843, 51778)
-```
+## originality
 
-Small finite tests are consistency checks, not proofs of an unrestricted identity or of publication priority. No independent mathematical audit was performed; the review status is self-review only.
+PASS
+
+Best-knowledge PASS, qualified. Fikioris–Fikioris establish the consecutive-diagonal interval-translation submonoid and triple product; prior mutually annihilating count and limiting 3/10 commutation probability are expressly credited. The result assessed is the exact complementary P_n count, shift-sign classification, and finite-size corrections. The inspected original full PDF and extension do not state this enumeration. Konieczny 2020 full inverse-semigroup centralizer theory (only abstract read) could indirectly imply a stronger count; this remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Exact commuting-pair enumeration is a natural finite semigroup invariant; the nonzero-product sector is structurally different from the already known annihilating sector. A complete polynomial and shift-sign obstruction plus explicit 1/n corrections are meaningful classification results rather than merely a one-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
