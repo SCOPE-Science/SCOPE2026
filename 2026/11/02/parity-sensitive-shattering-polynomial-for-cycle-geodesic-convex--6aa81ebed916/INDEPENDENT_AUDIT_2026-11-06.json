@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:16:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "GitHub RESULT.md dadd65311a93a295cd0b4897a018ead892723221",
+        "GitHub exact verifier script check_cycle_convexity.py 13e09fdc2cc288ed7f49e6ce1bfdf734b7aa696e"
+      ],
+      "rationale": "For unweighted C_n all-shortest-path convex proper subsets are precisely cyclic arcs of edge length at most L=floor((n-1)/2), plus empty and full. Every two-point support is shattered; three-point trace patterns require and suffice that all three successive gaps be <=L, and summing 4 triple-exclusion inequalities excludes any shattered four-point set. Cyclic composition counting gives T_n=n(n^2-1)/24 for odd n, n(n-2)(n-4)/24 even, with n=4 exception. Fixed-origin short arcs parameterized by independent left/right thresholds produce the complete online depth lower bound; concept count supplies upper, giving Ldim=2log2 n+O(1). Independently brute-enumerated convex sets via all shortest paths for small n, validating exact triple counts; proof covers all n, and exact finite n online dimensions are not claimed.",
+      "residual_risks": [
+        "Relevant 2022 online-learning full text was not read despite searching OA/author link; may contain an equivalent cycle result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2020 paper develops active learning for graph convex classes with broad bounds; Chepoi studies separating geodesic halfspaces, strictly different family."
+        ],
+        "reasoning": "No inspected accessible primary passage establishes the exact cycle triple census; the complete 2022 full text could not be reviewed and is a material priority caveat.",
+        "searches": [
+          "Thiessen Gärtner 2020 DOI 10.34726/3467",
+          "Thiessen Gärtner 2022 DOI 10.1007/978-3-031-26412-2_22",
+          "Chepoi 2024 arXiv:2405.07512"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md dadd65311a93a295cd0b4897a018ead892723221",
+        "GitHub check_cycle_convexity.py 13e09fdc2cc288ed7f49e6ce1bfdf734b7aa696e",
+        "Thiessen Gärtner 2020 PDF",
+        "Thiessen Gärtner 2022 abstract/author PDF access",
+        "Chepoi 2024 arxiv:2405.07512",
+        "Resultary geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General online and active learning bounds cannot determine exact triple support combinatorics or the threshold-product online lower witness."
+        ],
+        "reasoning": "The cycle result needs the strict half-circumference convexity lemma and constructive threshold coding; statements read from the 2020 article do not imply the exact polynomial.",
+        "searches": [
+          "Thiessen Gärtner 2020 full accessible paper",
+          "Chepoi arXiv:2405.07512",
+          "Resultary: geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proper convex cycle sets are short cyclic arcs; unrestricted circular intervals permit arcs longer than half the cycle and have different support traces."
+        ],
+        "reasoning": "The sharp all-shortest-path antipodal convention changes admissible concepts and the parity count, so generic circular-interval shattering is not directly equivalent.",
+        "searches": [
+          "Resultary: geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension",
+          "Thiessen Gärtner 2020",
+          "unrestricted circular interval VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed the complete support counts for bounded n; polynomial formula is for unbounded n, not an isolated numeric table."
+        ],
+        "reasoning": "No located exact prior catalogue matching all n and even/odd formula; finite examples are only corroborative.",
+        "searches": [
+          "Resultary: geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension",
+          "GitHub exact cycle checker",
+          "2020 graph convex concept examples"
+        ]
+      },
+      "rationale": "Earlier graph geodesic convexity learning studies address general active and online settings, while halfspace concept families differ from all convex sets. The 2020 source does not state the complete n-parity shattered-support polynomial; 2022 primary full text remained inaccessible, so a related cycle example may have earlier priority. Partial coverage alone not treated as proof of a general noncovering claim.",
+      "residual_risks": [
+        "Relevant 2022 online-learning full text was not read despite searching OA/author link; may contain an equivalent cycle result.",
+        "Proof gives asymptotic and finite bounds for Ldim rather than an exact Ldim formula for each n; unweighted simple cycles with all shortest paths only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework, no matching complete cycle support polynomial in inspected text",
+          "evidence": [
+            "citeturn165382view2",
+            "citeturn222840view3"
+          ],
+          "identifier_or_url": "https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf",
+          "material_read": "Accessible four-page workshop PDF: learning model, convexity setting, and general bounds",
+          "method": "Full PDF text extraction and visual page screenshot",
+          "title": "Active Learning on Graphs with Geodesically Convex Classes",
+          "trigger": "Direct graph-convex learning predecessor"
+        },
+        {
+          "assessment": "Cannot assess precise cycle special cases or rule out priority",
+          "evidence": [
+            "citeturn412076search8",
+            "citeturn752592view0"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Bibliographic abstract only; linked author PDF returned broken redirect; complete text NOT read",
+          "method": "Publisher abstract and author-page PDF link attempt; protected download safety blocked",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Closest possible online theorem for same concept class"
+        },
+        {
+          "assessment": "Halfspaces are not the full geodesically convex concept class",
+          "evidence": [
+            "arXiv:2405.07512"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.07512",
+          "material_read": "Relevant abstract and framing from source comparisons",
+          "method": "Open access references",
+          "title": "Separation axiom S3 for geodesic convexity in graphs",
+          "trigger": "Nearby geodesic halfspace theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "GitHub RESULT.md dadd65311a93a295cd0b4897a018ead892723221",
+        "GitHub check_cycle_convexity.py 13e09fdc2cc288ed7f49e6ce1bfdf734b7aa696e",
+        "Thiessen Gärtner 2020 PDF",
+        "Thiessen Gärtner 2022 abstract/author PDF access",
+        "Chepoi 2024 arxiv:2405.07512",
+        "Resultary geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension"
+      ],
+      "rationale": "A natural all-shortest-path graph convexity class has exact all-cardinality VC-shattered-support polynomial and parity-sensitive triple geometry, with an unbounded online vs bounded static learning complexity. The exceptional four-cycle and full-set concept dependence are meaningful boundaries rather than mere parameter renamings.",
+      "residual_risks": [
+        "Relevant 2022 online-learning full text was not read despite searching OA/author link; may contain an equivalent cycle result.",
+        "Proof gives asymptotic and finite bounds for Ldim rather than an exact Ldim formula for each n; unweighted simple cycles with all shortest paths only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md dadd65311a93a295cd0b4897a018ead892723221",
+    "GitHub check_cycle_convexity.py 13e09fdc2cc288ed7f49e6ce1bfdf734b7aa696e",
+    "Thiessen Gärtner 2020 PDF",
+    "Thiessen Gärtner 2022 abstract/author PDF access",
+    "Chepoi 2024 arxiv:2405.07512",
+    "Resultary geodesic convex subsets cycles shattered support polynomial VC Littlestone dimension"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Relevant 2022 online-learning full text was not read despite searching OA/author link; may contain an equivalent cycle result.",
+    "Proof gives asymptotic and finite bounds for Ldim rather than an exact Ldim formula for each n; unweighted simple cycles with all shortest paths only."
+  ],
+  "schema_version": 1
+}

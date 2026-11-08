@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge3\), the classification of all geodesically convex sets on \(C_n\) follows from the all-shortest-path definition and the strict half-circumference bound. The proof derives the necessary-and-sufficient triple cyclic-gap condition, excludes any shattered four-point support by summing four forced two-gap inequalities, and counts the admissible triple compositions with exact multiplicity three. Independent enumeration directly tests shortest-path convexity in all graphs through 13 vertices and all traces of supports through 17 vertices. The online threshold-tree lower bound and cardinality upper bound are valid for each order, and the certificate code verifies finite cases; the proofs are not extrapolations from finite data.
+PASS
 
-## Originality — PASS under the inspected comparisons
+For unweighted C_n all-shortest-path convex proper subsets are precisely cyclic arcs of edge length at most L=floor((n-1)/2), plus empty and full. Every two-point support is shattered; three-point trace patterns require and suffice that all three successive gaps be <=L, and summing 4 triple-exclusion inequalities excludes any shattered four-point set. Cyclic composition counting gives T_n=n(n^2-1)/24 for odd n, n(n-2)(n-4)/24 even, with n=4 exception. Fixed-origin short arcs parameterized by independent left/right thresholds produce the complete online depth lower bound; concept count supplies upper, giving Ldim=2log2 n+O(1). Independently brute-enumerated convex sets via all shortest paths for small n, validating exact triple counts; proof covers all n, and exact finite n online dimensions are not claimed.
 
-The cyclic-gap characterization and the exact parity-dependent shattering polynomial are not supplied by the inspected 2020 geodesic-convex active-learning paper, the 2024 geodesic-halfspace paper, or the accessible descriptions of the 2022 online-learning article. More generally, the standard unrestricted circular-interval family allows longer intervals and does not imply exact shattering counts for geodesic cycle intervals. Search comparisons considered cycle convexity, ordinary VC shattering, online Littlestone shattering, and bounded circular intervals. A meaningful unresolved priority risk remains: the full 2022 article was inaccessible, and differently named prior finite-range classifications may exist. Neither a failed search nor these access limitations constitute proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem counts **every** shattered vertex support for a natural graph-convexity concept class and finds a parity-sensitive sharp answer not determined by its known general capacity bound. The four-cycle is the unique order at which VC dimension falls to two, and the inclusion of just the full-cycle convex concept creates all shattered triples. The nearly quadratic number of hypotheses yields logarithmically growing online depth while static VC dimension is bounded, with an explicit threshold-query certificate. These features offer a reusable benchmark for distinguishing ordinary versus adaptive complexity of graph-convex classes.
+Earlier graph geodesic convexity learning studies address general active and online settings, while halfspace concept families differ from all convex sets. The 2020 source does not state the complete n-parity shattered-support polynomial; 2022 primary full text remained inaccessible, so a related cycle example may have earlier priority. Partial coverage alone not treated as proof of a general noncovering claim.
 
-## Scientific limitations
+## value
 
-Cycles are unweighted; convexity includes all shortest paths. Exact finite-order online dimensions, generalizations to other graphs, comprehensive historical priority and any independent mathematical audit remain outside this result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural all-shortest-path graph convexity class has exact all-cardinality VC-shattered-support polynomial and parity-sensitive triple geometry, with an unbounded online vs bounded static learning complexity. The exceptional four-cycle and full-set concept dependence are meaningful boundaries rather than mere parameter renamings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
