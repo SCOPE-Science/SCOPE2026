@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof counts all maximum and penultimate independent sets from first principles, obtaining the exact gap \(c_{d-1}-c_1=\sum_{r\ge2}i_r(H[A])\). This proves necessity of the clique condition without relying on a computer search. For sufficiency, independent sets are partitioned by their core selection in \(B\), producing the full gamma-basis identity. The roots equivalence follows from the elementary quadratic transformation. An exact vertex-deletion verifier checked 5,044 exhaustively enumerated labelled rooted base graphs, 244 literal independent-subset counts, and 5,167 larger deterministic sampled cases; the standalone code returns `VERIFY_OK`. The code does not replace the infinite proof.
+PASS
 
-## Originality — PASS, with qualification
+The unique maximum independent set consists of h and all attached leaves and has size d. Classifying size d−1 sets with/without h gives c_{d−1}−c_1=I(H[A];1)−1−a=sum_{j>=2}i_j(H[A]); its nonnegative vanishing is exactly the clique condition. If A is a clique, decomposing independent core subsets U in B and optionally one allowable A vertex proves I(W;x)=(1+x)^d I(H-h;x/(1+x)^2) as a polynomial identity. All gamma coefficients are i_j(H-h)>=0. For every negative real root tau of I(H-h;t), tau(1+x)^2=x has two distinct negative roots, and the converse follows by preimages of roots; real-rootedness iff. Independent literal enumeration of all small rooted H for 244 cases, checking the top coefficients and symmetry, agreed.
 
-Hibi–Kara–Vien (2026), Proposition 3.1, is a broader weighted-whiskering polynomial formula and completely determines the raw polynomial of this family; Theorem 3.2, however, explicitly assumes every core vertex receives at least one leaf, and so does not give the present **one-hole palindrome classification**. Stevanović's sufficient condition, as stated in Levit–Mandrescu (2011), covers the positive implication when the neighbor set is a clique; that implication is credited as previously accessible. The new part is a sharp *if-and-only-if* structural boundary and exact nonnegative coefficient obstruction, together with its explicit base-graph gamma-identification. Relevant full-text sections and equivalent-formulation searches did not locate that combined statement. The general generating formula and known positive implication materially limit the novelty claim; unindexed special-case literature remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural first singular boundary of the recent all-vertices-whiskered symmetry classification: exactly one vertex is left uncovered, and the remaining leaf numbers are balanced against adjacency to it. The theorem classifies all base graphs for which this canonical one-hole construction preserves palindromicity, identifies every gamma coefficient, and exposes a local exact obstruction in the next-to-leading term. This is a complete infinite-family classification, rather than a finite experiment or arbitrary fixed-size invariant. It neither claims a general whiskering theorem nor relies on numerical magnitude for value.
+Hibi–Kara–Vien (2026) Proposition 3.1 is a fully general leaf-profile polynomial formula that includes this one-hole graph, and its symmetry Theorem 3.2 assumes every core vertex gets at least one leaf, so it does not state or directly classify this boundary. Stevanović’s condition supplies the positive/sufficient direction, and generalized two-whisker gamma identities are prior; this claim adds a *necessary and sufficient* simplicial-vertex condition and nonnegative exact obstruction. The novelty is narrow and qualified because the general formula may make the coefficient extraction an approachable corollary.
 
-## Scientific limits and primary comparisons
+## value
 
-The result is for the prescribed one-hole leaf profile only. The more general all-profile coefficient formula is known; the sufficiency criterion is known; this result is not a claim of novelty for either. Comprehensive historical priority and independent audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Omitting precisely one leafless core vertex is a natural first boundary outside the all-positive-whisker palindrome classification; the exact local clique obstruction and full gamma polynomial identify all graphs with symmetric independence polynomial in this profile, an infinite structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
