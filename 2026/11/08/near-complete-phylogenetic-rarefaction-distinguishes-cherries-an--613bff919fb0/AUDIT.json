@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For all n>=4, exact edge-loss decomposition gives Bernoulli cherry event for two deletions and a cherry-event-plus-pitchfork-event for three; the latter has B subset A, giving the stated rational moments. Monotonicity in c and t follows by proved small-count bounds. For every m>=1, the explicit 6m-leaf construction has (c,t)=(2m+1,0) versus (2m,2m) and the difference of three-deletion variances equals 2/N+(4m-2)(u_A+u_B)/N^2>0. All 792 direct-subset tree/budget combinations at n=4..11 and four constructed family cases passed the packaged exact-arithmetic checker. The infinity claim is proved, not inferred from these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/: formula Var(Y)=sum_{i,j} length_i length_j [q_k(D_i union D_j)-q_k(D_i)q_k(D_j)], eq. in Rooted phylogenetic diversity.",
+        "https://arxiv.org/abs/1112.1295: general distributions under coalescent tree models rather than tree-by-tree risk comparison."
+      ],
+      "reasoning": "The 2013 rarefaction covariance identity is genuinely broader as a computation for arbitrary rooted trees, edge lengths and sample sizes; therefore the generic variance calculation and finite special cases are NOT claimed as new. The present additional universal positivity and shape-index inversion require independent count monotonicity and explicit constructions not supplied in that identity.",
+      "searches": [
+        "phylogenetic diversity variance rarefaction tree shape extremal maximum star caterpillar random k taxa sample",
+        "phylogenetic diversity variance rank reversal trees sampling size k fixed n cherries pitchforks",
+        "rooted phylogenetic diversity variance rarefaction sampling taxa tree topology"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/ (primary full-text relevant sections)",
+      "https://arxiv.org/abs/1112.1295 (arXiv full text)",
+      "https://arxiv.org/abs/2002.12643 (intro/comparison and scoped text search)",
+      "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12042 (publisher version and date)",
+      "https://arxiv.org/abs/1208.6552 (verified earliest preprint date 2012-08-31)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/: discussion identifies sensitivity of PD rarefaction curves to tree shape as future work.",
+        "https://arxiv.org/abs/1112.1295: joint counts of clades, not fixed-size deletion diversity variances.",
+        "https://arxiv.org/abs/2002.12643: Yule/PDA random-shape comparisons, not fixed-tree sampling-risk ordering."
+      ],
+      "reasoning": "The new claim is neither a restatement of the Nipperess all-tree computational variance formula nor the Disanto/Choi shape-distribution laws: it fixes unit-edge rooted binary trees, solves inverse determination of two clade counts, and constructs infinitely many topology pairs with strict opposite risk ordering across the first two nontrivial near-complete deletion budgets. Related independent-Bernoulli phylogenetic-diversity investigations use independent survival rather than these hypergeometric budgets, and their statements do not imply this result.",
+      "searches": [
+        "phylogenetic diversity rarefaction variance maximum balanced caterpillar rooted tree full binary",
+        "phylogenetic diversity random subtree length variance under random sampling taxa 2013 2015",
+        "phylogenetic diversity source tree shapes cherries pitchforks variance covariance taxon extinction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/: rooted PD variance under hypergeometric rarefaction, Sections Materials and methods/Discussion, with no named cherry-pitchfork inversion theorem.",
+        "https://arxiv.org/abs/1112.1295: Sections 2-3 define cherries/pitchforks and enumerate joint laws of ranked trees, with no rarefaction framework.",
+        "https://arxiv.org/abs/2002.12643: comparisons of tree-model shape distributions, no rooted PD rarefaction event."
+      ],
+      "reasoning": "Searching tree-index recovery and two-budget variance reversal as aliases revealed the broad moment formalism and separate shape statistics, not an equivalent paired-variance identifiability plus infinite strict-reversal statement. A formula permitting numerical evaluation is acknowledged as methodological coverage; it does not in the inspected text assert the all-size structural ordering claim.",
+      "searches": [
+        "\"cherries\" \"pitchforks\" \"rarefaction\" \"variance\" phylogenetic",
+        "\"phylogenetic diversity\" \"variance\" \"tree shape\" \"sampling\" \"ranking\"",
+        "Cherries and pitchforks jointly determine first two near-complete rooted phylogenetic diversity rarefaction variances",
+        "Under uniform rarefaction of rooted binary phylogenetic trees with unit branch lengths, removal of two or three leaves: phylogenetic diversity variance depends on cherries and pitchforks; tree ranking reverses"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/1112.1295: Figure 1 explicitly includes six-tip shapes with (c,t)=(3,0) and (2,2), precursor configurations for m=1.",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/: Tables/Figures concern empirical rarefaction curves, no tabulated all-m pair variance reversal.",
+        "https://arxiv.org/abs/2002.12643: tabulations are distribution of cherry/pitchfork counts under tree-generation models."
+      ],
+      "reasoning": "The six-leaf clade count pair is known in a published shape table. Its single numerical variance comparison can be reconstructed using the previously published general rarefaction formula, and is not used alone as originality. No inspected exact table gives infinitely many constructed pairs, exact two- and three-deletion variance differences, or identifiability of both counts from these two moments.",
+      "searches": [
+        "\"phylogenetic diversity\" \"cherries\" \"pitchforks\" \"variance\" rarefaction",
+        "Disanto Wiehe 2013 exact enumeration cherries pitchforks ranked trees arxiv pdf",
+        "Near complete sampling phylogenetic diversity variance rankings different at n-2 versus n-3 retained taxa, two versus three taxa extinct, infinite pair of trees"
+      ]
+    },
+    "rationale": "General rarefaction variance formulas and distributions of cherry/pitchfork shape statistics are established precedents. The novelty assessed is narrower: deterministic-tree recovery of both clade counts from two near-complete rarefaction variances, together with an explicit infinite strict reversal of tree variance rankings between two and three deletions. No inspected relevant primary full text or semantically closest research record provides this compound theorem. The general formula computes particular instances but does not by itself state or prove the infinite construction; priority beyond inspected sources remains provisional.",
+    "residual_risks": [
+      "Some older or unindexed combinatorial work could state the cherry/pitchfork variance recovery or infinite rank-reversal construction directly; originality is based on searched and inspected evidence, not universal novelty certification.",
+      "Nipperess and Matsen provide a powerful general variance identity from which finite examples are computationally accessible; the present structural conclusions need distinct proof but could be viewed as a specialization by some authors.",
+      "Equal unit lengths and fixed-budget sampling are essential restrictions; the theorem does not settle arbitrary branch lengths or independent extinction models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS generic rarefaction moment methodology, NOT the deterministic cherry/pitchfork index recovery or infinite rank reversal as a stated/derived theorem",
+        "evidence": "Rooted formula and Eq. (1)-(3) near PMC lines 119-162; discussion and tree-shape future work near lines 212-229.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3699894/",
+        "material_read": "Introduction, Materials and methods including rooted covariance identity, example applications, Discussion and explicit future-work statements (HTML full text sections).",
+        "method": "Read open-access PubMed Central article text and its rooted-equation/discussion sections",
+        "title": "The mean and variance of phylogenetic diversity under rarefaction",
+        "trigger": "Exact same PD quantity and without-replacement taxon rarefaction, broad dominating computation"
+      },
+      {
+        "assessment": "COVERS the named shape indices and small count examples, not fixed-budget phylogenetic-diversity variance ranking.",
+        "evidence": "arXiv 1112.1295 sections 2-3, especially Fig. 1 and pitchfork recursion; no rarefaction occurrence in text.",
+        "identifier_or_url": "https://arxiv.org/abs/1112.1295",
+        "material_read": "Full rendered arXiv text, Introduction, definitions, Fig. 1, Sections 3.1-3.2 and main propositions.",
+        "method": "Read open arXiv full-text HTML and searched for rarefaction",
+        "title": "Exact enumeration of cherries and pitchforks in ranked trees under the coalescent model",
+        "trigger": "Same clade statistics and six-leaf shapes potentially subsuming examples"
+      },
+      {
+        "assessment": "COVERS random-tree statistics under PDA/YHK but no rarefaction-PD ranking theorem; not a dominating result.",
+        "evidence": "arXiv:2002.12643 introduction §§1-2 and comparisons §5; searched text has no matches for rarefaction or phylogenetic diversity.",
+        "identifier_or_url": "https://arxiv.org/abs/2002.12643",
+        "material_read": "Abstract, Introduction/section roadmap, model-comparison and conclusion portions; searched full rendered text for rarefaction and phylogenetic diversity.",
+        "method": "Read arXiv HTML sections and full-text term searches",
+        "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+        "trigger": "Potential later stronger joint distribution theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "613bff91-9fb0-4686-be22-83e9287274c1",
+  "value": {
+    "rationale": "Fixed-budget species rarefaction is central to biodiversity comparisons. With uniform unit branch lengths, losing one leaf produces deterministic PD loss; two and three losses are the first natural uncertainty-bearing levels. The paired variances exactly identify two interpretable phylogenetic shape indices while proving that a risk ordering based on two losses can be wrong under three losses for arbitrarily large tree sizes. This is a structural benchmark and motivated limitation, not a claimed empirical consequence or tiny arbitrary numerical improvement.",
+    "status": "PASS"
+  }
+}
