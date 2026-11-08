@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 2b9cf141e40849b97bdacc2ef24aea215064a540",
+        "Checker source blob 51a909803a5dab79d2f0d24ccd667f5ee14cc7f6",
+        "Independent graph ball-mask dynamic programming exact m=3 n=1..9, m=4 n=1..8, m=5 n=1..5; agreement with closed threshold",
+        "Critical overlap charging proof reconstructed from actual RESULT.md and verify.py at verified source tree"
+      ],
+      "rationale": "For Cartesian metric d((a,j),(b,h))=|j-h|+1_{a!=b}, a radius-r source fills exactly the at-most (2r-1) full columns c-r+1..c+r-1 and may cover its single row at the two tips. If I_r are full-column intervals, L=sum|I_r|<=sum_{r=1}^{k-1}(2r-1)=(k-1)^2; overlap redundancy W=L-|union I_r|. For every unfilled column x, the end/start multiplicities a_x,b_x and possible one radius-zero source must cover m different rows. Charging (a_x-1)_++(b_x-1)_+ to adjacent filled columns gives sum R_x<=W (two-sided charge cannot collide except at a singleton covered by only the one r=1 interval). Thus holes cost >=1 overlap unit if m>=4 and all but possibly one if m=3. This proves n<=(k-1)^2 or (k-1)^2+1, respectively, with the k=2 n<=1 exception for m=3. Consecutive odd-length full interval tilings and explicit 5-column row1/r2 at col2, row2/r1 at col5, row3/r0 at col4 witness equality. Source-column clipping proves all shorter path orders. Independent bitmask dynamic search checked exact burning numbers for m=3,n=1..9; m=4,n=1..8; m=5,n=1..5, agreeing with formula. Finite checks are not the infinite proof.",
+      "residual_risks": [
+        "Charging lemma relies on interpretation of intervals clipped to the actual path and a single radius-1 singleton interval; checked both endpoint and two-sided hole cases.",
+        "Bound excludes width two and all variants beyond ordinary vertex burning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitsche, Prałat and Roshanbin, Burning number of graph products, Theoretical Computer Science 746 (2018), Section 3.1 Theorem 7: ceil(sqrt(n)) <= b(K_m □ P_n) <= ceil(sqrt(n))+1; square-order upper bound attained.",
+          "Graph product metric creates full columns and single-row tip cells; the new formula decides every nonsquare n and the width-three offset.",
+          "Antony et al., Graph Burning: Bounds and Hardness, arXiv:2402.18984, sections on interval/Pk-free hardness and graph-burning variants rather than all-order clique-path burning."
+        ],
+        "reasoning": "The published product theorem includes the same graph family but has a one-round gap away from square n; no stronger covered result was found in the inspected relevant primary sections. The square subcase is credited, not presented as new.",
+        "searches": [
+          "exact burning number Cartesian product clique path K_m square P_n sharp m=3 extra column",
+          "burning number path of cliques Cartesian product width three full column tips",
+          "https://doi.org/10.1016/j.tcs.2018.06.036",
+          "https://arxiv.org/abs/2402.18984"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/j.tcs.2018.06.036 Section 3.1 Theorem 7",
+        "arxiv:2402.18984 full original manuscript",
+        "MathWorld Burning Number K2 ladder table",
+        "Resultary semantic query exact burning number Cartesian product clique path K_m square P_n",
+        "GitHub code/record search burning number clique path (no match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mitsche, Prałat and Roshanbin, Burning number of graph products, Theoretical Computer Science 746 (2018), Section 3.1 Theorem 7: ceil(sqrt(n)) <= b(K_m □ P_n) <= ceil(sqrt(n))+1; square-order upper bound attained.",
+          "Graph product metric creates full columns and single-row tip cells; the new formula decides every nonsquare n and the width-three offset.",
+          "Antony et al., Graph Burning: Bounds and Hardness, arXiv:2402.18984, sections on interval/Pk-free hardness and graph-burning variants rather than all-order clique-path burning."
+        ],
+        "reasoning": "A general upper/lower sandwich admits two values for infinitely many nonsquare n, so neither the all-order equality nor exact exceptional +1 column follows. The new proof uses overlap-tip charging absent from the generic bound.",
+        "searches": [
+          "exact burning number Cartesian product clique path K_m square P_n sharp m=3 extra column",
+          "burning number path of cliques Cartesian product width three full column tips",
+          "https://doi.org/10.1016/j.tcs.2018.06.036",
+          "https://arxiv.org/abs/2402.18984"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mitsche, Prałat and Roshanbin, Burning number of graph products, Theoretical Computer Science 746 (2018), Section 3.1 Theorem 7: ceil(sqrt(n)) <= b(K_m □ P_n) <= ceil(sqrt(n))+1; square-order upper bound attained.",
+          "Graph product metric creates full columns and single-row tip cells; the new formula decides every nonsquare n and the width-three offset.",
+          "Antony et al., Graph Burning: Bounds and Hardness, arXiv:2402.18984, sections on interval/Pk-free hardness and graph-burning variants rather than all-order clique-path burning."
+        ],
+        "reasoning": "Equivalent model is ordinary burning via distance-ball covers of a path of clique layers; neither strong-product nor ladder K2 formulas are equivalent, and the published exact square-order cases do not settle nonsquares.",
+        "searches": [
+          "exact burning number Cartesian product clique path K_m square P_n sharp m=3 extra column",
+          "burning number path of cliques Cartesian product width three full column tips",
+          "https://doi.org/10.1016/j.tcs.2018.06.036",
+          "https://arxiv.org/abs/2402.18984"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld tabulates K2 □ Pn ladder burning, not m>=3.",
+          "Resultary published semantic lookup for exact clique-path burning produced graph invariant findings on cylindrical grids/path products, not this burned-column threshold."
+        ],
+        "reasoning": "Existing ladder tables are different width and do not mechanically imply the m=3 special cutoff or m>=4 formula.",
+        "searches": [
+          "MathWorld Burning Number ladder table",
+          "published Resultary exact burning number clique path K_m square P_n",
+          "https://mathworld.wolfram.com/BurningNumber.html"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Author-hosted complete Mitsche–Prałat–Roshanbin PDF not read; relevant published Theorem 7 and adjacent comparison material were inspected, but an obscure appended exact subclass cannot be categorically excluded.",
+        "Unindexed burning-number work using alternate names for layered cliques may cover more than retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general bounds and square-order subcase; not identified as covering entire exact theorem",
+          "evidence": "Theorem 7 gives ceil sqrt(n) lower and ceil sqrt(n)+1 upper, with additional square-order equality.",
+          "identifier_or_url": "doi:10.1016/j.tcs.2018.06.036",
+          "material_read": "Published theorem 7 and text in Section 3.1 surrounding square-order observation; author-hosted full PDF could not be obtained",
+          "method": "substantive publisher excerpt and theorem text; not full PDF",
+          "title": "Burning number of graph products",
+          "trigger": "same Cartesian product graph family"
+        },
+        {
+          "assessment": "NOT_IDENTIFIED_COVERING within inspected primary text",
+          "evidence": "Analyzes structural burning bounds, algorithms and hardness, including graph variants, without a formula for all m>=3,n.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.18984",
+          "material_read": "Entire 18-page accessible original manuscript, including Sections 1–5",
+          "method": "Full PDF read and primary theorem/heading comparison",
+          "title": "Graph Burning: Bounds and Hardness",
+          "trigger": "broader burning methodology, possible hidden clique-path result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact burning thresholds for Cartesian clique–path graphs",
+        "Frozen RESULT.md at actual verified Git tree e2f13dcaac52ef1364fcc9b0ef28e1f9b2cd7080"
+      ],
+      "rationale": "A complete exact infinite two-parameter graph-burning classification closes the one-round ambiguity of the known general Cartesian-product bound for all nonsquare path orders. The abrupt m=3 versus m>=4 extra burnable column is a mathematically motivated extremal boundary, not a routine parameter substitution or finite table.",
+      "residual_risks": [
+        "The known square-order subcase is background and supplies no new value by itself; value lies in nonsquare cutoff and width-three exception."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Charging lemma relies on interpretation of intervals clipped to the actual path and a single radius-1 singleton interval; checked both endpoint and two-sided hole cases.",
+    "Bound excludes width two and all variants beyond ordinary vertex burning.",
+    "Author-hosted complete Mitsche–Prałat–Roshanbin PDF not read; relevant published Theorem 7 and adjacent comparison material were inspected, but an obscure appended exact subclass cannot be categorically excluded.",
+    "Unindexed burning-number work using alternate names for layered cliques may cover more than retrieved."
+  ]
+}

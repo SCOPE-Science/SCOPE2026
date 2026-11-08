@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact product distance identifies full-column intervals of length at most \(2r-1\) and two possible one-row tips. Each unfilled column consumes an endpoint-overlap unit when the clique width is at least four, and all but at most one consume such a unit at width three. The columnwise charging argument proves the lower bounds; constructive tilings and a three-row tip junction attain them. The separate two-round case is checked. The included standard-library verifier independently checks 236 constructive samples, 30 exact burning instances, and 891 endpoint charging cases. This is a proof of all parameter values, not an extrapolation of the tests.
+PASS
 
-## Originality — PASS, with priority risk
+For Cartesian metric d((a,j),(b,h))=|j-h|+1_{a!=b}, a radius-r source fills exactly the at-most (2r-1) full columns c-r+1..c+r-1 and may cover its single row at the two tips. If I_r are full-column intervals, L=sum|I_r|<=sum_{r=1}^{k-1}(2r-1)=(k-1)^2; overlap redundancy W=L-|union I_r|. For every unfilled column x, the end/start multiplicities a_x,b_x and possible one radius-zero source must cover m different rows. Charging (a_x-1)_++(b_x-1)_+ to adjacent filled columns gives sum R_x<=W (two-sided charge cannot collide except at a singleton covered by only the one r=1 interval). Thus holes cost >=1 overlap unit if m>=4 and all but possibly one if m=3. This proves n<=(k-1)^2 or (k-1)^2+1, respectively, with the k=2 n<=1 exception for m=3. Consecutive odd-length full interval tilings and explicit 5-column row1/r2 at col2, row2/r1 at col5, row3/r0 at col4 witness equality. Source-column clipping proves all shorter path orders. Independent bitmask dynamic search checked exact burning numbers for m=3,n=1..9; m=4,n=1..8; m=5,n=1..5, agreeing with formula. Finite checks are not the infinite proof.
 
-Mitsche, Prałat and Roshanbin (2018), Theorem 7, establish bounds that leave a one-round gap in general; their exactness observation already settles the square-order paths for radius-one factors. Those covered cases are explicitly credited. Antony et al. (2024) treat general structural bounds and computational questions, not an all-order clique–path classification. Other accessible tables cover the width-two ladder, which is excluded. Targeted literature and mathematical research-record comparisons located no exact complete theorem for \(m\ge3\). The complete author-hosted 2018 PDF was not retrievable, although its relevant published theorem and square-case paragraph were compared from indexed original text. Unindexed equivalent work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves an infinite two-parameter graph-family invariant exactly and exposes a sharp width-three transition explained by a structural charging principle. This resolves genuinely undecided nonsquare cases beyond the prior general Cartesian-product bounds; merely known square-order instances are not presented as new contributions.
+Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.
 
-## Limits
+## value
 
-Only ordinary vertex burning on \(K_m\square P_n\) with \(m\ge3\), \(n\ge1\) is asserted. No extension to ladder width two, general clique-replaced bases, strong products or other burning variants. Priority remains subject to fuller literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact infinite two-parameter graph-burning classification closes the one-round ambiguity of the known general Cartesian-product bound for all nonsquare path orders. The abrupt m=3 versus m>=4 extra burnable column is a mathematically motivated extremal boundary, not a routine parameter substitution or finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
