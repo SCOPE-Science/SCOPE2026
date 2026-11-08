@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:50:52.553897Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=3,4 and n>=17, start from the published unrestricted maximum 1+binom(n,2). Coordinatewise normalization sends a chosen codeword to zero, leaving weight-two and weight-four layers. The six alternative non-common-core upper bounds in Lin–Djaljapayan–Yu Theorem 7.1 (4n+32,6n+25,4n+22,4n+26,4n+17,7n-11) are strictly below 1+binom(n,2) at n=17 and have smaller increments thereafter; independently checked gaps at 17,18,25,100. With no weight-four words, their isolated-support deficit Eq.(5) forces exactly one word per pair and symbol matching on each coordinate, hence the complete binary-alternative two-flip shell. Otherwise all four-supports share a fixed core pair with three disjoint external edges. Lemma 6.1 bounds |C4|<=binom(n-2,2) and |C2|<=2n-3; optimum forces equality in both. Erasing the core produces a full synchronized weight-two shell on n-2>=15 outer coordinates; any weight-two support must touch the core, and every core or spoke support occurs exactly once. Distance-three exclusions force core and outer symbols to match the weight-four layer, yielding a two-flip shell about the core word. Its center is unique because a noncentral pair word has a disjoint pair word at distance four, and alternatives are uniquely read from the shell, giving (q(q-1))^n distinct labeled codes and one Hamming-isometry orbit. The infinite rigidity uses the published structural lemmas and proof, not the nonexhaustive construction scripts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published theorem handles all q=3,4 code sizes but does not explicitly state equality case; q>=5 and binary variants change alphabets and do not give the nonbinary equality classification."
+        ],
+        "reasoning": "A publication proving equality uniqueness implicitly within its proof would dominate the claim, but the actual source bounds leave an additional synchronization argument that was reconstructed here.",
+        "searches": [
+          "Lin Djaljapayan Yu 2610.30615 Theorem7.1 and Lemma6.1",
+          "Barg et al 2210.07496",
+          "Djaljapayan Lin Yu 2610.30613"
+        ]
+      },
+      "checked_sources": [
+        "Lin–Djaljapayan–Yu arXiv:2610.30615v1 Sections 2,6,7",
+        "Djaljapayan–Lin–Yu arXiv:2610.30613v1 overview",
+        "Barg et al arXiv:2210.07496 metadata",
+        "Resultary semantic equality-code query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous upper bound and layer estimates prove existence and size, not by themselves that each extremal case attains all individual layer bounds with synchronized symbols. The checked core-case argument completes that inference."
+        ],
+        "reasoning": "The novelty claim excludes the previously published upper bound, witness construction and lemma estimates; it targets rigidity and multiplicity only.",
+        "searches": [
+          "arXiv:2610.30615v1 Sections 2,6,7 and full text",
+          "arXiv:2610.30613v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published 1+binom(n,2) size optimum and canonical shell construction are equivalent at the size level, not a classification of all attaining codes."
+        ],
+        "reasoning": "All-size numerical maximum is prior work, whereas the stated iff and labeled multiplicities require proving equality rigidifies the layers.",
+        "searches": [
+          "arXiv:2610.30615v1 Sections 2,6,7",
+          "arXiv:2610.30613v1",
+          "Resultary: ternary quaternary {2,4} distance codes maximum codebooks equality extremizers rigidity n>=17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The maximum-size number is known, and the standard shell provides a witness; no exact labeled count or complete orbit table was found in inspected primary statements."
+        ],
+        "reasoning": "Counting all parameterized shells is not enough by itself: surjectivity from arbitrary optimum codebooks is essential and supplied by equality analysis.",
+        "searches": [
+          "arXiv:2610.30615v1 Eq.(5), Lemma6.1, Theorem7.1",
+          "Resultary semantic {2,4}-code equality query"
+        ]
+      },
+      "rationale": "Lin–Djaljapayan–Yu October 2026 proves the maximum code size and supplies the canonical construction and decisive combinatorial inequalities. The primary paper was read through the relevant original full-text sections; it does not state the equality-case unique binary shell classification, labeled count (q(q-1))^n, or uniqueness of center as a theorem. The claimed new inference uses equality saturation and symbol synchronization in the known bounds. The companion q>=5 paper and older binary size bounds do not imply all q3,q4 extremizers.",
+      "residual_risks": [
+        "An unindexed or implicit older classification of equality cases might exist; no claim of exhaustive historical-priority certification.",
+        "Structural proof depends on correct interpretation and validity of the published cited Lemma6.1, Eq.(5), and Theorem7.1 case estimates, which were read but not independently reproved in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MAX_SIZE_AND_BOUND_LEMMAS",
+          "evidence": "Published |C|<=1+binom(n,2) and construction are prior. Inspected theorem does not assert unique isometry class or all equality cases.",
+          "identifier_or_url": "https://arxiv.org/html/2610.30615v1",
+          "material_read": "Primary arXiv HTML Introduction; Sections 2 (Eq.(5)), 6 (Lemma 6.1), 7 (Theorem 7.1), and related proof/case sections",
+          "method": "Full lawful primary text accessed; relevant math definitions and proof case bounds inspected",
+          "title": "The Ternary and Quaternary Cases of the {2,4}-Distance Code Conjecture",
+          "trigger": "Closest same alphabets and distances, proved maximum"
+        },
+        {
+          "assessment": "DIFFERENT_Q_REGIME",
+          "evidence": "The regime q>=5 does not classify ternary/quaternary maximum codebooks.",
+          "identifier_or_url": "https://arxiv.org/html/2610.30613v1",
+          "material_read": "Bibliographic scope and overview of q>=5 regime",
+          "method": "Primary public arXiv page; relevant summary, not full proof read",
+          "title": "Asymptotically Sharp Length Thresholds for q-ary Codes with Distances 2 and 4",
+          "trigger": "Companion work with possibly stronger q-general size results"
+        },
+        {
+          "assessment": "BINARY_ONLY",
+          "evidence": "Binary size theorems do not establish q=3,4 shell rigidity.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.07496",
+          "material_read": "Bibliographic abstract and finite-distance size claims",
+          "method": "Primary arXiv abstract; not full paper read",
+          "title": "On the size of maximal binary codes with 2, 3, and 4 distances",
+          "trigger": "Earlier related binary code size theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimum size and standard shell example were already known, but a complete classification of all extremizers is mathematically stronger: ruling out noncanonical codes, proving a unique shell center and fixed alternative symbols, determining one orbit and a closed labeled count for every n>=17. This is a natural sharp rigidity question in extremal Hamming coding, not a numerical recomputation of the old maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification holds only for n>=17 and q=3,4; no smaller length or larger alphabet statement.",
+    "Underlying external published structural lemma estimates are an explicit assumption in the equality-case deduction.",
+    "An unindexed or implicit older classification of equality cases might exist; no claim of exhaustive historical-priority certification.",
+    "Structural proof depends on correct interpretation and validity of the published cited Lemma6.1, Eq.(5), and Theorem7.1 case estimates, which were read but not independently reproved in full."
+  ],
+  "schema_version": 1
+}

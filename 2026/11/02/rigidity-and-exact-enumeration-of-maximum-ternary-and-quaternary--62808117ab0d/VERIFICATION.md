@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence limits
+# Independent mathematical audit
 
-The theorem's infinite-range statement rests on a mathematical implication from the explicit structural bounds in Lin–Djaljapayan–Yu, arXiv:2610.30615v1, Theorem 7.1 and Lemma 6.1. The no-weight-four branch uses their Eq. (5) plus one-coordinate synchronization. Its published cardinality theorem supplies the matching optimal upper bound.
+## correctness
 
-Run `python3 check_bound_gaps.py` to reproduce the six exact gap calculations at \(n=17\), plus finite arithmetic spot checks. The elementary expression \(g(n+1)-g(n)=n-b\), where each excluded upper bound is \(bn+a\) with \(b\le7\), proves positivity for every subsequent length without computational extrapolation; the program is a diagnostic only.
+PASS
 
-Run `python3 check_extremizers.py` to check that all parameter choices produce different labeled valid shell codes in the four reported small regimes, verify the unique center in each example, and test specific constructions at lengths 17 and 24. Read `bound_gaps_output.txt` and `verification_output.txt` for the exact outputs obtained when these checks were run. These scripts do not search over all admissible codebooks at large lengths, and do not independently certify the published structural lemmas; the mathematical proof provides the all-length classification.
+For q=3,4 and n>=17, start from the published unrestricted maximum 1+binom(n,2). Coordinatewise normalization sends a chosen codeword to zero, leaving weight-two and weight-four layers. The six alternative non-common-core upper bounds in Lin–Djaljapayan–Yu Theorem 7.1 (4n+32,6n+25,4n+22,4n+26,4n+17,7n-11) are strictly below 1+binom(n,2) at n=17 and have smaller increments thereafter; independently checked gaps at 17,18,25,100. With no weight-four words, their isolated-support deficit Eq.(5) forces exactly one word per pair and symbol matching on each coordinate, hence the complete binary-alternative two-flip shell. Otherwise all four-supports share a fixed core pair with three disjoint external edges. Lemma 6.1 bounds |C4|<=binom(n-2,2) and |C2|<=2n-3; optimum forces equality in both. Erasing the core produces a full synchronized weight-two shell on n-2>=15 outer coordinates; any weight-two support must touch the core, and every core or spoke support occurs exactly once. Distance-three exclusions force core and outer symbols to match the weight-four layer, yielding a two-flip shell about the core word. Its center is unique because a noncentral pair word has a disjoint pair word at distance four, and alternatives are uniquely read from the shell, giving (q(q-1))^n distinct labeled codes and one Hamming-isometry orbit. The infinite rigidity uses the published structural lemmas and proof, not the nonexhaustive construction scripts.
 
-Boundary: nothing here establishes uniqueness for \(n\le16\), codes over alphabets larger than four, or other prescribed distance sets. Mathematical independent audit has not been performed.
+## originality
+
+PASS
+
+Lin–Djaljapayan–Yu October 2026 proves the maximum code size and supplies the canonical construction and decisive combinatorial inequalities. The primary paper was read through the relevant original full-text sections; it does not state the equality-case unique binary shell classification, labeled count (q(q-1))^n, or uniqueness of center as a theorem. The claimed new inference uses equality saturation and symbol synchronization in the known bounds. The companion q>=5 paper and older binary size bounds do not imply all q3,q4 extremizers.
+
+## value
+
+PASS
+
+The optimum size and standard shell example were already known, but a complete classification of all extremizers is mathematically stronger: ruling out noncanonical codes, proving a unique shell center and fixed alternative symbols, determining one orbit and a closed labeled count for every n>=17. This is a natural sharp rigidity question in extremal Hamming coding, not a numerical recomputation of the old maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

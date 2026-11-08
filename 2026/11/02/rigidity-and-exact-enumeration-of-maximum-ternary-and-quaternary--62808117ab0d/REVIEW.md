@@ -1,19 +1,21 @@
-# Review of extremizer rigidity for two-distance codes
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement quantifies over every labeled alphabet of size \(3\) or \(4\), every \(n\ge17\), and unrestricted (not necessarily linear) codes with nonzero pairwise Hamming distances in \(\{2,4\}\). The proof uses the strict cases of the *publicly available* Section 7 bound in arXiv:2610.30615v1, then derives equality in both estimates of Lemma 6.1. The deficit formula in its Eq. (5) forces all external pairs, and the one-coordinate synchronization lemma forces all letters. Explicit disjoint pairs determine the unique center and justify the count \((q(q-1))^n\). At \(n=17\), the six alternative upper bounds are at least 10 below the optimum; their gaps increase thereafter. The two standalone programs replay finite sanity checks; the all-length conclusion follows from the argument, not from a finite extrapolation.
+PASS
 
-## Originality (O): PASS, qualified
+For q=3,4 and n>=17, start from the published unrestricted maximum 1+binom(n,2). Coordinatewise normalization sends a chosen codeword to zero, leaving weight-two and weight-four layers. The six alternative non-common-core upper bounds in Lin–Djaljapayan–Yu Theorem 7.1 (4n+32,6n+25,4n+22,4n+26,4n+17,7n-11) are strictly below 1+binom(n,2) at n=17 and have smaller increments thereafter; independently checked gaps at 17,18,25,100. With no weight-four words, their isolated-support deficit Eq.(5) forces exactly one word per pair and symbol matching on each coordinate, hence the complete binary-alternative two-flip shell. Otherwise all four-supports share a fixed core pair with three disjoint external edges. Lemma 6.1 bounds |C4|<=binom(n-2,2) and |C2|<=2n-3; optimum forces equality in both. Erasing the core produces a full synchronized weight-two shell on n-2>=15 outer coordinates; any weight-two support must touch the core, and every core or spoke support occurs exactly once. Distance-three exclusions force core and outer symbols to match the weight-four layer, yielding a two-flip shell about the core word. Its center is unique because a noncentral pair word has a disjoint pair word at distance four, and alternatives are uniquely read from the shell, giving (q(q-1))^n distinct labeled codes and one Hamming-isometry orbit. The infinite rigidity uses the published structural lemmas and proof, not the nonexhaustive construction scripts.
 
-The nearest source is Lin–Djaljapayan–Yu (2026), arXiv:2610.30615v1, sections 2, 6, 7 and 9, which proves the optimal *cardinality* and displays the standard construction. It does not assert that every optimal code is isometric to it or count distinct labeled maximizers. The new implication extracts equality in both layer bounds, proves simultaneous synchronization of all supports, identifies a unique center, and counts every labeled equality case. Their companion arXiv:2610.30613v1 is restricted to \(q\ge5\); the binary precursor arXiv:2210.07496 addresses maximum size, not this ternary/quaternary equality classification. Searches for equivalent isometry-orbit classifications and exact codebook counts revealed no covering theorem; this is not a proof of global priority. The principal residual risk is that the equality classification may already have been recognized implicitly or recorded in unindexed work.
+## originality
 
-## Value (V): PASS
+PASS
 
-Knowing only the maximum size does not tell whether extremizers are structurally rigid or how many different labeled codebooks attain it. This result settles those natural questions simultaneously for every alphabet of size three or four at all lengths \(n\ge17\), by a nontrivial equality-case analysis of intersecting support configurations. It identifies one isometry class, forbids use of three or four different symbols at any fixed coordinate, and gives an exact exponentially large enumeration. These are structural consequences of extremality, rather than a restatement of the existing cardinality bound.
+Lin–Djaljapayan–Yu October 2026 proves the maximum code size and supplies the canonical construction and decisive combinatorial inequalities. The primary paper was read through the relevant original full-text sections; it does not state the equality-case unique binary shell classification, labeled count (q(q-1))^n, or uniqueness of center as a theorem. The claimed new inference uses equality saturation and symbol synchronization in the known bounds. The companion q>=5 paper and older binary size bounds do not imply all q3,q4 extremizers.
 
-## Scientific dependencies and limits
+## value
 
-The structural estimates in arXiv:2610.30615v1 are accepted as proved published premises. No attempt is made to independently reprove the underlying combinatorial intersection inequalities. The analysis does not classify maximizers at \(n\le16\) or alphabets of size at least five. The finite checks confirm construction validity, parameter injectivity in sample dimensions, and the arithmetic of the strict bounds; they cannot certify uniqueness of *arbitrary* large codes without the proof. Independently checking the source inequalities and previously uncatalogued equality-case work remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimum size and standard shell example were already known, but a complete classification of all extremizers is mathematically stronger: ruling out noncanonical codes, proving a unique shell center and fixed alternative symbols, determining one orbit and a closed labeled count for every n>=17. This is a natural sharp rigidity question in extremal Hamming coding, not a numerical recomputation of the old maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
