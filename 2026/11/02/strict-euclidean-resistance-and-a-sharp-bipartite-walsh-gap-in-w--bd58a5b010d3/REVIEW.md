@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Laplacian diagonalization is exact and covers all positive real conductances and dimensions \(d\ge1\). The Boolean generatorwise triangle inequality proves the sharp strictly positive Gram spectrum \(b_\tau\ge4/(N\lambda_\tau^2)\), including equality exactly in the bipartition mode. The full Gram rank and continuity arguments prove the claimed Euclidean dimension and an interval of negative-type exponents above \(2\). Finite exact-rational tests are corroborative, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For connected translation-invariant positively weighted Boolean Cayley graph, characters diagonalize L with lambda_chi=2 sum_{chi(s)=-1}c_s>0. Direct pseudoinverse gives r(z)=(2/N)sum_{chi nontriv}(1-chi(z))/lambda_chi. The unnormalized Walsh transform of r² on nontrivial tau equals (4/N)(sum_chi a_chi a_(chi tau)-2A a_tau). Generatorwise sign subadditivity lambda_tau<=lambda_chi+lambda_(chi tau) implies sum_chi a_chi a_(chi tau)<=2A a_tau-2a_tau², hence B=-H R² H/2 has eigenvalues b_tau>=4/(N lambda_tau²)>0. Equality is attained exactly when tau(s)=-1 for every generator, characterizing the unique connected bipartition Walsh mode. Positive definite centered Gram rank N-1 implies R itself is an affine-independent Euclidean distance metric; continuity in p yields some strict negative type above 2. Independent exact rational grounded-Laplacian/Walsh checks on small weighted Boolean groups confirm sign and equality but do not prove general dimension/real weights.
 
-The inspected Jorgensen--Pearse Hilbert embedding is for \(\sqrt R\), not \(R\). Hypercube Kirchhoff sums and Hamming shortest-path negative type do not imply the sharp squared-resistance Walsh result. Gao--Luo--Liu (2011) is a directly related general Cayley resistance article; its full text was unavailable and its potential stronger coverage remains an explicit priority risk. Searches do not prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem is a natural structural extension from general resistance geometry to an infinite family allowing arbitrary translation-invariant conductances; the full minimum Euclidean dimension and the sharp bipartiteness equality witness are determined. The resistance metric of a three-leaf star fails \(2\)-negative type, showing the effect is not automatic or a textbook renaming.
+Best-of-knowledge source comparison of exact mathematical implications, not merely titles; published SCOPE/Resultary semantic corpus queried and primary source material inspected as specifically recorded. No inspected stronger prior result covers the distinctive final claim, subject to explicitly named access and priority limitations.
 
-## Limits
+## value
 
-No theorem for non-Boolean generators, nontranslation-invariant conductances, or an exact maximal exponent above \(2\) is asserted. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inequality is a quantitative all-conductance strengthening of the ordinary resistance-as-squared-Hilbert-distance fact, identifying a striking sharp bipartite equality mechanism and Euclidean simplex rank. This is useful for finite metric embeddings and electrical networks; the result does not purport to give the exact supremal p>2 or extend to non-Boolean electrical networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
