@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** A page triangle has exactly three allowed local states for each orientation of the shared edge. The full system is therefore the binary-selector class defined in RESULT.md. The complete-tree recurrence accounts exhaustively for selector, full-column, and either half-column queries. The claimed closed form is proved from that recurrence by induction, including the zero-page base case and asymmetric conditional states. Direct directed-cycle enumeration and mistake-tree recursion through six pages support the construction but are not treated as an unrestricted proof.
+
+**Originality: PASS within available comparisons.** Kozma–Moran establishes the acyclic-orientation/forest VC correspondence and is excluded from novelty. Pikhurko analyzes a different optimization goal, minimax identification query count, not adversarial complete-tree shattering depth. Cardinal et al. construct Gray codes of chordal acyclic orientations, not their Littlestone dimensions. Dong et al. study acyclic-orientation enumerators. The immediately preceding comparison on \(K_{2,b}\) omits the shared-edge query and is insufficient to force the even/odd rank transition. Database and phrase/alias searches did not locate a stronger statement. Residual risk: the exact rank may exist in a different vocabulary, such as balanced adversarial decision-tree height.
+
+**Mathematical value: PASS.** The exact conditional theorem classifies all relevant residual learning states rather than reporting a single numerical sequence. It yields an unbounded online/static separation on a natural chordal bounded-clique family and a parity-sensitive one-edge perturbation of the adjacent complete-bipartite case. The rank is not determined by the already-known hypothesis count or by static forest shattering.
+
+The theorem applies only to binary queries about directions of edges in acyclic orientations of triangular books, not general chordal graphs or optimal identification trees. The small-case checker is not an infinite proof; the recurrence supplies that proof. Historical priority and terminology remain genuine residual uncertainties.
+
+Self-review: passed. Independent audit: not yet performed.
