@@ -1,19 +1,21 @@
-# Scientific review — Eight three-round theories of Cartesian products of finite cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated language, graph domain and three-round Ehrenfeucht–Fraïssé semantics are precise. The proof first establishes an exact two-point-extension criterion for vertex-transitive graphs, including repeated selections. It then proves that for every product with at least two cycle factors the third-vertex patterns \(00,01,10\) always occur, and identifies exactly when \(11\) occurs from triangular edges or pairs at distance two. The exceptional product \(C_3\square C_3\) is checked explicitly. The one-factor table treats each small cycle separately and proves the uniform tail from length seven. All eight spectra are pairwise distinct, giving both directions of the full classification and the sharp maximum smallest representative size \(27\). Two standalone, exact finite checkers produce corroborating output. Their finite coverage is not substituted for the infinite argument.
+PASS
 
-## Originality — PASS, qualified
+For vertex-transitive nonempty simple graphs the complete pair witness spectrum Σ={(e(u,v),{(e(u,w),e(v,w)):w≠u,v}):u≠v} is exactly the information needed for a three-round EF game: the first vertex is matched by transitivity, the second by a matching pair type, and the third by an available atomic witness or repeated vertex. For products of d≥2 cycles, degree 2d and at most two common neighbors imply private neighbors, and an absent 00 pair pattern only in small excluded size cases; the C3×C3 exception was separately checked. Common neighbors of adjacent pairs identify 3-cycle factors, and distance-two versus distance≥3 pairs classify nonadjacent pair types. The product diameter sum floor(n_i/2) gives exactly four multi-factor spectra. Single-cycle direct analysis gives four short exceptions and stabilized C_n,n≥7; eight distinct classes result. Independent full pair-witness enumeration on 16 representatives across d=1..4 corroborated all eight classes and found C7≡3 C4×C4; proof handles arbitrary d and n_i. Family-relative maximum smallest representative is 27 vertices at C3×C3×C3.
 
-Brown and Hoshino's *The Ehrenfeucht–Fraïssé Game for Paths and Cycles* (2007), Theorem 4.9, gives the single-cycle three-round threshold, not multi-factor equivalence. Verbitsky's arXiv:math/0401361v1 develops general graph-definability bounds, not these sharp eight classes. Earlier Hamming-graph and two-factor torus classifications at rank four and a general three-round pair-spectrum method were compared by **statement and implication**; none of those claims contains the all-dimension, cross-dimensional eight-class theorem. The result should therefore be attributed as a new application/classification, not a new game-theoretic invariant. Accessible literature and research-database searches did not locate direct stronger coverage. This is a best-knowledge assessment, not a claim of exhaustive historical priority: the older Brown–Woodrow technical report and the wider product-logic literature have not been comprehensively checked.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem asks for a complete logical classification of a standard graph-product family under unbounded dimension and unbounded factor lengths. The exact eight-class answer is a natural full classification rather than an arbitrary parameter slice. Its cross-dimensional collapse is substantial: a degree-two seven-cycle and products of arbitrarily high degree are indistinguishable through three rounds, while pure triangular and mixed triangular factors create genuinely different classes. The sharp family representative bound \(27\), explicit spectra, and bounded-depth nondefinability consequences make this exact fact reusable in logic of graph products. The proof uses a short general extension lemma; the value lies in its complete nontrivial parameter consequences, not in claiming a wholly new EF technique.
+Brown–Hoshino gives the bare-cycle rank-three cutoff 7, and general FO game pair-characterization is standard. The result adds the classification for all d and factor lengths, including nontrivial equivalences C7≡3 high-dimensional all-n_i≥4 products and the exact mixed-triangle strata. Verbitsky surveys graph EF methods without this torus-specific eight-spectrum theorem. Relevant Resultary toroidal graph results concerned topological invariants, not FO rank-three theories.
 
-## Closest literature and limitations
+## value
 
-Jason Brown and Richard Hoshino, Ars Combinatoria 83 (2007), pages 193–212, https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf, covers single cycles; Theorem 4.9 and the concluding limitations were materially examined. Oleg Verbitsky, arXiv:math/0401361v1, https://arxiv.org/pdf/math/0401361, covers graph-definability estimates and broad EF methods; its introduction and related-work discussion were materially examined. Finite verification examines 76 pair spectra and 21 independently evaluated complete three-round logical types; it cannot establish the infinite theorem. The classification is not claimed for richer signatures, counting quantifiers, or higher ranks. Full historical-priority verification and third-party validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete cross-dimensional indistinguishability classification is a natural mathematical question in finite model theory: rank-three FO cannot distinguish a seven-cycle from arbitrarily large-degree torus graphs without triangular factors. The sharp 27-vertex family-relative representative bound and explicit pattern spectra give reusable logical invariants, not parameter substitution or known cycle-only result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

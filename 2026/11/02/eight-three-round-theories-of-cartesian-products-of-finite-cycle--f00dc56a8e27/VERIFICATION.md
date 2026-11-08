@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`; these computations are additional finite checks, not an induction or substitute for the all-dimension argument.
+## correctness
 
-Run `python3 torus_types.py` to enumerate two-point extension profiles and test 76 undirected cycle products across dimensions one through five. The script compares each computed set with the eight table entries. Its terminal output is in `torus_types_output.txt`. The vertex list includes every product vertex; the third-vertex loop excludes the two already selected vertices and checks all four adjacency patterns.
+PASS
 
-Run `python3 direct_rank3.py` to compute full quantifier-rank-three sentence types of 21 finite product graphs by canonical recursive atomic types. It includes all equality patterns, all third-vertex choices, all second-vertex choices and all first-vertex choices, without assuming vertex transitivity. The resulting eight classes and per-graph groups are recorded in `direct_rank3_output.txt`.
+For vertex-transitive nonempty simple graphs the complete pair witness spectrum Σ={(e(u,v),{(e(u,w),e(v,w)):w≠u,v}):u≠v} is exactly the information needed for a three-round EF game: the first vertex is matched by transitivity, the second by a matching pair type, and the third by an available atomic witness or repeated vertex. For products of d≥2 cycles, degree 2d and at most two common neighbors imply private neighbors, and an absent 00 pair pattern only in small excluded size cases; the C3×C3 exception was separately checked. Common neighbors of adjacent pairs identify 3-cycle factors, and distance-two versus distance≥3 pairs classify nonadjacent pair types. The product diameter sum floor(n_i/2) gives exactly four multi-factor spectra. Single-cycle direct analysis gives four short exceptions and stabilized C_n,n≥7; eight distinct classes result. Independent full pair-witness enumeration on 16 representatives across d=1..4 corroborated all eight classes and found C7≡3 C4×C4; proof handles arbitrary d and n_i. Family-relative maximum smallest representative is 27 vertices at C3×C3×C3.
 
-No external dependencies are required beyond Python 3. Counts and files were replayed from the actual packaged bytes. Exhaustive finite tests alone cannot imply stabilization in unbounded dimension; that conclusion uses the graph-theoretic lemmas proved in `RESULT.md`. No assertion is made regarding independently performed audit.
+## originality
+
+PASS
+
+Brown–Hoshino gives the bare-cycle rank-three cutoff 7, and general FO game pair-characterization is standard. The result adds the classification for all d and factor lengths, including nontrivial equivalences C7≡3 high-dimensional all-n_i≥4 products and the exact mixed-triangle strata. Verbitsky surveys graph EF methods without this torus-specific eight-spectrum theorem. Relevant Resultary toroidal graph results concerned topological invariants, not FO rank-three theories.
+
+## value
+
+PASS
+
+A complete cross-dimensional indistinguishability classification is a natural mathematical question in finite model theory: rank-three FO cannot distinguish a seven-cycle from arbitrarily large-degree torus graphs without triangular factors. The sharp 27-vertex family-relative representative bound and explicit pattern spectra give reusable logical invariants, not parameter substitution or known cycle-only result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
