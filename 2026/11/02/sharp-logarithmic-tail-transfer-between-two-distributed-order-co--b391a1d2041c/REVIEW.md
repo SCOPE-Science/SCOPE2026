@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient generating functions are well defined by integrating fractional coefficients of \((1-z)^{-\beta}\) and \(((1-z)(3-z)/2)^{-\beta}\). Factoring the BDF2 symbol yields a negative-binomial convolution with exactly computable mean \(\beta/2\). A uniform ratio expansion and geometric-tail control give the precise fixed-order difference with an error integrable over every stated nonnegative order density. Endpoint Laplace integration proves the two sharp logarithmic laws. Absolute summability permits identifying the total difference through the Abel limit, which vanishes by dominated convergence; summation of the positive asymptotic tail yields the universal finite-prefix ratio \(1/2\). The endpoints, strict startup sign, and quantifiers are checked. The standalone numerical checks are supplementary, not proofs.
+PASS
 
-## Originality — PASS with residual historical uncertainty
+The theorem compares uncorrected unit-step BE and BDF2 fractional-integral coefficients for integrable nonnegative densities w(1-t)~c t^alpha, alpha>-1. For fixed beta, BDF2 weights equal BE coefficients a_{n-k}(beta) averaged over negative-binomial p_k(beta) of mean beta/2 and geometric tails. The uniform coefficient ratio a_{n-k}/a_n=1+(1-beta)k/n+O((1-beta)(k+k^2)/n^2) for k<=n/4 yields difference a_n*beta(1-beta)/(2n)+smaller remainder. Gamma-ratio and endpoint Laplace integration then establish e_n~c Gamma(alpha+1)/(log n)^(alpha+1), d_n~c Gamma(alpha+2)/(2n(log n)^(alpha+2)) positive eventually. Integrability of d_n and z->1 generating-function difference bounded by (1/2)int w(beta)(1-z)^(1-beta) imply sum d_n=0 by dominated Abel limit. Integral tail gives prefix deficit ~e_n/2. In the uniform-order case independent numerical quadrature at n=50,100,1000 found positive differences and increasing scaled n log(n)^2 d_n approx 0.193,0.221,0.292 (approaching 0.5 very slowly); not substituted for asymptotic proof. Endpoint beta=1 atom excluded by density assumption; d0<0 follows from w positive near 1.
 
-Ren–Su (arXiv:2610.23163v2, Sections 4.2 and 5) analyze radial-symbol CQ error and stability for the same uniform-order integral and show BE/BDF2 finite-time convergence comparisons, but not paired weight-difference asymptotics or a sum-zero compensation law. Yin–Liu–Li–Zhang (DOI:10.3934/dcdsb.2020168, Sections 2–5 and Eq. (7)) give general distributed-order CQ constructions and a fixed-order singular expansion. The latter already supplies the ingredients of the fixed-order first correction and is not claimed as new. The present theorem additionally proves the uniform order-endpoint transition for all power-law order densities, the exact cancellation, and the universal half-coefficient cumulative law. Published mathematical-record searches found other BDF2 positivity and weighted-kernel results but no implication covering these coupled claims. Prior generic asymptotic machinery might allow another derivation; historical exhaustiveness and independent priority review are not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform and nonuniform distributed-order kernels exhibit very slowly decaying memory. The theorem gives the sharp quantitative redistribution from startup weight into the tail when switching from first- to second-order CQ, including the residual accumulated mismatch after an arbitrarily long finite convolution. Its order-density independence in normalized units supplies a practical sharp benchmark for truncation and memory-compression error analysis. It does not infer improved PDE accuracy, stability, or coefficientwise positivity for all time levels.
+Best-of-knowledge PASS with access caveat: earlier distributed-order CQ stability and error theory is foundational but the inspected available statements do not establish this all-power-endpoint coefficientwise difference, cancellation, and half-prefix law. Full relevant recent paper inaccessible; historical priority risk explicitly preserved.
 
-## Closest literature and limitations
+## value
 
-The closest direct source is Ren–Su, *Stability and Error Estimates for Convolution Quadrature under Radial Symbol Bounds*, arXiv:2610.23163v1, publicly submitted October 16, 2026, with relevant detailed material in v2. Yin et al., *Approximation methods for the distributed order calculus using the convolution quadrature*, first public May 15, 2020, provides the broader fractional/distributed-order construction and generic fixed-order expansion. Lubich (1986, 1988) establishes CQ foundations. The precise paired long-memory compensation remains subject to specialized historical-priority verification. No claim is made for start-corrected implementations, signed densities, discrete order measures or nonlinear systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distributed-order CQ kernels have long logarithmic tails important for memory truncation. The exact redistribution of coefficient mass when replacing BE by BDF2, zero net difference and universal half-prefix deficit furnish precise quantitative benchmarks; these are not merely error-order statements or unsupported assertions of PDE accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

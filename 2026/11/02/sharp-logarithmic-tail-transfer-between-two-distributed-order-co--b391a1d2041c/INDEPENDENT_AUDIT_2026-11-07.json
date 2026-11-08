@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:06:06.881684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem compares uncorrected unit-step BE and BDF2 fractional-integral coefficients for integrable nonnegative densities w(1-t)~c t^alpha, alpha>-1. For fixed beta, BDF2 weights equal BE coefficients a_{n-k}(beta) averaged over negative-binomial p_k(beta) of mean beta/2 and geometric tails. The uniform coefficient ratio a_{n-k}/a_n=1+(1-beta)k/n+O((1-beta)(k+k^2)/n^2) for k<=n/4 yields difference a_n*beta(1-beta)/(2n)+smaller remainder. Gamma-ratio and endpoint Laplace integration then establish e_n~c Gamma(alpha+1)/(log n)^(alpha+1), d_n~c Gamma(alpha+2)/(2n(log n)^(alpha+2)) positive eventually. Integrability of d_n and z->1 generating-function difference bounded by (1/2)int w(beta)(1-z)^(1-beta) imply sum d_n=0 by dominated Abel limit. Integral tail gives prefix deficit ~e_n/2. In the uniform-order case independent numerical quadrature at n=50,100,1000 found positive differences and increasing scaled n log(n)^2 d_n approx 0.193,0.221,0.292 (approaching 0.5 very slowly); not substituted for asymptotic proof. Endpoint beta=1 atom excluded by density assumption; d0<0 follows from w positive near 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior generalized-order and radial-error estimates concern method stability/convergence or fixed-order coefficient tools; these alone do not force the specific paired endpoint-density sharp constants."
+        ],
+        "reasoning": "Broader classes of discretizations do not dominate the exact current coefficient-difference invariant unless they imply the paired asymptotic; this implication is unverified for inaccessible relevant sections.",
+        "searches": [
+          "DOI:10.3934/dcdsb.2020168 distributed-order CQ general framework",
+          "arXiv:2610.23163 radial-symbol bounds",
+          "Lubich 1986/1988 fractional CQ"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.23163",
+        "DOI:10.3934/dcdsb.2020168",
+        "DOI:10.1137/0517050; DOI:10.1007/BF01398686",
+        "Resultary semantic query: distributed order convolution quadrature backward Euler BDF2 weights difference asymptotic logarithmic tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Convergence-error bounds do not by themselves state the signed d_n tail, total cancellation, or universal ratio. The new formula predicts much slower accumulated difference than a generic order bound might reveal."
+        ],
+        "reasoning": "Same-object prior coverage is plausible; unresolved uninspected math is recorded as risk rather than falsely declaring the entire sources not covering.",
+        "searches": [
+          "Ren–Su arXiv:2610.23163 abstract",
+          "Yin et al. DOI:10.3934/dcdsb.2020168 abstract and construction",
+          "Git RESULT.md tree 975e705c337129cd2c7b700f3ec9f24e3bd0cfd5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same BE and BDF2 symbol normalization appears in the comparison; starting corrections are explicitly excluded. Ren–Su treat radial bounds and stability; Yin et al. construct distributed-order schemes."
+        ],
+        "reasoning": "Aligning symbols and corrector conventions does not derive the precise sign and n log-power asymptotic. Full texts of some plausible sources could not be read, so comparison is best-of-knowledge, not a whole-document exclusion.",
+        "searches": [
+          "arXiv:2610.23163 Ren–Su abstract and distributed-order description",
+          "DOI:10.3934/dcdsb.2020168 Yin–Liu–Li–Zhang"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary hit treats sign loss of BDF2 scalar decay beyond a positivity threshold, not uncorrected distributed-order fractional-integration weights."
+        ],
+        "reasoning": "A finite coefficient table cannot establish the claimed infinite logarithmic law. No exact table coverage was located, without claiming novelty from search absence.",
+        "searches": [
+          "Resultary: distributed order convolution quadrature backward Euler BDF2 weights difference asymptotic logarithmic tails",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with access caveat: earlier distributed-order CQ stability and error theory is foundational but the inspected available statements do not establish this all-power-endpoint coefficientwise difference, cancellation, and half-prefix law. Full relevant recent paper inaccessible; historical priority risk explicitly preserved.",
+      "residual_risks": [
+        "Full text of highly relevant Ren–Su and Yin–Liu–Li–Zhang sources was unavailable after lawful access attempts; possible implied or explicit coefficient theorem remains material priority risk.",
+        "Authorized institutional retrieval reported disconnected VPN; no authentication bypass or repeat attempt was made.",
+        "Atomic beta=1 order measure, signed density, starting corrections and PDE stability are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-document mathematical comparison unverified; priority could change on inspection",
+          "evidence": "Abstract describes stability/error analysis; no verified theorem passage proving or disproving paired coefficient asymptotics.",
+          "identifier_or_url": "arXiv:2610.23163",
+          "material_read": "Available abstract, description of radial-symbol error bounds and distributed-order examples; full preprint not retrieved",
+          "method": "arXiv and lawful OA attempts, then authorized institutional access request; authentication service returned VPN disconnected",
+          "title": "Stability and Error Estimates for Convolution Quadrature under Radial Symbol Bounds",
+          "trigger": "Same BE/BDF2 discretizations and uniform-order model, highly plausible overlap"
+        },
+        {
+          "assessment": "General construction and convergence evident; precise paired full-text priority status uncertain",
+          "evidence": "The accessible work discusses distributed-order CQ approximation and corrections, not a verified theorem corresponding to the displayed d_n.",
+          "identifier_or_url": "DOI:10.3934/dcdsb.2020168",
+          "material_read": "Public abstract, accessible bibliographic/HTML segments and method descriptions; full theorem sections not successfully retrieved",
+          "method": "OA availability check then authorized institutional retrieval; access blocked by VPN disconnected",
+          "title": "Approximation methods for the distributed order calculus using the convolution quadrature",
+          "trigger": "Foundational same distributed-order CQ mathematics"
+        },
+        {
+          "assessment": "Provides existing machinery; no asserted whole-document exclusion",
+          "evidence": "The current proof uses rather than claims invention of fractional weights or factorization.",
+          "identifier_or_url": "DOI:10.1137/0517050; DOI:10.1007/BF01398686",
+          "material_read": "Classical foundational formulations as cited in primary research and theorem setup",
+          "method": "Mathematical premise comparison at fixed-order symbol level; full original documents not read",
+          "title": "Discretized fractional calculus; Convolution quadrature and discretized operational calculus I",
+          "trigger": "Original underlying fractional CQ coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distributed-order CQ kernels have long logarithmic tails important for memory truncation. The exact redistribution of coefficient mass when replacing BE by BDF2, zero net difference and universal half-prefix deficit furnish precise quantitative benchmarks; these are not merely error-order statements or unsupported assertions of PDE accuracy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.23163",
+    "DOI:10.3934/dcdsb.2020168",
+    "DOI:10.1137/0517050; DOI:10.1007/BF01398686",
+    "Resultary semantic query: distributed order convolution quadrature backward Euler BDF2 weights difference asymptotic logarithmic tails",
+    "Git RESULT.md blob 171c152908e7b9b5e2a892030962a80aad0a6cdf",
+    "Git verify.py blob bc5ec2c2a1326a0b245e525c2a06bc9856886ff3",
+    "Git tree 975e705c337129cd2c7b700f3ec9f24e3bd0cfd5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full text of highly relevant Ren–Su and Yin–Liu–Li–Zhang sources was unavailable after lawful access attempts; possible implied or explicit coefficient theorem remains material priority risk.",
+    "Authorized institutional retrieval reported disconnected VPN; no authentication bypass or repeat attempt was made.",
+    "Atomic beta=1 order measure, signed density, starting corrections and PDE stability are outside the theorem."
+  ],
+  "residual_risks": [
+    "Full text of highly relevant Ren–Su and Yin–Liu–Li–Zhang sources was unavailable after lawful access attempts; possible implied or explicit coefficient theorem remains material priority risk.",
+    "Authorized institutional retrieval reported disconnected VPN; no authentication bypass or repeat attempt was made.",
+    "Atomic beta=1 order measure, signed density, starting corrections and PDE stability are outside the theorem."
+  ],
+  "schema_version": 1
+}
