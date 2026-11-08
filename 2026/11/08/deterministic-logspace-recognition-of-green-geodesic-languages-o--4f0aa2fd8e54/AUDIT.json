@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A tree with E edges has shortest full-cover u-to-v walk 2E-d(u,v). From the established Munn Green-class interpretation, D/R/L minimal lengths optimize the diameter and endpoint eccentricities. Every Munn vertex is one of n+1 prefix group values, whose equality is decidable in deterministic logspace via Lipton–Zalcstein or the explicit Sanov modular calculation. Counting novel prefix values uses only log-sized indices. For a fixed pair of prefixes, the unique path consists exactly of the undirected walk-edge types occurring an odd number of times; count first occurrences and parity using equality of endpoints, storing only O(log n) bits. Maximizing distances over prefix index pairs is likewise logspace; comparing the resulting O(log n)-bit length expressions decides all three languages. Actual checker verified 21,845 words, 87,380 class comparisons and 26,093 independent parity-distance/modular pairs. Finite evidence is supporting, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lipton–Zalcstein (1977), theorem and Corollary 1: free-group word equality is in deterministic logspace; Green representatives are not discussed.",
+        "Bodart–Carvalho–Monteiro (2026), R4/L4/D4 and G10: finite-tree metric characterizations; no space-bound algorithm stated, and open question in Section 11.",
+        "Brough et al. (2025/2026): the co-context-free word problem concerns equality of two elements, not optimization over a Green class."
+      ],
+      "reasoning": "The 1977 group equality algorithm alone cannot evaluate Munn-tree diameters, and the 2026 tree characterization alone does not exhibit any logarithmic-space evaluation. The new bridge is the exact edge-parity distance algorithm, which replaces storing up to n reduced prefixes by repeated logspace equality tests. The combined result is not explicitly supplied by either source, although it is naturally implied once that bridge is observed.",
+      "searches": [
+        "free inverse monoid Munn tree \"geodesic language\" \"polynomial time\"",
+        "free inverse monoid Green relations shortest representative decision complexity in P",
+        "Lipton Zalcstein 1977 word problem linear groups logspace free group word problem",
+        "Green languages D-Geo R-Geo L-Geo free inverse monoids deterministic linear space context sensitive languages"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.35251 (v2 2026-10-15; first v1 2026-09-28; relevant sections inspected)",
+      "doi:10.1145/322017.322031 (1977, open 1976 preprint inspected)",
+      "arXiv:2511.00566 (abstract)",
+      "arXiv:2608.10379 (abstract, conjugacy representatives)",
+      "Published mathematical-record searches for all recorded phrases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bodart–Carvalho–Monteiro (2026): fixed-endpoint touring criterion G10, Green maximal-path criteria R4/L4/D4, open logspace-unaddressed CS question.",
+        "Lipton–Zalcstein (1977), Corollary 1: fixed-rank free-group word problem belongs to L.",
+        "New proof: count odd traversal multiplicities for each undirected Cayley-tree edge of a prefix subwalk; logspace equality makes these edge equivalence classes and distances countable with logarithmic work space."
+      ],
+      "reasoning": "The source geometry and prior equality theorem are explicitly antecedents. A derived characterization in terms of 2E minus eccentricity or diameter is a direct consequence of the 2026 source and is not claimed as historically novel. The actual new implication is the precise LOGSPACE upper bound, requiring the parity-of-walk edge-class observation and bounded counter loops. A future priority comparison might regard this as an implicit algorithmic corollary; this is a disclosed residual risk, not independent validation.",
+      "searches": [
+        "free inverse monoid geodesic language polynomial time Munn trees diameter complexity",
+        "Green languages D-Geo R-Geo L-Geo free inverse monoids deterministic linear space context sensitive languages",
+        "Lipton Zalcstein 1977 word problem linear groups logspace free group word problem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodart–Carvalho–Monteiro, arXiv:2609.35251, Sections 4 and 11: three languages defined as minimal Green-class representatives; the context-sensitive question is posed, not answered.",
+        "Research-index searches for Green-geodesic/linear-space terms returned related group language and automata records rather than the claimed classification."
+      ],
+      "reasoning": "Different verbalizations include Munn-tree shortest Green representatives, logspace D/R/L geodesic recognition, and context-sensitive Green representative sets. The prior primary paper provides exact metric characterizations but does not evaluate them in logspace; the context-sensitive question is explicitly open. No directly matching published statement was located.",
+      "searches": [
+        "Green languages D-Geo R-Geo L-Geo free inverse monoids deterministic linear space context sensitive languages",
+        "finite inverse monoids Munn tree diameter geodesics linear bounded automaton polynomial time regular context-sensitive",
+        "\"D-Geo\" \"context-sensitive\" inverse monoid",
+        "free inverse monoid Green geodesic context sensitive representative languages 2026 November"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 primary paper introductory classification table reports CF and co-CF lower bounds, but no logspace/CS upper bound; its final future-work question seeks CS status."
+      ],
+      "reasoning": "This is a language-complexity theorem, not a finite invariant appearing in a numerical database. Searches for exact class names and low-space bounds did not reveal a pre-existing corresponding table, classification, or algorithm.",
+      "searches": [
+        "\"Green languages and growth of free inverse monoids\" \"linear space\"",
+        "\"D-Geo\" \"context-sensitive\" inverse monoid",
+        "finite inverse monoids Munn tree diameter geodesics linear bounded automaton polynomial time regular context-sensitive"
+      ]
+    },
+    "rationale": "The recent primary article supplies Green/Munn-tree conditions and explicit non-CF/co-CF lower bounds, and calls context-sensitive membership open (Section 11, first question). It does not give a deterministic logspace algorithm. The 1977 theorem of Lipton and Zalcstein supplies free-group equality in logspace but not the new edge-parity computation of all Munn distances, their extrema, and Green-representative membership. The precise claim is the deterministic logspace classification for three Green languages. Related published word-problem and conjugacy-language articles do not give the claimed Green representative predicate. Direct research-index and literature queries found no dominating equivalence. The result is a concise combination of prior theorems and a new logspace computation, so originality has qualified residual historical risk.",
+    "residual_risks": [
+      "This may have been noticed as an unstated consequence of 2026 Munn criteria plus old free-group logspace word-problem results; an exhaustive historical priority audit is impossible.",
+      "The distinct 2026 conjugacy-language paper was compared at abstract level; it addresses a different equivalence relation.",
+      "The space bound requires the input alphabet to be fixed; no claim about uniform-in-rank instances or arbitrary generating sets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct prior coverage of metric criterion and lower bounds; no logspace upper bound stated and Section 11 explicitly identifies CS as open.",
+        "evidence": [
+          "PDF pp. 10–12: R4/L4/D4, G10; p. 2: lower-bound theorem summary; p. 29: future-work question 1."
+        ],
+        "identifier_or_url": "arXiv:2609.35251; https://pdfs.assets.alphaxiv.org/2609.35251v2.pdf",
+        "material_read": "Abstract, introduction, Munn-tree definitions in Section 2, Green/geodesic criteria in Section 4, Proposition 5.1, introductory statements of non-CF/co-CF results in Sections 7–8, future-work Section 11.",
+        "method": "Read full-text PDF with text extraction and page-image visual inspection of pages 8, 11, 12, 29.",
+        "title": "Green languages and growth of free inverse monoids",
+        "trigger": "Exact same Green representative languages, closest plausible direct coverage"
+      },
+      {
+        "assessment": "Supplies group-word equality and faithful representation, not Green-geodesic language optimization or edge-parity distance computation.",
+        "evidence": [
+          "Theorem 1 and Corollary 1, free group word problem in deterministic logarithmic space; modular product mechanism."
+        ],
+        "identifier_or_url": "doi:10.1145/322017.322031; https://engineering.yale.edu/download_file/view/75e51330-310e-4340-b4aa-a7b28a65ff57/431",
+        "material_read": "Introduction, definitions, Section 3 main theorem, free-group Corollary 1, modular matrix calculation and limits.",
+        "method": "Read accessible 1976 technical-report full-text transcription with visual inspection of page 4.",
+        "title": "Word Problems Solvable in Logspace",
+        "trigger": "Strongest existing logspace equality lemma potentially implying the result"
+      },
+      {
+        "assessment": "The theorem is about the co-word problem, not the minimal-representative languages. No whole-paper noncoverage judgment is asserted.",
+        "evidence": [
+          "Abstract describes the complement of the free-inverse-monoid word problem, not Green-class representative geodesics."
+        ],
+        "identifier_or_url": "arXiv:2511.00566",
+        "material_read": "Public abstract and official publication listing; not the whole paper.",
+        "method": "Bibliographic and abstract inspection via arXiv and institutional record.",
+        "title": "Free inverse monoids are co-context-free",
+        "trigger": "Nearby inverse-monoid language-complexity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f0aa2fd-8e54-4d3f-a0f7-e5882389184d",
+  "value": {
+    "rationale": "The primary September 2026 research paper explicitly asks whether the three Green representative languages are context-sensitive. This theorem resolves the upper-bound question simultaneously and much more strongly in deterministic logspace. In rank at least two the same paper proves neither language nor complement is context-free, so the upper bound locates genuinely non-context-free languages in a very low complexity class. The parity-of-edge-traversals mechanism provides a reusable method for tree-metric Green invariants. No claim is made about indexedness, optimal lower bounds, or arbitrary generating sets.",
+    "status": "PASS"
+  }
+}
