@@ -1,11 +1,21 @@
-# Scientific review of the explicit quartic torus chart
+# Independent mathematical audit
 
-**Correctness (PASS).** The coordinate substitution on \(x\ne0\) reduces the quartic to \(4(ab-Y^2-1)\). Inverting the three nonzero functions \(a\), \(Y\), \(w\) yields explicit regular mutual inverses with no hidden division by \(b\) or a polynomial that may vanish. The image lies in the complement because \(F=4w\ne0\). An exact SymPy checker reproduces both compositions. The cited authors prove the required log Calabi–Yau premise, and their Theorem 2.9 turns the embedding into cluster type.
+## correctness
 
-**Originality (PASS, residual risk).** Both the original full arXiv text (2024) and open-access journal text (2026) were inspected at their introduction, cluster-type criterion, Theorem 6.1, and Example 7.1. They state the quartic and its boundary properties, but their theorems explicitly exclude the planar example and give no such Laurent torus chart. Moraga's 2026 survey summarizes the same partial classification without a determination of this example. Searches for the quartic equation, planar-conic singular locus, full-dimensional torus, and cluster-type equivalences and comparisons against accessible previous claims found no stronger covering statement. A different article's Example 7.1 concerns a different complexity-two example and does not imply this result. As always, unlocated earlier calculations could yield the same chart or implication.
+PASS
 
-**Mathematical value (PASS).** The claim answers the specific yes/no cluster-type question for a distinguished example introduced to expose a gap in existing criteria, rather than enumerating an arbitrary quartic. It provides an exact open embedding and distinguishes an instance with a planar nodal locus from the already-covered nonplanar cases, while not asserting a general classification.
+PASS — On x≠0 set T=t/x,Y=y/x,Z=z/x and u=(TY+1−Z²)/2. Taking a=u+iZ, b=u−iZ and w=F(T,1,Y,Z)/4 yields the exact algebraic identity w=ab−Y²−1. The proposed open U is xYw a≠0. Every (a,Y,w)∈(C*)³ has inverse b=(w+Y²+1)/a, Z=(a−b)/(2i), T=(a+b−1+Z²)/Y, a regular Laurent expression with denominators only a,Y. Both compositions recover all coordinates; w≠0 ensures F≠0 and defines a genuine open embedding, not merely a birational chart. An independent SymPy elimination of the Laurent inverse and both compositions verified the equalities. The cited exact Example 7.1 (2026 journal version) supplies the log Calabi–Yau assumption; Theorem 2.9 there states that a three-dimensional Q-factorial Fano log Calabi–Yau pair is cluster type iff its complement contains a three-dimensional torus. P³ satisfies its Fano/Q-factorial premises, so the conclusion follows without claiming to reprove the cited theorem.
 
-**Limitations.** The proof treats one explicit boundary and depends for its log Calabi–Yau premise and cluster criterion on cited theorems; there is no broader classification, assertion about Example 7.2, or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. The same equation and log Calabi–Yau/singularity properties are printed in Alves da Silva–Figueroa–Moraga Example 7.1, but their Section 7 explicitly identifies the example as undetected by stated criteria. Theorem 2.9 is a conditional characterization requiring an open torus; the new Laurent identity provides it. A later survey leaves broad classifications open. Exact-example and coordinate-alias searches found no prior chart; priority remains best knowledge.
+
+## value
+
+PASS
+
+PASS — A complete and explicit torus chart settles the cluster-type decision of the named quartic example singled out by the primary paper as outside its criteria. This is a mathematically motivated concrete boundary example and a regular isomorphism, not a mere numerically tested affine parametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
