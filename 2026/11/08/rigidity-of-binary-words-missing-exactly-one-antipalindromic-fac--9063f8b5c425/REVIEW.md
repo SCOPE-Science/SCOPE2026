@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof establishes exactly which new antipalindromic suffix can appear under each binary edge-pattern extension, gives a complete 128-word base at length seven, and inducts over all larger lengths. The 2011 generalized defect paper already explains the generic lacuna principle; the new finite equality-edge transition analysis supplies the restrictive classification. `verify.py` computes all 65,408 binary words of lengths 7 through 15 in two distinct representations, then checks all candidate edge-family extensions through length 89. Exhaustive checks establish the finite base and corroborate the infinite proof; they do not purport to enumerate all lengths.
+
+**Originality: PASS (qualified).** Guo–Shallit–Shur, *On the Combinatorics of Palindromes and Antipalindromes* (arXiv:1503.09112v1), Section 5 Theorems 5.2–5.3, prove the bound and classify the zero-shortfall words, not the one-shortfall layer. Pelantová–Starosta, *Palindromic richness for languages invariant under more symmetries* (arXiv:1108.3042v3), Section 6, develop general defect identities and lacuna criteria; those may specialize to the shortfall but do not enumerate all binary defect-one words or the parity-dependent count. The claim is not a corollary of the stated results without the added edge-family analysis. Semantic research-record searches and accessible historical claims revealed no equivalent theorem; uncatalogued special cases or implicit arguments remain a priority risk. No independent priority audit was performed.
+
+**Value: PASS.** The theorem fully resolves the first natural stability layer below a sharp classical extremal bound and yields an unexpectedly finite, period-two-or-four structural classification of all infinite sequences with uniformly bounded prefix shortfall one. The exact parity jump in the finite count and the complete rigidity are substantive properties, rather than a trivial numerical increment.
+
+**Limitations and risks.** The auxiliary reference's group-defect specializes closely to the shortfall, making careful statement-level comparisons essential. This is a same-model reconstruction and not an independently validated scientific result. No defect-two or unrestricted near-rich counting conjecture is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
