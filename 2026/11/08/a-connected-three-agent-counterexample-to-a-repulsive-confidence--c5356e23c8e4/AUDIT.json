@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The source rule explicitly averages each own opinion with shifted repulsive/ordinary attractive receptive neighbor opinions and uses strict <c. For 0<a<1 and (3+a)/2<b<2, only the 0--1 negative edge is initially receptive. The exact first update is ((a-1)c/2,(a+1)c/2,bc), with remaining nonloop gaps c and (b-(a+1)/2)c>c, so it is a fixed point. Initial diameter bc<2c; final diameter (b+(1-a)/2)c>2c. The a=1/4, b=7/4, c=1 witness gives 17/8>2. Exact-rational direct-increment and shifted-average independent checkers agree; minimality follows from source Proposition 4.1. The full open family is proved symbolically, not through finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kann–Feng source Theorem 4.10 assumes complete graph and all negative edges; this path has one positive and one negative edge.",
+        "Bernardo et al., Automatica 159 (2024), 111302, summarize standard nonnegative-averaging diameter monotonicity, not signed extrapolating updates."
+      ],
+      "reasoning": "A more general established result implying a diameter ceiling for all mixed-sign networks would be incompatible with the explicit rational path. General unsigned consensus and all-negative cases are not stronger coverage of this signed mixed case.",
+      "searches": [
+        "Kann Feng 2023 conjectured final opinion width max initial diameter number edges times c mixed repulsive attractive 3 vertex counterexample",
+        "signed opinion model negative edge positive edge initial disconnected receptive graph final diameter larger than m c"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.02210 — v1 submission 2023-01-05, primary MSC 91D30",
+      "https://arxiv.org/pdf/2301.02210 — original complete model and conjecture",
+      "https://doi.org/10.1016/j.automatica.2023.111302 — related unsigned survey",
+      "https://doi.org/10.1016/j.neucom.2019.12.061 — related signed model, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2301.02210, page 14: proposed Theorem 4.11 explicitly states the general bound only as a numerical suspicion.",
+        "arXiv:2301.02210, Proposition 4.1 establishes n=2 bound; Theorem 4.10 treats all-repulsive complete graphs, unlike the present mixed-sign path."
+      ],
+      "reasoning": "The proposed prior statement is logically contradicted, not a prior proven theorem from which the current negative result follows. Older positive special-case results do not imply a counterexample in another graph class. The finite bound for n=2 is used only to establish minimality.",
+      "searches": [
+        "repulsive bounded confidence model terminal spread exceeds number of edges times confidence interval on signed path",
+        "\"A Repulsive Bounded-Confidence Model\" \"diameter\" conjecture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kann–Feng, arXiv:2301.02210v1, printed Theorem 4.11: terminal width <= max(initial width, number of edges times confidence).",
+        "The three-node exact path gives terminal width 17/8, initial width 7/4, and edge-count term 2 for c=1."
+      ],
+      "reasoning": "The inequality can be rewritten as an invariant ceiling for the diameter of the terminal state. The supplied trajectory violates that identical statement, independent of ordering or graph-label aliases. The related purely repulsive and two-node theorems cannot supply this mixed-sign counterexample.",
+      "searches": [
+        "\"Kann\" \"Feng\" \"Theorem 4.11\" counterexample diameter repulsive confidence",
+        "\"repulsive bounded-confidence\" \"Theorem 4.11\" corrected counterexample",
+        "\"repulsive bounded-confidence\" \"Theorem 4.20\" false counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source provides mathematical arguments and numerical figures but no exhaustive three-agent signed-state table covering this witness.",
+        "The displayed exact fractions and open inequality region are constructed from the update rule."
+      ],
+      "reasoning": "No matching exact database or listed counterexample was located in the inspected source or public searches. This is a limited negative search, not a mathematical proof of priority.",
+      "searches": [
+        "\"Kann\" \"Feng\" \"Theorem 4.11\" bounded confidence false",
+        "repulsive bounded-confidence social dynamics sharp three-node bound one repulsive one attractive edge counterexample"
+      ]
+    },
+    "rationale": "The initiating manuscript explicitly describes Theorem 4.11 as numerically suspected, not proved. Its unrestricted mixed-sign diameter inequality is contradicted by this exact connected-graph example. No covering counterexample was found in accessible previous claims, targeted mathematical records or primary and related literature. The all-repulsive Theorem 4.10, two-node Proposition 4.1, and unsigned bounded-confidence results do not imply this negative mixed-sign example. Limited related full-text access and potential unindexed disclosures remain residual risks.",
+    "residual_risks": [
+      "Unindexed, unpublished or differently titled treatments of this exact three-node signed conjecture may exist.",
+      "Relevant 2021 signed bounded-confidence full text was inaccessible; claims about its entire document have been withheld.",
+      "Alternative confidence convention including equality could change the one-step freezing result; the source explicitly uses a strict inequality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly refuted inequality in a conjecture; no proof or hidden hypothesis of initial receptive connectivity",
+        "evidence": "Source page 14 writes the width bound max(initial width, mc) after saying the assertion is suspected from numerics; page 4 states strict |x_j-x_i|<c.",
+        "identifier_or_url": "https://arxiv.org/pdf/2301.02210",
+        "material_read": "Source PDF targeted full-text passages for equations (3.1)–(3.2), Proposition 4.1, Theorems 4.10–4.11, and surrounding mathematical assumptions; visually checked the pages containing equation (3.1) and conjecture Theorem 4.11.",
+        "method": "Direct PDF text reading of relevant sections and visual confirmation on pages 3 and 14.",
+        "title": "Repulsive Bounded-Confidence Model of Opinion Dynamics in Polarized Communities",
+        "trigger": "Exact originating update and proposed inequality"
+      },
+      {
+        "assessment": "Standard nonnegative averaging diameter contraction has different signed update assumptions",
+        "evidence": "Unsigned opinion-range inequalities arise from convex combinations; negative signed edges introduce shifted extrapolation.",
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2023.111302",
+        "material_read": "Accessible publication summary and displayed unsigned monotonicity discussion",
+        "method": "Open bibliographic/full-text excerpt comparison",
+        "title": "Bounded confidence opinion dynamics: A survey",
+        "trigger": "Possibly broader opinion-diameter invariants"
+      },
+      {
+        "assessment": "No decisive covering comparison possible from abstract; priority uncertainty retained",
+        "evidence": "The paper discusses a related signed confidence mechanism; exact equivalence to (3.1)–(3.2) was not established.",
+        "identifier_or_url": "https://doi.org/10.1016/j.neucom.2019.12.061",
+        "material_read": "Bibliographic and abstract information only; full publisher text inaccessible",
+        "method": "Open-access search and attempted institutional retrieval, without full-text access",
+        "title": "Discrete-time signed bounded confidence opinion dynamics article",
+        "trigger": "Possible related signed update and earlier boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5356e23-c8e4-438f-8f7c-1abc892dde3c",
+  "value": {
+    "rationale": "This exact construction settles the universal diameter clause of a published, mathematically motivated conjecture, on the smallest connected graph size. The open family demonstrates a robust falsification in initial parameters and quantifies an unambiguous positive width excess. It exposes the role of initially inactive attractive links and the strict confidence boundary, giving concrete guidance on hypotheses a repair would require. It is not merely a routine special case or normalization check; the general proposed bound is false.",
+    "status": "PASS"
+  }
+}
