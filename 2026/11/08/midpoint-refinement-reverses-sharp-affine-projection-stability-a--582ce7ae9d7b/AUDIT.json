@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The real P1 projector is represented by a positive-definite Gram matrix. Its exact inverse rows give kernels with alternating signs on every unit edge; signed affine integrals yield all three nodal norms. Strict rational differences force leaf norming; convexity of edge-interior evaluation kernels rules out all interior norming locations. The coarse star norm follows analogously, and an explicit cubic polynomial with positive coefficients after d=4 proves the strict refinement reversal. An independent rational matrix-inversion/kernel checker succeeds for degrees 2..17, with symbolic all-degree identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kayumov (2004), arxiv:math/0408418, accessible main text sections 1.1–1.3: interval L-splines and classical order-two bound 3.",
+        "Diening–Storn–Tscherpel (2020), arxiv:2008.01801, full HTML sections 1–2: stability under triangulation and mesh grading, with no metric-star family formula.",
+        "Boman (2006), DOI 10.1007/s10543-006-0062-3, accessible abstract establishes weighted Lp finite-element estimates, not a stated exact refined-star value; full text unavailable."
+      ],
+      "reasoning": "General boundedness or stability estimates for simplicial finite elements and interval spline projectors do not force this sharp finite-dimensional kernel norm, its exact norming points, or refinement sign reversal at four arms. The inaccessible Boman article remains an explicit material-risk source, not classified as fully inspected.",
+      "searches": [
+        "sharp projector norm after symmetric midpoint refinement of all star edges, threshold 4 arms",
+        "mesh refinement improves or worsens L infinity norm on an equilateral star graph finite element projector",
+        "L2 projection tree graph piecewise linear spline maximum norm refinement",
+        "arxiv:2008.01801",
+        "doi:10.1007/s10543-006-0062-3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0408418",
+      "https://arxiv.org/html/2008.01801v2",
+      "https://research.chalmers.se/en/publication/74869",
+      "https://doi.org/10.1090/S0025-5718-1976-0425432-1",
+      "earlier unrefined-star claim 646e916e-e085-48d1-9ca6-0f900a8cec3b",
+      "earlier double-star claim 492c1ba2-5446-40b7-bac9-fdae33a79a6b",
+      "published-finding corpus published findings index queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously established unrefined-star claim 646e916e-e085-48d1-9ca6-0f900a8cec3b supplies only the coarse comparator (7d+3)/(3(d+1)).",
+        "Previously established symmetric double-star claim 492c1ba2-5446-40b7-bac9-fdae33a79a6b has two branching hubs, not d identical two-element arms meeting a single branching node.",
+        "Kayumov 2004 treats intervals and bounds, Diening–Storn–Tscherpel 2020 treats polyhedral-domain projection stability, and neither inspected text supplies this exact result."
+      ],
+      "reasoning": "The new result is not a consequence of the old coarse-star formula, since an added midpoint degree of freedom changes the mass inverse and the absolute-integral kernel. The two-hub projector and general finite-element estimates have different geometry and statements. The combination of a closed refined norm, the unique outer-leaf norming class, and a uniform-refinement reversal is mathematically more specific than the available bounds.",
+      "searches": [
+        "continuous piecewise affine L2 projector on uniformly once-subdivided star metric tree exact supremum norm",
+        "sharp projector norm after symmetric midpoint refinement of all star edges, threshold 4 arms",
+        "arxiv:math/0408418",
+        "arxiv:2008.01801"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Previously established claim 646e916e-e085-48d1-9ca6-0f900a8cec3b is for unrefined stars and continuous affine functions on whole arms.",
+        "The exact refined formula involves new independent midpoint nodal values and a mass-matrix of size 2d+1, unlike the unrefined star with d+1 nodes.",
+        "The published-finding corpus searches returned no indexed statement equivalent to the refined-star kernel formula or degree-four sign reversal."
+      ],
+      "reasoning": "Equivalent interpretations as a two-element-per-arm P1 projection, a symmetric spider spline projector, and a midpoint-refined star orthoprojector were explicitly queried. The older coarse star formula does not determine the refined norm through relabelling, because its approximation subspace is strictly smaller and its dual kernel changes. Uniqueness is not claimed on search absence alone.",
+      "searches": [
+        "continuous piecewise affine L2 projector on uniformly once-subdivided star metric tree exact supremum norm",
+        "sharp L-infinity L2 projection piecewise-affine refined star two-edge arms (1552 d^2+928 d+19)/(9(4d+3)(20d+1))",
+        "\"subdivided star\" \"L2 projection\" \"L infinity\" piecewise linear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulation or formula matching the refined rational expression was identified in the actual targeted searches.",
+        "The nearest indexed mathematical projector item was an affine projector on a simplex, 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34, whose domain is a single simplex rather than a metric star with interior knots."
+      ],
+      "reasoning": "The searched graph, spline, projection, and mesh-refinement parameterizations did not produce a covering table. This is limited retrieval evidence, not a mathematical proof that no table exists.",
+      "searches": [
+        "sharp L-infinity L2 projection piecewise-affine refined star two-edge arms (1552 d^2+928 d+19)/(9(4d+3)(20d+1))",
+        "\"subdivided star\" \"L2 projection\" \"L infinity\" piecewise linear",
+        "finite element L2 projector norm spider graph mesh refinement star piecewise linear"
+      ]
+    },
+    "rationale": "Checked accessible earlier mathematical claims, actual targeted published-finding corpus searches, interval spline primary text, primary general finite-element stability full HTML, and accessible Boman/de Boor abstracts. Previously known coarse-star and symmetric double-star calculations do not imply the new midpoint-refined star formula or its four-arm reversal. No accessible relevant checked primary text states a covering result; incomplete Boman full text remains a disclosed risk.",
+    "residual_risks": [
+      "Boman (2006) complete article unavailable; abstract-only inspection cannot exclude supplementary graph-specific exact calculations.",
+      "Possible differently named metric-graph orthoprojector study absent from indexed search.",
+      "The full 1976 de Boor paper was not inspected, although its accessible abstract treats bounds on interval splines."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INSPECTED_MAIN_RESULTS_NOT_APPLICABLE_TO_THIS_CLAIM: intervals and second-order L-splines, no multiarm nodal junction or midpoint-refined star.",
+        "evidence": "Sections 1.1 and 1.3 define partitions of [a,b] and general L-spline projectors and summarize the classical sharp mesh-independent bound 3 for linear splines.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "Accessible arXiv-rendered full text, introduction, historical review, definitions and main results, particularly sections 1.1–1.3 and lines 33–99.",
+        "method": "Read rendered mathematical article text and checked definitions, domains, statements and intervals against branched metric-star setting.",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Earliest dated primary spline-projection source and possible sharp projector norm coverage"
+      },
+      {
+        "assessment": "INSPECTED_SCOPE_NOT_APPLICABLE_TO_THIS_CLAIM: domain is a regular triangulation of a bounded polyhedral subset of Euclidean space, and the result concerns stability and mesh-grading criteria.",
+        "evidence": "The paper explicitly defines finite-element spaces on Ω⊂R^d and regular simplicial triangulations and states Lp and W1p stability results, not an exact nodewise L∞ projector norm on metric stars.",
+        "identifier_or_url": "https://arxiv.org/html/2008.01801v2",
+        "material_read": "Primary full HTML accessed; inspected table of contents, abstract, introduction, descriptions of stability under refinement, and Section 2.1 domain definitions (lines 37–79).",
+        "method": "Compared hypotheses and exact/norm versus stability estimates from the primary article text.",
+        "title": "On the Sobolev and Lp-Stability of the L2-projection",
+        "trigger": "Potential stronger mesh-refinement projection theorem"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract describes weighted Lp estimates and does not report exact refined-star norms.",
+        "evidence": "2006 abstract: estimates for orthogonal projection onto continuous finite-element spaces in weighted Lp norms.",
+        "identifier_or_url": "https://research.chalmers.se/en/publication/74869",
+        "material_read": "Published bibliographic record and abstract only; no full text available in bounded OA search.",
+        "method": "Searched the publisher description, author-hosted abstract, preprint and lawful access indications.",
+        "title": "Estimates for the L2-projection onto continuous finite element spaces in a weighted Lp-norm",
+        "trigger": "Possibly relevant stronger weighted-projector estimate"
+      },
+      {
+        "assessment": "Abstract concerns interval spline operator bounds, not the identified exact refined-star formula; whole text not classified.",
+        "evidence": "The abstract identifies mesh-ratio-dependent bounds and a mesh-independent bound for continuous piecewise polynomials.",
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1976-0425432-1",
+        "material_read": "Bibliographic record and indexed abstract; full text not assessed.",
+        "method": "Read abstract and compared its spline interval and mesh-ratio bound with exact graph-family claim.",
+        "title": "A Bound on the L-infinity Norm of L2-Approximation by Splines in Terms of a Global Mesh Ratio",
+        "trigger": "Classical maximal-norm results for interval piecewise polynomial projections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "582ce7ae-9d7b-4c39-b8c5-be1301432d5d",
+  "value": {
+    "rationale": "Uniform midpoint mesh refinement is a canonical numerical-approximation operation. The exact infinity-norm amplification changes direction at a sharp topological degree threshold, in spite of identical edge lengths and refinement on every arm; norming evaluations are completely classified. This gives a natural exact stability baseline for branched networks and an explicit nonzero limiting improvement, not a routine substitution into the earlier coarse-star formula.",
+    "status": "PASS"
+  }
+}
